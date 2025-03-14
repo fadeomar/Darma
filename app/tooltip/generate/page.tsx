@@ -62,7 +62,6 @@ const directions = [
 
 const sizes = ["small", "medium", "large", "fit"];
 const borderStyles = ["solid", "dashed", "dotted"];
-const cursorTypes = ["default", "help", "pointer", "not-allowed"];
 
 export default function TooltipGenerator() {
   const [config, setConfig] = useState<TooltipConfig>(initialConfig);

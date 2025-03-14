@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 
-const ShapeCard = ({ id, HTML, CSS, JS }) => {
+const ShapeCard = ({ HTML, CSS, JS }) => {
   const handleCopyHTML = () => {
     navigator.clipboard.writeText(HTML).then(() => {
       alert("HTML code copied to clipboard!");

@@ -35,12 +35,12 @@ export async function POST(
 ): Promise<NextResponse<CodeElement>> {
   const elementData: Partial<CodeElement> = await request.json();
 
-  if (!elementData.title || !elementData.html) {
-    return NextResponse.json(
-      { error: "Title and HTML are required" },
-      { status: 400 }
-    );
-  }
+  // if (!elementData.title || !elementData.html) {
+  //   return NextResponse.json(
+  //     { error: "Title and HTML are required" },
+  //     { status: 400 }
+  //   );
+  // }
 
   const data = readData();
   const now = new Date().toISOString(); // Current timestamp

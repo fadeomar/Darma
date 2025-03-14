@@ -1,0 +1,76 @@
+{
+  "categories": [
+    {
+      "name": "ui-elements",
+      "description": "Collection of reusable UI components.",
+
+      "types": [
+        "buttons",
+        "cards",
+        "navigation",
+        "forms-inputs",
+        "modals-popups",
+        "loaders-spinners"
+      ]
+    },
+    {
+      "name": "text-effects",
+      "description": "Collection of reusable UI components.",
+
+      "types": [
+        "typing",
+        "hover",
+        "animated-text",
+        "loading-text",
+        "distortions"
+      ]
+    },
+    {
+      "name": "games",
+      "description": "Collection of reusable UI components.",
+
+      "types": ["mini-games", "click-based", "physics-games", "canvas-games"]
+    },
+    {
+      "name": "canvas-projects",
+      "description": "Collection of reusable UI components.",
+
+      "types": ["particles", "drawing", "animations", "visualizers"]
+    },
+    {
+      "name": "shapes",
+      "description": "Collection of reusable UI components.",
+
+      "types": ["css-art", "3d-shapes", "clip-path-svg", "animated-shapes"]
+    },
+    {
+      "name": "backgrounds",
+      "description": "Collection of reusable UI components.",
+
+      "types": [
+        "animated-bg",
+        "glitch-distortion",
+        "interactive",
+        "gradient-blurred"
+      ]
+    },
+    {
+      "name": "loaders",
+      "description": "Collection of reusable UI components.",
+
+      "types": [
+        "Basic Shapes & Styles",
+        "Motion & Animation Types",
+        "Thematic & Fun Loaders",
+        "Progress & Status Indicators",
+        "Shape-Specific Loaders",
+        "Unique Mechanics"
+      ]
+    },
+    {
+      "name": "Apps",
+      "description": "Collection of reusable UI components.",
+      "types": ["basic", "click-based", "generators"]
+    }
+  ]
+}

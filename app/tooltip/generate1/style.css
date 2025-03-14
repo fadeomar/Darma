@@ -1,0 +1,27 @@
+.tooltip {
+  width: 218px;
+  background: #4994b6;
+  text-align: center;
+  padding: 15px 24px 14px 24px;
+  border-radius: 7px;
+  top: calc(100% + 26px);
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  z-index: 9999;
+}
+.tooltip-box {
+  position: relative;
+  text-align: center;
+}
+.triangle {
+  border-width: 0 20px 21px;
+  border-color: transparent;
+  border-bottom-color: #4994b6;
+  z-index: 9999;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+}

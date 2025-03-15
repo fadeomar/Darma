@@ -113,9 +113,9 @@ export default function ElementForm({
           <CodeEditor
             key={`html-${formData.id}`}
             code={formData.html || ""}
-            setCode={(value: string) =>
+            setCode={(value) =>
               onInputChange({
-                target: { name: "html", value },
+                target: { name: "html", value: value || "" }, // Handle undefined
               } as React.ChangeEvent<HTMLInputElement>)
             }
             language="html"
@@ -127,9 +127,9 @@ export default function ElementForm({
           <CodeEditor
             key={`css-${formData.id}`}
             code={formData.css || ""}
-            setCode={(value: string) =>
+            setCode={(value) =>
               onInputChange({
-                target: { name: "css", value },
+                target: { name: "css", value: value || "" }, // Handle undefined
               } as React.ChangeEvent<HTMLInputElement>)
             }
             language="css"
@@ -141,9 +141,9 @@ export default function ElementForm({
           <CodeEditor
             key={`js-${formData.id}`}
             code={formData.js || ""}
-            setCode={(value: string) =>
+            setCode={(value) =>
               onInputChange({
-                target: { name: "js", value },
+                target: { name: "js", value: value || "" }, // Handle undefined
               } as React.ChangeEvent<HTMLInputElement>)
             }
             language="javascript"

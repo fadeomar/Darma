@@ -14,21 +14,18 @@ function writeData(data: CodeElement): void {
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
 }
 
+// Define the params type explicitly
+interface Params {
+  id: string;
+}
+
 export async function PUT(
   request: Request,
-  context: { params: Record<string, string | string[]> }
+  context: { params: Params }
 ): Promise<NextResponse<CodeElement | { error: string }>> {
-  // Extract and validate ID
-  const id = Array.isArray(context.params.id)
-    ? context.params.id[0]
-    : context.params.id;
+  const { id } = context.params;
 
   if (!id) {
-    return NextResponse.json({ error: "Invalid ID" }, { status: 400 });
-  }
-
-  // Validate id is a single string
-  if (Array.isArray(id) || !id) {
     return NextResponse.json({ error: "Invalid ID" }, { status: 400 });
   }
 
@@ -56,14 +53,11 @@ export async function PUT(
 
 export async function DELETE(
   request: Request,
-  context: { params: Record<string, string | string[]> }
+  context: { params: Params }
 ): Promise<NextResponse<{ message: string } | { error: string }>> {
-  // Extract and validate ID
-  const id = Array.isArray(context.params.id)
-    ? context.params.id[0]
-    : context.params.id;
+  const { id } = context.params;
 
-  if (Array.isArray(id) || !id) {
+  if (!id) {
     return NextResponse.json({ error: "Invalid ID" }, { status: 400 });
   }
 

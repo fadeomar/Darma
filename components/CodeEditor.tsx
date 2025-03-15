@@ -1,56 +1,46 @@
-import { /* useEffect */ useRef } from "react";
+import { useRef } from "react";
 import Editor from "@monaco-editor/react";
+import { editor } from "monaco-editor"; // Import Monaco's editor types
 
-const CodeEditor = ({ code, setCode, language }) => {
-  // const editorRef = useRef(null);
+// Define the props interface
+interface CodeEditorProps {
+  code: string;
+  setCode: (value: string | undefined) => void;
+  language: string;
+}
 
-  // useEffect(() => {
-  //   if (editorRef.current) {
-  //     editorRef.current.setValue(code);
-  //   }
-  // }, [code]);
+const CodeEditor = ({ code, setCode, language }: CodeEditorProps) => {
+  const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
 
-  // const handleEditorDidMount = (editor) => {
-  //   editorRef.current = editor;
-  //   editor.setValue(code);
-  // };
-  const editorRef = useRef(null);
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleEditorDidMount = (editor: any) => {
+  // Properly typed editor mount handler
+  const handleEditorDidMount = (editor: editor.IStandaloneCodeEditor) => {
     editorRef.current = editor;
+    // Optional: If you need to do something on mount, add it here
   };
+
   return (
     <Editor
       height="200px"
       language={language}
       theme="vs-dark"
-      value={code} // Use the `value` prop directly
+      value={code}
       onChange={(value) => setCode(value)}
       onMount={handleEditorDidMount}
       options={{
         automaticLayout: true,
         theme: "vs-dark",
-        // Ensure text direction is LTR
         wordWrap: "on",
         glyphMargin: false,
         folding: false,
         lineNumbers: "on",
         lineNumbersMinChars: 2,
         lineDecorationsWidth: 0,
-        // Explicitly set text direction
         renderLineHighlight: "all",
         renderWhitespace: "none",
         renderControlCharacters: false,
-        // renderIndentGuides: false,
         renderValidationDecorations: "on",
         renderFinalNewline: "on",
         renderLineHighlightOnlyWhenFocus: false,
-        // renderOverviewRuler: true,
-        // renderSideBySide: false,
-        // renderValidationDecorations: "on",
-        // Set text direction to LTR
-        // textDirection: "ltr", // Ensure this is set
       }}
     />
   );

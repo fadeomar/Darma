@@ -1,4 +1,4 @@
-import { NextResponse, Params } from "next/server";
+import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 import { CodeElement } from "@/types";
@@ -16,9 +16,14 @@ function writeData(data: CodeElement): void {
 
 export async function PUT(
   request: Request,
-  { params }: { params: Params }
+  { params }: { params: { id: string | string[] } }
 ): Promise<NextResponse<CodeElement | { error: string }>> {
-  const { id } = params;
+  // Handle potential array format
+  const id = Array.isArray(params.id) ? params.id[0] : params.id;
+
+  if (!id) {
+    return NextResponse.json({ error: "Invalid ID" }, { status: 400 });
+  }
 
   // Validate id is a single string
   if (Array.isArray(id) || !id) {

@@ -49,7 +49,8 @@ const initialConfig: TooltipConfig = {
   fontSize: "0.9",
 };
 
-const generatedTooltipStyle = (config) => {
+// Add TooltipConfig type to config parameter
+const generatedTooltipStyle = (config: TooltipConfig) => {
   const tt = [
     `width: 218px;`,
     `background: #4994b6;`,
@@ -376,7 +377,6 @@ export default function TooltipGenerator() {
               <h2 className="text-2xl font-semibold mb-4">Preview</h2>
               <div className="flex justify-center items-center h-48 border rounded-lg bg-gray-50">
                 {/* Preview Button */}
-
                 <div className="tooltip-box">
                   <style>{generatedTooltipStyle(config)}</style>
                   <a href="#">Hover</a>

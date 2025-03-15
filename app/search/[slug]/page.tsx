@@ -4,8 +4,8 @@ import categoriesArr from "../../../data/category.json";
 import elementsArr from "../../../data/elements.json";
 import { notFound } from "next/navigation";
 
-// Function to get unique tags from elementsArr
-export async function getTags() {
+// Non-exported function to get unique tags from elementsArr
+async function getTags() {
   const tagsSet = new Set<string>();
   elementsArr.elements.forEach((element) => {
     element.tags.forEach((tag: string) => tagsSet.add(tag));
@@ -14,7 +14,7 @@ export async function getTags() {
 }
 
 // Function to find a main category by slug
-export function findCategoryBySlug(slug: string) {
+function findCategoryBySlug(slug: string) {
   return (
     categoriesArr.categories.find(
       (category) => generateSlug(category.name) === slug
@@ -23,7 +23,7 @@ export function findCategoryBySlug(slug: string) {
 }
 
 // Function to find a secondary category by slug
-export function findSubcategoryBySlug(slug: string) {
+function findSubcategoryBySlug(slug: string) {
   for (const category of categoriesArr.categories) {
     for (const subcategory of category.types) {
       if (generateSlug(subcategory) === slug) {
@@ -35,7 +35,7 @@ export function findSubcategoryBySlug(slug: string) {
 }
 
 // Function to find a tag by slug
-export function findTagBySlug(slug: string) {
+function findTagBySlug(slug: string) {
   for (const element of elementsArr.elements) {
     for (const tag of element.tags) {
       if (generateSlug(tag) === slug) {
@@ -49,7 +49,7 @@ export function findTagBySlug(slug: string) {
 const isValidSlug = (slug: string) => true || slug;
 
 export async function generateStaticParams() {
-  const categories = categoriesArr.categories; //  data fetching here
+  const categories = categoriesArr.categories; // data fetching here
   const tags = await getTags();
 
   return [
@@ -58,12 +58,13 @@ export async function generateStaticParams() {
   ];
 }
 
-export default function SearchSlugPage({
+// Fix params type and make async
+export default async function SearchSlugPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const { slug } = params;
+  const { slug } = await params;
 
   if (!isValidSlug(slug)) {
     notFound();

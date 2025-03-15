@@ -3,22 +3,29 @@ import fs from "fs";
 import path from "path";
 import { CodeElement } from "@/types";
 
+// Define the structure of elements.json
+interface ElementsData {
+  elements: CodeElement[];
+}
+
 const filePath = path.join(process.cwd(), "data", "elements.json");
 
-function readData(): CodeElement {
+// Update return type to ElementsData
+function readData(): ElementsData {
   const data = fs.readFileSync(filePath, "utf-8");
   return JSON.parse(data);
 }
 
-function writeData(data: CodeElement): void {
+// Update parameter type to ElementsData
+function writeData(data: ElementsData): void {
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
 }
 
 export async function PUT(
   request: Request,
-  context: { params: Promise<{ id: string }> } // Note the Promise wrapper
+  context: { params: Promise<{ id: string }> }
 ): Promise<NextResponse<CodeElement | { error: string }>> {
-  const params = await context.params; // Await the params
+  const params = await context.params;
   const { id } = params;
 
   if (!id) {
@@ -49,9 +56,9 @@ export async function PUT(
 
 export async function DELETE(
   request: Request,
-  context: { params: Promise<{ id: string }> } // Note the Promise wrapper
+  context: { params: Promise<{ id: string }> }
 ): Promise<NextResponse<{ message: string } | { error: string }>> {
-  const params = await context.params; // Await the params
+  const params = await context.params;
   const { id } = params;
 
   if (!id) {

@@ -2,9 +2,9 @@
 import React from "react";
 import elements from "../../../data/elements.json";
 
-export default function PreviewPage({ params }) {
+export default async function PreviewPage({ params }) {
   // Access params.id directly
-  const { id } = params;
+  const { id } = await params;
 
   // Find the element by ID
   const element1 = elements.elements.find((el) => el.id === id);

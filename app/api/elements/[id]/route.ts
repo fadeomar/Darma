@@ -14,16 +14,12 @@ function writeData(data: CodeElement): void {
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
 }
 
-// Define the params type explicitly
-interface Params {
-  id: string;
-}
-
 export async function PUT(
   request: Request,
-  context: { params: Params }
+  context: { params: Promise<{ id: string }> } // Note the Promise wrapper
 ): Promise<NextResponse<CodeElement | { error: string }>> {
-  const { id } = context.params;
+  const params = await context.params; // Await the params
+  const { id } = params;
 
   if (!id) {
     return NextResponse.json({ error: "Invalid ID" }, { status: 400 });
@@ -53,9 +49,10 @@ export async function PUT(
 
 export async function DELETE(
   request: Request,
-  context: { params: Params }
+  context: { params: Promise<{ id: string }> } // Note the Promise wrapper
 ): Promise<NextResponse<{ message: string } | { error: string }>> {
-  const { id } = context.params;
+  const params = await context.params; // Await the params
+  const { id } = params;
 
   if (!id) {
     return NextResponse.json({ error: "Invalid ID" }, { status: 400 });

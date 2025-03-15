@@ -16,10 +16,12 @@ function writeData(data: CodeElement): void {
 
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string | string[] } }
+  context: { params: Record<string, string | string[]> }
 ): Promise<NextResponse<CodeElement | { error: string }>> {
-  // Handle potential array format
-  const id = Array.isArray(params.id) ? params.id[0] : params.id;
+  // Extract and validate ID
+  const id = Array.isArray(context.params.id)
+    ? context.params.id[0]
+    : context.params.id;
 
   if (!id) {
     return NextResponse.json({ error: "Invalid ID" }, { status: 400 });
@@ -54,9 +56,12 @@ export async function PUT(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: Params }
+  context: { params: Record<string, string | string[]> }
 ): Promise<NextResponse<{ message: string } | { error: string }>> {
-  const { id } = params;
+  // Extract and validate ID
+  const id = Array.isArray(context.params.id)
+    ? context.params.id[0]
+    : context.params.id;
 
   if (Array.isArray(id) || !id) {
     return NextResponse.json({ error: "Invalid ID" }, { status: 400 });

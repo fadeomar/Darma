@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // components/Dropdown.tsx
 import React from "react";
-import Select, { MultiValue, ActionMeta } from "react-select";
+import Select, { MultiValue, SingleValue, ActionMeta } from "react-select";
 
 // Define the type for dropdown options
 export interface DropdownOption {
@@ -12,9 +12,9 @@ export interface DropdownOption {
 // Define the props for the Dropdown component
 interface DropdownProps {
   options: DropdownOption[];
-  value: DropdownOption[];
+  value: MultiValue<DropdownOption> | SingleValue<DropdownOption>; // Updated to support both
   onChange: (
-    selectedOptions: MultiValue<DropdownOption>,
+    newValue: MultiValue<DropdownOption> | SingleValue<DropdownOption>, // Updated parameter name and type
     actionMeta: ActionMeta<DropdownOption>
   ) => void;
   placeholder?: string;

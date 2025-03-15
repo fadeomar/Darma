@@ -1,5 +1,5 @@
 // components/ElementForm.tsx
-import { MultiValue } from "react-select";
+import { ActionMeta, MultiValue, SingleValue } from "react-select";
 import Dropdown, { DropdownOption } from "@/components/Dropdown";
 import CodeEditor from "@/components/CodeEditor";
 import { CodeElement } from "@/types";
@@ -7,17 +7,21 @@ import PreviewCard from "@/components/TestCard";
 
 interface ElementFormProps {
   formData: Partial<CodeElement>;
-  selectedMainCategories: DropdownOption[];
-  selectedSecondaryCategories: DropdownOption[];
+  selectedMainCategories: DropdownOption[]; // Still an array since isMulti is true
+  selectedSecondaryCategories: DropdownOption[]; // Still an array since isMulti is true
   categories: { name: string }[];
   onSubmit: (e: React.FormEvent) => void;
   onInputChange: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
   onTagsChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onMainCategoryChange: (selectedOptions: MultiValue<DropdownOption>) => void;
+  onMainCategoryChange: (
+    newValue: MultiValue<DropdownOption> | SingleValue<DropdownOption>,
+    actionMeta: ActionMeta<DropdownOption>
+  ) => void;
   onSecondaryCategoryChange: (
-    selectedOptions: MultiValue<DropdownOption>
+    newValue: MultiValue<DropdownOption> | SingleValue<DropdownOption>,
+    actionMeta: ActionMeta<DropdownOption>
   ) => void;
   onReset: () => void;
   getSecondaryCategoryOptions: () => DropdownOption[];

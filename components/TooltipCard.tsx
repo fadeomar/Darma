@@ -1,8 +1,16 @@
 "use client"; // Required for client-side interactivity
 
 import { useState } from "react";
+// Define the Tooltip type
+interface Tooltip {
+  id: string;
+  css: string;
+  html?: string; // Optional since it’s commented out in your code
+  text: string;
+}
 
-const TooltipCard = ({ tooltip }) => {
+// const TooltipCard = ({ tooltip }) => {
+const TooltipCard = ({ tooltip }: { tooltip: Tooltip }) => {
   const [tipPosition, setTipPosition] = useState(50); // Default tip position
 
   // Function to copy CSS to clipboard
@@ -23,7 +31,7 @@ const TooltipCard = ({ tooltip }) => {
       <div
         id={tooltip.id} // Use the ID from the JSON
         className="tooltip mb-4"
-        style={{ "--p": `${tipPosition}%` }} // Dynamic tip position
+        style={{ "--p": `${tipPosition}%` } as React.CSSProperties}
         // dangerouslySetInnerHTML={{ __html: tooltip.html }}
       >
         <p style={{ color: "black" }}>{tooltip.text}</p>

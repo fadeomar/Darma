@@ -1,5 +1,6 @@
-// app/page.tsx (Server Component)
+// app/search/page.tsx (Server Component)
 import { Metadata } from "next";
+import { Suspense } from "react"; // Import Suspense
 import elements from "../../data/elements.json";
 import categories from "../../data/category.json";
 import { CodeElement, Category } from "@/types";
@@ -8,6 +9,7 @@ import SearchClientPage from "./SearchClientPage";
 export const metadata: Metadata = {
   title: "Code Elements Search",
   description: "Search through our collection of reusable code components",
+  metadataBase: new URL("https://yourdomain.com"), // Replace with your production domain
   openGraph: {
     title: "Code Elements Library",
     description: "Find and reuse code components for your projects",
@@ -27,9 +29,11 @@ export async function generateStaticParams() {
 
 export default function Home() {
   return (
-    <SearchClientPage
-      elements={elements.elements as CodeElement[]}
-      categories={categories.categories as Category[]}
-    />
+    <Suspense fallback={<div>Loading search page...</div>}>
+      <SearchClientPage
+        elements={elements.elements as CodeElement[]}
+        categories={categories.categories as Category[]}
+      />
+    </Suspense>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { MultiValue } from "react-select";
+import { MultiValue, SingleValue } from "react-select";
 import categoriesData from "@/data/category.json";
 import { CodeElement } from "@/types";
 import ElementList from "./ElementList";
@@ -57,19 +57,23 @@ export default function ElementsPage() {
 
   // Category handlers
   const handleMainCategoryChange = (
-    selectedOptions: MultiValue<DropdownOption>
+    newValue: MultiValue<DropdownOption> | SingleValue<DropdownOption>
+    // _actionMeta: ActionMeta<DropdownOption> // Renamed to _actionMeta to silence unused var warning
   ) => {
+    const selectedOptions = newValue as MultiValue<DropdownOption>; // Safe cast since isMulti={true}
     const selectedValues = selectedOptions.map((option) => option.value);
-    setSelectedMainCategories(selectedOptions as DropdownOption[]);
+    setSelectedMainCategories([...selectedOptions]); // Spread to convert readonly to mutable
     setFormData((prev) => ({ ...prev, mainCategory: selectedValues }));
     setSelectedSecondaryCategories([]);
   };
 
   const handleSecondaryCategoryChange = (
-    selectedOptions: MultiValue<DropdownOption>
+    newValue: MultiValue<DropdownOption> | SingleValue<DropdownOption>
+    // _actionMeta: ActionMeta<DropdownOption> // Renamed to _actionMeta to silence unused var warning
   ) => {
+    const selectedOptions = newValue as MultiValue<DropdownOption>; // Safe cast since isMulti={true}
     const selectedValues = selectedOptions.map((option) => option.value);
-    setSelectedSecondaryCategories(selectedOptions as DropdownOption[]);
+    setSelectedSecondaryCategories([...selectedOptions]); // Spread to convert readonly to mutable
     setFormData((prev) => ({ ...prev, secondaryCategory: selectedValues }));
   };
 

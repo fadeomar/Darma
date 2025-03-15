@@ -1,22 +1,19 @@
 "use client";
-import categoriesData from "@/data/category.json"; // Update the path to your JSON file
-import { MultiValue } from "react-select";
-
+import categoriesData from "@/data/category.json";
+import { MultiValue, SingleValue } from "react-select";
 import { useState, useEffect } from "react";
-import CodeEditor from "@/components/CodeEditor"; // Ensure this import is correct
-import { CodeElement } from "@/types"; // Ensure this import is correct
-import Dropdown, { DropdownOption } from "@/components/Dropdown"; // Import the Dropdown component
+import CodeEditor from "@/components/CodeEditor";
+import { CodeElement } from "@/types";
+import Dropdown, { DropdownOption } from "@/components/Dropdown";
 import AdminElementList from "@/components/AdminElementList";
 import PreviewCard from "@/components/TestCard";
 import CategoryBadge from "@/components/CategoryBadge";
 
 export default function ElementsPage() {
-  // State for elements and form data
   const [elements, setElements] = useState<CodeElement[]>([]);
   const [previewedElement, setPreviewedElement] = useState<CodeElement | null>(
     null
   );
-
   const [formData, setFormData] = useState<Partial<CodeElement>>({
     id: "",
     title: "",
@@ -29,8 +26,6 @@ export default function ElementsPage() {
     secondaryCategory: [],
     deleted: false,
   });
-
-  // State for search, delete confirmation, and loading
   const [searchQuery, setSearchQuery] = useState("");
   const [isDeleteConfirmOpen, setIsDeleteConfirmOpen] = useState(false);
   const [elementToDelete, setElementToDelete] = useState<string | null>(null);
@@ -44,43 +39,41 @@ export default function ElementsPage() {
   const [selectedSecondaryCategories, setSelectedSecondaryCategories] =
     useState<DropdownOption[]>([]);
 
-  // Fetch elements on page load
   useEffect(() => {
     const fetchElements = async () => {
       try {
         const response = await fetch("/api/elements");
-        const data = await response.json();
-        setElements(data);
+        const data = (await response.json()) as { elements: CodeElement[] };
+        setElements(data.elements); // Adjust if API structure differs
       } catch (error) {
         console.error("Failed to fetch elements:", error);
       } finally {
         setIsLoading(false);
       }
     };
-
     fetchElements();
   }, []);
 
-  // Handle main category change
+  // Category handlers
   const handleMainCategoryChange = (
-    selectedOptions: MultiValue<DropdownOption>
+    newValue: MultiValue<DropdownOption> | SingleValue<DropdownOption>
   ) => {
+    const selectedOptions = newValue as MultiValue<DropdownOption>; // Safe cast since isMulti={true}
     const selectedValues = selectedOptions.map((option) => option.value);
-    setSelectedMainCategories(selectedOptions as DropdownOption[]);
+    setSelectedMainCategories([...selectedOptions]); // Spread to handle readonly -> mutable conversion
     setFormData((prev) => ({ ...prev, mainCategory: selectedValues }));
-    setSelectedSecondaryCategories([]); // Reset secondary categories when main categories change
+    setSelectedSecondaryCategories([]);
   };
 
-  // Handle secondary category change
   const handleSecondaryCategoryChange = (
-    selectedOptions: MultiValue<DropdownOption>
+    newValue: MultiValue<DropdownOption> | SingleValue<DropdownOption>
   ) => {
+    const selectedOptions = newValue as MultiValue<DropdownOption>; // Safe cast since isMulti={true}
     const selectedValues = selectedOptions.map((option) => option.value);
-    setSelectedSecondaryCategories(selectedOptions as DropdownOption[]);
+    setSelectedSecondaryCategories([...selectedOptions]); // Spread to handle readonly -> mutable conversion
     setFormData((prev) => ({ ...prev, secondaryCategory: selectedValues }));
   };
 
-  // Get secondary category options based on selected main categories
   const getSecondaryCategoryOptions = (): DropdownOption[] => {
     return selectedMainCategories.flatMap((mainCat) => {
       const category = categories.find((cat) => cat.name === mainCat.value);
@@ -90,7 +83,6 @@ export default function ElementsPage() {
     });
   };
 
-  // Handle form input changes
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -98,16 +90,13 @@ export default function ElementsPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Handle tags change
   const handleTagsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const tags = e.target.value.split(",").map((tag) => tag.trim());
     setFormData((prev) => ({ ...prev, tags }));
   };
 
-  // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     const url = formData.id ? `/api/elements/${formData.id}` : "/api/elements";
     const method = formData.id ? "PUT" : "POST";
 
@@ -117,22 +106,19 @@ export default function ElementsPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
-      if (response.ok) {
-        const updatedElement: CodeElement = await response.json();
-        setElements((prev) =>
-          formData.id
-            ? prev.map((el) => (el.id === formData.id ? updatedElement : el))
-            : [...prev, updatedElement]
-        );
-        resetForm();
-      }
+      if (!response.ok) throw new Error("Failed to save element");
+      const updatedElement = (await response.json()) as CodeElement;
+      setElements((prev) =>
+        formData.id
+          ? prev.map((el) => (el.id === formData.id ? updatedElement : el))
+          : [...prev, updatedElement]
+      );
+      resetForm();
     } catch (error) {
       console.error("Failed to save element:", error);
     }
   };
 
-  // Handle editing an element
   const handleEdit = (element: CodeElement) => {
     setFormData(element);
     setSelectedMainCategories(
@@ -144,24 +130,20 @@ export default function ElementsPage() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Handle delete confirmation
   const handleDeleteClick = (id: string) => {
     setElementToDelete(id);
     setIsDeleteConfirmOpen(true);
   };
 
-  // Handle confirmed delete
   const handleConfirmDelete = async () => {
     if (elementToDelete) {
       try {
         const response = await fetch(`/api/elements/${elementToDelete}`, {
           method: "DELETE",
         });
-
-        if (response.ok) {
-          setElements((prev) => prev.filter((el) => el.id !== elementToDelete));
-          resetForm();
-        }
+        if (!response.ok) throw new Error("Failed to delete");
+        setElements((prev) => prev.filter((el) => el.id !== elementToDelete));
+        resetForm();
       } catch (error) {
         console.error("Failed to delete element:", error);
       } finally {
@@ -171,7 +153,6 @@ export default function ElementsPage() {
     }
   };
 
-  // Reset form
   const resetForm = () => {
     setFormData({
       id: "",
@@ -189,7 +170,6 @@ export default function ElementsPage() {
     setSelectedSecondaryCategories([]);
   };
 
-  // Filter elements based on search query
   const filteredElements = elements.filter(
     (element) =>
       element.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -207,7 +187,6 @@ export default function ElementsPage() {
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Code Elements Collection</h1>
 
-      {/* Search Bar */}
       <div className="mb-6">
         <input
           type="text"
@@ -217,7 +196,7 @@ export default function ElementsPage() {
           className="w-full p-2 border rounded"
         />
       </div>
-      {/* Preview */}
+
       {previewedElement && (
         <div className="mb-8 p-4 bg-gray-100 rounded">
           <div className="flex justify-between items-center mb-4">
@@ -234,9 +213,6 @@ export default function ElementsPage() {
           <PreviewCard element={previewedElement} />
         </div>
       )}
-      <div></div>
-
-      {/* Elements List */}
 
       <AdminElementList
         elements={filteredElements.slice(-20)}
@@ -252,7 +228,6 @@ export default function ElementsPage() {
           >
             <h3 className="text-lg font-semibold mb-2">{element.title}</h3>
             <p className="text-gray-600 mb-2">{element.description}</p>
-
             {element?.mainCategory && element?.mainCategory?.length > 0 && (
               <div className="flex gap-2">
                 Main Cats:
@@ -305,7 +280,6 @@ export default function ElementsPage() {
         )}
       />
 
-      {/* Edit/Create Form */}
       <form onSubmit={handleSubmit} className="mb-8 p-4 bg-gray-100 rounded">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-semibold">
@@ -322,7 +296,6 @@ export default function ElementsPage() {
           )}
         </div>
 
-        {/* Form Fields */}
         <div className="grid grid-cols-2 gap-4 mb-4">
           <input
             type="text"
@@ -343,7 +316,6 @@ export default function ElementsPage() {
           />
         </div>
 
-        {/* Main Category Dropdown */}
         <div className="mb-4">
           <label className="block mb-2 font-semibold">Main Category</label>
           <Dropdown
@@ -357,7 +329,6 @@ export default function ElementsPage() {
           />
         </div>
 
-        {/* Secondary Category Dropdown */}
         <div className="mb-4">
           <label className="block mb-2 font-semibold">Secondary Category</label>
           <Dropdown
@@ -385,8 +356,8 @@ export default function ElementsPage() {
             <CodeEditor
               key={`html-${formData.id}`}
               code={formData.html || ""}
-              setCode={(value: string) =>
-                setFormData((prev) => ({ ...prev, html: value }))
+              setCode={(value) =>
+                setFormData((prev) => ({ ...prev, html: value ?? "" }))
               }
               language="html"
             />
@@ -397,8 +368,8 @@ export default function ElementsPage() {
             <CodeEditor
               key={`css-${formData.id}`}
               code={formData.css || ""}
-              setCode={(value: string) =>
-                setFormData((prev) => ({ ...prev, css: value }))
+              setCode={(value) =>
+                setFormData((prev) => ({ ...prev, css: value ?? "" }))
               }
               language="css"
             />
@@ -409,8 +380,8 @@ export default function ElementsPage() {
             <CodeEditor
               key={`js-${formData.id}`}
               code={formData.js || ""}
-              setCode={(value: string) =>
-                setFormData((prev) => ({ ...prev, js: value }))
+              setCode={(value) =>
+                setFormData((prev) => ({ ...prev, js: value ?? "" }))
               }
               language="javascript"
             />
@@ -425,7 +396,6 @@ export default function ElementsPage() {
         </button>
       </form>
 
-      {/* Delete Confirmation Modal */}
       {isDeleteConfirmOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <div className="bg-white p-6 rounded-lg">

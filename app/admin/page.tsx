@@ -255,7 +255,7 @@ export default function ElementsPage() {
         />
       ) : (
         <ElementList
-          elements={filteredElements.slice(-20)}
+          elements={filteredElements}
           searchQuery={searchQuery}
           editingElementId={formData.id}
           previewedElement={previewedElement}

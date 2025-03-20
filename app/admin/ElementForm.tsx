@@ -1,31 +1,8 @@
 // components/ElementForm.tsx
-import { ActionMeta, MultiValue, SingleValue } from "react-select";
-import Dropdown, { DropdownOption } from "@/components/Dropdown";
+import Dropdown from "@/components/Dropdown";
 import CodeEditor from "@/components/CodeEditor";
-import { CodeElement } from "@/types";
+import { ElementFormProps } from "@/types";
 import PreviewCard from "@/components/TestCard";
-
-interface ElementFormProps {
-  formData: Partial<CodeElement>;
-  selectedMainCategories: DropdownOption[]; // Still an array since isMulti is true
-  selectedSecondaryCategories: DropdownOption[]; // Still an array since isMulti is true
-  categories: { name: string }[];
-  onSubmit: (e: React.FormEvent) => void;
-  onInputChange: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => void;
-  onTagsChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onMainCategoryChange: (
-    newValue: MultiValue<DropdownOption> | SingleValue<DropdownOption>,
-    actionMeta: ActionMeta<DropdownOption>
-  ) => void;
-  onSecondaryCategoryChange: (
-    newValue: MultiValue<DropdownOption> | SingleValue<DropdownOption>,
-    actionMeta: ActionMeta<DropdownOption>
-  ) => void;
-  onReset: () => void;
-  getSecondaryCategoryOptions: () => DropdownOption[];
-}
 
 export default function ElementForm({
   formData,
@@ -161,7 +138,9 @@ export default function ElementForm({
       >
         {formData.id ? "Update Element" : "Create Element"}
       </button>
-      {formData.html && <PreviewCard element={{ ...formData, id: "test" }} />}
+      {formData.html && (
+        <PreviewCard element={{ ...formData, id: "test" }} status={"create"} />
+      )}
     </form>
   );
 }

@@ -1,6 +1,5 @@
-// components/ElementList.tsx
 import { CodeElement } from "@/types";
-import AdminElementList from "@/components/AdminElementList";
+import CardsPagination from "@/components/CardsPagination";
 import PreviewCard from "@/components/TestCard";
 import CategoryBadge from "@/components/CategoryBadge";
 
@@ -50,12 +49,12 @@ export default function ElementList({
               Close Preview
             </button>
           </div>
-          <PreviewCard element={previewedElement} />
+          <PreviewCard element={previewedElement} status={"preview"} />
         </div>
       )}
 
-      <AdminElementList
-        elements={elements.slice(-20)}
+      <CardsPagination
+        elements={elements}
         itemsPerPage={6}
         renderElement={(element: CodeElement) => (
           <div
@@ -89,13 +88,9 @@ export default function ElementList({
             <div className="flex gap-2">
               <button
                 onClick={() => onEdit(element)}
-                className={`px-3 py-1 text-sm ${
-                  editingElementId === element.id
-                    ? "bg-blue-500 text-white"
-                    : "bg-yellow-500 text-white"
-                } rounded`}
+                className="px-3 py-1 text-sm bg-yellow-500 text-white rounded"
               >
-                {editingElementId === element.id ? "Editing..." : "Edit"}
+                Edit
               </button>
               <button
                 onClick={() => onDelete(element.id)}
@@ -105,15 +100,9 @@ export default function ElementList({
               </button>
               <button
                 onClick={() => onPreview(element)}
-                className={`px-3 py-1 text-sm ${
-                  previewedElement?.id === element.id
-                    ? "bg-green-500 text-white"
-                    : "bg-gray-500 text-white"
-                } rounded`}
+                className="px-3 py-1 text-sm bg-gray-500 text-white rounded"
               >
-                {previewedElement?.id === element.id
-                  ? "Previewing..."
-                  : "Preview"}
+                Preview
               </button>
             </div>
           </div>

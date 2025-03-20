@@ -1,5 +1,7 @@
+// app/preview/[id]/page.tsx
 "use client";
 import React, { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
 import BackButton from "@/components/BackButton";
 import CodeEditor from "@/components/CodeEditor";
 import ResizableContainer from "@/components/ResizableContainer";
@@ -20,12 +22,13 @@ const MetadataCard = ({
   </div>
 );
 
-export default function PreviewPage({ params }: { params: { id: string } }) {
+export default function PreviewPage() {
   const [element, setElement] = useState<CodeElement | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [containerWidth, setContainerWidth] = useState<number | null>(null);
-  const { id } = params;
+  const params = useParams();
+  const id = params.id as string; // Type assertion since useParams returns { [key: string]: string }
   const [htmlCode, setHtmlCode] = useState("");
   const [cssCode, setCssCode] = useState("");
   const [jsCode, setJsCode] = useState("");

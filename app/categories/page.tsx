@@ -5,8 +5,11 @@ import { Category, CodeElement } from "@/types";
 
 async function fetchElementsByCategory(categoryName: string, limit: number) {
   try {
+    const baseUrl = process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000";
     const response = await fetch(
-      `/api/search?mainCat=${categoryName}&page=1&pageSize=${limit}`
+      `${baseUrl}/api/search?mainCat=${categoryName}&page=1&pageSize=${limit}`
     );
     const { data } = await response.json();
     return data as CodeElement[];

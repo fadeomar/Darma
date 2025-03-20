@@ -10,7 +10,7 @@ async function fetchElementsByCategory(
   isMainCategory: boolean
 ) {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+    const baseUrl = process.env.VERCEL_URL || "http://localhost:3000";
     const url = `${baseUrl}/api/search?${
       isMainCategory ? "mainCat" : "secCat"
     }=${categoryName}&page=${page}&pageSize=${pageSize}`;

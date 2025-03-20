@@ -4,14 +4,13 @@ import { formatDate, truncateText } from "../../utils";
 import "./style.css";
 import { CodeElement, CreateCodeElement } from "@/types";
 
-type Status = "create" | "preview";
-
 const Card = ({
   element,
   status,
-}:
-  | { status: Status; element: CreateCodeElement }
-  | { status: Status; element: CodeElement }) => {
+}: {
+  element: Partial<CodeElement> | CreateCodeElement;
+  status: string;
+}) => {
   const iframeContent = `
     <!DOCTYPE html>
     <html lang="en">
@@ -60,7 +59,11 @@ const Card = ({
           {element?.title && (
             <h3 className="card-title">{truncateText(element.title, 40)}</h3>
           )}
-          <time className="card-date">{formatDate(element.createdAt)}</time>
+          {formatDate(
+            element.createdAt instanceof Date
+              ? element.createdAt.toISOString()
+              : element.createdAt
+          )}{" "}
         </div>
 
         <div className="card-meta">

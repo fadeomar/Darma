@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { MultiValue, SingleValue } from "react-select";
 import categoriesData from "@/data/category.json";
-import { CodeElement } from "@/types";
+import { CodeElement, CreateCodeElement } from "@/types";
 import ElementList from "./ElementList";
 import ElementForm from "./ElementForm";
 import { DropdownOption } from "@/components/Dropdown";
@@ -111,7 +111,21 @@ export default function ElementsPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    const element: CreateCodeElement = {
+      id: formData.id || "some-default-id", // Provide defaults if needed
+      title: formData.title || "", // Ensure required fields are filled
+      description: formData.description || "",
+      html: formData.html || "",
+      css: formData.css || "",
+      js: formData.js || "",
+      tags: formData.tags || [],
+      mainCategory: formData.mainCategory || [],
+      secondaryCategory: formData.secondaryCategory || [],
+      shortDescription: formData.shortDescription,
+      deleted: false,
+      createdAt: undefined,
+      updatedAt: undefined,
+    };
     const url = formData.id ? `/api/elements/${formData.id}` : "/api/elements";
     const method = formData.id ? "PUT" : "POST";
 
@@ -119,7 +133,7 @@ export default function ElementsPage() {
       const response = await fetch(url, {
         method,
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(element),
       });
 
       if (response.ok) {

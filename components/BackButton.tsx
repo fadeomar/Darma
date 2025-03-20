@@ -1,5 +1,4 @@
 "use client";
-
 import { useRouter } from "next/navigation";
 
 export default function BackButton() {
@@ -11,7 +10,7 @@ export default function BackButton() {
       className="mb-4 inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
     >
       <svg
-        xmlns="http://xmlns.org/3.org/2000/svg"
+        xmlns="http://www.w3.org/2000/svg"
         className="h-5 w-5 mr-1"
         viewBox="0 0 20 20"
         fill="currentColor"

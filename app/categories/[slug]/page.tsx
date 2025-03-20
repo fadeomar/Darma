@@ -1,28 +1,20 @@
 import { notFound } from "next/navigation";
-import Card from "@/components/TestCard";
 import BackButton from "@/components/BackButton";
 import categoriesData from "@/data/category.json";
 import elementsData from "@/data/elements.json";
 import { CodeElement } from "@/types";
 
-export async function generateStaticParams() {
-  return categoriesData.categories.flatMap((category) => [
-    { slug: category.name },
-    ...category.types.map((type) => ({ slug: type })),
-  ]);
-}
+import CardsPagination from "@/components/CardsPagination";
 
-// Update the type to reflect that params is a Promise
 export default async function CategoryPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }) {
-  // Await the params to get the slug
   const { slug } = await params;
 
+  // Find the main or secondary category
   const mainCategory = categoriesData.categories.find((c) => c.name === slug);
-
   const secondaryCategory = categoriesData.categories.find((c) =>
     c.types.includes(slug)
   );
@@ -30,11 +22,12 @@ export default async function CategoryPage({
   if (!mainCategory && !secondaryCategory) return notFound();
 
   const currentCategory = mainCategory || secondaryCategory!;
-  const elements = elementsData.elements.filter((el) =>
+
+  const elements: CodeElement[] = elementsData.elements.filter((el) =>
     mainCategory
-      ? (el as CodeElement).mainCategory.includes(slug)
-      : (el as CodeElement).secondaryCategory.includes(slug)
-  ) as CodeElement[];
+      ? el.mainCategory.includes(slug)
+      : el.secondaryCategory.includes(slug)
+  );
 
   return (
     <div className="container mx-auto p-4">
@@ -43,11 +36,8 @@ export default async function CategoryPage({
         {slug.replace("-", " ")}
       </h1>
       <p className="text-gray-600 mb-8">{currentCategory.description}</p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {elements.map((element) => (
-          <Card key={element.id} element={element} />
-        ))}
-      </div>
+
+      <CardsPagination elements={elements} itemsPerPage={6} itemsByRow={3} />
     </div>
   );
 }

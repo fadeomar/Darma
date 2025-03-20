@@ -5,7 +5,7 @@ import { editor } from "monaco-editor"; // Import Monaco's editor types
 // Define the props interface
 interface CodeEditorProps {
   code: string;
-  setCode: (value: string | undefined) => void;
+  setCode: React.Dispatch<React.SetStateAction<string>>;
   language: string;
 }
 
@@ -20,11 +20,11 @@ const CodeEditor = ({ code, setCode, language }: CodeEditorProps) => {
 
   return (
     <Editor
-      height="200px"
+      height="400px"
       language={language}
       theme="vs-dark"
       value={code}
-      onChange={(value) => setCode(value)}
+      onChange={(value) => setCode(value ?? "")}
       onMount={handleEditorDidMount}
       options={{
         automaticLayout: true,
@@ -36,11 +36,13 @@ const CodeEditor = ({ code, setCode, language }: CodeEditorProps) => {
         lineNumbersMinChars: 2,
         lineDecorationsWidth: 0,
         renderLineHighlight: "all",
-        renderWhitespace: "none",
+        renderWhitespace: "boundary",
         renderControlCharacters: false,
         renderValidationDecorations: "on",
         renderFinalNewline: "on",
+        selectOnLineNumbers: true,
         renderLineHighlightOnlyWhenFocus: false,
+        formatOnType: true,
       }}
     />
   );

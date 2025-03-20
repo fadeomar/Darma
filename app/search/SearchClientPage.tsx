@@ -2,10 +2,11 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import Card from "../../components/TestCard";
 import { searchFunction } from "../../utils/search";
 import { CodeElement, Category } from "@/types";
-import "./style.css";
+import "../homepage_style.css";
+import CardsPagination from "@/components/CardsPagination";
+import { getGradientColor } from "@/utils";
 
 interface SearchClientPageProps {
   elements: CodeElement[];
@@ -65,6 +66,8 @@ export default function SearchClientPage({
     return () => clearTimeout(timeout);
   }, [updateURL]);
 
+  const mainCategories = categories;
+
   // Search results
   const { exactMatches, relatedMatches } = searchFunction({
     elements,
@@ -93,7 +96,7 @@ export default function SearchClientPage({
   return (
     <div className="min-h-screen bg-gray-50 p-8">
       {/* Search Header */}
-      <div className="max-w-4xl mx-auto mb-8">
+      <div className="max-w-9xl mx-auto mb-2">
         <div className="relative">
           <input
             type="text"
@@ -140,87 +143,100 @@ export default function SearchClientPage({
           ))}
         </div>
       </div>
-
-      {/* Category Selectors */}
-      <div className="max-w-4xl mx-auto mb-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {categories.slice(-20).map((category) => (
-            <div
-              key={category.name}
-              className="group relative bg-white p-4 rounded-xl shadow-sm border border-gray-200 transition-all hover:z-10"
+      {/* Categories Section */}
+      <div className="flex justify-center flex-wrap gap-x-2 gap-y-1 mb-[64px]">
+        {mainCategories.map((category, index) => (
+          <div
+            key={category.name}
+            className="category-group rounded-md relative min-w-[100px]  px-1 py-0.5  shadow-lg border-2 border-white hover:border-gray-200 transition-all duration-300 hover:shadow-xl shrink"
+            style={{
+              background: `linear-gradient(135deg, ${
+                getGradientColor(index).from
+              }, ${getGradientColor(index).to})`,
+            }}
+          >
+            <button
+              onClick={() => handleSelectMainCat(category.name)}
+              className="w-full text-left p-1 rounded-lg bg-white/10 hover:bg-white/20 transition-colors duration-200"
             >
-              <button
-                onClick={() => handleSelectMainCat(category.name)}
-                className={`w-full text-left p-2 rounded-lg ${
-                  selectedMainCats.includes(category.name)
-                    ? "bg-blue-100 text-blue-700"
-                    : "hover:bg-gray-50"
-                } transition-colors`}
-              >
-                <h3 className="font-semibold text-lg flex items-center justify-between">
-                  {category.name}
-                  <span className="text-sm transition-transform group-hover:rotate-180">
-                    ▼
-                  </span>
-                </h3>
-              </button>
+              <h6 className="text-[13px] font-semibold text-lg text-white flex items-center justify-between uppercase">
+                {category.name}
+                <span className="ml-2 text-sm transition-transform duration-300 group-hover:rotate-180">
+                  ▼
+                </span>
+              </h6>
+            </button>
 
-              {/* Subcategories Dropdown */}
-              <div className="absolute top-full left-0 right-0 invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 pt-2">
-                <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-2">
-                  {category.types.map((type: string) => (
-                    <button
-                      key={type}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleSelectSecCat(category.name, type);
-                      }}
-                      className={`w-full text-left p-2 rounded-md ${
-                        selectedSecCats.includes(type)
-                          ? "bg-blue-50 text-blue-700"
-                          : "hover:bg-gray-50"
-                      } transition-colors text-sm flex items-center gap-2`}
-                    >
-                      <span
-                        className={`w-4 h-4 border rounded-sm flex items-center justify-center ${
-                          selectedSecCats.includes(type)
-                            ? "bg-blue-500 border-blue-500 text-white"
-                            : "border-gray-300"
-                        }`}
+            {/* Subcategories Dropdown */}
+            <div className="subcategories-container absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-lg p-2 space-y-1 mt-2">
+              {category.types.map((type) => (
+                <button
+                  key={type}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleSelectSecCat(category.name, type);
+                  }}
+                  className={`w-full text-left p-2 rounded-md ${
+                    selectedSecCats.includes(type)
+                      ? "bg-blue-50 text-blue-700"
+                      : "hover:bg-gray-50"
+                  } transition-colors duration-200 text-sm flex items-center gap-2`}
+                >
+                  <span
+                    className={`w-4 h-4 border rounded-sm flex items-center justify-center ${
+                      selectedSecCats.includes(type)
+                        ? "bg-blue-500 border-blue-500 text-white"
+                        : "border-gray-300"
+                    }`}
+                  >
+                    {selectedSecCats.includes(type) && (
+                      <svg
+                        className="w-3 h-3"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        {selectedSecCats.includes(type) && "✓"}
-                      </span>
-                      {type}
-                    </button>
-                  ))}
-                </div>
-              </div>
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    )}
+                  </span>
+                  {type}
+                </button>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
 
       {/* Results Grid */}
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {exactMatches.length > 0 && (
           <>
-            <h3 className="text-xl font-semibold mb-4">Exact Matches</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-              {exactMatches.slice(-20).map((element: CodeElement) => (
-                <Card key={element.id} element={element} />
-              ))}
-            </div>
+            <h3 className="text-xl font-semibold mb-4">
+              {relatedMatches.length ? "Exact Matches" : "Items"}
+            </h3>
+            <CardsPagination
+              elements={exactMatches}
+              itemsPerPage={6}
+              itemsByRow={3}
+            />
           </>
         )}
 
         {relatedMatches.length > 0 && (
           <>
             <h3 className="text-xl font-semibold mb-4">Related Matches</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {relatedMatches.slice(-20).map((element: CodeElement) => (
-                <Card key={element.id} element={element} />
-              ))}
-            </div>
+            <CardsPagination
+              elements={relatedMatches}
+              itemsPerPage={6}
+              itemsByRow={3}
+            />
           </>
         )}
 

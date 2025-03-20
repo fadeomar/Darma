@@ -1,4 +1,3 @@
-// app/search/page.tsx (Server Component)
 import { Metadata } from "next";
 import { Suspense } from "react"; // Import Suspense
 import elements from "../../data/elements.json";
@@ -27,7 +26,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function Home() {
+export default function SearchPage() {
   return (
     <Suspense fallback={<div>Loading search page...</div>}>
       <SearchClientPage

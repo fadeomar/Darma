@@ -21,7 +21,7 @@ export const searchFunction = ({
   // Scoring system with priority weights
   const scoredElements = elements.map((element) => {
     let score = 0;
-    const isExactMatch = false;
+    // const isExactMatch = false;
 
     // Category matching
     const mainCatMatches = element.mainCategory.filter((mc) =>
@@ -75,7 +75,7 @@ export const searchFunction = ({
     .map(({ element }) => element);
 
   if (exactMatches.length === 0 && relatedMatches.length === 0) {
-    const last20Item = elements.slice(-20).reverse();
+    const last20Item = elements.slice(-50).reverse();
     return { exactMatches: last20Item, relatedMatches: [] };
   }
   return { exactMatches, relatedMatches };

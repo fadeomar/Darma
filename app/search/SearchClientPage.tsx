@@ -2,27 +2,23 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { searchFunction } from "../../utils/search";
 import { CodeElement, Category } from "@/types";
 import "../homepage_style.css";
 import CardsPagination from "@/components/CardsPagination";
 import { getGradientColor } from "@/utils";
 
 interface SearchClientPageProps {
-  elements: CodeElement[];
   categories: Category[];
   initialSearch?: string;
 }
 
 export default function SearchClientPage({
-  elements,
   categories,
   initialSearch,
 }: SearchClientPageProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  // State management
   const [search, setSearch] = useState(
     searchParams.get("q") || initialSearch || ""
   );
@@ -32,6 +28,32 @@ export default function SearchClientPage({
   const [selectedSecCats, setSelectedSecCats] = useState<string[]>(
     searchParams.getAll("secCat") || []
   );
+  const [elements, setElements] = useState<CodeElement[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1); // Track current page
+  const [totalPages, setTotalPages] = useState(1); // Track total pages
+  const itemsPerPage = 6; // Items per page
+
+  // Fetch elements from the API
+  const fetchElements = useCallback(async () => {
+    try {
+      const params = new URLSearchParams();
+      if (search) params.set("q", search);
+      selectedMainCats.forEach((c) => params.append("mainCat", c));
+      selectedSecCats.forEach((c) => params.append("secCat", c));
+      params.set("page", currentPage.toString());
+      params.set("pageSize", itemsPerPage.toString());
+
+      const response = await fetch(`/api/search?${params.toString()}`);
+      const { data, total } = await response.json();
+      setElements(data);
+      setTotalPages(Math.ceil(total / itemsPerPage)); // Calculate total pages
+    } catch (error) {
+      console.error("Failed to fetch elements:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [search, selectedMainCats, selectedSecCats, currentPage, itemsPerPage]);
 
   // Debounce and update URL
   const updateURL = useCallback(() => {
@@ -49,32 +71,23 @@ export default function SearchClientPage({
     router,
     pathname,
   ]);
-  // In your SearchClientPage
-  useEffect(() => {
-    if (
-      typeof window !== "undefined" &&
-      window.location.pathname.startsWith("/search/")
-    ) {
-      // Replace history to clean URL
-      history.replaceState(null, "", `/search?${searchParams.toString()}`);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   useEffect(() => {
     const timeout = setTimeout(updateURL, 300);
     return () => clearTimeout(timeout);
   }, [updateURL]);
 
-  const mainCategories = categories;
+  // Fetch elements when search, filters, or page changes
+  useEffect(() => {
+    fetchElements();
+  }, [fetchElements]);
 
-  // Search results
-  const { exactMatches, relatedMatches } = searchFunction({
-    elements,
-    searchText: search,
-    selectedMainCats,
-    selectedSecCats,
-  });
+  // Handle page change
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
+  if (isLoading) return <div>Loading...</div>;
 
   // Category handlers
   const handleSelectMainCat = (value: string) => {
@@ -143,9 +156,10 @@ export default function SearchClientPage({
           ))}
         </div>
       </div>
+
       {/* Categories Section */}
       <div className="flex justify-center flex-wrap gap-x-2 gap-y-1 mb-[64px]">
-        {mainCategories.map((category, index) => (
+        {categories.map((category, index) => (
           <div
             key={category.name}
             className="category-group rounded-md relative min-w-[100px]  px-1 py-0.5  shadow-lg border-2 border-white hover:border-gray-200 transition-all duration-300 hover:shadow-xl shrink"
@@ -216,31 +230,18 @@ export default function SearchClientPage({
 
       {/* Results Grid */}
       <div className="max-w-7xl mx-auto">
-        {exactMatches.length > 0 && (
+        {elements.length > 0 ? (
           <>
-            <h3 className="text-xl font-semibold mb-4">
-              {relatedMatches.length ? "Exact Matches" : "Items"}
-            </h3>
+            <h3 className="text-xl font-semibold mb-4">Search Results</h3>
             <CardsPagination
-              elements={exactMatches}
-              itemsPerPage={6}
+              elements={elements}
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
               itemsByRow={3}
             />
           </>
-        )}
-
-        {relatedMatches.length > 0 && (
-          <>
-            <h3 className="text-xl font-semibold mb-4">Related Matches</h3>
-            <CardsPagination
-              elements={relatedMatches}
-              itemsPerPage={6}
-              itemsByRow={3}
-            />
-          </>
-        )}
-
-        {exactMatches.length === 0 && relatedMatches.length === 0 && (
+        ) : (
           <div className="text-center py-12 text-gray-500">
             No elements found matching your criteria
           </div>

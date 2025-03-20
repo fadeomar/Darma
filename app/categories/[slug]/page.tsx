@@ -1,17 +1,45 @@
 import { notFound } from "next/navigation";
-import BackButton from "@/components/BackButton";
 import categoriesData from "@/data/category.json";
-import elementsData from "@/data/elements.json";
 import { CodeElement } from "@/types";
+import CategoryPageClient from "./CategoryPageClient";
 
-import CardsPagination from "@/components/CardsPagination";
+async function fetchElementsByCategory(
+  categoryName: string,
+  page: number,
+  pageSize: number,
+  isMainCategory: boolean
+) {
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+    const url = `${baseUrl}/api/search?${
+      isMainCategory ? "mainCat" : "secCat"
+    }=${categoryName}&page=${page}&pageSize=${pageSize}`;
+    const response = await fetch(url);
+    const { data, total } = await response.json();
+    return { elements: data as CodeElement[], total };
+  } catch (error) {
+    console.error("Failed to fetch elements:", error);
+    return { elements: [], total: 0 };
+  }
+}
 
 export default async function CategoryPage({
   params,
+  searchParams,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const { slug } = await params;
+  const resolvedSearchParams = await searchParams;
+  const pageParam = resolvedSearchParams.page;
+
+  // Handle the case where pageParam could be string, string[], or undefined
+  const pageValue = Array.isArray(pageParam)
+    ? pageParam[0] // Take the first value if it's an array
+    : pageParam; // Use it directly if it's a string or undefined
+
+  const currentPage = pageValue ? parseInt(pageValue as string, 10) : 1;
 
   // Find the main or secondary category
   const mainCategory = categoriesData.categories.find((c) => c.name === slug);
@@ -21,23 +49,25 @@ export default async function CategoryPage({
 
   if (!mainCategory && !secondaryCategory) return notFound();
 
-  const currentCategory = mainCategory || secondaryCategory!;
+  const isMainCategory = !!mainCategory; // Determine if it's a main category
 
-  const elements: CodeElement[] = elementsData.elements.filter((el) =>
-    mainCategory
-      ? el.mainCategory.includes(slug)
-      : el.secondaryCategory.includes(slug)
+  const currentCategory = secondaryCategory || mainCategory!;
+
+  // Fetch elements for the category
+  const { elements, total } = await fetchElementsByCategory(
+    slug,
+    currentPage,
+    6,
+    isMainCategory
   );
 
   return (
-    <div className="container mx-auto p-4">
-      <BackButton />
-      <h1 className="text-3xl font-bold mb-4 capitalize">
-        {slug.replace("-", " ")}
-      </h1>
-      <p className="text-gray-600 mb-8">{currentCategory.description}</p>
-
-      <CardsPagination elements={elements} itemsPerPage={6} itemsByRow={3} />
-    </div>
+    <CategoryPageClient
+      slug={slug}
+      currentPage={currentPage}
+      elements={elements}
+      totalPages={Math.ceil(total / 6)}
+      categoryDescription={currentCategory.description}
+    />
   );
 }

@@ -74,3 +74,10 @@ Check out live demos for each project:
 ## 🔥 License
 
 This project is licensed under the MIT License. Feel free to use, modify, and share! 🚀
+
+Prisma Commands:
+to run the seed file :
+`npx ts-node prisma/seed.ts`
+
+Sync your schema with the deployed database:
+`npx prisma db push`

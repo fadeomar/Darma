@@ -1,10 +1,10 @@
 "use client";
-import React, { useState } from "react";
-import elements from "../../../data/elements.json";
+import React, { useState, useEffect } from "react";
 import BackButton from "@/components/BackButton";
 import CodeEditor from "@/components/CodeEditor";
 import { useParams } from "next/navigation";
 import ResizableContainer from "@/components/ResizableContainer";
+import { CodeElement } from "@/types";
 
 const MetadataCard = ({
   title,
@@ -22,18 +22,55 @@ const MetadataCard = ({
 );
 
 export default function PreviewPage() {
+  const [element, setElement] = useState<CodeElement | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
   const [containerWidth, setContainerWidth] = useState<number | null>(null);
   const { id } = useParams<{ id: string }>();
-  const element = elements.elements.find((el) => el.id === id);
   const [htmlCode, setHtmlCode] = useState(element?.html || "");
   const [cssCode, setCssCode] = useState(element?.css || "");
   const [jsCode, setJsCode] = useState(element?.js || "");
   const [activeTab, setActiveTab] = useState("html");
 
-  if (!element) {
-    return <p>Element not found!</p>;
-  }
+  useEffect(() => {
+    const fetchElement = async () => {
+      if (!id) {
+        setError("No ID provided");
+        setIsLoading(false);
+        return;
+      }
 
+      try {
+        const response = await fetch(`/api/elements/${id}`);
+        if (!response.ok) {
+          throw new Error("Failed to fetch element");
+        }
+        const data: CodeElement | { error: string } = await response.json();
+
+        if ("error" in data) {
+          setError(data.error);
+        } else {
+          setElement(data);
+          setHtmlCode(data.html);
+          if (data?.css) setCssCode(data.css);
+          if (data.js) setJsCode(data.js);
+        }
+      } catch (err) {
+        console.error("Failed to fetch element:", err);
+        setError("An error occurred while fetching the element");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchElement();
+  }, [id]); // Run effect when id changes
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+  if (!element) return <div>No element found</div>;
+  console.log({ element });
   const iframeContent = `
   <!DOCTYPE html>
   <html lang="en">

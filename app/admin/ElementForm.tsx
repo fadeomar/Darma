@@ -88,6 +88,15 @@ export default function ElementForm({
         required
       />
 
+      <textarea
+        name="shortDescription"
+        placeholder="Short Description"
+        value={formData.shortDescription || ""}
+        onChange={onInputChange}
+        className="w-full p-2 border rounded mb-4"
+        rows={3}
+        required
+      />
       <div className="space-y-4">
         <div>
           <label className="block mb-2 font-semibold">HTML</label>

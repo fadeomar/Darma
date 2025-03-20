@@ -4,15 +4,16 @@ export interface CodeElement {
   id: string;
   title: string;
   description: string;
+  shortDescription: string | null;
   html: string;
-  css: string;
-  js?: string | undefined;
+  css: string | null;
+  js: string | null;
   tags: string[];
   mainCategory: string[];
   secondaryCategory: string[];
-  deleted?: boolean | undefined;
-  createdAt?: string;
-  updatedAt?: string;
+  deleted: boolean;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export interface CreateCodeElement {
@@ -20,8 +21,8 @@ export interface CreateCodeElement {
   title?: string;
   description?: string;
   html?: string;
-  css?: string;
-  js?: string | undefined;
+  css?: string | null;
+  js?: string | null | undefined;
   tags?: string[];
   mainCategory?: string[];
   secondaryCategory?: string[];

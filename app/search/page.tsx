@@ -1,8 +1,7 @@
 import { Metadata } from "next";
 import { Suspense } from "react"; // Import Suspense
-import elements from "../../data/elements.json";
 import categories from "../../data/category.json";
-import { CodeElement, Category } from "@/types";
+import { Category } from "@/types";
 import SearchClientPage from "./SearchClientPage";
 
 export const metadata: Metadata = {
@@ -29,10 +28,7 @@ export async function generateStaticParams() {
 export default function SearchPage() {
   return (
     <Suspense fallback={<div>Loading search page...</div>}>
-      <SearchClientPage
-        elements={elements.elements as CodeElement[]}
-        categories={categories.categories as Category[]}
-      />
+      <SearchClientPage categories={categories.categories as Category[]} />
     </Suspense>
   );
 }

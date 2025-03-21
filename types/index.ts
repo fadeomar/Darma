@@ -42,6 +42,7 @@ export interface ElementFormProps {
   selectedMainCategories: DropdownOption[];
   selectedSecondaryCategories: DropdownOption[];
   categories: { name: string }[];
+  handleTextEditorChange: (value: string, key: string) => void;
   onSubmit: (e: React.FormEvent) => void;
   onInputChange: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>

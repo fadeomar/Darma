@@ -232,6 +232,10 @@ export default function ElementsPage() {
     return <div className="text-center py-8">Loading elements...</div>;
   }
 
+  const handleTextEditorChange = (value: string, key: string) => {
+    setFormData((prev) => ({ ...prev, [key]: value }));
+  };
+
   return (
     <div className="container mx-auto p-4">
       <div className="flex justify-between items-center mb-4">
@@ -281,6 +285,7 @@ export default function ElementsPage() {
           onSecondaryCategoryChange={handleSecondaryCategoryChange}
           onReset={resetForm}
           getSecondaryCategoryOptions={getSecondaryCategoryOptions}
+          handleTextEditorChange={handleTextEditorChange}
         />
       ) : (
         <ElementList

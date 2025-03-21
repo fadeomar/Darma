@@ -3,6 +3,7 @@ import Dropdown from "@/components/Dropdown";
 import CodeEditor from "@/components/CodeEditor";
 import { ElementFormProps } from "@/types";
 import PreviewCard from "@/components/TestCard";
+import Editor from "@/components/Editor";
 
 export default function ElementForm({
   formData,
@@ -16,6 +17,7 @@ export default function ElementForm({
   onSecondaryCategoryChange,
   onReset,
   getSecondaryCategoryOptions,
+  handleTextEditorChange,
 }: ElementFormProps) {
   return (
     <form onSubmit={onSubmit} className="mb-8 p-4 bg-gray-100 rounded">
@@ -78,7 +80,7 @@ export default function ElementForm({
         />
       </div>
 
-      <textarea
+      {/* <textarea
         name="description"
         placeholder="Description"
         value={formData.description || ""}
@@ -86,7 +88,19 @@ export default function ElementForm({
         className="w-full p-2 border rounded mb-4"
         rows={3}
         required
-      />
+      /> */}
+
+      <div>
+        <label htmlFor="description" className="block text-sm font-medium">
+          Description
+        </label>
+        <Editor
+          content={formData.description || ""}
+          onUpdate={(value) => handleTextEditorChange(value, "description")}
+          placeholder="Type or paste your description here..."
+          className="mt-1"
+        />
+      </div>
 
       <textarea
         name="shortDescription"

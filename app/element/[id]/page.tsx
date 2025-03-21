@@ -3,18 +3,25 @@ import PreviewPage from "./PreviewPage";
 import { CodeElement } from "@/types";
 import { Metadata } from "next";
 
-// Server-side metadata generation for SEO
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
-  const resolvedParams = await params; // Await the params Promise
+  const resolvedParams = await params;
   const id = resolvedParams.id;
-  const baseUrl = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "http://localhost:3000";
-  const response = await fetch(`${baseUrl}/api/elements/${id}`); // Adjust URL as needed
+  // Use absolute URL based on environment
+  let baseUrl = "";
+  if (process.env.NEXT_PUBLIC_BASE_URL) {
+    baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  } else if (process.env.VERCEL_URL) {
+    baseUrl = process.env.VERCEL_URL;
+  } else {
+    baseUrl = "http://localhost:3000";
+  }
+
+  const apiUrl = `${baseUrl}/api/elements/${id}`;
+  const response = await fetch(apiUrl, { cache: "no-store" });
   if (!response.ok) {
     return {
       title: "Element not found",
@@ -33,19 +40,28 @@ export async function generateMetadata({
   };
 }
 
-// Server-side page component
 export default async function ElementPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const resolvedParams = await params; // Await the params Promise
-
+  const resolvedParams = await params;
   const id = resolvedParams.id;
-  const baseUrl = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "http://localhost:3000";
-  const response = await fetch(`${baseUrl}/api/elements/${id}`); // Adjust URL as needed
+  let baseUrl = "";
+  if (process.env.NEXT_PUBLIC_BASE_URL) {
+    baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  } else if (process.env.VERCEL_URL) {
+    baseUrl = process.env.VERCEL_URL;
+  } else {
+    baseUrl = "http://localhost:3000";
+  }
+
+  console.log("NEXT_PUBLIC_BASE_URL:", process.env.NEXT_PUBLIC_BASE_URL);
+  console.log("VERCEL_URL:", process.env.VERCEL_URL);
+  // console.log("Resolved baseUrl:", baseUrl);
+
+  const apiUrl = `${baseUrl}/api/elements/${id}`;
+  const response = await fetch(apiUrl, { cache: "no-store" });
   let element: CodeElement | null = null;
   let error: string | null = null;
 
@@ -53,6 +69,7 @@ export default async function ElementPage({
     element = await response.json();
   } else {
     error = "Failed to fetch element";
+    console.error("Fetch failed:", response.status, response.statusText);
   }
 
   return <PreviewPage initialElement={element} error={error} />;

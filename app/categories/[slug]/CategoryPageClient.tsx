@@ -42,6 +42,7 @@ export default function CategoryClientPage({
 
       const response = await fetch(`/api/search?${params.toString()}`);
       const { data, total } = await response.json();
+      console.log("xxxxxxxxxxxxxx", data);
       setElements(data);
       setTotalPages(Math.ceil(total / itemsPerPage));
     } catch (error) {

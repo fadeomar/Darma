@@ -4,15 +4,16 @@ export interface CodeElement {
   id: string;
   title: string;
   description: string;
+  shortDescription: string | null;
   html: string;
-  css: string;
-  js?: string | undefined;
+  css: string | null;
+  js: string | null;
   tags: string[];
   mainCategory: string[];
   secondaryCategory: string[];
-  deleted?: boolean | undefined;
-  createdAt?: string;
-  updatedAt?: string;
+  deleted: boolean;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export interface CreateCodeElement {
@@ -20,8 +21,9 @@ export interface CreateCodeElement {
   title?: string;
   description?: string;
   html?: string;
-  css?: string;
-  js?: string | undefined;
+  css?: string | null;
+  shortDescription?: string | null;
+  js?: string | null | undefined;
   tags?: string[];
   mainCategory?: string[];
   secondaryCategory?: string[];
@@ -36,9 +38,9 @@ export interface Category {
 }
 
 export interface ElementFormProps {
-  formData: Partial<CodeElement>;
-  selectedMainCategories: DropdownOption[]; // Still an array since isMulti is true
-  selectedSecondaryCategories: DropdownOption[]; // Still an array since isMulti is true
+  formData: Partial<CodeElement> | CreateCodeElement;
+  selectedMainCategories: DropdownOption[];
+  selectedSecondaryCategories: DropdownOption[];
   categories: { name: string }[];
   onSubmit: (e: React.FormEvent) => void;
   onInputChange: (

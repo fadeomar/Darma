@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { MultiValue, SingleValue } from "react-select";
 import categoriesData from "@/data/category.json";
-import { CodeElement } from "@/types";
+import { CodeElement, CreateCodeElement } from "@/types";
 import ElementList from "./ElementList";
 import ElementForm from "./ElementForm";
 import { DropdownOption } from "@/components/Dropdown";
@@ -35,6 +35,9 @@ export default function ElementsPage() {
   >([]);
   const [selectedSecondaryCategories, setSelectedSecondaryCategories] =
     useState<DropdownOption[]>([]);
+  const [currentPage, setCurrentPage] = useState(1); // Track current page
+  const [totalPages, setTotalPages] = useState(1); // Track total pages
+  const itemsPerPage = 6; // Items per page
 
   const categories = categoriesData.categories;
 
@@ -42,9 +45,12 @@ export default function ElementsPage() {
   useEffect(() => {
     const fetchElements = async () => {
       try {
-        const response = await fetch("/api/elements");
-        const data = await response.json();
+        const response = await fetch(
+          `/api/elements?page=${currentPage}&pageSize=${itemsPerPage}&search=${searchQuery}`
+        );
+        const { data, total } = await response.json();
         setElements(data);
+        setTotalPages(Math.ceil(total / itemsPerPage)); // Calculate total pages
       } catch (error) {
         console.error("Failed to fetch elements:", error);
       } finally {
@@ -53,27 +59,31 @@ export default function ElementsPage() {
     };
 
     fetchElements();
-  }, []);
+  }, [currentPage, searchQuery]); // Refetch when currentPage or searchQuery changes
+
+  // Handle search input change
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+    setCurrentPage(1); // Reset to the first page when searching
+  };
 
   // Category handlers
   const handleMainCategoryChange = (
     newValue: MultiValue<DropdownOption> | SingleValue<DropdownOption>
-    // _actionMeta: ActionMeta<DropdownOption> // Renamed to _actionMeta to silence unused var warning
   ) => {
-    const selectedOptions = newValue as MultiValue<DropdownOption>; // Safe cast since isMulti={true}
+    const selectedOptions = newValue as MultiValue<DropdownOption>;
     const selectedValues = selectedOptions.map((option) => option.value);
-    setSelectedMainCategories([...selectedOptions]); // Spread to convert readonly to mutable
+    setSelectedMainCategories([...selectedOptions]);
     setFormData((prev) => ({ ...prev, mainCategory: selectedValues }));
     setSelectedSecondaryCategories([]);
   };
 
   const handleSecondaryCategoryChange = (
     newValue: MultiValue<DropdownOption> | SingleValue<DropdownOption>
-    // _actionMeta: ActionMeta<DropdownOption> // Renamed to _actionMeta to silence unused var warning
   ) => {
-    const selectedOptions = newValue as MultiValue<DropdownOption>; // Safe cast since isMulti={true}
+    const selectedOptions = newValue as MultiValue<DropdownOption>;
     const selectedValues = selectedOptions.map((option) => option.value);
-    setSelectedSecondaryCategories([...selectedOptions]); // Spread to convert readonly to mutable
+    setSelectedSecondaryCategories([...selectedOptions]);
     setFormData((prev) => ({ ...prev, secondaryCategory: selectedValues }));
   };
 
@@ -101,7 +111,21 @@ export default function ElementsPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    const element: CreateCodeElement = {
+      id: formData.id || "some-default-id", // Provide defaults if needed
+      title: formData.title || "", // Ensure required fields are filled
+      description: formData.description || "",
+      html: formData.html || "",
+      css: formData.css || "",
+      js: formData.js || "",
+      tags: formData.tags || [],
+      mainCategory: formData.mainCategory || [],
+      secondaryCategory: formData.secondaryCategory || [],
+      shortDescription: formData.shortDescription,
+      deleted: false,
+      createdAt: undefined,
+      updatedAt: undefined,
+    };
     const url = formData.id ? `/api/elements/${formData.id}` : "/api/elements";
     const method = formData.id ? "PUT" : "POST";
 
@@ -109,7 +133,7 @@ export default function ElementsPage() {
       const response = await fetch(url, {
         method,
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(element),
       });
 
       if (response.ok) {
@@ -189,6 +213,11 @@ export default function ElementsPage() {
     setShowCreateForm(!showCreateForm);
   };
 
+  // Handle page change
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
   // Filtering
   const filteredElements = elements.filter(
     (element) =>
@@ -259,10 +288,13 @@ export default function ElementsPage() {
           searchQuery={searchQuery}
           editingElementId={formData.id}
           previewedElement={previewedElement}
-          onSearchChange={(e) => setSearchQuery(e.target.value)}
           onEdit={handleEdit}
           onDelete={handleDeleteClick}
           onPreview={setPreviewedElement}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onSearchChange={handleSearchChange} // Use the new search handler
+          onPageChange={handlePageChange}
         />
       )}
     </div>

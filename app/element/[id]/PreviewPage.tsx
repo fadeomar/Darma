@@ -1,11 +1,11 @@
-// app/preview/[id]/page.tsx
+// components/PreviewPage.tsx
 "use client";
 import React, { useState, useEffect } from "react";
-import { useParams } from "next/navigation";
 import BackButton from "@/components/BackButton";
 import CodeEditor from "@/components/CodeEditor";
 import ResizableContainer from "@/components/ResizableContainer";
 import { CodeElement } from "@/types";
+import { useParams } from "next/navigation";
 
 const MetadataCard = ({
   title,
@@ -22,46 +22,48 @@ const MetadataCard = ({
   </div>
 );
 
-export default function PreviewPage() {
-  const [element, setElement] = useState<CodeElement | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+export default function PreviewPage({
+  initialElement,
+  error: initialError,
+}: {
+  initialElement: CodeElement | null;
+  error?: string;
+}) {
+  const [element, setElement] = useState<CodeElement | null>(initialElement);
+  const [isLoading, setIsLoading] = useState(!initialElement && !initialError);
+  const [error, setError] = useState<string | null>(initialError || null);
+
   const [containerWidth, setContainerWidth] = useState<number | null>(null);
-  const params = useParams();
-  const id = params.id as string; // Type assertion since useParams returns { [key: string]: string }
-  const [htmlCode, setHtmlCode] = useState("");
-  const [cssCode, setCssCode] = useState("");
-  const [jsCode, setJsCode] = useState("");
+  const { id } = useParams<{ id: string }>();
+  const [htmlCode, setHtmlCode] = useState(element?.html || "");
+  const [cssCode, setCssCode] = useState(element?.css || "");
+  const [jsCode, setJsCode] = useState(element?.js || "");
   const [activeTab, setActiveTab] = useState("html");
 
   useEffect(() => {
-    const fetchElement = async () => {
-      if (!id) {
-        setError("No ID provided");
-        setIsLoading(false);
-        return;
-      }
-
-      try {
-        const response = await fetch(`/api/elements/${id}`);
-        if (!response.ok) {
-          throw new Error("Failed to fetch element");
+    if (!initialElement && !initialError) {
+      const fetchElement = async () => {
+        try {
+          const response = await fetch(`/api/elements/${id}`);
+          if (!response.ok) {
+            throw new Error("Failed to fetch element");
+          }
+          const data: CodeElement = await response.json();
+          setElement(data);
+          setHtmlCode(data.html);
+          if (data?.css) setCssCode(data.css);
+          if (data.js) setJsCode(data.js);
+        } catch (err) {
+          console.error("Failed to fetch element:", err);
+          setError("An error occurred while fetching the element");
+        } finally {
+          setIsLoading(false);
         }
-        const data: CodeElement = await response.json();
-        setElement(data);
-        setHtmlCode(data.html);
-        setCssCode(data.css || "");
-        setJsCode(data.js || "");
-      } catch (err) {
-        console.error("Failed to fetch element:", err);
-        setError("An error occurred while fetching the element");
-      } finally {
-        setIsLoading(false);
-      }
-    };
+      };
 
-    fetchElement();
-  }, [id]);
+      fetchElement();
+    }
+  }, [id, initialElement, initialError]);
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import elements1 from "../data/elements.json";
 import { searchFunction } from "../utils/search";
 import { getGradientColor } from "../utils";
 import categories from "../data/category.json";
@@ -16,10 +15,15 @@ interface Category {
 }
 
 export default function HomePage() {
+  const [elements, setElements] = useState<CodeElement[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
   const [selectedMainCats, setSelectedMainCats] = useState<string[]>([]);
   const [selectedSecCats, setSelectedSecCats] = useState<string[]>([]);
+  const [currentPage, setCurrentPage] = useState(1); // Track current page
+  const [totalPages, setTotalPages] = useState(1); // Track total pages
+  const itemsPerPage = 6; // Items per page
 
   // Debounce search input
   useEffect(() => {
@@ -27,10 +31,32 @@ export default function HomePage() {
     return () => clearTimeout(timer);
   }, [search]);
 
+  // Fetch paginated elements
+  useEffect(() => {
+    const fetchElements = async () => {
+      try {
+        const response = await fetch(
+          `/api/elements?page=${currentPage}&pageSize=${itemsPerPage}&search=${debouncedSearch}`
+        );
+        const { data, total } = await response.json();
+        setElements(data);
+        setTotalPages(Math.ceil(total / itemsPerPage)); // Calculate total pages
+      } catch (error) {
+        console.error("Failed to fetch elements:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchElements();
+  }, [currentPage, debouncedSearch]); // Refetch when currentPage changes
+
+  if (isLoading) return <div>Loading...</div>;
+
   const mainCategories = categories.categories as Category[];
 
   const { exactMatches, relatedMatches } = searchFunction({
-    elements: elements1.elements as CodeElement[],
+    elements,
     searchText: debouncedSearch,
     selectedMainCats,
     selectedSecCats,
@@ -50,6 +76,11 @@ export default function HomePage() {
     if (!selectedMainCats.includes(mainCat)) {
       setSelectedMainCats((prev) => [...prev, mainCat]);
     }
+  };
+
+  // Handle page change
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
   };
 
   return (
@@ -173,6 +204,7 @@ export default function HomePage() {
           </div>
         ))}
       </div>
+
       {/* Updated Results Grid */}
       <div className="max-w-7xl mx-auto">
         {exactMatches.length > 0 && (
@@ -182,8 +214,10 @@ export default function HomePage() {
             </h3>
             <CardsPagination
               elements={exactMatches}
-              itemsPerPage={6}
               itemsByRow={2}
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
             />
           </>
         )}
@@ -195,8 +229,10 @@ export default function HomePage() {
             </h3>
             <CardsPagination
               elements={relatedMatches}
-              itemsPerPage={6}
               itemsByRow={2}
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
             />
           </>
         )}

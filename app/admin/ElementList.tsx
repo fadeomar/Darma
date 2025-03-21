@@ -12,6 +12,9 @@ interface ElementListProps {
   onEdit: (element: CodeElement) => void;
   onDelete: (id: string) => void;
   onPreview: (element: CodeElement | null) => void;
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
 }
 
 export default function ElementList({
@@ -23,6 +26,9 @@ export default function ElementList({
   onEdit,
   onDelete,
   onPreview,
+  currentPage,
+  totalPages,
+  onPageChange,
 }: ElementListProps) {
   return (
     <>
@@ -55,7 +61,9 @@ export default function ElementList({
 
       <CardsPagination
         elements={elements}
-        itemsPerPage={6}
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={onPageChange}
         renderElement={(element: CodeElement) => (
           <div
             key={element.id}

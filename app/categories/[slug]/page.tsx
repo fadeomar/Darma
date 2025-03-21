@@ -1,73 +1,65 @@
 import { notFound } from "next/navigation";
 import categoriesData from "@/data/category.json";
-import { CodeElement } from "@/types";
-import CategoryPageClient from "./CategoryPageClient";
+import { Metadata } from "next";
+import CategoryClientPage from "./CategoryPageClient";
 
-async function fetchElementsByCategory(
-  categoryName: string,
-  page: number,
-  pageSize: number,
-  isMainCategory: boolean
-) {
-  try {
-    const baseUrl = process.env.VERCEL_URL || "http://localhost:3000";
-    const url = `${baseUrl}/api/search?${
-      isMainCategory ? "mainCat" : "secCat"
-    }=${categoryName}&page=${page}&pageSize=${pageSize}`;
-    const response = await fetch(url);
-    const { data, total } = await response.json();
-    return { elements: data as CodeElement[], total };
-  } catch (error) {
-    console.error("Failed to fetch elements:", error);
-    return { elements: [], total: 0 };
+// Generate static paths for all categories
+export async function generateStaticParams() {
+  return categoriesData.categories.map((category) => ({
+    slug: category.name,
+  }));
+}
+
+// Generate dynamic metadata for each category
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const resolvedParams = await params; // Await the params Promise
+  const slug = resolvedParams.slug;
+  const category = categoriesData.categories.find((c) => c.name === slug);
+
+  if (!category) {
+    return {
+      title: "Category Not Found",
+      description: "The requested category does not exist.",
+    };
   }
+
+  return {
+    title: `${category.name} Code Snippets | YourSite`,
+    description: `Browse ${category.name} code components and snippets. ${category.description}`,
+    alternates: {
+      canonical: `https://yoursite.com/categories/${slug}`,
+    },
+    openGraph: {
+      title: `${category.name} Code Components | YourSite`,
+      description: `Collection of ${category.name} code snippets and reusable components`,
+      images: [{ url: `/og-images/${slug}.jpg` }],
+    },
+    keywords: [
+      `${category.name} code`,
+      `${category.name} components`,
+      `${category.name} snippets`,
+      ...category.types,
+    ],
+  };
 }
 
 export default async function CategoryPage({
   params,
-  searchParams,
 }: {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  const { slug } = await params;
-  const resolvedSearchParams = await searchParams;
-  const pageParam = resolvedSearchParams.page;
+  const resolvedParams = await params; // Await the params Promise
 
-  // Handle the case where pageParam could be string, string[], or undefined
-  const pageValue = Array.isArray(pageParam)
-    ? pageParam[0] // Take the first value if it's an array
-    : pageParam; // Use it directly if it's a string or undefined
+  const slug = resolvedParams.slug;
+  const category = categoriesData.categories.find((c) => c.name === slug);
 
-  const currentPage = pageValue ? parseInt(pageValue as string, 10) : 1;
-
-  // Find the main or secondary category
-  const mainCategory = categoriesData.categories.find((c) => c.name === slug);
-  const secondaryCategory = categoriesData.categories.find((c) =>
-    c.types.includes(slug)
-  );
-
-  if (!mainCategory && !secondaryCategory) return notFound();
-
-  const isMainCategory = !!mainCategory; // Determine if it's a main category
-
-  const currentCategory = secondaryCategory || mainCategory!;
-
-  // Fetch elements for the category
-  const { elements, total } = await fetchElementsByCategory(
-    slug,
-    currentPage,
-    6,
-    isMainCategory
-  );
+  if (!category) return notFound();
 
   return (
-    <CategoryPageClient
-      slug={slug}
-      currentPage={currentPage}
-      elements={elements}
-      totalPages={Math.ceil(total / 6)}
-      categoryDescription={currentCategory.description}
-    />
+    <CategoryClientPage categories={categoriesData.categories} slug={slug} />
   );
 }

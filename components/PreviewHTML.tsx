@@ -1,14 +1,24 @@
 // components/PreviewHTML.tsx
-import DOMPurify from "dompurify";
+"use client";
+import { useEffect, useState } from "react";
 
 interface PreviewHTMLProps {
   html: string; // HTML content to render
   className?: string; // Optional className for styling
 }
+const DOMPurify =
+  typeof window !== "undefined" ? (await import("dompurify")).default : null;
 
 const PreviewHTML = ({ html, className = "" }: PreviewHTMLProps) => {
+  const [sanitizedHTML, setSanitizedHTML] = useState("");
   // Sanitize the HTML content to prevent XSS attacks
-  const sanitizedHTML = DOMPurify.sanitize(html);
+  useEffect(() => {
+    // Ensure this only runs on the client
+    if (DOMPurify) {
+      const clean = DOMPurify.sanitize(html);
+      setSanitizedHTML(clean);
+    }
+  }, [html]);
 
   return (
     <div

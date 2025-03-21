@@ -1,22 +1,22 @@
+// app/categories/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import categoriesData from "@/data/category.json";
 import { Metadata } from "next";
+import { Suspense } from "react"; // Import Suspense
 import CategoryClientPage from "./CategoryPageClient";
 
-// Generate static paths for all categories
 export async function generateStaticParams() {
   return categoriesData.categories.map((category) => ({
     slug: category.name,
   }));
 }
 
-// Generate dynamic metadata for each category
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const resolvedParams = await params; // Await the params Promise
+  const resolvedParams = await params;
   const slug = resolvedParams.slug;
   const category = categoriesData.categories.find((c) => c.name === slug);
 
@@ -52,14 +52,15 @@ export default async function CategoryPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  const resolvedParams = await params; // Await the params Promise
-
+  const resolvedParams = await params;
   const slug = resolvedParams.slug;
   const category = categoriesData.categories.find((c) => c.name === slug);
 
   if (!category) return notFound();
 
   return (
-    <CategoryClientPage categories={categoriesData.categories} slug={slug} />
+    <Suspense fallback={<div>Loading category content...</div>}>
+      <CategoryClientPage categories={categoriesData.categories} slug={slug} />
+    </Suspense>
   );
 }

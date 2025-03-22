@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { CodeElement, Category } from "@/types";
 import CardsPagination from "@/components/CardsPagination";
@@ -15,17 +15,13 @@ interface CategoryClientPageProps {
 export default function CategoryClientPage({
   categories,
   slug,
-  preSelectedSecCat,
 }: CategoryClientPageProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [search, setSearch] = useState(searchParams.get("q") || "");
-  const [selectedSecCats, setSelectedSecCats] = useState<string[]>(
-    preSelectedSecCat
-      ? [preSelectedSecCat]
-      : searchParams.getAll("secCat") || []
-  );
+
+  // Local state for real-time input updates
+  const [localSearch, setLocalSearch] = useState(searchParams.get("q") || "");
   const [elements, setElements] = useState<CodeElement[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
@@ -33,64 +29,97 @@ export default function CategoryClientPage({
   const itemsPerPage = 6;
 
   const currentCategory = categories.find((c) => c.name === slug);
+  const selectedSecCats = useMemo(
+    () => searchParams.getAll("secCat"),
+    [searchParams]
+  );
+
+  // Debounce URL updates for search input
+  useEffect(() => {
+    const debounceTimer = setTimeout(() => {
+      const params = new URLSearchParams(searchParams.toString());
+      if (localSearch.trim()) {
+        params.set("q", localSearch);
+      } else {
+        params.delete("q");
+      }
+      params.delete("page"); // Reset page when search changes
+      router.replace(`${pathname}?${params.toString()}`);
+    }, 500);
+
+    return () => clearTimeout(debounceTimer);
+  }, [localSearch, router, pathname, searchParams]);
+
+  // Reset to first page when filters or search change
+  const q = searchParams.get("q");
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [q, selectedSecCats]);
 
   // Fetch elements from the API
   const fetchElements = useCallback(async () => {
     try {
       const params = new URLSearchParams();
+
       params.set("mainCat", slug);
-      if (search) params.set("q", search);
+      if (q) params.set("q", q);
       selectedSecCats.forEach((c) => params.append("secCat", c));
       params.set("page", currentPage.toString());
       params.set("pageSize", itemsPerPage.toString());
 
       const response = await fetch(`/api/search?${params.toString()}`);
-      const { elements, total } = await response.json();
-      setElements(elements);
+      const { elements: newElements, total } = await response.json();
+
+      // Update elements only if they changed
+      setElements((prev) =>
+        JSON.stringify(prev) === JSON.stringify(newElements)
+          ? prev
+          : newElements
+      );
       setTotalPages(Math.ceil(total / itemsPerPage));
     } catch (error) {
       console.error("Failed to fetch elements:", error);
     } finally {
       setIsLoading(false);
     }
-  }, [search, selectedSecCats, currentPage, itemsPerPage, slug]);
+  }, [slug, q, selectedSecCats, currentPage]);
 
-  // Update URL with search and filter parameters
-  const updateURL = useCallback(() => {
-    const params = new URLSearchParams();
-    if (search) params.set("q", search);
-    selectedSecCats.forEach((c) => params.append("secCat", c));
-
-    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
-  }, [search, selectedSecCats, router, pathname]);
-
-  useEffect(() => {
-    const timeout = setTimeout(updateURL, 300);
-    return () => clearTimeout(timeout);
-  }, [updateURL]);
-
+  // Trigger fetch when dependencies change
   useEffect(() => {
     fetchElements();
   }, [fetchElements]);
 
-  // Handle page change
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-  };
-
-  if (isLoading) return <div>Loading...</div>;
-
+  // Handle category filter selection
   const handleSelectSecCat = (type: string) => {
-    if (!currentCategory?.types.includes(type)) return; // Validate subcategory
-    setSelectedSecCats((prev) =>
-      prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type]
-    );
+    const newParams = new URLSearchParams(searchParams.toString());
+    const currentSecCats = newParams.getAll("secCat");
+
+    if (currentSecCats.includes(type)) {
+      newParams.delete("secCat", type);
+    } else {
+      newParams.append("secCat", type);
+    }
+
+    router.replace(`${pathname}?${newParams.toString()}`);
   };
+
+  // Loading state
+  if (isLoading)
+    return (
+      <div className="min-h-screen bg-gray-50 p-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="animate-pulse space-y-4">
+            <div className="h-8 bg-gray-200 rounded w-1/4"></div>
+            <div className="h-12 bg-gray-200 rounded-xl"></div>
+            <div className="h-6 bg-gray-200 rounded w-2/3"></div>
+          </div>
+        </div>
+      </div>
+    );
 
   return (
     <>
       <div className="min-h-screen bg-gray-50 p-8">
-        {/* Back Button and Header */}
         <div className="max-w-7xl mx-auto mb-8">
           <div className="flex items-center gap-4 mb-6">
             <button
@@ -104,13 +133,13 @@ export default function CategoryClientPage({
             </h1>
           </div>
 
-          {/* Search Input */}
+          {/* Search Input with local state */}
           <div className="relative mb-6">
             <input
               type="text"
               placeholder={`Search in ${currentCategory?.name}...`}
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              value={localSearch}
+              onChange={(e) => setLocalSearch(e.target.value)}
               className="w-full px-6 py-4 rounded-xl shadow-sm border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-lg"
             />
           </div>
@@ -132,20 +161,19 @@ export default function CategoryClientPage({
             ))}
           </div>
 
-          {/* Category Description */}
           {currentCategory?.description && (
             <p className="text-gray-600 mb-6">{currentCategory.description}</p>
           )}
         </div>
 
-        {/* Results Grid */}
+        {/* Results */}
         <div className="max-w-7xl mx-auto">
           {elements.length > 0 ? (
             <CardsPagination
               elements={elements}
               currentPage={currentPage}
               totalPages={totalPages}
-              onPageChange={handlePageChange}
+              onPageChange={setCurrentPage}
               itemsByRow={3}
             />
           ) : (

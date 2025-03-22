@@ -77,6 +77,7 @@ export default async function CategoryPage({
   return (
     <Suspense fallback={<div>Loading category content...</div>}>
       <CategoryClientPage
+        key={slug}
         categories={categoriesData.categories}
         slug={slug}
         preSelectedSecCat={preSelectedSecCat}

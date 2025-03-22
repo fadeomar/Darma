@@ -30,10 +30,9 @@ const Sidebar: React.FC = () => {
     return types.some((type) => pathname === `/categories/${type}`);
   };
 
-  // Check if a secondary category is active based on the URL's secCat parameter
+  // Check if a secondary category is active (supports multiple secCat values)
   const isSecCatActive = (secCatName: string) => {
-    const secCats = searchParams.getAll("secCat");
-    return secCats.includes(secCatName);
+    return searchParams.getAll("secCat").includes(secCatName);
   };
 
   return (
@@ -105,18 +104,21 @@ const Sidebar: React.FC = () => {
                   >
                     <ul className="pl-6 mt-2 space-y-2">
                       {category.types.map((type) => {
-                        const typeActive =
-                          pathname === `/categories/${type}` ||
-                          isSecCatActive(type);
+                        const typeActive = isSecCatActive(type);
                         return (
                           <li key={type}>
                             <Link
                               href={{
                                 pathname: `/categories/${category.name}`,
                                 query: {
-                                  secCat: type,
+                                  ...Object.fromEntries(searchParams.entries()), // Keep existing secCat values
+                                  secCat: [
+                                    ...searchParams.getAll("secCat"),
+                                    type,
+                                  ], // Ensure multiple secCats work
                                 },
                               }}
+                              replace
                             >
                               <div
                                 className={`relative p-2 rounded-lg text-sm transition-all duration-200 ${

@@ -6,6 +6,7 @@ import { getGradientColor } from "../utils";
 import categories from "../data/category.json";
 import { CodeElement } from "@/types";
 import CardsPagination from "@/components/CardsPagination";
+import { useRouter } from "next/navigation";
 
 import "./homepage_style.css";
 
@@ -30,26 +31,43 @@ export default function HomePage() {
     const timer = setTimeout(() => setDebouncedSearch(search), 300);
     return () => clearTimeout(timer);
   }, [search]);
-
+  const router = useRouter();
   // Fetch paginated elements
   useEffect(() => {
     const fetchElements = async () => {
+      let response: Response | undefined; // Declare res outside try block
       try {
-        const response = await fetch(
+        response = await fetch(
           `/api/elements?page=${currentPage}&pageSize=${itemsPerPage}&search=${debouncedSearch}`
         );
         const { data, total } = await response.json();
+        if (!response.ok) {
+          // Check if data.error exists, fallback to generic message
+          const errorMsg = data?.error || "An unexpected error occurred";
+          throw new Error(errorMsg);
+        }
         setElements(data);
         setTotalPages(Math.ceil(total / itemsPerPage)); // Calculate total pages
-      } catch (error) {
-        console.error("Failed to fetch elements:", error);
+      } catch (error: unknown) {
+        // Type narrowing for error
+        const errorMessage =
+          error instanceof Error ? error.message : "Unknown error occurred";
+        console.error("Fetch Error:", errorMessage);
+
+        // Redirect to 500 page for server errors
+        if (
+          (response && response.status === 500) ||
+          errorMessage.includes("Server has closed")
+        ) {
+          router.push("/500");
+        }
       } finally {
         setIsLoading(false);
       }
     };
 
     fetchElements();
-  }, [currentPage, debouncedSearch]); // Refetch when currentPage changes
+  }, [currentPage, debouncedSearch, router]); // Refetch when currentPage changes
 
   if (isLoading) return <div>Loading...</div>;
 

@@ -13,12 +13,11 @@ export async function GET(request: Request): Promise<
   | NextResponse<{ error: string }>
 > {
   const { searchParams } = new URL(request.url);
-  const page = parseInt(searchParams.get("page") || "1", 10); // Default to page 1
-  const pageSize = parseInt(searchParams.get("pageSize") || "6", 10); // Default to 6 items per page
-  const searchQuery = searchParams.get("search") || ""; // Get search query
+  const page = parseInt(searchParams.get("page") || "1", 10);
+  const pageSize = parseInt(searchParams.get("pageSize") || "6", 10);
+  const searchQuery = searchParams.get("search") || "";
 
   try {
-    // Fetch the total number of active elements (for pagination)
     const total = await prisma.element.count({
       where: {
         deleted: false,
@@ -30,7 +29,6 @@ export async function GET(request: Request): Promise<
       },
     });
 
-    // Fetch paginated elements (with search filter)
     const elements = await prisma.element.findMany({
       where: {
         deleted: false,
@@ -40,8 +38,8 @@ export async function GET(request: Request): Promise<
           { tags: { hasSome: [searchQuery] } },
         ],
       },
-      skip: (page - 1) * pageSize, // Skip items from previous pages
-      take: pageSize, // Limit the number of items per page
+      skip: (page - 1) * pageSize,
+      take: pageSize,
     });
 
     return NextResponse.json({
@@ -52,10 +50,12 @@ export async function GET(request: Request): Promise<
     });
   } catch (error) {
     console.error("Error fetching elements:", error);
-    return NextResponse.json(
-      { error: "Failed to fetch elements" },
-      { status: 500 }
-    );
+    // Ensure the error response is always an object with an 'error' property
+    const errorMessage =
+      error instanceof Error ? error.message : "Failed to fetch elements";
+    const errorResponse = { error: errorMessage };
+    console.log("API Error Response:", errorResponse);
+    return NextResponse.json({ error: errorMessage }, { status: 500 });
   }
 }
 

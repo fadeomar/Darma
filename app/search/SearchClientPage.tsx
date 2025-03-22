@@ -45,8 +45,8 @@ export default function SearchClientPage({
       params.set("pageSize", itemsPerPage.toString());
 
       const response = await fetch(`/api/search?${params.toString()}`);
-      const { data, total } = await response.json();
-      setElements(data);
+      const { elements, total } = await response.json();
+      setElements(elements);
       setTotalPages(Math.ceil(total / itemsPerPage)); // Calculate total pages
     } catch (error) {
       console.error("Failed to fetch elements:", error);

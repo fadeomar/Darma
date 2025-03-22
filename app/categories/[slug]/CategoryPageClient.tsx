@@ -9,18 +9,22 @@ import CategoryStructuredData from "./CategoryStructuredData";
 interface CategoryClientPageProps {
   categories: Category[];
   slug: string;
+  preSelectedSecCat?: string | null;
 }
 
 export default function CategoryClientPage({
   categories,
   slug,
+  preSelectedSecCat,
 }: CategoryClientPageProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [search, setSearch] = useState(searchParams.get("q") || "");
   const [selectedSecCats, setSelectedSecCats] = useState<string[]>(
-    searchParams.getAll("secCat") || []
+    preSelectedSecCat
+      ? [preSelectedSecCat]
+      : searchParams.getAll("secCat") || []
   );
   const [elements, setElements] = useState<CodeElement[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -41,9 +45,8 @@ export default function CategoryClientPage({
       params.set("pageSize", itemsPerPage.toString());
 
       const response = await fetch(`/api/search?${params.toString()}`);
-      const { data, total } = await response.json();
-      console.log("xxxxxxxxxxxxxx", data);
-      setElements(data);
+      const { elements, total } = await response.json();
+      setElements(elements);
       setTotalPages(Math.ceil(total / itemsPerPage));
     } catch (error) {
       console.error("Failed to fetch elements:", error);
@@ -77,6 +80,13 @@ export default function CategoryClientPage({
 
   if (isLoading) return <div>Loading...</div>;
 
+  const handleSelectSecCat = (type: string) => {
+    if (!currentCategory?.types.includes(type)) return; // Validate subcategory
+    setSelectedSecCats((prev) =>
+      prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type]
+    );
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 p-8">
       {/* Back Button and Header */}
@@ -109,13 +119,7 @@ export default function CategoryClientPage({
           {currentCategory?.types.map((type) => (
             <button
               key={type}
-              onClick={() => {
-                setSelectedSecCats((prev) =>
-                  prev.includes(type)
-                    ? prev.filter((t) => t !== type)
-                    : [...prev, type]
-                );
-              }}
+              onClick={() => handleSelectSecCat(type)}
               className={`px-4 py-2 rounded-full ${
                 selectedSecCats.includes(type)
                   ? "bg-blue-500 text-white"

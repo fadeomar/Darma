@@ -46,8 +46,22 @@ function findTagBySlug(slug: string) {
   return null;
 }
 
-const isValidSlug = (slug: string) => true || slug;
-
+const isValidSlug = (slug: string) => {
+  const allCategories = categoriesArr.categories.map((c) =>
+    generateSlug(c.name)
+  );
+  const allSubcategories = categoriesArr.categories.flatMap((c) =>
+    c.types.map((t) => generateSlug(t))
+  );
+  const allTags = elementsArr.elements.flatMap((e) =>
+    e.tags.map((t) => generateSlug(t))
+  );
+  return (
+    allCategories.includes(slug) ||
+    allSubcategories.includes(slug) ||
+    allTags.includes(slug)
+  );
+};
 export async function generateStaticParams() {
   const categories = categoriesArr.categories; // data fetching here
   const tags = await getTags();

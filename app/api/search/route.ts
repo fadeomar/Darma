@@ -1,89 +1,62 @@
+import { Prisma } from "@prisma/client";
 import { NextResponse } from "next/server";
 import prisma from "../../../lib/prisma";
-import { CodeElement } from "@/types";
 
-export async function GET(request: Request): Promise<
-  | NextResponse<{
-      data: CodeElement[];
-      page: number;
-      pageSize: number;
-      total: number;
-    }>
-  | NextResponse<{ error: string }>
-> {
+export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const page = parseInt(searchParams.get("page") || "1", 10); // Default to page 1
-  const pageSize = parseInt(searchParams.get("pageSize") || "6", 10); // Default to 6 items per page
-  const searchQuery = searchParams.get("q") || ""; // Search query
-  const mainCats = searchParams.getAll("mainCat"); // Selected main categories
-  const secCats = searchParams.getAll("secCat"); // Selected secondary categories
+  const page = parseInt(searchParams.get("page") || "1");
+  const pageSize = parseInt(searchParams.get("pageSize") || "6");
+  const searchQuery = searchParams.get("q") || "";
+  const mainCats = searchParams.getAll("mainCat").filter(Boolean); // Use getAll for arrays
+  const secCats = searchParams.getAll("secCat").filter(Boolean); // Use getAll for arrays
 
-  try {
-    // Fetch elements based on search query and filters
-    const elements = await prisma.element.findMany({
-      where: {
-        deleted: false,
-        AND: [
-          {
-            OR: [
-              { title: { contains: searchQuery, mode: "insensitive" } },
-              { description: { contains: searchQuery, mode: "insensitive" } },
-              { tags: { hasSome: [searchQuery] } },
-            ],
-          },
-          {
-            OR: [
-              mainCats.length === 0
-                ? {}
-                : { mainCategory: { hasSome: mainCats } },
-              secCats.length === 0
-                ? {}
-                : { secondaryCategory: { hasSome: secCats } },
-            ],
-          },
-        ],
-      },
-      skip: (page - 1) * pageSize, // Skip items from previous pages
-      take: pageSize, // Limit the number of items per page
-    });
+  // Build the andConditions array
+  const andConditions: Prisma.ElementWhereInput[] = [];
 
-    // Fetch the total number of matching elements
-    const total = await prisma.element.count({
-      where: {
-        deleted: false,
-        AND: [
-          {
-            OR: [
-              { title: { contains: searchQuery, mode: "insensitive" } },
-              { description: { contains: searchQuery, mode: "insensitive" } },
-              { tags: { hasSome: [searchQuery] } },
-            ],
+  if (searchQuery) {
+    andConditions.push({
+      OR: [
+        {
+          title: {
+            contains: searchQuery,
+            mode: "insensitive" as Prisma.QueryMode,
           },
-          {
-            OR: [
-              mainCats.length === 0
-                ? {}
-                : { mainCategory: { hasSome: mainCats } },
-              secCats.length === 0
-                ? {}
-                : { secondaryCategory: { hasSome: secCats } },
-            ],
+        },
+        {
+          description: {
+            contains: searchQuery,
+            mode: "insensitive" as Prisma.QueryMode,
           },
-        ],
-      },
+        },
+        { tags: { hasSome: [searchQuery] } },
+      ],
     });
-
-    return NextResponse.json({
-      data: elements,
-      page,
-      pageSize,
-      total,
-    });
-  } catch (error) {
-    console.error("Error fetching elements:", error);
-    return NextResponse.json(
-      { error: "Failed to fetch elements" },
-      { status: 500 }
-    );
   }
+
+  // Handle mainCats as an array
+  if (mainCats.length > 0) {
+    andConditions.push({ mainCategory: { hasSome: mainCats } });
+  }
+
+  // Handle secCats as an array
+  if (secCats.length > 0) {
+    andConditions.push({ secondaryCategory: { hasSome: secCats } });
+  }
+
+  // Define the where clause
+  const where: Prisma.ElementWhereInput = {
+    deleted: false,
+    ...(andConditions.length > 0 && { AND: andConditions }),
+  };
+
+  // Execute the Prisma query
+  const elements = await prisma.element.findMany({
+    where,
+    skip: (page - 1) * pageSize,
+    take: pageSize,
+  });
+
+  const total = await prisma.element.count({ where });
+
+  return NextResponse.json({ elements, total });
 }

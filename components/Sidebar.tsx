@@ -1,12 +1,13 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { FaArrowRight, FaArrowLeft, FaChevronRight } from "react-icons/fa";
 import catArr from "../data/category.json";
 
 const Sidebar: React.FC = () => {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [openCategories, setOpenCategories] = useState<{
     [key: string]: boolean;
   }>({});
@@ -23,9 +24,16 @@ const Sidebar: React.FC = () => {
     setIsSidebarOpen((prev) => !prev);
   };
 
+  // Check if a main category is active
   const isCategoryActive = (categoryName: string, types: string[]) => {
     if (pathname === `/categories/${categoryName}`) return true;
     return types.some((type) => pathname === `/categories/${type}`);
+  };
+
+  // Check if a secondary category is active based on the URL's secCat parameter
+  const isSecCatActive = (secCatName: string) => {
+    const secCats = searchParams.getAll("secCat");
+    return secCats.includes(secCatName);
   };
 
   return (
@@ -97,10 +105,19 @@ const Sidebar: React.FC = () => {
                   >
                     <ul className="pl-6 mt-2 space-y-2">
                       {category.types.map((type) => {
-                        const typeActive = pathname === `/categories/${type}`;
+                        const typeActive =
+                          pathname === `/categories/${type}` ||
+                          isSecCatActive(type);
                         return (
                           <li key={type}>
-                            <Link href={`/categories/${type}`}>
+                            <Link
+                              href={{
+                                pathname: `/categories/${category.name}`,
+                                query: {
+                                  secCat: type,
+                                },
+                              }}
+                            >
                               <div
                                 className={`relative p-2 rounded-lg text-sm transition-all duration-200 ${
                                   typeActive

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { searchFunction } from "../utils/search";
 import { getGradientColor } from "../utils";
 import categories from "../data/category.json";
 import { CodeElement } from "@/types";
@@ -37,16 +36,21 @@ export default function HomePage() {
     const fetchElements = async () => {
       let response: Response | undefined; // Declare res outside try block
       try {
+        // response = await fetch(
+        //   `/api/elements?page=${currentPage}&pageSize=${itemsPerPage}&search=${debouncedSearch}`
+        // );
         response = await fetch(
-          `/api/elements?page=${currentPage}&pageSize=${itemsPerPage}&search=${debouncedSearch}`
+          `/api/search?page=${currentPage}&pageSize=${itemsPerPage}&q=${debouncedSearch}&mainCat=${selectedMainCats.join(
+            ","
+          )}&secCat=${selectedSecCats.join(",")}`
         );
-        const { data, total } = await response.json();
+        const { elements, total } = await response.json();
         if (!response.ok) {
           // Check if data.error exists, fallback to generic message
-          const errorMsg = data?.error || "An unexpected error occurred";
+          const errorMsg = elements?.error || "An unexpected error occurred";
           throw new Error(errorMsg);
         }
-        setElements(data);
+        setElements(elements);
         setTotalPages(Math.ceil(total / itemsPerPage)); // Calculate total pages
       } catch (error: unknown) {
         // Type narrowing for error
@@ -67,18 +71,11 @@ export default function HomePage() {
     };
 
     fetchElements();
-  }, [currentPage, debouncedSearch, router]); // Refetch when currentPage changes
+  }, [currentPage, debouncedSearch, router, selectedMainCats, selectedSecCats]); // Refetch when currentPage changes
 
   if (isLoading) return <div>Loading...</div>;
 
   const mainCategories = categories.categories as Category[];
-
-  const { exactMatches, relatedMatches } = searchFunction({
-    elements,
-    searchText: debouncedSearch,
-    selectedMainCats,
-    selectedSecCats,
-  });
 
   const handleSelectMainCat = (value: string) => {
     setSelectedMainCats((prev) =>
@@ -225,13 +222,11 @@ export default function HomePage() {
 
       {/* Updated Results Grid */}
       <div className="max-w-7xl mx-auto">
-        {exactMatches.length > 0 && (
+        {elements.length > 0 && (
           <>
-            <h3 className="text-xl font-semibold mb-4 uppercase">
-              {relatedMatches.length ? "Exact Matches" : "Items"}
-            </h3>
+            <h3 className="text-xl font-semibold mb-4 uppercase">Items</h3>
             <CardsPagination
-              elements={exactMatches}
+              elements={elements}
               itemsByRow={2}
               currentPage={currentPage}
               totalPages={totalPages}
@@ -240,22 +235,7 @@ export default function HomePage() {
           </>
         )}
 
-        {relatedMatches.length > 0 && (
-          <>
-            <h3 className="text-xl font-semibold mb-4 uppercase">
-              Related Matches
-            </h3>
-            <CardsPagination
-              elements={relatedMatches}
-              itemsByRow={2}
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPageChange={handlePageChange}
-            />
-          </>
-        )}
-
-        {exactMatches.length === 0 && relatedMatches.length === 0 && (
+        {elements.length === 0 && (
           <div className="text-center py-12 text-gray-500 uppercase">
             No elements found matching your criteria
           </div>

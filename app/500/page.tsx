@@ -187,3 +187,5 @@ export default function Custom500() {
     </div>
   );
 }
+
+export const dynamic = "force-static";

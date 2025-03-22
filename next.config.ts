@@ -10,6 +10,8 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+
+  output: "standalone", // Ensure correct build output
 };
 
 export default nextConfig;

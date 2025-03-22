@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { FaArrowRight, FaArrowLeft, FaChevronRight } from "react-icons/fa";
@@ -37,7 +37,7 @@ const Sidebar: React.FC = () => {
   };
 
   return (
-    <>
+    <Suspense fallback={<div>Loading side...</div>}>
       {/* Toggle button */}
       <button
         className="fixed top-4 left-4 z-50 p-2 text-white bg-indigo-700 rounded-full hover:bg-indigo-600 transition-colors"
@@ -142,7 +142,7 @@ const Sidebar: React.FC = () => {
           </ul>
         </div>
       </div>
-    </>
+    </Suspense>
   );
 };
 

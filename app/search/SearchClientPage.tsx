@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback, Suspense } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { CodeElement, Category } from "@/types";
 import "../homepage_style.css";
@@ -107,7 +107,7 @@ export default function SearchClientPage({
   };
 
   return (
-    <Suspense fallback={<div>Loading side...</div>}>
+    <>
       <div className="min-h-screen bg-gray-50 p-8">
         {/* Search Header */}
         <div className="max-w-9xl mx-auto mb-2">
@@ -249,6 +249,6 @@ export default function SearchClientPage({
           )}
         </div>
       </div>
-    </Suspense>
+    </>
   );
 }

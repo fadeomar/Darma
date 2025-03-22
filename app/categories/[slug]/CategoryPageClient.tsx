@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback, Suspense } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { CodeElement, Category } from "@/types";
 import CardsPagination from "@/components/CardsPagination";
@@ -88,7 +88,7 @@ export default function CategoryClientPage({
   };
 
   return (
-    <Suspense fallback={<div>page Loading...</div>}>
+    <>
       <div className="min-h-screen bg-gray-50 p-8">
         {/* Back Button and Header */}
         <div className="max-w-7xl mx-auto mb-8">
@@ -158,6 +158,6 @@ export default function CategoryClientPage({
           <CategoryStructuredData category={currentCategory} />
         )}
       </div>
-    </Suspense>
+    </>
   );
 }

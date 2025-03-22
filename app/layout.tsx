@@ -14,10 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased`}>
-        <div className="flex">
+      <body className="antialiased">
+        <div className="flex min-h-screen">
           <Sidebar />
-          <main className="flex-1 p-2">{children}</main>
+          <main className="flex-1 p-2 md:p-6">{children}</main>
         </div>
       </body>
     </html>

@@ -2,75 +2,119 @@
   "categories": [
     {
       "name": "ui-elements",
-      "description": "Collection of reusable UI components.",
-
+      "description": "Reusable UI components for modern web design. From buttons to modals, build interfaces fast with these HTML, CSS, and JS snippets.",
       "types": [
         "buttons",
         "cards",
         "navigation",
         "forms-inputs",
         "modals-popups",
-        "loaders-spinners"
+        "loaders-spinners",
+        "tooltips",
+        "toggles-switches",
+        "accordions",
+        "sliders"
       ]
     },
     {
       "name": "text-effects",
-      "description": "Collection of reusable UI components.",
-
+      "description": "Eye-catching text animations to elevate your site. Explore hover effects, typing animations, and more with CSS and JS magic.",
       "types": [
         "typing",
         "hover",
         "animated-text",
         "loading-text",
-        "distortions"
+        "distortions",
+        "scroll-triggered",
+        "gradient-text",
+        "3d-text"
       ]
     },
     {
       "name": "games",
-      "description": "Collection of reusable UI components.",
-
-      "types": ["mini-games", "click-based", "physics-games", "canvas-games"]
+      "description": "Fun, interactive mini-games built with JS and canvas. Perfect for learning or adding playful features to your projects.",
+      "types": [
+        "mini-games",
+        "click-based",
+        "physics-games",
+        "canvas-games",
+        "puzzle-games",
+        "multiplayer-demos"
+      ]
     },
     {
       "name": "canvas-projects",
-      "description": "Collection of reusable UI components.",
-
-      "types": ["particles", "drawing", "animations", "visualizers"]
+      "description": "Dynamic visuals powered by HTML5 canvas. Create particles, animations, and interactive art with these JS-driven examples.",
+      "types": [
+        "particles",
+        "drawing",
+        "animations",
+        "visualizers",
+        "games",
+        "charts"
+      ]
     },
     {
       "name": "shapes",
-      "description": "Collection of reusable UI components.",
-
-      "types": ["css-art", "3d-shapes", "clip-path-svg", "animated-shapes"]
+      "description": "Creative shape designs using CSS and SVG. Craft 3D effects, clip-path art, and animated forms for stunning visuals.",
+      "types": [
+        "css-art",
+        "3d-shapes",
+        "clip-path-svg",
+        "animated-shapes",
+        "morphing-shapes",
+        "shadow-effects"
+      ]
     },
     {
       "name": "backgrounds",
-      "description": "Collection of reusable UI components.",
-
+      "description": "Stylish, dynamic backgrounds to set the mood. Animate gradients, add interactivity, or glitch it up with CSS and JS.",
       "types": [
         "animated-bg",
         "glitch-distortion",
         "interactive",
-        "gradient-blurred"
+        "gradient-blurred",
+        "parallax",
+        "video-bg"
       ]
     },
     {
       "name": "loaders",
-      "description": "Collection of reusable UI components.",
-
+      "description": "Smooth, engaging loading animations for any site. Mix shapes, motion, and themes with these CSS and JS creations.",
       "types": [
         "Basic Shapes & Styles",
         "Motion & Animation Types",
         "Thematic & Fun Loaders",
         "Progress & Status Indicators",
         "Shape-Specific Loaders",
-        "Unique Mechanics"
+        "Unique Mechanics",
+        "skeleton-loaders",
+        "micro-animations"
       ]
     },
     {
       "name": "Apps",
-      "description": "Collection of reusable UI components.",
-      "types": ["basic", "click-based", "generators"]
+      "description": "Handy mini-apps built with HTML, CSS, and JS. From calculators to widgets, these tools solve real-world problems.",
+      "types": [
+        "basic",
+        "click-based",
+        "generators",
+        "calculators",
+        "todo-lists",
+        "weather-widgets"
+      ]
+    },
+    {
+      "name": "svg",
+      "description": "Scalable vector graphics for lightweight web magic. Animate icons, craft illustrations, or visualize data with SVG and JS.",
+      "types": [
+        "icons",
+        "illustrations",
+        "animations",
+        "interactive-svg",
+        "data-visualization",
+        "patterns"
+      ]
     }
   ]
 }

@@ -26,10 +26,14 @@ const getInitialData = async (searchParams: SearchParams) => {
   params.set("sort", "createdAt");
   params.set("order", "desc");
 
-  const baseUrl =
-    process.env.NODE_ENV !== "development"
-      ? process.env.VERCEL_URL || process.env.NEXT_PUBLIC_BASE_URL
-      : "http://localhost:3000";
+  let baseUrl = "";
+  if (process.env.NEXT_PUBLIC_BASE_URL) {
+    baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  } else if (process.env.VERCEL_URL) {
+    baseUrl = process.env.VERCEL_URL;
+  } else {
+    baseUrl = "http://localhost:3000";
+  }
   try {
     const response = await fetch(`${baseUrl}/api/search?${params.toString()}`);
     if (!response.ok) throw new Error(`Fetch failed: ${response.status}`);

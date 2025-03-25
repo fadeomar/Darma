@@ -5,8 +5,16 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: "/element", // The route you don’t have a page for
-        destination: "/search", // The page you want to render
+        source: "/search",
+        destination: "/", // Rewrite /search to home page
+      },
+      {
+        source: "/element",
+        destination: "/", // Rewrite /element to home page
+      },
+      {
+        source: "/search/:slug",
+        destination: "/", // Rewrite /search/[slug] to home page
       },
     ];
   },

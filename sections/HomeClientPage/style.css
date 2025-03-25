@@ -1,0 +1,232 @@
+.category-group {
+  transition: height 0.3s ease;
+}
+
+.category-group:hover .subcategories-container {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.subcategories-container {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 20;
+  width: max-content; /* Allow the dropdown to expand based on content */
+  min-width: 200px; /* Set a minimum width */
+  max-width: 400px; /* Set a maximum width to avoid overly wide dropdowns */
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: visible; /* Ensure content doesn't get clipped */
+}
+
+.subcategories-container button {
+  display: flex;
+  align-items: center; /* Align checkbox and text vertically */
+  gap: 8px; /* Add spacing between checkbox and text */
+  width: 100%; /* Ensure the button takes full width */
+  text-align: left; /* Align text to the left */
+}
+
+.subcategories-container button span {
+  flex-shrink: 0; /* Prevent the checkbox from shrinking */
+}
+
+.category-group:hover {
+  z-index: 30;
+}
+
+/* Grid Layout */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  padding: 16px;
+}
+
+@media (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+input:focus + div {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+.grid-cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.rainbow-border {
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(
+        to right,
+        #ff7e5f,
+        #feb47b,
+        #ffcc70,
+        #6bff6b,
+        #6b83ff,
+        #ff6b6b,
+        #ff7e5f
+      )
+      border-box;
+}
+
+.rainbow-border-large {
+  border: 3px solid transparent;
+  border-radius: 0.75rem;
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(
+        to right,
+        #ff7e5f,
+        #feb47b,
+        #ffcc70,
+        #6bff6b,
+        #6b83ff,
+        #ff6b6b,
+        #ff7e5f
+      )
+      border-box;
+}
+
+.rainbow-border-active {
+  border: 3px solid transparent;
+  border-radius: 0.75rem;
+  background: linear-gradient(to right, #fff, #f9fafb) padding-box,
+    linear-gradient(
+        to right,
+        #ff7e5f,
+        #feb47b,
+        #ffcc70,
+        #6bff6b,
+        #6b83ff,
+        #ff6b6b,
+        #ff7e5f,
+        #ff7e5f,
+        #feb47b,
+        #ffcc70,
+        #6bff6b,
+        #6b83ff,
+        #ff6b6b,
+        #ff7e5f /* Double the colors for a seamless loop */
+      )
+      border-box;
+  background-size: 200% 100%; /* Stretch the gradient wider */
+  animation: rainbowFlow 1.5s linear infinite; /* Slower for smoothness */
+}
+
+.rainbow-border-active:focus {
+  border-color: transparent;
+}
+
+@keyframes rainbowFlow {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%; /* Shift the gradient fully */
+  }
+}
+/* styles.css */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checkbox-input {
+  display: none;
+}
+
+.checkbox-custom {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid transparent;
+  border-radius: 0.25rem;
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(
+        to right,
+        #ff7e5f,
+        #feb47b,
+        #ffcc70,
+        #6bff6b,
+        #6b83ff,
+        #ff6b6b,
+        #ff7e5f
+      )
+      border-box;
+  transition: all 0.3s ease;
+}
+
+.checkbox-input:checked + .checkbox-custom {
+  background: linear-gradient(
+    to right,
+    #ff7e5f,
+    #feb47b,
+    #ffcc70,
+    #6bff6b,
+    #6b83ff,
+    #ff6b6b,
+    #ff7e5f
+  );
+}
+
+.checkbox-input:checked + .checkbox-custom::after {
+  content: "✔";
+  display: block;
+  text-align: center;
+  color: white;
+  font-size: 0.75rem;
+}
+
+.border-bottom {
+  background: linear-gradient(
+    to right,
+    #ff0000,
+    /* Red */ #ff7f00,
+    /* Orange */ #ffff00,
+    /* Yellow */ #00ff00,
+    /* Green */ #0000ff,
+    /* Blue */ #4b0082,
+    /* Indigo */ #8b00ff /* Violet */
+  );
+  bottom: -8px;
+  border-radius: 50%;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto auto; /* Let rows size based on content */
+  gap: 10px; /* Optional: Add some spacing */
+}
+
+.search-rainbow-border {
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(
+        to right,
+        #ff0000,
+        #ff7f00,
+        #ffff00,
+        #00ff00,
+        #0000ff,
+        #8b00ff
+      )
+      border-box;
+}
+
+.rounded-focus-ring {
+  --tw-ring-offset-width: 2px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(96 165 250 / 0.5);
+  border-radius: 0.5rem;
+}

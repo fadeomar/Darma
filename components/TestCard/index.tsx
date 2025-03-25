@@ -67,9 +67,13 @@ const Card = ({
         </div>
 
         <div className="card-meta">
-          {element?.mainCategory && element?.mainCategory.length > 1 && (
-            <span className="category">{element.mainCategory[0]}</span>
-          )}
+          {element?.mainCategory &&
+            element?.mainCategory.length > 0 &&
+            element?.mainCategory.map((name: string, id: number) => (
+              <span key={name + id} className="category mr-2">
+                {name}
+              </span>
+            ))}
           <div className="tags">
             {element?.tags &&
               element?.tags.length > 1 &&

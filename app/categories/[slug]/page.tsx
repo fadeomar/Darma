@@ -1,86 +1,47 @@
-// app/categories/[slug]/page.tsx
-import { notFound } from "next/navigation";
-import categoriesData from "@/data/category.json";
 import { Metadata } from "next";
-import { Suspense } from "react"; // Import Suspense
-import CategoryClientPage from "./CategoryPageClient";
+import prisma from "@/lib/prisma";
+import CategoryClient from "./CategoryClient";
 
-export async function generateStaticParams() {
-  const params = categoriesData.categories.flatMap((category) => [
-    { slug: category.name }, // Main category
-    ...category.types.map((type) => ({ slug: type })), // Secondary categories
-  ]);
-  return params;
+interface Props {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ search?: string; secCats?: string }>;
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
-  const resolvedParams = await params;
-  const slug = resolvedParams.slug;
-  const category = categoriesData.categories.find(
-    (c) => c.name === slug || c.types.includes(slug)
-  );
-
-  if (!category) {
-    return {
-      title: "Category Not Found",
-      description: "The requested category does not exist.",
-    };
-  }
+// Metadata for SEO
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
 
   return {
-    title: `${category.name} Code Snippets | YourSite`,
-    description: `Browse ${category.name} code components and snippets. ${category.description}`,
-    alternates: {
-      canonical: `https://yoursite.com/categories/${slug}`,
-    },
-    openGraph: {
-      title: `${category.name} Code Components | YourSite`,
-      description: `Collection of ${category.name} code snippets and reusable components`,
-      images: [{ url: `/og-images/${slug}.jpg` }],
-    },
-    keywords: [
-      `${category.name} code`,
-      `${category.name} components`,
-      `${category.name} snippets`,
-      ...category.types,
-    ],
+    title: `Category: ${slug} | MyApp`,
+    description: `Explore items under the ${slug} category.`,
   };
 }
 
-export default async function CategoryPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const resolvedParams = await params;
-  const slug = resolvedParams.slug;
-  // Check if slug is a main category
-  let category = categoriesData.categories.find((c) => c.name === slug);
-  let preSelectedSecCat: string | null = null;
+export default async function CategoryPage({ params, searchParams }: Props) {
+  let isLoading = true;
+  const pp = await params;
+  const { slug } = pp;
+  const ss = await searchParams;
+  const searchQuery = ss.search || "";
+  const selectedSecCats = ss.secCats ? ss.secCats?.split(",") : [];
 
-  // If not a main category, check if it's a secondary category
-  if (!category) {
-    for (const cat of categoriesData.categories) {
-      if (cat.types.includes(slug)) {
-        category = cat; // Found the parent main category
-        preSelectedSecCat = slug; // Pre-select this secondary category
-        break;
-      }
-    }
-  }
-  if (!category) return notFound();
-
+  // Fetch all elements for the main category
+  const elements = await prisma.element.findMany({
+    where: {
+      mainCategory: {
+        has: slug, // Ensure the item belongs to this main category
+      },
+      deleted: false, // Ignore deleted items
+    },
+  });
+  isLoading = false;
   return (
-    <Suspense fallback={<div>Loading category content...</div>}>
-      <CategoryClientPage
-        categories={categoriesData.categories}
-        slug={slug}
-        preSelectedSecCat={preSelectedSecCat}
-      />
-    </Suspense>
+    <CategoryClient
+      elements={elements}
+      searchQuery={searchQuery}
+      selectedSecCats={selectedSecCats}
+      mainCategory={slug}
+      isLoading={isLoading}
+    />
   );
 }

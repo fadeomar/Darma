@@ -1,63 +1,62 @@
-// app/page.tsx (Server Component)
+// app/page.tsx
 import HomeClientPage from "@/sections/HomeClientPage";
+import { CodeElement } from "@/types";
 
 interface SearchParams {
   q?: string;
   mainCat?: string | string[];
   secCat?: string | string[];
   page?: string;
+  exactMatch?: string;
 }
 
-async function getInitialData(searchParams: Promise<SearchParams>) {
-  const resolvedParams = await searchParams;
+const normalizeParam = (param: string | string[] | undefined): string[] =>
+  param ? (Array.isArray(param) ? param : [param]) : [];
+
+const getInitialData = async (searchParams: SearchParams) => {
   const params = new URLSearchParams();
+  const { q, mainCat, secCat, page = "1", exactMatch = "false" } = searchParams;
 
-  if (resolvedParams.q) params.set("q", resolvedParams.q);
-
-  const mainCats = Array.isArray(resolvedParams.mainCat)
-    ? resolvedParams.mainCat
-    : [resolvedParams.mainCat].filter((c): c is string => !!c);
-  mainCats.forEach((c) => params.append("mainCat", c));
-
-  const secCats = Array.isArray(resolvedParams.secCat)
-    ? resolvedParams.secCat
-    : [resolvedParams.secCat].filter((c): c is string => !!c);
-  secCats.forEach((c) => params.append("secCat", c));
-
-  const page = resolvedParams.page || "1";
+  if (q?.trim()) params.set("q", q.trim());
+  normalizeParam(mainCat).forEach((c) => params.append("mainCat", c));
+  normalizeParam(secCat).forEach((c) => params.append("secCat", c));
   params.set("page", page);
   params.set("pageSize", "6");
+  params.set("exactMatch", exactMatch);
+  params.set("sort", "createdAt");
+  params.set("order", "desc");
 
+  const baseUrl =
+    process.env.NODE_ENV !== "development"
+      ? process.env.VERCEL_URL || process.env.NEXT_PUBLIC_BASE_URL
+      : "http://localhost:3000";
   try {
-    let baseUrl = "";
-    if (process.env.NEXT_PUBLIC_BASE_URL) {
-      baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-    } else if (process.env.VERCEL_URL) {
-      baseUrl = process.env.VERCEL_URL;
-    } else {
-      baseUrl = "http://localhost:3000";
-    }
     const response = await fetch(`${baseUrl}/api/search?${params.toString()}`);
-    return await response.json();
+    if (!response.ok) throw new Error(`Fetch failed: ${response.status}`);
+    const data = await response.json();
+    return {
+      elements: data.elements as CodeElement[],
+      total: data.total as number,
+    };
   } catch (error) {
-    console.error("Server fetch error:", error);
+    console.error("Fetch error:", error);
     return { elements: [], total: 0 };
   }
-}
+};
 
 export default async function HomePage({
   searchParams,
 }: {
   searchParams: Promise<SearchParams>;
 }) {
-  const resolvedParams = await searchParams; // Resolve the Promise here
-  const { elements, total } = await getInitialData(searchParams);
+  const resolvedParams = await searchParams;
+  const { elements, total } = await getInitialData(resolvedParams);
 
   return (
     <HomeClientPage
       serverElements={elements}
       serverTotal={total}
-      searchParams={resolvedParams} // Pass resolved object instead of Promise
+      // searchParams={resolvedParams}
     />
   );
 }

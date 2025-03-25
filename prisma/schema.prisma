@@ -27,6 +27,11 @@ model Element {
   deleted           Boolean  @default(false)
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
+
+  // Valid GIN indexes for array fields
+  @@index([mainCategory], type: Gin)
+  @@index([secondaryCategory], type: Gin)
+  @@index([tags], type: Gin)
 }
 
 model User {

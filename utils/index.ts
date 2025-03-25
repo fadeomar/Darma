@@ -17,12 +17,12 @@ export const truncateText = (text: string, maxLength: number) => {
 
 export const getGradientColor = (index: number) => {
   const gradients = [
-    { from: "#6366F1", to: "#A855F7" }, // Indigo to Purple
-    { from: "#3B82F6", to: "#60A5FA" }, // Blue to Light Blue
-    { from: "#10B981", to: "#34D399" }, // Green to Light Green
-    { from: "#F59E0B", to: "#FBBF24" }, // Amber to Yellow
-    { from: "#EF4444", to: "#F87171" }, // Red to Light Red
-    { from: "#8B5CF6", to: "#C4B5FD" }, // Violet to Light Violet
+    { from: "#A5A7F9", to: "#D4A5FC" }, // Lighter Indigo to Lighter Purple
+    { from: "#8AB6FA", to: "#A3CFFF" }, // Lighter Blue to Lighter Light Blue
+    { from: "#4ADCA6", to: "#73E8C0" }, // Lighter Green to Lighter Light Green
+    { from: "#FABE5A", to: "#FDD171" }, // Lighter Amber to Lighter Yellow
+    { from: "#F78787", to: "#FCA6A6" }, // Lighter Red to Lighter Light Red
+    { from: "#B592FA", to: "#DED5FE" }, // Lighter Violet to Lighter Light Violet
   ];
   return gradients[index % gradients.length];
 };

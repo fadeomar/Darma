@@ -6,7 +6,7 @@ import { CodeElement } from "@/types";
 import CategoryStructuredData from "./CategoryStructuredData";
 import categoriesData from "@/data/category.json";
 import CardsPagination from "@/components/CardsPagination";
-import { normalizeParam } from "../../page";
+import normalizeParam from "@/utils/normalizeParam";
 import SkeletonGrid from "@/components/SkeletonGrid";
 import { CheckCircle, Search } from "lucide-react";
 import { iconMap } from "@/components/iconMap";

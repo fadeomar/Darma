@@ -2,7 +2,7 @@
 import HomeClientPage from "@/sections/HomeClientPage";
 import { CodeElement } from "@/types";
 
-interface SearchParams {
+export interface SearchParams {
   q?: string;
   mainCat?: string | string[];
   secCat?: string | string[];
@@ -10,10 +10,24 @@ interface SearchParams {
   exactMatch?: string;
 }
 
-const normalizeParam = (param: string | string[] | undefined): string[] =>
-  param ? (Array.isArray(param) ? param : [param]) : [];
+export const normalizeParam = (
+  param: string | string[] | undefined
+): string[] => (param ? (Array.isArray(param) ? param : [param]) : []);
 
-const getInitialData = async (searchParams: SearchParams) => {
+const getBaseUrl = () => {
+  let baseUrl = "";
+  if (process.env.NEXT_PUBLIC_BASE_URL) {
+    baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  } else if (process.env.VERCEL_URL) {
+    baseUrl = process.env.VERCEL_URL;
+  } else {
+    baseUrl = "http://localhost:3000";
+  }
+
+  return baseUrl;
+};
+
+const fetchElements = async (searchParams: SearchParams) => {
   const params = new URLSearchParams();
   const { q, mainCat, secCat, page = "1", exactMatch = "false" } = searchParams;
 
@@ -26,14 +40,7 @@ const getInitialData = async (searchParams: SearchParams) => {
   params.set("sort", "createdAt");
   params.set("order", "desc");
 
-  let baseUrl = "";
-  if (process.env.NEXT_PUBLIC_BASE_URL) {
-    baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-  } else if (process.env.VERCEL_URL) {
-    baseUrl = process.env.VERCEL_URL;
-  } else {
-    baseUrl = "http://localhost:3000";
-  }
+  const baseUrl = getBaseUrl();
   try {
     const response = await fetch(`${baseUrl}/api/search?${params.toString()}`);
     if (!response.ok) throw new Error(`Fetch failed: ${response.status}`);
@@ -54,13 +61,7 @@ export default async function HomePage({
   searchParams: Promise<SearchParams>;
 }) {
   const resolvedParams = await searchParams;
-  const { elements, total } = await getInitialData(resolvedParams);
+  const { elements, total } = await fetchElements(resolvedParams);
 
-  return (
-    <HomeClientPage
-      serverElements={elements}
-      serverTotal={total}
-      // searchParams={resolvedParams}
-    />
-  );
+  return <HomeClientPage serverElements={elements} serverTotal={total} />;
 }

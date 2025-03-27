@@ -2,24 +2,6 @@ import { NextResponse } from "next/server";
 import prisma from "../../../../lib/prisma";
 import { CodeElement } from "@/types";
 
-// Adjust the CodeElement type in your types file (e.g., types.ts) to match Prisma
-// It should look something like this:
-// export interface CodeElement {
-//   id: string;
-//   title: string;
-//   description: string;
-//   shortDescription: string | null;  // Changed from string | undefined
-//   html: string;
-//   css: string | null;              // Changed from string
-//   js: string | null;              // Changed from string
-//   tags: string[];
-//   mainCategory: string[];
-//   secondaryCategory: string[];
-//   deleted: boolean;
-//   createdAt: Date;
-//   updatedAt: Date;
-// }
-
 // GET: Fetch a single element by ID
 export async function GET(
   request: Request,
@@ -92,7 +74,7 @@ export async function POST(
 // PUT: Update an existing element
 export async function PUT(
   request: Request,
-  context: { params: Promise<{ id: string }> } // Fixed to use Promise
+  context: { params: Promise<{ id: string }> }
 ): Promise<NextResponse<CodeElement | { error: string }>> {
   const { id } = await context.params;
 
@@ -110,7 +92,6 @@ export async function PUT(
     if (!existingElement) {
       return NextResponse.json({ error: "Element not found" }, { status: 404 });
     }
-
     const updatedElement = await prisma.element.update({
       where: { id },
       data: {
@@ -124,6 +105,7 @@ export async function PUT(
         mainCategory: updates.mainCategory,
         secondaryCategory: updates.secondaryCategory,
         deleted: updates.deleted,
+        reviewed: updates.reviewed, // New field
         updatedAt: new Date(),
       },
     });
@@ -137,10 +119,10 @@ export async function PUT(
     );
   }
 }
-// DELETE: Mark an element as deleted
+
 export async function DELETE(
   request: Request,
-  context: { params: Promise<{ id: string }> } // Fixed to use Promise
+  context: { params: Promise<{ id: string }> }
 ): Promise<NextResponse<{ message: string } | { error: string }>> {
   const { id } = await context.params;
 
@@ -165,11 +147,11 @@ export async function DELETE(
       },
     });
 
-    return NextResponse.json({ message: "Element marked as deleted" });
+    return NextResponse.json({ message: "Element soft deleted successfully" });
   } catch (error) {
-    console.error("Error deleting element:", error);
+    console.error("Error soft deleting element:", error);
     return NextResponse.json(
-      { error: "Failed to delete element" },
+      { error: "Failed to soft delete element" },
       { status: 500 }
     );
   }

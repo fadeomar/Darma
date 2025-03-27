@@ -63,7 +63,6 @@ export async function GET(request: Request): Promise<
 export async function POST(request: Request): Promise<NextResponse<any>> {
   const elementData: Partial<CodeElement> = await request.json();
 
-  // Validate required fields
   if (!elementData.title || !elementData.html) {
     return NextResponse.json(
       { error: "Title and HTML are required" },
@@ -72,7 +71,6 @@ export async function POST(request: Request): Promise<NextResponse<any>> {
   }
 
   try {
-    // Create a new element in the database
     const newElement = await prisma.element.create({
       data: {
         title: elementData.title,
@@ -84,11 +82,11 @@ export async function POST(request: Request): Promise<NextResponse<any>> {
         tags: elementData.tags || [],
         mainCategory: elementData.mainCategory || [],
         secondaryCategory: elementData.secondaryCategory || [],
-        deleted: false, // Default value
+        deleted: false,
+        reviewed: elementData.reviewed || false, // New field
       },
     });
 
-    // Return the newly created element
     return NextResponse.json(newElement, { status: 201 });
   } catch (error) {
     console.error("Error creating element:", error);

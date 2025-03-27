@@ -96,11 +96,20 @@ export default function ElementsPage() {
     });
   };
 
+  const isCheckbox = (target: EventTarget): target is HTMLInputElement =>
+    (target as HTMLInputElement).type === "checkbox";
+
   // Form handlers
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
+    if (isCheckbox(e.target)) {
+      const checked = e.target.checked;
+      console.log({ name, checked });
+      setFormData((prev) => ({ ...prev, [name]: checked }));
+      return;
+    }
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -125,6 +134,7 @@ export default function ElementsPage() {
       deleted: false,
       createdAt: undefined,
       updatedAt: undefined,
+      reviewed: formData.reviewed || false,
     };
     const url = formData.id ? `/api/elements/${formData.id}` : "/api/elements";
     const method = formData.id ? "PUT" : "POST";
@@ -250,7 +260,7 @@ export default function ElementsPage() {
 
       {/* Delete Confirmation Modal */}
       {isDeleteConfirmOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-lg">
             <h3 className="text-lg font-semibold mb-4">Confirm Delete</h3>
             <p>Are you sure you want to delete this element?</p>

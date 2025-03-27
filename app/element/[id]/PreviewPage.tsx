@@ -6,9 +6,10 @@ import CodeEditor from "@/components/CodeEditor";
 import ResizableContainer from "@/components/ResizableContainer";
 import { CodeElement } from "@/types";
 import { useParams } from "next/navigation";
-import PreviewHTML from "@/components/PreviewHTML";
+// import PreviewHTML from "@/components/PreviewHTML";
 import DateBox from "@/components/DateBox";
 import { FiGithub, FiCodepen, FiTwitter, FiLink } from "react-icons/fi";
+import Editor from "@/components/Editor";
 
 const MetadataCard = ({
   title,
@@ -160,7 +161,6 @@ export default function PreviewPage({
               />
             </div>
           </ResizableContainer>
-
           <div className="bg-white rounded-xl shadow-sm border border-gray-200">
             <div className="flex border-b border-gray-200">
               {(["html", "css", "js"] as const).map((tab) => (
@@ -207,7 +207,13 @@ export default function PreviewPage({
             <h3 className="text-lg font-semibold mb-4 text-gray-800">
               Description
             </h3>
-            <PreviewHTML html={element.description} className="max-w-none" />
+            {/* <PreviewHTML html={element.description} className="max-w-none" /> */}
+            <Editor
+              content={element.description}
+              onUpdate={() => {}}
+              className="max-w-none"
+              previewMode={true}
+            />
           </div>
         </div>
 

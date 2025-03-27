@@ -2,6 +2,7 @@ import { CodeElement } from "@/types";
 import CardsPagination from "@/components/CardsPagination";
 import PreviewCard from "@/components/TestCard";
 import CategoryBadge from "@/components/CategoryBadge";
+import { CheckCircle } from "lucide-react";
 // import PreviewHTML from "@/components/PreviewHTML";
 
 interface ElementListProps {
@@ -68,12 +69,18 @@ export default function ElementList({
         renderElement={(element: CodeElement) => (
           <div
             key={element.id}
-            className={`p-4 border rounded shadow-sm ${
+            className={`p-4 relative border rounded shadow-sm ${
               editingElementId === element.id
                 ? "bg-blue-50 border-blue-300"
                 : "bg-white"
             }`}
           >
+            {element.reviewed && (
+              <CheckCircle
+                fill="black"
+                className="absolute -top-1 -right-1 w-8 h-8 text-yellow-500 bg-white rounded-full"
+              />
+            )}
             <h3 className="text-lg font-semibold mb-2">{element.title}</h3>
             <p className="text-gray-600 mb-2">{element.shortDescription}</p>
             {/* <PreviewHTML html={element.description} /> */}

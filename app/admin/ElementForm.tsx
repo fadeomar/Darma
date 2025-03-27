@@ -80,16 +80,6 @@ export default function ElementForm({
         />
       </div>
 
-      {/* <textarea
-        name="description"
-        placeholder="Description"
-        value={formData.description || ""}
-        onChange={onInputChange}
-        className="w-full p-2 border rounded mb-4"
-        rows={3}
-        required
-      /> */}
-
       <div>
         <label htmlFor="description" className="block text-sm font-medium">
           Description
@@ -111,6 +101,21 @@ export default function ElementForm({
         rows={3}
         required
       />
+
+      {/* New Reviewed Checkbox */}
+      <div className="mb-4 flex items-center">
+        <input
+          type="checkbox"
+          name="reviewed"
+          checked={formData.reviewed || false}
+          onChange={onInputChange}
+          className="mr-2"
+        />
+        <label htmlFor="reviewed" className="text-sm font-medium">
+          Reviewed
+        </label>
+      </div>
+
       <div className="space-y-4">
         <div>
           <label className="block mb-2 font-semibold">HTML</label>
@@ -119,7 +124,7 @@ export default function ElementForm({
             code={formData.html || ""}
             setCode={(value) =>
               onInputChange({
-                target: { name: "html", value: value || "" }, // Handle undefined
+                target: { name: "html", value: value || "" },
               } as React.ChangeEvent<HTMLInputElement>)
             }
             language="html"
@@ -133,7 +138,7 @@ export default function ElementForm({
             code={formData.css || ""}
             setCode={(value) =>
               onInputChange({
-                target: { name: "css", value: value || "" }, // Handle undefined
+                target: { name: "css", value: value || "" },
               } as React.ChangeEvent<HTMLInputElement>)
             }
             language="css"
@@ -147,7 +152,7 @@ export default function ElementForm({
             code={formData.js || ""}
             setCode={(value) =>
               onInputChange({
-                target: { name: "js", value: value || "" }, // Handle undefined
+                target: { name: "js", value: value || "" },
               } as React.ChangeEvent<HTMLInputElement>)
             }
             language="javascript"

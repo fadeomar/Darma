@@ -12,6 +12,7 @@ interface SearchComponentProps {
   secCats: string[];
   onCategoryChange: (mainCats: string[], secCats: string[]) => void;
   onSearch: () => void;
+  isLoading: boolean;
 }
 
 const SearchComponent: React.FC<SearchComponentProps> = ({
@@ -23,6 +24,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({
   secCats,
   onCategoryChange,
   onSearch,
+  isLoading,
 }) => {
   return (
     <div className="container mx-auto p-4 max-w-3xl">
@@ -61,6 +63,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({
         mainCats={mainCats}
         secCats={secCats}
         onCategoryChange={onCategoryChange}
+        isLoading={isLoading}
       />
     </div>
   );

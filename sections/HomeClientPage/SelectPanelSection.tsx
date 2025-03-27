@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import categories from "../../data/category.json";
 import { ChevronDown, ChevronUp, CheckCircle, Filter } from "lucide-react";
 import "./style.css";
@@ -10,14 +10,22 @@ interface SelectPanelSectionProps {
   mainCats: string[];
   secCats: string[];
   onCategoryChange: (mainCats: string[], secCats: string[]) => void;
+  isLoading: boolean;
 }
 
 const SelectPanelSection: React.FC<SelectPanelSectionProps> = ({
   mainCats,
   secCats,
   onCategoryChange,
+  isLoading,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  useEffect(() => {
+    if (isLoading === false && isOpen === true) {
+      setIsOpen(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoading]);
 
   const handleMainCatChange = (catName: string) => {
     const newMainCats = mainCats.includes(catName)

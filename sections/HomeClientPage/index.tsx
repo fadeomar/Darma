@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { CodeElement } from "@/types";
 import CardsPagination from "@/components/CardsPagination";
 import SearchComponent from "./SearchComponent";
+import SkeletonGrid from "@/components/SkeletonGrid";
 
 export default function HomeClientPage({
   serverElements,
@@ -60,10 +61,7 @@ export default function HomeClientPage({
       const response = await fetch(`/api/search?${params.toString()}`);
       if (!response.ok) throw new Error("Fetch failed");
       const data = await response.json();
-      console.log("API Response:", data);
       const { elements, total } = data;
-      console.log("Fetched elements:", elements);
-      console.log("Total items:", total);
       setElements(elements);
       setTotalItems(total);
     } catch (error) {
@@ -123,12 +121,13 @@ export default function HomeClientPage({
         secCats={secCats}
         onCategoryChange={handleCategoryChange}
         onSearch={handleSearch}
+        isLoading={isLoading}
       />
 
       <div className="max-w-7xl mx-auto">
         <h3 className="text-xl font-semibold mb-4 uppercase">Items</h3>
         {isLoading ? (
-          <div>Loading...</div>
+          <SkeletonGrid count={9} />
         ) : elements.length > 0 ? (
           <CardsPagination
             elements={elements}

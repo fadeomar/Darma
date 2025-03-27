@@ -2,7 +2,7 @@
 import HomeClientPage from "@/sections/HomeClientPage";
 import { CodeElement } from "@/types";
 
-export interface SearchParams {
+interface SearchParams {
   q?: string;
   mainCat?: string | string[];
   secCat?: string | string[];
@@ -10,9 +10,8 @@ export interface SearchParams {
   exactMatch?: string;
 }
 
-export const normalizeParam = (
-  param: string | string[] | undefined
-): string[] => (param ? (Array.isArray(param) ? param : [param]) : []);
+const normalizeParam = (param: string | string[] | undefined): string[] =>
+  param ? (Array.isArray(param) ? param : [param]) : [];
 
 const normalizeSingleParam = (
   param: string | string[] | undefined

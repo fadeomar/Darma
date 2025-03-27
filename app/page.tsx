@@ -60,14 +60,15 @@ const fetchElements = async (searchParams: SearchParams) => {
 export default async function HomePage({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
+  const resolvedSearchParams = await searchParams;
   const normalizedParams: SearchParams = {
-    q: normalizeSingleParam(searchParams.q),
-    mainCat: searchParams.mainCat,
-    secCat: searchParams.secCat,
-    page: normalizeSingleParam(searchParams.page),
-    exactMatch: normalizeSingleParam(searchParams.exactMatch),
+    q: normalizeSingleParam(resolvedSearchParams.q),
+    mainCat: resolvedSearchParams.mainCat,
+    secCat: resolvedSearchParams.secCat,
+    page: normalizeSingleParam(resolvedSearchParams.page),
+    exactMatch: normalizeSingleParam(resolvedSearchParams.exactMatch),
   };
   const { elements, total } = await fetchElements(normalizedParams);
 

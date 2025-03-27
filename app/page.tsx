@@ -19,11 +19,10 @@ const getBaseUrl = () => {
   if (process.env.NEXT_PUBLIC_BASE_URL) {
     baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   } else if (process.env.VERCEL_URL) {
-    baseUrl = process.env.VERCEL_URL;
+    baseUrl = `https://${process.env.VERCEL_URL}`; // Ensure HTTPS for Vercel
   } else {
     baseUrl = "http://localhost:3000";
   }
-
   return baseUrl;
 };
 
@@ -58,10 +57,9 @@ const fetchElements = async (searchParams: SearchParams) => {
 export default async function HomePage({
   searchParams,
 }: {
-  searchParams: Promise<SearchParams>;
+  searchParams: SearchParams; // No Promise here
 }) {
-  const resolvedParams = await searchParams;
-  const { elements, total } = await fetchElements(resolvedParams);
+  const { elements, total } = await fetchElements(searchParams);
 
   return <HomeClientPage serverElements={elements} serverTotal={total} />;
 }

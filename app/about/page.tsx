@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-
+import Test from "@/sections/Test";
 function AboutPage() {
   const resourceSections = [
     {
@@ -305,6 +305,7 @@ function AboutPage() {
           </div>
         </div>
       </section>
+      <Test />
     </div>
   );
 }

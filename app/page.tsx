@@ -1,15 +1,7 @@
 // app/page.tsx
 import HomeClientPage from "@/sections/HomeClientPage";
-import { CodeElement } from "@/types";
+import { CodeElement, SearchParams } from "@/types";
 import normalizeParam from "@/utils/normalizeParam";
-
-interface SearchParams {
-  q?: string;
-  mainCat?: string | string[];
-  secCat?: string | string[];
-  page?: string;
-  exactMatch?: string;
-}
 
 const normalizeSingleParam = (
   param: string | string[] | undefined

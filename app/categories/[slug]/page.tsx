@@ -2,7 +2,7 @@
 import { Metadata } from "next";
 import prisma from "@/lib/prisma";
 import CategoryClient from "./CategoryClient";
-import { SearchParams } from "../../page";
+import { SearchParams } from "@/types";
 import { Prisma } from "@prisma/client";
 
 interface Props {

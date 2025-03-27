@@ -61,3 +61,11 @@ export interface ElementFormProps {
   onReset: () => void;
   getSecondaryCategoryOptions: () => DropdownOption[];
 }
+
+export interface SearchParams {
+  q?: string;
+  mainCat?: string | string[];
+  secCat?: string | string[];
+  page?: string;
+  exactMatch?: string;
+}

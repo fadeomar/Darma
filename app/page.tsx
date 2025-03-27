@@ -14,12 +14,16 @@ export const normalizeParam = (
   param: string | string[] | undefined
 ): string[] => (param ? (Array.isArray(param) ? param : [param]) : []);
 
+const normalizeSingleParam = (
+  param: string | string[] | undefined
+): string | undefined => (Array.isArray(param) ? param[0] : param);
+
 const getBaseUrl = () => {
   let baseUrl = "";
   if (process.env.NEXT_PUBLIC_BASE_URL) {
     baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   } else if (process.env.VERCEL_URL) {
-    baseUrl = `https://${process.env.VERCEL_URL}`; // Ensure HTTPS for Vercel
+    baseUrl = `https://${process.env.VERCEL_URL}`;
   } else {
     baseUrl = "http://localhost:3000";
   }
@@ -57,9 +61,16 @@ const fetchElements = async (searchParams: SearchParams) => {
 export default async function HomePage({
   searchParams,
 }: {
-  searchParams: SearchParams; // No Promise here
+  searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const { elements, total } = await fetchElements(searchParams);
+  const normalizedParams: SearchParams = {
+    q: normalizeSingleParam(searchParams.q),
+    mainCat: searchParams.mainCat,
+    secCat: searchParams.secCat,
+    page: normalizeSingleParam(searchParams.page),
+    exactMatch: normalizeSingleParam(searchParams.exactMatch),
+  };
+  const { elements, total } = await fetchElements(normalizedParams);
 
   return <HomeClientPage serverElements={elements} serverTotal={total} />;
 }

@@ -1,0 +1,2611 @@
+[
+  {
+    "category": "Learning & Cheatsheets",
+    "items": [
+      {
+        "name": "MDN Web Docs",
+        "url": "https://developer.mozilla.org/",
+        "favIcon": "https://developer.mozilla.org/static/img/favicon144.png",
+        "logo": "https://developer.mozilla.org/static/img/mdn-logo-sm.png",
+        "about": "A comprehensive resource maintained by Mozilla offering detailed documentation, tutorials, and guides for HTML, CSS, and JavaScript. :contentReference[oaicite:0]{index=0}."
+      },
+      {
+        "name": "W3Schools",
+        "url": "https://www.w3schools.com",
+        "favIcon": "https://www.w3schools.com/favicon.ico",
+        "logo": "https://www.w3schools.com/images/w3schools_logo_436_2.png",
+        "about": "A freemium e-learning portal that provides tutorials, interactive code examples, and references for various web development languages including HTML, CSS, and JavaScript. :contentReference[oaicite:1]{index=1}."
+      },
+      {
+        "name": "freeCodeCamp",
+        "url": "https://www.freecodecamp.org",
+        "favIcon": "https://www.freecodecamp.org/news/favicon.ico",
+        "logo": "https://design-style-guide.freecodecamp.org/downloads/fcc_primary_large.svg",
+        "about": "A non-profit interactive learning platform with hundreds of coding challenges and projects that cover HTML, CSS, JavaScript, and more. :contentReference[oaicite:2]{index=2}."
+      },
+      {
+        "name": "The Odin Project",
+        "url": "https://www.theodinproject.com/",
+        "favIcon": "https://www.theodinproject.com/favicon.ico",
+        "logo": "https://www.theodinproject.com/images/odin-logo.svg",
+        "about": "An open-source full-stack curriculum for aspiring web developers that emphasizes hands-on projects and covers HTML, CSS, and JavaScript. :contentReference[oaicite:3]{index=3}."
+      },
+      {
+        "name": "Codecademy",
+        "url": "https://www.codecademy.com/catalog/subject/web-development",
+        "favIcon": "https://www.codecademy.com/favicon.ico",
+        "logo": "https://www.codecademy.com/assets/images/brand/codecademy-logo.png",
+        "about": "An interactive online learning platform offering structured courses in web development topics including HTML, CSS, and JavaScript. :contentReference[oaicite:4]{index=4}."
+      },
+      {
+        "name": "Scrimba",
+        "url": "https://scrimba.com",
+        "favIcon": "https://scrimba.com/favicon.ico",
+        "logo": "https://scrimba.com/static/images/scrimba-logo.png",
+        "about": "Offers interactive screencasts and courses that allow you to pause, edit, and run code—all designed to teach HTML, CSS, and JavaScript in an engaging way."
+      },
+      {
+        "name": "Devhints.io",
+        "url": "https://devhints.io/",
+        "favIcon": "https://devhints.io/favicon.ico",
+        "logo": "https://devhints.io/logo.png",
+        "about": "A collection of concise, easy-to-reference cheat sheets for a variety of languages and tools, including dedicated cheatsheets for HTML, CSS, and JavaScript."
+      },
+      {
+        "name": "OverAPI",
+        "url": "http://overapi.com/",
+        "favIcon": "http://overapi.com/favicon.ico",
+        "logo": "http://overapi.com/logo.png",
+        "about": "Aggregates cheat sheets for many programming languages, providing quick reference material for HTML, CSS, JavaScript, and more."
+      },
+      {
+        "name": "Frontend-Cheat-Sheets (GitHub)",
+        "url": "https://github.com/logeshpaul/Frontend-Cheat-Sheets",
+        "favIcon": "https://github.githubassets.com/favicons/favicon.png",
+        "logo": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+        "about": "A GitHub repository that curates a comprehensive list of cheat sheets for frontend development, covering key aspects of HTML, CSS, and JavaScript."
+      },
+      {
+        "name": "SheCodes Front-end Cheatsheets",
+        "url": "https://www.shecodes.io/cheatsheets/",
+        "favIcon": "https://www.shecodes.io/favicon.ico",
+        "logo": "https://www.shecodes.io/logo.png",
+        "about": "A curated collection of cheatsheets aimed at teaching front-end development skills—including HTML, CSS, and JavaScript—designed especially for women in tech."
+      },
+      {
+        "name": "iLoveCoding HTML & CSS Cheatsheet",
+        "url": "https://ilovecoding.org/blog/htmlcss-cheatsheet",
+        "favIcon": "https://ilovecoding.org/favicon.ico",
+        "logo": "https://ilovecoding.org/logo.png",
+        "about": "Provides structured cheatsheets (available as downloadable PDFs) covering the fundamentals of HTML and CSS to simplify web design and development."
+      },
+      {
+        "name": "web-dev-resources (GitHub)",
+        "url": "https://github.com/iamismile/web-dev-resources",
+        "favIcon": "https://github.githubassets.com/favicons/favicon.png",
+        "logo": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+        "about": "A comprehensive GitHub repository that lists over 150 web development resources—including learning materials, cheatsheets, and tools for HTML, CSS, and JavaScript."
+      },
+      {
+        "name": "MDN HTML Cheat Sheet",
+        "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Solve_HTML_problems/Cheatsheet",
+        "favIcon": "https://developer.mozilla.org/static/img/favicon144.png",
+        "logo": "https://developer.mozilla.org/static/img/mdn-logo-sm.png",
+        "about": "A quick reference guide with ready-to-use HTML code snippets and best practices, designed to help you solve common HTML issues. :contentReference[oaicite:5]{index=5}."
+      },
+      {
+        "name": "Cheatography",
+        "url": "https://cheatography.com/",
+        "favIcon": "https://cheatography.com/favicon.ico",
+        "logo": "https://cheatography.com/assets/img/logo.png",
+        "about": "Offers thousands of downloadable cheat sheets on a wide range of topics, including web development subjects like HTML, CSS, and JavaScript."
+      },
+      {
+        "name": "CSS-Tricks",
+        "url": "https://css-tricks.com/",
+        "favIcon": "https://css-tricks.com/favicon.ico",
+        "logo": "https://css-tricks.com/wp-content/uploads/2018/05/cropped-css-tricks-logo.png",
+        "about": "A popular blog and resource hub for modern CSS techniques, tutorials, and cheat sheets that help developers enhance their styling skills."
+      },
+      {
+        "name": "MDN Learning Area",
+        "url": "https://developer.mozilla.org/en-US/docs/Learn",
+        "favIcon": "https://developer.mozilla.org/static/img/favicon144.png",
+        "logo": "https://developer.mozilla.org/static/img/mdn-logo-sm.png",
+        "about": "A structured learning platform on MDN offering step-by-step tutorials and courses covering HTML, CSS, and JavaScript for learners at various levels."
+      },
+      {
+        "name": "OpenClassrooms",
+        "url": "https://openclassrooms.com/",
+        "favIcon": "https://openclassrooms.com/favicon.ico",
+        "logo": "https://openclassrooms.com/assets/images/logo.svg",
+        "about": "An online education platform offering interactive courses and learning paths in web development and digital skills—including HTML, CSS, and JavaScript."
+      },
+      {
+        "name": "CodePen",
+        "url": "https://codepen.io/",
+        "favIcon": "https://codepen.io/favicon.ico",
+        "logo": "https://blog.codepen.io/wp-content/uploads/2012/06/Button-Full.png",
+        "about": "A social development environment where front-end developers can write, share, and experiment with HTML, CSS, and JavaScript code snippets in real time."
+      },
+      {
+        "name": "DEV Community",
+        "url": "https://dev.to/",
+        "favIcon": "https://dev.to/favicon.ico",
+        "logo": "https://dev.to/assets/logos/dev.to-masthead.png",
+        "about": "A community of developers sharing articles, tutorials, and cheat sheets on web development topics—from HTML and CSS to JavaScript and beyond."
+      },
+      {
+        "name": "CSS Reference by Codrops",
+        "url": "https://tympanus.net/codrops/css_reference/",
+        "favIcon": "https://tympanus.net/codrops/favicon.ico",
+        "logo": "https://tympanus.net/codrops/images/logo.png",
+        "about": "A visual guide featuring detailed examples and code snippets for CSS properties, helping developers quickly recall and implement modern styling techniques."
+      },
+      {
+        "name": "HTML Reference",
+        "url": "https://htmlreference.io/",
+        "favIcon": "https://htmlreference.io/favicon.ico",
+        "logo": "https://htmlreference.io/assets/img/logo.png",
+        "about": "A free online guide to HTML elements and attributes with clear examples and interactive code snippets."
+      },
+      {
+        "name": "CSS Reference",
+        "url": "https://cssreference.io/",
+        "favIcon": "https://cssreference.io/favicon.ico",
+        "logo": "https://cssreference.io/images/logo.png",
+        "about": "A visual guide to CSS properties with live examples and detailed descriptions to help you style web pages effectively."
+      },
+      {
+        "name": "JavaScript.info",
+        "url": "https://javascript.info/",
+        "favIcon": "https://javascript.info/favicon.ico",
+        "logo": "https://javascript.info/img/logo.svg",
+        "about": "An extensive resource covering modern JavaScript with tutorials, examples, and deep dives into key concepts."
+      },
+      {
+        "name": "Git Cheat Sheet by GitHub Education",
+        "url": "https://education.github.com/git-cheat-sheet-education.pdf",
+        "favIcon": "https://github.githubassets.com/favicons/favicon.png",
+        "logo": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+        "about": "A handy printable PDF cheat sheet for Git commands curated by GitHub Education, useful for version control in web development."
+      },
+      {
+        "name": "Smashing Magazine",
+        "url": "https://www.smashingmagazine.com/",
+        "favIcon": "https://www.smashingmagazine.com/favicon.ico",
+        "logo": "https://www.smashingmagazine.com/images/smashing-logo.png",
+        "about": "An influential online magazine offering articles, tutorials, and resources on web design and development, including cheat sheets and best practices."
+      },
+      {
+        "name": "SitePoint",
+        "url": "https://www.sitepoint.com/",
+        "favIcon": "https://www.sitepoint.com/favicon.ico",
+        "logo": "https://www.sitepoint.com/wp-content/uploads/2020/09/sitepoint-logo.png",
+        "about": "A popular platform for web developers and designers offering tutorials, articles, and guides on a wide range of topics including HTML, CSS, and JavaScript."
+      },
+      {
+        "name": "Can I Use",
+        "url": "https://caniuse.com/",
+        "favIcon": "https://caniuse.com/favicon.ico",
+        "logo": "https://caniuse.com/img/logo.svg",
+        "about": "A tool that provides up-to-date browser support tables for front-end web technologies, helping developers make informed decisions about CSS, HTML, and JavaScript features."
+      },
+      {
+        "name": "Chrome DevTools",
+        "url": "https://developer.chrome.com/docs/devtools/",
+        "favIcon": "https://developer.chrome.com/favicon.ico",
+        "logo": "https://developer.chrome.com/docs/devtools/images/logo.png",
+        "about": "An official resource by Google for Chrome Developer Tools, offering tutorials and documentation to help you debug and optimize web pages."
+      },
+      {
+        "name": "CodeSandbox",
+        "url": "https://codesandbox.io/",
+        "favIcon": "https://codesandbox.io/favicon.ico",
+        "logo": "https://codesandbox.io/static/img/logo.svg",
+        "about": "An online code editor and prototyping tool for rapid web development that supports HTML, CSS, and JavaScript."
+      },
+      {
+        "name": "JSFiddle",
+        "url": "https://jsfiddle.net/",
+        "favIcon": "https://jsfiddle.net/favicon.ico",
+        "logo": "https://jsfiddle.net/img/jsfiddle-logo.png",
+        "about": "A popular online playground for testing and sharing HTML, CSS, and JavaScript code snippets."
+      },
+      {
+        "name": "DigitalOcean Community Tutorials",
+        "url": "https://www.digitalocean.com/community/tutorials",
+        "favIcon": "https://www.digitalocean.com/favicon.ico",
+        "logo": "https://www.digitalocean.com/community/tutorials/logo.png",
+        "about": "A comprehensive collection of tutorials and cheat sheets on web development and programming, created by the DigitalOcean community."
+      },
+      {
+        "name": "Git Tower Cheat Sheet",
+        "url": "https://www.git-tower.com/blog/git-cheat-sheet/",
+        "favIcon": "https://www.git-tower.com/favicon.ico",
+        "logo": "https://www.git-tower.com/assets/images/logo/tower-logo.svg",
+        "about": "A well-designed cheat sheet covering essential Git commands and workflows, provided by Git Tower."
+      },
+      {
+        "name": "React Cheat Sheet by Dave Ceddia",
+        "url": "https://daveceddia.com/react-cheat-sheet/",
+        "favIcon": "https://daveceddia.com/favicon.ico",
+        "logo": "https://daveceddia.com/logo.png",
+        "about": "A concise and practical cheat sheet for React covering components, state, hooks, and common patterns in React development."
+      },
+      {
+        "name": "Sass Cheat Sheet",
+        "url": "https://sass-lang.com/guide",
+        "favIcon": "https://sass-lang.com/favicon.ico",
+        "logo": "https://sass-lang.com/assets/img/logos/logo.svg",
+        "about": "The official guide and cheat sheet for Sass, a CSS preprocessor that helps you write maintainable and powerful stylesheets."
+      },
+      {
+        "name": "Bootstrap Cheat Sheet",
+        "url": "https://bootstrap-cheatsheet.themeselection.com/",
+        "favIcon": "https://bootstrap-cheatsheet.themeselection.com/favicon.ico",
+        "logo": "https://bootstrap-cheatsheet.themeselection.com/logo.png",
+        "about": "An interactive and visual cheat sheet for Bootstrap that displays classes, components, and layout options in an easy-to-navigate format."
+      },
+      {
+        "name": "Angular Cheat Sheet",
+        "url": "https://angular.io/guide/cheatsheet",
+        "favIcon": "https://angular.io/assets/images/favicons/favicon.ico",
+        "logo": "https://angular.io/assets/images/logos/angular/angular.svg",
+        "about": "A quick reference guide for Angular framework concepts, components, and syntax to help developers build robust applications."
+      },
+      {
+        "name": "Vue.js Cheat Sheet",
+        "url": "https://vuejs.org/v2/guide/index.html",
+        "favIcon": "https://vuejs.org/images/logo.png",
+        "logo": "https://vuejs.org/images/logo.png",
+        "about": "The official Vue.js documentation includes a concise cheat sheet for core concepts and directives in Vue.js, a progressive JavaScript framework."
+      },
+      {
+        "name": "Ember.js Guides",
+        "url": "https://guides.emberjs.com/release/",
+        "favIcon": "https://emberjs.com/favicon.ico",
+        "logo": "https://emberjs.com/images/ember-logo.png",
+        "about": "Provides comprehensive guides and quick references for Ember.js, an opinionated framework for ambitious web developers."
+      },
+      {
+        "name": "Django Documentation",
+        "url": "https://docs.djangoproject.com/en/stable/",
+        "favIcon": "https://docs.djangoproject.com/en/stable/_static/images/favicon.ico",
+        "logo": "https://docs.djangoproject.com/en/stable/_static/images/django-logo-positive.png",
+        "about": "The official Django documentation serves as an essential reference for learning and implementing Django, a high-level Python web framework."
+      },
+      {
+        "name": "Flask Mega-Tutorial",
+        "url": "https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world",
+        "favIcon": "https://blog.miguelgrinberg.com/favicon.ico",
+        "logo": "https://blog.miguelgrinberg.com/static/img/logo.png",
+        "about": "A comprehensive tutorial series on Flask, a Python microframework for web development, including cheat sheet-style summaries of key concepts."
+      }
+    ]
+  },
+  {
+    "category": "Layout & CSS Generators",
+    "items": [
+      {
+        "name": "Layoutit Grid",
+        "url": "https://grid.layoutit.com",
+        "favIcon": "https://grid.layoutit.com/favicon.ico",
+        "logo": "https://grid.layoutit.com/logo192.png",
+        "description": "Creates interactive CSS grid layouts with drag-and-drop, perfect for designing responsive sites. Visit when starting a new project needing grid setups."
+      },
+      {
+        "name": "CSS Grid Generator",
+        "url": "https://cssgrid-generator.netlify.app",
+        "favIcon": "https://cssgrid-generator.netlify.app/favicon.ico",
+        "logo": "https://cssgrid-generator.netlify.app/logo192.png",
+        "description": "Helps you build CSS grids by visually setting rows and columns, great for quick prototypes. Use it early in development for grid layouts."
+      },
+      {
+        "name": "Flexbox Generator",
+        "url": "https://flexbox.dev",
+        "favIcon": "https://flexbox.dev/favicon.ico",
+        "logo": "https://flexbox.dev/logo.png",
+        "description": "Makes flexbox layouts easy with a visual editor, ideal for responsive designs. Visit when working on flexible, dynamic layouts."
+      },
+      {
+        "name": "CSS Clip-Path Maker",
+        "url": "https://bennettfeely.com/clippy",
+        "favIcon": "https://bennettfeely.com/favicon.ico",
+        "logo": "https://bennettfeely.com/favicon.png",
+        "description": "Lets you create fun clip-path shapes like circles or polygons, perfect for unique image cuts. Use it when you want creative, shaped designs."
+      },
+      {
+        "name": "Fancy Border Radius",
+        "url": "https://9elements.github.io/fancy-border-radius",
+        "favIcon": "https://9elements.github.io/favicon.ico",
+        "logo": "https://9elements.github.io/fancy-border-radius/logo.png",
+        "description": "Generates cool, complex border shapes with eight values, great for decorative edges. Visit for adding flair to buttons or boxes."
+      },
+      {
+        "name": "CSS Gradient",
+        "url": "https://cssgradient.io",
+        "favIcon": "https://cssgradient.io/favicon.ico",
+        "logo": "https://cssgradient.io/images/logo.png",
+        "description": "Creates linear and radial gradients, perfect for colorful backgrounds. Use it when you need vibrant, eye-catching designs."
+      },
+      {
+        "name": "Box Shadow CSS",
+        "url": "https://box-shadow.dev",
+        "favIcon": "https://box-shadow.dev/favicon.ico",
+        "logo": "https://box-shadow.dev/logo.png",
+        "description": "Makes box shadows easy to customize, adding depth to elements like buttons. Visit when styling UI for a 3D look."
+      },
+      {
+        "name": "CSS Triangle Generator",
+        "url": "https://css-triangle.com",
+        "favIcon": "https://css-triangle.com/favicon.ico",
+        "logo": "https://css-triangle.com/logo.png",
+        "description": "Creates CSS triangles for decorations, no images needed. Use it when you need simple shapes for design accents."
+      },
+      {
+        "name": "Neumorphism.io",
+        "url": "https://neumorphism.io",
+        "favIcon": "https://neumorphism.io/favicon.ico",
+        "logo": "https://neumorphism.io/logo.png",
+        "description": "Generates soft, extruded effects for modern UI, great for minimalist designs. Visit when creating sleek, trendy interfaces."
+      },
+      {
+        "name": "Glassmorphism Generator",
+        "url": "https://glassmorphism.com",
+        "favIcon": "https://glassmorphism.com/favicon.ico",
+        "logo": "https://glassmorphism.com/logo.png",
+        "description": "Makes frosted glass effects for UI, adding transparency and blur. Use it for modern, stylish designs needing a glass look."
+      },
+      {
+        "name": "CSS Separator Generator",
+        "url": "https://wweb.dev/resources/css-separator-generator",
+        "favIcon": "https://wweb.dev/favicon.ico",
+        "logo": "https://wweb.dev/logo.png",
+        "description": "Creates decorative lines to divide page sections, perfect for clean layouts. Visit when organizing content with visual breaks."
+      },
+      {
+        "name": "CSS Scrollbar Generator",
+        "url": "https://scrollbar-generator.netlify.app",
+        "favIcon": "https://scrollbar-generator.netlify.app/favicon.ico",
+        "logo": "https://scrollbar-generator.netlify.app/logo.png",
+        "description": "Customizes scrollbars with CSS, enhancing user experience. Use it when you want unique, styled scrollbars for your site."
+      },
+      {
+        "name": "Patternify",
+        "url": "http://www.patternify.com/",
+        "favIcon": "http://www.patternify.com/favicon.ico",
+        "logo": "http://www.patternify.com/logo.png",
+        "description": "Designs pixel-based CSS patterns for backgrounds, lightweight and fun. Visit when creating custom, image-free designs."
+      },
+      {
+        "name": "WAIT! Animate",
+        "url": "https://waitanimate.wstone.uk/",
+        "favIcon": "https://waitanimate.wstone.uk/favicon.ico",
+        "logo": "https://waitanimate.wstone.uk/logo.png",
+        "description": "Adds pauses between animations, making them smoother. Use it for complex animations needing timing control."
+      },
+      {
+        "name": "uiGradients",
+        "url": "https://uigradients.com/",
+        "favIcon": "https://uigradients.com/favicon.ico",
+        "logo": "https://uigradients.com/logo.png",
+        "description": "Offers ready-made color gradients, great for quick design inspiration. Visit when choosing color schemes for your site."
+      },
+      {
+        "name": "Animista",
+        "url": "https://animista.net/",
+        "favIcon": "https://animista.net/favicon.ico",
+        "logo": "https://animista.net/logo.png",
+        "description": "Provides a library of pre-made CSS animations, easy to copy and use. Visit when adding motion to buttons or text."
+      },
+      {
+        "name": "CSSmatic Box Shadow Generator",
+        "url": "https://www.cssmatic.com/box-shadow",
+        "favIcon": "https://www.cssmatic.com/favicon.ico",
+        "logo": "https://www.cssmatic.com/logo.png",
+        "description": "Creates customizable box shadows, adding depth to elements. Use it for UI enhancements like shadowed cards."
+      },
+      {
+        "name": "CSS Portal’s Flexbox Generator",
+        "url": "https://www.cssportal.com/css-flexbox-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png",
+        "description": "Helps build flexbox layouts with a visual editor, great for responsive designs. Visit when working on flexible layouts."
+      },
+      {
+        "name": "Border Radius",
+        "url": "https://border-radius.com/",
+        "favIcon": "https://border-radius.com/favicon.ico",
+        "logo": "https://border-radius.com/logo.png",
+        "description": "Generates rounded corners with CSS, perfect for buttons or boxes. Use it when styling elements with smooth edges."
+      },
+      {
+        "name": "Blob Maker",
+        "url": "https://www.blobmaker.app/",
+        "favIcon": "https://www.blobmaker.app/favicon.ico",
+        "logo": "https://www.blobmaker.app/logo.png",
+        "description": "Creates organic, blob-like shapes with SVG, great for creative backgrounds. Visit for unique, abstract designs."
+      },
+      {
+        "name": "CSS Animation Generator",
+        "url": "https://www.cssportal.com/css-animation-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png",
+        "description": "Makes CSS animations without coding, perfect for adding movement. Visit when you need easy animations for elements."
+      },
+      {
+        "name": "CSS Column Generator",
+        "url": "https://www.cssportal.com/css-column-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png",
+        "description": "Creates multi-column layouts with CSS, great for text organization. Use it when designing magazine-style pages."
+      },
+      {
+        "name": "SmoothShadow",
+        "url": "https://brumm.af/shadows",
+        "favIcon": "https://brumm.af/favicon.ico",
+        "logo": "https://brumm.af/logo.png",
+        "description": "Generates layered smooth box-shadows, adding depth with alpha and blur. Visit for advanced shadow effects in UI design."
+      },
+      {
+        "name": "Keyframes.app",
+        "url": "https://keyframes.app/",
+        "favIcon": "https://keyframes.app/favicon.ico",
+        "logo": "https://keyframes.app/logo.png",
+        "description": "Creates CSS keyframe animations visually, great for complex motions. Use it when designing detailed animations."
+      },
+      {
+        "name": "CSS Filter Generator",
+        "url": "https://cssfiltergenerator.com/",
+        "favIcon": "https://cssfiltergenerator.com/favicon.ico",
+        "logo": "https://cssfiltergenerator.com/logo.png",
+        "description": "Applies filters like blur or grayscale to images, enhancing visuals. Visit for creative image effects."
+      },
+      {
+        "name": "Cubic Bezier",
+        "url": "https://cubic-bezier.com/",
+        "favIcon": "https://cubic-bezier.com/favicon.ico",
+        "logo": "https://cubic-bezier.com/logo.png",
+        "description": "Visualizes and adjusts animation curves, perfect for smooth transitions. Use it for fine-tuning animation timing."
+      },
+      {
+        "name": "CSS Transform Generator",
+        "url": "https://www.cssportal.com/css-transform-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png",
+        "description": "Creates CSS transforms like rotate or scale, great for element animations. Visit when adding movement to elements."
+      },
+      {
+        "name": "Gradient Generator",
+        "url": "https://www.cssmatic.com/gradient-generator",
+        "favIcon": "https://www.cssmatic.com/favicon.ico",
+        "logo": "https://www.cssmatic.com/logo.png",
+        "description": "Makes multi-stop gradients with cross-browser support, perfect for backgrounds. Use it for colorful, dynamic designs."
+      },
+      {
+        "name": "CSS Button Generator",
+        "url": "https://cssbuttongenerator.com/",
+        "favIcon": "https://cssbuttongenerator.com/favicon.ico",
+        "logo": "https://cssbuttongenerator.com/logo.png",
+        "description": "Designs custom buttons with CSS, adding shadows and hover effects. Visit when styling interactive buttons."
+      },
+      {
+        "name": "Fancy Text Generator",
+        "url": "https://www.cssportal.com/fancy-text-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png",
+        "description": "Creates stylish text effects, great for headings. Use it for eye-catching text designs."
+      },
+      {
+        "name": "CSS Tooltip Generator",
+        "url": "https://www.cssportal.com/css-tooltip-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png",
+        "description": "Makes interactive tooltips with CSS, perfect for user guidance. Visit when adding helpful pop-ups."
+      },
+      {
+        "name": "CSS Ribbon Generator",
+        "url": "https://www.cssportal.com/css-ribbon-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png",
+        "description": "Creates decorative ribbons with CSS, great for highlighting content. Use it for adding visual accents."
+      },
+      {
+        "name": "CSS Sprite Generator",
+        "url": "https://css.spritegen.com/",
+        "favIcon": "https://css.spritegen.com/favicon.ico",
+        "logo": "https://css.spritegen.com/logo.png",
+        "description": "Combines images into sprites, reducing load times. Visit when optimizing website performance."
+      },
+      {
+        "name": "CSS Menu Maker",
+        "url": "https://cssmenumaker.com/",
+        "favIcon": "https://cssmenumaker.com/favicon.ico",
+        "logo": "https://cssmenumaker.com/logo.png",
+        "description": "Designs responsive CSS menus, perfect for navigation. Use it when building site menus."
+      },
+      {
+        "name": "CSS Layout Generator",
+        "url": "https://layout.bradwoods.io/",
+        "favIcon": "https://layout.bradwoods.io/favicon.ico",
+        "logo": "https://layout.bradwoods.io/logo.png",
+        "description": "Creates CSS layouts for websites, with previews. Visit for structuring page designs."
+      },
+      {
+        "name": "CSS Grid Layout Generator",
+        "url": "https://www.layoutit.com/grid",
+        "favIcon": "https://www.layoutit.com/favicon.ico",
+        "logo": "https://www.layoutit.com/logo.png",
+        "description": "Builds CSS grid layouts visually, great for responsive designs. Use it for grid-based projects."
+      },
+      {
+        "name": "CSS Text Shadow Generator",
+        "url": "https://cssgenerator.org/text-shadow-css-generator.html",
+        "favIcon": "https://cssgenerator.org/favicon.ico",
+        "logo": "https://cssgenerator.org/logo.png",
+        "description": "Adds multiple shadows to text, enhancing readability. Visit for stylish text effects."
+      },
+      {
+        "name": "CSS Gradient Animator",
+        "url": "https://www.gradient-animator.com/",
+        "favIcon": "https://www.gradient-animator.com/favicon.ico",
+        "logo": "https://www.gradient-animator.com/logo.png",
+        "description": "Animates gradients for dynamic backgrounds, perfect for engaging designs. Use it for animated color transitions."
+      },
+      {
+        "name": "CSS Wave Generator",
+        "url": "https://getwaves.io/",
+        "favIcon": "https://getwaves.io/favicon.ico",
+        "logo": "https://getwaves.io/logo.png",
+        "description": "Creates wave shapes with CSS, great for decorative backgrounds. Visit for adding flowing designs."
+      },
+      {
+        "name": "CSS Pattern Generator",
+        "url": "https://pattern.monster/",
+        "favIcon": "https://pattern.monster/favicon.ico",
+        "logo": "https://pattern.monster/logo.png",
+        "description": "Designs unique CSS patterns, perfect for backgrounds. Use it for custom, image-free designs."
+      },
+      {
+        "name": "CSS Glass Effect Generator",
+        "url": "https://glassgenerator.netlify.app/",
+        "favIcon": "https://glassgenerator.netlify.app/favicon.ico",
+        "logo": "https://glassgenerator.netlify.app/logo.png",
+        "description": "Creates frosted glass effects, great for modern UI. Visit for trendy, transparent designs."
+      },
+      {
+        "name": "CSS Arrow Generator",
+        "url": "https://cssarrowplease.com/",
+        "favIcon": "https://cssarrowplease.com/favicon.ico",
+        "logo": "https://cssarrowplease.com/logo.png",
+        "description": "Makes CSS arrows for decorations, perfect for navigation. Use it for adding directional elements."
+      },
+      {
+        "name": "CSS Circle Generator",
+        "url": "https://css-circlegen.netlify.app/",
+        "favIcon": "https://css-circlegen.netlify.app/favicon.ico",
+        "logo": "https://css-circlegen.netlify.app/logo.png",
+        "description": "Creates CSS circles, great for icons or buttons. Visit for simple, rounded designs."
+      },
+      {
+        "name": "CSS Polygon Generator",
+        "url": "https://css-generators.com/polygon/",
+        "favIcon": "https://css-generators.com/favicon.ico",
+        "logo": "https://css-generators.com/logo.png",
+        "description": "Designs polygon shapes with CSS, perfect for creative layouts. Use it for unique, geometric designs."
+      },
+      {
+        "name": "CSS Wave Animation Generator",
+        "url": "https://css-generators.com/wave/",
+        "favIcon": "https://css-generators.com/favicon.ico",
+        "logo": "https://css-generators.com/logo.png",
+        "description": "Animates wave effects with CSS, great for dynamic backgrounds. Visit for flowing, animated designs."
+      },
+      {
+        "name": "CSS Keyframe Animation Generator",
+        "url": "https://cssanimate.com/",
+        "favIcon": "https://cssanimate.com/favicon.ico",
+        "logo": "https://cssanimate.com/logo.png",
+        "description": "Creates keyframe animations without coding, perfect for motion effects. Use it for adding animations to elements."
+      },
+      {
+        "name": "CSS Flexbox Playground",
+        "url": "https://flexboxfroggy.com/",
+        "favIcon": "https://flexboxfroggy.com/favicon.ico",
+        "logo": "https://flexboxfroggy.com/logo.png",
+        "description": "Learns flexbox through interactive games, great for beginners. Visit when starting with flexbox layouts."
+      },
+      {
+        "name": "CSS Grid Playground",
+        "url": "https://cssgridgarden.com/",
+        "favIcon": "https://cssgridgarden.com/favicon.ico",
+        "logo": "https://cssgridgarden.com/logo.png",
+        "description": "Teaches CSS grid through fun games, perfect for learning. Use it when exploring grid layouts."
+      },
+      {
+        "name": "CSS Gradient Text Generator",
+        "url": "https://cssgradienttext.com/",
+        "favIcon": "https://cssgradienttext.com/favicon.ico",
+        "logo": "https://cssgradienttext.com/logo.png",
+        "description": "Adds gradient colors to text, great for headings. Visit for colorful, stylish text effects."
+      },
+      {
+        "name": "CSS Noise Generator",
+        "url": "https://cssnoise.com/",
+        "favIcon": "https://cssnoise.com/favicon.ico",
+        "logo": "https://cssnoise.com/logo.png",
+        "description": "Creates noise effects with CSS, perfect for textured backgrounds. Use it for unique, grainy designs."
+      },
+      {
+        "name": "CSS Easing Animation Tool",
+        "url": "https://matthewlein.com/tools/ceaser",
+        "favIcon": "https://matthewlein.com/favicon.ico",
+        "logo": "https://matthewlein.com/logo.png",
+        "description": "Visualizes easing functions for animations, great for smooth transitions. Visit for fine-tuning animation curves."
+      },
+      {
+        "name": "CSS Grid Play",
+        "url": "https://cssgridplayground.com/",
+        "favIcon": "https://cssgridplayground.com/favicon.ico",
+        "logo": "https://cssgridplayground.com/logo.png",
+        "description": "Experiments with CSS grids interactively, perfect for learning. Use it when exploring grid layouts."
+      },
+      {
+        "name": "CSS Flexbox Builder",
+        "url": "https://cssflexboxbuilder.com/",
+        "favIcon": "https://cssflexboxbuilder.com/favicon.ico",
+        "logo": "https://cssflexboxbuilder.com/logo.png",
+        "description": "Builds flexbox layouts visually, great for responsive designs. Visit when creating flexible layouts."
+      },
+      {
+        "name": "SVG Pattern Generator",
+        "url": "https://doodad.dev/pattern-generator/",
+        "favIcon": "https://doodad.dev/favicon.ico",
+        "logo": "https://doodad.dev/logo.png",
+        "description": "Creates SVG patterns for backgrounds, perfect for detailed designs. Use it for custom, scalable patterns."
+      },
+      {
+        "name": "CSS Background Pattern Generator",
+        "url": "https://cssbgpatterns.com/",
+        "favIcon": "https://cssbgpatterns.com/favicon.ico",
+        "logo": "https://cssbgpatterns.com/logo.png",
+        "description": "Designs CSS background patterns, great for unique textures. Visit for creative, image-free backgrounds."
+      },
+      {
+        "name": "Coolors Gradient Maker",
+        "url": "https://coolors.co/gradient-maker",
+        "favIcon": "https://coolors.co/favicon.ico",
+        "logo": "https://coolors.co/logo.png",
+        "description": "Makes color gradients with ease, perfect for design inspiration. Use it when choosing color schemes."
+      },
+      {
+        "name": "CSS Grid Template Builder",
+        "url": "https://grid.layoutit.com/",
+        "favIcon": "https://grid.layoutit.com/favicon.ico",
+        "logo": "https://grid.layoutit.com/logo.png",
+        "description": "Builds CSS grid templates visually, great for responsive layouts. Visit for grid-based design projects."
+      },
+      {
+        "name": "CSS Gradient Editor",
+        "url": "https://www.colorzilla.com/gradient-editor/",
+        "favIcon": "https://www.colorzilla.com/favicon.ico",
+        "logo": "https://www.colorzilla.com/logo.png",
+        "description": "Edits gradients with cross-browser support, perfect for backgrounds. Use it for precise gradient designs."
+      },
+      {
+        "name": "CSS Portal Border Generator",
+        "url": "https://www.cssportal.com/css-border-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png",
+        "description": "Creates custom borders with CSS, great for styling elements. Visit for unique border designs."
+      },
+      {
+        "name": "CSS Shape Divider",
+        "url": "https://shapedivider.app/",
+        "favIcon": "https://shapedivider.app/favicon.ico",
+        "logo": "https://shapedivider.app/logo.png",
+        "description": "Makes decorative dividers with shapes, perfect for section breaks. Use it for creative page layouts."
+      },
+      {
+        "name": "CSS Text Gradient Generator",
+        "url": "https://txtgradient.com/",
+        "favIcon": "https://txtgradient.com/favicon.ico",
+        "logo": "https://txtgradient.com/logo.png",
+        "description": "Adds gradient colors to text, great for headings. Visit for colorful, stylish text effects."
+      },
+      {
+        "name": "CSS Loaders",
+        "url": "https://cssloaders.github.io/",
+        "favIcon": "https://cssloaders.github.io/favicon.ico",
+        "logo": "https://cssloaders.github.io/logo.png",
+        "description": "Creates loading animations with CSS, perfect for site feedback. Use it when adding loading indicators."
+      },
+      {
+        "name": "CSS Spinners",
+        "url": "https://loading.io/css/",
+        "favIcon": "https://loading.io/favicon.ico",
+        "logo": "https://loading.io/logo.png",
+        "description": "Designs spinning loaders with CSS, great for user feedback. Visit for animated loading effects."
+      },
+      {
+        "name": "CSS Portal Box Generator",
+        "url": "https://www.cssportal.com/css-box-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png",
+        "description": "Builds CSS boxes with shadows and borders, perfect for UI elements. Use it for styled containers."
+      },
+      {
+        "name": "CSS Grid Area Generator",
+        "url": "https://cssgrid-area-generator.netlify.app/",
+        "favIcon": "https://cssgrid-area-generator.netlify.app/favicon.ico",
+        "logo": "https://cssgrid-area-generator.netlify.app/logo.png",
+        "description": "Creates CSS grid areas visually, great for complex layouts. Visit for advanced grid designs."
+      },
+      {
+        "name": "CSS Text Animation Generator",
+        "url": "https://textanim.com/",
+        "favIcon": "https://textanim.com/favicon.ico",
+        "logo": "https://textanim.com/logo.png",
+        "description": "Animates text with CSS, perfect for engaging headings. Use it for dynamic text effects."
+      },
+      {
+        "name": "CSS Mesh Gradient",
+        "url": "https://cssmeshgradient.com/",
+        "favIcon": "https://cssmeshgradient.com/favicon.ico",
+        "logo": "https://cssmeshgradient.com/logo.png",
+        "description": "Creates mesh gradients for backgrounds, great for modern designs. Visit for complex, colorful effects."
+      },
+      {
+        "name": "CSS Portal Gradient Generator",
+        "url": "https://www.cssportal.com/css-gradient-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png",
+        "description": "Makes linear and radial gradients, perfect for backgrounds. Use it for colorful, dynamic designs."
+      },
+      {
+        "name": "CSS Portal Shadow Generator",
+        "url": "https://www.cssportal.com/css-shadow-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png",
+        "description": "Creates box shadows with CSS, great for depth effects. Visit for adding shadows to elements."
+      },
+      {
+        "name": "CSS Portal Transition Generator",
+        "url": "https://www.cssportal.com/css-transition-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png",
+        "description": "Makes smooth transitions with CSS, perfect for animations. Use it for interactive element changes."
+      },
+      {
+        "name": "CSS Portal Clip Path Generator",
+        "url": "https://www.cssportal.com/css-clip-path-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png",
+        "description": "Creates clip-path shapes with CSS, great for unique designs. Visit for creative image cuts."
+      },
+      {
+        "name": "CSS Portal Filter Generator",
+        "url": "https://www.cssportal.com/css-filter-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png",
+        "description": "Applies filters like blur to images, perfect for effects. Use it for enhancing visuals."
+      },
+
+      {
+        "name": "CSS Portal Text Generator",
+        "url": "https://www.cssportal.com/css-text-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Layout Generator",
+        "url": "https://www.cssportal.com/css-layout-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Button Generator",
+        "url": "https://www.cssportal.com/css-button-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Menu Generator",
+        "url": "https://www.cssportal.com/css-menu-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Scrollbar Generator",
+        "url": "https://www.cssportal.com/css-scrollbar-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Shape Generator",
+        "url": "https://www.cssportal.com/css-shape-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Wave Generator",
+        "url": "https://www.cssportal.com/css-wave-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Glassmorphism Generator",
+        "url": "https://www.cssportal.com/css-glassmorphism-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Neumorphism Generator",
+        "url": "https://www.cssportal.com/css-neumorphism-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Arrow Generator",
+        "url": "https://www.cssportal.com/css-arrow-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Blob Generator",
+        "url": "https://www.cssportal.com/css-blob-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Pattern Generator",
+        "url": "https://www.cssportal.com/css-pattern-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Noise Generator",
+        "url": "https://www.cssportal.com/css-noise-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Circle Generator",
+        "url": "https://www.cssportal.com/css-circle-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Polygon Generator",
+        "url": "https://www.cssportal.com/css-polygon-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Animation Generator",
+        "url": "https://www.cssportal.com/css-animation-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Keyframe Generator",
+        "url": "https://www.cssportal.com/css-keyframe-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Gradient Text Generator",
+        "url": "https://www.cssportal.com/css-gradient-text-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Loaders Generator",
+        "url": "https://www.cssportal.com/css-loaders-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Spinners Generator",
+        "url": "https://www.cssportal.com/css-spinners-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Mesh Gradient Generator",
+        "url": "https://www.cssportal.com/css-mesh-gradient-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Divider Generator",
+        "url": "https://www.cssportal.com/css-divider-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Ribbon Generator",
+        "url": "https://www.cssportal.com/css-ribbon-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Sprite Generator",
+        "url": "https://www.cssportal.com/css-sprite-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Tooltip Generator",
+        "url": "https://www.cssportal.com/css-tooltip-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Fancy Text Generator",
+        "url": "https://www.cssportal.com/css-fancy-text-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Wave Animation Generator",
+        "url": "https://www.cssportal.com/css-wave-animation-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      },
+      {
+        "name": "CSS Portal Glass Effect Generator",
+        "url": "https://www.cssportal.com/css-glass-effect-generator/",
+        "favIcon": "https://www.cssportal.com/favicon.ico",
+        "logo": "https://www.cssportal.com/logo.png"
+      }
+    ]
+  },
+  {
+    "category": "placeholder image services",
+    "items": [
+      {
+        "name": "Placehold",
+        "url": "https://placehold.co/",
+        "favIcon": "https://placehold.co/favicon.ico",
+        "logo": "https://placehold.co/logo.png",
+        "about": "Modern replacement for Placehold.co. Generates SVG/PNG/JPEG placeholders with custom text, colors, and retina support."
+      },
+      {
+        "name": "Placehold.jp",
+        "url": "https://placehold.jp/",
+        "favIcon": "https://placehold.jp/favicon.ico",
+        "logo": "https://placehold.jp/logo.png",
+        "about": "Japanese-language placeholder service for PNG images. Uses simple URL patterns like /WIDTHxHEIGHT.png"
+      },
+      {
+        "name": "Imageholdr",
+        "url": "https://imageholdr.com/",
+        "favIcon": "https://imageholdr.com/favicon.ico",
+        "logo": "https://imageholdr.com/logo.png",
+        "about": "Android-focused placeholder service. Provides device-mockup images for app development workflows."
+      },
+      {
+        "name": "UI Avatars",
+        "url": "https://eu.ui-avatars.com/",
+        "favIcon": "https://eu.ui-avatars.com/favicon.ico",
+        "logo": "https://eu.ui-avatars.com/logo.png",
+        "about": "Generates initials-based avatars. Supports custom colors/sizes, ideal for user profile placeholders."
+      },
+      {
+        "name": "Gravatar",
+        "url": "https://gravatar.com/",
+        "favIcon": "https://gravatar.com/favicon.ico",
+        "logo": "https://gravatar.com/logo.png",
+        "about": "Globally recognized avatar service tied to email hashes. Returns default 'mp' identicon if no avatar exists."
+      },
+      {
+        "name": "Placeholder.com",
+        "url": "https://via.placeholder.com/",
+        "favIcon": "https://via.placeholder.com/favicon.ico",
+        "logo": "https://via.placeholder.com/logo.png",
+        "about": "Classic service for basic colored blocks with visible dimensions. Supports PNG/JPG/GIF formats."
+      },
+      {
+        "name": "Icons8",
+        "url": "https://icons8.com/",
+        "favIcon": "https://icons8.com/favicon.ico",
+        "logo": "https://icons8.com/logo.png",
+        "about": "Icon library that also offers placeholder images. Useful for UI/UX mockups requiring icons+images."
+      },
+      {
+        "name": "Lorem Picsum",
+        "url": "https://picsum.photos/",
+        "favIcon": "https://picsum.photos/favicon.ico",
+        "logo": "https://picsum.photos/logo.png",
+        "about": "High-quality random images from Unsplash. Add ?blur or ?grayscale to URLs for effects."
+      },
+      {
+        "name": "FPOImg",
+        "url": "https://fpoimg.com/",
+        "favIcon": "https://fpoimg.com/favicon.ico",
+        "logo": "https://fpoimg.com/logo.png",
+        "about": "Lightweight service for CMYK-optimized print mockups. Supports custom text/colors."
+      },
+      {
+        "name": "DiceBear",
+        "url": "https://www.dicebear.com/",
+        "favIcon": "https://www.dicebear.com/favicon.ico",
+        "logo": "https://www.dicebear.com/logo.png",
+        "about": "Stylized avatar generator with 20+ styles like pixel-art, bottts, and identicon."
+      },
+      {
+        "name": "Placekitten",
+        "url": "https://placekitten.com/",
+        "favIcon": "https://placekitten.com/favicon.ico",
+        "logo": "https://placekitten.com/logo.png",
+        "about": "Cute placeholder kittens. Add /WIDTH/HEIGHT to URLs for custom-sized cat images."
+      },
+      {
+        "name": "Bacon Mockup",
+        "url": "https://baconmockup.com/",
+        "favIcon": "https://baconmockup.com/favicon.ico",
+        "logo": "https://baconmockup.com/logo.png",
+        "about": "Humorous bacon-themed placeholders. Perfect for food blogs or quirky projects."
+      }
+    ]
+  },
+  {
+    "category": "Animation & Effects",
+    "items": [
+      {
+        "name": "Animate.css",
+        "url": "https://animate.style/",
+        "favIcon": "https://animate.style/favicon.ico",
+        "logo": "https://animate.style/logo.png",
+        "about": "A cross-browser library of CSS animations for emphasis, home pages, sliders, and attention-guiding hints."
+      },
+      {
+        "name": "Animista",
+        "url": "https://animista.net/",
+        "favIcon": "https://animista.net/favicon.ico",
+        "logo": "https://animista.net/logo.png",
+        "about": "A platform to select and generate CSS animations on demand with customizable options."
+      },
+      {
+        "name": "Animation library",
+        "url": "http://animation.kaustubhmenon.com/",
+        "favIcon": "http://animation.kaustubhmenon.com/favicon.ico",
+        "logo": "http://animation.kaustubhmenon.com/logo.png",
+        "about": "A CSS animation library by Kaustubh Menon offering simple animation effects."
+      },
+      {
+        "name": "Magic CSS",
+        "url": "https://www.minimamente.com/project/magic/",
+        "favIcon": "https://www.minimamente.com/favicon.ico",
+        "logo": "https://www.minimamente.com/logo.png",
+        "about": "A collection of CSS animations with special effects like bling and static."
+      },
+      {
+        "name": "Loading.io",
+        "url": "https://loading.io/",
+        "favIcon": "https://loading.io/favicon.ico",
+        "logo": "https://loading.io/logo.png",
+        "about": "A service to create loading animations including spinners, progress bars, and more."
+      },
+      {
+        "name": "Skeleton Elements",
+        "url": "https://skeleton-elements.nolimits4web.com/",
+        "favIcon": "https://skeleton-elements.nolimits4web.com/favicon.ico",
+        "logo": "https://skeleton-elements.nolimits4web.com/logo.png",
+        "about": "A library for creating skeleton loading screens with CSS effects."
+      },
+      {
+        "name": "Micron",
+        "url": "https://webkul.github.io/micron/",
+        "favIcon": "https://webkul.github.io/micron/favicon.ico",
+        "logo": "https://webkul.github.io/micron/logo.png",
+        "about": "A micro-interaction library using CSS animations controlled by JavaScript."
+      },
+      {
+        "name": "AnimXYZ",
+        "url": "https://animxyz.com/",
+        "favIcon": "https://animxyz.com/favicon.ico",
+        "logo": "https://animxyz.com/logo.png",
+        "about": "Composable animations using CSS variables for fading, scaling, and more."
+      },
+      {
+        "name": "AOS",
+        "url": "https://michalsnik.github.io/aos/",
+        "favIcon": "https://michalsnik.github.io/aos/favicon.ico",
+        "logo": "https://michalsnik.github.io/aos/logo.png",
+        "about": "Animate on scroll library to reveal animations when scrolling."
+      },
+      {
+        "name": "Hamburgers",
+        "url": "https://jonsuh.com/hamburgers/",
+        "favIcon": "https://jonsuh.com/favicon.ico",
+        "logo": "https://jonsuh.com/logo.png",
+        "about": "A collection of tasty CSS-animated hamburger menu icons."
+      },
+      {
+        "name": "CSShake",
+        "url": "https://elrumordelaluz.github.io/csshake/",
+        "favIcon": "https://elrumordelaluz.github.io/csshake/favicon.ico",
+        "logo": "https://elrumordelaluz.github.io/csshake/logo.png",
+        "about": "A CSS library for shaking elements with various intensities."
+      },
+      {
+        "name": "Wicked CSS",
+        "url": "https://kristofferandreasen.github.io/wickedCSS/",
+        "favIcon": "https://kristofferandreasen.github.io/wickedCSS/favicon.ico",
+        "logo": "https://kristofferandreasen.github.io/wickedCSS/logo.png",
+        "about": "A library for vibrant CSS3 animations like spins and flips."
+      },
+      {
+        "name": "Three Dots",
+        "url": "https://n3r4zzurr0.github.io/Three-Dots/",
+        "favIcon": "https://n3r4zzurr0.github.io/Three-Dots/favicon.ico",
+        "logo": "https://n3r4zzurr0.github.io/Three-Dots/logo.png",
+        "about": "A small set of CSS animations for loading indicators."
+      },
+      {
+        "name": "VOVCSS",
+        "url": "https://vov.cssanimation.io/",
+        "favIcon": "https://vov.cssanimation.io/favicon.ico",
+        "logo": "https://vov.cssanimation.io/logo.png",
+        "about": "A small but useful CSS animations library for subtle effects."
+      },
+      {
+        "name": "Mimic CSS",
+        "url": "https://cdn.rawgit.com/gl-ict/mimic/master/docs/index.html",
+        "favIcon": "https://cdn.rawgit.com/gl-ict/mimic/master/docs/favicon.ico",
+        "logo": "https://cdn.rawgit.com/gl-ict/mimic/master/docs/logo.png",
+        "about": "A CSS animations library with basic transition effects."
+      },
+      {
+        "name": "Animatopy",
+        "url": "https://animatopy.com/",
+        "favIcon": "https://animatopy.com/favicon.ico",
+        "logo": "https://animatopy.com/logo.png",
+        "about": "Simplifies adding animations with ready-to-use code snippets."
+      },
+      {
+        "name": "AnimatiSS",
+        "url": "https://xsgames.co/animatiss/",
+        "favIcon": "https://xsgames.co/favicon.ico",
+        "logo": "https://xsgames.co/logo.png",
+        "about": "A tool to preview custom CSS animations and grab their code."
+      },
+      {
+        "name": "Anime.js",
+        "url": "https://animejs.com/",
+        "favIcon": "https://animejs.com/favicon.ico",
+        "logo": "https://animejs.com/logo.png",
+        "about": "A lightweight JavaScript animation library with a simple API."
+      },
+      {
+        "name": "GSAP",
+        "url": "https://gsap.com/",
+        "favIcon": "https://gsap.com/favicon.ico",
+        "logo": "https://gsap.com/logo.png",
+        "about": "A powerful JavaScript animation library for high-performance animations."
+      },
+      {
+        "name": "Three.js",
+        "url": "https://threejs.org/",
+        "favIcon": "https://threejs.org/favicon.ico",
+        "logo": "https://threejs.org/logo.png",
+        "about": "A JavaScript library for creating 3D graphics in the browser."
+      },
+      {
+        "name": "Lottie",
+        "url": "https://lottiefiles.com/",
+        "favIcon": "https://lottiefiles.com/favicon.ico",
+        "logo": "https://lottiefiles.com/logo.png",
+        "about": "A library for rendering After Effects animations natively on web and mobile."
+      },
+      {
+        "name": "Popmotion",
+        "url": "https://popmotion.io/",
+        "favIcon": "https://popmotion.io/favicon.ico",
+        "logo": "https://popmotion.io/logo.png",
+        "about": "A functional, flexible JavaScript motion library for animations."
+      },
+      {
+        "name": "Mo.js",
+        "url": "https://mojs.github.io/",
+        "favIcon": "https://mojs.github.io/favicon.ico",
+        "logo": "https://mojs.github.io/logo.png",
+        "about": "A motion graphics library for the web with modular tools."
+      },
+      {
+        "name": "Velocity.js",
+        "url": "https://github.com/julianshapiro/velocity",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "An animation engine with a jQuery-like API for smooth transitions."
+      },
+      {
+        "name": "ScrollReveal.js",
+        "url": "https://scrollrevealjs.org/",
+        "favIcon": "https://scrollrevealjs.org/favicon.ico",
+        "logo": "https://scrollrevealjs.org/logo.png",
+        "about": "A library to easily reveal elements as they enter the viewport."
+      },
+      {
+        "name": "Kute.js",
+        "url": "https://thednp.github.io/kute.js/",
+        "favIcon": "https://thednp.github.io/kute.js/favicon.ico",
+        "logo": "https://thednp.github.io/kute.js/logo.png",
+        "about": "A high-performance JavaScript animation engine with SVG support."
+      },
+      {
+        "name": "Theatre.js",
+        "url": "https://www.theatrejs.com/",
+        "favIcon": "https://www.theatrejs.com/favicon.ico",
+        "logo": "https://www.theatrejs.com/logo.png",
+        "about": "A JavaScript animation library for high-fidelity motion design."
+      },
+      {
+        "name": "Motionia",
+        "url": "https://motionia.netlify.app/",
+        "favIcon": "https://motionia.netlify.app/favicon.ico",
+        "logo": "https://motionia.netlify.app/logo.png",
+        "about": "A lightweight JavaScript animation library with over 100 animations."
+      },
+      {
+        "name": "Motion One",
+        "url": "https://motion.dev/",
+        "favIcon": "https://motion.dev/favicon.ico",
+        "logo": "https://motion.dev/logo.png",
+        "about": "A modern animation library for JavaScript and React using Web Animations API."
+      },
+      {
+        "name": "Vivus.js",
+        "url": "http://maxwellito.github.io/vivus/",
+        "favIcon": "http://maxwellito.github.io/vivus/favicon.ico",
+        "logo": "http://maxwellito.github.io/vivus/logo.png",
+        "about": "A JavaScript library to animate SVGs with drawing effects."
+      },
+      {
+        "name": "Typed.js",
+        "url": "https://mattboldt.com/demos/typed-js/",
+        "favIcon": "https://mattboldt.com/favicon.ico",
+        "logo": "https://mattboldt.com/logo.png",
+        "about": "A JavaScript library that types out text with customizable speed."
+      },
+      {
+        "name": "Hover.css",
+        "url": "https://ianlunn.github.io/Hover/",
+        "favIcon": "https://ianlunn.github.io/Hover/favicon.ico",
+        "logo": "https://ianlunn.github.io/Hover/logo.png",
+        "about": "A collection of CSS3-powered hover effects for links and buttons."
+      },
+      {
+        "name": "Bounce.js",
+        "url": "http://bouncejs.com/",
+        "favIcon": "http://bouncejs.com/favicon.ico",
+        "logo": "http://bouncejs.com/logo.png",
+        "about": "A tool and JS library for creating bouncy CSS3 keyframe animations."
+      },
+      {
+        "name": "Wow.js",
+        "url": "https://wowjs.uk/",
+        "favIcon": "https://wowjs.uk/favicon.ico",
+        "logo": "https://wowjs.uk/logo.png",
+        "about": "A JavaScript library to reveal animations when scrolling, pairs with Animate.css."
+      },
+      {
+        "name": "Motion UI",
+        "url": "https://zurb.com/playground/motion-ui",
+        "favIcon": "https://zurb.com/favicon.ico",
+        "logo": "https://zurb.com/logo.png",
+        "about": "A Sass library for creating flexible CSS transitions and animations."
+      },
+      {
+        "name": "Flare",
+        "url": "https://flareact.com/",
+        "favIcon": "https://flareact.com/favicon.ico",
+        "logo": "https://flareact.com/logo.png",
+        "about": "A JavaScript library for simple, performant animations."
+      },
+      {
+        "name": "Obnoxious.css",
+        "url": "https://tholman.com/obnoxious.css/",
+        "favIcon": "https://tholman.com/favicon.ico",
+        "logo": "https://tholman.com/logo.png",
+        "about": "A CSS library with quirky animations like shake and twist."
+      },
+      {
+        "name": "Animatelo",
+        "url": "https://github.com/GeekLaunch/animatelo",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "A JavaScript animation library inspired by Animate.css."
+      },
+      {
+        "name": "Tuesday",
+        "url": "https://shakrmedia.github.io/tuesday/",
+        "favIcon": "https://shakrmedia.github.io/tuesday/favicon.ico",
+        "logo": "https://shakrmedia.github.io/tuesday/logo.png",
+        "about": "A CSS animation library for smooth entrance and exit effects."
+      },
+      {
+        "name": "Shift.css",
+        "url": "https://github.com/madebywild/shift.css",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "A lightweight CSS library for subtle animation effects."
+      },
+      {
+        "name": "Saffron",
+        "url": "https://github.com/colingrady/saffron",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "A CSS animation library with a focus on minimal transitions."
+      },
+      {
+        "name": "Animo.js",
+        "url": "https://github.com/ThrivingKings/animo.js",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "A lightweight JavaScript library for CSS animations."
+      },
+      {
+        "name": "Animate Plus",
+        "url": "https://github.com/bendc/animateplus",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "A performant JavaScript animation library for modern browsers."
+      },
+      {
+        "name": "Rocket",
+        "url": "https://github.com/jeremyckahn/rocket",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "A JavaScript library for smooth CSS animations and transitions."
+      },
+      {
+        "name": "Stylie",
+        "url": "https://jeremyckahn.github.io/stylie/",
+        "favIcon": "https://jeremyckahn.github.io/stylie/favicon.ico",
+        "logo": "https://jeremyckahn.github.io/stylie/logo.png",
+        "about": "A web-based tool to generate CSS animations with keyframes."
+      },
+      {
+        "name": "Vivify",
+        "url": "https://vivify.mk/",
+        "favIcon": "https://vivify.mk/favicon.ico",
+        "logo": "https://vivify.mk/logo.png",
+        "about": "A CSS animation library with a variety of entrance effects."
+      },
+      {
+        "name": "Ceaser",
+        "url": "https://matthewlein.com/ceaser/",
+        "favIcon": "https://matthewlein.com/favicon.ico",
+        "logo": "https://matthewlein.com/logo.png",
+        "about": "A tool to generate CSS easing functions for animations."
+      },
+      {
+        "name": "CSSynth",
+        "url": "https://github.com/jmchurch/CSSynth",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "A CSS library for creating synthetic animation effects."
+      },
+      {
+        "name": "WAIT! Animate",
+        "url": "https://github.com/waitanimate/waitanimate",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "A tool to add delays and waits to CSS animations easily."
+      },
+      {
+        "name": "Dynamics.js",
+        "url": "https://dynamicsjs.com/",
+        "favIcon": "https://dynamicsjs.com/favicon.ico",
+        "logo": "https://dynamicsjs.com/logo.png",
+        "about": "A JavaScript library for physics-based animations."
+      },
+      {
+        "name": "Choreographer.js",
+        "url": "https://github.com/christinecha/choreographer-js",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "A JavaScript library for complex animations with custom functions."
+      },
+      {
+        "name": "Bonsai.js",
+        "url": "https://github.com/uxebu/bonsai",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "A JavaScript library for advanced graphics manipulations."
+      },
+      {
+        "name": "Animatic.js",
+        "url": "https://github.com/lvivski/animatic",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "A cross-browser JavaScript library for animating multiple objects."
+      },
+      {
+        "name": "Move.js",
+        "url": "https://github.com/visionmedia/move.js",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "A simple JavaScript library for scaling, skewing, and moving animations."
+      },
+      {
+        "name": "Eg.js",
+        "url": "https://naver.github.io/egjs/",
+        "favIcon": "https://naver.github.io/egjs/favicon.ico",
+        "logo": "https://naver.github.io/egjs/logo.png",
+        "about": "A JavaScript library with effects and dynamic elements for interactions."
+      },
+      {
+        "name": "GFX",
+        "url": "https://github.com/cameronsamuels/gfx",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "A 3D animation library for programmatic CSS3 animations."
+      },
+      {
+        "name": "Granim.js",
+        "url": "https://sarcadass.github.io/granim.js/",
+        "favIcon": "https://sarcadass.github.io/granim.js/favicon.ico",
+        "logo": "https://sarcadass.github.io/granim.js/logo.png",
+        "about": "A JavaScript library for interactive gradient animations."
+      },
+      {
+        "name": "ScrollMagic",
+        "url": "http://scrollmagic.io/",
+        "favIcon": "http://scrollmagic.io/favicon.ico",
+        "logo": "http://scrollmagic.io/logo.png",
+        "about": "A JavaScript library for scroll-based animations and interactions."
+      },
+      {
+        "name": "Barba.js",
+        "url": "https://barba.js.org/",
+        "favIcon": "https://barba.js.org/favicon.ico",
+        "logo": "https://barba.js.org/logo.png",
+        "about": "A JavaScript library for fluid page transitions with animations."
+      },
+      {
+        "name": "Rellax.js",
+        "url": "https://dixonandmoe.com/rellax/",
+        "favIcon": "https://dixonandmoe.com/favicon.ico",
+        "logo": "https://dixonandmoe.com/logo.png",
+        "about": "A lightweight JavaScript library for parallax scrolling effects."
+      },
+      {
+        "name": "Parallax.js",
+        "url": "https://matthew.wagerfield.com/parallax/",
+        "favIcon": "https://matthew.wagerfield.com/favicon.ico",
+        "logo": "https://matthew.wagerfield.com/logo.png",
+        "about": "A JavaScript library for parallax effects based on device orientation."
+      },
+      {
+        "name": "AniJS",
+        "url": "http://anijs.github.io/",
+        "favIcon": "http://anijs.github.io/favicon.ico",
+        "logo": "http://anijs.github.io/logo.png",
+        "about": "A JavaScript library for declarative animations using data attributes."
+      },
+      {
+        "name": "Hover Effect",
+        "url": "https://github.com/robin-dela/hover-effect",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "A JavaScript library for image hover effects with distortions."
+      },
+      {
+        "name": "Pace.js",
+        "url": "https://github.com/CodeByZach/pace",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "A JavaScript library for automatic page load progress bars."
+      },
+      {
+        "name": "Shifty",
+        "url": "https://github.com/jeremyckahn/shifty",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "A lightweight JavaScript tweening engine for animations."
+      },
+      {
+        "name": "TweenMax",
+        "url": "https://greensock.com/tweenmax/",
+        "favIcon": "https://greensock.com/favicon.ico",
+        "logo": "https://greensock.com/logo.png",
+        "about": "A robust JavaScript animation library from GreenSock for complex effects."
+      },
+      {
+        "name": "TweenLite",
+        "url": "https://greensock.com/tweenlite/",
+        "favIcon": "https://greensock.com/favicon.ico",
+        "logo": "https://greensock.com/logo.png",
+        "about": "A lightweight version of GreenSock's animation library."
+      },
+      {
+        "name": "Snap.svg",
+        "url": "http://snapsvg.io/",
+        "favIcon": "http://snapsvg.io/favicon.ico",
+        "logo": "http://snapsvg.io/logo.png",
+        "about": "A JavaScript library for animating and manipulating SVG content."
+      },
+      {
+        "name": "Pixi.js",
+        "url": "https://pixijs.com/",
+        "favIcon": "https://pixijs.com/favicon.ico",
+        "logo": "https://pixijs.com/logo.png",
+        "about": "A 2D rendering engine with animation capabilities using WebGL."
+      },
+      {
+        "name": "Matter.js",
+        "url": "https://brm.io/matter-js/",
+        "favIcon": "https://brm.io/matter-js/favicon.ico",
+        "logo": "https://brm.io/matter-js/logo.png",
+        "about": "A 2D physics engine for JavaScript with animation support."
+      },
+      {
+        "name": "Paper.js",
+        "url": "http://paperjs.org/",
+        "favIcon": "http://paperjs.org/favicon.ico",
+        "logo": "http://paperjs.org/logo.png",
+        "about": "A vector graphics scripting framework with animation tools."
+      },
+      {
+        "name": "Howler.js",
+        "url": "https://howlerjs.com/",
+        "favIcon": "https://howlerjs.com/favicon.ico",
+        "logo": "https://howlerjs.com/logo.png",
+        "about": "A JavaScript audio library with animation syncing capabilities."
+      },
+      {
+        "name": "Rough.js",
+        "url": "https://roughjs.com/",
+        "favIcon": "https://roughjs.com/favicon.ico",
+        "logo": "https://roughjs.com/logo.png",
+        "about": "A JavaScript library for hand-drawn style graphics and animations."
+      },
+      {
+        "name": "Zdog",
+        "url": "https://zzz.dog/",
+        "favIcon": "https://zzz.dog/favicon.ico",
+        "logo": "https://zzz.dog/logo.png",
+        "about": "A 3D JavaScript engine for canvas and SVG with animation support."
+      },
+      {
+        "name": "OGL",
+        "url": "https://oframe.github.io/ogl/",
+        "favIcon": "https://oframe.github.io/ogl/favicon.ico",
+        "logo": "https://oframe.github.io/ogl/logo.png",
+        "about": "A minimal WebGL library with animation capabilities."
+      },
+      {
+        "name": "Curtains.js",
+        "url": "https://www.curtainsjs.com/",
+        "favIcon": "https://www.curtainsjs.com/favicon.ico",
+        "logo": "https://www.curtainsjs.com/logo.png",
+        "about": "A WebGL library for animating images and videos as planes."
+      },
+      {
+        "name": "Hoverboard",
+        "url": "https://github.com/robin-dela/hoverboard",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "A JavaScript library for hover animations with WebGL effects."
+      },
+      {
+        "name": "Tingle.js",
+        "url": "https://github.com/robinparisi/tingle",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "A minimalist JavaScript modal library with animation support."
+      },
+      {
+        "name": "Transition.js",
+        "url": "https://ricostacruz.com/jquery.transit/",
+        "favIcon": "https://ricostacruz.com/favicon.ico",
+        "logo": "https://ricostacruz.com/logo.png",
+        "about": "A JavaScript library for smooth CSS3 transitions and animations."
+      },
+      {
+        "name": "CSSgram",
+        "url": "https://una.im/CSSgram/",
+        "favIcon": "https://una.im/favicon.ico",
+        "logo": "https://una.im/logo.png",
+        "about": "A CSS library for Instagram-like filters with animation potential."
+      },
+      {
+        "name": "Hoverify",
+        "url": "https://github.com/graycart/hoverify",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "A CSS library for hover effects with animation transitions."
+      },
+      {
+        "name": "Tachyons Animate",
+        "url": "https://github.com/tachyons-css/tachyons-animate",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "A CSS animation extension for the Tachyons framework."
+      },
+      {
+        "name": "Motion Graphics",
+        "url": "https://github.com/mojs/mojs.github.io",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "An extension of Mo.js for advanced motion graphics animations."
+      },
+      {
+        "name": "Framer Motion",
+        "url": "https://www.framer.com/motion/",
+        "favIcon": "https://www.framer.com/favicon.ico",
+        "logo": "https://www.framer.com/logo.png",
+        "about": "A React animation library for declarative motion design."
+      },
+      {
+        "name": "React Spring",
+        "url": "https://react-spring.dev/",
+        "favIcon": "https://react-spring.dev/favicon.ico",
+        "logo": "https://react-spring.dev/logo.png",
+        "about": "A spring-physics based animation library for React."
+      },
+      {
+        "name": "React Transition Group",
+        "url": "https://reactcommunity.org/react-transition-group/",
+        "favIcon": "https://reactcommunity.org/favicon.ico",
+        "logo": "https://reactcommunity.org/logo.png",
+        "about": "A React library for managing component transitions and animations."
+      },
+      {
+        "name": "Vue.js Transitions",
+        "url": "https://vuejs.org/guide/built-ins/transition.html",
+        "favIcon": "https://vuejs.org/favicon.ico",
+        "logo": "https://vuejs.org/logo.png",
+        "about": "Built-in Vue.js tools for CSS-based transitions and animations."
+      },
+      {
+        "name": "Svelte Transitions",
+        "url": "https://svelte.dev/docs#Transitions",
+        "favIcon": "https://svelte.dev/favicon.ico",
+        "logo": "https://svelte.dev/logo.png",
+        "about": "Svelte's built-in transition system for smooth animations."
+      },
+      {
+        "name": "Lax.js",
+        "url": "https://github.com/alexfoxy/lax.js",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "A lightweight JavaScript library for scroll-based animations."
+      },
+      {
+        "name": "Sal.js",
+        "url": "https://mciastek.github.io/sal/",
+        "favIcon": "https://mciastek.github.io/sal/favicon.ico",
+        "logo": "https://mciastek.github.io/sal/logo.png",
+        "about": "A lightweight scroll animation library with performance focus."
+      },
+      {
+        "name": "Hover Animation",
+        "url": "https://github.com/robin-dela/hover-animation",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "A JavaScript library for subtle hover animation effects."
+      },
+      {
+        "name": "Twist.js",
+        "url": "https://github.com/lmgonzalves/twist",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "A JavaScript library for twisting and morphing animations."
+      },
+      {
+        "name": "Flubber",
+        "url": "https://github.com/veltman/flubber",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "A JavaScript library for interpolating shapes in animations."
+      },
+      {
+        "name": "Vanta.js",
+        "url": "https://www.vantajs.com/",
+        "favIcon": "https://www.vantajs.com/favicon.ico",
+        "logo": "https://www.vantajs.com/logo.png",
+        "about": "A JavaScript library for 3D animated backgrounds."
+      },
+      {
+        "name": "Particles.js",
+        "url": "https://vincentgarreau.com/particles.js/",
+        "favIcon": "https://vincentgarreau.com/favicon.ico",
+        "logo": "https://vincentgarreau.com/logo.png",
+        "about": "A JavaScript library for creating particle animation effects."
+      },
+      {
+        "name": "Tsunami.js",
+        "url": "https://github.com/e-oj/Tsunami",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png",
+        "about": "A JavaScript library for wave-like animation effects."
+      },
+      {
+        "name": "Sprite.js",
+        "url": "https://spritejs.org/",
+        "favIcon": "https://spritejs.org/favicon.ico",
+        "logo": "https://spritejs.org/logo.png",
+        "about": "A JavaScript library for sprite-based animations on canvas."
+      },
+      {
+        "name": "Konva.js",
+        "url": "https://konvajs.org/",
+        "favIcon": "https://konvajs.org/favicon.ico",
+        "logo": "https://konvajs.org/logo.png",
+        "about": "A 2D canvas library with animation and interaction support."
+      },
+      {
+        "name": "P5.js",
+        "url": "https://p5js.org/",
+        "favIcon": "https://p5js.org/favicon.ico",
+        "logo": "https://p5js.org/logo.png",
+        "about": "A JavaScript library for creative coding and animations."
+      },
+      {
+        "name": "Two.js",
+        "url": "https://two.js.org/",
+        "favIcon": "https://two.js.org/favicon.ico",
+        "logo": "https://two.js.org/logo.png",
+        "about": "A 2D drawing library with animation capabilities across SVG, Canvas, and WebGL."
+      }
+    ]
+  },
+  {
+    "category": "Color & Gradient Tools",
+    "items": [
+      {
+        "name": "Coolors",
+        "url": "https://coolors.co",
+        "favIcon": "https://coolors.co/favicon.ico",
+        "logo": "https://coolors.co/logo.png"
+      },
+      {
+        "name": "Adobe Color",
+        "url": "https://color.adobe.com",
+        "favIcon": "https://color.adobe.com/favicon.ico",
+        "logo": "https://color.adobe.com/logo.png"
+      },
+      {
+        "name": "Color Hunt",
+        "url": "https://colorhunt.co",
+        "favIcon": "https://colorhunt.co/favicon.ico",
+        "logo": "https://colorhunt.co/logo.png"
+      },
+      {
+        "name": "Gradient Hunt",
+        "url": "https://gradienthunt.com",
+        "favIcon": "https://gradienthunt.com/favicon.ico",
+        "logo": "https://gradienthunt.com/logo.png"
+      },
+      {
+        "name": "UI Gradients",
+        "url": "https://uigradients.com",
+        "favIcon": "https://uigradients.com/favicon.ico",
+        "logo": "https://uigradients.com/logo.png"
+      },
+      {
+        "name": "WebGradients",
+        "url": "https://webgradients.com",
+        "favIcon": "https://webgradients.com/favicon.ico",
+        "logo": "https://webgradients.com/logo.png"
+      },
+      {
+        "name": "ColorBox",
+        "url": "https://colorbox.io",
+        "favIcon": "https://colorbox.io/favicon.ico",
+        "logo": "https://colorbox.io/logo.png"
+      },
+      {
+        "name": "Palettable",
+        "url": "https://www.palettable.io",
+        "favIcon": "https://www.palettable.io/favicon.ico",
+        "logo": "https://www.palettable.io/logo.png"
+      },
+      {
+        "name": "ColorSpace",
+        "url": "https://mycolor.space",
+        "favIcon": "https://mycolor.space/favicon.ico",
+        "logo": "https://mycolor.space/logo.png"
+      },
+      {
+        "name": "Pigment",
+        "url": "https://pigment.shapefactory.co",
+        "favIcon": "https://pigment.shapefactory.co/favicon.ico",
+        "logo": "https://pigment.shapefactory.co/logo.png"
+      },
+      {
+        "name": "Colormind",
+        "url": "https://colormind.io",
+        "favIcon": "https://colormind.io/favicon.ico",
+        "logo": "https://colormind.io/logo.png"
+      },
+      {
+        "name": "Contrast Checker",
+        "url": "https://webaim.org/resources/contrastchecker",
+        "favIcon": "https://webaim.org/favicon.ico",
+        "logo": "https://webaim.org/logo.png"
+      }
+    ]
+  },
+  {
+    "category": "Typography & Spacing",
+    "items": [
+      {
+        "name": "TypeScale",
+        "url": "https://typescale.com",
+        "favIcon": "https://typescale.com/favicon.ico",
+        "logo": "https://typescale.com/logo.png"
+      },
+      {
+        "name": "Modular Scale",
+        "url": "https://www.modularscale.com",
+        "favIcon": "https://www.modularscale.com/favicon.ico",
+        "logo": "https://www.modularscale.com/logo.png"
+      },
+      {
+        "name": "FontPair",
+        "url": "https://fontpair.co",
+        "favIcon": "https://fontpair.co/favicon.ico",
+        "logo": "https://fontpair.co/logo.png"
+      },
+      {
+        "name": "Google Fonts",
+        "url": "https://fonts.google.com",
+        "favIcon": "https://fonts.google.com/favicon.ico",
+        "logo": "https://fonts.google.com/logo.png"
+      },
+      {
+        "name": "WhatTheFont",
+        "url": "https://www.myfonts.com/WhatTheFont",
+        "favIcon": "https://www.myfonts.com/favicon.ico",
+        "logo": "https://www.myfonts.com/logo.png"
+      },
+      {
+        "name": "Font Squirrel",
+        "url": "https://www.fontsquirrel.com",
+        "favIcon": "https://www.fontsquirrel.com/favicon.ico",
+        "logo": "https://www.fontsquirrel.com/logo.png"
+      },
+      {
+        "name": "FontJoy",
+        "url": "https://fontjoy.com",
+        "favIcon": "https://fontjoy.com/favicon.ico",
+        "logo": "https://fontjoy.com/logo.png"
+      },
+      {
+        "name": "Golden Ratio Typography",
+        "url": "https://grtcalculator.com",
+        "favIcon": "https://grtcalculator.com/favicon.ico",
+        "logo": "https://grtcalculator.com/logo.png"
+      },
+      {
+        "name": "CSS Font Stack",
+        "url": "https://www.cssfontstack.com",
+        "favIcon": "https://www.cssfontstack.com/favicon.ico",
+        "logo": "https://www.cssfontstack.com/logo.png"
+      },
+      {
+        "name": "Variable Fonts",
+        "url": "https://v-fonts.com",
+        "favIcon": "https://v-fonts.com/favicon.ico",
+        "logo": "https://v-fonts.com/logo.png"
+      },
+      {
+        "name": "Fluid Typography Calculator",
+        "url": "https://fluid-typography.netlify.app",
+        "favIcon": "https://fluid-typography.netlify.app/favicon.ico",
+        "logo": "https://fluid-typography.netlify.app/logo.png"
+      },
+      {
+        "name": "Lettering.js",
+        "url": "http://letteringjs.com",
+        "favIcon": "http://letteringjs.com/favicon.ico",
+        "logo": "http://letteringjs.com/logo.png"
+      }
+    ]
+  },
+  {
+    "category": "Accessibility & Optimization",
+    "items": [
+      {
+        "name": "WAVE",
+        "url": "https://wave.webaim.org",
+        "favIcon": "https://wave.webaim.org/favicon.ico",
+        "logo": "https://wave.webaim.org/logo.png",
+        "about": "Web Accessibility Evaluation Tool that visualizes accessibility issues directly on web pages. Checks for ARIA labels, contrast errors, and missing alt text."
+      },
+      {
+        "name": "A11y Color Contrast Checker",
+        "url": "https://color.a11y.com",
+        "favIcon": "https://color.a11y.com/favicon.ico",
+        "logo": "https://color.a11y.com/logo.png",
+        "about": "Validates color contrast ratios (WCAG 2.1/3.0) for text and background combinations. Provides pass/fail status for accessibility compliance."
+      },
+      {
+        "name": "Lighthouse",
+        "url": "https://developers.google.com/web/tools/lighthouse",
+        "favIcon": "https://developers.google.com/web/favicon.ico",
+        "logo": "https://developers.google.com/web/images/lighthouse-logo.png",
+        "about": "Open-source auditing tool for performance, SEO, accessibility, and best practices. Integrated into Chrome DevTools."
+      },
+      {
+        "name": "CSS Minifier",
+        "url": "https://cssminifier.com",
+        "favIcon": "https://cssminifier.com/favicon.ico",
+        "logo": "https://cssminifier.com/logo.png",
+        "about": "Compresses CSS files by removing whitespace and comments. Reduces file size for faster page loads."
+      },
+      {
+        "name": "JSCompress",
+        "url": "https://jscompress.com",
+        "favIcon": "https://jscompress.com/favicon.ico",
+        "logo": "https://jscompress.com/logo.png",
+        "about": "JavaScript minifier using UglifyJS 3. Optimizes code for production by stripping unnecessary characters."
+      },
+      {
+        "name": "TinyPNG",
+        "url": "https://tinypng.com",
+        "favIcon": "https://tinypng.com/favicon.ico",
+        "logo": "https://tinypng.com/images/panda-chewing-2x.png",
+        "about": "Compresses PNG and JPEG images using smart lossy compression. Reduces file size without noticeable quality loss."
+      },
+      {
+        "name": "ImageOptim",
+        "url": "https://imageoptim.com",
+        "favIcon": "https://imageoptim.com/favicon.ico",
+        "logo": "https://imageoptim.com/logo.png",
+        "about": "Desktop and API tool for optimizing images (PNG, JPEG, GIF). Removes metadata and applies compression."
+      },
+      {
+        "name": "GTmetrix",
+        "url": "https://gtmetrix.com",
+        "favIcon": "https://gtmetrix.com/favicon.ico",
+        "logo": "https://gtmetrix.com/logo.png",
+        "about": "Analyzes website speed using Lighthouse and PageSpeed Insights. Provides actionable recommendations."
+      },
+      {
+        "name": "PageSpeed Insights",
+        "url": "https://developers.google.com/speed/pagespeed/insights",
+        "favIcon": "https://developers.google.com/speed/favicon.ico",
+        "logo": "https://developers.google.com/speed/images/psi-logo.png",
+        "about": "Measures page performance on mobile and desktop. Suggests fixes for slow-loading resources."
+      },
+      {
+        "name": "WebPageTest",
+        "url": "https://www.webpagetest.org",
+        "favIcon": "https://www.webpagetest.org/favicon.ico",
+        "logo": "https://www.webpagetest.org/logo.png",
+        "about": "Advanced performance testing with global test locations, custom scripts, and filmstrip views."
+      },
+      {
+        "name": "Pingdom",
+        "url": "https://tools.pingdom.com",
+        "favIcon": "https://tools.pingdom.com/favicon.ico",
+        "logo": "https://tools.pingdom.com/logo.png",
+        "about": "Website speed test tool with waterfall analysis and performance grading."
+      },
+      {
+        "name": "axe DevTools",
+        "url": "https://www.deque.com/axe",
+        "favIcon": "https://www.deque.com/favicon.ico",
+        "logo": "https://www.deque.com/logo.png",
+        "about": "Browser extension for automated accessibility testing. Integrates with Chrome and Firefox."
+      },
+      {
+        "name": "Pa11y",
+        "url": "https://pa11y.org",
+        "favIcon": "https://pa11y.org/favicon.ico",
+        "logo": "https://pa11y.org/logo.png",
+        "about": "Automated accessibility testing CLI and dashboard. Scans pages for WCAG compliance."
+      },
+      {
+        "name": "Accessibility Insights",
+        "url": "https://accessibilityinsights.io",
+        "favIcon": "https://accessibilityinsights.io/favicon.ico",
+        "logo": "https://accessibilityinsights.io/logo.png",
+        "about": "Microsoft's suite for identifying accessibility issues (FastPass, Assessment, and Ad hoc tools)."
+      },
+      {
+        "name": "Color Safe",
+        "url": "https://colorsafe.co",
+        "favIcon": "https://colorsafe.co/favicon.ico",
+        "logo": "https://colorsafe.co/logo.png",
+        "about": "Generates WCAG-compliant color palettes based on background hue and text size."
+      },
+      {
+        "name": "Stark",
+        "url": "https://www.getstark.co",
+        "favIcon": "https://www.getstark.co/favicon.ico",
+        "logo": "https://www.getstark.co/logo.png",
+        "about": "Design plugin (Figma/Sketch) for checking contrast, simulating color blindness, and alt text tagging."
+      },
+      {
+        "name": "Tenon",
+        "url": "https://tenon.io",
+        "favIcon": "https://tenon.io/favicon.ico",
+        "logo": "https://tenon.io/logo.png",
+        "about": "API-driven accessibility testing tool with integrations for CI/CD pipelines."
+      },
+      {
+        "name": "AChecker",
+        "url": "https://achecker.ca",
+        "favIcon": "https://achecker.ca/favicon.ico",
+        "logo": "https://achecker.ca/logo.png",
+        "about": "Web accessibility checker supporting WCAG 2.0/2.1 and Section 508 standards."
+      },
+      {
+        "name": "HTML_CodeSniffer",
+        "url": "https://squizlabs.github.io/HTML_CodeSniffer",
+        "favIcon": "https://squizlabs.github.io/favicon.ico",
+        "logo": "https://squizlabs.github.io/logo.png",
+        "about": "Bookmarklet for checking HTML accessibility against WCAG guidelines."
+      },
+      {
+        "name": "Silktide",
+        "url": "https://silktide.com/tools",
+        "favIcon": "https://silktide.com/favicon.ico",
+        "logo": "https://silktide.com/logo.png",
+        "about": "Simulates how users with disabilities experience your site. Offers automated audits."
+      },
+      {
+        "name": "NoCoffee Vision Simulator",
+        "url": "https://chrome.google.com/webstore/detail/nocoffee/jjeeggmbnhckmgdhmgdckeigabjfbddl",
+        "favIcon": "https://ssl.gstatic.com/chrome/webstore/images/icon_96px.png",
+        "logo": "https://nocoffee.tk/logo.png",
+        "about": "Chrome extension simulating visual impairments (blur, cataracts, color blindness)."
+      },
+      {
+        "name": "WebAIM Contrast Checker",
+        "url": "https://webaim.org/resources/contrastchecker",
+        "favIcon": "https://webaim.org/favicon.ico",
+        "logo": "https://webaim.org/logo.png",
+        "about": "Advanced contrast ratio checker with luminosity and brightness analysis."
+      },
+      {
+        "name": "PurifyCSS",
+        "url": "https://purifycss.online",
+        "favIcon": "https://purifycss.online/favicon.ico",
+        "logo": "https://purifycss.online/logo.png",
+        "about": "Removes unused CSS to reduce file size. Integrates with build tools like Webpack."
+      },
+      {
+        "name": "Critical",
+        "url": "https://github.com/addyosmani/critical",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://criticalcss.com/logo.png",
+        "about": "Extracts and inlines critical CSS for above-the-fold content to improve load times."
+      },
+      {
+        "name": "SVGO",
+        "url": "https://jakearchibald.github.io/svgomg",
+        "favIcon": "https://jakearchibald.github.io/favicon.ico",
+        "logo": "https://svgomg.net/logo.png",
+        "about": "SVG optimizer with granular control over compression settings (plugins, precision)."
+      },
+      {
+        "name": "Brotli Compression Tester",
+        "url": "https://tools.keycdn.com/brotli-test",
+        "favIcon": "https://tools.keycdn.com/favicon.ico",
+        "logo": "https://tools.keycdn.com/logo.png",
+        "about": "Checks if Brotli compression is enabled on your server for faster asset delivery."
+      },
+      {
+        "name": "HTTP/3 Check",
+        "url": "https://http3check.net",
+        "favIcon": "https://http3check.net/favicon.ico",
+        "logo": "https://http3check.net/logo.png",
+        "about": "Verifies HTTP/3 (QUIC) support for modern protocol performance benefits."
+      },
+      {
+        "name": "Cloudinary",
+        "url": "https://cloudinary.com",
+        "favIcon": "https://cloudinary.com/favicon.ico",
+        "logo": "https://cloudinary.com/logo.png",
+        "about": "Image and video optimization CDN with auto-format, resizing, and lazy loading."
+      },
+      {
+        "name": "Squoosh",
+        "url": "https://squoosh.app",
+        "favIcon": "https://squoosh.app/favicon.ico",
+        "logo": "https://squoosh.app/logo.png",
+        "about": "Open-source image compression tool by Google. Supports WebP, AVIF, and MozJPEG."
+      },
+      {
+        "name": "PurgeCSS",
+        "url": "https://purgecss.com",
+        "favIcon": "https://purgecss.com/favicon.ico",
+        "logo": "https://purgecss.com/logo.png",
+        "about": "Removes unused CSS classes from frameworks like Bootstrap or Tailwind."
+      },
+      {
+        "name": "Calibre",
+        "url": "https://calibreapp.com",
+        "favIcon": "https://calibreapp.com/favicon.ico",
+        "logo": "https://calibreapp.com/logo.png",
+        "about": "Performance monitoring with synthetic testing, real-user metrics, and regression alerts."
+      },
+      {
+        "name": "SpeedCurve",
+        "url": "https://speedcurve.com",
+        "favIcon": "https://speedcurve.com/favicon.ico",
+        "logo": "https://speedcurve.com/logo.png",
+        "about": "RUM and synthetic monitoring with Core Web Vitals tracking and competitor benchmarking."
+      },
+      {
+        "name": "Webpack Bundle Analyzer",
+        "url": "https://github.com/webpack-contrib/webpack-bundle-analyzer",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://webpack.js.org/logo.png",
+        "about": "Visualizes JavaScript bundle sizes to identify optimization opportunities."
+      },
+      {
+        "name": "SEO Tester",
+        "url": "https://seotesteronline.com",
+        "favIcon": "https://seotesteronline.com/favicon.ico",
+        "logo": "https://seotesteronline.com/logo.png",
+        "about": "Audits meta tags, headings, and structured data for SEO optimization."
+      },
+      {
+        "name": "Varvy",
+        "url": "https://varvy.com",
+        "favIcon": "https://varvy.com/favicon.ico",
+        "logo": "https://varvy.com/logo.png",
+        "about": "Checks SEO, mobile readiness, and page speed with actionable reports."
+      },
+      {
+        "name": "SEMrush Site Audit",
+        "url": "https://semrush.com/site-audit",
+        "favIcon": "https://semrush.com/favicon.ico",
+        "logo": "https://semrush.com/logo.png",
+        "about": "Comprehensive SEO audit tool for technical issues, backlinks, and content gaps."
+      },
+      {
+        "name": "Moz Link Explorer",
+        "url": "https://moz.com/link-explorer",
+        "favIcon": "https://moz.com/favicon.ico",
+        "logo": "https://moz.com/logo.png",
+        "about": "Analyzes backlink profiles and domain authority for SEO optimization."
+      },
+      {
+        "name": "Ahrefs Site Audit",
+        "url": "https://ahrefs.com/site-audit",
+        "favIcon": "https://ahrefs.com/favicon.ico",
+        "logo": "https://ahrefs.com/logo.png",
+        "about": "Crawls websites for SEO issues like broken links, duplicate content, and slow pages."
+      },
+      {
+        "name": "YellowLabTools",
+        "url": "https://yellowlab.tools",
+        "favIcon": "https://yellowlab.tools/favicon.ico",
+        "logo": "https://yellowlab.tools/logo.png",
+        "about": "Front-end performance profiler identifying JavaScript bottlenecks and CSS complexity."
+      },
+      {
+        "name": "DNS Checker",
+        "url": "https://dnschecker.org",
+        "favIcon": "https://dnschecker.org/favicon.ico",
+        "logo": "https://dnschecker.org/logo.png",
+        "about": "Global DNS propagation tester to ensure fast, reliable domain resolution."
+      },
+      {
+        "name": "Security Headers",
+        "url": "https://securityheaders.com",
+        "favIcon": "https://securityheaders.com/favicon.ico",
+        "logo": "https://securityheaders.com/logo.png",
+        "about": "Analyzes HTTP headers for security best practices (CSP, HSTS, X-Content-Type)."
+      },
+      {
+        "name": "SSL Labs Test",
+        "url": "https://www.ssllabs.com/ssltest",
+        "favIcon": "https://www.ssllabs.com/favicon.ico",
+        "logo": "https://www.ssllabs.com/logo.png",
+        "about": "Checks SSL/TLS configuration for vulnerabilities and protocol support."
+      },
+      {
+        "name": "Can I Use",
+        "url": "https://caniuse.com",
+        "favIcon": "https://caniuse.com/favicon.ico",
+        "logo": "https://caniuse.com/logo.png",
+        "about": "Browser support tables for CSS, JavaScript, and HTML5 features."
+      },
+      {
+        "name": "Bundlephobia",
+        "url": "https://bundlephobia.com",
+        "favIcon": "https://bundlephobia.com/favicon.ico",
+        "logo": "https://bundlephobia.com/logo.png",
+        "about": "Analyzes npm package sizes to avoid bloated dependencies."
+      },
+      {
+        "name": "The A11Y Project",
+        "url": "https://a11yproject.com",
+        "favIcon": "https://a11yproject.com/favicon.ico",
+        "logo": "https://a11yproject.com/logo.png",
+        "about": "Community-driven resource with checklists, patterns, and guides for accessibility."
+      },
+      {
+        "name": "Hemingway App",
+        "url": "https://hemingwayapp.com",
+        "favIcon": "https://hemingwayapp.com/favicon.ico",
+        "logo": "https://hemingwayapp.com/logo.png",
+        "about": "Improves content readability by highlighting complex sentences and passive voice."
+      },
+      {
+        "name": "Readable",
+        "url": "https://readable.com",
+        "favIcon": "https://readable.com/favicon.ico",
+        "logo": "https://readable.com/logo.png",
+        "about": "Analyzes text readability scores (Flesch-Kincaid) for inclusive content."
+      },
+      {
+        "name": "WP Accessibility",
+        "url": "https://wordpress.org/plugins/wp-accessibility",
+        "favIcon": "https://wordpress.org/favicon.ico",
+        "logo": "https://wordpress.org/logo.png",
+        "about": "WordPress plugin adding skip links, ARIA roles, and contrast fixes."
+      },
+      {
+        "name": "Deque University",
+        "url": "https://dequeuniversity.com",
+        "favIcon": "https://dequeuniversity.com/favicon.ico",
+        "logo": "https://dequeuniversity.com/logo.png",
+        "about": "Training platform for web accessibility standards (WCAG, ARIA)."
+      },
+      {
+        "name": "UserWay",
+        "url": "https://userway.org",
+        "favIcon": "https://userway.org/favicon.ico",
+        "logo": "https://userway.org/logo.png",
+        "about": "Accessibility widget offering adjustments like text scaling, contrast toggles, and keyboard navigation."
+      },
+      {
+        "name": "AMP Validator",
+        "url": "https://validator.ampproject.org",
+        "favIcon": "https://validator.ampproject.org/favicon.ico",
+        "logo": "https://amp.dev/logo.png",
+        "about": "Validates Accelerated Mobile Pages (AMP) for performance and compliance."
+      },
+      {
+        "name": "New Relic",
+        "url": "https://newrelic.com",
+        "favIcon": "https://newrelic.com/favicon.ico",
+        "logo": "https://newrelic.com/logo.png",
+        "about": "Full-stack observability platform for monitoring application performance and errors."
+      },
+      {
+        "name": "Checkbot",
+        "url": "https://www.checkbot.io",
+        "favIcon": "https://www.checkbot.io/favicon.ico",
+        "logo": "https://www.checkbot.io/logo.png",
+        "about": "Chrome extension auditing SEO, speed, and security during website crawls."
+      },
+      {
+        "name": "Sitespeed.io",
+        "url": "https://www.sitespeed.io",
+        "favIcon": "https://www.sitespeed.io/favicon.ico",
+        "logo": "https://www.sitespeed.io/logo.png",
+        "about": "Open-source tool for measuring performance metrics and generating HAR files."
+      },
+      {
+        "name": "PerfBuddy",
+        "url": "https://perfbuddy.com",
+        "favIcon": "https://perfbuddy.com/favicon.ico",
+        "logo": "https://perfbuddy.com/logo.png",
+        "about": "Quick performance audits with actionable insights for developers."
+      }
+    ]
+  },
+  {
+    "category": "SVG & Image Tools",
+    "items": [
+      {
+        "name": "SVGOMG",
+        "url": "https://jakearchibald.github.io/svgomg",
+        "favIcon": "https://jakearchibald.github.io/svgomg/favicon.ico",
+        "logo": "https://jakearchibald.github.io/svgomg/logo.png"
+      },
+      {
+        "name": "Remove.bg",
+        "url": "https://www.remove.bg",
+        "favIcon": "https://www.remove.bg/favicon.ico",
+        "logo": "https://www.remove.bg/logo.png"
+      },
+      {
+        "name": "Unsplash",
+        "url": "https://unsplash.com",
+        "favIcon": "https://unsplash.com/favicon.ico",
+        "logo": "https://unsplash.com/logo.png"
+      },
+      {
+        "name": "Pexels",
+        "url": "https://www.pexels.com",
+        "favIcon": "https://www.pexels.com/favicon.ico",
+        "logo": "https://www.pexels.com/logo.png"
+      },
+      {
+        "name": "Canva",
+        "url": "https://www.canva.com",
+        "favIcon": "https://www.canva.com/favicon.ico",
+        "logo": "https://www.canva.com/logo.png"
+      },
+      {
+        "name": "Figma",
+        "url": "https://www.figma.com",
+        "favIcon": "https://www.figma.com/favicon.ico",
+        "logo": "https://www.figma.com/logo.png"
+      },
+      {
+        "name": "Sketch",
+        "url": "https://www.sketch.com",
+        "favIcon": "https://www.sketch.com/favicon.ico",
+        "logo": "https://www.sketch.com/logo.png"
+      },
+      {
+        "name": "Adobe XD",
+        "url": "https://www.adobe.com/products/xd.html",
+        "favIcon": "https://www.adobe.com/favicon.ico",
+        "logo": "https://www.adobe.com/logo.png"
+      },
+      {
+        "name": "Vectr",
+        "url": "https://vectr.com",
+        "favIcon": "https://vectr.com/favicon.ico",
+        "logo": "https://vectr.com/logo.png"
+      },
+      {
+        "name": "Boxy SVG",
+        "url": "https://boxy-svg.com",
+        "favIcon": "https://boxy-svg.com/favicon.ico",
+        "logo": "https://boxy-svg.com/logo.png"
+      },
+      {
+        "name": "Squircley",
+        "url": "https://squircley.app",
+        "favIcon": "https://squircley.app/favicon.ico",
+        "logo": "https://squircley.app/logo.png"
+      },
+      {
+        "name": "Haikei",
+        "url": "https://haikei.app",
+        "favIcon": "https://haikei.app/favicon.ico",
+        "logo": "https://haikei.app/logo.png"
+      }
+    ]
+  },
+  {
+    "category": "JavaScript Tools",
+    "items": [
+      {
+        "name": "JSFiddle",
+        "url": "https://jsfiddle.net",
+        "favIcon": "https://jsfiddle.net/favicon.ico",
+        "logo": "https://jsfiddle.net/logo.png"
+      },
+      {
+        "name": "CodePen",
+        "url": "https://codepen.io",
+        "favIcon": "https://codepen.io/favicon.ico",
+        "logo": "https://codepen.io/logo.png"
+      },
+      {
+        "name": "StackBlitz",
+        "url": "https://stackblitz.com",
+        "favIcon": "https://stackblitz.com/favicon.ico",
+        "logo": "https://stackblitz.com/logo.png"
+      },
+      {
+        "name": "Repl.it",
+        "url": "https://replit.com",
+        "favIcon": "https://replit.com/favicon.ico",
+        "logo": "https://replit.com/logo.png"
+      },
+      {
+        "name": "JSONPlaceholder",
+        "url": "https://jsonplaceholder.typicode.com",
+        "favIcon": "https://jsonplaceholder.typicode.com/favicon.ico",
+        "logo": "https://jsonplaceholder.typicode.com/logo.png"
+      },
+      {
+        "name": "Beautifier.io",
+        "url": "https://beautifier.io",
+        "favIcon": "https://beautifier.io/favicon.ico",
+        "logo": "https://beautifier.io/logo.png"
+      },
+      {
+        "name": "ES6 Console",
+        "url": "https://es6console.com",
+        "favIcon": "https://es6console.com/favicon.ico",
+        "logo": "https://es6console.com/logo.png"
+      },
+      {
+        "name": "Babel REPL",
+        "url": "https://babeljs.io/repl",
+        "favIcon": "https://babeljs.io/favicon.ico",
+        "logo": "https://babeljs.io/logo.png"
+      },
+      {
+        "name": "JS Bin",
+        "url": "https://jsbin.com",
+        "favIcon": "https://jsbin.com/favicon.ico",
+        "logo": "https://jsbin.com/logo.png"
+      },
+      {
+        "name": "Regexr",
+        "url": "https://regexr.com",
+        "favIcon": "https://regexr.com/favicon.ico",
+        "logo": "https://regexr.com/logo.png"
+      },
+      {
+        "name": "Parcel",
+        "url": "https://parceljs.org",
+        "favIcon": "https://parceljs.org/favicon.ico",
+        "logo": "https://parceljs.org/logo.png"
+      },
+      {
+        "name": "Webpack",
+        "url": "https://webpack.js.org",
+        "favIcon": "https://webpack.js.org/favicon.ico",
+        "logo": "https://webpack.js.org/logo.png"
+      }
+    ]
+  },
+  {
+    "category": "Design Resources",
+    "items": [
+      {
+        "name": "Font Awesome",
+        "url": "https://fontawesome.com",
+        "favIcon": "https://fontawesome.com/favicon.ico",
+        "logo": "https://fontawesome.com/logo.png"
+      },
+      {
+        "name": "Ionicons",
+        "url": "https://ionic.io/ionicons",
+        "favIcon": "https://ionic.io/favicon.ico",
+        "logo": "https://ionic.io/logo.png"
+      },
+      {
+        "name": "Material Icons",
+        "url": "https://material.io/resources/icons",
+        "favIcon": "https://material.io/favicon.ico",
+        "logo": "https://material.io/logo.png"
+      },
+      {
+        "name": "Heroicons",
+        "url": "https://heroicons.com",
+        "favIcon": "https://heroicons.com/favicon.ico",
+        "logo": "https://heroicons.com/logo.png"
+      },
+      {
+        "name": "Feather Icons",
+        "url": "https://feathericons.com",
+        "favIcon": "https://feathericons.com/favicon.ico",
+        "logo": "https://feathericons.com/logo.png"
+      },
+      {
+        "name": "Coolors",
+        "url": "https://coolors.co",
+        "favIcon": "https://coolors.co/favicon.ico",
+        "logo": "https://coolors.co/logo.png"
+      },
+      {
+        "name": "Color Hunt",
+        "url": "https://colorhunt.co",
+        "favIcon": "https://colorhunt.co/favicon.ico",
+        "logo": "https://colorhunt.co/logo.png"
+      },
+      {
+        "name": "Unsplash",
+        "url": "https://unsplash.com",
+        "favIcon": "https://unsplash.com/favicon.ico",
+        "logo": "https://unsplash.com/logo.png"
+      },
+      {
+        "name": "Pexels",
+        "url": "https://www.pexels.com",
+        "favIcon": "https://www.pexels.com/favicon.ico",
+        "logo": "https://www.pexels.com/logo.png"
+      },
+      {
+        "name": "LottieFiles",
+        "url": "https://lottiefiles.com",
+        "favIcon": "https://lottiefiles.com/favicon.ico",
+        "logo": "https://lottiefiles.com/logo.png"
+      },
+      {
+        "name": "Storyset",
+        "url": "https://storyset.com",
+        "favIcon": "https://storyset.com/favicon.ico",
+        "logo": "https://storyset.com/logo.png"
+      },
+      {
+        "name": "unDraw",
+        "url": "https://undraw.co",
+        "favIcon": "https://undraw.co/favicon.ico",
+        "logo": "https://undraw.co/logo.png"
+      }
+    ]
+  },
+  {
+    "category": "Productivity & Collaboration",
+    "items": [
+      {
+        "name": "Trello",
+        "url": "https://trello.com",
+        "favIcon": "https://trello.com/favicon.ico",
+        "logo": "https://trello.com/logo.png"
+      },
+      {
+        "name": "Notion",
+        "url": "https://www.notion.so",
+        "favIcon": "https://www.notion.so/favicon.ico",
+        "logo": "https://www.notion.so/logo.png"
+      },
+      {
+        "name": "Slack",
+        "url": "https://slack.com",
+        "favIcon": "https://slack.com/favicon.ico",
+        "logo": "https://slack.com/logo.png"
+      },
+      {
+        "name": "Figma",
+        "url": "https://www.figma.com",
+        "favIcon": "https://www.figma.com/favicon.ico",
+        "logo": "https://www.figma.com/logo.png"
+      },
+      {
+        "name": "Miro",
+        "url": "https://miro.com",
+        "favIcon": "https://miro.com/favicon.ico",
+        "logo": "https://miro.com/logo.png"
+      },
+      {
+        "name": "GitHub",
+        "url": "https://github.com",
+        "favIcon": "https://github.com/favicon.ico",
+        "logo": "https://github.com/logo.png"
+      },
+      {
+        "name": "GitLab",
+        "url": "https://gitlab.com",
+        "favIcon": "https://gitlab.com/favicon.ico",
+        "logo": "https://gitlab.com/logo.png"
+      },
+      {
+        "name": "Bitbucket",
+        "url": "https://bitbucket.org",
+        "favIcon": "https://bitbucket.org/favicon.ico",
+        "logo": "https://bitbucket.org/logo.png"
+      },
+      {
+        "name": "Stack Overflow",
+        "url": "https://stackoverflow.com",
+        "favIcon": "https://stackoverflow.com/favicon.ico",
+        "logo": "https://stackoverflow.com/logo.png"
+      },
+      {
+        "name": "DEV Community",
+        "url": "https://dev.to",
+        "favIcon": "https://dev.to/favicon.ico",
+        "logo": "https://dev.to/logo.png"
+      },
+      {
+        "name": "Hacker News",
+        "url": "https://news.ycombinator.com",
+        "favIcon": "https://news.ycombinator.com/favicon.ico",
+        "logo": "https://news.ycombinator.com/logo.png"
+      },
+      {
+        "name": "Product Hunt",
+        "url": "https://www.producthunt.com",
+        "favIcon": "https://www.producthunt.com/favicon.ico",
+        "logo": "https://www.producthunt.com/logo.png"
+      }
+    ]
+  }
+]

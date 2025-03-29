@@ -1,16 +1,13 @@
-- [ ] create a texteara field for text rich and save it with keep the text style and preview the text as saved using this message chatGPT can help:
+I have created a new project and want to publish a post about it on my website, Darama Projects. Each post should include:
 
-```
-Message for Help:
-"Hey, I’m working on a Next.js 15 project where I need a form to create elements with a description input. The input should allow users to type or paste formatted text (like bold for important words, lists, and new lines). I also need to save this data (probably in state or a database) and render it on a preview page while keeping the formatting intact. Can you help me implement this using Next.js, React state management, and possibly a rich text editor or Markdown support?"
+Title: A concise and engaging name for the project.
 
-This makes it clear that you want:
-✅ A form with an input field for the description
-✅ The ability to control text formatting (bold, lists, new lines)
-✅ The ability to save and render the formatted text on a preview page
-✅ A Next.js-friendly solution
+Description: A detailed explanation of what the project does, its features, and how it works and fully styled and structured.
 
-When you're ready, just send me this message, and I'll help you with the best approach! 🚀
-```
+Short Description: A brief one-liner summarizing the project.
 
-- [ ] fix typescript errors in page : components\TestCard\index.tsx
+Tags: 3 to 4 relevant keywords.
+
+Code Improvements: Clean up my code, optimize it, and add comments where necessary.
+
+Here’s my project:

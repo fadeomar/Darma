@@ -36,10 +36,8 @@ const CardsPagination: React.FC<PaginatedListProps> = ({
     <div className="mb-11">
       {/* Render the current elements */}
       <div
-        className={`grid grid-cols-1 md:grid-cols-2 ${
-          itemsByRow === 2
-            ? "lg:grid-cols-2 max-lg:grid-cols-3"
-            : "lg:grid-cols-3"
+        className={`grid grid-cols-1 md:grid-cols-1 ${
+          itemsByRow === 2 ? "lg:grid-cols-2" : "lg:grid-cols-3"
         } gap-4 mb-10`}
       >
         {elements.map((element) =>

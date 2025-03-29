@@ -14,21 +14,21 @@ datasource db {
 }
 
 model Element {
-  id                String   @id @default(cuid()) // or @default(uuid()) if you prefer UUID
+  id                String   @id @default(cuid())
   title             String
   description       String
   shortDescription  String?
   html              String
   css               String
   js                String?
-  tags              String[] // Array of strings
-  mainCategory      String[] // Array of strings
-  secondaryCategory String[] // Array of strings
+  tags              String[]
+  mainCategory      String[]
+  secondaryCategory String[]
   deleted           Boolean  @default(false)
+  reviewed          Boolean  @default(false) // New field
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
 
-  // Valid GIN indexes for array fields
   @@index([mainCategory], type: Gin)
   @@index([secondaryCategory], type: Gin)
   @@index([tags], type: Gin)

@@ -12,6 +12,7 @@ export interface CodeElement {
   mainCategory: string[];
   secondaryCategory: string[];
   deleted: boolean;
+  reviewed: boolean;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -30,6 +31,7 @@ export interface CreateCodeElement {
   deleted?: boolean | undefined;
   createdAt?: string;
   updatedAt?: string;
+  reviewed?: boolean;
 }
 export interface Category {
   name: string;
@@ -58,4 +60,12 @@ export interface ElementFormProps {
   ) => void;
   onReset: () => void;
   getSecondaryCategoryOptions: () => DropdownOption[];
+}
+
+export interface SearchParams {
+  q?: string;
+  mainCat?: string | string[];
+  secCat?: string | string[];
+  page?: string;
+  exactMatch?: string;
 }

@@ -1,10 +1,10 @@
-// components/ToggleSwitch.tsx
+// ToggleSwitch.tsx
 import React from "react";
 import "./ToggleSwitch.css";
 
 interface ToggleSwitchProps {
   checked: boolean;
-  onChange: (checked: boolean) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   label?: string;
   disabled?: boolean;
   onClick?: (event: React.MouseEvent<HTMLLabelElement>) => void;
@@ -19,7 +19,7 @@ export const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
 }) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!disabled) {
-      onChange(e.target.checked);
+      onChange(e);
     }
   };
 

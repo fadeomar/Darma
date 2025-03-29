@@ -6,7 +6,6 @@ import CodeEditor from "@/components/CodeEditor";
 import ResizableContainer from "@/components/ResizableContainer";
 import { CodeElement } from "@/types";
 import { useParams } from "next/navigation";
-// import PreviewHTML from "@/components/PreviewHTML";
 import DateBox from "@/components/DateBox";
 import { FiGithub, FiCodepen, FiTwitter, FiLink } from "react-icons/fi";
 import Editor from "@/components/Editor";
@@ -207,7 +206,6 @@ export default function PreviewPage({
             <h3 className="text-lg font-semibold mb-4 text-gray-800">
               Description
             </h3>
-            {/* <PreviewHTML html={element.description} className="max-w-none" /> */}
             <Editor
               content={element.description}
               onUpdate={() => {}}

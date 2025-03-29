@@ -6,6 +6,7 @@ import { ChevronDown, ChevronUp, CheckCircle, Filter } from "lucide-react";
 import "./style.css";
 import { getGradientColor } from "@/utils";
 import { iconMap } from "@/components/iconMap";
+
 interface SelectPanelSectionProps {
   mainCats: string[];
   secCats: string[];
@@ -20,6 +21,7 @@ const SelectPanelSection: React.FC<SelectPanelSectionProps> = ({
   isLoading,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+
   useEffect(() => {
     if (isLoading === false && isOpen === true) {
       setIsOpen(false);

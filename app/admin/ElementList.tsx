@@ -3,7 +3,6 @@ import CardsPagination from "@/components/CardsPagination";
 import PreviewCard from "@/components/TestCard";
 import CategoryBadge from "@/components/CategoryBadge";
 import { CheckCircle } from "lucide-react";
-// import PreviewHTML from "@/components/PreviewHTML";
 
 interface ElementListProps {
   elements: CodeElement[];
@@ -83,7 +82,6 @@ export default function ElementList({
             )}
             <h3 className="text-lg font-semibold mb-2">{element.title}</h3>
             <p className="text-gray-600 mb-2">{element.shortDescription}</p>
-            {/* <PreviewHTML html={element.description} /> */}
             {element?.mainCategory?.length > 0 && (
               <div className="flex gap-2">
                 Main Cats:

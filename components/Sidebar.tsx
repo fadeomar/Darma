@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
@@ -13,20 +13,20 @@ const Sidebar: React.FC = () => {
   // }>({});
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false); // Default closed
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setIsSidebarOpen(true); // Open by default on desktop
-      } else if (isSidebarOpen === true) {
-        setIsSidebarOpen(false); // Keep closed on mobile
-      }
-    };
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     if (window.innerWidth >= 768) {
+  //       setIsSidebarOpen(true); // Open by default on desktop
+  //     } else if (isSidebarOpen === true) {
+  //       setIsSidebarOpen(false); // Keep closed on mobile
+  //     }
+  //   };
 
-    handleResize(); // Run on mount
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  //   handleResize(); // Run on mount
+  //   window.addEventListener("resize", handleResize);
+  //   return () => window.removeEventListener("resize", handleResize);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   const toggleSidebar = () => {
     setIsSidebarOpen((prev) => !prev);

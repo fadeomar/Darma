@@ -1,114 +1,112 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
-import { CodeElement } from "@/types";
-import CardsPagination from "@/components/CardsPagination";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { CodeElement, SearchParams } from "@/types";
 import SearchComponent from "./SearchComponent";
+import CardsPagination from "@/components/CardsPagination";
 import SkeletonGrid from "@/components/SkeletonGrid";
 
 export default function HomeClientPage({
-  serverElements,
-  serverTotal,
-}: // searchParams,
-{
-  serverElements: CodeElement[];
-  serverTotal: number;
-  // searchParams: Record<string, string>;
+  initialElements,
+  initialTotal,
+  initialError,
+  initialParams,
+}: {
+  initialElements: CodeElement[];
+  initialTotal: number;
+  initialError?: string;
+  initialParams: SearchParams;
 }) {
   const router = useRouter();
-  const clientSearchParams = useSearchParams();
 
-  const [elements, setElements] = useState(serverElements);
-  const [totalItems, setTotalItems] = useState(serverTotal);
-  const [isLoading, setIsLoading] = useState(false);
-  const [localSearch, setLocalSearch] = useState(
-    clientSearchParams.get("q") || ""
-  );
+  // Local state for UI controls
+  const [localSearch, setLocalSearch] = useState(initialParams.q || "");
   const [exactMatch, setExactMatch] = useState(
-    clientSearchParams.get("exactMatch") === "true"
+    initialParams.exactMatch === "true"
   );
   const [mainCats, setMainCats] = useState<string[]>(
-    clientSearchParams.getAll("mainCat")
+    Array.isArray(initialParams.mainCat)
+      ? initialParams.mainCat
+      : initialParams.mainCat
+      ? [initialParams.mainCat]
+      : []
   );
   const [secCats, setSecCats] = useState<string[]>(
-    clientSearchParams.getAll("secCat")
+    Array.isArray(initialParams.secCat)
+      ? initialParams.secCat
+      : initialParams.secCat
+      ? [initialParams.secCat]
+      : []
   );
   const [currentPage, setCurrentPage] = useState(
-    parseInt(clientSearchParams.get("page") || "1", 10)
+    parseInt(initialParams.page || "1", 10)
   );
+  const [isDirty, setIsDirty] = useState(false); // Tracks if params have changed
 
-  const itemsPerPage = 6;
+  // Data and UI states
+  const [elements, setElements] = useState<CodeElement[]>(initialElements);
+  const [total, setTotal] = useState(initialTotal);
+  const [error, setError] = useState<string | undefined>(initialError);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const fetchElements = async (
-    page: number,
-    query: string,
-    mainCats: string[],
-    secCats: string[]
-  ) => {
-    setIsLoading(true);
-    const params = new URLSearchParams();
-    if (query.trim()) params.set("q", query.trim());
-    mainCats.forEach((c) => params.append("mainCat", c));
-    secCats.forEach((c) => params.append("secCat", c));
-    params.set("page", page.toString());
-    params.set("pageSize", itemsPerPage.toString());
-    params.set("exactMatch", exactMatch.toString());
-    params.set("sort", "createdAt");
-    params.set("order", "desc");
-
-    try {
-      const response = await fetch(`/api/search?${params.toString()}`);
-      if (!response.ok) throw new Error("Fetch failed");
-      const data = await response.json();
-      const { elements, total } = data;
-      setElements(elements);
-      setTotalItems(total);
-    } catch (error) {
-      console.error("Fetch error:", error);
-      setElements([]);
-      setTotalItems(0);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
+  // Build URL parameters from current state
   const updateUrlParams = (
     page: number,
     query: string,
     mainCats: string[],
-    secCats: string[]
+    secCats: string[],
+    exactMatch: boolean
   ) => {
     const params = new URLSearchParams();
     if (query.trim()) params.set("q", query.trim());
     mainCats.forEach((c) => params.append("mainCat", c));
     secCats.forEach((c) => params.append("secCat", c));
     params.set("page", page.toString());
-    router.replace(`/?${params.toString()}`, { scroll: false });
+    params.set("exactMatch", exactMatch.toString());
+    router.push(`/?${params.toString()}`); // Trigger server re-render
   };
 
+  // Handle search button click
   const handleSearch = () => {
-    const newPage = 1;
+    setIsLoading(true);
+    const newPage = 1; // Reset to page 1 on new search
     setCurrentPage(newPage);
-    updateUrlParams(newPage, localSearch, mainCats, secCats);
-    fetchElements(newPage, localSearch, mainCats, secCats);
+    updateUrlParams(newPage, localSearch, mainCats, secCats, exactMatch);
+    setIsDirty(false); // Reset after applying changes
   };
 
+  // Handle page change
   const handlePageChange = (page: number) => {
-    setCurrentPage(page); // Update the current page
-    updateUrlParams(page, localSearch, mainCats, secCats); // Sync URL with current state
-    fetchElements(page, localSearch, mainCats, secCats); // Fetch data for the new page
+    setIsLoading(true);
+    setCurrentPage(page);
+    updateUrlParams(page, localSearch, mainCats, secCats, exactMatch);
+    setIsDirty(false);
   };
 
+  // Handle category changes (local state only)
   const handleCategoryChange = (
     newMainCats: string[],
     newSecCats: string[]
   ) => {
     setMainCats(newMainCats);
     setSecCats(newSecCats);
-    setCurrentPage(1);
-    updateUrlParams(1, localSearch, newMainCats, newSecCats);
+    setIsDirty(true); // Mark as dirty when categories change
   };
+
+  // Sync state with server props when they change
+  useEffect(() => {
+    setElements(initialElements);
+    setTotal(initialTotal);
+    setError(initialError);
+    setIsLoading(false);
+    setIsDirty(false); // Reset dirty state after server update
+  }, [initialElements, initialTotal, initialError]);
+
+  // Mark as dirty when search query or exact match changes
+  useEffect(() => {
+    setIsDirty(true);
+  }, [localSearch, exactMatch]);
 
   return (
     <div className="min-h-screen bg-gray-50 p-8">
@@ -122,18 +120,23 @@ export default function HomeClientPage({
         onCategoryChange={handleCategoryChange}
         onSearch={handleSearch}
         isLoading={isLoading}
+        isDirty={isDirty}
       />
 
       <div className="max-w-7xl mx-auto">
         <h3 className="text-xl font-semibold mb-4 uppercase">Items</h3>
         {isLoading ? (
           <SkeletonGrid count={9} />
+        ) : error ? (
+          <div className="text-center py-12 text-red-500 uppercase">
+            Error: {error}
+          </div>
         ) : elements.length > 0 ? (
           <CardsPagination
             elements={elements}
             itemsByRow={2}
             currentPage={currentPage}
-            totalPages={Math.ceil(totalItems / itemsPerPage)}
+            totalPages={Math.ceil(total / 6)}
             onPageChange={handlePageChange}
           />
         ) : (

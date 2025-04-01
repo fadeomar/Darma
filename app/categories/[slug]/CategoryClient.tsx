@@ -82,7 +82,7 @@ export default function CategoryClient({
   const _description = currentCategory?.description;
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
+    <div className="min-h-screen bg-gray-50 p-8 md:p-4 sm:p-2">
       <div className="max-w-7xl mx-auto mb-8">
         <div className="flex items-center gap-4 mb-6">
           <button

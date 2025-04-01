@@ -28,7 +28,7 @@ const SearchComponent: React.FC<SearchComponentProps> = ({
   isDirty,
 }) => {
   return (
-    <div className="container mx-auto p-4 max-w-3xl">
+    <div className="container mx-auto p-4 max-w-6xl">
       <div className="search-rainbow-border shadow-md flex items-center mb-6 rounded-md">
         <div className="relative flex-grow">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />

@@ -20,7 +20,7 @@ export default function RootLayout({
           <Suspense fallback={<div>Loading search page...</div>}>
             <Sidebar />
           </Suspense>
-          <main className="flex-1 p-2 md:p-6">{children}</main>
+          <main className="flex-1 p-0 md:p-6">{children}</main>
         </div>
       </body>
     </html>

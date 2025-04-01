@@ -43,7 +43,7 @@ const Card = ({
         <iframe
           srcDoc={iframeContent}
           className="card-iframe"
-          sandbox="allow-scripts allow-same-origin"
+          sandbox="allow-forms allow-scripts allow-same-origin"
         />
         {status === "preview" && (
           <>

@@ -101,7 +101,8 @@
         "generators",
         "calculators",
         "todo-lists",
-        "weather-widgets"
+        "weather-widgets",
+        "API"
       ]
     },
     {

@@ -56,10 +56,6 @@ export default async function ElementPage({
     baseUrl = "http://localhost:3000";
   }
 
-  console.log("NEXT_PUBLIC_BASE_URL:", process.env.NEXT_PUBLIC_BASE_URL);
-  console.log("VERCEL_URL:", process.env.VERCEL_URL);
-  // console.log("Resolved baseUrl:", baseUrl);
-
   const apiUrl = `${baseUrl}/api/elements/${id}`;
   const response = await fetch(apiUrl, { cache: "no-store" });
   let element: CodeElement | null = null;

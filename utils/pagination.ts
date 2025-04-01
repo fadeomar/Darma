@@ -1,7 +1,7 @@
 export const getPaginationRange = ({
   totalPages,
   currentPage,
-  siblingCount = 3,
+  siblingCount = 2,
 }: {
   totalPages: number;
   currentPage: number;

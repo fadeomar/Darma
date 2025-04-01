@@ -5,7 +5,7 @@ import React from "react";
 import { CodeElement } from "@/types";
 import { getPaginationRange } from "@/utils/pagination";
 import Card from "./TestCard";
-
+import { ChevronsLeftIcon, ChevronsRightIcon } from "lucide-react";
 interface PaginatedListProps {
   elements: CodeElement[];
   renderElement?: (element: CodeElement) => React.ReactNode;
@@ -51,14 +51,15 @@ const CardsPagination: React.FC<PaginatedListProps> = ({
 
       {/* Pagination Controls */}
       {totalPages > 1 && (
-        <div className="flex justify-center items-center mt-6 space-x-2">
+        <div className="flex justify-center items-center mt-6 space-x-2  max-w-fulls">
           {/* Previous Button */}
           <button
             onClick={() => handlePageClick(currentPage - 1)}
             disabled={currentPage === 1}
             className="px-3 py-1 text-sm bg-gray-200 rounded disabled:opacity-50"
+            title="Previous"
           >
-            Previous
+            <ChevronsLeftIcon />
           </button>
 
           {/* Page Numbers */}
@@ -80,10 +81,15 @@ const CardsPagination: React.FC<PaginatedListProps> = ({
               <button
                 key={index}
                 onClick={() => handlePageClick(page as number)}
-                className={`w-8 h-8 flex items-center justify-center rounded-full text-sm ${
-                  currentPage === page
+                // className={`w-6 md:w-8 h-6 md:h-8 flex items-center justify-center rounded-full text-sm ${
+                //   currentPage === page
+                //     ? "bg-blue-500 text-white"
+                //     : "bg-gray-200 text-gray-700"
+                // }`}
+                className={`px-3 py-1 rounded sm:rounded sm:px-3 sm:py-1 w-5 h-5 sm:w-auto sm:h-auto flex items-center justify-center text-xs sm:text-base ${
+                  page === currentPage
                     ? "bg-blue-500 text-white"
-                    : "bg-gray-200 text-gray-700"
+                    : "bg-gray-200"
                 }`}
               >
                 {page}
@@ -96,8 +102,9 @@ const CardsPagination: React.FC<PaginatedListProps> = ({
             onClick={() => handlePageClick(currentPage + 1)}
             disabled={currentPage === totalPages}
             className="px-3 py-1 text-sm bg-gray-200 rounded disabled:opacity-50"
+            title="Next"
           >
-            Next
+            <ChevronsRightIcon />
           </button>
         </div>
       )}

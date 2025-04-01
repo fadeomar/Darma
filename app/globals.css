@@ -6,6 +6,9 @@
   --background: #ffffff;
   --foreground: #171717;
 }
+ذ html {
+  scroll-behavior: smooth;
+}
 
 @media (prefers-color-scheme: dark) {
   :root {

@@ -1,6 +1,8 @@
 // page.tsx
+import ThemeToggle from "@/components/ThemeToggle";
 import HomeClientPage from "@/sections/HomeClientPage";
 import { CodeElement, SearchParams } from "@/types";
+import { cookies } from "next/headers";
 
 const getBaseUrl = () => {
   let baseUrl = "";
@@ -76,13 +78,17 @@ export default async function HomePage({
   };
 
   const { elements, total, error } = await fetchElements(normalizedParams);
-
+  const cookieStore = cookies();
+  const theme = (await cookieStore).get("theme")?.value || "light";
   return (
-    <HomeClientPage
-      initialElements={elements}
-      initialTotal={total}
-      initialError={error}
-      initialParams={normalizedParams}
-    />
+    <main className="min-h-screen p-8 bg-baseColor text-textColor">
+      <ThemeToggle initialMode={theme} />
+      <HomeClientPage
+        initialElements={elements}
+        initialTotal={total}
+        initialError={error}
+        initialParams={normalizedParams}
+      />
+    </main>
   );
 }

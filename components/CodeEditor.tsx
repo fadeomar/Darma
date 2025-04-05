@@ -117,7 +117,7 @@ const CodeEditor = ({
   };
 
   return (
-    <div className="relative w-full max-w-[280px]  md:max-w-[539px] flex justify-center mx-auto">
+    <div className="relative w-full max-w-[280px]  md:max-w-[100%] flex justify-center mx-auto">
       <Editor
         height={height} // Initial height set via prop
         language={language}

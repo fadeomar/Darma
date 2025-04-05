@@ -82,7 +82,11 @@ input:focus + div {
 .rainbow-border-large {
   border: 3px solid transparent;
   border-radius: 0.75rem;
-  background: linear-gradient(white, white) padding-box,
+  background: linear-gradient(
+        var(--textColorOpposite),
+        var(--textColorOpposite)
+      )
+      padding-box,
     linear-gradient(
         to right,
         #ff7e5f,

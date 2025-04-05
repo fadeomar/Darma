@@ -1,6 +1,6 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Editor from "@monaco-editor/react";
-import { editor } from "monaco-editor"; // Import Monaco's editor types
+import { editor } from "monaco-editor";
 import { FiCheck, FiCopy } from "react-icons/fi";
 
 // Define the props interface
@@ -9,7 +9,8 @@ interface CodeEditorProps {
   setCode: React.Dispatch<React.SetStateAction<string>>;
   language: string;
   showCopyButton?: boolean;
-  buttonPosition?: "top-right" | "bottom-right"; // New prop
+  buttonPosition?: "top-right" | "bottom-right";
+  height?: string;
 }
 
 const CodeEditor = ({
@@ -18,19 +19,78 @@ const CodeEditor = ({
   language,
   showCopyButton = true,
   buttonPosition = "bottom-right",
+  height = "400px",
 }: CodeEditorProps) => {
   const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
   const [isCopied, setIsCopied] = useState(false);
 
-  // Properly typed editor mount handler
-  const handleEditorDidMount = (editor: editor.IStandaloneCodeEditor) => {
-    editorRef.current = editor;
-    // Optional: If you need to do something on mount, add it here
+  // Handle editor mount
+  const handleEditorDidMount = (
+    editorInstance: editor.IStandaloneCodeEditor
+  ) => {
+    editorRef.current = editorInstance;
+    updateEditorHeight(editorInstance); // Set initial height based on content
   };
+
+  // Function to dynamically adjust height based on content
+  const updateEditorHeight = (editorInstance: editor.IStandaloneCodeEditor) => {
+    const lineCount = editorInstance.getModel()?.getLineCount() || 1;
+    const lineHeight = 20; // Approximate height per line (adjust as needed)
+    const padding = 40; // Top + bottom padding from options (20 + 20)
+    const contentHeight = lineCount * lineHeight + padding;
+    const maxHeight = parseInt(height, 10); // Convert height prop to number
+
+    // Set height to content height, capped at maxHeight
+    const newHeight = Math.min(contentHeight, maxHeight);
+    editorInstance.layout({
+      height: newHeight,
+      width: editorInstance.getLayoutInfo().width,
+    });
+  };
+  // Update height and format when code changes, preserving scroll position
+  useEffect(() => {
+    const editorInstance = editorRef.current;
+    if (!editorInstance) return;
+
+    // Save current scroll position and cursor position
+    const scrollTop = editorInstance.getScrollTop();
+    const cursorPosition = editorInstance.getPosition();
+
+    // Update height dynamically
+    updateEditorHeight(editorInstance);
+
+    // Debounced formatting
+    const timeoutId = setTimeout(() => {
+      const action = editorInstance.getAction("editor.action.formatDocument");
+      if (action) {
+        action.run().then(() => {
+          // Restore scroll and cursor position after formatting
+          editorInstance.setScrollTop(scrollTop);
+          if (cursorPosition) {
+            editorInstance.setPosition(cursorPosition);
+          }
+        });
+      } else {
+        // Restore scroll and cursor even if no formatting occurs
+        editorInstance.setScrollTop(scrollTop);
+        if (cursorPosition) {
+          editorInstance.setPosition(cursorPosition);
+        }
+      }
+    }, 500);
+
+    // Immediate restoration of scroll position after height update
+    editorInstance.setScrollTop(scrollTop);
+    if (cursorPosition) {
+      editorInstance.setPosition(cursorPosition);
+    }
+
+    return () => clearTimeout(timeoutId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [code, height]);
 
   const handleCopy = () => {
     if (navigator.clipboard) {
-      // Modern Clipboard API
       navigator.clipboard
         .writeText(code)
         .then(() => {
@@ -41,7 +101,6 @@ const CodeEditor = ({
           console.error("Failed to copy code");
         });
     } else {
-      // Fallback for older browsers
       const textarea = document.createElement("textarea");
       textarea.value = code;
       document.body.appendChild(textarea);
@@ -58,9 +117,9 @@ const CodeEditor = ({
   };
 
   return (
-    <div className="relative">
+    <div className="relative w-full max-w-[280px]  md:max-w-[100%] flex justify-center mx-auto">
       <Editor
-        height="400px"
+        height={height} // Initial height set via prop
         language={language}
         theme="vs-dark"
         value={code}
@@ -83,6 +142,12 @@ const CodeEditor = ({
           selectOnLineNumbers: true,
           renderLineHighlightOnlyWhenFocus: false,
           formatOnType: true,
+          formatOnPaste: true,
+          tabSize: 2,
+          padding: {
+            top: 20,
+            bottom: 20,
+          },
         }}
       />
       {showCopyButton && (

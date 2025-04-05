@@ -1,4 +1,5 @@
 // page.tsx
+import ThemeToggle from "@/components/ThemeToggle";
 import HomeClientPage from "@/sections/HomeClientPage";
 import { CodeElement, SearchParams } from "@/types";
 
@@ -76,13 +77,15 @@ export default async function HomePage({
   };
 
   const { elements, total, error } = await fetchElements(normalizedParams);
-
   return (
-    <HomeClientPage
-      initialElements={elements}
-      initialTotal={total}
-      initialError={error}
-      initialParams={normalizedParams}
-    />
+    <main className="min-h-screen p-8 bg-baseColor text-textColor">
+      <ThemeToggle />
+      <HomeClientPage
+        initialElements={elements}
+        initialTotal={total}
+        initialError={error}
+        initialParams={normalizedParams}
+      />
+    </main>
   );
 }

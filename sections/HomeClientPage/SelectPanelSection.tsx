@@ -94,14 +94,18 @@ const SelectPanelSection: React.FC<SelectPanelSectionProps> = ({
 
       {/* Accordion Toggle */}
       <button
-        className="w-full p-2 flex items-center justify-between rounded-lg rainbow-border-large transition group hover:shadow-md"
+        className="w-full p-2 flex items-center justify-between rounded-lg rainbow-border-large transition group hover:shadow-md text-black"
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className="flex items-center">
-          <Filter className="w-5 h-5 mr-2" />
-          <span className="font-bold">Explore Categories</span>
+          <Filter className="w-5 h-5 mr-2 text-textColor" />
+          <span className="font-bold text-textColor">Explore Categories</span>
         </div>
-        {isOpen ? <ChevronUp /> : <ChevronDown />}
+        {isOpen ? (
+          <ChevronUp className="font-bold text-textColor" />
+        ) : (
+          <ChevronDown className="font-bold text-textColor" />
+        )}
       </button>
 
       {/* Accordion Body */}

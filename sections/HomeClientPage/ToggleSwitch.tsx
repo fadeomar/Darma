@@ -31,7 +31,7 @@ export const ToggleSwitch: React.FC<ToggleSwitchProps> = ({
 
   return (
     <div className="toggle-container">
-      {label && <span className="toggle-label">{label}</span>}
+      {label && <span className="toggle-label text-textColor">{label}</span>}
       <label className="switch" onClick={handleClick}>
         <input
           type="checkbox"

@@ -1,6 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "assets.justinmind.com",
+        port: "", // Leave empty unless a specific port is used
+        pathname: "/**", // Allows all paths under this domain
+      },
+    ],
+  },
   /* config options here */
   async rewrites() {
     return [

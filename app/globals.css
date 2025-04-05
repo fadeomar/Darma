@@ -3,41 +3,75 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-ذ html {
-  scroll-behavior: smooth;
+  /* Light mode defaults */
+  --background: #aab7ea;
+  --foreground: #001f3f;
+  --blur: 60px;
+  --textColor: #001f3f;
+  --textColorOpposite: #f6f5f7;
+  --baseColor: #aab7ea;
+  --darkColor: #dadada;
+  --firstGradientColor: #dadada;
+  --lightColor: #adadad;
+  --secondGradientColor: #adadad;
+  --positionX: 30px;
+  --positionXOpposite: -30px;
+  --positionY: 30px;
+  --positionYOpposite: -30px;
+  --angle: 145deg;
+  --size: 150px;
+  --radius: 30px;
+  --semibold: 600;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Dark mode overrides */
+:root[data-mode="dark"] {
+  --background: #171717;
+  --foreground: #ededed;
+  --textColor: #f6f5f7;
+  --textColorOpposite: #001f3f;
+  --baseColor: #171717;
+  --darkColor: #0a0a0a;
+  --firstGradientColor: #2d2d2d;
+  --lightColor: #3d3d3d;
+  --secondGradientColor: #1d1d1d;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Existing slide-in for active bar */
-@keyframes slide-in {
-  from {
-    transform: translateY(-100%);
+* {
+  word-break: break-words;
+}
+
+/* Soft UI styles */
+@layer components {
+  .soft-element {
+    @apply flex items-center justify-center text-center;
+    width: var(--size);
+    height: var(--size);
+    border-radius: var(--radius);
   }
-  to {
-    transform: translateY(0);
+
+  .soft-shadow {
+    background: linear-gradient(
+      var(--angle),
+      var(--firstGradientColor),
+      var(--secondGradientColor)
+    );
+    box-shadow: var(--positionX) var(--positionY) var(--blur) var(--darkColor),
+      var(--positionXOpposite) var(--positionYOpposite) var(--blur)
+        var(--lightColor);
   }
-}
 
-.animate-slide-in {
-  animation: slide-in 0.2s ease-out;
-}
-
-/* Optional: Fine-tune the types list animation if needed */
-.max-h-96 {
-  max-height: 24rem; /* Adjust based on your longest list */
+  .soft-shadow.pressed {
+    box-shadow: inset var(--positionX) var(--positionY) var(--blur)
+        var(--darkColor),
+      inset var(--positionXOpposite) var(--positionYOpposite) var(--blur)
+        var(--lightColor);
+  }
 }

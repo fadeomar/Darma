@@ -11,7 +11,7 @@
 /* Card Container */
 .card-container {
   position: relative;
-  background: var(--card-bg);
+  background: var(--background);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -35,8 +35,10 @@
   border-radius: inherit;
   padding: 2px;
   background: var(--gradient-primary);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(var(--background) 0 0) content-box,
+    linear-gradient(var(--background) 0 0);
+  mask: linear-gradient(var(--background) 0 0) content-box,
+    linear-gradient(var(--background) 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0;
@@ -84,8 +86,8 @@
   top: 12px;
   right: 12px;
   padding: 6px 14px;
-  background: rgba(255, 255, 255, 0.96);
-  color: #1a1a1a;
+  background: var(--background);
+  color: var(--textColor);
   border-radius: 20px;
   font-weight: 600;
   font-size: 0.85rem;
@@ -93,7 +95,7 @@
   transform: translateY(8px);
   transition: var(--transition-default);
   text-decoration: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px var(--textColor);
   backdrop-filter: blur(6px);
   z-index: 2;
 }
@@ -124,13 +126,6 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   line-height: 1.4;
-}
-
-.card-date {
-  display: block;
-  font-size: 0.78rem;
-  color: #666;
-  margin-bottom: 8px;
 }
 
 /* Meta Information */

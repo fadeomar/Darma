@@ -48,7 +48,10 @@ const Card = ({
         {status === "preview" && (
           <>
             <div className="screen-overlay"></div>
-            <Link href={`/element/${element.id}`} className="preview-link">
+            <Link
+              href={`/element/${element.id}`}
+              className="preview-link text-textColor"
+            >
               ↗ Preview
             </Link>
           </>

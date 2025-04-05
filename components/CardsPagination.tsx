@@ -56,7 +56,7 @@ const CardsPagination: React.FC<PaginatedListProps> = ({
           <button
             onClick={() => handlePageClick(currentPage - 1)}
             disabled={currentPage === 1}
-            className="px-3 py-1 text-sm bg-gray-200 rounded disabled:opacity-50"
+            className="px-3 py-1 text-sm bg-gray-200 dark:bg-gray-700 rounded disabled:opacity-50"
             title="Previous"
           >
             <ChevronsLeftIcon />
@@ -88,8 +88,8 @@ const CardsPagination: React.FC<PaginatedListProps> = ({
                 // }`}
                 className={`px-3 py-1 rounded sm:rounded sm:px-3 sm:py-1 w-5 h-5 sm:w-auto sm:h-auto flex items-center justify-center text-xs sm:text-base ${
                   page === currentPage
-                    ? "bg-blue-500 text-white"
-                    : "bg-gray-200"
+                    ? "bg-blue-500 dark:bg-yellow-500 text-white dark:text-gray-800"
+                    : "bg-gray-200 dark:bg-gray-700"
                 }`}
               >
                 {page}
@@ -101,7 +101,7 @@ const CardsPagination: React.FC<PaginatedListProps> = ({
           <button
             onClick={() => handlePageClick(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className="px-3 py-1 text-sm bg-gray-200 rounded disabled:opacity-50"
+            className="px-3 py-1 text-sm bg-gray-200 dark:bg-gray-700 rounded disabled:opacity-50"
             title="Next"
           >
             <ChevronsRightIcon />

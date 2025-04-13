@@ -4,7 +4,6 @@ import React, { CSSProperties, useState } from "react";
 import Preview from "./Preview";
 import Configuration from "./Configuration";
 import "./style.css";
-import NeumorphismArticle from "./NeumorphismArticle";
 import CodeEditor from "@/components/CodeEditor";
 import VariantSelector from "@/components/VariantSelector";
 import Title from "@/components/Title";
@@ -71,6 +70,7 @@ const defaultState = {
   slideDirection: "left",
 };
 import { handleStyle } from "./styles";
+import ButtonCSSGeneratorArticle from "./ButtonCSSGeneratorArticle";
 
 const App = () => {
   const [state, setState] = useState<State>(defaultState);
@@ -161,7 +161,7 @@ const App = () => {
 
         <div className="container max-w-screen-lg px-2 mx-auto mt-24">
           <section className="mb-24 text-left">
-            <NeumorphismArticle />
+            <ButtonCSSGeneratorArticle />
           </section>
         </div>
       </div>

@@ -1,7 +1,7 @@
 "use client";
 import React, { Dispatch, SetStateAction } from "react";
 import { _ColorsOptions, buttonGradients } from "./data";
-import { State } from "./Inputs";
+import { State } from "@/types/buttonGeneratorTypes";
 interface _OptionsProps {
   state: State;
   setState: Dispatch<SetStateAction<State>>;

@@ -1,6 +1,6 @@
 import { Search } from "lucide-react";
 import SelectPanelSection from "./SelectPanelSection";
-import ToggleSwitch from "./ToggleSwitch";
+import ToggleSwitch from "@/components/ToggleSwitch";
 
 interface SearchComponentProps {
   searchQuery: string;

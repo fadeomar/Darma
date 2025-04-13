@@ -3,11 +3,11 @@ import { camelize } from "@/utils";
 
 interface ConfigurationRowProps {
   label: string;
-  type: string; // Could be more specific like 'range' | 'text' if you want to restrict it
+  type: string;
   value: number;
-  min: string | number; // Allowing string or number since HTML inputs accept both
+  min: string | number;
   max: string | number;
-  step?: string | number; // Optional, defaults to "1"
+  step?: string | number;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -22,7 +22,7 @@ const ConfigurationRow: React.FC<ConfigurationRowProps> = ({
 }) => {
   return (
     <div className="row">
-      <label htmlFor={camelize(label)} className="opacity-60">
+      <label htmlFor={camelize(label)} className="opacity-60 text-ms">
         {label}{" "}
       </label>
       <input

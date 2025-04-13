@@ -14,7 +14,11 @@
   border: 2px solid var(--textColor);
   border-radius: 8px;
   padding: 4px 8px;
-  background-color: var(--bg-color);
+  background: linear-gradient(
+    var(--angle),
+    var(--firstGradientColor),
+    var(--secondGradientColor)
+  );
   box-shadow: 2px 2px var(--textColor);
   position: relative; /* Ensure it stays in flow */
   z-index: 1; /* Keep label above slider */
@@ -22,9 +26,6 @@
 
 .switch {
   --input-focus: #2d8cf0;
-  --bg-color: #fff;
-  --bg-color-alt: #666;
-  /* --textColor: #323232; */
   --input-out-of-focus: #ccc;
   position: relative;
   display: flex;

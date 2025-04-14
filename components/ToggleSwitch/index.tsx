@@ -1,6 +1,5 @@
-// ToggleSwitch.tsx
 import React from "react";
-import "./ToggleSwitch.css";
+import "./style.css";
 
 interface ToggleSwitchProps {
   checked: boolean;

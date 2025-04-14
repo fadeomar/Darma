@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useRef, ChangeEvent } from "react";
 import ShapeSwitcher from "./ShapeSwitcher";
 import CodeEditor from "@/components/CodeEditor";
-import { isValidColor, colorLuminance, getContrast } from "./utils";
+import { isValidColor, colorLuminance, getContrast } from "@/utils";
 import ConfigurationRow from "./ConfigurationRow";
 
 interface ConfigurationProps {

@@ -28,7 +28,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/element/[id]/page.tsx",
-    "app/tools/test/Configuration.jsx"
+    "app/tools/buttons-css-generator/Configuration.jsx"
   ],
   "exclude": ["node_modules"]
 }

@@ -1,0 +1,63 @@
+/* app/globals.css */
+.rainbow-border {
+  position: relative;
+  border-radius: 10px;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.rainbow-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 3px; /* Border width */
+  border-radius: 10px;
+  background: linear-gradient(
+    to right,
+    #ff7e5f,
+    #feb47b,
+    #ffcc70,
+    #6bff6b,
+    #6b83ff,
+    #ff6b6b,
+    #ff7e5f
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+  background-size: 200% 100%;
+  background-position: 0% 0%;
+}
+
+.rainbow-border:hover::before {
+  background: linear-gradient(
+    to right,
+    #ff7e5f,
+    #feb47b,
+    #ffcc70,
+    #6bff6b,
+    #6b83ff,
+    #ff6b6b,
+    #ff7e5f,
+    #ff7e5f,
+    #feb47b,
+    #ffcc70,
+    #6bff6b,
+    #6b83ff,
+    #ff6b6b,
+    #ff7e5f /* Doubled colors for seamless loop */
+  );
+  background-size: 200% 100%;
+  animation: rainbowFlow 3s linear infinite;
+}
+
+@keyframes rainbowFlow {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 0%; /* Shift full gradient width */
+  }
+}

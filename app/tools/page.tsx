@@ -1,10 +1,14 @@
-// app/tools/page.tsx
 import React from "react";
-import Title from "../../components/Title"; // Adjust path as needed
-import { FaCode, FaPaintBrush, FaMagic } from "react-icons/fa";
+import Title from "../../components/Title";
+import {
+  FaCode,
+  FaPaintBrush,
+  FaMagic,
+  FaQrcode,
+  FaFilm,
+} from "react-icons/fa";
 import { IconType } from "react-icons";
 import "./style.css";
-
 import Link from "next/link";
 
 interface ToolCardProps {
@@ -36,7 +40,7 @@ const ToolCard: React.FC<ToolCardProps> = ({
 interface Tool {
   title: string;
   description: string;
-  icon: IconType; // Explicitly use IconType
+  icon: IconType;
   link: string;
 }
 
@@ -59,6 +63,20 @@ const tools: Tool[] = [
     icon: FaMagic,
     link: "/tools/buttons-css-generator",
   },
+  {
+    title: "QR Code Generator",
+    description:
+      "Create scannable QR codes for URLs, text, or contact details instantly.",
+    icon: FaQrcode,
+    link: "/tools/qr-code",
+  },
+  {
+    title: "Animated Background Generator",
+    description:
+      "Generate dynamic CSS animated backgrounds with particles, bubbles, or explosions.",
+    icon: FaFilm,
+    link: "/tools/animated-background-generator",
+  },
 ];
 
 const ToolsPage: React.FC = () => {
@@ -66,7 +84,8 @@ const ToolsPage: React.FC = () => {
     <div className="container mx-auto p-4">
       <Title variant="h1" label="Tools" />
       <p className="text-center mb-6 text-gray-700">
-        Explore our collection of useful tools for developers and designers.
+        Explore our collection of useful tools for developers, designers, and
+        creators.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {tools.map((tool, index) => (

@@ -69,3 +69,15 @@ export interface SearchParams {
   page?: string;
   exactMatch?: string;
 }
+
+export interface ColorShade {
+  hex: string;
+  rgb: string;
+  hsl: string;
+}
+
+export interface ColorShadesParams {
+  color1: string;
+  color2: string;
+  steps: number;
+}

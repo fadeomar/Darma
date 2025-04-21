@@ -6,6 +6,7 @@ import {
   FaMagic,
   FaQrcode,
   FaFilm,
+  FaPalette,
 } from "react-icons/fa";
 import { IconType } from "react-icons";
 import "./style.css";
@@ -76,6 +77,13 @@ const tools: Tool[] = [
       "Generate dynamic CSS animated backgrounds with particles, bubbles, or explosions.",
     icon: FaFilm,
     link: "/tools/animated-background-generator",
+  },
+  {
+    title: "Color Shades Generator",
+    description:
+      "Generate smooth color gradients with curated suggestions and dynamic backgrounds.",
+    icon: FaPalette,
+    link: "/tools/color-shades",
   },
 ];
 

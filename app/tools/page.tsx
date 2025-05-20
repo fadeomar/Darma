@@ -7,6 +7,7 @@ import {
   FaQrcode,
   FaFilm,
   FaPalette,
+  FaCube,
 } from "react-icons/fa";
 import { IconType } from "react-icons";
 import "./style.css";
@@ -56,7 +57,7 @@ const tools: Tool[] = [
     title: "Neumorphic CSS Generator",
     description: "Generate neumorphic CSS styles easily.",
     icon: FaPaintBrush,
-    link: "/tools/neumorohic-css-generator",
+    link: "/tools/neumorphic-css-generator",
   },
   {
     title: "Buttons CSS Generator",
@@ -84,6 +85,12 @@ const tools: Tool[] = [
       "Generate smooth color gradients with curated suggestions and dynamic backgrounds.",
     icon: FaPalette,
     link: "/tools/color-shades",
+  },
+  {
+    title: "Box Shadows Generator",
+    description: "Create custom CSS box shadows with intuitive controls.",
+    icon: FaCube,
+    link: "/tools/box-shadows-generator",
   },
 ];
 

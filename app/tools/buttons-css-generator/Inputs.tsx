@@ -1,7 +1,7 @@
 import { ChangeEvent } from "react";
 
 import { getBoxShadowColor, getHoverColor, isValidColor } from "@/utils";
-import ConfigurationRow from "./ConfigurationRow";
+import ConfigurationRow from "@/components/ConfigurationRow";
 import ResetButton from "./ResetButton";
 import { ShadowsDInputsProps, State } from "@/types/buttonGeneratorTypes";
 import { shouldShowElement } from "./utils";

@@ -81,3 +81,30 @@ export interface ColorShadesParams {
   color2: string;
   steps: number;
 }
+
+// types.ts
+export interface Shadow {
+  id: string; // Unique identifier for each shadow
+  offsetX: number; // Horizontal offset
+  offsetY: number; // Vertical offset
+  blur: number; // Blur radius
+  spread: number; // Spread radius
+  opacity: number; // Opacity (0 to 1)
+  color: string; // Hex color (e.g., #000000)
+  inset: boolean; // Inset shadow toggle
+  distance: number; // Distance for light source calculation
+}
+
+export interface BoxShadowState {
+  shadows: Shadow[]; // Array of shadow configurations
+  boxSize: number; // Preview box size
+  borderRadius: number; // Preview box border-radius
+  backgroundColor: string; // Preview background color
+  activeLightSource: number; // Light source for shadow direction
+}
+
+export interface LightSourceConfig {
+  xMultiplier: number;
+  yMultiplier: number;
+  angle: number;
+}

@@ -1,22 +1,16 @@
-// page.tsx
 import ThemeToggle from "@/components/ThemeToggle";
+import FancyCTAButton from "@/components/CTAButton";
 import HomeClientPage from "@/sections/HomeClientPage";
 import { CodeElement, SearchParams } from "@/types";
 
 const getBaseUrl = () => {
-  let baseUrl = "";
-  if (
-    process.env.NEXT_PUBLIC_BASE_URL &&
-    process.env.NODE_ENV !== "development"
-  ) {
-    baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-  } else if (process.env.VERCEL_URL && process.env.NODE_ENV !== "development") {
-    baseUrl = `https://${process.env.VERCEL_URL}`;
-  } else {
-    baseUrl = "http://localhost:3000";
-  }
+  const isDev = process.env.NODE_ENV === "development";
+  const baseUrl = isDev
+    ? "http://localhost:3000"
+    : process.env.NEXT_PUBLIC_BASE_URL || `https://${process.env.VERCEL_URL}`;
   return baseUrl;
 };
+
 // Fetch data from the API based on search parameters
 async function fetchElements(searchParams: SearchParams) {
   const params = new URLSearchParams();
@@ -36,7 +30,7 @@ async function fetchElements(searchParams: SearchParams) {
 
   try {
     const response = await fetch(`${baseUrl}/api/search?${params.toString()}`, {
-      cache: "no-store", // Ensure fresh data on every request
+      cache: "no-store",
     });
     if (!response.ok) throw new Error(`Fetch failed: ${response.status}`);
     const data = await response.json();
@@ -77,9 +71,13 @@ export default async function HomePage({
   };
 
   const { elements, total, error } = await fetchElements(normalizedParams);
+
   return (
     <main className="min-h-screen p-8 bg-baseColor text-textColor">
-      <ThemeToggle />
+      <header className="flex justify-between items-center mb-12">
+        <ThemeToggle />
+        <FancyCTAButton href="/tools" label="Explore Tools" />
+      </header>
       <HomeClientPage
         initialElements={elements}
         initialTotal={total}

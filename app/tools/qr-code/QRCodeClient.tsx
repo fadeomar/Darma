@@ -92,7 +92,6 @@ export default function QRCodeClient() {
             Generate QR Code
           </button>
         </form>
-
         {qrCodeUrl && (
           <div className="mt-8 text-center">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">

@@ -3,7 +3,7 @@ import React, { useEffect, useState, useRef, ChangeEvent } from "react";
 import ShapeSwitcher from "./ShapeSwitcher";
 import CodeEditor from "@/components/CodeEditor";
 import { isValidColor, colorLuminance, getContrast } from "@/utils";
-import ConfigurationRow from "./ConfigurationRow";
+import ConfigurationRow from "@/components/ConfigurationRow";
 
 interface ConfigurationProps {
   previewBox: React.RefObject<HTMLDivElement | null>; // Allow null explicitly

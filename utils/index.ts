@@ -1,3 +1,4 @@
+import { Shadow } from "@/types";
 import tinycolor from "tinycolor2";
 
 export const formatDate = (dateString: string | undefined): string => {
@@ -122,4 +123,19 @@ export function hexToRGB(hex: string) {
   const b = parseInt(hex.substring(4, 6), 16);
 
   return { r, g, b };
+}
+
+export function generateBoxShadowCss(shadow: Shadow): string {
+  const {
+    horizontalOffset,
+    verticalOffset,
+    blurRadius,
+    spreadRadius,
+    color,
+    opacity,
+    inset,
+  } = shadow;
+  const rgbaColor = tinycolor(color).setAlpha(opacity).toRgbString();
+  const insetPrefix = inset ? "inset " : "";
+  return `${insetPrefix}${horizontalOffset}px ${verticalOffset}px ${blurRadius}px ${spreadRadius}px ${rgbaColor}`;
 }

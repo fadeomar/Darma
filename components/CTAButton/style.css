@@ -1,0 +1,22 @@
+.fancy-cta-button {
+  overflow: hidden;
+  position: relative;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.fancy-cta-button:hover {
+  transform: scale(1.05);
+  background-image: linear-gradient(to right, #7c3aed, #db2777);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+  }
+}

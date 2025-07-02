@@ -2,6 +2,8 @@ import ThemeToggle from "@/components/ThemeToggle";
 import FancyCTAButton from "@/components/CTAButton";
 import HomeClientPage from "@/sections/HomeClientPage";
 import { CodeElement, SearchParams } from "@/types";
+import elements1 from "../data/elements.json";
+import getRandomItem from "@/helpers/getRandomItemsFromArray";
 
 const getBaseUrl = () => {
   const isDev = process.env.NODE_ENV === "development";
@@ -79,7 +81,10 @@ export default async function HomePage({
         <FancyCTAButton href="/tools" label="Explore Tools" />
       </header>
       <HomeClientPage
-        initialElements={elements}
+        // initialElements={elements}
+        initialElements={
+          error ? getRandomItem(elements1.elements, 10) : elements
+        }
         initialTotal={total}
         initialError={error}
         initialParams={normalizedParams}

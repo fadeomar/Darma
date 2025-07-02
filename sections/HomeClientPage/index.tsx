@@ -107,7 +107,7 @@ export default function HomeClientPage({
   useEffect(() => {
     setIsDirty(true);
   }, [localSearch, exactMatch]);
-
+  console.log({ elements });
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-500 p-2 sm:p-4 md:p-8 rounded-md">
       <SearchComponent
@@ -125,24 +125,30 @@ export default function HomeClientPage({
 
       <div className="max-w-7xl mx-auto">
         <h3 className="text-xl font-semibold mb-4 uppercase">Items</h3>
+
         {isLoading ? (
           <SkeletonGrid count={9} />
-        ) : error ? (
-          <div className="text-center py-12 text-red-500 uppercase">
-            Error: {error}
-          </div>
-        ) : elements.length > 0 ? (
-          <CardsPagination
-            elements={elements}
-            itemsByRow={2}
-            currentPage={currentPage}
-            totalPages={Math.ceil(total / 6)}
-            onPageChange={handlePageChange}
-          />
         ) : (
-          <div className="text-center py-12 text-gray-500 uppercase">
-            No elements found matching your criteria
-          </div>
+          <>
+            {error && (
+              <div className="text-center py-12 text-red-500 uppercase">
+                Error: {error}
+              </div>
+            )}
+            {elements.length > 0 ? (
+              <CardsPagination
+                elements={elements}
+                itemsByRow={2}
+                currentPage={currentPage}
+                totalPages={Math.ceil(total / 6)}
+                onPageChange={handlePageChange}
+              />
+            ) : (
+              <div className="text-center py-12 text-gray-500 uppercase">
+                No elements found matching your criteria
+              </div>
+            )}
+          </>
         )}
       </div>
     </div>

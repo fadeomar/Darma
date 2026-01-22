@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { CodeElement } from "@/types";
 
-import prisma from "../../../lib/prisma";
+import { prisma } from "@/server/db/prisma";
 
 export async function GET(request: Request): Promise<
   | NextResponse<{
@@ -66,7 +66,7 @@ export async function POST(request: Request): Promise<NextResponse<any>> {
   if (!elementData.title || !elementData.html) {
     return NextResponse.json(
       { error: "Title and HTML are required" },
-      { status: 400 }
+      { status: 400 },
     );
   }
 
@@ -92,7 +92,7 @@ export async function POST(request: Request): Promise<NextResponse<any>> {
     console.error("Error creating element:", error);
     return NextResponse.json(
       { error: "Failed to create element" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

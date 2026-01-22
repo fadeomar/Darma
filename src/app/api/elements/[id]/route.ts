@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
-import prisma from "../../../../lib/prisma";
+import { prisma } from "@/server/db/prisma";
 import { CodeElement } from "@/types";
 
 // GET: Fetch a single element by ID
 export async function GET(
   request: Request,
-  context: { params: Promise<{ id: string }> } // Fixed to use Promise
+  context: { params: Promise<{ id: string }> }, // Fixed to use Promise
 ): Promise<NextResponse<CodeElement | { error: string }>> {
   const params = await context.params; // Await the params
   const { id } = params;
@@ -28,21 +28,21 @@ export async function GET(
     console.error("Error fetching element:", error);
     return NextResponse.json(
       { error: "Failed to fetch element" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
 
 // POST: Create a new element
 export async function POST(
-  request: Request
+  request: Request,
 ): Promise<NextResponse<CodeElement | { error: string }>> {
   const elementData: Partial<CodeElement> = await request.json();
 
   if (!elementData.title || !elementData.html) {
     return NextResponse.json(
       { error: "Title and HTML are required" },
-      { status: 400 }
+      { status: 400 },
     );
   }
 
@@ -67,14 +67,14 @@ export async function POST(
     console.error("Error creating element:", error);
     return NextResponse.json(
       { error: "Failed to create element" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
 // PUT: Update an existing element
 export async function PUT(
   request: Request,
-  context: { params: Promise<{ id: string }> }
+  context: { params: Promise<{ id: string }> },
 ): Promise<NextResponse<CodeElement | { error: string }>> {
   const { id } = await context.params;
 
@@ -115,14 +115,14 @@ export async function PUT(
     console.error("Error updating element:", error);
     return NextResponse.json(
       { error: "Failed to update element" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
 
 export async function DELETE(
   request: Request,
-  context: { params: Promise<{ id: string }> }
+  context: { params: Promise<{ id: string }> },
 ): Promise<NextResponse<{ message: string } | { error: string }>> {
   const { id } = await context.params;
 
@@ -152,7 +152,7 @@ export async function DELETE(
     console.error("Error soft deleting element:", error);
     return NextResponse.json(
       { error: "Failed to soft delete element" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

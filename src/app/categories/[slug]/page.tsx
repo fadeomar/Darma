@@ -1,6 +1,6 @@
 // app/categories/[slug]/page.tsx
 import { Metadata } from "next";
-import prisma from "@/lib/prisma";
+import { prisma } from "@/server/db/prisma";
 import CategoryClient from "./CategoryClient";
 import { SearchParams } from "@/types";
 import { Prisma } from "@prisma/client";
@@ -59,8 +59,8 @@ const fetchCategoryData = async (slug: string, searchParams: SearchParams) => {
       })
       .then((results) =>
         Array.from(
-          new Set(results.flatMap((el) => el.secondaryCategory))
-        ).sort()
+          new Set(results.flatMap((el) => el.secondaryCategory)),
+        ).sort(),
       ),
   ]);
 
@@ -73,7 +73,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
   const resolvedParams = await searchParams;
   const { elements, total, allSecondaryCategories } = await fetchCategoryData(
     slug,
-    resolvedParams
+    resolvedParams,
   );
   isLoading = false;
 

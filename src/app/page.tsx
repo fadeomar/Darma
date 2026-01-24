@@ -4,6 +4,7 @@ import HomeClientPage from "@/sections/HomeClientPage";
 import { CodeElement, SearchParams } from "@/types";
 import elements1 from "../data/elements.json";
 import getRandomItem from "@/helpers/getRandomItemsFromArray";
+import { searchElements } from "@/server/services/search.service";
 
 const getBaseUrl = () => {
   const isDev = process.env.NODE_ENV === "development";
@@ -61,7 +62,7 @@ export default async function HomePage({
 
   // Normalize searchParams to handle single strings or arrays
   const normalizeSingleParam = (
-    param: string | string[] | undefined
+    param: string | string[] | undefined,
   ): string | undefined => (Array.isArray(param) ? param[0] : param);
 
   const normalizedParams: SearchParams = {
@@ -72,8 +73,17 @@ export default async function HomePage({
     exactMatch: normalizeSingleParam(resolvedSearchParams.exactMatch),
   };
 
-  const { elements, total, error } = await fetchElements(normalizedParams);
-
+  // const { elements, total, error } = await fetchElements(normalizedParams);
+  const { elements, total, fallback } = await searchElements({
+    q: normalizedParams.q,
+    mainCat: normalizeParam(normalizedParams.mainCat),
+    secCat: normalizeParam(normalizedParams.secCat),
+    exactMatch: normalizedParams.exactMatch === "true",
+    page: Number(normalizedParams.page || 1),
+    pageSize: 6,
+    sort: "createdAt",
+    order: "desc",
+  });
   return (
     <main className="min-h-screen p-8 bg-baseColor text-textColor">
       <header className="flex justify-between items-center mb-12">
@@ -82,11 +92,15 @@ export default async function HomePage({
       </header>
       <HomeClientPage
         // initialElements={elements}
-        initialElements={
-          error ? getRandomItem(elements1.elements, 10) : elements
-        }
+        // initialElements={
+        //   error ? getRandomItem(elements1.elements, 10) : elements
+        // }
+        // initialTotal={total}
+        // initialError={error}
+        // initialParams={normalizedParams}
+        initialElements={elements}
         initialTotal={total}
-        initialError={error}
+        initialError={fallback ? "DB down, using fallback data" : undefined}
         initialParams={normalizedParams}
       />
     </main>

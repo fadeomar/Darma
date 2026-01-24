@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: darma-db
+    environment:
+      POSTGRES_USER: darma
+      POSTGRES_PASSWORD: darma
+      POSTGRES_DB: darma
+    ports:
+      - "5433:5432"
+    volumes:
+      - darma_pgdata:/var/lib/postgresql/data
+
+volumes:
+  darma_pgdata:

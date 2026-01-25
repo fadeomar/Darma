@@ -207,7 +207,7 @@ export default function PreviewPage({
               Description
             </h3>
             <Editor
-              content={element.description}
+              content={element.description || "no description"}
               onUpdate={() => {}}
               className="max-w-none"
               previewMode={true}
@@ -226,8 +226,8 @@ export default function PreviewPage({
 
           {/* Dates Section */}
           <div className="grid grid-cols-1 gap-4">
-            <DateBox date={element.createdAt} label="Created" />
-            <DateBox date={element.updatedAt} label="Updated" />
+            <DateBox date={new Date(element.createdAt)} label="Created" />
+            <DateBox date={new Date(element.updatedAt)} label="Updated" />
           </div>
 
           {/* Share Buttons */}

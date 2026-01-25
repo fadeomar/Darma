@@ -28,7 +28,8 @@ export class PrismaElementRepository implements ElementRepository {
       data: {
         title: input.title,
         description: input.description ?? null,
-        url: input.url ?? null,
+        html: input.html ?? "",
+        css: input.css ?? "",
         tags: input.tags ?? [],
         reviewed: input.reviewed ?? false,
         deleted: false,
@@ -44,7 +45,6 @@ export class PrismaElementRepository implements ElementRepository {
         ...(input.description !== undefined && {
           description: input.description,
         }),
-        ...(input.url !== undefined && { url: input.url }),
         ...(input.tags !== undefined && { tags: input.tags }),
         ...(input.reviewed !== undefined && { reviewed: input.reviewed }),
       },
@@ -56,7 +56,6 @@ export class PrismaElementRepository implements ElementRepository {
       where: { id },
       data: {
         deleted: true,
-        deletedAt: new Date(),
       },
     });
   }

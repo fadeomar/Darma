@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { CodeElement } from "@/types";
+// import { CodeElement } from "@/types";
+import type { ElementDTO } from "@/features/projects/dto/element.dto";
+
 import CategoryStructuredData from "./CategoryStructuredData";
 import categoriesData from "@/data/category.json";
 import CardsPagination from "@/components/CardsPagination";
@@ -11,7 +13,7 @@ import SkeletonGrid from "@/components/SkeletonGrid";
 import { CheckCircle, Search } from "lucide-react";
 import { iconMap } from "@/components/iconMap";
 interface Props {
-  serverElements: CodeElement[];
+  serverElements: ElementDTO[];
   serverTotal: number;
   mainCategory: string;
   allSecondaryCategories: string[];
@@ -32,7 +34,7 @@ export default function CategoryClient({
   // Initialize state from URL search params
   const initialSearch = searchParams.get("q") || "";
   const initialSecCats = normalizeParam(
-    searchParams.get("secCat") || undefined
+    searchParams.get("secCat") || undefined,
   );
   const initialPage = parseInt(searchParams.get("page") || "1");
 
@@ -66,7 +68,7 @@ export default function CategoryClient({
     setSelectedSecondaryCats((prev) =>
       prev.includes(category)
         ? prev.filter((c) => c !== category)
-        : [...prev, category]
+        : [...prev, category],
     );
   };
 
@@ -77,7 +79,7 @@ export default function CategoryClient({
   };
 
   const currentCategory = categoriesData.categories.find(
-    (c) => c.name === mainCategory
+    (c) => c.name === mainCategory,
   );
   const _description = currentCategory?.description;
 
@@ -153,11 +155,23 @@ export default function CategoryClient({
         <div className="max-w-7xl mx-auto">
           {serverElements.length > 0 ? (
             <CardsPagination
-              elements={serverElements}
+              items={serverElements}
               currentPage={currentPage}
               totalPages={totalPages}
               onPageChange={handlePageChange}
               itemsByRow={3}
+              renderItem={(element: ElementDTO) => {
+                return (
+                  <div key={element.id}>
+                    <h3 className="text-lg font-semibold mb-2">
+                      {element.title}
+                    </h3>
+                    <p className="text-gray-600 mb-2">
+                      {element.shortDescription}
+                    </p>
+                  </div>
+                );
+              }}
             />
           ) : (
             <div className="text-center py-12 text-gray-500">

@@ -1,51 +1,8 @@
 import ThemeToggle from "@/components/ThemeToggle";
 import FancyCTAButton from "@/components/CTAButton";
-import { CodeElement, SearchParams } from "@/types";
-import elements1 from "../data/elements.json";
-import getRandomItem from "@/helpers/getRandomItemsFromArray";
+import { SearchParams } from "@/types";
 import { searchElementsDTO } from "@/server/services/search.service";
 import { HomeClientPage } from "@/features/projects/ui";
-
-const getBaseUrl = () => {
-  const isDev = process.env.NODE_ENV === "development";
-  const baseUrl = isDev
-    ? "http://localhost:3000"
-    : process.env.NEXT_PUBLIC_BASE_URL || `https://${process.env.VERCEL_URL}`;
-  return baseUrl;
-};
-
-// Fetch data from the API based on search parameters
-async function fetchElements(searchParams: SearchParams) {
-  const params = new URLSearchParams();
-  const { q, mainCat, secCat, page = "1", exactMatch = "false" } = searchParams;
-
-  if (q?.trim()) params.set("q", q.trim());
-  normalizeParam(mainCat).forEach((c) => params.append("mainCat", c));
-  normalizeParam(secCat).forEach((c) => params.append("secCat", c));
-  params.set("page", page);
-  params.set("pageSize", "6");
-  params.set("exactMatch", exactMatch);
-  params.set("sort", "createdAt");
-  params.set("order", "desc");
-
-  const baseUrl = getBaseUrl();
-  console.log("Fetching from page.tsx with params:", params.toString());
-
-  try {
-    const response = await fetch(`${baseUrl}/api/search?${params.toString()}`, {
-      cache: "no-store",
-    });
-    if (!response.ok) throw new Error(`Fetch failed: ${response.status}`);
-    const data = await response.json();
-    return {
-      elements: data.elements as CodeElement[],
-      total: data.total as number,
-    };
-  } catch (error) {
-    console.error("Fetch error in page.tsx:", error);
-    return { elements: [], total: 0, error: (error as Error).message };
-  }
-}
 
 // Normalize a parameter to an array of strings
 function normalizeParam(param: string | string[] | undefined): string[] {
@@ -74,15 +31,14 @@ export default async function HomePage({
   };
 
   // const { elements, total, error } = await fetchElements(normalizedParams);
-  const { items, total, fallback } = await searchElementsDTO({
+  const { items, total } = await searchElementsDTO({
     q: normalizedParams.q,
-    mainCat: normalizeParam(normalizedParams.mainCat),
-    secCat: normalizeParam(normalizedParams.secCat),
+    mainCategory: normalizeParam(normalizedParams.mainCat),
+    secondaryCategory: normalizeParam(normalizedParams.secCat),
     exactMatch: normalizedParams.exactMatch === "true",
     page: Number(normalizedParams.page || 1),
     pageSize: 6,
-    sort: "createdAt",
-    order: "desc",
+    sort: "newest", // instead of createdAt
   });
   return (
     <main className="min-h-screen p-8 bg-baseColor text-textColor">
@@ -100,7 +56,7 @@ export default async function HomePage({
         // initialParams={normalizedParams}
         initialElements={items}
         initialTotal={total}
-        initialError={fallback ? "DB down, using fallback data" : undefined}
+        initialError={undefined}
         initialParams={normalizedParams}
       />
     </main>

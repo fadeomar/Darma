@@ -4,69 +4,68 @@ import type { Prisma } from "@prisma/client";
 import { prisma } from "@/server/db/prisma";
 import type {
   ElementRepository,
-  ElementSearchInput,
   ElementSearchResult,
 } from "../../domain/element.repository";
 import { toElementDomain } from "./elementPrisma.mapper";
 
-function normalizePage(n: number): number {
-  if (!Number.isFinite(n) || n < 1) return 1;
-  return Math.floor(n);
-}
+// function normalizePage(n: number): number {
+//   if (!Number.isFinite(n) || n < 1) return 1;
+//   return Math.floor(n);
+// }
 
-function normalizePageSize(n: number): number {
-  if (!Number.isFinite(n) || n < 1) return 12;
-  return Math.min(100, Math.floor(n));
-}
+// function normalizePageSize(n: number): number {
+//   if (!Number.isFinite(n) || n < 1) return 12;
+//   return Math.min(100, Math.floor(n));
+// }
 
-function buildWhere(input: ElementSearchInput): Prisma.ElementWhereInput {
-  const { q, exactMatch, mainCategory = [], secondaryCategory = [] } = input;
+// function buildWhere(input: ElementSearchInput): Prisma.ElementWhereInput {
+//   const { q, exactMatch, mainCategory = [], secondaryCategory = [] } = input;
 
-  const where: Prisma.ElementWhereInput = {};
-  where.deleted = false;
-  // Category filters (array columns w/ GIN)
-  if (mainCategory.length > 0) {
-    where.mainCategory = { hasSome: mainCategory };
-  }
-  if (secondaryCategory.length > 0) {
-    where.secondaryCategory = { hasSome: secondaryCategory };
-  }
+//   const where: Prisma.ElementWhereInput = {};
+//   where.deleted = false;
+//   // Category filters (array columns w/ GIN)
+//   if (mainCategory.length > 0) {
+//     where.mainCategory = { hasSome: mainCategory };
+//   }
+//   if (secondaryCategory.length > 0) {
+//     where.secondaryCategory = { hasSome: secondaryCategory };
+//   }
 
-  // Query filter
-  if (q && q.trim().length > 0) {
-    const needle = q.trim();
+//   // Query filter
+//   if (q && q.trim().length > 0) {
+//     const needle = q.trim();
 
-    // Without full-text indexing, keep it predictable and safe:
-    // - exactMatch => equals on title/slug
-    // - otherwise => contains (case-insensitive) on title/description/slug
-    where.OR = exactMatch
-      ? [{ title: { equals: needle, mode: "insensitive" } }]
-      : [
-          { title: { contains: needle, mode: "insensitive" } },
-          { description: { contains: needle, mode: "insensitive" } },
-          // Optional: treat query as a tag hit too (cheap with GIN)
-          { tags: { has: needle } },
-        ];
-  }
+//     // Without full-text indexing, keep it predictable and safe:
+//     // - exactMatch => equals on title/slug
+//     // - otherwise => contains (case-insensitive) on title/description/slug
+//     where.OR = exactMatch
+//       ? [{ title: { equals: needle, mode: "insensitive" } }]
+//       : [
+//           { title: { contains: needle, mode: "insensitive" } },
+//           { description: { contains: needle, mode: "insensitive" } },
+//           // Optional: treat query as a tag hit too (cheap with GIN)
+//           { tags: { has: needle } },
+//         ];
+//   }
 
-  return where;
-}
+//   return where;
+// }
 
-function buildOrderBy(
-  sort: ElementSearchInput["sort"],
-): Prisma.ElementOrderByWithRelationInput {
-  switch (sort) {
-    case "oldest":
-      return { createdAt: "asc" };
-    case "titleAsc":
-      return { title: "asc" };
-    case "titleDesc":
-      return { title: "desc" };
-    case "newest":
-    default:
-      return { createdAt: "desc" };
-  }
-}
+// function buildOrderBy(
+//   sort: ElementSearchInput["sort"],
+// ): Prisma.ElementOrderByWithRelationInput {
+//   switch (sort) {
+//     case "oldest":
+//       return { createdAt: "asc" };
+//     case "titleAsc":
+//       return { title: "asc" };
+//     case "titleDesc":
+//       return { title: "desc" };
+//     case "newest":
+//     default:
+//       return { createdAt: "desc" };
+//   }
+// }
 
 export class ElementPrismaRepository implements ElementRepository {
   async search(spec: ElementSearchSpec): Promise<ElementSearchResult> {
@@ -195,27 +194,27 @@ export class ElementPrismaRepository implements ElementRepository {
   }
 }
 
-function buildSelect(projection: "preview" | "summary"): Prisma.ElementSelect {
-  const base: Prisma.ElementSelect = {
-    id: true,
-    title: true,
-    description: true,
-    shortDescription: true,
-    tags: true,
-    mainCategory: true,
-    secondaryCategory: true,
-    deleted: true,
-    reviewed: true,
-    createdAt: true,
-    updatedAt: true,
-  };
+// function buildSelect(projection: "preview" | "summary"): Prisma.ElementSelect {
+//   const base: Prisma.ElementSelect = {
+//     id: true,
+//     title: true,
+//     description: true,
+//     shortDescription: true,
+//     tags: true,
+//     mainCategory: true,
+//     secondaryCategory: true,
+//     deleted: true,
+//     reviewed: true,
+//     createdAt: true,
+//     updatedAt: true,
+//   };
 
-  if (projection === "summary") return base;
+//   if (projection === "summary") return base;
 
-  return {
-    ...base,
-    html: true,
-    css: true,
-    js: true,
-  };
-}
+//   return {
+//     ...base,
+//     html: true,
+//     css: true,
+//     js: true,
+//   };
+// }

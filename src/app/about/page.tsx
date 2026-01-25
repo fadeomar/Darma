@@ -1,6 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
 import GoodLinks from "@/sections/GoodLinks";
+import Image from "next/image";
+
 function AboutPage() {
   const resourceSections = [
     {
@@ -204,7 +206,7 @@ function AboutPage() {
                 className="group block bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all"
               >
                 <div className="h-48 bg-gray-700 overflow-hidden">
-                  <img
+                  <Image
                     src={item.image}
                     alt={item.name}
                     className="w-full h-full object-cover transition-transform group-hover:scale-105"

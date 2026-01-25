@@ -1,8 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-  applyAdminVisibility,
-  applyPublicVisibility,
-} from "../domain/policies/elementVisibility.policy";
 
 // import your existing service + spec builder
 // import { searchElementsDTO } from "@/searchElementsDTO";

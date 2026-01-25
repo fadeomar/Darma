@@ -27,7 +27,6 @@ const baseHoverStyle = (state: State) => {
     color: ${state.hoverTextColor};`;
 };
 const commonShadow = (color: string | undefined) => {
-  console.log({ color });
   const rgbColor = color
     ? `${hexToRGB(color).r},${hexToRGB(color).g},${hexToRGB(color).b}`
     : `0,0,0`;
@@ -211,13 +210,13 @@ height: ${Math.round(Math.min(state.size ? state.size / 3.25 : 40, 60))}px;
       styles = `.darma-button {
         ${baseStyles(state)}
         box-shadow: 0 3px 1px -2px ${state.shadowColor}, 0 2px 2px 0 ${
-        state.shadowColor
-      }, 0 1px 5px 0 ${state.shadowColor};
+          state.shadowColor
+        }, 0 1px 5px 0 ${state.shadowColor};
       }
       .darma-button:active {
         box-shadow: 0 4px 2px -3px ${state.shadowColor}, 0 4px 5px 1px ${
-        state.shadowColor
-      }, 0 2px 7px 1px ${state.shadowColor} !important;
+          state.shadowColor
+        }, 0 2px 7px 1px ${state.shadowColor} !important;
       }
       .darma-button:hover {
     ${baseHoverStyle(state)}
@@ -305,8 +304,8 @@ height: ${Math.round(Math.min(state.size ? state.size / 3.25 : 40, 60))}px;
             border: none;
             background-size: 120% auto;
             background-image: linear-gradient(${state.degree}, ${
-        state.color1
-      } ${state.p1}, ${state.color2} ${state.p2});
+              state.color1
+            } ${state.p1}, ${state.color2} ${state.p2});
           }
           .darma-button:hover {
             background-position: right center;

@@ -2,10 +2,13 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { CodeElement, SearchParams } from "@/types";
+import { SearchParams } from "@/types";
 import SearchComponent from "./SearchComponent";
 import CardsPagination from "@/components/CardsPagination";
 import SkeletonGrid from "@/components/SkeletonGrid";
+import { ElementCard } from "@/features/projects/ui";
+import { formatDate, truncateText } from "@/utils";
+import type { ElementDTO } from "@/features/projects/dto/element.dto";
 
 export default function HomeClientPage({
   initialElements,
@@ -13,7 +16,7 @@ export default function HomeClientPage({
   initialError,
   initialParams,
 }: {
-  initialElements: CodeElement[];
+  initialElements: ElementDTO[];
   initialTotal: number;
   initialError?: string;
   initialParams: SearchParams;
@@ -23,32 +26,40 @@ export default function HomeClientPage({
   // Local state for UI controls
   const [localSearch, setLocalSearch] = useState(initialParams.q || "");
   const [exactMatch, setExactMatch] = useState(
-    initialParams.exactMatch === "true"
+    initialParams.exactMatch === "true",
   );
+
   const [mainCats, setMainCats] = useState<string[]>(
     Array.isArray(initialParams.mainCat)
       ? initialParams.mainCat
       : initialParams.mainCat
-      ? [initialParams.mainCat]
-      : []
+        ? [initialParams.mainCat]
+        : [],
   );
+
   const [secCats, setSecCats] = useState<string[]>(
     Array.isArray(initialParams.secCat)
       ? initialParams.secCat
       : initialParams.secCat
-      ? [initialParams.secCat]
-      : []
+        ? [initialParams.secCat]
+        : [],
   );
+
   const [currentPage, setCurrentPage] = useState(
-    parseInt(initialParams.page || "1", 10)
+    parseInt(initialParams.page || "1", 10),
   );
+
   const [isDirty, setIsDirty] = useState(false); // Tracks if params have changed
 
   // Data and UI states
-  const [elements, setElements] = useState<CodeElement[]>(initialElements);
+  const [elements, setElements] = useState<ElementDTO[]>(initialElements);
   const [total, setTotal] = useState(initialTotal);
   const [error, setError] = useState<string | undefined>(initialError);
   const [isLoading, setIsLoading] = useState(false);
+
+  // Pagination derived values
+  const PAGE_SIZE = 12; // IMPORTANT: keep in sync with server search default
+  const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
 
   // Build URL parameters from current state
   const updateUrlParams = (
@@ -56,7 +67,7 @@ export default function HomeClientPage({
     query: string,
     mainCats: string[],
     secCats: string[],
-    exactMatch: boolean
+    exactMatch: boolean,
   ) => {
     const params = new URLSearchParams();
     if (query.trim()) params.set("q", query.trim());
@@ -87,7 +98,7 @@ export default function HomeClientPage({
   // Handle category changes (local state only)
   const handleCategoryChange = (
     newMainCats: string[],
-    newSecCats: string[]
+    newSecCats: string[],
   ) => {
     setMainCats(newMainCats);
     setSecCats(newSecCats);
@@ -107,7 +118,15 @@ export default function HomeClientPage({
   useEffect(() => {
     setIsDirty(true);
   }, [localSearch, exactMatch]);
-  console.log({ elements });
+
+  // Clamp current page if totalPages shrinks (prevents out-of-range pagination)
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      handlePageChange(totalPages);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [totalPages]);
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-500 p-2 sm:p-4 md:p-8 rounded-md">
       <SearchComponent
@@ -135,13 +154,23 @@ export default function HomeClientPage({
                 Error: {error}
               </div>
             )}
+
             {elements.length > 0 ? (
               <CardsPagination
-                elements={elements}
+                items={elements}
                 itemsByRow={2}
                 currentPage={currentPage}
-                totalPages={Math.ceil(total / 6)}
+                totalPages={totalPages}
                 onPageChange={handlePageChange}
+                renderItem={(element) => (
+                  <ElementCard
+                    key={element.id}
+                    element={element}
+                    status="preview"
+                    formatDate={formatDate}
+                    truncateText={truncateText}
+                  />
+                )}
               />
             ) : (
               <div className="text-center py-12 text-gray-500 uppercase">

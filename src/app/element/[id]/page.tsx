@@ -1,40 +1,32 @@
-// app/element/[id]/page.tsx
+// src/app/element/[id]/page.tsx
+
+import type { Metadata } from "next";
 import PreviewPage from "./PreviewPage";
-import { CodeElement } from "@/types";
-import { Metadata } from "next";
+import { getElementByIdDTO } from "@/server/services/element.service";
+import type { ElementDTO } from "@/features/projects/dto/element.dto";
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
-  const resolvedParams = await params;
-  const id = resolvedParams.id;
-  // Use absolute URL based on environment
-  let baseUrl = "";
-  if (process.env.NEXT_PUBLIC_BASE_URL) {
-    baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-  } else if (process.env.VERCEL_URL) {
-    baseUrl = process.env.VERCEL_URL;
-  } else {
-    baseUrl = "http://localhost:3000";
-  }
+  const { id } = await params;
 
-  const apiUrl = `${baseUrl}/api/elements/${id}`;
-  const response = await fetch(apiUrl, { cache: "no-store" });
-  if (!response.ok) {
+  const element = await getElementByIdDTO(id);
+
+  if (!element) {
     return {
       title: "Element not found",
       description: "The element you are looking for does not exist.",
     };
   }
-  const element: CodeElement = await response.json();
+
   return {
     title: element.title,
-    description: element.description,
+    description: element.description ?? "",
     openGraph: {
       title: element.title,
-      description: element.description,
+      description: element.description ?? "",
       type: "website",
     },
   };
@@ -45,28 +37,22 @@ export default async function ElementPage({
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const resolvedParams = await params;
-  const id = resolvedParams.id;
-  let baseUrl = "";
-  if (process.env.NEXT_PUBLIC_BASE_URL) {
-    baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-  } else if (process.env.VERCEL_URL) {
-    baseUrl = process.env.VERCEL_URL;
-  } else {
-    baseUrl = "http://localhost:3000";
+  const { id } = await params;
+
+  const element = await getElementByIdDTO(id);
+
+  if (!element) {
+    return (
+      <PreviewPage initialElement={null} error="Failed to fetch element" />
+    );
   }
 
-  const apiUrl = `${baseUrl}/api/elements/${id}`;
-  const response = await fetch(apiUrl, { cache: "no-store" });
-  let element: CodeElement | null = null;
-  let error: string | null = null;
-
-  if (response.ok) {
-    element = await response.json();
-  } else {
-    error = "Failed to fetch element";
-    console.error("Fetch failed:", response.status, response.statusText);
-  }
-
-  return <PreviewPage initialElement={element} error={error} />;
+  // Keep PreviewPage contract intact (it previously used CodeElement).
+  // If PreviewPage expects Date objects, convert there instead.
+  return (
+    <PreviewPage
+      initialElement={element as unknown as ElementDTO}
+      error={null}
+    />
+  );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import categories from "../../data/category.json";
+import categories from "@/data/category.json";
 import { ChevronDown, ChevronUp, CheckCircle, Filter } from "lucide-react";
 import "./style.css";
 import { getGradientColor } from "@/utils";
@@ -72,9 +72,9 @@ const SelectPanelSection: React.FC<SelectPanelSectionProps> = ({
                     ? handleMainCatChange(item)
                     : handleSecCatChange(
                         categories.categories.find((c) =>
-                          c.types.includes(item)
+                          c.types.includes(item),
                         )?.name || "",
-                        item
+                        item,
                       )
                 }
                 className="ml-1 text-red-500 hover:text-red-700 focus:outline-none"

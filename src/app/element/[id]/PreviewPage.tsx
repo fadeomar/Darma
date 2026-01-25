@@ -3,11 +3,12 @@ import React, { useState, useEffect } from "react";
 import BackButton from "@/components/BackButton";
 import CodeEditor from "@/components/CodeEditor";
 import ResizableContainer from "@/components/ResizableContainer";
-import { CodeElement } from "@/types";
+
 import { useParams } from "next/navigation";
 import DateBox from "@/components/DateBox";
 import { FiGithub, FiCodepen, FiTwitter, FiLink } from "react-icons/fi";
 import Editor from "@/components/Editor";
+import type { ElementDTO } from "@/features/projects/dto/element.dto";
 
 const MetadataCard = ({
   title,
@@ -37,10 +38,10 @@ export default function PreviewPage({
   initialElement,
   error: initialError,
 }: {
-  initialElement: CodeElement | null;
+  initialElement: ElementDTO | null;
   error?: string | null;
 }) {
-  const [element, setElement] = useState<CodeElement | null>(initialElement);
+  const [element, setElement] = useState<ElementDTO | null>(initialElement);
   const [isLoading, setIsLoading] = useState(!initialElement && !initialError);
   const [error, setError] = useState<string | null>(initialError || null);
   const [containerWidth, setContainerWidth] = useState<number | null>(null);
@@ -56,7 +57,7 @@ export default function PreviewPage({
         try {
           const response = await fetch(`/api/elements/${id}`);
           if (!response.ok) throw new Error("Failed to fetch element");
-          const data: CodeElement = await response.json();
+          const data: ElementDTO = await response.json();
           setElement(data);
           setHtmlCode(data.html);
           setCssCode(data.css || "");

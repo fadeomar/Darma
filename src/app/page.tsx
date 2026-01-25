@@ -1,10 +1,10 @@
 import ThemeToggle from "@/components/ThemeToggle";
 import FancyCTAButton from "@/components/CTAButton";
-import HomeClientPage from "@/sections/HomeClientPage";
 import { CodeElement, SearchParams } from "@/types";
 import elements1 from "../data/elements.json";
 import getRandomItem from "@/helpers/getRandomItemsFromArray";
-import { searchElements } from "@/server/services/search.service";
+import { searchElementsDTO } from "@/server/services/search.service";
+import { HomeClientPage } from "@/features/projects/ui";
 
 const getBaseUrl = () => {
   const isDev = process.env.NODE_ENV === "development";
@@ -74,7 +74,7 @@ export default async function HomePage({
   };
 
   // const { elements, total, error } = await fetchElements(normalizedParams);
-  const { elements, total, fallback } = await searchElements({
+  const { items, total, fallback } = await searchElementsDTO({
     q: normalizedParams.q,
     mainCat: normalizeParam(normalizedParams.mainCat),
     secCat: normalizeParam(normalizedParams.secCat),
@@ -98,7 +98,7 @@ export default async function HomePage({
         // initialTotal={total}
         // initialError={error}
         // initialParams={normalizedParams}
-        initialElements={elements}
+        initialElements={items}
         initialTotal={total}
         initialError={fallback ? "DB down, using fallback data" : undefined}
         initialParams={normalizedParams}

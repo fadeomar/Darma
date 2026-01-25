@@ -1,30 +1,28 @@
-import { NextRequest, NextResponse } from "next/server";
-import { searchElements } from "@/server/services/search.service";
+import { NextResponse } from "next/server";
+import { searchElementsDTO } from "@/server/services/search.service";
 
-export async function GET(req: NextRequest) {
-  const url = new URL(req.url);
+export async function GET(req: Request) {
+  const { searchParams } = new URL(req.url);
 
-  const q = url.searchParams.get("q") || undefined;
-  const mainCat = url.searchParams.getAll("mainCat").filter(Boolean);
-  const secCat = url.searchParams.getAll("secCat").filter(Boolean);
+  const q = searchParams.get("q") ?? undefined;
+  const exactMatch = searchParams.get("exactMatch") === "true";
 
-  const exactMatch = url.searchParams.get("exactMatch") === "true";
-  const page = Number(url.searchParams.get("page") || 1);
-  const pageSize = Number(url.searchParams.get("pageSize") || 6);
+  const mainCategory = searchParams.getAll("mainCat");
+  const secondaryCategory = searchParams.getAll("secCat");
 
-  const sort =
-    (url.searchParams.get("sort") as "createdAt" | "updatedAt") || "createdAt";
-  const order = (url.searchParams.get("order") as "asc" | "desc") || "desc";
+  const page = Number(searchParams.get("page") ?? "1");
+  const pageSize = Number(searchParams.get("pageSize") ?? "12");
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const sort = (searchParams.get("sort") as any) ?? "newest";
 
-  const result = await searchElements({
+  const result = await searchElementsDTO({
     q,
-    mainCat,
-    secCat,
     exactMatch,
+    mainCategory,
+    secondaryCategory,
     page,
     pageSize,
     sort,
-    order,
   });
 
   return NextResponse.json(result);

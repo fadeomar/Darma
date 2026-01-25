@@ -1,29 +1,27 @@
-// components/CardsPagination.tsx (Client Component)
 "use client";
 
 import React from "react";
-import { CodeElement } from "@/types";
 import { getPaginationRange } from "@/utils/pagination";
-import Card from "./TestCard";
 import { ChevronsLeftIcon, ChevronsRightIcon } from "lucide-react";
-interface PaginatedListProps {
-  elements: CodeElement[];
-  renderElement?: (element: CodeElement) => React.ReactNode;
+
+type PaginatedListProps<T> = {
+  items: T[];
+  renderItem: (item: T) => React.ReactNode;
+
   itemsByRow?: number;
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
-}
+};
 
-const CardsPagination: React.FC<PaginatedListProps> = ({
-  elements,
-  renderElement,
+function CardsPagination<T>({
+  items,
+  renderItem,
   itemsByRow = 3,
   currentPage,
   totalPages,
   onPageChange,
-}) => {
-  // Get pagination range
+}: PaginatedListProps<T>) {
   const paginationRange = getPaginationRange({ totalPages, currentPage });
 
   const handlePageClick = (page: number) => {
@@ -34,25 +32,21 @@ const CardsPagination: React.FC<PaginatedListProps> = ({
 
   return (
     <div className="mb-11">
-      {/* Render the current elements */}
       <div
         className={`grid grid-cols-1 md:grid-cols-1 ${
           itemsByRow === 2 ? "lg:grid-cols-2" : "lg:grid-cols-3"
         } gap-4 mb-10`}
       >
-        {elements.map((element) =>
-          renderElement ? (
-            renderElement(element)
-          ) : (
-            <Card key={element.id} element={element} status={"preview"} />
-          )
-        )}
+        {items.map((item, idx) => (
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          <React.Fragment key={(item as any)?.id ?? idx}>
+            {renderItem(item)}
+          </React.Fragment>
+        ))}
       </div>
 
-      {/* Pagination Controls */}
       {totalPages > 1 && (
-        <div className="flex justify-center items-center mt-6 space-x-2  max-w-fulls">
-          {/* Previous Button */}
+        <div className="flex justify-center items-center mt-6 space-x-2 max-w-fulls">
           <button
             onClick={() => handlePageClick(currentPage - 1)}
             disabled={currentPage === 1}
@@ -62,7 +56,6 @@ const CardsPagination: React.FC<PaginatedListProps> = ({
             <ChevronsLeftIcon />
           </button>
 
-          {/* Page Numbers */}
           {paginationRange.map((page, index) =>
             page === "..." ? (
               <span
@@ -81,11 +74,6 @@ const CardsPagination: React.FC<PaginatedListProps> = ({
               <button
                 key={index}
                 onClick={() => handlePageClick(page as number)}
-                // className={`w-6 md:w-8 h-6 md:h-8 flex items-center justify-center rounded-full text-sm ${
-                //   currentPage === page
-                //     ? "bg-blue-500 text-white"
-                //     : "bg-gray-200 text-gray-700"
-                // }`}
                 className={`px-3 py-1 rounded sm:rounded sm:px-3 sm:py-1 w-5 h-5 sm:w-auto sm:h-auto flex items-center justify-center text-xs sm:text-base ${
                   page === currentPage
                     ? "bg-blue-500 dark:bg-yellow-500 text-white dark:text-gray-800"
@@ -94,10 +82,9 @@ const CardsPagination: React.FC<PaginatedListProps> = ({
               >
                 {page}
               </button>
-            )
+            ),
           )}
 
-          {/* Next Button */}
           <button
             onClick={() => handlePageClick(currentPage + 1)}
             disabled={currentPage === totalPages}
@@ -110,6 +97,6 @@ const CardsPagination: React.FC<PaginatedListProps> = ({
       )}
     </div>
   );
-};
+}
 
 export default CardsPagination;

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { formatDate, truncateText } from "../../utils";
 import "./style.css";
 import { CodeElement, CreateCodeElement } from "@/types";
+import { buildElementPreviewDoc } from "@/features/projects/domain/preview/buildElementPreviewDoc";
 
 const Card = ({
   element,
@@ -11,31 +12,11 @@ const Card = ({
   element: Partial<CodeElement> | CreateCodeElement;
   status: string;
 }) => {
-  const iframeContent = `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <style>
-        html, body {
-          height: 100%;
-          width: 100%;
-          margin: 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          overflow: hidden;
-          background: #4545452b;
-        }
-        ${element.css}
-      </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    </head>
-    <body>
-      ${element.html}
-      <script>${element.js || ""}</script>
-    </body>
-    </html>
-  `;
+  const iframeContent = buildElementPreviewDoc({
+    html: element.html,
+    css: element.css,
+    js: element.js,
+  });
 
   return (
     <div className="card-container">
@@ -43,7 +24,8 @@ const Card = ({
         <iframe
           srcDoc={iframeContent}
           className="card-iframe"
-          sandbox="allow-forms allow-scripts allow-same-origin"
+          // Hardened sandbox (see next section)
+          sandbox="allow-forms allow-scripts"
         />
         {status === "preview" && (
           <>
@@ -65,7 +47,7 @@ const Card = ({
           {formatDate(
             element.createdAt instanceof Date
               ? element.createdAt.toISOString()
-              : element.createdAt
+              : element.createdAt,
           )}{" "}
         </div>
 

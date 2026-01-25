@@ -61,11 +61,11 @@ export default function ElementList({
       )}
 
       <CardsPagination
-        elements={elements}
+        items={elements}
         currentPage={currentPage}
         totalPages={totalPages}
         onPageChange={onPageChange}
-        renderElement={(element: CodeElement) => (
+        renderItem={(element: CodeElement) => (
           <div
             key={element.id}
             className={`p-4 relative border rounded shadow-sm ${

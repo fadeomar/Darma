@@ -1,22 +1,49 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
+
+import "./style.css";
 import { useState, useEffect } from "react";
 import { MultiValue, SingleValue } from "react-select";
 import categoriesData from "@/data/category.json";
-import { CodeElement, CreateCodeElement } from "@/types";
+import type { ElementDTO } from "@/features/projects/dto/element.dto";
 import ElementList from "./ElementList";
 import ElementForm from "./ElementForm";
 import { DropdownOption } from "@/components/Dropdown";
 
+type PaginatedApiResponse<T> = {
+  items: T[];
+  total: number;
+  page: number;
+  pageSize: number;
+};
+
+// temporary: until you also DTO-ify your create/update payloads
+type CreateElementPayload = {
+  id?: string;
+  title: string;
+  description: string;
+  shortDescription?: string | null;
+  html: string;
+  css: string;
+  js?: string | null;
+  tags: string[];
+  mainCategory: string[];
+  secondaryCategory: string[];
+  reviewed?: boolean;
+  deleted?: boolean;
+};
+
 export default function ElementsPage() {
-  // State management
-  const [elements, setElements] = useState<CodeElement[]>([]);
-  const [previewedElement, setPreviewedElement] = useState<CodeElement | null>(
-    null
+  const [elements, setElements] = useState<ElementDTO[]>([]);
+  const [previewedElement, setPreviewedElement] = useState<ElementDTO | null>(
+    null,
   );
-  const [formData, setFormData] = useState<Partial<CodeElement>>({
+
+  const [formData, setFormData] = useState<Partial<ElementDTO>>({
     id: "",
     title: "",
     description: "",
+    shortDescription: "",
     html: "",
     css: "",
     js: "",
@@ -24,64 +51,112 @@ export default function ElementsPage() {
     mainCategory: [],
     secondaryCategory: [],
     deleted: false,
+    reviewed: false,
   });
+
   const [searchQuery, setSearchQuery] = useState("");
   const [isDeleteConfirmOpen, setIsDeleteConfirmOpen] = useState(false);
   const [elementToDelete, setElementToDelete] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [showCreateForm, setShowCreateForm] = useState(false);
+
   const [selectedMainCategories, setSelectedMainCategories] = useState<
     DropdownOption[]
   >([]);
   const [selectedSecondaryCategories, setSelectedSecondaryCategories] =
     useState<DropdownOption[]>([]);
-  const [currentPage, setCurrentPage] = useState(1); // Track current page
-  const [totalPages, setTotalPages] = useState(1); // Track total pages
-  const itemsPerPage = 6; // Items per page
 
-  const categories = categoriesData.categories;
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
-  // Data fetching
+  const itemsPerPage = 6;
+  const categories = (categoriesData as any).categories ?? [];
+
   useEffect(() => {
+    let cancelled = false;
+
     const fetchElements = async () => {
+      setIsLoading(true);
+
       try {
-        const response = await fetch(
-          `/api/elements?page=${currentPage}&pageSize=${itemsPerPage}&search=${searchQuery}`
-        );
-        const { data, total } = await response.json();
-        setElements(data);
-        setTotalPages(Math.ceil(total / itemsPerPage)); // Calculate total pages
+        const url = `/api/elements?page=${currentPage}&pageSize=${itemsPerPage}&search=${encodeURIComponent(
+          searchQuery,
+        )}`;
+
+        const response = await fetch(url, { cache: "no-store" });
+        if (!response.ok) {
+          console.error(
+            "Failed to fetch elements:",
+            response.status,
+            response.statusText,
+          );
+          if (!cancelled) {
+            setElements([]);
+            setTotalPages(1);
+          }
+          return;
+        }
+
+        // Canonical: { items, total, page, pageSize }
+        const json = (await response.json()) as
+          | PaginatedApiResponse<ElementDTO>
+          | { elements?: ElementDTO[]; data?: ElementDTO[]; total?: number };
+
+        const itemsRaw =
+          (json as any).items ??
+          (json as any).elements ??
+          (json as any).data ??
+          [];
+        const items: ElementDTO[] = Array.isArray(itemsRaw) ? itemsRaw : [];
+
+        const totalRaw = (json as any).total;
+        const total = Number.isFinite(totalRaw)
+          ? Number(totalRaw)
+          : items.length;
+
+        if (!cancelled) {
+          setElements(items);
+          setTotalPages(Math.max(1, Math.ceil(total / itemsPerPage)));
+        }
       } catch (error) {
         console.error("Failed to fetch elements:", error);
+        if (!cancelled) {
+          setElements([]);
+          setTotalPages(1);
+        }
       } finally {
-        setIsLoading(false);
+        if (!cancelled) setIsLoading(false);
       }
     };
 
     fetchElements();
-  }, [currentPage, searchQuery]); // Refetch when currentPage or searchQuery changes
+    return () => {
+      cancelled = true;
+    };
+  }, [currentPage, searchQuery, itemsPerPage]);
 
-  // Handle search input change
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
-    setCurrentPage(1); // Reset to the first page when searching
+    setCurrentPage(1);
   };
 
-  // Category handlers
   const handleMainCategoryChange = (
-    newValue: MultiValue<DropdownOption> | SingleValue<DropdownOption>
+    newValue: MultiValue<DropdownOption> | SingleValue<DropdownOption>,
   ) => {
-    const selectedOptions = newValue as MultiValue<DropdownOption>;
+    const selectedOptions = (newValue ?? []) as MultiValue<DropdownOption>;
     const selectedValues = selectedOptions.map((option) => option.value);
+
     setSelectedMainCategories([...selectedOptions]);
     setFormData((prev) => ({ ...prev, mainCategory: selectedValues }));
+
     setSelectedSecondaryCategories([]);
+    setFormData((prev) => ({ ...prev, secondaryCategory: [] }));
   };
 
   const handleSecondaryCategoryChange = (
-    newValue: MultiValue<DropdownOption> | SingleValue<DropdownOption>
+    newValue: MultiValue<DropdownOption> | SingleValue<DropdownOption>,
   ) => {
-    const selectedOptions = newValue as MultiValue<DropdownOption>;
+    const selectedOptions = (newValue ?? []) as MultiValue<DropdownOption>;
     const selectedValues = selectedOptions.map((option) => option.value);
     setSelectedSecondaryCategories([...selectedOptions]);
     setFormData((prev) => ({ ...prev, secondaryCategory: selectedValues }));
@@ -89,9 +164,11 @@ export default function ElementsPage() {
 
   const getSecondaryCategoryOptions = (): DropdownOption[] => {
     return selectedMainCategories.flatMap((mainCat) => {
-      const category = categories.find((cat) => cat.name === mainCat.value);
+      const category = categories.find(
+        (cat: any) => cat.name === mainCat.value,
+      );
       return category
-        ? category.types.map((type) => ({ value: type, label: type }))
+        ? category.types.map((type: string) => ({ value: type, label: type }))
         : [];
     });
   };
@@ -99,43 +176,66 @@ export default function ElementsPage() {
   const isCheckbox = (target: EventTarget): target is HTMLInputElement =>
     (target as HTMLInputElement).type === "checkbox";
 
-  // Form handlers
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
+
     if (isCheckbox(e.target)) {
-      const checked = e.target.checked;
-      console.log({ name, checked });
+      const checked = (e.target as HTMLInputElement).checked;
       setFormData((prev) => ({ ...prev, [name]: checked }));
       return;
     }
+
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleTagsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const tags = e.target.value.split(",").map((tag) => tag.trim());
+    const tags = e.target.value
+      .split(",")
+      .map((tag) => tag.trim())
+      .filter(Boolean);
+
     setFormData((prev) => ({ ...prev, tags }));
+  };
+
+  const resetForm = () => {
+    setFormData({
+      id: "",
+      title: "",
+      description: "",
+      shortDescription: "",
+      html: "",
+      css: "",
+      js: "",
+      tags: [],
+      mainCategory: [],
+      secondaryCategory: [],
+      deleted: false,
+      reviewed: false,
+    });
+    setSelectedMainCategories([]);
+    setSelectedSecondaryCategories([]);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const element: CreateCodeElement = {
-      id: formData.id || "some-default-id", // Provide defaults if needed
-      title: formData.title || "", // Ensure required fields are filled
-      description: formData.description || "",
+
+    const payload: CreateElementPayload = {
+      id: formData.id || undefined,
+      title: formData.title || "",
+      description: (formData.description as any) || "",
+      shortDescription: (formData.shortDescription as any) ?? null,
       html: formData.html || "",
       css: formData.css || "",
-      js: formData.js || "",
+      js: (formData.js as any) ?? null,
       tags: formData.tags || [],
       mainCategory: formData.mainCategory || [],
       secondaryCategory: formData.secondaryCategory || [],
-      shortDescription: formData.shortDescription,
-      deleted: false,
-      createdAt: undefined,
-      updatedAt: undefined,
-      reviewed: formData.reviewed || false,
+      reviewed: !!formData.reviewed,
+      deleted: !!formData.deleted,
     };
+
     const url = formData.id ? `/api/elements/${formData.id}` : "/api/elements";
     const method = formData.id ? "PUT" : "POST";
 
@@ -143,33 +243,56 @@ export default function ElementsPage() {
       const response = await fetch(url, {
         method,
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(element),
+        body: JSON.stringify(payload),
       });
 
-      if (response.ok) {
-        const updatedElement: CodeElement = await response.json();
-        setElements((prev) =>
-          formData.id
-            ? prev.map((el) => (el.id === formData.id ? updatedElement : el))
-            : [...prev, updatedElement]
+      if (!response.ok) {
+        console.error(
+          "Failed to save element:",
+          response.status,
+          response.statusText,
         );
-        resetForm();
-        setShowCreateForm(false);
+        return;
       }
+
+      const updated: ElementDTO = await response.json();
+
+      setElements((prev) =>
+        formData.id
+          ? prev.map((el) => (el.id === formData.id ? updated : el))
+          : [updated, ...prev],
+      );
+
+      resetForm();
+      setShowCreateForm(false);
     } catch (error) {
       console.error("Failed to save element:", error);
     }
   };
 
-  // Element actions
-  const handleEdit = (element: CodeElement) => {
-    setFormData(element);
+  const handleEdit = (element: ElementDTO) => {
+    setFormData({
+      ...element,
+      description: element.description ?? "",
+      shortDescription: element.shortDescription ?? "",
+      tags: element.tags ?? [],
+      mainCategory: element.mainCategory ?? [],
+      secondaryCategory: element.secondaryCategory ?? [],
+      js: element.js ?? "",
+      reviewed: element.reviewed ?? false,
+      deleted: element.deleted ?? false,
+    });
+
     setSelectedMainCategories(
-      element.mainCategory.map((cat) => ({ value: cat, label: cat }))
+      (element.mainCategory ?? []).map((cat) => ({ value: cat, label: cat })),
     );
     setSelectedSecondaryCategories(
-      element.secondaryCategory.map((cat) => ({ value: cat, label: cat }))
+      (element.secondaryCategory ?? []).map((cat) => ({
+        value: cat,
+        label: cat,
+      })),
     );
+
     setShowCreateForm(true);
   };
 
@@ -179,64 +302,40 @@ export default function ElementsPage() {
   };
 
   const handleConfirmDelete = async () => {
-    if (elementToDelete) {
-      try {
-        const response = await fetch(`/api/elements/${elementToDelete}`, {
-          method: "DELETE",
-        });
+    if (!elementToDelete) return;
 
-        if (response.ok) {
-          setElements((prev) => prev.filter((el) => el.id !== elementToDelete));
-          resetForm();
-        }
-      } catch (error) {
-        console.error("Failed to delete element:", error);
-      } finally {
-        setIsDeleteConfirmOpen(false);
-        setElementToDelete(null);
+    try {
+      const response = await fetch(`/api/elements/${elementToDelete}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) {
+        console.error(
+          "Failed to delete element:",
+          response.status,
+          response.statusText,
+        );
+        return;
       }
-    }
-  };
 
-  // Form management
-  const resetForm = () => {
-    setFormData({
-      id: "",
-      title: "",
-      description: "",
-      html: "",
-      css: "",
-      js: "",
-      tags: [],
-      mainCategory: [],
-      secondaryCategory: [],
-      deleted: false,
-    });
-    setSelectedMainCategories([]);
-    setSelectedSecondaryCategories([]);
+      setElements((prev) => prev.filter((el) => el.id !== elementToDelete));
+      resetForm();
+    } catch (error) {
+      console.error("Failed to delete element:", error);
+    } finally {
+      setIsDeleteConfirmOpen(false);
+      setElementToDelete(null);
+    }
   };
 
   const toggleView = () => {
-    if (!showCreateForm) {
-      resetForm();
-    }
+    if (!showCreateForm) resetForm();
     setShowCreateForm(!showCreateForm);
   };
 
-  // Handle page change
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
   };
-
-  // Filtering
-  const filteredElements = elements.filter(
-    (element) =>
-      element.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      element.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      element.tags?.some((tag) =>
-        tag.toLowerCase().includes(searchQuery.toLowerCase())
-      )
-  );
 
   if (isLoading) {
     return <div className="text-center py-8">Loading elements...</div>;
@@ -258,7 +357,6 @@ export default function ElementsPage() {
         </button>
       </div>
 
-      {/* Delete Confirmation Modal */}
       {isDeleteConfirmOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-lg">
@@ -299,7 +397,7 @@ export default function ElementsPage() {
         />
       ) : (
         <ElementList
-          elements={filteredElements}
+          elements={elements}
           searchQuery={searchQuery}
           editingElementId={formData.id}
           previewedElement={previewedElement}
@@ -308,7 +406,7 @@ export default function ElementsPage() {
           onPreview={setPreviewedElement}
           currentPage={currentPage}
           totalPages={totalPages}
-          onSearchChange={handleSearchChange} // Use the new search handler
+          onSearchChange={handleSearchChange}
           onPageChange={handlePageChange}
         />
       )}

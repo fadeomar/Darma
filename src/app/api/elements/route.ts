@@ -21,6 +21,7 @@ export async function GET(request: Request): Promise<
     const total = await prisma.element.count({
       where: {
         deleted: false,
+        reviewed: true, // ✅ enforce public visibility
         OR: [
           { title: { contains: searchQuery, mode: "insensitive" } },
           { description: { contains: searchQuery, mode: "insensitive" } },
@@ -32,6 +33,7 @@ export async function GET(request: Request): Promise<
     const elements = await prisma.element.findMany({
       where: {
         deleted: false,
+        reviewed: true, // ✅ enforce public visibility
         OR: [
           { title: { contains: searchQuery, mode: "insensitive" } },
           { description: { contains: searchQuery, mode: "insensitive" } },

@@ -59,4 +59,13 @@ export class PrismaElementRepository implements ElementRepository {
       },
     });
   }
+
+  async restore(tx: Tx, id: string) {
+    return tx.element.update({
+      where: { id },
+      data: {
+        deleted: false,
+      },
+    });
+  }
 }

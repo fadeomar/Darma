@@ -18,4 +18,5 @@ export interface ElementRepository {
   create(tx: Tx, input: ElementCreateInput): Promise<any>;
   update(tx: Tx, id: string, input: ElementUpdateInput): Promise<any>;
   softDelete(tx: Tx, id: string): Promise<any>;
+  restore(tx: Tx, id: string): Promise<any>; // ✅ NEW
 }

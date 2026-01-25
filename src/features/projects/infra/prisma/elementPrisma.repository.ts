@@ -77,6 +77,7 @@ export class ElementPrismaRepository implements ElementRepository {
     // Public safety default
     if (spec.publicOnly) {
       where.deleted = false;
+      where.reviewed = true;
     } else {
       // Admin: hide deleted unless explicitly included
       if (!spec.includeDeleted) {
@@ -169,8 +170,10 @@ export class ElementPrismaRepository implements ElementRepository {
     const row = await prisma.element.findFirst({
       where: {
         id,
-        deleted: false, // public safety
-        // IMPORTANT: do NOT require reviewed:true unless you intentionally want that behavior
+        // Public visibility rule (Foundation & Trust):
+        // Only show reviewed + not deleted.
+        deleted: false,
+        reviewed: true,
       },
       select: {
         id: true,

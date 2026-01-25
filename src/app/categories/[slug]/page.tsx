@@ -67,6 +67,8 @@ const fetchCategoryData = async (slug: string, searchParams: SearchParams) => {
   return { elements, total, allSecondaryCategories };
 };
 
+import type { ElementDTO } from "@/features/projects/dto/element.dto";
+
 export default async function CategoryPage({ params, searchParams }: Props) {
   let isLoading = true;
   const { slug } = await params;
@@ -77,9 +79,17 @@ export default async function CategoryPage({ params, searchParams }: Props) {
   );
   isLoading = false;
 
+  const elementsDTO: ElementDTO[] = elements.map((e) => ({
+    ...e,
+    createdAt:
+      e.createdAt instanceof Date ? e.createdAt.toISOString() : e.createdAt,
+    updatedAt:
+      e.updatedAt instanceof Date ? e.updatedAt.toISOString() : e.updatedAt,
+  }));
+
   return (
     <CategoryClient
-      serverElements={elements}
+      serverElements={elementsDTO}
       serverTotal={total}
       mainCategory={slug}
       allSecondaryCategories={allSecondaryCategories}

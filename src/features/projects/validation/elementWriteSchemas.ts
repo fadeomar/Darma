@@ -39,6 +39,8 @@ export const elementUpdateSchema = z
     mainCategory: z.array(categorySchema).max(20).optional(),
     secondaryCategory: z.array(categorySchema).max(50).optional(),
 
+    slug: z.string().min(1).optional(),
+
     reviewed: z.boolean().optional(),
   })
   .strict();

@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// src/app/api/elements/[id]/route.ts
 import { NextResponse } from "next/server";
 
-import { prisma } from "@/server/db/prisma";
 import { makeElementWriteService } from "@/features/projects/di/adminWrite";
 
 import { elementUpdateSchema } from "@/features/projects/validation/elementWriteSchemas";
@@ -11,6 +9,7 @@ import { ElementNotFoundError } from "@/features/projects/application/elementWri
 
 // ✅ Use YOUR existing DTO mapper file (adjust exported function name!)
 import { toElementDTO } from "@/features/projects/dto/element.dto.mapper";
+import { getPublicElementByIdDTO } from "@/server/services/element.service";
 
 /**
  * NOTE:
@@ -30,16 +29,11 @@ export async function GET(_request: Request, context: RouteContext) {
   }
 
   try {
-    const element = await prisma.element.findUnique({ where: { id } });
-
-    if (!element) {
+    const dto = await getPublicElementByIdDTO(id); // ✅ enforces reviewed=true && deleted=false
+    if (!dto) {
       return NextResponse.json({ error: "Element not found" }, { status: 404 });
     }
-
-    // If you want public read to hide deleted elements, enforce it here:
-    // if (element.deleted) return NextResponse.json({ error: "Element not found" }, { status: 404 });
-
-    return NextResponse.json(toElementDTO(element), { status: 200 });
+    return NextResponse.json(dto, { status: 200 });
   } catch (error) {
     console.error("Error fetching element:", error);
     return NextResponse.json(

@@ -1,10 +1,11 @@
 // src/features/projects/application/elementWriteService.ts
-import type { PrismaClient } from "@prisma/client";
+import type { PrismaClient, Prisma } from "@prisma/client";
 import type { ElementRepository } from "../repository/elementRepository";
 import type {
   ElementCreateInput,
   ElementUpdateInput,
 } from "../validation/elementWriteSchemas";
+import { slugify } from "@/lib/slug";
 
 export class ElementWriteService {
   constructor(
@@ -13,9 +14,15 @@ export class ElementWriteService {
   ) {}
 
   async create(input: ElementCreateInput) {
-    // Transaction-safe boundary (future-proof for multi-write operations)
     return this.prisma.$transaction(async (tx) => {
-      return this.repo.create(tx, input);
+      const base = slugify(input.title || "element");
+      const slug = await this.makeUniqueSlug(tx, base);
+
+      // pass slug into create input
+      return this.repo.create(tx, {
+        ...input,
+        slug,
+      } as ElementCreateInput);
     });
   }
 
@@ -25,10 +32,20 @@ export class ElementWriteService {
         includeDeleted: true,
       });
       if (!existing) {
-        // Let API translate this to 404 (domain/application error)
         throw new ElementNotFoundError(id);
       }
-      return this.repo.update(tx, id, input);
+
+      // If title is changing, regenerate slug
+      // (If you want "slug never changes", remove this block)
+      let next = input as Record<string, unknown>;
+
+      if (typeof input.title === "string" && input.title.trim().length > 0) {
+        const base = slugify(input.title);
+        const slug = await this.makeUniqueSlug(tx, base, id);
+        next = { ...input, slug };
+      }
+
+      return this.repo.update(tx, id, next as ElementUpdateInput);
     });
   }
 
@@ -39,11 +56,51 @@ export class ElementWriteService {
       });
       if (!existing) throw new ElementNotFoundError(id);
 
-      // idempotent soft delete is usually desirable
       if (existing.deleted) return existing;
 
       return this.repo.softDelete(tx, id);
     });
+  }
+
+  async restore(id: string) {
+    return this.prisma.$transaction(async (tx) => {
+      const existing = await this.repo.getById(tx, id, {
+        includeDeleted: true,
+      });
+      if (!existing) throw new ElementNotFoundError(id);
+
+      if (!existing.deleted) return existing;
+
+      return this.repo.restore(tx, id);
+    });
+  }
+
+  /**
+   * Ensures slug uniqueness at the DB level.
+   * - Uses the same transaction `tx` for consistency.
+   * - `excludeId` is used on updates to allow keeping current element's slug.
+   */
+  private async makeUniqueSlug(
+    tx: Prisma.TransactionClient,
+    base: string,
+    excludeId?: string,
+  ) {
+    const cleanBase = (base || "element").trim();
+    let slug = cleanBase;
+
+    for (let i = 0; i < 200; i += 1) {
+      const existing = await tx.element.findUnique({
+        where: { slug },
+        select: { id: true },
+      });
+
+      if (!existing || existing.id === excludeId) return slug;
+
+      slug = `${cleanBase}-${i + 2}`;
+    }
+
+    // Super defensive fallback: practically never happens
+    return `${cleanBase}-${Date.now()}`;
   }
 }
 

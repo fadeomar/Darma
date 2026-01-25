@@ -1,18 +1,18 @@
-import { CodeElement } from "@/types";
+import type { ElementDTO } from "@/features/projects/dto/element.dto";
 import CardsPagination from "@/components/CardsPagination";
 import PreviewCard from "@/components/TestCard";
 import CategoryBadge from "@/components/CategoryBadge";
 import { CheckCircle } from "lucide-react";
 
 interface ElementListProps {
-  elements: CodeElement[];
+  elements: ElementDTO[];
   searchQuery: string;
   editingElementId?: string;
-  previewedElement: CodeElement | null;
+  previewedElement: ElementDTO | null;
   onSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onEdit: (element: CodeElement) => void;
+  onEdit: (element: ElementDTO) => void;
   onDelete: (id: string) => void;
-  onPreview: (element: CodeElement | null) => void;
+  onPreview: (element: ElementDTO | null) => void;
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
@@ -65,7 +65,7 @@ export default function ElementList({
         currentPage={currentPage}
         totalPages={totalPages}
         onPageChange={onPageChange}
-        renderItem={(element: CodeElement) => (
+        renderItem={(element: ElementDTO) => (
           <div
             key={element.id}
             className={`p-4 relative border rounded shadow-sm ${

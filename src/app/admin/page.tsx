@@ -3,12 +3,12 @@
 
 import "./style.css";
 import { useState, useEffect } from "react";
-import { MultiValue, SingleValue } from "react-select";
 import categoriesData from "@/data/category.json";
 import type { ElementDTO } from "@/features/projects/dto/element.dto";
 import ElementList from "./ElementList";
 import ElementForm from "./ElementForm";
 import { DropdownOption } from "@/components/Dropdown";
+import type { MultiValue, SingleValue } from "react-select";
 
 type PaginatedApiResponse<T> = {
   items: T[];
@@ -32,6 +32,16 @@ type CreateElementPayload = {
   reviewed?: boolean;
   deleted?: boolean;
 };
+function optionsToValues(
+  value: MultiValue<DropdownOption> | SingleValue<DropdownOption> | null | undefined,
+): string[] {
+  if (!value) return [];
+  if (Array.isArray(value)) {
+    return value.map((o) => (o as DropdownOption).value);
+  }
+  return [(value as DropdownOption).value];
+}
+
 
 export default function ElementsPage() {
   const [elements, setElements] = useState<ElementDTO[]>([]);
@@ -40,7 +50,6 @@ export default function ElementsPage() {
   );
 
   const [formData, setFormData] = useState<Partial<ElementDTO>>({
-    id: "",
     title: "",
     description: "",
     shortDescription: "",
@@ -143,23 +152,33 @@ export default function ElementsPage() {
   const handleMainCategoryChange = (
     newValue: MultiValue<DropdownOption> | SingleValue<DropdownOption>,
   ) => {
-    const selectedOptions = (newValue ?? []) as MultiValue<DropdownOption>;
-    const selectedValues = selectedOptions.map((option) => option.value);
+    const asArray = Array.isArray(newValue)
+      ? newValue
+      : newValue
+        ? [newValue]
+        : [];
+    setSelectedMainCategories(asArray);
 
-    setSelectedMainCategories([...selectedOptions]);
-    setFormData((prev) => ({ ...prev, mainCategory: selectedValues }));
-
-    setSelectedSecondaryCategories([]);
-    setFormData((prev) => ({ ...prev, secondaryCategory: [] }));
+    setFormData((prev) => ({
+      ...prev,
+      mainCategory: optionsToValues(newValue),
+    }));
   };
 
   const handleSecondaryCategoryChange = (
     newValue: MultiValue<DropdownOption> | SingleValue<DropdownOption>,
   ) => {
-    const selectedOptions = (newValue ?? []) as MultiValue<DropdownOption>;
-    const selectedValues = selectedOptions.map((option) => option.value);
-    setSelectedSecondaryCategories([...selectedOptions]);
-    setFormData((prev) => ({ ...prev, secondaryCategory: selectedValues }));
+    const asArray = Array.isArray(newValue)
+      ? newValue
+      : newValue
+        ? [newValue]
+        : [];
+    setSelectedSecondaryCategories(asArray);
+
+    setFormData((prev) => ({
+      ...prev,
+      secondaryCategory: optionsToValues(newValue),
+    }));
   };
 
   const getSecondaryCategoryOptions = (): DropdownOption[] => {

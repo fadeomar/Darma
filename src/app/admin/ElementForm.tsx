@@ -1,9 +1,78 @@
 // components/ElementForm.tsx
-import Dropdown from "@/components/Dropdown";
+import React from "react";
+import type { ActionMeta, MultiValue, SingleValue } from "react-select";
+
+import Dropdown, { DropdownOption } from "@/components/Dropdown";
 import CodeEditor from "@/components/CodeEditor";
-import { ElementFormProps } from "@/types";
 import PreviewCard from "@/components/TestCard";
 import Editor from "@/components/Editor";
+import type { ElementDTO } from "@/features/projects/dto/element.dto";
+
+/**
+ * NOTE:
+ * - Dropdown uses react-select types (MultiValue/SingleValue of DropdownOption)
+ * - We keep selectedMain/SecondaryCategories as DropdownOption[] for the UI
+ * - We store mainCategory/secondaryCategory in formData as string[]
+ */
+export type ElementFormData = Partial<
+  Omit<ElementDTO, "id" | "createdAt" | "updatedAt">
+> & {
+  id?: string; // optional in create mode
+};
+
+type Category = {
+  name: string;
+  // if you have a different shape, adjust here
+  subcategories?: string[];
+};
+
+export interface ElementFormProps {
+  formData: ElementFormData;
+
+  // These are react-select "selected options" (NOT string[])
+  selectedMainCategories: MultiValue<DropdownOption>;
+  selectedSecondaryCategories: MultiValue<DropdownOption>;
+
+  categories: Category[];
+
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  onInputChange: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => void;
+  onTagsChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+
+  // react-select callback signature
+  onMainCategoryChange: (
+    newValue: MultiValue<DropdownOption> | SingleValue<DropdownOption>,
+    actionMeta: ActionMeta<DropdownOption>,
+  ) => void;
+
+  onSecondaryCategoryChange: (
+    newValue: MultiValue<DropdownOption> | SingleValue<DropdownOption>,
+    actionMeta: ActionMeta<DropdownOption>,
+  ) => void;
+
+  onReset: () => void;
+
+  // Secondary options are DropdownOption[]
+  getSecondaryCategoryOptions: () => DropdownOption[];
+
+  // used by your Editor component
+  handleTextEditorChange: (
+    value: string,
+    field: "description" | "shortDescription",
+  ) => void;
+}
+
+type SelectValue<T> = MultiValue<T> | SingleValue<T> | null;
+
+function optionsToValues(value: SelectValue<DropdownOption>): string[] {
+  if (!value) return [];
+  if (Array.isArray(value)) return value.map((o) => o.value);
+  // At this point value is a SingleValue<DropdownOption> (DropdownOption | null)
+  // null is already handled, so we assert to DropdownOption to access .value
+  return [(value as DropdownOption).value];
+}
 
 export default function ElementForm({
   formData,
@@ -19,6 +88,12 @@ export default function ElementForm({
   getSecondaryCategoryOptions,
   handleTextEditorChange,
 }: ElementFormProps) {
+  const mainCategoryValues =
+    formData.mainCategory ?? optionsToValues(selectedMainCategories);
+
+  const secondaryCategoryValues =
+    formData.secondaryCategory ?? optionsToValues(selectedSecondaryCategories);
+
   return (
     <form onSubmit={onSubmit} className="mb-8 p-4 bg-gray-100 rounded">
       <div className="flex justify-between items-center mb-4">
@@ -41,7 +116,7 @@ export default function ElementForm({
           type="text"
           name="title"
           placeholder="Title"
-          value={formData.title || ""}
+          value={formData.title ?? ""}
           onChange={onInputChange}
           className="p-2 border rounded"
           required
@@ -50,7 +125,7 @@ export default function ElementForm({
           type="text"
           name="tags"
           placeholder="Tags (comma separated)"
-          value={formData.tags?.join(", ") || ""}
+          value={formData.tags?.join(", ") ?? ""}
           onChange={onTagsChange}
           className="p-2 border rounded"
         />
@@ -66,6 +141,7 @@ export default function ElementForm({
           value={selectedMainCategories}
           onChange={onMainCategoryChange}
           placeholder="Select main categories..."
+          isMulti
         />
       </div>
 
@@ -77,6 +153,7 @@ export default function ElementForm({
           onChange={onSecondaryCategoryChange}
           placeholder="Select secondary categories..."
           isDisabled={selectedMainCategories.length === 0}
+          isMulti
         />
       </div>
 
@@ -85,7 +162,7 @@ export default function ElementForm({
           Description
         </label>
         <Editor
-          content={formData.description || ""}
+          content={formData.description ?? ""}
           onUpdate={(value) => handleTextEditorChange(value, "description")}
           placeholder="Type or paste your description here..."
           className="mt-1"
@@ -95,19 +172,19 @@ export default function ElementForm({
       <textarea
         name="shortDescription"
         placeholder="Short Description"
-        value={formData.shortDescription || ""}
+        value={formData.shortDescription ?? ""}
         onChange={onInputChange}
         className="w-full p-2 border rounded mb-4"
         rows={3}
         required
       />
 
-      {/* New Reviewed Checkbox */}
+      {/* Reviewed Checkbox */}
       <div className="mb-4 flex items-center">
         <input
           type="checkbox"
           name="reviewed"
-          checked={formData.reviewed || false}
+          checked={formData.reviewed ?? false}
           onChange={onInputChange}
           className="mr-2"
         />
@@ -120,11 +197,11 @@ export default function ElementForm({
         <div>
           <label className="block mb-2 font-semibold">HTML</label>
           <CodeEditor
-            key={`html-${formData.id}`}
-            code={formData.html || ""}
+            key={`html-${formData.id ?? "new"}`}
+            code={formData.html ?? ""}
             setCode={(value) =>
               onInputChange({
-                target: { name: "html", value: value || "" },
+                target: { name: "html", value: value ?? "" },
               } as React.ChangeEvent<HTMLInputElement>)
             }
             language="html"
@@ -134,11 +211,11 @@ export default function ElementForm({
         <div>
           <label className="block mb-2 font-semibold">CSS</label>
           <CodeEditor
-            key={`css-${formData.id}`}
-            code={formData.css || ""}
+            key={`css-${formData.id ?? "new"}`}
+            code={formData.css ?? ""}
             setCode={(value) =>
               onInputChange({
-                target: { name: "css", value: value || "" },
+                target: { name: "css", value: value ?? "" },
               } as React.ChangeEvent<HTMLInputElement>)
             }
             language="css"
@@ -148,11 +225,11 @@ export default function ElementForm({
         <div>
           <label className="block mb-2 font-semibold">JavaScript</label>
           <CodeEditor
-            key={`js-${formData.id}`}
-            code={formData.js || ""}
+            key={`js-${formData.id ?? "new"}`}
+            code={formData.js ?? ""}
             setCode={(value) =>
               onInputChange({
-                target: { name: "js", value: value || "" },
+                target: { name: "js", value: value ?? "" },
               } as React.ChangeEvent<HTMLInputElement>)
             }
             language="javascript"
@@ -166,8 +243,27 @@ export default function ElementForm({
       >
         {formData.id ? "Update Element" : "Create Element"}
       </button>
+
       {formData.html && (
-        <PreviewCard element={{ ...formData, id: "test" }} status={"create"} />
+        <PreviewCard
+          status="create"
+          element={{
+            id: formData.id ?? "preview",
+            title: formData.title ?? "",
+            description: formData.description ?? null,
+            shortDescription: formData.shortDescription ?? null,
+            html: formData.html ?? "",
+            css: formData.css ?? "",
+            js: formData.js ?? null,
+            tags: formData.tags ?? [],
+            mainCategory: mainCategoryValues,
+            secondaryCategory: secondaryCategoryValues,
+            deleted: false,
+            reviewed: formData.reviewed ?? false,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+          }}
+        />
       )}
     </form>
   );

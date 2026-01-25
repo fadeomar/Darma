@@ -28,3 +28,11 @@ export type PaginatedResultDTO<T> = {
   page: number;
   pageSize: number;
 };
+
+// src/features/projects/dto/element.dto.ts
+
+export type ElementFormData = Partial<
+  Omit<ElementDTO, "id" | "createdAt" | "updatedAt">
+> & {
+  id?: string; // optional during create
+};

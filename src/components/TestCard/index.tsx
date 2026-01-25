@@ -2,14 +2,16 @@ import { memo } from "react";
 import Link from "next/link";
 import { formatDate, truncateText } from "../../utils";
 import "./style.css";
-import { CodeElement, CreateCodeElement } from "@/types";
+// import { CreateCodeElement } from "@/types";
+import type { ElementDTO } from "@/features/projects/dto/element.dto";
+
 import { buildElementPreviewDoc } from "@/features/projects/domain/preview/buildElementPreviewDoc";
 
 const Card = ({
   element,
   status,
 }: {
-  element: Partial<CodeElement> | CreateCodeElement;
+  element: Partial<ElementDTO>;
   status: string;
 }) => {
   const iframeContent = buildElementPreviewDoc({
@@ -44,11 +46,7 @@ const Card = ({
           {element?.title && (
             <h3 className="card-title">{truncateText(element.title, 40)}</h3>
           )}
-          {formatDate(
-            element.createdAt instanceof Date
-              ? element.createdAt.toISOString()
-              : element.createdAt,
-          )}{" "}
+          {formatDate(element.createdAt)}
         </div>
 
         <div className="card-meta">

@@ -47,16 +47,16 @@ export interface ElementFormProps {
   handleTextEditorChange: (value: string, key: string) => void;
   onSubmit: (e: React.FormEvent) => void;
   onInputChange: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => void;
   onTagsChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onMainCategoryChange: (
     newValue: MultiValue<DropdownOption> | SingleValue<DropdownOption>,
-    actionMeta: ActionMeta<DropdownOption>
+    actionMeta: ActionMeta<DropdownOption>,
   ) => void;
   onSecondaryCategoryChange: (
     newValue: MultiValue<DropdownOption> | SingleValue<DropdownOption>,
-    actionMeta: ActionMeta<DropdownOption>
+    actionMeta: ActionMeta<DropdownOption>,
   ) => void;
   onReset: () => void;
   getSecondaryCategoryOptions: () => DropdownOption[];

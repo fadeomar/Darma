@@ -1,8 +1,9 @@
 // src/app/element/[id]/page.tsx
 
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import PreviewPage from "./PreviewPage";
-import { getElementByIdDTO } from "@/server/services/element.service";
+import { getPublicElementByIdDTO } from "@/server/services/element.service";
 import type { ElementDTO } from "@/features/projects/dto/element.dto";
 
 export async function generateMetadata({
@@ -12,7 +13,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { id } = await params;
 
-  const element = await getElementByIdDTO(id);
+  const element = await getPublicElementByIdDTO(id);
 
   if (!element) {
     return {
@@ -39,13 +40,9 @@ export default async function ElementPage({
 }) {
   const { id } = await params;
 
-  const element = await getElementByIdDTO(id);
+  const element = await getPublicElementByIdDTO(id);
 
-  if (!element) {
-    return (
-      <PreviewPage initialElement={null} error="Failed to fetch element" />
-    );
-  }
+  if (!element) notFound();
 
   // Keep PreviewPage contract intact (it previously used CodeElement).
   // If PreviewPage expects Date objects, convert there instead.

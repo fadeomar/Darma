@@ -19,5 +19,6 @@ export function toElementDTO(el: Element): ElementDTO {
     reviewed: el.reviewed,
     createdAt: el.createdAt.toISOString(),
     updatedAt: el.updatedAt.toISOString(),
+    slug: el.slug ?? null,
   };
 }

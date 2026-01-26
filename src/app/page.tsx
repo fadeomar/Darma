@@ -40,6 +40,7 @@ export default async function HomePage({
     pageSize: 6,
     sort: "newest", // instead of createdAt
   });
+
   return (
     <main className="min-h-screen p-8 bg-baseColor text-textColor">
       <header className="flex justify-between items-center mb-12">

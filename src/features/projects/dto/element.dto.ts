@@ -20,6 +20,8 @@ export type ElementDTO = {
 
   createdAt: string; // ISO
   updatedAt: string; // ISO
+
+  slug?: string | null;
 };
 
 export type PaginatedResultDTO<T> = {

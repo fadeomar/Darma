@@ -151,6 +151,8 @@ export class ElementPrismaRepository implements ElementRepository {
 
       createdAt: true,
       updatedAt: true,
+
+      slug: true,
     };
 
     const [total, rows] = await prisma.$transaction([
@@ -190,34 +192,10 @@ export class ElementPrismaRepository implements ElementRepository {
         reviewed: true,
         createdAt: true,
         updatedAt: true,
+        slug: true,
       },
     });
 
     return row ? toElementDomain(row) : null;
   }
 }
-
-// function buildSelect(projection: "preview" | "summary"): Prisma.ElementSelect {
-//   const base: Prisma.ElementSelect = {
-//     id: true,
-//     title: true,
-//     description: true,
-//     shortDescription: true,
-//     tags: true,
-//     mainCategory: true,
-//     secondaryCategory: true,
-//     deleted: true,
-//     reviewed: true,
-//     createdAt: true,
-//     updatedAt: true,
-//   };
-
-//   if (projection === "summary") return base;
-
-//   return {
-//     ...base,
-//     html: true,
-//     css: true,
-//     js: true,
-//   };
-// }

@@ -1,9 +1,9 @@
-// src/app/element/[id]/page.tsx
+// src/app/elements/[slug]/page.tsx
 
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ElementPreviewShell from "@/components/element/ElementPreviewShell";
-import { getPublicElementByIdDTO } from "@/server/services/element.service";
+import { getPublicElementBySlugDTO } from "@/server/services/element.service";
 import {
   buildElementMetadata,
   buildNotFoundMetadata,
@@ -12,25 +12,24 @@ import {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const { id } = await params;
+  const { slug } = await params;
 
-  const element = await getPublicElementByIdDTO(id);
+  const element = await getPublicElementBySlugDTO(slug);
   if (!element) return buildNotFoundMetadata();
 
-  // Canonical will prefer /elements/[slug] if element.slug exists.
   return buildElementMetadata(element);
 }
 
-export default async function ElementByIdPage({
+export default async function ElementBySlugPage({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ slug: string }>;
 }) {
-  const { id } = await params;
+  const { slug } = await params;
 
-  const element = await getPublicElementByIdDTO(id);
+  const element = await getPublicElementBySlugDTO(slug);
   if (!element) notFound();
 
   return <ElementPreviewShell element={element} />;

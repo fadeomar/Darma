@@ -21,6 +21,8 @@ export function toElementDomain(row: {
 
   createdAt: Date;
   updatedAt: Date;
+
+  slug: string | null;
 }): Element {
   return {
     id: row.id,
@@ -38,6 +40,7 @@ export function toElementDomain(row: {
 
     deleted: row.deleted,
     reviewed: row.reviewed,
+    slug: row.slug,
 
     createdAt: row.createdAt,
     updatedAt: row.updatedAt,

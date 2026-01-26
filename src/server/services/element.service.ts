@@ -1,6 +1,7 @@
 import { getRepositories } from "@/server/repositories";
 import { toElementDTO } from "@/features/projects/dto/element.dto.mapper";
 import type { ElementDTO } from "@/features/projects/dto/element.dto";
+import { prisma } from "@/server/db/prisma";
 
 export async function getElementByIdDTO(
   id: string,
@@ -20,4 +21,18 @@ export async function getPublicElementByIdDTO(
   const { element: elementRepo } = getRepositories();
   const element = await elementRepo.getById(id);
   return element ? toElementDTO(element) : null;
+}
+
+export async function getPublicElementBySlugDTO(slug: string) {
+  if (!slug) return null;
+
+  const row = await prisma.element.findFirst({
+    where: {
+      slug,
+      reviewed: true,
+      deleted: false,
+    },
+  });
+
+  return row ? toElementDTO(row) : null;
 }

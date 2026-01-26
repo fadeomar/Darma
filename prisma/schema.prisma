@@ -10,6 +10,7 @@ datasource db {
 model Element {
   id                String   @id @default(cuid())
   title             String
+  slug              String?  @unique
   description       String
   shortDescription  String?
   html              String
@@ -29,10 +30,27 @@ model Element {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  username  String   @unique
-  password  String
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  username String @unique
+
+  // IMPORTANT: this must store a HASH (argon2)
+  password String
+
+  role String @default("user")
+
   createdAt DateTime @default(now())
   updateUt  DateTime @updatedAt
+
+  sessions Session[]
+}
+
+model Session {
+  id     String @id @default(cuid())
+  userId Int
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

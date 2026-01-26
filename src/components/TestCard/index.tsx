@@ -33,8 +33,12 @@ const Card = ({
           <>
             <div className="screen-overlay"></div>
             <Link
-              href={`/element/${element.id}`}
               className="preview-link text-textColor"
+              href={
+                element.slug
+                  ? `/elements/${element.slug}`
+                  : `/element/${element.id}`
+              }
             >
               ↗ Preview
             </Link>

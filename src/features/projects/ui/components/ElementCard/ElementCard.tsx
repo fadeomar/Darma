@@ -2,25 +2,13 @@ import "./style.css";
 import { memo } from "react";
 import Link from "next/link";
 import { buildElementPreviewDoc } from "@/features/projects/domain/preview/buildElementPreviewDoc";
+import type { ElementDTO } from "@/features/projects/dto/element.dto";
 
 // Keep types flexible to avoid breaking your current CreateCodeElement usage.
 // Later we can tighten these once we consolidate types into the feature.
-type ElementCardModel = {
-  id?: string;
-
-  title?: string;
-  createdAt?: string | Date;
-
-  html?: string | null;
-  css?: string | null;
-  js?: string | null;
-
-  tags?: string[];
-  mainCategory?: string[];
-};
 
 export type ElementCardProps = {
-  element: ElementCardModel;
+  element: ElementDTO;
   status: "preview" | string;
 
   // UI helpers
@@ -41,8 +29,10 @@ function ElementCardBase({
   });
 
   const createdAtIso =
-    element.createdAt instanceof Date
-      ? element.createdAt.toISOString()
+    typeof element.createdAt === "object" &&
+    element.createdAt !== null &&
+    "toISOString" in element.createdAt
+      ? (element.createdAt as Date).toISOString()
       : element.createdAt;
 
   return (
@@ -57,7 +47,11 @@ function ElementCardBase({
           <>
             <div className="screen-overlay"></div>
             <Link
-              href={`/element/${element.id}`}
+              href={
+                element.slug
+                  ? `/elements/${element.slug}`
+                  : `/element/${element.id}`
+              }
               className="preview-link text-textColor"
             >
               ↗ Preview

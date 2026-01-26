@@ -77,6 +77,12 @@ export async function PUT(request: Request, context: RouteContext) {
 
     return NextResponse.json(toElementDTO(updated), { status: 200 });
   } catch (error: any) {
+    if (error?.code === "P2002") {
+      return NextResponse.json(
+        { error: "Slug already exists" },
+        { status: 409 },
+      );
+    }
     if (
       error?.name === "ElementNotFoundError" ||
       error instanceof ElementNotFoundError

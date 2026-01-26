@@ -21,6 +21,8 @@ export async function GET(
   const status = (searchParams.get("status") || "pending") as
     | "pending"
     | "deleted"
+    | "approved"
+    | "needSlug"
     | "all";
 
   // pending: reviewed=false AND deleted=false
@@ -31,7 +33,11 @@ export async function GET(
       ? { reviewed: false, deleted: false }
       : status === "deleted"
         ? { deleted: true }
-        : { OR: [{ reviewed: false, deleted: false }, { deleted: true }] };
+        : status === "approved"
+          ? { reviewed: true, deleted: false }
+          : status === "needSlug"
+            ? { deleted: false, OR: [{ slug: null }, { slug: "" }] }
+            : { OR: [{ reviewed: false, deleted: false }, { deleted: true }] };
 
   try {
     const total = await prisma.element.count({ where });

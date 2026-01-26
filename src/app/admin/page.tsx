@@ -9,6 +9,7 @@ import ElementList from "./ElementList";
 import ElementForm from "./ElementForm";
 import { DropdownOption } from "@/components/Dropdown";
 import type { MultiValue, SingleValue } from "react-select";
+import { slugify } from "@/lib/slug";
 
 type PaginatedApiResponse<T> = {
   items: T[];
@@ -31,9 +32,14 @@ type CreateElementPayload = {
   secondaryCategory: string[];
   reviewed?: boolean;
   deleted?: boolean;
+  slug?: string | null;
 };
 function optionsToValues(
-  value: MultiValue<DropdownOption> | SingleValue<DropdownOption> | null | undefined,
+  value:
+    | MultiValue<DropdownOption>
+    | SingleValue<DropdownOption>
+    | null
+    | undefined,
 ): string[] {
   if (!value) return [];
   if (Array.isArray(value)) {
@@ -41,7 +47,6 @@ function optionsToValues(
   }
   return [(value as DropdownOption).value];
 }
-
 
 export default function ElementsPage() {
   const [elements, setElements] = useState<ElementDTO[]>([]);
@@ -61,6 +66,7 @@ export default function ElementsPage() {
     secondaryCategory: [],
     deleted: false,
     reviewed: false,
+    slug: "",
   });
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -206,6 +212,13 @@ export default function ElementsPage() {
       return;
     }
 
+    if (name === "title") {
+      setFormData((prev) => ({
+        ...prev,
+        slug: slugify(value) ?? "",
+        [name]: value,
+      }));
+    }
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -232,6 +245,7 @@ export default function ElementsPage() {
       secondaryCategory: [],
       deleted: false,
       reviewed: false,
+      slug: "",
     });
     setSelectedMainCategories([]);
     setSelectedSecondaryCategories([]);
@@ -253,6 +267,7 @@ export default function ElementsPage() {
       secondaryCategory: formData.secondaryCategory || [],
       reviewed: !!formData.reviewed,
       deleted: !!formData.deleted,
+      slug: formData.slug ? (slugify(formData.slug) ?? "") : "",
     };
 
     const url = formData.id ? `/api/elements/${formData.id}` : "/api/elements";
@@ -300,6 +315,7 @@ export default function ElementsPage() {
       js: element.js ?? "",
       reviewed: element.reviewed ?? false,
       deleted: element.deleted ?? false,
+      slug: element.slug ?? "",
     });
 
     setSelectedMainCategories(

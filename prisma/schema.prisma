@@ -22,7 +22,6 @@ model Element {
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
   reviewed          Boolean  @default(false)
-  slug              String?  @unique
 
   @@index([mainCategory], type: Gin)
   @@index([secondaryCategory], type: Gin)

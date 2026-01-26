@@ -115,6 +115,8 @@ export default function AdminReviewPage() {
         >
           <option value="pending">Pending (unreviewed)</option>
           <option value="deleted">Deleted (rejected)</option>
+          <option value="approved">Approved</option>
+          <option value="needSlug">NEED SLUG</option>
           <option value="all">All</option>
         </select>
 

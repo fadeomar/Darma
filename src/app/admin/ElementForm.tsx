@@ -179,6 +179,18 @@ export default function ElementForm({
         required
       />
 
+      <div className="field">
+        <label>Slug</label>
+        <input
+          value={formData.slug ?? ""}
+          onChange={onInputChange}
+          placeholder="auto-generated-from-title"
+        />
+        <small style={{ opacity: 0.7 }}>
+          Used in the URL: <code>/elements/{formData.slug || "..."}</code>
+        </small>
+      </div>
+
       {/* Reviewed Checkbox */}
       <div className="mb-4 flex items-center">
         <input

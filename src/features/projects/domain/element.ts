@@ -22,4 +22,5 @@ export type Element = {
 
   createdAt: Date;
   updatedAt: Date;
+  slug?: string | null;
 };

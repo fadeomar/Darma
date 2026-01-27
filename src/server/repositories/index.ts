@@ -1,7 +1,7 @@
 // src/server/repositories/index.ts
 
-import type { ElementRepository } from "@/features/projects/domain/element.repository";
-import { ElementPrismaRepository } from "@/features/projects/infra/prisma/elementPrisma.repository";
+import type { ElementRepository } from "@/features/elements/domain/element.repository";
+import { ElementPrismaRepository } from "@/features/elements/infra/prisma/elementPrisma.repository";
 
 export type Repositories = {
   element: ElementRepository;

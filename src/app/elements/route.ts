@@ -1,11 +1,11 @@
 // src/app/api/elements/route.ts
 import { NextResponse } from "next/server";
-import { makeElementWriteService } from "@/features/projects/di/adminWrite";
-import { elementCreateSchema } from "@/features/projects/validation/elementWriteSchemas";
+import { makeElementWriteService } from "@/features/elements/di/adminWrite";
+import { elementCreateSchema } from "@/features/elements/validation/elementWriteSchemas";
 import { parseJsonBody } from "@/shared/http/validation";
 
 // Use your existing mapper
-import { toElementDTO } from "@/features/projects/dto/element.dto.mapper";
+import { toElementDTO } from "@/features/elements/dto/element.dto.mapper";
 
 export async function POST(req: Request) {
   // TODO: enforce admin auth boundary here (middleware or here)

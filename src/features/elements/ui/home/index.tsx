@@ -6,9 +6,9 @@ import { SearchParams } from "@/types";
 import SearchComponent from "./SearchComponent";
 import CardsPagination from "@/components/CardsPagination";
 import SkeletonGrid from "@/components/SkeletonGrid";
-import { ElementCard } from "@/features/projects/ui";
+import { ElementCard } from "@/features/elements/ui";
 import { formatDate, truncateText } from "@/utils";
-import type { ElementDTO } from "@/features/projects/dto/element.dto";
+import type { ElementDTO } from "@/features/elements/dto/element.dto";
 
 export default function HomeClientPage({
   initialElements,

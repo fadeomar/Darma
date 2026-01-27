@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import BackButton from "@/components/BackButton";
-import type { ElementDTO } from "@/features/projects/dto/element.dto";
+import type { ElementDTO } from "@/features/elements/dto/element.dto";
 import CodeTabs from "@/components/element/CodeTabs";
 import ElementSidebar from "@/components/element/ElementSidebar";
 import IframePreview from "@/components/element/IframePreview";

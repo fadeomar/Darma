@@ -2,7 +2,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 import FancyCTAButton from "@/components/CTAButton";
 import { SearchParams } from "@/types";
 import { searchElementsDTO } from "@/server/services/search.service";
-import { HomeClientPage } from "@/features/projects/ui";
+import { HomeClientPage } from "@/features/elements/ui";
 
 // Normalize a parameter to an array of strings
 function normalizeParam(param: string | string[] | undefined): string[] {

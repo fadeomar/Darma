@@ -1,8 +1,8 @@
 import "./style.css";
 import { memo } from "react";
 import Link from "next/link";
-import { buildElementPreviewDoc } from "@/features/projects/domain/preview/buildElementPreviewDoc";
-import type { ElementDTO } from "@/features/projects/dto/element.dto";
+import { buildElementPreviewDoc } from "@/features/elements/domain/preview/buildElementPreviewDoc";
+import type { ElementDTO } from "@/features/elements/dto/element.dto";
 
 // Keep types flexible to avoid breaking your current CreateCodeElement usage.
 // Later we can tighten these once we consolidate types into the feature.

@@ -7,7 +7,7 @@ export default async function AdminLayout({
 }: {
   children: React.ReactNode;
 }) {
-  await requireAdmin();
+  await requireAdmin(); // server-side guard (DB + role)
 
   return <AdminShell logoutButton={<LogoutButton />}>{children}</AdminShell>;
 }

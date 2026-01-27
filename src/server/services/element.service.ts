@@ -1,6 +1,6 @@
 import { getRepositories } from "@/server/repositories";
-import { toElementDTO } from "@/features/projects/dto/element.dto.mapper";
-import type { ElementDTO } from "@/features/projects/dto/element.dto";
+import { toElementDTO } from "@/features/elements/dto/element.dto.mapper";
+import type { ElementDTO } from "@/features/elements/dto/element.dto";
 import { prisma } from "@/server/db/prisma";
 
 export async function getElementByIdDTO(

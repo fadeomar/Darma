@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // src/app/api/elements/[id]/restore/route.ts
 import { NextResponse } from "next/server";
-import { makeElementWriteService } from "@/features/projects/di/adminWrite";
-import { toElementDTO } from "@/features/projects/dto/element.dto.mapper";
-import { ElementNotFoundError } from "@/features/projects/application/elementWriteService";
+import { makeElementWriteService } from "@/features/elements/di/adminWrite";
+import { toElementDTO } from "@/features/elements/dto/element.dto.mapper";
+import { ElementNotFoundError } from "@/features/elements/application/elementWriteService";
 
 type RouteContext = { params: Promise<{ id: string }> };
 

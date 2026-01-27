@@ -67,7 +67,7 @@ const fetchCategoryData = async (slug: string, searchParams: SearchParams) => {
   return { elements, total, allSecondaryCategories };
 };
 
-import type { ElementDTO } from "@/features/projects/dto/element.dto";
+import type { ElementDTO } from "@/features/elements/dto/element.dto";
 
 export default async function CategoryPage({ params, searchParams }: Props) {
   let isLoading = true;

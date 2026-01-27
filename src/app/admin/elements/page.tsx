@@ -1,16 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import "../style.css";
+import { useState, useEffect } from "react";
 import categoriesData from "@/data/category.json";
-import type { ElementDTO } from "@/features/projects/dto/element.dto";
-import ElementForm from "../ElementForm";
+import type { ElementDTO } from "@/features/elements/dto/element.dto";
 import ElementList from "../ElementList";
+import ElementForm from "../ElementForm";
 import { DropdownOption } from "@/components/Dropdown";
 import type { MultiValue, SingleValue } from "react-select";
 import { slugify } from "@/lib/slug";
-import PreviewCard from "@/components/TestCard";
-import { CheckCircle2, Eye, Plus, Trash2, RotateCcw } from "lucide-react";
 
 type PaginatedApiResponse<T> = {
   items: T[];
@@ -19,6 +18,7 @@ type PaginatedApiResponse<T> = {
   pageSize: number;
 };
 
+// temporary: until you also DTO-ify your create/update payloads
 type CreateElementPayload = {
   id?: string;
   title: string;
@@ -34,9 +34,6 @@ type CreateElementPayload = {
   deleted?: boolean;
   slug?: string | null;
 };
-
-type Filter = "all" | "pending" | "reviewed" | "deleted";
-
 function optionsToValues(
   value:
     | MultiValue<DropdownOption>
@@ -45,16 +42,13 @@ function optionsToValues(
     | undefined,
 ): string[] {
   if (!value) return [];
-  if (Array.isArray(value))
+  if (Array.isArray(value)) {
     return value.map((o) => (o as DropdownOption).value);
+  }
   return [(value as DropdownOption).value];
 }
 
-function cn(...classes: Array<string | false | null | undefined>) {
-  return classes.filter(Boolean).join(" ");
-}
-
-export default function AdminElementsPage() {
+export default function ElementsPage() {
   const [elements, setElements] = useState<ElementDTO[]>([]);
   const [previewedElement, setPreviewedElement] = useState<ElementDTO | null>(
     null,
@@ -75,7 +69,6 @@ export default function AdminElementsPage() {
     slug: "",
   });
 
-  const [filter, setFilter] = useState<Filter>("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [isDeleteConfirmOpen, setIsDeleteConfirmOpen] = useState(false);
   const [elementToDelete, setElementToDelete] = useState<string | null>(null);
@@ -90,32 +83,36 @@ export default function AdminElementsPage() {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [pageSize, setPageSize] = useState(8);
 
+  const itemsPerPage = 6;
   const categories = (categoriesData as any).categories ?? [];
 
-  // --- counts for tabs ---
-  const counts = useMemo(() => {
-    const all = elements.length;
-    const pending = elements.filter((e) => !e.reviewed && !e.deleted).length;
-    const reviewed = elements.filter((e) => !!e.reviewed && !e.deleted).length;
-    const deleted = elements.filter((e) => !!e.deleted).length;
-    return { all, pending, reviewed, deleted };
-  }, [elements]);
-
-  // --- fetch list (still your public endpoint for now) ---
   useEffect(() => {
     let cancelled = false;
 
     const fetchElements = async () => {
       setIsLoading(true);
+
       try {
-        const url = `/api/elements?page=${currentPage}&pageSize=${pageSize}&search=${encodeURIComponent(
+        const url = `/api/elements?page=${currentPage}&pageSize=${itemsPerPage}&search=${encodeURIComponent(
           searchQuery,
         )}`;
-        const response = await fetch(url, { cache: "no-store" });
-        if (!response.ok) throw new Error(`Fetch failed: ${response.status}`);
 
+        const response = await fetch(url, { cache: "no-store" });
+        if (!response.ok) {
+          console.error(
+            "Failed to fetch elements:",
+            response.status,
+            response.statusText,
+          );
+          if (!cancelled) {
+            setElements([]);
+            setTotalPages(1);
+          }
+          return;
+        }
+
+        // Canonical: { items, total, page, pageSize }
         const json = (await response.json()) as
           | PaginatedApiResponse<ElementDTO>
           | { elements?: ElementDTO[]; data?: ElementDTO[]; total?: number };
@@ -134,7 +131,7 @@ export default function AdminElementsPage() {
 
         if (!cancelled) {
           setElements(items);
-          setTotalPages(Math.max(1, Math.ceil(total / pageSize)));
+          setTotalPages(Math.max(1, Math.ceil(total / itemsPerPage)));
         }
       } catch (error) {
         console.error("Failed to fetch elements:", error);
@@ -151,17 +148,7 @@ export default function AdminElementsPage() {
     return () => {
       cancelled = true;
     };
-  }, [currentPage, searchQuery, pageSize]);
-
-  // --- filter client-side (until admin list API exists) ---
-  const visibleElements = useMemo(() => {
-    return elements.filter((el) => {
-      if (filter === "pending") return !el.reviewed && !el.deleted;
-      if (filter === "reviewed") return !!el.reviewed && !el.deleted;
-      if (filter === "deleted") return !!el.deleted;
-      return true;
-    });
-  }, [elements, filter]);
+  }, [currentPage, searchQuery, itemsPerPage]);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
@@ -177,6 +164,7 @@ export default function AdminElementsPage() {
         ? [newValue]
         : [];
     setSelectedMainCategories(asArray);
+
     setFormData((prev) => ({
       ...prev,
       mainCategory: optionsToValues(newValue),
@@ -192,6 +180,7 @@ export default function AdminElementsPage() {
         ? [newValue]
         : [];
     setSelectedSecondaryCategories(asArray);
+
     setFormData((prev) => ({
       ...prev,
       secondaryCategory: optionsToValues(newValue),
@@ -204,12 +193,7 @@ export default function AdminElementsPage() {
         (cat: any) => cat.name === mainCat.value,
       );
       return category
-        ? (category.types ?? category.subcategories ?? []).map(
-            (type: string) => ({
-              value: type,
-              label: type,
-            }),
-          )
+        ? category.types.map((type: string) => ({ value: type, label: type }))
         : [];
     });
   };
@@ -234,9 +218,7 @@ export default function AdminElementsPage() {
         slug: slugify(value) ?? "",
         [name]: value,
       }));
-      return;
     }
-
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -269,10 +251,6 @@ export default function AdminElementsPage() {
     setSelectedSecondaryCategories([]);
   };
 
-  const handleTextEditorChange = (value: string, key: string) => {
-    setFormData((prev) => ({ ...prev, [key]: value }));
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -295,31 +273,35 @@ export default function AdminElementsPage() {
     const url = formData.id ? `/api/elements/${formData.id}` : "/api/elements";
     const method = formData.id ? "PUT" : "POST";
 
-    const response = await fetch(url, {
-      method,
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
+    try {
+      const response = await fetch(url, {
+        method,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
 
-    if (!response.ok) {
-      console.error(
-        "Failed to save element:",
-        response.status,
-        response.statusText,
+      if (!response.ok) {
+        console.error(
+          "Failed to save element:",
+          response.status,
+          response.statusText,
+        );
+        return;
+      }
+
+      const updated: ElementDTO = await response.json();
+
+      setElements((prev) =>
+        formData.id
+          ? prev.map((el) => (el.id === formData.id ? updated : el))
+          : [updated, ...prev],
       );
-      return;
+
+      resetForm();
+      setShowCreateForm(false);
+    } catch (error) {
+      console.error("Failed to save element:", error);
     }
-
-    const updated: ElementDTO = await response.json();
-
-    setElements((prev) =>
-      formData.id
-        ? prev.map((el) => (el.id === formData.id ? updated : el))
-        : [updated, ...prev],
-    );
-
-    resetForm();
-    setShowCreateForm(false);
   };
 
   const handleEdit = (element: ElementDTO) => {
@@ -347,7 +329,6 @@ export default function AdminElementsPage() {
     );
 
     setShowCreateForm(true);
-    setPreviewedElement(null);
   };
 
   const handleDeleteClick = (id: string) => {
@@ -362,6 +343,7 @@ export default function AdminElementsPage() {
       const response = await fetch(`/api/elements/${elementToDelete}`, {
         method: "DELETE",
       });
+
       if (!response.ok) {
         console.error(
           "Failed to delete element:",
@@ -370,147 +352,61 @@ export default function AdminElementsPage() {
         );
         return;
       }
+
       setElements((prev) => prev.filter((el) => el.id !== elementToDelete));
       resetForm();
+    } catch (error) {
+      console.error("Failed to delete element:", error);
     } finally {
       setIsDeleteConfirmOpen(false);
       setElementToDelete(null);
     }
   };
 
-  const restore = async (id: string) => {
-    const res = await fetch(`/api/elements/${id}/restore`, { method: "POST" });
-    if (!res.ok) return;
-    // quick refresh current page
-    setCurrentPage(1);
-  };
-
-  const approve = async (id: string) => {
-    const res = await fetch(`/api/elements/${id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ reviewed: true }),
-    });
-    if (!res.ok) return;
-    setCurrentPage(1);
-  };
-
   const toggleView = () => {
     if (!showCreateForm) resetForm();
-    setShowCreateForm((v) => !v);
+    setShowCreateForm(!showCreateForm);
+  };
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
   };
 
   if (isLoading) {
-    return (
-      <div className="py-10 text-center text-sm text-zinc-600">
-        Loading elements…
-      </div>
-    );
+    return <div className="text-center py-8">Loading elements...</div>;
   }
 
-  return (
-    <div>
-      {/* Header */}
-      <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
-        <div className="min-w-0">
-          <h1 className="text-2xl font-semibold tracking-tight">Elements</h1>
-          <p className="mt-1 text-sm text-zinc-500">
-            Create, review, and manage your code library — safely.
-          </p>
-        </div>
+  const handleTextEditorChange = (value: string, key: string) => {
+    setFormData((prev) => ({ ...prev, [key]: value }));
+  };
 
-        <div className="flex items-center gap-2">
-          <button
-            onClick={toggleView}
-            className={cn(
-              "inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition",
-              showCreateForm
-                ? "border bg-white text-zinc-900 hover:bg-zinc-50"
-                : "bg-zinc-900 text-white hover:bg-zinc-800",
-            )}
-          >
-            <Plus className="h-4 w-4" />
-            {showCreateForm ? "Back to list" : "New element"}
-          </button>
-        </div>
+  return (
+    <div className="container mx-auto p-4">
+      <div className="flex justify-between items-center mb-4">
+        <h1 className="text-2xl font-bold">Code Elements Collection</h1>
+        <button
+          onClick={toggleView}
+          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        >
+          {showCreateForm ? "All Elements" : "Create Element"}
+        </button>
       </div>
 
-      {/* Tabs + Controls */}
-      {!showCreateForm && (
-        <div className="mb-4 rounded-2xl border bg-white p-3">
-          <div className="flex flex-wrap items-center gap-2">
-            {(
-              [
-                ["all", `All (${counts.all})`],
-                ["pending", `Pending (${counts.pending})`],
-                ["reviewed", `Reviewed (${counts.reviewed})`],
-                ["deleted", `Deleted (${counts.deleted})`],
-              ] as const
-            ).map(([key, label]) => (
-              <button
-                key={key}
-                onClick={() => {
-                  setFilter(key as Filter);
-                  setCurrentPage(1);
-                }}
-                className={cn(
-                  "rounded-xl px-3 py-2 text-sm font-semibold transition",
-                  filter === key
-                    ? "bg-zinc-900 text-white"
-                    : "bg-zinc-50 text-zinc-800 hover:bg-zinc-100",
-                )}
-              >
-                {label}
-              </button>
-            ))}
-
-            <div className="ml-auto flex flex-1 items-center gap-2 sm:flex-none">
-              <input
-                type="text"
-                placeholder="Search title / tags…"
-                value={searchQuery}
-                onChange={handleSearchChange}
-                className="w-full rounded-xl border px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-zinc-900/10 sm:w-[260px]"
-              />
-              <select
-                value={pageSize}
-                onChange={(e) => {
-                  setCurrentPage(1);
-                  setPageSize(Number(e.target.value));
-                }}
-                className="rounded-xl border px-3 py-2 text-sm"
-              >
-                <option value={6}>6 / page</option>
-                <option value={8}>8 / page</option>
-                <option value={12}>12 / page</option>
-              </select>
-            </div>
-          </div>
-
-          <div className="mt-3 text-xs text-zinc-500">
-            Tip: Pending items should be previewed before approving.
-          </div>
-        </div>
-      )}
-
-      {/* Confirm delete modal */}
       {isDeleteConfirmOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-          <div className="w-full max-w-md rounded-2xl bg-white p-5 shadow-xl">
-            <div className="text-lg font-semibold">Confirm delete</div>
-            <p className="mt-1 text-sm text-zinc-600">
-              This is a soft delete in your system — you can restore later.
-            </p>
-            <div className="mt-5 flex justify-end gap-2">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg">
+            <h3 className="text-lg font-semibold mb-4">Confirm Delete</h3>
+            <p>Are you sure you want to delete this element?</p>
+            <div className="flex justify-end gap-2 mt-4">
               <button
                 onClick={() => setIsDeleteConfirmOpen(false)}
-                className="rounded-xl border px-4 py-2 text-sm font-semibold hover:bg-zinc-50"
+                className="px-4 py-2 bg-gray-300 rounded"
               >
                 Cancel
               </button>
               <button
                 onClick={handleConfirmDelete}
-                className="rounded-xl bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-500"
+                className="px-4 py-2 bg-red-500 text-white rounded"
               >
                 Delete
               </button>
@@ -519,110 +415,35 @@ export default function AdminElementsPage() {
         </div>
       )}
 
-      {/* Preview modal */}
-      {previewedElement && (
-        <div className="fixed inset-0 z-50 bg-black/50 p-4">
-          <div className="mx-auto flex h-full max-w-6xl flex-col overflow-hidden rounded-2xl bg-white shadow-xl">
-            <div className="flex items-center justify-between gap-3 border-b px-5 py-4">
-              <div className="min-w-0">
-                <div className="text-xs font-semibold text-zinc-500">
-                  Preview
-                </div>
-                <div className="truncate text-lg font-semibold">
-                  {previewedElement.title}
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                {!previewedElement.reviewed && !previewedElement.deleted && (
-                  <button
-                    onClick={() => approve(previewedElement.id)}
-                    className="inline-flex items-center gap-2 rounded-xl bg-zinc-900 px-3 py-2 text-sm font-semibold text-white hover:bg-zinc-800"
-                  >
-                    <CheckCircle2 className="h-4 w-4" />
-                    Approve
-                  </button>
-                )}
-                {previewedElement.deleted && (
-                  <button
-                    onClick={() => restore(previewedElement.id)}
-                    className="inline-flex items-center gap-2 rounded-xl border px-3 py-2 text-sm font-semibold hover:bg-zinc-50"
-                  >
-                    <RotateCcw className="h-4 w-4" />
-                    Restore
-                  </button>
-                )}
-                {!previewedElement.deleted && (
-                  <button
-                    onClick={() => handleDeleteClick(previewedElement.id)}
-                    className="inline-flex items-center gap-2 rounded-xl border px-3 py-2 text-sm font-semibold hover:bg-zinc-50"
-                  >
-                    <Trash2 className="h-4 w-4" />
-                    Delete
-                  </button>
-                )}
-                <button
-                  onClick={() => setPreviewedElement(null)}
-                  className="rounded-xl border px-3 py-2 text-sm font-semibold hover:bg-zinc-50"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-
-            <div className="flex-1 overflow-auto p-5">
-              <PreviewCard element={previewedElement} status="preview" />
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Body */}
       {showCreateForm ? (
-        <div className="rounded-2xl border bg-white p-4">
-          <ElementForm
-            formData={formData}
-            selectedMainCategories={selectedMainCategories}
-            selectedSecondaryCategories={selectedSecondaryCategories}
-            categories={categories}
-            onSubmit={handleSubmit}
-            onInputChange={handleInputChange}
-            onTagsChange={handleTagsChange}
-            onMainCategoryChange={handleMainCategoryChange as any}
-            onSecondaryCategoryChange={handleSecondaryCategoryChange as any}
-            onReset={resetForm}
-            getSecondaryCategoryOptions={getSecondaryCategoryOptions}
-            handleTextEditorChange={handleTextEditorChange as any}
-          />
-        </div>
+        <ElementForm
+          formData={formData}
+          selectedMainCategories={selectedMainCategories}
+          selectedSecondaryCategories={selectedSecondaryCategories}
+          categories={categories}
+          onSubmit={handleSubmit}
+          onInputChange={handleInputChange}
+          onTagsChange={handleTagsChange}
+          onMainCategoryChange={handleMainCategoryChange}
+          onSecondaryCategoryChange={handleSecondaryCategoryChange}
+          onReset={resetForm}
+          getSecondaryCategoryOptions={getSecondaryCategoryOptions}
+          handleTextEditorChange={handleTextEditorChange}
+        />
       ) : (
-        <div className="rounded-2xl border bg-white p-4">
-          {/* Small action legend */}
-          <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
-            <div className="text-sm font-semibold text-zinc-900">
-              Showing{" "}
-              <span className="text-zinc-600">{visibleElements.length}</span>{" "}
-              items
-            </div>
-            <div className="text-xs text-zinc-500">
-              Use <Eye className="inline h-3.5 w-3.5" /> preview for safe review
-            </div>
-          </div>
-
-          {/* Reuse your list (cards) */}
-          <ElementList
-            elements={visibleElements}
-            searchQuery={searchQuery}
-            editingElementId={formData.id}
-            previewedElement={null} // modal handles preview now
-            onEdit={handleEdit}
-            onDelete={handleDeleteClick}
-            onPreview={setPreviewedElement}
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onSearchChange={handleSearchChange}
-            onPageChange={setCurrentPage}
-          />
-        </div>
+        <ElementList
+          elements={elements}
+          searchQuery={searchQuery}
+          editingElementId={formData.id}
+          previewedElement={previewedElement}
+          onEdit={handleEdit}
+          onDelete={handleDeleteClick}
+          onPreview={setPreviewedElement}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onSearchChange={handleSearchChange}
+          onPageChange={handlePageChange}
+        />
       )}
     </div>
   );

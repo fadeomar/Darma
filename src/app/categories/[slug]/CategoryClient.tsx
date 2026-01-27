@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 // import { CodeElement } from "@/types";
-import type { ElementDTO } from "@/features/projects/dto/element.dto";
+import type { ElementDTO } from "@/features/elements/dto/element.dto";
 
 import CategoryStructuredData from "./CategoryStructuredData";
 import categoriesData from "@/data/category.json";

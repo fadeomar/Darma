@@ -1,5 +1,3 @@
-// src/features/elements/utils/buildIframeDoc.ts
-
 type BuildIframeDocArgs = {
   html?: string | null;
   css?: string | null;

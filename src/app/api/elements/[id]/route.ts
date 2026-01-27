@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextResponse } from "next/server";
 
-import { makeElementWriteService } from "@/features/projects/di/adminWrite";
+import { makeElementWriteService } from "@/features/elements/di/adminWrite";
 
-import { elementUpdateSchema } from "@/features/projects/validation/elementWriteSchemas";
+import { elementUpdateSchema } from "@/features/elements/validation/elementWriteSchemas";
 import { parseJsonBody } from "@/shared/http/validation";
-import { ElementNotFoundError } from "@/features/projects/application/elementWriteService";
+import { ElementNotFoundError } from "@/features/elements/application/elementWriteService";
 
 // ✅ Use YOUR existing DTO mapper file (adjust exported function name!)
-import { toElementDTO } from "@/features/projects/dto/element.dto.mapper";
+import { toElementDTO } from "@/features/elements/dto/element.dto.mapper";
 import { getPublicElementByIdDTO } from "@/server/services/element.service";
 
 /**

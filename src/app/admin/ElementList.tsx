@@ -1,4 +1,4 @@
-import type { ElementDTO } from "@/features/projects/dto/element.dto";
+import type { ElementDTO } from "@/features/elements/dto/element.dto";
 import CardsPagination from "@/components/CardsPagination";
 import PreviewCard from "@/components/TestCard";
 import CategoryBadge from "@/components/CategoryBadge";

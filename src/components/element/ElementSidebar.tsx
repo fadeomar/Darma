@@ -3,7 +3,7 @@
 import React from "react";
 import DateBox from "@/components/DateBox";
 import { FiGithub, FiCodepen, FiTwitter, FiLink } from "react-icons/fi";
-import type { ElementDTO } from "@/features/projects/dto/element.dto";
+import type { ElementDTO } from "@/features/elements/dto/element.dto";
 
 type Props = {
   element: ElementDTO;

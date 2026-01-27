@@ -1,8 +1,8 @@
 // src/app/api/admin/review-queue/route.ts
 import { NextResponse } from "next/server";
 import { prisma } from "@/server/db/prisma";
-import { toElementDTO } from "@/features/projects/dto/element.dto.mapper";
-import type { ElementDTO } from "@/features/projects/dto/element.dto";
+import { toElementDTO } from "@/features/elements/dto/element.dto.mapper";
+import type { ElementDTO } from "@/features/elements/dto/element.dto";
 
 type Paginated<T> = {
   items: T[];

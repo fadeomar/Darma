@@ -6,7 +6,7 @@ import Dropdown, { DropdownOption } from "@/components/Dropdown";
 import CodeEditor from "@/components/CodeEditor";
 import PreviewCard from "@/components/TestCard";
 import Editor from "@/components/Editor";
-import type { ElementDTO } from "@/features/projects/dto/element.dto";
+import type { ElementDTO } from "@/features/elements/dto/element.dto";
 
 /**
  * NOTE:

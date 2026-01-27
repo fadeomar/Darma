@@ -13,6 +13,8 @@ import { IconType } from "react-icons";
 import "./style.css";
 import Link from "next/link";
 
+import { getToolRegistry } from "@/features/tools";
+
 interface ToolCardProps {
   title: string;
   description: string;
@@ -39,62 +41,21 @@ const ToolCard: React.FC<ToolCardProps> = ({
   );
 };
 
-interface Tool {
-  title: string;
-  description: string;
-  icon: IconType;
-  link: string;
-}
-
-const tools: Tool[] = [
-  {
-    title: "Code Preview Tool",
-    description: "A tool to preview code snippets.",
-    icon: FaCode,
-    link: "/tools/code-preview-tool",
-  },
-  {
-    title: "Neumorphic CSS Generator",
-    description: "Generate neumorphic CSS styles easily.",
-    icon: FaPaintBrush,
-    link: "/tools/neumorphic-css-generator",
-  },
-  {
-    title: "Buttons CSS Generator",
-    description: "Create custom CSS for buttons.",
-    icon: FaMagic,
-    link: "/tools/buttons-css-generator",
-  },
-  {
-    title: "QR Code Generator",
-    description:
-      "Create scannable QR codes for URLs, text, or contact details instantly.",
-    icon: FaQrcode,
-    link: "/tools/qr-code",
-  },
-  {
-    title: "Animated Background Generator",
-    description:
-      "Generate dynamic CSS animated backgrounds with particles, bubbles, or explosions.",
-    icon: FaFilm,
-    link: "/tools/animated-background-generator",
-  },
-  {
-    title: "Color Shades Generator",
-    description:
-      "Generate smooth color gradients with curated suggestions and dynamic backgrounds.",
-    icon: FaPalette,
-    link: "/tools/color-shades",
-  },
-  {
-    title: "Box Shadows Generator",
-    description: "Create custom CSS box shadows with intuitive controls.",
-    icon: FaCube,
-    link: "/tools/box-shadows-generator",
-  },
-];
+const ICONS: Record<string, IconType> = {
+  code: FaCode,
+  paint: FaPaintBrush,
+  magic: FaMagic,
+  qrcode: FaQrcode,
+  film: FaFilm,
+  palette: FaPalette,
+  cube: FaCube,
+};
 
 const ToolsPage: React.FC = () => {
+  const tools = getToolRegistry()
+    .list()
+    .filter((t) => t.visibility === "public");
+
   return (
     <div className="container mx-auto p-4">
       <Title variant="h1" label="Tools" />
@@ -108,8 +69,8 @@ const ToolsPage: React.FC = () => {
             key={index}
             title={tool.title}
             description={tool.description}
-            icon={tool.icon}
-            link={tool.link}
+            icon={ICONS[tool.icon ?? "code"] ?? FaCode}
+            link={tool.href}
           />
         ))}
       </div>

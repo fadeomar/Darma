@@ -1,13 +1,13 @@
 // src/server/services/search.service.ts
 
 import { getRepositories } from "@/server/repositories";
-import { buildElementSearchSpec } from "@/features/projects/domain/search/elementSearch.spec";
-import { toElementDTO } from "@/features/projects/dto/element.dto.mapper";
-import type { ElementSort } from "@/features/projects/domain/element.repository";
+import { buildElementSearchSpec } from "@/features/elements/domain/search/elementSearch.spec";
+import { toElementDTO } from "@/features/elements/dto/element.dto.mapper";
+import type { ElementSort } from "@/features/elements/domain/element.repository";
 import type {
   ElementDTO,
   PaginatedResultDTO,
-} from "@/features/projects/dto/element.dto";
+} from "@/features/elements/dto/element.dto";
 
 export type SearchServiceInput = {
   q?: string;

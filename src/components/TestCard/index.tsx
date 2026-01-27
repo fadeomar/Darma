@@ -3,9 +3,9 @@ import Link from "next/link";
 import { formatDate, truncateText } from "../../utils";
 import "./style.css";
 // import { CreateCodeElement } from "@/types";
-import type { ElementDTO } from "@/features/projects/dto/element.dto";
+import type { ElementDTO } from "@/features/elements/dto/element.dto";
 
-import { buildElementPreviewDoc } from "@/features/projects/domain/preview/buildElementPreviewDoc";
+import { buildElementPreviewDoc } from "@/features/elements/domain/preview/buildElementPreviewDoc";
 
 const Card = ({
   element,

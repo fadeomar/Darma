@@ -2,6 +2,8 @@ import { useRef, useState, useEffect } from "react";
 import Editor from "@monaco-editor/react";
 import { editor } from "monaco-editor";
 import { FiCheck, FiCopy } from "react-icons/fi";
+import { trackEvent } from "@/lib/analytics/gtag";
+import { ANALYTICS_EVENTS } from "@/lib/analytics/events";
 
 // Define the props interface
 interface CodeEditorProps {
@@ -11,6 +13,7 @@ interface CodeEditorProps {
   showCopyButton?: boolean;
   buttonPosition?: "top-right" | "bottom-right";
   height?: string;
+  analyticsContext?: string;
 }
 
 const CodeEditor = ({
@@ -20,13 +23,14 @@ const CodeEditor = ({
   showCopyButton = true,
   buttonPosition = "bottom-right",
   height = "400px",
+  analyticsContext = "unknown",
 }: CodeEditorProps) => {
   const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
   const [isCopied, setIsCopied] = useState(false);
 
   // Handle editor mount
   const handleEditorDidMount = (
-    editorInstance: editor.IStandaloneCodeEditor
+    editorInstance: editor.IStandaloneCodeEditor,
   ) => {
     editorRef.current = editorInstance;
     updateEditorHeight(editorInstance); // Set initial height based on content
@@ -94,6 +98,10 @@ const CodeEditor = ({
       navigator.clipboard
         .writeText(code)
         .then(() => {
+          trackEvent(ANALYTICS_EVENTS.CODE_COPIED, {
+            language,
+            context: analyticsContext,
+          });
           setIsCopied(true);
           setTimeout(() => setIsCopied(false), 2000);
         })
@@ -107,6 +115,10 @@ const CodeEditor = ({
       textarea.select();
       try {
         document.execCommand("copy");
+        trackEvent(ANALYTICS_EVENTS.CODE_COPIED, {
+          language,
+          context: analyticsContext,
+        });
         setIsCopied(true);
         setTimeout(() => setIsCopied(false), 2000);
       } catch (err) {

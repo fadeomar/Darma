@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import Sidebar from "../components/Sidebar";
 import { Suspense } from "react";
 // import ThemeProvider from '@/components/ThemeProvider';
@@ -26,6 +27,7 @@ export default async function RootLayout({
           </Suspense>
           <main className="flex-1 p-0 md:p-6">{children}</main>
         </div>
+        <GoogleAnalytics />
       </body>
     </html>
   );

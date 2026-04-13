@@ -63,15 +63,26 @@ export default function CodeTabs({
             setCode={setHtmlCode}
             language="html"
             showCopyButton
+            analyticsContext="html code form element"
           />
         )}
 
         {activeTab === "css" && (
-          <CodeEditor code={cssCode} setCode={setCssCode} language="css" />
+          <CodeEditor
+            code={cssCode}
+            setCode={setCssCode}
+            language="css"
+            analyticsContext="css code form element"
+          />
         )}
 
         {activeTab === "js" && (
-          <CodeEditor code={jsCode} setCode={setJsCode} language="javascript" />
+          <CodeEditor
+            code={jsCode}
+            setCode={setJsCode}
+            language="javascript"
+            analyticsContext="js code form element"
+          />
         )}
       </div>
     </div>

@@ -149,7 +149,7 @@ const Configuration: React.FC<ConfigurationProps> = ({
        border-radius: ${borderRadius};
        background: ${background};
        box-shadow: ${firstBoxShadow}, ${secondBoxShadow};
-       padding: 1rem;`
+       padding: 1rem;`,
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
@@ -284,6 +284,7 @@ const Configuration: React.FC<ConfigurationProps> = ({
         language="html"
         setCode={() => {}}
         showCopyButton
+        analyticsContext="code from neumorphic generator"
       />
     </div>
   );

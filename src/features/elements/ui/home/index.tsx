@@ -9,6 +9,8 @@ import SkeletonGrid from "@/components/SkeletonGrid";
 import { ElementCard } from "@/features/elements/ui";
 import { formatDate, truncateText } from "@/utils";
 import type { ElementDTO } from "@/features/elements/dto/element.dto";
+import { trackEvent } from "@/lib/analytics/gtag";
+import { ANALYTICS_EVENTS } from "@/lib/analytics/events";
 
 export default function HomeClientPage({
   initialElements,
@@ -81,16 +83,32 @@ export default function HomeClientPage({
   // Handle search button click
   const handleSearch = () => {
     setIsLoading(true);
-    const newPage = 1; // Reset to page 1 on new search
+    const newPage = 1;
     setCurrentPage(newPage);
+
+    trackEvent(ANALYTICS_EVENTS.SEARCH_USED, {
+      query: localSearch.trim() || "(empty)",
+      exact_match: exactMatch,
+      main_categories: mainCats.join(",") || "(none)",
+      secondary_categories: secCats.join(",") || "(none)",
+      page: newPage,
+    });
+
     updateUrlParams(newPage, localSearch, mainCats, secCats, exactMatch);
-    setIsDirty(false); // Reset after applying changes
+    setIsDirty(false);
   };
 
   // Handle page change
   const handlePageChange = (page: number) => {
     setIsLoading(true);
     setCurrentPage(page);
+
+    trackEvent(ANALYTICS_EVENTS.PAGINATION_CLICKED, {
+      page,
+      query: localSearch.trim() || "(empty)",
+      exact_match: exactMatch,
+    });
+
     updateUrlParams(page, localSearch, mainCats, secCats, exactMatch);
     setIsDirty(false);
   };

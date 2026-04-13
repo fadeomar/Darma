@@ -7,6 +7,8 @@ import CodeTabs from "@/components/element/CodeTabs";
 import ElementSidebar from "@/components/element/ElementSidebar";
 import IframePreview from "@/components/element/IframePreview";
 import Editor from "../Editor";
+import { trackEvent } from "@/lib/analytics/gtag";
+import { ANALYTICS_EVENTS } from "@/lib/analytics/events";
 
 type Props = {
   element: ElementDTO;
@@ -36,6 +38,12 @@ export default function ElementPreviewShell({ element }: Props) {
     const a = document.createElement("a");
     a.href = url;
     a.download = `${(element.title || "preview").trim()}.html`;
+    trackEvent(ANALYTICS_EVENTS.ELEMENT_EXPORT_HTML, {
+      element_id: element.id,
+      element_slug: element.slug ?? undefined,
+      element_title: element.title ?? undefined,
+      file_name: `${(element.title || "preview").trim()}.html`,
+    });
     a.click();
 
     URL.revokeObjectURL(url);

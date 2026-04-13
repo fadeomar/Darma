@@ -139,11 +139,12 @@ export default function AnimatedBackgroundClient() {
             />
             <CodeEditor
               code={`<div class="animated-background"></div>\n<style>\n${handleBackgroundStyle(
-                state
+                state,
               )}\n</style>`}
               language="html"
               showCopyButton
               setCode={() => {}}
+              analyticsContext="code from animated background"
             />
           </div>
 

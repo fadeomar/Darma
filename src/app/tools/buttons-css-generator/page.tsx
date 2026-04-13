@@ -148,6 +148,7 @@ const App = () => {
                   language="html"
                   setCode={() => {}}
                   showCopyButton
+                  analyticsContext="code from buttons generator"
                 />
               </div>
             </div>

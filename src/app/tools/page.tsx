@@ -1,5 +1,6 @@
 import React from "react";
 import Title from "../../components/Title";
+
 import {
   FaCode,
   FaPaintBrush,
@@ -11,8 +12,7 @@ import {
 } from "react-icons/fa";
 import { IconType } from "react-icons";
 import "./style.css";
-import Link from "next/link";
-
+import ToolCardLink from "@/components/analytics/ToolCardLink";
 import { getToolRegistry } from "@/features/tools";
 
 interface ToolCardProps {
@@ -29,7 +29,7 @@ const ToolCard: React.FC<ToolCardProps> = ({
   link,
 }) => {
   return (
-    <Link href={link}>
+    <ToolCardLink href={link} toolName={title}>
       <div className="flex flex-col items-center rounded-[10px] p-4 bg-white shadow-[2px_2px_var(--textColor)] transform transition-all cursor-pointer group rainbow-border">
         <Icon className="text-4xl mb-2 text-[var(--textColor)]" />
         <h3 className="text-xl font-semibold text-[var(--textColor)]">
@@ -37,7 +37,7 @@ const ToolCard: React.FC<ToolCardProps> = ({
         </h3>
         <p className="text-gray-600 text-center">{description}</p>
       </div>
-    </Link>
+    </ToolCardLink>
   );
 };
 

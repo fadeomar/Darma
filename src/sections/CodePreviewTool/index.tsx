@@ -85,13 +85,28 @@ export default function CodePreviewTool() {
           </div>
           <div className="h-[calc(100%-4rem)]">
             {activeTab === "html" && (
-              <CodeEditor code={html} setCode={setHtml} language="html" />
+              <CodeEditor
+                code={html}
+                setCode={setHtml}
+                language="html"
+                analyticsContext="html code from code preview page"
+              />
             )}
             {activeTab === "css" && (
-              <CodeEditor code={css} setCode={setCss} language="css" />
+              <CodeEditor
+                code={css}
+                setCode={setCss}
+                language="css"
+                analyticsContext="css code from code preview page"
+              />
             )}
             {activeTab === "js" && (
-              <CodeEditor code={js} setCode={setJs} language="javascript" />
+              <CodeEditor
+                code={js}
+                setCode={setJs}
+                language="javascript"
+                analyticsContext="js code from code preview page"
+              />
             )}
           </div>
         </div>

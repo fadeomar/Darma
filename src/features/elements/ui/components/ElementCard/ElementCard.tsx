@@ -3,6 +3,8 @@ import { memo } from "react";
 import Link from "next/link";
 import { buildElementPreviewDoc } from "@/features/elements/domain/preview/buildElementPreviewDoc";
 import type { ElementDTO } from "@/features/elements/dto/element.dto";
+import { trackEvent } from "@/lib/analytics/gtag";
+import { ANALYTICS_EVENTS } from "@/lib/analytics/events";
 
 // Keep types flexible to avoid breaking your current CreateCodeElement usage.
 // Later we can tighten these once we consolidate types into the feature.
@@ -35,6 +37,18 @@ function ElementCardBase({
       ? (element.createdAt as Date).toISOString()
       : element.createdAt;
 
+  const previewHref = element.slug
+    ? `/elements/${element.slug}`
+    : `/element/${element.id}`;
+
+  const handlePreviewClick = () => {
+    trackEvent(ANALYTICS_EVENTS.ELEMENT_PREVIEW_CLICKED, {
+      element_id: element.id,
+      element_slug: element.slug ?? undefined,
+      element_title: element.title ?? undefined,
+      destination: previewHref,
+    });
+  };
   return (
     <div className="card-container">
       <div className="card-media">
@@ -47,11 +61,8 @@ function ElementCardBase({
           <>
             <div className="screen-overlay"></div>
             <Link
-              href={
-                element.slug
-                  ? `/elements/${element.slug}`
-                  : `/element/${element.id}`
-              }
+              href={previewHref}
+              onClick={handlePreviewClick}
               className="preview-link text-textColor"
             >
               ↗ Preview

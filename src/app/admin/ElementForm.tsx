@@ -217,6 +217,7 @@ export default function ElementForm({
               } as React.ChangeEvent<HTMLInputElement>)
             }
             language="html"
+            analyticsContext="html from element form component"
           />
         </div>
 
@@ -231,6 +232,7 @@ export default function ElementForm({
               } as React.ChangeEvent<HTMLInputElement>)
             }
             language="css"
+            analyticsContext="css from element form component"
           />
         </div>
 
@@ -245,6 +247,7 @@ export default function ElementForm({
               } as React.ChangeEvent<HTMLInputElement>)
             }
             language="javascript"
+            analyticsContext="js from element form component"
           />
         </div>
       </div>

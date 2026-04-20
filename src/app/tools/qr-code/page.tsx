@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import QRCodeClient from "./QRCodeClient";
 
 export const metadata: Metadata = {
-  title: "Free QR Code Generator - Create Scannable QR Codes Online",
+  title: "QR Code Generator | Darma Tools",
   description:
-    "Generate QR codes instantly with our free, easy-to-use tool. Create scannable QR codes for URLs, text, Wi-Fi, or contact details in seconds.",
+    "Generate QR codes quickly for URLs and text with a fast browser-based tool.",
   keywords: [
     "QR code generator",
     "free QR code",
@@ -13,10 +13,9 @@ export const metadata: Metadata = {
     "online QR tool",
   ],
   openGraph: {
-    title: "Free QR Code Generator - Tools",
+    title: "QR Code Generator | Darma Tools",
     description:
-      "Create QR codes for URLs, text, or contact details with our free online tool. Fast, simple, and reliable.",
-    url: "https://yourwebsite.com/tools/qr-code",
+      "Create QR codes for URLs and text with a fast, simple browser-based tool.",
     type: "website",
   },
 };

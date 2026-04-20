@@ -1,5 +1,3 @@
-// src/features/tools/registry/index.ts
-
 import { InMemoryToolRegistry } from "../infra/inMemory/toolRegistry.memory";
 import type { ToolRegistry } from "../domain/toolRegistry";
 import type { ToolDefinition } from "../domain/tool";
@@ -16,6 +14,8 @@ const TOOL_DEFINITIONS: ToolDefinition[] = [
     tags: ["css", "animation", "background"],
     mainCategory: ["tools"],
     secondaryCategory: ["css"],
+    audiences: ["developer", "designer"],
+    featured: true,
     visibility: "public",
   },
   {
@@ -29,12 +29,14 @@ const TOOL_DEFINITIONS: ToolDefinition[] = [
     tags: ["css", "shadow", "ui"],
     mainCategory: ["tools"],
     secondaryCategory: ["css"],
+    audiences: ["developer", "designer"],
+    featured: true,
     visibility: "public",
   },
   {
     id: "code-preview-tool",
     title: "Code Preview Tool",
-    description: "Preview HTML/CSS/JS in a sandboxed iframe.",
+    description: "Preview HTML, CSS, and JS in a sandboxed iframe.",
     href: "/tools/code-preview-tool",
     icon: "code",
     status: "ready",
@@ -42,6 +44,8 @@ const TOOL_DEFINITIONS: ToolDefinition[] = [
     tags: ["html", "css", "javascript", "preview"],
     mainCategory: ["tools"],
     secondaryCategory: ["devtools"],
+    audiences: ["developer", "student"],
+    featured: true,
     visibility: "public",
   },
   {
@@ -55,6 +59,7 @@ const TOOL_DEFINITIONS: ToolDefinition[] = [
     tags: ["css", "buttons", "ui"],
     mainCategory: ["tools"],
     secondaryCategory: ["css"],
+    audiences: ["developer", "designer"],
     visibility: "public",
   },
   {
@@ -68,6 +73,8 @@ const TOOL_DEFINITIONS: ToolDefinition[] = [
     tags: ["qr", "generator", "utility"],
     mainCategory: ["tools"],
     secondaryCategory: ["utilities"],
+    audiences: ["general", "creator"],
+    featured: true,
     visibility: "public",
   },
   {
@@ -81,13 +88,13 @@ const TOOL_DEFINITIONS: ToolDefinition[] = [
     tags: ["css", "neumorphism", "ui"],
     mainCategory: ["tools"],
     secondaryCategory: ["css"],
+    audiences: ["developer", "designer"],
     visibility: "public",
   },
   {
     id: "color-shades",
     title: "Color Shades Generator",
-    description:
-      "Generate smooth color gradients with curated suggestions and dynamic backgrounds.",
+    description: "Generate smooth color gradients with curated suggestions and dynamic backgrounds.",
     href: "/tools/color-shades",
     icon: "palette",
     status: "ready",
@@ -95,6 +102,23 @@ const TOOL_DEFINITIONS: ToolDefinition[] = [
     tags: ["color", "palette", "gradient"],
     mainCategory: ["tools"],
     secondaryCategory: ["design"],
+    audiences: ["designer", "creator"],
+    visibility: "public",
+  },
+  {
+    id: "lorem-ipsum-generator",
+    title: "Lorem Ipsum Generator",
+    description: "Generate classic lorem ipsum, readable placeholder text, and structured HTML blocks for mockups, wireframes, and UI prototyping.",
+    href: "/tools/lorem-ipsum-generator",
+    icon: "magic",
+    status: "ready",
+    completion: 100,
+    tags: ["placeholder", "lorem ipsum", "content", "mockup", "ui", "text"],
+    mainCategory: ["tools"],
+    secondaryCategory: ["content", "utilities"],
+    audiences: ["designer", "developer", "creator"],
+    featured: true,
+    pinned: 1,
     visibility: "public",
   },
 ];

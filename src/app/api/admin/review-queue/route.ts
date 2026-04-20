@@ -1,6 +1,6 @@
-// src/app/api/admin/review-queue/route.ts
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/server/db/prisma";
+import { assertAdminApi } from "@/lib/auth/guards";
 import { toElementDTO } from "@/features/elements/dto/element.dto.mapper";
 import type { ElementDTO } from "@/features/elements/dto/element.dto";
 
@@ -12,10 +12,12 @@ type Paginated<T> = {
 };
 
 export async function GET(
-  request: Request,
+  request: NextRequest,
 ): Promise<NextResponse<Paginated<ElementDTO> | { error: string }>> {
-  const { searchParams } = new URL(request.url);
+  const auth = await assertAdminApi(request);
+  if (auth instanceof NextResponse) return auth;
 
+  const { searchParams } = new URL(request.url);
   const page = parseInt(searchParams.get("page") || "1", 10);
   const pageSize = parseInt(searchParams.get("pageSize") || "10", 10);
   const status = (searchParams.get("status") || "pending") as
@@ -25,9 +27,6 @@ export async function GET(
     | "needSlug"
     | "all";
 
-  // pending: reviewed=false AND deleted=false
-  // deleted: deleted=true
-  // all: (reviewed=false AND deleted=false) OR deleted=true
   const where =
     status === "pending"
       ? { reviewed: false, deleted: false }
@@ -41,7 +40,6 @@ export async function GET(
 
   try {
     const total = await prisma.element.count({ where });
-
     const rows = await prisma.element.findMany({
       where,
       orderBy: { createdAt: "desc" },
@@ -57,9 +55,6 @@ export async function GET(
     });
   } catch (error) {
     console.error("Error fetching review queue:", error);
-    return NextResponse.json(
-      { error: "Failed to fetch review queue" },
-      { status: 500 },
-    );
+    return NextResponse.json({ error: "Failed to fetch review queue" }, { status: 500 });
   }
 }

@@ -1,9 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
 import argon2 from "argon2";
 import { createDbSession, setAuthCookie } from "@/lib/auth/session";
-
-const prisma = new PrismaClient();
+import { prisma } from "@/server/db/prisma";
 
 export async function POST(req: NextRequest) {
   const body = await req.json().catch(() => null);
@@ -19,14 +17,7 @@ export async function POST(req: NextRequest) {
   }
 
   const user = await prisma.user.findUnique({ where: { email } });
-
-  // Avoid leaking which part is wrong
-  if (!user) {
-    return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
-  }
-
-  // Only admin can log in
-  if (user.role !== "admin") {
+  if (!user || user.role !== "admin") {
     return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
   }
 

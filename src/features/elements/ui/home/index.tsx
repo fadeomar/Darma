@@ -17,11 +17,13 @@ export default function HomeClientPage({
   initialTotal,
   initialError,
   initialParams,
+  basePath = "/",
 }: {
   initialElements: ElementDTO[];
   initialTotal: number;
   initialError?: string;
   initialParams: SearchParams;
+  basePath?: string;
 }) {
   const router = useRouter();
 
@@ -77,7 +79,7 @@ export default function HomeClientPage({
     secCats.forEach((c) => params.append("secCat", c));
     params.set("page", page.toString());
     params.set("exactMatch", exactMatch.toString());
-    router.push(`/?${params.toString()}`); // Trigger server re-render
+    router.push(`${basePath}?${params.toString()}`); // Trigger server re-render
   };
 
   // Handle search button click
@@ -161,7 +163,10 @@ export default function HomeClientPage({
       />
 
       <div className="max-w-7xl mx-auto">
-        <h3 className="text-xl font-semibold mb-4 uppercase">Items</h3>
+        <div className="mb-4 flex items-center justify-between gap-4">
+          <h3 className="text-xl font-semibold uppercase">Items</h3>
+          <p className="text-sm text-gray-500">{total} result{total === 1 ? "" : "s"}</p>
+        </div>
 
         {isLoading ? (
           <SkeletonGrid count={9} />

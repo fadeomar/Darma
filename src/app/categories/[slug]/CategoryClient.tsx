@@ -1,23 +1,25 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
-// import { CodeElement } from "@/types";
+import { usePathname, useRouter } from "next/navigation";
+import { ArrowLeft, Search } from "lucide-react";
 import type { ElementDTO } from "@/features/elements/dto/element.dto";
-
+import CardsPagination from "@/components/CardsPagination";
+import SurfaceCard from "@/components/ui/SurfaceCard";
+import SectionHeading from "@/components/ui/SectionHeading";
 import CategoryStructuredData from "./CategoryStructuredData";
 import categoriesData from "@/data/category.json";
-import CardsPagination from "@/components/CardsPagination";
-import normalizeParam from "@/utils/normalizeParam";
-import SkeletonGrid from "@/components/SkeletonGrid";
-import { CheckCircle, Search } from "lucide-react";
-import { iconMap } from "@/components/iconMap";
+
 interface Props {
   serverElements: ElementDTO[];
   serverTotal: number;
   mainCategory: string;
   allSecondaryCategories: string[];
-  isLoading: boolean;
+  selectedSecondaryCategories: string[];
+  currentPage: number;
+  description?: string;
+  searchQuery: string;
 }
 
 export default function CategoryClient({
@@ -25,162 +27,151 @@ export default function CategoryClient({
   serverTotal,
   mainCategory,
   allSecondaryCategories,
-  isLoading,
+  selectedSecondaryCategories,
+  currentPage,
+  description,
+  searchQuery,
 }: Props) {
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const [search, setSearch] = useState(searchQuery);
+  const [selectedTypes, setSelectedTypes] = useState<string[]>(selectedSecondaryCategories);
 
-  // Initialize state from URL search params
-  const initialSearch = searchParams.get("q") || "";
-  const initialSecCats = normalizeParam(
-    searchParams.get("secCat") || undefined,
-  );
-  const initialPage = parseInt(searchParams.get("page") || "1");
+  const totalPages = Math.ceil(serverTotal / 6);
+  const currentCategory = categoriesData.categories.find((c) => c.name === mainCategory);
 
-  const [search, setSearch] = useState(initialSearch);
-  const [selectedSecondaryCats, setSelectedSecondaryCats] =
-    useState<string[]>(initialSecCats);
-  const [currentPage, setCurrentPage] = useState(initialPage);
-
-  const itemsPerPage = 6;
-  const totalPages = Math.ceil(serverTotal / itemsPerPage);
-
-  // Function to apply filters and update URL
-  const applyFilters = () => {
+  const pushFilters = (nextPage = 1, nextSelected = selectedTypes, nextSearch = search) => {
     const params = new URLSearchParams();
-    if (search) params.set("q", search);
-    if (selectedSecondaryCats.length > 0)
-      params.set("secCat", selectedSecondaryCats.join(","));
-    if (currentPage > 1) params.set("page", currentPage.toString());
-
-    const newUrl = `${pathname}?${params.toString()}`;
-    router.push(newUrl, { scroll: false });
+    if (nextSearch.trim()) params.set("q", nextSearch.trim());
+    if (nextSelected.length > 0) params.set("secCat", nextSelected.join(","));
+    if (nextPage > 1) params.set("page", String(nextPage));
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
   };
 
-  // Handle search input change
-  const handleSearchChange = (value: string) => {
-    setSearch(value);
+  const toggleCategory = (category: string) => {
+    const nextSelected = selectedTypes.includes(category)
+      ? selectedTypes.filter((item) => item !== category)
+      : [...selectedTypes, category];
+    setSelectedTypes(nextSelected);
+    pushFilters(1, nextSelected, search);
   };
-
-  // Handle secondary category toggle
-  const handleCategoryToggle = (category: string) => {
-    setSelectedSecondaryCats((prev) =>
-      prev.includes(category)
-        ? prev.filter((c) => c !== category)
-        : [...prev, category],
-    );
-  };
-
-  // Handle page change
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-    applyFilters(); // Apply immediately for pagination
-  };
-
-  const currentCategory = categoriesData.categories.find(
-    (c) => c.name === mainCategory,
-  );
-  const _description = currentCategory?.description;
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8 md:p-4 sm:p-2">
-      <div className="max-w-7xl mx-auto mb-8">
-        <div className="flex items-center gap-4 mb-6">
-          <button
-            onClick={() => router.back()}
-            className="text-blue-600 hover:underline"
-          >
-            ← Back
-          </button>
-          <h1 className="text-3xl font-bold capitalize">
-            {mainCategory.replace("-", " ")}
-          </h1>
-        </div>
-        {/* Search Bar and Button */}
-        <div className="search-rainbow-border shadow-md flex items-center mb-6 rounded-md">
-          <div className="relative flex-grow">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="rounded-[2rem] border border-black/10 bg-white/70 p-8 shadow-sm backdrop-blur">
+        <Link
+          href="/categories"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 transition hover:text-slate-900"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          All categories
+        </Link>
+        <SectionHeading
+          eyebrow="Category"
+          title={mainCategory.replace(/-/g, " ")}
+          description={description || "Browse published items in this category."}
+        />
+        <form
+          className="mt-6 grid gap-3 md:grid-cols-[1fr_auto]"
+          onSubmit={(event) => {
+            event.preventDefault();
+            pushFilters(1, selectedTypes, search);
+          }}
+        >
+          <label className="relative block">
+            <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
             <input
               type="text"
-              placeholder={`Search in ${mainCategory}...`}
+              placeholder={`Search in ${mainCategory.replace(/-/g, " ")}`}
               value={search}
-              onChange={(e) => handleSearchChange(e.target.value)}
-              onKeyPress={(e) => e.key === "Enter" && applyFilters()}
-              className="w-full p-3 pl-10 bg-transparent border-none focus:outline-none focus:ring-0 rounded transition text-base lg:text-lg"
-              aria-label="Search input"
+              onChange={(event) => setSearch(event.target.value)}
+              className="w-full rounded-2xl border border-black/10 bg-white px-11 py-3 outline-none"
             />
-          </div>
-          <button
-            onClick={applyFilters}
-            className="p-3 text-white font-bold tracking-wide bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-blue-500 transition rounded-r-md text-base lg:text-lg"
-            aria-label="Search button"
-          >
-            Search
+          </label>
+          <button className="rounded-2xl bg-slate-900 px-5 py-3 text-sm font-bold text-white transition hover:opacity-90">
+            Apply filters
           </button>
-        </div>
+        </form>
 
-        {/* Subcategory Filters */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {allSecondaryCategories.map((type, index) => (
-            <button
-              key={type + index}
-              onClick={() => handleCategoryToggle(type)}
-              className={`group relative p-1 rounded-lg transition duration-300 bg-white hover:bg-gray-100 ${
-                selectedSecondaryCats.includes(type)
-                  ? "rainbow-border-active text-black"
-                  : "rainbow-border text-gray-800"
-              }`}
-            >
-              {iconMap[type]?.icon || type}
-              {selectedSecondaryCats.includes(type) && (
-                <CheckCircle
-                  fill="black"
-                  className="absolute -top-1 -left-1 w-4 h-4 text-yellow-500 bg-white rounded-full"
-                />
-              )}
-              <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs text-white bg-black rounded opacity-0 group-hover:opacity-100 transition z-50">
-                {iconMap[type]?.label || type}
-              </span>
-            </button>
-          ))}
+        <div className="mt-4 flex flex-wrap gap-2">
+          {allSecondaryCategories.map((category) => {
+            const active = selectedTypes.includes(category);
+            return (
+              <button
+                key={category}
+                type="button"
+                onClick={() => toggleCategory(category)}
+                className={[
+                  "rounded-full px-4 py-2 text-sm font-semibold transition",
+                  active
+                    ? "bg-slate-900 text-white"
+                    : "border border-black/10 bg-white text-slate-900",
+                ].join(" ")}
+              >
+                {category}
+              </button>
+            );
+          })}
         </div>
-
-        {_description && <p className="text-gray-600 mb-6">{_description}</p>}
       </div>
-      {/* Results */}
-      {isLoading ? (
-        <SkeletonGrid count={6} />
-      ) : (
-        <div className="max-w-7xl mx-auto">
-          {serverElements.length > 0 ? (
-            <CardsPagination
-              items={serverElements}
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPageChange={handlePageChange}
-              itemsByRow={3}
-              renderItem={(element: ElementDTO) => {
-                return (
-                  <div key={element.id}>
-                    <h3 className="text-lg font-semibold mb-2">
-                      {element.title}
-                    </h3>
-                    <p className="text-gray-600 mb-2">
-                      {element.shortDescription}
-                    </p>
-                  </div>
-                );
-              }}
-            />
-          ) : (
-            <div className="text-center py-12 text-gray-500">
-              No elements found in this category
-            </div>
-          )}
+
+      <section className="mt-8">
+        <div className="mb-4 flex items-center justify-between gap-4">
+          <h2 className="text-2xl font-black tracking-tight text-slate-900 dark:text-slate-100">
+            Published items
+          </h2>
+          <p className="text-sm text-slate-600">{serverTotal} result{serverTotal === 1 ? "" : "s"}</p>
         </div>
-      )}
-      {currentCategory && <CategoryStructuredData category={currentCategory} />}
+
+        {serverElements.length > 0 ? (
+          <CardsPagination
+            items={serverElements}
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={(page) => pushFilters(page)}
+            itemsByRow={3}
+            renderItem={(element) => (
+              <Link
+                href={element.slug ? `/elements/${element.slug}` : `/element/${element.id}`}
+                key={element.id}
+              >
+                <SurfaceCard className="h-full transition hover:-translate-y-1 hover:shadow-lg">
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+                    {(element.secondaryCategory || []).slice(0, 2).join(" • ") || "project"}
+                  </p>
+                  <h3 className="mt-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+                    {element.title}
+                  </h3>
+                  <p className="mt-3 line-clamp-3 text-sm leading-7 text-slate-700 dark:text-slate-300">
+                    {element.shortDescription || element.description || "Open this item to view the full code and preview."}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {element.tags.slice(0, 4).map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700"
+                      >
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                </SurfaceCard>
+              </Link>
+            )}
+          />
+        ) : (
+          <SurfaceCard className="text-center">
+            <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">
+              No items found
+            </h3>
+            <p className="mt-3 text-sm leading-7 text-slate-700 dark:text-slate-300">
+              Try removing some filters or search for a broader keyword.
+            </p>
+          </SurfaceCard>
+        )}
+      </section>
+
+      {currentCategory ? <CategoryStructuredData category={currentCategory} /> : null}
     </div>
   );
 }

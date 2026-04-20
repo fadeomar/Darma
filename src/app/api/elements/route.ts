@@ -1,100 +1,83 @@
-import { NextResponse } from "next/server";
-import { CodeElement } from "@/types";
-
+import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/server/db/prisma";
+import { assertAdminApi } from "@/lib/auth/guards";
+import { makeElementWriteService } from "@/features/elements/di/adminWrite";
+import { elementCreateSchema } from "@/features/elements/validation/elementWriteSchemas";
+import { parseJsonBody } from "@/shared/http/validation";
+import { toElementDTO } from "@/features/elements/dto/element.dto.mapper";
+import type { ElementDTO } from "@/features/elements/dto/element.dto";
 
-export async function GET(request: Request): Promise<
-  | NextResponse<{
-      data: CodeElement[];
-      page: number;
-      pageSize: number;
-      total: number;
-    }>
-  | NextResponse<{ error: string }>
-> {
+type PaginatedResponse = {
+  items: ElementDTO[];
+  total: number;
+  page: number;
+  pageSize: number;
+};
+
+export async function GET(request: NextRequest) {
+  const auth = await assertAdminApi(request);
+  if (auth instanceof NextResponse) return auth;
+
   const { searchParams } = new URL(request.url);
-  const page = parseInt(searchParams.get("page") || "1", 10);
-  const pageSize = parseInt(searchParams.get("pageSize") || "6", 10);
-  const searchQuery = searchParams.get("search") || "";
+  const page = Math.max(1, Number(searchParams.get("page") || "1"));
+  const pageSize = Math.max(1, Number(searchParams.get("pageSize") || "6"));
+  const searchQuery = (searchParams.get("search") || "").trim();
+
+  const where = {
+    ...(searchQuery
+      ? {
+          OR: [
+            { title: { contains: searchQuery, mode: "insensitive" as const } },
+            { description: { contains: searchQuery, mode: "insensitive" as const } },
+            { shortDescription: { contains: searchQuery, mode: "insensitive" as const } },
+            { tags: { hasSome: [searchQuery] } },
+          ],
+        }
+      : {}),
+  };
 
   try {
-    const total = await prisma.element.count({
-      where: {
-        deleted: false,
-        reviewed: true, // ✅ enforce public visibility
-        OR: [
-          { title: { contains: searchQuery, mode: "insensitive" } },
-          { description: { contains: searchQuery, mode: "insensitive" } },
-          { tags: { hasSome: [searchQuery] } },
-        ],
-      },
-    });
+    const [total, elements] = await Promise.all([
+      prisma.element.count({ where }),
+      prisma.element.findMany({
+        where,
+        orderBy: { createdAt: "desc" },
+        skip: (page - 1) * pageSize,
+        take: pageSize,
+      }),
+    ]);
 
-    const elements = await prisma.element.findMany({
-      where: {
-        deleted: false,
-        reviewed: true, // ✅ enforce public visibility
-        OR: [
-          { title: { contains: searchQuery, mode: "insensitive" } },
-          { description: { contains: searchQuery, mode: "insensitive" } },
-          { tags: { hasSome: [searchQuery] } },
-        ],
-      },
-      skip: (page - 1) * pageSize,
-      take: pageSize,
-    });
-
-    return NextResponse.json({
-      data: elements,
+    const payload: PaginatedResponse = {
+      items: elements.map(toElementDTO),
+      total,
       page,
       pageSize,
-      total,
-    });
+    };
+
+    return NextResponse.json(payload);
   } catch (error) {
     console.error("Error fetching elements:", error);
-    // Ensure the error response is always an object with an 'error' property
-    const errorMessage =
-      error instanceof Error ? error.message : "Failed to fetch elements";
-    const errorResponse = { error: errorMessage };
-    console.log("API Error Response:", errorResponse);
-    return NextResponse.json({ error: errorMessage }, { status: 500 });
+    return NextResponse.json({ error: "Failed to fetch elements" }, { status: 500 });
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function POST(request: Request): Promise<NextResponse<any>> {
-  const elementData: Partial<CodeElement> = await request.json();
+export async function POST(request: NextRequest) {
+  const auth = await assertAdminApi(request);
+  if (auth instanceof NextResponse) return auth;
 
-  if (!elementData.title || !elementData.html) {
-    return NextResponse.json(
-      { error: "Title and HTML are required" },
-      { status: 400 },
-    );
+  const json = await request.json().catch(() => null);
+  const parsed = parseJsonBody(elementCreateSchema, json);
+
+  if (parsed.ok === false) {
+    return NextResponse.json(parsed.error, { status: 400 });
   }
 
   try {
-    const newElement = await prisma.element.create({
-      data: {
-        title: elementData.title,
-        description: elementData.description || "",
-        shortDescription: elementData?.shortDescription || "",
-        html: elementData.html,
-        css: elementData.css || "",
-        js: elementData.js || "",
-        tags: elementData.tags || [],
-        mainCategory: elementData.mainCategory || [],
-        secondaryCategory: elementData.secondaryCategory || [],
-        deleted: false,
-        reviewed: elementData.reviewed || false, // New field
-      },
-    });
-
-    return NextResponse.json(newElement, { status: 201 });
+    const service = makeElementWriteService();
+    const created = await service.create(parsed.data);
+    return NextResponse.json(toElementDTO(created), { status: 201 });
   } catch (error) {
     console.error("Error creating element:", error);
-    return NextResponse.json(
-      { error: "Failed to create element" },
-      { status: 500 },
-    );
+    return NextResponse.json({ error: "Failed to create element" }, { status: 500 });
   }
 }

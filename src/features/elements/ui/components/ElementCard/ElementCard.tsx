@@ -6,14 +6,9 @@ import type { ElementDTO } from "@/features/elements/dto/element.dto";
 import { trackEvent } from "@/lib/analytics/gtag";
 import { ANALYTICS_EVENTS } from "@/lib/analytics/events";
 
-// Keep types flexible to avoid breaking your current CreateCodeElement usage.
-// Later we can tighten these once we consolidate types into the feature.
-
 export type ElementCardProps = {
   element: ElementDTO;
   status: "preview" | string;
-
-  // UI helpers
   formatDate: (value?: string) => string;
   truncateText: (value: string, max: number) => string;
 };
@@ -31,11 +26,8 @@ function ElementCardBase({
   });
 
   const createdAtIso =
-    typeof element.createdAt === "object" &&
-    element.createdAt !== null &&
-    "toISOString" in element.createdAt
-      ? (element.createdAt as Date).toISOString()
-      : element.createdAt;
+    typeof element.createdAt === "string" ? element.createdAt : undefined;
+
 
   const previewHref = element.slug
     ? `/elements/${element.slug}`
@@ -49,6 +41,7 @@ function ElementCardBase({
       destination: previewHref,
     });
   };
+
   return (
     <div className="card-container">
       <div className="card-media">
@@ -73,14 +66,14 @@ function ElementCardBase({
 
       <div className="card-content">
         <div className="card-header">
-          {element?.title && (
+          {element.title ? (
             <h3 className="card-title">{truncateText(element.title, 40)}</h3>
-          )}
+          ) : null}
           {formatDate(createdAtIso)}
         </div>
 
         <div className="card-meta">
-          {element?.mainCategory && element.mainCategory.length > 0 && (
+          {element.mainCategory?.length ? (
             <>
               {element.mainCategory.map((name, idx) => (
                 <span key={`${name}-${idx}`} className="category mr-2">
@@ -88,18 +81,18 @@ function ElementCardBase({
                 </span>
               ))}
             </>
-          )}
+          ) : null}
 
           <div className="tags">
-            {element?.tags && element.tags.length > 1 && (
+            {element.tags?.length ? (
               <>
                 {element.tags.map((tag) => (
-                  <Link key={tag} href={`/search/${tag}`} className="tag">
+                  <Link key={tag} href={`/explore?q=${encodeURIComponent(tag)}`} className="tag">
                     #{tag}
                   </Link>
                 ))}
               </>
-            )}
+            ) : null}
           </div>
         </div>
       </div>

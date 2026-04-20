@@ -1,7 +1,7 @@
 "use client";
 
-import { ColorShadesParams } from "@/types";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import type { ColorShadesParams } from "@/types";
 
 interface InputSectionProps {
   params: ColorShadesParams;
@@ -14,16 +14,14 @@ export default function InputSection({
 }: InputSectionProps) {
   const [localParams, setLocalParams] = useState<ColorShadesParams>(params);
 
-  // Sync localParams with props.params when it changes (e.g., from apply-suggestion)
   useEffect(() => {
     setLocalParams(params);
   }, [params]);
 
-  // Debounce onParamsChange when localParams changes
   useEffect(() => {
     const timer = setTimeout(() => {
       onParamsChange(localParams);
-    }, 300);
+    }, 150);
 
     return () => clearTimeout(timer);
   }, [localParams, onParamsChange]);
@@ -32,20 +30,17 @@ export default function InputSection({
     const { name, value } = e.target;
     setLocalParams((prev) => ({
       ...prev,
-      [name]:
-        name === "steps" ? Math.max(2, Math.min(20, Number(value))) : value,
+      [name]: name === "steps" ? Math.max(2, Math.min(20, Number(value))) : value,
     }));
   };
 
   return (
-    <div className="bg-white p-6 rounded-xl shadow-lg">
-      <h2 className="text-xl font-semibold mb-4 text-gray-800">
-        Color Settings
-      </h2>
-      <div className="space-y-4">
+    <div className="rounded-2xl border border-black/10 bg-slate-50 p-5">
+      <h3 className="text-lg font-bold text-slate-900">Color settings</h3>
+      <div className="mt-4 space-y-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Start Color
+          <label className="mb-1 block text-sm font-medium text-slate-700">
+            Start color
           </label>
           <div className="flex items-center gap-3">
             <input
@@ -60,15 +55,15 @@ export default function InputSection({
               name="color1"
               value={localParams.color1}
               onChange={handleChange}
-              className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm"
+              className="flex-1 rounded-xl border border-black/10 bg-white px-3 py-2 text-sm"
               placeholder="#FFFFFF"
             />
           </div>
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            End Color
+          <label className="mb-1 block text-sm font-medium text-slate-700">
+            End color
           </label>
           <div className="flex items-center gap-3">
             <input
@@ -83,15 +78,15 @@ export default function InputSection({
               name="color2"
               value={localParams.color2}
               onChange={handleChange}
-              className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm"
+              className="flex-1 rounded-xl border border-black/10 bg-white px-3 py-2 text-sm"
               placeholder="#000000"
             />
           </div>
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Number of Shades (2-20)
+          <label className="mb-1 block text-sm font-medium text-slate-700">
+            Number of shades
           </label>
           <input
             type="number"
@@ -100,7 +95,7 @@ export default function InputSection({
             max="20"
             value={localParams.steps}
             onChange={handleChange}
-            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm"
+            className="w-full rounded-xl border border-black/10 bg-white px-3 py-2 text-sm"
           />
         </div>
       </div>

@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import type { ColorShade } from "@/types";
 import { copyToClipboard } from "@/utils/color-shades";
-import { ColorShade } from "@/types";
 
 interface PreviewSectionProps {
   shades: ColorShade[];
@@ -15,56 +15,58 @@ export default function PreviewSection({ shades }: PreviewSectionProps) {
     const success = await copyToClipboard(text);
     if (success) {
       setCopiedIndex(index);
-      setTimeout(() => setCopiedIndex(null), 2000);
+      setTimeout(() => setCopiedIndex(null), 1200);
     }
   };
 
   if (shades.length === 0) {
     return (
-      <div className="bg-gray-100 rounded-lg p-8 text-center text-gray-500">
-        Enter valid colors to generate shades
+      <div className="rounded-2xl border border-dashed border-black/10 bg-slate-50 p-8 text-center text-slate-500">
+        Enter valid colors to generate shades.
       </div>
     );
   }
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md">
-      <h2 className="text-xl font-semibold mb-4 text-gray-800">
-        Color Shades Preview
-      </h2>
-      <div className="flex h-64 rounded-md overflow-hidden border border-gray-200">
-        {shades.map((shade, index) => (
-          <div
-            key={index}
-            className="flex-1 relative group transition-all duration-200 hover:flex-1.5"
-            style={{ backgroundColor: shade.hex }}
-            onClick={() => handleCopy(shade.hex, index)}
-          >
-            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black bg-opacity-20 cursor-pointer">
-              <div className="bg-white px-3 py-1 rounded-md text-sm font-medium shadow">
-                {copiedIndex === index ? "Copied!" : shade.hex}
-              </div>
-            </div>
-          </div>
-        ))}
+    <div className="space-y-5">
+      <div className="overflow-hidden rounded-2xl border border-black/10">
+        <div className="flex h-64">
+          {shades.map((shade, index) => (
+            <button
+              key={index}
+              type="button"
+              className="group relative flex-1 transition-all duration-200 hover:flex-[1.15]"
+              style={{ backgroundColor: shade.hex }}
+              onClick={() => handleCopy(shade.hex, index)}
+            >
+              <span className="absolute inset-x-3 bottom-3 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-800 opacity-0 shadow transition group-hover:opacity-100">
+                {copiedIndex === index ? "Copied" : shade.hex}
+              </span>
+            </button>
+          ))}
+        </div>
       </div>
-      <div className="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3">
+
+      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
         {shades.map((shade, index) => (
-          <div
+          <button
             key={index}
-            className="border rounded-md p-2 text-xs cursor-pointer hover:bg-gray-50"
+            type="button"
+            className="rounded-2xl border border-black/10 bg-slate-50 p-3 text-left transition hover:bg-white"
             onClick={() => handleCopy(shade.hex, index)}
           >
-            <div className="flex items-center mb-1">
+            <div className="mb-2 flex items-center gap-3">
               <div
-                className="w-4 h-4 rounded-sm mr-2 border border-gray-200"
+                className="h-5 w-5 rounded-md border border-black/10"
                 style={{ backgroundColor: shade.hex }}
               />
-              <span className="font-mono">{shade.hex}</span>
+              <span className="font-mono text-sm font-semibold text-slate-900">
+                {copiedIndex === index ? "Copied" : shade.hex}
+              </span>
             </div>
-            <div className="text-gray-500 font-mono truncate">{shade.rgb}</div>
-            <div className="text-gray-500 font-mono truncate">{shade.hsl}</div>
-          </div>
+            <div className="font-mono text-xs text-slate-500">{shade.rgb}</div>
+            <div className="mt-1 font-mono text-xs text-slate-500">{shade.hsl}</div>
+          </button>
         ))}
       </div>
     </div>

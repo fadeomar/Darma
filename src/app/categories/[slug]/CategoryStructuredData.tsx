@@ -1,7 +1,7 @@
-import { Category } from "@/types"; // Import your Category type
+import { Category } from "@/types";
 
 interface CategoryStructuredDataProps {
-  category: Category; // Define the type for the category prop
+  category: Category;
 }
 
 export default function CategoryStructuredData({
@@ -10,16 +10,14 @@ export default function CategoryStructuredData({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: `${category.name} Code Components`,
+    name: `${category.name} code components`,
     description: category.description,
-    url: `https://yoursite.com/categories/${category.name}`,
     mainEntity: {
       "@type": "ItemList",
       itemListElement: category.types.map((type: string, index: number) => ({
         "@type": "ListItem",
         position: index + 1,
         name: type,
-        url: `https://yoursite.com/categories/${category.name}?secCat=${type}`,
       })),
     },
   };

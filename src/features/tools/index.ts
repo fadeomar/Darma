@@ -5,6 +5,7 @@ export type {
   ToolId,
   ToolStatus,
   ToolVisibility,
+  ToolAudience,
 } from "./domain/tool";
 export type { ToolRegistry, ToolRegistryQuery } from "./domain/toolRegistry";
 export { getToolRegistry } from "./registry";

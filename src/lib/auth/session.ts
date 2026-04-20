@@ -1,10 +1,8 @@
-import { PrismaClient } from "@prisma/client";
 import { cookies } from "next/headers";
 import { NextRequest } from "next/server";
+import { prisma } from "@/server/db/prisma";
 import { AUTH_COOKIE, SESSION_DAYS } from "./constants";
 import { signAuthToken, verifyAuthToken } from "./jwt";
-
-const prisma = new PrismaClient();
 
 export function sessionExpiryDate(days = SESSION_DAYS) {
   return new Date(Date.now() + days * 24 * 60 * 60 * 1000);
@@ -57,10 +55,6 @@ export async function clearAuthCookie() {
   });
 }
 
-/**
- * Server-side: verify JWT then verify session exists in DB and not expired.
- * Use this in layouts and API routes (NOT middleware).
- */
 export async function getServerAdminSessionOrNull() {
   const token = (await cookies()).get(AUTH_COOKIE)?.value;
   if (!token) return null;
@@ -89,10 +83,6 @@ export async function getServerAdminSessionOrNull() {
   return { session, user: session.user };
 }
 
-/**
- * API helper: read cookie from request (for route handlers that receive NextRequest).
- * Still verifies DB session.
- */
 export async function getAdminSessionFromRequestOrNull(req: NextRequest) {
   const token = req.cookies.get(AUTH_COOKIE)?.value;
   if (!token) return null;

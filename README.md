@@ -1,83 +1,23 @@
-# 🚀 CSS-HTML-JS Projects Collection
+# Darma
 
-Welcome to the **CSS-HTML-JS Projects Collection!** This is an **open-source** repository containing a wide range of **small yet useful front-end projects** categorized for easy access and contribution.
+Darma is a front-end showcase and online tools hub built around practical HTML, CSS, and JavaScript projects. It mixes inspiration, reusable code ideas, mini apps, and free browser-based utilities in one place.
 
-## 📌 Categories
+## Main areas
 
-### 🎨 UI Elements
+- **Home**: product overview and featured paths
+- **Explore**: searchable catalog of projects and UI ideas
+- **Tools**: free one-page utilities for fast work
+- **Categories**: browse the collection by topic
+- **Admin**: internal content management and review flow
 
-- **Buttons** (Hover effects, animations, ripple effects)
-- **Cards** (Profile cards, animated cards, expandable cards)
-- **Navigation** (Navbars, side menus, animated tabs)
-- **Forms & Inputs** (Custom input fields, sliders, checkboxes)
-- **Modals & Popups** (Lightbox popups, dialog boxes, notifications)
-- **Loaders & Spinners** (CSS-only spinners, animated progress bars)
+## Local development
 
-### ✨ Text Effects
+1. Install dependencies with `npm install`
+2. Restore your `.env` and `.env.local` values
+3. Run `npm run dev`
 
-- **Typing Effects** (Letter by letter animation, typewriter effect)
-- **Hover Effects** (Text distortion, flipping text)
-- **Animated Text** (Wave text, bouncing text)
-- **Loading Text** (Fading letters, animated text loading indicators)
-- **Distortion Effects** (Glitch effects, warping text)
+## Notes
 
-### 🎮 Games
-
-- **Mini Games** (Tic-Tac-Toe, Rock-Paper-Scissors)
-- **Click-Based Games** (Whack-a-Mole, Reaction Test)
-- **Physics-Based Games** (Gravity-based interactions)
-- **Canvas Games** (Snake, Pong, Brick Breaker)
-
-### 🖌️ Canvas Projects
-
-- **Particles** (Particle systems, fireworks, bubbles)
-- **Drawing Apps** (Paint apps, pixel drawing)
-- **Animations** (Motion graphics, bouncing balls)
-- **Audio Visualizers** (Music spectrum visualizations)
-
-### 🔷 Shapes & Art
-
-- **CSS Art** (Creative designs using pure CSS)
-- **3D Shapes** (Rotating cubes, perspective effects)
-- **Clip-path & SVG** (Geometric shapes, SVG animations)
-- **Animated Shapes** (Morphing objects, wave effects)
-
-### 🖼️ Backgrounds
-
-- **Animated Backgrounds** (Scrolling effects, wave patterns)
-- **Glitch & Distortion** (Flickering backgrounds, matrix rain)
-- **Interactive Backgrounds** (Mouse parallax, dynamic colors)
-- **Gradient & Blurred Effects** (Smooth color transitions, blur effects)
-
-## 📂 Project Structure
-
-Each project is stored in a separate folder under its respective category. Example:
-
-```bash
-/ui-elements/buttons/animated-button
-/text-effects/typing-effect
-/canvas-projects/particles-effect
-```
-
-## 🌍 Live Demos
-
-Check out live demos for each project:
-[🔗 View Demos](#) _(Add link to hosted demos here)_
-
-## 🤝 How to Contribute
-
-1. **Fork** this repository.
-2. **Clone** your fork.
-3. **Add a new project** to the respective category.
-4. **Submit a Pull Request!**
-
-## 🔥 License
-
-This project is licensed under the MIT License. Feel free to use, modify, and share! 🚀
-
-Prisma Commands:
-to run the seed file :
-`npx ts-node prisma/seed.ts`
-
-Sync your schema with the deployed database:
-`npx prisma db push`
+- The app uses Next.js app router, Prisma, and PostgreSQL
+- The tools directory is driven by `src/features/tools/registry/index.ts`
+- Public project discovery lives under `/explore`

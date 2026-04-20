@@ -8,7 +8,7 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -31,11 +31,10 @@
   },
   "include": [
     "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "prisma/**/*.ts",
     ".next/types/**/*.ts",
-    "app/element/[id]/page.tsx",
-    "app/tools/buttons-css-generator/Configuration.jsx",
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [

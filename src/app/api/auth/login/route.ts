@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import argon2 from "argon2";
+import bcryptjs from "bcryptjs";
 import { createDbSession, setAuthCookie } from "@/lib/auth/session";
 import { prisma } from "@/server/db/prisma";
 
@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
   }
 
-  const ok = await argon2.verify(user.password, password).catch(() => false);
+  const ok = await bcryptjs.compare(password, user.password).catch(() => false);
   if (!ok) {
     return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
   }

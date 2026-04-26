@@ -44,3 +44,7 @@ next-env.d.ts
 neon.dump
 neon.sql
 prisma/migrations_backup/
+
+# local agent/workspace artifacts
+.claude/
+src.zip

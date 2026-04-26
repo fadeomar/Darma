@@ -136,15 +136,16 @@ export default function TextCleanerClient() {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
 
-  // The text transforms act on: output if it exists, else input
-  const workingText = output || input;
+  // Transforms chain from output when available, otherwise start from input.
+  const transformSource = output || input;
+  const sourceLabel = output ? "output" : "input";
 
   const applyTransform = useCallback(
     (def: TransformDef) => {
-      if (!workingText) return;
-      setOutput(def.fn(workingText));
+      if (!transformSource) return;
+      setOutput(def.fn(transformSource));
     },
-    [workingText],
+    [transformSource],
   );
 
   const handleSample = () => {
@@ -179,7 +180,7 @@ export default function TextCleanerClient() {
     URL.revokeObjectURL(url);
   };
 
-  const statsText = workingText;
+  const statsText = transformSource;
 
   return (
     <div className="flex flex-col gap-5">
@@ -272,7 +273,7 @@ export default function TextCleanerClient() {
           Reset output
         </IconBtn>
         <span className="ml-auto text-[10px] font-semibold uppercase tracking-widest text-[var(--textColor)]/30">
-          Transforms apply to output, then chain
+          Transforms apply from {sourceLabel}, then chain
         </span>
       </div>
 

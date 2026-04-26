@@ -40,12 +40,20 @@ function filterSet(
 // ─── Password generation ──────────────────────────────────────────────────────
 
 function randIndex(max: number): number {
-  if (typeof window !== "undefined" && window.crypto) {
-    const buf = new Uint32Array(1);
-    window.crypto.getRandomValues(buf);
-    return buf[0] % max;
+  if (!Number.isInteger(max) || max <= 0) {
+    throw new Error("randIndex max must be a positive integer");
   }
-  return Math.floor(Math.random() * max);
+  const cryptoObj = globalThis.crypto;
+  if (!cryptoObj?.getRandomValues) {
+    throw new Error("Secure random source is unavailable in this environment");
+  }
+  // Rejection sampling avoids modulo bias for non-power-of-two max values.
+  const limit = Math.floor(0x100000000 / max) * max;
+  const buf = new Uint32Array(1);
+  do {
+    cryptoObj.getRandomValues(buf);
+  } while (buf[0] >= limit);
+  return buf[0] % max;
 }
 
 function pickRandom(chars: string): string {

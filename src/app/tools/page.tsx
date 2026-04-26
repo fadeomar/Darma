@@ -15,6 +15,15 @@ function matchesAudience(audiences: ToolAudience[] | undefined, selected: string
   return audiences?.includes(selected as ToolAudience) ?? false;
 }
 
+function sortToolsForDirectory<T extends { pinned?: number; title: string }>(items: T[]): T[] {
+  return [...items].sort((a, b) => {
+    const pinnedA = a.pinned ?? Number.MAX_SAFE_INTEGER;
+    const pinnedB = b.pinned ?? Number.MAX_SAFE_INTEGER;
+    if (pinnedA !== pinnedB) return pinnedA - pinnedB;
+    return a.title.localeCompare(b.title);
+  });
+}
+
 export default async function ToolsPage({
   searchParams,
 }: {
@@ -36,7 +45,8 @@ export default async function ToolsPage({
     )
     .filter((tool) => matchesAudience(tool.audiences, audience));
 
-  const featured = tools.filter((tool) => tool.featured);
+  const sortedTools = sortToolsForDirectory(tools);
+  const featured = sortToolsForDirectory(tools.filter((tool) => tool.featured));
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
@@ -97,10 +107,10 @@ export default async function ToolsPage({
       <section className="mt-10">
         <div className="flex items-center justify-between gap-4">
           <h2 className="text-2xl font-black tracking-tight">All tools</h2>
-          <p className="text-sm text-slate-600">{tools.length} result{tools.length === 1 ? "" : "s"}</p>
+          <p className="text-sm text-slate-600">{sortedTools.length} result{sortedTools.length === 1 ? "" : "s"}</p>
         </div>
         <div className="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {tools.map((tool) => (
+          {sortedTools.map((tool) => (
             <Link key={tool.id} href={tool.href} className="rounded-3xl border border-black/10 bg-white/80 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
               <div className="flex items-start justify-between gap-4">
                 <div>

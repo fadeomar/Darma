@@ -51,7 +51,7 @@ export default function ElementPreviewShell({ element }: Props) {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-400 dark:to-gray-600 rounded-lg">
-      <header className="bg-white/90 dark:bg-gray-600 border-b border-gray-200 dark:border-gray-900 sticky top-0 z-10 backdrop-blur-sm">
+      <header className="bg-white dark:bg-gray-600 border-b border-gray-200 dark:border-gray-900 sticky top-0 z-10 backdrop-blur-sm bg-opacity-90">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <BackButton />
 

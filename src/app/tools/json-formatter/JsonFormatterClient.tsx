@@ -233,7 +233,7 @@ export default function JsonFormatterClient() {
     const result = validateJSON(input);
     setValidation(result);
     setStatus(result.ok ? "valid" : "invalid");
-    setOutput(result.ok ? input.trim() : "");
+    if (!result.ok) setOutput("");
   }, [input]);
 
   const handleSample = () => {

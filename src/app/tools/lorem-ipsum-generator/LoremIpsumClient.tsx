@@ -1,7 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import DOMPurify from "dompurify";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Copy, RefreshCw, Trash2, Download, Check } from "lucide-react";
 import { generate, computeStats, formatReadingTime } from "./generator";
 import { DESIGN_PRESETS, LENGTH_PRESETS } from "./presets";
@@ -198,13 +197,6 @@ export default function LoremIpsumClient() {
 
   const displayText = showHtml ? output.html : output.plain;
   const amountMax = AMOUNT_MAX[config.mode];
-  const safePreviewHtml = useMemo(
-    () =>
-      config.outputFormat === "html"
-        ? DOMPurify.sanitize(output.html, { USE_PROFILES: { html: true } })
-        : "",
-    [config.outputFormat, output.html],
-  );
 
   return (
     <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_280px]">
@@ -278,7 +270,7 @@ export default function LoremIpsumClient() {
                 className="prose prose-sm max-w-none"
                 dangerouslySetInnerHTML={
                   config.outputFormat === "html"
-                    ? { __html: safePreviewHtml }
+                    ? { __html: displayText }
                     : undefined
                 }
               >

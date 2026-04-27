@@ -39,7 +39,7 @@ const Configuration: React.FC<ConfigurationProps> = ({ state, setState }) => {
   };
 
   return (
-    <div className="configuration p-8 w-full bg-white/90 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+    <div className="configuration p-8 w-full bg-white bg-opacity-90 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
       <Title
         variant="h4"
         label="Background Settings"

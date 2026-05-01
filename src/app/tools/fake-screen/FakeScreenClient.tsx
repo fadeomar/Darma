@@ -15,6 +15,7 @@ import { enterFullscreen } from "@/lib/tools/screens/fullscreen";
 import { COLOR_PRESETS, normalizeHex, withBrightness } from "@/lib/tools/screens/colors";
 import { buildShareUrl, copyText, readChoiceParam, readNumberParam, readStringParam } from "@/lib/tools/screens/url-state";
 import { SCREEN_SAFETY_NOTE } from "@/lib/tools/screens/presets";
+import { ToolLayoutFullscreenStudio } from "@/features/tools/layouts";
 import { DEFAULT_FAKE_SCREEN_STATE, FAKE_SCREEN_PRESETS, MODE_LABELS } from "./presets";
 import type {
   CanvasTemplate,
@@ -842,29 +843,33 @@ export default function FakeScreenClient() {
   return (
     <div className="space-y-6">
       <style>{styles}</style>
-      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
-        {(Object.keys(MODE_LABELS) as FakeScreenMode[]).map((mode) => (
-          <button key={mode} type="button" onClick={() => patch({ mode })} className={["rounded-3xl border p-5 text-left transition hover:-translate-y-0.5 hover:shadow-sm", state.mode === mode ? "border-slate-900 bg-slate-900 text-white" : "border-black/10 bg-white text-slate-800"].join(" ")}>
-            <span className="text-xs font-black uppercase tracking-[0.18em] opacity-70">Category</span>
-            <span className="mt-2 block text-lg font-black">{MODE_LABELS[mode]}</span>
-          </button>
-        ))}
-      </div>
-
-      <div ref={stageRef} className="overflow-hidden rounded-[30px] bg-slate-100 shadow-sm">
-        <Preview state={state} progress={progress} patch={patch} />
-      </div>
-
-      <div className="flex flex-wrap items-center gap-2 rounded-[24px] border border-black/10 bg-white p-3 shadow-sm">
-        <button type="button" onClick={() => stageRef.current && void enterFullscreen(stageRef.current)} className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[var(--textColor)] px-5 py-3 text-sm font-black text-[var(--baseColor)] transition hover:opacity-85"><Maximize2 className="h-4 w-4" /> Start Fullscreen</button>
-        <button type="button" onClick={copyShareLink} className="inline-flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm font-bold text-slate-800 transition hover:bg-black/5">{copied === "share" ? <Check className="h-4 w-4" /> : <Link2 className="h-4 w-4" />} {copied === "share" ? "Copied" : "Copy Link"}</button>
-        {state.mode === "color" && state.colorMode !== "dead-pixel" ? <button type="button" onClick={copyColor} className="inline-flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm font-bold"><Copy className="h-4 w-4" /> {copied === "color" ? "Copied" : "Copy Hex"}</button> : null}
-        <button type="button" onClick={() => { setState(DEFAULT_FAKE_SCREEN_STATE); setStartedAt(Date.now()); }} className="inline-flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm font-bold text-slate-800 transition hover:bg-black/5"><RotateCcw className="h-4 w-4" /> Reset</button>
-        <span className="ml-auto text-xs font-bold text-slate-500">Fullscreen starts manually. Press Esc to exit.</span>
-      </div>
-
-      <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_420px]">
-        <section className="rounded-[30px] border border-black/10 bg-white p-5 shadow-sm">
+      <ToolLayoutFullscreenStudio
+        categorySlot={
+          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
+            {(Object.keys(MODE_LABELS) as FakeScreenMode[]).map((mode) => (
+              <button key={mode} type="button" onClick={() => patch({ mode })} className={["rounded-3xl border p-5 text-left transition hover:-translate-y-0.5 hover:shadow-sm", state.mode === mode ? "border-slate-900 bg-slate-900 text-white" : "border-black/10 bg-white text-slate-800"].join(" ")}>
+                <span className="text-xs font-black uppercase tracking-[0.18em] opacity-70">Category</span>
+                <span className="mt-2 block text-lg font-black">{MODE_LABELS[mode]}</span>
+              </button>
+            ))}
+          </div>
+        }
+        previewSlot={
+          <div ref={stageRef} className="h-full overflow-hidden rounded-[30px] bg-slate-100 shadow-sm">
+            <Preview state={state} progress={progress} patch={patch} />
+          </div>
+        }
+        actionBarSlot={
+          <>
+            <button type="button" onClick={() => stageRef.current && void enterFullscreen(stageRef.current)} className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[var(--textColor)] px-5 py-3 text-sm font-black text-[var(--baseColor)] transition hover:opacity-85"><Maximize2 className="h-4 w-4" /> Start Fullscreen</button>
+            <button type="button" onClick={copyShareLink} className="inline-flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm font-bold text-slate-800 transition hover:bg-black/5">{copied === "share" ? <Check className="h-4 w-4" /> : <Link2 className="h-4 w-4" />} {copied === "share" ? "Copied" : "Copy Link"}</button>
+            {state.mode === "color" && state.colorMode !== "dead-pixel" ? <button type="button" onClick={copyColor} className="inline-flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm font-bold"><Copy className="h-4 w-4" /> {copied === "color" ? "Copied" : "Copy Hex"}</button> : null}
+            <button type="button" onClick={() => { setState(DEFAULT_FAKE_SCREEN_STATE); setStartedAt(Date.now()); }} className="inline-flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm font-bold text-slate-800 transition hover:bg-black/5"><RotateCcw className="h-4 w-4" /> Reset</button>
+            <span className="ml-auto text-xs font-bold text-slate-500">Fullscreen starts manually. Press Esc to exit.</span>
+          </>
+        }
+        examplesSlot={
+          <>
           <p className="text-xs font-black uppercase tracking-[0.18em] text-slate-500">Examples</p>
           <p className="mt-1 text-xs leading-5 text-slate-500">Choose a ready-made screen, then fine-tune it in the controls.</p>
           <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -881,8 +886,10 @@ export default function FakeScreenClient() {
               );
             })}
           </div>
-        </section>
-        <section className="rounded-[30px] border border-black/10 bg-white p-5 shadow-sm">
+          </>
+        }
+        controlsSlot={
+          <>
           <p className="text-xs font-black uppercase tracking-[0.18em] text-slate-500">Controls</p>
           <div className="mt-4">
             {state.mode === "color" ? <ColorControls state={state} patch={patch} /> : null}
@@ -892,8 +899,9 @@ export default function FakeScreenClient() {
             {state.mode === "canvas" ? <CanvasControls state={state} patch={patch} /> : null}
           </div>
           <p className="mt-5 rounded-2xl bg-amber-50 p-3 text-xs leading-5 text-amber-900">{SCREEN_SAFETY_NOTE}</p>
-        </section>
-      </div>
+          </>
+        }
+      />
     </div>
   );
 }

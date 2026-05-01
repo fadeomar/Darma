@@ -1,0 +1,82 @@
+:root {
+  --color-bg: #aab7ea;
+  --color-bg-soft: #eef2ff;
+  --color-surface: rgba(255, 255, 255, 0.72);
+  --color-surface-strong: #ffffff;
+  --color-surface-muted: #f8fafc;
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-text-soft: #64748b;
+  --color-border: rgba(15, 23, 42, 0.12);
+  --color-border-strong: rgba(15, 23, 42, 0.2);
+  --color-primary: #0f172a;
+  --color-primary-hover: #1e293b;
+  --color-primary-text: #ffffff;
+  --color-accent: #4f46e5;
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-danger: #dc2626;
+
+  --font-sans: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+
+  --leading-tight: 1.15;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  --radius-xs: 0.375rem;
+  --radius-sm: 0.75rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+  --radius-full: 999px;
+
+  --shadow-soft: 0 18px 50px rgba(15, 23, 42, 0.12);
+  --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --shadow-interactive: 0 18px 40px rgba(15, 23, 42, 0.16);
+
+  --container-page: 1180px;
+  --container-wide: 1380px;
+  --tool-preview-min-height: 420px;
+
+  --duration-fast: 150ms;
+  --duration-normal: 220ms;
+  --duration-slow: 360ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  --z-header: 40;
+  --z-popover: 50;
+  --z-modal: 70;
+  --z-toast: 90;
+
+  --focus-ring: 0 0 0 3px rgba(79, 70, 229, 0.28);
+
+  /* Backward-compatible app variables used by older tools. */
+  --background: var(--color-bg);
+  --foreground: var(--color-text);
+  --textColor: var(--color-text);
+  --textColorOpposite: #f6f5f7;
+  --baseColor: var(--color-bg);
+  --semibold: 600;
+}

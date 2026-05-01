@@ -2,6 +2,12 @@ export type ToolId = string;
 
 export type ToolVisibility = "public" | "unlisted" | "private";
 export type ToolStatus = "ready" | "in_progress" | "planned";
+export type ToolLayoutType =
+  | "text-workbench"
+  | "visual-generator"
+  | "fullscreen-studio"
+  | "single-utility"
+  | "directory";
 export type ToolAudience =
   | "developer"
   | "designer"
@@ -28,4 +34,5 @@ export type ToolDefinition = {
   featured?: boolean;
   pinned?: number;
   toolCategory?: string;
+  layoutType?: ToolLayoutType;
 };

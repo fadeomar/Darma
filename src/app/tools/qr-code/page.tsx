@@ -1,4 +1,6 @@
 import { Metadata } from "next";
+import { getToolRegistry } from "@/features/tools";
+import { ToolPage } from "@/features/tools/layouts";
 import QRCodeClient from "./QRCodeClient";
 
 export const metadata: Metadata = {
@@ -21,5 +23,12 @@ export const metadata: Metadata = {
 };
 
 export default function QRCodePage() {
-  return <QRCodeClient />;
+  const tool = getToolRegistry().getById("qr-code");
+  if (!tool) return null;
+
+  return (
+    <ToolPage tool={tool} maxWidth="wide">
+      <QRCodeClient />
+    </ToolPage>
+  );
 }

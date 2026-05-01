@@ -1,0 +1,24 @@
+:root[data-theme="dark"],
+:root[data-mode="dark"],
+.dark {
+  --color-bg: #0f172a;
+  --color-bg-soft: #111827;
+  --color-surface: rgba(15, 23, 42, 0.78);
+  --color-surface-strong: #111827;
+  --color-surface-muted: #1e293b;
+  --color-text: #f8fafc;
+  --color-text-muted: #cbd5e1;
+  --color-text-soft: #94a3b8;
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-border-strong: rgba(255, 255, 255, 0.2);
+  --color-primary: #f8fafc;
+  --color-primary-hover: #e2e8f0;
+  --color-primary-text: #0f172a;
+  --color-accent: #818cf8;
+
+  --background: var(--color-bg);
+  --foreground: var(--color-text);
+  --textColor: var(--color-text);
+  --textColorOpposite: #001f3f;
+  --baseColor: var(--color-bg);
+}

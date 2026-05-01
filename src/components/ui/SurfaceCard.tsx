@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { cn } from "@/lib/cn";
 
 export default function SurfaceCard({
   children,
@@ -9,10 +10,10 @@ export default function SurfaceCard({
 }) {
   return (
     <div
-      className={[
-        "rounded-3xl border border-black/10 bg-white/80 p-6 shadow-sm backdrop-blur",
+      className={cn(
+        "rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[var(--shadow-card)] backdrop-blur",
         className,
-      ].join(" ")}
+      )}
     >
       {children}
     </div>

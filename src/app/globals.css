@@ -1,15 +1,14 @@
+@import "../styles/tokens.css";
+@import "../styles/themes.css";
+@import "../styles/base.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* Light mode defaults */
-  --background: #aab7ea;
-  --foreground: #001f3f;
+  /* Neumorphic generator defaults kept for legacy soft-shadow utilities. */
   --blur: 60px;
-  --textColor: #001f3f;
-  --textColorOpposite: #f6f5f7;
-  --baseColor: #aab7ea;
   --darkColor: #dadada;
   --firstGradientColor: #dadada;
   --lightColor: #adadad;
@@ -21,31 +20,13 @@
   --angle: 145deg;
   --size: 150px;
   --radius: 30px;
-  --semibold: 600;
 }
 
-/* Dark mode overrides */
 :root[data-mode="dark"] {
-  --background: #171717;
-  --foreground: #ededed;
-  --textColor: #f6f5f7;
-  --textColorOpposite: #001f3f;
-  --baseColor: #171717;
   --darkColor: #0a0a0a;
   --firstGradientColor: #2d2d2d;
   --lightColor: #3d3d3d;
   --secondGradientColor: #1d1d1d;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: "Noto Sans JP", sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-* {
-  word-break: break-words;
 }
 
 /* Soft UI styles */

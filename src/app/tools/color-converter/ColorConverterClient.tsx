@@ -225,7 +225,7 @@ export default function ColorConverterClient() {
         </>
       ) : (
         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-900">
-          <strong>Color not converted yet.</strong> {result.error}
+          <strong>Color not converted yet.</strong> {"error" in result ? result.error : ""}
         </div>
       )}
     </div>

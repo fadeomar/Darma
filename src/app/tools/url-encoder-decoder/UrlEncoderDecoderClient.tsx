@@ -235,10 +235,10 @@ export default function UrlEncoderDecoderClient() {
         <div>
           <SectionLabel>Action</SectionLabel>
           <div className="inline-flex rounded-2xl border border-black/10 bg-slate-100 p-1">
-            <SegmentedButton value="encode" current={mode} onClick={setMode}>
+            <SegmentedButton value="encode" current={mode} onClick={(value) => setMode(value)}>
               Encode
             </SegmentedButton>
-            <SegmentedButton value="decode" current={mode} onClick={setMode}>
+            <SegmentedButton value="decode" current={mode} onClick={(value) => setMode(value)}>
               Decode
             </SegmentedButton>
           </div>
@@ -247,10 +247,10 @@ export default function UrlEncoderDecoderClient() {
         <div>
           <SectionLabel>Encoding type</SectionLabel>
           <div className="inline-flex flex-wrap rounded-2xl border border-black/10 bg-slate-100 p-1">
-            <SegmentedButton value="full" current={encodingType} onClick={setEncodingType}>
+            <SegmentedButton value="full" current={encodingType} onClick={(value) => setEncodingType(value)}>
               Full URL
             </SegmentedButton>
-            <SegmentedButton value="component" current={encodingType} onClick={setEncodingType}>
+            <SegmentedButton value="component" current={encodingType} onClick={(value) => setEncodingType(value)}>
               URL component / query value
             </SegmentedButton>
           </div>
@@ -259,7 +259,7 @@ export default function UrlEncoderDecoderClient() {
 
       {result.ok || !input ? null : (
         <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-          <strong>Invalid URL encoding.</strong> {result.error}
+          <strong>Invalid URL encoding.</strong> {"error" in result ? result.error : ""}
         </div>
       )}
 

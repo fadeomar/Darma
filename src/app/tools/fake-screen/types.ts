@@ -1,0 +1,51 @@
+export type FakeScreenMode = "color" | "update" | "error" | "screensaver" | "canvas";
+export type ColorMode = "solid" | "dead-pixel" | "cleaning" | "soft-light";
+export type UpdateTemplate = "win10" | "winxp" | "mac" | "ubuntu" | "chrome" | "win11" | "android" | "terminal";
+export type UpdateProgressMode = "linear" | "realistic" | "stuck-99" | "loop" | "manual";
+export type ErrorTemplate = "blue-modern" | "blue-classic" | "developer" | "kernel" | "no-signal" | "radar" | "broken" | "hacker";
+export type ScreensaverTemplate = "dvd" | "flip-clock" | "quote" | "no-signal" | "matrix" | "floating-text";
+export type ScreensaverSpeed = "slow" | "medium" | "fast";
+export type CanvasTemplate = "interactive-circles" | "starfield" | "network" | "waves" | "aurora" | "fireflies" | "bubbles" | "snow" | "plasma" | "confetti";
+
+export type FakeScreenState = {
+  mode: FakeScreenMode;
+  color: string;
+  colorMode: ColorMode;
+  brightness: number;
+  timerMinutes: number;
+  deadPixelIndex: number;
+  updateTemplate: UpdateTemplate;
+  updateDurationMinutes: number;
+  updateStartPercent: number;
+  updateProgressMode: UpdateProgressMode;
+  updateTitle: string;
+  updateSubtitle: string;
+  updateCompletionText: string;
+  manualProgress: number;
+  errorTemplate: ErrorTemplate;
+  errorTitle: string;
+  errorMessage: string;
+  errorStopCode: string;
+  errorProgress: number;
+  screensaverTemplate: ScreensaverTemplate;
+  screensaverText: string;
+  screensaverSpeed: ScreensaverSpeed;
+  screensaverSize: number;
+  screensaverBackground: string;
+  screensaverColor: string;
+  showCornerCounter: boolean;
+  canvasTemplate: CanvasTemplate;
+  canvasDensity: number;
+  canvasSpeed: ScreensaverSpeed;
+  canvasPrimaryColor: string;
+  canvasBackground: string;
+};
+
+export type FakeScreenPreset = {
+  id: string;
+  title: string;
+  description: string;
+  mode: FakeScreenMode;
+  previewClassName: string;
+  state: Partial<FakeScreenState>;
+};

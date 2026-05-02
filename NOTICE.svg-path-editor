@@ -1,0 +1,7 @@
+Darma includes an SVG Path Editor tool with SVG path engine code adapted from:
+
+  Yqnn SVG Path Editor
+  https://github.com/Yqnn/svg-path-editor
+
+The original project is licensed under the Apache License, Version 2.0.
+The original LICENSE file is preserved in this distribution as LICENSE.yqnn-svg-path-editor.

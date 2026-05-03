@@ -14,11 +14,6 @@ export type ToolAudience =
   | "student"
   | "creator"
   | "general";
-export type ToolPrivacy =
-  | "client-only"
-  | "local-storage"
-  | "server-assisted"
-  | "external-api";
 
 export type ToolDefinition = {
   id: ToolId;
@@ -40,7 +35,4 @@ export type ToolDefinition = {
   pinned?: number;
   toolCategory?: string;
   layoutType?: ToolLayoutType;
-  privacy?: ToolPrivacy;
-  keywords?: string[];
-  relatedTools?: ToolId[];
 };

@@ -10,8 +10,6 @@ interface QRCodeResponse {
   error?: string;
 }
 
-const MAX_QR_INPUT_LENGTH = 2000;
-
 export async function POST(
   req: NextRequest
 ): Promise<NextResponse<QRCodeResponse>> {
@@ -20,13 +18,6 @@ export async function POST(
 
     if (!text || typeof text !== "string") {
       return NextResponse.json({ error: "Invalid input" }, { status: 400 });
-    }
-
-    if (text.length > MAX_QR_INPUT_LENGTH) {
-      return NextResponse.json(
-        { error: "Input is too long" },
-        { status: 413 }
-      );
     }
 
     const qrCodeUrl: string = await QRCode.toDataURL(text);

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import CodeEditor from "@/components/CodeEditor"; // Assuming this is your editor component
 
 import "./style.css";
@@ -11,7 +11,6 @@ export default function CodePreviewTool() {
   const [js, setJs] = useState('console.log("Hello from JS");');
   const [error, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<"html" | "css" | "js">("html");
-  const previewFrameRef = useRef<HTMLIFrameElement | null>(null);
 
   // Generate iframe content
   const iframeContent = `
@@ -49,10 +48,6 @@ export default function CodePreviewTool() {
   // Handle messages from iframe (errors or success)
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
-      if (event.source !== previewFrameRef.current?.contentWindow) {
-        return;
-      }
-
       if (event.data.type === "error") {
         setError(`Error: ${event.data.message} (Line ${event.data.lineno})`);
       } else if (event.data.type === "success") {
@@ -129,9 +124,8 @@ export default function CodePreviewTool() {
               Live Preview
             </h2>
             <iframe
-              ref={previewFrameRef}
               srcDoc={iframeContent}
-              sandbox="allow-scripts allow-forms"
+              sandbox="allow-scripts allow-forms allow-same-origin"
               className="w-full h-[calc(100%-2rem)] border-4 border-gradient-to-r from-blue-400 to-purple-500 rounded-md bg-white"
               title="Live Preview"
             />

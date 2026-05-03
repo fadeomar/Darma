@@ -1,12 +1,14 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import QRCode from "qrcode";
+import Image from "next/image";
 import { Download, QrCode } from "lucide-react";
 import { Button, Field, Input } from "@/components/ui";
 import { ToolLayoutSingleUtility } from "@/features/tools/layouts";
 
-const MAX_QR_INPUT_LENGTH = 2000;
+interface QRCodeResponse {
+  qrCodeUrl: string;
+}
 
 export default function QRCodeClient() {
   const [inputText, setInputText] = useState("");
@@ -24,19 +26,17 @@ export default function QRCodeClient() {
       return;
     }
 
-    if (inputText.length > MAX_QR_INPUT_LENGTH) {
-      setError(`Please keep the QR content under ${MAX_QR_INPUT_LENGTH.toLocaleString()} characters.`);
-      return;
-    }
-
     try {
       setLoading(true);
-      const dataUrl = await QRCode.toDataURL(inputText, {
-        errorCorrectionLevel: "M",
-        margin: 2,
-        width: 1024,
+      const response = await fetch("/api/generate-qr", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: inputText }),
       });
-      setQrCodeUrl(dataUrl);
+
+      if (!response.ok) throw new Error("Failed to generate QR code.");
+      const data: QRCodeResponse = await response.json();
+      setQrCodeUrl(data.qrCodeUrl);
     } catch {
       setError("An error occurred while generating the QR code.");
     } finally {
@@ -57,15 +57,14 @@ export default function QRCodeClient() {
       resultSlot={
         <div className="flex min-h-[280px] flex-col items-center justify-center gap-5">
           {qrCodeUrl ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={qrCodeUrl} alt="Generated QR code" width={260} height={260} className="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-white p-3 shadow-sm" />
+            <Image src={qrCodeUrl} alt="Generated QR code" width={260} height={260} className="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-white p-3 shadow-sm" />
           ) : (
             <div className="flex h-64 w-64 items-center justify-center rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border)] bg-[var(--color-surface-muted)]">
               <QrCode className="h-16 w-16 text-[var(--color-text-soft)]" aria-hidden />
             </div>
           )}
           <p className="max-w-lg text-sm leading-6 text-[var(--color-text-muted)]">
-            Enter a URL or text below, generate the QR code locally in your browser, then download it as an image.
+            Enter a URL or text below, generate the QR code, then download it as an image.
           </p>
         </div>
       }
@@ -76,7 +75,6 @@ export default function QRCodeClient() {
               id="inputText"
               value={inputText}
               onChange={(event) => setInputText(event.target.value)}
-              maxLength={MAX_QR_INPUT_LENGTH}
               placeholder="https://example.com"
             />
           </Field>
@@ -90,7 +88,7 @@ export default function QRCodeClient() {
         <div className="grid gap-4 md:grid-cols-3">
           {[
             ["Fast", "Generate scannable QR codes in seconds."],
-            ["Private", "QR codes are generated locally in your browser."],
+            ["Flexible", "Works with URLs, notes, contact text, and short instructions."],
             ["Portable", "Download a PNG for flyers, handouts, or screens."],
           ].map(([title, body]) => (
             <div key={title} className="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-4 text-left">

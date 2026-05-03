@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
+import "./style.css";
 import AnimatedBackgroundClient from "./AnimatedBackgroundClient";
 import { getToolRegistry } from "@/features/tools";
 import ToolPageShell from "@/features/tools/ui/ToolPageShell";
 import ToolContentCard from "@/features/tools/ui/ToolContentCard";
-import SurfaceCard from "@/components/ui/SurfaceCard";
 
 export const metadata: Metadata = {
   title: "Animated Background Generator | Darma Tools",
   description:
-    "Generate animated CSS backgrounds with particles, bubbles, and explosion-style motion for websites, demos, and landing pages.",
+    "Design professional animated CSS backgrounds with polished presets, live website previews, and production-ready HTML/CSS export.",
 };
 
 export default function AnimatedBackgroundPage() {
@@ -21,26 +21,13 @@ export default function AnimatedBackgroundPage() {
       tool={tool}
       intro={
         <p className="max-w-2xl text-sm leading-7 text-slate-700 dark:text-slate-300">
-          Build motion-heavy backgrounds visually, preview the result live, and copy the generated HTML and CSS into your project.
+          Start from polished animated background presets, tune the design visually, preview it inside a real hero section, and copy production-ready HTML/CSS for your project.
         </p>
-      }
-      sidebar={
-        <SurfaceCard>
-          <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
-            Best for
-          </h2>
-          <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-700 dark:text-slate-300">
-            <li>Landing page hero sections</li>
-            <li>Creative portfolio backgrounds</li>
-            <li>Demo pages and motion experiments</li>
-            <li>Fast CSS animation prototyping</li>
-          </ul>
-        </SurfaceCard>
       }
     >
       <ToolContentCard
-        title="Build and preview"
-        description="Choose a background variant, tweak the animation settings, and copy the generated code when it looks right."
+        title="Build, preview, and export"
+        description="Choose a polished preset, inspect it in a full-width hero preview, tune colors and motion, then copy code that matches the live result."
       >
         <AnimatedBackgroundClient />
       </ToolContentCard>

@@ -4,8 +4,10 @@ import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import { Suspense } from "react";
 import { cookies } from "next/headers";
 import SiteHeader from "@/components/navigation/SiteHeader";
+import { getSiteUrl } from "@/features/tools/seo";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(getSiteUrl()),
   title: "Darma | Front-end showcase and online tools",
   description:
     "Discover practical HTML, CSS, and JavaScript projects, UI ideas, and browser-based tools that are fast, free, and easy to use.",

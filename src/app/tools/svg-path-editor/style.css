@@ -1,1 +1,1135 @@
-.svg-editor-page{position:relative;color:var(--color-text)}.svg-editor-topbar,.svg-editor-workbench{width:min(1800px,100%);margin-inline:auto}.svg-editor-topbar{display:flex;align-items:center;justify-content:space-between;gap:var(--space-6);border:1px solid var(--color-border);border-radius:var(--radius-xl);background:var(--color-surface);padding:var(--space-5);box-shadow:var(--shadow-card);backdrop-filter:blur(14px)}.svg-editor-kicker{margin:0 0 var(--space-2);color:var(--color-text-soft);font-size:var(--text-xs);font-weight:900;letter-spacing:.22em;text-transform:uppercase}.svg-editor-topbar h2{margin:0;color:var(--color-text);font-size:clamp(1.5rem,2.8vw,2.5rem);font-weight:950;letter-spacing:-.05em;line-height:var(--leading-tight)}.svg-editor-topbar p:last-child{max-width:760px;margin-top:var(--space-2);color:var(--color-text-muted);line-height:var(--leading-relaxed)}.svg-editor-hero-actions,.svg-editor-canvas-actions,.svg-editor-command-actions,.svg-editor-button-grid{display:flex;flex-wrap:wrap;gap:10px}.svg-editor-hero-actions{justify-content:flex-end;min-width:360px}.svg-editor-workbench{display:grid;grid-template-columns:minmax(280px,360px) minmax(520px,1fr) minmax(300px,380px);gap:18px;margin-top:var(--space-5);align-items:start}.svg-editor-panel,.svg-editor-canvas-card{border:1px solid var(--color-border);border-radius:var(--radius-lg);background:var(--color-surface);box-shadow:var(--shadow-card);backdrop-filter:blur(14px)}.svg-editor-panel{padding:var(--space-4);max-height:calc(100vh - 160px);overflow:auto;position:sticky;top:88px}.svg-editor-section+.svg-editor-section{margin-top:var(--space-4);padding-top:var(--space-4);border-top:1px solid var(--color-border)}.svg-editor-section-title,.svg-editor-canvas-title{display:flex;align-items:center;gap:8px;margin-bottom:var(--space-3);color:var(--color-text);font-size:var(--text-sm);font-weight:900}.svg-editor-section textarea,.svg-editor-section input,.svg-editor-section select,.svg-editor-output{width:100%;border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-surface-strong);color:var(--color-text);outline:none;transition:border-color var(--duration-fast) var(--ease-standard),box-shadow var(--duration-fast) var(--ease-standard)}.svg-editor-section textarea:focus,.svg-editor-section input:focus,.svg-editor-section select:focus,.svg-editor-output:focus{border-color:var(--color-accent);box-shadow:var(--focus-ring)}.svg-editor-section textarea,.svg-editor-output{min-height:150px;padding:14px;font-family:var(--font-mono);font-size:13px;line-height:1.65;resize:vertical}.svg-editor-output{min-height:120px}.svg-editor-field{display:grid;gap:6px;color:var(--color-text-soft);font-size:var(--text-xs);font-weight:800}.svg-editor-field input,.svg-editor-command-actions select{height:42px;padding-inline:12px;font-size:13px;font-weight:700}.svg-editor-grid-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:10px}.svg-editor-button,.svg-editor-command-row{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;border:1px solid var(--color-border);border-radius:var(--radius-full);background:var(--color-primary);padding:9px 14px;color:var(--color-primary-text);font-size:13px;font-weight:850;transition:transform var(--duration-fast) var(--ease-standard),opacity var(--duration-fast) var(--ease-standard),box-shadow var(--duration-fast) var(--ease-standard),background var(--duration-fast) var(--ease-standard)}.svg-editor-button:hover:not(:disabled){transform:translateY(-1px);box-shadow:var(--shadow-interactive);background:var(--color-primary-hover)}.svg-editor-button:disabled{cursor:not-allowed;opacity:.45}.svg-editor-button-grid .svg-editor-button,.svg-editor-command-actions .svg-editor-button{flex:1 1 auto}.svg-editor-help,.svg-editor-error,.svg-editor-license-note p{margin-top:8px;color:var(--color-text-soft);font-size:13px;line-height:1.6}.svg-editor-error{color:var(--color-danger);font-weight:800}.svg-editor-check{display:flex;align-items:center;gap:8px;margin-top:10px;color:var(--color-text-muted);font-size:13px;font-weight:750}.svg-editor-canvas-card{min-height:760px;padding:var(--space-4)}.svg-editor-canvas-toolbar{display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);margin-bottom:var(--space-3)}.svg-editor-canvas-wrap{overflow:hidden;border:1px solid var(--color-border);border-radius:var(--radius-lg);background:radial-gradient(circle at 30% 20%,color-mix(in srgb,var(--color-accent) 12%,transparent),transparent 32%),var(--color-surface-muted)}.svg-editor-canvas{display:block;width:100%;height:min(72vh,690px);min-height:520px;touch-action:none}.svg-editor-grid-lines line{stroke:color-mix(in srgb,var(--color-text-soft) 24%,transparent);stroke-width:1}.svg-editor-main-path,.svg-editor-main-path-filled{stroke:var(--color-text);stroke-width:4;vector-effect:non-scaling-stroke}.svg-editor-main-path{fill:none}.svg-editor-main-path-filled{fill:color-mix(in srgb,var(--color-text) 12%,transparent)}.svg-editor-selected-path{fill:none;stroke:var(--color-accent);stroke-width:8;stroke-linecap:round;stroke-linejoin:round;opacity:.34;vector-effect:non-scaling-stroke}.svg-editor-hover-path{fill:none;stroke:var(--color-warning);stroke-width:7;opacity:.34;vector-effect:non-scaling-stroke}.svg-editor-handle{stroke:#7c3aed;stroke-dasharray:5 5;stroke-width:2;vector-effect:non-scaling-stroke}.svg-editor-target-point,.svg-editor-control-point{cursor:grab;stroke:var(--color-surface-strong);stroke-width:2;vector-effect:non-scaling-stroke}.svg-editor-target-point{fill:var(--color-accent)}.svg-editor-target-point.is-selected{fill:var(--color-warning)}.svg-editor-control-point{fill:#7c3aed}.svg-editor-invalid-text{fill:var(--color-danger);font-size:18px;font-weight:900}.svg-editor-command-summary{display:grid;gap:4px;margin-bottom:var(--space-3);border-radius:var(--radius-md);background:var(--color-surface-muted);padding:var(--space-3)}.svg-editor-command-summary strong{font-size:28px;line-height:1}.svg-editor-command-summary span{color:var(--color-text-soft);font-size:13px;font-weight:700}.svg-editor-command-list{display:grid;gap:8px;max-height:330px;overflow:auto;padding-right:4px}.svg-editor-command-row{justify-content:flex-start;width:100%;border-radius:var(--radius-md);background:var(--color-surface-strong);color:var(--color-text)}.svg-editor-command-row:hover{transform:translateY(-1px);box-shadow:var(--shadow-card)}.svg-editor-command-row span{display:grid;place-items:center;min-width:34px;height:34px;border-radius:var(--radius-sm);background:var(--color-primary);color:var(--color-primary-text);font-weight:950}.svg-editor-command-row small{overflow:hidden;color:var(--color-text-soft);font-family:var(--font-mono);text-overflow:ellipsis;white-space:nowrap}.svg-editor-command-row.is-selected{border-color:color-mix(in srgb,var(--color-accent) 55%,var(--color-border));background:color-mix(in srgb,var(--color-accent) 10%,var(--color-surface-strong))}.svg-editor-toast{position:fixed;z-index:var(--z-toast);right:24px;top:92px;border-radius:var(--radius-full);background:var(--color-primary);padding:12px 18px;color:var(--color-primary-text);font-size:13px;font-weight:900;box-shadow:var(--shadow-interactive)}.svg-editor-example-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.svg-editor-example-row button{border:1px solid var(--color-border);border-radius:var(--radius-full);background:var(--color-surface-strong);padding:7px 10px;color:var(--color-text-muted);font-size:12px;font-weight:850}.svg-editor-example-row button:hover{background:var(--color-surface-muted);color:var(--color-text)}.svg-editor-import{min-height:92px!important}.svg-editor-command-actions select{flex:1 1 100px}.svg-editor-canvas-actions .svg-editor-button{min-width:44px}@media (max-width:1280px){.svg-editor-workbench{grid-template-columns:1fr}.svg-editor-panel{max-height:none;position:static}.svg-editor-left-panel,.svg-editor-right-panel{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.svg-editor-section+.svg-editor-section{margin-top:0;padding-top:0;border-top:0}}@media (max-width:760px){.svg-editor-topbar{display:block;padding:var(--space-4)}.svg-editor-hero-actions{justify-content:flex-start;min-width:0;margin-top:var(--space-4)}.svg-editor-left-panel,.svg-editor-right-panel{grid-template-columns:1fr}.svg-editor-grid-two{grid-template-columns:1fr}.svg-editor-canvas-toolbar{align-items:flex-start;flex-direction:column}.svg-editor-canvas{min-height:420px}}
+/* ─── Page shell ──────────────────────────────────────────────────────────── */
+.svg-editor-page {
+  position: relative;
+  color: var(--color-text);
+}
+
+/* ─── Topbar ──────────────────────────────────────────────────────────────── */
+.svg-editor-topbar,
+.svg-editor-workbench {
+  width: min(1800px, 100%);
+  margin-inline: auto;
+}
+
+.svg-editor-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(14px);
+}
+
+.svg-editor-kicker {
+  margin: 0 0 var(--space-2);
+  color: var(--color-text-soft);
+  font-size: var(--text-xs);
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.svg-editor-topbar h2 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: clamp(1.5rem, 2.8vw, 2.5rem);
+  font-weight: 950;
+  letter-spacing: -0.05em;
+  line-height: var(--leading-tight);
+}
+
+.svg-editor-topbar p:last-child {
+  max-width: 700px;
+  margin-top: var(--space-2);
+  color: var(--color-text-muted);
+  line-height: var(--leading-relaxed);
+}
+
+/* ─── Hero actions ────────────────────────────────────────────────────────── */
+.svg-editor-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+  min-width: 360px;
+}
+
+/* ─── Workbench layout ────────────────────────────────────────────────────── */
+.svg-editor-workbench {
+  display: grid;
+  grid-template-columns: minmax(280px, 340px) minmax(520px, 1fr) minmax(300px, 380px);
+  gap: 16px;
+  margin-top: var(--space-5);
+  align-items: start;
+}
+
+/* ─── Panel shell ─────────────────────────────────────────────────────────── */
+.svg-editor-panel,
+.svg-editor-canvas-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(14px);
+}
+
+.svg-editor-panel {
+  max-height: calc(100vh - 152px);
+  overflow: auto;
+  position: sticky;
+  top: 88px;
+}
+
+/* ─── Tabs ────────────────────────────────────────────────────────────────── */
+.svg-editor-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface-muted);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  overflow: hidden;
+}
+
+.svg-editor-tabs button {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 11px 8px;
+  border: none;
+  border-right: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: background var(--duration-fast), color var(--duration-fast);
+}
+
+.svg-editor-tabs button:last-child {
+  border-right: none;
+}
+
+.svg-editor-tabs button:hover {
+  background: var(--color-surface-strong);
+  color: var(--color-text);
+}
+
+.svg-editor-tabs button.is-active {
+  background: var(--color-surface);
+  color: var(--color-accent);
+  box-shadow: inset 0 -2px 0 var(--color-accent);
+}
+
+.svg-editor-tab-badge {
+  display: inline-grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  padding-inline: 5px;
+  border-radius: 99px;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+/* ─── Section ─────────────────────────────────────────────────────────────── */
+.svg-editor-section {
+  padding: var(--space-4);
+}
+
+.svg-editor-section + .svg-editor-section {
+  border-top: 1px solid var(--color-border);
+}
+
+.svg-editor-section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: var(--space-3);
+  color: var(--color-text);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.svg-editor-section-icon {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--color-accent) 14%, transparent);
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* ─── Form inputs ─────────────────────────────────────────────────────────── */
+.svg-editor-section textarea,
+.svg-editor-section input[type="number"],
+.svg-editor-section select,
+.svg-editor-output {
+  width: 100%;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-strong);
+  color: var(--color-text);
+  outline: none;
+  transition: border-color var(--duration-fast), box-shadow var(--duration-fast);
+}
+
+.svg-editor-section textarea:focus,
+.svg-editor-section input[type="number"]:focus,
+.svg-editor-section select:focus,
+.svg-editor-output:focus {
+  border-color: var(--color-accent);
+  box-shadow: var(--focus-ring);
+}
+
+.svg-editor-section textarea.has-error {
+  border-color: var(--color-danger);
+}
+
+.svg-editor-section textarea,
+.svg-editor-output {
+  min-height: 130px;
+  padding: 12px 14px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.7;
+  resize: vertical;
+}
+
+.svg-editor-output {
+  min-height: 110px;
+}
+
+.svg-editor-import {
+  min-height: 80px !important;
+}
+
+/* ─── NumberField ─────────────────────────────────────────────────────────── */
+.svg-editor-field {
+  display: grid;
+  gap: 5px;
+}
+
+.svg-editor-field-label {
+  color: var(--color-text-soft);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.svg-editor-field input[type="number"] {
+  height: 38px;
+  padding-inline: 11px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ─── ColorField ──────────────────────────────────────────────────────────── */
+.svg-editor-color-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding-inline: 10px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-strong);
+  cursor: pointer;
+}
+
+.svg-editor-color-wrap:focus-within {
+  border-color: var(--color-accent);
+  box-shadow: var(--focus-ring);
+}
+
+.svg-editor-color-wrap input[type="color"] {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  cursor: pointer;
+}
+
+.svg-editor-color-hex {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-text-soft);
+}
+
+/* ─── Select ──────────────────────────────────────────────────────────────── */
+.svg-editor-section select,
+.svg-editor-command-actions select {
+  height: 38px;
+  padding-inline: 11px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ─── Grids ───────────────────────────────────────────────────────────────── */
+.svg-editor-grid-two {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.svg-editor-grid-three {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+/* ─── Transform groups ────────────────────────────────────────────────────── */
+.svg-editor-transform-group {
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-muted);
+  margin-bottom: 10px;
+}
+
+.svg-editor-transform-group:last-child {
+  margin-bottom: 0;
+}
+
+.svg-editor-group-label {
+  margin: 0 0 8px;
+  color: var(--color-text-muted);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ─── Buttons ─────────────────────────────────────────────────────────────── */
+.svg-editor-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 36px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-surface-strong);
+  padding: 7px 13px;
+  color: var(--color-text);
+  font-size: 12.5px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform var(--duration-fast), box-shadow var(--duration-fast), background var(--duration-fast), color var(--duration-fast);
+  white-space: nowrap;
+}
+
+.svg-editor-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-interactive);
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+  border-color: transparent;
+}
+
+.svg-editor-button.is-active {
+  background: color-mix(in srgb, var(--color-accent) 14%, var(--color-surface-strong));
+  color: var(--color-accent);
+  border-color: color-mix(in srgb, var(--color-accent) 40%, var(--color-border));
+}
+
+.svg-editor-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.svg-editor-button-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.svg-editor-button-grid .svg-editor-button {
+  flex: 1 1 auto;
+}
+
+.svg-editor-row-gap {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.svg-editor-row-gap .svg-editor-button {
+  flex: 1;
+}
+
+/* ─── Toggles ─────────────────────────────────────────────────────────────── */
+.svg-editor-toggles {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.svg-editor-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  font-size: 12.5px;
+  font-weight: 750;
+}
+
+.svg-editor-toggle input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+}
+
+.svg-editor-toggle--inline {
+  margin: 0;
+}
+
+/* ─── Help / error text ───────────────────────────────────────────────────── */
+.svg-editor-help {
+  margin-top: 7px;
+  color: var(--color-text-soft);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.svg-editor-error {
+  margin-top: 7px;
+  color: var(--color-danger);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+/* ─── Multi-path picker ───────────────────────────────────────────────────── */
+.svg-editor-multi-path {
+  margin-top: 10px;
+  display: grid;
+  gap: 6px;
+}
+
+.svg-editor-multi-path-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-strong);
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--duration-fast), box-shadow var(--duration-fast);
+}
+
+.svg-editor-multi-path-row:hover {
+  background: var(--color-surface-muted);
+  box-shadow: var(--shadow-card);
+}
+
+.svg-editor-multi-path-row span {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.svg-editor-multi-path-row small {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ─── Examples panel ──────────────────────────────────────────────────────── */
+.svg-editor-examples-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.svg-editor-search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+}
+
+.svg-editor-search-wrap input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--color-text);
+  font-size: 13px;
+  outline: none;
+}
+
+.svg-editor-search-wrap input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.svg-editor-cat-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.svg-editor-cat-pills button {
+  padding: 4px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-surface-strong);
+  color: var(--color-text-muted);
+  font-size: 11.5px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+
+.svg-editor-cat-pills button:hover {
+  background: var(--color-surface-muted);
+  color: var(--color-text);
+}
+
+.svg-editor-cat-pills button.is-active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+
+.svg-editor-examples-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: var(--space-3) var(--space-4);
+}
+
+.svg-editor-example-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 6px 8px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-strong);
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+
+.svg-editor-example-card:hover {
+  border-color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 8%, var(--color-surface-strong));
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+}
+
+.svg-editor-example-preview {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  color: var(--color-text);
+}
+
+.svg-editor-example-preview svg {
+  width: 100%;
+  height: 100%;
+}
+
+.svg-editor-example-label {
+  font-size: 10.5px;
+  font-weight: 800;
+  color: var(--color-text-muted);
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* ─── Saved panel ─────────────────────────────────────────────────────────── */
+.svg-editor-saved-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.svg-editor-saved-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: var(--space-8) var(--space-4);
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.svg-editor-saved-empty p {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 700;
+}
+
+.svg-editor-saved-card {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.svg-editor-saved-card:last-child {
+  border-bottom: none;
+}
+
+.svg-editor-saved-preview {
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-strong);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  color: var(--color-text);
+  transition: border-color var(--duration-fast);
+}
+
+.svg-editor-saved-preview:hover {
+  border-color: var(--color-accent);
+}
+
+.svg-editor-saved-preview svg {
+  width: 80%;
+  height: 80%;
+}
+
+.svg-editor-saved-meta {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.svg-editor-saved-name {
+  border: none;
+  background: transparent;
+  color: var(--color-text);
+  font-size: 13px;
+  font-weight: 800;
+  outline: none;
+  padding: 2px 4px;
+  border-radius: var(--radius-sm);
+  width: 100%;
+  transition: background var(--duration-fast);
+}
+
+.svg-editor-saved-name:focus {
+  background: var(--color-surface-strong);
+}
+
+.svg-editor-saved-path {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--color-text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.svg-editor-saved-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.svg-editor-saved-actions button {
+  padding: 3px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-surface-strong);
+  color: var(--color-text-muted);
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+
+.svg-editor-saved-actions button:hover {
+  background: var(--color-surface-muted);
+  color: var(--color-text);
+}
+
+.svg-editor-saved-actions button.is-danger:hover {
+  background: var(--color-danger);
+  border-color: var(--color-danger);
+  color: #fff;
+}
+
+/* ─── Canvas card ─────────────────────────────────────────────────────────── */
+.svg-editor-canvas-card {
+  min-height: 720px;
+  padding: var(--space-4);
+}
+
+.svg-editor-canvas-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.svg-editor-canvas-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.svg-editor-canvas-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.svg-editor-canvas-wrap {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: radial-gradient(circle at 30% 20%, color-mix(in srgb, var(--color-accent) 10%, transparent), transparent 38%), var(--color-surface-muted);
+}
+
+.svg-editor-canvas {
+  display: block;
+  width: 100%;
+  height: min(72vh, 680px);
+  min-height: 500px;
+  touch-action: none;
+}
+
+.svg-editor-canvas.is-panning {
+  cursor: grabbing;
+}
+
+/* ─── Grid lines ──────────────────────────────────────────────────────────── */
+.svg-editor-grid-lines line {
+  stroke: color-mix(in srgb, var(--color-text-soft) 18%, transparent);
+  stroke-width: 1;
+}
+
+/* ─── Path rendering ──────────────────────────────────────────────────────── */
+.svg-editor-main-path {
+  vector-effect: non-scaling-stroke;
+}
+
+.svg-editor-selected-path {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.28;
+  vector-effect: non-scaling-stroke;
+}
+
+.svg-editor-hover-path {
+  fill: none;
+  stroke: var(--color-warning);
+  stroke-width: 8;
+  opacity: 0.28;
+  vector-effect: non-scaling-stroke;
+}
+
+.svg-editor-handle {
+  stroke: #7c3aed;
+  stroke-dasharray: 5 4;
+  stroke-width: 1.5;
+  opacity: 0.7;
+  vector-effect: non-scaling-stroke;
+}
+
+/* ─── Drag handles ────────────────────────────────────────────────────────── */
+.svg-editor-target-point,
+.svg-editor-control-point {
+  cursor: grab;
+  stroke: var(--color-surface-strong);
+  stroke-width: 2.5;
+  vector-effect: non-scaling-stroke;
+  transition: r 0.1s;
+}
+
+.svg-editor-target-point:active,
+.svg-editor-control-point:active {
+  cursor: grabbing;
+}
+
+.svg-editor-target-point {
+  fill: var(--color-accent);
+}
+
+.svg-editor-target-point.is-selected {
+  fill: var(--color-warning);
+  stroke-width: 3;
+}
+
+.svg-editor-control-point {
+  fill: #7c3aed;
+}
+
+.svg-editor-invalid-text {
+  fill: var(--color-danger);
+  font-size: 18px;
+  font-weight: 900;
+}
+
+/* ─── Point tooltip ───────────────────────────────────────────────────────── */
+.svg-editor-point-tooltip {
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+  box-shadow: var(--shadow-interactive);
+}
+
+/* ─── Right panel ─────────────────────────────────────────────────────────── */
+.svg-editor-command-summary {
+  display: grid;
+  gap: 3px;
+  margin-bottom: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-muted);
+  padding: var(--space-3);
+}
+
+.svg-editor-command-summary strong {
+  font-size: 28px;
+  font-weight: 950;
+  line-height: 1;
+  color: var(--color-accent);
+}
+
+.svg-editor-command-summary span {
+  color: var(--color-text-soft);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.svg-editor-command-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: var(--space-3);
+}
+
+.svg-editor-command-actions select {
+  flex: 1 1 90px;
+}
+
+.svg-editor-command-list {
+  display: grid;
+  gap: 5px;
+  max-height: 320px;
+  overflow: auto;
+  padding-right: 2px;
+}
+
+.svg-editor-command-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 7px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-strong);
+  color: var(--color-text);
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--duration-fast), box-shadow var(--duration-fast), border-color var(--duration-fast);
+}
+
+.svg-editor-command-row:hover {
+  background: var(--color-surface-muted);
+  box-shadow: var(--shadow-card);
+}
+
+.svg-editor-command-row.is-selected {
+  border-color: color-mix(in srgb, var(--color-accent) 50%, var(--color-border));
+  background: color-mix(in srgb, var(--color-accent) 10%, var(--color-surface-strong));
+}
+
+.svg-editor-command-badge {
+  display: grid;
+  place-items: center;
+  min-width: 30px;
+  height: 30px;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+  font-size: 12px;
+  font-weight: 950;
+  flex-shrink: 0;
+}
+
+.svg-editor-command-row small {
+  overflow: hidden;
+  color: var(--color-text-soft);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ─── License note ────────────────────────────────────────────────────────── */
+.svg-editor-license-note strong {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+
+.svg-editor-license-note p {
+  margin-top: 5px;
+  color: var(--color-text-muted);
+  font-size: 11.5px;
+  line-height: 1.5;
+}
+
+/* ─── Toast ───────────────────────────────────────────────────────────────── */
+.svg-editor-toast {
+  position: fixed;
+  z-index: var(--z-toast);
+  right: 24px;
+  top: 92px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  padding: 10px 18px;
+  color: var(--color-primary-text);
+  font-size: 12.5px;
+  font-weight: 900;
+  box-shadow: var(--shadow-interactive);
+  pointer-events: none;
+  animation: svg-editor-toast-in 0.18s ease;
+}
+
+@keyframes svg-editor-toast-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Shortcuts modal ─────────────────────────────────────────────────────── */
+.svg-editor-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal, 1000);
+  background: rgba(0, 0, 0, 0.45);
+  display: grid;
+  place-items: center;
+  backdrop-filter: blur(4px);
+  animation: svg-editor-fade-in 0.15s ease;
+}
+
+@keyframes svg-editor-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.svg-editor-modal {
+  width: min(480px, 90vw);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-interactive);
+  overflow: hidden;
+  animation: svg-editor-modal-in 0.18s ease;
+}
+
+@keyframes svg-editor-modal-in {
+  from { opacity: 0; transform: scale(0.95) translateY(8px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.svg-editor-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.svg-editor-modal-close {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-surface-strong);
+  color: var(--color-text-muted);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+
+.svg-editor-modal-close:hover {
+  background: var(--color-surface-muted);
+  color: var(--color-text);
+}
+
+.svg-editor-shortcuts-grid {
+  display: grid;
+  gap: 0;
+  padding: var(--space-2) 0;
+}
+
+.svg-editor-shortcut-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.svg-editor-shortcut-row:last-child {
+  border-bottom: none;
+}
+
+.svg-editor-shortcut-row kbd {
+  display: inline-block;
+  min-width: 150px;
+  padding: 4px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-strong);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.svg-editor-shortcut-row span {
+  color: var(--color-text-soft);
+  font-size: 13px;
+}
+
+/* ─── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 1280px) {
+  .svg-editor-workbench {
+    grid-template-columns: 1fr;
+  }
+  .svg-editor-panel {
+    max-height: none;
+    position: static;
+  }
+  .svg-editor-left-panel,
+  .svg-editor-right-panel {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0;
+  }
+  .svg-editor-left-panel .svg-editor-tabs {
+    grid-column: 1 / -1;
+  }
+  .svg-editor-left-panel .svg-editor-examples-panel,
+  .svg-editor-left-panel .svg-editor-saved-panel {
+    grid-column: 1 / -1;
+  }
+  .svg-editor-section + .svg-editor-section {
+    border-top: 0;
+    border-left: 1px solid var(--color-border);
+  }
+}
+
+@media (max-width: 760px) {
+  .svg-editor-topbar {
+    display: block;
+    padding: var(--space-4);
+  }
+  .svg-editor-hero-actions {
+    justify-content: flex-start;
+    min-width: 0;
+    margin-top: var(--space-4);
+  }
+  .svg-editor-left-panel,
+  .svg-editor-right-panel {
+    grid-template-columns: 1fr;
+  }
+  .svg-editor-section + .svg-editor-section {
+    border-top: 1px solid var(--color-border);
+    border-left: 0;
+  }
+  .svg-editor-grid-two,
+  .svg-editor-grid-three {
+    grid-template-columns: 1fr;
+  }
+  .svg-editor-canvas-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .svg-editor-canvas {
+    min-height: 400px;
+  }
+  .svg-editor-examples-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ─── Canvas scroll hint ──────────────────────────────────────────────────── */
+.svg-editor-canvas-hint {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  z-index: 5;
+  pointer-events: none;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--color-surface) 80%, transparent);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 10.5px;
+  font-weight: 700;
+  backdrop-filter: blur(6px);
+  letter-spacing: 0.02em;
+}

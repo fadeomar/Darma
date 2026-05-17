@@ -47,7 +47,7 @@ export default function PresetGallery({
             key={preset.id}
             onClick={() => onSelect(preset)}
             className={`group shrink-0 overflow-hidden rounded-2xl border bg-white p-2 text-left transition hover:-translate-y-0.5 hover:shadow-lg dark:bg-slate-950 ${
-              compact ? "w-[200px]" : "w-[200px]"
+              compact ? "w-[300px]" : ""
             } ${
               isActive
                 ? "border-fuchsia-400 shadow-md ring-2 ring-fuchsia-200 dark:ring-fuchsia-500/30"

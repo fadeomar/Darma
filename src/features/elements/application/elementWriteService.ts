@@ -18,11 +18,10 @@ export class ElementWriteService {
       const base = slugify(input.title || "element");
       const slug = await this.makeUniqueSlug(tx, base);
 
-      // pass slug into create input
       return this.repo.create(tx, {
         ...input,
         slug,
-      } as ElementCreateInput);
+      });
     });
   }
 
@@ -35,17 +34,17 @@ export class ElementWriteService {
         throw new ElementNotFoundError(id);
       }
 
-      // If title is changing, regenerate slug
-      // (If you want "slug never changes", remove this block)
-      let next = input as Record<string, unknown>;
+      let next: ElementUpdateInput = input;
 
-      if (typeof input.title === "string" && input.title.trim().length > 0) {
-        const base = slugify(input.title);
-        const slug = await this.makeUniqueSlug(tx, base, id);
+      if (typeof input.slug === "string" && input.slug.trim().length > 0) {
+        const slug = await this.makeUniqueSlug(tx, slugify(input.slug), id);
+        next = { ...input, slug };
+      } else if (typeof input.title === "string" && input.title.trim().length > 0) {
+        const slug = await this.makeUniqueSlug(tx, slugify(input.title), id);
         next = { ...input, slug };
       }
 
-      return this.repo.update(tx, id, next as ElementUpdateInput);
+      return this.repo.update(tx, id, next);
     });
   }
 

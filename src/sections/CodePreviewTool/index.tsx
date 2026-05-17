@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import CodeEditor from "@/components/CodeEditor"; // Assuming this is your editor component
 
 import "./style.css";
@@ -11,6 +11,7 @@ export default function CodePreviewTool() {
   const [js, setJs] = useState('console.log("Hello from JS");');
   const [error, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<"html" | "css" | "js">("html");
+  const iframeRef = useRef<HTMLIFrameElement | null>(null);
 
   // Generate iframe content
   const iframeContent = `
@@ -48,10 +49,17 @@ export default function CodePreviewTool() {
   // Handle messages from iframe (errors or success)
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
-      if (event.data.type === "error") {
-        setError(`Error: ${event.data.message} (Line ${event.data.lineno})`);
-      } else if (event.data.type === "success") {
-        setError(null); // Clear error when code runs successfully
+      if (event.source !== iframeRef.current?.contentWindow) return;
+      if (!event.data || typeof event.data !== "object") return;
+
+      const data = event.data as { type?: unknown; message?: unknown; lineno?: unknown };
+
+      if (data.type === "error") {
+        const message = typeof data.message === "string" ? data.message : "Unknown error";
+        const line = typeof data.lineno === "number" ? data.lineno : 1;
+        setError(`Error: ${message} (Line ${line})`);
+      } else if (data.type === "success") {
+        setError(null);
       }
     };
     window.addEventListener("message", handleMessage);
@@ -124,8 +132,10 @@ export default function CodePreviewTool() {
               Live Preview
             </h2>
             <iframe
+              ref={iframeRef}
               srcDoc={iframeContent}
-              sandbox="allow-scripts allow-forms allow-same-origin"
+              sandbox="allow-scripts allow-forms"
+              referrerPolicy="no-referrer"
               className="w-full h-[calc(100%-2rem)] border-4 border-gradient-to-r from-blue-400 to-purple-500 rounded-md bg-white"
               title="Live Preview"
             />

@@ -56,3 +56,37 @@ export function buildNotFoundMetadata(): Metadata {
     },
   };
 }
+
+export function buildElementUnavailableMetadata(): Metadata {
+  return {
+    title: "Element temporarily unavailable | Darma",
+    description:
+      "This element cannot be loaded right now because the content database is unavailable.",
+    robots: {
+      index: false,
+      follow: false,
+    },
+  };
+}
+
+export function isDatabaseUnavailableError(error: unknown): boolean {
+  if (!error || typeof error !== "object") return false;
+
+  const maybeError = error as {
+    code?: unknown;
+    name?: unknown;
+    message?: unknown;
+  };
+
+  if (maybeError.code === "P1001") return true;
+  if (maybeError.name === "PrismaClientInitializationError") return true;
+
+  const message = typeof maybeError.message === "string" ? maybeError.message : "";
+  return (
+    message.includes("Can't reach database server") ||
+    message.includes("Timed out fetching a new connection") ||
+    message.includes("Connection terminated") ||
+    message.includes("ECONNREFUSED") ||
+    message.includes("ENOTFOUND")
+  );
+}

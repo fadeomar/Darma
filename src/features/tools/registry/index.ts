@@ -2,7 +2,8 @@ import { InMemoryToolRegistry } from "../infra/inMemory/toolRegistry.memory";
 import type { ToolRegistry } from "../domain/toolRegistry";
 import type { ToolDefinition } from "../domain/tool";
 
-const TOOL_DEFINITIONS: ToolDefinition[] = [
+const BASE_TOOL_DEFINITIONS: ToolDefinition[] = [
+  { id: "beam-calculator", title: "Beam Calculator", description: "Canvas-first structural beam calculator with reactions, shear force, and bending moment diagrams for determinate beams.", href: "/tools/beam-calculator", icon: "cube", status: "ready", completion: 80, tags: ["beam", "calculator", "structural", "engineering", "shear", "moment"], mainCategory: ["tools"], secondaryCategory: ["engineering", "utilities", "visual"], audiences: ["student", "developer", "general"], featured: true, pinned: 6, visibility: "public", layoutType: "visual-generator" },
   { id: "animated-background-generator", title: "Animated Background Generator", description: "Generate animated CSS backgrounds and copy the code.", href: "/tools/animated-background-generator", icon: "film", status: "ready", completion: 100, tags: ["css", "animation", "background"], mainCategory: ["tools"], secondaryCategory: ["css", "visual"], audiences: ["developer", "designer"], featured: true, visibility: "public", layoutType: "visual-generator" },
   { id: "box-shadows-generator", title: "Box Shadows Generator", description: "Build multi-layer box-shadows visually and copy CSS.", href: "/tools/box-shadows-generator", icon: "cube", status: "ready", completion: 100, tags: ["css", "shadow", "ui"], mainCategory: ["tools"], secondaryCategory: ["css", "visual"], audiences: ["developer", "designer"], visibility: "public", layoutType: "visual-generator" },
   { id: "buttons-css-generator", title: "Buttons CSS Generator", description: "Generate modern button styles and copy CSS.", href: "/tools/buttons-css-generator", icon: "magic", status: "ready", completion: 100, tags: ["css", "buttons", "ui"], mainCategory: ["tools"], secondaryCategory: ["css", "visual"], audiences: ["developer", "designer"], visibility: "public", layoutType: "visual-generator" },
@@ -22,7 +23,44 @@ const TOOL_DEFINITIONS: ToolDefinition[] = [
   { id: "timestamp-converter", title: "Timestamp Converter", description: "Convert Unix timestamps to readable dates and back.", href: "/tools/timestamp-converter", icon: "code", status: "ready", completion: 100, tags: ["timestamp", "date", "unix", "time"], mainCategory: ["tools"], secondaryCategory: ["devtools", "utilities"], audiences: ["developer", "general"], visibility: "public", layoutType: "single-utility" },
   { id: "svg-path-editor", title: "SVG Path Editor", description: "Edit, transform, optimize, preview, copy, and download SVG path data visually in your browser.", href: "/tools/svg-path-editor", icon: "code", status: "ready", completion: 100, tags: ["svg", "path", "editor", "vector", "developer", "designer"], mainCategory: ["tools"], secondaryCategory: ["devtools", "design", "visual"], audiences: ["developer", "designer", "student"], featured: true, visibility: "public", layoutType: "visual-generator" },
   { id: "fake-screen", title: "Fake Screen", description: "Create safe fullscreen color screens, fake update screens, blue error screens, DVD screensavers, and animated canvas backgrounds from one clean visual tool.", href: "/tools/fake-screen", icon: "film", status: "ready", completion: 100, tags: ["fake screen", "fullscreen", "color screen", "fake update", "blue screen", "screensaver", "canvas background", "visual"], mainCategory: ["tools"], secondaryCategory: ["screens", "visual", "utilities"], audiences: ["general", "creator", "student", "developer"], featured: true, pinned: 5, visibility: "public", layoutType: "fullscreen-studio" },
+  { id: "image-converter", title: "Image Converter", description: "Convert images to PNG, JPEG, or WebP locally in your browser and download the result.", href: "/tools/image-converter", icon: "image", status: "ready", completion: 100, tags: ["image", "converter", "png", "jpeg", "webp", "download"], mainCategory: ["tools"], secondaryCategory: ["images", "utilities", "design"], audiences: ["designer", "developer", "creator", "general"], visibility: "public", layoutType: "single-utility" },
 ];
+
+const TOOL_METADATA: Record<string, Partial<Pick<ToolDefinition, "privacy" | "keywords" | "relatedTools">>> = {
+  "code-preview-tool": { privacy: "client-only", keywords: ["html preview", "css preview", "javascript preview", "live code editor", "sandboxed iframe"], relatedTools: ["json-formatter", "svg-path-editor", "base64-encoder-decoder"] },
+  "json-formatter": { privacy: "client-only", keywords: ["json formatter", "json validator", "json minifier", "pretty print json", "api debugging"], relatedTools: ["code-preview-tool", "base64-encoder-decoder", "url-encoder-decoder"] },
+  "qr-code": { privacy: "server-assisted", keywords: ["qr code generator", "url qr", "text qr", "download qr code"], relatedTools: ["url-encoder-decoder", "slug-generator", "image-converter"] },
+  "password-generator": { privacy: "client-only", keywords: ["password generator", "secure password", "passphrase generator", "random password", "entropy"], relatedTools: ["base64-encoder-decoder", "text-cleaner", "url-encoder-decoder"] },
+  "svg-path-editor": { privacy: "client-only", keywords: ["svg path editor", "svg optimizer", "vector path", "path data", "copy svg"], relatedTools: ["code-preview-tool", "color-converter", "color-shades"] },
+  "color-shades": { privacy: "client-only", keywords: ["color shades", "palette generator", "gradient shades", "design color tool"], relatedTools: ["color-converter", "css-gradient-generator", "buttons-css-generator"] },
+  "color-converter": { privacy: "client-only", keywords: ["hex to rgb", "rgb to hsl", "css colors", "color conversion"], relatedTools: ["color-shades", "css-gradient-generator", "buttons-css-generator"] },
+  "css-gradient-generator": { privacy: "client-only", keywords: ["css gradient", "linear gradient", "radial gradient", "background generator"], relatedTools: ["color-converter", "color-shades", "animated-background-generator"] },
+  "buttons-css-generator": { privacy: "client-only", keywords: ["button css", "css button generator", "ui button styles"], relatedTools: ["box-shadows-generator", "neumorphic-css-generator", "color-shades"] },
+  "box-shadows-generator": { privacy: "client-only", keywords: ["box shadow", "css shadow", "shadow generator", "ui elevation"], relatedTools: ["buttons-css-generator", "neumorphic-css-generator", "css-gradient-generator"] },
+  "neumorphic-css-generator": { privacy: "client-only", keywords: ["neumorphism", "neumorphic css", "soft ui", "css shadows"], relatedTools: ["box-shadows-generator", "buttons-css-generator", "color-shades"] },
+  "animated-background-generator": { privacy: "client-only", keywords: ["animated background", "css animation", "particles", "background effects"], relatedTools: ["css-gradient-generator", "color-shades", "code-preview-tool"] },
+  "text-cleaner": { privacy: "client-only", keywords: ["text cleaner", "case converter", "remove duplicate lines", "format text"], relatedTools: ["slug-generator", "url-encoder-decoder", "base64-encoder-decoder"] },
+  "url-encoder-decoder": { privacy: "client-only", keywords: ["url encoder", "url decoder", "uri component", "percent encoding"], relatedTools: ["base64-encoder-decoder", "json-formatter", "slug-generator"] },
+  "base64-encoder-decoder": { privacy: "client-only", keywords: ["base64 encoder", "base64 decoder", "unicode base64", "url safe base64"], relatedTools: ["url-encoder-decoder", "json-formatter", "text-cleaner"] },
+  "fake-screen": { privacy: "client-only", keywords: ["fake screen", "fullscreen color", "fake update", "screensaver", "blue screen"], relatedTools: ["animated-background-generator", "color-shades", "image-converter"] },
+  "image-converter": { privacy: "client-only", keywords: ["image converter", "png converter", "jpeg converter", "webp converter", "browser image tool"], relatedTools: ["qr-code", "color-converter", "fake-screen"] },
+  "slug-generator": { privacy: "client-only", keywords: ["slug generator", "seo slug", "url slug", "kebab case"], relatedTools: ["text-cleaner", "url-encoder-decoder", "lorem-ipsum-generator"] },
+  "timestamp-converter": { privacy: "client-only", keywords: ["timestamp converter", "unix time", "epoch time", "date converter"], relatedTools: ["json-formatter", "url-encoder-decoder", "base64-encoder-decoder"] },
+  "lorem-ipsum-generator": { privacy: "client-only", keywords: ["lorem ipsum", "placeholder text", "dummy content", "mockup content"], relatedTools: ["text-cleaner", "slug-generator", "buttons-css-generator"] },
+  "beam-calculator": { privacy: "client-only", keywords: ["beam calculator", "shear force", "bending moment", "structural engineering"], relatedTools: ["svg-path-editor", "code-preview-tool"] },
+};
+
+const TOOL_DEFINITIONS: ToolDefinition[] = BASE_TOOL_DEFINITIONS.map((tool) => {
+  const extra = TOOL_METADATA[tool.id] ?? {};
+  return {
+    privacy: "client-only",
+    keywords: Array.from(new Set([tool.title, ...tool.tags, ...tool.secondaryCategory])),
+    relatedTools: [],
+    ...tool,
+    ...extra,
+  };
+});
+
 
 let registry: ToolRegistry | null = null;
 

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextRequest, NextResponse } from "next/server";
 import { assertAdminApi } from "@/lib/auth/guards";
 import { makeElementWriteService } from "@/features/elements/di/adminWrite";
@@ -20,8 +19,8 @@ export async function POST(request: NextRequest, context: RouteContext) {
     const service = makeElementWriteService();
     const restored = await service.restore(id);
     return NextResponse.json(toElementDTO(restored), { status: 200 });
-  } catch (error: any) {
-    if (error?.name === "ElementNotFoundError" || error instanceof ElementNotFoundError) {
+  } catch (error: unknown) {
+    if (error instanceof ElementNotFoundError) {
       return NextResponse.json({ error: "Element not found" }, { status: 404 });
     }
 

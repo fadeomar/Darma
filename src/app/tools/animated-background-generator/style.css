@@ -12,23 +12,3 @@
   gap: 0.5rem;
   justify-content: center;
 }
-
-.abg-preview-shell:fullscreen {
-  width: 100vw;
-  height: 100vh;
-  border-radius: 0;
-  border: 0;
-}
-
-.abg-preview-shell:fullscreen .darma-animated-bg,
-.abg-preview-shell:fullscreen .darma-animated-bg > div {
-  min-height: 100vh;
-}
-
-.abg-preview-shell:fullscreen button {
-  display: none;
-}
-
-.abg-preview-shell:fullscreen .group-fullscreen\:block {
-  display: block;
-}

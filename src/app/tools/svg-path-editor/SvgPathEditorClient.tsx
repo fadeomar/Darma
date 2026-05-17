@@ -287,7 +287,7 @@ export default function SvgPathEditorClient() {
 
   const svgRef = useRef<SVGSVGElement | null>(null);
   const draftPathRef = useRef(rawPath);
-  const toastTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const toastTimerRef = useRef<number | null>(null);
 
   // ── Derived ────────────────────────────────────────────────────────────────
 

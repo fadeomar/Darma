@@ -20,17 +20,22 @@ export class PrismaElementRepository implements ElementRepository {
     if (!row) return null;
     if (!includeDeleted && row.deleted) return null;
 
-    return row; // or map to Domain if you already have a mapper
+    return row;
   }
 
   async create(tx: Tx, input: ElementCreateInput) {
     return tx.element.create({
       data: {
         title: input.title,
-        description: input.description ?? null,
+        slug: input.slug,
+        description: input.description ?? "",
+        shortDescription: input.shortDescription ?? null,
         html: input.html ?? "",
         css: input.css ?? "",
+        js: input.js ?? "",
         tags: input.tags ?? [],
+        mainCategory: input.mainCategory ?? [],
+        secondaryCategory: input.secondaryCategory ?? [],
         reviewed: input.reviewed ?? false,
         deleted: false,
       },
@@ -42,10 +47,23 @@ export class PrismaElementRepository implements ElementRepository {
       where: { id },
       data: {
         ...(input.title !== undefined && { title: input.title }),
+        ...(input.slug !== undefined && { slug: input.slug }),
         ...(input.description !== undefined && {
           description: input.description,
         }),
+        ...(input.shortDescription !== undefined && {
+          shortDescription: input.shortDescription,
+        }),
+        ...(input.html !== undefined && { html: input.html }),
+        ...(input.css !== undefined && { css: input.css }),
+        ...(input.js !== undefined && { js: input.js }),
         ...(input.tags !== undefined && { tags: input.tags }),
+        ...(input.mainCategory !== undefined && {
+          mainCategory: input.mainCategory,
+        }),
+        ...(input.secondaryCategory !== undefined && {
+          secondaryCategory: input.secondaryCategory,
+        }),
         ...(input.reviewed !== undefined && { reviewed: input.reviewed }),
       },
     });

@@ -4,6 +4,7 @@ export type {
   ToolDefinition,
   ToolId,
   ToolStatus,
+  ToolPrivacy,
   ToolVisibility,
   ToolAudience,
   ToolLayoutType,

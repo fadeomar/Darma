@@ -36,6 +36,8 @@ export default function IframePreview({
         <div className="bg-white dark:bg-black rounded-2xl shadow-xl p-1 border border-gray-200 dark:border-gray-800 h-full min-h-[80vh]">
           <iframe
             srcDoc={srcDoc}
+            sandbox="allow-scripts allow-forms"
+            referrerPolicy="no-referrer"
             className="w-full h-full rounded-xl bg-white dark:bg-black border border-gray-200 dark:border-gray-800 shadow-md"
             title="Element Preview"
           />

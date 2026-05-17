@@ -2,6 +2,11 @@ export type ToolId = string;
 
 export type ToolVisibility = "public" | "unlisted" | "private";
 export type ToolStatus = "ready" | "in_progress" | "planned";
+export type ToolPrivacy =
+  | "client-only"
+  | "local-storage"
+  | "server-assisted"
+  | "external-api";
 export type ToolLayoutType =
   | "text-workbench"
   | "visual-generator"
@@ -35,4 +40,7 @@ export type ToolDefinition = {
   pinned?: number;
   toolCategory?: string;
   layoutType?: ToolLayoutType;
+  privacy?: ToolPrivacy;
+  keywords?: string[];
+  relatedTools?: ToolId[];
 };

@@ -6,8 +6,27 @@ import type {
   ToolRegistryQuery,
 } from "../../domain/toolRegistry";
 
-function includesInsensitive(hay: string, needle: string): boolean {
-  return hay.toLowerCase().includes(needle.toLowerCase());
+function includesInsensitive(hay: string | undefined, needle: string): boolean {
+  return (hay ?? "").toLowerCase().includes(needle.toLowerCase());
+}
+
+function searchableValues(tool: ToolDefinition): string[] {
+  return [
+    tool.id,
+    tool.title,
+    tool.description,
+    tool.href,
+    tool.layoutType ?? "",
+    tool.privacy ?? "",
+    tool.status ?? "",
+    tool.toolCategory ?? "",
+    ...tool.tags,
+    ...tool.mainCategory,
+    ...tool.secondaryCategory,
+    ...(tool.audiences ?? []),
+    ...(tool.keywords ?? []),
+    ...(tool.relatedTools ?? []),
+  ];
 }
 
 export class InMemoryToolRegistry implements ToolRegistry {
@@ -27,26 +46,27 @@ export class InMemoryToolRegistry implements ToolRegistry {
     const secondary = query.secondaryCategory ?? [];
     const tags = query.tags ?? [];
 
-    return this.tools.filter((t) => {
-      if (t.visibility !== "public") return false;
+    return this.tools.filter((tool) => {
+      if (tool.visibility !== "public") return false;
 
-      if (main.length > 0 && !t.mainCategory.some((x) => main.includes(x)))
+      if (main.length > 0 && !tool.mainCategory.some((x) => main.includes(x))) {
         return false;
+      }
+
       if (
         secondary.length > 0 &&
-        !t.secondaryCategory.some((x) => secondary.includes(x))
-      )
+        !tool.secondaryCategory.some((x) => secondary.includes(x))
+      ) {
         return false;
-      if (tags.length > 0 && !t.tags.some((x) => tags.includes(x)))
+      }
+
+      if (tags.length > 0 && !tool.tags.some((x) => tags.includes(x))) {
         return false;
+      }
 
       if (!q) return true;
 
-      return (
-        includesInsensitive(t.title, q) ||
-        includesInsensitive(t.description, q) ||
-        t.tags.some((tag) => includesInsensitive(tag, q))
-      );
+      return searchableValues(tool).some((value) => includesInsensitive(value, q));
     });
   }
 }

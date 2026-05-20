@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import dynamic from "next/dynamic";
 import { getToolRegistry } from "@/features/tools";
@@ -11,7 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return buildToolMetadata(tool);
 }
 
-const Base64Client = dynamic(() => import("./Base64Client"), { ssr: false });
+const Base64Client = dynamic(() => import("./Base64Client"));
 const Article = dynamic(() => import("./Article"));
 
 export default function Base64EncoderDecoderPage() {

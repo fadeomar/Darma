@@ -1,10 +1,20 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import dynamic from "next/dynamic";
 import SurfaceCard from "@/components/ui/SurfaceCard";
 import { getToolRegistry } from "@/features/tools";
+import { buildToolMetadata } from "@/features/tools/seo";
 import { ToolLayoutVisualGenerator, ToolPage } from "@/features/tools/layouts";
 import ToolContentCard from "@/features/tools/ui/ToolContentCard";
 import type { ColorShadesParams } from "@/types";
 import { generateShades } from "@/utils/color-shades";
+
+
+const tool = getToolRegistry().getById("color-shades");
+
+export const metadata: Metadata = tool
+  ? buildToolMetadata(tool)
+  : { title: "Tool not found | Darma Tools" };
 
 const DEFAULT_PARAMS: ColorShadesParams = {
   color1: "#ffffff",
@@ -23,9 +33,8 @@ const SuggestionsSection = dynamic(() => import("./SuggestionsSection"), {
 const ColorShadesArticle = dynamic(() => import("./ColorShadesArticle"));
 
 export default function ColorShadesGenerator() {
-  const tool = getToolRegistry().getById("color-shades");
   const initialShades = generateShades(DEFAULT_PARAMS);
-  if (!tool) return null;
+  if (!tool) notFound();
 
   return (
     <ToolPage

@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getToolRegistry } from "@/features/tools";
 import ToolContentCard from "@/features/tools/ui/ToolContentCard";
@@ -22,7 +23,7 @@ const categoryDescriptions = [
 
 export default function FakeScreenPage() {
   const tool = getToolRegistry().getById("fake-screen");
-  if (!tool) return null;
+  if (!tool) notFound();
 
   return (
     <ToolPageShell

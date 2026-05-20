@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import AnimatedBackgroundClient from "./AnimatedBackgroundClient";
 import { getToolRegistry } from "@/features/tools";
 import ToolPageShell from "@/features/tools/ui/ToolPageShell";
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 export default function AnimatedBackgroundPage() {
   const tool = getToolRegistry().getById("animated-background-generator");
 
-  if (!tool) return null;
+  if (!tool) notFound();
 
   return (
     <ToolPageShell

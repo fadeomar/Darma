@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import dynamic from "next/dynamic";
 import { getToolRegistry } from "@/features/tools";
 import ToolPageShell from "@/features/tools/ui/ToolPageShell";
@@ -36,7 +37,7 @@ const Article = dynamic(() => import("./Article"));
 
 export default function LoremIpsumPage() {
   const tool = getToolRegistry().getById("lorem-ipsum-generator");
-  if (!tool) return null;
+  if (!tool) notFound();
 
   return (
     <ToolPageShell

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import dynamic from "next/dynamic";
 import { getToolRegistry } from "@/features/tools";
 import ToolPageShell from "@/features/tools/ui/ToolPageShell";
@@ -34,7 +35,7 @@ const Article = dynamic(() => import("./Article"));
 
 export default function CssGradientGeneratorPage() {
   const tool = getToolRegistry().getById("css-gradient-generator");
-  if (!tool) return null;
+  if (!tool) notFound();
 
   return (
     <ToolPageShell

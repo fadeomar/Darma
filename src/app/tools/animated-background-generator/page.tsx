@@ -18,7 +18,7 @@ export default function AnimatedBackgroundPage() {
   const tool = getToolRegistry().getById("animated-background-generator");
   if (!tool) notFound();
   return (
-    <ToolPage tool={tool} maxWidth="wide" article={<Article />}>
+    <ToolPage tool={tool} maxWidth="wide" headerVariant="compact" article={<Article />}>
       <AnimatedBackgroundClient />
     </ToolPage>
   );

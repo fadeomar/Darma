@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import Configuration from "./Configuration";
 import Preview from "./Preview";
 import CodeResult from "./CodeResult";
-import Title from "@/components/Title";
 import { BoxShadowState } from "@/types";
 
 
@@ -31,10 +30,9 @@ const defaultState = {
 const BoxShadowPage = () => {
   const [state, setState] = useState<BoxShadowState>(defaultState);
   return (
-    <div className="container mx-auto p-4">
-      <Title variant="h1" label="Box Shadow Generator" />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <Configuration state={state} setState={setState} />
+    <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_380px]">
+      {/* Left: preview dominant */}
+      <div className="space-y-4">
         <Preview
           state={state}
           setActiveLightSource={(value) =>
@@ -44,6 +42,8 @@ const BoxShadowPage = () => {
         />
         <CodeResult state={state} />
       </div>
+      {/* Right: configuration panel */}
+      <Configuration state={state} setState={setState} />
     </div>
   );
 };

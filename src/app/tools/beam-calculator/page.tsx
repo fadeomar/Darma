@@ -16,7 +16,7 @@ export default function BeamCalculatorPage() {
   const tool = getToolRegistry().getById("beam-calculator");
   if (!tool) notFound();
   return (
-    <ToolPage tool={tool} maxWidth="full">
+    <ToolPage tool={tool} maxWidth="full" headerVariant="compact">
       <BeamCalculatorShell />
     </ToolPage>
   );

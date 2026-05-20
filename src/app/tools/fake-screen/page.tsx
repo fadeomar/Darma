@@ -17,7 +17,7 @@ export default function FakeScreenPage() {
   const tool = getToolRegistry().getById("fake-screen");
   if (!tool) notFound();
   return (
-    <ToolPage tool={tool} maxWidth="wide" article={<Article />}>
+    <ToolPage tool={tool} maxWidth="wide" headerVariant="compact" article={<Article />}>
       <Suspense fallback={<div className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-8 text-sm font-bold text-[var(--color-text-muted)]">Loading Fake Screen…</div>}>
         <FakeScreenClient />
       </Suspense>

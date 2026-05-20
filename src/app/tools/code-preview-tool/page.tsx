@@ -19,7 +19,7 @@ export default function CodePreviewToolPage() {
   if (!tool) notFound();
 
   return (
-    <ToolPage tool={tool} maxWidth="wide" article={<Article />}>
+    <ToolPage tool={tool} maxWidth="wide" headerVariant="compact" article={<Article />}>
       <CodePreviewTool />
     </ToolPage>
   );

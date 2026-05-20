@@ -23,7 +23,7 @@ export default function SvgPathEditorPage() {
   if (!tool) notFound();
 
   return (
-    <ToolPage tool={tool} maxWidth="full">
+    <ToolPage tool={tool} maxWidth="full" headerVariant="compact">
       <SvgPathEditorClient />
     </ToolPage>
   );

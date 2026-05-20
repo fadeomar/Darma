@@ -1,11 +1,10 @@
 "use client";
-import React, { CSSProperties, useState } from "react";
+import React, { useState } from "react";
 
 import Preview from "./Preview";
 import Configuration from "./Configuration";
 import CodeEditor from "@/components/CodeEditor";
 import VariantSelector from "@/components/VariantSelector";
-import Title from "@/components/Title";
 import { State } from "@/types/buttonGeneratorTypes";
 
 const _defaultShadowColor = "#c9003d";
@@ -109,13 +108,7 @@ const App = () => {
                 selected={state.variant}
                 handleSelect={handleVariantSelect}
               />
-              <Title
-                variant="h4"
-                as="h2"
-                label={"Preview"}
-                className="custom-class"
-                style={{ "--angle": "90deg" } as CSSProperties}
-              />
+              <p className="my-4 text-[10px] font-black uppercase tracking-[0.2em] text-black/40">Preview</p>
               <Preview
                 // new
                 state={state}
@@ -130,13 +123,7 @@ const App = () => {
                   marginTop: 16,
                 }}
               >
-                <Title
-                  variant="h4"
-                  as="h2"
-                  label={"Code"}
-                  className="custom-class"
-                  style={{ "--angle": "90deg" } as CSSProperties}
-                />
+                <p className="my-4 text-[10px] font-black uppercase tracking-[0.2em] text-black/40">Code</p>
                 <CodeEditor
                   code={`<button class='darma-button'>${
                     state.textPlaceholder

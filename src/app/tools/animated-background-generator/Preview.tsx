@@ -1,6 +1,6 @@
 import React from "react";
 import { handleBackgroundStyle } from "./styles";
-import { State } from "@/types/animatedBackgroundTypes";
+import { State } from "./types";
 
 interface PreviewProps {
   state: State;

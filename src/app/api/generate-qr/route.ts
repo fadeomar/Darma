@@ -1,42 +1,41 @@
 import { NextRequest, NextResponse } from "next/server";
 import QRCode from "qrcode";
-import { z } from "zod";
 
 const MAX_QR_TEXT_LENGTH = 2000;
 
-const qrCodeRequestSchema = z.object({
-  text: z.string().trim().min(1).max(MAX_QR_TEXT_LENGTH),
-});
+interface QRCodeRequest {
+  text: string;
+}
 
-type QRCodeResponse = {
+interface QRCodeResponse {
   qrCodeUrl?: string;
   error?: string;
-};
+}
 
-export async function POST(req: NextRequest): Promise<NextResponse<QRCodeResponse>> {
+export async function POST(
+  req: NextRequest
+): Promise<NextResponse<QRCodeResponse>> {
   try {
-    const json = await req.json().catch(() => null);
-    const parsed = qrCodeRequestSchema.safeParse(json);
+    const { text }: QRCodeRequest = await req.json();
 
-    if (!parsed.success) {
+    if (!text || typeof text !== "string") {
+      return NextResponse.json({ error: "Invalid input" }, { status: 400 });
+    }
+
+    if (text.trim().length === 0 || text.length > MAX_QR_TEXT_LENGTH) {
       return NextResponse.json(
-        { error: `Invalid input. Text is required and must be ${MAX_QR_TEXT_LENGTH} characters or fewer.` },
+        { error: `Text is required and must be ${MAX_QR_TEXT_LENGTH} characters or fewer.` },
         { status: 400 },
       );
     }
 
-    const qrCodeUrl = await QRCode.toDataURL(parsed.data.text, {
-      errorCorrectionLevel: "M",
-      margin: 2,
-      width: 1024,
-    });
-
+    const qrCodeUrl: string = await QRCode.toDataURL(text);
     return NextResponse.json({ qrCodeUrl }, { status: 200 });
   } catch (error: unknown) {
     console.error("QR code generation failed:", error);
     return NextResponse.json(
       { error: "Failed to generate QR code" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

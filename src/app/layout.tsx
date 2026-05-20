@@ -20,8 +20,8 @@ export default async function RootLayout({
   const theme = cookieStore.get("theme")?.value || "light";
 
   return (
-    <html lang="en" data-mode={theme} suppressHydrationWarning>
-      <body className="antialiased" suppressHydrationWarning>
+    <html lang="en" data-mode={theme}>
+      <body className="antialiased">
         <div className="min-h-screen bg-[color:var(--background)] text-[color:var(--textColor)]">
           <Suspense fallback={null}>
             <SiteHeader />

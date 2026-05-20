@@ -181,8 +181,24 @@ export default function TextCleanerClient() {
 
   const statsText = workingText;
 
+  const quickTransformIds = ["uppercase", "lowercase", "title", "trim", "extraspaces"];
+  const quickTransforms = [
+    ...CASE_TRANSFORMS.filter((d) => quickTransformIds.includes(d.id)),
+    ...CLEAN_TRANSFORMS.filter((d) => quickTransformIds.includes(d.id)),
+  ].sort((a, b) => quickTransformIds.indexOf(a.id) - quickTransformIds.indexOf(b.id));
+
   return (
     <div className="flex flex-col gap-5">
+      {/* ── Quick-access transform bar ──────────────────────────────────────── */}
+      <div className="flex flex-wrap items-center gap-2 rounded-2xl border border-black/8 bg-black/[0.02] px-4 py-2.5">
+        <span className="mr-1 text-[10px] font-black uppercase tracking-[0.2em] text-[var(--textColor)]/35">
+          Quick
+        </span>
+        {quickTransforms.map((def) => (
+          <TransformBtn key={def.id} def={def} onClick={() => applyTransform(def)} />
+        ))}
+      </div>
+
       {/* ── Textareas ───────────────────────────────────────────────────────── */}
       <div className="grid gap-4 lg:grid-cols-2">
         {/* Input */}

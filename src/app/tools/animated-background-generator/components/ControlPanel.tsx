@@ -1,7 +1,7 @@
 "use client";
 
 import type { Dispatch, ReactNode, SetStateAction } from "react";
-import type { AnimatedBackgroundState, BackgroundShape, BlendMode, PreviewMode } from "@/types/animatedBackgroundTypes";
+import type { AnimatedBackgroundState, BackgroundShape, BlendMode, PreviewMode } from "../types";
 
 interface ControlPanelProps {
   state: AnimatedBackgroundState;

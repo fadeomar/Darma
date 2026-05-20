@@ -1,4 +1,4 @@
-import { State } from "@/types/animatedBackgroundTypes";
+import { State } from "./types";
 
 const baseStyles = (state: State) => `
   .animated-background {

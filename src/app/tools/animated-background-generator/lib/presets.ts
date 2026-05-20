@@ -1,4 +1,4 @@
-import type { AnimatedBackgroundState, BackgroundPreset, BackgroundPresetId } from "@/types/animatedBackgroundTypes";
+import type { AnimatedBackgroundState, BackgroundPreset, BackgroundPresetId } from "../types";
 
 export const presets: BackgroundPreset[] = [
   { id: "saas-hero-gradient", name: "SaaS Hero Gradient", description: "A polished animated hero background for startups, product launches, and modern SaaS landing pages.", tags: ["SaaS", "Hero", "Gradient"], bestFor: ["SaaS landing pages", "Product launches", "Startup homepages"], searchIntent: "animated hero background css", seed: 8241, colors: ["#38bdf8", "#6366f1", "#a855f7", "#22c55e"], background: "#020617", shape: "circle", particleCount: 13, minSize: 180, maxSize: 560, blur: 78, opacity: 0.5, speed: 0.7, intensity: 0.82, glow: 68, blendMode: "screen", borderRadius: 999, gradientStyle: "mesh" },

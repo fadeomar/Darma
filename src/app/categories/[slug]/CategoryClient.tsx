@@ -20,6 +20,7 @@ interface Props {
   currentPage: number;
   description?: string;
   searchQuery: string;
+  error?: string;
 }
 
 export default function CategoryClient({
@@ -31,6 +32,7 @@ export default function CategoryClient({
   currentPage,
   description,
   searchQuery,
+  error,
 }: Props) {
   const router = useRouter();
   const pathname = usePathname();
@@ -114,6 +116,12 @@ export default function CategoryClient({
           })}
         </div>
       </div>
+
+      {error ? (
+        <SurfaceCard className="mt-6 border-rose-200 bg-rose-50 text-rose-700">
+          <p className="text-sm font-semibold">{error}</p>
+        </SurfaceCard>
+      ) : null}
 
       <section className="mt-8">
         <div className="mb-4 flex items-center justify-between gap-4">

@@ -6,7 +6,6 @@ const categorySchema = z.string().min(1).max(50);
 export const elementCreateSchema = z
   .object({
     title: z.string().min(1).max(200),
-    slug: z.string().min(1).max(240).optional(),
 
     description: z.string().max(5000).optional().default(""),
     shortDescription: z.string().max(500).optional().nullable(),
@@ -40,7 +39,7 @@ export const elementUpdateSchema = z
     mainCategory: z.array(categorySchema).max(20).optional(),
     secondaryCategory: z.array(categorySchema).max(50).optional(),
 
-    slug: z.string().min(1).max(240).optional(),
+    slug: z.string().min(1).optional(),
 
     reviewed: z.boolean().optional(),
   })

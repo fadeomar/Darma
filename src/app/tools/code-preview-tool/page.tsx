@@ -1,23 +1,27 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import CodePreviewTool from "@/sections/CodePreviewTool";
+import dynamic from "next/dynamic";
 import { getToolRegistry } from "@/features/tools";
+import { buildToolMetadata } from "@/features/tools/seo";
 import { ToolPage } from "@/features/tools/layouts";
-import { buildToolJsonLd, buildToolMetadata } from "@/features/tools/seo";
-import Article from "./Article";
 
-const tool = getToolRegistry().getById("code-preview-tool");
+export async function generateMetadata(): Promise<Metadata> {
+  const tool = getToolRegistry().getById("code-preview-tool");
+  if (!tool) return {};
+  return buildToolMetadata(tool);
+}
 
-export const metadata = tool ? buildToolMetadata(tool) : {};
+const CodePreviewTool = dynamic(() => import("@/sections/CodePreviewTool"), {
+  loading: () => <div className="min-h-[560px] animate-pulse rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface)]" />,
+});
+const Article = dynamic(() => import("./Article"));
 
-export default function CodePreviewPage() {
+export default function CodePreviewToolPage() {
+  const tool = getToolRegistry().getById("code-preview-tool");
   if (!tool) notFound();
 
   return (
-    <ToolPage tool={tool} maxWidth="full" article={<Article />}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildToolJsonLd(tool)) }}
-      />
+    <ToolPage tool={tool} maxWidth="wide" headerVariant="compact" article={<Article />}>
       <CodePreviewTool />
     </ToolPage>
   );

@@ -1,12 +1,11 @@
 "use client";
 
-import React, { CSSProperties, useState } from "react";
+import React, { useState } from "react";
 import Preview from "./Preview";
 import Configuration from "./Configuration";
 import VariantSelector from "@/components/VariantSelector";
-import Title from "@/components/Title";
 import CodeEditor from "@/components/CodeEditor";
-import type { State } from "@/types/animatedBackgroundTypes";
+import type { State } from "./types";
 import { handleBackgroundStyle } from "./styles";
 
 const defaultParticleState: State = {
@@ -88,31 +87,31 @@ export default function AnimatedBackgroundClient() {
   `;
 
   return (
-    <div className="grid gap-6 xl:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)]">
+    <div className="space-y-4">
       <style>{bodyStyles}</style>
 
+      <div className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_360px]">
+        {/* Left: preview only */}
+        <div className="rounded-2xl border border-black/10 bg-slate-50 p-5">
+          <p className="mb-4 text-[10px] font-black uppercase tracking-[0.2em] text-black/40">Preview</p>
+          <Preview state={state} />
+        </div>
+
+        {/* Right: variant selector + configuration */}
+        <div className="rounded-2xl border border-black/10 bg-slate-50 p-5 space-y-4">
+          <VariantSelector
+            label="Select background variant"
+            variants={["particles", "bubbles", "explosion", "custom"]}
+            selected={state.variant}
+            handleSelect={handleVariantSelect}
+          />
+          <Configuration state={state} setState={setState} />
+        </div>
+      </div>
+
+      {/* Code output: full-width, below */}
       <div className="rounded-2xl border border-black/10 bg-slate-50 p-5">
-        <VariantSelector
-          label="Select background variant"
-          variants={["particles", "bubbles", "explosion", "custom"]}
-          selected={state.variant}
-          handleSelect={handleVariantSelect}
-        />
-        <Title
-          variant="h4"
-          as="h2"
-          label="Preview"
-          style={{ "--angle": "90deg" } as CSSProperties}
-          className="my-6 text-gray-900"
-        />
-        <Preview state={state} />
-        <Title
-          variant="h4"
-          as="h2"
-          label="Generated code"
-          style={{ "--angle": "90deg" } as CSSProperties}
-          className="my-6 text-gray-900"
-        />
+        <p className="mb-4 text-[10px] font-black uppercase tracking-[0.2em] text-black/40">Generated code</p>
         <CodeEditor
           code={`<div class="animated-background"></div>\n<style>\n${handleBackgroundStyle(state)}\n</style>`}
           language="html"
@@ -120,10 +119,6 @@ export default function AnimatedBackgroundClient() {
           setCode={() => {}}
           analyticsContext="code from animated background"
         />
-      </div>
-
-      <div className="rounded-2xl border border-black/10 bg-slate-50 p-5">
-        <Configuration state={state} setState={setState} />
       </div>
     </div>
   );

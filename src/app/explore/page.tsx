@@ -1,10 +1,41 @@
+import type { Metadata } from "next";
 import { SearchParams } from "@/types";
 import { searchElementsDTO } from "@/server/services/search.service";
 import { HomeClientPage } from "@/features/elements/ui";
+import type { ElementDTO } from "@/features/elements/dto/element.dto";
+
+export const metadata: Metadata = {
+  title: "Explore Darma Projects | Darma",
+  description:
+    "Search and filter published Darma HTML, CSS, JavaScript, UI, animation, background, loader, and canvas projects.",
+  alternates: { canonical: "/explore" },
+  openGraph: {
+    title: "Explore Darma Projects | Darma",
+    description: "Browse reusable front-end ideas, previews, and code examples from the Darma library.",
+    type: "website",
+    url: "/explore",
+  },
+};
 
 function normalizeParam(param: string | string[] | undefined): string[] {
   if (!param) return [];
-  return Array.isArray(param) ? param : [param];
+  const values = Array.isArray(param) ? param : [param];
+  return values
+    .flatMap((value) => value.split(","))
+    .map((value) => value.trim())
+    .filter(Boolean);
+}
+
+function normalizeSingleParam(
+  param: string | string[] | undefined,
+): string | undefined {
+  const value = Array.isArray(param) ? param[0] : param;
+  return typeof value === "string" && value.trim() ? value.trim() : undefined;
+}
+
+function normalizePage(value: string | undefined) {
+  const page = Number(value || 1);
+  return Number.isFinite(page) && page > 0 ? Math.floor(page) : 1;
 }
 
 export default async function ExplorePage({
@@ -14,10 +45,6 @@ export default async function ExplorePage({
 }) {
   const resolvedSearchParams = await searchParams;
 
-  const normalizeSingleParam = (
-    param: string | string[] | undefined,
-  ): string | undefined => (Array.isArray(param) ? param[0] : param);
-
   const normalizedParams: SearchParams = {
     q: normalizeSingleParam(resolvedSearchParams.q),
     mainCat: resolvedSearchParams.mainCat,
@@ -26,15 +53,26 @@ export default async function ExplorePage({
     exactMatch: normalizeSingleParam(resolvedSearchParams.exactMatch),
   };
 
-  const { items, total } = await searchElementsDTO({
-    q: normalizedParams.q,
-    mainCategory: normalizeParam(normalizedParams.mainCat),
-    secondaryCategory: normalizeParam(normalizedParams.secCat),
-    exactMatch: normalizedParams.exactMatch === "true",
-    page: Number(normalizedParams.page || 1),
-    pageSize: 12,
-    sort: "newest",
-  });
+  let items: ElementDTO[] = [];
+  let total = 0;
+  let initialError: string | undefined;
+
+  try {
+    const result = await searchElementsDTO({
+      q: normalizedParams.q,
+      mainCategory: normalizeParam(normalizedParams.mainCat),
+      secondaryCategory: normalizeParam(normalizedParams.secCat),
+      exactMatch: normalizedParams.exactMatch === "true",
+      page: normalizePage(normalizedParams.page),
+      pageSize: 12,
+      sort: "newest",
+    });
+    items = result.items;
+    total = result.total;
+  } catch (error) {
+    console.error("Explore page search failed:", error);
+    initialError = "We could not load projects right now. Please try again after checking the database connection and migrations.";
+  }
 
   return (
     <main className="min-h-screen px-4 py-8 sm:px-6 lg:px-8">
@@ -48,7 +86,7 @@ export default async function ExplorePage({
       <HomeClientPage
         initialElements={items}
         initialTotal={total}
-        initialError={undefined}
+        initialError={initialError}
         initialParams={normalizedParams}
         basePath="/explore"
       />

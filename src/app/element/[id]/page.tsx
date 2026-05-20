@@ -3,13 +3,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ElementPreviewShell from "@/components/element/ElementPreviewShell";
-import ElementUnavailableState from "@/components/element/ElementUnavailableState";
 import { getPublicElementByIdDTO } from "@/server/services/element.service";
 import {
   buildElementMetadata,
-  buildElementUnavailableMetadata,
   buildNotFoundMetadata,
-  isDatabaseUnavailableError,
+  buildElementJsonLd,
 } from "@/app/_helpers/elementPage";
 
 export async function generateMetadata({
@@ -19,16 +17,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { id } = await params;
 
-  try {
-    const element = await getPublicElementByIdDTO(id);
-    if (!element) return buildNotFoundMetadata();
+  const element = await getPublicElementByIdDTO(id);
+  if (!element) return buildNotFoundMetadata();
 
-    // Canonical will prefer /elements/[slug] if element.slug exists.
-    return buildElementMetadata(element);
-  } catch (error) {
-    console.error("Failed to build element metadata:", error);
-    return buildElementUnavailableMetadata();
-  }
+  // Canonical will prefer /elements/[slug] if element.slug exists.
+  return buildElementMetadata(element);
 }
 
 export default async function ElementByIdPage({
@@ -38,18 +31,19 @@ export default async function ElementByIdPage({
 }) {
   const { id } = await params;
 
-  try {
-    const element = await getPublicElementByIdDTO(id);
-    if (!element) notFound();
+  const element = await getPublicElementByIdDTO(id);
+  if (!element) notFound();
 
-    return <ElementPreviewShell element={element} />;
-  } catch (error) {
-    console.error("Failed to render element by ID:", error);
+  const jsonLd = buildElementJsonLd(element);
 
-    if (isDatabaseUnavailableError(error)) {
-      return <ElementUnavailableState />;
-    }
-
-    throw error;
-  }
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ElementPreviewShell element={element} />
+    </>
+  );
 }

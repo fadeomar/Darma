@@ -38,9 +38,9 @@ export default function ColorShadesClient({
   }, [params]);
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[320px_minmax(0,1fr)]">
-      <InputSection params={params} onParamsChange={handleParamsChange} />
+    <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_300px]">
       <PreviewSection shades={shades} />
+      <InputSection params={params} onParamsChange={handleParamsChange} />
     </div>
   );
 }

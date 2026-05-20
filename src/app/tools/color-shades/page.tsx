@@ -1,10 +1,19 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import dynamic from "next/dynamic";
 import SurfaceCard from "@/components/ui/SurfaceCard";
 import { getToolRegistry } from "@/features/tools";
+import { buildToolMetadata } from "@/features/tools/seo";
 import { ToolLayoutVisualGenerator, ToolPage } from "@/features/tools/layouts";
 import ToolContentCard from "@/features/tools/ui/ToolContentCard";
 import type { ColorShadesParams } from "@/types";
 import { generateShades } from "@/utils/color-shades";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const tool = getToolRegistry().getById("color-shades");
+  if (!tool) return {};
+  return buildToolMetadata(tool);
+}
 
 const DEFAULT_PARAMS: ColorShadesParams = {
   color1: "#ffffff",
@@ -24,8 +33,8 @@ const ColorShadesArticle = dynamic(() => import("./ColorShadesArticle"));
 
 export default function ColorShadesGenerator() {
   const tool = getToolRegistry().getById("color-shades");
+  if (!tool) notFound();
   const initialShades = generateShades(DEFAULT_PARAMS);
-  if (!tool) return null;
 
   return (
     <ToolPage

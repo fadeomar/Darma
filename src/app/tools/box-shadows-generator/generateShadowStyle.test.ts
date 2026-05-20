@@ -1,11 +1,7 @@
-import { describe, it, expect, vi, afterEach } from "vitest";
+import { describe, it, expect } from "vitest";
 import { generateShadowStyle } from "./generateShadowStyle";
 import type { BoxShadowState } from "@/types";
 import type { Shadow } from "@/types";
-
-// Silence the console.log left in production code
-vi.spyOn(console, "log").mockImplementation(() => undefined);
-afterEach(() => vi.restoreAllMocks());
 
 function shadow(overrides: Partial<Shadow> = {}): Shadow {
   return {

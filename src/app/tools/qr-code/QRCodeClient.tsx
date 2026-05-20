@@ -6,6 +6,8 @@ import { Download, QrCode } from "lucide-react";
 import { Button, Field, Input } from "@/components/ui";
 import { ToolLayoutSingleUtility } from "@/features/tools/layouts";
 
+const MAX_QR_LENGTH = 2000;
+
 interface QRCodeResponse {
   qrCodeUrl: string;
 }
@@ -23,6 +25,11 @@ export default function QRCodeClient() {
 
     if (!inputText.trim()) {
       setError("Please enter text or a URL.");
+      return;
+    }
+
+    if (inputText.trim().length > MAX_QR_LENGTH) {
+      setError(`Text must be ${MAX_QR_LENGTH} characters or fewer.`);
       return;
     }
 
@@ -76,7 +83,11 @@ export default function QRCodeClient() {
               value={inputText}
               onChange={(event) => setInputText(event.target.value)}
               placeholder="https://example.com"
+              maxLength={MAX_QR_LENGTH}
             />
+            <p className={`text-right text-xs tabular-nums ${inputText.length >= MAX_QR_LENGTH ? "text-[var(--color-danger)]" : inputText.length >= MAX_QR_LENGTH * 0.9 ? "text-[var(--color-warning,#f59e0b)]" : "text-[var(--color-text-soft)]"}`}>
+              {inputText.length} / {MAX_QR_LENGTH}
+            </p>
           </Field>
           <div className="flex flex-wrap gap-2">
             <Button type="submit" loading={loading} leftIcon={<QrCode className="h-4 w-4" />}>Generate QR Code</Button>

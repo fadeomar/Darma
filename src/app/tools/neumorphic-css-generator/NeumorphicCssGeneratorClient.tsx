@@ -9,20 +9,16 @@ const App = () => {
   const previewBox = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="w-full">
-      <div className="container mx-auto">
-        <div className="mx-auto flex-custom">
-          <Preview
-            setActiveLightSource={setActiveLightSource}
-            previewBox={previewBox}
-            activeLightSource={activeLightSource}
-          />
-          <Configuration
-            previewBox={previewBox}
-            activeLightSource={activeLightSource}
-          />
-        </div>
-      </div>
+    <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_420px]">
+      <Preview
+        setActiveLightSource={setActiveLightSource}
+        previewBox={previewBox}
+        activeLightSource={activeLightSource}
+      />
+      <Configuration
+        previewBox={previewBox}
+        activeLightSource={activeLightSource}
+      />
     </div>
   );
 };

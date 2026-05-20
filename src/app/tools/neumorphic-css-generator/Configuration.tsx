@@ -166,8 +166,8 @@ const Configuration: React.FC<ConfigurationProps> = ({
   ]);
 
   return (
-    <div className="configuration soft-shadow">
-      <div className="row">
+    <div className="soft-shadow flex flex-col rounded-[30px] p-5 text-left">
+      <div className="flex items-center gap-3 mb-5 font-bold text-[var(--textColor)]">
         <label htmlFor="color" className="opacity-60">
           Pick a color
         </label>

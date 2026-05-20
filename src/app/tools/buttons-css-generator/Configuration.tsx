@@ -3,7 +3,6 @@ import React, { Dispatch, SetStateAction } from "react";
 
 import { GradientsOptions, ShadowOptions } from "./Options";
 import { GradientsDInputs, ShadowsDInputs } from "./Inputs";
-import Title from "@/components/Title";
 import { State } from "@/types/buttonGeneratorTypes";
 interface ConfigurationProps {
   state: State;
@@ -12,9 +11,9 @@ interface ConfigurationProps {
 
 const Configuration: React.FC<ConfigurationProps> = ({ state, setState }) => {
   return (
-    <div className="configuration soft-shadow">
-      <Title variant="h4" label="Settings" />
-      <div className="row">
+    <div className="soft-shadow flex flex-col rounded-[30px] p-5 text-left">
+      <p className="mb-4 text-xs font-black uppercase tracking-[0.2em] text-black/40">Settings</p>
+      <div className="flex items-center gap-3 mb-5 font-bold text-[var(--textColor)]">
         {state.variant === "gradients" ? (
           <GradientsOptions state={state} setState={setState} />
         ) : (
@@ -23,7 +22,7 @@ const Configuration: React.FC<ConfigurationProps> = ({ state, setState }) => {
       </div>
       {(state.variant === "sliding" ||
         state.variant === "transition-on-hover") && (
-        <div className="row">
+        <div className="flex items-center gap-3 mb-5 font-bold text-[var(--textColor)]">
           <label>Slide Direction:</label>
           <select
             value={state.slideDirection}
@@ -39,7 +38,7 @@ const Configuration: React.FC<ConfigurationProps> = ({ state, setState }) => {
         </div>
       )}
 
-      <div className="row">
+      <div className="flex items-center gap-3 mb-5 font-bold text-[var(--textColor)]">
         <label>Transition Easing:</label>
         <select
           value={state.easing}

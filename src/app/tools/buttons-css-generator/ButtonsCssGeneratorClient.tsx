@@ -68,7 +68,6 @@ const defaultState = {
   slideDirection: "left",
 };
 import { handleStyle } from "./styles";
-import ButtonCSSGeneratorArticle from "./ButtonCSSGeneratorArticle";
 
 const App = () => {
   const [state, setState] = useState<State>(defaultState);
@@ -86,73 +85,45 @@ const App = () => {
     }
   };
   return (
-    <>
-      <div className="w-full">
-        <div className="container mx-auto w-full">
-          <div className="max-w-screen-lg flex-custom w-full flex justify-between">
-            <div className="flex flex-col justify-center items-center flex-1 pr-6">
-              <VariantSelector
-                label={"Select Button Variant"}
-                variants={[
-                  "3d",
-                  "shadow-border",
-                  "shadow-on-click",
-                  "sliding",
-                  "arrow",
-                  "glow",
-                  "outline",
-                  "gradients",
-                  "retro",
-                  "transition-on-hover",
-                ]}
-                selected={state.variant}
-                handleSelect={handleVariantSelect}
-              />
-              <p className="my-4 text-[10px] font-black uppercase tracking-[0.2em] text-black/40">Preview</p>
-              <Preview
-                // new
-                state={state}
-              />
-              <div
-                style={{
-                  width: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  marginTop: 16,
-                }}
-              >
-                <p className="my-4 text-[10px] font-black uppercase tracking-[0.2em] text-black/40">Code</p>
-                <CodeEditor
-                  code={`<button class='darma-button'>${
-                    state.textPlaceholder
-                  }</button>
+    <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_400px]">
+      <div className="flex flex-col items-center gap-4">
+        <VariantSelector
+          label={"Select Button Variant"}
+          variants={[
+            "3d",
+            "shadow-border",
+            "shadow-on-click",
+            "sliding",
+            "arrow",
+            "glow",
+            "outline",
+            "gradients",
+            "retro",
+            "transition-on-hover",
+          ]}
+          selected={state.variant}
+          handleSelect={handleVariantSelect}
+        />
+        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-black/40">Preview</p>
+        <Preview state={state} />
+        <div className="w-full">
+          <p className="mb-4 text-[10px] font-black uppercase tracking-[0.2em] text-black/40">Code</p>
+          <CodeEditor
+            code={`<button class='darma-button'>${
+              state.textPlaceholder
+            }</button>
                   <style>
                   ${handleStyle(state)}
                   </style>`}
-                  language="html"
-                  setCode={() => {}}
-                  showCopyButton
-                  analyticsContext="code from buttons generator"
-                />
-              </div>
-            </div>
-            <Configuration
-              // new
-              state={state}
-              setState={setState}
-            />
-          </div>
-        </div>
-
-        <div className="container max-w-screen-lg px-2 mx-auto mt-24">
-          <section className="mb-24 text-left">
-            <ButtonCSSGeneratorArticle />
-          </section>
+            language="html"
+            setCode={() => {}}
+            showCopyButton
+            analyticsContext="code from buttons generator"
+          />
         </div>
       </div>
-    </>
+      <Configuration state={state} setState={setState} />
+    </div>
   );
 };
 

@@ -2,22 +2,22 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getToolRegistry } from "@/features/tools";
 import { buildToolMetadata } from "@/features/tools/seo";
-import ToolPageShell from "@/features/tools/ui/ToolPageShell";
+import { ToolPage } from "@/features/tools/layouts";
 import BoxShadowsGeneratorClient from "./BoxShadowsGeneratorClient";
 import "./styles.css";
 
-const tool = getToolRegistry().getById("box-shadows-generator");
-
-export const metadata: Metadata = tool
-  ? buildToolMetadata(tool)
-  : { title: "Tool not found | Darma Tools" };
+export async function generateMetadata(): Promise<Metadata> {
+  const tool = getToolRegistry().getById("box-shadows-generator");
+  if (!tool) return {};
+  return buildToolMetadata(tool);
+}
 
 export default function BoxShadowsGeneratorPage() {
+  const tool = getToolRegistry().getById("box-shadows-generator");
   if (!tool) notFound();
-
   return (
-    <ToolPageShell tool={tool}>
+    <ToolPage tool={tool} maxWidth="wide">
       <BoxShadowsGeneratorClient />
-    </ToolPageShell>
+    </ToolPage>
   );
 }

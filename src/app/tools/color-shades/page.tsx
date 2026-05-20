@@ -9,12 +9,11 @@ import ToolContentCard from "@/features/tools/ui/ToolContentCard";
 import type { ColorShadesParams } from "@/types";
 import { generateShades } from "@/utils/color-shades";
 
-
-const tool = getToolRegistry().getById("color-shades");
-
-export const metadata: Metadata = tool
-  ? buildToolMetadata(tool)
-  : { title: "Tool not found | Darma Tools" };
+export async function generateMetadata(): Promise<Metadata> {
+  const tool = getToolRegistry().getById("color-shades");
+  if (!tool) return {};
+  return buildToolMetadata(tool);
+}
 
 const DEFAULT_PARAMS: ColorShadesParams = {
   color1: "#ffffff",
@@ -33,8 +32,9 @@ const SuggestionsSection = dynamic(() => import("./SuggestionsSection"), {
 const ColorShadesArticle = dynamic(() => import("./ColorShadesArticle"));
 
 export default function ColorShadesGenerator() {
-  const initialShades = generateShades(DEFAULT_PARAMS);
+  const tool = getToolRegistry().getById("color-shades");
   if (!tool) notFound();
+  const initialShades = generateShades(DEFAULT_PARAMS);
 
   return (
     <ToolPage

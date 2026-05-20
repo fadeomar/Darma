@@ -3,13 +3,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ElementPreviewShell from "@/components/element/ElementPreviewShell";
-import ElementUnavailableState from "@/components/element/ElementUnavailableState";
 import { getPublicElementBySlugDTO } from "@/server/services/element.service";
 import {
   buildElementMetadata,
-  buildElementUnavailableMetadata,
   buildNotFoundMetadata,
-  isDatabaseUnavailableError,
+  buildElementJsonLd,
 } from "@/app/_helpers/elementPage";
 
 export async function generateMetadata({
@@ -19,15 +17,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
 
-  try {
-    const element = await getPublicElementBySlugDTO(slug);
-    if (!element) return buildNotFoundMetadata();
+  const element = await getPublicElementBySlugDTO(slug);
+  if (!element) return buildNotFoundMetadata();
 
-    return buildElementMetadata(element);
-  } catch (error) {
-    console.error("Failed to build element metadata:", error);
-    return buildElementUnavailableMetadata();
-  }
+  return buildElementMetadata(element);
 }
 
 export default async function ElementBySlugPage({
@@ -37,18 +30,19 @@ export default async function ElementBySlugPage({
 }) {
   const { slug } = await params;
 
-  try {
-    const element = await getPublicElementBySlugDTO(slug);
-    if (!element) notFound();
+  const element = await getPublicElementBySlugDTO(slug);
+  if (!element) notFound();
 
-    return <ElementPreviewShell element={element} />;
-  } catch (error) {
-    console.error("Failed to render element by slug:", error);
+  const jsonLd = buildElementJsonLd(element);
 
-    if (isDatabaseUnavailableError(error)) {
-      return <ElementUnavailableState />;
-    }
-
-    throw error;
-  }
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ElementPreviewShell element={element} />
+    </>
+  );
 }

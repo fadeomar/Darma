@@ -2,6 +2,7 @@ import Link from "next/link";
 import { type ReactNode } from "react";
 import { Badge } from "@/components/ui";
 import type { ToolDefinition } from "@/features/tools/domain/tool";
+import { buildToolJsonLd } from "@/features/tools/seo";
 import { cn } from "@/lib/cn";
 
 const audienceLabels: Record<string, string> = {
@@ -43,9 +44,17 @@ export function ToolPage({
 }) {
   const pageTitle = title ?? tool?.title;
   const pageDescription = description ?? tool?.description;
+  const jsonLd = tool ? buildToolJsonLd(tool) : null;
 
   return (
     <div className={cn("mx-auto px-4 py-8 sm:px-6 lg:px-8", maxWidthClass[maxWidth])}>
+      {jsonLd ? (
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      ) : null}
       <header
         className={cn(
           "rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[var(--shadow-soft)] backdrop-blur sm:p-8",

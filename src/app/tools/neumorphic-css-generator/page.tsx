@@ -1,39 +1,23 @@
-"use client";
-import React, { useState, useRef } from "react";
-
-import Preview from "./Preview";
-import Configuration from "./Configuration";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { getToolRegistry } from "@/features/tools";
+import { buildToolMetadata } from "@/features/tools/seo";
+import ToolPageShell from "@/features/tools/ui/ToolPageShell";
+import NeumorphicCssGeneratorClient from "./NeumorphicCssGeneratorClient";
 import "./style.css";
-import NeumorphismArticle from "./NeumorphismArticle";
-const App = () => {
-  const [activeLightSource, setActiveLightSource] = useState(1);
-  const previewBox = useRef<HTMLDivElement>(null);
+
+const tool = getToolRegistry().getById("neumorphic-css-generator");
+
+export const metadata: Metadata = tool
+  ? buildToolMetadata(tool)
+  : { title: "Tool not found | Darma Tools" };
+
+export default function NeumorphicCssGeneratorPage() {
+  if (!tool) notFound();
 
   return (
-    <>
-      <div className="w-full">
-        <div className="container mx-auto">
-          <div className="mx-auto flex-custom">
-            <Preview
-              setActiveLightSource={setActiveLightSource}
-              previewBox={previewBox}
-              activeLightSource={activeLightSource}
-            />
-            <Configuration
-              previewBox={previewBox}
-              activeLightSource={activeLightSource}
-            />
-          </div>
-        </div>
-
-        <div className="container max-w-screen-lg px-2 mx-auto mt-24">
-          <section className="mb-24 text-left">
-            <NeumorphismArticle />
-          </section>
-        </div>
-      </div>
-    </>
+    <ToolPageShell tool={tool}>
+      <NeumorphicCssGeneratorClient />
+    </ToolPageShell>
   );
-};
-
-export default App;
+}

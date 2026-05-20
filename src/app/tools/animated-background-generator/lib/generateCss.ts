@@ -1,4 +1,4 @@
-import type { AnimatedBackgroundState, ParticleData } from "@/types/animatedBackgroundTypes";
+import type { AnimatedBackgroundState, ParticleData } from "../types";
 
 const bgClass = ".darma-animated-bg";
 

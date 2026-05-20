@@ -1,4 +1,4 @@
-import type { ParticleData } from "@/types/animatedBackgroundTypes";
+import type { ParticleData } from "../types";
 
 export function generateHtml(particles: ParticleData[]) {
   const children = particles.map(() => "  <span></span>").join("\n");

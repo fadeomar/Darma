@@ -6,7 +6,7 @@ import Configuration from "./Configuration";
 import VariantSelector from "@/components/VariantSelector";
 import Title from "@/components/Title";
 import CodeEditor from "@/components/CodeEditor";
-import type { State } from "@/types/animatedBackgroundTypes";
+import type { State } from "./types";
 import { handleBackgroundStyle } from "./styles";
 
 const defaultParticleState: State = {

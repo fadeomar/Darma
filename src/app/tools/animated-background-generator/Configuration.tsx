@@ -1,7 +1,7 @@
 "use client";
 
 import React, { Dispatch, SetStateAction } from "react";
-import { State } from "@/types/animatedBackgroundTypes";
+import { State } from "./types";
 import Title from "@/components/Title";
 
 interface ConfigurationProps {

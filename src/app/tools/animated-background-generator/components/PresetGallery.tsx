@@ -3,7 +3,7 @@
 import type {
   AnimatedBackgroundState,
   BackgroundPreset,
-} from "@/types/animatedBackgroundTypes";
+} from "../types";
 import { generateCss } from "../lib/generateCss";
 import { generateParticleData } from "../lib/generateParticleData";
 import { presetToState } from "../lib/presets";

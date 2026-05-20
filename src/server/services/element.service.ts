@@ -18,21 +18,33 @@ export async function getElementByIdDTO(
 export async function getPublicElementByIdDTO(
   id: string,
 ): Promise<ElementDTO | null> {
-  const { element: elementRepo } = getRepositories();
-  const element = await elementRepo.getById(id);
-  return element ? toElementDTO(element) : null;
+  if (!id) return null;
+
+  try {
+    const { element: elementRepo } = getRepositories();
+    const element = await elementRepo.getById(id);
+    return element ? toElementDTO(element) : null;
+  } catch (error) {
+    console.error(`Failed to load public element by id ${id}:`, error);
+    return null;
+  }
 }
 
 export async function getPublicElementBySlugDTO(slug: string) {
   if (!slug) return null;
 
-  const row = await prisma.element.findFirst({
-    where: {
-      slug,
-      reviewed: true,
-      deleted: false,
-    },
-  });
+  try {
+    const row = await prisma.element.findFirst({
+      where: {
+        slug,
+        reviewed: true,
+        deleted: false,
+      },
+    });
 
-  return row ? toElementDTO(row) : null;
+    return row ? toElementDTO(row) : null;
+  } catch (error) {
+    console.error(`Failed to load public element by slug ${slug}:`, error);
+    return null;
+  }
 }

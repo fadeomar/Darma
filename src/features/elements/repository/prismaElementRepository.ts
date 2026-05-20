@@ -23,11 +23,10 @@ export class PrismaElementRepository implements ElementRepository {
     return row;
   }
 
-  async create(tx: Tx, input: ElementCreateInput) {
+  async create(tx: Tx, input: ElementCreateInput & { slug?: string }) {
     return tx.element.create({
       data: {
         title: input.title,
-        slug: input.slug,
         description: input.description ?? "",
         shortDescription: input.shortDescription ?? null,
         html: input.html ?? "",
@@ -36,6 +35,7 @@ export class PrismaElementRepository implements ElementRepository {
         tags: input.tags ?? [],
         mainCategory: input.mainCategory ?? [],
         secondaryCategory: input.secondaryCategory ?? [],
+        slug: input.slug ?? null,
         reviewed: input.reviewed ?? false,
         deleted: false,
       },
@@ -47,7 +47,6 @@ export class PrismaElementRepository implements ElementRepository {
       where: { id },
       data: {
         ...(input.title !== undefined && { title: input.title }),
-        ...(input.slug !== undefined && { slug: input.slug }),
         ...(input.description !== undefined && {
           description: input.description,
         }),
@@ -64,6 +63,7 @@ export class PrismaElementRepository implements ElementRepository {
         ...(input.secondaryCategory !== undefined && {
           secondaryCategory: input.secondaryCategory,
         }),
+        ...(input.slug !== undefined && { slug: input.slug }),
         ...(input.reviewed !== undefined && { reviewed: input.reviewed }),
       },
     });

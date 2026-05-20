@@ -1,140 +1,30 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import dynamic from "next/dynamic";
 import { getToolRegistry } from "@/features/tools";
-import ToolPageShell from "@/features/tools/ui/ToolPageShell";
-import ToolContentCard from "@/features/tools/ui/ToolContentCard";
-import SurfaceCard from "@/components/ui/SurfaceCard";
+import { buildToolMetadata } from "@/features/tools/seo";
+import { ToolPage } from "@/features/tools/layouts";
 
-export const metadata: Metadata = {
-  title: "JSON Formatter & Validator | Darma Tools",
-  description:
-    "Format, validate, and minify JSON instantly in your browser. Clear error messages with line and column numbers, 2/4-space or tab indentation, one-click copy and download. No signup, nothing uploaded.",
-  keywords: [
-    "json formatter",
-    "json validator",
-    "format json online",
-    "minify json",
-    "validate json",
-    "json prettifier",
-    "json beautifier",
-    "json syntax checker",
-    "pretty print json",
-    "json error finder",
-    "online json tool",
-    "json linter",
-  ],
-  openGraph: {
-    title: "JSON Formatter & Validator — Instant, Free, Private",
-    description:
-      "Paste JSON, format it for readability, minify it for transport, and get precise error messages when something is broken. All client-side — nothing leaves your browser.",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const tool = getToolRegistry().getById("json-formatter");
+  if (!tool) return {};
+  return buildToolMetadata(tool);
+}
 
 const JsonFormatterClient = dynamic(() => import("./JsonFormatterClient"), {
-  loading: () => (
-    <div className="h-[560px] animate-pulse rounded-3xl bg-slate-100" />
-  ),
+  ssr: false,
+  loading: () => <div className="h-[560px] animate-pulse rounded-[var(--radius-xl)] bg-[var(--color-surface-strong)]" />,
 });
 
 const Article = dynamic(() => import("./Article"));
 
 export default function JsonFormatterPage() {
   const tool = getToolRegistry().getById("json-formatter");
-  if (!tool) return null;
+  if (!tool) notFound();
 
   return (
-    <ToolPageShell
-      tool={tool}
-      intro={
-        <p className="max-w-2xl text-sm leading-7 text-slate-700 dark:text-slate-300">
-          Paste any JSON — from an API response, config file, or log export —
-          and format it for reading, minify it for transport, or validate it to
-          find exactly where the syntax breaks. Clear error messages, line and
-          column numbers, one-click copy. Everything runs locally.
-        </p>
-      }
-      sidebar={
-        <div className="flex flex-col gap-5">
-          <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
-              What you can do
-            </h2>
-            <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-700 dark:text-slate-300">
-              <li>
-                <strong className="text-slate-900 dark:text-slate-100">
-                  Format
-                </strong>{" "}
-                — prettify with 2 spaces, 4 spaces, or tabs
-              </li>
-              <li>
-                <strong className="text-slate-900 dark:text-slate-100">
-                  Minify
-                </strong>{" "}
-                — compact to a single line
-              </li>
-              <li>
-                <strong className="text-slate-900 dark:text-slate-100">
-                  Validate
-                </strong>{" "}
-                — check syntax with line + column errors
-              </li>
-              <li>
-                <strong className="text-slate-900 dark:text-slate-100">
-                  Copy
-                </strong>{" "}
-                — one-click clipboard copy
-              </li>
-              <li>
-                <strong className="text-slate-900 dark:text-slate-100">
-                  Download
-                </strong>{" "}
-                — save as <code className="font-mono text-xs">.json</code>
-              </li>
-            </ul>
-          </SurfaceCard>
-
-          <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
-              Common error causes
-            </h2>
-            <ul className="mt-3 space-y-1.5 text-sm leading-6 text-slate-600 dark:text-slate-400">
-              <li>Trailing comma after last item</li>
-              <li>Single quotes instead of double</li>
-              <li>Unquoted property names</li>
-              <li>Missing or extra bracket / brace</li>
-              <li>Comments inside the JSON</li>
-              <li>
-                <code className="font-mono text-xs">undefined</code> or{" "}
-                <code className="font-mono text-xs">NaN</code> as values
-              </li>
-            </ul>
-          </SurfaceCard>
-
-          <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
-              Privacy
-            </h2>
-            <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
-              All processing uses the browser&apos;s built-in{" "}
-              <code className="font-mono text-xs">JSON.parse</code> and{" "}
-              <code className="font-mono text-xs">JSON.stringify</code>. Your
-              data never leaves the page — safe for internal payloads and
-              sensitive configs.
-            </p>
-          </SurfaceCard>
-        </div>
-      }
-    >
-      <ToolContentCard
-        title="JSON Formatter & Validator"
-        description="Paste JSON on the left, pick an action, and inspect the result on the right."
-      >
-        <JsonFormatterClient />
-      </ToolContentCard>
-
-      <ToolContentCard title="About this tool">
-        <Article />
-      </ToolContentCard>
-    </ToolPageShell>
+    <ToolPage tool={tool} article={<Article />}>
+      <JsonFormatterClient />
+    </ToolPage>
   );
 }

@@ -13,7 +13,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const PasswordGeneratorClient = dynamic(() => import("./PasswordGeneratorClient"), {
-  ssr: false,
   loading: () => <div className="h-[420px] animate-pulse rounded-[var(--radius-xl)] bg-[var(--color-surface-strong)]" />,
 });
 

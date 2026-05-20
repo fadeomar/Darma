@@ -12,7 +12,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const JsonFormatterClient = dynamic(() => import("./JsonFormatterClient"), {
-  ssr: false,
   loading: () => <div className="h-[560px] animate-pulse rounded-[var(--radius-xl)] bg-[var(--color-surface-strong)]" />,
 });
 

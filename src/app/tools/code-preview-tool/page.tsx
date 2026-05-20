@@ -11,7 +11,9 @@ export async function generateMetadata(): Promise<Metadata> {
   return buildToolMetadata(tool);
 }
 
-const CodePreviewTool = dynamic(() => import("@/sections/CodePreviewTool"), { ssr: false });
+const CodePreviewTool = dynamic(() => import("@/sections/CodePreviewTool"), {
+  loading: () => <div className="min-h-[560px] animate-pulse rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface)]" />,
+});
 const Article = dynamic(() => import("./Article"));
 
 export default function CodePreviewToolPage() {

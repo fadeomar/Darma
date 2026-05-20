@@ -11,7 +11,9 @@ export async function generateMetadata(): Promise<Metadata> {
   return buildToolMetadata(tool);
 }
 
-const QRCodeClient = dynamic(() => import("./QRCodeClient"), { ssr: false });
+const QRCodeClient = dynamic(() => import("./QRCodeClient"), {
+  loading: () => <div className="min-h-[420px] animate-pulse rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface)]" />,
+});
 
 export default function QRCodePage() {
   const tool = getToolRegistry().getById("qr-code");

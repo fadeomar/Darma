@@ -1,16 +1,25 @@
-import ToolContentCard from "@/features/tools/ui/ToolContentCard";
-
-export default function Article() {
+export default function ImageConverterArticle() {
   return (
-    <ToolContentCard title="Private browser image conversion">
-      <div className="space-y-4 text-sm leading-7 text-[var(--color-text-muted)]">
-        <p>
-          Use the Image Converter to turn an uploaded image into PNG, JPEG, or WebP directly in your browser. It uses the Canvas API locally, so the source file is not sent to a server.
-        </p>
-        <p>
-          PNG is best for transparent graphics, JPEG is useful for photos, and WebP usually gives smaller files for web pages and UI assets.
-        </p>
-      </div>
-    </ToolContentCard>
+    <article className="prose prose-slate max-w-none dark:prose-invert">
+      <h2>About the Image Converter</h2>
+      <p>
+        Darma Image Converter uses the browser canvas API to convert common web
+        images without uploading the original file to a server. It is useful for
+        quick format changes, lightweight compression, and resizing assets before
+        adding them to a website or design file.
+      </p>
+      <h3>Supported output formats</h3>
+      <p>
+        Export to PNG for lossless UI assets, JPEG for photos with smaller file
+        sizes, or WebP for modern web delivery. JPEG and WebP include a quality
+        slider, while PNG keeps lossless output.
+      </p>
+      <h3>Privacy note</h3>
+      <p>
+        Conversion runs locally in the browser. The selected image is read with a
+        temporary object URL, drawn to canvas, and exported as a downloadable
+        image blob.
+      </p>
+    </article>
   );
 }

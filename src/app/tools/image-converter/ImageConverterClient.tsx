@@ -1,25 +1,113 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { Button, Card } from "@/components/ui";
-import { convertImage, formatBytes, IMAGE_OUTPUT_OPTIONS, outputFilename } from "./utils";
+import { ChangeEvent, useEffect, useMemo, useRef, useState } from "react";
+import { Download, Image as ImageIcon, RefreshCw, Upload } from "lucide-react";
+import { Button, Field, Input } from "@/components/ui";
 import type { ConvertedImage, ImageOutputFormat } from "./types";
+import { formatBytes, getExtension, OUTPUT_FORMATS, replaceExtension } from "./utils";
+
+type SourceImage = {
+  file: File;
+  url: string;
+  width: number;
+  height: number;
+};
+
+function clampDimension(value: number, fallback: number) {
+  if (!Number.isFinite(value) || value <= 0) return fallback;
+  return Math.max(1, Math.min(Math.round(value), 12000));
+}
+
+async function loadImage(file: File): Promise<SourceImage> {
+  const url = URL.createObjectURL(file);
+  try {
+    const image = new Image();
+    image.decoding = "async";
+    image.src = url;
+    await image.decode();
+    return { file, url, width: image.naturalWidth, height: image.naturalHeight };
+  } catch (error) {
+    URL.revokeObjectURL(url);
+    throw error;
+  }
+}
+
+async function convertImage({
+  source,
+  format,
+  quality,
+  width,
+  height,
+}: {
+  source: SourceImage;
+  format: ImageOutputFormat;
+  quality: number;
+  width: number;
+  height: number;
+}): Promise<ConvertedImage> {
+  const image = new Image();
+  image.decoding = "async";
+  image.src = source.url;
+  await image.decode();
+
+  const canvas = document.createElement("canvas");
+  canvas.width = width;
+  canvas.height = height;
+  const context = canvas.getContext("2d");
+  if (!context) throw new Error("Canvas is not supported in this browser.");
+
+  if (format === "image/jpeg") {
+    context.fillStyle = "#ffffff";
+    context.fillRect(0, 0, width, height);
+  }
+
+  context.drawImage(image, 0, 0, width, height);
+
+  const blob = await new Promise<Blob>((resolve, reject) => {
+    canvas.toBlob(
+      (result) => {
+        if (result) resolve(result);
+        else reject(new Error("Unable to export image."));
+      },
+      format,
+      quality,
+    );
+  });
+
+  const extension = getExtension(format);
+  return {
+    name: replaceExtension(source.file.name, extension),
+    size: blob.size,
+    width,
+    height,
+    url: URL.createObjectURL(blob),
+    blob,
+    mimeType: format,
+  };
+}
 
 export default function ImageConverterClient() {
-  const [file, setFile] = useState<File | null>(null);
+  const [source, setSource] = useState<SourceImage | null>(null);
   const [format, setFormat] = useState<ImageOutputFormat>("image/webp");
-  const [quality, setQuality] = useState(0.92);
+  const [quality, setQuality] = useState(0.86);
+  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState(0);
+  const [lockRatio, setLockRatio] = useState(true);
   const [converted, setConverted] = useState<ConvertedImage | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [isConverting, setIsConverting] = useState(false);
+  const [error, setError] = useState("");
+  const [converting, setConverting] = useState(false);
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
-  const originalPreview = useMemo(() => (file ? URL.createObjectURL(file) : null), [file]);
+  const ratio = useMemo(() => {
+    if (!source?.width || !source?.height) return 1;
+    return source.width / source.height;
+  }, [source]);
 
   useEffect(() => {
     return () => {
-      if (originalPreview) URL.revokeObjectURL(originalPreview);
+      if (source?.url) URL.revokeObjectURL(source.url);
     };
-  }, [originalPreview]);
+  }, [source?.url]);
 
   useEffect(() => {
     return () => {
@@ -27,153 +115,194 @@ export default function ImageConverterClient() {
     };
   }, [converted?.url]);
 
-  async function handleConvert() {
-    if (!file) {
-      setError("Choose an image first.");
+  const handleFile = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    setError("");
+    setConverted((current) => {
+      if (current?.url) URL.revokeObjectURL(current.url);
+      return null;
+    });
+
+    if (!file.type.startsWith("image/")) {
+      setError("Please choose a valid image file.");
       return;
     }
 
-    setIsConverting(true);
-    setError(null);
+    try {
+      if (source?.url) URL.revokeObjectURL(source.url);
+      const loaded = await loadImage(file);
+      setSource(loaded);
+      setWidth(loaded.width);
+      setHeight(loaded.height);
+    } catch {
+      setError("Could not read this image. Try a PNG, JPEG, or WebP file.");
+    }
+  };
 
+  const updateWidth = (value: string) => {
+    const nextWidth = clampDimension(Number(value), source?.width ?? 1);
+    setWidth(nextWidth);
+    if (lockRatio) setHeight(clampDimension(nextWidth / ratio, source?.height ?? 1));
+  };
+
+  const updateHeight = (value: string) => {
+    const nextHeight = clampDimension(Number(value), source?.height ?? 1);
+    setHeight(nextHeight);
+    if (lockRatio) setWidth(clampDimension(nextHeight * ratio, source?.width ?? 1));
+  };
+
+  const resetSize = () => {
+    if (!source) return;
+    setWidth(source.width);
+    setHeight(source.height);
+  };
+
+  const handleConvert = async () => {
+    if (!source) {
+      setError("Upload an image first.");
+      return;
+    }
+
+    setError("");
+    setConverting(true);
     try {
       if (converted?.url) URL.revokeObjectURL(converted.url);
-      const blob = await convertImage(file, format, quality);
-      const url = URL.createObjectURL(blob);
-      setConverted({
-        name: outputFilename(file.name, format),
-        url,
+      const output = await convertImage({
+        source,
         format,
-        size: blob.size,
+        quality,
+        width: clampDimension(width, source.width),
+        height: clampDimension(height, source.height),
       });
-    } catch (conversionError) {
-      setConverted(null);
-      setError(conversionError instanceof Error ? conversionError.message : "Could not convert the image.");
+      setConverted(output);
+    } catch {
+      setError("Conversion failed. Your browser may not support this output format.");
     } finally {
-      setIsConverting(false);
+      setConverting(false);
     }
-  }
+  };
 
-  function handleReset() {
-    if (converted?.url) URL.revokeObjectURL(converted.url);
-    setFile(null);
-    setConverted(null);
-    setError(null);
-  }
+  const download = () => {
+    if (!converted) return;
+    const link = document.createElement("a");
+    link.href = converted.url;
+    link.download = converted.name;
+    link.click();
+  };
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
-      <Card padding="lg">
-        <div className="space-y-5">
-          <div>
-            <label className="text-sm font-bold text-[var(--color-text)]" htmlFor="image-file">
-              Image file
-            </label>
-            <input
-              id="image-file"
-              type="file"
-              accept="image/*"
-              onChange={(event) => {
-                setFile(event.target.files?.[0] ?? null);
-                setConverted(null);
-                setError(null);
-              }}
-              className="mt-2 block w-full rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-3 text-sm text-[var(--color-text)]"
-            />
-            {file ? (
-              <p className="mt-2 text-xs text-[var(--color-text-muted)]">
-                {file.name} · {formatBytes(file.size)}
-              </p>
-            ) : null}
+    <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_360px]">
+      <section className="space-y-5">
+        <div className="rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border)] bg-[var(--color-surface-muted)] p-6 text-center">
+          <input
+            ref={inputRef}
+            type="file"
+            accept="image/png,image/jpeg,image/webp,image/gif,image/svg+xml,image/*"
+            className="sr-only"
+            onChange={handleFile}
+          />
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-[var(--radius-full)] bg-[var(--color-surface)] text-[var(--color-text-muted)]">
+            <Upload className="h-7 w-7" aria-hidden />
           </div>
-
-          <div>
-            <label className="text-sm font-bold text-[var(--color-text)]" htmlFor="output-format">
-              Output format
-            </label>
-            <select
-              id="output-format"
-              value={format}
-              onChange={(event) => setFormat(event.target.value as ImageOutputFormat)}
-              className="mt-2 min-h-12 w-full rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-strong)] px-3 text-sm text-[var(--color-text)]"
-            >
-              {IMAGE_OUTPUT_OPTIONS.map((option) => (
-                <option key={option.value} value={option.value}>{option.label}</option>
-              ))}
-            </select>
-          </div>
-
-          <div>
-            <label className="text-sm font-bold text-[var(--color-text)]" htmlFor="quality">
-              Quality: {Math.round(quality * 100)}%
-            </label>
-            <input
-              id="quality"
-              type="range"
-              min="0.5"
-              max="1"
-              step="0.01"
-              value={quality}
-              onChange={(event) => setQuality(Number(event.target.value))}
-              className="mt-2 w-full"
-              disabled={format === "image/png"}
-            />
-            <p className="mt-1 text-xs text-[var(--color-text-muted)]">
-              Quality affects JPEG and WebP. PNG keeps lossless output.
-            </p>
-          </div>
-
-          {error ? (
-            <div className="rounded-[var(--radius-md)] border border-red-200 bg-red-50 p-3 text-sm font-semibold text-red-700">
-              {error}
-            </div>
-          ) : null}
-
-          <div className="flex flex-wrap gap-2">
-            <Button onClick={handleConvert} loading={isConverting}>Convert image</Button>
-            <Button variant="secondary" onClick={handleReset}>Reset</Button>
-          </div>
-        </div>
-      </Card>
-
-      <Card padding="lg">
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-          <PreviewPanel title="Original" src={originalPreview} empty="Upload an image to preview it here." />
-          <PreviewPanel title="Converted" src={converted?.url ?? null} empty="Convert an image to see the result." />
+          <h2 className="mt-4 text-xl font-black text-[var(--color-text)]">Upload an image</h2>
+          <p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-[var(--color-text-muted)]">
+            Pick a PNG, JPEG, WebP, or other browser-readable image. Conversion
+            happens in your browser using canvas.
+          </p>
+          <Button className="mt-4" onClick={() => inputRef.current?.click()} leftIcon={<ImageIcon className="h-4 w-4" />}>
+            Choose image
+          </Button>
+          {error ? <p className="mt-3 text-sm font-semibold text-[var(--color-danger)]">{error}</p> : null}
         </div>
 
-        {converted ? (
-          <div className="mt-5 flex flex-wrap items-center justify-between gap-3 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-bg-soft)] p-4">
-            <div>
-              <p className="text-sm font-bold text-[var(--color-text)]">{converted.name}</p>
-              <p className="text-xs text-[var(--color-text-muted)]">{formatBytes(converted.size)}</p>
+        {source ? (
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+              <h3 className="text-sm font-black text-[var(--color-text)]">Original</h3>
+              <img src={source.url} alt="Original upload preview" className="mt-3 max-h-80 w-full rounded-[var(--radius-md)] object-contain" />
+              <dl className="mt-3 grid grid-cols-2 gap-2 text-xs text-[var(--color-text-muted)]">
+                <div><dt className="font-bold">Size</dt><dd>{formatBytes(source.file.size)}</dd></div>
+                <div><dt className="font-bold">Dimensions</dt><dd>{source.width} × {source.height}</dd></div>
+              </dl>
             </div>
-            <a
-              href={converted.url}
-              download={converted.name}
-              className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-primary)] px-4 text-sm font-semibold text-[var(--color-primary-text)] transition hover:bg-[var(--color-primary-hover)]"
-            >
-              Download
-            </a>
+
+            <div className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
+              <h3 className="text-sm font-black text-[var(--color-text)]">Converted</h3>
+              {converted ? (
+                <>
+                  <img src={converted.url} alt="Converted output preview" className="mt-3 max-h-80 w-full rounded-[var(--radius-md)] object-contain" />
+                  <dl className="mt-3 grid grid-cols-2 gap-2 text-xs text-[var(--color-text-muted)]">
+                    <div><dt className="font-bold">Size</dt><dd>{formatBytes(converted.size)}</dd></div>
+                    <div><dt className="font-bold">Dimensions</dt><dd>{converted.width} × {converted.height}</dd></div>
+                  </dl>
+                </>
+              ) : (
+                <div className="mt-3 flex min-h-80 items-center justify-center rounded-[var(--radius-md)] border border-dashed border-[var(--color-border)] text-sm text-[var(--color-text-muted)]">
+                  Converted preview appears here.
+                </div>
+              )}
+            </div>
           </div>
         ) : null}
-      </Card>
-    </div>
-  );
-}
+      </section>
 
-function PreviewPanel({ title, src, empty }: { title: string; src: string | null; empty: string }) {
-  return (
-    <div>
-      <h3 className="text-sm font-bold text-[var(--color-text)]">{title}</h3>
-      <div className="mt-2 flex min-h-64 items-center justify-center overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-muted)] p-3">
-        {src ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={src} alt={`${title} preview`} className="max-h-80 max-w-full rounded-[var(--radius-sm)] object-contain" />
-        ) : (
-          <p className="max-w-xs text-center text-sm text-[var(--color-text-muted)]">{empty}</p>
-        )}
-      </div>
+      <aside className="space-y-4 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-[var(--shadow-card)]">
+        <h2 className="text-lg font-black text-[var(--color-text)]">Export settings</h2>
+
+        <Field label="Output format">
+          <select
+            value={format}
+            onChange={(event) => setFormat(event.target.value as ImageOutputFormat)}
+            className="min-h-11 w-full rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface-strong)] px-3 text-sm text-[var(--color-text)] outline-none focus:border-[var(--color-accent)]"
+          >
+            {OUTPUT_FORMATS.map((item) => (
+              <option key={item.value} value={item.value}>{item.label}</option>
+            ))}
+          </select>
+        </Field>
+
+        <Field label="Quality" description="Used for JPEG and WebP. PNG is lossless.">
+          <input
+            type="range"
+            min="0.1"
+            max="1"
+            step="0.01"
+            value={quality}
+            disabled={format === "image/png"}
+            onChange={(event) => setQuality(Number(event.target.value))}
+            className="w-full accent-[var(--color-primary)] disabled:opacity-40"
+          />
+          <p className="text-xs font-semibold text-[var(--color-text-muted)]">{Math.round(quality * 100)}%</p>
+        </Field>
+
+        <div className="grid grid-cols-2 gap-3">
+          <Field label="Width">
+            <Input type="number" min={1} value={width || ""} onChange={(event) => updateWidth(event.target.value)} />
+          </Field>
+          <Field label="Height">
+            <Input type="number" min={1} value={height || ""} onChange={(event) => updateHeight(event.target.value)} />
+          </Field>
+        </div>
+
+        <label className="flex items-center gap-2 text-sm font-semibold text-[var(--color-text-muted)]">
+          <input type="checkbox" checked={lockRatio} onChange={(event) => setLockRatio(event.target.checked)} />
+          Lock aspect ratio
+        </label>
+
+        <div className="flex flex-wrap gap-2">
+          <Button onClick={handleConvert} loading={converting} disabled={!source} leftIcon={<RefreshCw className="h-4 w-4" />}>
+            Convert
+          </Button>
+          <Button variant="secondary" onClick={resetSize} disabled={!source}>
+            Reset size
+          </Button>
+          <Button variant="soft" onClick={download} disabled={!converted} leftIcon={<Download className="h-4 w-4" />}>
+            Download
+          </Button>
+        </div>
+      </aside>
     </div>
   );
 }

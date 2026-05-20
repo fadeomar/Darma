@@ -7,11 +7,8 @@ import { Button, Field, Input } from "@/components/ui";
 import { ToolLayoutSingleUtility } from "@/features/tools/layouts";
 
 interface QRCodeResponse {
-  qrCodeUrl?: string;
-  error?: string;
+  qrCodeUrl: string;
 }
-
-const MAX_QR_TEXT_LENGTH = 2000;
 
 export default function QRCodeClient() {
   const [inputText, setInputText] = useState("");
@@ -24,15 +21,8 @@ export default function QRCodeClient() {
     setError("");
     setQrCodeUrl("");
 
-    const text = inputText.trim();
-
-    if (!text) {
+    if (!inputText.trim()) {
       setError("Please enter text or a URL.");
-      return;
-    }
-
-    if (text.length > MAX_QR_TEXT_LENGTH) {
-      setError(`Please keep the QR content under ${MAX_QR_TEXT_LENGTH} characters.`);
       return;
     }
 
@@ -41,16 +31,14 @@ export default function QRCodeClient() {
       const response = await fetch("/api/generate-qr", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text }),
+        body: JSON.stringify({ text: inputText }),
       });
 
+      if (!response.ok) throw new Error("Failed to generate QR code.");
       const data: QRCodeResponse = await response.json();
-      if (!response.ok || !data.qrCodeUrl) {
-        throw new Error(data.error ?? "Failed to generate QR code.");
-      }
       setQrCodeUrl(data.qrCodeUrl);
-    } catch (generationError) {
-      setError(generationError instanceof Error ? generationError.message : "An error occurred while generating the QR code.");
+    } catch {
+      setError("An error occurred while generating the QR code.");
     } finally {
       setLoading(false);
     }
@@ -88,11 +76,7 @@ export default function QRCodeClient() {
               value={inputText}
               onChange={(event) => setInputText(event.target.value)}
               placeholder="https://example.com"
-              maxLength={MAX_QR_TEXT_LENGTH}
             />
-            <p className="mt-2 text-xs text-[var(--color-text-muted)]">
-              {inputText.length}/{MAX_QR_TEXT_LENGTH} characters
-            </p>
           </Field>
           <div className="flex flex-wrap gap-2">
             <Button type="submit" loading={loading} leftIcon={<QrCode className="h-4 w-4" />}>Generate QR Code</Button>

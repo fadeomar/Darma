@@ -151,10 +151,6 @@ const AMOUNT_LABEL: Record<GenerationMode, string> = {
 
 // ─── Main component ───────────────────────────────────────────────────────────
 
-const getRandomGenerationDelay = () => {
-  return Math.floor(Math.random() * (2500 - 500 + 1)) + 100;
-};
-
 export default function LoremIpsumClient() {
   const [config, setConfig] = useState<LoremConfig>(DEFAULT_CONFIG);
   const [output, setOutput] = useState<GeneratedOutput>({
@@ -203,7 +199,7 @@ export default function LoremIpsumClient() {
       run(cfg);
       setIsGenerating(false);
       generationTimerRef.current = null;
-    }, getRandomGenerationDelay());
+    }, 3000);
   };
 
   const update = (patch: Partial<LoremConfig>) => {
@@ -513,9 +509,7 @@ export default function LoremIpsumClient() {
           aria-busy={isGenerating}
           className={[
             "relative min-h-[320px] max-h-[540px] overflow-y-auto rounded-[1.15rem] bg-slate-50 p-5 transition duration-500",
-            isGenerating
-              ? "scale-[0.995] blur-[2px] opacity-45"
-              : "blur-0 opacity-100",
+            isGenerating ? "scale-[0.995] blur-[2px] opacity-45" : "blur-0 opacity-100",
             showHtml
               ? "font-mono text-xs leading-6 text-slate-600"
               : "text-sm leading-7 text-[var(--textColor)]",
@@ -577,29 +571,16 @@ export default function LoremIpsumClient() {
         )}
 
         <div className="flex flex-wrap gap-2 lg:justify-end">
-          <CopyButton
-            label="Copy text"
-            onCopy={copyPlain}
-            disabled={isGenerating}
-          />
+          <CopyButton label="Copy text" onCopy={copyPlain} disabled={isGenerating} />
           {config.outputFormat === "html" && (
-            <CopyButton
-              label="Copy HTML"
-              onCopy={copyHtml}
-              disabled={isGenerating}
-            />
+            <CopyButton label="Copy HTML" onCopy={copyHtml} disabled={isGenerating} />
           )}
           <button
             onClick={() => runWithLoading(config)}
             disabled={isGenerating}
             className="inline-flex items-center gap-1.5 rounded-xl border border-black/10 bg-white px-3 py-2 text-sm font-semibold text-[var(--textColor)] transition hover:bg-black/5 disabled:cursor-wait disabled:opacity-50"
           >
-            <RefreshCw
-              className={[
-                "h-3.5 w-3.5",
-                isGenerating ? "animate-spin" : "",
-              ].join(" ")}
-            />
+            <RefreshCw className={["h-3.5 w-3.5", isGenerating ? "animate-spin" : ""].join(" ")} />
             {isGenerating ? "Generating…" : "Regenerate"}
           </button>
           <button

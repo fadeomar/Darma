@@ -27,7 +27,7 @@ const Preview: React.FC<PreviewProps> = ({
   };
 
   return (
-    <div className="relative flex min-h-[400px] xl:min-h-[500px] items-center justify-center rounded-[var(--radius-xl)] border border-[var(--color-border)]">
+    <div className="preview">
       <LightSource
         top="0"
         bottom="unset"

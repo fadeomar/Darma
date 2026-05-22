@@ -9,14 +9,6 @@ export const metadata: Metadata = {
   title: "Categories | Darma",
   description:
     "Browse Darma by category to find UI elements, text effects, games, canvas projects, backgrounds, loaders, apps, and SVG ideas.",
-  alternates: { canonical: "/categories" },
-  openGraph: {
-    title: "Categories | Darma",
-    description:
-      "Browse Darma by topic, including UI elements, effects, games, backgrounds, loaders, apps, and SVG ideas.",
-    type: "website",
-    url: "/categories",
-  },
 };
 
 export default function CategoriesPage() {

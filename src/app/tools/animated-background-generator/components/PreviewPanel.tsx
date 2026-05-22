@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import type { AnimatedBackgroundState, ParticleData } from "../types";
+import type { AnimatedBackgroundState, ParticleData } from "@/types/animatedBackgroundTypes";
 import { generateCss } from "../lib/generateCss";
 
 interface PreviewPanelProps {

@@ -14,7 +14,7 @@ export const GradientsDInputs = ({ state, setState }: ShadowsDInputsProps) => {
   return (
     <>
       {/* Start color Row */}
-      <div className="flex items-center gap-3 mb-5 font-bold text-[var(--textColor)]">
+      <div className="row">
         <label htmlFor="startColor" className="opacity-60">
           Start color:
         </label>
@@ -68,7 +68,7 @@ export const GradientsDInputs = ({ state, setState }: ShadowsDInputsProps) => {
         max={100}
       />
       {/* End color Row */}
-      <div className="flex items-center gap-3 mb-5 font-bold text-[var(--textColor)]">
+      <div className="row">
         <label htmlFor="hover-color" className="opacity-60">
           End color:
         </label>
@@ -138,7 +138,7 @@ export const GradientsDInputs = ({ state, setState }: ShadowsDInputsProps) => {
         max={360}
       />
       {/* Text-color Row */}
-      <div className="flex items-center gap-3 mb-5 font-bold text-[var(--textColor)]">
+      <div className="row">
         <label htmlFor="text-color" className="opacity-60">
           text color:
         </label>
@@ -180,7 +180,7 @@ export const GradientsDInputs = ({ state, setState }: ShadowsDInputsProps) => {
         )}
       </div>
       {/* Placeholder Text Row */}
-      <div className="flex items-center gap-3 mb-5 font-bold text-[var(--textColor)]">
+      <div className="row">
         <label htmlFor="placeholder-text" className="opacity-60">
           Placeholder text:
         </label>
@@ -241,7 +241,7 @@ export const ShadowsDInputs = ({ state, setState }: ShadowsDInputsProps) => {
     <>
       <div className="default-state">
         {/* Placeholder Text Row */}
-        <div className="flex items-center gap-3 mb-5 font-bold text-[var(--textColor)]">
+        <div className="row">
           <label htmlFor="placeholder-text" className="opacity-60">
             Placeholder text:
           </label>
@@ -265,7 +265,7 @@ export const ShadowsDInputs = ({ state, setState }: ShadowsDInputsProps) => {
         </div>
 
         {/* BG color Row */}
-        <div className="flex items-center gap-3 mb-5 font-bold text-[var(--textColor)]">
+        <div className="row">
           <label htmlFor="bgColor" className="opacity-60">
             {state.variant === "transition-on-hover"
               ? "Border Color"
@@ -317,7 +317,7 @@ export const ShadowsDInputs = ({ state, setState }: ShadowsDInputsProps) => {
 
         {/* shadow color Row */}
         {shouldShowElement(state.variant, "transition-on-hover") && (
-          <div className="flex items-center gap-3 mb-5 font-bold text-[var(--textColor)]">
+          <div className="row">
             <label htmlFor="shadow-color" className="opacity-60">
               Shadow color:
             </label>
@@ -363,7 +363,7 @@ export const ShadowsDInputs = ({ state, setState }: ShadowsDInputsProps) => {
         )}
 
         {/* Text-color Row */}
-        <div className="flex items-center gap-3 mb-5 font-bold text-[var(--textColor)]">
+        <div className="row">
           <label htmlFor="text-color" className="opacity-60">
             text color:
           </label>
@@ -448,7 +448,7 @@ export const ShadowsDInputs = ({ state, setState }: ShadowsDInputsProps) => {
       </div>
       <div className="hover-state">
         {/* Hover color Row */}
-        <div className="flex items-center gap-3 mb-5 font-bold text-[var(--textColor)]">
+        <div className="row">
           <label htmlFor="hover-bg-color" className="opacity-60 text-sm">
             {state.variant === "transition-on-hover"
               ? "Slide Color"
@@ -500,7 +500,7 @@ export const ShadowsDInputs = ({ state, setState }: ShadowsDInputsProps) => {
           "transition-on-hover",
           "shadow-on-click",
         ]) && (
-          <div className="flex items-center gap-3 mb-5 font-bold text-[var(--textColor)]">
+          <div className="row">
             <label htmlFor="hover-shadow-color" className="opacity-60">
               Hover Shadow color:
             </label>
@@ -546,7 +546,7 @@ export const ShadowsDInputs = ({ state, setState }: ShadowsDInputsProps) => {
         )}
 
         {/* hover Text-color Row */}
-        <div className="flex items-center gap-3 mb-5 font-bold text-[var(--textColor)]">
+        <div className="row">
           <label htmlFor="hover-text-color" className="opacity-60">
             Hover Text Color:
           </label>

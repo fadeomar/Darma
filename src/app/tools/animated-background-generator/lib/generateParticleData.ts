@@ -1,4 +1,4 @@
-import type { AnimatedBackgroundState, ParticleData } from "../types";
+import type { AnimatedBackgroundState, ParticleData } from "@/types/animatedBackgroundTypes";
 import { createSeededRandom, randomBetween } from "./seededRandom";
 
 export function generateParticleData(state: AnimatedBackgroundState): ParticleData[] {

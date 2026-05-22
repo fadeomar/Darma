@@ -206,20 +206,15 @@ export default function JsonFormatterClient() {
 
   return (
     <ToolLayoutTextWorkbench
-      topActionsSlot={
-        <>
-          <ActionBtn onClick={handleFormat} disabled={!input.trim()}>Format</ActionBtn>
-          <ActionBtn onClick={handleMinify} disabled={!input.trim()} variant="ghost">Minify</ActionBtn>
-          <ActionBtn onClick={handleValidate} disabled={!input.trim()} variant="ghost">Validate</ActionBtn>
-          <span className="mx-1 h-5 w-px bg-black/10" aria-hidden />
-          <IndentSelector value={indent} onChange={setIndent} />
-          <span className="flex-1" />
-          <CopyBtn getText={() => output} />
-        </>
-      }
       inputSlot={
         <div className="flex flex-col gap-2">
-          <SectionLabel>Input</SectionLabel>
+          <div className="flex items-center justify-between gap-2">
+            <SectionLabel>Input</SectionLabel>
+            <div className="flex gap-1.5">
+              <button onClick={handleSample} title="Load sample JSON" className="inline-flex items-center gap-1 rounded-lg border border-black/10 bg-white px-2 py-1 text-xs font-semibold text-[var(--textColor)]/60 transition hover:bg-black/5"><FileText className="h-3 w-3" />Sample</button>
+              <button onClick={handleClear} title="Clear all" className="inline-flex items-center gap-1 rounded-lg border border-black/10 bg-white px-2 py-1 text-xs font-semibold text-[var(--textColor)]/60 transition hover:bg-black/5"><Trash2 className="h-3 w-3" />Clear</button>
+            </div>
+          </div>
           <textarea
             value={input}
             onChange={(event) => {
@@ -239,11 +234,14 @@ export default function JsonFormatterClient() {
       }
       outputSlot={
         <div className="flex flex-col gap-2">
-          <SectionLabel>Output</SectionLabel>
+          <div className="flex items-center justify-between gap-2">
+            <SectionLabel>Output</SectionLabel>
+            <button onClick={handleDownload} disabled={!hasOutput} title="Download as .json" className="inline-flex items-center gap-1 rounded-lg border border-black/10 bg-white px-2 py-1 text-xs font-semibold text-[var(--textColor)]/60 transition hover:bg-black/5 disabled:opacity-30"><Download className="h-3 w-3" />Download</button>
+          </div>
           <textarea
             value={output}
             readOnly
-            placeholder={input ? "Click Format, Minify, or Validate above…" : "Output appears here after processing."}
+            placeholder={input ? "Click Format, Minify, or Validate..." : "Output appears here after processing."}
             rows={16}
             spellCheck={false}
             className="w-full resize-y rounded-2xl border border-black/10 bg-white p-4 font-mono text-xs leading-6 text-[var(--textColor)] outline-none transition placeholder:font-sans placeholder:text-[var(--textColor)]/25 focus:border-[var(--textColor)]/30"
@@ -252,12 +250,15 @@ export default function JsonFormatterClient() {
       }
       statsSlot={<StatusBar status={status} validation={validation} outputLength={output.length} topLevelCount={topCount} />}
       actionsSlot={
-        <div className="flex gap-2">
-          <button onClick={handleSample} className="inline-flex items-center gap-1 rounded-lg border border-black/10 bg-white px-2 py-1 text-xs font-semibold text-[var(--textColor)]/60 transition hover:bg-black/5"><FileText className="h-3 w-3" />Sample</button>
-          <button onClick={handleClear} className="inline-flex items-center gap-1 rounded-lg border border-black/10 bg-white px-2 py-1 text-xs font-semibold text-[var(--textColor)]/60 transition hover:bg-black/5"><Trash2 className="h-3 w-3" />Clear</button>
+        <>
+          <ActionBtn onClick={handleFormat} disabled={!input.trim()}>Format</ActionBtn>
+          <ActionBtn onClick={handleMinify} disabled={!input.trim()} variant="ghost">Minify</ActionBtn>
+          <ActionBtn onClick={handleValidate} disabled={!input.trim()} variant="ghost">Validate</ActionBtn>
+          <span className="mx-1 h-5 w-px bg-black/10" aria-hidden />
+          <IndentSelector value={indent} onChange={setIndent} />
           <span className="flex-1" />
-          <button onClick={handleDownload} disabled={!hasOutput} className="inline-flex items-center gap-1 rounded-lg border border-black/10 bg-white px-2 py-1 text-xs font-semibold text-[var(--textColor)]/60 transition hover:bg-black/5 disabled:opacity-30"><Download className="h-3 w-3" />Download</button>
-        </div>
+          <CopyBtn getText={() => output} />
+        </>
       }
       optionsSlot={<p className="text-center text-xs text-[var(--textColor)]/45">All JSON is processed locally in your browser. Nothing is uploaded or stored.</p>}
     />

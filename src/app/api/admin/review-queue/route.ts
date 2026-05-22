@@ -11,12 +11,6 @@ type Paginated<T> = {
   pageSize: number;
 };
 
-function parsePositiveInt(value: string | null, fallback: number, max = 100) {
-  const parsed = Number(value ?? fallback);
-  if (!Number.isFinite(parsed) || parsed < 1) return fallback;
-  return Math.min(max, Math.floor(parsed));
-}
-
 export async function GET(
   request: NextRequest,
 ): Promise<NextResponse<Paginated<ElementDTO> | { error: string }>> {
@@ -24,8 +18,8 @@ export async function GET(
   if (auth instanceof NextResponse) return auth;
 
   const { searchParams } = new URL(request.url);
-  const page = parsePositiveInt(searchParams.get("page"), 1);
-  const pageSize = parsePositiveInt(searchParams.get("pageSize"), 10);
+  const page = parseInt(searchParams.get("page") || "1", 10);
+  const pageSize = parseInt(searchParams.get("pageSize") || "10", 10);
   const status = (searchParams.get("status") || "pending") as
     | "pending"
     | "deleted"

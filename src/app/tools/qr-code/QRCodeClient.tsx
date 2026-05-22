@@ -6,8 +6,6 @@ import { Download, QrCode } from "lucide-react";
 import { Button, Field, Input } from "@/components/ui";
 import { ToolLayoutSingleUtility } from "@/features/tools/layouts";
 
-const MAX_QR_LENGTH = 2000;
-
 interface QRCodeResponse {
   qrCodeUrl: string;
 }
@@ -25,11 +23,6 @@ export default function QRCodeClient() {
 
     if (!inputText.trim()) {
       setError("Please enter text or a URL.");
-      return;
-    }
-
-    if (inputText.trim().length > MAX_QR_LENGTH) {
-      setError(`Text must be ${MAX_QR_LENGTH} characters or fewer.`);
       return;
     }
 
@@ -62,24 +55,17 @@ export default function QRCodeClient() {
   return (
     <ToolLayoutSingleUtility
       resultSlot={
-        <div className="flex min-h-[360px] flex-col items-center justify-center gap-4">
+        <div className="flex min-h-[280px] flex-col items-center justify-center gap-5">
           {qrCodeUrl ? (
-            <>
-              <Image src={qrCodeUrl} alt="Generated QR code" width={300} height={300} className="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-white p-3 shadow-sm" />
-              <button
-                type="button"
-                onClick={handleDownload}
-                className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--color-text)] px-4 py-2 text-sm font-semibold text-[var(--color-bg)] transition hover:opacity-80"
-              >
-                <Download className="h-4 w-4" />
-                Download PNG
-              </button>
-            </>
+            <Image src={qrCodeUrl} alt="Generated QR code" width={260} height={260} className="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-white p-3 shadow-sm" />
           ) : (
-            <div className="flex h-[300px] w-[300px] items-center justify-center rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border)] bg-[var(--color-surface-muted)]">
-              <QrCode className="h-20 w-20 text-[var(--color-text-soft)]" aria-hidden />
+            <div className="flex h-64 w-64 items-center justify-center rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border)] bg-[var(--color-surface-muted)]">
+              <QrCode className="h-16 w-16 text-[var(--color-text-soft)]" aria-hidden />
             </div>
           )}
+          <p className="max-w-lg text-sm leading-6 text-[var(--color-text-muted)]">
+            Enter a URL or text below, generate the QR code, then download it as an image.
+          </p>
         </div>
       }
       controlsSlot={
@@ -90,14 +76,11 @@ export default function QRCodeClient() {
               value={inputText}
               onChange={(event) => setInputText(event.target.value)}
               placeholder="https://example.com"
-              maxLength={MAX_QR_LENGTH}
             />
-            <p className={`text-right text-xs tabular-nums ${inputText.length >= MAX_QR_LENGTH ? "text-[var(--color-danger)]" : inputText.length >= MAX_QR_LENGTH * 0.9 ? "text-[var(--color-warning,#f59e0b)]" : "text-[var(--color-text-soft)]"}`}>
-              {inputText.length} / {MAX_QR_LENGTH}
-            </p>
           </Field>
           <div className="flex flex-wrap gap-2">
             <Button type="submit" loading={loading} leftIcon={<QrCode className="h-4 w-4" />}>Generate QR Code</Button>
+            <Button type="button" variant="secondary" disabled={!qrCodeUrl} onClick={handleDownload} leftIcon={<Download className="h-4 w-4" />}>Download PNG</Button>
           </div>
         </form>
       }

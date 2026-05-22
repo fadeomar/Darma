@@ -1,7 +1,9 @@
 "use client";
 
 import React, { Dispatch, SetStateAction } from "react";
-import { State } from "./types";
+import { State } from "@/types/animatedBackgroundTypes";
+import Title from "@/components/Title";
+
 interface ConfigurationProps {
   state: State;
   setState: Dispatch<SetStateAction<State>>;
@@ -38,7 +40,11 @@ const Configuration: React.FC<ConfigurationProps> = ({ state, setState }) => {
 
   return (
     <div className="configuration p-8 w-full bg-white bg-opacity-90 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
-      <p className="mb-6 text-xs font-black uppercase tracking-[0.2em] text-black/40">Background Settings</p>
+      <Title
+        variant="h4"
+        label="Background Settings"
+        className="mb-6 text-lg font-semibold text-gray-900"
+      />
 
       {/* Background Color */}
       <div className="mb-6">

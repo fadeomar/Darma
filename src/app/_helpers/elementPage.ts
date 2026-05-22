@@ -56,15 +56,3 @@ export function buildNotFoundMetadata(): Metadata {
     },
   };
 }
-
-
-export function buildElementJsonLd(el: ElementLike) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "CreativeWork",
-    name: el.title ?? "Darma element",
-    description: getElementSeoDescription(el),
-    url: getElementCanonicalPath(el),
-    isAccessibleForFree: true,
-  };
-}

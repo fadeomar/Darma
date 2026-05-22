@@ -1,41 +1,10 @@
-import type { Metadata } from "next";
 import { SearchParams } from "@/types";
 import { searchElementsDTO } from "@/server/services/search.service";
 import { HomeClientPage } from "@/features/elements/ui";
-import type { ElementDTO } from "@/features/elements/dto/element.dto";
-
-export const metadata: Metadata = {
-  title: "Explore Darma Projects | Darma",
-  description:
-    "Search and filter published Darma HTML, CSS, JavaScript, UI, animation, background, loader, and canvas projects.",
-  alternates: { canonical: "/explore" },
-  openGraph: {
-    title: "Explore Darma Projects | Darma",
-    description: "Browse reusable front-end ideas, previews, and code examples from the Darma library.",
-    type: "website",
-    url: "/explore",
-  },
-};
 
 function normalizeParam(param: string | string[] | undefined): string[] {
   if (!param) return [];
-  const values = Array.isArray(param) ? param : [param];
-  return values
-    .flatMap((value) => value.split(","))
-    .map((value) => value.trim())
-    .filter(Boolean);
-}
-
-function normalizeSingleParam(
-  param: string | string[] | undefined,
-): string | undefined {
-  const value = Array.isArray(param) ? param[0] : param;
-  return typeof value === "string" && value.trim() ? value.trim() : undefined;
-}
-
-function normalizePage(value: string | undefined) {
-  const page = Number(value || 1);
-  return Number.isFinite(page) && page > 0 ? Math.floor(page) : 1;
+  return Array.isArray(param) ? param : [param];
 }
 
 export default async function ExplorePage({
@@ -45,6 +14,10 @@ export default async function ExplorePage({
 }) {
   const resolvedSearchParams = await searchParams;
 
+  const normalizeSingleParam = (
+    param: string | string[] | undefined,
+  ): string | undefined => (Array.isArray(param) ? param[0] : param);
+
   const normalizedParams: SearchParams = {
     q: normalizeSingleParam(resolvedSearchParams.q),
     mainCat: resolvedSearchParams.mainCat,
@@ -53,7 +26,7 @@ export default async function ExplorePage({
     exactMatch: normalizeSingleParam(resolvedSearchParams.exactMatch),
   };
 
-  let items: ElementDTO[] = [];
+  let items = [];
   let total = 0;
   let initialError: string | undefined;
 
@@ -63,15 +36,17 @@ export default async function ExplorePage({
       mainCategory: normalizeParam(normalizedParams.mainCat),
       secondaryCategory: normalizeParam(normalizedParams.secCat),
       exactMatch: normalizedParams.exactMatch === "true",
-      page: normalizePage(normalizedParams.page),
+      page: Number(normalizedParams.page || 1),
       pageSize: 12,
       sort: "newest",
     });
+
     items = result.items;
     total = result.total;
   } catch (error) {
-    console.error("Explore page search failed:", error);
-    initialError = "We could not load projects right now. Please try again after checking the database connection and migrations.";
+    console.error("Failed to load explore elements", error);
+    initialError =
+      "Could not connect to the database. Check DATABASE_URL/Neon connection and reload the page.";
   }
 
   return (

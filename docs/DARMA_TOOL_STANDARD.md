@@ -70,9 +70,10 @@ Every public tool needs:
 
 Preferred privacy values:
 
-- `local-only`: processing stays in the browser and is never sent anywhere.
-- `server-assisted`: user input is sent to a Darma API route (e.g. QR generation).
-- `external`: user input is sent to a third-party service.
+- `client-only`: processing stays in the browser and is not persisted.
+- `local-storage`: processing stays in the browser, with optional local persistence.
+- `server-assisted`: user input is sent to a Darma API route.
+- `external-api`: user input is sent to a third-party service.
 
 ## SEO Contract
 

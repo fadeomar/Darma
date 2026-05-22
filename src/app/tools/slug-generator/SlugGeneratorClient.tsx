@@ -190,15 +190,9 @@ export default function SlugGeneratorClient() {
         <div className="rounded-2xl border border-black/8 bg-slate-50 p-4">
           <SectionLabel>Generated slug</SectionLabel>
           {result.slug ? (
-            <>
-              <p className="font-mono text-sm leading-7 text-[var(--textColor)]">
-                {result.slug}
-              </p>
-              <p className="mt-2 truncate rounded-xl bg-white px-3 py-2 font-mono text-xs text-[var(--textColor)]/50">
-                <span className="text-[var(--textColor)]/30">https://example.com/blog/</span>
-                <span className="text-[var(--textColor)]/75">{result.slug}</span>
-              </p>
-            </>
+            <p className="font-mono text-sm leading-7 text-[var(--textColor)]">
+              {result.slug}
+            </p>
           ) : (
             <p className="text-sm italic text-[var(--textColor)]/35">
               Your slug will appear here as you type.

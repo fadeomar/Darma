@@ -1,4 +1,4 @@
-import { type CSSProperties, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import { ActionBar, Card, PreviewFrame } from "@/components/ui";
 
 export function ToolLayoutVisualGenerator({
@@ -8,8 +8,6 @@ export function ToolLayoutVisualGenerator({
   actionsSlot,
   presetsSlot,
   articleSlot,
-  previewMinHeight = "420px",
-  controlsWidth = "360px",
 }: {
   previewSlot: ReactNode;
   controlsSlot?: ReactNode;
@@ -17,20 +15,11 @@ export function ToolLayoutVisualGenerator({
   actionsSlot?: ReactNode;
   presetsSlot?: ReactNode;
   articleSlot?: ReactNode;
-  /** CSS height value for the preview frame minimum height. Defaults to "420px". */
-  previewMinHeight?: string;
-  /** CSS width for the controls sidebar. Defaults to "360px". */
-  controlsWidth?: string;
 }) {
   return (
     <div className="space-y-6">
-      <div
-        className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_var(--tool-controls-width)]"
-        style={{ "--tool-controls-width": controlsWidth } as CSSProperties}
-      >
-        <PreviewFrame style={{ "--tool-preview-min-height": previewMinHeight } as CSSProperties}>
-          {previewSlot}
-        </PreviewFrame>
+      <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
+        <PreviewFrame>{previewSlot}</PreviewFrame>
         {controlsSlot ? <Card variant="default" padding="md">{controlsSlot}</Card> : null}
       </div>
       {actionsSlot ? <ActionBar>{actionsSlot}</ActionBar> : null}

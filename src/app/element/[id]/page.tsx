@@ -7,7 +7,6 @@ import { getPublicElementByIdDTO } from "@/server/services/element.service";
 import {
   buildElementMetadata,
   buildNotFoundMetadata,
-  buildElementJsonLd,
 } from "@/app/_helpers/elementPage";
 
 export async function generateMetadata({
@@ -34,16 +33,5 @@ export default async function ElementByIdPage({
   const element = await getPublicElementByIdDTO(id);
   if (!element) notFound();
 
-  const jsonLd = buildElementJsonLd(element);
-
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <ElementPreviewShell element={element} />
-    </>
-  );
+  return <ElementPreviewShell element={element} />;
 }

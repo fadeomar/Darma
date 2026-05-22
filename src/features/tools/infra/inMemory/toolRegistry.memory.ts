@@ -10,21 +10,6 @@ function includesInsensitive(hay: string, needle: string): boolean {
   return hay.toLowerCase().includes(needle.toLowerCase());
 }
 
-function getSearchableValues(tool: ToolDefinition): string[] {
-  return [
-    tool.title,
-    tool.description,
-    ...(tool.tags ?? []),
-    ...(tool.keywords ?? []),
-    ...(tool.audiences ?? []),
-    ...(tool.mainCategory ?? []),
-    ...(tool.secondaryCategory ?? []),
-    tool.privacy ?? "",
-    tool.layoutType ?? "",
-    tool.toolCategory ?? "",
-  ];
-}
-
 export class InMemoryToolRegistry implements ToolRegistry {
   constructor(private readonly tools: ToolDefinition[]) {}
 
@@ -41,47 +26,27 @@ export class InMemoryToolRegistry implements ToolRegistry {
     const main = query.mainCategory ?? [];
     const secondary = query.secondaryCategory ?? [];
     const tags = query.tags ?? [];
-    const audiences = query.audiences ?? [];
-    const layoutTypes = query.layoutTypes ?? [];
-    const privacy = query.privacy ?? [];
 
-    return this.tools.filter((tool) => {
-      if (tool.visibility !== "public") return false;
+    return this.tools.filter((t) => {
+      if (t.visibility !== "public") return false;
 
-      if (main.length > 0 && !tool.mainCategory.some((x) => main.includes(x))) {
+      if (main.length > 0 && !t.mainCategory.some((x) => main.includes(x)))
         return false;
-      }
       if (
         secondary.length > 0 &&
-        !tool.secondaryCategory.some((x) => secondary.includes(x))
-      ) {
+        !t.secondaryCategory.some((x) => secondary.includes(x))
+      )
         return false;
-      }
-      if (tags.length > 0 && !tool.tags.some((x) => tags.includes(x))) {
+      if (tags.length > 0 && !t.tags.some((x) => tags.includes(x)))
         return false;
-      }
-      if (
-        audiences.length > 0 &&
-        !(tool.audiences ?? []).some((x) => audiences.includes(x))
-      ) {
-        return false;
-      }
-      if (
-        layoutTypes.length > 0 &&
-        (!tool.layoutType || !layoutTypes.includes(tool.layoutType))
-      ) {
-        return false;
-      }
-      if (
-        privacy.length > 0 &&
-        (!tool.privacy || !privacy.includes(tool.privacy))
-      ) {
-        return false;
-      }
 
       if (!q) return true;
 
-      return getSearchableValues(tool).some((value) => includesInsensitive(value, q));
+      return (
+        includesInsensitive(t.title, q) ||
+        includesInsensitive(t.description, q) ||
+        t.tags.some((tag) => includesInsensitive(tag, q))
+      );
     });
   }
 }

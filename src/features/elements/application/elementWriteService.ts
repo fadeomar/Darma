@@ -35,15 +35,11 @@ export class ElementWriteService {
         throw new ElementNotFoundError(id);
       }
 
-      // Prefer an explicit slug from the admin form. Otherwise regenerate when
-      // the title changes so new public URLs stay readable.
+      // If title is changing, regenerate slug
+      // (If you want "slug never changes", remove this block)
       let next = input as Record<string, unknown>;
 
-      if (typeof input.slug === "string" && input.slug.trim().length > 0) {
-        const base = slugify(input.slug);
-        const slug = await this.makeUniqueSlug(tx, base, id);
-        next = { ...input, slug };
-      } else if (typeof input.title === "string" && input.title.trim().length > 0) {
+      if (typeof input.title === "string" && input.title.trim().length > 0) {
         const base = slugify(input.title);
         const slug = await this.makeUniqueSlug(tx, base, id);
         next = { ...input, slug };

@@ -10,7 +10,6 @@ import {
   FaFilm,
   FaPaintbrush,
   FaPalette,
-  FaImage,
   FaQrcode,
   FaWandMagic,
   FaWandMagicSparkles,
@@ -28,7 +27,6 @@ const ICONS: Record<string, IconType> = {
   film: FaFilm,
   palette: FaPalette,
   cube: FaCube,
-  image: FaImage,
 };
 
 const audienceLabels: Record<string, string> = {
@@ -48,13 +46,6 @@ function layoutLabel(layoutType?: ToolDefinition["layoutType"]) {
   return "Tool";
 }
 
-function privacyLabel(privacy?: ToolDefinition["privacy"]) {
-  if (privacy === "local-only") return "Local";
-  if (privacy === "server-assisted") return "Server";
-  if (privacy === "external") return "External";
-  return null;
-}
-
 function ToolCard({ tool }: { tool: ToolDefinition }) {
   const Icon = ICONS[tool.icon ?? "code"] ?? FaWandMagicSparkles;
 
@@ -67,7 +58,6 @@ function ToolCard({ tool }: { tool: ToolDefinition }) {
           </span>
           <div className="flex flex-wrap justify-end gap-2">
             {tool.featured ? <Badge variant="warning">Featured</Badge> : null}
-            {privacyLabel(tool.privacy) ? <Badge variant="success">{privacyLabel(tool.privacy)}</Badge> : null}
             <Badge variant="soft">{layoutLabel(tool.layoutType)}</Badge>
           </div>
         </div>
@@ -102,11 +92,8 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
         tool.title,
         tool.description,
         ...(tool.tags ?? []),
-        ...(tool.keywords ?? []),
         ...(tool.audiences ?? []),
-        ...(tool.mainCategory ?? []),
         ...(tool.secondaryCategory ?? []),
-        tool.privacy ?? "",
         tool.layoutType ?? "",
       ].some((value) => value.toLowerCase().includes(q));
     });

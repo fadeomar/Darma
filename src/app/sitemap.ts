@@ -1,5 +1,4 @@
 import type { MetadataRoute } from "next";
-import categoriesData from "@/data/category.json";
 import { getToolRegistry } from "@/features/tools";
 import { absoluteUrl } from "@/features/tools/seo";
 
@@ -11,11 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((tool) => tool.visibility === "public")
     .map((tool) => tool.href);
 
-  const categoryRoutes = categoriesData.categories.map(
-    (category) => `/categories/${category.name}`,
-  );
-
-  return [...STATIC_ROUTES, ...categoryRoutes, ...toolRoutes].map((route) => ({
+  return [...STATIC_ROUTES, ...toolRoutes].map((route) => ({
     url: absoluteUrl(route),
     lastModified: new Date(),
     changeFrequency: route.startsWith("/tools/") ? "monthly" : "weekly",

@@ -121,7 +121,6 @@ function StatCard({ label, value }: { label: string; value: string }) {
 
 export default function CssGradientGeneratorClient() {
   const [state, setState] = useState<GradientState>(DEFAULT_GRADIENT);
-  const [showCode, setShowCode] = useState(false);
 
   const validation = useMemo(() => validateGradient(state), [state]);
   const gradientCss = useMemo(() => (validation.ok ? buildGradientCss(state) : ""), [state, validation.ok]);
@@ -192,7 +191,7 @@ export default function CssGradientGeneratorClient() {
           </div>
 
           <div
-            className="relative flex min-h-[480px] overflow-hidden rounded-3xl border border-black/10 p-6 shadow-inner"
+            className="relative flex min-h-[320px] overflow-hidden rounded-3xl border border-black/10 p-6 shadow-inner"
             style={{ background: validation.ok ? gradientCss : "#f8fafc" }}
           >
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.32),transparent_38%)]" />
@@ -403,21 +402,10 @@ export default function CssGradientGeneratorClient() {
       </div>
 
       {validation.ok ? (
-        <div>
-          <button
-            type="button"
-            onClick={() => setShowCode((v) => !v)}
-            className="inline-flex items-center gap-1.5 rounded-xl border border-black/10 bg-white px-3 py-2 text-sm font-bold text-[var(--textColor)]/60 transition hover:border-[var(--textColor)]/25 hover:bg-black/5"
-          >
-            {showCode ? "Hide CSS ▲" : "Show CSS ▼"}
-          </button>
-          {showCode ? (
-            <div className="mt-3 grid gap-3">
-              <CodeBox label="CSS background" value={`background: ${gradientCss};`} />
-              <CodeBox label="CSS class" value={cssSnippet} />
-              <CodeBox label="Tailwind arbitrary class" value={tailwindClass} />
-            </div>
-          ) : null}
+        <div className="grid gap-3">
+          <CodeBox label="CSS background" value={`background: ${gradientCss};`} />
+          <CodeBox label="CSS class" value={cssSnippet} />
+          <CodeBox label="Tailwind arbitrary class" value={tailwindClass} />
         </div>
       ) : null}
     </div>

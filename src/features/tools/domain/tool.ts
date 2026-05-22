@@ -1,8 +1,8 @@
 export type ToolId = string;
 
 export type ToolVisibility = "public" | "unlisted" | "private";
+export type ToolPrivacy = "browser-only" | "server-processed" | "account-data";
 export type ToolStatus = "ready" | "in_progress" | "planned";
-export type ToolPrivacy = "local-only" | "server-assisted" | "external";
 export type ToolLayoutType =
   | "text-workbench"
   | "visual-generator"
@@ -22,9 +22,6 @@ export type ToolDefinition = {
   description: string;
   href: string;
   tags: string[];
-  keywords?: string[];
-  relatedTools?: ToolId[];
-  privacy?: ToolPrivacy;
   mainCategory: string[];
   secondaryCategory: string[];
   visibility: ToolVisibility;
@@ -35,6 +32,9 @@ export type ToolDefinition = {
   createdAt?: Date;
   updatedAt?: Date;
   audiences?: ToolAudience[];
+  keywords?: string[];
+  relatedTools?: ToolId[];
+  privacy?: ToolPrivacy;
   featured?: boolean;
   pinned?: number;
   toolCategory?: string;

@@ -18,21 +18,18 @@ type PaginatedApiResponse<T> = {
   pageSize: number;
 };
 
-// temporary: until you also DTO-ify your create/update payloads
-type CreateElementPayload = {
-  id?: string;
+type ElementSavePayload = {
   title: string;
   description: string;
   shortDescription?: string | null;
   html: string;
   css: string;
-  js?: string | null;
+  js?: string;
   tags: string[];
   mainCategory: string[];
   secondaryCategory: string[];
   reviewed?: boolean;
-  deleted?: boolean;
-  slug?: string | null;
+  slug?: string;
 };
 function optionsToValues(
   value:
@@ -218,7 +215,9 @@ export default function ElementsPage() {
         slug: slugify(value) ?? "",
         [name]: value,
       }));
+      return;
     }
+
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -254,24 +253,25 @@ export default function ElementsPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const payload: CreateElementPayload = {
-      id: formData.id || undefined,
+    const isEditing = Boolean(formData.id);
+    const payload: ElementSavePayload = {
       title: formData.title || "",
-      description: (formData.description as any) || "",
-      shortDescription: (formData.shortDescription as any) ?? null,
+      description: (formData.description as string | undefined) || "",
+      shortDescription: (formData.shortDescription as string | null | undefined) ?? null,
       html: formData.html || "",
       css: formData.css || "",
-      js: (formData.js as any) ?? null,
+      js: (formData.js as string | undefined) ?? "",
       tags: formData.tags || [],
       mainCategory: formData.mainCategory || [],
       secondaryCategory: formData.secondaryCategory || [],
       reviewed: !!formData.reviewed,
-      deleted: !!formData.deleted,
-      slug: formData.slug ? (slugify(formData.slug) ?? "") : "",
+      ...(isEditing && formData.slug
+        ? { slug: slugify(formData.slug) ?? "" }
+        : {}),
     };
 
-    const url = formData.id ? `/api/elements/${formData.id}` : "/api/elements";
-    const method = formData.id ? "PUT" : "POST";
+    const url = isEditing ? `/api/elements/${formData.id}` : "/api/elements";
+    const method = isEditing ? "PUT" : "POST";
 
     try {
       const response = await fetch(url, {

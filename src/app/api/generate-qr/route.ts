@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import QRCode from "qrcode";
 
-const MAX_QR_TEXT_LENGTH = 2000;
-
 interface QRCodeRequest {
   text: string;
 }
@@ -20,13 +18,6 @@ export async function POST(
 
     if (!text || typeof text !== "string") {
       return NextResponse.json({ error: "Invalid input" }, { status: 400 });
-    }
-
-    if (text.trim().length === 0 || text.length > MAX_QR_TEXT_LENGTH) {
-      return NextResponse.json(
-        { error: `Text is required and must be ${MAX_QR_TEXT_LENGTH} characters or fewer.` },
-        { status: 400 },
-      );
     }
 
     const qrCodeUrl: string = await QRCode.toDataURL(text);

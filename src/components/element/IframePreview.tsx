@@ -38,8 +38,6 @@ export default function IframePreview({
             srcDoc={srcDoc}
             className="w-full h-full rounded-xl bg-white dark:bg-black border border-gray-200 dark:border-gray-800 shadow-md"
             title="Element Preview"
-            sandbox="allow-scripts allow-forms allow-modals allow-popups"
-            referrerPolicy="no-referrer"
           />
         </div>
       </ResizableContainer>

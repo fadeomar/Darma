@@ -40,12 +40,17 @@ function filterSet(
 // ─── Password generation ──────────────────────────────────────────────────────
 
 function randIndex(max: number): number {
-  if (typeof window !== "undefined" && window.crypto) {
+  if (max <= 0) {
+    throw new Error("Random index max must be greater than zero.");
+  }
+
+  if (typeof globalThis.crypto?.getRandomValues === "function") {
     const buf = new Uint32Array(1);
-    window.crypto.getRandomValues(buf);
+    globalThis.crypto.getRandomValues(buf);
     return buf[0] % max;
   }
-  return Math.floor(Math.random() * max);
+
+  throw new Error("Secure random number generation is not available in this browser.");
 }
 
 function pickRandom(chars: string): string {

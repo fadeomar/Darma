@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import CodeEditor from "@/components/CodeEditor"; // Assuming this is your editor component
 
 import "./style.css";
@@ -11,6 +11,7 @@ export default function CodePreviewTool() {
   const [js, setJs] = useState('console.log("Hello from JS");');
   const [error, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<"html" | "css" | "js">("html");
+  const iframeRef = useRef<HTMLIFrameElement | null>(null);
 
   // Generate iframe content
   const iframeContent = `
@@ -45,15 +46,35 @@ export default function CodePreviewTool() {
     </html>
   `;
 
-  // Handle messages from iframe (errors or success)
+  // Handle messages from the preview iframe only.
   useEffect(() => {
+    const isPreviewMessage = (
+      value: unknown,
+    ): value is { type: "error" | "success"; message?: unknown; lineno?: unknown } => {
+      if (!value || typeof value !== "object") return false;
+      const candidate = value as { type?: unknown };
+      return candidate.type === "error" || candidate.type === "success";
+    };
+
     const handleMessage = (event: MessageEvent) => {
+      if (event.source !== iframeRef.current?.contentWindow) return;
+      if (!isPreviewMessage(event.data)) return;
+
       if (event.data.type === "error") {
-        setError(`Error: ${event.data.message} (Line ${event.data.lineno})`);
-      } else if (event.data.type === "success") {
-        setError(null); // Clear error when code runs successfully
+        const message =
+          typeof event.data.message === "string"
+            ? event.data.message
+            : "Unknown preview error";
+        const line =
+          typeof event.data.lineno === "number" || typeof event.data.lineno === "string"
+            ? ` (Line ${event.data.lineno})`
+            : "";
+        setError(`Error: ${message}${line}`);
+      } else {
+        setError(null);
       }
     };
+
     window.addEventListener("message", handleMessage);
     return () => window.removeEventListener("message", handleMessage);
   }, []);
@@ -124,8 +145,10 @@ export default function CodePreviewTool() {
               Live Preview
             </h2>
             <iframe
+              ref={iframeRef}
               srcDoc={iframeContent}
-              sandbox="allow-scripts allow-forms allow-same-origin"
+              sandbox="allow-scripts allow-forms"
+              referrerPolicy="no-referrer"
               className="w-full h-[calc(100%-2rem)] border-4 border-gradient-to-r from-blue-400 to-purple-500 rounded-md bg-white"
               title="Live Preview"
             />

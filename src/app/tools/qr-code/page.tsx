@@ -1,27 +1,57 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import dynamic from "next/dynamic";
 import { getToolRegistry } from "@/features/tools";
-import { buildToolMetadata } from "@/features/tools/seo";
 import { ToolPage } from "@/features/tools/layouts";
+import ToolContentCard from "@/features/tools/ui/ToolContentCard";
+import QRCodeClient from "./QRCodeClient";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const tool = getToolRegistry().getById("qr-code");
-  if (!tool) return {};
-  return buildToolMetadata(tool);
-}
+const Article = dynamic(() => import("./Article"));
 
-const QRCodeClient = dynamic(() => import("./QRCodeClient"), {
-  loading: () => <div className="min-h-[420px] animate-pulse rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface)]" />,
-});
+export const metadata: Metadata = {
+  title: "QR Code Generator | Darma Tools",
+  description:
+    "Generate QR codes quickly for URLs and text with a fast browser-based tool.",
+  keywords: [
+    "QR code generator",
+    "free QR code",
+    "create QR codes",
+    "scannable QR codes",
+    "online QR tool",
+  ],
+  openGraph: {
+    title: "QR Code Generator | Darma Tools",
+    description:
+      "Create QR codes for URLs and text with a fast, simple browser-based tool.",
+    type: "website",
+  },
+};
 
 export default function QRCodePage() {
   const tool = getToolRegistry().getById("qr-code");
-  if (!tool) notFound();
+  if (!tool) return null;
 
   return (
-    <ToolPage tool={tool} maxWidth="wide">
-      <QRCodeClient />
+    <ToolPage
+      tool={tool}
+      maxWidth="wide"
+      intro={
+        <p className="max-w-2xl text-sm leading-7 text-slate-700 dark:text-slate-300">
+          Create a scannable QR code for a URL or short text, then download it
+          for posters, menus, packaging, presentations, or social posts.
+        </p>
+      }
+      article={
+        <ToolContentCard title="QR code tips and best practices">
+          <Article />
+        </ToolContentCard>
+      }
+    >
+      <ToolContentCard
+        title="QR Code Generator"
+        description="Enter text or a URL and generate a QR code instantly."
+      >
+        <QRCodeClient />
+      </ToolContentCard>
     </ToolPage>
   );
 }

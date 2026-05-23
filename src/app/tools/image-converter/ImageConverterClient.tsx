@@ -13,6 +13,8 @@ type SourceImage = {
   height: number;
 };
 
+const MAX_IMAGE_FILE_SIZE_BYTES = 12 * 1024 * 1024;
+
 function clampDimension(value: number, fallback: number) {
   if (!Number.isFinite(value) || value <= 0) return fallback;
   return Math.max(1, Math.min(Math.round(value), 12000));
@@ -130,6 +132,11 @@ export default function ImageConverterClient() {
       return;
     }
 
+    if (file.size > MAX_IMAGE_FILE_SIZE_BYTES) {
+      setError(`Please choose an image smaller than ${formatBytes(MAX_IMAGE_FILE_SIZE_BYTES)}.`);
+      return;
+    }
+
     try {
       if (source?.url) URL.revokeObjectURL(source.url);
       const loaded = await loadImage(file);
@@ -208,7 +215,7 @@ export default function ImageConverterClient() {
           </div>
           <h2 className="mt-4 text-xl font-black text-[var(--color-text)]">Upload an image</h2>
           <p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-[var(--color-text-muted)]">
-            Pick a PNG, JPEG, WebP, or other browser-readable image. Conversion
+            Pick a PNG, JPEG, WebP, or other browser-readable image up to {formatBytes(MAX_IMAGE_FILE_SIZE_BYTES)}. Conversion
             happens in your browser using canvas.
           </p>
           <Button className="mt-4" onClick={() => inputRef.current?.click()} leftIcon={<ImageIcon className="h-4 w-4" />}>

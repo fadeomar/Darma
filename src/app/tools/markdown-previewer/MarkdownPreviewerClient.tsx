@@ -219,7 +219,7 @@ export default function MarkdownPreviewerClient() {
       </div>
 
       <div className="block lg:hidden">
-        <Tabs items={TAB_ITEMS} value={activeTab} onChange={setActiveTab} ariaLabel="Markdown previewer panels" />
+        <Tabs items={TAB_ITEMS} value={activeTab} onChange={(value) => setActiveTab(value as MarkdownTab)} ariaLabel="Markdown previewer panels" />
         <div className="mt-4">
           {activeTab === "write" ? editor : null}
           {activeTab === "preview" ? preview : null}

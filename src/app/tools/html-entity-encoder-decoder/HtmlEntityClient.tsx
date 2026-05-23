@@ -134,7 +134,7 @@ export default function HtmlEntityClient() {
       </div>
 
       <div className="flex flex-wrap items-center justify-between gap-3 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-3 shadow-[var(--shadow-soft)]">
-        <Tabs items={MODE_TABS} value={mode} onChange={(nextMode) => { setMode(nextMode); setManualOutput(""); }} ariaLabel="HTML entity mode" />
+        <Tabs items={MODE_TABS} value={mode} onChange={(nextMode) => { setMode(nextMode as EntityMode); setManualOutput(""); }} ariaLabel="HTML entity mode" />
         <div className="flex flex-wrap gap-2">
           <ToggleButton enabled={autoConvert} onClick={() => setAutoConvert((current) => !current)}>Auto convert</ToggleButton>
           <Button variant="primary" onClick={convertNow} disabled={autoConvert || isTooLarge}>

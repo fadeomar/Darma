@@ -62,8 +62,8 @@ export default function JsonToTypescriptClient() {
   }, [jsonInput, parseResult]);
 
   const output = generated?.code ?? "";
-  const parseError = parseResult.ok ? null : parseResult.error;
-  const lineColumn = !parseResult.ok && parseResult.line && parseResult.column ? ` Line ${parseResult.line}, column ${parseResult.column}.` : "";
+  const parseError = "error" in parseResult ? parseResult.error : null;
+  const lineColumn = "line" in parseResult && parseResult.line != null && parseResult.column != null ? ` Line ${parseResult.line}, column ${parseResult.column}.` : "";
 
   function updateOption<K extends keyof InferOptions>(key: K, value: InferOptions[K]) {
     setOptions((current) => ({ ...current, [key]: value }));

@@ -21,6 +21,11 @@ import type { HarmonyMode, PaletteColor, PaletteSize, PaletteUiMode } from "./ty
 
 type ExportMode = "hex" | "css" | "tailwind" | "json";
 
+const UI_MODE_TABS = [
+  { value: "light", label: "Light" },
+  { value: "dark", label: "Dark" },
+] satisfies Array<{ value: PaletteUiMode; label: string }>;
+
 const EXPORT_TABS = [
   { value: "hex", label: "HEX" },
   { value: "css", label: "CSS variables" },
@@ -179,12 +184,9 @@ export default function ColorPaletteClient() {
         <Field label="Preview mode" description="Test the palette against a light or dark surface.">
           <Tabs
             value={uiMode}
-            onChange={setUiMode}
+            onChange={(value) => setUiMode(value as PaletteUiMode)}
             ariaLabel="Preview mode"
-            items={[
-              { value: "light", label: "Light" },
-              { value: "dark", label: "Dark" },
-            ]}
+            items={UI_MODE_TABS}
           />
         </Field>
       </div>
@@ -277,7 +279,7 @@ export default function ColorPaletteClient() {
               <p className="mt-1 text-sm leading-6 text-[var(--color-text-muted)]">Copy the palette as CSS, JSON, Tailwind-style tokens, or a plain HEX list.</p>
             </div>
           </div>
-          <Tabs value={exportMode} onChange={setExportMode} items={EXPORT_TABS} ariaLabel="Export format" className="mt-4" />
+          <Tabs value={exportMode} onChange={(value) => setExportMode(value as ExportMode)} items={EXPORT_TABS} ariaLabel="Export format" className="mt-4" />
           <Textarea readOnly value={exportValue} className="mt-4 min-h-72 font-mono text-xs leading-5" />
           <div className="mt-3 flex flex-wrap gap-2">
             <CopyButton text={exportValue}>Copy all</CopyButton>

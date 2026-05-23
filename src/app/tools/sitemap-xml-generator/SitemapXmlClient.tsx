@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { Download, Plus, RefreshCw, Trash2 } from "lucide-react";
 import { Badge, Button, CopyButton, Field, Input, Select, Tabs, Textarea } from "@/components/ui";
-import { generateSitemapXml, parseUrlList, validateSitemapEntries } from "./sitemap";
+import { generateSitemapXml, parseUrlList, validateSitemapEntries } from "./sitemapXml";
 import {
   CHANGEFREQ_OPTIONS,
   DEFAULT_SITEMAP_OPTIONS,
@@ -151,7 +151,7 @@ export default function SitemapXmlClient() {
       <div className="grid gap-5 xl:grid-cols-2">
         <section className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-4 shadow-[var(--shadow-soft)]">
           <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-            <Tabs items={INPUT_TABS} value={inputMode} onChange={setInputMode} ariaLabel="Sitemap input mode" />
+            <Tabs items={INPUT_TABS} value={inputMode} onChange={(value) => setInputMode(value as InputMode)} ariaLabel="Sitemap input mode" />
             <div className="flex flex-wrap gap-2">
               {inputMode === "manual" ? <Button onClick={parseManualInput}>Parse URLs</Button> : <Button variant="secondary" onClick={formatManualFromTable}>Back to list</Button>}
               <Button variant="secondary" onClick={addEntry} disabled={entries.length >= MAX_SITEMAP_URLS} leftIcon={<Plus className="h-4 w-4" />}>Add row</Button>

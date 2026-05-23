@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { AlertTriangle, Download, GripVertical, Plus, RotateCcw, Trash2 } from "lucide-react";
 import { Badge, Button, CopyButton, Field, Input, Select, Tabs, Textarea } from "@/components/ui";
-import { generateRobotsTxt, normalizeRobotsPath, validateRobotsConfig } from "./robots";
+import { generateRobotsTxt, normalizeRobotsPath, validateRobotsConfig } from "./robotsTxt";
 import { DEFAULT_ROBOTS_CONFIG, DIRECTIVE_OPTIONS, ROBOTS_PRESETS } from "./presets";
 import type { RobotsConfig, RobotsDirective, RobotsGroup, RobotsPresetId, RobotsRule, RobotsWarningLevel } from "./types";
 
@@ -261,7 +261,7 @@ export default function RobotsTxtClient() {
             </div>
             <Tabs
               value={outputTab}
-              onChange={(value) => setOutputTab(value)}
+              onChange={(value) => setOutputTab(value as OutputTab)}
               ariaLabel="Robots output tabs"
               items={[{ value: "preview", label: "Preview" }, { value: "help", label: "Directives" }]}
             />

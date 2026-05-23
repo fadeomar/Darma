@@ -371,7 +371,7 @@ export default function RegexTesterClient() {
       ) : null}
 
       <div className="block lg:hidden">
-        <Tabs items={TAB_ITEMS} value={activeTab} onChange={setActiveTab} ariaLabel="Regex tester panels" />
+        <Tabs items={TAB_ITEMS} value={activeTab} onChange={(value) => setActiveTab(value as RegexTab)} ariaLabel="Regex tester panels" />
         <div className="mt-4">
           {activeTab === "test" ? <div className="space-y-4">{editorPanel}{previewPanel}</div> : null}
           {activeTab === "matches" ? matchesPanel : null}

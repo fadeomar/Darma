@@ -206,7 +206,7 @@ export default function JwtDecoderClient() {
       <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_320px]">
         <div className="space-y-3">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <Tabs items={TAB_ITEMS} value={activeTab} onChange={setActiveTab} ariaLabel="JWT decoded sections" />
+            <Tabs items={TAB_ITEMS} value={activeTab} onChange={(value) => setActiveTab(value as JwtTab)} ariaLabel="JWT decoded sections" />
             <Badge variant="outline" className="gap-1">
               <FileJson className="h-3 w-3" aria-hidden /> {result.segments.length || 0} segment{result.segments.length === 1 ? "" : "s"}
             </Badge>

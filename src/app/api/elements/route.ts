@@ -23,10 +23,7 @@ export async function GET(request: NextRequest) {
   const pageSize = Math.max(1, Number(searchParams.get("pageSize") || "6"));
   const searchQuery = (searchParams.get("search") || "").trim();
 
-  const includeDeleted = searchParams.get("includeDeleted") === "true";
-
   const where = {
-    ...(includeDeleted ? {} : { deleted: false }),
     ...(searchQuery
       ? {
           OR: [

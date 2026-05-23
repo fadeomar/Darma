@@ -1,11 +1,7 @@
-import type { Metadata } from "next";
-import dynamic from "next/dynamic";
+import { Metadata } from "next";
 import { getToolRegistry } from "@/features/tools";
 import { ToolPage } from "@/features/tools/layouts";
-import ToolContentCard from "@/features/tools/ui/ToolContentCard";
 import QRCodeClient from "./QRCodeClient";
-
-const Article = dynamic(() => import("./Article"));
 
 export const metadata: Metadata = {
   title: "QR Code Generator | Darma Tools",
@@ -31,27 +27,8 @@ export default function QRCodePage() {
   if (!tool) return null;
 
   return (
-    <ToolPage
-      tool={tool}
-      maxWidth="wide"
-      intro={
-        <p className="max-w-2xl text-sm leading-7 text-slate-700 dark:text-slate-300">
-          Create a scannable QR code for a URL or short text, then download it
-          for posters, menus, packaging, presentations, or social posts.
-        </p>
-      }
-      article={
-        <ToolContentCard title="QR code tips and best practices">
-          <Article />
-        </ToolContentCard>
-      }
-    >
-      <ToolContentCard
-        title="QR Code Generator"
-        description="Enter text or a URL and generate a QR code instantly."
-      >
-        <QRCodeClient />
-      </ToolContentCard>
+    <ToolPage tool={tool} maxWidth="wide">
+      <QRCodeClient />
     </ToolPage>
   );
 }

@@ -2,6 +2,9 @@ import { SearchParams } from "@/types";
 import { searchElementsDTO } from "@/server/services/search.service";
 import { HomeClientPage } from "@/features/elements/ui";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 function normalizeParam(param: string | string[] | undefined): string[] {
   if (!param) return [];
   return Array.isArray(param) ? param : [param];
@@ -26,28 +29,15 @@ export default async function ExplorePage({
     exactMatch: normalizeSingleParam(resolvedSearchParams.exactMatch),
   };
 
-  let items = [];
-  let total = 0;
-  let initialError: string | undefined;
-
-  try {
-    const result = await searchElementsDTO({
-      q: normalizedParams.q,
-      mainCategory: normalizeParam(normalizedParams.mainCat),
-      secondaryCategory: normalizeParam(normalizedParams.secCat),
-      exactMatch: normalizedParams.exactMatch === "true",
-      page: Number(normalizedParams.page || 1),
-      pageSize: 12,
-      sort: "newest",
-    });
-
-    items = result.items;
-    total = result.total;
-  } catch (error) {
-    console.error("Failed to load explore elements", error);
-    initialError =
-      "Could not connect to the database. Check DATABASE_URL/Neon connection and reload the page.";
-  }
+  const { items, total } = await searchElementsDTO({
+    q: normalizedParams.q,
+    mainCategory: normalizeParam(normalizedParams.mainCat),
+    secondaryCategory: normalizeParam(normalizedParams.secCat),
+    exactMatch: normalizedParams.exactMatch === "true",
+    page: Number(normalizedParams.page || 1),
+    pageSize: 12,
+    sort: "newest",
+  });
 
   return (
     <main className="min-h-screen px-4 py-8 sm:px-6 lg:px-8">
@@ -61,7 +51,7 @@ export default async function ExplorePage({
       <HomeClientPage
         initialElements={items}
         initialTotal={total}
-        initialError={initialError}
+        initialError={undefined}
         initialParams={normalizedParams}
         basePath="/explore"
       />

@@ -9,16 +9,6 @@ const nextConfig: NextConfig = {
         port: "", // Leave empty unless a specific port is used
         pathname: "/**", // Allows all paths under this domain
       },
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "images.pexels.com",
-        pathname: "/**",
-      },
     ],
   },
   /* config options here */

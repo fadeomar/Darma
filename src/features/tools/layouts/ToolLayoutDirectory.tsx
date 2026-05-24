@@ -46,26 +46,59 @@ function layoutLabel(layoutType?: ToolDefinition["layoutType"]) {
   return "Tool";
 }
 
+function privacyLabel(privacy?: ToolDefinition["privacy"]) {
+  if (privacy === "client-only") return "Browser-only";
+  if (privacy === "local-storage") return "Local storage";
+  if (privacy === "server-assisted") return "Server-assisted";
+  if (privacy === "external-api") return "External API";
+  return "Privacy";
+}
+
+function getToolSearchText(tool: ToolDefinition) {
+  return [
+    tool.title,
+    tool.description,
+    tool.href,
+    tool.layoutType ?? "",
+    tool.privacy ?? "",
+    tool.toolCategory ?? "",
+    ...(tool.tags ?? []),
+    ...(tool.keywords ?? []),
+    ...(tool.audiences ?? []),
+    ...(tool.mainCategory ?? []),
+    ...(tool.secondaryCategory ?? []),
+    ...(tool.relatedTools ?? []),
+  ]
+    .join(" ")
+    .toLowerCase();
+}
+
 function ToolCard({ tool }: { tool: ToolDefinition }) {
   const Icon = ICONS[tool.icon ?? "code"] ?? FaWandMagicSparkles;
 
   return (
     <ToolCardLink href={tool.href} toolName={tool.title}>
       <Card as="article" variant="interactive" padding="md" className="h-full">
-        <div className="mb-4 flex items-center justify-between gap-3">
-          <span className="inline-flex h-12 w-12 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-primary)] text-[var(--color-primary-text)]">
+        <div className="mb-4 flex items-start justify-between gap-3">
+          <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-primary)] text-[var(--color-primary-text)]">
             <Icon className="text-xl" />
           </span>
           <div className="flex flex-wrap justify-end gap-2">
             {tool.featured ? <Badge variant="warning">Featured</Badge> : null}
             <Badge variant="soft">{layoutLabel(tool.layoutType)}</Badge>
+            {tool.privacy ? <Badge variant="soft">{privacyLabel(tool.privacy)}</Badge> : null}
+            {tool.audiences?.[0] ? (
+              <Badge variant="outline">{audienceLabels[tool.audiences[0]] ?? tool.audiences[0]}</Badge>
+            ) : null}
           </div>
         </div>
         <h3 className="text-xl font-black text-[var(--color-text)]">{tool.title}</h3>
         <p className="mt-3 text-sm leading-6 text-[var(--color-text-muted)]">{tool.description}</p>
         <div className="mt-4 flex flex-wrap gap-2">
           {(tool.tags ?? []).slice(0, 4).map((tag) => (
-            <Badge key={tag} variant="outline">#{tag}</Badge>
+            <Badge key={tag} variant="outline">
+              #{tag}
+            </Badge>
           ))}
         </div>
       </Card>
@@ -76,28 +109,44 @@ function ToolCard({ tool }: { tool: ToolDefinition }) {
 export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
   const [query, setQuery] = useState("");
   const [audience, setAudience] = useState("all");
+  const [category, setCategory] = useState("all");
 
   const featured = useMemo(
     () => tools.filter((tool) => tool.featured).sort((a, b) => (a.pinned ?? 999) - (b.pinned ?? 999)).slice(0, 6),
     [tools],
   );
 
+  const categoryOptions = useMemo(() => {
+    const values = new Set<string>();
+
+    for (const tool of tools) {
+      for (const value of tool.mainCategory ?? []) values.add(value);
+      for (const value of tool.secondaryCategory ?? []) values.add(value);
+    }
+
+    return ["all", ...Array.from(values).sort()];
+  }, [tools]);
+
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
+    const terms = q.split(/\s+/).filter(Boolean);
+
     return tools.filter((tool) => {
       const audienceMatch = audience === "all" || (tool.audiences ?? []).includes(audience as ToolAudience);
       if (!audienceMatch) return false;
-      if (!q) return true;
-      return [
-        tool.title,
-        tool.description,
-        ...(tool.tags ?? []),
-        ...(tool.audiences ?? []),
-        ...(tool.secondaryCategory ?? []),
-        tool.layoutType ?? "",
-      ].some((value) => value.toLowerCase().includes(q));
+
+      const categoryMatch =
+        category === "all" ||
+        (tool.mainCategory ?? []).includes(category) ||
+        (tool.secondaryCategory ?? []).includes(category);
+      if (!categoryMatch) return false;
+
+      if (!terms.length) return true;
+
+      const searchText = getToolSearchText(tool);
+      return terms.every((term) => searchText.includes(term));
     });
-  }, [audience, query, tools]);
+  }, [audience, category, query, tools]);
 
   return (
     <div className="mx-auto max-w-[var(--container-wide)] px-4 py-8 sm:px-6 lg:px-8">
@@ -116,7 +165,7 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
             <input
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              placeholder="Search tools, tags, or use cases"
+              placeholder="Search tools, tags, privacy, or use cases"
               className="min-h-12 w-full rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-strong)] px-12 text-sm text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-soft)] focus:border-[var(--color-accent)]"
             />
           </label>
@@ -138,6 +187,23 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
             ))}
           </div>
         </div>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {categoryOptions.map((option) => (
+            <button
+              key={option}
+              type="button"
+              onClick={() => setCategory(option)}
+              className={cn(
+                "min-h-9 rounded-[var(--radius-full)] border px-3 text-xs font-bold capitalize transition sm:text-sm",
+                category === option
+                  ? "border-[var(--color-primary)] bg-[var(--color-primary)] text-[var(--color-primary-text)]"
+                  : "border-[var(--color-border)] bg-[var(--color-surface-strong)] text-[var(--color-text-muted)] hover:text-[var(--color-text)]",
+              )}
+            >
+              {option === "all" ? "All categories" : option}
+            </button>
+          ))}
+        </div>
       </section>
 
       {featured.length > 0 ? (
@@ -149,7 +215,9 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
             </Link>
           </div>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {featured.map((tool) => <ToolCard key={tool.id} tool={tool} />)}
+            {featured.map((tool) => (
+              <ToolCard key={tool.id} tool={tool} />
+            ))}
           </div>
         </section>
       ) : null}
@@ -157,14 +225,18 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
       <section className="mt-8">
         <div className="mb-4 flex items-center justify-between gap-4">
           <h2 className="text-2xl font-black text-[var(--color-text)]">All tools</h2>
-          <p className="text-sm text-[var(--color-text-muted)]">{filtered.length} tool{filtered.length === 1 ? "" : "s"}</p>
+          <p className="text-sm text-[var(--color-text-muted)]">
+            {filtered.length} tool{filtered.length === 1 ? "" : "s"}
+          </p>
         </div>
         {filtered.length > 0 ? (
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {filtered.map((tool) => <ToolCard key={tool.id} tool={tool} />)}
+            {filtered.map((tool) => (
+              <ToolCard key={tool.id} tool={tool} />
+            ))}
           </div>
         ) : (
-          <EmptyState title="No tools matched your search." description="Try a different keyword, audience, or tool type." />
+          <EmptyState title="No tools matched your search." description="Try a different keyword, audience, or category." />
         )}
       </section>
     </div>

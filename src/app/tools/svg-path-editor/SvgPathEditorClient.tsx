@@ -539,7 +539,6 @@ export default function SvgPathEditorClient() {
   const svgRef = useRef<SVGSVGElement | null>(null);
   const draftPathRef = useRef(rawPath);
   const toastTimerRef = useRef<number | null>(null);
-
   // ── Derived ────────────────────────────────────────────────────────────────
 
   const parsed = useMemo(() => parsePath(rawPath), [rawPath]);
@@ -640,7 +639,7 @@ export default function SvgPathEditorClient() {
   // ── Toast ──────────────────────────────────────────────────────────────────
 
   function showToast(msg: string) {
-    if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
+    if (toastTimerRef.current) window.clearTimeout(toastTimerRef.current);
     setToast(msg);
     toastTimerRef.current = window.setTimeout(
       () => setToast(""),

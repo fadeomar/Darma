@@ -205,13 +205,11 @@ function AboutPage() {
                 whileHover={{ scale: 1.02 }}
                 className="group block bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all"
               >
-                <div className="relative h-48 bg-gray-700 overflow-hidden">
+                <div className="h-48 bg-gray-700 overflow-hidden">
                   <Image
                     src={item.image}
                     alt={item.name}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                    className="object-cover transition-transform group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform group-hover:scale-105"
                   />
                 </div>
                 <div className="p-6">

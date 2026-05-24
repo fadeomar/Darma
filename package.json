@@ -6,9 +6,10 @@
     "dev": "next dev",
     "build": "prisma generate && next build",
     "start": "next start",
-    "lint": "eslint .",
+    "lint": "next lint",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "seed:admin": "ts-node prisma/seed-admin.ts"
+    "seed:admin": "ts-node prisma/seed-admin.ts",
+    "check:tools": "tsx scripts/check-tools-registry.ts"
   },
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",

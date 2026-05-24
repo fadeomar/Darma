@@ -15,31 +15,15 @@ export async function GET(req: Request) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const sort = (searchParams.get("sort") as any) ?? "newest";
 
-  try {
-    const result = await searchElementsDTO({
-      q,
-      exactMatch,
-      mainCategory,
-      secondaryCategory,
-      page,
-      pageSize,
-      sort,
-    });
+  const result = await searchElementsDTO({
+    q,
+    exactMatch,
+    mainCategory,
+    secondaryCategory,
+    page,
+    pageSize,
+    sort,
+  });
 
-    return NextResponse.json(result);
-  } catch (error) {
-    console.error("Search API failed", error);
-
-    return NextResponse.json(
-      {
-        items: [],
-        total: 0,
-        page,
-        pageSize,
-        error:
-          "Could not connect to the database. Check DATABASE_URL/Neon connection and try again.",
-      },
-      { status: 503 },
-    );
-  }
+  return NextResponse.json(result);
 }

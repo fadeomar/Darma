@@ -8,21 +8,6 @@ import type {
 } from "../../domain/element.repository";
 import { toElementDomain } from "./elementPrisma.mapper";
 
-
-function delay(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-async function retryTransientRead<T>(operation: () => Promise<T>): Promise<T> {
-  try {
-    return await operation();
-  } catch (error) {
-    console.warn("Prisma read failed; retrying once", error);
-    await delay(750);
-    return operation();
-  }
-}
-
 // function normalizePage(n: number): number {
 //   if (!Number.isFinite(n) || n < 1) return 1;
 //   return Math.floor(n);
@@ -170,12 +155,10 @@ export class ElementPrismaRepository implements ElementRepository {
       slug: true,
     };
 
-    const [total, rows] = await retryTransientRead(() =>
-      prisma.$transaction([
-        prisma.element.count({ where }),
-        prisma.element.findMany({ where, orderBy, skip, take, select }),
-      ]),
-    );
+    const [total, rows] = await prisma.$transaction([
+      prisma.element.count({ where }),
+      prisma.element.findMany({ where, orderBy, skip, take, select }),
+    ]);
 
     return {
       total,

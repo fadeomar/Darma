@@ -5,6 +5,7 @@ export type ToolWorkflow = {
   title: string;
   description: string;
   useCase: string;
+  audience?: string[];
   toolIds: ToolId[];
   relatedWorkflowIds?: string[];
 };
@@ -15,6 +16,7 @@ export const toolWorkflows: ToolWorkflow[] = [
     title: "Frontend CSS Toolkit",
     description: "Design buttons, gradients, shadows, responsive clamp values, and animated backgrounds for modern UI work.",
     useCase: "Use this workflow when you are polishing a landing page, dashboard, component library, or design-system prototype.",
+    audience: ["Developer", "Designer"],
     toolIds: ["color-palette-generator", "css-gradient-generator", "buttons-css-generator", "box-shadows-generator", "css-clamp-generator", "animated-background-generator"],
     relatedWorkflowIds: ["color-and-branding-toolkit", "image-optimization-toolkit"],
   },
@@ -23,6 +25,7 @@ export const toolWorkflows: ToolWorkflow[] = [
     title: "SEO Launch Checklist",
     description: "Generate clean URLs, meta tags, robots.txt, and sitemap.xml before launching a website.",
     useCase: "Use this workflow before publishing a marketing page, portfolio, content site, or product microsite.",
+    audience: ["Developer", "Creator"],
     toolIds: ["slug-generator", "meta-tag-generator", "robots-txt-generator", "sitemap-xml-generator", "html-entity-encoder-decoder"],
     relatedWorkflowIds: ["json-api-toolkit", "frontend-css-toolkit"],
   },
@@ -31,6 +34,7 @@ export const toolWorkflows: ToolWorkflow[] = [
     title: "JSON API Toolkit",
     description: "Format JSON, decode tokens, generate TypeScript models, and convert API support text safely in the browser.",
     useCase: "Use this workflow when inspecting API responses, debugging authentication, or preparing typed frontend integrations.",
+    audience: ["Developer"],
     toolIds: ["json-formatter", "json-to-typescript", "jwt-decoder", "base64-encoder-decoder", "timestamp-converter", "url-encoder-decoder"],
     relatedWorkflowIds: ["developer-utility-belt", "seo-launch-checklist"],
   },
@@ -39,6 +43,7 @@ export const toolWorkflows: ToolWorkflow[] = [
     title: "Color and Branding Toolkit",
     description: "Build palettes, shades, gradients, and accessible color combinations for brand and UI systems.",
     useCase: "Use this workflow when starting a visual identity, choosing UI colors, or improving contrast and token exports.",
+    audience: ["Designer", "Developer"],
     toolIds: ["color-palette-generator", "color-converter", "color-shades", "css-gradient-generator", "buttons-css-generator"],
     relatedWorkflowIds: ["frontend-css-toolkit", "image-optimization-toolkit"],
   },
@@ -47,6 +52,7 @@ export const toolWorkflows: ToolWorkflow[] = [
     title: "Image Optimization Toolkit",
     description: "Convert images, prepare QR assets, edit SVG paths, and reuse colors for lightweight web visuals.",
     useCase: "Use this workflow when preparing product screenshots, landing-page visuals, QR codes, or optimized images.",
+    audience: ["Creator", "Developer"],
     toolIds: ["image-converter", "qr-code", "svg-path-editor", "color-palette-generator", "css-gradient-generator"],
     relatedWorkflowIds: ["color-and-branding-toolkit", "frontend-css-toolkit"],
   },
@@ -55,6 +61,7 @@ export const toolWorkflows: ToolWorkflow[] = [
     title: "Developer Utility Belt",
     description: "Common everyday utilities for IDs, timestamps, URLs, regex, markdown, Base64, and code previews.",
     useCase: "Use this workflow for quick debugging tasks that should stay local and fast.",
+    audience: ["Developer", "General"],
     toolIds: ["uuid-generator", "timestamp-converter", "url-encoder-decoder", "regex-tester", "markdown-previewer", "code-preview-tool"],
     relatedWorkflowIds: ["json-api-toolkit", "frontend-css-toolkit"],
   },

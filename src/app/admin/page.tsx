@@ -2,9 +2,6 @@ import Link from "next/link";
 import { prisma } from "@/server/db/prisma";
 import { getToolRegistry } from "@/features/tools";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
-
 function Badge({
   tone,
   children,

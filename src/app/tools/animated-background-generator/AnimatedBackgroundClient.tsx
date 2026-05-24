@@ -1,177 +1,129 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { Maximize2, RotateCcw, Shuffle } from "lucide-react";
-import { Button, CopyButton, Input, Select, Slider, Tabs } from "@/components/ui";
-import { cn } from "@/lib/cn";
-import { animatedBackgroundPresets, defaultAnimatedBackgroundConfig } from "./presets";
-import {
-  generateAnimatedBackgroundCss,
-  generateAnimatedBackgroundHtml,
-  generateReactStyleSnippet,
-  generateTailwindSnippet,
-} from "./generators";
-import type { AnimatedBackgroundConfig, AnimatedBackgroundType, AnimationDirection } from "./types";
+import React, { CSSProperties, useState } from "react";
+import Preview from "./Preview";
+import Configuration from "./Configuration";
+import VariantSelector from "@/components/VariantSelector";
+import Title from "@/components/Title";
+import CodeEditor from "@/components/CodeEditor";
+import type { State } from "@/types/animatedBackgroundTypes";
+import { handleBackgroundStyle } from "./styles";
 
-const outputTabs = [
-  { value: "css", label: "CSS" },
-  { value: "tailwind", label: "Tailwind" },
-  { value: "react", label: "React style" },
-] as const;
+const defaultParticleState: State = {
+  variant: "particles",
+  particleCount: 20,
+  particleSize: "10vmin",
+  animationDuration: "45s",
+  colors: ["#E45A84", "#FFACAC", "#583C87"],
+  backgroundColor: "#3E1E68",
+  particleShape: "circle",
+  animationTiming: "linear",
+  animationType: "rotate",
+};
 
-type OutputTab = (typeof outputTabs)[number]["value"];
+const defaultBubbleState: State = {
+  variant: "bubbles",
+  particleCount: 10,
+  particleSize: "10vmin",
+  animationDuration: "19s",
+  colors: ["rgba(255, 255, 255, 0.2)"],
+  backgroundColor: "#4e54c8",
+  particleShape: "circle",
+  animationTiming: "linear",
+  animationType: "float-up",
+  morphToCircle: true,
+};
 
-const backgroundTypes: Array<{ value: AnimatedBackgroundType; label: string }> = [
-  { value: "gradient-mesh", label: "Gradient mesh" },
-  { value: "floating-blobs", label: "Floating blobs" },
-  { value: "grid-animation", label: "Grid animation" },
-  { value: "particles", label: "Particles" },
-  { value: "aurora", label: "Aurora" },
-  { value: "noise-overlay", label: "Noise overlay" },
-  { value: "radial-glow", label: "Radial glow" },
-  { value: "conic-gradient", label: "Conic gradient" },
-  { value: "css-waves", label: "CSS waves" },
-  { value: "spotlight", label: "Spotlight" },
-];
+const defaultExplosionState: State = {
+  variant: "explosion",
+  particleCount: 14,
+  particleSize: "10px",
+  animationDuration: "7s",
+  colors: ["#0039ad", "#0046d4"],
+  backgroundColor: "#0040C1",
+  particleShape: "circle",
+  animationTiming: "ease-in",
+  animationType: "explode",
+  maxScale: 20,
+};
 
-const colorPool = ["#6366f1", "#ec4899", "#22d3ee", "#f97316", "#14b8a6", "#a855f7", "#f43f5e", "#a3e635", "#60a5fa", "#facc15"];
-
-function randomFrom<T>(items: T[]) {
-  return items[Math.floor(Math.random() * items.length)];
-}
-
-function updateColor(config: AnimatedBackgroundConfig, index: number, value: string): AnimatedBackgroundConfig {
-  const colors = [...config.colors];
-  colors[index] = value;
-  return { ...config, colors };
-}
+const defaultCustomState: State = {
+  variant: "custom",
+  particleCount: 30,
+  particleSize: "15px",
+  animationDuration: "10s",
+  colors: ["#00ff99", "#ff0066"],
+  backgroundColor: "#222222",
+  particleShape: "circle",
+  animationTiming: "ease",
+  animationType: "rotate",
+  opacity: 0.8,
+  speed: 1,
+};
 
 export default function AnimatedBackgroundClient() {
-  const [config, setConfig] = useState<AnimatedBackgroundConfig>(defaultAnimatedBackgroundConfig);
-  const [output, setOutput] = useState<OutputTab>("css");
-  const [fullscreen, setFullscreen] = useState(false);
+  const [state, setState] = useState<State>(defaultParticleState);
 
-  function handleOutputChange(value: OutputTab) {
-    setOutput(value);
-  }
+  const handleVariantSelect = (value: string) => {
+    switch (value) {
+      case "particles":
+        setState(defaultParticleState);
+        break;
+      case "bubbles":
+        setState(defaultBubbleState);
+        break;
+      case "explosion":
+        setState(defaultExplosionState);
+        break;
+      case "custom":
+        setState(defaultCustomState);
+        break;
+      default:
+        setState(defaultParticleState);
+    }
+  };
 
-  const css = useMemo(() => generateAnimatedBackgroundCss(config), [config]);
-  const code = output === "css" ? css : output === "tailwind" ? generateTailwindSnippet(config) : generateReactStyleSnippet(config);
-  const previewClass = cn("darma-animated-background min-h-[320px] md:min-h-[420px]", fullscreen && "fixed inset-4 z-50 min-h-0 rounded-[28px] shadow-2xl");
-
-  function applyPreset(id: string) {
-    const preset = animatedBackgroundPresets.find((item) => item.id === id);
-    if (preset) setConfig(preset.config);
-  }
-
-  function randomize() {
-    const colors = Array.from({ length: 4 }, () => randomFrom(colorPool));
-    setConfig({
-      ...config,
-      type: randomFrom(backgroundTypes).value,
-      colors,
-      colorCount: Math.floor(Math.random() * 3) + 2,
-      speed: Math.floor(Math.random() * 18) + 12,
-      blur: Math.floor(Math.random() * 38),
-      opacity: Number((Math.random() * 0.35 + 0.55).toFixed(2)),
-      size: Math.floor(Math.random() * 44) + 42,
-      direction: randomFrom<AnimationDirection>(["normal", "reverse", "alternate"]),
-    });
-  }
+  const bodyStyles = `
+    ${handleBackgroundStyle(state)}
+  `;
 
   return (
-    <div className="space-y-6">
-      <style>{css}</style>
+    <div className="grid gap-6 xl:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)]">
+      <style>{bodyStyles}</style>
 
-      <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_320px]">
-        <div className="overflow-hidden rounded-[28px] border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-3">
-          <div className={previewClass} aria-label="Animated background preview" />
-          {fullscreen ? (
-            <button
-              type="button"
-              className="fixed inset-0 z-40 cursor-zoom-out bg-black/40"
-              aria-label="Close fullscreen preview"
-              onClick={() => setFullscreen(false)}
-            />
-          ) : null}
-        </div>
-
-        <div className="space-y-4 rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
-          <div className="grid gap-2">
-            <label className="text-sm font-semibold text-[var(--color-text)]">Preset</label>
-            <Select onChange={(event) => applyPreset(event.target.value)} value={animatedBackgroundPresets.find((item) => item.config === config)?.id ?? config.type}>
-              {animatedBackgroundPresets.map((preset) => (
-                <option key={preset.id} value={preset.id}>{preset.name}</option>
-              ))}
-            </Select>
-          </div>
-
-          <div className="grid gap-2">
-            <label className="text-sm font-semibold text-[var(--color-text)]">Background type</label>
-            <Select value={config.type} onChange={(event) => setConfig({ ...config, type: event.target.value as AnimatedBackgroundType })}>
-              {backgroundTypes.map((type) => (
-                <option key={type.value} value={type.value}>{type.label}</option>
-              ))}
-            </Select>
-          </div>
-
-          <div className="grid grid-cols-2 gap-3">
-            <label className="grid gap-2 text-sm font-semibold text-[var(--color-text)]">
-              Base color
-              <Input type="color" value={config.backgroundColor} onChange={(event) => setConfig({ ...config, backgroundColor: event.target.value })} />
-            </label>
-            <label className="grid gap-2 text-sm font-semibold text-[var(--color-text)]">
-              Direction
-              <Select value={config.direction} onChange={(event) => setConfig({ ...config, direction: event.target.value as AnimationDirection })}>
-                <option value="normal">Normal</option>
-                <option value="reverse">Reverse</option>
-                <option value="alternate">Alternate</option>
-              </Select>
-            </label>
-          </div>
-
-          <div className="grid grid-cols-4 gap-2">
-            {config.colors.map((color, index) => (
-              <label key={index} className="grid gap-1 text-xs font-semibold text-[var(--color-text-muted)]">
-                Color {index + 1}
-                <Input type="color" value={color} onChange={(event) => setConfig(updateColor(config, index, event.target.value))} />
-              </label>
-            ))}
-          </div>
-
-          {[
-            ["Speed", "speed", 6, 42, 1],
-            ["Blur", "blur", 0, 60, 1],
-            ["Opacity", "opacity", 0.2, 1, 0.01],
-            ["Color count", "colorCount", 2, 4, 1],
-            ["Background size", "size", 28, 96, 1],
-          ].map(([label, key, min, max, step]) => (
-            <label key={key as string} className="grid gap-1 text-sm font-semibold text-[var(--color-text)]">
-              <span className="flex justify-between"><span>{label}</span><span className="text-[var(--color-text-muted)]">{String(config[key as keyof AnimatedBackgroundConfig])}</span></span>
-              <Slider
-                min={min as number}
-                max={max as number}
-                step={step as number}
-                value={Number(config[key as keyof AnimatedBackgroundConfig])}
-                onChange={(event) => setConfig({ ...config, [key as string]: Number(event.target.value) })}
-              />
-            </label>
-          ))}
-
-          <div className="grid grid-cols-3 gap-2">
-            <Button variant="secondary" onClick={() => setFullscreen(true)} leftIcon={<Maximize2 className="h-4 w-4" />}>Full</Button>
-            <Button variant="secondary" onClick={randomize} leftIcon={<Shuffle className="h-4 w-4" />}>Random</Button>
-            <Button variant="ghost" onClick={() => setConfig(defaultAnimatedBackgroundConfig)} leftIcon={<RotateCcw className="h-4 w-4" />}>Reset</Button>
-          </div>
-        </div>
+      <div className="rounded-2xl border border-black/10 bg-slate-50 p-5">
+        <VariantSelector
+          label="Select background variant"
+          variants={["particles", "bubbles", "explosion", "custom"]}
+          selected={state.variant}
+          handleSelect={handleVariantSelect}
+        />
+        <Title
+          variant="h4"
+          as="h2"
+          label="Preview"
+          style={{ "--angle": "90deg" } as CSSProperties}
+          className="my-6 text-gray-900"
+        />
+        <Preview state={state} />
+        <Title
+          variant="h4"
+          as="h2"
+          label="Generated code"
+          style={{ "--angle": "90deg" } as CSSProperties}
+          className="my-6 text-gray-900"
+        />
+        <CodeEditor
+          code={`<div class="animated-background"></div>\n<style>\n${handleBackgroundStyle(state)}\n</style>`}
+          language="html"
+          showCopyButton
+          setCode={() => {}}
+          analyticsContext="code from animated background"
+        />
       </div>
 
-      <div className="rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <Tabs items={outputTabs} value={output} onChange={handleOutputChange} ariaLabel="Output format" />
-          <CopyButton text={output === "css" ? generateAnimatedBackgroundHtml(config) : code}>Copy {output === "css" ? "HTML + CSS" : output}</CopyButton>
-        </div>
-        <pre className="mt-4 max-h-[420px] overflow-auto rounded-[var(--radius-md)] bg-slate-950 p-4 text-xs leading-6 text-slate-100"><code>{code}</code></pre>
+      <div className="rounded-2xl border border-black/10 bg-slate-50 p-5">
+        <Configuration state={state} setState={setState} />
       </div>
     </div>
   );

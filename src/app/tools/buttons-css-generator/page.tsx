@@ -1,33 +1,36 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import dynamic from "next/dynamic";
 import { getToolRegistry } from "@/features/tools";
-import { buildToolMetadata } from "@/features/tools/seo";
+import { buildToolJsonLd, buildToolMetadata } from "@/features/tools/seo";
 import { ToolPage } from "@/features/tools/layouts";
 import ToolContentCard from "@/features/tools/ui/ToolContentCard";
-import ButtonsCssGeneratorClient from "./ButtonsCssGeneratorClient";
 import ButtonCSSGeneratorArticle from "./ButtonCSSGeneratorArticle";
 
-const tool = getToolRegistry().getById("buttons-css-generator");
+export async function generateMetadata(): Promise<Metadata> {
+  const tool = getToolRegistry().getById("buttons-css-generator");
+  if (!tool) return {};
+  return buildToolMetadata(tool);
+}
 
-export const metadata = tool ? buildToolMetadata(tool) : {};
+const ButtonsCssGeneratorClient = dynamic(() => import("./ButtonsCssGeneratorClient"), {
+  loading: () => <div className="h-[760px] animate-pulse rounded-3xl bg-slate-100 dark:bg-slate-900" />,
+});
 
 export default function ButtonsCssGeneratorPage() {
+  const tool = getToolRegistry().getById("buttons-css-generator");
   if (!tool) notFound();
+  const jsonLd = buildToolJsonLd(tool);
 
   return (
     <ToolPage
       tool={tool}
-      intro={
-        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-muted)]">
-          Design production-ready buttons visually, compare variants, preview interaction states, and copy CSS, Tailwind, React, or HTML snippets.
-        </p>
-      }
-      article={<ButtonCSSGeneratorArticle />}
       maxWidth="wide"
+      intro={<p className="max-w-2xl text-sm leading-7 text-slate-700 dark:text-slate-300">Generate polished CSS buttons with live preview states, compact controls, presets, and copy-ready CSS, HTML, React JSX, and Tailwind-style output.</p>}
+      article={<ToolContentCard title="About CSS button design"><ButtonCSSGeneratorArticle /></ToolContentCard>}
     >
-      <ToolContentCard
-        title="Design and export"
-        description="Choose a preset, tune typography and spacing, then copy the output format that best fits your project."
-      >
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <ToolContentCard title="Buttons CSS Generator" description="Design button size, shape, color, shadow, interaction, and export code in a consistent Darma tool studio.">
         <ButtonsCssGeneratorClient />
       </ToolContentCard>
     </ToolPage>

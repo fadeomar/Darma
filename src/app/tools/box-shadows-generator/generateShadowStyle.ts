@@ -10,7 +10,6 @@ const lightSourceMap: Record<number, LightSourceConfig> = {
 
 export const generateShadowStyle = (state: BoxShadowState): string => {
   const { shadows, activeLightSource } = state;
-  console.log({ shadows, activeLightSource });
   const config = lightSourceMap[activeLightSource] || lightSourceMap[1];
 
   const shadowStyles = shadows.map((shadow) => {

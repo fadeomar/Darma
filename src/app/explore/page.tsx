@@ -2,9 +2,6 @@ import { SearchParams } from "@/types";
 import { searchElementsDTO } from "@/server/services/search.service";
 import { HomeClientPage } from "@/features/elements/ui";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
-
 function normalizeParam(param: string | string[] | undefined): string[] {
   if (!param) return [];
   return Array.isArray(param) ? param : [param];

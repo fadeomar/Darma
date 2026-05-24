@@ -29,7 +29,7 @@ export const Card = ({ children, className }: CardProps) => {
 };
 const NeumorphismArticle = () => {
   return (
-    <div className="bg-background min-h-screen p-4 md:p-8 md:px-8 soft-shadow rounded-xl">
+    <div className="bg-background min-h-screen p-4 md:p-8 md:px-8 rounded-xl">
       <div className="max-w-4xl mx-auto">
         {/* Title Section */}
         <h1 className="text-4xl font-bold text-textColor text-center mb-6">

@@ -42,11 +42,20 @@ export class InMemoryToolRegistry implements ToolRegistry {
 
       if (!q) return true;
 
-      return (
-        includesInsensitive(t.title, q) ||
-        includesInsensitive(t.description, q) ||
-        t.tags.some((tag) => includesInsensitive(tag, q))
-      );
+      const searchableValues = [
+        t.title,
+        t.description,
+        ...(t.tags ?? []),
+        ...(t.audiences ?? []),
+        ...(t.mainCategory ?? []),
+        ...(t.secondaryCategory ?? []),
+        t.layoutType ?? "",
+        t.toolCategory ?? "",
+        t.privacy ?? "",
+        ...(t.keywords ?? []),
+      ];
+
+      return searchableValues.some((value) => includesInsensitive(value, q));
     });
   }
 }

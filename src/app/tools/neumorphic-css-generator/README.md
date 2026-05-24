@@ -1,6 +1,6 @@
 # Neumorphic CSS Generator
 
-Generate soft-shadow neumorphic CSS for UI elements — adjust background color, intensity, blur, and distance to produce embossed or debossed effects.
+Generate scoped neumorphic CSS for UI elements — adjust background color, intensity, blur, and distance to produce embossed or debossed effects.
 
 ## Privacy
 
@@ -18,4 +18,4 @@ Two shadows are generated per element: a light shadow offset to the top-left and
 |---|---|
 | `page.tsx` | Server component — `generateMetadata`, `ToolPage` |
 | `NeumorphicCssGeneratorClient.tsx` | `"use client"` — controls, live preview, copy output |
-| `style.css` | Tool-scoped styles |
+| Shared Darma tool UI | Preview, controls, and output are handled by Sprint B components. |

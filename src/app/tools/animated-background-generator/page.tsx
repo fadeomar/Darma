@@ -1,49 +1,49 @@
-import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import AnimatedBackgroundClient from "./AnimatedBackgroundClient";
-import Article from "./Article";
 import { getToolRegistry } from "@/features/tools";
-import { buildToolMetadata } from "@/features/tools/seo";
-import { ToolPage } from "@/features/tools/layouts";
+import ToolPageShell from "@/features/tools/ui/ToolPageShell";
 import ToolContentCard from "@/features/tools/ui/ToolContentCard";
 import SurfaceCard from "@/components/ui/SurfaceCard";
 
-const tool = getToolRegistry().getById("animated-background-generator");
-
-export const metadata = tool ? buildToolMetadata(tool) : {};
+export const metadata: Metadata = {
+  title: "Animated Background Generator | Darma Tools",
+  description:
+    "Generate animated CSS backgrounds with particles, bubbles, and explosion-style motion for websites, demos, and landing pages.",
+};
 
 export default function AnimatedBackgroundPage() {
-  if (!tool) notFound();
+  const tool = getToolRegistry().getById("animated-background-generator");
+
+  if (!tool) return null;
 
   return (
-    <ToolPage
+    <ToolPageShell
       tool={tool}
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-muted)]">
-          Build polished CSS backgrounds visually, preview motion live, and copy CSS, Tailwind-friendly, or React snippets for landing pages and product UI.
+        <p className="max-w-2xl text-sm leading-7 text-slate-700 dark:text-slate-300">
+          Build motion-heavy backgrounds visually, preview the result live, and copy the generated HTML and CSS into your project.
         </p>
       }
-      article={<Article />}
-      maxWidth="wide"
+      sidebar={
+        <SurfaceCard>
+          <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+            Best for
+          </h2>
+          <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-700 dark:text-slate-300">
+            <li>Landing page hero sections</li>
+            <li>Creative portfolio backgrounds</li>
+            <li>Demo pages and motion experiments</li>
+            <li>Fast CSS animation prototyping</li>
+          </ul>
+        </SurfaceCard>
+      }
     >
-      <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_320px]">
-        <ToolContentCard
-          title="Build and preview"
-          description="Choose a preset, tune the animation controls, and copy the generated code when it looks right."
-        >
-          <AnimatedBackgroundClient />
-        </ToolContentCard>
-        <aside className="space-y-6">
-          <SurfaceCard>
-            <h2 className="text-lg font-bold text-[var(--color-text)]">Best for</h2>
-            <ul className="mt-3 space-y-2 text-sm leading-6 text-[var(--color-text-muted)]">
-              <li>Landing page hero sections</li>
-              <li>Creative portfolio backgrounds</li>
-              <li>Dashboard empty states</li>
-              <li>Fast CSS animation prototyping</li>
-            </ul>
-          </SurfaceCard>
-        </aside>
-      </div>
-    </ToolPage>
+      <ToolContentCard
+        title="Build and preview"
+        description="Choose a background variant, tweak the animation settings, and copy the generated code when it looks right."
+      >
+        <AnimatedBackgroundClient />
+      </ToolContentCard>
+    </ToolPageShell>
   );
 }

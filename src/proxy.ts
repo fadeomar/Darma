@@ -10,6 +10,7 @@ function redirectToLogin(request: NextRequest) {
   const url = request.nextUrl.clone();
   url.pathname = "/login";
   url.searchParams.set("next", pathname + search);
+
   return NextResponse.redirect(url);
 }
 
@@ -34,10 +35,6 @@ export async function proxy(request: NextRequest) {
     return NextResponse.redirect(new URL(target, request.url));
   }
 
-  // ============================================================
-  // ✅ 2) ADMIN PROTECTION (/admin/** and /api/admin/**)
-  // ============================================================
-
   const isAdminPage = pathname.startsWith("/admin");
   const isAdminApi = pathname.startsWith("/api/admin");
 
@@ -51,23 +48,25 @@ export async function proxy(request: NextRequest) {
     if (isAdminApi) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
+
     return redirectToLogin(request);
   }
 
   try {
     const parsed = await verifyAuthToken(token);
 
-    // must be admin role
     if (parsed.role !== "admin") {
       if (isAdminApi) {
         return NextResponse.json({ error: "Forbidden" }, { status: 403 });
       }
+
       return redirectToLogin(request);
     }
   } catch {
     if (isAdminApi) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
+
     return redirectToLogin(request);
   }
 
@@ -76,11 +75,8 @@ export async function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // ✅ Admin protection
     "/admin/:path*",
     "/api/admin/:path*",
-
-    // ✅ Your redirects
     "/search",
     "/element",
     "/search/:slug+",

@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { type ReactNode } from "react";
 import { Badge } from "@/components/ui";
+import { RelatedToolsGrid } from "@/features/tools/components/RelatedToolsGrid";
 import type { ToolDefinition } from "@/features/tools/domain/tool";
-import { getToolRegistry } from "@/features/tools/registry";
 import { cn } from "@/lib/cn";
 
 const audienceLabels: Record<string, string> = {
@@ -18,42 +18,6 @@ const maxWidthClass = {
   wide: "max-w-[var(--container-wide)]",
   full: "max-w-none",
 };
-
-function RelatedToolsSection({ tool }: { tool: ToolDefinition }) {
-  const relatedTools = (tool.relatedTools ?? [])
-    .map((id) => getToolRegistry().getById(id))
-    .filter((relatedTool): relatedTool is ToolDefinition => Boolean(relatedTool))
-    .filter((relatedTool) => relatedTool.id !== tool.id && relatedTool.visibility === "public")
-    .slice(0, 4);
-
-  if (!relatedTools.length) return null;
-
-  return (
-    <section className="rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[var(--shadow-soft)]">
-      <div className="flex flex-wrap items-end justify-between gap-3">
-        <div>
-          <Badge variant="soft">Related tools</Badge>
-          <h2 className="mt-3 text-2xl font-black text-[var(--color-text)]">Keep working with nearby tools</h2>
-        </div>
-        <Link href="/tools" className="text-sm font-semibold text-[var(--color-text-muted)] hover:text-[var(--color-text)]">
-          View all tools
-        </Link>
-      </div>
-      <div className="mt-5 grid gap-4 md:grid-cols-2">
-        {relatedTools.map((relatedTool) => (
-          <Link
-            key={relatedTool.id}
-            href={relatedTool.href}
-            className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-4 transition hover:border-[var(--color-accent)]"
-          >
-            <h3 className="font-bold text-[var(--color-text)]">{relatedTool.title}</h3>
-            <p className="mt-2 text-sm leading-6 text-[var(--color-text-muted)]">{relatedTool.description}</p>
-          </Link>
-        ))}
-      </div>
-    </section>
-  );
-}
 
 export function ToolPage({
   tool,
@@ -80,6 +44,7 @@ export function ToolPage({
 }) {
   const pageTitle = title ?? tool?.title;
   const pageDescription = description ?? tool?.description;
+  const relatedContent = related ?? (tool ? <RelatedToolsGrid tool={tool} /> : null);
 
   return (
     <div className={cn("mx-auto px-4 py-8 sm:px-6 lg:px-8", maxWidthClass[maxWidth])}>
@@ -120,7 +85,7 @@ export function ToolPage({
 
       <div className="mt-8">{children}</div>
       {article ? <div className="mt-8">{article}</div> : null}
-      {related ? <div className="mt-8">{related}</div> : tool ? <div className="mt-8"><RelatedToolsSection tool={tool} /></div> : null}
+      {relatedContent ? <div className="mt-8">{relatedContent}</div> : null}
     </div>
   );
 }

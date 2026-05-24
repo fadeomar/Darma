@@ -14,7 +14,7 @@ export function Tabs<T extends string>({
   className,
   ariaLabel,
 }: {
-  items: readonly TabItem<T>[];
+  items: TabItem<T>[];
   value: T;
   onChange: (value: T) => void;
   className?: string;

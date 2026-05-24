@@ -1,0 +1,5 @@
+import { CodeOutputPanel } from "@/features/tools/components";
+
+export function FlexCodeOutput({ css, html, jsx, tailwind }: { css: string; html: string; jsx: string; tailwind: string }) {
+  return <CodeOutputPanel title="Generated flexbox code" description="Copy CSS, HTML, React JSX, or a Tailwind-style starter." tabs={[{ id: "css", label: "CSS", code: css, language: "css" }, { id: "html", label: "HTML", code: html, language: "html" }, { id: "jsx", label: "React JSX", code: jsx, language: "tsx" }, { id: "tailwind", label: "Tailwind-style", code: tailwind, language: "txt" }]} />;
+}

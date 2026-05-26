@@ -1,130 +1,64 @@
 "use client";
 
-import React, { CSSProperties, useState } from "react";
-import Preview from "./Preview";
-import Configuration from "./Configuration";
-import VariantSelector from "@/components/VariantSelector";
-import Title from "@/components/Title";
-import CodeEditor from "@/components/CodeEditor";
-import type { State } from "@/types/animatedBackgroundTypes";
-import { handleBackgroundStyle } from "./styles";
+import { useMemo, useState } from "react";
+import type { AnimatedBackgroundState, BackgroundPreset } from "@/types/animatedBackgroundTypes";
+import { presets, presetToState, getPreset } from "./lib/presets";
+import { generateParticleData } from "./lib/generateParticleData";
+import { generateCss } from "./lib/generateCss";
+import { generateHtml } from "./lib/generateHtml";
+import PresetGallery from "./components/PresetGallery";
+import PreviewPanel from "./components/PreviewPanel";
+import ControlPanel from "./components/ControlPanel";
+import CodeOutput from "./components/CodeOutput";
 
-const defaultParticleState: State = {
-  variant: "particles",
-  particleCount: 20,
-  particleSize: "10vmin",
-  animationDuration: "45s",
-  colors: ["#E45A84", "#FFACAC", "#583C87"],
-  backgroundColor: "#3E1E68",
-  particleShape: "circle",
-  animationTiming: "linear",
-  animationType: "rotate",
-};
+const initialState = presetToState(presets[0]);
 
-const defaultBubbleState: State = {
-  variant: "bubbles",
-  particleCount: 10,
-  particleSize: "10vmin",
-  animationDuration: "19s",
-  colors: ["rgba(255, 255, 255, 0.2)"],
-  backgroundColor: "#4e54c8",
-  particleShape: "circle",
-  animationTiming: "linear",
-  animationType: "float-up",
-  morphToCircle: true,
-};
-
-const defaultExplosionState: State = {
-  variant: "explosion",
-  particleCount: 14,
-  particleSize: "10px",
-  animationDuration: "7s",
-  colors: ["#0039ad", "#0046d4"],
-  backgroundColor: "#0040C1",
-  particleShape: "circle",
-  animationTiming: "ease-in",
-  animationType: "explode",
-  maxScale: 20,
-};
-
-const defaultCustomState: State = {
-  variant: "custom",
-  particleCount: 30,
-  particleSize: "15px",
-  animationDuration: "10s",
-  colors: ["#00ff99", "#ff0066"],
-  backgroundColor: "#222222",
-  particleShape: "circle",
-  animationTiming: "ease",
-  animationType: "rotate",
-  opacity: 0.8,
-  speed: 1,
-};
+function randomSeed() {
+  return Math.floor(Math.random() * 2_000_000) + 1;
+}
 
 export default function AnimatedBackgroundClient() {
-  const [state, setState] = useState<State>(defaultParticleState);
+  const [state, setState] = useState<AnimatedBackgroundState>(initialState);
 
-  const handleVariantSelect = (value: string) => {
-    switch (value) {
-      case "particles":
-        setState(defaultParticleState);
-        break;
-      case "bubbles":
-        setState(defaultBubbleState);
-        break;
-      case "explosion":
-        setState(defaultExplosionState);
-        break;
-      case "custom":
-        setState(defaultCustomState);
-        break;
-      default:
-        setState(defaultParticleState);
-    }
-  };
+  const particles = useMemo(
+    () => generateParticleData(state),
+    [
+      state.seed,
+      state.particleCount,
+      state.minSize,
+      state.maxSize,
+      state.speed,
+      state.intensity,
+      state.opacity,
+      state.colors,
+    ],
+  );
 
-  const bodyStyles = `
-    ${handleBackgroundStyle(state)}
-  `;
+  // Exported code always uses the running (non-paused) animation.
+  const css = useMemo(() => generateCss(state, particles), [state, particles]);
+  const html = useMemo(() => generateHtml(particles), [particles]);
+
+  const handleSelect = (preset: BackgroundPreset) => setState(presetToState(preset));
+  const handleReset = () => setState(presetToState(getPreset(state.presetId)));
+  const handleRandomize = () => setState((current) => ({ ...current, seed: randomSeed() }));
+  const handleSimilar = () => setState((current) => ({ ...current, seed: current.seed + 137 }));
 
   return (
-    <div className="grid gap-6 xl:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)]">
-      <style>{bodyStyles}</style>
+    <div className="space-y-6">
+      <PresetGallery presets={presets} activeId={state.presetId} onSelect={handleSelect} />
 
-      <div className="rounded-2xl border border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] p-5">
-        <VariantSelector
-          label="Select background variant"
-          variants={["particles", "bubbles", "explosion", "custom"]}
-          selected={state.variant}
-          handleSelect={handleVariantSelect}
-        />
-        <Title
-          variant="h4"
-          as="h2"
-          label="Preview"
-          style={{ "--angle": "90deg" } as CSSProperties}
-          className="my-6 text-gray-900"
-        />
-        <Preview state={state} />
-        <Title
-          variant="h4"
-          as="h2"
-          label="Generated code"
-          style={{ "--angle": "90deg" } as CSSProperties}
-          className="my-6 text-gray-900"
-        />
-        <CodeEditor
-          code={`<div class="animated-background"></div>\n<style>\n${handleBackgroundStyle(state)}\n</style>`}
-          language="html"
-          showCopyButton
-          setCode={() => {}}
-          analyticsContext="code from animated background"
+      <div className="grid gap-6 xl:grid-cols-[minmax(0,1.55fr)_minmax(320px,1fr)]">
+        <PreviewPanel state={state} particles={particles} />
+        <ControlPanel
+          state={state}
+          setState={setState}
+          onRandomize={handleRandomize}
+          onReset={handleReset}
+          onSimilar={handleSimilar}
         />
       </div>
 
-      <div className="rounded-2xl border border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] p-5">
-        <Configuration state={state} setState={setState} />
-      </div>
+      <CodeOutput html={html} css={css} particleCount={particles.length} />
     </div>
   );
 }

@@ -104,7 +104,7 @@ export default function PreviewPanel({ state, particles }: PreviewPanelProps) {
   };
 
   return (
-    <div ref={wrapperRef} className="abg-preview-shell group relative overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-950 shadow-2xl dark:border-slate-800">
+    <div ref={wrapperRef} className="abg-preview-shell group relative overflow-hidden rounded-[2rem] border border-[var(--color-border-default)] bg-slate-950 shadow-2xl">
       <style>{css}</style>
       <button
         type="button"

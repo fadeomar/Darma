@@ -66,7 +66,7 @@ export default function LoaderCodeTabs({ loader, customization, onCopySuccess }:
         <Badge variant="outline">{activeFormat.toUpperCase()}</Badge>
       </div>
 
-      <Tabs items={tabItems} value={activeFormat} onChange={setActiveFormat} ariaLabel="Loader code tabs" className="css-loaders-code-tabs" />
+      <Tabs items={tabItems} value={activeFormat} onChange={(v) => setActiveFormat(v)} ariaLabel="Loader code tabs" className="css-loaders-code-tabs" />
 
       <pre className="css-loaders-code-block" tabIndex={0}>
         <code>{selectedCode}</code>

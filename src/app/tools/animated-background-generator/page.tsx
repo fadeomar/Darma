@@ -20,16 +20,16 @@ export default function AnimatedBackgroundPage() {
     <ToolPageShell
       tool={tool}
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-slate-700 dark:text-slate-300">
+        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)]">
           Build motion-heavy backgrounds visually, preview the result live, and copy the generated HTML and CSS into your project.
         </p>
       }
       sidebar={
         <SurfaceCard>
-          <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+          <h2 className="text-lg font-bold text-[var(--color-text-primary)]">
             Best for
           </h2>
-          <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-700 dark:text-slate-300">
+          <ul className="mt-3 space-y-2 text-sm leading-6 text-[var(--color-text-secondary)]">
             <li>Landing page hero sections</li>
             <li>Creative portfolio backgrounds</li>
             <li>Demo pages and motion experiments</li>

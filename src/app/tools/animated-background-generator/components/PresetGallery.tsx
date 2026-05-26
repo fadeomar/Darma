@@ -46,12 +46,12 @@ export default function PresetGallery({
             type="button"
             key={preset.id}
             onClick={() => onSelect(preset)}
-            className={`group shrink-0 overflow-hidden rounded-2xl border bg-white p-2 text-left transition hover:-translate-y-0.5 hover:shadow-lg dark:bg-slate-950 ${
+            className={`group shrink-0 overflow-hidden rounded-2xl border bg-[var(--color-surface-base)] p-2 text-left transition hover:-translate-y-0.5 hover:shadow-lg ${
               compact ? "w-[300px]" : ""
             } ${
               isActive
                 ? "border-fuchsia-400 shadow-md ring-2 ring-fuchsia-200 dark:ring-fuchsia-500/30"
-                : "border-slate-200 dark:border-slate-800"
+                : "border-[var(--color-border-default)]"
             }`}
           >
             <style>{css}</style>
@@ -68,16 +68,16 @@ export default function PresetGallery({
                 {preset.tags.slice(0, 3).map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full bg-slate-100 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-slate-600 dark:bg-slate-800 dark:text-slate-300"
+                    className="rounded-full bg-[var(--color-control-track)] px-2 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-text-secondary)]"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
-              <div className="mt-2 font-semibold text-slate-900 dark:text-slate-100">
+              <div className="mt-2 font-semibold text-[var(--color-text-primary)]">
                 {preset.name}
               </div>
-              <p className="mt-1 line-clamp-2 text-xs leading-5 text-slate-600 dark:text-slate-400">
+              <p className="mt-1 line-clamp-2 text-xs leading-5 text-[var(--color-text-secondary)]">
                 {preset.description}
               </p>
               {preset.bestFor?.[0] && (

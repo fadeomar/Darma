@@ -13,9 +13,9 @@ export function EmptyState({
 }) {
   return (
     <Card variant="default" padding="lg" className="text-center">
-      <SearchX className="mx-auto h-8 w-8 text-[var(--color-text-soft)]" aria-hidden />
-      <h3 className="mt-3 text-lg font-black text-[var(--color-text)]">{title}</h3>
-      {description ? <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-[var(--color-text-muted)]">{description}</p> : null}
+      <SearchX className="mx-auto h-8 w-8 text-[var(--color-text-tertiary)]" aria-hidden />
+      <h3 className="mt-3 text-lg font-black text-[var(--color-text-primary)]">{title}</h3>
+      {description ? <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-[var(--color-text-secondary)]">{description}</p> : null}
       {action ? <div className="mt-5">{action}</div> : null}
     </Card>
   );

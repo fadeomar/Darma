@@ -2,7 +2,7 @@ import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from "react";
 import { Loader2 } from "lucide-react";
 import { cn } from "@/lib/cn";
 
-type ButtonVariant = "primary" | "secondary" | "ghost" | "soft" | "danger";
+type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "soft" | "danger";
 type ButtonSize = "sm" | "md" | "lg" | "icon";
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -16,10 +16,11 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const variantClass: Record<ButtonVariant, string> = {
   primary: "bg-[var(--color-primary)] text-[var(--color-primary-text)] hover:bg-[var(--color-primary-hover)]",
-  secondary: "border border-[var(--color-border)] bg-[var(--color-surface-strong)] text-[var(--color-text)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-muted)]",
-  ghost: "text-[var(--color-text-muted)] hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]",
-  soft: "bg-[var(--color-bg-soft)] text-[var(--color-text)] hover:bg-[var(--color-surface-strong)]",
-  danger: "bg-[var(--color-danger)] text-white hover:brightness-95",
+  secondary: "border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] text-[var(--color-text-primary)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-subtle)]",
+  outline: "border border-[var(--color-border-default)] bg-transparent text-[var(--color-text-primary)] hover:bg-[var(--color-control-hover)] hover:border-[var(--color-border-strong)]",
+  ghost: "text-[var(--color-text-secondary)] hover:bg-[var(--color-control-hover)] hover:text-[var(--color-text-primary)]",
+  soft: "bg-[var(--color-primary-soft)] text-[var(--color-primary)] hover:bg-[var(--color-control-active)]",
+  danger: "bg-[var(--color-danger-bg)] text-[var(--color-danger-text)] border border-[var(--color-danger-border)] hover:brightness-95",
 };
 
 const sizeClass: Record<ButtonSize, string> = {

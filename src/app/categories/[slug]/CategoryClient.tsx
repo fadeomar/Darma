@@ -58,10 +58,10 @@ export default function CategoryClient({
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <div className="rounded-[2rem] border border-black/10 bg-white/70 p-8 shadow-sm backdrop-blur">
+      <div className="rounded-[2rem] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-8 shadow-sm backdrop-blur">
         <Link
           href="/categories"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 transition hover:text-slate-900"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-text-secondary)] transition hover:text-[var(--color-text-primary)]"
         >
           <ArrowLeft className="h-4 w-4" />
           All categories
@@ -79,16 +79,16 @@ export default function CategoryClient({
           }}
         >
           <label className="relative block">
-            <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+            <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--color-text-tertiary)]" />
             <input
               type="text"
               placeholder={`Search in ${mainCategory.replace(/-/g, " ")}`}
               value={search}
               onChange={(event) => setSearch(event.target.value)}
-              className="w-full rounded-2xl border border-black/10 bg-white px-11 py-3 outline-none"
+              className="w-full rounded-2xl border border-[var(--color-border-default)] bg-[var(--color-control-bg)] px-11 py-3 text-[var(--color-text-primary)] outline-none transition placeholder:text-[var(--color-text-tertiary)] focus:border-[var(--color-accent)]"
             />
           </label>
-          <button className="rounded-2xl bg-slate-900 px-5 py-3 text-sm font-bold text-white transition hover:opacity-90">
+          <button className="rounded-2xl bg-[var(--color-primary)] px-5 py-3 text-sm font-bold text-[var(--color-primary-text)] transition hover:bg-[var(--color-primary-hover)]">
             Apply filters
           </button>
         </form>
@@ -104,8 +104,8 @@ export default function CategoryClient({
                 className={[
                   "rounded-full px-4 py-2 text-sm font-semibold transition",
                   active
-                    ? "bg-slate-900 text-white"
-                    : "border border-black/10 bg-white text-slate-900",
+                    ? "bg-[var(--color-primary)] text-[var(--color-primary-text)]"
+                    : "border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] text-[var(--color-text-primary)] hover:border-[var(--color-border-strong)]",
                 ].join(" ")}
               >
                 {category}
@@ -117,10 +117,10 @@ export default function CategoryClient({
 
       <section className="mt-8">
         <div className="mb-4 flex items-center justify-between gap-4">
-          <h2 className="text-2xl font-black tracking-tight text-slate-900 dark:text-slate-100">
+          <h2 className="text-2xl font-black tracking-tight text-[var(--color-text-primary)]">
             Published items
           </h2>
-          <p className="text-sm text-slate-600">{serverTotal} result{serverTotal === 1 ? "" : "s"}</p>
+          <p className="text-sm text-[var(--color-text-secondary)]">{serverTotal} result{serverTotal === 1 ? "" : "s"}</p>
         </div>
 
         {serverElements.length > 0 ? (
@@ -136,20 +136,20 @@ export default function CategoryClient({
                 key={element.id}
               >
                 <SurfaceCard className="h-full transition hover:-translate-y-1 hover:shadow-lg">
-                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-text-tertiary)]">
                     {(element.secondaryCategory || []).slice(0, 2).join(" • ") || "project"}
                   </p>
-                  <h3 className="mt-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+                  <h3 className="mt-3 text-xl font-bold text-[var(--color-text-primary)]">
                     {element.title}
                   </h3>
-                  <p className="mt-3 line-clamp-3 text-sm leading-7 text-slate-700 dark:text-slate-300">
+                  <p className="mt-3 line-clamp-3 text-sm leading-7 text-[var(--color-text-secondary)]">
                     {element.shortDescription || element.description || "Open this item to view the full code and preview."}
                   </p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {element.tags.slice(0, 4).map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700"
+                        className="rounded-full bg-[var(--color-control-track)] px-3 py-1 text-xs font-semibold text-[var(--color-text-secondary)]"
                       >
                         #{tag}
                       </span>
@@ -161,10 +161,10 @@ export default function CategoryClient({
           />
         ) : (
           <SurfaceCard className="text-center">
-            <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">
+            <h3 className="text-xl font-bold text-[var(--color-text-primary)]">
               No items found
             </h3>
-            <p className="mt-3 text-sm leading-7 text-slate-700 dark:text-slate-300">
+            <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">
               Try removing some filters or search for a broader keyword.
             </p>
           </SurfaceCard>

@@ -91,7 +91,7 @@ export default function AnimatedBackgroundClient() {
     <div className="grid gap-6 xl:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)]">
       <style>{bodyStyles}</style>
 
-      <div className="rounded-2xl border border-black/10 bg-slate-50 p-5">
+      <div className="rounded-2xl border border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] p-5">
         <VariantSelector
           label="Select background variant"
           variants={["particles", "bubbles", "explosion", "custom"]}
@@ -122,7 +122,7 @@ export default function AnimatedBackgroundClient() {
         />
       </div>
 
-      <div className="rounded-2xl border border-black/10 bg-slate-50 p-5">
+      <div className="rounded-2xl border border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] p-5">
         <Configuration state={state} setState={setState} />
       </div>
     </div>

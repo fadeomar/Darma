@@ -29,7 +29,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     <input
       ref={ref}
       className={cn(
-        "rounded-[var(--radius-sm)] border border-[var(--color-border)] bg-[var(--color-surface-strong)] text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-soft)] focus:border-[var(--color-accent)]",
+        "rounded-[var(--radius-sm)] border border-[var(--color-border-default)] bg-[var(--color-control-bg)] text-[var(--color-text-primary)] outline-none transition",
+        "placeholder:text-[var(--color-text-tertiary)]",
+        "hover:border-[var(--color-border-strong)]",
+        "focus:border-[var(--color-accent)] focus:bg-[var(--color-surface-base)]",
+        "disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-[var(--color-surface-subtle)]",
         sizeClass[size],
         widthClass[width],
         className,

@@ -22,7 +22,7 @@ export default async function RootLayout({
   return (
     <html lang="en" data-mode={theme}>
       <body className="antialiased">
-        <div className="min-h-screen bg-[color:var(--background)] text-[color:var(--textColor)]">
+        <div className="min-h-screen bg-[var(--color-app-bg)] text-[var(--color-text-primary)]">
           <Suspense fallback={null}>
             <SiteHeader />
           </Suspense>

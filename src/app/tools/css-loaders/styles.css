@@ -4,12 +4,12 @@
   --loader-size: 56px;
   --loader-speed: 1s;
   --loader-bg: transparent;
-  --css-loaders-panel: var(--color-surface);
-  --css-loaders-panel-strong: var(--color-surface-strong);
-  --css-loaders-card: color-mix(in srgb, var(--color-surface) 92%, var(--color-bg-soft));
-  --css-loaders-preview: color-mix(in srgb, var(--color-surface-muted) 90%, var(--color-surface));
-  --css-loaders-preview-strong: color-mix(in srgb, var(--color-surface-strong) 90%, var(--color-surface));
-  --css-loaders-preview-grid: color-mix(in srgb, var(--color-border) 38%, transparent);
+  --css-loaders-panel: var(--color-surface-overlay);
+  --css-loaders-panel-strong: var(--color-surface-raised);
+  --css-loaders-card: var(--color-surface-raised);
+  --css-loaders-preview: var(--color-preview-bg);
+  --css-loaders-preview-strong: var(--color-preview-bg-strong);
+  --css-loaders-preview-grid: var(--color-preview-grid);
 }
 
 .css-loaders-gallery-hero {
@@ -796,15 +796,15 @@
 .css-loaders-code-block {
   min-height: 180px;
   overflow: auto;
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-  background: color-mix(in srgb, #020617 94%, var(--color-primary));
-  color: #e5e7eb;
+  border-top: 1px solid var(--color-code-border);
+  border-bottom: 1px solid var(--color-code-border);
+  background: var(--color-code-bg);
+  color: var(--color-code-text);
   padding: 1rem;
   font-size: 0.78rem;
   line-height: 1.6;
   scrollbar-width: thin;
-  scrollbar-color: color-mix(in srgb, var(--color-primary) 40%, #334155) transparent;
+  scrollbar-color: color-mix(in srgb, var(--color-primary) 40%, var(--color-code-muted)) transparent;
 }
 
 .css-loaders-code-block code {

@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const ButtonsCssGeneratorClient = dynamic(() => import("./ButtonsCssGeneratorClient"), {
-  loading: () => <div className="h-[760px] animate-pulse rounded-3xl bg-slate-100 dark:bg-slate-900" />,
+  loading: () => <div className="h-[760px] animate-pulse rounded-3xl bg-[var(--color-control-track)]" />,
 });
 
 export default function ButtonsCssGeneratorPage() {
@@ -26,7 +26,7 @@ export default function ButtonsCssGeneratorPage() {
     <ToolPage
       tool={tool}
       maxWidth="wide"
-      intro={<p className="max-w-2xl text-sm leading-7 text-slate-700 dark:text-slate-300">Generate polished CSS buttons with live preview states, compact controls, presets, and copy-ready CSS, HTML, React JSX, and Tailwind-style output.</p>}
+      intro={<p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)]">Generate polished CSS buttons with live preview states, compact controls, presets, and copy-ready CSS, HTML, React JSX, and Tailwind-style output.</p>}
       article={<ToolContentCard title="About CSS button design"><ButtonCSSGeneratorArticle /></ToolContentCard>}
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />

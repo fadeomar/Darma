@@ -1,7 +1,7 @@
 import { type HTMLAttributes } from "react";
 import { cn } from "@/lib/cn";
 
-type BadgeVariant = "default" | "soft" | "success" | "warning" | "danger" | "outline";
+type BadgeVariant = "default" | "soft" | "success" | "warning" | "danger" | "info" | "outline";
 
 export function Badge({
   className,
@@ -10,11 +10,12 @@ export function Badge({
 }: HTMLAttributes<HTMLSpanElement> & { variant?: BadgeVariant }) {
   const variants: Record<BadgeVariant, string> = {
     default: "bg-[var(--color-primary)] text-[var(--color-primary-text)]",
-    soft: "bg-[var(--color-bg-soft)] text-[var(--color-text-muted)]",
-    success: "bg-green-100 text-green-800",
-    warning: "bg-amber-100 text-amber-900",
-    danger: "bg-red-100 text-red-800",
-    outline: "border border-[var(--color-border)] text-[var(--color-text-muted)]",
+    soft: "bg-[var(--color-primary-soft)] text-[var(--color-text-secondary)]",
+    success: "bg-[var(--color-success-bg)] text-[var(--color-success-text)] border border-[var(--color-success-border)]",
+    warning: "bg-[var(--color-warning-bg)] text-[var(--color-warning-text)] border border-[var(--color-warning-border)]",
+    danger: "bg-[var(--color-danger-bg)] text-[var(--color-danger-text)] border border-[var(--color-danger-border)]",
+    info: "bg-[var(--color-info-bg)] text-[var(--color-info-text)] border border-[var(--color-info-border)]",
+    outline: "border border-[var(--color-border-default)] text-[var(--color-text-secondary)]",
   };
 
   return (

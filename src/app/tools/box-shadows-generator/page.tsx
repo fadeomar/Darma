@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const BoxShadowsGeneratorClient = dynamic(() => import("./BoxShadowsGeneratorClient"), {
-  loading: () => <div className="h-[760px] animate-pulse rounded-3xl bg-slate-100 dark:bg-slate-900" />,
+  loading: () => <div className="h-[760px] animate-pulse rounded-3xl bg-[var(--color-control-track)]" />,
 });
 
 export default function BoxShadowsGeneratorPage() {
@@ -26,7 +26,7 @@ export default function BoxShadowsGeneratorPage() {
     <ToolPage
       tool={tool}
       maxWidth="wide"
-      intro={<p className="max-w-2xl text-sm leading-7 text-slate-700 dark:text-slate-300">Build multi-layer CSS box shadows with a live preview, compact layer editor, presets, and copy-ready output.</p>}
+      intro={<p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)]">Build multi-layer CSS box shadows with a live preview, compact layer editor, presets, and copy-ready output.</p>}
       article={<ToolContentCard title="About CSS box-shadow"><Article /></ToolContentCard>}
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />

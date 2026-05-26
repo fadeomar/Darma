@@ -36,34 +36,34 @@ export default function LandingPage() {
     <div className="pb-16">
       <section className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:px-8 lg:py-20">
         <div>
-          <p className="mb-4 inline-flex rounded-full border border-black/10 bg-white/60 px-4 py-2 text-sm font-bold uppercase tracking-[0.2em] text-slate-700">
+          <p className="mb-4 inline-flex rounded-full border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] px-4 py-2 text-sm font-bold uppercase tracking-[0.2em] text-[var(--color-text-secondary)]">
             Front-end showcase + tools hub
           </p>
-          <h1 className="max-w-4xl text-4xl font-black tracking-tight text-[color:var(--textColor)] sm:text-5xl lg:text-6xl">
+          <h1 className="max-w-4xl text-4xl font-black tracking-tight text-[var(--color-text-primary)] sm:text-5xl lg:text-6xl">
             Darma helps people discover useful front-end ideas and get work done faster.
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-700 dark:text-slate-300">
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-text-secondary)]">
             It combines a growing library of HTML, CSS, and JavaScript projects with lightweight online tools for developers, designers, students, and creators.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/explore" className="rounded-full bg-[color:var(--textColor)] px-6 py-3 text-sm font-bold text-[color:var(--textColorOpposite)] transition hover:opacity-90">
+            <Link href="/explore" className="rounded-full bg-[var(--color-primary)] px-6 py-3 text-sm font-bold text-[var(--color-primary-text)] transition hover:bg-[var(--color-primary-hover)]">
               Explore projects
             </Link>
-            <Link href="/tools" className="rounded-full border border-black/10 bg-white px-6 py-3 text-sm font-bold text-slate-900 shadow-sm transition hover:-translate-y-0.5 hover:shadow">
+            <Link href="/tools" className="rounded-full border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-6 py-3 text-sm font-bold text-[var(--color-text-primary)] shadow-sm transition hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] hover:shadow">
               Try the tools
             </Link>
           </div>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-          <div className="rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-slate-500">Why it matters</p>
-            <p className="mt-3 text-base leading-7 text-slate-700">
+          <div className="rounded-3xl border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-6 shadow-sm backdrop-blur">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--color-text-tertiary)]">Why it matters</p>
+            <p className="mt-3 text-base leading-7 text-[var(--color-text-secondary)]">
               Instead of random snippets, Darma is growing into one place for inspiration, learning, and quick browser-based utilities.
             </p>
           </div>
-          <div className="rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-slate-500">Built for speed</p>
-            <p className="mt-3 text-base leading-7 text-slate-700">
+          <div className="rounded-3xl border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-6 shadow-sm backdrop-blur">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--color-text-tertiary)]">Built for speed</p>
+            <p className="mt-3 text-base leading-7 text-[var(--color-text-secondary)]">
               Open a tool, tweak a few inputs, preview the result, and copy what you need. No signup. No unnecessary steps.
             </p>
           </div>
@@ -80,11 +80,11 @@ export default function LandingPage() {
             <Link
               key={card.title}
               href={card.href}
-              className="rounded-3xl border border-black/10 bg-white/80 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+              className="rounded-3xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] p-6 shadow-sm transition hover:-translate-y-1 hover:border-[var(--color-border-strong)] hover:shadow-lg"
             >
-              <h3 className="text-xl font-bold text-slate-900">{card.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-slate-700">{card.description}</p>
-              <span className="mt-5 inline-flex text-sm font-bold text-slate-900">{card.cta} →</span>
+              <h3 className="text-xl font-bold text-[var(--color-text-primary)]">{card.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">{card.description}</p>
+              <span className="mt-5 inline-flex text-sm font-bold text-[var(--color-primary)]">{card.cta} →</span>
             </Link>
           ))}
         </div>
@@ -100,11 +100,11 @@ export default function LandingPage() {
             <Link
               key={tool.id}
               href={tool.href}
-              className="rounded-3xl border border-black/10 bg-white/80 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+              className="rounded-3xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] p-6 shadow-sm transition hover:-translate-y-1 hover:border-[var(--color-border-strong)] hover:shadow-lg"
             >
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">{tool.audiences?.[0] ?? "tool"}</p>
-              <h3 className="mt-2 text-lg font-bold text-slate-900">{tool.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-slate-700">{tool.description}</p>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-text-tertiary)]">{tool.audiences?.[0] ?? "tool"}</p>
+              <h3 className="mt-2 text-lg font-bold text-[var(--color-text-primary)]">{tool.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">{tool.description}</p>
             </Link>
           ))}
         </div>

@@ -35,11 +35,11 @@ export default function InputSection({
   };
 
   return (
-    <div className="rounded-2xl border border-black/10 bg-slate-50 p-5">
-      <h3 className="text-lg font-bold text-slate-900">Color settings</h3>
+    <div className="rounded-2xl border border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] p-5">
+      <h3 className="text-lg font-bold text-[var(--color-text-primary)]">Color settings</h3>
       <div className="mt-4 space-y-4">
         <div>
-          <label className="mb-1 block text-sm font-medium text-slate-700">
+          <label className="mb-1 block text-sm font-medium text-[var(--color-text-secondary)]">
             Start color
           </label>
           <div className="flex items-center gap-3">
@@ -55,14 +55,14 @@ export default function InputSection({
               name="color1"
               value={localParams.color1}
               onChange={handleChange}
-              className="flex-1 rounded-xl border border-black/10 bg-white px-3 py-2 text-sm"
+              className="flex-1 rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-3 py-2 text-sm text-[var(--color-text-primary)] placeholder:text-[var(--color-text-tertiary)]"
               placeholder="#FFFFFF"
             />
           </div>
         </div>
 
         <div>
-          <label className="mb-1 block text-sm font-medium text-slate-700">
+          <label className="mb-1 block text-sm font-medium text-[var(--color-text-secondary)]">
             End color
           </label>
           <div className="flex items-center gap-3">
@@ -78,14 +78,14 @@ export default function InputSection({
               name="color2"
               value={localParams.color2}
               onChange={handleChange}
-              className="flex-1 rounded-xl border border-black/10 bg-white px-3 py-2 text-sm"
+              className="flex-1 rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-3 py-2 text-sm text-[var(--color-text-primary)] placeholder:text-[var(--color-text-tertiary)]"
               placeholder="#000000"
             />
           </div>
         </div>
 
         <div>
-          <label className="mb-1 block text-sm font-medium text-slate-700">
+          <label className="mb-1 block text-sm font-medium text-[var(--color-text-secondary)]">
             Number of shades
           </label>
           <input
@@ -95,7 +95,7 @@ export default function InputSection({
             max="20"
             value={localParams.steps}
             onChange={handleChange}
-            className="w-full rounded-xl border border-black/10 bg-white px-3 py-2 text-sm"
+            className="w-full rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-3 py-2 text-sm text-[var(--color-text-primary)] placeholder:text-[var(--color-text-tertiary)]"
           />
         </div>
       </div>

@@ -135,7 +135,7 @@ function AboutPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-6">
+    <div className="min-h-screen bg-[var(--color-app-bg)] text-[var(--color-text-primary)] p-6">
       {/* Hero Section */}
       <section className="text-center py-16">
         <motion.h1
@@ -145,7 +145,7 @@ function AboutPage() {
         >
           Your Ultimate Developer Toolkit
         </motion.h1>
-        <p className="text-lg text-gray-400 mt-4 max-w-2xl mx-auto">
+        <p className="text-lg text-[var(--color-text-secondary)] mt-4 max-w-2xl mx-auto">
           A carefully curated collection of resources, tools, and learning
           materials for developers at all levels. Bookmark this page as your
           go-to reference!
@@ -154,7 +154,7 @@ function AboutPage() {
 
       {/* Value Proposition */}
       <section className="py-12 max-w-6xl mx-auto text-center">
-        <div className="bg-gray-800 rounded-2xl p-8 shadow-xl">
+        <div className="bg-[var(--color-surface-base)] border border-[var(--color-border-default)] rounded-2xl p-8 shadow-xl">
           <h2 className="text-3xl font-semibold mb-6">
             Why Bookmark This Page?
           </h2>
@@ -176,10 +176,10 @@ function AboutPage() {
               <motion.div
                 key={i}
                 whileHover={{ scale: 1.05 }}
-                className="bg-gray-700 p-6 rounded-xl"
+                className="bg-[var(--color-surface-subtle)] border border-[var(--color-border-subtle)] p-6 rounded-xl"
               >
                 <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                <p className="text-gray-400">{item.text}</p>
+                <p className="text-[var(--color-text-secondary)]">{item.text}</p>
               </motion.div>
             ))}
           </div>
@@ -191,7 +191,7 @@ function AboutPage() {
         <section key={index} className="py-12 max-w-6xl mx-auto">
           <div className="mb-8 text-center">
             <h3 className="text-2xl font-semibold">{section.title}</h3>
-            <p className="text-gray-400 mt-2">
+            <p className="text-[var(--color-text-secondary)] mt-2">
               Essential tools for your workflow
             </p>
           </div>
@@ -203,9 +203,9 @@ function AboutPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
-                className="group block bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all"
+                className="group block bg-[var(--color-surface-base)] border border-[var(--color-border-default)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all"
               >
-                <div className="h-48 bg-gray-700 overflow-hidden">
+                <div className="h-48 bg-[var(--color-surface-subtle)] overflow-hidden">
                   <Image
                     src={item.image}
                     alt={item.name}
@@ -214,7 +214,7 @@ function AboutPage() {
                 </div>
                 <div className="p-6">
                   <h4 className="text-lg font-semibold mb-2">{item.name}</h4>
-                  <p className="text-gray-400 text-sm">{item.desc}</p>
+                  <p className="text-[var(--color-text-secondary)] text-sm">{item.desc}</p>
                 </div>
               </motion.a>
             ))}
@@ -242,17 +242,17 @@ function AboutPage() {
           Getting the Most from Darama
         </h2>
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-gray-800 p-6 rounded-xl">
+          <div className="bg-[var(--color-surface-base)] border border-[var(--color-border-default)] p-6 rounded-xl">
             <h3 className="text-xl font-semibold mb-4">For Learners</h3>
-            <ul className="space-y-3 text-gray-400">
+            <ul className="space-y-3 text-[var(--color-text-secondary)]">
               <li>✅ Start with fundamentals path</li>
               <li>✅ Practice with interactive code</li>
               <li>✅ Join community challenges</li>
             </ul>
           </div>
-          <div className="bg-gray-800 p-6 rounded-xl">
+          <div className="bg-[var(--color-surface-base)] border border-[var(--color-border-default)] p-6 rounded-xl">
             <h3 className="text-xl font-semibold mb-4">For Developers</h3>
-            <ul className="space-y-3 text-gray-400">
+            <ul className="space-y-3 text-[var(--color-text-secondary)]">
               <li>🚀 Explore component library</li>
               <li>🚀 Contribute to open source</li>
               <li>🚀 Use generators in projects</li>
@@ -277,11 +277,11 @@ function AboutPage() {
               author: "Mike, Career Switcher",
             },
           ].map((testimonial, i) => (
-            <div key={i} className="bg-gray-800 p-6 rounded-xl">
-              <p className="text-gray-300 mb-4">
+            <div key={i} className="bg-[var(--color-surface-base)] border border-[var(--color-border-default)] p-6 rounded-xl">
+              <p className="text-[var(--color-text-primary)] mb-4">
                 &quot;{testimonial.text}&quot;
               </p>
-              <p className="text-gray-400 font-medium">
+              <p className="text-[var(--color-text-secondary)] font-medium">
                 — {testimonial.author}
               </p>
             </div>
@@ -293,17 +293,17 @@ function AboutPage() {
       <section className="py-12 max-w-4xl mx-auto text-center">
         <h2 className="text-3xl font-semibold mb-6">Need Help?</h2>
         <div className="grid md:grid-cols-3 gap-6">
-          <div className="bg-gray-800 p-6 rounded-xl">
+          <div className="bg-[var(--color-surface-base)] border border-[var(--color-border-default)] p-6 rounded-xl">
             <h3 className="font-semibold mb-2">FAQs</h3>
-            <p className="text-gray-400 text-sm">Common questions answered</p>
+            <p className="text-[var(--color-text-secondary)] text-sm">Common questions answered</p>
           </div>
-          <div className="bg-gray-800 p-6 rounded-xl">
+          <div className="bg-[var(--color-surface-base)] border border-[var(--color-border-default)] p-6 rounded-xl">
             <h3 className="font-semibold mb-2">Discord</h3>
-            <p className="text-gray-400 text-sm">Live community support</p>
+            <p className="text-[var(--color-text-secondary)] text-sm">Live community support</p>
           </div>
-          <div className="bg-gray-800 p-6 rounded-xl">
+          <div className="bg-[var(--color-surface-base)] border border-[var(--color-border-default)] p-6 rounded-xl">
             <h3 className="font-semibold mb-2">Guides</h3>
-            <p className="text-gray-400 text-sm">Step-by-step tutorials</p>
+            <p className="text-[var(--color-text-secondary)] text-sm">Step-by-step tutorials</p>
           </div>
         </div>
       </section>

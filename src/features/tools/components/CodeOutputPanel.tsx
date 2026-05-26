@@ -30,11 +30,11 @@ export function CodeOutputPanel({ title, description, tabs, defaultTab, emptyMes
   const hasCode = Boolean(currentTab?.code);
 
   return (
-    <section className={cn("overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-sm", className)}>
-      <div className="flex flex-col gap-3 border-b border-[var(--color-border)] px-4 py-3 sm:flex-row sm:items-start sm:justify-between">
+    <section className={cn("overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-sm backdrop-blur", className)}>
+      <div className="flex flex-col gap-3 border-b border-[var(--color-border-default)] px-4 py-3 sm:flex-row sm:items-start sm:justify-between">
         <div className="min-w-0 space-y-1">
-          {title ? <h2 className="text-sm font-bold text-[var(--color-text)]">{title}</h2> : null}
-          {description ? <p className="text-xs leading-5 text-[var(--color-text-soft)]">{description}</p> : null}
+          {title ? <h2 className="text-sm font-bold text-[var(--color-text-primary)]">{title}</h2> : null}
+          {description ? <p className="text-xs leading-5 text-[var(--color-text-tertiary)]">{description}</p> : null}
         </div>
         <div className="flex shrink-0 flex-wrap items-center gap-2">
           {actions}
@@ -44,7 +44,7 @@ export function CodeOutputPanel({ title, description, tabs, defaultTab, emptyMes
       </div>
 
       {tabs.length > 1 ? (
-        <div className="border-b border-[var(--color-border)] px-4 py-3">
+        <div className="border-b border-[var(--color-border-default)] px-4 py-3">
           <Tabs
             ariaLabel="Generated code tabs"
             items={tabs.map((tab) => ({ value: tab.id, label: tab.label }))}
@@ -54,13 +54,13 @@ export function CodeOutputPanel({ title, description, tabs, defaultTab, emptyMes
         </div>
       ) : null}
 
-      <div className="bg-[var(--color-bg-soft)] p-4">
+      <div className="bg-[var(--color-surface-inset)] p-4">
         {currentTab && hasCode ? (
-          <pre className="max-h-[32rem] overflow-auto rounded-[var(--radius-md)] bg-[var(--color-surface-strong)] p-4 text-xs leading-6 text-[var(--color-text)]">
+          <pre className="max-h-[32rem] overflow-auto rounded-[var(--radius-md)] bg-[var(--color-code-bg)] p-4 text-xs leading-6 text-[var(--color-code-text)]">
             <code data-language={currentTab.language}>{currentTab.code}</code>
           </pre>
         ) : (
-          <div className="rounded-[var(--radius-md)] border border-dashed border-[var(--color-border)] bg-[var(--color-surface-strong)] p-6 text-center text-sm text-[var(--color-text-soft)]">
+          <div className="rounded-[var(--radius-md)] border border-dashed border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] p-6 text-center text-sm text-[var(--color-text-tertiary)]">
             {emptyMessage}
           </div>
         )}

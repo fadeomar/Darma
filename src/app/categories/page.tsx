@@ -40,20 +40,20 @@ export default function CategoriesPage() {
           {categoriesData.categories.map((category) => (
             <Link key={category.name} href={`/categories/${category.name}`}>
               <SurfaceCard className="h-full transition hover:-translate-y-1 hover:shadow-lg">
-                <p className="text-sm font-bold uppercase tracking-[0.2em] text-slate-500">
+                <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--color-text-tertiary)]">
                   {category.types.length} subcategories
                 </p>
-                <h2 className="mt-3 text-2xl font-black capitalize tracking-tight text-slate-900 dark:text-slate-100">
+                <h2 className="mt-3 text-2xl font-black capitalize tracking-tight text-[var(--color-text-primary)]">
                   {category.name.replace(/-/g, " ")}
                 </h2>
-                <p className="mt-3 text-sm leading-7 text-slate-700 dark:text-slate-300">
+                <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">
                   {category.description}
                 </p>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {category.types.slice(0, 6).map((type) => (
                     <span
                       key={type}
-                      className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700"
+                      className="rounded-full bg-[var(--color-control-track)] px-3 py-1 text-xs font-semibold text-[var(--color-text-secondary)]"
                     >
                       {type}
                     </span>
@@ -81,10 +81,10 @@ export default function CategoriesPage() {
                   <Badge variant="soft">{category.count} tools</Badge>
                   <Badge variant="outline">Registry</Badge>
                 </div>
-                <h2 className="mt-3 text-2xl font-black capitalize tracking-tight text-slate-900 dark:text-slate-100">
+                <h2 className="mt-3 text-2xl font-black capitalize tracking-tight text-[var(--color-text-primary)]">
                   {category.category.replace(/-/g, " ")}
                 </h2>
-                <p className="mt-3 text-sm leading-7 text-slate-700 dark:text-slate-300">
+                <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">
                   Browse {category.featured.join(", ")} and related Darma tools.
                 </p>
               </SurfaceCard>

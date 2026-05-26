@@ -39,9 +39,9 @@ export default async function ExplorePage({
   return (
     <main className="min-h-screen px-4 py-8 sm:px-6 lg:px-8">
       <div className="mx-auto mb-8 max-w-7xl">
-        <p className="text-sm font-bold uppercase tracking-[0.2em] text-slate-600">Explore</p>
-        <h1 className="mt-2 text-4xl font-black tracking-tight">Browse Darma projects</h1>
-        <p className="mt-3 max-w-3xl text-base leading-7 text-slate-700 dark:text-slate-300">
+        <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--color-text-secondary)]">Explore</p>
+        <h1 className="mt-2 text-4xl font-black tracking-tight text-[var(--color-text-primary)]">Browse Darma projects</h1>
+        <p className="mt-3 max-w-3xl text-base leading-7 text-[var(--color-text-secondary)]">
           Search the collection, filter by categories, and open full previews for the HTML, CSS, and JavaScript ideas you want to study or reuse.
         </p>
       </div>

@@ -39,7 +39,7 @@ const Configuration: React.FC<ConfigurationProps> = ({ state, setState }) => {
   };
 
   return (
-    <div className="configuration p-8 w-full bg-white bg-opacity-90 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+    <div className="configuration p-8 w-full bg-[var(--color-surface-base)] border border-[var(--color-border-default)] rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
       <Title
         variant="h4"
         label="Background Settings"
@@ -173,7 +173,7 @@ const Configuration: React.FC<ConfigurationProps> = ({ state, setState }) => {
               {state.colors.length > 1 && (
                 <button
                   onClick={() => removeColor(index)}
-                  className="ml-auto px-3 py-1 bg-red-100 text-red-600 rounded-md text-sm hover:bg-red-200 transition"
+                  className="ml-auto px-3 py-1 bg-[var(--color-danger-bg)] text-[var(--color-danger-text)] border border-[var(--color-danger-border)] rounded-md text-sm transition hover:brightness-95"
                 >
                   Remove
                 </button>

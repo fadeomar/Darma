@@ -15,10 +15,10 @@ export type WarningPanelProps = {
 };
 
 const severityClass: Record<NonNullable<WarningMessage["severity"]>, string> = {
-  info: "border-[var(--color-border)] bg-[var(--color-bg-soft)]",
-  success: "border-emerald-500/30 bg-emerald-500/10",
-  warning: "border-amber-500/35 bg-amber-500/10",
-  danger: "border-[var(--color-danger)]/35 bg-[var(--color-danger)]/10",
+  info: "border-[var(--color-info-border)] bg-[var(--color-info-bg)] text-[var(--color-info-text)]",
+  success: "border-[var(--color-success-border)] bg-[var(--color-success-bg)] text-[var(--color-success-text)]",
+  warning: "border-[var(--color-warning-border)] bg-[var(--color-warning-bg)] text-[var(--color-warning-text)]",
+  danger: "border-[var(--color-danger-border)] bg-[var(--color-danger-bg)] text-[var(--color-danger-text)]",
 };
 
 const severityLabel: Record<NonNullable<WarningMessage["severity"]>, string> = {
@@ -33,19 +33,19 @@ export function WarningPanel({ messages, title, className }: WarningPanelProps) 
 
   return (
     <section className={cn("space-y-2", className)} aria-live="polite">
-      {title ? <h2 className="text-sm font-bold text-[var(--color-text)]">{title}</h2> : null}
+      {title ? <h2 className="text-sm font-bold text-[var(--color-text-primary)]">{title}</h2> : null}
       <div className="space-y-2">
         {messages.map((item) => {
           const severity = item.severity ?? "info";
           return (
             <div key={item.id} className={cn("rounded-[var(--radius-md)] border p-3", severityClass[severity])}>
               <div className="flex flex-wrap items-center gap-2">
-                <span className="rounded-full border border-current px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[var(--color-text-muted)]">
+                <span className="rounded-full border border-current px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide opacity-75">
                   {severityLabel[severity]}
                 </span>
-                {item.title ? <h3 className="text-xs font-bold text-[var(--color-text)]">{item.title}</h3> : null}
+                {item.title ? <h3 className="text-xs font-bold">{item.title}</h3> : null}
               </div>
-              <div className="mt-1 text-xs leading-5 text-[var(--color-text-muted)]">{item.message}</div>
+              <div className="mt-1 text-xs leading-5 opacity-90">{item.message}</div>
             </div>
           );
         })}

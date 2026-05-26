@@ -114,7 +114,7 @@ export default function BoxShadowsGeneratorClient() {
       <PreviewToolbar title="Shadow preview" description="Preview the selected multi-layer shadow on a large surface." />
       <div className="flex min-h-[520px] items-center justify-center rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[radial-gradient(circle_at_top_left,rgb(59_130_246_/_0.12),transparent_34%),linear-gradient(135deg,#f8fafc,#e2e8f0)] p-8 dark:bg-[linear-gradient(135deg,#020617,#0f172a)]">
         <div
-          className="flex items-center justify-center text-center text-sm font-bold text-slate-500"
+          className="flex items-center justify-center text-center text-sm font-bold text-[var(--color-text-tertiary)]"
           style={{ width: state.boxSize, height: state.boxSize, borderRadius: state.borderRadius, background: state.backgroundColor, boxShadow: boxShadowValue(state) }}
         >
           box-shadow

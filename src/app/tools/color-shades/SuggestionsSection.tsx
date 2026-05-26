@@ -31,14 +31,14 @@ export default function SuggestionsSection() {
     <div className="space-y-6">
       {COLOR_SUGGESTIONS.map((group) => (
         <div key={group.category}>
-          <h3 className="mb-3 text-base font-bold text-slate-900">
+          <h3 className="mb-3 text-base font-bold text-[var(--color-text-primary)]">
             {group.category}
           </h3>
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {group.items.map((suggestion) => (
               <div
                 key={suggestion.id}
-                className="overflow-hidden rounded-2xl border border-black/10 bg-slate-50 transition hover:bg-white hover:shadow-sm"
+                className="overflow-hidden rounded-2xl border border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] transition hover:bg-[var(--color-surface-raised)] hover:shadow-sm"
               >
                 <div className="flex h-10">
                   {getFiveColors(suggestion.colors).map((color, index) => (
@@ -50,13 +50,13 @@ export default function SuggestionsSection() {
                   ))}
                 </div>
                 <div className="p-4">
-                  <h4 className="text-sm font-bold text-slate-900">
+                  <h4 className="text-sm font-bold text-[var(--color-text-primary)]">
                     {suggestion.name}
                   </h4>
-                  <p className="mt-1 text-xs leading-5 text-slate-600">
+                  <p className="mt-1 text-xs leading-5 text-[var(--color-text-secondary)]">
                     {suggestion.description}
                   </p>
-                  <ul className="mt-3 space-y-1 text-xs text-slate-500">
+                  <ul className="mt-3 space-y-1 text-xs text-[var(--color-text-tertiary)]">
                     {suggestion.bestFor.slice(0, 3).map((useCase) => (
                       <li key={useCase}>• {useCase}</li>
                     ))}
@@ -68,7 +68,7 @@ export default function SuggestionsSection() {
                         color2: suggestion.colors[suggestion.colors.length - 1],
                       })
                     }
-                    className="mt-4 w-full rounded-xl bg-slate-900 px-3 py-2 text-xs font-bold text-white transition hover:opacity-90"
+                    className="mt-4 w-full rounded-xl bg-[var(--color-primary)] px-3 py-2 text-xs font-bold text-[var(--color-primary-text)] transition hover:bg-[var(--color-primary-hover)]"
                   >
                     Apply colors
                   </button>

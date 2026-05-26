@@ -52,12 +52,12 @@ export function ToolPage({
     <div className={cn("mx-auto px-4 py-8 sm:px-6 lg:px-8", maxWidthClass[maxWidth])}>
       <header
         className={cn(
-          "rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-soft)] backdrop-blur",
+          "rounded-[var(--radius-xl)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] shadow-[var(--shadow-soft)]",
           headerSize === "compact" ? "p-4 sm:p-5" : "p-6 sm:p-8",
           headerAlign === "center" && "text-center",
         )}
       >
-        <Link href="/tools" className="inline-flex text-sm font-semibold text-[var(--color-text-muted)] transition hover:text-[var(--color-text)]">
+        <Link href="/tools" className="inline-flex text-sm font-semibold text-[var(--color-text-secondary)] transition hover:text-[var(--color-text-primary)]">
           Back to tools
         </Link>
         <div className={cn("mt-4 flex flex-wrap gap-2", headerAlign === "center" && "justify-center")}>
@@ -76,7 +76,7 @@ export function ToolPage({
         {pageTitle ? (
           <h1
             className={cn(
-              "mt-4 font-black leading-[var(--leading-tight)] text-[var(--color-text)]",
+              "mt-4 font-black leading-[var(--leading-tight)] text-[var(--color-text-primary)]",
               headerSize === "compact" ? "text-3xl sm:text-4xl" : "text-4xl sm:text-5xl",
             )}
           >
@@ -86,7 +86,7 @@ export function ToolPage({
         {pageDescription ? (
           <p
             className={cn(
-              "mt-3 max-w-3xl leading-7 text-[var(--color-text-muted)]",
+              "mt-3 max-w-3xl leading-7 text-[var(--color-text-secondary)]",
               headerSize === "compact" ? "text-sm sm:text-base" : "text-base sm:text-lg",
               headerAlign === "center" && "mx-auto",
             )}

@@ -1,6 +1,6 @@
 export default function ColorShadesArticle() {
   return (
-    <article className="prose prose-lg max-w-4xl mx-auto py-12 px-6 bg-white rounded-xl shadow-lg">
+    <article className="prose prose-lg max-w-4xl mx-auto py-12 px-6 bg-[var(--color-surface-base)] rounded-xl shadow-lg">
       <header>
         <h1 className="text-4xl font-bold text-gray-900 mb-6">
           🌈 Ultimate Color Shades Generator Tool: Create Perfect Gradients

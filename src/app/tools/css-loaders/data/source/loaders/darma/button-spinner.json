@@ -1,0 +1,29 @@
+{
+  "id": "button-spinner",
+  "name": "Button Spinner",
+  "category": "button",
+  "tags": [
+    "button",
+    "spinner",
+    "inline",
+    "submit"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader {\n  display: inline-block;\n  width: 26px;\n  height: 26px;\n  border-radius: 50%;\n  border: 3px solid rgba(99, 102, 241, 0.2);\n  border-right-color: #6366f1;\n  animation: spin 0.7s linear infinite;\n}\n@keyframes spin { to { transform: rotate(360deg); } }\n",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 48,
+    "speed": 1
+  },
+  "flags": {
+    "popular": true,
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": true
+  }
+}

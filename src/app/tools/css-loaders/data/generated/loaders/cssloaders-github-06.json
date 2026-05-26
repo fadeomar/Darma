@@ -1,0 +1,50 @@
+{
+  "id": "cssloaders-github-06",
+  "name": "CSSLoaders Pattern 06",
+  "category": "bars",
+  "tags": [
+    "cssloaders",
+    "bars",
+    "wave",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": true,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "cssloaders-github-06 cssloaders pattern 06 bars cssloaders bars wave loader html css react popular cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-cssloaders-github-06\"><i></i><i></i><i></i><i></i><i></i></span>",
+  "previewCss": ".darma-loader-cssloaders-github-06 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 4px;\n      height: 44px;\n    }\n    .darma-loader-cssloaders-github-06 i {\n      display: block;\n      width: 5px;\n      height: 44px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #ef4444), var(--loader-secondary-color, #fecaca));\n      transform-origin: center bottom;\n      animation: darma-loader-cssloaders-github-06-barPulse 1.05s ease-in-out infinite;\n    }\n    .darma-loader-cssloaders-github-06 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-cssloaders-github-06 i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-cssloaders-github-06 i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-cssloaders-github-06 i:nth-child(4) { animation-delay: 0.27s; }\n.darma-loader-cssloaders-github-06 i:nth-child(5) { animation-delay: 0.36s; }\n    @keyframes darma-loader-cssloaders-github-06-barPulse { 0%, 100% { opacity: .25; transform: scaleY(.5); } 45% { opacity: 1; transform: scaleY(1); } }\n",
+  "defaults": {
+    "color": "#ef4444",
+    "secondaryColor": "#fecaca",
+    "size": 54,
+    "speed": 1.05
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-cssloaders-github-06\"><i></i><i></i><i></i><i></i><i></i></span>",
+    "css": ".darma-loader-cssloaders-github-06 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 4px;\n      height: 44px;\n    }\n    .darma-loader-cssloaders-github-06 i {\n      display: block;\n      width: 5px;\n      height: 44px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #ef4444), var(--loader-secondary-color, #fecaca));\n      transform-origin: center bottom;\n      animation: darma-loader-cssloaders-github-06-barPulse 1.05s ease-in-out infinite;\n    }\n    .darma-loader-cssloaders-github-06 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-cssloaders-github-06 i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-cssloaders-github-06 i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-cssloaders-github-06 i:nth-child(4) { animation-delay: 0.27s; }\n.darma-loader-cssloaders-github-06 i:nth-child(5) { animation-delay: 0.36s; }\n    @keyframes darma-loader-cssloaders-github-06-barPulse { 0%, 100% { opacity: .25; transform: scaleY(.5); } 45% { opacity: 1; transform: scaleY(1); } }\n",
+    "react": "export default function CssloadersGithub06Loader() {\n  return (\n    <span className=\"darma-loader-cssloaders-github-06\"><i></i><i></i><i></i><i></i><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "cssloaders.github.io",
+    "author": "cssloaders",
+    "license": "MIT",
+    "url": "https://github.com/cssloaders/cssloaders.github.io"
+  }
+}

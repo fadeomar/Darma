@@ -1,0 +1,28 @@
+{
+  "id": "compass-spinner",
+  "name": "Compass Spinner",
+  "category": "spinners",
+  "tags": [
+    "spinner",
+    "compass",
+    "needle",
+    "map"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader {\n  position: relative;\n  display: inline-block;\n  width: 58px;\n  height: 58px;\n  border: 2px solid rgba(99, 102, 241, 0.22);\n  border-radius: 50%;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  inset: 9px 25px;\n  border-radius: 999px;\n  background: #6366f1;\n  transform-origin: 50% 20px;\n  animation: spin 1s cubic-bezier(.6,.2,.4,.8) infinite;\n}\n.loader::after {\n  content: \"\";\n  position: absolute;\n  inset: 24px;\n  border-radius: 50%;\n  background: #6366f1;\n}\n@keyframes spin { to { transform: rotate(360deg); } }\n",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 48,
+    "speed": 1
+  },
+  "flags": {
+    "popular": false,
+    "cssOnly": true,
+    "customizable": true
+  }
+}

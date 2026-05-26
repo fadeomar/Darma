@@ -1,0 +1,50 @@
+{
+  "id": "cssloaders-github-16",
+  "name": "CSSLoaders Pattern 16",
+  "category": "progress",
+  "tags": [
+    "cssloaders",
+    "progress",
+    "bar",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "cssloaders-github-16 cssloaders pattern 16 progress cssloaders progress bar loader html css react singleelement cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-cssloaders-github-16\"></span>",
+  "previewCss": ".darma-loader-cssloaders-github-16 {\n  display: inline-block;\n  width: 92px;\n  height: 10px;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #ef4444) 16%, transparent);\n  overflow: hidden;\n}\n.darma-loader-cssloaders-github-16::before {\n      content: \"\";\n      display: block;\n      width: 42%;\n      height: 100%;\n      border-radius: inherit;\n      background: linear-gradient(90deg, var(--loader-color, #ef4444), var(--loader-secondary-color, #fecaca));\n      animation: darma-loader-cssloaders-github-16-progressSlide 0.9s ease-in-out infinite;\n    }\n    @keyframes darma-loader-cssloaders-github-16-progressSlide { 0% { transform: translateX(-120%); } 100% { transform: translateX(260%); } }\n",
+  "defaults": {
+    "color": "#ef4444",
+    "secondaryColor": "#fecaca",
+    "size": 54,
+    "speed": 0.85
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-cssloaders-github-16\"></span>",
+    "css": ".darma-loader-cssloaders-github-16 {\n  display: inline-block;\n  width: 92px;\n  height: 10px;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #ef4444) 16%, transparent);\n  overflow: hidden;\n}\n.darma-loader-cssloaders-github-16::before {\n      content: \"\";\n      display: block;\n      width: 42%;\n      height: 100%;\n      border-radius: inherit;\n      background: linear-gradient(90deg, var(--loader-color, #ef4444), var(--loader-secondary-color, #fecaca));\n      animation: darma-loader-cssloaders-github-16-progressSlide 0.9s ease-in-out infinite;\n    }\n    @keyframes darma-loader-cssloaders-github-16-progressSlide { 0% { transform: translateX(-120%); } 100% { transform: translateX(260%); } }\n",
+    "react": "export default function CssloadersGithub16Loader() {\n  return (\n    <span className=\"darma-loader-cssloaders-github-16\"></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "cssloaders.github.io",
+    "author": "cssloaders",
+    "license": "MIT",
+    "url": "https://github.com/cssloaders/cssloaders.github.io"
+  }
+}

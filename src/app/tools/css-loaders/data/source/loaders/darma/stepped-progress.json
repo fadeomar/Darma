@@ -1,0 +1,28 @@
+{
+  "id": "stepped-progress",
+  "name": "Stepped Progress",
+  "category": "progress",
+  "tags": [
+    "progress",
+    "steps",
+    "wizard",
+    "checkout"
+  ],
+  "html": "<span class=\"loader\"><i></i><i></i><i></i><i></i></span>",
+  "css": ".loader {\n  display: inline-flex;\n  gap: 8px;\n  color: #6366f1;\n}\n.loader i {\n  width: 18px;\n  height: 18px;\n  border-radius: 7px;\n  background: currentColor;\n  opacity: 0.25;\n  animation: step 1.2s ease-in-out infinite;\n}\n.loader i:nth-child(2) { animation-delay: 0.15s; }\n.loader i:nth-child(3) { animation-delay: 0.3s; }\n.loader i:nth-child(4) { animation-delay: 0.45s; }\n@keyframes step {\n  0%, 100% { opacity: 0.22; transform: translateY(0); }\n  45% { opacity: 1; transform: translateY(-6px); }\n}\n",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 48,
+    "speed": 1
+  },
+  "flags": {
+    "popular": false,
+    "cssOnly": true,
+    "customizable": true
+  }
+}

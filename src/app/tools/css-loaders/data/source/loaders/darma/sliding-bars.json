@@ -1,0 +1,29 @@
+{
+  "id": "sliding-bars",
+  "name": "Sliding Bars",
+  "category": "bars",
+  "tags": [
+    "bars",
+    "slide",
+    "horizontal",
+    "progress"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader {\n  position: relative;\n  display: inline-block;\n  width: 88px;\n  height: 12px;\n  overflow: hidden;\n  border-radius: 999px;\n  background: rgba(99, 102, 241, 0.16);\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  inset: 0 auto 0 0;\n  width: 38%;\n  border-radius: inherit;\n  background: #6366f1;\n  animation: slide 1s ease-in-out infinite;\n}\n@keyframes slide {\n  0% { transform: translateX(-100%); }\n  100% { transform: translateX(270%); }\n}\n",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 48,
+    "speed": 1
+  },
+  "flags": {
+    "popular": false,
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": true
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "loading-io-10",
+  "name": "Loading.io Adapted Loader 10",
+  "category": "dots",
+  "tags": [
+    "loading-io",
+    "grid",
+    "dots",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "loading-io-10 loading.io adapted loader 10 dots loading-io grid dots loader html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-loading-io-10\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>",
+  "previewCss": ".darma-loader-loading-io-10 {\n      display: inline-grid;\n      grid-template-columns: repeat(3, 8px);\n      gap: 5px;\n    }\n    .darma-loader-loading-io-10 i {\n      width: 8px;\n      height: 8px;\n      border-radius: 4px;\n      background: var(--loader-color, #6366f1);\n      animation: darma-loader-loading-io-10-gridFlash 0.85s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-10 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-10 i:nth-child(2) { animation-delay: 0.08s; }\n.darma-loader-loading-io-10 i:nth-child(3) { animation-delay: 0.16s; }\n.darma-loader-loading-io-10 i:nth-child(4) { animation-delay: 0.08s; }\n.darma-loader-loading-io-10 i:nth-child(5) { animation-delay: 0.16s; }\n.darma-loader-loading-io-10 i:nth-child(6) { animation-delay: 0.24s; }\n.darma-loader-loading-io-10 i:nth-child(7) { animation-delay: 0.16s; }\n.darma-loader-loading-io-10 i:nth-child(8) { animation-delay: 0.24s; }\n.darma-loader-loading-io-10 i:nth-child(9) { animation-delay: 0.32s; }\n    @keyframes darma-loader-loading-io-10-gridFlash { 0%, 70%, 100% { opacity: .25; transform: scale(.75); } 35% { opacity: 1; transform: scale(1); } }\n",
+  "defaults": {
+    "color": "#6366f1",
+    "secondaryColor": "#a5b4fc",
+    "size": 60,
+    "speed": 0.8
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-loading-io-10\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>",
+    "css": ".darma-loader-loading-io-10 {\n      display: inline-grid;\n      grid-template-columns: repeat(3, 8px);\n      gap: 5px;\n    }\n    .darma-loader-loading-io-10 i {\n      width: 8px;\n      height: 8px;\n      border-radius: 4px;\n      background: var(--loader-color, #6366f1);\n      animation: darma-loader-loading-io-10-gridFlash 0.85s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-10 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-10 i:nth-child(2) { animation-delay: 0.08s; }\n.darma-loader-loading-io-10 i:nth-child(3) { animation-delay: 0.16s; }\n.darma-loader-loading-io-10 i:nth-child(4) { animation-delay: 0.08s; }\n.darma-loader-loading-io-10 i:nth-child(5) { animation-delay: 0.16s; }\n.darma-loader-loading-io-10 i:nth-child(6) { animation-delay: 0.24s; }\n.darma-loader-loading-io-10 i:nth-child(7) { animation-delay: 0.16s; }\n.darma-loader-loading-io-10 i:nth-child(8) { animation-delay: 0.24s; }\n.darma-loader-loading-io-10 i:nth-child(9) { animation-delay: 0.32s; }\n    @keyframes darma-loader-loading-io-10-gridFlash { 0%, 70%, 100% { opacity: .25; transform: scale(.75); } 35% { opacity: 1; transform: scale(1); } }\n",
+    "react": "export default function LoadingIo10Loader() {\n  return (\n    <span className=\"darma-loader-loading-io-10\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "loading.io CSS Spinner",
+    "author": "loading.io",
+    "license": "CC0",
+    "url": "https://loading.io/css/"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": "wave-bars",
+  "name": "Wave Bars",
+  "category": "bars",
+  "tags": [
+    "bars",
+    "wave",
+    "loading",
+    "vertical"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": true,
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "wave-bars wave bars bars bars wave loading vertical html css react popular cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-wave-bars\"><i></i><i></i><i></i><i></i><i></i></span>",
+  "previewCss": ".darma-loader-wave-bars {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n  height: 52px;\n  color: var(--loader-color, #6366f1);\n}\n.darma-loader-wave-bars i {\n  width: 7px;\n  height: 40px;\n  border-radius: 999px;\n  background: currentColor;\n  animation: darma-loader-wave-bars-wave 1s ease-in-out infinite;\n}\n.darma-loader-wave-bars i:nth-child(2) { animation-delay: 0.1s; }\n.darma-loader-wave-bars i:nth-child(3) { animation-delay: 0.2s; }\n.darma-loader-wave-bars i:nth-child(4) { animation-delay: 0.3s; }\n.darma-loader-wave-bars i:nth-child(5) { animation-delay: 0.4s; }\n@keyframes darma-loader-wave-bars-wave {\n  0%, 100% { transform: scaleY(0.38); opacity: 0.38; }\n  50% { transform: scaleY(1); opacity: 1; }\n}\n",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 48,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-wave-bars\"><i></i><i></i><i></i><i></i><i></i></span>",
+    "css": ".darma-loader-wave-bars {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n  height: 52px;\n  color: var(--loader-color, #6366f1);\n}\n.darma-loader-wave-bars i {\n  width: 7px;\n  height: 40px;\n  border-radius: 999px;\n  background: currentColor;\n  animation: darma-loader-wave-bars-wave 1s ease-in-out infinite;\n}\n.darma-loader-wave-bars i:nth-child(2) { animation-delay: 0.1s; }\n.darma-loader-wave-bars i:nth-child(3) { animation-delay: 0.2s; }\n.darma-loader-wave-bars i:nth-child(4) { animation-delay: 0.3s; }\n.darma-loader-wave-bars i:nth-child(5) { animation-delay: 0.4s; }\n@keyframes darma-loader-wave-bars-wave {\n  0%, 100% { transform: scaleY(0.38); opacity: 0.38; }\n  50% { transform: scaleY(1); opacity: 1; }\n}\n",
+    "react": "export default function WaveBarsLoader() {\n  return (\n    <span className=\"darma-loader-wave-bars\"><i></i><i></i><i></i><i></i><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

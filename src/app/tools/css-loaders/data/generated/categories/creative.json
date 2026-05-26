@@ -1,0 +1,464 @@
+[
+  {
+    "id": "creative-cube",
+    "name": "Creative Cube",
+    "category": "creative",
+    "tags": [
+      "creative",
+      "cube",
+      "3d",
+      "showcase"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "creative-cube creative cube creative creative cube 3d showcase html css react popular cssonly customizable singleelement",
+    "previewHtml": "<span class=\"darma-loader-creative-cube\"></span>",
+    "previewCss": ".darma-loader-creative-cube {\n  display: inline-block;\n  width: 50px;\n  height: 50px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color, #6366f1), var(--loader-secondary-color, #8b5cf6));\n  animation: darma-loader-creative-cube-cube 1.2s ease-in-out infinite;\n  box-shadow: 0 18px 32px color-mix(in srgb, var(--loader-color, #6366f1) 22%, transparent);\n}\n@keyframes darma-loader-creative-cube-cube {\n  0%, 100% { transform: rotate(0deg) scale(0.9); border-radius: 16px; }\n  50% { transform: rotate(180deg) scale(1.08); border-radius: 50%; }\n}\n",
+    "defaults": {
+      "color": "#6366f1",
+      "secondaryColor": "#8b5cf6",
+      "size": 48,
+      "speed": 1
+    }
+  },
+  {
+    "id": "cssloaders-github-04",
+    "name": "CSSLoaders Pattern 04",
+    "category": "creative",
+    "tags": [
+      "cssloaders",
+      "square",
+      "flip",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-04 cssloaders pattern 04 creative cssloaders square flip creative loader html css react popular singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-04\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-04 {\n  display: inline-block;\n  width: 56px;\n  height: 56px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color, #14b8a6), var(--loader-secondary-color, #99f6e4));\n  animation: darma-loader-cssloaders-github-04-squareFlip 0.85s cubic-bezier(.55,.08,.38,.97) infinite;\n}\n@keyframes darma-loader-cssloaders-github-04-squareFlip { 0% { transform: perspective(120px) rotateX(0) rotateY(0); } 50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); } 100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); } }\n",
+    "defaults": {
+      "color": "#14b8a6",
+      "secondaryColor": "#99f6e4",
+      "size": 66,
+      "speed": 0.85
+    }
+  },
+  {
+    "id": "cssloaders-github-12",
+    "name": "CSSLoaders Pattern 12",
+    "category": "creative",
+    "tags": [
+      "cssloaders",
+      "square",
+      "flip",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-12 cssloaders pattern 12 creative cssloaders square flip creative loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-12\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-12 {\n  display: inline-block;\n  width: 46px;\n  height: 46px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color, #ec4899), var(--loader-secondary-color, #fbcfe8));\n  animation: darma-loader-cssloaders-github-12-squareFlip 0.85s cubic-bezier(.55,.08,.38,.97) infinite;\n}\n@keyframes darma-loader-cssloaders-github-12-squareFlip { 0% { transform: perspective(120px) rotateX(0) rotateY(0); } 50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); } 100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); } }\n",
+    "defaults": {
+      "color": "#ec4899",
+      "secondaryColor": "#fbcfe8",
+      "size": 58,
+      "speed": 0.85
+    }
+  },
+  {
+    "id": "cssloaders-github-20",
+    "name": "CSSLoaders Pattern 20",
+    "category": "creative",
+    "tags": [
+      "cssloaders",
+      "square",
+      "flip",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-20 cssloaders pattern 20 creative cssloaders square flip creative loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-20\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-20 {\n  display: inline-block;\n  width: 36px;\n  height: 36px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color, #f97316), var(--loader-secondary-color, #fed7aa));\n  animation: darma-loader-cssloaders-github-20-squareFlip 0.85s cubic-bezier(.55,.08,.38,.97) infinite;\n}\n@keyframes darma-loader-cssloaders-github-20-squareFlip { 0% { transform: perspective(120px) rotateX(0) rotateY(0); } 50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); } 100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); } }\n",
+    "defaults": {
+      "color": "#f97316",
+      "secondaryColor": "#fed7aa",
+      "size": 50,
+      "speed": 0.85
+    }
+  },
+  {
+    "id": "cssloaders-github-28",
+    "name": "CSSLoaders Pattern 28",
+    "category": "creative",
+    "tags": [
+      "cssloaders",
+      "square",
+      "flip",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-28 cssloaders pattern 28 creative cssloaders square flip creative loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-28\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-28 {\n  display: inline-block;\n  width: 51px;\n  height: 51px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color, #6366f1), var(--loader-secondary-color, #a5b4fc));\n  animation: darma-loader-cssloaders-github-28-squareFlip 0.85s cubic-bezier(.55,.08,.38,.97) infinite;\n}\n@keyframes darma-loader-cssloaders-github-28-squareFlip { 0% { transform: perspective(120px) rotateX(0) rotateY(0); } 50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); } 100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); } }\n",
+    "defaults": {
+      "color": "#6366f1",
+      "secondaryColor": "#a5b4fc",
+      "size": 62,
+      "speed": 0.85
+    }
+  },
+  {
+    "id": "cssloaders-github-36",
+    "name": "CSSLoaders Pattern 36",
+    "category": "creative",
+    "tags": [
+      "cssloaders",
+      "square",
+      "flip",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-36 cssloaders pattern 36 creative cssloaders square flip creative loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-36\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-36 {\n  display: inline-block;\n  width: 41px;\n  height: 41px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color, #ef4444), var(--loader-secondary-color, #fecaca));\n  animation: darma-loader-cssloaders-github-36-squareFlip 0.85s cubic-bezier(.55,.08,.38,.97) infinite;\n}\n@keyframes darma-loader-cssloaders-github-36-squareFlip { 0% { transform: perspective(120px) rotateX(0) rotateY(0); } 50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); } 100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); } }\n",
+    "defaults": {
+      "color": "#ef4444",
+      "secondaryColor": "#fecaca",
+      "size": 54,
+      "speed": 0.85
+    }
+  },
+  {
+    "id": "loaders-css-08",
+    "name": "Cube Transition 08",
+    "category": "creative",
+    "tags": [
+      "loaders-css",
+      "cube",
+      "transition",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-08 cube transition 08 creative loaders-css cube transition creative loader html css react popular cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loaders-css-08\"><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loaders-css-08 {\n      display: inline-grid;\n      grid-template-columns: repeat(2, 15px);\n      gap: 8px;\n    }\n    .darma-loader-loaders-css-08 i {\n      width: 15px;\n      height: 15px;\n      border-radius: 4px;\n      background: var(--loader-color, #f97316);\n      animation: darma-loader-loaders-css-08-gridFlash 0.9s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-08 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-08 i:nth-child(2) { animation-delay: 0.08s; }\n.darma-loader-loaders-css-08 i:nth-child(3) { animation-delay: 0.08s; }\n.darma-loader-loaders-css-08 i:nth-child(4) { animation-delay: 0.16s; }\n    @keyframes darma-loader-loaders-css-08-gridFlash { 0%, 70%, 100% { opacity: .25; transform: scale(.75); } 35% { opacity: 1; transform: scale(1); } }\n",
+    "defaults": {
+      "color": "#f97316",
+      "secondaryColor": "#fed7aa",
+      "size": 64,
+      "speed": 0.99
+    }
+  },
+  {
+    "id": "loaders-css-18",
+    "name": "Cube Transition 18",
+    "category": "creative",
+    "tags": [
+      "loaders-css",
+      "cube",
+      "transition",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-18 cube transition 18 creative loaders-css cube transition creative loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loaders-css-18\"><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loaders-css-18 {\n      display: inline-grid;\n      grid-template-columns: repeat(2, 17px);\n      gap: 8px;\n    }\n    .darma-loader-loaders-css-18 i {\n      width: 17px;\n      height: 17px;\n      border-radius: 4px;\n      background: var(--loader-color, #f97316);\n      animation: darma-loader-loaders-css-18-gridFlash 1.1400000000000001s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-18 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-18 i:nth-child(2) { animation-delay: 0.08s; }\n.darma-loader-loaders-css-18 i:nth-child(3) { animation-delay: 0.08s; }\n.darma-loader-loaders-css-18 i:nth-child(4) { animation-delay: 0.16s; }\n    @keyframes darma-loader-loaders-css-18-gridFlash { 0%, 70%, 100% { opacity: .25; transform: scale(.75); } 35% { opacity: 1; transform: scale(1); } }\n",
+    "defaults": {
+      "color": "#f97316",
+      "secondaryColor": "#fed7aa",
+      "size": 64,
+      "speed": 0.99
+    }
+  },
+  {
+    "id": "loaders-css-28",
+    "name": "Cube Transition 28",
+    "category": "creative",
+    "tags": [
+      "loaders-css",
+      "cube",
+      "transition",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-28 cube transition 28 creative loaders-css cube transition creative loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loaders-css-28\"><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loaders-css-28 {\n      display: inline-grid;\n      grid-template-columns: repeat(2, 15px);\n      gap: 8px;\n    }\n    .darma-loader-loaders-css-28 i {\n      width: 15px;\n      height: 15px;\n      border-radius: 4px;\n      background: var(--loader-color, #f97316);\n      animation: darma-loader-loaders-css-28-gridFlash 0.9s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-28 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-28 i:nth-child(2) { animation-delay: 0.08s; }\n.darma-loader-loaders-css-28 i:nth-child(3) { animation-delay: 0.08s; }\n.darma-loader-loaders-css-28 i:nth-child(4) { animation-delay: 0.16s; }\n    @keyframes darma-loader-loaders-css-28-gridFlash { 0%, 70%, 100% { opacity: .25; transform: scale(.75); } 35% { opacity: 1; transform: scale(1); } }\n",
+    "defaults": {
+      "color": "#f97316",
+      "secondaryColor": "#fed7aa",
+      "size": 64,
+      "speed": 0.99
+    }
+  },
+  {
+    "id": "uiverse-gradient-flip",
+    "name": "Gradient Flip Tile",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "gradient",
+      "flip",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-gradient-flip gradient flip tile creative uiverse gradient flip creative loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-uiverse-gradient-flip\"></span>",
+    "previewCss": ".darma-loader-uiverse-gradient-flip {\n  display: inline-block;\n  width: 52px;\n  height: 52px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color, #6366f1), var(--loader-secondary-color, #a5b4fc));\n  animation: darma-loader-uiverse-gradient-flip-squareFlip 0.96s cubic-bezier(.55,.08,.38,.97) infinite;\n}\n@keyframes darma-loader-uiverse-gradient-flip-squareFlip { 0% { transform: perspective(120px) rotateX(0) rotateY(0); } 50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); } 100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); } }\n",
+    "defaults": {
+      "color": "#6366f1",
+      "secondaryColor": "#a5b4fc",
+      "size": 66,
+      "speed": 0.85,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "uiverse-neon-orbit",
+    "name": "Neon Orbit Loader",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "neon",
+      "orbit",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-neon-orbit neon orbit loader creative uiverse neon orbit creative loader html css react popular cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-uiverse-neon-orbit\"><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-uiverse-neon-orbit {\n      position: relative;\n      display: inline-block;\n      width: 64px;\n      height: 64px;\n      border-radius: 50%;\n      border: 1px solid color-mix(in srgb, var(--loader-color, #f59e0b) 24%, transparent);\n    }\n    .darma-loader-uiverse-neon-orbit i {\n      position: absolute;\n      inset: -3px;\n      border-radius: 50%;\n      animation: darma-loader-uiverse-neon-orbit-orbit 1.1s linear infinite;\n    }\n    .darma-loader-uiverse-neon-orbit i::before {\n      content: \"\";\n      position: absolute;\n      top: 0;\n      left: 50%;\n      width: 10px;\n      height: 10px;\n      margin-left: -5px;\n      border-radius: 50%;\n      background: var(--loader-color, #f59e0b);\n      box-shadow: 0 0 18px color-mix(in srgb, var(--loader-color, #f59e0b) 45%, transparent);\n    }\n    .darma-loader-uiverse-neon-orbit i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-uiverse-neon-orbit i:nth-child(2) { animation-delay: -0.37s; }\n.darma-loader-uiverse-neon-orbit i:nth-child(3) { animation-delay: -0.73s; }\n    @keyframes darma-loader-uiverse-neon-orbit-orbit { to { transform: rotate(360deg); } }\n",
+    "defaults": {
+      "color": "#f59e0b",
+      "secondaryColor": "#fde68a",
+      "size": 54,
+      "speed": 0.95,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "loaders-css-07",
+    "name": "Square Spin 07",
+    "category": "creative",
+    "tags": [
+      "loaders-css",
+      "square",
+      "spin",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-07 square spin 07 creative loaders-css square spin creative loader html css react popular singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loaders-css-07\"></span>",
+    "previewCss": ".darma-loader-loaders-css-07 {\n  display: inline-block;\n  width: 55px;\n  height: 55px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color, #06b6d4), var(--loader-secondary-color, #bae6fd));\n  animation: darma-loader-loaders-css-07-squareFlip 1.0s cubic-bezier(.55,.08,.38,.97) infinite;\n}\n@keyframes darma-loader-loaders-css-07-squareFlip { 0% { transform: perspective(120px) rotateX(0) rotateY(0); } 50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); } 100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); } }\n",
+    "defaults": {
+      "color": "#06b6d4",
+      "secondaryColor": "#bae6fd",
+      "size": 60,
+      "speed": 0.91
+    }
+  },
+  {
+    "id": "loaders-css-17",
+    "name": "Square Spin 17",
+    "category": "creative",
+    "tags": [
+      "loaders-css",
+      "square",
+      "spin",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-17 square spin 17 creative loaders-css square spin creative loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loaders-css-17\"></span>",
+    "previewCss": ".darma-loader-loaders-css-17 {\n  display: inline-block;\n  width: 45px;\n  height: 45px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color, #06b6d4), var(--loader-secondary-color, #bae6fd));\n  animation: darma-loader-loaders-css-17-squareFlip 1.0s cubic-bezier(.55,.08,.38,.97) infinite;\n}\n@keyframes darma-loader-loaders-css-17-squareFlip { 0% { transform: perspective(120px) rotateX(0) rotateY(0); } 50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); } 100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); } }\n",
+    "defaults": {
+      "color": "#06b6d4",
+      "secondaryColor": "#bae6fd",
+      "size": 60,
+      "speed": 0.91
+    }
+  },
+  {
+    "id": "loaders-css-27",
+    "name": "Square Spin 27",
+    "category": "creative",
+    "tags": [
+      "loaders-css",
+      "square",
+      "spin",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-27 square spin 27 creative loaders-css square spin creative loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loaders-css-27\"></span>",
+    "previewCss": ".darma-loader-loaders-css-27 {\n  display: inline-block;\n  width: 55px;\n  height: 55px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color, #06b6d4), var(--loader-secondary-color, #bae6fd));\n  animation: darma-loader-loaders-css-27-squareFlip 1.0s cubic-bezier(.55,.08,.38,.97) infinite;\n}\n@keyframes darma-loader-loaders-css-27-squareFlip { 0% { transform: perspective(120px) rotateX(0) rotateY(0); } 50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); } 100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); } }\n",
+    "defaults": {
+      "color": "#06b6d4",
+      "secondaryColor": "#bae6fd",
+      "size": 60,
+      "speed": 0.91
+    }
+  }
+]

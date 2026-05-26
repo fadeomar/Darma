@@ -1,0 +1,40 @@
+{
+  "id": "loaders-css-14",
+  "name": "Ball Scale 14",
+  "category": "spinners",
+  "tags": [
+    "loaders-css",
+    "clip",
+    "rotate",
+    "spinners",
+    "loader"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader {\n  display: inline-block;\n  width: 62px;\n  height: 62px;\n  border-radius: 50%;\n  border: 4px solid color-mix(in srgb, var(--loader-color) 18%, transparent);\n  border-top-color: var(--loader-color);\n  animation: spin 1.1099999999999999s linear infinite;\n}\n@keyframes spin { to { transform: rotate(360deg); } }\n",
+  "source": {
+    "name": "loaders.css",
+    "author": "Connor Atherton",
+    "license": "MIT",
+    "url": "https://github.com/ConnorAtherton/loaders.css"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "color": "#ef4444",
+    "secondaryColor": "#fecaca",
+    "size": 68,
+    "speed": 1.07
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

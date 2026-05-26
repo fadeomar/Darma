@@ -1,0 +1,51 @@
+{
+  "id": "loading-io-12",
+  "name": "Loading.io Adapted Loader 12",
+  "category": "spinners",
+  "tags": [
+    "loading-io",
+    "orbit",
+    "circle",
+    "spinners",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "loading-io-12 loading.io adapted loader 12 spinners loading-io orbit circle spinners loader html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-loading-io-12\"><i></i><i></i></span>",
+  "previewCss": ".darma-loader-loading-io-12 {\n      position: relative;\n      display: inline-block;\n      width: 56px;\n      height: 56px;\n      border-radius: 50%;\n      border: 1px solid color-mix(in srgb, var(--loader-color, #f97316) 24%, transparent);\n    }\n    .darma-loader-loading-io-12 i {\n      position: absolute;\n      inset: -3px;\n      border-radius: 50%;\n      animation: darma-loader-loading-io-12-orbit 0.9s linear infinite;\n    }\n    .darma-loader-loading-io-12 i::before {\n      content: \"\";\n      position: absolute;\n      top: 0;\n      left: 50%;\n      width: 10px;\n      height: 10px;\n      margin-left: -5px;\n      border-radius: 50%;\n      background: var(--loader-color, #f97316);\n      box-shadow: 0 0 18px color-mix(in srgb, var(--loader-color, #f97316) 45%, transparent);\n    }\n    .darma-loader-loading-io-12 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-12 i:nth-child(2) { animation-delay: -0.45s; }\n    @keyframes darma-loader-loading-io-12-orbit { to { transform: rotate(360deg); } }\n",
+  "defaults": {
+    "color": "#f97316",
+    "secondaryColor": "#fed7aa",
+    "size": 52,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-loading-io-12\"><i></i><i></i></span>",
+    "css": ".darma-loader-loading-io-12 {\n      position: relative;\n      display: inline-block;\n      width: 56px;\n      height: 56px;\n      border-radius: 50%;\n      border: 1px solid color-mix(in srgb, var(--loader-color, #f97316) 24%, transparent);\n    }\n    .darma-loader-loading-io-12 i {\n      position: absolute;\n      inset: -3px;\n      border-radius: 50%;\n      animation: darma-loader-loading-io-12-orbit 0.9s linear infinite;\n    }\n    .darma-loader-loading-io-12 i::before {\n      content: \"\";\n      position: absolute;\n      top: 0;\n      left: 50%;\n      width: 10px;\n      height: 10px;\n      margin-left: -5px;\n      border-radius: 50%;\n      background: var(--loader-color, #f97316);\n      box-shadow: 0 0 18px color-mix(in srgb, var(--loader-color, #f97316) 45%, transparent);\n    }\n    .darma-loader-loading-io-12 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-12 i:nth-child(2) { animation-delay: -0.45s; }\n    @keyframes darma-loader-loading-io-12-orbit { to { transform: rotate(360deg); } }\n",
+    "react": "export default function LoadingIo12Loader() {\n  return (\n    <span className=\"darma-loader-loading-io-12\"><i></i><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "loading.io CSS Spinner",
+    "author": "loading.io",
+    "license": "CC0",
+    "url": "https://loading.io/css/"
+  }
+}

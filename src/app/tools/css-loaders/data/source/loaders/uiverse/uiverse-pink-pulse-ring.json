@@ -1,0 +1,40 @@
+{
+  "id": "uiverse-pink-pulse-ring",
+  "name": "Pink Pulse Ring",
+  "category": "pulse",
+  "tags": [
+    "uiverse",
+    "pulse",
+    "ring",
+    "loader"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader {\n  display: inline-block;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color);\n  animation: ringPulse 1.15s ease-out infinite;\n}\n@keyframes ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }\n",
+  "source": {
+    "name": "Uiverse selected loaders",
+    "author": "Uiverse community",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": true,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "color": "#22c55e",
+    "secondaryColor": "#bbf7d0",
+    "size": 58,
+    "speed": 1.15,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

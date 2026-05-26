@@ -1,0 +1,28 @@
+{
+  "id": "confetti-dots",
+  "name": "Confetti Dots",
+  "category": "fun",
+  "tags": [
+    "fun",
+    "confetti",
+    "dots",
+    "celebration"
+  ],
+  "html": "<span class=\"loader\"><i></i><i></i><i></i><i></i><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  display: inline-block;\n  width: 70px;\n  height: 54px;\n  color: #6366f1;\n}\n.loader i {\n  position: absolute;\n  width: 10px;\n  height: 10px;\n  border-radius: 3px;\n  background: currentColor;\n  animation: confetti 1s ease-in-out infinite;\n}\n.loader i:nth-child(1) { left: 4px; top: 34px; }\n.loader i:nth-child(2) { left: 18px; top: 14px; animation-delay: .1s; }\n.loader i:nth-child(3) { left: 34px; top: 30px; animation-delay: .2s; }\n.loader i:nth-child(4) { left: 49px; top: 10px; animation-delay: .3s; }\n.loader i:nth-child(5) { left: 60px; top: 36px; animation-delay: .4s; }\n@keyframes confetti {\n  0%, 100% { transform: translateY(0) rotate(0deg); opacity: .35; }\n  50% { transform: translateY(-12px) rotate(90deg); opacity: 1; }\n}\n",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 48,
+    "speed": 1
+  },
+  "flags": {
+    "popular": false,
+    "cssOnly": true,
+    "customizable": true
+  }
+}

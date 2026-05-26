@@ -1,0 +1,444 @@
+[
+  {
+    "id": "cssloaders-github-02",
+    "name": "CSSLoaders Pattern 02",
+    "category": "pulse",
+    "tags": [
+      "cssloaders",
+      "pulse",
+      "circle",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-02 cssloaders pattern 02 pulse cssloaders pulse circle loader html css react popular singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-02\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-02 {\n  display: inline-block;\n  width: 48px;\n  height: 48px;\n  border-radius: 50%;\n  background: var(--loader-color, #ec4899);\n  box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #ec4899) 45%, transparent);\n  animation: darma-loader-cssloaders-github-02-softPulse 1.1400000000000001s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-02-softPulse { 0% { transform: scale(.82); box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #ec4899) 45%, transparent); } 70% { transform: scale(1); box-shadow: 0 0 0 22px transparent; } 100% { transform: scale(.82); box-shadow: 0 0 0 0 transparent; } }\n",
+    "defaults": {
+      "color": "#ec4899",
+      "secondaryColor": "#fbcfe8",
+      "size": 58,
+      "speed": 1.05
+    }
+  },
+  {
+    "id": "cssloaders-github-03",
+    "name": "CSSLoaders Pattern 03",
+    "category": "pulse",
+    "tags": [
+      "cssloaders",
+      "ring",
+      "pulse",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-03 cssloaders pattern 03 pulse cssloaders ring pulse loader html css react popular singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-03\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-03 {\n  display: inline-block;\n  width: 57px;\n  height: 57px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color, #8b5cf6);\n  animation: darma-loader-cssloaders-github-03-ringPulse 1.45s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-03-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }\n",
+    "defaults": {
+      "color": "#8b5cf6",
+      "secondaryColor": "#ddd6fe",
+      "size": 62,
+      "speed": 1.15
+    }
+  },
+  {
+    "id": "cssloaders-github-10",
+    "name": "CSSLoaders Pattern 10",
+    "category": "pulse",
+    "tags": [
+      "cssloaders",
+      "pulse",
+      "circle",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-10 cssloaders pattern 10 pulse cssloaders pulse circle loader html css react popular singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-10\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-10 {\n  display: inline-block;\n  width: 38px;\n  height: 38px;\n  border-radius: 50%;\n  background: var(--loader-color, #f97316);\n  box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #f97316) 45%, transparent);\n  animation: darma-loader-cssloaders-github-10-softPulse 1.1400000000000001s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-10-softPulse { 0% { transform: scale(.82); box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #f97316) 45%, transparent); } 70% { transform: scale(1); box-shadow: 0 0 0 22px transparent; } 100% { transform: scale(.82); box-shadow: 0 0 0 0 transparent; } }\n",
+    "defaults": {
+      "color": "#f97316",
+      "secondaryColor": "#fed7aa",
+      "size": 50,
+      "speed": 1.05
+    }
+  },
+  {
+    "id": "cssloaders-github-11",
+    "name": "CSSLoaders Pattern 11",
+    "category": "pulse",
+    "tags": [
+      "cssloaders",
+      "ring",
+      "pulse",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-11 cssloaders pattern 11 pulse cssloaders ring pulse loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-11\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-11 {\n  display: inline-block;\n  width: 57px;\n  height: 57px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color, #22c55e);\n  animation: darma-loader-cssloaders-github-11-ringPulse 1.45s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-11-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }\n",
+    "defaults": {
+      "color": "#22c55e",
+      "secondaryColor": "#bbf7d0",
+      "size": 54,
+      "speed": 1.15
+    }
+  },
+  {
+    "id": "cssloaders-github-18",
+    "name": "CSSLoaders Pattern 18",
+    "category": "pulse",
+    "tags": [
+      "cssloaders",
+      "pulse",
+      "circle",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-18 cssloaders pattern 18 pulse cssloaders pulse circle loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-18\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-18 {\n  display: inline-block;\n  width: 53px;\n  height: 53px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n  box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #6366f1) 45%, transparent);\n  animation: darma-loader-cssloaders-github-18-softPulse 1.1400000000000001s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-18-softPulse { 0% { transform: scale(.82); box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #6366f1) 45%, transparent); } 70% { transform: scale(1); box-shadow: 0 0 0 22px transparent; } 100% { transform: scale(.82); box-shadow: 0 0 0 0 transparent; } }\n",
+    "defaults": {
+      "color": "#6366f1",
+      "secondaryColor": "#a5b4fc",
+      "size": 62,
+      "speed": 1.05
+    }
+  },
+  {
+    "id": "cssloaders-github-19",
+    "name": "CSSLoaders Pattern 19",
+    "category": "pulse",
+    "tags": [
+      "cssloaders",
+      "ring",
+      "pulse",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-19 cssloaders pattern 19 pulse cssloaders ring pulse loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-19\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-19 {\n  display: inline-block;\n  width: 57px;\n  height: 57px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color, #06b6d4);\n  animation: darma-loader-cssloaders-github-19-ringPulse 1.45s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-19-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }\n",
+    "defaults": {
+      "color": "#06b6d4",
+      "secondaryColor": "#bae6fd",
+      "size": 66,
+      "speed": 1.15
+    }
+  },
+  {
+    "id": "cssloaders-github-26",
+    "name": "CSSLoaders Pattern 26",
+    "category": "pulse",
+    "tags": [
+      "cssloaders",
+      "pulse",
+      "circle",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-26 cssloaders pattern 26 pulse cssloaders pulse circle loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-26\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-26 {\n  display: inline-block;\n  width: 43px;\n  height: 43px;\n  border-radius: 50%;\n  background: var(--loader-color, #ef4444);\n  box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #ef4444) 45%, transparent);\n  animation: darma-loader-cssloaders-github-26-softPulse 1.1400000000000001s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-26-softPulse { 0% { transform: scale(.82); box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #ef4444) 45%, transparent); } 70% { transform: scale(1); box-shadow: 0 0 0 22px transparent; } 100% { transform: scale(.82); box-shadow: 0 0 0 0 transparent; } }\n",
+    "defaults": {
+      "color": "#ef4444",
+      "secondaryColor": "#fecaca",
+      "size": 54,
+      "speed": 1.05
+    }
+  },
+  {
+    "id": "cssloaders-github-27",
+    "name": "CSSLoaders Pattern 27",
+    "category": "pulse",
+    "tags": [
+      "cssloaders",
+      "ring",
+      "pulse",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-27 cssloaders pattern 27 pulse cssloaders ring pulse loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-27\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-27 {\n  display: inline-block;\n  width: 57px;\n  height: 57px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color, #0ea5e9);\n  animation: darma-loader-cssloaders-github-27-ringPulse 1.45s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-27-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }\n",
+    "defaults": {
+      "color": "#0ea5e9",
+      "secondaryColor": "#bae6fd",
+      "size": 58,
+      "speed": 1.15
+    }
+  },
+  {
+    "id": "cssloaders-github-34",
+    "name": "CSSLoaders Pattern 34",
+    "category": "pulse",
+    "tags": [
+      "cssloaders",
+      "pulse",
+      "circle",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-34 cssloaders pattern 34 pulse cssloaders pulse circle loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-34\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-34 {\n  display: inline-block;\n  width: 58px;\n  height: 58px;\n  border-radius: 50%;\n  background: var(--loader-color, #14b8a6);\n  box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #14b8a6) 45%, transparent);\n  animation: darma-loader-cssloaders-github-34-softPulse 1.1400000000000001s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-34-softPulse { 0% { transform: scale(.82); box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #14b8a6) 45%, transparent); } 70% { transform: scale(1); box-shadow: 0 0 0 22px transparent; } 100% { transform: scale(.82); box-shadow: 0 0 0 0 transparent; } }\n",
+    "defaults": {
+      "color": "#14b8a6",
+      "secondaryColor": "#99f6e4",
+      "size": 66,
+      "speed": 1.05
+    }
+  },
+  {
+    "id": "cssloaders-github-35",
+    "name": "CSSLoaders Pattern 35",
+    "category": "pulse",
+    "tags": [
+      "cssloaders",
+      "ring",
+      "pulse",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-35 cssloaders pattern 35 pulse cssloaders ring pulse loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-35\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-35 {\n  display: inline-block;\n  width: 57px;\n  height: 57px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color, #f59e0b);\n  animation: darma-loader-cssloaders-github-35-ringPulse 1.45s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-35-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }\n",
+    "defaults": {
+      "color": "#f59e0b",
+      "secondaryColor": "#fde68a",
+      "size": 50,
+      "speed": 1.15
+    }
+  },
+  {
+    "id": "glow-pulse",
+    "name": "Glow Pulse",
+    "category": "pulse",
+    "tags": [
+      "pulse",
+      "glow",
+      "status",
+      "indicator"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "cssOnly": true,
+      "customizable": true
+    },
+    "searchText": "glow-pulse glow pulse pulse pulse glow status indicator html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-glow-pulse\"></span>",
+    "previewCss": ".darma-loader-glow-pulse {\n  display: inline-block;\n  width: 46px;\n  height: 46px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n  box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #6366f1) 42%, transparent);\n  animation: darma-loader-glow-pulse-glow 1.1s ease-in-out infinite;\n}\n@keyframes darma-loader-glow-pulse-glow {\n  0%, 100% { transform: scale(0.9); box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #6366f1) 42%, transparent); }\n  50% { transform: scale(1); box-shadow: 0 0 0 18px transparent; }\n}\n",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 48,
+      "speed": 1
+    }
+  },
+  {
+    "id": "heartbeat-pulse",
+    "name": "Heartbeat Pulse",
+    "category": "pulse",
+    "tags": [
+      "pulse",
+      "heartbeat",
+      "status",
+      "soft"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "heartbeat-pulse heartbeat pulse pulse pulse heartbeat status soft html css react cssonly customizable singleelement",
+    "previewHtml": "<span class=\"darma-loader-heartbeat-pulse\"></span>",
+    "previewCss": ".darma-loader-heartbeat-pulse {\n  display: inline-block;\n  width: 50px;\n  height: 50px;\n  border-radius: 18px;\n  background: var(--loader-color, #6366f1);\n  transform: rotate(45deg);\n  animation: darma-loader-heartbeat-pulse-heartbeat 1.05s ease-in-out infinite;\n}\n@keyframes darma-loader-heartbeat-pulse-heartbeat {\n  0%, 100% { transform: rotate(45deg) scale(0.9); opacity: 0.7; }\n  30% { transform: rotate(45deg) scale(1.05); opacity: 1; }\n  45% { transform: rotate(45deg) scale(0.92); }\n  60% { transform: rotate(45deg) scale(1.08); }\n}\n",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 48,
+      "speed": 1
+    }
+  },
+  {
+    "id": "uiverse-pink-pulse-ring",
+    "name": "Pink Pulse Ring",
+    "category": "pulse",
+    "tags": [
+      "uiverse",
+      "pulse",
+      "ring",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-pink-pulse-ring pink pulse ring pulse uiverse pulse ring loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-uiverse-pink-pulse-ring\"></span>",
+    "previewCss": ".darma-loader-uiverse-pink-pulse-ring {\n  display: inline-block;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color, #22c55e);\n  animation: darma-loader-uiverse-pink-pulse-ring-ringPulse 1.15s ease-out infinite;\n}\n@keyframes darma-loader-uiverse-pink-pulse-ring-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }\n",
+    "defaults": {
+      "color": "#22c55e",
+      "secondaryColor": "#bbf7d0",
+      "size": 58,
+      "speed": 1.15,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "pulse-ring",
+    "name": "Pulse Ring",
+    "category": "pulse",
+    "tags": [
+      "pulse",
+      "ring",
+      "ping",
+      "notification"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "pulse-ring pulse ring pulse pulse ring ping notification html css react popular cssonly customizable singleelement",
+    "previewHtml": "<span class=\"darma-loader-pulse-ring\"></span>",
+    "previewCss": ".darma-loader-pulse-ring {\n  position: relative;\n  display: inline-block;\n  width: 54px;\n  height: 54px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n}\n.darma-loader-pulse-ring::before,\n.darma-loader-pulse-ring::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  border-radius: inherit;\n  border: 3px solid var(--loader-color, #6366f1);\n  animation: darma-loader-pulse-ring-pulse 1.25s ease-out infinite;\n}\n.darma-loader-pulse-ring::after { animation-delay: 0.45s; }\n@keyframes darma-loader-pulse-ring-pulse {\n  to { transform: scale(1.9); opacity: 0; }\n}\n",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 48,
+      "speed": 1
+    }
+  }
+]

@@ -1,0 +1,41 @@
+{
+  "id": "uiverse-card-line-shimmer",
+  "name": "Card Line Shimmer",
+  "category": "skeleton",
+  "tags": [
+    "uiverse",
+    "card",
+    "shimmer",
+    "skeleton",
+    "loader"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader {\n  display: inline-block;\n  width: 104px;\n  height: 14px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, color-mix(in srgb, var(--loader-color) 12%, transparent), color-mix(in srgb, var(--loader-color) 35%, transparent), color-mix(in srgb, var(--loader-color) 12%, transparent));\n  background-size: 220% 100%;\n  animation: skeletonShimmer 1.05s linear infinite;\n}\n@keyframes skeletonShimmer { to { background-position: -220% 0; } }\n",
+  "source": {
+    "name": "Uiverse selected loaders",
+    "author": "Uiverse community",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": true,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "color": "#f59e0b",
+    "secondaryColor": "#fde68a",
+    "size": 54,
+    "speed": 1.15,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

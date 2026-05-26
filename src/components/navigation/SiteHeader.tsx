@@ -8,12 +8,19 @@ const NAV_ITEMS = [
   { href: "/", label: "Home" },
   { href: "/explore", label: "Explore" },
   { href: "/tools", label: "Tools" },
+  { href: "/tools/css-loaders", label: "Loaders" },
   { href: "/categories", label: "Categories" },
   { href: "/about", label: "About" },
 ];
 
+function isPathActive(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
 export default function SiteHeader() {
   const pathname = usePathname();
+  const activeHref = NAV_ITEMS.filter((item) => isPathActive(pathname, item.href)).sort((a, b) => b.href.length - a.href.length)[0]?.href;
 
   return (
     <header className="sticky top-0 z-40 border-b border-black/10 bg-[color:var(--background)]/90 backdrop-blur">
@@ -24,7 +31,7 @@ export default function SiteHeader() {
           </Link>
           <nav className="hidden items-center gap-2 md:flex">
             {NAV_ITEMS.map((item) => {
-              const active = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
+              const active = activeHref === item.href;
               return (
                 <Link
                   key={item.href}
@@ -55,7 +62,7 @@ export default function SiteHeader() {
       <div className="border-t border-black/5 px-4 py-2 md:hidden">
         <nav className="mx-auto flex max-w-7xl gap-2 overflow-x-auto pb-1">
           {NAV_ITEMS.map((item) => {
-            const active = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
+            const active = activeHref === item.href;
             return (
               <Link
                 key={item.href}

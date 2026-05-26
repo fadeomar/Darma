@@ -1,0 +1,50 @@
+{
+  "id": "cssloaders-github-26",
+  "name": "CSSLoaders Pattern 26",
+  "category": "pulse",
+  "tags": [
+    "cssloaders",
+    "pulse",
+    "circle",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "cssloaders-github-26 cssloaders pattern 26 pulse cssloaders pulse circle loader html css react singleelement cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-cssloaders-github-26\"></span>",
+  "previewCss": ".darma-loader-cssloaders-github-26 {\n  display: inline-block;\n  width: 43px;\n  height: 43px;\n  border-radius: 50%;\n  background: var(--loader-color, #ef4444);\n  box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #ef4444) 45%, transparent);\n  animation: darma-loader-cssloaders-github-26-softPulse 1.1400000000000001s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-26-softPulse { 0% { transform: scale(.82); box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #ef4444) 45%, transparent); } 70% { transform: scale(1); box-shadow: 0 0 0 22px transparent; } 100% { transform: scale(.82); box-shadow: 0 0 0 0 transparent; } }\n",
+  "defaults": {
+    "color": "#ef4444",
+    "secondaryColor": "#fecaca",
+    "size": 54,
+    "speed": 1.05
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-cssloaders-github-26\"></span>",
+    "css": ".darma-loader-cssloaders-github-26 {\n  display: inline-block;\n  width: 43px;\n  height: 43px;\n  border-radius: 50%;\n  background: var(--loader-color, #ef4444);\n  box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #ef4444) 45%, transparent);\n  animation: darma-loader-cssloaders-github-26-softPulse 1.1400000000000001s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-26-softPulse { 0% { transform: scale(.82); box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #ef4444) 45%, transparent); } 70% { transform: scale(1); box-shadow: 0 0 0 22px transparent; } 100% { transform: scale(.82); box-shadow: 0 0 0 0 transparent; } }\n",
+    "react": "export default function CssloadersGithub26Loader() {\n  return (\n    <span className=\"darma-loader-cssloaders-github-26\"></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "cssloaders.github.io",
+    "author": "cssloaders",
+    "license": "MIT",
+    "url": "https://github.com/cssloaders/cssloaders.github.io"
+  }
+}

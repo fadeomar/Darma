@@ -1,0 +1,39 @@
+{
+  "id": "cssloaders-github-33",
+  "name": "CSSLoaders Pattern 33",
+  "category": "progress",
+  "tags": [
+    "cssloaders",
+    "stripe",
+    "progress",
+    "loader"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader {\n  display: inline-block;\n  width: 118px;\n  height: 10px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, var(--loader-color) 25%, var(--loader-secondary-color) 25%, var(--loader-secondary-color) 50%, var(--loader-color) 50%, var(--loader-color) 75%, var(--loader-secondary-color) 75%);\n  background-size: 32px 100%; animation: progressStripe 0.97s linear infinite;\n}\n@keyframes progressStripe { 0% { background-position: 0 0; } 100% { background-position: 32px 0; } }\n",
+  "source": {
+    "name": "cssloaders.github.io",
+    "author": "cssloaders",
+    "license": "MIT",
+    "url": "https://github.com/cssloaders/cssloaders.github.io"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "color": "#8b5cf6",
+    "secondaryColor": "#ddd6fe",
+    "size": 62,
+    "speed": 0.95
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

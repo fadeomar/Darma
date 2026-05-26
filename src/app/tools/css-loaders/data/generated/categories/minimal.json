@@ -1,0 +1,128 @@
+[
+  {
+    "id": "uiverse-minimal-arc",
+    "name": "Minimal Arc Spinner",
+    "category": "minimal",
+    "tags": [
+      "uiverse",
+      "minimal",
+      "arc",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-minimal-arc minimal arc spinner minimal uiverse minimal arc loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-uiverse-minimal-arc\"></span>",
+    "previewCss": ".darma-loader-uiverse-minimal-arc {\n  display: inline-block;\n  width: 38px;\n  height: 38px;\n  border-radius: 50%;\n  border: 3px solid color-mix(in srgb, var(--loader-color, #ef4444) 18%, transparent);\n  border-left-color: var(--loader-color, #ef4444);\n  animation: darma-loader-uiverse-minimal-arc-spin 0.7s linear infinite;\n}\n@keyframes darma-loader-uiverse-minimal-arc-spin { to { transform: rotate(360deg); } }\n",
+    "defaults": {
+      "color": "#ef4444",
+      "secondaryColor": "#fecaca",
+      "size": 58,
+      "speed": 0.85,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "minimal-dot",
+    "name": "Minimal Dot",
+    "category": "minimal",
+    "tags": [
+      "minimal",
+      "dot",
+      "tiny",
+      "indicator"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "minimal-dot minimal dot minimal minimal dot tiny indicator html css react cssonly customizable singleelement",
+    "previewHtml": "<span class=\"darma-loader-minimal-dot\"></span>",
+    "previewCss": ".darma-loader-minimal-dot {\n  display: inline-block;\n  width: 14px;\n  height: 14px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-minimal-dot-minimal 0.9s ease-in-out infinite alternate;\n}\n@keyframes darma-loader-minimal-dot-minimal {\n  from { opacity: 0.35; transform: scale(0.76); }\n  to { opacity: 1; transform: scale(1); }\n}\n",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 48,
+      "speed": 1
+    }
+  },
+  {
+    "id": "minimal-line",
+    "name": "Minimal Line",
+    "category": "minimal",
+    "tags": [
+      "minimal",
+      "line",
+      "subtle",
+      "inline"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "minimal-line minimal line minimal minimal line subtle inline html css react cssonly customizable singleelement",
+    "previewHtml": "<span class=\"darma-loader-minimal-line\"></span>",
+    "previewCss": ".darma-loader-minimal-line {\n  display: inline-block;\n  width: 72px;\n  height: 3px;\n  overflow: hidden;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #6366f1) 18%, transparent);\n}\n.darma-loader-minimal-line::before {\n  content: \"\";\n  display: block;\n  width: 36%;\n  height: 100%;\n  border-radius: inherit;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-minimal-line-line 0.9s ease-in-out infinite;\n}\n@keyframes darma-loader-minimal-line-line {\n  0% { transform: translateX(-110%); }\n  100% { transform: translateX(290%); }\n}\n",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 48,
+      "speed": 1
+    }
+  },
+  {
+    "id": "uiverse-tiny-loading-pill",
+    "name": "Tiny Loading Pill",
+    "category": "minimal",
+    "tags": [
+      "uiverse",
+      "minimal",
+      "pill",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-tiny-loading-pill tiny loading pill minimal uiverse minimal pill loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-uiverse-tiny-loading-pill\"></span>",
+    "previewCss": ".darma-loader-uiverse-tiny-loading-pill {\n  display: inline-block;\n  width: 70px;\n  height: 8px;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #f97316) 16%, transparent);\n  overflow: hidden;\n}\n.darma-loader-uiverse-tiny-loading-pill::before {\n      content: \"\";\n      display: block;\n      width: 42%;\n      height: 100%;\n      border-radius: inherit;\n      background: linear-gradient(90deg, var(--loader-color, #f97316), var(--loader-secondary-color, #fed7aa));\n      animation: darma-loader-uiverse-tiny-loading-pill-progressSlide 0.95s ease-in-out infinite;\n    }\n    @keyframes darma-loader-uiverse-tiny-loading-pill-progressSlide { 0% { transform: translateX(-120%); } 100% { transform: translateX(260%); } }\n",
+    "defaults": {
+      "color": "#f97316",
+      "secondaryColor": "#fed7aa",
+      "size": 54,
+      "speed": 1.05,
+      "background": "#ffffff"
+    }
+  }
+]

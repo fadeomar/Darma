@@ -1,0 +1,41 @@
+{
+  "id": "uiverse-gradient-flip",
+  "name": "Gradient Flip Tile",
+  "category": "creative",
+  "tags": [
+    "uiverse",
+    "gradient",
+    "flip",
+    "creative",
+    "loader"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader {\n  display: inline-block;\n  width: 52px;\n  height: 52px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color), var(--loader-secondary-color));\n  animation: squareFlip 0.96s cubic-bezier(.55,.08,.38,.97) infinite;\n}\n@keyframes squareFlip { 0% { transform: perspective(120px) rotateX(0) rotateY(0); } 50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); } 100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); } }\n",
+  "source": {
+    "name": "Uiverse selected loaders",
+    "author": "Uiverse community",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": true,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "secondaryColor": "#a5b4fc",
+    "size": 66,
+    "speed": 0.85,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "id": "loading-io-20",
+  "name": "Loading.io Adapted Loader 20",
+  "category": "spinners",
+  "tags": [
+    "loading-io",
+    "dual-ring",
+    "spinner",
+    "spinners",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "loading-io-20 loading.io adapted loader 20 spinners loading-io dual-ring spinner spinners loader html css react singleelement cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-loading-io-20\"></span>",
+  "previewCss": ".darma-loader-loading-io-20 {\n  display: inline-block;\n  width: 46px;\n  height: 46px;\n  border-radius: 50%;\n  border: 5px solid color-mix(in srgb, var(--loader-secondary-color, #a5b4fc) 35%, transparent);\n  border-top-color: var(--loader-color, #6366f1);\n  border-right-color: var(--loader-color, #6366f1);\n  animation: darma-loader-loading-io-20-spin 0.85s cubic-bezier(.55,.15,.45,.85) infinite;\n}\n.darma-loader-loading-io-20::after {\n  content: \"\";\n  display: block;\n  width: calc(100% - 16px);\n  height: calc(100% - 16px);\n  margin: 4px;\n  border-radius: 50%;\n  border: 4px solid transparent;\n  border-bottom-color: var(--loader-secondary-color, #a5b4fc);\n  animation: darma-loader-loading-io-20-spin 0.59s linear infinite reverse;\n}\n@keyframes darma-loader-loading-io-20-spin { to { transform: rotate(360deg); } }\n",
+  "defaults": {
+    "color": "#6366f1",
+    "secondaryColor": "#a5b4fc",
+    "size": 52,
+    "speed": 0.8
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-loading-io-20\"></span>",
+    "css": ".darma-loader-loading-io-20 {\n  display: inline-block;\n  width: 46px;\n  height: 46px;\n  border-radius: 50%;\n  border: 5px solid color-mix(in srgb, var(--loader-secondary-color, #a5b4fc) 35%, transparent);\n  border-top-color: var(--loader-color, #6366f1);\n  border-right-color: var(--loader-color, #6366f1);\n  animation: darma-loader-loading-io-20-spin 0.85s cubic-bezier(.55,.15,.45,.85) infinite;\n}\n.darma-loader-loading-io-20::after {\n  content: \"\";\n  display: block;\n  width: calc(100% - 16px);\n  height: calc(100% - 16px);\n  margin: 4px;\n  border-radius: 50%;\n  border: 4px solid transparent;\n  border-bottom-color: var(--loader-secondary-color, #a5b4fc);\n  animation: darma-loader-loading-io-20-spin 0.59s linear infinite reverse;\n}\n@keyframes darma-loader-loading-io-20-spin { to { transform: rotate(360deg); } }\n",
+    "react": "export default function LoadingIo20Loader() {\n  return (\n    <span className=\"darma-loader-loading-io-20\"></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "loading.io CSS Spinner",
+    "author": "loading.io",
+    "license": "CC0",
+    "url": "https://loading.io/css/"
+  }
+}

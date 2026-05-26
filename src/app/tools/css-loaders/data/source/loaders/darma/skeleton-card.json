@@ -1,0 +1,28 @@
+{
+  "id": "skeleton-card",
+  "name": "Skeleton Card",
+  "category": "skeleton",
+  "tags": [
+    "skeleton",
+    "card",
+    "placeholder",
+    "layout"
+  ],
+  "html": "<span class=\"loader\"><b></b><i></i><i></i></span>",
+  "css": ".loader {\n  display: grid;\n  gap: 10px;\n  width: 148px;\n  border-radius: 18px;\n  padding: 14px;\n  background: rgba(99, 102, 241, 0.08);\n}\n.loader b,\n.loader i {\n  display: block;\n  border-radius: 12px;\n  background: linear-gradient(90deg, rgba(99,102,241,.14), rgba(99,102,241,.34), rgba(99,102,241,.14));\n  background-size: 220% 100%;\n  animation: shimmer 1.15s linear infinite;\n}\n.loader b { height: 44px; }\n.loader i { height: 10px; }\n.loader i:last-child { width: 66%; }\n@keyframes shimmer { to { background-position: -220% 0; } }\n",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 48,
+    "speed": 1
+  },
+  "flags": {
+    "popular": false,
+    "cssOnly": true,
+    "customizable": true
+  }
+}

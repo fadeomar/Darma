@@ -1,0 +1,29 @@
+{
+  "id": "demo-spinner",
+  "name": "Classic Spinner",
+  "category": "spinners",
+  "tags": [
+    "spinner",
+    "ring",
+    "circle",
+    "classic"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader {\n  display: inline-block;\n  width: 54px;\n  height: 54px;\n  border-radius: 50%;\n  border: 5px solid rgba(99, 102, 241, 0.18);\n  border-top-color: #6366f1;\n  animation: spin 0.85s linear infinite;\n}\n@keyframes spin { to { transform: rotate(360deg); } }\n",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 48,
+    "speed": 1
+  },
+  "flags": {
+    "popular": true,
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": true
+  }
+}

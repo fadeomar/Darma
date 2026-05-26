@@ -30,6 +30,7 @@ export function ToolPage({
   maxWidth = "default",
   headerAlign = "left",
   intro,
+  headerSize = "default",
 }: {
   tool?: ToolDefinition;
   title?: string;
@@ -41,6 +42,7 @@ export function ToolPage({
   maxWidth?: keyof typeof maxWidthClass;
   headerAlign?: "left" | "center";
   intro?: ReactNode;
+  headerSize?: "default" | "compact";
 }) {
   const pageTitle = title ?? tool?.title;
   const pageDescription = description ?? tool?.description;
@@ -50,7 +52,8 @@ export function ToolPage({
     <div className={cn("mx-auto px-4 py-8 sm:px-6 lg:px-8", maxWidthClass[maxWidth])}>
       <header
         className={cn(
-          "rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[var(--shadow-soft)] backdrop-blur sm:p-8",
+          "rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-soft)] backdrop-blur",
+          headerSize === "compact" ? "p-4 sm:p-5" : "p-6 sm:p-8",
           headerAlign === "center" && "text-center",
         )}
       >
@@ -71,16 +74,27 @@ export function ToolPage({
           ))}
         </div>
         {pageTitle ? (
-          <h1 className="mt-4 text-4xl font-black leading-[var(--leading-tight)] text-[var(--color-text)] sm:text-5xl">
+          <h1
+            className={cn(
+              "mt-4 font-black leading-[var(--leading-tight)] text-[var(--color-text)]",
+              headerSize === "compact" ? "text-3xl sm:text-4xl" : "text-4xl sm:text-5xl",
+            )}
+          >
             {pageTitle}
           </h1>
         ) : null}
         {pageDescription ? (
-          <p className={cn("mt-4 max-w-3xl text-base leading-7 text-[var(--color-text-muted)] sm:text-lg", headerAlign === "center" && "mx-auto")}>
+          <p
+            className={cn(
+              "mt-3 max-w-3xl leading-7 text-[var(--color-text-muted)]",
+              headerSize === "compact" ? "text-sm sm:text-base" : "text-base sm:text-lg",
+              headerAlign === "center" && "mx-auto",
+            )}
+          >
             {pageDescription}
           </p>
         ) : null}
-        {intro ? <div className="mt-6">{intro}</div> : null}
+        {intro ? <div className={headerSize === "compact" ? "mt-4" : "mt-6"}>{intro}</div> : null}
       </header>
 
       <div className="mt-8">{children}</div>

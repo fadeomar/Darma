@@ -1,0 +1,42 @@
+{
+  "id": "demo-spinner",
+  "name": "Classic Spinner",
+  "category": "spinners",
+  "tags": [
+    "spinner",
+    "ring",
+    "circle",
+    "classic"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": true,
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": true
+  },
+  "searchText": "demo-spinner classic spinner spinners spinner ring circle classic html css react popular cssonly customizable singleelement",
+  "previewHtml": "<span class=\"darma-loader-demo-spinner\"></span>",
+  "previewCss": ".darma-loader-demo-spinner {\n  display: inline-block;\n  width: 54px;\n  height: 54px;\n  border-radius: 50%;\n  border: 5px solid color-mix(in srgb, var(--loader-color, #6366f1) 18%, transparent);\n  border-top-color: var(--loader-color, #6366f1);\n  animation: darma-loader-demo-spinner-spin 0.85s linear infinite;\n}\n@keyframes darma-loader-demo-spinner-spin { to { transform: rotate(360deg); } }\n",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 48,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-demo-spinner\"></span>",
+    "css": ".darma-loader-demo-spinner {\n  display: inline-block;\n  width: 54px;\n  height: 54px;\n  border-radius: 50%;\n  border: 5px solid color-mix(in srgb, var(--loader-color, #6366f1) 18%, transparent);\n  border-top-color: var(--loader-color, #6366f1);\n  animation: darma-loader-demo-spinner-spin 0.85s linear infinite;\n}\n@keyframes darma-loader-demo-spinner-spin { to { transform: rotate(360deg); } }\n",
+    "react": "export default function DemoSpinnerLoader() {\n  return (\n    <span className=\"darma-loader-demo-spinner\"></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

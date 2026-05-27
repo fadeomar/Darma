@@ -2,6 +2,7 @@ import type { ElementDTO } from "@/features/elements/dto/element.dto";
 import CardsPagination from "@/components/CardsPagination";
 import PreviewCard from "@/components/TestCard";
 import CategoryBadge from "@/components/CategoryBadge";
+import { Badge, Button, Card, Input } from "@/components/ui";
 import { CheckCircle } from "lucide-react";
 
 interface ElementListProps {
@@ -33,31 +34,32 @@ export default function ElementList({
 }: ElementListProps) {
   return (
     <>
-      <div className="mb-6">
-        <input
+      <div className="mb-5">
+        <Input
           type="text"
           placeholder="Search elements..."
           value={searchQuery}
           onChange={onSearchChange}
-          className="w-full p-2 border rounded"
         />
       </div>
 
       {previewedElement && (
-        <div className="mb-8 p-4 bg-gray-100 rounded">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-xl font-semibold">
-              Previewing: {previewedElement.title}
-            </h2>
-            <button
-              onClick={() => onPreview(null)}
-              className="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
-            >
+        <Card className="mb-6" padding="sm">
+          <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <div className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+                Previewing
+              </div>
+              <h2 className="mt-1 text-xl font-semibold tracking-tight">
+                {previewedElement.title}
+              </h2>
+            </div>
+            <Button type="button" variant="outline" onClick={() => onPreview(null)}>
               Close Preview
-            </button>
+            </Button>
           </div>
-          <PreviewCard element={previewedElement} status={"preview"} />
-        </div>
+          <PreviewCard element={previewedElement} status="preview" />
+        </Card>
       )}
 
       <CardsPagination
@@ -66,61 +68,64 @@ export default function ElementList({
         totalPages={totalPages}
         onPageChange={onPageChange}
         renderItem={(element: ElementDTO) => (
-          <div
+          <Card
             key={element.id}
-            className={`p-4 relative border rounded shadow-sm ${
+            padding="sm"
+            className={
               editingElementId === element.id
-                ? "bg-blue-50 border-blue-300"
-                : "bg-white"
-            }`}
+                ? "relative border-[var(--color-primary-border)] bg-[var(--color-primary-soft)]"
+                : "relative"
+            }
           >
             {element.reviewed && (
               <CheckCircle
-                fill="black"
-                className="absolute -top-1 -right-1 w-8 h-8 text-yellow-500 bg-white rounded-full"
+                fill="var(--color-success)"
+                className="absolute -right-1 -top-1 h-7 w-7 rounded-[var(--radius-full)] bg-[var(--color-surface-raised)] text-[var(--color-success)]"
+                aria-label="Reviewed"
               />
             )}
-            <h3 className="text-lg font-semibold mb-2">{element.title}</h3>
-            <p className="text-gray-600 mb-2">{element.shortDescription}</p>
+            <div className="pr-5">
+              <h3 className="text-lg font-semibold tracking-tight text-[var(--color-text-primary)]">
+                {element.title}
+              </h3>
+              <p className="mt-2 line-clamp-2 text-sm leading-6 text-[var(--color-text-secondary)]">
+                {element.shortDescription || element.description || "No description yet."}
+              </p>
+            </div>
+
             {element?.mainCategory?.length > 0 && (
-              <div className="flex gap-2">
-                Main Cats:
+              <div className="mt-3 flex flex-wrap items-center gap-2">
+                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+                  Main
+                </span>
                 {element.mainCategory.map((cat) => (
                   <CategoryBadge key={cat} category={cat} />
                 ))}
               </div>
             )}
-            <div className="flex flex-wrap gap-2 mb-3">
-              {element.tags?.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-2 py-1 bg-gray-100 rounded text-sm"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-            <div className="flex gap-2">
-              <button
-                onClick={() => onEdit(element)}
-                className="px-3 py-1 text-sm bg-yellow-500 text-white rounded"
-              >
+
+            {element.tags?.length ? (
+              <div className="mt-3 flex flex-wrap gap-2">
+                {element.tags.map((tag) => (
+                  <Badge key={tag} variant="soft">
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            ) : null}
+
+            <div className="mt-4 flex flex-wrap gap-2">
+              <Button type="button" variant="soft" size="sm" onClick={() => onEdit(element)}>
                 Edit
-              </button>
-              <button
-                onClick={() => onDelete(element.id)}
-                className="px-3 py-1 text-sm bg-red-500 text-white rounded"
-              >
+              </Button>
+              <Button type="button" variant="danger" size="sm" onClick={() => onDelete(element.id)}>
                 Delete
-              </button>
-              <button
-                onClick={() => onPreview(element)}
-                className="px-3 py-1 text-sm bg-gray-500 text-white rounded"
-              >
+              </Button>
+              <Button type="button" variant="outline" size="sm" onClick={() => onPreview(element)}>
                 Preview
-              </button>
+              </Button>
             </div>
-          </div>
+          </Card>
         )}
       />
     </>

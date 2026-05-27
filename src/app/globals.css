@@ -7,7 +7,7 @@
 @tailwind utilities;
 
 :root {
-  /* Neumorphic generator defaults kept for legacy soft-shadow utilities. */
+  /* Legacy neumorphic generator variables — used only by the neumorphic CSS tool. Do not use these for app UI. */
   --blur: 60px;
   --darkColor: #dadada;
   --firstGradientColor: #dadada;

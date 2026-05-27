@@ -10,15 +10,15 @@ export default function SectionHeading({
   return (
     <div className="max-w-3xl">
       {eyebrow ? (
-        <p className="text-sm font-bold uppercase tracking-[0.2em] text-slate-500">
+        <p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">
           {eyebrow}
         </p>
       ) : null}
-      <h2 className="mt-2 text-3xl font-black tracking-tight text-slate-900 dark:text-slate-100">
+      <h2 className="mt-2 text-3xl font-black tracking-[-0.035em] text-[var(--color-text-primary)]">
         {title}
       </h2>
       {description ? (
-        <p className="mt-3 text-base leading-7 text-slate-700 dark:text-slate-300">
+        <p className="mt-3 text-base leading-7 text-[var(--color-text-secondary)]">
           {description}
         </p>
       ) : null}

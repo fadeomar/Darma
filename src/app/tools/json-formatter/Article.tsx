@@ -1,8 +1,8 @@
 export default function Article() {
   return (
-    <div className="space-y-8 text-sm leading-7 text-slate-700 dark:text-slate-300">
+    <div className="space-y-8 text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           What is JSON?
         </h2>
         <p>
@@ -17,15 +17,15 @@ export default function Article() {
           A valid JSON value is one of: an object (key-value pairs wrapped in
           curly braces), an array (ordered list wrapped in square brackets), a
           string (double-quoted), a number, a boolean (
-          <code className="rounded bg-slate-100 px-1 font-mono text-xs dark:bg-slate-800">
+          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
             true
           </code>{" "}
           or{" "}
-          <code className="rounded bg-slate-100 px-1 font-mono text-xs dark:bg-slate-800">
+          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
             false
           </code>
           ), or{" "}
-          <code className="rounded bg-slate-100 px-1 font-mono text-xs dark:bg-slate-800">
+          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
             null
           </code>
           .
@@ -33,15 +33,15 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Format vs Minify vs Validate — what is the difference?
         </h2>
         <dl className="space-y-4">
           <div>
-            <dt className="font-semibold text-slate-900 dark:text-slate-100">
+            <dt className="font-semibold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Format (Prettify)
             </dt>
-            <dd className="mt-1 text-slate-600 dark:text-slate-400">
+            <dd className="mt-1 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
               Takes compact or messy JSON and rewrites it with consistent
               indentation and line breaks. The result is easy to read in an
               editor, review in a pull request, or paste into documentation.
@@ -49,10 +49,10 @@ export default function Article() {
             </dd>
           </div>
           <div>
-            <dt className="font-semibold text-slate-900 dark:text-slate-100">
+            <dt className="font-semibold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Minify
             </dt>
-            <dd className="mt-1 text-slate-600 dark:text-slate-400">
+            <dd className="mt-1 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
               Strips all unnecessary whitespace and produces a single-line
               version. Useful for embedding JSON inside code strings, reducing
               payload size in HTTP requests, or fitting data into systems that
@@ -61,10 +61,10 @@ export default function Article() {
             </dd>
           </div>
           <div>
-            <dt className="font-semibold text-slate-900 dark:text-slate-100">
+            <dt className="font-semibold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Validate
             </dt>
-            <dd className="mt-1 text-slate-600 dark:text-slate-400">
+            <dd className="mt-1 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
               Checks whether the input is syntactically valid JSON according to
               the ECMA-404 / RFC 8259 specification. If it is valid, you see a
               green confirmation. If not, you see the parser error and — where
@@ -75,7 +75,7 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Common JSON syntax errors and how to fix them
         </h2>
         <div className="space-y-4">
@@ -111,19 +111,19 @@ export default function Article() {
               fix: "JSON only supports numbers, strings, booleans, null, objects, and arrays. Replace NaN or Infinity with null or a valid number.",
             },
           ].map(({ problem, example, fix }) => (
-            <div key={problem} className="rounded-xl border border-black/8 bg-slate-50 p-4 dark:border-white/10 dark:bg-slate-900/40">
-              <p className="font-semibold text-slate-900 dark:text-slate-100">{problem}</p>
-              <pre className="mt-1.5 overflow-x-auto rounded-lg bg-red-50 px-3 py-2 font-mono text-xs text-red-700 dark:bg-red-950/30 dark:text-red-400">
+            <div key={problem} className="rounded-xl border border-black/8 bg-[var(--color-surface-subtle)] p-4 dark:border-white/10 dark:bg-[var(--color-code-surface)]/40">
+              <p className="font-semibold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">{problem}</p>
+              <pre className="mt-1.5 overflow-x-auto rounded-lg bg-[var(--color-danger-bg)] px-3 py-2 font-mono text-xs text-[var(--color-danger-text)]">
                 {example}
               </pre>
-              <p className="mt-2 text-slate-600 dark:text-slate-400">{fix}</p>
+              <p className="mt-2 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">{fix}</p>
             </div>
           ))}
         </div>
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           How indentation is chosen
         </h2>
         <p>
@@ -137,16 +137,16 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Privacy and security
         </h2>
         <p>
           All JSON processing happens entirely in your browser using the native{" "}
-          <code className="rounded bg-slate-100 px-1 font-mono text-xs dark:bg-slate-800">
+          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
             JSON.parse
           </code>{" "}
           and{" "}
-          <code className="rounded bg-slate-100 px-1 font-mono text-xs dark:bg-slate-800">
+          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
             JSON.stringify
           </code>{" "}
           APIs that ship in every modern JavaScript engine. Your data is never
@@ -158,7 +158,7 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Frequently asked questions
         </h2>
         <div className="space-y-5">
@@ -189,8 +189,8 @@ export default function Article() {
             ],
           ].map(([q, a]) => (
             <div key={q as string}>
-              <h3 className="font-semibold text-slate-900 dark:text-slate-100">{q}</h3>
-              <p className="mt-1 text-slate-600 dark:text-slate-400">{a}</p>
+              <h3 className="font-semibold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">{q}</h3>
+              <p className="mt-1 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">{a}</p>
             </div>
           ))}
         </div>

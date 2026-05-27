@@ -1,15 +1,15 @@
 export default function Article() {
   return (
-    <div className="space-y-8 text-sm leading-7 text-slate-700 dark:text-slate-300">
+    <div className="space-y-8 text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           What is URL encoding?
         </h2>
         <p>
           URL encoding, also called percent encoding, converts spaces, Unicode
           text, emojis, and reserved characters into a format that can travel
           safely inside a URL. For example, a space often becomes{" "}
-          <code className="rounded bg-slate-100 px-1 font-mono text-xs dark:bg-slate-800">
+          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
             %20
           </code>
           . Encoding is formatting for URLs, not encryption and not security.
@@ -17,7 +17,7 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           URL encoding vs URL decoding
         </h2>
         <p>
@@ -29,15 +29,15 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Full URL vs URL component
         </h2>
         <div className="space-y-4">
           <div>
-            <h3 className="font-semibold text-slate-900 dark:text-slate-100">
+            <h3 className="font-semibold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Full URL
             </h3>
-            <p className="mt-1 text-slate-600 dark:text-slate-400">
+            <p className="mt-1 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
               Use full URL mode when you want to keep URL structure characters
               such as <code className="font-mono text-xs">:</code>,{" "}
               <code className="font-mono text-xs">/</code>,{" "}
@@ -47,10 +47,10 @@ export default function Article() {
             </p>
           </div>
           <div>
-            <h3 className="font-semibold text-slate-900 dark:text-slate-100">
+            <h3 className="font-semibold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               URL component / query value
             </h3>
-            <p className="mt-1 text-slate-600 dark:text-slate-400">
+            <p className="mt-1 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
               Use component mode for a single query parameter value, path
               segment, or piece of text that will be inserted into a larger URL.
               This mode encodes reserved characters more aggressively, which is
@@ -62,13 +62,13 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           When to use encodeURIComponent
         </h2>
         <p>
           Use component encoding when a value sits after an equals sign in a
           query string. For example, encode the value in{" "}
-          <code className="rounded bg-slate-100 px-1 font-mono text-xs dark:bg-slate-800">
+          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
             ?q=hello world & Darma tools
           </code>{" "}
           before placing it into a URL. This prevents characters like ampersands
@@ -77,12 +77,12 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Query parameter examples
         </h2>
         <p>
           A query string like{" "}
-          <code className="rounded bg-slate-100 px-1 font-mono text-xs dark:bg-slate-800">
+          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
             name=Darma&amp;tool=url%20encoder
           </code>{" "}
           has two parameters: <strong>name</strong> with the value{" "}
@@ -93,10 +93,10 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Common URL encoding mistakes
         </h2>
-        <ul className="list-disc space-y-2 pl-5 text-slate-600 dark:text-slate-400">
+        <ul className="list-disc space-y-2 pl-5 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
           <li>Using full URL encoding for a query value that contains ampersands.</li>
           <li>Decoding malformed text such as <code className="font-mono text-xs">%ZZ</code>.</li>
           <li>Thinking URL encoding hides private data. It does not.</li>
@@ -105,7 +105,7 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Privacy note
         </h2>
         <p>

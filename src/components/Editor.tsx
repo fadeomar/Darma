@@ -1,23 +1,22 @@
-// components/Editor.tsx
 "use client";
 
-import { useEditor, EditorContent } from "@tiptap/react";
+import { useCallback } from "react";
+import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Link from "@tiptap/extension-link";
-import { useCallback } from "react";
 import {
   Bold,
-  Italic,
-  List,
-  ListOrdered,
   Heading1,
   Heading2,
   Heading3,
   Heading4,
+  Italic,
   Link as LinkIcon,
-  Unlink,
-  Undo,
+  List,
+  ListOrdered,
   Redo,
+  Undo,
+  Unlink,
 } from "lucide-react";
 import "./editorStyles.css";
 
@@ -26,16 +25,31 @@ interface EditorProps {
   onUpdate: (value: string) => void;
   placeholder?: string;
   className?: string;
-  previewMode?: boolean; // New prop
+  previewMode?: boolean;
 }
 
-const Editor = ({
+function cn(...classes: Array<string | false | null | undefined>) {
+  return classes.filter(Boolean).join(" ");
+}
+
+const iconClass = "h-5 w-5";
+
+function toolbarButtonClass(active?: boolean) {
+  return cn(
+    "rounded-[var(--radius-sm)] p-2 transition duration-[var(--duration-fast)] disabled:cursor-not-allowed disabled:opacity-40",
+    active
+      ? "bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+      : "text-[var(--color-text-tertiary)] hover:bg-[var(--color-control-hover)] hover:text-[var(--color-text-primary)]",
+  );
+}
+
+export default function Editor({
   content,
   onUpdate,
   placeholder,
   className = "",
-  previewMode = false, // Default to false (edit mode)
-}: EditorProps) => {
+  previewMode = false,
+}: EditorProps) {
   const editor = useEditor({
     extensions: [
       StarterKit.configure({
@@ -46,14 +60,12 @@ const Editor = ({
       Link.configure({
         openOnClick: false,
         autolink: true,
-        HTMLAttributes: { class: "text-blue-600 underline" },
+        HTMLAttributes: { class: "text-[var(--color-primary)] underline underline-offset-2" },
       }),
     ],
     content,
-    onUpdate: previewMode
-      ? undefined
-      : ({ editor }) => onUpdate(editor.getHTML()), // Disable onUpdate in preview mode
-    editable: !previewMode, // Disable editing in preview mode
+    onUpdate: previewMode ? undefined : ({ editor }) => onUpdate(editor.getHTML()),
+    editable: !previewMode,
   });
 
   const setLink = useCallback(() => {
@@ -72,188 +84,113 @@ const Editor = ({
 
   return (
     <div
-      className={`${
-        previewMode ? "" : "border border-blue-950 rounded-lg shadow-sm"
-      } ${className}`}
+      className={cn(
+        previewMode
+          ? ""
+          : "overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] shadow-[var(--shadow-xs)]",
+        className,
+      )}
     >
       {!previewMode && (
-        <div className="flex flex-wrap gap-2 p-3 bg-gray-50 border-b border-gray-200 rounded-t-lg">
+        <div className="flex flex-wrap gap-1 border-b border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] p-2">
           <button
             type="button"
             onClick={() => editor.chain().focus().toggleBold().run()}
             disabled={!editor.can().chain().focus().toggleBold().run()}
-            className={`p-2 rounded-md hover:bg-gray-100 transition-colors ${
-              editor.isActive("bold")
-                ? "bg-blue-50 text-blue-600"
-                : "text-gray-500 hover:text-gray-700"
-            }`}
+            className={toolbarButtonClass(editor.isActive("bold"))}
             title="Bold"
           >
-            <Bold className="w-5 h-5" />
+            <Bold className={iconClass} />
           </button>
           <button
             type="button"
             onClick={() => editor.chain().focus().toggleItalic().run()}
             disabled={!editor.can().chain().focus().toggleItalic().run()}
-            className={`p-2 rounded-md hover:bg-gray-100 transition-colors ${
-              editor.isActive("italic")
-                ? "bg-blue-50 text-blue-600"
-                : "text-gray-500 hover:text-gray-700"
-            }`}
+            className={toolbarButtonClass(editor.isActive("italic"))}
             title="Italic"
           >
-            <Italic className="w-5 h-5" />
+            <Italic className={iconClass} />
           </button>
           <button
             type="button"
             onClick={() => editor.chain().focus().toggleBulletList().run()}
             disabled={!editor.can().chain().focus().toggleBulletList().run()}
-            className={`p-2 rounded-md hover:bg-gray-100 transition-colors ${
-              editor.isActive("bulletList")
-                ? "bg-blue-50 text-blue-600"
-                : "text-gray-500 hover:text-gray-700"
-            }`}
+            className={toolbarButtonClass(editor.isActive("bulletList"))}
             title="Bullet List"
           >
-            <List className="w-5 h-5" />
+            <List className={iconClass} />
           </button>
           <button
             type="button"
             onClick={() => editor.chain().focus().toggleOrderedList().run()}
             disabled={!editor.can().chain().focus().toggleOrderedList().run()}
-            className={`p-2 rounded-md hover:bg-gray-100 transition-colors ${
-              editor.isActive("orderedList")
-                ? "bg-blue-50 text-blue-600"
-                : "text-gray-500 hover:text-gray-700"
-            }`}
+            className={toolbarButtonClass(editor.isActive("orderedList"))}
             title="Numbered List"
           >
-            <ListOrdered className="w-5 h-5" />
+            <ListOrdered className={iconClass} />
           </button>
-          <button
-            type="button"
-            onClick={() =>
-              editor.chain().focus().toggleHeading({ level: 1 }).run()
-            }
-            disabled={
-              !editor.can().chain().focus().toggleHeading({ level: 1 }).run()
-            }
-            className={`p-2 rounded-md hover:bg-gray-100 transition-colors ${
-              editor.isActive("heading", { level: 1 })
-                ? "bg-blue-50 text-blue-600"
-                : "text-gray-500 hover:text-gray-700"
-            }`}
-            title="Heading 1"
-          >
-            <Heading1 className="w-5 h-5" />
-          </button>
-          <button
-            type="button"
-            onClick={() =>
-              editor.chain().focus().toggleHeading({ level: 2 }).run()
-            }
-            disabled={
-              !editor.can().chain().focus().toggleHeading({ level: 2 }).run()
-            }
-            className={`p-2 rounded-md hover:bg-gray-100 transition-colors ${
-              editor.isActive("heading", { level: 2 })
-                ? "bg-blue-50 text-blue-600"
-                : "text-gray-500 hover:text-gray-700"
-            }`}
-            title="Heading 2"
-          >
-            <Heading2 className="w-5 h-5" />
-          </button>
-          <button
-            type="button"
-            onClick={() =>
-              editor.chain().focus().toggleHeading({ level: 3 }).run()
-            }
-            disabled={
-              !editor.can().chain().focus().toggleHeading({ level: 3 }).run()
-            }
-            className={`p-2 rounded-md hover:bg-gray-100 transition-colors ${
-              editor.isActive("heading", { level: 3 })
-                ? "bg-blue-50 text-blue-600"
-                : "text-gray-500 hover:text-gray-700"
-            }`}
-            title="Heading 3"
-          >
-            <Heading3 className="w-5 h-5" />
-          </button>
-          <button
-            type="button"
-            onClick={() =>
-              editor.chain().focus().toggleHeading({ level: 4 }).run()
-            }
-            disabled={
-              !editor.can().chain().focus().toggleHeading({ level: 4 }).run()
-            }
-            className={`p-2 rounded-md hover:bg-gray-100 transition-colors ${
-              editor.isActive("heading", { level: 4 })
-                ? "bg-blue-50 text-blue-600"
-                : "text-gray-500 hover:text-gray-700"
-            }`}
-            title="Heading 4"
-          >
-            <Heading4 className="w-5 h-5" />
-          </button>
+          {[1, 2, 3, 4].map((level) => {
+            const Icon = level === 1 ? Heading1 : level === 2 ? Heading2 : level === 3 ? Heading3 : Heading4;
+            return (
+              <button
+                key={level}
+                type="button"
+                onClick={() => editor.chain().focus().toggleHeading({ level: level as 1 | 2 | 3 | 4 }).run()}
+                disabled={!editor.can().chain().focus().toggleHeading({ level: level as 1 | 2 | 3 | 4 }).run()}
+                className={toolbarButtonClass(editor.isActive("heading", { level }))}
+                title={`Heading ${level}`}
+              >
+                <Icon className={iconClass} />
+              </button>
+            );
+          })}
           <button
             type="button"
             onClick={setLink}
-            className={`p-2 rounded-md hover:bg-gray-100 transition-colors ${
-              editor.isActive("link")
-                ? "bg-blue-50 text-blue-600"
-                : "text-gray-500 hover:text-gray-700"
-            }`}
+            className={toolbarButtonClass(editor.isActive("link"))}
             title="Link"
           >
-            <LinkIcon className="w-5 h-5" />
+            <LinkIcon className={iconClass} />
           </button>
           <button
             type="button"
             onClick={() => editor.chain().focus().unsetLink().run()}
             disabled={!editor.isActive("link")}
-            className={`p-2 rounded-md hover:bg-gray-100 transition-colors ${
-              editor.isActive("link")
-                ? "bg-blue-50 text-blue-600"
-                : "text-gray-500 hover:text-gray-700"
-            }`}
+            className={toolbarButtonClass(editor.isActive("link"))}
             title="Unlink"
           >
-            <Unlink className="w-5 h-5" />
+            <Unlink className={iconClass} />
           </button>
           <button
             type="button"
             onClick={() => editor.chain().focus().undo().run()}
             disabled={!editor.can().undo()}
-            className="p-2 rounded-md text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition-colors"
+            className={toolbarButtonClass()}
             title="Undo"
           >
-            <Undo className="w-5 h-5" />
+            <Undo className={iconClass} />
           </button>
           <button
             type="button"
             onClick={() => editor.chain().focus().redo().run()}
             disabled={!editor.can().redo()}
-            className="p-2 rounded-md text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition-colors"
+            className={toolbarButtonClass()}
             title="Redo"
           >
-            <Redo className="w-5 h-5" />
+            <Redo className={iconClass} />
           </button>
         </div>
       )}
       <EditorContent
         editor={editor}
-        className={`tiptap-editor prose prose-sm ${
+        className={cn(
+          "tiptap-editor prose prose-sm max-w-none text-[var(--color-text-primary)]",
           previewMode
             ? ""
-            : "p-4 min-h-[200px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 rounded-b-lg"
-        }`}
+            : "min-h-[200px] rounded-b-[var(--radius-md)] p-4 focus-within:outline-none focus-within:ring-2 focus-within:ring-[var(--color-primary-soft)]",
+        )}
         placeholder={placeholder}
       />
     </div>
   );
-};
-
-export default Editor;
+}

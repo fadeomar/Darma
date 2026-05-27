@@ -1,0 +1,41 @@
+{
+  "id": "skeleton-avatar",
+  "name": "Skeleton Avatar",
+  "category": "skeleton",
+  "tags": [
+    "skeleton",
+    "avatar",
+    "profile",
+    "placeholder"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": true,
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "skeleton-avatar skeleton avatar skeleton skeleton avatar profile placeholder html css react popular cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-skeleton-avatar\"><b></b><i></i><i></i></span>",
+  "previewCss": ".darma-loader-skeleton-avatar {\n  display: grid;\n  grid-template-columns: 42px 108px;\n  gap: 8px 12px;\n  align-items: center;\n}\n.darma-loader-skeleton-avatar b,\n.darma-loader-skeleton-avatar i {\n  display: block;\n  background: linear-gradient(90deg, color-mix(in srgb, var(--loader-color, #6366f1) 12%, transparent), color-mix(in srgb, var(--loader-color, #6366f1) 32%, transparent), color-mix(in srgb, var(--loader-color, #6366f1) 12%, transparent));\n  background-size: 220% 100%;\n  animation: darma-loader-skeleton-avatar-shimmer 1s linear infinite;\n}\n.darma-loader-skeleton-avatar b {\n  grid-row: span 2;\n  width: 42px;\n  height: 42px;\n  border-radius: 50%;\n}\n.darma-loader-skeleton-avatar i {\n  height: 11px;\n  border-radius: 999px;\n}\n.darma-loader-skeleton-avatar i:last-child { width: 72%; }\n@keyframes darma-loader-skeleton-avatar-shimmer { to { background-position: -220% 0; } }\n",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 48,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-skeleton-avatar\"><b></b><i></i><i></i></span>",
+    "css": ".darma-loader-skeleton-avatar {\n  display: grid;\n  grid-template-columns: 42px 108px;\n  gap: 8px 12px;\n  align-items: center;\n}\n.darma-loader-skeleton-avatar b,\n.darma-loader-skeleton-avatar i {\n  display: block;\n  background: linear-gradient(90deg, color-mix(in srgb, var(--loader-color, #6366f1) 12%, transparent), color-mix(in srgb, var(--loader-color, #6366f1) 32%, transparent), color-mix(in srgb, var(--loader-color, #6366f1) 12%, transparent));\n  background-size: 220% 100%;\n  animation: darma-loader-skeleton-avatar-shimmer 1s linear infinite;\n}\n.darma-loader-skeleton-avatar b {\n  grid-row: span 2;\n  width: 42px;\n  height: 42px;\n  border-radius: 50%;\n}\n.darma-loader-skeleton-avatar i {\n  height: 11px;\n  border-radius: 999px;\n}\n.darma-loader-skeleton-avatar i:last-child { width: 72%; }\n@keyframes darma-loader-skeleton-avatar-shimmer { to { background-position: -220% 0; } }\n",
+    "react": "export default function SkeletonAvatarLoader() {\n  return (\n    <span className=\"darma-loader-skeleton-avatar\"><b></b><i></i><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

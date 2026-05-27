@@ -1,0 +1,39 @@
+{
+  "id": "cssloaders-github-24",
+  "name": "CSSLoaders Pattern 24",
+  "category": "progress",
+  "tags": [
+    "cssloaders",
+    "progress",
+    "bar",
+    "loader"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader {\n  display: inline-block;\n  width: 128px;\n  height: 8px;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color) 16%, transparent);\n  overflow: hidden;\n}\n.loader::before {\n      content: \"\";\n      display: block;\n      width: 42%;\n      height: 100%;\n      border-radius: inherit;\n      background: linear-gradient(90deg, var(--loader-color), var(--loader-secondary-color));\n      animation: progressSlide 0.9s ease-in-out infinite;\n    }\n    @keyframes progressSlide { 0% { transform: translateX(-120%); } 100% { transform: translateX(260%); } }\n",
+  "source": {
+    "name": "cssloaders.github.io",
+    "author": "cssloaders",
+    "license": "MIT",
+    "url": "https://github.com/cssloaders/cssloaders.github.io"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "color": "#14b8a6",
+    "secondaryColor": "#99f6e4",
+    "size": 66,
+    "speed": 0.85
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

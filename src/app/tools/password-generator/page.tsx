@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 };
 
 const PasswordGeneratorClient = dynamic(() => import("./PasswordGeneratorClient"), {
-  loading: () => <div className="h-[420px] animate-pulse rounded-3xl bg-slate-100" />,
+  loading: () => <div className="h-[420px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
 });
 
 const Article = dynamic(() => import("./Article"));
@@ -41,7 +41,7 @@ export default function PasswordGeneratorPage() {
       tool={tool}
       maxWidth="wide"
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-slate-700 dark:text-slate-300">
+        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
           Cryptographically random passwords and passphrases, generated entirely in your browser. Nothing is sent to a server.
         </p>
       }
@@ -51,37 +51,37 @@ export default function PasswordGeneratorPage() {
         infoSlot={
           <div className="grid gap-5 lg:grid-cols-3">
             <SurfaceCard>
-              <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">Strength guide</h2>
+              <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">Strength guide</h2>
               <dl className="mt-3 space-y-2.5 text-sm leading-6">
                 {[
-                  ["Very weak", "< 28 bits", "text-red-500"],
-                  ["Weak", "28-39 bits", "text-orange-500"],
-                  ["Fair", "40-59 bits", "text-yellow-600"],
-                  ["Strong", "60-79 bits", "text-emerald-500"],
-                  ["Very strong", "80+ bits", "text-emerald-700"],
+                  ["Very weak", "< 28 bits", "text-[var(--color-danger-text)]"],
+                  ["Weak", "28-39 bits", "text-[var(--color-warning-text)]"],
+                  ["Fair", "40-59 bits", "text-[var(--color-warning-text)]"],
+                  ["Strong", "60-79 bits", "text-[var(--color-success-text)]"],
+                  ["Very strong", "80+ bits", "text-[var(--color-success-text)]"],
                 ].map(([label, range, color]) => (
                   <div key={label} className="flex items-center justify-between gap-2">
                     <dt className={["font-semibold", color].join(" ")}>{label}</dt>
-                    <dd className="font-mono text-xs text-slate-500">{range}</dd>
+                    <dd className="font-mono text-xs text-[var(--color-text-tertiary)]">{range}</dd>
                   </div>
                 ))}
               </dl>
             </SurfaceCard>
             <SurfaceCard>
-              <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">Quick tips</h2>
-              <ul className="mt-3 space-y-2.5 text-sm leading-6 text-slate-700 dark:text-slate-300">
-                <li><strong className="text-slate-900 dark:text-slate-100">16 characters</strong> is the minimum for important accounts.</li>
-                <li>Use a <strong className="text-slate-900 dark:text-slate-100">passphrase</strong> for your master password.</li>
+              <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">Quick tips</h2>
+              <ul className="mt-3 space-y-2.5 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
+                <li><strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">16 characters</strong> is the minimum for important accounts.</li>
+                <li>Use a <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">passphrase</strong> for your master password.</li>
                 <li>Never reuse passwords across sites. Use a password manager.</li>
               </ul>
             </SurfaceCard>
             <SurfaceCard>
-              <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">Colour key</h2>
+              <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">Colour key</h2>
               <ul className="mt-3 space-y-1.5 font-mono text-sm">
                 <li className="text-[var(--textColor)]">a-z lowercase</li>
-                <li className="text-blue-600">A-Z uppercase</li>
-                <li className="text-amber-600">0-9 numbers</li>
-                <li className="text-purple-600">!@# symbols</li>
+                <li className="text-[var(--color-primary)]">A-Z uppercase</li>
+                <li className="text-[var(--color-warning-text)]">0-9 numbers</li>
+                <li className="text-[var(--color-accent)]">!@# symbols</li>
               </ul>
             </SurfaceCard>
           </div>

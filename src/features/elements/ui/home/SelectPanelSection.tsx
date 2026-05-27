@@ -1,17 +1,21 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
+import { CheckCircle, ChevronDown, ChevronUp, Filter, X } from "lucide-react";
 import categories from "@/data/category.json";
-import { ChevronDown, ChevronUp, CheckCircle, Filter } from "lucide-react";
-import "./style.css";
-import { getGradientColor } from "@/utils";
 import { iconMap } from "@/components/iconMap";
+import "./style.css";
 
 interface SelectPanelSectionProps {
   mainCats: string[];
   secCats: string[];
   onCategoryChange: (mainCats: string[], secCats: string[]) => void;
   isLoading: boolean;
+}
+
+function getLabel(value: string) {
+  return iconMap[value]?.label || value.replace(/-/g, " ");
 }
 
 const SelectPanelSection: React.FC<SelectPanelSectionProps> = ({
@@ -23,9 +27,7 @@ const SelectPanelSection: React.FC<SelectPanelSectionProps> = ({
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    if (isLoading === false && isOpen === true) {
-      setIsOpen(false);
-    }
+    if (!isLoading && isOpen) setIsOpen(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading]);
 
@@ -40,137 +42,105 @@ const SelectPanelSection: React.FC<SelectPanelSectionProps> = ({
     const newSecCats = secCats.includes(type)
       ? secCats.filter((c) => c !== type)
       : [...secCats, type];
-    const newMainCats = mainCats.includes(mainCat)
-      ? mainCats
-      : [...mainCats, mainCat];
+    const newMainCats = mainCats.includes(mainCat) ? mainCats : [...mainCats, mainCat];
     onCategoryChange(newMainCats, newSecCats);
   };
 
-  const clearAll = () => {
-    onCategoryChange([], []);
-  };
+  const clearAll = () => onCategoryChange([], []);
+  const selectedItems = [...mainCats, ...secCats];
 
   return (
-    <div className="mx-auto mt-10 space-y-4">
-      {/* Selected Categories Tags */}
-      {[...mainCats, ...secCats].length > 0 && (
-        <div className="flex flex-wrap gap-2 mb-2">
-          {[...mainCats, ...secCats].map((item, index) => (
+    <div className="mt-4 space-y-4">
+      {selectedItems.length > 0 ? (
+        <div className="flex flex-wrap items-center gap-2">
+          {selectedItems.map((item) => (
             <span
               key={item}
-              className="px-2 py-1 bg-gray-100 text-gray-800 rounded-full flex items-center text-sm"
-              style={{
-                background: `linear-gradient(135deg, ${
-                  getGradientColor(index).from
-                }, ${getGradientColor(index).to})`,
-              }}
+              className="inline-flex items-center gap-1.5 rounded-[var(--radius-full)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] px-3 py-1 text-xs font-semibold text-[var(--color-primary)]"
             >
-              {iconMap[item]?.label || item}
+              {getLabel(item)}
               <button
+                type="button"
                 onClick={() =>
                   mainCats.includes(item)
                     ? handleMainCatChange(item)
                     : handleSecCatChange(
-                        categories.categories.find((c) =>
-                          c.types.includes(item),
-                        )?.name || "",
+                        categories.categories.find((c) => c.types.includes(item))?.name || "",
                         item,
                       )
                 }
-                className="ml-1 text-red-500 hover:text-red-700 focus:outline-none"
+                className="rounded-[var(--radius-full)] p-0.5 text-[var(--color-primary)] transition hover:bg-[var(--color-primary-soft)]"
+                aria-label={`Remove ${getLabel(item)}`}
               >
-                ×
+                <X className="h-3 w-3" aria-hidden />
               </button>
             </span>
           ))}
           <button
+            type="button"
             onClick={clearAll}
-            className="ml-2 text-sm text-blue-500 hover:text-blue-700"
+            className="text-xs font-semibold text-[var(--color-text-tertiary)] transition hover:text-[var(--color-text-primary)]"
           >
-            Clear All
+            Clear all
           </button>
         </div>
-      )}
+      ) : null}
 
-      {/* Accordion Toggle */}
       <button
-        className="w-full p-2 flex items-center justify-between rounded-lg rainbow-border-large transition group hover:shadow-md text-black"
+        type="button"
+        className="flex w-full items-center justify-between rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-4 py-3 text-left shadow-[var(--shadow-xs)] transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-control-hover)]"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <div className="flex items-center">
-          <Filter className="w-5 h-5 mr-2 text-textColor" />
-          <span className="font-bold text-textColor">Explore Categories</span>
-        </div>
-        {isOpen ? (
-          <ChevronUp className="font-bold text-textColor" />
-        ) : (
-          <ChevronDown className="font-bold text-textColor" />
-        )}
+        <span className="flex items-center gap-2 text-sm font-semibold text-[var(--color-text-primary)]">
+          <Filter className="h-4 w-4 text-[var(--color-text-tertiary)]" aria-hidden />
+          Explore categories
+        </span>
+        {isOpen ? <ChevronUp className="h-4 w-4" aria-hidden /> : <ChevronDown className="h-4 w-4" aria-hidden />}
       </button>
 
-      {/* Accordion Body */}
-      {isOpen && (
-        <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-auto">
-          {categories.categories.map((cat) => (
-            <div
-              key={cat.name}
-              className="border border-gray-200 rounded-lg p-2 shadow-inner shadow-gray-400"
-            >
-              <button
-                type="button"
-                onClick={() => handleMainCatChange(cat.name)}
-                className={`mb-2 w-full flex items-center justify-center group relative p-3 rounded-lg transition duration-300 font-bold shadow-md hover:shadow-lg hover:scale-105 focus:outline-none ${
-                  mainCats.includes(cat.name)
-                    ? "rainbow-border-active text-green-700"
-                    : "rainbow-border bg-white hover:bg-gray-100 text-gray-800"
-                }`}
-              >
-                <span
-                  className={
-                    mainCats.includes(cat.name) ? "selected-content" : ""
-                  }
+      {isOpen ? (
+        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+          {categories.categories.map((cat) => {
+            const mainActive = mainCats.includes(cat.name);
+            return (
+              <div key={cat.name} className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-3 shadow-[var(--shadow-xs)]">
+                <button
+                  type="button"
+                  onClick={() => handleMainCatChange(cat.name)}
+                  className={`flex w-full items-center justify-between rounded-[var(--radius-md)] px-3 py-2 text-sm font-bold transition ${
+                    mainActive
+                      ? "bg-[var(--color-primary)] text-[var(--color-primary-text)]"
+                      : "bg-[var(--color-control-hover)] text-[var(--color-text-primary)] hover:bg-[var(--color-control-active)]"
+                  }`}
                 >
-                  {iconMap[cat.name]?.icon || cat.name}
-                </span>
-                {mainCats.includes(cat.name) && (
-                  <CheckCircle
-                    className="absolute -top-2 -left-2 w-5 h-5 text-green-500 bg-white rounded-full"
-                    fill="black"
-                  />
-                )}
-                <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs text-white bg-black rounded opacity-0 group-hover:opacity-100 transition z-50">
-                  {iconMap[cat.name]?.label || cat.name}
-                </span>
-              </button>
+                  <span>{getLabel(cat.name)}</span>
+                  {mainActive ? <CheckCircle className="h-4 w-4" aria-hidden /> : null}
+                </button>
 
-              <div className="flex flex-wrap gap-2">
-                {cat.types.map((type) => (
-                  <button
-                    key={type + cat.name}
-                    onClick={() => handleSecCatChange(cat.name, type)}
-                    className={`group relative p-1 rounded-lg transition duration-300 bg-white hover:bg-gray-100 ${
-                      secCats.includes(type)
-                        ? "rainbow-border-active text-black"
-                        : "rainbow-border text-gray-800"
-                    }`}
-                  >
-                    {iconMap[type]?.icon || type}
-                    {secCats.includes(type) && (
-                      <CheckCircle
-                        fill="black"
-                        className="absolute -top-1 -left-1 w-4 h-4 text-yellow-500 bg-white rounded-full"
-                      />
-                    )}
-                    <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs text-white bg-black rounded opacity-0 group-hover:opacity-100 transition z-50">
-                      {iconMap[type]?.label || type}
-                    </span>
-                  </button>
-                ))}
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {cat.types.map((type) => {
+                    const active = secCats.includes(type);
+                    return (
+                      <button
+                        key={`${cat.name}-${type}`}
+                        type="button"
+                        onClick={() => handleSecCatChange(cat.name, type)}
+                        className={`rounded-[var(--radius-full)] border px-3 py-1 text-xs font-semibold transition ${
+                          active
+                            ? "border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+                            : "border-[var(--color-border-default)] bg-[var(--color-surface-raised)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
+                        }`}
+                      >
+                        {getLabel(type)}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
-      )}
+      ) : null}
     </div>
   );
 };

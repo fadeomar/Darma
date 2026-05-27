@@ -1,0 +1,42 @@
+{
+  "id": "sliding-bars",
+  "name": "Sliding Bars",
+  "category": "bars",
+  "tags": [
+    "bars",
+    "slide",
+    "horizontal",
+    "progress"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": true
+  },
+  "searchText": "sliding-bars sliding bars bars bars slide horizontal progress html css react cssonly customizable singleelement",
+  "previewHtml": "<span class=\"darma-loader-sliding-bars\"></span>",
+  "previewCss": ".darma-loader-sliding-bars {\n  position: relative;\n  display: inline-block;\n  width: 88px;\n  height: 12px;\n  overflow: hidden;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #6366f1) 16%, transparent);\n}\n.darma-loader-sliding-bars::before {\n  content: \"\";\n  position: absolute;\n  inset: 0 auto 0 0;\n  width: 38%;\n  border-radius: inherit;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-sliding-bars-slide 1s ease-in-out infinite;\n}\n@keyframes darma-loader-sliding-bars-slide {\n  0% { transform: translateX(-100%); }\n  100% { transform: translateX(270%); }\n}\n",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 48,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-sliding-bars\"></span>",
+    "css": ".darma-loader-sliding-bars {\n  position: relative;\n  display: inline-block;\n  width: 88px;\n  height: 12px;\n  overflow: hidden;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #6366f1) 16%, transparent);\n}\n.darma-loader-sliding-bars::before {\n  content: \"\";\n  position: absolute;\n  inset: 0 auto 0 0;\n  width: 38%;\n  border-radius: inherit;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-sliding-bars-slide 1s ease-in-out infinite;\n}\n@keyframes darma-loader-sliding-bars-slide {\n  0% { transform: translateX(-100%); }\n  100% { transform: translateX(270%); }\n}\n",
+    "react": "export default function SlidingBarsLoader() {\n  return (\n    <span className=\"darma-loader-sliding-bars\"></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

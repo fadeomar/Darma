@@ -1,0 +1,40 @@
+{
+  "id": "cssloaders-github-39",
+  "name": "CSSLoaders Pattern 39",
+  "category": "spinners",
+  "tags": [
+    "cssloaders",
+    "ring",
+    "spinner",
+    "spinners",
+    "loader"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader {\n  display: inline-block;\n  width: 62px;\n  height: 62px;\n  border-radius: 50%;\n  border: 4px solid color-mix(in srgb, var(--loader-secondary-color) 35%, transparent);\n  border-top-color: var(--loader-color);\n  border-right-color: var(--loader-color);\n  animation: spin 1.22s cubic-bezier(.55,.15,.45,.85) infinite;\n}\n.loader::after {\n  content: \"\";\n  display: block;\n  width: calc(100% - 16px);\n  height: calc(100% - 16px);\n  margin: 4px;\n  border-radius: 50%;\n  border: 3px solid transparent;\n  border-bottom-color: var(--loader-secondary-color);\n  animation: spin 0.85s linear infinite reverse;\n}\n@keyframes spin { to { transform: rotate(360deg); } }\n",
+  "source": {
+    "name": "cssloaders.github.io",
+    "author": "cssloaders",
+    "license": "MIT",
+    "url": "https://github.com/cssloaders/cssloaders.github.io"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "color": "#06b6d4",
+    "secondaryColor": "#bae6fd",
+    "size": 66,
+    "speed": 1.15
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

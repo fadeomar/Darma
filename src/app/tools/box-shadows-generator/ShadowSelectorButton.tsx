@@ -20,18 +20,22 @@ const ShadowSelectorButton: React.FC<ShadowSelectorButtonProps> = ({
       <button
         type="button"
         onClick={onClick}
-        className={`px-3 py-1 rounded-md text-sm font-medium transition-colors ${
+        className={`rounded-[var(--radius-sm)] border px-3 py-1 text-sm font-semibold transition-colors focus-visible:shadow-[var(--focus-ring)] ${
           isActive
-            ? "bg-blue-500 text-white shadow-md"
-            : "bg-gray-200 text-gray-800 hover:bg-gray-300"
+            ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+            : "border-[var(--color-border-default)] bg-[var(--color-surface-inset)] text-[var(--color-text-primary)] hover:bg-[var(--color-surface-subtle)]"
         }`}
       >
         {label}
       </button>
-      <XCircle
-        className="w-5 h-5 text-red-500 cursor-pointer hover:text-red-700"
+      <button
+        type="button"
         onClick={onRemove}
-      />
+        aria-label={`Remove ${label} shadow`}
+        className="rounded-[var(--radius-full)] p-0.5 text-[var(--color-danger-text)] transition hover:bg-[var(--color-danger-bg)] focus-visible:shadow-[var(--focus-ring)]"
+      >
+        <XCircle className="h-5 w-5" aria-hidden />
+      </button>
     </div>
   );
 };

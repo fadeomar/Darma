@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const SitemapXmlClient = dynamic(() => import("./SitemapXmlClient"), {
-  loading: () => <div className="h-[820px] animate-pulse rounded-3xl bg-slate-100" />,
+  loading: () => <div className="h-[820px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
 });
 const Article = dynamic(() => import("./Article"));
 
@@ -28,7 +28,7 @@ export default function SitemapXmlGeneratorPage() {
       tool={tool}
       maxWidth="wide"
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-slate-700 dark:text-slate-300">
+        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
           Generate a valid UTF-8 sitemap.xml file from manual URLs or table rows, all locally in your browser.
         </p>
       }

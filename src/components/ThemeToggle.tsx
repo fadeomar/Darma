@@ -2,34 +2,33 @@
 
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
+import { Button } from "@/components/ui/Button";
 
 export default function ThemeToggle() {
   const [mode, setMode] = useState<"light" | "dark">("light");
 
   useEffect(() => {
-    // Get initial mode from HTML attribute
     const initialMode =
-      (document.documentElement.getAttribute("data-mode") as
-        | "light"
-        | "dark") || "light";
+      (document.documentElement.getAttribute("data-mode") as "light" | "dark") || "light";
     setMode(initialMode);
   }, []);
 
   const toggleTheme = () => {
     const newMode = mode === "dark" ? "light" : "dark";
-
-    // Update cookie, HTML attribute, and state
     Cookies.set("theme", newMode, { expires: 365, sameSite: "strict" });
     document.documentElement.setAttribute("data-mode", newMode);
     setMode(newMode);
   };
 
   return (
-    <button
+    <Button
+      variant="secondary"
+      size="sm"
       onClick={toggleTheme}
-      className="p-2 rounded-lg soft-shadow hover:soft-shadow-pressed transition-all"
+      aria-pressed={mode === "dark"}
+      aria-label={mode === "dark" ? "Switch to light mode" : "Switch to dark mode"}
     >
-      {mode === "dark" ? "🌞 Light" : "🌙 Dark"}
-    </button>
+      {mode === "dark" ? "Light" : "Dark"}
+    </Button>
   );
 }

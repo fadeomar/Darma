@@ -1,0 +1,50 @@
+{
+  "id": "cssloaders-github-03",
+  "name": "CSSLoaders Pattern 03",
+  "category": "pulse",
+  "tags": [
+    "cssloaders",
+    "ring",
+    "pulse",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": true,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "cssloaders-github-03 cssloaders pattern 03 pulse cssloaders ring pulse loader html css react popular singleelement cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-cssloaders-github-03\"></span>",
+  "previewCss": ".darma-loader-cssloaders-github-03 {\n  display: inline-block;\n  width: 57px;\n  height: 57px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color, #8b5cf6);\n  animation: darma-loader-cssloaders-github-03-ringPulse 1.45s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-03-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }\n",
+  "defaults": {
+    "color": "#8b5cf6",
+    "secondaryColor": "#ddd6fe",
+    "size": 62,
+    "speed": 1.15
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-cssloaders-github-03\"></span>",
+    "css": ".darma-loader-cssloaders-github-03 {\n  display: inline-block;\n  width: 57px;\n  height: 57px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color, #8b5cf6);\n  animation: darma-loader-cssloaders-github-03-ringPulse 1.45s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-03-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }\n",
+    "react": "export default function CssloadersGithub03Loader() {\n  return (\n    <span className=\"darma-loader-cssloaders-github-03\"></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "cssloaders.github.io",
+    "author": "cssloaders",
+    "license": "MIT",
+    "url": "https://github.com/cssloaders/cssloaders.github.io"
+  }
+}

@@ -1,8 +1,8 @@
 export default function Article() {
   return (
-    <div className="space-y-8 text-sm leading-7 text-slate-700 dark:text-slate-300">
+    <div className="space-y-8 text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           What is a text cleaner?
         </h2>
         <p>
@@ -17,19 +17,19 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Common text problems this tool solves
         </h2>
         <ul className="ml-4 list-disc space-y-1.5">
           <li>
-            <strong className="text-slate-900 dark:text-slate-100">
+            <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Extra whitespace
             </strong>{" "}
             — multiple consecutive spaces left by copy-pasting from PDFs or
             formatted documents collapse to a single space per line.
           </li>
           <li>
-            <strong className="text-slate-900 dark:text-slate-100">
+            <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Inconsistent capitalisation
             </strong>{" "}
             — apply UPPERCASE, lowercase, Title Case, Sentence case, or
@@ -37,7 +37,7 @@ export default function Article() {
             click.
           </li>
           <li>
-            <strong className="text-slate-900 dark:text-slate-100">
+            <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Mixed line endings
             </strong>{" "}
             — Windows (CRLF), Unix (LF), and old Mac (CR) endings coexist in
@@ -45,21 +45,21 @@ export default function Article() {
             processing.
           </li>
           <li>
-            <strong className="text-slate-900 dark:text-slate-100">
+            <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Duplicate lines
             </strong>{" "}
             — deduplicate a list of emails, domain names, keywords, or CSV rows
             without writing a script.
           </li>
           <li>
-            <strong className="text-slate-900 dark:text-slate-100">
+            <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Blank line clutter
             </strong>{" "}
             — remove all empty lines, or collapse runs of three or more blank
             lines down to a single separator.
           </li>
           <li>
-            <strong className="text-slate-900 dark:text-slate-100">
+            <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Unsorted lists
             </strong>{" "}
             — sort lines A to Z or Z to A for quick alphabetical ordering of any
@@ -69,7 +69,7 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           How case conversion works
         </h2>
         <p>
@@ -88,24 +88,24 @@ export default function Article() {
             ["kebab-case", "Joins words with hyphens, all lowercase. The standard for CSS class names, URL slugs, and HTML attributes."],
           ].map(([name, desc]) => (
             <div key={name as string}>
-              <dt className="font-semibold text-slate-900 dark:text-slate-100">{name}</dt>
-              <dd className="text-slate-600 dark:text-slate-400">{desc}</dd>
+              <dt className="font-semibold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">{name}</dt>
+              <dd className="text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">{desc}</dd>
             </div>
           ))}
         </dl>
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Chaining transforms
         </h2>
         <p>
           Every transform you apply acts on the current output. If you click{" "}
-          <strong className="text-slate-900 dark:text-slate-100">
+          <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
             Remove extra spaces
           </strong>{" "}
           and then{" "}
-          <strong className="text-slate-900 dark:text-slate-100">
+          <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
             Sentence case
           </strong>
           , the second transform operates on the already-cleaned text — not the
@@ -114,12 +114,12 @@ export default function Article() {
         </p>
         <p className="mt-3">
           To restart with the original text, click{" "}
-          <strong className="text-slate-900 dark:text-slate-100">
+          <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
             Reset output
           </strong>
           . To pipe the cleaned result back into the input field for further
           editing, click{" "}
-          <strong className="text-slate-900 dark:text-slate-100">
+          <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
             Use as input
           </strong>
           .
@@ -127,7 +127,7 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Privacy and security
         </h2>
         <p>
@@ -140,7 +140,7 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Frequently asked questions
         </h2>
         <div className="space-y-5">
@@ -167,8 +167,8 @@ export default function Article() {
             ],
           ].map(([q, a]) => (
             <div key={q as string}>
-              <h3 className="font-semibold text-slate-900 dark:text-slate-100">{q}</h3>
-              <p className="mt-1 text-slate-600 dark:text-slate-400">{a}</p>
+              <h3 className="font-semibold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">{q}</h3>
+              <p className="mt-1 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">{a}</p>
             </div>
           ))}
         </div>

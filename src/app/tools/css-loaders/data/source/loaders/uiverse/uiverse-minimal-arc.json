@@ -1,0 +1,40 @@
+{
+  "id": "uiverse-minimal-arc",
+  "name": "Minimal Arc Spinner",
+  "category": "minimal",
+  "tags": [
+    "uiverse",
+    "minimal",
+    "arc",
+    "loader"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader {\n  display: inline-block;\n  width: 38px;\n  height: 38px;\n  border-radius: 50%;\n  border: 3px solid color-mix(in srgb, var(--loader-color) 18%, transparent);\n  border-left-color: var(--loader-color);\n  animation: spin 0.7s linear infinite;\n}\n@keyframes spin { to { transform: rotate(360deg); } }\n",
+  "source": {
+    "name": "Uiverse selected loaders",
+    "author": "Uiverse community",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": true,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "color": "#ef4444",
+    "secondaryColor": "#fecaca",
+    "size": 58,
+    "speed": 0.85,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

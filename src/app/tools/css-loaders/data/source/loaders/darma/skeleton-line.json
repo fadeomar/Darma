@@ -1,0 +1,28 @@
+{
+  "id": "skeleton-line",
+  "name": "Skeleton Line",
+  "category": "skeleton",
+  "tags": [
+    "skeleton",
+    "shimmer",
+    "line",
+    "placeholder"
+  ],
+  "html": "<span class=\"loader\"><i></i><i></i><i></i></span>",
+  "css": ".loader {\n  display: grid;\n  gap: 10px;\n  width: 138px;\n}\n.loader i {\n  display: block;\n  height: 12px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, rgba(99,102,241,.12), rgba(99,102,241,.32), rgba(99,102,241,.12));\n  background-size: 220% 100%;\n  animation: shimmer 1.1s linear infinite;\n}\n.loader i:nth-child(2) { width: 82%; }\n.loader i:nth-child(3) { width: 58%; }\n@keyframes shimmer {\n  to { background-position: -220% 0; }\n}\n",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 48,
+    "speed": 1
+  },
+  "flags": {
+    "popular": true,
+    "cssOnly": true,
+    "customizable": true
+  }
+}

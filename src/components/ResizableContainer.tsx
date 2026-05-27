@@ -1,4 +1,6 @@
+
 "use client";
+
 import React, { useEffect, useRef, useState, ReactNode } from "react";
 
 interface Size {
@@ -23,90 +25,62 @@ const ResizableContainer: React.FC<ResizableContainerProps> = ({
 }) => {
   const [size, setSize] = useState<Size | null>(null);
   const [defaultSize, setDefaultSize] = useState<Size | null>(null);
-
   const outerRef = useRef<HTMLDivElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);
-
   const isResizingRef = useRef(false);
   const innerLeftRef = useRef(0);
   const innerTopRef = useRef(0);
 
-  // ✅ Initialize from the real available width using ResizeObserver
   useEffect(() => {
     if (!outerRef.current || defaultSize) return;
-
     const outer = outerRef.current;
 
     const setFromOuter = () => {
       const w = Math.floor(outer.clientWidth);
-
-      // If layout isn't ready yet, ignore tiny widths
       if (w < minWidth) return;
-
-      const newSize = {
-        width: w,
-        height: Math.max(minHeight, initialHeight),
-      };
-
+      const newSize = { width: w, height: Math.max(minHeight, initialHeight) };
       setDefaultSize(newSize);
       setSize(newSize);
       onSizeChange?.(newSize);
     };
 
-    // Try immediately (sometimes works)
     setFromOuter();
-
-    // Then observe until we get a real width
-    const ro = new ResizeObserver(() => {
-      setFromOuter();
-    });
-
+    const ro = new ResizeObserver(setFromOuter);
     ro.observe(outer);
-
     return () => ro.disconnect();
   }, [defaultSize, initialHeight, minHeight, minWidth, onSizeChange]);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     isResizingRef.current = true;
-
     if (innerRef.current) {
       const rect = innerRef.current.getBoundingClientRect();
       innerLeftRef.current = rect.left;
       innerTopRef.current = rect.top;
     }
-
     e.preventDefault();
   };
 
-  const handleMouseMove = (e: MouseEvent) => {
-    if (!isResizingRef.current || !defaultSize) return;
-
-    const newWidth = Math.max(
-      defaultSize.width,
-      e.clientX - innerLeftRef.current,
-    );
-    const newHeight = Math.max(
-      defaultSize.height,
-      e.clientY - innerTopRef.current,
-    );
-
-    const newSize = { width: newWidth, height: newHeight };
-    setSize(newSize);
-    onSizeChange?.(newSize);
-  };
-
-  const handleMouseUp = () => {
-    isResizingRef.current = false;
-  };
-
   useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!isResizingRef.current || !defaultSize) return;
+      const newWidth = Math.max(defaultSize.width, e.clientX - innerLeftRef.current);
+      const newHeight = Math.max(defaultSize.height, e.clientY - innerTopRef.current);
+      const newSize = { width: newWidth, height: newHeight };
+      setSize(newSize);
+      onSizeChange?.(newSize);
+    };
+
+    const handleMouseUp = () => {
+      isResizingRef.current = false;
+    };
+
     document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseup", handleMouseUp);
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseup", handleMouseUp);
     };
-  });
+  }, [defaultSize, onSizeChange]);
 
   const resetSize = () => {
     if (!defaultSize) return;
@@ -114,39 +88,34 @@ const ResizableContainer: React.FC<ResizableContainerProps> = ({
     onSizeChange?.(defaultSize);
   };
 
-  const isDefault =
-    defaultSize?.width === size?.width && defaultSize?.height === size?.height;
+  const isDefault = defaultSize?.width === size?.width && defaultSize?.height === size?.height;
 
   return (
-    // ✅ OUTER: full width measuring area
-    <div ref={outerRef} className="w-full">
-      {/* ✅ INNER: actual resizable box (this is what should visually shrink/grow) */}
+    <div ref={outerRef} className="w-full overflow-x-auto pb-2">
       <div
         ref={innerRef}
-        className="relative bg-gray-200 border border-gray-300 inline-block rounded-[16px] shadow-xl"
-        style={
-          size
-            ? { width: `${size.width}px`, height: `${size.height}px` }
-            : undefined
-        }
+        className="relative inline-block rounded-[var(--radius-lg)] border border-[var(--color-preview-border)] bg-[var(--color-preview-bg-strong)] shadow-[var(--shadow-card)]"
+        style={size ? { width: `${size.width}px`, height: `${size.height}px` } : undefined}
       >
-        <div className="w-full h-full">{children}</div>
+        <div className="h-full w-full">{children}</div>
 
         <div
-          className="absolute bottom-0 right-0 w-6 h-6 cursor-se-resize"
+          className="absolute bottom-0 right-0 h-7 w-7 cursor-se-resize rounded-tl-[var(--radius-sm)] bg-[var(--color-surface-overlay)]"
           onMouseDown={handleMouseDown}
+          aria-hidden
         >
-          <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-blue-500 hover:border-blue-700" />
+          <div className="absolute bottom-2 right-2 h-3 w-3 border-b-2 border-r-2 border-[var(--color-primary)]" />
         </div>
 
-        {!isDefault && (
+        {!isDefault ? (
           <button
-            className="absolute bottom-1 right-1 bg-gray-600 text-white rounded px-2 py-1 text-xs hover:bg-gray-700 shadow-md transition-colors"
+            type="button"
+            className="absolute bottom-2 right-9 rounded-[var(--radius-sm)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] px-2 py-1 text-xs font-semibold text-[var(--color-text-secondary)] shadow-[var(--shadow-xs)] transition hover:text-[var(--color-text-primary)]"
             onClick={resetSize}
           >
-            Reset Size
+            Reset
           </button>
-        )}
+        ) : null}
       </div>
     </div>
   );

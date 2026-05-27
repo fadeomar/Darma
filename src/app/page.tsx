@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PageSection from "@/components/ui/PageSection";
+import { Badge, Card } from "@/components/ui";
 import { getToolRegistry } from "@/features/tools";
 
 const featureCards = [
@@ -11,63 +12,67 @@ const featureCards = [
     cta: "Browse projects",
   },
   {
-    title: "Use free one-page tools",
+    title: "Use practical browser tools",
     description:
-      "Open practical tools that help you generate, preview, and copy code quickly without signup or setup.",
+      "Open focused generators, formatters, and preview tools that keep controls close to the result.",
     href: "/tools",
     cta: "Open tools",
   },
   {
-    title: "Find by category",
+    title: "Find by workflow",
     description:
-      "Jump straight into topics like CSS, design ideas, utilities, and experiments that match what you need right now.",
-    href: "/categories",
-    cta: "View categories",
+      "Jump into curated groups for CSS design, SEO launches, API debugging, image prep, and more.",
+    href: "/workflows",
+    cta: "View workflows",
   },
 ];
 
 export default function LandingPage() {
-  const featuredTools = getToolRegistry()
-    .list()
-    .filter((tool) => tool.visibility === "public" && tool.featured)
-    .slice(0, 4);
+  const registry = getToolRegistry();
+  const publicTools = registry.list().filter((tool) => tool.visibility === "public");
+  const featuredTools = publicTools.filter((tool) => tool.featured).slice(0, 4);
+  const categories = new Set(publicTools.flatMap((tool) => tool.secondaryCategory ?? []));
 
   return (
-    <div className="pb-16">
-      <section className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:px-8 lg:py-20">
-        <div>
-          <p className="mb-4 inline-flex rounded-full border border-black/10 bg-white/60 px-4 py-2 text-sm font-bold uppercase tracking-[0.2em] text-slate-700">
-            Front-end showcase + tools hub
-          </p>
-          <h1 className="max-w-4xl text-4xl font-black tracking-tight text-[color:var(--textColor)] sm:text-5xl lg:text-6xl">
-            Darma helps people discover useful front-end ideas and get work done faster.
+    <main className="pb-16">
+      <section className="mx-auto grid max-w-[var(--container-wide)] gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[minmax(0,1fr)_360px] lg:px-8 lg:py-16">
+        <div className="max-w-4xl">
+          <Badge variant="soft">Developer workshop</Badge>
+          <h1 className="mt-5 text-4xl font-black tracking-[-0.045em] text-[var(--color-text-primary)] sm:text-5xl lg:text-6xl">
+            Practical front-end tools and code ideas in one calm workspace.
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-700 dark:text-slate-300">
-            It combines a growing library of HTML, CSS, and JavaScript projects with lightweight online tools for developers, designers, students, and creators.
+          <p className="mt-6 max-w-2xl text-base leading-8 text-[var(--color-text-secondary)] sm:text-lg">
+            Darma combines a growing project library with lightweight browser tools for developers, designers, students, and creators who want to preview, tweak, and copy faster.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/explore" className="rounded-full bg-[color:var(--textColor)] px-6 py-3 text-sm font-bold text-[color:var(--textColorOpposite)] transition hover:opacity-90">
-              Explore projects
-            </Link>
-            <Link href="/tools" className="rounded-full border border-black/10 bg-white px-6 py-3 text-sm font-bold text-slate-900 shadow-sm transition hover:-translate-y-0.5 hover:shadow">
+            <Link href="/tools" className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-primary)] px-5 text-sm font-semibold text-[var(--color-primary-text)] shadow-[var(--shadow-xs)] transition hover:bg-[var(--color-primary-hover)]">
               Try the tools
             </Link>
+            <Link href="/explore" className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-5 text-sm font-semibold text-[var(--color-text-primary)] shadow-[var(--shadow-xs)] transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-subtle)]">
+              Explore projects
+            </Link>
           </div>
         </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-          <div className="rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-slate-500">Why it matters</p>
-            <p className="mt-3 text-base leading-7 text-slate-700">
-              Instead of random snippets, Darma is growing into one place for inspiration, learning, and quick browser-based utilities.
-            </p>
-          </div>
-          <div className="rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-slate-500">Built for speed</p>
-            <p className="mt-3 text-base leading-7 text-slate-700">
-              Open a tool, tweak a few inputs, preview the result, and copy what you need. No signup. No unnecessary steps.
-            </p>
-          </div>
-        </div>
+
+        <Card padding="lg" className="self-start">
+          <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">
+            Platform snapshot
+          </p>
+          <dl className="mt-6 grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+            <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
+              <dt className="text-sm text-[var(--color-text-secondary)]">Public tools</dt>
+              <dd className="mt-1 text-3xl font-black text-[var(--color-text-primary)]">{publicTools.length}</dd>
+            </div>
+            <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
+              <dt className="text-sm text-[var(--color-text-secondary)]">Workflow categories</dt>
+              <dd className="mt-1 text-3xl font-black text-[var(--color-text-primary)]">{categories.size}</dd>
+            </div>
+            <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
+              <dt className="text-sm text-[var(--color-text-secondary)]">Privacy model</dt>
+              <dd className="mt-1 text-base font-bold text-[var(--color-text-primary)]">Browser-first</dd>
+            </div>
+          </dl>
+        </Card>
       </section>
 
       <PageSection
@@ -77,14 +82,12 @@ export default function LandingPage() {
       >
         <div className="grid gap-5 md:grid-cols-3">
           {featureCards.map((card) => (
-            <Link
-              key={card.title}
-              href={card.href}
-              className="rounded-3xl border border-black/10 bg-white/80 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
-            >
-              <h3 className="text-xl font-bold text-slate-900">{card.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-slate-700">{card.description}</p>
-              <span className="mt-5 inline-flex text-sm font-bold text-slate-900">{card.cta} →</span>
+            <Link key={card.title} href={card.href} className="block h-full">
+              <Card variant="interactive" padding="lg" className="h-full">
+                <h3 className="text-xl font-bold text-[var(--color-text-primary)]">{card.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">{card.description}</p>
+                <span className="mt-5 inline-flex text-sm font-bold text-[var(--color-primary)]">{card.cta} →</span>
+              </Card>
             </Link>
           ))}
         </div>
@@ -93,22 +96,23 @@ export default function LandingPage() {
       <PageSection
         eyebrow="Featured tools"
         title="The most useful tools right now"
-        description="These are the tools that best represent the direction of the platform today."
+        description="These tools best represent Darma’s direction: practical controls, quick previews, and copy-ready output."
       >
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {featuredTools.map((tool) => (
-            <Link
-              key={tool.id}
-              href={tool.href}
-              className="rounded-3xl border border-black/10 bg-white/80 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
-            >
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">{tool.audiences?.[0] ?? "tool"}</p>
-              <h3 className="mt-2 text-lg font-bold text-slate-900">{tool.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-slate-700">{tool.description}</p>
+            <Link key={tool.id} href={tool.href} className="block h-full">
+              <Card variant="interactive" padding="md" className="h-full">
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="outline">{tool.audiences?.[0] ?? "tool"}</Badge>
+                  <Badge variant={tool.privacy === "client-only" ? "accent" : "soft"}>{tool.privacy ?? "browser"}</Badge>
+                </div>
+                <h3 className="mt-4 text-lg font-bold text-[var(--color-text-primary)]">{tool.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">{tool.description}</p>
+              </Card>
             </Link>
           ))}
         </div>
       </PageSection>
-    </div>
+    </main>
   );
 }

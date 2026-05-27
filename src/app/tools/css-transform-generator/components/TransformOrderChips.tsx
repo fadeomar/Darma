@@ -1,0 +1,2 @@
+import type { Transform2DFunction } from "../types";
+export function TransformOrderChips({ order }: { order: Transform2DFunction[] }) { return <div className="flex flex-wrap gap-2">{order.map((item, index) => <span key={`${item}-${index}`} className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface-strong)] px-3 py-1 text-xs font-bold text-[var(--color-text-soft)]">{index + 1}. {item}</span>)}</div>; }

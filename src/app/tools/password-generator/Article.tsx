@@ -1,15 +1,15 @@
 export default function Article() {
   return (
-    <div className="space-y-8 text-sm leading-7 text-slate-700 dark:text-slate-300">
+    <div className="space-y-8 text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           What makes a password strong?
         </h2>
         <p>
           Password strength is determined by two things: the size of the
           character pool and the length of the password. Together these
           determine{" "}
-          <strong className="text-slate-900 dark:text-slate-100">entropy</strong>{" "}
+          <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">entropy</strong>{" "}
           — measured in bits — which represents how many guesses an attacker
           would need to try in the worst case.
         </p>
@@ -17,7 +17,7 @@ export default function Article() {
           A 16-character password using uppercase, lowercase, numbers, and
           symbols draws from a pool of roughly 90 characters. That gives
           approximately{" "}
-          <strong className="text-slate-900 dark:text-slate-100">
+          <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
             104 bits of entropy
           </strong>{" "}
           — more than enough to defeat even the most powerful offline attack
@@ -26,7 +26,7 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Password vs. passphrase — which is better?
         </h2>
         <p>
@@ -35,7 +35,7 @@ export default function Article() {
         </p>
         <ul className="mt-3 space-y-2 list-disc list-inside">
           <li>
-            <strong className="text-slate-900 dark:text-slate-100">
+            <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Random passwords
             </strong>{" "}
             are maximally dense — short strings pack a lot of entropy. They are
@@ -43,11 +43,11 @@ export default function Article() {
             remember them.
           </li>
           <li>
-            <strong className="text-slate-900 dark:text-slate-100">
+            <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Passphrases
             </strong>{" "}
             trade density for memorability. Four or five random common words
-            joined by a separator (e.g. <code className="text-xs bg-slate-100 px-1 py-0.5 rounded">Silver-Castle-Thunder-Forest</code>)
+            joined by a separator (e.g. <code className="text-xs bg-[var(--color-surface-subtle)] px-1 py-0.5 rounded">Silver-Castle-Thunder-Forest</code>)
             are genuinely random, surprisingly strong, and human-typeable
             — good for master passwords or device unlock codes.
           </li>
@@ -55,15 +55,15 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Why exclude similar characters?
         </h2>
         <p>
-          Characters like <code className="text-xs bg-slate-100 px-1 py-0.5 rounded">l</code>,{" "}
-          <code className="text-xs bg-slate-100 px-1 py-0.5 rounded">1</code>,{" "}
-          <code className="text-xs bg-slate-100 px-1 py-0.5 rounded">I</code>,{" "}
-          <code className="text-xs bg-slate-100 px-1 py-0.5 rounded">O</code>, and{" "}
-          <code className="text-xs bg-slate-100 px-1 py-0.5 rounded">0</code> are
+          Characters like <code className="text-xs bg-[var(--color-surface-subtle)] px-1 py-0.5 rounded">l</code>,{" "}
+          <code className="text-xs bg-[var(--color-surface-subtle)] px-1 py-0.5 rounded">1</code>,{" "}
+          <code className="text-xs bg-[var(--color-surface-subtle)] px-1 py-0.5 rounded">I</code>,{" "}
+          <code className="text-xs bg-[var(--color-surface-subtle)] px-1 py-0.5 rounded">O</code>, and{" "}
+          <code className="text-xs bg-[var(--color-surface-subtle)] px-1 py-0.5 rounded">0</code> are
           visually indistinguishable in many fonts, especially in printed or
           handwritten passwords. Excluding them trades a small amount of entropy
           for a much lower chance of transcription errors. For passwords stored
@@ -73,15 +73,15 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           How secure is this generator?
         </h2>
         <p>
           This tool generates passwords entirely in your browser using the{" "}
-          <strong className="text-slate-900 dark:text-slate-100">
+          <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
             Web Crypto API
           </strong>{" "}
-          (<code className="text-xs bg-slate-100 px-1 py-0.5 rounded">crypto.getRandomValues</code>),
+          (<code className="text-xs bg-[var(--color-surface-subtle)] px-1 py-0.5 rounded">crypto.getRandomValues</code>),
           which produces cryptographically secure random numbers. No password is
           ever sent to a server, stored, or logged. The page has no backend
           contact when you generate.
@@ -89,7 +89,7 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Frequently asked questions
         </h2>
         <div className="space-y-5">
@@ -116,7 +116,7 @@ export default function Article() {
             },
           ].map(({ q, a }) => (
             <div key={q}>
-              <h3 className="font-bold text-slate-900 dark:text-slate-100">{q}</h3>
+              <h3 className="font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">{q}</h3>
               <p className="mt-1">{a}</p>
             </div>
           ))}

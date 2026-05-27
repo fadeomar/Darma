@@ -1,0 +1,29 @@
+{
+  "id": "minimal-line",
+  "name": "Minimal Line",
+  "category": "minimal",
+  "tags": [
+    "minimal",
+    "line",
+    "subtle",
+    "inline"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader {\n  display: inline-block;\n  width: 72px;\n  height: 3px;\n  overflow: hidden;\n  border-radius: 999px;\n  background: rgba(99, 102, 241, 0.18);\n}\n.loader::before {\n  content: \"\";\n  display: block;\n  width: 36%;\n  height: 100%;\n  border-radius: inherit;\n  background: #6366f1;\n  animation: line 0.9s ease-in-out infinite;\n}\n@keyframes line {\n  0% { transform: translateX(-110%); }\n  100% { transform: translateX(290%); }\n}\n",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 48,
+    "speed": 1
+  },
+  "flags": {
+    "popular": false,
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": true
+  }
+}

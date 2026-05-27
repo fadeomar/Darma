@@ -1,0 +1,29 @@
+{
+  "id": "minimal-dot",
+  "name": "Minimal Dot",
+  "category": "minimal",
+  "tags": [
+    "minimal",
+    "dot",
+    "tiny",
+    "indicator"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader {\n  display: inline-block;\n  width: 14px;\n  height: 14px;\n  border-radius: 50%;\n  background: #6366f1;\n  animation: minimal 0.9s ease-in-out infinite alternate;\n}\n@keyframes minimal {\n  from { opacity: 0.35; transform: scale(0.76); }\n  to { opacity: 1; transform: scale(1); }\n}\n",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 48,
+    "speed": 1
+  },
+  "flags": {
+    "popular": false,
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": true
+  }
+}

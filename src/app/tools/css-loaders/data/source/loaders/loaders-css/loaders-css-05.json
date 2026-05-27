@@ -1,0 +1,40 @@
+{
+  "id": "loaders-css-05",
+  "name": "Line Scale 05",
+  "category": "bars",
+  "tags": [
+    "loaders-css",
+    "line",
+    "scale",
+    "bars",
+    "loader"
+  ],
+  "html": "<span class=\"loader\"><i></i><i></i><i></i><i></i><i></i></span>",
+  "css": ".loader {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 4px;\n      height: 36px;\n    }\n    .loader i {\n      display: block;\n      width: 6px;\n      height: 36px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color), var(--loader-secondary-color));\n      transform-origin: center bottom;\n      animation: barPulse 0.85s ease-in-out infinite;\n    }\n    .loader i:nth-child(1) { animation-delay: 0.00s; }\n.loader i:nth-child(2) { animation-delay: 0.09s; }\n.loader i:nth-child(3) { animation-delay: 0.18s; }\n.loader i:nth-child(4) { animation-delay: 0.27s; }\n.loader i:nth-child(5) { animation-delay: 0.36s; }\n    @keyframes barPulse { 0%, 100% { transform: scaleY(.42); opacity: .45; } 50% { transform: scaleY(1); opacity: 1; } }\n",
+  "source": {
+    "name": "loaders.css",
+    "author": "Connor Atherton",
+    "license": "MIT",
+    "url": "https://github.com/ConnorAtherton/loaders.css"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "color": "#0ea5e9",
+    "secondaryColor": "#bae6fd",
+    "size": 52,
+    "speed": 0.75
+  },
+  "flags": {
+    "popular": true,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

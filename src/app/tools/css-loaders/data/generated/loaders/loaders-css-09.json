@@ -1,0 +1,51 @@
+{
+  "id": "loaders-css-09",
+  "name": "Ball Triangle Path 09",
+  "category": "spinners",
+  "tags": [
+    "loaders-css",
+    "triangle",
+    "path",
+    "spinners",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "loaders-css-09 ball triangle path 09 spinners loaders-css triangle path spinners loader html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-loaders-css-09\"><i></i><i></i><i></i></span>",
+  "previewCss": ".darma-loader-loaders-css-09 {\n      position: relative;\n      display: inline-block;\n      width: 57px;\n      height: 57px;\n      border-radius: 50%;\n      border: 1px solid color-mix(in srgb, var(--loader-color, #22c55e) 24%, transparent);\n    }\n    .darma-loader-loaders-css-09 i {\n      position: absolute;\n      inset: -3px;\n      border-radius: 50%;\n      animation: darma-loader-loaders-css-09-orbit 1.22s linear infinite;\n    }\n    .darma-loader-loaders-css-09 i::before {\n      content: \"\";\n      position: absolute;\n      top: 0;\n      left: 50%;\n      width: 10px;\n      height: 10px;\n      margin-left: -5px;\n      border-radius: 50%;\n      background: var(--loader-color, #22c55e);\n      box-shadow: 0 0 18px color-mix(in srgb, var(--loader-color, #22c55e) 45%, transparent);\n    }\n    .darma-loader-loaders-css-09 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-09 i:nth-child(2) { animation-delay: -0.41s; }\n.darma-loader-loaders-css-09 i:nth-child(3) { animation-delay: -0.81s; }\n    @keyframes darma-loader-loaders-css-09-orbit { to { transform: rotate(360deg); } }\n",
+  "defaults": {
+    "color": "#22c55e",
+    "secondaryColor": "#bbf7d0",
+    "size": 68,
+    "speed": 1.07
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-loaders-css-09\"><i></i><i></i><i></i></span>",
+    "css": ".darma-loader-loaders-css-09 {\n      position: relative;\n      display: inline-block;\n      width: 57px;\n      height: 57px;\n      border-radius: 50%;\n      border: 1px solid color-mix(in srgb, var(--loader-color, #22c55e) 24%, transparent);\n    }\n    .darma-loader-loaders-css-09 i {\n      position: absolute;\n      inset: -3px;\n      border-radius: 50%;\n      animation: darma-loader-loaders-css-09-orbit 1.22s linear infinite;\n    }\n    .darma-loader-loaders-css-09 i::before {\n      content: \"\";\n      position: absolute;\n      top: 0;\n      left: 50%;\n      width: 10px;\n      height: 10px;\n      margin-left: -5px;\n      border-radius: 50%;\n      background: var(--loader-color, #22c55e);\n      box-shadow: 0 0 18px color-mix(in srgb, var(--loader-color, #22c55e) 45%, transparent);\n    }\n    .darma-loader-loaders-css-09 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-09 i:nth-child(2) { animation-delay: -0.41s; }\n.darma-loader-loaders-css-09 i:nth-child(3) { animation-delay: -0.81s; }\n    @keyframes darma-loader-loaders-css-09-orbit { to { transform: rotate(360deg); } }\n",
+    "react": "export default function LoadersCss09Loader() {\n  return (\n    <span className=\"darma-loader-loaders-css-09\"><i></i><i></i><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "loaders.css",
+    "author": "Connor Atherton",
+    "license": "MIT",
+    "url": "https://github.com/ConnorAtherton/loaders.css"
+  }
+}

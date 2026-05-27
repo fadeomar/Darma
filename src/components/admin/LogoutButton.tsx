@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { Button } from "@/components/ui";
 
 export function LogoutButton() {
   const router = useRouter();
@@ -21,23 +22,14 @@ export function LogoutButton() {
   }
 
   return (
-    <button
+    <Button
+      type="button"
+      variant="outline"
+      size="sm"
+      loading={loading}
       onClick={handleLogout}
-      disabled={loading}
-      style={{
-        position: "fixed",
-        top: 16,
-        left: 16,
-        padding: "8px 14px",
-        borderRadius: 10,
-        border: "1px solid #ddd",
-        background: "#fff",
-        fontWeight: 600,
-        cursor: loading ? "not-allowed" : "pointer",
-        zIndex: 50,
-      }}
     >
-      {loading ? "Logging out..." : "Logout"}
-    </button>
+      {loading ? "Logging out" : "Logout"}
+    </Button>
   );
 }

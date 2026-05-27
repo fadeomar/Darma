@@ -30,7 +30,7 @@ const TimestampConverterClient = dynamic(
   () => import("./TimestampConverterClient"),
   {
     loading: () => (
-      <div className="h-[640px] animate-pulse rounded-3xl bg-slate-100" />
+      <div className="h-[640px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />
     ),
   },
 );
@@ -45,7 +45,7 @@ export default function TimestampConverterPage() {
     <ToolPageShell
       tool={tool}
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-slate-700 dark:text-slate-300">
+        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
           Convert Unix timestamps to readable dates, turn browser local dates
           back into Unix time, compare UTC and local displays, and copy the
           format you need. Everything runs locally in your browser.
@@ -54,10 +54,10 @@ export default function TimestampConverterPage() {
       sidebar={
         <div className="flex flex-col gap-5">
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               What this tool does
             </h2>
-            <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-700 dark:text-slate-300">
+            <ul className="mt-3 space-y-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
               <li>Convert Unix seconds or milliseconds to dates</li>
               <li>Convert browser local dates back to Unix time</li>
               <li>Show local time, UTC time, and ISO 8601</li>
@@ -67,20 +67,20 @@ export default function TimestampConverterPage() {
           </SurfaceCard>
 
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Timezone note
             </h2>
-            <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
               A Unix timestamp represents one instant. The same instant can be
               displayed as browser local time or UTC, depending on formatting.
             </p>
           </SurfaceCard>
 
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Privacy
             </h2>
-            <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
               Timestamp conversion happens entirely in your browser. No date or
               timestamp input is sent to a server.
             </p>

@@ -5,9 +5,6 @@ import type { SearchParams } from "@/types";
 import type { ElementDTO } from "@/features/elements/dto/element.dto";
 import CategoryClient from "./CategoryClient";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
-
 interface Props {
   params: Promise<{ slug: string }>;
   searchParams: Promise<SearchParams>;

@@ -1,149 +1,114 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import CodeEditor from "@/components/CodeEditor"; // Assuming this is your editor component
+import { useEffect, useMemo, useRef, useState } from "react";
+import CodeEditor from "@/components/CodeEditor";
+import { Button } from "@/components/ui";
+import { PreviewToolbar, SegmentedControl, WarningPanel, type WarningMessage } from "@/features/tools/components";
 
-import "./style.css";
+type EditorTab = "html" | "css" | "js";
+
+const editorTabs: Array<{ value: EditorTab; label: string }> = [
+  { value: "html", label: "HTML" },
+  { value: "css", label: "CSS" },
+  { value: "js", label: "JS" },
+];
 
 export default function CodePreviewTool() {
   const [html, setHtml] = useState('<div id="hello">Hello World</div>');
-  const [css, setCss] = useState("#hello { color: blue; font-size: 20px; }");
+  const [css, setCss] = useState("#hello { color: var(--color-primary); font-size: 20px; font-weight: 800; }");
   const [js, setJs] = useState('console.log("Hello from JS");');
   const [error, setError] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<"html" | "css" | "js">("html");
+  const [activeTab, setActiveTab] = useState<EditorTab>("html");
+  const iframeRef = useRef<HTMLIFrameElement | null>(null);
 
-  // Generate iframe content
-  const iframeContent = `
+  const iframeContent = useMemo(() => `
     <!DOCTYPE html>
     <html lang="en">
     <head>
-      <style>${css}</style>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <style>
+        :root { color-scheme: light; --color-primary: #f05a28; }
+        body { margin: 0; min-height: 100vh; display: grid; place-items: center; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: #fffdf8; color: #191817; }
+        ${css}
+      </style>
     </head>
     <body>
       ${html}
       <script>
-        window.onerror = function(message, source, lineno, colno, error) {
-          window.parent.postMessage({
-            type: 'error',
-            message: message,
-            lineno: lineno
-          }, '*');
+        window.onerror = function(message, source, lineno) {
+          window.parent.postMessage({ type: 'darma-code-preview:error', message: String(message), lineno: lineno || 1 }, '*');
           return true;
         };
         try {
           ${js}
-          window.parent.postMessage({ type: 'success' }, '*');
-        } catch (e) {
-          window.parent.postMessage({
-            type: 'error',
-            message: e.message,
-            lineno: 1
-          }, '*');
+          window.parent.postMessage({ type: 'darma-code-preview:success' }, '*');
+        } catch (error) {
+          window.parent.postMessage({ type: 'darma-code-preview:error', message: error && error.message ? String(error.message) : 'Unknown runtime error', lineno: 1 }, '*');
         }
       </script>
     </body>
     </html>
-  `;
+  `, [css, html, js]);
 
-  // Handle messages from iframe (errors or success)
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
-      if (event.data.type === "error") {
+      if (event.source !== iframeRef.current?.contentWindow) return;
+      if (event.data?.type === "darma-code-preview:error") {
         setError(`Error: ${event.data.message} (Line ${event.data.lineno})`);
-      } else if (event.data.type === "success") {
-        setError(null); // Clear error when code runs successfully
+      } else if (event.data?.type === "darma-code-preview:success") {
+        setError(null);
       }
     };
     window.addEventListener("message", handleMessage);
     return () => window.removeEventListener("message", handleMessage);
   }, []);
 
-  // Reset error when code changes
   useEffect(() => {
-    setError(null); // Clear error as soon as user starts typing
+    setError(null);
   }, [html, css, js]);
 
-  return (
-    <>
-      <div className="flex flex-col md:flex-row gap-6 h-[calc(100vh-8rem)]">
-        {/* Code Editors */}
-        <div className="flex-1 bg-white rounded-xl shadow-lg p-4 overflow-hidden">
-          <div className="flex border-b border-gray-200 mb-4">
-            {["html", "css", "js"].map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab as "html" | "css" | "js")}
-                className={`flex-1 py-3 px-4 text-sm font-semibold transition-all duration-300 ${
-                  activeTab === tab
-                    ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-t-md"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
-              >
-                {tab.toUpperCase()}
-              </button>
-            ))}
-          </div>
-          <div className="h-[calc(100%-4rem)]">
-            {activeTab === "html" && (
-              <CodeEditor
-                code={html}
-                setCode={setHtml}
-                language="html"
-                analyticsContext="html code from code preview page"
-              />
-            )}
-            {activeTab === "css" && (
-              <CodeEditor
-                code={css}
-                setCode={setCss}
-                language="css"
-                analyticsContext="css code from code preview page"
-              />
-            )}
-            {activeTab === "js" && (
-              <CodeEditor
-                code={js}
-                setCode={setJs}
-                language="javascript"
-                analyticsContext="js code from code preview page"
-              />
-            )}
-          </div>
-        </div>
+  const warnings = useMemo<WarningMessage[]>(() => error ? [{ id: "runtime", severity: "danger", message: error }] : [], [error]);
+  const activeCode = activeTab === "html" ? html : activeTab === "css" ? css : js;
+  const setActiveCode = activeTab === "html" ? setHtml : activeTab === "css" ? setCss : setJs;
+  const activeLanguage = activeTab === "html" ? "html" : activeTab === "css" ? "css" : "javascript";
 
-        {/* Preview Section */}
-        <div className="flex-1 flex flex-col">
-          <div
-            className="bg-gray-50 rounded-xl p-4 flex-1 relative"
-            style={{
-              boxShadow:
-                "6px 6px 12px rgba(0, 0, 0, 0.1), -6px -6px 12px rgba(255, 255, 255, 0.9)",
-            }}
-          >
-            <h2 className="text-lg font-semibold text-gray-800 mb-2">
-              Live Preview
-            </h2>
-            <iframe
-              srcDoc={iframeContent}
-              sandbox="allow-scripts allow-forms allow-same-origin"
-              className="w-full h-[calc(100%-2rem)] border-4 border-gradient-to-r from-blue-400 to-purple-500 rounded-md bg-white"
-              title="Live Preview"
-            />
-          </div>
-          {error && (
-            <div className="mt-4 p-4 bg-red-50 border-l-4 border-red-500 text-red-700 rounded-r-md animate-fade-in">
-              <p className="font-medium">{error}</p>
-              <button
-                onClick={() => setError(null)}
-                className="mt-2 px-3 py-1 bg-red-500 text-white text-sm rounded hover:bg-red-600 transition-colors"
-              >
-                Dismiss
-              </button>
-            </div>
-          )}
+  return (
+    <div className="grid min-h-[720px] gap-5 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+      <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] shadow-[var(--shadow-sm)]">
+        <PreviewToolbar
+          title="Code editor"
+          description="Switch between HTML, CSS, and JavaScript. The preview updates as you edit."
+          actions={<SegmentedControl ariaLabel="Editor tab" value={activeTab} onChange={(v) => setActiveTab(v as EditorTab)} options={editorTabs} />}
+        />
+        <div className="h-[620px] min-h-0 border-t border-[var(--color-border-subtle)] bg-[var(--color-code-bg)] p-3">
+          <CodeEditor
+            code={activeCode}
+            setCode={setActiveCode}
+            language={activeLanguage}
+            analyticsContext={`${activeTab} code from code preview page`}
+          />
         </div>
-      </div>
-      <div className="w-full"></div>
-    </>
+      </section>
+
+      <section className="flex min-h-0 flex-col overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] shadow-[var(--shadow-sm)]">
+        <PreviewToolbar
+          title="Live preview"
+          description="Runs inside a sandboxed iframe without same-origin access to Darma."
+          actions={<Button size="sm" variant="secondary" onClick={() => setError(null)}>Clear status</Button>}
+        />
+        <div className="min-h-0 flex-1 border-t border-[var(--color-border-subtle)] bg-[linear-gradient(90deg,var(--color-preview-grid)_1px,transparent_1px),linear-gradient(180deg,var(--color-preview-grid)_1px,transparent_1px),var(--color-preview-bg)] bg-[size:24px_24px] p-3">
+          <iframe
+            ref={iframeRef}
+            srcDoc={iframeContent}
+            sandbox="allow-scripts allow-forms"
+            referrerPolicy="no-referrer"
+            className="h-full min-h-[620px] w-full rounded-[var(--radius-md)] border border-[var(--color-preview-border)] bg-white shadow-[var(--shadow-sm)]"
+            title="Live code preview"
+          />
+        </div>
+        <WarningPanel messages={warnings} className="border-t border-[var(--color-border-subtle)] p-3" />
+      </section>
+    </div>
   );
 }

@@ -13,11 +13,12 @@ type CardProps<T extends ElementType = "div"> = {
 } & Omit<ComponentPropsWithoutRef<T>, "as" | "className" | "children">;
 
 const variantClass: Record<CardVariant, string> = {
-  default: "border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-card)] backdrop-blur",
-  elevated: "border border-[var(--color-border)] bg-[var(--color-surface-strong)] shadow-[var(--shadow-soft)]",
-  interactive: "border border-[var(--color-border)] bg-[var(--color-surface-strong)] shadow-[var(--shadow-card)] transition hover:-translate-y-0.5 hover:shadow-[var(--shadow-interactive)]",
-  preview: "border border-[var(--color-border)] bg-[var(--color-surface-muted)] shadow-[var(--shadow-card)]",
-  article: "border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-card)] backdrop-blur",
+  default: "border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-card)]",
+  elevated: "border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] shadow-[var(--shadow-md)]",
+  interactive:
+    "border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] shadow-[var(--shadow-card)] transition duration-[var(--duration-fast)] hover:-translate-y-0.5 hover:border-[var(--color-primary-border)] hover:shadow-[var(--shadow-md)]",
+  preview: "border border-[var(--color-preview-border)] bg-[var(--color-preview-bg)] shadow-[var(--shadow-card)]",
+  article: "border border-[var(--color-border-default)] bg-[var(--color-surface-base)] shadow-[var(--shadow-card)]",
 };
 
 const paddingClass: Record<CardPadding, string> = {

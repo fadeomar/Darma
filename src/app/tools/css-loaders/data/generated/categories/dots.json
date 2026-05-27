@@ -1,0 +1,1027 @@
+[
+  {
+    "id": "loaders-css-03",
+    "name": "Ball Beat 03",
+    "category": "dots",
+    "tags": [
+      "loaders-css",
+      "beat",
+      "ball",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-03 ball beat 03 dots loaders-css beat ball dots loader html css react popular cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loaders-css-03\"><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loaders-css-03 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 7px;\n      min-width: 57px;\n      min-height: 24px;\n    }\n    .darma-loader-loaders-css-03 i {\n      display: block;\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: var(--loader-color, #f59e0b);\n      animation: darma-loader-loaders-css-03-dotPulse 0.89s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-03 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-03 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loaders-css-03 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loaders-css-03-dotPulse { 0%, 80%, 100% { opacity: .25; transform: scale(.7); } 40% { opacity: 1; transform: scale(1); } }\n",
+    "defaults": {
+      "color": "#f59e0b",
+      "secondaryColor": "#fde68a",
+      "size": 64,
+      "speed": 0.99
+    }
+  },
+  {
+    "id": "loaders-css-13",
+    "name": "Ball Beat 13",
+    "category": "dots",
+    "tags": [
+      "loaders-css",
+      "beat",
+      "ball",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-13 ball beat 13 dots loaders-css beat ball dots loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loaders-css-13\"><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loaders-css-13 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 7px;\n      min-width: 57px;\n      min-height: 24px;\n    }\n    .darma-loader-loaders-css-13 i {\n      display: block;\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: var(--loader-color, #f59e0b);\n      animation: darma-loader-loaders-css-13-dotPulse 0.73s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-13 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-13 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loaders-css-13 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loaders-css-13-dotPulse { 0%, 80%, 100% { opacity: .25; transform: scale(.7); } 40% { opacity: 1; transform: scale(1); } }\n",
+    "defaults": {
+      "color": "#f59e0b",
+      "secondaryColor": "#fde68a",
+      "size": 64,
+      "speed": 0.99
+    }
+  },
+  {
+    "id": "loaders-css-23",
+    "name": "Ball Beat 23",
+    "category": "dots",
+    "tags": [
+      "loaders-css",
+      "beat",
+      "ball",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-23 ball beat 23 dots loaders-css beat ball dots loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loaders-css-23\"><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loaders-css-23 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 7px;\n      min-width: 57px;\n      min-height: 24px;\n    }\n    .darma-loader-loaders-css-23 i {\n      display: block;\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: var(--loader-color, #f59e0b);\n      animation: darma-loader-loaders-css-23-dotPulse 0.89s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-23 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-23 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loaders-css-23 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loaders-css-23-dotPulse { 0%, 80%, 100% { opacity: .25; transform: scale(.7); } 40% { opacity: 1; transform: scale(1); } }\n",
+    "defaults": {
+      "color": "#f59e0b",
+      "secondaryColor": "#fde68a",
+      "size": 64,
+      "speed": 0.99
+    }
+  },
+  {
+    "id": "loaders-css-33",
+    "name": "Ball Beat 33",
+    "category": "dots",
+    "tags": [
+      "loaders-css",
+      "beat",
+      "ball",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-33 ball beat 33 dots loaders-css beat ball dots loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loaders-css-33\"><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loaders-css-33 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 7px;\n      min-width: 57px;\n      min-height: 24px;\n    }\n    .darma-loader-loaders-css-33 i {\n      display: block;\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: var(--loader-color, #f59e0b);\n      animation: darma-loader-loaders-css-33-dotPulse 0.73s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-33 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-33 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loaders-css-33 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loaders-css-33-dotPulse { 0%, 80%, 100% { opacity: .25; transform: scale(.7); } 40% { opacity: 1; transform: scale(1); } }\n",
+    "defaults": {
+      "color": "#f59e0b",
+      "secondaryColor": "#fde68a",
+      "size": 64,
+      "speed": 0.99
+    }
+  },
+  {
+    "id": "loaders-css-01",
+    "name": "Ball Grid Pulse 01",
+    "category": "dots",
+    "tags": [
+      "loaders-css",
+      "ball",
+      "pulse",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-01 ball grid pulse 01 dots loaders-css ball pulse dots loader html css react popular cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loaders-css-01\"><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loaders-css-01 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      min-width: 68px;\n      min-height: 22px;\n    }\n    .darma-loader-loaders-css-01 i {\n      display: block;\n      width: 11px;\n      height: 11px;\n      border-radius: 50%;\n      background: var(--loader-color, #8b5cf6);\n      animation: darma-loader-loaders-css-01-dotPulse 0.7799999999999999s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-01 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-01 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loaders-css-01 i:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-loaders-css-01 i:nth-child(4) { animation-delay: 0.36s; }\n    @keyframes darma-loader-loaders-css-01-dotPulse { 0%, 80%, 100% { opacity: .25; transform: scale(.7); } 40% { opacity: 1; transform: scale(1); } }\n",
+    "defaults": {
+      "color": "#8b5cf6",
+      "secondaryColor": "#ddd6fe",
+      "size": 56,
+      "speed": 0.83
+    }
+  },
+  {
+    "id": "loaders-css-11",
+    "name": "Ball Grid Pulse 11",
+    "category": "dots",
+    "tags": [
+      "loaders-css",
+      "ball",
+      "pulse",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-11 ball grid pulse 11 dots loaders-css ball pulse dots loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loaders-css-11\"><i></i><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loaders-css-11 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      min-width: 95px;\n      min-height: 26px;\n    }\n    .darma-loader-loaders-css-11 i {\n      display: block;\n      width: 13px;\n      height: 13px;\n      border-radius: 50%;\n      background: var(--loader-color, #8b5cf6);\n      animation: darma-loader-loaders-css-11-dotPulse 0.7799999999999999s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-11 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-11 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loaders-css-11 i:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-loaders-css-11 i:nth-child(4) { animation-delay: 0.36s; }\n.darma-loader-loaders-css-11 i:nth-child(5) { animation-delay: 0.48s; }\n    @keyframes darma-loader-loaders-css-11-dotPulse { 0%, 80%, 100% { opacity: .25; transform: scale(.7); } 40% { opacity: 1; transform: scale(1); } }\n",
+    "defaults": {
+      "color": "#8b5cf6",
+      "secondaryColor": "#ddd6fe",
+      "size": 56,
+      "speed": 0.83
+    }
+  },
+  {
+    "id": "loaders-css-21",
+    "name": "Ball Grid Pulse 21",
+    "category": "dots",
+    "tags": [
+      "loaders-css",
+      "ball",
+      "pulse",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-21 ball grid pulse 21 dots loaders-css ball pulse dots loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loaders-css-21\"><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loaders-css-21 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      min-width: 51px;\n      min-height: 22px;\n    }\n    .darma-loader-loaders-css-21 i {\n      display: block;\n      width: 11px;\n      height: 11px;\n      border-radius: 50%;\n      background: var(--loader-color, #8b5cf6);\n      animation: darma-loader-loaders-css-21-dotPulse 0.7799999999999999s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-21 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-21 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loaders-css-21 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loaders-css-21-dotPulse { 0%, 80%, 100% { opacity: .25; transform: scale(.7); } 40% { opacity: 1; transform: scale(1); } }\n",
+    "defaults": {
+      "color": "#8b5cf6",
+      "secondaryColor": "#ddd6fe",
+      "size": 56,
+      "speed": 0.83
+    }
+  },
+  {
+    "id": "loaders-css-31",
+    "name": "Ball Grid Pulse 31",
+    "category": "dots",
+    "tags": [
+      "loaders-css",
+      "ball",
+      "pulse",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-31 ball grid pulse 31 dots loaders-css ball pulse dots loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loaders-css-31\"><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loaders-css-31 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      min-width: 76px;\n      min-height: 26px;\n    }\n    .darma-loader-loaders-css-31 i {\n      display: block;\n      width: 13px;\n      height: 13px;\n      border-radius: 50%;\n      background: var(--loader-color, #8b5cf6);\n      animation: darma-loader-loaders-css-31-dotPulse 0.7799999999999999s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-31 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-31 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loaders-css-31 i:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-loaders-css-31 i:nth-child(4) { animation-delay: 0.36s; }\n    @keyframes darma-loader-loaders-css-31-dotPulse { 0%, 80%, 100% { opacity: .25; transform: scale(.7); } 40% { opacity: 1; transform: scale(1); } }\n",
+    "defaults": {
+      "color": "#8b5cf6",
+      "secondaryColor": "#ddd6fe",
+      "size": 56,
+      "speed": 0.83
+    }
+  },
+  {
+    "id": "loaders-css-10",
+    "name": "Ball Pulse 10",
+    "category": "dots",
+    "tags": [
+      "loaders-css",
+      "ball",
+      "pulse",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-10 ball pulse 10 dots loaders-css ball pulse dots loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loaders-css-10\"><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loaders-css-10 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      min-width: 72px;\n      min-height: 24px;\n    }\n    .darma-loader-loaders-css-10 i {\n      display: block;\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: var(--loader-color, #ec4899);\n      animation: darma-loader-loaders-css-10-dotPulse 0.7s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-10 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-10 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loaders-css-10 i:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-loaders-css-10 i:nth-child(4) { animation-delay: 0.36s; }\n    @keyframes darma-loader-loaders-css-10-dotPulse { 0%, 80%, 100% { transform: translateY(0) scale(.75); opacity: .45; } 40% { transform: translateY(-8px) scale(1); opacity: 1; } }\n",
+    "defaults": {
+      "color": "#ec4899",
+      "secondaryColor": "#fbcfe8",
+      "size": 52,
+      "speed": 0.75
+    }
+  },
+  {
+    "id": "loaders-css-20",
+    "name": "Ball Pulse 20",
+    "category": "dots",
+    "tags": [
+      "loaders-css",
+      "ball",
+      "pulse",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-20 ball pulse 20 dots loaders-css ball pulse dots loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loaders-css-20\"><i></i><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loaders-css-20 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      min-width: 80px;\n      min-height: 20px;\n    }\n    .darma-loader-loaders-css-20 i {\n      display: block;\n      width: 10px;\n      height: 10px;\n      border-radius: 50%;\n      background: var(--loader-color, #ec4899);\n      animation: darma-loader-loaders-css-20-dotPulse 0.7s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-20 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-20 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loaders-css-20 i:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-loaders-css-20 i:nth-child(4) { animation-delay: 0.36s; }\n.darma-loader-loaders-css-20 i:nth-child(5) { animation-delay: 0.48s; }\n    @keyframes darma-loader-loaders-css-20-dotPulse { 0%, 80%, 100% { transform: translateY(0) scale(.75); opacity: .45; } 40% { transform: translateY(-8px) scale(1); opacity: 1; } }\n",
+    "defaults": {
+      "color": "#ec4899",
+      "secondaryColor": "#fbcfe8",
+      "size": 52,
+      "speed": 0.75
+    }
+  },
+  {
+    "id": "loaders-css-30",
+    "name": "Ball Pulse 30",
+    "category": "dots",
+    "tags": [
+      "loaders-css",
+      "ball",
+      "pulse",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-30 ball pulse 30 dots loaders-css ball pulse dots loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loaders-css-30\"><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loaders-css-30 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      min-width: 54px;\n      min-height: 24px;\n    }\n    .darma-loader-loaders-css-30 i {\n      display: block;\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: var(--loader-color, #ec4899);\n      animation: darma-loader-loaders-css-30-dotPulse 0.7s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-30 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-30 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loaders-css-30 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loaders-css-30-dotPulse { 0%, 80%, 100% { transform: translateY(0) scale(.75); opacity: .45; } 40% { transform: translateY(-8px) scale(1); opacity: 1; } }\n",
+    "defaults": {
+      "color": "#ec4899",
+      "secondaryColor": "#fbcfe8",
+      "size": 52,
+      "speed": 0.75
+    }
+  },
+  {
+    "id": "demo-dots",
+    "name": "Classic Dots",
+    "category": "dots",
+    "tags": [
+      "dots",
+      "bounce",
+      "minimal",
+      "inline"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false
+    },
+    "searchText": "demo-dots classic dots dots dots bounce minimal inline html css react popular cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-demo-dots\"><span></span><span></span><span></span></span>",
+    "previewCss": ".darma-loader-demo-dots {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  color: var(--loader-color, #6366f1);\n}\n.darma-loader-demo-dots span {\n  width: 12px;\n  height: 12px;\n  border-radius: 999px;\n  background: currentColor;\n  animation: darma-loader-demo-dots-loader-bounce 0.75s ease-in-out infinite alternate;\n}\n.darma-loader-demo-dots span:nth-child(2) { animation-delay: 0.15s; }\n.darma-loader-demo-dots span:nth-child(3) { animation-delay: 0.3s; }\n@keyframes darma-loader-demo-dots-loader-bounce {\n  from { transform: translateY(0); opacity: 0.55; }\n  to { transform: translateY(-12px); opacity: 1; }\n}\n",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 48,
+      "speed": 1
+    }
+  },
+  {
+    "id": "cssloaders-github-05",
+    "name": "CSSLoaders Pattern 05",
+    "category": "dots",
+    "tags": [
+      "cssloaders",
+      "wave",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-05 cssloaders pattern 05 dots cssloaders wave dots loader html css react popular cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-05\"><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-cssloaders-github-05 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 5px;\n      min-width: 52px;\n      min-height: 16px;\n    }\n    .darma-loader-cssloaders-github-05 i {\n      display: block;\n      width: 8px;\n      height: 8px;\n      border-radius: 50%;\n      background: var(--loader-color, #f59e0b);\n      animation: darma-loader-cssloaders-github-05-dotPulse 0.95s ease-in-out infinite;\n    }\n    .darma-loader-cssloaders-github-05 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-cssloaders-github-05 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-cssloaders-github-05 i:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-cssloaders-github-05 i:nth-child(4) { animation-delay: 0.36s; }\n    @keyframes darma-loader-cssloaders-github-05-dotPulse { 0%, 100% { transform: translateY(0); opacity: .45; } 45% { transform: translateY(-12px); opacity: 1; } }\n",
+    "defaults": {
+      "color": "#f59e0b",
+      "secondaryColor": "#fde68a",
+      "size": 50,
+      "speed": 0.95
+    }
+  },
+  {
+    "id": "cssloaders-github-13",
+    "name": "CSSLoaders Pattern 13",
+    "category": "dots",
+    "tags": [
+      "cssloaders",
+      "wave",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-13 cssloaders pattern 13 dots cssloaders wave dots loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-13\"><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-cssloaders-github-13 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 5px;\n      min-width: 64px;\n      min-height: 22px;\n    }\n    .darma-loader-cssloaders-github-13 i {\n      display: block;\n      width: 11px;\n      height: 11px;\n      border-radius: 50%;\n      background: var(--loader-color, #8b5cf6);\n      animation: darma-loader-cssloaders-github-13-dotPulse 0.95s ease-in-out infinite;\n    }\n    .darma-loader-cssloaders-github-13 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-cssloaders-github-13 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-cssloaders-github-13 i:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-cssloaders-github-13 i:nth-child(4) { animation-delay: 0.36s; }\n    @keyframes darma-loader-cssloaders-github-13-dotPulse { 0%, 100% { transform: translateY(0); opacity: .45; } 45% { transform: translateY(-12px); opacity: 1; } }\n",
+    "defaults": {
+      "color": "#8b5cf6",
+      "secondaryColor": "#ddd6fe",
+      "size": 62,
+      "speed": 0.95
+    }
+  },
+  {
+    "id": "cssloaders-github-21",
+    "name": "CSSLoaders Pattern 21",
+    "category": "dots",
+    "tags": [
+      "cssloaders",
+      "wave",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-21 cssloaders pattern 21 dots cssloaders wave dots loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-21\"><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-cssloaders-github-21 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 5px;\n      min-width: 56px;\n      min-height: 18px;\n    }\n    .darma-loader-cssloaders-github-21 i {\n      display: block;\n      width: 9px;\n      height: 9px;\n      border-radius: 50%;\n      background: var(--loader-color, #22c55e);\n      animation: darma-loader-cssloaders-github-21-dotPulse 0.95s ease-in-out infinite;\n    }\n    .darma-loader-cssloaders-github-21 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-cssloaders-github-21 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-cssloaders-github-21 i:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-cssloaders-github-21 i:nth-child(4) { animation-delay: 0.36s; }\n    @keyframes darma-loader-cssloaders-github-21-dotPulse { 0%, 100% { transform: translateY(0); opacity: .45; } 45% { transform: translateY(-12px); opacity: 1; } }\n",
+    "defaults": {
+      "color": "#22c55e",
+      "secondaryColor": "#bbf7d0",
+      "size": 54,
+      "speed": 0.95
+    }
+  },
+  {
+    "id": "cssloaders-github-29",
+    "name": "CSSLoaders Pattern 29",
+    "category": "dots",
+    "tags": [
+      "cssloaders",
+      "wave",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-29 cssloaders pattern 29 dots cssloaders wave dots loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-29\"><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-cssloaders-github-29 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 5px;\n      min-width: 68px;\n      min-height: 24px;\n    }\n    .darma-loader-cssloaders-github-29 i {\n      display: block;\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: var(--loader-color, #06b6d4);\n      animation: darma-loader-cssloaders-github-29-dotPulse 0.95s ease-in-out infinite;\n    }\n    .darma-loader-cssloaders-github-29 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-cssloaders-github-29 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-cssloaders-github-29 i:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-cssloaders-github-29 i:nth-child(4) { animation-delay: 0.36s; }\n    @keyframes darma-loader-cssloaders-github-29-dotPulse { 0%, 100% { transform: translateY(0); opacity: .45; } 45% { transform: translateY(-12px); opacity: 1; } }\n",
+    "defaults": {
+      "color": "#06b6d4",
+      "secondaryColor": "#bae6fd",
+      "size": 66,
+      "speed": 0.95
+    }
+  },
+  {
+    "id": "cssloaders-github-37",
+    "name": "CSSLoaders Pattern 37",
+    "category": "dots",
+    "tags": [
+      "cssloaders",
+      "wave",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-37 cssloaders pattern 37 dots cssloaders wave dots loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-37\"><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-cssloaders-github-37 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 5px;\n      min-width: 60px;\n      min-height: 20px;\n    }\n    .darma-loader-cssloaders-github-37 i {\n      display: block;\n      width: 10px;\n      height: 10px;\n      border-radius: 50%;\n      background: var(--loader-color, #0ea5e9);\n      animation: darma-loader-cssloaders-github-37-dotPulse 0.95s ease-in-out infinite;\n    }\n    .darma-loader-cssloaders-github-37 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-cssloaders-github-37 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-cssloaders-github-37 i:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-cssloaders-github-37 i:nth-child(4) { animation-delay: 0.36s; }\n    @keyframes darma-loader-cssloaders-github-37-dotPulse { 0%, 100% { transform: translateY(0); opacity: .45; } 45% { transform: translateY(-12px); opacity: 1; } }\n",
+    "defaults": {
+      "color": "#0ea5e9",
+      "secondaryColor": "#bae6fd",
+      "size": 58,
+      "speed": 0.95
+    }
+  },
+  {
+    "id": "elastic-dots",
+    "name": "Elastic Dots",
+    "category": "dots",
+    "tags": [
+      "dots",
+      "elastic",
+      "stretch",
+      "playful"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "cssOnly": true,
+      "customizable": true
+    },
+    "searchText": "elastic-dots elastic dots dots dots elastic stretch playful html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-elastic-dots\"><b></b><b></b><b></b></span>",
+    "previewCss": ".darma-loader-elastic-dots {\n  display: inline-flex;\n  gap: 7px;\n  color: var(--loader-color, #6366f1);\n}\n.darma-loader-elastic-dots b {\n  width: 11px;\n  height: 11px;\n  border-radius: 999px;\n  background: currentColor;\n  transform-origin: center;\n  animation: darma-loader-elastic-dots-elastic 0.9s ease-in-out infinite;\n}\n.darma-loader-elastic-dots b:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-elastic-dots b:nth-child(3) { animation-delay: 0.24s; }\n@keyframes darma-loader-elastic-dots-elastic {\n  0%, 100% { transform: scaleY(1); opacity: 0.45; }\n  45% { transform: scaleY(2.1); opacity: 1; }\n}\n",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 48,
+      "speed": 1
+    }
+  },
+  {
+    "id": "loading-io-03",
+    "name": "Loading.io Adapted Loader 03",
+    "category": "dots",
+    "tags": [
+      "loading-io",
+      "dots",
+      "ellipsis",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-03 loading.io adapted loader 03 dots loading-io dots ellipsis loader html css react popular cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loading-io-03\"><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loading-io-03 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 8px;\n      min-width: 60px;\n      min-height: 24px;\n    }\n    .darma-loader-loading-io-03 i {\n      display: block;\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: var(--loader-color, #22c55e);\n      animation: darma-loader-loading-io-03-dotPulse 1.05s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-03 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-03 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loading-io-03 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loading-io-03-dotPulse { 0%, 80%, 100% { transform: translateY(0) scale(.75); opacity: .45; } 40% { transform: translateY(-8px) scale(1); opacity: 1; } }\n",
+    "defaults": {
+      "color": "#22c55e",
+      "secondaryColor": "#bbf7d0",
+      "size": 64,
+      "speed": 1.1
+    }
+  },
+  {
+    "id": "loading-io-04",
+    "name": "Loading.io Adapted Loader 04",
+    "category": "dots",
+    "tags": [
+      "loading-io",
+      "grid",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-04 loading.io adapted loader 04 dots loading-io grid dots loader html css react popular cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loading-io-04\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loading-io-04 {\n      display: inline-grid;\n      grid-template-columns: repeat(3, 12px);\n      gap: 5px;\n    }\n    .darma-loader-loading-io-04 i {\n      width: 12px;\n      height: 12px;\n      border-radius: 4px;\n      background: var(--loader-color, #ec4899);\n      animation: darma-loader-loading-io-04-gridFlash 1.25s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-04 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-04 i:nth-child(2) { animation-delay: 0.08s; }\n.darma-loader-loading-io-04 i:nth-child(3) { animation-delay: 0.16s; }\n.darma-loader-loading-io-04 i:nth-child(4) { animation-delay: 0.08s; }\n.darma-loader-loading-io-04 i:nth-child(5) { animation-delay: 0.16s; }\n.darma-loader-loading-io-04 i:nth-child(6) { animation-delay: 0.24s; }\n.darma-loader-loading-io-04 i:nth-child(7) { animation-delay: 0.16s; }\n.darma-loader-loading-io-04 i:nth-child(8) { animation-delay: 0.24s; }\n.darma-loader-loading-io-04 i:nth-child(9) { animation-delay: 0.32s; }\n    @keyframes darma-loader-loading-io-04-gridFlash { 0%, 70%, 100% { opacity: .25; transform: scale(.75); } 35% { opacity: 1; transform: scale(1); } }\n",
+    "defaults": {
+      "color": "#ec4899",
+      "secondaryColor": "#fbcfe8",
+      "size": 52,
+      "speed": 1.2
+    }
+  },
+  {
+    "id": "loading-io-09",
+    "name": "Loading.io Adapted Loader 09",
+    "category": "dots",
+    "tags": [
+      "loading-io",
+      "dots",
+      "ellipsis",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-09 loading.io adapted loader 09 dots loading-io dots ellipsis loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loading-io-09\"><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loading-io-09 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      min-width: 48px;\n      min-height: 20px;\n    }\n    .darma-loader-loading-io-09 i {\n      display: block;\n      width: 10px;\n      height: 10px;\n      border-radius: 50%;\n      background: var(--loader-color, #0ea5e9);\n      animation: darma-loader-loading-io-09-dotPulse 0.85s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-09 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-09 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loading-io-09 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loading-io-09-dotPulse { 0%, 80%, 100% { transform: translateY(0) scale(.75); opacity: .45; } 40% { transform: translateY(-8px) scale(1); opacity: 1; } }\n",
+    "defaults": {
+      "color": "#0ea5e9",
+      "secondaryColor": "#bae6fd",
+      "size": 56,
+      "speed": 1.2
+    }
+  },
+  {
+    "id": "loading-io-10",
+    "name": "Loading.io Adapted Loader 10",
+    "category": "dots",
+    "tags": [
+      "loading-io",
+      "grid",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-10 loading.io adapted loader 10 dots loading-io grid dots loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loading-io-10\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loading-io-10 {\n      display: inline-grid;\n      grid-template-columns: repeat(3, 8px);\n      gap: 5px;\n    }\n    .darma-loader-loading-io-10 i {\n      width: 8px;\n      height: 8px;\n      border-radius: 4px;\n      background: var(--loader-color, #6366f1);\n      animation: darma-loader-loading-io-10-gridFlash 0.85s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-10 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-10 i:nth-child(2) { animation-delay: 0.08s; }\n.darma-loader-loading-io-10 i:nth-child(3) { animation-delay: 0.16s; }\n.darma-loader-loading-io-10 i:nth-child(4) { animation-delay: 0.08s; }\n.darma-loader-loading-io-10 i:nth-child(5) { animation-delay: 0.16s; }\n.darma-loader-loading-io-10 i:nth-child(6) { animation-delay: 0.24s; }\n.darma-loader-loading-io-10 i:nth-child(7) { animation-delay: 0.16s; }\n.darma-loader-loading-io-10 i:nth-child(8) { animation-delay: 0.24s; }\n.darma-loader-loading-io-10 i:nth-child(9) { animation-delay: 0.32s; }\n    @keyframes darma-loader-loading-io-10-gridFlash { 0%, 70%, 100% { opacity: .25; transform: scale(.75); } 35% { opacity: 1; transform: scale(1); } }\n",
+    "defaults": {
+      "color": "#6366f1",
+      "secondaryColor": "#a5b4fc",
+      "size": 60,
+      "speed": 0.8
+    }
+  },
+  {
+    "id": "loading-io-15",
+    "name": "Loading.io Adapted Loader 15",
+    "category": "dots",
+    "tags": [
+      "loading-io",
+      "dots",
+      "ellipsis",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-15 loading.io adapted loader 15 dots loading-io dots ellipsis loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loading-io-15\"><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loading-io-15 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 8px;\n      min-width: 60px;\n      min-height: 24px;\n    }\n    .darma-loader-loading-io-15 i {\n      display: block;\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: var(--loader-color, #8b5cf6);\n      animation: darma-loader-loading-io-15-dotPulse 1.05s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-15 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-15 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loading-io-15 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loading-io-15-dotPulse { 0%, 80%, 100% { transform: translateY(0) scale(.75); opacity: .45; } 40% { transform: translateY(-8px) scale(1); opacity: 1; } }\n",
+    "defaults": {
+      "color": "#8b5cf6",
+      "secondaryColor": "#ddd6fe",
+      "size": 64,
+      "speed": 0.8
+    }
+  },
+  {
+    "id": "loading-io-16",
+    "name": "Loading.io Adapted Loader 16",
+    "category": "dots",
+    "tags": [
+      "loading-io",
+      "grid",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-16 loading.io adapted loader 16 dots loading-io grid dots loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loading-io-16\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loading-io-16 {\n      display: inline-grid;\n      grid-template-columns: repeat(3, 9px);\n      gap: 5px;\n    }\n    .darma-loader-loading-io-16 i {\n      width: 9px;\n      height: 9px;\n      border-radius: 4px;\n      background: var(--loader-color, #14b8a6);\n      animation: darma-loader-loading-io-16-gridFlash 0.95s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-16 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-16 i:nth-child(2) { animation-delay: 0.08s; }\n.darma-loader-loading-io-16 i:nth-child(3) { animation-delay: 0.16s; }\n.darma-loader-loading-io-16 i:nth-child(4) { animation-delay: 0.08s; }\n.darma-loader-loading-io-16 i:nth-child(5) { animation-delay: 0.16s; }\n.darma-loader-loading-io-16 i:nth-child(6) { animation-delay: 0.24s; }\n.darma-loader-loading-io-16 i:nth-child(7) { animation-delay: 0.16s; }\n.darma-loader-loading-io-16 i:nth-child(8) { animation-delay: 0.24s; }\n.darma-loader-loading-io-16 i:nth-child(9) { animation-delay: 0.32s; }\n    @keyframes darma-loader-loading-io-16-gridFlash { 0%, 70%, 100% { opacity: .25; transform: scale(.75); } 35% { opacity: 1; transform: scale(1); } }\n",
+    "defaults": {
+      "color": "#14b8a6",
+      "secondaryColor": "#99f6e4",
+      "size": 52,
+      "speed": 0.9
+    }
+  },
+  {
+    "id": "loading-io-21",
+    "name": "Loading.io Adapted Loader 21",
+    "category": "dots",
+    "tags": [
+      "loading-io",
+      "dots",
+      "ellipsis",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-21 loading.io adapted loader 21 dots loading-io dots ellipsis loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loading-io-21\"><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loading-io-21 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      min-width: 48px;\n      min-height: 20px;\n    }\n    .darma-loader-loading-io-21 i {\n      display: block;\n      width: 10px;\n      height: 10px;\n      border-radius: 50%;\n      background: var(--loader-color, #06b6d4);\n      animation: darma-loader-loading-io-21-dotPulse 0.85s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-21 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-21 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loading-io-21 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loading-io-21-dotPulse { 0%, 80%, 100% { transform: translateY(0) scale(.75); opacity: .45; } 40% { transform: translateY(-8px) scale(1); opacity: 1; } }\n",
+    "defaults": {
+      "color": "#06b6d4",
+      "secondaryColor": "#bae6fd",
+      "size": 56,
+      "speed": 0.9
+    }
+  },
+  {
+    "id": "loading-io-22",
+    "name": "Loading.io Adapted Loader 22",
+    "category": "dots",
+    "tags": [
+      "loading-io",
+      "grid",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-22 loading.io adapted loader 22 dots loading-io grid dots loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loading-io-22\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loading-io-22 {\n      display: inline-grid;\n      grid-template-columns: repeat(3, 10px);\n      gap: 5px;\n    }\n    .darma-loader-loading-io-22 i {\n      width: 10px;\n      height: 10px;\n      border-radius: 4px;\n      background: var(--loader-color, #f97316);\n      animation: darma-loader-loading-io-22-gridFlash 1.05s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-22 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-22 i:nth-child(2) { animation-delay: 0.08s; }\n.darma-loader-loading-io-22 i:nth-child(3) { animation-delay: 0.16s; }\n.darma-loader-loading-io-22 i:nth-child(4) { animation-delay: 0.08s; }\n.darma-loader-loading-io-22 i:nth-child(5) { animation-delay: 0.16s; }\n.darma-loader-loading-io-22 i:nth-child(6) { animation-delay: 0.24s; }\n.darma-loader-loading-io-22 i:nth-child(7) { animation-delay: 0.16s; }\n.darma-loader-loading-io-22 i:nth-child(8) { animation-delay: 0.24s; }\n.darma-loader-loading-io-22 i:nth-child(9) { animation-delay: 0.32s; }\n    @keyframes darma-loader-loading-io-22-gridFlash { 0%, 70%, 100% { opacity: .25; transform: scale(.75); } 35% { opacity: 1; transform: scale(1); } }\n",
+    "defaults": {
+      "color": "#f97316",
+      "secondaryColor": "#fed7aa",
+      "size": 60,
+      "speed": 1
+    }
+  },
+  {
+    "id": "loading-io-27",
+    "name": "Loading.io Adapted Loader 27",
+    "category": "dots",
+    "tags": [
+      "loading-io",
+      "dots",
+      "ellipsis",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-27 loading.io adapted loader 27 dots loading-io dots ellipsis loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loading-io-27\"><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loading-io-27 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 8px;\n      min-width: 60px;\n      min-height: 24px;\n    }\n    .darma-loader-loading-io-27 i {\n      display: block;\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: var(--loader-color, #f59e0b);\n      animation: darma-loader-loading-io-27-dotPulse 1.05s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-27 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-27 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loading-io-27 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loading-io-27-dotPulse { 0%, 80%, 100% { transform: translateY(0) scale(.75); opacity: .45; } 40% { transform: translateY(-8px) scale(1); opacity: 1; } }\n",
+    "defaults": {
+      "color": "#f59e0b",
+      "secondaryColor": "#fde68a",
+      "size": 64,
+      "speed": 1
+    }
+  },
+  {
+    "id": "loading-io-28",
+    "name": "Loading.io Adapted Loader 28",
+    "category": "dots",
+    "tags": [
+      "loading-io",
+      "grid",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-28 loading.io adapted loader 28 dots loading-io grid dots loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loading-io-28\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loading-io-28 {\n      display: inline-grid;\n      grid-template-columns: repeat(3, 11px);\n      gap: 5px;\n    }\n    .darma-loader-loading-io-28 i {\n      width: 11px;\n      height: 11px;\n      border-radius: 4px;\n      background: var(--loader-color, #ef4444);\n      animation: darma-loader-loading-io-28-gridFlash 1.15s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-28 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-28 i:nth-child(2) { animation-delay: 0.08s; }\n.darma-loader-loading-io-28 i:nth-child(3) { animation-delay: 0.16s; }\n.darma-loader-loading-io-28 i:nth-child(4) { animation-delay: 0.08s; }\n.darma-loader-loading-io-28 i:nth-child(5) { animation-delay: 0.16s; }\n.darma-loader-loading-io-28 i:nth-child(6) { animation-delay: 0.24s; }\n.darma-loader-loading-io-28 i:nth-child(7) { animation-delay: 0.16s; }\n.darma-loader-loading-io-28 i:nth-child(8) { animation-delay: 0.24s; }\n.darma-loader-loading-io-28 i:nth-child(9) { animation-delay: 0.32s; }\n    @keyframes darma-loader-loading-io-28-gridFlash { 0%, 70%, 100% { opacity: .25; transform: scale(.75); } 35% { opacity: 1; transform: scale(1); } }\n",
+    "defaults": {
+      "color": "#ef4444",
+      "secondaryColor": "#fecaca",
+      "size": 52,
+      "speed": 1.1
+    }
+  },
+  {
+    "id": "loading-io-33",
+    "name": "Loading.io Adapted Loader 33",
+    "category": "dots",
+    "tags": [
+      "loading-io",
+      "dots",
+      "ellipsis",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-33 loading.io adapted loader 33 dots loading-io dots ellipsis loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loading-io-33\"><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loading-io-33 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      min-width: 48px;\n      min-height: 20px;\n    }\n    .darma-loader-loading-io-33 i {\n      display: block;\n      width: 10px;\n      height: 10px;\n      border-radius: 50%;\n      background: var(--loader-color, #22c55e);\n      animation: darma-loader-loading-io-33-dotPulse 0.85s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-33 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-33 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loading-io-33 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loading-io-33-dotPulse { 0%, 80%, 100% { transform: translateY(0) scale(.75); opacity: .45; } 40% { transform: translateY(-8px) scale(1); opacity: 1; } }\n",
+    "defaults": {
+      "color": "#22c55e",
+      "secondaryColor": "#bbf7d0",
+      "size": 56,
+      "speed": 1.1
+    }
+  },
+  {
+    "id": "loading-io-34",
+    "name": "Loading.io Adapted Loader 34",
+    "category": "dots",
+    "tags": [
+      "loading-io",
+      "grid",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-34 loading.io adapted loader 34 dots loading-io grid dots loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loading-io-34\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loading-io-34 {\n      display: inline-grid;\n      grid-template-columns: repeat(3, 12px);\n      gap: 5px;\n    }\n    .darma-loader-loading-io-34 i {\n      width: 12px;\n      height: 12px;\n      border-radius: 4px;\n      background: var(--loader-color, #ec4899);\n      animation: darma-loader-loading-io-34-gridFlash 1.25s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-34 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-34 i:nth-child(2) { animation-delay: 0.08s; }\n.darma-loader-loading-io-34 i:nth-child(3) { animation-delay: 0.16s; }\n.darma-loader-loading-io-34 i:nth-child(4) { animation-delay: 0.08s; }\n.darma-loader-loading-io-34 i:nth-child(5) { animation-delay: 0.16s; }\n.darma-loader-loading-io-34 i:nth-child(6) { animation-delay: 0.24s; }\n.darma-loader-loading-io-34 i:nth-child(7) { animation-delay: 0.16s; }\n.darma-loader-loading-io-34 i:nth-child(8) { animation-delay: 0.24s; }\n.darma-loader-loading-io-34 i:nth-child(9) { animation-delay: 0.32s; }\n    @keyframes darma-loader-loading-io-34-gridFlash { 0%, 70%, 100% { opacity: .25; transform: scale(.75); } 35% { opacity: 1; transform: scale(1); } }\n",
+    "defaults": {
+      "color": "#ec4899",
+      "secondaryColor": "#fbcfe8",
+      "size": 60,
+      "speed": 1.2
+    }
+  },
+  {
+    "id": "orbit-dots",
+    "name": "Orbit Dots",
+    "category": "dots",
+    "tags": [
+      "dots",
+      "orbit",
+      "circle",
+      "loop"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "orbit-dots orbit dots dots dots orbit circle loop html css react cssonly customizable singleelement",
+    "previewHtml": "<span class=\"darma-loader-orbit-dots\"></span>",
+    "previewCss": ".darma-loader-orbit-dots {\n  position: relative;\n  display: inline-block;\n  width: 54px;\n  height: 54px;\n  color: var(--loader-color, #6366f1);\n  animation: darma-loader-orbit-dots-spin 1.2s linear infinite;\n}\n.darma-loader-orbit-dots::before,\n.darma-loader-orbit-dots::after {\n  content: \"\";\n  position: absolute;\n  width: 14px;\n  height: 14px;\n  border-radius: 50%;\n  background: currentColor;\n  top: 0;\n  left: 50%;\n  transform: translateX(-50%);\n}\n.darma-loader-orbit-dots::after {\n  top: auto;\n  bottom: 0;\n  opacity: 0.35;\n}\n@keyframes darma-loader-orbit-dots-spin { to { transform: rotate(360deg); } }\n",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 48,
+      "speed": 1
+    }
+  },
+  {
+    "id": "typing-dots",
+    "name": "Typing Dots",
+    "category": "dots",
+    "tags": [
+      "dots",
+      "typing",
+      "chat",
+      "message"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "cssOnly": true,
+      "customizable": true
+    },
+    "searchText": "typing-dots typing dots dots dots typing chat message html css react popular cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-typing-dots\"><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-typing-dots {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #6366f1) 10%, transparent);\n  padding: 13px 16px;\n  color: var(--loader-color, #6366f1);\n}\n.darma-loader-typing-dots i {\n  width: 8px;\n  height: 8px;\n  border-radius: 50%;\n  background: currentColor;\n  animation: darma-loader-typing-dots-typing 1.05s ease-in-out infinite;\n}\n.darma-loader-typing-dots i:nth-child(2) { animation-delay: 0.16s; }\n.darma-loader-typing-dots i:nth-child(3) { animation-delay: 0.32s; }\n@keyframes darma-loader-typing-dots-typing {\n  0%, 80%, 100% { transform: translateY(0); opacity: 0.35; }\n  40% { transform: translateY(-7px); opacity: 1; }\n}\n",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 48,
+      "speed": 1
+    }
+  }
+]

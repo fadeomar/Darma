@@ -1,0 +1,40 @@
+{
+  "id": "uiverse-orbital-button-spinner",
+  "name": "Orbital Button Spinner",
+  "category": "button",
+  "tags": [
+    "uiverse",
+    "button",
+    "spinner",
+    "loader"
+  ],
+  "html": "<span class=\"loader\"><i></i><i></i></span>",
+  "css": ".loader {\n      position: relative;\n      display: inline-block;\n      width: 34px;\n      height: 34px;\n      border-radius: 50%;\n      border: 1px solid color-mix(in srgb, var(--loader-color) 24%, transparent);\n    }\n    .loader i {\n      position: absolute;\n      inset: -3px;\n      border-radius: 50%;\n      animation: orbit 0.8s linear infinite;\n    }\n    .loader i::before {\n      content: \"\";\n      position: absolute;\n      top: 0;\n      left: 50%;\n      width: 10px;\n      height: 10px;\n      margin-left: -5px;\n      border-radius: 50%;\n      background: var(--loader-color);\n      box-shadow: 0 0 18px color-mix(in srgb, var(--loader-color) 45%, transparent);\n    }\n    .loader i:nth-child(1) { animation-delay: 0.00s; }\n.loader i:nth-child(2) { animation-delay: -0.40s; }\n    @keyframes orbit { to { transform: rotate(360deg); } }\n",
+  "source": {
+    "name": "Uiverse selected loaders",
+    "author": "Uiverse community",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": true,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "color": "#ec4899",
+    "secondaryColor": "#fbcfe8",
+    "size": 62,
+    "speed": 0.85,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

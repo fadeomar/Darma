@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 
 const JsonFormatterClient = dynamic(() => import("./JsonFormatterClient"), {
   loading: () => (
-    <div className="h-[560px] animate-pulse rounded-3xl bg-slate-100" />
+    <div className="h-[560px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />
   ),
 });
 
@@ -46,7 +46,7 @@ export default function JsonFormatterPage() {
     <ToolPageShell
       tool={tool}
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-slate-700 dark:text-slate-300">
+        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
           Paste any JSON — from an API response, config file, or log export —
           and format it for reading, minify it for transport, or validate it to
           find exactly where the syntax breaks. Clear error messages, line and
@@ -56,36 +56,36 @@ export default function JsonFormatterPage() {
       sidebar={
         <div className="flex flex-col gap-5">
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               What you can do
             </h2>
-            <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-700 dark:text-slate-300">
+            <ul className="mt-3 space-y-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
               <li>
-                <strong className="text-slate-900 dark:text-slate-100">
+                <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
                   Format
                 </strong>{" "}
                 — prettify with 2 spaces, 4 spaces, or tabs
               </li>
               <li>
-                <strong className="text-slate-900 dark:text-slate-100">
+                <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
                   Minify
                 </strong>{" "}
                 — compact to a single line
               </li>
               <li>
-                <strong className="text-slate-900 dark:text-slate-100">
+                <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
                   Validate
                 </strong>{" "}
                 — check syntax with line + column errors
               </li>
               <li>
-                <strong className="text-slate-900 dark:text-slate-100">
+                <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
                   Copy
                 </strong>{" "}
                 — one-click clipboard copy
               </li>
               <li>
-                <strong className="text-slate-900 dark:text-slate-100">
+                <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
                   Download
                 </strong>{" "}
                 — save as <code className="font-mono text-xs">.json</code>
@@ -94,10 +94,10 @@ export default function JsonFormatterPage() {
           </SurfaceCard>
 
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Common error causes
             </h2>
-            <ul className="mt-3 space-y-1.5 text-sm leading-6 text-slate-600 dark:text-slate-400">
+            <ul className="mt-3 space-y-1.5 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
               <li>Trailing comma after last item</li>
               <li>Single quotes instead of double</li>
               <li>Unquoted property names</li>
@@ -111,10 +111,10 @@ export default function JsonFormatterPage() {
           </SurfaceCard>
 
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Privacy
             </h2>
-            <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
               All processing uses the browser&apos;s built-in{" "}
               <code className="font-mono text-xs">JSON.parse</code> and{" "}
               <code className="font-mono text-xs">JSON.stringify</code>. Your

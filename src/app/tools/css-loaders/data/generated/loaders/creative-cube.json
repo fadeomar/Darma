@@ -1,0 +1,43 @@
+{
+  "id": "creative-cube",
+  "name": "Creative Cube",
+  "category": "creative",
+  "tags": [
+    "creative",
+    "cube",
+    "3d",
+    "showcase"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": true,
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": true
+  },
+  "searchText": "creative-cube creative cube creative creative cube 3d showcase html css react popular cssonly customizable singleelement",
+  "previewHtml": "<span class=\"darma-loader-creative-cube\"></span>",
+  "previewCss": ".darma-loader-creative-cube {\n  display: inline-block;\n  width: 50px;\n  height: 50px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color, #6366f1), var(--loader-secondary-color, #8b5cf6));\n  animation: darma-loader-creative-cube-cube 1.2s ease-in-out infinite;\n  box-shadow: 0 18px 32px color-mix(in srgb, var(--loader-color, #6366f1) 22%, transparent);\n}\n@keyframes darma-loader-creative-cube-cube {\n  0%, 100% { transform: rotate(0deg) scale(0.9); border-radius: 16px; }\n  50% { transform: rotate(180deg) scale(1.08); border-radius: 50%; }\n}\n",
+  "defaults": {
+    "color": "#6366f1",
+    "secondaryColor": "#8b5cf6",
+    "size": 48,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-creative-cube\"></span>",
+    "css": ".darma-loader-creative-cube {\n  display: inline-block;\n  width: 50px;\n  height: 50px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color, #6366f1), var(--loader-secondary-color, #8b5cf6));\n  animation: darma-loader-creative-cube-cube 1.2s ease-in-out infinite;\n  box-shadow: 0 18px 32px color-mix(in srgb, var(--loader-color, #6366f1) 22%, transparent);\n}\n@keyframes darma-loader-creative-cube-cube {\n  0%, 100% { transform: rotate(0deg) scale(0.9); border-radius: 16px; }\n  50% { transform: rotate(180deg) scale(1.08); border-radius: 50%; }\n}\n",
+    "react": "export default function CreativeCubeLoader() {\n  return (\n    <span className=\"darma-loader-creative-cube\"></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  }
+}

@@ -1,0 +1,670 @@
+[
+  {
+    "id": "cssloaders-github-06",
+    "name": "CSSLoaders Pattern 06",
+    "category": "bars",
+    "tags": [
+      "cssloaders",
+      "bars",
+      "wave",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-06 cssloaders pattern 06 bars cssloaders bars wave loader html css react popular cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-06\"><i></i><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-cssloaders-github-06 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 4px;\n      height: 44px;\n    }\n    .darma-loader-cssloaders-github-06 i {\n      display: block;\n      width: 5px;\n      height: 44px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #ef4444), var(--loader-secondary-color, #fecaca));\n      transform-origin: center bottom;\n      animation: darma-loader-cssloaders-github-06-barPulse 1.05s ease-in-out infinite;\n    }\n    .darma-loader-cssloaders-github-06 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-cssloaders-github-06 i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-cssloaders-github-06 i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-cssloaders-github-06 i:nth-child(4) { animation-delay: 0.27s; }\n.darma-loader-cssloaders-github-06 i:nth-child(5) { animation-delay: 0.36s; }\n    @keyframes darma-loader-cssloaders-github-06-barPulse { 0%, 100% { opacity: .25; transform: scaleY(.5); } 45% { opacity: 1; transform: scaleY(1); } }\n",
+    "defaults": {
+      "color": "#ef4444",
+      "secondaryColor": "#fecaca",
+      "size": 54,
+      "speed": 1.05
+    }
+  },
+  {
+    "id": "cssloaders-github-14",
+    "name": "CSSLoaders Pattern 14",
+    "category": "bars",
+    "tags": [
+      "cssloaders",
+      "bars",
+      "wave",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-14 cssloaders pattern 14 bars cssloaders bars wave loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-14\"><i></i><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-cssloaders-github-14 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 4px;\n      height: 44px;\n    }\n    .darma-loader-cssloaders-github-14 i {\n      display: block;\n      width: 7px;\n      height: 44px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #14b8a6), var(--loader-secondary-color, #99f6e4));\n      transform-origin: center bottom;\n      animation: darma-loader-cssloaders-github-14-barPulse 1.05s ease-in-out infinite;\n    }\n    .darma-loader-cssloaders-github-14 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-cssloaders-github-14 i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-cssloaders-github-14 i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-cssloaders-github-14 i:nth-child(4) { animation-delay: 0.27s; }\n.darma-loader-cssloaders-github-14 i:nth-child(5) { animation-delay: 0.36s; }\n    @keyframes darma-loader-cssloaders-github-14-barPulse { 0%, 100% { opacity: .25; transform: scaleY(.5); } 45% { opacity: 1; transform: scaleY(1); } }\n",
+    "defaults": {
+      "color": "#14b8a6",
+      "secondaryColor": "#99f6e4",
+      "size": 66,
+      "speed": 1.05
+    }
+  },
+  {
+    "id": "cssloaders-github-22",
+    "name": "CSSLoaders Pattern 22",
+    "category": "bars",
+    "tags": [
+      "cssloaders",
+      "bars",
+      "wave",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-22 cssloaders pattern 22 bars cssloaders bars wave loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-22\"><i></i><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-cssloaders-github-22 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 4px;\n      height: 44px;\n    }\n    .darma-loader-cssloaders-github-22 i {\n      display: block;\n      width: 6px;\n      height: 44px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #ec4899), var(--loader-secondary-color, #fbcfe8));\n      transform-origin: center bottom;\n      animation: darma-loader-cssloaders-github-22-barPulse 1.05s ease-in-out infinite;\n    }\n    .darma-loader-cssloaders-github-22 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-cssloaders-github-22 i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-cssloaders-github-22 i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-cssloaders-github-22 i:nth-child(4) { animation-delay: 0.27s; }\n.darma-loader-cssloaders-github-22 i:nth-child(5) { animation-delay: 0.36s; }\n    @keyframes darma-loader-cssloaders-github-22-barPulse { 0%, 100% { opacity: .25; transform: scaleY(.5); } 45% { opacity: 1; transform: scaleY(1); } }\n",
+    "defaults": {
+      "color": "#ec4899",
+      "secondaryColor": "#fbcfe8",
+      "size": 58,
+      "speed": 1.05
+    }
+  },
+  {
+    "id": "cssloaders-github-30",
+    "name": "CSSLoaders Pattern 30",
+    "category": "bars",
+    "tags": [
+      "cssloaders",
+      "bars",
+      "wave",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-30 cssloaders pattern 30 bars cssloaders bars wave loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-30\"><i></i><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-cssloaders-github-30 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 4px;\n      height: 44px;\n    }\n    .darma-loader-cssloaders-github-30 i {\n      display: block;\n      width: 5px;\n      height: 44px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #f97316), var(--loader-secondary-color, #fed7aa));\n      transform-origin: center bottom;\n      animation: darma-loader-cssloaders-github-30-barPulse 1.05s ease-in-out infinite;\n    }\n    .darma-loader-cssloaders-github-30 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-cssloaders-github-30 i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-cssloaders-github-30 i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-cssloaders-github-30 i:nth-child(4) { animation-delay: 0.27s; }\n.darma-loader-cssloaders-github-30 i:nth-child(5) { animation-delay: 0.36s; }\n    @keyframes darma-loader-cssloaders-github-30-barPulse { 0%, 100% { opacity: .25; transform: scaleY(.5); } 45% { opacity: 1; transform: scaleY(1); } }\n",
+    "defaults": {
+      "color": "#f97316",
+      "secondaryColor": "#fed7aa",
+      "size": 50,
+      "speed": 1.05
+    }
+  },
+  {
+    "id": "cssloaders-github-38",
+    "name": "CSSLoaders Pattern 38",
+    "category": "bars",
+    "tags": [
+      "cssloaders",
+      "bars",
+      "wave",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-38 cssloaders pattern 38 bars cssloaders bars wave loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-38\"><i></i><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-cssloaders-github-38 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 4px;\n      height: 44px;\n    }\n    .darma-loader-cssloaders-github-38 i {\n      display: block;\n      width: 7px;\n      height: 44px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #6366f1), var(--loader-secondary-color, #a5b4fc));\n      transform-origin: center bottom;\n      animation: darma-loader-cssloaders-github-38-barPulse 1.05s ease-in-out infinite;\n    }\n    .darma-loader-cssloaders-github-38 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-cssloaders-github-38 i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-cssloaders-github-38 i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-cssloaders-github-38 i:nth-child(4) { animation-delay: 0.27s; }\n.darma-loader-cssloaders-github-38 i:nth-child(5) { animation-delay: 0.36s; }\n    @keyframes darma-loader-cssloaders-github-38-barPulse { 0%, 100% { opacity: .25; transform: scaleY(.5); } 45% { opacity: 1; transform: scaleY(1); } }\n",
+    "defaults": {
+      "color": "#6366f1",
+      "secondaryColor": "#a5b4fc",
+      "size": 62,
+      "speed": 1.05
+    }
+  },
+  {
+    "id": "demo-bars",
+    "name": "Equalizer Bars",
+    "category": "bars",
+    "tags": [
+      "bars",
+      "equalizer",
+      "music",
+      "vertical"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "cssOnly": true,
+      "customizable": true
+    },
+    "searchText": "demo-bars equalizer bars bars bars equalizer music vertical html css react popular cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-demo-bars\"><span></span><span></span><span></span><span></span></span>",
+    "previewCss": ".darma-loader-demo-bars {\n  display: inline-flex;\n  align-items: end;\n  gap: 6px;\n  height: 56px;\n  color: var(--loader-color, #6366f1);\n}\n.darma-loader-demo-bars span {\n  width: 9px;\n  height: 18px;\n  border-radius: 999px;\n  background: currentColor;\n  animation: darma-loader-demo-bars-equalize 0.75s ease-in-out infinite;\n}\n.darma-loader-demo-bars span:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-demo-bars span:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-demo-bars span:nth-child(4) { animation-delay: 0.36s; }\n@keyframes darma-loader-demo-bars-equalize {\n  0%, 100% { height: 18px; opacity: 0.45; }\n  50% { height: 52px; opacity: 1; }\n}\n",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 48,
+      "speed": 1
+    }
+  },
+  {
+    "id": "loaders-css-05",
+    "name": "Line Scale 05",
+    "category": "bars",
+    "tags": [
+      "loaders-css",
+      "line",
+      "scale",
+      "bars",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-05 line scale 05 bars loaders-css line scale bars loader html css react popular cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loaders-css-05\"><i></i><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loaders-css-05 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 4px;\n      height: 36px;\n    }\n    .darma-loader-loaders-css-05 i {\n      display: block;\n      width: 6px;\n      height: 36px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #0ea5e9), var(--loader-secondary-color, #bae6fd));\n      transform-origin: center bottom;\n      animation: darma-loader-loaders-css-05-barPulse 0.85s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-05 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-05 i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-loaders-css-05 i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-loaders-css-05 i:nth-child(4) { animation-delay: 0.27s; }\n.darma-loader-loaders-css-05 i:nth-child(5) { animation-delay: 0.36s; }\n    @keyframes darma-loader-loaders-css-05-barPulse { 0%, 100% { transform: scaleY(.42); opacity: .45; } 50% { transform: scaleY(1); opacity: 1; } }\n",
+    "defaults": {
+      "color": "#0ea5e9",
+      "secondaryColor": "#bae6fd",
+      "size": 52,
+      "speed": 0.75
+    }
+  },
+  {
+    "id": "loaders-css-15",
+    "name": "Line Scale 15",
+    "category": "bars",
+    "tags": [
+      "loaders-css",
+      "line",
+      "scale",
+      "bars",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-15 line scale 15 bars loaders-css line scale bars loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loaders-css-15\"><i></i><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loaders-css-15 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 4px;\n      height: 36px;\n    }\n    .darma-loader-loaders-css-15 i {\n      display: block;\n      width: 6px;\n      height: 36px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #0ea5e9), var(--loader-secondary-color, #bae6fd));\n      transform-origin: center bottom;\n      animation: darma-loader-loaders-css-15-barPulse 1.05s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-15 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-15 i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-loaders-css-15 i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-loaders-css-15 i:nth-child(4) { animation-delay: 0.27s; }\n.darma-loader-loaders-css-15 i:nth-child(5) { animation-delay: 0.36s; }\n    @keyframes darma-loader-loaders-css-15-barPulse { 0%, 100% { transform: scaleY(.42); opacity: .45; } 50% { transform: scaleY(1); opacity: 1; } }\n",
+    "defaults": {
+      "color": "#0ea5e9",
+      "secondaryColor": "#bae6fd",
+      "size": 52,
+      "speed": 0.75
+    }
+  },
+  {
+    "id": "loaders-css-25",
+    "name": "Line Scale 25",
+    "category": "bars",
+    "tags": [
+      "loaders-css",
+      "line",
+      "scale",
+      "bars",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-25 line scale 25 bars loaders-css line scale bars loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loaders-css-25\"><i></i><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loaders-css-25 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 4px;\n      height: 36px;\n    }\n    .darma-loader-loaders-css-25 i {\n      display: block;\n      width: 6px;\n      height: 36px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #0ea5e9), var(--loader-secondary-color, #bae6fd));\n      transform-origin: center bottom;\n      animation: darma-loader-loaders-css-25-barPulse 0.85s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-25 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-25 i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-loaders-css-25 i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-loaders-css-25 i:nth-child(4) { animation-delay: 0.27s; }\n.darma-loader-loaders-css-25 i:nth-child(5) { animation-delay: 0.36s; }\n    @keyframes darma-loader-loaders-css-25-barPulse { 0%, 100% { transform: scaleY(.42); opacity: .45; } 50% { transform: scaleY(1); opacity: 1; } }\n",
+    "defaults": {
+      "color": "#0ea5e9",
+      "secondaryColor": "#bae6fd",
+      "size": 52,
+      "speed": 0.75
+    }
+  },
+  {
+    "id": "loaders-css-06",
+    "name": "Line Spin Fade 06",
+    "category": "bars",
+    "tags": [
+      "loaders-css",
+      "line",
+      "scale",
+      "bars",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-06 line spin fade 06 bars loaders-css line scale bars loader html css react popular cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loaders-css-06\"><i></i><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loaders-css-06 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 4px;\n      height: 40px;\n    }\n    .darma-loader-loaders-css-06 i {\n      display: block;\n      width: 6px;\n      height: 40px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #6366f1), var(--loader-secondary-color, #a5b4fc));\n      transform-origin: center bottom;\n      animation: darma-loader-loaders-css-06-barPulse 0.95s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-06 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-06 i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-loaders-css-06 i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-loaders-css-06 i:nth-child(4) { animation-delay: 0.27s; }\n.darma-loader-loaders-css-06 i:nth-child(5) { animation-delay: 0.36s; }\n    @keyframes darma-loader-loaders-css-06-barPulse { 0%, 100% { transform: translateY(0) scaleY(.55); opacity: .45; } 50% { transform: translateY(-7px) scaleY(1); opacity: 1; } }\n",
+    "defaults": {
+      "color": "#6366f1",
+      "secondaryColor": "#a5b4fc",
+      "size": 56,
+      "speed": 0.83
+    }
+  },
+  {
+    "id": "loaders-css-16",
+    "name": "Line Spin Fade 16",
+    "category": "bars",
+    "tags": [
+      "loaders-css",
+      "line",
+      "scale",
+      "bars",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-16 line spin fade 16 bars loaders-css line scale bars loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loaders-css-16\"><i></i><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loaders-css-16 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 4px;\n      height: 40px;\n    }\n    .darma-loader-loaders-css-16 i {\n      display: block;\n      width: 6px;\n      height: 40px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #6366f1), var(--loader-secondary-color, #a5b4fc));\n      transform-origin: center bottom;\n      animation: darma-loader-loaders-css-16-barPulse 0.75s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-16 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-16 i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-loaders-css-16 i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-loaders-css-16 i:nth-child(4) { animation-delay: 0.27s; }\n.darma-loader-loaders-css-16 i:nth-child(5) { animation-delay: 0.36s; }\n    @keyframes darma-loader-loaders-css-16-barPulse { 0%, 100% { transform: translateY(0) scaleY(.55); opacity: .45; } 50% { transform: translateY(-7px) scaleY(1); opacity: 1; } }\n",
+    "defaults": {
+      "color": "#6366f1",
+      "secondaryColor": "#a5b4fc",
+      "size": 56,
+      "speed": 0.83
+    }
+  },
+  {
+    "id": "loaders-css-26",
+    "name": "Line Spin Fade 26",
+    "category": "bars",
+    "tags": [
+      "loaders-css",
+      "line",
+      "scale",
+      "bars",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-26 line spin fade 26 bars loaders-css line scale bars loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loaders-css-26\"><i></i><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loaders-css-26 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 4px;\n      height: 40px;\n    }\n    .darma-loader-loaders-css-26 i {\n      display: block;\n      width: 6px;\n      height: 40px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #6366f1), var(--loader-secondary-color, #a5b4fc));\n      transform-origin: center bottom;\n      animation: darma-loader-loaders-css-26-barPulse 0.95s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-26 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-26 i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-loaders-css-26 i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-loaders-css-26 i:nth-child(4) { animation-delay: 0.27s; }\n.darma-loader-loaders-css-26 i:nth-child(5) { animation-delay: 0.36s; }\n    @keyframes darma-loader-loaders-css-26-barPulse { 0%, 100% { transform: translateY(0) scaleY(.55); opacity: .45; } 50% { transform: translateY(-7px) scaleY(1); opacity: 1; } }\n",
+    "defaults": {
+      "color": "#6366f1",
+      "secondaryColor": "#a5b4fc",
+      "size": 56,
+      "speed": 0.83
+    }
+  },
+  {
+    "id": "loading-io-05",
+    "name": "Loading.io Adapted Loader 05",
+    "category": "bars",
+    "tags": [
+      "loading-io",
+      "bars",
+      "equalizer",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-05 loading.io adapted loader 05 bars loading-io bars equalizer loader html css react popular cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loading-io-05\"><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loading-io-05 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      height: 32px;\n    }\n    .darma-loader-loading-io-05 i {\n      display: block;\n      width: 6px;\n      height: 32px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #8b5cf6), var(--loader-secondary-color, #ddd6fe));\n      transform-origin: center bottom;\n      animation: darma-loader-loading-io-05-barPulse 0.75s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-05 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-05 i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-loading-io-05 i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-loading-io-05 i:nth-child(4) { animation-delay: 0.27s; }\n    @keyframes darma-loader-loading-io-05-barPulse { 0%, 100% { opacity: .25; transform: scaleY(.5); } 45% { opacity: 1; transform: scaleY(1); } }\n",
+    "defaults": {
+      "color": "#8b5cf6",
+      "secondaryColor": "#ddd6fe",
+      "size": 56,
+      "speed": 0.8
+    }
+  },
+  {
+    "id": "loading-io-11",
+    "name": "Loading.io Adapted Loader 11",
+    "category": "bars",
+    "tags": [
+      "loading-io",
+      "bars",
+      "equalizer",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-11 loading.io adapted loader 11 bars loading-io bars equalizer loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loading-io-11\"><i></i><i></i><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loading-io-11 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      height: 36px;\n    }\n    .darma-loader-loading-io-11 i {\n      display: block;\n      width: 8px;\n      height: 36px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #06b6d4), var(--loader-secondary-color, #bae6fd));\n      transform-origin: center bottom;\n      animation: darma-loader-loading-io-11-barPulse 0.83s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-11 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-11 i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-loading-io-11 i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-loading-io-11 i:nth-child(4) { animation-delay: 0.27s; }\n.darma-loader-loading-io-11 i:nth-child(5) { animation-delay: 0.36s; }\n.darma-loader-loading-io-11 i:nth-child(6) { animation-delay: 0.45s; }\n    @keyframes darma-loader-loading-io-11-barPulse { 0%, 100% { opacity: .25; transform: scaleY(.5); } 45% { opacity: 1; transform: scaleY(1); } }\n",
+    "defaults": {
+      "color": "#06b6d4",
+      "secondaryColor": "#bae6fd",
+      "size": 64,
+      "speed": 0.9
+    }
+  },
+  {
+    "id": "loading-io-17",
+    "name": "Loading.io Adapted Loader 17",
+    "category": "bars",
+    "tags": [
+      "loading-io",
+      "bars",
+      "equalizer",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-17 loading.io adapted loader 17 bars loading-io bars equalizer loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loading-io-17\"><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loading-io-17 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      height: 40px;\n    }\n    .darma-loader-loading-io-17 i {\n      display: block;\n      width: 6px;\n      height: 40px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #f59e0b), var(--loader-secondary-color, #fde68a));\n      transform-origin: center bottom;\n      animation: darma-loader-loading-io-17-barPulse 0.91s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-17 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-17 i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-loading-io-17 i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-loading-io-17 i:nth-child(4) { animation-delay: 0.27s; }\n    @keyframes darma-loader-loading-io-17-barPulse { 0%, 100% { opacity: .25; transform: scaleY(.5); } 45% { opacity: 1; transform: scaleY(1); } }\n",
+    "defaults": {
+      "color": "#f59e0b",
+      "secondaryColor": "#fde68a",
+      "size": 56,
+      "speed": 1
+    }
+  },
+  {
+    "id": "loading-io-23",
+    "name": "Loading.io Adapted Loader 23",
+    "category": "bars",
+    "tags": [
+      "loading-io",
+      "bars",
+      "equalizer",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-23 loading.io adapted loader 23 bars loading-io bars equalizer loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loading-io-23\"><i></i><i></i><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loading-io-23 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      height: 44px;\n    }\n    .darma-loader-loading-io-23 i {\n      display: block;\n      width: 8px;\n      height: 44px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #22c55e), var(--loader-secondary-color, #bbf7d0));\n      transform-origin: center bottom;\n      animation: darma-loader-loading-io-23-barPulse 0.99s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-23 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-23 i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-loading-io-23 i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-loading-io-23 i:nth-child(4) { animation-delay: 0.27s; }\n.darma-loader-loading-io-23 i:nth-child(5) { animation-delay: 0.36s; }\n.darma-loader-loading-io-23 i:nth-child(6) { animation-delay: 0.45s; }\n    @keyframes darma-loader-loading-io-23-barPulse { 0%, 100% { opacity: .25; transform: scaleY(.5); } 45% { opacity: 1; transform: scaleY(1); } }\n",
+    "defaults": {
+      "color": "#22c55e",
+      "secondaryColor": "#bbf7d0",
+      "size": 64,
+      "speed": 1.1
+    }
+  },
+  {
+    "id": "loading-io-29",
+    "name": "Loading.io Adapted Loader 29",
+    "category": "bars",
+    "tags": [
+      "loading-io",
+      "bars",
+      "equalizer",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-29 loading.io adapted loader 29 bars loading-io bars equalizer loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loading-io-29\"><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loading-io-29 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      height: 48px;\n    }\n    .darma-loader-loading-io-29 i {\n      display: block;\n      width: 6px;\n      height: 48px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #0ea5e9), var(--loader-secondary-color, #bae6fd));\n      transform-origin: center bottom;\n      animation: darma-loader-loading-io-29-barPulse 1.07s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-29 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-29 i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-loading-io-29 i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-loading-io-29 i:nth-child(4) { animation-delay: 0.27s; }\n    @keyframes darma-loader-loading-io-29-barPulse { 0%, 100% { opacity: .25; transform: scaleY(.5); } 45% { opacity: 1; transform: scaleY(1); } }\n",
+    "defaults": {
+      "color": "#0ea5e9",
+      "secondaryColor": "#bae6fd",
+      "size": 56,
+      "speed": 1.2
+    }
+  },
+  {
+    "id": "sliding-bars",
+    "name": "Sliding Bars",
+    "category": "bars",
+    "tags": [
+      "bars",
+      "slide",
+      "horizontal",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "sliding-bars sliding bars bars bars slide horizontal progress html css react cssonly customizable singleelement",
+    "previewHtml": "<span class=\"darma-loader-sliding-bars\"></span>",
+    "previewCss": ".darma-loader-sliding-bars {\n  position: relative;\n  display: inline-block;\n  width: 88px;\n  height: 12px;\n  overflow: hidden;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #6366f1) 16%, transparent);\n}\n.darma-loader-sliding-bars::before {\n  content: \"\";\n  position: absolute;\n  inset: 0 auto 0 0;\n  width: 38%;\n  border-radius: inherit;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-sliding-bars-slide 1s ease-in-out infinite;\n}\n@keyframes darma-loader-sliding-bars-slide {\n  0% { transform: translateX(-100%); }\n  100% { transform: translateX(270%); }\n}\n",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 48,
+      "speed": 1
+    }
+  },
+  {
+    "id": "uiverse-soft-equalizer",
+    "name": "Soft Equalizer Loader",
+    "category": "bars",
+    "tags": [
+      "uiverse",
+      "equalizer",
+      "bars",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-soft-equalizer soft equalizer loader bars uiverse equalizer bars loader html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-uiverse-soft-equalizer\"><i></i><i></i><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-uiverse-soft-equalizer {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 5px;\n      height: 46px;\n    }\n    .darma-loader-uiverse-soft-equalizer i {\n      display: block;\n      width: 6px;\n      height: 46px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #ef4444), var(--loader-secondary-color, #fecaca));\n      transform-origin: center bottom;\n      animation: darma-loader-uiverse-soft-equalizer-barPulse 0.85s ease-in-out infinite;\n    }\n    .darma-loader-uiverse-soft-equalizer i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-uiverse-soft-equalizer i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-uiverse-soft-equalizer i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-uiverse-soft-equalizer i:nth-child(4) { animation-delay: 0.27s; }\n.darma-loader-uiverse-soft-equalizer i:nth-child(5) { animation-delay: 0.36s; }\n.darma-loader-uiverse-soft-equalizer i:nth-child(6) { animation-delay: 0.45s; }\n    @keyframes darma-loader-uiverse-soft-equalizer-barPulse { 0%, 100% { transform: translateY(0) scaleY(.55); opacity: .45; } 50% { transform: translateY(-7px) scaleY(1); opacity: 1; } }\n",
+    "defaults": {
+      "color": "#ef4444",
+      "secondaryColor": "#fecaca",
+      "size": 58,
+      "speed": 1.05,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "stacked-bars",
+    "name": "Stacked Bars",
+    "category": "bars",
+    "tags": [
+      "bars",
+      "stack",
+      "layers",
+      "stagger"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "cssOnly": true,
+      "customizable": true
+    },
+    "searchText": "stacked-bars stacked bars bars bars stack layers stagger html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-stacked-bars\"><b></b><b></b><b></b></span>",
+    "previewCss": ".darma-loader-stacked-bars {\n  display: grid;\n  gap: 7px;\n  width: 84px;\n  color: var(--loader-color, #6366f1);\n}\n.darma-loader-stacked-bars b {\n  display: block;\n  height: 10px;\n  border-radius: 999px;\n  background: currentColor;\n  animation: darma-loader-stacked-bars-stack 1s ease-in-out infinite;\n}\n.darma-loader-stacked-bars b:nth-child(2) { animation-delay: 0.16s; }\n.darma-loader-stacked-bars b:nth-child(3) { animation-delay: 0.32s; }\n@keyframes darma-loader-stacked-bars-stack {\n  0%, 100% { transform: scaleX(0.38); opacity: 0.38; }\n  50% { transform: scaleX(1); opacity: 1; }\n}\n",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 48,
+      "speed": 1
+    }
+  },
+  {
+    "id": "wave-bars",
+    "name": "Wave Bars",
+    "category": "bars",
+    "tags": [
+      "bars",
+      "wave",
+      "loading",
+      "vertical"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "cssOnly": true,
+      "customizable": true
+    },
+    "searchText": "wave-bars wave bars bars bars wave loading vertical html css react popular cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-wave-bars\"><i></i><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-wave-bars {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n  height: 52px;\n  color: var(--loader-color, #6366f1);\n}\n.darma-loader-wave-bars i {\n  width: 7px;\n  height: 40px;\n  border-radius: 999px;\n  background: currentColor;\n  animation: darma-loader-wave-bars-wave 1s ease-in-out infinite;\n}\n.darma-loader-wave-bars i:nth-child(2) { animation-delay: 0.1s; }\n.darma-loader-wave-bars i:nth-child(3) { animation-delay: 0.2s; }\n.darma-loader-wave-bars i:nth-child(4) { animation-delay: 0.3s; }\n.darma-loader-wave-bars i:nth-child(5) { animation-delay: 0.4s; }\n@keyframes darma-loader-wave-bars-wave {\n  0%, 100% { transform: scaleY(0.38); opacity: 0.38; }\n  50% { transform: scaleY(1); opacity: 1; }\n}\n",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 48,
+      "speed": 1
+    }
+  }
+]

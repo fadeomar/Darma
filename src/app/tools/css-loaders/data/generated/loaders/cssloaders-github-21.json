@@ -1,0 +1,50 @@
+{
+  "id": "cssloaders-github-21",
+  "name": "CSSLoaders Pattern 21",
+  "category": "dots",
+  "tags": [
+    "cssloaders",
+    "wave",
+    "dots",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "cssloaders-github-21 cssloaders pattern 21 dots cssloaders wave dots loader html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-cssloaders-github-21\"><i></i><i></i><i></i><i></i></span>",
+  "previewCss": ".darma-loader-cssloaders-github-21 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 5px;\n      min-width: 56px;\n      min-height: 18px;\n    }\n    .darma-loader-cssloaders-github-21 i {\n      display: block;\n      width: 9px;\n      height: 9px;\n      border-radius: 50%;\n      background: var(--loader-color, #22c55e);\n      animation: darma-loader-cssloaders-github-21-dotPulse 0.95s ease-in-out infinite;\n    }\n    .darma-loader-cssloaders-github-21 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-cssloaders-github-21 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-cssloaders-github-21 i:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-cssloaders-github-21 i:nth-child(4) { animation-delay: 0.36s; }\n    @keyframes darma-loader-cssloaders-github-21-dotPulse { 0%, 100% { transform: translateY(0); opacity: .45; } 45% { transform: translateY(-12px); opacity: 1; } }\n",
+  "defaults": {
+    "color": "#22c55e",
+    "secondaryColor": "#bbf7d0",
+    "size": 54,
+    "speed": 0.95
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-cssloaders-github-21\"><i></i><i></i><i></i><i></i></span>",
+    "css": ".darma-loader-cssloaders-github-21 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 5px;\n      min-width: 56px;\n      min-height: 18px;\n    }\n    .darma-loader-cssloaders-github-21 i {\n      display: block;\n      width: 9px;\n      height: 9px;\n      border-radius: 50%;\n      background: var(--loader-color, #22c55e);\n      animation: darma-loader-cssloaders-github-21-dotPulse 0.95s ease-in-out infinite;\n    }\n    .darma-loader-cssloaders-github-21 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-cssloaders-github-21 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-cssloaders-github-21 i:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-cssloaders-github-21 i:nth-child(4) { animation-delay: 0.36s; }\n    @keyframes darma-loader-cssloaders-github-21-dotPulse { 0%, 100% { transform: translateY(0); opacity: .45; } 45% { transform: translateY(-12px); opacity: 1; } }\n",
+    "react": "export default function CssloadersGithub21Loader() {\n  return (\n    <span className=\"darma-loader-cssloaders-github-21\"><i></i><i></i><i></i><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "cssloaders.github.io",
+    "author": "cssloaders",
+    "license": "MIT",
+    "url": "https://github.com/cssloaders/cssloaders.github.io"
+  }
+}

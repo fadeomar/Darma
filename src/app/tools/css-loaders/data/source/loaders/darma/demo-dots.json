@@ -1,0 +1,29 @@
+{
+  "id": "demo-dots",
+  "name": "Classic Dots",
+  "category": "dots",
+  "tags": [
+    "dots",
+    "bounce",
+    "minimal",
+    "inline"
+  ],
+  "html": "<span class=\"loader\"><span></span><span></span><span></span></span>",
+  "css": ".loader {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  color: #6366f1;\n}\n.loader span {\n  width: 12px;\n  height: 12px;\n  border-radius: 999px;\n  background: currentColor;\n  animation: loader-bounce 0.75s ease-in-out infinite alternate;\n}\n.loader span:nth-child(2) { animation-delay: 0.15s; }\n.loader span:nth-child(3) { animation-delay: 0.3s; }\n@keyframes loader-bounce {\n  from { transform: translateY(0); opacity: 0.55; }\n  to { transform: translateY(-12px); opacity: 1; }\n}\n",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 48,
+    "speed": 1
+  },
+  "flags": {
+    "popular": true,
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": false
+  }
+}

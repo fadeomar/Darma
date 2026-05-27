@@ -1,62 +1,7 @@
 import Link from "next/link";
 import { prisma } from "@/server/db/prisma";
 import { getToolRegistry } from "@/features/tools";
-
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
-
-function Badge({
-  tone,
-  children,
-}: {
-  tone: "green" | "amber" | "zinc" | "red";
-  children: React.ReactNode;
-}) {
-  const cls =
-    tone === "green"
-      ? "bg-emerald-50 text-emerald-700 border-emerald-200"
-      : tone === "amber"
-        ? "bg-amber-50 text-amber-700 border-amber-200"
-        : tone === "red"
-          ? "bg-rose-50 text-rose-700 border-rose-200"
-          : "bg-zinc-50 text-zinc-700 border-zinc-200";
-
-  return (
-    <span
-      className={`inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-semibold ${cls}`}
-    >
-      {children}
-    </span>
-  );
-}
-
-function StatCard({
-  label,
-  value,
-  href,
-  hint,
-}: {
-  label: string;
-  value: string | number;
-  href?: string;
-  hint?: string;
-}) {
-  const content = (
-    <div className="rounded-2xl border bg-white p-4 shadow-sm">
-      <div className="text-xs font-medium text-zinc-500">{label}</div>
-      <div className="mt-2 text-2xl font-semibold tracking-tight">{value}</div>
-      {hint ? <div className="mt-1 text-xs text-zinc-500">{hint}</div> : null}
-    </div>
-  );
-
-  return href ? (
-    <Link href={href} className="block transition hover:opacity-90">
-      {content}
-    </Link>
-  ) : (
-    content
-  );
-}
+import { Badge, Card } from "@/components/ui";
 
 type ModuleStatus = "published" | "in-progress" | "planned";
 
@@ -87,10 +32,57 @@ const MODULES: Array<{
   },
 ];
 
+const linkButtonBase =
+  "inline-flex min-h-[38px] items-center justify-center rounded-[var(--radius-sm)] px-3 text-sm font-semibold transition duration-[var(--duration-fast)]";
+const linkButtonSecondary = `${linkButtonBase} border border-[var(--color-border-default)] bg-[var(--color-surface-base)] text-[var(--color-text-primary)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-subtle)]`;
+const linkButtonPrimary = `${linkButtonBase} border border-transparent bg-[var(--color-primary)] text-[var(--color-primary-text)] hover:bg-[var(--color-primary-hover)]`;
+
 function statusBadge(status: ModuleStatus) {
-  if (status === "published") return <Badge tone="green">Published</Badge>;
-  if (status === "in-progress") return <Badge tone="amber">In progress</Badge>;
-  return <Badge tone="zinc">Planned</Badge>;
+  if (status === "published") return <Badge variant="success">Published</Badge>;
+  if (status === "in-progress") return <Badge variant="warning">In progress</Badge>;
+  return <Badge variant="outline">Planned</Badge>;
+}
+
+function toolStatusBadge(status: string) {
+  if (status === "ready") return <Badge variant="success">Ready</Badge>;
+  if (status === "in_progress") return <Badge variant="warning">In progress</Badge>;
+  return <Badge variant="outline">Planned</Badge>;
+}
+
+function StatCard({
+  label,
+  value,
+  href,
+  hint,
+}: {
+  label: string;
+  value: string | number;
+  href?: string;
+  hint?: string;
+}) {
+  const content = (
+    <Card padding="sm" className="h-full">
+      <div className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+        {label}
+      </div>
+      <div className="mt-2 text-3xl font-semibold tracking-tight text-[var(--color-text-primary)]">
+        {value}
+      </div>
+      {hint ? (
+        <div className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">
+          {hint}
+        </div>
+      ) : null}
+    </Card>
+  );
+
+  return href ? (
+    <Link href={href} className="block h-full transition hover:-translate-y-0.5">
+      {content}
+    </Link>
+  ) : (
+    content
+  );
 }
 
 export default async function AdminDashboardPage() {
@@ -114,7 +106,6 @@ export default async function AdminDashboardPage() {
       }),
     ]);
 
-  // Visitors: no tracking table yet → keep as placeholder without pretending we measured it.
   const visitorsToday = "—";
 
   const tools = getToolRegistry()
@@ -124,38 +115,36 @@ export default async function AdminDashboardPage() {
 
   return (
     <div className="space-y-8">
-      {/* Hero / quick actions */}
-      <section className="rounded-2xl border bg-zinc-50 p-4">
+      <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] p-4">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div className="min-w-0">
-            <h1 className="text-xl font-semibold tracking-tight">Dashboard</h1>
-            <p className="mt-1 text-sm text-zinc-600">
+            <h1 className="text-2xl font-semibold tracking-tight text-[var(--color-text-primary)]">
+              Dashboard
+            </h1>
+            <p className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">
               Manage content, review submissions, and monitor project tools.
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-2">
-            <Link
-              href="/admin/elements"
-              className="rounded-xl border bg-white px-3 py-2 text-sm font-semibold text-zinc-800 hover:bg-zinc-100"
-            >
+            <Link href="/admin/elements" className={linkButtonSecondary}>
               Manage Elements
             </Link>
-            <Link
-              href="/admin/review"
-              className="rounded-xl bg-zinc-900 px-3 py-2 text-sm font-semibold text-white hover:bg-zinc-800"
-            >
+            <Link href="/admin/review" className={linkButtonPrimary}>
               Open Review Queue
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Stats */}
       <section>
-        <div className="mb-3 flex items-center justify-between">
-          <h2 className="text-sm font-semibold text-zinc-900">Overview</h2>
-          <div className="text-xs text-zinc-500">Updated live from DB</div>
+        <div className="mb-3 flex items-center justify-between gap-3">
+          <h2 className="text-sm font-semibold text-[var(--color-text-primary)]">
+            Overview
+          </h2>
+          <div className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+            Live DB
+          </div>
         </div>
 
         <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
@@ -180,139 +169,121 @@ export default async function AdminDashboardPage() {
           <StatCard
             label="Deleted"
             value={deletedCount}
-            href="/admin/review"
+            href="/admin/review?status=deleted"
             hint="Soft-deleted items"
           />
         </div>
 
-        <div className="mt-3 text-xs text-zinc-500">
-          Visitors today:{" "}
-          <span className="font-semibold text-zinc-700">{visitorsToday}</span>{" "}
-          (tracking not enabled yet)
+        <div className="mt-3 text-xs leading-5 text-[var(--color-text-tertiary)]">
+          Visitors today: <strong>{visitorsToday}</strong> because tracking is not enabled yet.
         </div>
       </section>
 
-      {/* Project modules */}
       <section>
-        <div className="mb-3 flex items-center justify-between">
-          <h2 className="text-sm font-semibold text-zinc-900">
+        <div className="mb-3 flex items-center justify-between gap-3">
+          <h2 className="text-sm font-semibold text-[var(--color-text-primary)]">
             Project modules
           </h2>
-          <div className="text-xs text-zinc-500">Status board</div>
+          <div className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+            Status board
+          </div>
         </div>
 
         <div className="grid grid-cols-1 gap-3 lg:grid-cols-3">
-          {MODULES.map((t) => (
-            <div
-              key={t.slug}
-              className="rounded-2xl border bg-white p-4 shadow-sm"
-            >
+          {MODULES.map((module) => (
+            <Card key={module.slug} padding="sm">
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
-                  <div className="truncate text-base font-semibold">
-                    {t.name}
+                  <div className="truncate text-base font-semibold text-[var(--color-text-primary)]">
+                    {module.name}
                   </div>
-                  <div className="mt-1 text-sm text-zinc-600">
-                    {t.description}
+                  <div className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">
+                    {module.description}
                   </div>
                 </div>
-                <div className="shrink-0">{statusBadge(t.status)}</div>
+                <div className="shrink-0">{statusBadge(module.status)}</div>
               </div>
 
               <div className="mt-4 flex flex-wrap items-center gap-2">
-                {t.slug === "elements" ? (
-                  <Link
-                    href="/admin/elements"
-                    className="rounded-xl border px-3 py-2 text-sm font-semibold hover:bg-zinc-50"
-                  >
+                {module.slug === "elements" ? (
+                  <Link href="/admin/elements" className={linkButtonSecondary}>
                     Open manager
                   </Link>
                 ) : (
-                  <div className="text-xs text-zinc-500">No admin view yet</div>
+                  <div className="text-xs text-[var(--color-text-tertiary)]">
+                    No admin view yet
+                  </div>
                 )}
               </div>
-            </div>
+            </Card>
           ))}
         </div>
       </section>
 
-      {/* Tools catalog */}
       <section>
-        <div className="mb-3 flex items-center justify-between">
-          <h2 className="text-sm font-semibold text-zinc-900">Tools catalog</h2>
-          <div className="flex items-center gap-2">
-            <Link
-              href="/tools"
-              className="rounded-xl border bg-white px-3 py-2 text-sm font-semibold hover:bg-zinc-50"
-            >
-              Open public tools page
-            </Link>
-          </div>
+        <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
+          <h2 className="text-sm font-semibold text-[var(--color-text-primary)]">
+            Tools catalog
+          </h2>
+          <Link href="/tools" className={linkButtonSecondary}>
+            Open public tools page
+          </Link>
         </div>
 
-        <div className="overflow-hidden rounded-2xl border bg-white shadow-sm">
-          <div className="grid grid-cols-12 gap-2 border-b bg-zinc-50 px-4 py-3 text-xs font-semibold text-zinc-600">
+        <div className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] shadow-[var(--shadow-card)]">
+          <div className="grid grid-cols-12 gap-2 border-b border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] px-4 py-3 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
             <div className="col-span-5">Tool</div>
             <div className="col-span-2">Status</div>
             <div className="col-span-3">Completion</div>
             <div className="col-span-2 text-right">Visitors</div>
           </div>
 
-          <div className="divide-y">
-            {tools.map((t) => {
+          <div className="divide-y divide-[var(--color-border-default)]">
+            {tools.map((tool) => {
               const completion = Math.max(
                 0,
                 Math.min(
                   100,
-                  Number.isFinite(t.completion) ? Number(t.completion) : 0,
+                  Number.isFinite(tool.completion) ? Number(tool.completion) : 0,
                 ),
               );
-              const status = t.status ?? "planned";
-              const visitors =
-                typeof t.visitors === "number" ? t.visitors : null;
+              const status = tool.status ?? "planned";
+              const visitors = typeof tool.visitors === "number" ? tool.visitors : null;
 
               return (
                 <div
-                  key={t.id}
+                  key={tool.id}
                   className="grid grid-cols-12 items-center gap-2 px-4 py-3"
                 >
                   <div className="col-span-5 min-w-0">
                     <Link
-                      href={t.href}
-                      className="block truncate font-semibold hover:underline"
+                      href={tool.href}
+                      className="block truncate font-semibold text-[var(--color-text-primary)] hover:text-[var(--color-primary)]"
                     >
-                      {t.title}
+                      {tool.title}
                     </Link>
-                    <div className="mt-0.5 truncate text-xs text-zinc-500">
-                      {t.description}
+                    <div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]">
+                      {tool.description}
                     </div>
                   </div>
 
-                  <div className="col-span-2">
-                    {status === "ready" ? (
-                      <Badge tone="green">Ready</Badge>
-                    ) : status === "in_progress" ? (
-                      <Badge tone="amber">In progress</Badge>
-                    ) : (
-                      <Badge tone="zinc">Planned</Badge>
-                    )}
-                  </div>
+                  <div className="col-span-2">{toolStatusBadge(status)}</div>
 
                   <div className="col-span-3">
                     <div className="flex items-center gap-2">
-                      <div className="h-2 w-full rounded-full bg-zinc-100">
+                      <div className="h-2 w-full overflow-hidden rounded-[var(--radius-full)] bg-[var(--color-control-track)]">
                         <div
-                          className="h-2 rounded-full bg-zinc-900"
+                          className="h-2 rounded-[var(--radius-full)] bg-[var(--color-primary)]"
                           style={{ width: `${completion}%` }}
                         />
                       </div>
-                      <div className="w-10 text-right text-xs font-semibold text-zinc-700">
+                      <div className="w-10 text-right font-mono text-[10px] font-bold text-[var(--color-text-secondary)]">
                         {completion}%
                       </div>
                     </div>
                   </div>
 
-                  <div className="col-span-2 text-right text-sm font-semibold text-zinc-800">
+                  <div className="col-span-2 text-right text-sm font-semibold text-[var(--color-text-secondary)]">
                     {visitors ?? "—"}
                   </div>
                 </div>
@@ -321,67 +292,61 @@ export default async function AdminDashboardPage() {
           </div>
         </div>
 
-        <div className="mt-2 text-xs text-zinc-500">
-          Visitor counts are shown as <span className="font-semibold">—</span>{" "}
-          until privacy-first tracking is enabled.
+        <div className="mt-2 text-xs leading-5 text-[var(--color-text-tertiary)]">
+          Visitor counts remain hidden until privacy-first tracking is enabled.
         </div>
       </section>
 
-      {/* Latest changes */}
       <section>
-        <div className="mb-3 flex items-center justify-between">
-          <h2 className="text-sm font-semibold text-zinc-900">
+        <div className="mb-3 flex items-center justify-between gap-3">
+          <h2 className="text-sm font-semibold text-[var(--color-text-primary)]">
             Latest element changes
           </h2>
           <Link
             href="/admin/elements"
-            className="text-sm font-semibold text-zinc-800 hover:underline"
+            className="text-sm font-semibold text-[var(--color-primary)] hover:text-[var(--color-primary-hover)]"
           >
             View all
           </Link>
         </div>
 
         {recent.length === 0 ? (
-          <div className="rounded-2xl border bg-white p-6 text-sm text-zinc-600 shadow-sm">
+          <Card className="text-sm text-[var(--color-text-secondary)]">
             No elements yet.
-          </div>
+          </Card>
         ) : (
-          <div className="rounded-2xl border bg-white shadow-sm">
-            <div className="divide-y">
-              {recent.map((el) => {
-                const href = el.slug
-                  ? `/elements/${el.slug}`
-                  : `/element/${el.id}`;
+          <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] shadow-[var(--shadow-card)]">
+            <div className="divide-y divide-[var(--color-border-default)]">
+              {recent.map((element) => {
+                const href = element.slug
+                  ? `/elements/${element.slug}`
+                  : `/element/${element.id}`;
                 return (
                   <div
-                    key={el.id}
+                    key={element.id}
                     className="flex flex-wrap items-center justify-between gap-3 p-4"
                   >
                     <div className="min-w-0">
-                      <div className="truncate font-semibold">{el.title}</div>
-                      <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-zinc-500">
-                        <span>Updated {el.updatedAt.toLocaleString()}</span>
-                        {el.deleted ? <Badge tone="red">Deleted</Badge> : null}
-                        {!el.deleted && !el.reviewed ? (
-                          <Badge tone="amber">Pending review</Badge>
+                      <div className="truncate font-semibold text-[var(--color-text-primary)]">
+                        {element.title}
+                      </div>
+                      <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-[var(--color-text-tertiary)]">
+                        <span>Updated {element.updatedAt.toLocaleString()}</span>
+                        {element.deleted ? <Badge variant="danger">Deleted</Badge> : null}
+                        {!element.deleted && !element.reviewed ? (
+                          <Badge variant="warning">Pending review</Badge>
                         ) : null}
-                        {!el.deleted && el.reviewed ? (
-                          <Badge tone="green">Reviewed</Badge>
+                        {!element.deleted && element.reviewed ? (
+                          <Badge variant="success">Reviewed</Badge>
                         ) : null}
                       </div>
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <Link
-                        href={href}
-                        className="rounded-xl border px-3 py-2 text-sm font-semibold hover:bg-zinc-50"
-                      >
+                      <Link href={href} className={linkButtonSecondary}>
                         Preview
                       </Link>
-                      <Link
-                        href="/admin/elements"
-                        className="rounded-xl bg-zinc-900 px-3 py-2 text-sm font-semibold text-white hover:bg-zinc-800"
-                      >
+                      <Link href="/admin/elements" className={linkButtonPrimary}>
                         Manage
                       </Link>
                     </div>

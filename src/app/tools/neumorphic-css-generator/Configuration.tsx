@@ -196,6 +196,7 @@ const Configuration: React.FC<ConfigurationProps> = ({
         />
         {color !== defaultColor && (
           <button
+            type="button"
             onClick={() => setColor(defaultColor)}
             className="h-[32px] flex items-center gap-1.5 px-2 py-1 ml-3 text-xs text-[var(--textColor)] border-[3px] bg-[var(--baseColor)] border-[var(--textColor)]"
           >

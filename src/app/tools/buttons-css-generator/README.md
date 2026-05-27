@@ -12,4 +12,4 @@ Design CSS button styles visually — adjust colors, border-radius, padding, sha
 |---|---|
 | `page.tsx` | Server component — `generateMetadata`, `ToolPage` |
 | `ButtonsCssGeneratorClient.tsx` | `"use client"` — visual controls, live preview, copy output |
-| `style.css` | Tool-scoped styles (preview sandbox resets) |
+| Shared Darma tool UI | Preview, controls, and output are handled by Sprint B components. |

@@ -1,0 +1,29 @@
+{
+  "id": "linear-progress",
+  "name": "Linear Progress",
+  "category": "progress",
+  "tags": [
+    "progress",
+    "bar",
+    "upload",
+    "linear"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader {\n  position: relative;\n  display: inline-block;\n  width: 132px;\n  height: 10px;\n  overflow: hidden;\n  border-radius: 999px;\n  background: rgba(99, 102, 241, 0.15);\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  inset: 0 auto 0 0;\n  width: 48%;\n  border-radius: inherit;\n  background: #6366f1;\n  animation: progress 1.25s ease-in-out infinite;\n}\n@keyframes progress {\n  0% { transform: translateX(-105%); }\n  55%, 100% { transform: translateX(210%); }\n}\n",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 48,
+    "speed": 1
+  },
+  "flags": {
+    "popular": true,
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": true
+  }
+}

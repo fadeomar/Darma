@@ -1,0 +1,51 @@
+{
+  "id": "loaders-css-27",
+  "name": "Square Spin 27",
+  "category": "creative",
+  "tags": [
+    "loaders-css",
+    "square",
+    "spin",
+    "creative",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "loaders-css-27 square spin 27 creative loaders-css square spin creative loader html css react singleelement cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-loaders-css-27\"></span>",
+  "previewCss": ".darma-loader-loaders-css-27 {\n  display: inline-block;\n  width: 55px;\n  height: 55px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color, #06b6d4), var(--loader-secondary-color, #bae6fd));\n  animation: darma-loader-loaders-css-27-squareFlip 1.0s cubic-bezier(.55,.08,.38,.97) infinite;\n}\n@keyframes darma-loader-loaders-css-27-squareFlip { 0% { transform: perspective(120px) rotateX(0) rotateY(0); } 50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); } 100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); } }\n",
+  "defaults": {
+    "color": "#06b6d4",
+    "secondaryColor": "#bae6fd",
+    "size": 60,
+    "speed": 0.91
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-loaders-css-27\"></span>",
+    "css": ".darma-loader-loaders-css-27 {\n  display: inline-block;\n  width: 55px;\n  height: 55px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color, #06b6d4), var(--loader-secondary-color, #bae6fd));\n  animation: darma-loader-loaders-css-27-squareFlip 1.0s cubic-bezier(.55,.08,.38,.97) infinite;\n}\n@keyframes darma-loader-loaders-css-27-squareFlip { 0% { transform: perspective(120px) rotateX(0) rotateY(0); } 50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); } 100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); } }\n",
+    "react": "export default function LoadersCss27Loader() {\n  return (\n    <span className=\"darma-loader-loaders-css-27\"></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "loaders.css",
+    "author": "Connor Atherton",
+    "license": "MIT",
+    "url": "https://github.com/ConnorAtherton/loaders.css"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "skeleton-avatar",
+  "name": "Skeleton Avatar",
+  "category": "skeleton",
+  "tags": [
+    "skeleton",
+    "avatar",
+    "profile",
+    "placeholder"
+  ],
+  "html": "<span class=\"loader\"><b></b><i></i><i></i></span>",
+  "css": ".loader {\n  display: grid;\n  grid-template-columns: 42px 108px;\n  gap: 8px 12px;\n  align-items: center;\n}\n.loader b,\n.loader i {\n  display: block;\n  background: linear-gradient(90deg, rgba(99,102,241,.12), rgba(99,102,241,.32), rgba(99,102,241,.12));\n  background-size: 220% 100%;\n  animation: shimmer 1s linear infinite;\n}\n.loader b {\n  grid-row: span 2;\n  width: 42px;\n  height: 42px;\n  border-radius: 50%;\n}\n.loader i {\n  height: 11px;\n  border-radius: 999px;\n}\n.loader i:last-child { width: 72%; }\n@keyframes shimmer { to { background-position: -220% 0; } }\n",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 48,
+    "speed": 1
+  },
+  "flags": {
+    "popular": true,
+    "cssOnly": true,
+    "customizable": true
+  }
+}

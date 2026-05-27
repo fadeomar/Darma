@@ -1,0 +1,51 @@
+{
+  "id": "uiverse-pink-pulse-ring",
+  "name": "Pink Pulse Ring",
+  "category": "pulse",
+  "tags": [
+    "uiverse",
+    "pulse",
+    "ring",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-pink-pulse-ring pink pulse ring pulse uiverse pulse ring loader html css react singleelement cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-uiverse-pink-pulse-ring\"></span>",
+  "previewCss": ".darma-loader-uiverse-pink-pulse-ring {\n  display: inline-block;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color, #22c55e);\n  animation: darma-loader-uiverse-pink-pulse-ring-ringPulse 1.15s ease-out infinite;\n}\n@keyframes darma-loader-uiverse-pink-pulse-ring-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }\n",
+  "defaults": {
+    "color": "#22c55e",
+    "secondaryColor": "#bbf7d0",
+    "size": 58,
+    "speed": 1.15,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-uiverse-pink-pulse-ring\"></span>",
+    "css": ".darma-loader-uiverse-pink-pulse-ring {\n  display: inline-block;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color, #22c55e);\n  animation: darma-loader-uiverse-pink-pulse-ring-ringPulse 1.15s ease-out infinite;\n}\n@keyframes darma-loader-uiverse-pink-pulse-ring-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }\n",
+    "react": "export default function UiversePinkPulseRingLoader() {\n  return (\n    <span className=\"darma-loader-uiverse-pink-pulse-ring\"></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Uiverse selected loaders",
+    "author": "Uiverse community",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  }
+}

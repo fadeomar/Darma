@@ -1,0 +1,29 @@
+{
+  "id": "orbit-dots",
+  "name": "Orbit Dots",
+  "category": "dots",
+  "tags": [
+    "dots",
+    "orbit",
+    "circle",
+    "loop"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader {\n  position: relative;\n  display: inline-block;\n  width: 54px;\n  height: 54px;\n  color: #6366f1;\n  animation: spin 1.2s linear infinite;\n}\n.loader::before,\n.loader::after {\n  content: \"\";\n  position: absolute;\n  width: 14px;\n  height: 14px;\n  border-radius: 50%;\n  background: currentColor;\n  top: 0;\n  left: 50%;\n  transform: translateX(-50%);\n}\n.loader::after {\n  top: auto;\n  bottom: 0;\n  opacity: 0.35;\n}\n@keyframes spin { to { transform: rotate(360deg); } }\n",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 48,
+    "speed": 1
+  },
+  "flags": {
+    "popular": false,
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": true
+  }
+}

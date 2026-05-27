@@ -1,0 +1,31 @@
+{
+  "id": "tailwind-pulse",
+  "name": "Tailwind Pulse",
+  "category": "tailwind",
+  "tags": [
+    "tailwind",
+    "pulse",
+    "utility",
+    "inline"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader {\n  display: inline-block;\n  width: 48px;\n  height: 48px;\n  border-radius: 999px;\n  background: #6366f1;\n  animation: tw-pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;\n}\n@keyframes tw-pulse {\n  50% { opacity: .5; }\n}\n",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 48,
+    "speed": 1
+  },
+  "flags": {
+    "popular": true,
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": true,
+    "tailwind": true
+  },
+  "tailwind": "<span className=\"inline-block h-12 w-12 animate-pulse rounded-full bg-indigo-500\" />"
+}

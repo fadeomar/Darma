@@ -1,0 +1,3581 @@
+[
+  {
+    "id": "cssloaders-github-06",
+    "name": "CSSLoaders Pattern 06",
+    "category": "bars",
+    "tags": [
+      "cssloaders",
+      "bars",
+      "wave",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-06 cssloaders pattern 06 bars cssloaders bars wave loader html css react popular cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-14",
+    "name": "CSSLoaders Pattern 14",
+    "category": "bars",
+    "tags": [
+      "cssloaders",
+      "bars",
+      "wave",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-14 cssloaders pattern 14 bars cssloaders bars wave loader html css react cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-22",
+    "name": "CSSLoaders Pattern 22",
+    "category": "bars",
+    "tags": [
+      "cssloaders",
+      "bars",
+      "wave",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-22 cssloaders pattern 22 bars cssloaders bars wave loader html css react cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-30",
+    "name": "CSSLoaders Pattern 30",
+    "category": "bars",
+    "tags": [
+      "cssloaders",
+      "bars",
+      "wave",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-30 cssloaders pattern 30 bars cssloaders bars wave loader html css react cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-38",
+    "name": "CSSLoaders Pattern 38",
+    "category": "bars",
+    "tags": [
+      "cssloaders",
+      "bars",
+      "wave",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-38 cssloaders pattern 38 bars cssloaders bars wave loader html css react cssonly customizable"
+  },
+  {
+    "id": "demo-bars",
+    "name": "Equalizer Bars",
+    "category": "bars",
+    "tags": [
+      "bars",
+      "equalizer",
+      "music",
+      "vertical"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "cssOnly": true,
+      "customizable": true
+    },
+    "searchText": "demo-bars equalizer bars bars bars equalizer music vertical html css react popular cssonly customizable"
+  },
+  {
+    "id": "loaders-css-05",
+    "name": "Line Scale 05",
+    "category": "bars",
+    "tags": [
+      "loaders-css",
+      "line",
+      "scale",
+      "bars",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-05 line scale 05 bars loaders-css line scale bars loader html css react popular cssonly customizable"
+  },
+  {
+    "id": "loaders-css-15",
+    "name": "Line Scale 15",
+    "category": "bars",
+    "tags": [
+      "loaders-css",
+      "line",
+      "scale",
+      "bars",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-15 line scale 15 bars loaders-css line scale bars loader html css react cssonly customizable"
+  },
+  {
+    "id": "loaders-css-25",
+    "name": "Line Scale 25",
+    "category": "bars",
+    "tags": [
+      "loaders-css",
+      "line",
+      "scale",
+      "bars",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-25 line scale 25 bars loaders-css line scale bars loader html css react cssonly customizable"
+  },
+  {
+    "id": "loaders-css-06",
+    "name": "Line Spin Fade 06",
+    "category": "bars",
+    "tags": [
+      "loaders-css",
+      "line",
+      "scale",
+      "bars",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-06 line spin fade 06 bars loaders-css line scale bars loader html css react popular cssonly customizable"
+  },
+  {
+    "id": "loaders-css-16",
+    "name": "Line Spin Fade 16",
+    "category": "bars",
+    "tags": [
+      "loaders-css",
+      "line",
+      "scale",
+      "bars",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-16 line spin fade 16 bars loaders-css line scale bars loader html css react cssonly customizable"
+  },
+  {
+    "id": "loaders-css-26",
+    "name": "Line Spin Fade 26",
+    "category": "bars",
+    "tags": [
+      "loaders-css",
+      "line",
+      "scale",
+      "bars",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-26 line spin fade 26 bars loaders-css line scale bars loader html css react cssonly customizable"
+  },
+  {
+    "id": "loading-io-05",
+    "name": "Loading.io Adapted Loader 05",
+    "category": "bars",
+    "tags": [
+      "loading-io",
+      "bars",
+      "equalizer",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-05 loading.io adapted loader 05 bars loading-io bars equalizer loader html css react popular cssonly customizable"
+  },
+  {
+    "id": "loading-io-11",
+    "name": "Loading.io Adapted Loader 11",
+    "category": "bars",
+    "tags": [
+      "loading-io",
+      "bars",
+      "equalizer",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-11 loading.io adapted loader 11 bars loading-io bars equalizer loader html css react cssonly customizable"
+  },
+  {
+    "id": "loading-io-17",
+    "name": "Loading.io Adapted Loader 17",
+    "category": "bars",
+    "tags": [
+      "loading-io",
+      "bars",
+      "equalizer",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-17 loading.io adapted loader 17 bars loading-io bars equalizer loader html css react cssonly customizable"
+  },
+  {
+    "id": "loading-io-23",
+    "name": "Loading.io Adapted Loader 23",
+    "category": "bars",
+    "tags": [
+      "loading-io",
+      "bars",
+      "equalizer",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-23 loading.io adapted loader 23 bars loading-io bars equalizer loader html css react cssonly customizable"
+  },
+  {
+    "id": "loading-io-29",
+    "name": "Loading.io Adapted Loader 29",
+    "category": "bars",
+    "tags": [
+      "loading-io",
+      "bars",
+      "equalizer",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-29 loading.io adapted loader 29 bars loading-io bars equalizer loader html css react cssonly customizable"
+  },
+  {
+    "id": "sliding-bars",
+    "name": "Sliding Bars",
+    "category": "bars",
+    "tags": [
+      "bars",
+      "slide",
+      "horizontal",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "sliding-bars sliding bars bars bars slide horizontal progress html css react cssonly customizable singleelement"
+  },
+  {
+    "id": "uiverse-soft-equalizer",
+    "name": "Soft Equalizer Loader",
+    "category": "bars",
+    "tags": [
+      "uiverse",
+      "equalizer",
+      "bars",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-soft-equalizer soft equalizer loader bars uiverse equalizer bars loader html css react cssonly customizable"
+  },
+  {
+    "id": "stacked-bars",
+    "name": "Stacked Bars",
+    "category": "bars",
+    "tags": [
+      "bars",
+      "stack",
+      "layers",
+      "stagger"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "cssOnly": true,
+      "customizable": true
+    },
+    "searchText": "stacked-bars stacked bars bars bars stack layers stagger html css react cssonly customizable"
+  },
+  {
+    "id": "wave-bars",
+    "name": "Wave Bars",
+    "category": "bars",
+    "tags": [
+      "bars",
+      "wave",
+      "loading",
+      "vertical"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "cssOnly": true,
+      "customizable": true
+    },
+    "searchText": "wave-bars wave bars bars bars wave loading vertical html css react popular cssonly customizable"
+  },
+  {
+    "id": "button-dots",
+    "name": "Button Dots",
+    "category": "button",
+    "tags": [
+      "button",
+      "dots",
+      "inline",
+      "submit"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "cssOnly": true,
+      "customizable": true
+    },
+    "searchText": "button-dots button dots button button dots inline submit html css react popular cssonly customizable"
+  },
+  {
+    "id": "uiverse-button-save-dots",
+    "name": "Button Save Dots",
+    "category": "button",
+    "tags": [
+      "uiverse",
+      "button",
+      "saving",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-button-save-dots button save dots button uiverse button saving loader html css react popular cssonly customizable"
+  },
+  {
+    "id": "button-spinner",
+    "name": "Button Spinner",
+    "category": "button",
+    "tags": [
+      "button",
+      "spinner",
+      "inline",
+      "submit"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "button-spinner button spinner button button spinner inline submit html css react popular cssonly customizable singleelement"
+  },
+  {
+    "id": "uiverse-orbital-button-spinner",
+    "name": "Orbital Button Spinner",
+    "category": "button",
+    "tags": [
+      "uiverse",
+      "button",
+      "spinner",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-orbital-button-spinner orbital button spinner button uiverse button spinner loader html css react cssonly customizable"
+  },
+  {
+    "id": "creative-cube",
+    "name": "Creative Cube",
+    "category": "creative",
+    "tags": [
+      "creative",
+      "cube",
+      "3d",
+      "showcase"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "creative-cube creative cube creative creative cube 3d showcase html css react popular cssonly customizable singleelement"
+  },
+  {
+    "id": "cssloaders-github-04",
+    "name": "CSSLoaders Pattern 04",
+    "category": "creative",
+    "tags": [
+      "cssloaders",
+      "square",
+      "flip",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-04 cssloaders pattern 04 creative cssloaders square flip creative loader html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-12",
+    "name": "CSSLoaders Pattern 12",
+    "category": "creative",
+    "tags": [
+      "cssloaders",
+      "square",
+      "flip",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-12 cssloaders pattern 12 creative cssloaders square flip creative loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-20",
+    "name": "CSSLoaders Pattern 20",
+    "category": "creative",
+    "tags": [
+      "cssloaders",
+      "square",
+      "flip",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-20 cssloaders pattern 20 creative cssloaders square flip creative loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-28",
+    "name": "CSSLoaders Pattern 28",
+    "category": "creative",
+    "tags": [
+      "cssloaders",
+      "square",
+      "flip",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-28 cssloaders pattern 28 creative cssloaders square flip creative loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-36",
+    "name": "CSSLoaders Pattern 36",
+    "category": "creative",
+    "tags": [
+      "cssloaders",
+      "square",
+      "flip",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-36 cssloaders pattern 36 creative cssloaders square flip creative loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "loaders-css-08",
+    "name": "Cube Transition 08",
+    "category": "creative",
+    "tags": [
+      "loaders-css",
+      "cube",
+      "transition",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-08 cube transition 08 creative loaders-css cube transition creative loader html css react popular cssonly customizable"
+  },
+  {
+    "id": "loaders-css-18",
+    "name": "Cube Transition 18",
+    "category": "creative",
+    "tags": [
+      "loaders-css",
+      "cube",
+      "transition",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-18 cube transition 18 creative loaders-css cube transition creative loader html css react cssonly customizable"
+  },
+  {
+    "id": "loaders-css-28",
+    "name": "Cube Transition 28",
+    "category": "creative",
+    "tags": [
+      "loaders-css",
+      "cube",
+      "transition",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-28 cube transition 28 creative loaders-css cube transition creative loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-gradient-flip",
+    "name": "Gradient Flip Tile",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "gradient",
+      "flip",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-gradient-flip gradient flip tile creative uiverse gradient flip creative loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-neon-orbit",
+    "name": "Neon Orbit Loader",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "neon",
+      "orbit",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-neon-orbit neon orbit loader creative uiverse neon orbit creative loader html css react popular cssonly customizable"
+  },
+  {
+    "id": "loaders-css-07",
+    "name": "Square Spin 07",
+    "category": "creative",
+    "tags": [
+      "loaders-css",
+      "square",
+      "spin",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-07 square spin 07 creative loaders-css square spin creative loader html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "loaders-css-17",
+    "name": "Square Spin 17",
+    "category": "creative",
+    "tags": [
+      "loaders-css",
+      "square",
+      "spin",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-17 square spin 17 creative loaders-css square spin creative loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "loaders-css-27",
+    "name": "Square Spin 27",
+    "category": "creative",
+    "tags": [
+      "loaders-css",
+      "square",
+      "spin",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-27 square spin 27 creative loaders-css square spin creative loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "loaders-css-03",
+    "name": "Ball Beat 03",
+    "category": "dots",
+    "tags": [
+      "loaders-css",
+      "beat",
+      "ball",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-03 ball beat 03 dots loaders-css beat ball dots loader html css react popular cssonly customizable"
+  },
+  {
+    "id": "loaders-css-13",
+    "name": "Ball Beat 13",
+    "category": "dots",
+    "tags": [
+      "loaders-css",
+      "beat",
+      "ball",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-13 ball beat 13 dots loaders-css beat ball dots loader html css react cssonly customizable"
+  },
+  {
+    "id": "loaders-css-23",
+    "name": "Ball Beat 23",
+    "category": "dots",
+    "tags": [
+      "loaders-css",
+      "beat",
+      "ball",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-23 ball beat 23 dots loaders-css beat ball dots loader html css react cssonly customizable"
+  },
+  {
+    "id": "loaders-css-33",
+    "name": "Ball Beat 33",
+    "category": "dots",
+    "tags": [
+      "loaders-css",
+      "beat",
+      "ball",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-33 ball beat 33 dots loaders-css beat ball dots loader html css react cssonly customizable"
+  },
+  {
+    "id": "loaders-css-01",
+    "name": "Ball Grid Pulse 01",
+    "category": "dots",
+    "tags": [
+      "loaders-css",
+      "ball",
+      "pulse",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-01 ball grid pulse 01 dots loaders-css ball pulse dots loader html css react popular cssonly customizable"
+  },
+  {
+    "id": "loaders-css-11",
+    "name": "Ball Grid Pulse 11",
+    "category": "dots",
+    "tags": [
+      "loaders-css",
+      "ball",
+      "pulse",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-11 ball grid pulse 11 dots loaders-css ball pulse dots loader html css react cssonly customizable"
+  },
+  {
+    "id": "loaders-css-21",
+    "name": "Ball Grid Pulse 21",
+    "category": "dots",
+    "tags": [
+      "loaders-css",
+      "ball",
+      "pulse",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-21 ball grid pulse 21 dots loaders-css ball pulse dots loader html css react cssonly customizable"
+  },
+  {
+    "id": "loaders-css-31",
+    "name": "Ball Grid Pulse 31",
+    "category": "dots",
+    "tags": [
+      "loaders-css",
+      "ball",
+      "pulse",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-31 ball grid pulse 31 dots loaders-css ball pulse dots loader html css react cssonly customizable"
+  },
+  {
+    "id": "loaders-css-10",
+    "name": "Ball Pulse 10",
+    "category": "dots",
+    "tags": [
+      "loaders-css",
+      "ball",
+      "pulse",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-10 ball pulse 10 dots loaders-css ball pulse dots loader html css react cssonly customizable"
+  },
+  {
+    "id": "loaders-css-20",
+    "name": "Ball Pulse 20",
+    "category": "dots",
+    "tags": [
+      "loaders-css",
+      "ball",
+      "pulse",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-20 ball pulse 20 dots loaders-css ball pulse dots loader html css react cssonly customizable"
+  },
+  {
+    "id": "loaders-css-30",
+    "name": "Ball Pulse 30",
+    "category": "dots",
+    "tags": [
+      "loaders-css",
+      "ball",
+      "pulse",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-30 ball pulse 30 dots loaders-css ball pulse dots loader html css react cssonly customizable"
+  },
+  {
+    "id": "demo-dots",
+    "name": "Classic Dots",
+    "category": "dots",
+    "tags": [
+      "dots",
+      "bounce",
+      "minimal",
+      "inline"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false
+    },
+    "searchText": "demo-dots classic dots dots dots bounce minimal inline html css react popular cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-05",
+    "name": "CSSLoaders Pattern 05",
+    "category": "dots",
+    "tags": [
+      "cssloaders",
+      "wave",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-05 cssloaders pattern 05 dots cssloaders wave dots loader html css react popular cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-13",
+    "name": "CSSLoaders Pattern 13",
+    "category": "dots",
+    "tags": [
+      "cssloaders",
+      "wave",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-13 cssloaders pattern 13 dots cssloaders wave dots loader html css react cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-21",
+    "name": "CSSLoaders Pattern 21",
+    "category": "dots",
+    "tags": [
+      "cssloaders",
+      "wave",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-21 cssloaders pattern 21 dots cssloaders wave dots loader html css react cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-29",
+    "name": "CSSLoaders Pattern 29",
+    "category": "dots",
+    "tags": [
+      "cssloaders",
+      "wave",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-29 cssloaders pattern 29 dots cssloaders wave dots loader html css react cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-37",
+    "name": "CSSLoaders Pattern 37",
+    "category": "dots",
+    "tags": [
+      "cssloaders",
+      "wave",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-37 cssloaders pattern 37 dots cssloaders wave dots loader html css react cssonly customizable"
+  },
+  {
+    "id": "elastic-dots",
+    "name": "Elastic Dots",
+    "category": "dots",
+    "tags": [
+      "dots",
+      "elastic",
+      "stretch",
+      "playful"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "cssOnly": true,
+      "customizable": true
+    },
+    "searchText": "elastic-dots elastic dots dots dots elastic stretch playful html css react cssonly customizable"
+  },
+  {
+    "id": "loading-io-03",
+    "name": "Loading.io Adapted Loader 03",
+    "category": "dots",
+    "tags": [
+      "loading-io",
+      "dots",
+      "ellipsis",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-03 loading.io adapted loader 03 dots loading-io dots ellipsis loader html css react popular cssonly customizable"
+  },
+  {
+    "id": "loading-io-04",
+    "name": "Loading.io Adapted Loader 04",
+    "category": "dots",
+    "tags": [
+      "loading-io",
+      "grid",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-04 loading.io adapted loader 04 dots loading-io grid dots loader html css react popular cssonly customizable"
+  },
+  {
+    "id": "loading-io-09",
+    "name": "Loading.io Adapted Loader 09",
+    "category": "dots",
+    "tags": [
+      "loading-io",
+      "dots",
+      "ellipsis",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-09 loading.io adapted loader 09 dots loading-io dots ellipsis loader html css react cssonly customizable"
+  },
+  {
+    "id": "loading-io-10",
+    "name": "Loading.io Adapted Loader 10",
+    "category": "dots",
+    "tags": [
+      "loading-io",
+      "grid",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-10 loading.io adapted loader 10 dots loading-io grid dots loader html css react cssonly customizable"
+  },
+  {
+    "id": "loading-io-15",
+    "name": "Loading.io Adapted Loader 15",
+    "category": "dots",
+    "tags": [
+      "loading-io",
+      "dots",
+      "ellipsis",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-15 loading.io adapted loader 15 dots loading-io dots ellipsis loader html css react cssonly customizable"
+  },
+  {
+    "id": "loading-io-16",
+    "name": "Loading.io Adapted Loader 16",
+    "category": "dots",
+    "tags": [
+      "loading-io",
+      "grid",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-16 loading.io adapted loader 16 dots loading-io grid dots loader html css react cssonly customizable"
+  },
+  {
+    "id": "loading-io-21",
+    "name": "Loading.io Adapted Loader 21",
+    "category": "dots",
+    "tags": [
+      "loading-io",
+      "dots",
+      "ellipsis",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-21 loading.io adapted loader 21 dots loading-io dots ellipsis loader html css react cssonly customizable"
+  },
+  {
+    "id": "loading-io-22",
+    "name": "Loading.io Adapted Loader 22",
+    "category": "dots",
+    "tags": [
+      "loading-io",
+      "grid",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-22 loading.io adapted loader 22 dots loading-io grid dots loader html css react cssonly customizable"
+  },
+  {
+    "id": "loading-io-27",
+    "name": "Loading.io Adapted Loader 27",
+    "category": "dots",
+    "tags": [
+      "loading-io",
+      "dots",
+      "ellipsis",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-27 loading.io adapted loader 27 dots loading-io dots ellipsis loader html css react cssonly customizable"
+  },
+  {
+    "id": "loading-io-28",
+    "name": "Loading.io Adapted Loader 28",
+    "category": "dots",
+    "tags": [
+      "loading-io",
+      "grid",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-28 loading.io adapted loader 28 dots loading-io grid dots loader html css react cssonly customizable"
+  },
+  {
+    "id": "loading-io-33",
+    "name": "Loading.io Adapted Loader 33",
+    "category": "dots",
+    "tags": [
+      "loading-io",
+      "dots",
+      "ellipsis",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-33 loading.io adapted loader 33 dots loading-io dots ellipsis loader html css react cssonly customizable"
+  },
+  {
+    "id": "loading-io-34",
+    "name": "Loading.io Adapted Loader 34",
+    "category": "dots",
+    "tags": [
+      "loading-io",
+      "grid",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-34 loading.io adapted loader 34 dots loading-io grid dots loader html css react cssonly customizable"
+  },
+  {
+    "id": "orbit-dots",
+    "name": "Orbit Dots",
+    "category": "dots",
+    "tags": [
+      "dots",
+      "orbit",
+      "circle",
+      "loop"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "orbit-dots orbit dots dots dots orbit circle loop html css react cssonly customizable singleelement"
+  },
+  {
+    "id": "typing-dots",
+    "name": "Typing Dots",
+    "category": "dots",
+    "tags": [
+      "dots",
+      "typing",
+      "chat",
+      "message"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "cssOnly": true,
+      "customizable": true
+    },
+    "searchText": "typing-dots typing dots dots dots typing chat message html css react popular cssonly customizable"
+  },
+  {
+    "id": "uiverse-bubble-dots",
+    "name": "Bubble Dots",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "bubble",
+      "dots",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-bubble-dots bubble dots fun uiverse bubble dots fun loader html css react cssonly customizable"
+  },
+  {
+    "id": "confetti-dots",
+    "name": "Confetti Dots",
+    "category": "fun",
+    "tags": [
+      "fun",
+      "confetti",
+      "dots",
+      "celebration"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "cssOnly": true,
+      "customizable": true
+    },
+    "searchText": "confetti-dots confetti dots fun fun confetti dots celebration html css react cssonly customizable"
+  },
+  {
+    "id": "flip-square",
+    "name": "Flip Square",
+    "category": "fun",
+    "tags": [
+      "fun",
+      "flip",
+      "square",
+      "playful"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "flip-square flip square fun fun flip square playful html css react popular cssonly customizable singleelement"
+  },
+  {
+    "id": "uiverse-spectrum-bars",
+    "name": "Spectrum Bars",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "colorful",
+      "bars",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-spectrum-bars spectrum bars fun uiverse colorful bars fun loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-minimal-arc",
+    "name": "Minimal Arc Spinner",
+    "category": "minimal",
+    "tags": [
+      "uiverse",
+      "minimal",
+      "arc",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-minimal-arc minimal arc spinner minimal uiverse minimal arc loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "minimal-dot",
+    "name": "Minimal Dot",
+    "category": "minimal",
+    "tags": [
+      "minimal",
+      "dot",
+      "tiny",
+      "indicator"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "minimal-dot minimal dot minimal minimal dot tiny indicator html css react cssonly customizable singleelement"
+  },
+  {
+    "id": "minimal-line",
+    "name": "Minimal Line",
+    "category": "minimal",
+    "tags": [
+      "minimal",
+      "line",
+      "subtle",
+      "inline"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "minimal-line minimal line minimal minimal line subtle inline html css react cssonly customizable singleelement"
+  },
+  {
+    "id": "uiverse-tiny-loading-pill",
+    "name": "Tiny Loading Pill",
+    "category": "minimal",
+    "tags": [
+      "uiverse",
+      "minimal",
+      "pill",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-tiny-loading-pill tiny loading pill minimal uiverse minimal pill loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-01",
+    "name": "CSSLoaders Pattern 01",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "stripe",
+      "progress",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-01 cssloaders pattern 01 progress cssloaders stripe progress loader html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-08",
+    "name": "CSSLoaders Pattern 08",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "progress",
+      "bar",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-08 cssloaders pattern 08 progress cssloaders progress bar loader html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-09",
+    "name": "CSSLoaders Pattern 09",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "stripe",
+      "progress",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-09 cssloaders pattern 09 progress cssloaders stripe progress loader html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-16",
+    "name": "CSSLoaders Pattern 16",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "progress",
+      "bar",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-16 cssloaders pattern 16 progress cssloaders progress bar loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-17",
+    "name": "CSSLoaders Pattern 17",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "stripe",
+      "progress",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-17 cssloaders pattern 17 progress cssloaders stripe progress loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-24",
+    "name": "CSSLoaders Pattern 24",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "progress",
+      "bar",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-24 cssloaders pattern 24 progress cssloaders progress bar loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-25",
+    "name": "CSSLoaders Pattern 25",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "stripe",
+      "progress",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-25 cssloaders pattern 25 progress cssloaders stripe progress loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-32",
+    "name": "CSSLoaders Pattern 32",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "progress",
+      "bar",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-32 cssloaders pattern 32 progress cssloaders progress bar loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-33",
+    "name": "CSSLoaders Pattern 33",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "stripe",
+      "progress",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-33 cssloaders pattern 33 progress cssloaders stripe progress loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-40",
+    "name": "CSSLoaders Pattern 40",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "progress",
+      "bar",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-40 cssloaders pattern 40 progress cssloaders progress bar loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "linear-progress",
+    "name": "Linear Progress",
+    "category": "progress",
+    "tags": [
+      "progress",
+      "bar",
+      "upload",
+      "linear"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "linear-progress linear progress progress progress bar upload linear html css react popular cssonly customizable singleelement"
+  },
+  {
+    "id": "stepped-progress",
+    "name": "Stepped Progress",
+    "category": "progress",
+    "tags": [
+      "progress",
+      "steps",
+      "wizard",
+      "checkout"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "cssOnly": true,
+      "customizable": true
+    },
+    "searchText": "stepped-progress stepped progress progress progress steps wizard checkout html css react cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-02",
+    "name": "CSSLoaders Pattern 02",
+    "category": "pulse",
+    "tags": [
+      "cssloaders",
+      "pulse",
+      "circle",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-02 cssloaders pattern 02 pulse cssloaders pulse circle loader html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-03",
+    "name": "CSSLoaders Pattern 03",
+    "category": "pulse",
+    "tags": [
+      "cssloaders",
+      "ring",
+      "pulse",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-03 cssloaders pattern 03 pulse cssloaders ring pulse loader html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-10",
+    "name": "CSSLoaders Pattern 10",
+    "category": "pulse",
+    "tags": [
+      "cssloaders",
+      "pulse",
+      "circle",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-10 cssloaders pattern 10 pulse cssloaders pulse circle loader html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-11",
+    "name": "CSSLoaders Pattern 11",
+    "category": "pulse",
+    "tags": [
+      "cssloaders",
+      "ring",
+      "pulse",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-11 cssloaders pattern 11 pulse cssloaders ring pulse loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-18",
+    "name": "CSSLoaders Pattern 18",
+    "category": "pulse",
+    "tags": [
+      "cssloaders",
+      "pulse",
+      "circle",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-18 cssloaders pattern 18 pulse cssloaders pulse circle loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-19",
+    "name": "CSSLoaders Pattern 19",
+    "category": "pulse",
+    "tags": [
+      "cssloaders",
+      "ring",
+      "pulse",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-19 cssloaders pattern 19 pulse cssloaders ring pulse loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-26",
+    "name": "CSSLoaders Pattern 26",
+    "category": "pulse",
+    "tags": [
+      "cssloaders",
+      "pulse",
+      "circle",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-26 cssloaders pattern 26 pulse cssloaders pulse circle loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-27",
+    "name": "CSSLoaders Pattern 27",
+    "category": "pulse",
+    "tags": [
+      "cssloaders",
+      "ring",
+      "pulse",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-27 cssloaders pattern 27 pulse cssloaders ring pulse loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-34",
+    "name": "CSSLoaders Pattern 34",
+    "category": "pulse",
+    "tags": [
+      "cssloaders",
+      "pulse",
+      "circle",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-34 cssloaders pattern 34 pulse cssloaders pulse circle loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-35",
+    "name": "CSSLoaders Pattern 35",
+    "category": "pulse",
+    "tags": [
+      "cssloaders",
+      "ring",
+      "pulse",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-35 cssloaders pattern 35 pulse cssloaders ring pulse loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "glow-pulse",
+    "name": "Glow Pulse",
+    "category": "pulse",
+    "tags": [
+      "pulse",
+      "glow",
+      "status",
+      "indicator"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "cssOnly": true,
+      "customizable": true
+    },
+    "searchText": "glow-pulse glow pulse pulse pulse glow status indicator html css react cssonly customizable"
+  },
+  {
+    "id": "heartbeat-pulse",
+    "name": "Heartbeat Pulse",
+    "category": "pulse",
+    "tags": [
+      "pulse",
+      "heartbeat",
+      "status",
+      "soft"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "heartbeat-pulse heartbeat pulse pulse pulse heartbeat status soft html css react cssonly customizable singleelement"
+  },
+  {
+    "id": "uiverse-pink-pulse-ring",
+    "name": "Pink Pulse Ring",
+    "category": "pulse",
+    "tags": [
+      "uiverse",
+      "pulse",
+      "ring",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-pink-pulse-ring pink pulse ring pulse uiverse pulse ring loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "pulse-ring",
+    "name": "Pulse Ring",
+    "category": "pulse",
+    "tags": [
+      "pulse",
+      "ring",
+      "ping",
+      "notification"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "pulse-ring pulse ring pulse pulse ring ping notification html css react popular cssonly customizable singleelement"
+  },
+  {
+    "id": "uiverse-card-line-shimmer",
+    "name": "Card Line Shimmer",
+    "category": "skeleton",
+    "tags": [
+      "uiverse",
+      "card",
+      "shimmer",
+      "skeleton",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-card-line-shimmer card line shimmer skeleton uiverse card shimmer skeleton loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-dashboard-shimmer",
+    "name": "Dashboard Shimmer",
+    "category": "skeleton",
+    "tags": [
+      "uiverse",
+      "dashboard",
+      "skeleton",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-dashboard-shimmer dashboard shimmer skeleton uiverse dashboard skeleton loader html css react popular cssonly customizable"
+  },
+  {
+    "id": "skeleton-avatar",
+    "name": "Skeleton Avatar",
+    "category": "skeleton",
+    "tags": [
+      "skeleton",
+      "avatar",
+      "profile",
+      "placeholder"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "cssOnly": true,
+      "customizable": true
+    },
+    "searchText": "skeleton-avatar skeleton avatar skeleton skeleton avatar profile placeholder html css react popular cssonly customizable"
+  },
+  {
+    "id": "skeleton-card",
+    "name": "Skeleton Card",
+    "category": "skeleton",
+    "tags": [
+      "skeleton",
+      "card",
+      "placeholder",
+      "layout"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "cssOnly": true,
+      "customizable": true
+    },
+    "searchText": "skeleton-card skeleton card skeleton skeleton card placeholder layout html css react cssonly customizable"
+  },
+  {
+    "id": "skeleton-line",
+    "name": "Skeleton Line",
+    "category": "skeleton",
+    "tags": [
+      "skeleton",
+      "shimmer",
+      "line",
+      "placeholder"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "cssOnly": true,
+      "customizable": true
+    },
+    "searchText": "skeleton-line skeleton line skeleton skeleton shimmer line placeholder html css react popular cssonly customizable"
+  },
+  {
+    "id": "arc-spinner",
+    "name": "Arc Spinner",
+    "category": "spinners",
+    "tags": [
+      "spinner",
+      "arc",
+      "minimal",
+      "single element"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "arc-spinner arc spinner spinners spinner arc minimal single element html css react cssonly customizable singleelement"
+  },
+  {
+    "id": "loaders-css-02",
+    "name": "Ball Clip Rotate 02",
+    "category": "spinners",
+    "tags": [
+      "loaders-css",
+      "clip",
+      "rotate",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-02 ball clip rotate 02 spinners loaders-css clip rotate spinners loader html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "loaders-css-12",
+    "name": "Ball Clip Rotate 12",
+    "category": "spinners",
+    "tags": [
+      "loaders-css",
+      "clip",
+      "rotate",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-12 ball clip rotate 12 spinners loaders-css clip rotate spinners loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "loaders-css-22",
+    "name": "Ball Clip Rotate 22",
+    "category": "spinners",
+    "tags": [
+      "loaders-css",
+      "clip",
+      "rotate",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-22 ball clip rotate 22 spinners loaders-css clip rotate spinners loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "loaders-css-32",
+    "name": "Ball Clip Rotate 32",
+    "category": "spinners",
+    "tags": [
+      "loaders-css",
+      "clip",
+      "rotate",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-32 ball clip rotate 32 spinners loaders-css clip rotate spinners loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "loaders-css-04",
+    "name": "Ball Scale 04",
+    "category": "spinners",
+    "tags": [
+      "loaders-css",
+      "clip",
+      "rotate",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-04 ball scale 04 spinners loaders-css clip rotate spinners loader html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "loaders-css-14",
+    "name": "Ball Scale 14",
+    "category": "spinners",
+    "tags": [
+      "loaders-css",
+      "clip",
+      "rotate",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-14 ball scale 14 spinners loaders-css clip rotate spinners loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "loaders-css-24",
+    "name": "Ball Scale 24",
+    "category": "spinners",
+    "tags": [
+      "loaders-css",
+      "clip",
+      "rotate",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-24 ball scale 24 spinners loaders-css clip rotate spinners loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "loaders-css-34",
+    "name": "Ball Scale 34",
+    "category": "spinners",
+    "tags": [
+      "loaders-css",
+      "clip",
+      "rotate",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-34 ball scale 34 spinners loaders-css clip rotate spinners loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "loaders-css-09",
+    "name": "Ball Triangle Path 09",
+    "category": "spinners",
+    "tags": [
+      "loaders-css",
+      "triangle",
+      "path",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-09 ball triangle path 09 spinners loaders-css triangle path spinners loader html css react cssonly customizable"
+  },
+  {
+    "id": "loaders-css-19",
+    "name": "Ball Triangle Path 19",
+    "category": "spinners",
+    "tags": [
+      "loaders-css",
+      "triangle",
+      "path",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-19 ball triangle path 19 spinners loaders-css triangle path spinners loader html css react cssonly customizable"
+  },
+  {
+    "id": "loaders-css-29",
+    "name": "Ball Triangle Path 29",
+    "category": "spinners",
+    "tags": [
+      "loaders-css",
+      "triangle",
+      "path",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loaders-css-29 ball triangle path 29 spinners loaders-css triangle path spinners loader html css react cssonly customizable"
+  },
+  {
+    "id": "demo-spinner",
+    "name": "Classic Spinner",
+    "category": "spinners",
+    "tags": [
+      "spinner",
+      "ring",
+      "circle",
+      "classic"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "demo-spinner classic spinner spinners spinner ring circle classic html css react popular cssonly customizable singleelement"
+  },
+  {
+    "id": "compass-spinner",
+    "name": "Compass Spinner",
+    "category": "spinners",
+    "tags": [
+      "spinner",
+      "compass",
+      "needle",
+      "map"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "cssOnly": true,
+      "customizable": true
+    },
+    "searchText": "compass-spinner compass spinner spinners spinner compass needle map html css react cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-07",
+    "name": "CSSLoaders Pattern 07",
+    "category": "spinners",
+    "tags": [
+      "cssloaders",
+      "ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-07 cssloaders pattern 07 spinners cssloaders ring spinner spinners loader html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-15",
+    "name": "CSSLoaders Pattern 15",
+    "category": "spinners",
+    "tags": [
+      "cssloaders",
+      "ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-15 cssloaders pattern 15 spinners cssloaders ring spinner spinners loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-23",
+    "name": "CSSLoaders Pattern 23",
+    "category": "spinners",
+    "tags": [
+      "cssloaders",
+      "ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-23 cssloaders pattern 23 spinners cssloaders ring spinner spinners loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-31",
+    "name": "CSSLoaders Pattern 31",
+    "category": "spinners",
+    "tags": [
+      "cssloaders",
+      "ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-31 cssloaders pattern 31 spinners cssloaders ring spinner spinners loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-39",
+    "name": "CSSLoaders Pattern 39",
+    "category": "spinners",
+    "tags": [
+      "cssloaders",
+      "ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-39 cssloaders pattern 39 spinners cssloaders ring spinner spinners loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "dual-ring-spinner",
+    "name": "Dual Ring Spinner",
+    "category": "spinners",
+    "tags": [
+      "spinner",
+      "ring",
+      "dual",
+      "dashboard"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "dual-ring-spinner dual ring spinner spinners spinner ring dual dashboard html css react popular cssonly customizable singleelement"
+  },
+  {
+    "id": "loading-io-01",
+    "name": "Loading.io Adapted Loader 01",
+    "category": "spinners",
+    "tags": [
+      "loading-io",
+      "ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-01 loading.io adapted loader 01 spinners loading-io ring spinner spinners loader html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "loading-io-02",
+    "name": "Loading.io Adapted Loader 02",
+    "category": "spinners",
+    "tags": [
+      "loading-io",
+      "dual-ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-02 loading.io adapted loader 02 spinners loading-io dual-ring spinner spinners loader html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "loading-io-06",
+    "name": "Loading.io Adapted Loader 06",
+    "category": "spinners",
+    "tags": [
+      "loading-io",
+      "orbit",
+      "circle",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-06 loading.io adapted loader 06 spinners loading-io orbit circle spinners loader html css react popular cssonly customizable"
+  },
+  {
+    "id": "loading-io-07",
+    "name": "Loading.io Adapted Loader 07",
+    "category": "spinners",
+    "tags": [
+      "loading-io",
+      "ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-07 loading.io adapted loader 07 spinners loading-io ring spinner spinners loader html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "loading-io-08",
+    "name": "Loading.io Adapted Loader 08",
+    "category": "spinners",
+    "tags": [
+      "loading-io",
+      "dual-ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-08 loading.io adapted loader 08 spinners loading-io dual-ring spinner spinners loader html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "loading-io-12",
+    "name": "Loading.io Adapted Loader 12",
+    "category": "spinners",
+    "tags": [
+      "loading-io",
+      "orbit",
+      "circle",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-12 loading.io adapted loader 12 spinners loading-io orbit circle spinners loader html css react cssonly customizable"
+  },
+  {
+    "id": "loading-io-13",
+    "name": "Loading.io Adapted Loader 13",
+    "category": "spinners",
+    "tags": [
+      "loading-io",
+      "ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-13 loading.io adapted loader 13 spinners loading-io ring spinner spinners loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "loading-io-14",
+    "name": "Loading.io Adapted Loader 14",
+    "category": "spinners",
+    "tags": [
+      "loading-io",
+      "dual-ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-14 loading.io adapted loader 14 spinners loading-io dual-ring spinner spinners loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "loading-io-18",
+    "name": "Loading.io Adapted Loader 18",
+    "category": "spinners",
+    "tags": [
+      "loading-io",
+      "orbit",
+      "circle",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-18 loading.io adapted loader 18 spinners loading-io orbit circle spinners loader html css react cssonly customizable"
+  },
+  {
+    "id": "loading-io-19",
+    "name": "Loading.io Adapted Loader 19",
+    "category": "spinners",
+    "tags": [
+      "loading-io",
+      "ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-19 loading.io adapted loader 19 spinners loading-io ring spinner spinners loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "loading-io-20",
+    "name": "Loading.io Adapted Loader 20",
+    "category": "spinners",
+    "tags": [
+      "loading-io",
+      "dual-ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-20 loading.io adapted loader 20 spinners loading-io dual-ring spinner spinners loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "loading-io-24",
+    "name": "Loading.io Adapted Loader 24",
+    "category": "spinners",
+    "tags": [
+      "loading-io",
+      "orbit",
+      "circle",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-24 loading.io adapted loader 24 spinners loading-io orbit circle spinners loader html css react cssonly customizable"
+  },
+  {
+    "id": "loading-io-25",
+    "name": "Loading.io Adapted Loader 25",
+    "category": "spinners",
+    "tags": [
+      "loading-io",
+      "ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-25 loading.io adapted loader 25 spinners loading-io ring spinner spinners loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "loading-io-26",
+    "name": "Loading.io Adapted Loader 26",
+    "category": "spinners",
+    "tags": [
+      "loading-io",
+      "dual-ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-26 loading.io adapted loader 26 spinners loading-io dual-ring spinner spinners loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "loading-io-30",
+    "name": "Loading.io Adapted Loader 30",
+    "category": "spinners",
+    "tags": [
+      "loading-io",
+      "orbit",
+      "circle",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-30 loading.io adapted loader 30 spinners loading-io orbit circle spinners loader html css react cssonly customizable"
+  },
+  {
+    "id": "loading-io-31",
+    "name": "Loading.io Adapted Loader 31",
+    "category": "spinners",
+    "tags": [
+      "loading-io",
+      "ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-31 loading.io adapted loader 31 spinners loading-io ring spinner spinners loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "loading-io-32",
+    "name": "Loading.io Adapted Loader 32",
+    "category": "spinners",
+    "tags": [
+      "loading-io",
+      "dual-ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-32 loading.io adapted loader 32 spinners loading-io dual-ring spinner spinners loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "tailwind-pulse",
+    "name": "Tailwind Pulse",
+    "category": "tailwind",
+    "tags": [
+      "tailwind",
+      "pulse",
+      "utility",
+      "inline"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "popular": true,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true,
+      "tailwind": true
+    },
+    "searchText": "tailwind-pulse tailwind pulse tailwind tailwind pulse utility inline html css react tailwind popular cssonly customizable singleelement tailwind"
+  }
+]

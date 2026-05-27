@@ -1,0 +1,29 @@
+{
+  "id": "dual-ring-spinner",
+  "name": "Dual Ring Spinner",
+  "category": "spinners",
+  "tags": [
+    "spinner",
+    "ring",
+    "dual",
+    "dashboard"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader {\n  position: relative;\n  display: inline-block;\n  width: 58px;\n  height: 58px;\n  border-radius: 50%;\n  color: #6366f1;\n}\n.loader::before,\n.loader::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  border-radius: 50%;\n  border: 4px solid transparent;\n  border-top-color: currentColor;\n  animation: spin 1s linear infinite;\n}\n.loader::after {\n  inset: 10px;\n  border-top-color: rgba(99, 102, 241, 0.35);\n  animation-direction: reverse;\n}\n@keyframes spin { to { transform: rotate(360deg); } }\n",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 48,
+    "speed": 1
+  },
+  "flags": {
+    "popular": true,
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": true
+  }
+}

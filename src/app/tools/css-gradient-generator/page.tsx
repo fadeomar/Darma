@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 };
 
 const CssGradientGeneratorClient = dynamic(() => import("./CssGradientGeneratorClient"), {
-  loading: () => <div className="h-[640px] animate-pulse rounded-3xl bg-slate-100" />,
+  loading: () => <div className="h-[640px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
 });
 
 const Article = dynamic(() => import("./Article"));
@@ -40,7 +40,7 @@ export default function CssGradientGeneratorPage() {
     <ToolPageShell
       tool={tool}
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-slate-700 dark:text-slate-300">
+        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
           Create CSS linear and radial gradients, adjust color stops, preview the
           result live, and copy clean CSS background code. Everything runs
           locally in your browser.
@@ -49,10 +49,10 @@ export default function CssGradientGeneratorPage() {
       sidebar={
         <div className="flex flex-col gap-5">
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               What you can do
             </h2>
-            <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-700 dark:text-slate-300">
+            <ul className="mt-3 space-y-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
               <li>Create linear and radial CSS gradients.</li>
               <li>Adjust angle, shape, colors, and stop positions.</li>
               <li>Use presets, random gradients, and reverse stops.</li>
@@ -61,10 +61,10 @@ export default function CssGradientGeneratorPage() {
           </SurfaceCard>
 
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Good for
             </h2>
-            <ul className="mt-3 space-y-1.5 text-sm leading-6 text-slate-600 dark:text-slate-400">
+            <ul className="mt-3 space-y-1.5 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
               <li>Hero backgrounds</li>
               <li>Cards and banners</li>
               <li>Buttons and UI surfaces</li>
@@ -73,10 +73,10 @@ export default function CssGradientGeneratorPage() {
           </SurfaceCard>
 
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Privacy
             </h2>
-            <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
               The gradient is generated in your browser. No colors or CSS are
               sent to a server.
             </p>

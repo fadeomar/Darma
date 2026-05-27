@@ -1,24 +1,22 @@
-"use client"; // Required for client-side interactivity
+"use client";
 
 import { useState } from "react";
-// Define the Tooltip type
+import { Button, Card, Field, Slider } from "@/components/ui";
+
 interface Tooltip {
   id: string;
   css: string;
-  html?: string; // Optional since it’s commented out in your code
+  html?: string;
   text: string;
 }
 
-// const TooltipCard = ({ tooltip }) => {
 const TooltipCard = ({ tooltip }: { tooltip: Tooltip }) => {
-  const [tipPosition, setTipPosition] = useState(50); // Default tip position
+  const [tipPosition, setTipPosition] = useState(50);
 
-  // Function to copy CSS to clipboard
   const copyCSS = () => {
-    // Replace --p value in the CSS with the current tipPosition
     const updatedCSS = tooltip.css.replace(
       /--p:\s*\d+%;/,
-      `--p: ${tipPosition}%;`
+      `--p: ${tipPosition}%;`,
     );
     navigator.clipboard.writeText(updatedCSS.trim()).then(() => {
       alert("CSS copied to clipboard!");
@@ -26,46 +24,33 @@ const TooltipCard = ({ tooltip }: { tooltip: Tooltip }) => {
   };
 
   return (
-    <div className="group relative bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition-shadow max-w-md mx-auto mb-6">
-      {/* Tooltip Preview */}
+    <Card className="group relative mx-auto mb-6 max-w-md" padding="md">
       <div
-        id={tooltip.id} // Use the ID from the JSON
+        id={tooltip.id}
         className="tooltip mb-4"
         style={{ "--p": `${tipPosition}%` } as React.CSSProperties}
-        // dangerouslySetInnerHTML={{ __html: tooltip.html }}
       >
         <p style={{ color: "black" }}>{tooltip.text}</p>
       </div>
-      {/* Range Input for Tip Position */}
-      <div className="mb-4">
-        <label
-          htmlFor={`tip-position-${tooltip.id}`}
-          className="block text-sm font-medium text-gray-700"
-        >
-          Tip Position
-        </label>
-        <input
-          type="range"
+
+      <Field label="Tip position" valueMeta={`${tipPosition}%`}>
+        <Slider
           id={`tip-position-${tooltip.id}`}
-          min="0"
-          max="100"
+          min={0}
+          max={100}
           value={tipPosition}
-          className="w-full"
           onChange={(e) => setTipPosition(Number(e.target.value))}
         />
+      </Field>
+
+      <div className="mt-4 flex justify-end">
+        <Button type="button" variant="soft" size="sm" onClick={copyCSS}>
+          Copy CSS
+        </Button>
       </div>
 
-      {/* Copy Button (Visible on Hover) */}
-      <button
-        className="opacity-0 group-hover:opacity-100 absolute top-2 right-2 bg-blue-500 text-white px-3 py-1 rounded-md transition-opacity"
-        onClick={copyCSS}
-      >
-        Copy CSS
-      </button>
-
-      {/* Inject Dynamic CSS */}
       <style>{tooltip.css.replace(/\\n/g, "\n")}</style>
-    </div>
+    </Card>
   );
 };
 

@@ -7,6 +7,8 @@ export const HARMONY_OPTIONS: Array<{ value: HarmonyMode; label: string; descrip
   { value: "split-complementary", label: "Split complementary", description: "A base hue plus two softer opposite accents." },
   { value: "triadic", label: "Triadic", description: "Three evenly spaced hues with balanced energy." },
   { value: "tetradic", label: "Tetradic", description: "Two complementary pairs for rich design systems." },
+  { value: "shades", label: "Shades", description: "Same hue stepping down through progressively darker tones." },
+  { value: "tints", label: "Tints", description: "Same hue stepping up through progressively lighter tones." },
 ];
 
 export const PALETTE_SIZE_OPTIONS: Array<{ value: PaletteSize; label: string }> = [

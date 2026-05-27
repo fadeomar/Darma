@@ -1,0 +1,29 @@
+{
+  "id": "pulse-ring",
+  "name": "Pulse Ring",
+  "category": "pulse",
+  "tags": [
+    "pulse",
+    "ring",
+    "ping",
+    "notification"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader {\n  position: relative;\n  display: inline-block;\n  width: 54px;\n  height: 54px;\n  border-radius: 50%;\n  background: var(--loader-color);\n}\n.loader::before,\n.loader::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  border-radius: inherit;\n  border: 3px solid var(--loader-color);\n  animation: pulse 1.25s ease-out infinite;\n}\n.loader::after { animation-delay: 0.45s; }\n@keyframes pulse {\n  to { transform: scale(1.9); opacity: 0; }\n}\n",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 48,
+    "speed": 1
+  },
+  "flags": {
+    "popular": true,
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": true
+  }
+}

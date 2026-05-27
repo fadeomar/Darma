@@ -1,52 +1,38 @@
-// app/tools/box-shadow/page.tsx
-"use client";
-import React, { useState } from "react";
-import Configuration from "./Configuration";
-import Preview from "./Preview";
-import CodeResult from "./CodeResult";
-import Title from "@/components/Title";
-import { BoxShadowState } from "@/types";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import dynamic from "next/dynamic";
+import { getToolRegistry } from "@/features/tools";
+import { buildToolJsonLd, buildToolMetadata } from "@/features/tools/seo";
+import { ToolPage } from "@/features/tools/layouts";
+import ToolContentCard from "@/features/tools/ui/ToolContentCard";
+import Article from "./Article";
 
-import "./styles.css";
+export async function generateMetadata(): Promise<Metadata> {
+  const tool = getToolRegistry().getById("box-shadows-generator");
+  if (!tool) return {};
+  return buildToolMetadata(tool);
+}
 
-const defaultState = {
-  shadows: [
-    {
-      id: "1",
-      offsetX: 0,
-      offsetY: 0,
-      blur: 10,
-      spread: 0,
-      opacity: 0.5,
-      color: "#000000",
-      inset: false,
-      distance: 10,
-    },
-  ],
-  boxSize: 200,
-  borderRadius: 10,
-  backgroundColor: "#ffffff",
-  activeLightSource: 1,
-};
+const BoxShadowsGeneratorClient = dynamic(() => import("./BoxShadowsGeneratorClient"), {
+  loading: () => <div className="h-[760px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-control-track)]" />,
+});
 
-const BoxShadowPage = () => {
-  const [state, setState] = useState<BoxShadowState>(defaultState);
+export default function BoxShadowsGeneratorPage() {
+  const tool = getToolRegistry().getById("box-shadows-generator");
+  if (!tool) notFound();
+  const jsonLd = buildToolJsonLd(tool);
+
   return (
-    <div className="container mx-auto p-4">
-      <Title variant="h1" label="Box Shadow Generator" />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <Configuration state={state} setState={setState} />
-        <Preview
-          state={state}
-          setActiveLightSource={(value) =>
-            setState({ ...state, activeLightSource: value })
-          }
-          activeLightSource={state.activeLightSource}
-        />
-        <CodeResult state={state} />
-      </div>
-    </div>
+    <ToolPage
+      tool={tool}
+      maxWidth="wide"
+      intro={<p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)]">Build multi-layer CSS box shadows with a live preview, compact layer editor, presets, and copy-ready output.</p>}
+      article={<ToolContentCard title="About CSS box-shadow"><Article /></ToolContentCard>}
+    >
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <ToolContentCard title="Box Shadows Generator" description="Tune layered shadows, preview radius, surface color, and export CSS or Tailwind-style snippets.">
+        <BoxShadowsGeneratorClient />
+      </ToolContentCard>
+    </ToolPage>
   );
-};
-
-export default BoxShadowPage;
+}

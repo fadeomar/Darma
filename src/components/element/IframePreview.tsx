@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useMemo } from "react";
@@ -8,39 +9,32 @@ type Props = {
   html: string;
   css: string;
   js: string;
-
-  /** Optional: lets parent react to width changes (if needed elsewhere) */
   onWidthChange?: (width: number) => void;
-
   className?: string;
 };
 
-export default function IframePreview({
-  html,
-  css,
-  js,
-  onWidthChange,
-  className = "",
-}: Props) {
-  const srcDoc = useMemo(() => {
-    return buildIframeDoc({ html, css, js });
-  }, [html, css, js]);
+export default function IframePreview({ html, css, js, onWidthChange, className = "" }: Props) {
+  const srcDoc = useMemo(() => buildIframeDoc({ html, css, js }), [html, css, js]);
 
   const handleSizeChange = (size: { width: number; height: number }) => {
     onWidthChange?.(size.width);
   };
 
   return (
-    <div className={["w-full max-w-full", className].join(" ")}>
+    <section className={["w-full max-w-full", className].join(" ")}>
+      <div className="mb-2 flex items-center justify-between rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] px-3 py-2 shadow-[var(--shadow-xs)]">
+        <p className="font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Live preview</p>
+        <p className="text-xs text-[var(--color-text-tertiary)]">Drag corner to resize</p>
+      </div>
       <ResizableContainer onSizeChange={handleSizeChange}>
-        <div className="bg-white dark:bg-black rounded-2xl shadow-xl p-1 border border-gray-200 dark:border-gray-800 h-full min-h-[80vh]">
+        <div className="h-full rounded-[var(--radius-lg)] border border-[var(--color-preview-border)] bg-[var(--color-preview-bg)] p-1">
           <iframe
             srcDoc={srcDoc}
-            className="w-full h-full rounded-xl bg-white dark:bg-black border border-gray-200 dark:border-gray-800 shadow-md"
+            className="h-full w-full rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-preview-bg)]"
             title="Element Preview"
           />
         </div>
       </ResizableContainer>
-    </div>
+    </section>
   );
 }

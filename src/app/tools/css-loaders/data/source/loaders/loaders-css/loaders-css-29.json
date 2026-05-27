@@ -1,0 +1,40 @@
+{
+  "id": "loaders-css-29",
+  "name": "Ball Triangle Path 29",
+  "category": "spinners",
+  "tags": [
+    "loaders-css",
+    "triangle",
+    "path",
+    "spinners",
+    "loader"
+  ],
+  "html": "<span class=\"loader\"><i></i><i></i><i></i></span>",
+  "css": ".loader {\n      position: relative;\n      display: inline-block;\n      width: 57px;\n      height: 57px;\n      border-radius: 50%;\n      border: 1px solid color-mix(in srgb, var(--loader-color) 24%, transparent);\n    }\n    .loader i {\n      position: absolute;\n      inset: -3px;\n      border-radius: 50%;\n      animation: orbit 1.22s linear infinite;\n    }\n    .loader i::before {\n      content: \"\";\n      position: absolute;\n      top: 0;\n      left: 50%;\n      width: 10px;\n      height: 10px;\n      margin-left: -5px;\n      border-radius: 50%;\n      background: var(--loader-color);\n      box-shadow: 0 0 18px color-mix(in srgb, var(--loader-color) 45%, transparent);\n    }\n    .loader i:nth-child(1) { animation-delay: 0.00s; }\n.loader i:nth-child(2) { animation-delay: -0.41s; }\n.loader i:nth-child(3) { animation-delay: -0.81s; }\n    @keyframes orbit { to { transform: rotate(360deg); } }\n",
+  "source": {
+    "name": "loaders.css",
+    "author": "Connor Atherton",
+    "license": "MIT",
+    "url": "https://github.com/ConnorAtherton/loaders.css"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "color": "#22c55e",
+    "secondaryColor": "#bbf7d0",
+    "size": 68,
+    "speed": 1.07
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -12,7 +12,7 @@ const Preview: React.FC<PreviewProps> = ({ state }) => {
     <div className="preview">
       <div className="soft-element soft-shadow max-w-[200px] md:max-w-none max-h-[200px] md:max-h-none">
         <style>{styleContent}</style>
-        <button className="darma-button">{state.textPlaceholder}</button>
+        <button type="button" className="darma-button">{state.textPlaceholder}</button>
       </div>
     </div>
   );

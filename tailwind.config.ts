@@ -39,12 +39,55 @@ export default {
         },
       },
       colors: {
+        /* Legacy aliases — preserved for backward compatibility */
         background: "var(--background)",
         foreground: "var(--foreground)",
         textColor: "var(--textColor)",
         baseColor: "var(--baseColor)",
         darkColor: "var(--darkColor)",
         lightColor: "var(--lightColor)",
+        /* Semantic design-system aliases */
+        app: {
+          bg: "var(--color-app-bg)",
+          page: "var(--color-page-bg)",
+        },
+        surface: {
+          base: "var(--color-surface-base)",
+          raised: "var(--color-surface-raised)",
+          subtle: "var(--color-surface-subtle)",
+          inset: "var(--color-surface-inset)",
+          overlay: "var(--color-surface-overlay)",
+        },
+        tx: {
+          primary: "var(--color-text-primary)",
+          secondary: "var(--color-text-secondary)",
+          tertiary: "var(--color-text-tertiary)",
+          inverse: "var(--color-text-inverse)",
+        },
+        border: {
+          subtle: "var(--color-border-subtle)",
+          DEFAULT: "var(--color-border-default)",
+          strong: "var(--color-border-strong)",
+        },
+        action: {
+          primary: "var(--color-primary)",
+          primaryHover: "var(--color-primary-hover)",
+          accent: "var(--color-accent)",
+        },
+        control: {
+          bg: "var(--color-control-bg)",
+          hover: "var(--color-control-hover)",
+          active: "var(--color-control-active)",
+          track: "var(--color-control-track)",
+        },
+        preview: {
+          bg: "var(--color-preview-bg)",
+          bgStrong: "var(--color-preview-bg-strong)",
+        },
+        code: {
+          bg: "var(--color-code-bg)",
+          text: "var(--color-code-text)",
+        },
       },
       borderRadius: {
         soft: "var(--radius)",

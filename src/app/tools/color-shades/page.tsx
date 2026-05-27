@@ -13,11 +13,11 @@ const DEFAULT_PARAMS: ColorShadesParams = {
 };
 
 const ColorShadesClient = dynamic(() => import("./ColorShadesClient"), {
-  loading: () => <div className="h-64 animate-pulse rounded-3xl bg-slate-200" />,
+  loading: () => <div className="h-64 animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-control-track)]" />,
 });
 
 const SuggestionsSection = dynamic(() => import("./SuggestionsSection"), {
-  loading: () => <div className="h-48 animate-pulse rounded-3xl bg-slate-200" />,
+  loading: () => <div className="h-48 animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-control-track)]" />,
 });
 
 const ColorShadesArticle = dynamic(() => import("./ColorShadesArticle"));
@@ -32,7 +32,7 @@ export default function ColorShadesGenerator() {
       tool={tool}
       maxWidth="wide"
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-slate-700 dark:text-slate-300">
+        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)]">
           Generate smooth transitions between two colors, inspect the shades instantly, and click any swatch to copy the value.
         </p>
       }
@@ -45,8 +45,8 @@ export default function ColorShadesGenerator() {
         }
         controlsSlot={
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">Great for</h2>
-            <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-700 dark:text-slate-300">
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)]">Great for</h2>
+            <ul className="mt-3 space-y-2 text-sm leading-6 text-[var(--color-text-secondary)]">
               <li>Gradient and palette exploration</li>
               <li>Design systems and brand shades</li>
               <li>Quick visual inspiration</li>

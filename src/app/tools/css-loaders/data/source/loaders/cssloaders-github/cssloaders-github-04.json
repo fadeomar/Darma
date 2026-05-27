@@ -1,0 +1,40 @@
+{
+  "id": "cssloaders-github-04",
+  "name": "CSSLoaders Pattern 04",
+  "category": "creative",
+  "tags": [
+    "cssloaders",
+    "square",
+    "flip",
+    "creative",
+    "loader"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader {\n  display: inline-block;\n  width: 56px;\n  height: 56px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color), var(--loader-secondary-color));\n  animation: squareFlip 0.85s cubic-bezier(.55,.08,.38,.97) infinite;\n}\n@keyframes squareFlip { 0% { transform: perspective(120px) rotateX(0) rotateY(0); } 50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); } 100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); } }\n",
+  "source": {
+    "name": "cssloaders.github.io",
+    "author": "cssloaders",
+    "license": "MIT",
+    "url": "https://github.com/cssloaders/cssloaders.github.io"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "color": "#14b8a6",
+    "secondaryColor": "#99f6e4",
+    "size": 66,
+    "speed": 0.85
+  },
+  "flags": {
+    "popular": true,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

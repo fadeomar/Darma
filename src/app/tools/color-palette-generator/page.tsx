@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const ColorPaletteClient = dynamic(() => import("./ColorPaletteClient"), {
-  loading: () => <div className="h-[760px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
+  loading: () => <div className="h-[900px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
 });
 const Article = dynamic(() => import("./Article"));
 

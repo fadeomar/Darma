@@ -4,7 +4,9 @@ export type HarmonyMode =
   | "complementary"
   | "split-complementary"
   | "triadic"
-  | "tetradic";
+  | "tetradic"
+  | "shades"
+  | "tints";
 
 export type PaletteSize = 3 | 5 | 7 | 9;
 export type PaletteUiMode = "light" | "dark";

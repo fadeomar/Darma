@@ -38,7 +38,7 @@ export function generatePalette(baseColor: string, options: PaletteOptions): Pal
 
   const baseHsl = hexToHsl(normalized);
   const offsets = getHarmonyOffsets(options.harmony, options.size);
-  const lightnessSteps = getLightnessSteps(options.size);
+  const lightnessSteps = getLightnessSteps(options.size, options.harmony);
   const colors = offsets.map((offset, index) => {
     const locked = options.lockedColors?.[index];
     if (locked) return { ...locked, locked: true };
@@ -148,6 +148,8 @@ function getHarmonyOffsets(mode: HarmonyMode, size: number): number[] {
     "split-complementary": [0, 150, 210, -12, 162, 198, 12, 138, 222],
     triadic: [0, 120, 240, -12, 132, 228, 12, 108, 252],
     tetradic: [0, 90, 180, 270, -12, 102, 168, 282, 12],
+    shades: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    tints: [0, 0, 0, 0, 0, 0, 0, 0, 0],
   };
 
   const values = maps[mode];
@@ -155,7 +157,19 @@ function getHarmonyOffsets(mode: HarmonyMode, size: number): number[] {
   return Array.from({ length: size }, (_, index) => values[index % values.length] + Math.floor(index / values.length) * 8);
 }
 
-function getLightnessSteps(size: number): number[] {
+function getLightnessSteps(size: number, mode?: HarmonyMode): number[] {
+  if (mode === "shades") {
+    if (size === 3) return [65, 38, 14];
+    if (size === 5) return [72, 55, 40, 26, 13];
+    if (size === 7) return [78, 65, 52, 40, 28, 18, 9];
+    return [85, 74, 63, 52, 41, 31, 22, 14, 7];
+  }
+  if (mode === "tints") {
+    if (size === 3) return [90, 78, 65];
+    if (size === 5) return [97, 90, 82, 73, 62];
+    if (size === 7) return [98, 93, 87, 80, 72, 63, 54];
+    return [98, 94, 89, 83, 76, 68, 60, 51, 42];
+  }
   if (size === 3) return [90, 52, 22];
   if (size === 5) return [94, 76, 54, 36, 18];
   if (size === 7) return [96, 84, 70, 55, 42, 30, 18];
@@ -164,6 +178,7 @@ function getLightnessSteps(size: number): number[] {
 
 function getSaturationShift(mode: HarmonyMode, index: number): number {
   if (mode === "monochromatic") return index % 2 === 0 ? -8 : 6;
+  if (mode === "shades" || mode === "tints") return index % 2 === 0 ? -4 : 4;
   return index % 3 === 0 ? 0 : index % 3 === 1 ? -4 : 6;
 }
 

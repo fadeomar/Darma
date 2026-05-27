@@ -10,6 +10,7 @@ import PresetGallery from "./components/PresetGallery";
 import PreviewPanel from "./components/PreviewPanel";
 import ControlPanel from "./components/ControlPanel";
 import CodeOutput from "./components/CodeOutput";
+import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
 
 const initialState = presetToState(presets[0]);
 
@@ -44,11 +45,9 @@ export default function AnimatedBackgroundClient() {
   const handleSimilar = () => setState((current) => ({ ...current, seed: current.seed + 137 }));
 
   return (
-    <div className="space-y-6">
-      <PresetGallery presets={presets} activeId={state.presetId} onSelect={handleSelect} />
-
-      <div className="grid gap-6 xl:grid-cols-[minmax(0,1.55fr)_minmax(320px,1fr)]">
-        <PreviewPanel state={state} particles={particles} />
+    <ToolLayoutVisualGenerator
+      previewSlot={<PreviewPanel state={state} particles={particles} />}
+      controlsSlot={
         <ControlPanel
           state={state}
           setState={setState}
@@ -56,9 +55,9 @@ export default function AnimatedBackgroundClient() {
           onReset={handleReset}
           onSimilar={handleSimilar}
         />
-      </div>
-
-      <CodeOutput html={html} css={css} particleCount={particles.length} />
-    </div>
+      }
+      presetsSlot={<PresetGallery presets={presets} activeId={state.presetId} onSelect={handleSelect} />}
+      codeSlot={<CodeOutput html={html} css={css} particleCount={particles.length} />}
+    />
   );
 }

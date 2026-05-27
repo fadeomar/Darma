@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 };
 
 const TextCleanerClient = dynamic(() => import("./TextCleanerClient"), {
-  loading: () => <div className="h-[540px] animate-pulse rounded-3xl bg-slate-100" />,
+  loading: () => <div className="h-[540px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
 });
 
 const Article = dynamic(() => import("./Article"));
@@ -44,7 +44,7 @@ export default function TextCleanerPage() {
     <ToolPageShell
       tool={tool}
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-slate-700 dark:text-slate-300">
+        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
           Paste any text and clean it up instantly — collapse spaces, fix
           capitalisation, sort lines, remove duplicates, and convert between
           ten case formats. Transforms chain together, so you can apply several
@@ -54,10 +54,10 @@ export default function TextCleanerPage() {
       sidebar={
         <div className="flex flex-col gap-5">
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Case formats
             </h2>
-            <ul className="mt-3 space-y-1.5 text-sm leading-6 text-slate-700 dark:text-slate-300">
+            <ul className="mt-3 space-y-1.5 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
               {[
                 "UPPERCASE",
                 "lowercase",
@@ -78,10 +78,10 @@ export default function TextCleanerPage() {
           </SurfaceCard>
 
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Cleaning tools
             </h2>
-            <ul className="mt-3 space-y-1.5 text-sm leading-6 text-slate-700 dark:text-slate-300">
+            <ul className="mt-3 space-y-1.5 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
               <li>Trim whitespace</li>
               <li>Remove extra spaces</li>
               <li>Remove empty lines</li>
@@ -94,12 +94,12 @@ export default function TextCleanerPage() {
           </SurfaceCard>
 
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               How it works
             </h2>
-            <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
               Each transform you click applies to the current{" "}
-              <strong className="text-slate-900 dark:text-slate-100">
+              <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
                 output
               </strong>{" "}
               (or input if there is no output yet). Results chain — apply as many

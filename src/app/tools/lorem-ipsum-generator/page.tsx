@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 };
 
 const LoremIpsumClient = dynamic(() => import("./LoremIpsumClient"), {
-  loading: () => <div className="h-[540px] animate-pulse rounded-3xl bg-slate-100" />,
+  loading: () => <div className="h-[540px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
 });
 
 const Article = dynamic(() => import("./Article"));
@@ -42,61 +42,11 @@ export default function LoremIpsumPage() {
     <ToolPageShell
       tool={tool}
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-slate-700 dark:text-slate-300">
+        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
           More than basic lorem ipsum — choose your text style, pick a design
           preset, and generate placeholder content shaped like real UI copy.
           Instant output, one-click copy, optional HTML wrapping.
         </p>
-      }
-      sidebar={
-        <div className="flex flex-col gap-5">
-          <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
-              Best for
-            </h2>
-            <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-700 dark:text-slate-300">
-              <li>Mockups and wireframes</li>
-              <li>Component library storybooks</li>
-              <li>CMS field previews</li>
-              <li>Landing page copy drafts</li>
-              <li>Design handoff documentation</li>
-              <li>UI prototyping and demos</li>
-            </ul>
-          </SurfaceCard>
-
-          <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
-              Text styles
-            </h2>
-            <dl className="mt-3 space-y-2 text-sm leading-6 text-slate-700 dark:text-slate-300">
-              {[
-                ["Classic Latin", "Traditional lorem ipsum from Cicero"],
-                ["Readable", "English-style neutral placeholder"],
-                ["Startup", "Tech and SaaS landing page tone"],
-                ["Ecommerce", "Product description style"],
-                ["Blog", "Editorial and journalistic copy"],
-                ["Profile", "Bio and about-page text"],
-              ].map(([name, desc]) => (
-                <div key={name}>
-                  <dt className="font-semibold text-slate-900 dark:text-slate-100">{name}</dt>
-                  <dd className="text-slate-600 dark:text-slate-400">{desc}</dd>
-                </div>
-              ))}
-            </dl>
-          </SurfaceCard>
-
-          <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
-              Structured blocks
-            </h2>
-            <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
-              Switch to{" "}
-              <strong className="text-slate-900 dark:text-slate-100">Structured</strong>{" "}
-              mode to generate complete UI blocks — hero sections, feature cards,
-              testimonials, FAQ, product listings, pricing tables, and more.
-            </p>
-          </SurfaceCard>
-        </div>
       }
     >
       <ToolContentCard
@@ -105,6 +55,55 @@ export default function LoremIpsumPage() {
       >
         <LoremIpsumClient />
       </ToolContentCard>
+
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <SurfaceCard>
+          <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
+            Best for
+          </h2>
+          <ul className="mt-3 space-y-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
+            <li>Mockups and wireframes</li>
+            <li>Component library storybooks</li>
+            <li>CMS field previews</li>
+            <li>Landing page copy drafts</li>
+            <li>Design handoff documentation</li>
+            <li>UI prototyping and demos</li>
+          </ul>
+        </SurfaceCard>
+
+        <SurfaceCard>
+          <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
+            Text styles
+          </h2>
+          <dl className="mt-3 space-y-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
+            {[
+              ["Classic Latin", "Traditional lorem ipsum from Cicero"],
+              ["Readable", "English-style neutral placeholder"],
+              ["Startup", "Tech and SaaS landing page tone"],
+              ["Ecommerce", "Product description style"],
+              ["Blog", "Editorial and journalistic copy"],
+              ["Profile", "Bio and about-page text"],
+            ].map(([name, desc]) => (
+              <div key={name}>
+                <dt className="font-semibold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">{name}</dt>
+                <dd className="text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">{desc}</dd>
+              </div>
+            ))}
+          </dl>
+        </SurfaceCard>
+
+        <SurfaceCard>
+          <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
+            Structured blocks
+          </h2>
+          <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
+            Switch to{" "}
+            <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">Structured</strong>{" "}
+            mode to generate complete UI blocks — hero sections, feature cards,
+            testimonials, FAQ, product listings, pricing tables, and more.
+          </p>
+        </SurfaceCard>
+      </div>
 
       <ToolContentCard title="About this tool">
         <Article />

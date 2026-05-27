@@ -155,7 +155,7 @@ export default function GlassmorphismGeneratorClient() {
               </div>
             </article>
           </div>
-          <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-center justify-between gap-2 rounded-[var(--radius-md)] border border-white/50 bg-white/80 p-3 text-xs font-bold text-slate-700 shadow-sm backdrop-blur dark:border-slate-700 dark:bg-slate-950/75 dark:text-slate-200">
+          <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-center justify-between gap-2 rounded-[var(--radius-md)] border border-white/50 bg-white/80 p-3 text-xs font-bold text-[var(--color-text-secondary)] shadow-sm backdrop-blur dark:border-[var(--color-code-border)] dark:bg-[var(--color-code-bg)]/75 dark:text-[var(--color-text-secondary)]">
             <span>{labelize(state.scene.preset)}</span>
             <span>blur {state.effect.blur}px</span>
             <span>opacity {state.effect.opacity.toFixed(2)}</span>

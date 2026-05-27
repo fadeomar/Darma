@@ -8,6 +8,7 @@ import {
   FaCode,
   FaCube,
   FaFilm,
+  FaImage,
   FaPaintbrush,
   FaPalette,
   FaQrcode,
@@ -15,7 +16,7 @@ import {
   FaWandMagicSparkles,
 } from "react-icons/fa6";
 import ToolCardLink from "@/components/analytics/ToolCardLink";
-import { Badge, Button, Card, EmptyState, Select } from "@/components/ui";
+import { Badge, Button, Card, EmptyState, Input, Select } from "@/components/ui";
 import type { ToolAudience, ToolDefinition } from "@/features/tools";
 import { cn } from "@/lib/cn";
 
@@ -27,6 +28,7 @@ const ICONS: Record<string, IconType> = {
   film: FaFilm,
   palette: FaPalette,
   cube: FaCube,
+  image: FaImage,
 };
 
 const audienceLabels: Record<string, string> = {
@@ -55,7 +57,16 @@ function layoutLabel(layoutType?: ToolDefinition["layoutType"]) {
   if (layoutType === "visual-generator") return "Visual";
   if (layoutType === "fullscreen-studio") return "Studio";
   if (layoutType === "single-utility") return "Utility";
+  if (layoutType === "directory") return "Directory";
   return "Tool";
+}
+
+function privacyLabel(privacy?: ToolDefinition["privacy"]) {
+  if (privacy === "client-only") return "Browser-only";
+  if (privacy === "local-storage") return "Local storage";
+  if (privacy === "server-assisted") return "Server assisted";
+  if (privacy === "external-api") return "External API";
+  return null;
 }
 
 function searchableText(tool: ToolDefinition) {
@@ -100,29 +111,38 @@ function sortTools(tools: ToolDefinition[], sort: ToolSort) {
 function ToolCard({ tool, compact = false }: { tool: ToolDefinition; compact?: boolean }) {
   const Icon = ICONS[tool.icon ?? "code"] ?? FaWandMagicSparkles;
   const primaryTags = (tool.tags ?? []).slice(0, compact ? 2 : 3);
+  const privacy = privacyLabel(tool.privacy);
+  const category = tool.secondaryCategory?.[0] ?? tool.mainCategory?.[0];
 
   return (
     <ToolCardLink href={tool.href} toolName={tool.title}>
-      <Card as="article" variant="interactive" padding={compact ? "md" : "lg"} className="h-full">
+      <Card as="article" variant="interactive" padding={compact ? "md" : "lg"} className="flex h-full flex-col">
         <div className="mb-4 flex items-start justify-between gap-3">
-          <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-primary)] text-[var(--color-primary-text)]">
+          <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary)] sm:h-11 sm:w-11">
             <Icon className="text-lg" aria-hidden />
           </span>
           <div className="flex flex-wrap justify-end gap-2">
             <Badge variant="soft">{layoutLabel(tool.layoutType)}</Badge>
+            {privacy && !compact ? <Badge variant="accent">{privacy}</Badge> : null}
             {!compact && tool.featured ? <Badge variant="warning">Featured</Badge> : null}
           </div>
         </div>
-        <h3 className="text-xl font-black text-[var(--color-text)]">{tool.title}</h3>
-        <p className="mt-3 line-clamp-3 text-sm leading-6 text-[var(--color-text-muted)]">{tool.description}</p>
+
+        <h3 className="text-lg font-black leading-tight tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-xl">{tool.title}</h3>
+        <p className="mt-3 line-clamp-3 text-sm leading-6 text-[var(--color-text-secondary)]">{tool.description}</p>
+
         <div className="mt-4 flex flex-wrap gap-2">
+          {category ? <Badge variant="outline">{formatCategory(category)}</Badge> : null}
           {primaryTags.map((tag) => (
             <Badge key={tag} variant="outline">#{tag}</Badge>
           ))}
         </div>
-        <p className="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-text-soft)]">
-          {(tool.secondaryCategory?.[0] && formatCategory(tool.secondaryCategory[0])) || "Darma tool"}
-        </p>
+
+        <div className="mt-auto pt-5">
+          <span className="inline-flex font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+            Open tool →
+          </span>
+        </div>
       </Card>
     </ToolCardLink>
   );
@@ -168,89 +188,114 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
   };
 
   return (
-    <div className="mx-auto max-w-[var(--container-wide)] px-4 py-8 sm:px-6 lg:px-8">
-      <section className="rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-[var(--shadow-soft)] backdrop-blur sm:p-8">
-        <div className="flex flex-wrap items-center gap-2">
-          <Badge variant="soft">Tools</Badge>
-          <Link href="/workflows" className="text-sm font-semibold text-[var(--color-text-muted)] hover:text-[var(--color-text)]">
-            Browse workflows
-          </Link>
-        </div>
-        <h1 className="mt-4 max-w-4xl text-4xl font-black leading-[var(--leading-tight)] text-[var(--color-text)] sm:text-5xl">
-          Free browser tools for real front-end work
-        </h1>
-        <p className="mt-4 max-w-3xl text-base leading-7 text-[var(--color-text-muted)] sm:text-lg">
-          Darma tools are focused one-page utilities for styling, code previews, UI experiments, SEO, and quick content generation without signup friction.
-        </p>
-
-        <div className="mt-6 space-y-4">
-          <label className="relative block">
-            <span className="sr-only">Search tools</span>
-            <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[var(--color-text-soft)]" aria-hidden />
-            <input
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder="Search tools, tags, workflows, or use cases"
-              className="min-h-12 w-full rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-strong)] px-12 text-sm text-[var(--color-text)] outline-none transition placeholder:text-[var(--color-text-soft)] focus:border-[var(--color-accent)]"
-            />
-          </label>
-
-          <div className="flex gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:overflow-visible" aria-label="Audience filters">
-            {Object.entries(audienceLabels).map(([key, label]) => (
-              <button
-                key={key}
-                type="button"
-                aria-pressed={audience === key}
-                onClick={() => setAudience(key)}
-                className={cn(
-                  "min-h-10 shrink-0 rounded-[var(--radius-full)] border px-4 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]",
-                  audience === key
-                    ? "border-[var(--color-primary)] bg-[var(--color-primary)] text-[var(--color-primary-text)]"
-                    : "border-[var(--color-border)] bg-[var(--color-surface-strong)] text-[var(--color-text-muted)] hover:text-[var(--color-text)]",
-                )}
-              >
-                {label}
-              </button>
-            ))}
+    <div className="mx-auto max-w-[var(--container-wide)] px-4 py-7 sm:px-6 sm:py-9 lg:px-8">
+      <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-card)]">
+        <div className="grid gap-6 p-5 sm:p-7 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end lg:p-8">
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-2">
+              <Badge variant="soft">Tools</Badge>
+              <Badge variant="accent">Browser-first</Badge>
+              <Link href="/workflows" className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)] transition hover:text-[var(--color-text-primary)]">
+                Browse workflows
+              </Link>
+            </div>
+            <h1 className="mt-4 max-w-4xl text-4xl font-black leading-[var(--leading-tight)] tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-5xl lg:text-6xl">
+              Free browser tools for real front-end work
+            </h1>
+            <p className="mt-4 max-w-3xl text-base leading-7 text-[var(--color-text-secondary)] sm:text-lg">
+              Darma tools are focused one-page utilities for styling, code previews, UI experiments, SEO, and quick content generation without signup friction.
+            </p>
           </div>
 
-          <div className="grid gap-3 md:grid-cols-[1fr_1fr_1fr_auto] md:items-end">
-            <label className="grid gap-1 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-text-soft)]">
-              Tool type
-              <Select value={toolType} onChange={(event) => setToolType(event.target.value as ToolTypeFilter)} size="sm">
-                {Object.entries(toolTypeLabels).map(([value, label]) => (
-                  <option key={value} value={value}>{label}</option>
-                ))}
-              </Select>
+          <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/70 p-4">
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Catalog status</p>
+            <div className="mt-3 grid grid-cols-2 gap-3 text-sm">
+              <div>
+                <p className="text-2xl font-black text-[var(--color-text-primary)]">{tools.length}</p>
+                <p className="text-xs text-[var(--color-text-tertiary)]">Tools</p>
+              </div>
+              <div>
+                <p className="text-2xl font-black text-[var(--color-text-primary)]">{featured.length}</p>
+                <p className="text-xs text-[var(--color-text-tertiary)]">Featured</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/70 p-4 sm:p-5">
+          <div className="space-y-4">
+            <label className="relative block">
+              <span className="sr-only">Search tools</span>
+              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--color-text-tertiary)]" aria-hidden />
+              <Input
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder="Search tools, tags, workflows, or use cases"
+                size="lg"
+                className="pl-10"
+              />
             </label>
-            <label className="grid gap-1 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-text-soft)]">
-              Category
-              <Select value={category} onChange={(event) => setCategory(event.target.value)} size="sm">
-                <option value="all">All categories</option>
-                {categories.map((item) => <option key={item} value={item}>{formatCategory(item)}</option>)}
-              </Select>
-            </label>
-            <label className="grid gap-1 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-text-soft)]">
-              Sort
-              <Select value={sort} onChange={(event) => setSort(event.target.value as ToolSort)} size="sm">
-                <option value="featured">Featured first</option>
-                <option value="recent">Recently updated</option>
-                <option value="az">A to Z</option>
-                <option value="category">Category</option>
-              </Select>
-            </label>
-            <Button variant="secondary" size="sm" onClick={clearFilters} disabled={!hasFilters} leftIcon={hasFilters ? <X className="h-4 w-4" aria-hidden /> : <SlidersHorizontal className="h-4 w-4" aria-hidden />}>
-              Clear filters
-            </Button>
+
+            <div className="flex gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:overflow-visible" aria-label="Audience filters">
+              {Object.entries(audienceLabels).map(([key, label]) => (
+                <button
+                  key={key}
+                  type="button"
+                  aria-pressed={audience === key}
+                  onClick={() => setAudience(key)}
+                  className={cn(
+                    "min-h-9 shrink-0 rounded-[var(--radius-full)] border px-3.5 font-mono text-[10px] font-bold uppercase tracking-[0.08em] transition focus:outline-none focus:shadow-[var(--focus-ring)]",
+                    audience === key
+                      ? "border-[var(--color-primary)] bg-[var(--color-primary)] text-[var(--color-primary-text)]"
+                      : "border-[var(--color-border-default)] bg-[var(--color-control-bg)] text-[var(--color-text-tertiary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]",
+                  )}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+
+            <div className="grid gap-3 md:grid-cols-[1fr_1fr_1fr_auto] md:items-end">
+              <label className="grid gap-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+                Tool type
+                <Select value={toolType} onChange={(event) => setToolType(event.target.value as ToolTypeFilter)} size="sm">
+                  {Object.entries(toolTypeLabels).map(([value, label]) => (
+                    <option key={value} value={value}>{label}</option>
+                  ))}
+                </Select>
+              </label>
+              <label className="grid gap-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+                Category
+                <Select value={category} onChange={(event) => setCategory(event.target.value)} size="sm">
+                  <option value="all">All categories</option>
+                  {categories.map((item) => <option key={item} value={item}>{formatCategory(item)}</option>)}
+                </Select>
+              </label>
+              <label className="grid gap-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+                Sort
+                <Select value={sort} onChange={(event) => setSort(event.target.value as ToolSort)} size="sm">
+                  <option value="featured">Featured first</option>
+                  <option value="recent">Recently updated</option>
+                  <option value="az">A to Z</option>
+                  <option value="category">Category</option>
+                </Select>
+              </label>
+              <Button variant="secondary" size="sm" onClick={clearFilters} disabled={!hasFilters} leftIcon={hasFilters ? <X className="h-4 w-4" aria-hidden /> : <SlidersHorizontal className="h-4 w-4" aria-hidden />}>
+                Clear filters
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
       {featured.length > 0 && !query.trim() ? (
         <section className="mt-8">
-          <div className="mb-4 flex items-center justify-between gap-4">
-            <h2 className="text-2xl font-black text-[var(--color-text)]">Featured tools</h2>
-            <Link href="/workflows" className="text-sm font-semibold text-[var(--color-text-muted)] hover:text-[var(--color-text)]">
+          <div className="mb-4 flex items-end justify-between gap-4">
+            <div>
+              <Badge variant="soft">Curated</Badge>
+              <h2 className="mt-2 text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Featured tools</h2>
+            </div>
+            <Link href="/workflows" className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]">
               Try a workflow
             </Link>
           </div>
@@ -261,9 +306,12 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
       ) : null}
 
       <section className="mt-8">
-        <div className="mb-4 flex flex-wrap items-center justify-between gap-4">
-          <h2 className="text-2xl font-black text-[var(--color-text)]">All tools</h2>
-          <p className="text-sm text-[var(--color-text-muted)]" aria-live="polite">
+        <div className="mb-4 flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <Badge variant="outline">Catalog</Badge>
+            <h2 className="mt-2 text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">All tools</h2>
+          </div>
+          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]" aria-live="polite">
             {filtered.length} of {tools.length} tool{filtered.length === 1 ? "" : "s"}
           </p>
         </div>

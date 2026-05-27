@@ -1,7 +1,24 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Check, Copy, Plus, RefreshCw, Shuffle, Trash2 } from "lucide-react";
+import { RefreshCw, Shuffle } from "lucide-react";
+import { Badge, Button, CopyButton, Input, Select } from "@/components/ui";
+import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
+import {
+  CodeOutputPanel,
+  ColorField,
+  ControlGrid,
+  ControlSection,
+  NumberField,
+  PresetGallery,
+  PreviewToolbar,
+  SegmentedControl,
+  SliderNumberField,
+  ToolControlPanel,
+  WarningPanel,
+  type CodeOutputTab,
+  type WarningMessage,
+} from "@/features/tools/components";
 import {
   DEFAULT_GRADIENT,
   GRADIENT_PRESETS,
@@ -19,104 +36,13 @@ import {
   type GradientStop,
 } from "./gradient";
 
-function SectionLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="mb-2 text-[10px] font-black uppercase tracking-[0.2em] text-[var(--textColor)]/40">
-      {children}
-    </p>
-  );
-}
-
-function CopyBtn({ text, label = "Copy" }: { text: string; label?: string }) {
-  const [copied, setCopied] = useState(false);
-  const [failed, setFailed] = useState(false);
-
-  const handleCopy = () => {
-    if (!text) return;
-
-    navigator.clipboard
-      .writeText(text)
-      .then(() => {
-        setCopied(true);
-        setFailed(false);
-        setTimeout(() => setCopied(false), 1800);
-      })
-      .catch(() => {
-        setFailed(true);
-        setTimeout(() => setFailed(false), 1800);
-      });
-  };
-
-  return (
-    <button
-      type="button"
-      onClick={handleCopy}
-      disabled={!text}
-      title={text ? label : "Nothing to copy yet"}
-      className={[
-        "inline-flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-30",
-        copied
-          ? "bg-emerald-500 text-white"
-          : failed
-            ? "bg-red-500 text-white"
-            : "bg-[var(--textColor)] text-[var(--baseColor)] hover:opacity-80",
-      ].join(" ")}
-    >
-      {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
-      {copied ? "Copied!" : failed ? "Copy failed" : label}
-    </button>
-  );
-}
-
-function SmallButton({
-  children,
-  onClick,
-  disabled,
-}: {
-  children: React.ReactNode;
-  onClick: () => void;
-  disabled?: boolean;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      disabled={disabled}
-      className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold text-[var(--textColor)]/60 transition hover:border-[var(--textColor)]/25 hover:bg-black/5 disabled:cursor-not-allowed disabled:opacity-40"
-    >
-      {children}
-    </button>
-  );
-}
-
-function CodeBox({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="rounded-2xl border border-black/10 bg-white p-3">
-      <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
-        <span className="text-xs font-black uppercase tracking-[0.16em] text-[var(--textColor)]/40">
-          {label}
-        </span>
-        <CopyBtn text={value} />
-      </div>
-      <pre className="max-h-44 overflow-auto rounded-xl bg-slate-950 p-4 text-xs leading-6 text-slate-100">
-        <code>{value}</code>
-      </pre>
-    </div>
-  );
-}
-
 function safeColorInputValue(value: string) {
   const normalized = normalizeHexColor(value);
   return /^#[0-9a-f]{6}$/.test(normalized) ? normalized : "#ffffff";
 }
 
-function StatCard({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="rounded-2xl border border-black/10 bg-white/70 px-4 py-3">
-      <p className="text-xs font-bold text-[var(--textColor)]/40">{label}</p>
-      <p className="mt-1 text-sm font-black text-[var(--textColor)]">{value}</p>
-    </div>
-  );
+function getPresetId(state: GradientState) {
+  return GRADIENT_PRESETS.find((preset) => JSON.stringify(preset.state) === JSON.stringify(state))?.label;
 }
 
 export default function CssGradientGeneratorClient() {
@@ -125,13 +51,22 @@ export default function CssGradientGeneratorClient() {
   const validation = useMemo(() => validateGradient(state), [state]);
   const gradientCss = useMemo(() => (validation.ok ? buildGradientCss(state) : ""), [state, validation.ok]);
   const cssSnippet = useMemo(() => (validation.ok ? buildCssSnippet(state) : ""), [state, validation.ok]);
-  const tailwindClass = useMemo(
-    () => (validation.ok ? buildTailwindArbitraryClass(state) : ""),
-    [state, validation.ok],
-  );
+  const tailwindClass = useMemo(() => (validation.ok ? buildTailwindArbitraryClass(state) : ""), [state, validation.ok]);
   const sortedStops = useMemo(() => sortStops(state.stops), [state.stops]);
+  const selectedPresetId = useMemo(() => getPresetId(state), [state]);
 
-  const updateStop = (id: string, patch: Partial<GradientStop>) => {
+  const codeTabs = useMemo<CodeOutputTab[]>(() => [
+    { id: "background", label: "Background", language: "css", filename: "gradient-background.css", code: `background: ${gradientCss};` },
+    { id: "css", label: "CSS class", language: "css", filename: "gradient.css", code: cssSnippet },
+    { id: "tailwind", label: "Tailwind", language: "txt", filename: "gradient-tailwind.txt", code: tailwindClass },
+  ], [cssSnippet, gradientCss, tailwindClass]);
+
+  const warnings = useMemo<WarningMessage[]>(() => {
+    if (validation.ok) return [];
+    return validation.errors.map((message, index) => ({ id: `gradient-error-${index}`, severity: "danger", message }));
+  }, [validation]);
+
+  function updateStop(id: string, patch: Partial<GradientStop>) {
     setState((current) => ({
       ...current,
       stops: current.stops.map((stop) =>
@@ -144,270 +79,142 @@ export default function CssGradientGeneratorClient() {
           : stop,
       ),
     }));
-  };
+  }
 
-  const removeStop = (id: string) => {
+  function removeStop(id: string) {
     setState((current) => ({
       ...current,
-      stops: current.stops.filter((stop) => stop.id !== id),
+      stops: current.stops.length <= 2 ? current.stops : current.stops.filter((stop) => stop.id !== id),
     }));
-  };
+  }
 
-  const addStop = () => {
-    const nextPosition = state.stops.length > 0 ? 50 : 0;
+  function addStop() {
     setState((current) => ({
       ...current,
-      stops: [...current.stops, createStop("#ffffff", nextPosition)],
+      stops: current.stops.length >= 6 ? current.stops : [...current.stops, createStop("#ffffff", 50)],
     }));
-  };
+  }
 
-  const reverseGradient = () => {
-    setState((current) => ({
-      ...current,
-      stops: reverseStops(current.stops),
-    }));
-  };
-
-  const resetGradient = () => setState(DEFAULT_GRADIENT);
-  const randomGradient = () => setState(createRandomGradient());
-
-  return (
-    <div className="flex flex-col gap-5">
-      <div className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_360px]">
-        <div className="rounded-2xl border border-black/10 bg-white p-4">
-          <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-            <SectionLabel>Live preview</SectionLabel>
-            <div className="flex flex-wrap gap-1.5">
-              <SmallButton onClick={randomGradient}>
-                <Shuffle className="h-3.5 w-3.5" />
-                Random
-              </SmallButton>
-              <SmallButton onClick={reverseGradient} disabled={state.stops.length < 2}>
-                <RefreshCw className="h-3.5 w-3.5" />
-                Reverse
-              </SmallButton>
-              <SmallButton onClick={resetGradient}>Reset</SmallButton>
-            </div>
+  const previewSlot = (
+    <div className="space-y-4">
+      <PreviewToolbar
+        title="Gradient preview"
+        description="Preview the generated CSS background on a realistic surface."
+        actions={
+          <div className="flex flex-wrap gap-2">
+            <Button size="sm" variant="secondary" leftIcon={<Shuffle className="h-4 w-4" />} onClick={() => setState(createRandomGradient())}>
+              Random
+            </Button>
+            <Button size="sm" variant="secondary" leftIcon={<RefreshCw className="h-4 w-4" />} disabled={state.stops.length < 2} onClick={() => setState((current) => ({ ...current, stops: reverseStops(current.stops) }))}>
+              Reverse
+            </Button>
           </div>
+        }
+      />
 
-          <div
-            className="relative flex min-h-[320px] overflow-hidden rounded-3xl border border-black/10 p-6 shadow-inner"
-            style={{ background: validation.ok ? gradientCss : "#f8fafc" }}
-          >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.32),transparent_38%)]" />
-            <div className="relative mt-auto max-w-md rounded-2xl border border-white/40 bg-white/75 p-4 shadow-xl backdrop-blur">
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-500">
-                {validation.ok ? "Ready to copy" : "Needs attention"}
-              </p>
-              <p className="mt-2 text-2xl font-black text-slate-950">CSS Gradient Generator</p>
-              <p className="mt-1 text-sm leading-6 text-slate-700">
-                Tune the colors, angle, and stops, then copy clean CSS for your UI.
-              </p>
-            </div>
-          </div>
-
-          {!validation.ok ? (
-            <div className="mt-3 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-900">
-              <strong>Gradient not ready.</strong>
-              <ul className="mt-2 list-disc pl-5">
-                {validation.errors.map((error) => (
-                  <li key={error}>{error}</li>
-                ))}
-              </ul>
-            </div>
-          ) : null}
-        </div>
-
-        <div className="rounded-2xl border border-black/10 bg-slate-50 p-4">
-          <SectionLabel>Controls</SectionLabel>
-
-          <div className="grid grid-cols-2 gap-2">
-            <button
-              type="button"
-              onClick={() => setState((current) => ({ ...current, type: "linear" }))}
-              className={[
-                "rounded-xl border px-3 py-2 text-sm font-black transition",
-                state.type === "linear"
-                  ? "border-[var(--textColor)] bg-[var(--textColor)] text-[var(--baseColor)]"
-                  : "border-black/10 bg-white text-[var(--textColor)]/60 hover:bg-black/5",
-              ].join(" ")}
-            >
-              Linear
-            </button>
-            <button
-              type="button"
-              onClick={() => setState((current) => ({ ...current, type: "radial" }))}
-              className={[
-                "rounded-xl border px-3 py-2 text-sm font-black transition",
-                state.type === "radial"
-                  ? "border-[var(--textColor)] bg-[var(--textColor)] text-[var(--baseColor)]"
-                  : "border-black/10 bg-white text-[var(--textColor)]/60 hover:bg-black/5",
-              ].join(" ")}
-            >
-              Radial
-            </button>
-          </div>
-
-          {state.type === "linear" ? (
-            <div className="mt-4">
-              <label htmlFor="gradient-angle" className="mb-2 block text-xs font-bold text-[var(--textColor)]/50">
-                Angle: {state.angle}deg
-              </label>
-              <input
-                id="gradient-angle"
-                type="range"
-                min="0"
-                max="360"
-                value={state.angle}
-                onChange={(event) =>
-                  setState((current) => ({ ...current, angle: Number(event.target.value) }))
-                }
-                className="w-full"
-              />
-              <input
-                type="number"
-                min="0"
-                max="360"
-                value={state.angle}
-                onChange={(event) =>
-                  setState((current) => ({
-                    ...current,
-                    angle: clamp(Number(event.target.value), 0, 360),
-                  }))
-                }
-                className="mt-2 w-full rounded-xl border border-black/10 bg-white px-3 py-2 text-sm font-semibold text-[var(--textColor)] outline-none focus:border-[var(--textColor)]/30"
-                aria-label="Gradient angle in degrees"
-              />
-            </div>
-          ) : (
-            <div className="mt-4">
-              <label htmlFor="gradient-shape" className="mb-2 block text-xs font-bold text-[var(--textColor)]/50">
-                Radial shape
-              </label>
-              <select
-                id="gradient-shape"
-                value={state.shape}
-                onChange={(event) =>
-                  setState((current) => ({
-                    ...current,
-                    shape: event.target.value === "ellipse" ? "ellipse" : "circle",
-                  }))
-                }
-                className="w-full rounded-xl border border-black/10 bg-white px-3 py-2 text-sm font-semibold text-[var(--textColor)] outline-none focus:border-[var(--textColor)]/30"
-              >
-                <option value="circle">Circle</option>
-                <option value="ellipse">Ellipse</option>
-              </select>
-            </div>
-          )}
-
-          <div className="mt-4">
-            <SectionLabel>Presets</SectionLabel>
-            <div className="flex flex-wrap gap-2">
-              {GRADIENT_PRESETS.map((preset) => (
-                <button
-                  key={preset.label}
-                  type="button"
-                  onClick={() => setState(preset.state)}
-                  className="rounded-full border border-black/10 bg-white px-3 py-1.5 text-xs font-bold text-[var(--textColor)]/60 transition hover:border-[var(--textColor)]/25 hover:bg-black/5"
-                >
-                  {preset.label}
-                </button>
-              ))}
-            </div>
-          </div>
+      <div
+        className="relative flex min-h-[520px] overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-preview-border)] p-6 shadow-[inset_0_1px_0_var(--color-border-subtle)]"
+        style={{ background: validation.ok ? gradientCss : "var(--color-preview-bg-strong)" }}
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.32),transparent_38%)]" />
+        <div className="relative mt-auto max-w-md rounded-[var(--radius-lg)] border border-white/40 bg-white/78 p-4 shadow-[var(--shadow-md)] backdrop-blur dark:border-white/10 dark:bg-black/36">
+          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
+            {validation.ok ? "Ready to copy" : "Needs attention"}
+          </p>
+          <p className="mt-2 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)] dark:text-white">CSS Gradient Generator</p>
+          <p className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
+            Tune colors, angle, radial shape, and stops, then copy clean CSS for your UI.
+          </p>
         </div>
       </div>
+    </div>
+  );
 
-      <div className="rounded-2xl border border-black/10 bg-black/[0.02] p-4">
-        <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-          <SectionLabel>Color stops</SectionLabel>
-          <SmallButton onClick={addStop} disabled={state.stops.length >= 6}>
-            <Plus className="h-3.5 w-3.5" />
-            Add stop
-          </SmallButton>
-        </div>
+  const controlsSlot = (
+    <ToolControlPanel title="Gradient settings" description="Edit type, direction, stops, and presets." badge={<Badge variant={validation.ok ? "success" : "warning"}>{validation.ok ? "Ready" : "Check"}</Badge>}>
+      <ControlSection title="Presets">
+        <PresetGallery
+          presets={GRADIENT_PRESETS}
+          selectedId={selectedPresetId}
+          onSelect={(_, preset) => setState(preset.state)}
+          getId={(preset) => preset.label}
+          getLabel={(preset) => preset.label}
+          renderPreview={(preset) => <div className="h-full w-full" style={{ background: buildGradientCss(preset.state) }} />}
+          compact
+        />
+      </ControlSection>
 
-        <div className="grid gap-3">
+      <ControlSection title="Gradient type" meta={state.type}>
+        <SegmentedControl
+          ariaLabel="Gradient type"
+          value={state.type}
+          onChange={(type) => setState((current) => ({ ...current, type }))}
+          options={[{ value: "linear", label: "Linear" }, { value: "radial", label: "Radial" }]}
+          fullWidth
+        />
+        {state.type === "linear" ? (
+          <SliderNumberField label="Angle" value={state.angle} min={0} max={360} unit="deg" onChange={(angle) => setState((current) => ({ ...current, angle }))} />
+        ) : (
+          <ControlGrid columns={1}>
+            <label className="grid gap-1.5">
+              <span className="font-mono text-[11px] font-bold uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">Shape</span>
+              <Select size="sm" value={state.shape} onChange={(event) => setState((current) => ({ ...current, shape: event.target.value === "ellipse" ? "ellipse" : "circle" }))}>
+                <option value="circle">Circle</option>
+                <option value="ellipse">Ellipse</option>
+              </Select>
+            </label>
+          </ControlGrid>
+        )}
+      </ControlSection>
+
+      <ControlSection title="Color stops" meta={`${state.stops.length}/6`} action={<Button size="sm" variant="secondary" onClick={addStop} disabled={state.stops.length >= 6}>Add stop</Button>}>
+        <div className="space-y-3">
           {sortedStops.map((stop, index) => (
-            <div
-              key={stop.id}
-              className="grid gap-3 rounded-2xl border border-black/10 bg-white p-3 md:grid-cols-[auto_minmax(0,1fr)_120px_auto] md:items-center"
-            >
-              <div className="flex items-center gap-3">
-                <div
-                  className="h-12 w-12 rounded-2xl border border-black/10"
-                  style={{ backgroundColor: normalizeHexColor(stop.color) }}
-                />
-                <div>
-                  <p className="text-xs font-black uppercase tracking-[0.16em] text-[var(--textColor)]/40">
-                    Stop {index + 1}
-                  </p>
-                  <p className="text-xs font-semibold text-[var(--textColor)]/50">{stop.position}%</p>
+            <div key={stop.id} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 shadow-[var(--shadow-xs)]">
+              <div className="mb-3 flex items-center justify-between gap-3">
+                <div className="flex min-w-0 items-center gap-2">
+                  <span className="h-8 w-8 shrink-0 rounded-[var(--radius-sm)] border border-[var(--color-border-default)]" style={{ backgroundColor: safeColorInputValue(stop.color) }} />
+                  <div>
+                    <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Stop {index + 1}</p>
+                    <p className="text-xs text-[var(--color-text-secondary)]">{stop.position}% · {normalizeHexColor(stop.color)}</p>
+                  </div>
                 </div>
+                <Button size="sm" variant="ghost" disabled={state.stops.length <= 2} onClick={() => removeStop(stop.id)}>
+                  Remove
+                </Button>
               </div>
-
-              <div className="grid gap-2 sm:grid-cols-[auto_minmax(0,1fr)] sm:items-center">
-                <input
-                  type="color"
-                  value={safeColorInputValue(stop.color)}
-                  onChange={(event) => updateStop(stop.id, { color: event.target.value })}
-                  className="h-10 w-16 cursor-pointer rounded-xl border border-black/10 bg-white p-1"
-                  aria-label={`Color picker for stop ${index + 1}`}
-                />
-                <input
-                  value={stop.color}
-                  onChange={(event) => updateStop(stop.id, { color: event.target.value })}
-                  onBlur={(event) => updateStop(stop.id, { color: normalizeHexColor(event.target.value) })}
-                  className="w-full rounded-xl border border-black/10 bg-slate-50 px-3 py-2 font-mono text-sm text-[var(--textColor)] outline-none focus:border-[var(--textColor)]/30"
-                  aria-label={`HEX color value for stop ${index + 1}`}
-                />
-              </div>
-
-              <div>
-                <label className="sr-only" htmlFor={`stop-position-${stop.id}`}>
-                  Position for stop {index + 1}
-                </label>
-                <input
-                  id={`stop-position-${stop.id}`}
-                  type="number"
-                  min="0"
-                  max="100"
-                  value={stop.position}
-                  onChange={(event) => updateStop(stop.id, { position: Number(event.target.value) })}
-                  className="w-full rounded-xl border border-black/10 bg-slate-50 px-3 py-2 text-sm font-semibold text-[var(--textColor)] outline-none focus:border-[var(--textColor)]/30"
-                />
-              </div>
-
-              <button
-                type="button"
-                onClick={() => removeStop(stop.id)}
-                disabled={state.stops.length <= 2}
-                className="inline-flex items-center justify-center gap-1 rounded-xl border border-black/10 bg-white px-3 py-2 text-sm font-bold text-red-600 transition hover:bg-red-50 disabled:cursor-not-allowed disabled:opacity-30"
-                aria-label={`Remove color stop ${index + 1}`}
-              >
-                <Trash2 className="h-4 w-4" />
-                Remove
-              </button>
+              <ControlGrid columns={2}>
+                <ColorField label="Color" value={stop.color} onChange={(color) => updateStop(stop.id, { color })} />
+                <NumberField label="Position" value={stop.position} min={0} max={100} unit="%" onChange={(position) => updateStop(stop.id, { position })} />
+              </ControlGrid>
             </div>
           ))}
         </div>
-      </div>
+      </ControlSection>
 
-      <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-        <StatCard label="Status" value={validation.ok ? "Ready" : "Invalid"} />
-        <StatCard label="Type" value={state.type === "linear" ? "Linear" : "Radial"} />
-        <StatCard label="Stops" value={String(state.stops.length)} />
-        <StatCard label="Direction" value={state.type === "linear" ? `${state.angle}deg` : state.shape} />
-      </div>
+      <ControlSection title="Manual value" compact>
+        <Input readOnly size="sm" value={validation.ok ? gradientCss : "Fix validation errors to generate CSS"} className="font-mono text-[11px]" aria-label="Current gradient CSS value" />
+      </ControlSection>
+    </ToolControlPanel>
+  );
 
-      {validation.ok ? (
-        <div className="grid gap-3">
-          <CodeBox label="CSS background" value={`background: ${gradientCss};`} />
-          <CodeBox label="CSS class" value={cssSnippet} />
-          <CodeBox label="Tailwind arbitrary class" value={tailwindClass} />
+  return (
+    <ToolLayoutVisualGenerator
+      previewSlot={previewSlot}
+      controlsSlot={controlsSlot}
+      actionsSlot={
+        <div className="flex flex-wrap gap-2">
+          <Button variant="secondary" onClick={() => setState(DEFAULT_GRADIENT)}>Reset</Button>
+          <CopyButton text={cssSnippet} disabled={!validation.ok}>Copy CSS</CopyButton>
+          <CopyButton text={tailwindClass} variant="secondary" disabled={!validation.ok}>Copy Tailwind</CopyButton>
         </div>
-      ) : null}
-    </div>
+      }
+      codeSlot={
+        <div className="space-y-4">
+          <WarningPanel title="Gradient validation" messages={warnings} />
+          <CodeOutputPanel title="Generated gradient code" description="Copy CSS background, a reusable class, or a Tailwind arbitrary class." tabs={codeTabs} defaultTab="css" emptyMessage="Fix validation errors to generate code." />
+        </div>
+      }
+    />
   );
 }

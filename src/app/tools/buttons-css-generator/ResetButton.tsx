@@ -11,6 +11,7 @@ const ResetButton: React.FC<ResetButtonProps> = ({
 }) => {
   return (
     <button
+      type="button"
       onClick={onClick}
       className={`h-[32px] flex items-center px-1 py-1 ml-1 text-xs text-[var(--textColor)] border-[3px] bg-[var(--baseColor)] border-[var(--textColor)] ${className}`}
     >

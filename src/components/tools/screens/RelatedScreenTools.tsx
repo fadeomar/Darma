@@ -6,7 +6,7 @@ export default function RelatedScreenTools({ current }: { current: ScreenToolId 
   const related = SCREEN_TOOL_LINKS.filter((tool) => tool.id !== current);
   return (
     <SurfaceCard>
-      <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+      <h2 className="text-lg font-bold text-[var(--color-text-primary)]">
         Related screen tools
       </h2>
       <div className="mt-4 space-y-3">
@@ -14,10 +14,10 @@ export default function RelatedScreenTools({ current }: { current: ScreenToolId 
           <Link
             key={tool.id}
             href={tool.href}
-            className="block rounded-2xl border border-black/10 bg-white/70 p-4 transition hover:-translate-y-0.5 hover:shadow-sm"
+            className="block rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-4 transition hover:-translate-y-0.5 hover:border-[var(--color-primary-border)] hover:shadow-[var(--shadow-card)]"
           >
-            <span className="font-bold text-slate-900">{tool.title}</span>
-            <span className="mt-1 block text-xs leading-5 text-slate-600">
+            <span className="font-bold text-[var(--color-text-primary)]">{tool.title}</span>
+            <span className="mt-1 block text-xs leading-5 text-[var(--color-text-secondary)]">
               {tool.description}
             </span>
           </Link>

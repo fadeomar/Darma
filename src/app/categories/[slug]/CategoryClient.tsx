@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -6,8 +7,8 @@ import { usePathname, useRouter } from "next/navigation";
 import { ArrowLeft, Search } from "lucide-react";
 import type { ElementDTO } from "@/features/elements/dto/element.dto";
 import CardsPagination from "@/components/CardsPagination";
-import SurfaceCard from "@/components/ui/SurfaceCard";
 import SectionHeading from "@/components/ui/SectionHeading";
+import { Badge, Card } from "@/components/ui";
 import CategoryStructuredData from "./CategoryStructuredData";
 import categoriesData from "@/data/category.json";
 
@@ -36,8 +37,7 @@ export default function CategoryClient({
   const pathname = usePathname();
   const [search, setSearch] = useState(searchQuery);
   const [selectedTypes, setSelectedTypes] = useState<string[]>(selectedSecondaryCategories);
-
-  const totalPages = Math.ceil(serverTotal / 6);
+  const totalPages = Math.max(1, Math.ceil(serverTotal / 6));
   const currentCategory = categoriesData.categories.find((c) => c.name === mainCategory);
 
   const pushFilters = (nextPage = 1, nextSelected = selectedTypes, nextSearch = search) => {
@@ -57,20 +57,19 @@ export default function CategoryClient({
   };
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <div className="rounded-[2rem] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-8 shadow-sm backdrop-blur">
-        <Link
-          href="/categories"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-text-secondary)] transition hover:text-[var(--color-text-primary)]"
-        >
-          <ArrowLeft className="h-4 w-4" />
+    <main className="mx-auto max-w-[var(--container-wide)] px-4 py-8 sm:px-6 lg:px-8">
+      <Card padding="lg">
+        <Link href="/categories" className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-text-secondary)] transition hover:text-[var(--color-text-primary)]">
+          <ArrowLeft className="h-4 w-4" aria-hidden />
           All categories
         </Link>
-        <SectionHeading
-          eyebrow="Category"
-          title={mainCategory.replace(/-/g, " ")}
-          description={description || "Browse published items in this category."}
-        />
+        <div className="mt-5">
+          <SectionHeading
+            eyebrow="Category"
+            title={mainCategory.replace(/-/g, " ")}
+            description={description || "Browse published items in this category."}
+          />
+        </div>
         <form
           className="mt-6 grid gap-3 md:grid-cols-[1fr_auto]"
           onSubmit={(event) => {
@@ -79,16 +78,17 @@ export default function CategoryClient({
           }}
         >
           <label className="relative block">
-            <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--color-text-tertiary)]" />
+            <span className="sr-only">Search category</span>
+            <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--color-text-tertiary)]" aria-hidden />
             <input
               type="text"
               placeholder={`Search in ${mainCategory.replace(/-/g, " ")}`}
               value={search}
               onChange={(event) => setSearch(event.target.value)}
-              className="w-full rounded-2xl border border-[var(--color-border-default)] bg-[var(--color-control-bg)] px-11 py-3 text-[var(--color-text-primary)] outline-none transition placeholder:text-[var(--color-text-tertiary)] focus:border-[var(--color-accent)]"
+              className="h-11 w-full rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-control-bg)] px-11 text-[var(--color-text-primary)] shadow-[var(--shadow-xs)] outline-none transition placeholder:text-[var(--color-text-tertiary)] hover:border-[var(--color-border-strong)] focus:border-[var(--color-primary)]"
             />
           </label>
-          <button className="rounded-2xl bg-[var(--color-primary)] px-5 py-3 text-sm font-bold text-[var(--color-primary-text)] transition hover:bg-[var(--color-primary-hover)]">
+          <button type="button" className="inline-flex h-11 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-primary)] px-5 text-sm font-semibold text-[var(--color-primary-text)] shadow-[var(--shadow-xs)] transition hover:bg-[var(--color-primary-hover)]">
             Apply filters
           </button>
         </form>
@@ -101,26 +101,26 @@ export default function CategoryClient({
                 key={category}
                 type="button"
                 onClick={() => toggleCategory(category)}
-                className={[
-                  "rounded-full px-4 py-2 text-sm font-semibold transition",
+                className={`rounded-[var(--radius-full)] border px-4 py-2 text-sm font-semibold transition ${
                   active
-                    ? "bg-[var(--color-primary)] text-[var(--color-primary-text)]"
-                    : "border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] text-[var(--color-text-primary)] hover:border-[var(--color-border-strong)]",
-                ].join(" ")}
+                    ? "border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+                    : "border-[var(--color-border-default)] bg-[var(--color-surface-raised)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
+                }`}
               >
                 {category}
               </button>
             );
           })}
         </div>
-      </div>
+      </Card>
 
       <section className="mt-8">
-        <div className="mb-4 flex items-center justify-between gap-4">
-          <h2 className="text-2xl font-black tracking-tight text-[var(--color-text-primary)]">
-            Published items
-          </h2>
-          <p className="text-sm text-[var(--color-text-secondary)]">{serverTotal} result{serverTotal === 1 ? "" : "s"}</p>
+        <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">Results</p>
+            <h2 className="mt-1 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">Published items</h2>
+          </div>
+          <Badge variant="outline">{serverTotal} result{serverTotal === 1 ? "" : "s"}</Badge>
         </div>
 
         {serverElements.length > 0 ? (
@@ -131,47 +131,33 @@ export default function CategoryClient({
             onPageChange={(page) => pushFilters(page)}
             itemsByRow={3}
             renderItem={(element) => (
-              <Link
-                href={element.slug ? `/elements/${element.slug}` : `/element/${element.id}`}
-                key={element.id}
-              >
-                <SurfaceCard className="h-full transition hover:-translate-y-1 hover:shadow-lg">
-                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-text-tertiary)]">
-                    {(element.secondaryCategory || []).slice(0, 2).join(" • ") || "project"}
-                  </p>
-                  <h3 className="mt-3 text-xl font-bold text-[var(--color-text-primary)]">
-                    {element.title}
-                  </h3>
+              <Link href={element.slug ? `/elements/${element.slug}` : `/element/${element.id}`} key={element.id} className="block h-full">
+                <Card variant="interactive" padding="md" className="h-full">
+                  <Badge variant="outline">{(element.secondaryCategory || []).slice(0, 2).join(" • ") || "project"}</Badge>
+                  <h3 className="mt-4 text-xl font-bold text-[var(--color-text-primary)]">{element.title}</h3>
                   <p className="mt-3 line-clamp-3 text-sm leading-7 text-[var(--color-text-secondary)]">
                     {element.shortDescription || element.description || "Open this item to view the full code and preview."}
                   </p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {element.tags.slice(0, 4).map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full bg-[var(--color-control-track)] px-3 py-1 text-xs font-semibold text-[var(--color-text-secondary)]"
-                      >
+                      <span key={tag} className="rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-3 py-1 text-xs font-semibold text-[var(--color-text-secondary)]">
                         #{tag}
                       </span>
                     ))}
                   </div>
-                </SurfaceCard>
+                </Card>
               </Link>
             )}
           />
         ) : (
-          <SurfaceCard className="text-center">
-            <h3 className="text-xl font-bold text-[var(--color-text-primary)]">
-              No items found
-            </h3>
-            <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">
-              Try removing some filters or search for a broader keyword.
-            </p>
-          </SurfaceCard>
+          <Card className="text-center">
+            <h3 className="text-xl font-bold text-[var(--color-text-primary)]">No items found</h3>
+            <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">Try removing some filters or search for a broader keyword.</p>
+          </Card>
         )}
       </section>
 
       {currentCategory ? <CategoryStructuredData category={currentCategory} /> : null}
-    </div>
+    </main>
   );
 }

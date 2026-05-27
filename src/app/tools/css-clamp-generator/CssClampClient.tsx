@@ -166,8 +166,8 @@ export default function CssClampClient() {
 
       {(validation.errors.length > 0 || validation.warnings.length > 0) && (
         <div className="space-y-2 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-bg-soft)] p-4 text-sm">
-          {validation.errors.map((error) => <p key={error} className="font-bold text-red-600">{error}</p>)}
-          {validation.warnings.map((warning) => <p key={warning} className="font-semibold text-amber-700">{warning}</p>)}
+          {validation.errors.map((error) => <p key={error} className="font-bold text-[var(--color-danger-text)]">{error}</p>)}
+          {validation.warnings.map((warning) => <p key={warning} className="font-semibold text-[var(--color-warning-text)]">{warning}</p>)}
         </div>
       )}
 

@@ -77,8 +77,9 @@ export default function TooltipGenerator() {
 
     return (
       <button
+        type="button"
         onClick={copyToClipboard}
-        className="absolute top-2 right-2 px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded text-sm"
+        className="absolute right-2 top-2 rounded-[var(--radius-sm)] border border-[var(--color-code-border)] bg-[var(--color-code-surface)] px-3 py-1 text-sm font-semibold text-[var(--color-code-text)] transition hover:bg-[var(--color-code-bg)] focus-visible:shadow-[var(--focus-ring)]"
       >
         {copied ? "✓ Copied" : "Copy"}
       </button>
@@ -96,7 +97,7 @@ export default function TooltipGenerator() {
       .filter(Boolean)
       .join(" ");
 
-    return `<button ${attributes.trim()}>
+    return `<button type="button" ${attributes.trim()}>
   Hover me
 </button>`;
   };
@@ -130,25 +131,25 @@ export default function TooltipGenerator() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
+    <div className="min-h-screen bg-[var(--color-page-bg)] px-4 py-8 text-[var(--color-text-primary)] sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl font-bold text-gray-800 mb-8">
+        <h1 className="text-4xl font-bold text-[var(--color-text-primary)] mb-8">
           Tooltip Generator
         </h1>
 
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Controls Section */}
-          <div className="bg-white p-6 rounded-lg shadow-md">
+          <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-6 shadow-[var(--shadow-sm)]">
             <h2 className="text-2xl font-semibold mb-6">Settings</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Direction */}
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-[var(--color-text-tertiary)]">
                   Direction
                 </label>
                 <select
-                  className="w-full p-2 border rounded-md"
+                  className="w-full p-2 border border-[var(--color-border-default)] rounded-[var(--radius-sm)] bg-[var(--color-control-bg)] text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary)] focus:shadow-[var(--focus-ring)]"
                   value={config.direction}
                   onChange={(e) =>
                     setConfig({ ...config, direction: e.target.value })
@@ -164,11 +165,11 @@ export default function TooltipGenerator() {
 
               {/* Size */}
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-[var(--color-text-tertiary)]">
                   Size
                 </label>
                 <select
-                  className="w-full p-2 border rounded-md"
+                  className="w-full p-2 border border-[var(--color-border-default)] rounded-[var(--radius-sm)] bg-[var(--color-control-bg)] text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary)] focus:shadow-[var(--focus-ring)]"
                   value={config.size}
                   onChange={(e) =>
                     setConfig({ ...config, size: e.target.value })
@@ -184,7 +185,7 @@ export default function TooltipGenerator() {
 
               {/* Colors */}
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-[var(--color-text-tertiary)]">
                   Text Color
                 </label>
                 <input
@@ -198,7 +199,7 @@ export default function TooltipGenerator() {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-[var(--color-text-tertiary)]">
                   Background Color
                 </label>
                 <input
@@ -213,11 +214,11 @@ export default function TooltipGenerator() {
 
               {/* Border Settings */}
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-[var(--color-text-tertiary)]">
                   Border Style
                 </label>
                 <select
-                  className="w-full p-2 border rounded-md"
+                  className="w-full p-2 border border-[var(--color-border-default)] rounded-[var(--radius-sm)] bg-[var(--color-control-bg)] text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary)] focus:shadow-[var(--focus-ring)]"
                   value={config.borderStyle}
                   onChange={(e) =>
                     setConfig({ ...config, borderStyle: e.target.value })
@@ -232,12 +233,12 @@ export default function TooltipGenerator() {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-[var(--color-text-tertiary)]">
                   Border Width (px)
                 </label>
                 <input
                   type="number"
-                  className="w-full p-2 border rounded-md"
+                  className="w-full p-2 border border-[var(--color-border-default)] rounded-[var(--radius-sm)] bg-[var(--color-control-bg)] text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary)] focus:shadow-[var(--focus-ring)]"
                   min="0"
                   value={config.borderWidth}
                   onChange={(e) =>
@@ -248,13 +249,13 @@ export default function TooltipGenerator() {
 
               {/* Animation Settings */}
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-[var(--color-text-tertiary)]">
                   Animation Timing (s)
                 </label>
                 <input
                   type="number"
                   step="0.1"
-                  className="w-full p-2 border rounded-md"
+                  className="w-full p-2 border border-[var(--color-border-default)] rounded-[var(--radius-sm)] bg-[var(--color-control-bg)] text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary)] focus:shadow-[var(--focus-ring)]"
                   value={config.animationTiming}
                   onChange={(e) =>
                     setConfig({ ...config, animationTiming: e.target.value })
@@ -263,12 +264,12 @@ export default function TooltipGenerator() {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-[var(--color-text-tertiary)]">
                   Slide Distance (px)
                 </label>
                 <input
                   type="number"
-                  className="w-full p-2 border rounded-md"
+                  className="w-full p-2 border border-[var(--color-border-default)] rounded-[var(--radius-sm)] bg-[var(--color-control-bg)] text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary)] focus:shadow-[var(--focus-ring)]"
                   value={config.slideDistance}
                   onChange={(e) =>
                     setConfig({ ...config, slideDistance: e.target.value })
@@ -278,12 +279,12 @@ export default function TooltipGenerator() {
 
               {/* Tooltip Content */}
               <div className="space-y-2 md:col-span-2">
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-[var(--color-text-tertiary)]">
                   Tooltip Text
                 </label>
                 <input
                   type="text"
-                  className="w-full p-2 border rounded-md"
+                  className="w-full p-2 border border-[var(--color-border-default)] rounded-[var(--radius-sm)] bg-[var(--color-control-bg)] text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary)] focus:shadow-[var(--focus-ring)]"
                   value={config.tooltipText}
                   onChange={(e) =>
                     setConfig({ ...config, tooltipText: e.target.value })
@@ -338,11 +339,12 @@ export default function TooltipGenerator() {
           {/* Preview and Code Section */}
           <div className="space-y-8">
             {/* Preview */}
-            <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-6 shadow-[var(--shadow-sm)]">
               <h2 className="text-2xl font-semibold mb-4">Preview</h2>
-              <div className="flex justify-center items-center h-48 border rounded-lg bg-gray-50">
+              <div className="flex h-48 items-center justify-center rounded-[var(--radius-lg)] border border-[var(--color-preview-border)] bg-[var(--color-preview-bg)]">
                 {/* Preview Button */}
                 <button
+                  type="button"
                   className="tooltip-button"
                   data-cooltipz
                   data-cooltipz-dir={config.direction}
@@ -378,8 +380,8 @@ export default function TooltipGenerator() {
             </div>
 
             {/* Code Preview */}
-            <div className="bg-gray-800 p-6 rounded-lg shadow-md relative">
-              <h2 className="text-xl font-semibold text-white mb-4">
+            <div className="relative rounded-[var(--radius-lg)] border border-[var(--color-code-border)] bg-[var(--color-code-bg)] p-6 shadow-[var(--shadow-sm)]">
+              <h2 className="text-xl font-semibold text-[var(--color-code-text)] mb-4">
                 Generated Code
               </h2>
 

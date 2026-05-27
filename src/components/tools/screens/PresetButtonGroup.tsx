@@ -1,7 +1,5 @@
 "use client";
 
-import type { ReactNode } from "react";
-
 export default function PresetButtonGroup<T extends string>({
   options,
   value,
@@ -19,10 +17,10 @@ export default function PresetButtonGroup<T extends string>({
           type="button"
           onClick={() => onChange(option.value)}
           className={[
-            "rounded-full px-4 py-2 text-xs font-bold transition",
+            "rounded-[var(--radius-full)] px-4 py-2 font-mono text-[10px] font-bold uppercase tracking-[0.08em] transition duration-[var(--duration-fast)]",
             value === option.value
-              ? "bg-[var(--textColor)] text-[var(--baseColor)]"
-              : "border border-black/10 bg-white text-[var(--textColor)]/75 hover:bg-black/5",
+              ? "border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+              : "border border-[var(--color-border-default)] bg-[var(--color-surface-base)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-control-hover)] hover:text-[var(--color-text-primary)]",
           ].join(" ")}
         >
           {option.label}

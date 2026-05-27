@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const NeumorphicCssGeneratorClient = dynamic(() => import("./NeumorphicCssGeneratorClient"), {
-  loading: () => <div className="h-[760px] animate-pulse rounded-3xl bg-slate-100 dark:bg-slate-900" />,
+  loading: () => <div className="h-[760px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)] dark:bg-[var(--color-code-surface)]" />,
 });
 
 export default function NeumorphicCssGeneratorPage() {
@@ -26,7 +26,7 @@ export default function NeumorphicCssGeneratorPage() {
     <ToolPage
       tool={tool}
       maxWidth="wide"
-      intro={<p className="max-w-2xl text-sm leading-7 text-slate-700 dark:text-slate-300">Create soft neumorphic surfaces with scoped preview styles, compact controls, and copy-ready CSS.</p>}
+      intro={<p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">Create soft neumorphic surfaces with scoped preview styles, compact controls, and copy-ready CSS.</p>}
       article={<ToolContentCard title="About neumorphic CSS"><NeumorphismArticle /></ToolContentCard>}
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />

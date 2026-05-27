@@ -19,16 +19,30 @@ export function ToolLayoutFullscreenStudio({
   sidebarSlot?: ReactNode;
 }) {
   return (
-    <div className="space-y-6">
-      {categorySlot ? <div>{categorySlot}</div> : null}
-      <PreviewFrame variant="studio" className="min-h-[520px]">{previewSlot}</PreviewFrame>
-      {actionBarSlot ? <ActionBar>{actionBarSlot}</ActionBar> : null}
-      <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_420px]">
-        {examplesSlot ? <Card variant="default" padding="md">{examplesSlot}</Card> : null}
-        {controlsSlot ? <Card variant="default" padding="md">{controlsSlot}</Card> : null}
-      </div>
-      {sidebarSlot ? <div>{sidebarSlot}</div> : null}
-      {articleSlot ? <div>{articleSlot}</div> : null}
+    <div className="space-y-5 sm:space-y-6">
+      {categorySlot ? <section>{categorySlot}</section> : null}
+
+      <PreviewFrame variant="studio" className="min-h-[480px] sm:min-h-[560px] xl:min-h-[640px]">
+        {previewSlot}
+      </PreviewFrame>
+
+      {actionBarSlot ? <ActionBar align="between">{actionBarSlot}</ActionBar> : null}
+
+      {(examplesSlot || controlsSlot || sidebarSlot) ? (
+        <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_minmax(320px,420px)] xl:items-start">
+          <div className="min-w-0 space-y-5">
+            {examplesSlot ? <Card padding="md">{examplesSlot}</Card> : null}
+            {sidebarSlot ? <Card padding="md">{sidebarSlot}</Card> : null}
+          </div>
+          {controlsSlot ? (
+            <aside className="min-w-0 xl:sticky xl:top-24">
+              <Card padding="md">{controlsSlot}</Card>
+            </aside>
+          ) : null}
+        </div>
+      ) : null}
+
+      {articleSlot ? <section>{articleSlot}</section> : null}
     </div>
   );
 }

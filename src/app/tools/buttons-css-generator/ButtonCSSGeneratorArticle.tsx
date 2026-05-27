@@ -135,7 +135,7 @@ const ButtonCSSGeneratorArticle = () => {
             Start designing custom, professional-grade buttons today. Your
             website deserves it.
           </p>
-          <button className="bg-primary text-white py-2 px-6 rounded-lg shadow-md hover:bg-primary-dark transition-colors">
+          <button type="button" className="rounded-[var(--radius-sm)] bg-[var(--color-primary)] px-6 py-2 font-semibold text-[var(--color-primary-text)] shadow-[var(--shadow-xs)] transition-colors hover:bg-[var(--color-primary-hover)]">
             Try the Generator Now
           </button>
         </div>

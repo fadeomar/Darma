@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 };
 
 const UrlEncoderDecoderClient = dynamic(() => import("./UrlEncoderDecoderClient"), {
-  loading: () => <div className="h-[560px] animate-pulse rounded-3xl bg-slate-100" />,
+  loading: () => <div className="h-[560px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
 });
 
 const Article = dynamic(() => import("./Article"));
@@ -41,7 +41,7 @@ export default function UrlEncoderDecoderPage() {
     <ToolPageShell
       tool={tool}
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-slate-700 dark:text-slate-300">
+        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
           Encode full URLs, encode query values with component-safe escaping,
           decode percent-encoded text, and inspect query parameters without
           uploading anything. The tool runs fully in your browser using native
@@ -51,10 +51,10 @@ export default function UrlEncoderDecoderPage() {
       sidebar={
         <div className="flex flex-col gap-5">
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               What you can do
             </h2>
-            <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-700 dark:text-slate-300">
+            <ul className="mt-3 space-y-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
               <li>Encode full URLs while preserving structure.</li>
               <li>Encode query values with component mode.</li>
               <li>Decode percent-encoded URLs and text.</li>
@@ -64,10 +64,10 @@ export default function UrlEncoderDecoderPage() {
           </SurfaceCard>
 
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Good to know
             </h2>
-            <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
               URL encoding formats text for URLs. It does not encrypt, secure,
               or hide data. Sensitive tokens in URLs should still be handled
               carefully.
@@ -75,10 +75,10 @@ export default function UrlEncoderDecoderPage() {
           </SurfaceCard>
 
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Privacy
             </h2>
-            <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
               Encoding, decoding, and query inspection happen locally in the
               browser. No URL or text input is sent to a server.
             </p>

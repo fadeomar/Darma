@@ -48,7 +48,7 @@ export default function InputSection({
               name="color1"
               value={localParams.color1}
               onChange={handleChange}
-              className="h-10 w-16 cursor-pointer rounded border border-gray-300"
+              className="h-10 w-16 cursor-pointer rounded border border-[var(--color-border-strong)]"
             />
             <input
               type="text"
@@ -71,7 +71,7 @@ export default function InputSection({
               name="color2"
               value={localParams.color2}
               onChange={handleChange}
-              className="h-10 w-16 cursor-pointer rounded border border-gray-300"
+              className="h-10 w-16 cursor-pointer rounded border border-[var(--color-border-strong)]"
             />
             <input
               type="text"

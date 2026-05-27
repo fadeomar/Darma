@@ -33,7 +33,7 @@ const Card = ({
           <>
             <div className="screen-overlay"></div>
             <Link
-              className="preview-link text-textColor"
+              className="preview-link"
               href={
                 element.slug
                   ? `/elements/${element.slug}`

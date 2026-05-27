@@ -3,10 +3,10 @@ import { cn } from "@/lib/cn";
 import type { CspSourceValue } from "../types";
 
 const riskClass: Record<CspSourceValue["risk"], string> = {
-  safe: "border-emerald-500/30 bg-emerald-500/10",
+  safe: "border-[var(--color-success-border)] bg-[var(--color-success-bg)]",
   normal: "border-[var(--color-border)] bg-[var(--color-surface-strong)]",
-  contextual: "border-amber-500/35 bg-amber-500/10",
-  risky: "border-[var(--color-danger)]/35 bg-[var(--color-danger)]/10",
+  contextual: "border-[var(--color-warning-border)] bg-[var(--color-warning-bg)]",
+  risky: "border-[var(--color-danger-border)] bg-[var(--color-danger-bg)]",
 };
 
 export function SourceChipEditor({ sources, onAdd, onRemove }: { sources: CspSourceValue[]; onAdd: (value: string) => void; onRemove: (id: string) => void }) {

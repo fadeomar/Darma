@@ -128,20 +128,20 @@ function calculateProgress(state: FakeScreenState, startedAt: number, now: numbe
 
 function Field({ label, hint, children }: { label: string; hint?: string; children: ReactNode }) {
   return (
-    <label className="block text-xs font-black uppercase tracking-[0.18em] text-slate-500">
+    <label className="block text-xs font-black uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">
       {label}
-      {hint ? <span className="mt-1 block text-[11px] normal-case tracking-normal text-slate-500">{hint}</span> : null}
+      {hint ? <span className="mt-1 block text-[11px] normal-case tracking-normal text-[var(--color-text-tertiary)]">{hint}</span> : null}
       <div className="mt-2">{children}</div>
     </label>
   );
 }
 
 function TextInput(props: InputHTMLAttributes<HTMLInputElement>) {
-  return <input {...props} className={["w-full rounded-xl border border-black/10 bg-white px-3 py-2 text-sm font-normal tracking-normal text-slate-900 outline-none focus:border-slate-400", props.className ?? ""].join(" ")} />;
+  return <input {...props} className={["w-full rounded-[var(--radius-sm)] border border-[var(--color-border-default)] bg-[var(--color-control-bg)] px-3 py-2 text-sm font-normal tracking-normal text-[var(--color-text-primary)] outline-none transition hover:border-[var(--color-border-strong)] focus:border-[var(--color-primary)] focus:shadow-[var(--focus-ring)]", props.className ?? ""].join(" ")} />;
 }
 
 function TextArea(props: TextareaHTMLAttributes<HTMLTextAreaElement>) {
-  return <textarea {...props} className={["min-h-20 w-full rounded-xl border border-black/10 bg-white px-3 py-2 text-sm font-normal tracking-normal text-slate-900 outline-none focus:border-slate-400", props.className ?? ""].join(" ")} />;
+  return <textarea {...props} className={["min-h-20 w-full rounded-[var(--radius-sm)] border border-[var(--color-border-default)] bg-[var(--color-control-bg)] px-3 py-2 text-sm font-normal tracking-normal text-[var(--color-text-primary)] outline-none transition hover:border-[var(--color-border-strong)] focus:border-[var(--color-primary)] focus:shadow-[var(--focus-ring)]", props.className ?? ""].join(" ")} />;
 }
 
 function SelectButtons<T extends string>({ options, value, onChange }: { options: { label: string; value: T }[]; value: T; onChange: (value: T) => void }) {
@@ -152,7 +152,7 @@ function SelectButtons<T extends string>({ options, value, onChange }: { options
           key={option.value}
           type="button"
           onClick={() => onChange(option.value)}
-          className={["rounded-full px-4 py-2 text-xs font-bold transition", value === option.value ? "bg-[var(--textColor)] text-[var(--baseColor)]" : "border border-black/10 bg-white text-[var(--textColor)]/75 hover:bg-black/5"].join(" ")}
+          className={["rounded-full px-4 py-2 text-xs font-bold transition", value === option.value ? "bg-[var(--color-primary)] text-[var(--color-primary-text)]" : "border border-[var(--color-border-default)] bg-[var(--color-surface-base)] text-[var(--color-text-secondary)] hover:bg-[var(--color-control-hover)]"].join(" ")}
         >
           {option.label}
         </button>
@@ -168,7 +168,7 @@ function ExitHint() {
 function WindowsMark({ colorful = false }: { colorful?: boolean }) {
   const colors = colorful ? ["#f25022", "#7fba00", "#00a4ef", "#ffb900"] : ["#fff", "#fff", "#fff", "#fff"];
   return (
-    <div className="grid h-16 w-16 rotate-3 grid-cols-2 gap-1.5 drop-shadow-xl" aria-hidden>
+    <div className="grid h-16 w-16 rotate-3 grid-cols-2 gap-1.5 drop-shadow-[var(--shadow-md)]" aria-hidden>
       {colors.map((color, index) => <span key={`${color}-${index}`} className="rounded-sm" style={{ backgroundColor: color }} />)}
     </div>
   );
@@ -216,14 +216,14 @@ function ColorPreview({ state, patch }: { state: FakeScreenState; patch: (next: 
     <div className="relative flex h-full min-h-[520px] items-center justify-center overflow-hidden rounded-[28px] border border-black/10" style={{ backgroundColor: background }}>
       <ExitHint />
       {state.colorMode === "dead-pixel" ? (
-        <div className={["rounded-3xl px-6 py-5 text-center shadow-lg backdrop-blur", dark ? "bg-white/80 text-slate-950" : "bg-black/45 text-white"].join(" ")}>
+        <div className={["rounded-[var(--radius-lg)] px-6 py-5 text-center shadow-lg backdrop-blur", dark ? "bg-white/80 text-[var(--color-text-primary)]" : "bg-black/45 text-white"].join(" ")}>
           <p className="text-xs font-black uppercase tracking-[0.2em]">Dead pixel test</p>
           <p className="mt-2 text-4xl font-black">{deadColor.label}</p>
           <p className="mt-2 max-w-sm text-xs leading-5 opacity-80">This mode intentionally ignores custom colors. Use the fixed test screens to inspect stuck or dead pixels.</p>
         </div>
       ) : null}
       {state.colorMode === "cleaning" ? (
-        <div className="rounded-3xl bg-black/45 px-6 py-4 text-center text-white backdrop-blur">
+        <div className="rounded-[var(--radius-lg)] bg-black/45 px-6 py-4 text-center text-white backdrop-blur">
           <p className="text-xs font-black uppercase tracking-[0.2em]">Cleaning timer</p>
           <p className="mt-2 text-5xl font-black">{Math.floor(seconds / 60)}:{String(seconds % 60).padStart(2, "0")}</p>
           <p className="mt-2 text-xs opacity-80">Wipe gently with a microfiber cloth.</p>
@@ -231,11 +231,11 @@ function ColorPreview({ state, patch }: { state: FakeScreenState; patch: (next: 
       ) : null}
       {state.colorMode === "dead-pixel" ? (
         <div className="absolute bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full bg-black/45 p-2 backdrop-blur">
-          <button type="button" onClick={() => patch({ deadPixelIndex: (state.deadPixelIndex + DEAD_PIXEL_COLORS.length - 1) % DEAD_PIXEL_COLORS.length })} className="rounded-full bg-white/90 p-2 text-slate-900" aria-label="Previous test color"><SkipBack className="h-4 w-4" /></button>
+          <button type="button" onClick={() => patch({ deadPixelIndex: (state.deadPixelIndex + DEAD_PIXEL_COLORS.length - 1) % DEAD_PIXEL_COLORS.length })} className="rounded-full bg-white/90 p-2 text-[var(--color-text-primary)]" aria-label="Previous test color"><SkipBack className="h-4 w-4" /></button>
           {DEAD_PIXEL_COLORS.map((item, index) => (
             <button key={item.value} type="button" onClick={() => patch({ deadPixelIndex: index })} className={["h-8 w-8 rounded-full border-2", index === state.deadPixelIndex ? "border-yellow-300" : "border-white/70"].join(" ")} style={{ backgroundColor: item.value }} aria-label={`Show ${item.label} test color`} />
           ))}
-          <button type="button" onClick={() => patch({ deadPixelIndex: (state.deadPixelIndex + 1) % DEAD_PIXEL_COLORS.length })} className="rounded-full bg-white/90 p-2 text-slate-900" aria-label="Next test color"><SkipForward className="h-4 w-4" /></button>
+          <button type="button" onClick={() => patch({ deadPixelIndex: (state.deadPixelIndex + 1) % DEAD_PIXEL_COLORS.length })} className="rounded-full bg-white/90 p-2 text-[var(--color-text-primary)]" aria-label="Next test color"><SkipForward className="h-4 w-4" /></button>
         </div>
       ) : null}
     </div>
@@ -419,7 +419,7 @@ function ErrorPreview({ state }: { state: FakeScreenState }) {
         <ExitHint />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_48%_43%,rgba(255,255,255,.32),transparent_10%),linear-gradient(135deg,rgba(255,255,255,.12),transparent_40%)]" />
         {Array.from({ length: 30 }).map((_, i) => <span key={i} className="absolute left-1/2 top-1/2 h-px origin-left bg-white/55" style={{ width: `${24 + (i % 7) * 7}%`, transform: `rotate(${i * 19}deg)` }} />)}
-        <div className="rounded-3xl bg-black/60 p-6 text-center backdrop-blur"><p className="text-3xl font-black">{state.errorTitle}</p><p className="mt-3 text-sm opacity-80">{state.errorMessage}</p></div>
+        <div className="rounded-[var(--radius-lg)] bg-black/60 p-6 text-center backdrop-blur"><p className="text-3xl font-black">{state.errorTitle}</p><p className="mt-3 text-sm opacity-80">{state.errorMessage}</p></div>
       </div>
     );
   }
@@ -768,11 +768,11 @@ function PresetThumbnail({ preset }: { preset: FakeScreenPreset }) {
 }
 
 function CanvasMini({ template }: { template: CanvasTemplate }) {
-  if (template === "snow") return <span className="preview-art bg-slate-800">{Array.from({ length: 16 }).map((_, i) => <i key={i} className="absolute h-1 w-1 rounded-full bg-white" style={{ left: `${(i * 19) % 96}%`, top: `${(i * 31) % 82}%` }} />)}</span>;
+  if (template === "snow") return <span className="preview-art bg-[var(--color-code-surface)]">{Array.from({ length: 16 }).map((_, i) => <i key={i} className="absolute h-1 w-1 rounded-full bg-white" style={{ left: `${(i * 19) % 96}%`, top: `${(i * 31) % 82}%` }} />)}</span>;
   if (template === "bubbles") return <span className="preview-art bg-cyan-700">{Array.from({ length: 8 }).map((_, i) => <i key={i} className="absolute rounded-full border border-cyan-100/70" style={{ left: `${(i * 17) % 88}%`, top: `${(i * 23) % 75}%`, width: 8 + (i % 3) * 5, height: 8 + (i % 3) * 5 }} />)}</span>;
   if (template === "confetti") return <span className="preview-art bg-white">{Array.from({ length: 14 }).map((_, i) => <i key={i} className="absolute h-1.5 w-4 rotate-45" style={{ left: `${(i * 13) % 90}%`, top: `${(i * 29) % 80}%`, backgroundColor: ["#f97316", "#22c55e", "#3b82f6", "#ef4444"][i % 4] }} />)}</span>;
   if (template === "starfield") return <span className="preview-art bg-black">{Array.from({ length: 26 }).map((_, i) => <i key={i} className="absolute h-0.5 w-0.5 rounded-full bg-white" style={{ left: `${(i * 23) % 96}%`, top: `${(i * 41) % 88}%` }} />)}</span>;
-  if (template === "network") return <span className="preview-art bg-slate-950"><i className="h-px w-24 rotate-12 bg-sky-300/70" /><i className="absolute h-px w-20 -rotate-45 bg-sky-300/60" /><i className="absolute h-2 w-2 rounded-full bg-sky-300" /></span>;
+  if (template === "network") return <span className="preview-art bg-[var(--color-code-bg)]"><i className="h-px w-24 rotate-12 bg-sky-300/70" /><i className="absolute h-px w-20 -rotate-45 bg-sky-300/60" /><i className="absolute h-2 w-2 rounded-full bg-sky-300" /></span>;
   if (template === "waves") return <span className="preview-art bg-blue-950"><i className="h-6 w-full rounded-[50%] border-t-2 border-sky-300" /><i className="absolute mt-5 h-6 w-full rounded-[50%] border-t-2 border-sky-300/60" /></span>;
   if (template === "fireflies") return <span className="preview-art bg-stone-950">{Array.from({ length: 9 }).map((_, i) => <i key={i} className="absolute h-1.5 w-1.5 rounded-full bg-yellow-200 shadow-[0_0_10px_#fde68a]" style={{ left: `${(i * 17) % 88}%`, top: `${(i * 23) % 82}%` }} />)}</span>;
   return <span className="preview-art bg-gradient-to-br from-emerald-400 via-purple-500 to-slate-950" />;
@@ -847,7 +847,7 @@ export default function FakeScreenClient() {
         categorySlot={
           <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
             {(Object.keys(MODE_LABELS) as FakeScreenMode[]).map((mode) => (
-              <button key={mode} type="button" onClick={() => patch({ mode })} className={["rounded-3xl border p-5 text-left transition hover:-translate-y-0.5 hover:shadow-sm", state.mode === mode ? "border-slate-900 bg-slate-900 text-white" : "border-black/10 bg-white text-slate-800"].join(" ")}>
+              <button key={mode} type="button" onClick={() => patch({ mode })} className={["rounded-[var(--radius-lg)] border p-5 text-left transition hover:-translate-y-0.5 hover:shadow-sm", state.mode === mode ? "border-[var(--color-primary)] bg-[var(--color-code-surface)] text-[var(--color-code-text)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-base)] text-[var(--color-text-primary)]"].join(" ")}>
                 <span className="text-xs font-black uppercase tracking-[0.18em] opacity-70">Category</span>
                 <span className="mt-2 block text-lg font-black">{MODE_LABELS[mode]}</span>
               </button>
@@ -855,33 +855,33 @@ export default function FakeScreenClient() {
           </div>
         }
         previewSlot={
-          <div ref={stageRef} className="h-full overflow-hidden rounded-[30px] bg-slate-100 shadow-sm">
+          <div ref={stageRef} className="h-full overflow-hidden rounded-[30px] bg-[var(--color-surface-subtle)] shadow-sm">
             <Preview state={state} progress={progress} patch={patch} />
           </div>
         }
         actionBarSlot={
           <>
             <button type="button" onClick={() => stageRef.current && void enterFullscreen(stageRef.current)} className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[var(--textColor)] px-5 py-3 text-sm font-black text-[var(--baseColor)] transition hover:opacity-85"><Maximize2 className="h-4 w-4" /> Start Fullscreen</button>
-            <button type="button" onClick={copyShareLink} className="inline-flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm font-bold text-slate-800 transition hover:bg-black/5">{copied === "share" ? <Check className="h-4 w-4" /> : <Link2 className="h-4 w-4" />} {copied === "share" ? "Copied" : "Copy Link"}</button>
-            {state.mode === "color" && state.colorMode !== "dead-pixel" ? <button type="button" onClick={copyColor} className="inline-flex items-center gap-2 rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm font-bold"><Copy className="h-4 w-4" /> {copied === "color" ? "Copied" : "Copy Hex"}</button> : null}
-            <button type="button" onClick={() => { setState(DEFAULT_FAKE_SCREEN_STATE); setStartedAt(Date.now()); }} className="inline-flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm font-bold text-slate-800 transition hover:bg-black/5"><RotateCcw className="h-4 w-4" /> Reset</button>
-            <span className="ml-auto text-xs font-bold text-slate-500">Fullscreen starts manually. Press Esc to exit.</span>
+            <button type="button" onClick={copyShareLink} className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-4 py-3 text-sm font-bold text-[var(--color-text-primary)] transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-control-hover)]">{copied === "share" ? <Check className="h-4 w-4" /> : <Link2 className="h-4 w-4" />} {copied === "share" ? "Copied" : "Copy Link"}</button>
+            {state.mode === "color" && state.colorMode !== "dead-pixel" ? <button type="button" onClick={copyColor} className="inline-flex items-center gap-2 rounded-2xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-4 py-3 text-sm font-bold text-[var(--color-text-primary)]"><Copy className="h-4 w-4" /> {copied === "color" ? "Copied" : "Copy Hex"}</button> : null}
+            <button type="button" onClick={() => { setState(DEFAULT_FAKE_SCREEN_STATE); setStartedAt(Date.now()); }} className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-4 py-3 text-sm font-bold text-[var(--color-text-primary)] transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-control-hover)]"><RotateCcw className="h-4 w-4" /> Reset</button>
+            <span className="ml-auto text-xs font-bold text-[var(--color-text-tertiary)]">Fullscreen starts manually. Press Esc to exit.</span>
           </>
         }
         examplesSlot={
           <>
-          <p className="text-xs font-black uppercase tracking-[0.18em] text-slate-500">Examples</p>
-          <p className="mt-1 text-xs leading-5 text-slate-500">Choose a ready-made screen, then fine-tune it in the controls.</p>
+          <p className="text-xs font-black uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">Examples</p>
+          <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">Choose a ready-made screen, then fine-tune it in the controls.</p>
           <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {activePresets.map((preset) => {
               const selected = preset.state.mode === state.mode && (
                 preset.state.updateTemplate === state.updateTemplate || preset.state.errorTemplate === state.errorTemplate || preset.state.screensaverTemplate === state.screensaverTemplate || preset.state.canvasTemplate === state.canvasTemplate || preset.state.colorMode === state.colorMode
               );
               return (
-                <button key={preset.id} type="button" onClick={() => { patch({ ...preset.state, mode: preset.mode }); setStartedAt(Date.now()); }} className={["rounded-3xl border bg-slate-50 p-3 text-left transition hover:-translate-y-0.5 hover:bg-slate-100 hover:shadow-sm", selected ? "border-slate-900 ring-2 ring-slate-900/10" : "border-black/10"].join(" ")}>
+                <button key={preset.id} type="button" onClick={() => { patch({ ...preset.state, mode: preset.mode }); setStartedAt(Date.now()); }} className={["rounded-[var(--radius-lg)] border bg-[var(--color-surface-subtle)] p-3 text-left transition hover:-translate-y-0.5 hover:bg-[var(--color-surface-subtle)] hover:shadow-sm", selected ? "border-[var(--color-primary)] ring-2 ring-[var(--color-primary-soft)]" : "border-[var(--color-border-default)]"].join(" ")}>
                   <PresetThumbnail preset={preset} />
-                  <span className="mt-3 block text-sm font-black text-slate-900">{preset.title}</span>
-                  <span className="mt-1 block text-xs leading-5 text-slate-600">{preset.description}</span>
+                  <span className="mt-3 block text-sm font-black text-[var(--color-text-primary)]">{preset.title}</span>
+                  <span className="mt-1 block text-xs leading-5 text-[var(--color-text-secondary)]">{preset.description}</span>
                 </button>
               );
             })}
@@ -890,7 +890,7 @@ export default function FakeScreenClient() {
         }
         controlsSlot={
           <>
-          <p className="text-xs font-black uppercase tracking-[0.18em] text-slate-500">Controls</p>
+          <p className="text-xs font-black uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">Controls</p>
           <div className="mt-4">
             {state.mode === "color" ? <ColorControls state={state} patch={patch} /> : null}
             {state.mode === "update" ? <UpdateControls state={state} patch={patch} restart={() => setStartedAt(Date.now())} /> : null}
@@ -898,7 +898,7 @@ export default function FakeScreenClient() {
             {state.mode === "screensaver" ? <ScreensaverControls state={state} patch={patch} /> : null}
             {state.mode === "canvas" ? <CanvasControls state={state} patch={patch} /> : null}
           </div>
-          <p className="mt-5 rounded-2xl bg-amber-50 p-3 text-xs leading-5 text-amber-900">{SCREEN_SAFETY_NOTE}</p>
+          <p className="mt-5 rounded-[var(--radius-md)] border border-[var(--color-warning-border)] bg-[var(--color-warning-bg)] p-3 text-xs leading-5 text-[var(--color-warning-text)]">{SCREEN_SAFETY_NOTE}</p>
           </>
         }
       />
@@ -910,11 +910,11 @@ function ColorControls({ state, patch }: { state: FakeScreenState; patch: (next:
   const selectedDeadColor = DEAD_PIXEL_COLORS[state.deadPixelIndex] ?? DEAD_PIXEL_COLORS[0];
   return (
     <div className="space-y-4">
-      <Field label="Color mode"><div className="grid gap-2">{COLOR_MODES.map((mode) => <button key={mode.value} type="button" onClick={() => patch({ colorMode: mode.value })} className={["rounded-2xl border p-3 text-left transition", state.colorMode === mode.value ? "border-slate-900 bg-slate-900 text-white" : "border-black/10 bg-white text-slate-700 hover:bg-slate-50"].join(" ")}><span className="block text-sm font-black">{mode.label}</span><span className="mt-1 block text-xs opacity-75">{mode.help}</span></button>)}</div></Field>
+      <Field label="Color mode"><div className="grid gap-2">{COLOR_MODES.map((mode) => <button key={mode.value} type="button" onClick={() => patch({ colorMode: mode.value })} className={["rounded-2xl border p-3 text-left transition", state.colorMode === mode.value ? "border-[var(--color-primary)] bg-[var(--color-code-surface)] text-[var(--color-code-text)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-base)] text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-subtle)]"].join(" ")}><span className="block text-sm font-black">{mode.label}</span><span className="mt-1 block text-xs opacity-75">{mode.help}</span></button>)}</div></Field>
       {state.colorMode === "dead-pixel" ? (
-        <Field label="Test color" hint="Dead pixel mode intentionally ignores the custom color picker."><div className="flex flex-wrap gap-2">{DEAD_PIXEL_COLORS.map((item, index) => <button key={item.value} type="button" onClick={() => patch({ deadPixelIndex: index })} className={["rounded-2xl border px-3 py-2 text-xs font-bold", index === state.deadPixelIndex ? "border-slate-900 bg-slate-900 text-white" : "border-black/10 bg-white text-slate-700"].join(" ")}><span className="mr-2 inline-block h-3 w-3 rounded-full border border-black/20 align-middle" style={{ backgroundColor: item.value }} />{item.label}</button>)}</div><p className="mt-2 text-xs font-bold normal-case tracking-normal text-slate-500">Currently showing: {selectedDeadColor.label}</p></Field>
+        <Field label="Test color" hint="Dead pixel mode intentionally ignores the custom color picker."><div className="flex flex-wrap gap-2">{DEAD_PIXEL_COLORS.map((item, index) => <button key={item.value} type="button" onClick={() => patch({ deadPixelIndex: index })} className={["rounded-2xl border px-3 py-2 text-xs font-bold", index === state.deadPixelIndex ? "border-[var(--color-primary)] bg-[var(--color-code-surface)] text-[var(--color-code-text)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-base)] text-[var(--color-text-secondary)]"].join(" ")}><span className="mr-2 inline-block h-3 w-3 rounded-full border border-black/20 align-middle" style={{ backgroundColor: item.value }} />{item.label}</button>)}</div><p className="mt-2 text-xs font-bold normal-case tracking-normal text-[var(--color-text-tertiary)]">Currently showing: {selectedDeadColor.label}</p></Field>
       ) : (
-        <><Field label="Quick color presets"><div className="flex flex-wrap gap-2">{COLOR_PRESETS.map((preset) => <button key={preset.value} type="button" onClick={() => patch({ color: preset.value })} className="h-10 w-10 rounded-full border border-black/10 shadow-sm" style={{ backgroundColor: preset.value }} title={preset.label} aria-label={preset.label} />)}</div></Field><Field label="Custom color"><div className="flex gap-2"><input type="color" value={state.color} onChange={(e) => patch({ color: e.target.value })} className="h-10 w-14 rounded-xl border border-black/10 bg-white" /><TextInput value={state.color} onChange={(e) => patch({ color: normalizeHex(e.target.value, state.color) })} /></div></Field></>
+        <><Field label="Quick color presets"><div className="flex flex-wrap gap-2">{COLOR_PRESETS.map((preset) => <button key={preset.value} type="button" onClick={() => patch({ color: preset.value })} className="h-10 w-10 rounded-full border border-black/10 shadow-sm" style={{ backgroundColor: preset.value }} title={preset.label} aria-label={preset.label} />)}</div></Field><Field label="Custom color"><div className="flex gap-2"><input type="color" value={state.color} onChange={(e) => patch({ color: e.target.value })} className="h-10 w-14 rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)]" /><TextInput value={state.color} onChange={(e) => patch({ color: normalizeHex(e.target.value, state.color) })} /></div></Field></>
       )}
       <Field label={`Brightness: ${state.brightness}%`}><input type="range" min="10" max="100" value={state.brightness} onChange={(e) => patch({ brightness: Number(e.target.value) })} className="w-full" /></Field>
       {state.colorMode === "cleaning" ? <Field label="Cleaning timer minutes"><TextInput type="number" min={1} max={30} value={state.timerMinutes} onChange={(e) => patch({ timerMinutes: Number(e.target.value) })} /></Field> : null}
@@ -923,7 +923,7 @@ function ColorControls({ state, patch }: { state: FakeScreenState; patch: (next:
 }
 
 function UpdateControls({ state, patch, restart }: { state: FakeScreenState; patch: (next: Partial<FakeScreenState>) => void; restart: () => void }) {
-  return <div className="space-y-4"><Field label="Update example"><SelectButtons options={UPDATE_TEMPLATES} value={state.updateTemplate} onChange={(updateTemplate) => { patch({ updateTemplate }); restart(); }} /></Field><Field label="Progress mode"><SelectButtons options={UPDATE_MODES} value={state.updateProgressMode} onChange={(updateProgressMode) => patch({ updateProgressMode })} /></Field><div className="grid gap-3 sm:grid-cols-2"><Field label="Duration minutes"><TextInput type="number" min={1} max={90} value={state.updateDurationMinutes} onChange={(e) => patch({ updateDurationMinutes: Number(e.target.value) })} /></Field><Field label="Start percent"><TextInput type="number" min={0} max={99} value={state.updateStartPercent} onChange={(e) => patch({ updateStartPercent: Number(e.target.value) })} /></Field></div>{state.updateProgressMode === "manual" ? <Field label={`Manual progress: ${state.manualProgress}%`}><input type="range" min="0" max="100" value={state.manualProgress} onChange={(e) => patch({ manualProgress: Number(e.target.value) })} className="w-full" /></Field> : null}<Field label="Main message"><TextInput value={state.updateTitle} onChange={(e) => patch({ updateTitle: e.target.value })} /></Field><Field label="Secondary message"><TextArea value={state.updateSubtitle} onChange={(e) => patch({ updateSubtitle: e.target.value })} /></Field><button type="button" onClick={restart} className="rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm font-bold">Start / Restart Progress</button></div>;
+  return <div className="space-y-4"><Field label="Update example"><SelectButtons options={UPDATE_TEMPLATES} value={state.updateTemplate} onChange={(updateTemplate) => { patch({ updateTemplate }); restart(); }} /></Field><Field label="Progress mode"><SelectButtons options={UPDATE_MODES} value={state.updateProgressMode} onChange={(updateProgressMode) => patch({ updateProgressMode })} /></Field><div className="grid gap-3 sm:grid-cols-2"><Field label="Duration minutes"><TextInput type="number" min={1} max={90} value={state.updateDurationMinutes} onChange={(e) => patch({ updateDurationMinutes: Number(e.target.value) })} /></Field><Field label="Start percent"><TextInput type="number" min={0} max={99} value={state.updateStartPercent} onChange={(e) => patch({ updateStartPercent: Number(e.target.value) })} /></Field></div>{state.updateProgressMode === "manual" ? <Field label={`Manual progress: ${state.manualProgress}%`}><input type="range" min="0" max="100" value={state.manualProgress} onChange={(e) => patch({ manualProgress: Number(e.target.value) })} className="w-full" /></Field> : null}<Field label="Main message"><TextInput value={state.updateTitle} onChange={(e) => patch({ updateTitle: e.target.value })} /></Field><Field label="Secondary message"><TextArea value={state.updateSubtitle} onChange={(e) => patch({ updateSubtitle: e.target.value })} /></Field><button type="button" onClick={restart} className="rounded-2xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-4 py-3 text-sm font-bold text-[var(--color-text-primary)]">Start / Restart Progress</button></div>;
 }
 
 function ErrorControls({ state, patch }: { state: FakeScreenState; patch: (next: Partial<FakeScreenState>) => void }) {
@@ -931,11 +931,11 @@ function ErrorControls({ state, patch }: { state: FakeScreenState; patch: (next:
 }
 
 function ScreensaverControls({ state, patch }: { state: FakeScreenState; patch: (next: Partial<FakeScreenState>) => void }) {
-  return <div className="space-y-4"><Field label="Screensaver example"><SelectButtons options={SCREENSAVER_TEMPLATES} value={state.screensaverTemplate} onChange={(screensaverTemplate) => patch({ screensaverTemplate, screensaverText: screensaverTemplate === "dvd" ? "DVD" : state.screensaverText })} /></Field><Field label="Text"><TextInput value={state.screensaverText} maxLength={state.screensaverTemplate === "quote" ? 120 : 28} onChange={(e) => patch({ screensaverText: e.target.value })} /></Field><Field label="Speed"><SelectButtons options={SPEEDS} value={state.screensaverSpeed} onChange={(screensaverSpeed) => patch({ screensaverSpeed })} /></Field><Field label={`Text size: ${state.screensaverSize}px`}><input type="range" min="24" max="110" value={state.screensaverSize} onChange={(e) => patch({ screensaverSize: Number(e.target.value) })} className="w-full" /></Field><div className="grid gap-3 sm:grid-cols-2"><Field label="Background"><input type="color" value={state.screensaverBackground} onChange={(e) => patch({ screensaverBackground: e.target.value })} className="h-10 w-full rounded-xl border border-black/10 bg-white" /></Field><Field label="Text color"><input type="color" value={state.screensaverColor} onChange={(e) => patch({ screensaverColor: e.target.value })} className="h-10 w-full rounded-xl border border-black/10 bg-white" /></Field></div><label className="flex items-center gap-3 rounded-2xl border border-black/10 bg-slate-50 p-3 text-sm font-bold text-slate-700"><input type="checkbox" checked={state.showCornerCounter} onChange={(e) => patch({ showCornerCounter: e.target.checked })} /> Show corner hit counter</label></div>;
+  return <div className="space-y-4"><Field label="Screensaver example"><SelectButtons options={SCREENSAVER_TEMPLATES} value={state.screensaverTemplate} onChange={(screensaverTemplate) => patch({ screensaverTemplate, screensaverText: screensaverTemplate === "dvd" ? "DVD" : state.screensaverText })} /></Field><Field label="Text"><TextInput value={state.screensaverText} maxLength={state.screensaverTemplate === "quote" ? 120 : 28} onChange={(e) => patch({ screensaverText: e.target.value })} /></Field><Field label="Speed"><SelectButtons options={SPEEDS} value={state.screensaverSpeed} onChange={(screensaverSpeed) => patch({ screensaverSpeed })} /></Field><Field label={`Text size: ${state.screensaverSize}px`}><input type="range" min="24" max="110" value={state.screensaverSize} onChange={(e) => patch({ screensaverSize: Number(e.target.value) })} className="w-full" /></Field><div className="grid gap-3 sm:grid-cols-2"><Field label="Background"><input type="color" value={state.screensaverBackground} onChange={(e) => patch({ screensaverBackground: e.target.value })} className="h-10 w-full rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)]" /></Field><Field label="Text color"><input type="color" value={state.screensaverColor} onChange={(e) => patch({ screensaverColor: e.target.value })} className="h-10 w-full rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)]" /></Field></div><label className="flex items-center gap-3 rounded-2xl border border-black/10 bg-[var(--color-surface-subtle)] p-3 text-sm font-bold text-[var(--color-text-secondary)]"><input type="checkbox" checked={state.showCornerCounter} onChange={(e) => patch({ showCornerCounter: e.target.checked })} /> Show corner hit counter</label></div>;
 }
 
 function CanvasControls({ state, patch }: { state: FakeScreenState; patch: (next: Partial<FakeScreenState>) => void }) {
-  return <div className="space-y-4"><Field label="Canvas example"><SelectButtons options={CANVAS_TEMPLATES} value={state.canvasTemplate} onChange={(canvasTemplate) => patch({ canvasTemplate })} /></Field><Field label={`Density: ${state.canvasDensity}`}><input type="range" min="12" max="1300" value={state.canvasDensity} onChange={(e) => patch({ canvasDensity: Number(e.target.value) })} className="w-full" /></Field><Field label="Animation speed"><SelectButtons options={SPEEDS} value={state.canvasSpeed} onChange={(canvasSpeed) => patch({ canvasSpeed })} /></Field><div className="grid gap-3 sm:grid-cols-2"><Field label="Background"><input type="color" value={state.canvasBackground} onChange={(e) => patch({ canvasBackground: e.target.value })} className="h-10 w-full rounded-xl border border-black/10 bg-white" /></Field><Field label="Main color"><input type="color" value={state.canvasPrimaryColor} onChange={(e) => patch({ canvasPrimaryColor: e.target.value })} className="h-10 w-full rounded-xl border border-black/10 bg-white" /></Field></div><p className="text-xs leading-5 text-slate-500">Each canvas example has a different drawing system: snow flakes fall, bubbles float upward, fireflies glow, starfield uses depth, and network links only nearby particles.</p></div>;
+  return <div className="space-y-4"><Field label="Canvas example"><SelectButtons options={CANVAS_TEMPLATES} value={state.canvasTemplate} onChange={(canvasTemplate) => patch({ canvasTemplate })} /></Field><Field label={`Density: ${state.canvasDensity}`}><input type="range" min="12" max="1300" value={state.canvasDensity} onChange={(e) => patch({ canvasDensity: Number(e.target.value) })} className="w-full" /></Field><Field label="Animation speed"><SelectButtons options={SPEEDS} value={state.canvasSpeed} onChange={(canvasSpeed) => patch({ canvasSpeed })} /></Field><div className="grid gap-3 sm:grid-cols-2"><Field label="Background"><input type="color" value={state.canvasBackground} onChange={(e) => patch({ canvasBackground: e.target.value })} className="h-10 w-full rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)]" /></Field><Field label="Main color"><input type="color" value={state.canvasPrimaryColor} onChange={(e) => patch({ canvasPrimaryColor: e.target.value })} className="h-10 w-full rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)]" /></Field></div><p className="text-xs leading-5 text-[var(--color-text-tertiary)]">Each canvas example has a different drawing system: snow flakes fall, bubbles float upward, fireflies glow, starfield uses depth, and network links only nearby particles.</p></div>;
 }
 
 const styles = `

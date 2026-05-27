@@ -1,5 +1,4 @@
 import { CheckCircle } from "lucide-react";
-import "./style.css";
 
 interface RainbowButtonProps {
   handleClick: () => void;
@@ -16,20 +15,20 @@ const RainbowButton = ({
     <button
       type="button"
       onClick={handleClick}
-      className={`self-center mb-2 w-full flex items-center justify-center group relative p-3 rounded-lg transition duration-300 font-bold shadow-md hover:shadow-lg hover:scale-105 focus:outline-none text-xs uppercase ${
+      className={`group relative mb-2 flex max-h-fit w-full items-center justify-center rounded-[var(--radius-sm)] border p-3 text-xs font-bold uppercase tracking-[0.08em] transition duration-[var(--duration-fast)] focus:outline-none focus-visible:shadow-[var(--focus-ring)] ${
         isActive
-          ? "rainbow-border-active text-green-700"
-          : "rainbow-border bg-white hover:bg-gray-100 text-gray-800"
-      } max-h-fit`}
+          ? "border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+          : "border-[var(--color-border-default)] bg-[var(--color-surface-base)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-control-hover)] hover:text-[var(--color-text-primary)]"
+      }`}
     >
-      <span className={isActive ? "selected-content" : ""}>{label}</span>
+      <span>{label}</span>
       {isActive && (
         <CheckCircle
-          className="absolute -top-2 -left-2 w-5 h-5 text-green-500 bg-white rounded-full"
-          fill="black"
+          className="absolute -left-2 -top-2 h-5 w-5 rounded-[var(--radius-full)] bg-[var(--color-surface-raised)] text-[var(--color-success)]"
+          fill="var(--color-success)"
         />
       )}
-      <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 text-xs text-white bg-black rounded opacity-0 group-hover:opacity-100 transition z-50">
+      <span className="absolute bottom-full left-1/2 z-50 mb-2 -translate-x-1/2 rounded-[var(--radius-sm)] bg-[var(--color-code-bg)] px-2 py-1 text-xs text-[var(--color-code-text)] opacity-0 transition group-hover:opacity-100">
         {label}
       </span>
     </button>

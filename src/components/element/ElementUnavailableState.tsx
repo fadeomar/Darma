@@ -1,4 +1,6 @@
+
 import Link from "next/link";
+import { Badge, Card } from "@/components/ui";
 
 type ElementUnavailableStateProps = {
   reason?: string;
@@ -9,31 +11,23 @@ export default function ElementUnavailableState({
 }: ElementUnavailableStateProps) {
   return (
     <section className="mx-auto flex min-h-[60vh] max-w-3xl items-center justify-center px-4 py-16">
-      <div className="rounded-3xl border border-black/10 bg-white/85 p-8 text-center shadow-sm backdrop-blur">
-        <p className="mb-3 inline-flex rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-amber-700">
-          Temporarily unavailable
-        </p>
-        <h1 className="text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">
+      <Card padding="lg" className="w-full text-center">
+        <Badge variant="warning">Temporarily unavailable</Badge>
+        <h1 className="mt-4 text-3xl font-black tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-4xl">
           This element could not be loaded
         </h1>
-        <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-slate-600 sm:text-base">
+        <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-[var(--color-text-secondary)] sm:text-base">
           {reason} Refresh the page after your database connection is restored.
         </p>
         <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
-          <Link
-            href="/explore"
-            className="rounded-full bg-slate-950 px-5 py-3 text-sm font-bold text-white transition hover:bg-slate-800"
-          >
+          <Link href="/explore" className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-primary)] px-5 text-sm font-semibold text-[var(--color-primary-text)] shadow-[var(--shadow-xs)] transition hover:bg-[var(--color-primary-hover)]">
             Back to Explore
           </Link>
-          <Link
-            href="/"
-            className="rounded-full border border-black/10 bg-white px-5 py-3 text-sm font-bold text-slate-900 transition hover:bg-slate-50"
-          >
+          <Link href="/" className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-5 text-sm font-semibold text-[var(--color-text-primary)] shadow-[var(--shadow-xs)] transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-subtle)]">
             Go home
           </Link>
         </div>
-      </div>
+      </Card>
     </section>
   );
 }

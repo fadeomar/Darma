@@ -1,6 +1,7 @@
+
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { SearchParams } from "@/types";
 import SearchComponent from "./SearchComponent";
@@ -26,13 +27,8 @@ export default function HomeClientPage({
   basePath?: string;
 }) {
   const router = useRouter();
-
-  // Local state for UI controls
   const [localSearch, setLocalSearch] = useState(initialParams.q || "");
-  const [exactMatch, setExactMatch] = useState(
-    initialParams.exactMatch === "true",
-  );
-
+  const [exactMatch, setExactMatch] = useState(initialParams.exactMatch === "true");
   const [mainCats, setMainCats] = useState<string[]>(
     Array.isArray(initialParams.mainCat)
       ? initialParams.mainCat
@@ -40,7 +36,6 @@ export default function HomeClientPage({
         ? [initialParams.mainCat]
         : [],
   );
-
   const [secCats, setSecCats] = useState<string[]>(
     Array.isArray(initialParams.secCat)
       ? initialParams.secCat
@@ -48,41 +43,32 @@ export default function HomeClientPage({
         ? [initialParams.secCat]
         : [],
   );
-
-  const [currentPage, setCurrentPage] = useState(
-    parseInt(initialParams.page || "1", 10),
-  );
-
-  const [isDirty, setIsDirty] = useState(false); // Tracks if params have changed
-
-  // Data and UI states
+  const [currentPage, setCurrentPage] = useState(parseInt(initialParams.page || "1", 10));
+  const [isDirty, setIsDirty] = useState(false);
   const [elements, setElements] = useState<ElementDTO[]>(initialElements);
   const [total, setTotal] = useState(initialTotal);
   const [error, setError] = useState<string | undefined>(initialError);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Pagination derived values
-  const PAGE_SIZE = 12; // IMPORTANT: keep in sync with server search default
+  const PAGE_SIZE = 12;
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
 
-  // Build URL parameters from current state
   const updateUrlParams = (
     page: number,
     query: string,
-    mainCats: string[],
-    secCats: string[],
-    exactMatch: boolean,
+    nextMainCats: string[],
+    nextSecCats: string[],
+    nextExactMatch: boolean,
   ) => {
     const params = new URLSearchParams();
     if (query.trim()) params.set("q", query.trim());
-    mainCats.forEach((c) => params.append("mainCat", c));
-    secCats.forEach((c) => params.append("secCat", c));
+    nextMainCats.forEach((c) => params.append("mainCat", c));
+    nextSecCats.forEach((c) => params.append("secCat", c));
     params.set("page", page.toString());
-    params.set("exactMatch", exactMatch.toString());
-    router.push(`${basePath}?${params.toString()}`); // Trigger server re-render
+    params.set("exactMatch", nextExactMatch.toString());
+    router.push(`${basePath}?${params.toString()}`);
   };
 
-  // Handle search button click
   const handleSearch = () => {
     setIsLoading(true);
     const newPage = 1;
@@ -100,7 +86,6 @@ export default function HomeClientPage({
     setIsDirty(false);
   };
 
-  // Handle page change
   const handlePageChange = (page: number) => {
     setIsLoading(true);
     setCurrentPage(page);
@@ -115,31 +100,24 @@ export default function HomeClientPage({
     setIsDirty(false);
   };
 
-  // Handle category changes (local state only)
-  const handleCategoryChange = (
-    newMainCats: string[],
-    newSecCats: string[],
-  ) => {
+  const handleCategoryChange = (newMainCats: string[], newSecCats: string[]) => {
     setMainCats(newMainCats);
     setSecCats(newSecCats);
-    setIsDirty(true); // Mark as dirty when categories change
+    setIsDirty(true);
   };
 
-  // Sync state with server props when they change
   useEffect(() => {
     setElements(initialElements);
     setTotal(initialTotal);
     setError(initialError);
     setIsLoading(false);
-    setIsDirty(false); // Reset dirty state after server update
+    setIsDirty(false);
   }, [initialElements, initialTotal, initialError]);
 
-  // Mark as dirty when search query or exact match changes
   useEffect(() => {
     setIsDirty(true);
   }, [localSearch, exactMatch]);
 
-  // Clamp current page if totalPages shrinks (prevents out-of-range pagination)
   useEffect(() => {
     if (currentPage > totalPages) {
       handlePageChange(totalPages);
@@ -148,7 +126,7 @@ export default function HomeClientPage({
   }, [totalPages]);
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-500 p-2 sm:p-4 md:p-8 rounded-md">
+    <div className="mx-auto max-w-[var(--container-wide)]">
       <SearchComponent
         searchQuery={localSearch}
         setSearchQuery={setLocalSearch}
@@ -162,21 +140,26 @@ export default function HomeClientPage({
         isDirty={isDirty}
       />
 
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-4 flex items-center justify-between gap-4">
-          <h3 className="text-xl font-semibold uppercase">Items</h3>
-          <p className="text-sm text-gray-500">{total} result{total === 1 ? "" : "s"}</p>
+      <section className="mt-6 rounded-[var(--radius-xl)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-card)] sm:p-5">
+        <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">Results</p>
+            <h2 className="mt-1 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">Published items</h2>
+          </div>
+          <p className="rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-3 py-1 text-sm font-semibold text-[var(--color-text-secondary)]">
+            {total} result{total === 1 ? "" : "s"}
+          </p>
         </div>
 
         {isLoading ? (
           <SkeletonGrid count={9} />
         ) : (
           <>
-            {error && (
-              <div className="text-center py-12 text-red-500 uppercase">
+            {error ? (
+              <div className="rounded-[var(--radius-lg)] border border-[var(--color-danger-border)] bg-[var(--color-danger-bg)] p-6 text-center text-sm font-semibold text-[var(--color-danger-text)]">
                 Error: {error}
               </div>
-            )}
+            ) : null}
 
             {elements.length > 0 ? (
               <CardsPagination
@@ -196,13 +179,14 @@ export default function HomeClientPage({
                 )}
               />
             ) : (
-              <div className="text-center py-12 text-gray-500 uppercase">
-                No elements found matching your criteria
+              <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-8 text-center">
+                <h3 className="text-lg font-bold text-[var(--color-text-primary)]">No elements found</h3>
+                <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">Try a broader keyword or remove one of the selected filters.</p>
               </div>
             )}
           </>
         )}
-      </div>
+      </section>
     </div>
   );
 }

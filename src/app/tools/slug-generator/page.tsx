@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 };
 
 const SlugGeneratorClient = dynamic(() => import("./SlugGeneratorClient"), {
-  loading: () => <div className="h-[520px] animate-pulse rounded-3xl bg-slate-100" />,
+  loading: () => <div className="h-[520px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
 });
 
 const Article = dynamic(() => import("./Article"));
@@ -40,7 +40,7 @@ export default function SlugGeneratorPage() {
     <ToolPageShell
       tool={tool}
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-slate-700 dark:text-slate-300">
+        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
           Turn headings, article names, and product titles into clean URL slugs
           in real time. Choose separator style, casing, optional stop-word
           removal, and max length. Everything runs locally in your browser.
@@ -49,10 +49,10 @@ export default function SlugGeneratorPage() {
       sidebar={
         <div className="flex flex-col gap-5">
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Good slug checklist
             </h2>
-            <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-700 dark:text-slate-300">
+            <ul className="mt-3 space-y-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
               <li>Keep it short and descriptive</li>
               <li>Use one separator style consistently</li>
               <li>Avoid symbols and repeated separators</li>
@@ -62,10 +62,10 @@ export default function SlugGeneratorPage() {
           </SurfaceCard>
 
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Common use cases
             </h2>
-            <ul className="mt-3 space-y-1.5 text-sm leading-6 text-slate-700 dark:text-slate-300">
+            <ul className="mt-3 space-y-1.5 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
               <li>Blog article URLs</li>
               <li>Product page handles</li>
               <li>CMS and headless content paths</li>
@@ -75,10 +75,10 @@ export default function SlugGeneratorPage() {
           </SurfaceCard>
 
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Privacy
             </h2>
-            <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
               Slug generation happens entirely in your browser. No text is sent
               to any server.
             </p>

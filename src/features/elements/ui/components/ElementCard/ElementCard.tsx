@@ -56,7 +56,7 @@ function ElementCardBase({
             <Link
               href={previewHref}
               onClick={handlePreviewClick}
-              className="preview-link text-textColor"
+              className="preview-link"
             >
               ↗ Preview
             </Link>

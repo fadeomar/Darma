@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const ButtonsCssGeneratorClient = dynamic(() => import("./ButtonsCssGeneratorClient"), {
-  loading: () => <div className="h-[760px] animate-pulse rounded-3xl bg-[var(--color-control-track)]" />,
+  loading: () => <div className="h-[760px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-control-track)]" />,
 });
 
 export default function ButtonsCssGeneratorPage() {

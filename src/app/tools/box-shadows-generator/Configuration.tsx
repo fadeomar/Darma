@@ -89,7 +89,7 @@ const Configuration: React.FC<ConfigurationProps> = ({ state, setState }) => {
   };
 
   return (
-    <div className="p-4 bg-gray-100 rounded-lg shadow-md">
+    <div className="p-4 bg-[var(--color-surface-subtle)] rounded-lg shadow-md">
       <h2 className="text-lg font-bold mb-4">Settings</h2>
       <BoxShadows
         onShadowSelect={handleShadowSelect}
@@ -202,7 +202,7 @@ const Configuration: React.FC<ConfigurationProps> = ({ state, setState }) => {
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 updateShadow(activeShadow.id, { color: e.target.value })
               }
-              className="w-8 h-8 rounded border border-gray-300 cursor-pointer"
+              className="w-8 h-8 rounded border border-[var(--color-border-strong)] cursor-pointer"
             />
           </div>
           <ToggleSwitch
@@ -246,7 +246,7 @@ const Configuration: React.FC<ConfigurationProps> = ({ state, setState }) => {
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               updateBox({ backgroundColor: e.target.value })
             }
-            className="w-8 h-8 rounded border border-gray-300 cursor-pointer"
+            className="w-8 h-8 rounded border border-[var(--color-border-strong)] cursor-pointer"
           />
         </div>
       </div>

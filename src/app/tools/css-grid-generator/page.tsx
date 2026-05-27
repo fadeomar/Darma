@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const CssGridGeneratorClient = dynamic(() => import("./CssGridGeneratorClient"), {
-  loading: () => <div className="h-[860px] animate-pulse rounded-3xl bg-slate-100 dark:bg-slate-900" />,
+  loading: () => <div className="h-[860px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)] dark:bg-[var(--color-code-surface)]" />,
 });
 const Article = dynamic(() => import("./Article"));
 
@@ -28,7 +28,7 @@ export default function CssGridGeneratorPage() {
       tool={tool}
       maxWidth="wide"
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-slate-700 dark:text-slate-300">
+        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
           Design responsive CSS Grid layouts visually, create grid areas, preview real grid behavior, and copy clean CSS, HTML, React, or Tailwind-style starter code.
         </p>
       }

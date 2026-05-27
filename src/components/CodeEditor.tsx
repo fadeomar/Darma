@@ -129,7 +129,7 @@ const CodeEditor = ({
   };
 
   return (
-    <div className="relative w-full max-w-[280px]  md:max-w-[100%] flex justify-center mx-auto">
+    <div className="relative mx-auto flex w-full max-w-[280px] justify-center md:max-w-full">
       <Editor
         height={height} // Initial height set via prop
         language={language}
@@ -164,20 +164,21 @@ const CodeEditor = ({
       />
       {showCopyButton && (
         <button
+          type="button"
           onClick={() => handleCopy()}
           className={`absolute ${
             buttonPosition === "top-right" ? "top-4" : "bottom-4"
-          } right-4 p-2 bg-fuchsia-200 text-purple-800 rounded-lg hover:bg-fuchsia-400 transition-all duration-200 flex items-center gap-2 shadow-lg z-50`}
+          } right-4 z-50 flex items-center gap-2 rounded-[var(--radius-sm)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] px-3 py-2 text-[var(--color-primary)] shadow-[var(--shadow-xs)] transition duration-[var(--duration-fast)] hover:border-[var(--color-primary)] hover:bg-[var(--color-control-active)]`}
         >
           {isCopied ? (
             <>
-              <FiCheck className="w-4 h-4 text-gray-700" />
-              <span className="text-sm text-gray-700">Copied!</span>
+              <FiCheck className="h-4 w-4" />
+              <span className="text-sm font-semibold">Copied!</span>
             </>
           ) : (
             <>
-              <FiCopy className="w-4 h-4 text-gray-700" />
-              <span className="text-sm text-gray-700">Copy</span>
+              <FiCopy className="h-4 w-4" />
+              <span className="text-sm font-semibold">Copy</span>
             </>
           )}
         </button>

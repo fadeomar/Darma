@@ -12,6 +12,7 @@ export function GradientsOptions({ state, setState }: _OptionsProps) {
       {buttonGradients.map((item, index) => (
         <button
           key={index}
+          type="button"
           onClick={() => {
             setState((old: State) => ({
               ...old,
@@ -25,7 +26,7 @@ export function GradientsOptions({ state, setState }: _OptionsProps) {
           className={`w-14 h-14 rounded-full transition-all duration-300 transform 
             ${
               state.color1 === item.color1 && state.color2 === item.color2
-                ? "ring-4 ring-yellow-500 scale-110"
+                ? "ring-4 ring-[var(--color-primary-soft)] scale-110"
                 : ""
             }
           `}
@@ -63,6 +64,7 @@ export function ShadowOptions({ setState, state }: _OptionsProps) {
           </style>
           <button
             key={index}
+            type="button"
             onClick={() => {
               setState((old) => ({
                 ...old,
@@ -74,7 +76,7 @@ export function ShadowOptions({ setState, state }: _OptionsProps) {
               state.bgColor === item.bgColor &&
               state.hoverBgColor === item.hoverBgColor &&
               state.shadowColor === item.shadowColor
-                ? "border-2 border-green-700 scale-110"
+                ? "border-2 border-[var(--color-success-border)] scale-110"
                 : ""
             }
             `}

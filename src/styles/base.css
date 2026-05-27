@@ -11,11 +11,14 @@ html {
 
 body {
   margin: 0;
+  min-height: 100vh;
   color: var(--color-text-primary);
   background:
-    radial-gradient(circle at top left, color-mix(in srgb, var(--color-primary) 5%, transparent), transparent 30rem),
+    radial-gradient(circle at top left, color-mix(in srgb, var(--color-primary) 7%, transparent), transparent 28rem),
+    radial-gradient(circle at top right, color-mix(in srgb, var(--color-accent) 5%, transparent), transparent 24rem),
     linear-gradient(180deg, var(--color-app-bg), var(--color-page-bg));
   font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
   transition:
     background-color var(--duration-slow) var(--ease-standard),
     color var(--duration-normal) var(--ease-standard);
@@ -27,7 +30,8 @@ body {
 }
 
 ::selection {
-  background: rgba(79, 70, 229, 0.24);
+  background: var(--color-primary-soft);
+  color: var(--color-text-primary);
 }
 
 :where(a, button, input, textarea, select, summary):focus-visible {
@@ -50,6 +54,10 @@ button:disabled {
   cursor: not-allowed;
 }
 
+input[type="number"] {
+  font-variant-numeric: tabular-nums;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -59,4 +67,107 @@ button:disabled {
     scroll-behavior: auto !important;
     transition-duration: 0.001ms !important;
   }
+}
+
+.darma-select-control {
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--color-text-tertiary) 50%),
+    linear-gradient(135deg, var(--color-text-tertiary) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 9px) 50%;
+  background-repeat: no-repeat;
+  background-size: 5px 5px, 5px 5px;
+}
+
+.darma-slider {
+  appearance: none;
+  min-height: 1.5rem;
+}
+
+.darma-slider::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: transparent;
+}
+
+.darma-slider::-webkit-slider-thumb {
+  width: 18px;
+  height: 18px;
+  margin-top: -6px;
+  appearance: none;
+  border: 2px solid var(--color-surface-raised);
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.darma-slider:hover::-webkit-slider-thumb {
+  transform: scale(1.06);
+}
+
+.darma-slider:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 4px var(--color-primary-soft), var(--shadow-sm);
+}
+
+.darma-slider::-moz-range-track {
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: transparent;
+}
+
+.darma-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--color-surface-raised);
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--duration-fast) var(--ease-standard), box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.darma-slider:hover::-moz-range-thumb {
+  transform: scale(1.06);
+}
+
+.darma-slider:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 4px var(--color-primary-soft), var(--shadow-sm);
+}
+
+/* === Scrollbars === */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-strong) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-tertiary);
+}
+
+pre ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+pre ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.32);
+}
+
+pre {
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
 }

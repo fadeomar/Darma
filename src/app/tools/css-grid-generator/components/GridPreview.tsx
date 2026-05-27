@@ -54,7 +54,7 @@ export function GridPreview({
           <div
             className={cn(
               "relative grid min-h-[430px] rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border)] p-3",
-              state.showGridLines && "bg-[linear-gradient(to_right,rgba(148,163,184,.24)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,.24)_1px,transparent_1px)] bg-[size:48px_48px]",
+              state.showGridLines && "bg-[linear-gradient(to_right,var(--color-preview-grid)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-preview-grid)_1px,transparent_1px)] bg-[size:48px_48px]",
             )}
             style={{
               gridTemplateColumns: state.columnTemplate,

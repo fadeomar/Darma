@@ -13,11 +13,11 @@ const DEFAULT_PARAMS: ColorShadesParams = {
 };
 
 const ColorShadesClient = dynamic(() => import("./ColorShadesClient"), {
-  loading: () => <div className="h-64 animate-pulse rounded-3xl bg-[var(--color-control-track)]" />,
+  loading: () => <div className="h-64 animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-control-track)]" />,
 });
 
 const SuggestionsSection = dynamic(() => import("./SuggestionsSection"), {
-  loading: () => <div className="h-48 animate-pulse rounded-3xl bg-[var(--color-control-track)]" />,
+  loading: () => <div className="h-48 animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-control-track)]" />,
 });
 
 const ColorShadesArticle = dynamic(() => import("./ColorShadesArticle"));

@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Button, Card, Field, Input, InlineError } from "@/components/ui";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -9,7 +10,6 @@ export default function LoginPage() {
 
   const nextUrl = useMemo(() => {
     const n = searchParams.get("next");
-    // basic hardening: only allow internal paths
     if (!n || !n.startsWith("/")) return "/admin";
     return n;
   }, [searchParams]);
@@ -46,55 +46,48 @@ export default function LoginPage() {
   }
 
   return (
-    <main style={{ maxWidth: 420, margin: "64px auto", padding: 16 }}>
-      <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 12 }}>
-        Admin Login
-      </h1>
-      <p style={{ opacity: 0.8, marginBottom: 18 }}>
-        Sign in to access the admin panel.
-      </p>
+    <main className="min-h-screen bg-[var(--color-page-bg)] px-4 py-16 text-[var(--color-text-primary)]">
+      <Card className="mx-auto max-w-md" padding="lg">
+        <div className="mb-6">
+          <div className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+            Darma Admin
+          </div>
+          <h1 className="mt-2 text-3xl font-semibold tracking-tight">
+            Sign in
+          </h1>
+          <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">
+            Access the content management and moderation workspace.
+          </p>
+        </div>
 
-      <form onSubmit={onSubmit} style={{ display: "grid", gap: 12 }}>
-        <label style={{ display: "grid", gap: 6 }}>
-          <span>Email</span>
-          <input
-            type="email"
-            autoComplete="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            style={{ padding: 10, borderRadius: 10, border: "1px solid #ddd" }}
-          />
-        </label>
+        <form onSubmit={onSubmit} className="grid gap-4">
+          <Field label="Email" required>
+            <Input
+              type="email"
+              autoComplete="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </Field>
 
-        <label style={{ display: "grid", gap: 6 }}>
-          <span>Password</span>
-          <input
-            type="password"
-            autoComplete="current-password"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            style={{ padding: 10, borderRadius: 10, border: "1px solid #ddd" }}
-          />
-        </label>
+          <Field label="Password" required>
+            <Input
+              type="password"
+              autoComplete="current-password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </Field>
 
-        {error && <div style={{ color: "#b00020", fontSize: 14 }}>{error}</div>}
+          {error ? <InlineError>{error}</InlineError> : null}
 
-        <button
-          type="submit"
-          disabled={pending}
-          style={{
-            padding: 12,
-            borderRadius: 12,
-            border: "none",
-            cursor: pending ? "not-allowed" : "pointer",
-            fontWeight: 700,
-          }}
-        >
-          {pending ? "Signing in..." : "Sign in"}
-        </button>
-      </form>
+          <Button type="submit" loading={pending} fullWidth>
+            {pending ? "Signing in" : "Sign in"}
+          </Button>
+        </form>
+      </Card>
     </main>
   );
 }

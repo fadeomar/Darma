@@ -1,8 +1,8 @@
 export default function Article() {
   return (
-    <div className="space-y-8 text-sm leading-7 text-slate-700 dark:text-slate-300">
+    <div className="space-y-8 text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           What is Base64?
         </h2>
         <p>
@@ -14,7 +14,7 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           When to use Base64 encoding
         </h2>
         <ul className="ml-4 list-disc space-y-1.5">
@@ -26,7 +26,7 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Base64 vs encryption
         </h2>
         <p>
@@ -38,28 +38,28 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           URL-safe Base64 explained
         </h2>
         <p>
           Standard Base64 uses{" "}
-          <code className="rounded bg-slate-100 px-1 font-mono text-xs dark:bg-slate-800">
+          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
             +
           </code>{" "}
           and{" "}
-          <code className="rounded bg-slate-100 px-1 font-mono text-xs dark:bg-slate-800">
+          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
             /
           </code>
           , which can be awkward in URLs. URL-safe Base64 replaces them with{" "}
-          <code className="rounded bg-slate-100 px-1 font-mono text-xs dark:bg-slate-800">
+          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
             -
           </code>{" "}
           and{" "}
-          <code className="rounded bg-slate-100 px-1 font-mono text-xs dark:bg-slate-800">
+          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
             _
           </code>
           . Optional padding removal (
-          <code className="rounded bg-slate-100 px-1 font-mono text-xs dark:bg-slate-800">
+          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
             =
           </code>
           ) is also common for compact URL tokens.
@@ -67,7 +67,7 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Common examples
         </h2>
         <div className="space-y-3">
@@ -78,19 +78,19 @@ export default function Article() {
           ].map(([plain, encoded]) => (
             <div
               key={plain}
-              className="rounded-xl border border-black/8 bg-slate-50 p-3 dark:border-white/10 dark:bg-slate-900/40"
+              className="rounded-xl border border-black/8 bg-[var(--color-surface-subtle)] p-3 dark:border-white/10 dark:bg-[var(--color-code-surface)]/40"
             >
-              <p className="text-xs text-slate-500">Text</p>
-              <p className="font-medium text-slate-800 dark:text-slate-200">{plain}</p>
-              <p className="mt-2 text-xs text-slate-500">Base64</p>
-              <p className="font-mono text-xs text-slate-700 dark:text-slate-300">{encoded}</p>
+              <p className="text-xs text-[var(--color-text-tertiary)]">Text</p>
+              <p className="font-medium text-[var(--color-text-primary)] dark:text-[var(--color-text-secondary)]">{plain}</p>
+              <p className="mt-2 text-xs text-[var(--color-text-tertiary)]">Base64</p>
+              <p className="font-mono text-xs text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">{encoded}</p>
             </div>
           ))}
         </div>
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Privacy note
         </h2>
         <p>

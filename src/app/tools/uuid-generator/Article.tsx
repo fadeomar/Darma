@@ -1,8 +1,8 @@
 export default function UuidGeneratorArticle() {
   return (
-    <div className="space-y-7 text-sm leading-7 text-slate-700 dark:text-slate-300">
+    <div className="space-y-7 text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           What is a UUID?
         </h2>
         <p>
@@ -14,19 +14,19 @@ export default function UuidGeneratorArticle() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           What is a v4 UUID?
         </h2>
         <p>
           A v4 UUID is random rather than time-based or name-based. This tool uses
-          the browser-native <code className="rounded bg-slate-100 px-1 py-0.5 font-mono text-xs dark:bg-slate-800">crypto.randomUUID()</code>
+          the browser-native <code className="rounded bg-[var(--color-surface-subtle)] px-1 py-0.5 font-mono text-xs dark:bg-[var(--color-code-surface)]">crypto.randomUUID()</code>
           API, which creates v4 UUIDs using a cryptographically secure random number
           generator when the browser supports it.
         </p>
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Common uses
         </h2>
         <ul className="list-inside list-disc space-y-2">
@@ -38,7 +38,7 @@ export default function UuidGeneratorArticle() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Privacy and security notes
         </h2>
         <p>

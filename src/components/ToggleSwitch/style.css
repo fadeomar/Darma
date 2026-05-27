@@ -1,92 +1,66 @@
-/* components/ToggleSwitch.css */
-.toggle-container {
-  display: flex;
+
+.darma-toggle {
+  display: inline-flex;
   align-items: center;
-  gap: 16px; /* Increased gap to ensure separation */
-  position: relative;
-}
-
-.toggle-label {
-  /* color: var(--textColor); */
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  border: 2px solid var(--textColor);
-  border-radius: 8px;
-  padding: 4px 8px;
-  background: linear-gradient(
-    var(--angle),
-    var(--firstGradientColor),
-    var(--secondGradientColor)
-  );
-  box-shadow: 2px 2px var(--textColor);
-  position: relative; /* Ensure it stays in flow */
-  z-index: 1; /* Keep label above slider */
-}
-
-.switch {
-  --input-focus: #2d8cf0;
-  --input-out-of-focus: #ccc;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 70px;
-  height: 36px;
-  z-index: 0; /* Keep switch below label */
-}
-
-.toggle {
-  opacity: 0;
-  position: absolute;
-}
-
-.slider {
-  box-sizing: border-box;
-  border-radius: 9999px;
-  border: 2px solid var(--textColor);
-  box-shadow: 4px 4px var(--baseColor);
-  position: absolute;
+  gap: 0.75rem;
   cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--input-out-of-focus);
-  transition: background-color 0.3s ease; /* Only transition background */
-  transform: none !important; /* Remove transform from slider */
+  user-select: none;
 }
 
-.slider:before {
-  content: "off";
-  box-sizing: border-box;
-  height: 30px;
-  width: 30px;
+.darma-toggle__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+.darma-toggle__input {
   position: absolute;
-  left: 2px;
-  bottom: 1px;
-  border: 2px solid var(--textColor);
-  border-radius: 9999px;
-  background-color: var(--background);
-  color: var(--textColor);
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
-  line-height: 25px;
-  transition: transform 0.3s ease; /* Only transition the knob */
+  opacity: 0;
+  pointer-events: none;
 }
 
-.toggle:checked + .slider {
-  background-color: var(--input-focus);
+.darma-toggle__track {
+  position: relative;
+  display: inline-flex;
+  width: 44px;
+  height: 24px;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-full);
+  background: var(--color-control-track);
+  transition: background var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard);
 }
 
-.toggle:checked + .slider:before {
-  content: "on";
-  transform: translateX(32px); /* Only the knob moves */
+.darma-toggle__thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-raised);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--duration-fast) var(--ease-standard), background var(--duration-fast) var(--ease-standard);
 }
 
-.toggle:disabled + .slider {
-  opacity: 0.6;
+.darma-toggle__input:checked + .darma-toggle__track {
+  border-color: var(--color-primary-border);
+  background: var(--color-primary-soft);
+}
+
+.darma-toggle__input:checked + .darma-toggle__track .darma-toggle__thumb {
+  transform: translateX(20px);
+  background: var(--color-primary);
+}
+
+.darma-toggle__input:focus-visible + .darma-toggle__track {
+  box-shadow: var(--focus-ring);
+}
+
+.darma-toggle__input:disabled + .darma-toggle__track,
+.darma-toggle:has(.darma-toggle__input:disabled) {
   cursor: not-allowed;
+  opacity: 0.55;
 }

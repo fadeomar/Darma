@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 };
 
 const Base64Client = dynamic(() => import("./Base64Client"), {
-  loading: () => <div className="h-[560px] animate-pulse rounded-3xl bg-slate-100" />,
+  loading: () => <div className="h-[560px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
 });
 
 const Article = dynamic(() => import("./Article"));
@@ -40,7 +40,7 @@ export default function Base64EncoderDecoderPage() {
     <ToolPageShell
       tool={tool}
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-slate-700 dark:text-slate-300">
+        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
           Encode plain text to Base64 or decode Base64 back to readable text
           instantly. Supports Unicode, URL-safe mode, validation, and one-click
           copy. Everything runs locally in your browser.
@@ -49,10 +49,10 @@ export default function Base64EncoderDecoderPage() {
       sidebar={
         <div className="flex flex-col gap-5">
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               What this tool does
             </h2>
-            <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-700 dark:text-slate-300">
+            <ul className="mt-3 space-y-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
               <li>Encode text to Base64</li>
               <li>Decode Base64 to text</li>
               <li>Validate Base64 input in decode mode</li>
@@ -62,20 +62,20 @@ export default function Base64EncoderDecoderPage() {
           </SurfaceCard>
 
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Important note
             </h2>
-            <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
               Base64 is encoding, not encryption. It is useful for transport and
               formatting compatibility, not for data security.
             </p>
           </SurfaceCard>
 
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
               Privacy
             </h2>
-            <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
               Your input never leaves the browser. No server processing.
             </p>
           </SurfaceCard>

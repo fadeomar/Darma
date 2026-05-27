@@ -33,17 +33,17 @@ export function WarningPanel({ messages, title, className }: WarningPanelProps) 
 
   return (
     <section className={cn("space-y-2", className)} aria-live="polite">
-      {title ? <h2 className="text-sm font-bold text-[var(--color-text-primary)]">{title}</h2> : null}
+      {title ? <h2 className="font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{title}</h2> : null}
       <div className="space-y-2">
         {messages.map((item) => {
           const severity = item.severity ?? "info";
           return (
-            <div key={item.id} className={cn("rounded-[var(--radius-md)] border p-3", severityClass[severity])}>
+            <div key={item.id} className={cn("rounded-[var(--radius-md)] border px-3 py-2.5 shadow-[var(--shadow-xs)]", severityClass[severity])}>
               <div className="flex flex-wrap items-center gap-2">
-                <span className="rounded-full border border-current px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide opacity-75">
+                <span className="rounded-[var(--radius-full)] border border-current px-2 py-0.5 font-mono text-[10px] font-bold uppercase leading-none tracking-[0.08em] opacity-75">
                   {severityLabel[severity]}
                 </span>
-                {item.title ? <h3 className="text-xs font-bold">{item.title}</h3> : null}
+                {item.title ? <h3 className="text-xs font-bold leading-5">{item.title}</h3> : null}
               </div>
               <div className="mt-1 text-xs leading-5 opacity-90">{item.message}</div>
             </div>

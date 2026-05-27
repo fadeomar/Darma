@@ -1,315 +1,110 @@
+
 "use client";
-import { motion } from "framer-motion";
+
+import Link from "next/link";
 import GoodLinks from "@/sections/GoodLinks";
-import Image from "next/image";
+import { Badge, Card } from "@/components/ui";
 
-function AboutPage() {
-  const resourceSections = [
-    {
-      title: "📚 Learning & Development",
-      items: [
-        {
-          name: "freeCodeCamp",
-          desc: "4,000+ hour curriculum with certifications",
-          link: "https://www.freecodecamp.org/",
-          image:
-            "https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        },
-        {
-          name: "Frontend Mentor",
-          desc: "Real-world frontend challenges with solutions",
-          link: "https://www.frontendmentor.io/",
-          image:
-            "https://images.pexels.com/photos/270632/pexels-photo-270632.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        },
-        {
-          name: "Scrimba",
-          desc: "Interactive coding screencasts",
-          link: "https://scrimba.com/",
-          image:
-            "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        },
-      ],
-    },
-    {
-      title: "🛠️ Development Tools",
-      items: [
-        {
-          name: "CodeSandbox",
-          desc: "Online IDE for web development",
-          link: "https://codesandbox.io/",
-          image:
-            "https://images.pexels.com/photos/177598/pexels-photo-177598.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        },
-        {
-          name: "CSS Generators",
-          desc: "Shadows, gradients, clip-path tools",
-          link: "#",
-          image:
-            "https://images.unsplash.com/photo-1581276879432-15e50529f34b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        },
-        {
-          name: "StackBlitz",
-          desc: "Instant fullstack development environment",
-          link: "https://stackblitz.com/",
-          image:
-            "https://images.pexels.com/photos/4974914/pexels-photo-4974914.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        },
-      ],
-    },
-    {
-      title: "💡 Inspiration & Community",
-      items: [
-        {
-          name: "Dev Community",
-          desc: "Global developer discussions & articles",
-          link: "https://dev.to/",
-          image:
-            "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        },
-        {
-          name: "GitHub Explore",
-          desc: "Discover trending repositories",
-          link: "https://github.com/explore",
-          image:
-            "https://images.pexels.com/photos/177598/pexels-photo-177598.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        },
-        {
-          name: "CSS-Tricks",
-          desc: "Daily articles about web design",
-          link: "https://css-tricks.com/",
-          image:
-            "https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        },
-      ],
-    },
-    {
-      title: "🎥 YouTube Channels",
-      items: [
-        {
-          name: "Fireship",
-          desc: "Quick tech explanations & tutorials",
-          link: "https://www.youtube.com/c/Fireship",
-          image: "https://i.ytimg.com/vi/7Xy0L6qSYLc/maxresdefault.jpg",
-        },
-        {
-          name: "Traversy Media",
-          desc: "Full project tutorials",
-          link: "https://www.youtube.com/c/TraversyMedia",
-          image: "https://i.ytimg.com/vi/hdI2bqOjy3c/maxresdefault.jpg",
-        },
-        {
-          name: "Kevin Powell",
-          desc: "CSS deep dives & best practices",
-          link: "https://www.youtube.com/kepowob",
-          image: "https://i.ytimg.com/vi/sjfG5Oo40yg/maxresdefault.jpg",
-        },
-      ],
-    },
-    {
-      title: "🎨 Design Resources",
-      items: [
-        {
-          name: "Undraw Illustrations",
-          desc: "Open-source illustrations",
-          link: "https://undraw.co/",
-          image:
-            "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        },
-        {
-          name: "Coolors",
-          desc: "Color palette generator",
-          link: "https://coolors.co/",
-          image:
-            "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        },
-        {
-          name: "UI Movement",
-          desc: "Best UI design inspiration",
-          link: "https://uimovement.com/",
-          image:
-            "https://images.unsplash.com/photo-1511376777868-611b54f68947?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        },
-      ],
-    },
-  ];
+const valueCards = [
+  {
+    title: "Preview-first tools",
+    text: "Generators and utilities should show the result quickly, keep controls readable, and keep copy actions close to output.",
+  },
+  {
+    title: "Readable code ideas",
+    text: "Explore is for practical HTML, CSS, and JavaScript experiments that can be studied, edited, and reused.",
+  },
+  {
+    title: "One design language",
+    text: "Darma now uses shared workshop tokens so public pages, tools, and resource sections feel like one product.",
+  },
+];
 
+const paths = [
+  { title: "For developers", items: ["Open a tool", "Tune the controls", "Copy clean output"] },
+  { title: "For learners", items: ["Browse examples", "Inspect the code", "Experiment safely"] },
+  { title: "For creators", items: ["Generate assets", "Preview variations", "Download or copy"] },
+];
+
+export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-[var(--color-app-bg)] text-[var(--color-text-primary)] p-6">
-      {/* Hero Section */}
-      <section className="text-center py-16">
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-4xl font-bold mb-6"
-        >
-          Your Ultimate Developer Toolkit
-        </motion.h1>
-        <p className="text-lg text-[var(--color-text-secondary)] mt-4 max-w-2xl mx-auto">
-          A carefully curated collection of resources, tools, and learning
-          materials for developers at all levels. Bookmark this page as your
-          go-to reference!
-        </p>
-      </section>
-
-      {/* Value Proposition */}
-      <section className="py-12 max-w-6xl mx-auto text-center">
-        <div className="bg-[var(--color-surface-base)] border border-[var(--color-border-default)] rounded-2xl p-8 shadow-xl">
-          <h2 className="text-3xl font-semibold mb-6">
-            Why Bookmark This Page?
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "100+ Resources",
-                text: "Hand-picked tools & references",
-              },
-              {
-                title: "Daily Updated",
-                text: "Fresh content added regularly",
-              },
-              {
-                title: "Community Verified",
-                text: "Tested by developers worldwide",
-              },
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ scale: 1.05 }}
-                className="bg-[var(--color-surface-subtle)] border border-[var(--color-border-subtle)] p-6 rounded-xl"
-              >
-                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                <p className="text-[var(--color-text-secondary)]">{item.text}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Resource Grid */}
-      {resourceSections.map((section, index) => (
-        <section key={index} className="py-12 max-w-6xl mx-auto">
-          <div className="mb-8 text-center">
-            <h3 className="text-2xl font-semibold">{section.title}</h3>
-            <p className="text-[var(--color-text-secondary)] mt-2">
-              Essential tools for your workflow
+    <main className="pb-16">
+      <section className="mx-auto max-w-[var(--container-wide)] px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_380px]">
+          <div>
+            <Badge variant="soft">About Darma</Badge>
+            <h1 className="mt-5 max-w-4xl text-4xl font-black tracking-[-0.045em] text-[var(--color-text-primary)] sm:text-5xl lg:text-6xl">
+              A calm workshop for front-end tools, examples, and reusable code ideas.
+            </h1>
+            <p className="mt-6 max-w-3xl text-base leading-8 text-[var(--color-text-secondary)] sm:text-lg">
+              Darma is being shaped into a professional developer tools product: warm, practical, browser-first, and focused on helping people move from idea to result faster.
             </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {section.items.map((item, i) => (
-              <motion.a
-                key={i}
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.02 }}
-                className="group block bg-[var(--color-surface-base)] border border-[var(--color-border-default)] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all"
-              >
-                <div className="h-48 bg-[var(--color-surface-subtle)] overflow-hidden">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    className="w-full h-full object-cover transition-transform group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-6">
-                  <h4 className="text-lg font-semibold mb-2">{item.name}</h4>
-                  <p className="text-[var(--color-text-secondary)] text-sm">{item.desc}</p>
-                </div>
-              </motion.a>
-            ))}
-          </div>
-        </section>
-      ))}
-
-      {/* Bookmark Callout */}
-      <section className="py-16 text-center max-w-3xl mx-auto">
-        <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-8 rounded-2xl">
-          <h2 className="text-2xl font-bold mb-4">Save This Resource Hub!</h2>
-          <p className="text-gray-200 mb-6">
-            Press <kbd className="px-3 py-1 bg-gray-900 rounded-md">⌘ + D</kbd>
-            to bookmark this page and access these resources anytime
-          </p>
-          <button className="bg-white text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100">
-            Share with Team
-          </button>
-        </div>
-      </section>
-
-      {/* How to Use Section */}
-      <section className="py-12 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-semibold text-center mb-8">
-          Getting the Most from Darama
-        </h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-[var(--color-surface-base)] border border-[var(--color-border-default)] p-6 rounded-xl">
-            <h3 className="text-xl font-semibold mb-4">For Learners</h3>
-            <ul className="space-y-3 text-[var(--color-text-secondary)]">
-              <li>✅ Start with fundamentals path</li>
-              <li>✅ Practice with interactive code</li>
-              <li>✅ Join community challenges</li>
-            </ul>
-          </div>
-          <div className="bg-[var(--color-surface-base)] border border-[var(--color-border-default)] p-6 rounded-xl">
-            <h3 className="text-xl font-semibold mb-4">For Developers</h3>
-            <ul className="space-y-3 text-[var(--color-text-secondary)]">
-              <li>🚀 Explore component library</li>
-              <li>🚀 Contribute to open source</li>
-              <li>🚀 Use generators in projects</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-12 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-semibold text-center mb-8">
-          What Developers Say
-        </h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          {[
-            {
-              text: "This resource hub saved me hours of searching. Everything I need in one place!",
-              author: "Sarah, Frontend Developer",
-            },
-            {
-              text: "The curated learning paths helped me transition into web development smoothly.",
-              author: "Mike, Career Switcher",
-            },
-          ].map((testimonial, i) => (
-            <div key={i} className="bg-[var(--color-surface-base)] border border-[var(--color-border-default)] p-6 rounded-xl">
-              <p className="text-[var(--color-text-primary)] mb-4">
-                &quot;{testimonial.text}&quot;
-              </p>
-              <p className="text-[var(--color-text-secondary)] font-medium">
-                — {testimonial.author}
-              </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href="/tools" className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-primary)] px-5 text-sm font-semibold text-[var(--color-primary-text)] shadow-[var(--shadow-xs)] transition hover:bg-[var(--color-primary-hover)]">
+                Open tools
+              </Link>
+              <Link href="/explore" className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-5 text-sm font-semibold text-[var(--color-text-primary)] shadow-[var(--shadow-xs)] transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-subtle)]">
+                Browse examples
+              </Link>
             </div>
+          </div>
+
+          <Card padding="lg" className="self-start">
+            <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">
+              Product direction
+            </p>
+            <p className="mt-4 text-lg font-bold leading-7 text-[var(--color-text-primary)]">
+              Warm, readable, practical, preview-first, professional, and developer-focused.
+            </p>
+            <p className="mt-4 text-sm leading-7 text-[var(--color-text-secondary)]">
+              This page now follows the same shared surface, border, badge, and typography language as the tools system instead of a separate marketing/resource style.
+            </p>
+          </Card>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-[var(--container-wide)] px-4 py-8 sm:px-6 lg:px-8">
+        <div className="grid gap-5 md:grid-cols-3">
+          {valueCards.map((card) => (
+            <Card key={card.title} padding="lg" className="h-full">
+              <h2 className="text-xl font-bold text-[var(--color-text-primary)]">{card.title}</h2>
+              <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">{card.text}</p>
+            </Card>
           ))}
         </div>
       </section>
 
-      {/* Help Section */}
-      <section className="py-12 max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl font-semibold mb-6">Need Help?</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="bg-[var(--color-surface-base)] border border-[var(--color-border-default)] p-6 rounded-xl">
-            <h3 className="font-semibold mb-2">FAQs</h3>
-            <p className="text-[var(--color-text-secondary)] text-sm">Common questions answered</p>
+      <section className="mx-auto max-w-[var(--container-wide)] px-4 py-8 sm:px-6 lg:px-8">
+        <div className="rounded-[var(--radius-xl)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-6 shadow-[var(--shadow-card)] sm:p-8">
+          <div className="max-w-3xl">
+            <p className="font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">
+              How to use it
+            </p>
+            <h2 className="mt-2 text-3xl font-black tracking-[-0.035em] text-[var(--color-text-primary)]">
+              Pick the path that matches your task.
+            </h2>
           </div>
-          <div className="bg-[var(--color-surface-base)] border border-[var(--color-border-default)] p-6 rounded-xl">
-            <h3 className="font-semibold mb-2">Discord</h3>
-            <p className="text-[var(--color-text-secondary)] text-sm">Live community support</p>
-          </div>
-          <div className="bg-[var(--color-surface-base)] border border-[var(--color-border-default)] p-6 rounded-xl">
-            <h3 className="font-semibold mb-2">Guides</h3>
-            <p className="text-[var(--color-text-secondary)] text-sm">Step-by-step tutorials</p>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {paths.map((path) => (
+              <div key={path.title} className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-5">
+                <h3 className="text-lg font-bold text-[var(--color-text-primary)]">{path.title}</h3>
+                <ol className="mt-4 space-y-3 text-sm leading-6 text-[var(--color-text-secondary)]">
+                  {path.items.map((item, index) => (
+                    <li key={item} className="flex gap-3">
+                      <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-[var(--radius-full)] bg-[var(--color-primary-soft)] font-mono text-[10px] font-bold text-[var(--color-primary)]">
+                        {index + 1}
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            ))}
           </div>
         </div>
       </section>
+
       <GoodLinks />
-    </div>
+    </main>
   );
 }
-
-export default AboutPage;

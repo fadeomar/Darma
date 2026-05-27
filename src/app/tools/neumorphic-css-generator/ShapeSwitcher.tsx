@@ -14,6 +14,7 @@ const ShapeSwitcher: React.FC<ShapeSwitcherProps> = ({ shape, setShape }) => {
       <div className="row">
         <div className="shape-switch">
           <button
+            type="button"
             className={`flex justify-center items-center ${
               shape === 0 ? "active" : ""
             }`}
@@ -94,6 +95,7 @@ const ShapeSwitcher: React.FC<ShapeSwitcherProps> = ({ shape, setShape }) => {
             </svg>
           </button>
           <button
+            type="button"
             className={`flex justify-center items-center ${
               shape === 1 ? "active" : ""
             }`}
@@ -145,6 +147,7 @@ const ShapeSwitcher: React.FC<ShapeSwitcherProps> = ({ shape, setShape }) => {
             </svg>
           </button>
           <button
+            type="button"
             className={`flex justify-center items-center ${
               shape === 2 ? "active" : ""
             }`}
@@ -202,6 +205,7 @@ const ShapeSwitcher: React.FC<ShapeSwitcherProps> = ({ shape, setShape }) => {
             </svg>
           </button>
           <button
+            type="button"
             className={`flex justify-center items-center ${
               shape === 3 ? "active" : ""
             }`}

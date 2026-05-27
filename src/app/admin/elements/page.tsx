@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import "../style.css";
 import { useState, useEffect } from "react";
 import categoriesData from "@/data/category.json";
 import type { ElementDTO } from "@/features/elements/dto/element.dto";
@@ -10,6 +9,7 @@ import ElementForm from "../ElementForm";
 import { DropdownOption } from "@/components/Dropdown";
 import type { MultiValue, SingleValue } from "react-select";
 import { slugify } from "@/lib/slug";
+import { Button, Card } from "@/components/ui";
 
 type PaginatedApiResponse<T> = {
   items: T[];
@@ -218,7 +218,9 @@ export default function ElementsPage() {
         slug: slugify(value) ?? "",
         [name]: value,
       }));
+      return;
     }
+
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -373,7 +375,11 @@ export default function ElementsPage() {
   };
 
   if (isLoading) {
-    return <div className="text-center py-8">Loading elements...</div>;
+    return (
+      <Card className="py-10 text-center text-sm text-[var(--color-text-secondary)]">
+        Loading elements...
+      </Card>
+    );
   }
 
   const handleTextEditorChange = (value: string, key: string) => {
@@ -381,37 +387,41 @@ export default function ElementsPage() {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <div className="flex justify-between items-center mb-4">
-        <h1 className="text-2xl font-bold">Code Elements Collection</h1>
-        <button
-          onClick={toggleView}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-        >
+    <div className="space-y-5">
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <h1 className="text-2xl font-semibold tracking-tight text-[var(--color-text-primary)]">
+            Code Elements Collection
+          </h1>
+          <p className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">
+            Create, edit, preview, and soft-delete reusable Darma elements.
+          </p>
+        </div>
+        <Button onClick={toggleView} variant={showCreateForm ? "outline" : "primary"}>
           {showCreateForm ? "All Elements" : "Create Element"}
-        </button>
+        </Button>
       </div>
 
       {isDeleteConfirmOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-4">Confirm Delete</h3>
-            <p>Are you sure you want to delete this element?</p>
-            <div className="flex justify-end gap-2 mt-4">
-              <button
+        <div className="fixed inset-0 z-[var(--z-modal)] flex items-center justify-center bg-black/55 p-4">
+          <Card className="w-full max-w-md" padding="md">
+            <h3 className="text-lg font-semibold tracking-tight">Confirm Delete</h3>
+            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">
+              Are you sure you want to delete this element? This uses the soft-delete flow.
+            </p>
+            <div className="mt-5 flex justify-end gap-2">
+              <Button
+                type="button"
+                variant="outline"
                 onClick={() => setIsDeleteConfirmOpen(false)}
-                className="px-4 py-2 bg-gray-300 rounded"
               >
                 Cancel
-              </button>
-              <button
-                onClick={handleConfirmDelete}
-                className="px-4 py-2 bg-red-500 text-white rounded"
-              >
+              </Button>
+              <Button type="button" variant="danger" onClick={handleConfirmDelete}>
                 Delete
-              </button>
+              </Button>
             </div>
-          </div>
+          </Card>
         </div>
       )}
 

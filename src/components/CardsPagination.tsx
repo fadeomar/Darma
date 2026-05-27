@@ -1,13 +1,13 @@
+
 "use client";
 
 import React from "react";
-import { getPaginationRange } from "@/utils/pagination";
 import { ChevronsLeftIcon, ChevronsRightIcon } from "lucide-react";
+import { getPaginationRange } from "@/utils/pagination";
 
 type PaginatedListProps<T> = {
   items: T[];
   renderItem: (item: T) => React.ReactNode;
-
   itemsByRow?: number;
   currentPage: number;
   totalPages: number;
@@ -31,54 +31,46 @@ function CardsPagination<T>({
   };
 
   return (
-    <div className="mb-11">
+    <div className="mb-10">
       <div
-        className={`grid grid-cols-1 md:grid-cols-1 ${
-          itemsByRow === 2 ? "lg:grid-cols-2" : "lg:grid-cols-3"
-        } gap-4 mb-10`}
+        className={`grid grid-cols-1 gap-5 ${
+          itemsByRow === 2 ? "lg:grid-cols-2" : "md:grid-cols-2 xl:grid-cols-3"
+        }`}
       >
         {items.map((item, idx) => (
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          <React.Fragment key={(item as any)?.id ?? idx}>
-            {renderItem(item)}
-          </React.Fragment>
+          <React.Fragment key={(item as any)?.id ?? idx}>{renderItem(item)}</React.Fragment>
         ))}
       </div>
 
-      {totalPages > 1 && (
-        <div className="flex justify-center items-center mt-6 space-x-2 max-w-fulls">
+      {totalPages > 1 ? (
+        <nav aria-label="Pagination" className="mt-8 flex flex-wrap items-center justify-center gap-2">
           <button
+            type="button"
             onClick={() => handlePageClick(currentPage - 1)}
             disabled={currentPage === 1}
-            className="px-3 py-1 text-sm bg-gray-200 dark:bg-gray-700 rounded disabled:opacity-50"
+            className="inline-flex h-9 min-w-9 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-3 text-sm font-semibold text-[var(--color-text-secondary)] transition hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] disabled:cursor-not-allowed disabled:opacity-45"
             title="Previous"
           >
-            <ChevronsLeftIcon />
+            <ChevronsLeftIcon className="h-4 w-4" aria-hidden />
           </button>
 
           {paginationRange.map((page, index) =>
             page === "..." ? (
-              <span
-                key={index}
-                className="px-2 text-gray-500"
-                style={{
-                  flex: 1,
-                  alignSelf: "center",
-                  textAlign: "center",
-                  maxWidth: 30,
-                }}
-              >
+              <span key={`ellipsis-${index}`} className="px-2 text-sm text-[var(--color-text-tertiary)]">
                 ...
               </span>
             ) : (
               <button
-                key={index}
+                key={page}
+                type="button"
                 onClick={() => handlePageClick(page as number)}
-                className={`px-3 py-1 rounded sm:rounded sm:px-3 sm:py-1 w-5 h-5 sm:w-auto sm:h-auto flex items-center justify-center text-xs sm:text-base ${
+                className={`inline-flex h-9 min-w-9 items-center justify-center rounded-[var(--radius-sm)] px-3 text-sm font-semibold transition ${
                   page === currentPage
-                    ? "bg-blue-500 dark:bg-yellow-500 text-white dark:text-gray-800"
-                    : "bg-gray-200 dark:bg-gray-700"
+                    ? "bg-[var(--color-primary)] text-[var(--color-primary-text)]"
+                    : "border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
                 }`}
+                aria-current={page === currentPage ? "page" : undefined}
               >
                 {page}
               </button>
@@ -86,15 +78,16 @@ function CardsPagination<T>({
           )}
 
           <button
+            type="button"
             onClick={() => handlePageClick(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className="px-3 py-1 text-sm bg-gray-200 dark:bg-gray-700 rounded disabled:opacity-50"
+            className="inline-flex h-9 min-w-9 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-3 text-sm font-semibold text-[var(--color-text-secondary)] transition hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] disabled:cursor-not-allowed disabled:opacity-45"
             title="Next"
           >
-            <ChevronsRightIcon />
+            <ChevronsRightIcon className="h-4 w-4" aria-hidden />
           </button>
-        </div>
-      )}
+        </nav>
+      ) : null}
     </div>
   );
 }

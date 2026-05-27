@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const RobotsTxtClient = dynamic(() => import("./RobotsTxtClient"), {
-  loading: () => <div className="h-[780px] animate-pulse rounded-3xl bg-slate-100" />,
+  loading: () => <div className="h-[780px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
 });
 const Article = dynamic(() => import("./Article"));
 
@@ -28,7 +28,7 @@ export default function RobotsTxtGeneratorPage() {
       tool={tool}
       maxWidth="wide"
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-slate-700 dark:text-slate-300">
+        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
           Build crawler rules, sitemap references, and safe robots.txt starter files locally in your browser.
         </p>
       }

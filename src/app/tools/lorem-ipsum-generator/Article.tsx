@@ -1,8 +1,8 @@
 export default function Article() {
   return (
-    <div className="space-y-8 text-sm leading-7 text-slate-700 dark:text-slate-300">
+    <div className="space-y-8 text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           What is Lorem Ipsum?
         </h2>
         <p>
@@ -21,7 +21,7 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Why designers use placeholder text
         </h2>
         <p>
@@ -39,11 +39,11 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Classic lorem ipsum vs. readable placeholder
         </h2>
         <p>
-          <strong className="text-slate-900 dark:text-slate-100">
+          <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
             Classic lorem ipsum
           </strong>{" "}
           is best when the audience understands it as a convention. It's
@@ -51,7 +51,7 @@ export default function Article() {
           unfamiliarity keeps focus on the layout rather than the words.
         </p>
         <p className="mt-3">
-          <strong className="text-slate-900 dark:text-slate-100">
+          <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
             Readable placeholder text
           </strong>{" "}
           is better when sharing designs with non-design stakeholders —
@@ -63,7 +63,7 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Using placeholder text in wireframes and mockups
         </h2>
         <p>
@@ -83,7 +83,7 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Frequently asked questions
         </h2>
         <div className="space-y-5">
@@ -110,7 +110,7 @@ export default function Article() {
             },
           ].map(({ q, a }) => (
             <div key={q}>
-              <h3 className="font-bold text-slate-900 dark:text-slate-100">{q}</h3>
+              <h3 className="font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">{q}</h3>
               <p className="mt-1">{a}</p>
             </div>
           ))}

@@ -21,7 +21,7 @@ function HeroPreview() {
         <h2 className="text-5xl font-black tracking-tight sm:text-7xl">Create premium animated backgrounds.</h2>
         <p className="mt-6 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">Tune a professional example, preview it in a real hero section, then copy clean HTML and CSS for your project.</p>
         <div className="mt-8 flex flex-wrap gap-3">
-          <div className="rounded-full bg-white px-5 py-3 text-sm font-bold text-slate-950">Start building</div>
+          <div className="rounded-full bg-white px-5 py-3 text-sm font-bold text-[var(--color-text-primary)]">Start building</div>
           <div className="rounded-full border border-white/20 px-5 py-3 text-sm font-bold text-white/90 backdrop-blur">View examples</div>
         </div>
       </div>
@@ -42,11 +42,11 @@ function CardsPreview() {
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           {["Starter", "Growth", "Enterprise"].map((title, index) => (
-            <div key={title} className="rounded-[1.75rem] border border-white/12 bg-white/10 p-6 shadow-2xl backdrop-blur-xl">
+            <div key={title} className="rounded-[1.75rem] border border-white/12 bg-white/10 p-6 shadow-[var(--shadow-lg)] backdrop-blur-xl">
               <div className="mb-8 h-12 w-12 rounded-2xl bg-white/15" />
               <h3 className="text-2xl font-black">{title}</h3>
               <p className="mt-3 text-sm leading-6 text-white/70">Use this mode to check readability, contrast, and premium UI depth.</p>
-              <div className="mt-8 rounded-full bg-white px-4 py-3 text-center text-sm font-bold text-slate-950">Choose plan</div>
+              <div className="mt-8 rounded-full bg-white px-4 py-3 text-center text-sm font-bold text-[var(--color-text-primary)]">Choose plan</div>
               {index === 1 && <div className="mt-4 text-center text-xs font-bold uppercase tracking-[0.2em] text-white/60">Most popular</div>}
             </div>
           ))}
@@ -69,12 +69,12 @@ function DashboardPreview() {
         <main className="rounded-[1.75rem] border border-white/10 bg-white/10 p-5 backdrop-blur-xl">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div><p className="text-sm text-white/60">Live dashboard</p><h2 className="text-3xl font-black">$128.4K revenue</h2></div>
-            <div className="rounded-full bg-white px-4 py-2 text-sm font-bold text-slate-950">Export report</div>
+            <div className="rounded-full bg-white px-4 py-2 text-sm font-bold text-[var(--color-text-primary)]">Export report</div>
           </div>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {[["Conversion", "68%"], ["Retention", "84%"], ["Active users", "92%"]].map(([item, value]) => <div key={item} className="rounded-3xl border border-white/10 bg-black/20 p-5"><p className="text-sm text-white/60">{item}</p><div className="mt-3 text-3xl font-black">{value}</div></div>)}
+            {[["Conversion", "68%"], ["Retention", "84%"], ["Active users", "92%"]].map(([item, value]) => <div key={item} className="rounded-[var(--radius-lg)] border border-white/10 bg-black/20 p-5"><p className="text-sm text-white/60">{item}</p><div className="mt-3 text-3xl font-black">{value}</div></div>)}
           </div>
-          <div className="mt-4 h-64 rounded-3xl border border-white/10 bg-black/20 p-5">
+          <div className="mt-4 h-64 rounded-[var(--radius-lg)] border border-white/10 bg-black/20 p-5">
             <div className="flex h-full items-end gap-3">
               {[38, 62, 54, 86, 70, 92, 74, 98, 84].map((height, index) => <div key={index} className="flex-1 rounded-t-xl bg-white/25" style={{ height: `${height}%` }} />)}
             </div>
@@ -104,7 +104,7 @@ export default function PreviewPanel({ state, particles }: PreviewPanelProps) {
   };
 
   return (
-    <div ref={wrapperRef} className="abg-preview-shell group relative overflow-hidden rounded-[2rem] border border-[var(--color-border-default)] bg-slate-950 shadow-2xl">
+    <div ref={wrapperRef} className="abg-preview-shell group relative overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-default)] bg-[var(--color-code-bg)] shadow-[var(--shadow-md)]">
       <style>{css}</style>
       <button
         type="button"

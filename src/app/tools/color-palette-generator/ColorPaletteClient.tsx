@@ -230,7 +230,7 @@ export default function ColorPaletteClient() {
                     <p className="mt-1 text-xs font-semibold opacity-85">{color.hsl}</p>
                     <p className="text-xs font-semibold opacity-85">{color.rgb}</p>
                   </div>
-                  <CopyButton text={color.hex} size="sm" variant="secondary" className="bg-white/85 text-slate-950 hover:bg-white">
+                  <CopyButton text={color.hex} size="sm" variant="secondary" className="bg-white/85 text-[var(--color-text-primary)] hover:bg-white">
                     Copy HEX
                   </CopyButton>
                 </div>

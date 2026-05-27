@@ -20,7 +20,7 @@ const Preview: React.FC<PreviewProps> = ({
   const styleContent = generateShadowStyle(state);
 
   return (
-    <div className="p-4 bg-gray-100 rounded-lg shadow-md flex items-center justify-center flex-col">
+    <div className="p-4 bg-[var(--color-surface-subtle)] rounded-lg shadow-md flex items-center justify-center flex-col">
       <h2 className="text-lg font-bold mb-4">Preview</h2>
       <div className="flex-1 pt-24">
         {/* Preview Box Container */}

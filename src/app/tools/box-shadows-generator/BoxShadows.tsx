@@ -107,7 +107,7 @@ export default function ShadowSliderSection({
   return (
     <div className="w-full max-w-md mx-auto relative p-4">
       <div
-        className="overflow-hidden rounded-lg bg-gray-50"
+        className="overflow-hidden rounded-lg bg-[var(--color-surface-subtle)]"
         style={{ height: `${CONTAINER_HEIGHT}px` }}
       >
         <motion.div
@@ -129,9 +129,9 @@ export default function ShadowSliderSection({
                 <motion.div
                   key={item.name}
                   className={cn(
-                    "flex items-center justify-center text-xs font-medium text-gray-700 cursor-pointer bg-white border-2 rounded-lg transition-all",
+                    "flex items-center justify-center text-xs font-medium text-[var(--color-text-secondary)] cursor-pointer bg-white border-2 rounded-lg transition-all",
                     selectedItem === item.name
-                      ? "border-blue-500"
+                      ? "border-[var(--color-primary)]"
                       : "border-transparent"
                   )}
                   style={{
@@ -164,11 +164,11 @@ export default function ShadowSliderSection({
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute -top-8 left-1/2 -translate-x-1/2 z-10 p-2 rounded-full bg-white shadow-md hover:bg-gray-100 transition"
+            className="absolute -top-8 left-1/2 -translate-x-1/2 z-10 p-2 rounded-full bg-white shadow-md hover:bg-[var(--color-surface-subtle)] transition"
             onClick={handleSlideUp}
             aria-label="Slide up"
           >
-            <ChevronUp className="w-5 h-5 text-gray-600" />
+            <ChevronUp className="w-5 h-5 text-[var(--color-text-secondary)]" />
           </motion.button>
         )}
       </AnimatePresence>
@@ -178,11 +178,11 @@ export default function ShadowSliderSection({
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
-            className="absolute -bottom-8 left-1/2 -translate-x-1/2 z-10 p-2 rounded-full bg-white shadow-md hover:bg-gray-100 transition"
+            className="absolute -bottom-8 left-1/2 -translate-x-1/2 z-10 p-2 rounded-full bg-white shadow-md hover:bg-[var(--color-surface-subtle)] transition"
             onClick={handleSlideDown}
             aria-label="Slide down"
           >
-            <ChevronDown className="w-5 h-5 text-gray-600" />
+            <ChevronDown className="w-5 h-5 text-[var(--color-text-secondary)]" />
           </motion.button>
         )}
       </AnimatePresence>

@@ -16,12 +16,12 @@ export default function ToolPageShell({
   return (
     <ToolPage tool={tool} intro={intro} maxWidth="wide">
       {sidebar ? (
-        <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_320px]">
-          <div className="space-y-6">{children}</div>
-          <aside className="space-y-6">{sidebar}</aside>
+        <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_320px] xl:items-start">
+          <div className="min-w-0 space-y-6">{children}</div>
+          <aside className="min-w-0 space-y-6 xl:sticky xl:top-24">{sidebar}</aside>
         </div>
       ) : (
-        <div className="space-y-6">{children}</div>
+        <div className="min-w-0 space-y-6">{children}</div>
       )}
     </ToolPage>
   );

@@ -46,11 +46,11 @@ export default function PresetGallery({
             type="button"
             key={preset.id}
             onClick={() => onSelect(preset)}
-            className={`group shrink-0 overflow-hidden rounded-2xl border bg-[var(--color-surface-base)] p-2 text-left transition hover:-translate-y-0.5 hover:shadow-lg ${
+            className={`group shrink-0 overflow-hidden rounded-2xl border bg-[var(--color-surface-base)] p-2 text-left transition hover:-translate-y-0.5 hover:shadow-[var(--shadow-md)] ${
               compact ? "w-[300px]" : ""
             } ${
               isActive
-                ? "border-fuchsia-400 shadow-md ring-2 ring-fuchsia-200 dark:ring-fuchsia-500/30"
+                ? "border-[var(--color-primary)] shadow-[var(--shadow-md)] ring-2 ring-[var(--color-primary-soft)]"
                 : "border-[var(--color-border-default)]"
             }`}
           >
@@ -81,7 +81,7 @@ export default function PresetGallery({
                 {preset.description}
               </p>
               {preset.bestFor?.[0] && (
-                <p className="mt-2 text-[11px] font-semibold text-fuchsia-600 dark:text-fuchsia-300">
+                <p className="mt-2 text-[11px] font-semibold text-[var(--color-primary)]">
                   Best for: {preset.bestFor[0]}
                 </p>
               )}

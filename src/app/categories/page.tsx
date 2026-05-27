@@ -1,16 +1,16 @@
+
 import Link from "next/link";
 import type { Metadata } from "next";
 import categoriesData from "@/data/category.json";
 import PageSection from "@/components/ui/PageSection";
-import SurfaceCard from "@/components/ui/SurfaceCard";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { Badge } from "@/components/ui";
+import { Badge, Card } from "@/components/ui";
 import { getToolRegistry } from "@/features/tools/registry";
 
 export const metadata: Metadata = {
   title: "Categories | Darma",
   description:
-    "Browse Darma by category to find UI elements, text effects, games, canvas projects, backgrounds, loaders, apps, and SVG ideas.",
+    "Browse Darma by category to find UI elements, text effects, games, canvas projects, backgrounds, loaders, apps, SVG ideas, and developer tools.",
 };
 
 export default function CategoriesPage() {
@@ -30,44 +30,38 @@ export default function CategoriesPage() {
     .sort((a, b) => b.count - a.count || a.category.localeCompare(b.category));
 
   return (
-    <div className="pb-16">
+    <main className="pb-16">
       <PageSection
         eyebrow="Categories"
-        title="Browse the library by topic"
-        description="Jump straight into the kind of projects you want to explore, from reusable UI pieces to games, backgrounds, and creative visual experiments."
+        title="Browse Darma by topic"
+        description="Jump straight into the kind of projects or tools you need, from reusable UI pieces to generators, backgrounds, and creative visual experiments."
       >
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {categoriesData.categories.map((category) => (
-            <Link key={category.name} href={`/categories/${category.name}`}>
-              <SurfaceCard className="h-full transition hover:-translate-y-1 hover:shadow-lg">
-                <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--color-text-tertiary)]">
-                  {category.types.length} subcategories
-                </p>
-                <h2 className="mt-3 text-2xl font-black capitalize tracking-tight text-[var(--color-text-primary)]">
+            <Link key={category.name} href={`/categories/${category.name}`} className="block h-full">
+              <Card variant="interactive" padding="lg" className="h-full">
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="outline">{category.types.length} subcategories</Badge>
+                  <Badge variant="soft">Projects</Badge>
+                </div>
+                <h2 className="mt-4 text-2xl font-black capitalize tracking-[-0.03em] text-[var(--color-text-primary)]">
                   {category.name.replace(/-/g, " ")}
                 </h2>
-                <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">
-                  {category.description}
-                </p>
+                <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">{category.description}</p>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {category.types.slice(0, 6).map((type) => (
-                    <span
-                      key={type}
-                      className="rounded-full bg-[var(--color-control-track)] px-3 py-1 text-xs font-semibold text-[var(--color-text-secondary)]"
-                    >
+                    <span key={type} className="rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-3 py-1 text-xs font-semibold text-[var(--color-text-secondary)]">
                       {type}
                     </span>
                   ))}
                 </div>
-              </SurfaceCard>
+              </Card>
             </Link>
           ))}
         </div>
       </PageSection>
 
-
-
-      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-[var(--container-wide)] px-4 py-10 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Tool categories"
           title="Find browser tools by workflow category"
@@ -75,31 +69,33 @@ export default function CategoriesPage() {
         />
         <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {toolCategories.map((category) => (
-            <Link key={category.category} href="/tools">
-              <SurfaceCard className="h-full transition hover:-translate-y-1 hover:shadow-lg">
+            <Link key={category.category} href="/tools" className="block h-full">
+              <Card variant="interactive" padding="lg" className="h-full">
                 <div className="flex flex-wrap gap-2">
                   <Badge variant="soft">{category.count} tools</Badge>
                   <Badge variant="outline">Registry</Badge>
                 </div>
-                <h2 className="mt-3 text-2xl font-black capitalize tracking-tight text-[var(--color-text-primary)]">
+                <h2 className="mt-4 text-2xl font-black capitalize tracking-[-0.03em] text-[var(--color-text-primary)]">
                   {category.category.replace(/-/g, " ")}
                 </h2>
                 <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">
                   Browse {category.featured.join(", ")} and related Darma tools.
                 </p>
-              </SurfaceCard>
+              </Card>
             </Link>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="How to use Darma"
-          title="A faster way to find the right code ideas"
-          description="Start with a category when you know the kind of thing you need, then narrow down inside that category with search and secondary filters."
-        />
+      <section className="mx-auto max-w-[var(--container-wide)] px-4 py-10 sm:px-6 lg:px-8">
+        <Card padding="lg">
+          <SectionHeading
+            eyebrow="How to use Darma"
+            title="A faster way to find the right code ideas"
+            description="Start with a category when you know the kind of thing you need, then narrow down inside that category with search and secondary filters."
+          />
+        </Card>
       </section>
-    </div>
+    </main>
   );
 }

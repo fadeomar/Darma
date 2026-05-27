@@ -203,17 +203,17 @@ export default function BorderRadiusGeneratorClient() {
           renderPreview={(preset) => <div className="mx-auto h-16 w-20" style={{ borderRadius: getBorderRadiusValue(preset.state), background: backgroundValue(preset.state) }} />}
           className="lg:grid-cols-1"
         />
-        <div className="relative min-h-[520px] overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[radial-gradient(circle_at_top_left,rgb(124_58_237_/_0.14),transparent_36%),linear-gradient(135deg,rgb(248_250_252),rgb(226_232_240))] p-6 dark:bg-[linear-gradient(135deg,#020617,#0f172a)]">
+        <div className="relative min-h-[520px] overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[radial-gradient(circle_at_top_left,var(--color-primary-soft),transparent_36%),linear-gradient(135deg,var(--color-preview-bg),var(--color-preview-bg-strong))] p-6">
           {state.showGrid ? <div className="absolute inset-0 bg-[linear-gradient(to_right,rgb(15_23_42_/_0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgb(15_23_42_/_0.08)_1px,transparent_1px)] bg-[size:32px_32px]" /> : null}
           <div className="relative flex min-h-[460px] items-center justify-center">
             <div className="relative flex items-center justify-center overflow-hidden" style={previewStyle}>
-              {state.previewContext === "card" ? <span className="px-6 text-center text-lg font-black text-slate-900">Modern card</span> : null}
+              {state.previewContext === "card" ? <span className="px-6 text-center text-lg font-black text-[var(--color-text-primary)]">Modern card</span> : null}
               {state.previewContext === "button" ? <span className="px-6 text-center text-base font-black text-white">Button shape</span> : null}
               {state.previewContext === "hero-decoration" ? <span className="text-5xl">✦</span> : null}
               {state.showCornerLabels ? <CornerLabels state={state} /> : null}
             </div>
           </div>
-          <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-center justify-between gap-2 rounded-[var(--radius-md)] border border-white/60 bg-white/80 p-3 text-xs font-bold text-slate-700 shadow-sm backdrop-blur dark:border-slate-700 dark:bg-slate-900/75 dark:text-slate-200">
+          <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-center justify-between gap-2 rounded-[var(--radius-md)] border border-white/60 bg-white/80 p-3 text-xs font-bold text-[var(--color-text-secondary)] shadow-sm backdrop-blur dark:border-[var(--color-code-border)] dark:bg-[var(--color-code-surface)]/75 dark:text-[var(--color-text-secondary)]">
             <span>{state.style.width}{state.style.sizeUnit} × {state.style.height}{state.style.sizeUnit}</span>
             <span>{labelize(state.previewContext)}</span>
             <span>{radiusValue}</span>

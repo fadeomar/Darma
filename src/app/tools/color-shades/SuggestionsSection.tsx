@@ -62,6 +62,7 @@ export default function SuggestionsSection() {
                     ))}
                   </ul>
                   <button
+                    type="button"
                     onClick={() =>
                       handleApply({
                         color1: suggestion.colors[0],

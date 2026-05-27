@@ -1,8 +1,8 @@
 export default function Article() {
   return (
-    <div className="space-y-8 text-sm leading-7 text-slate-700 dark:text-slate-300">
+    <div className="space-y-8 text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           What is a Unix timestamp?
         </h2>
         <p>
@@ -14,16 +14,16 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Seconds vs milliseconds
         </h2>
         <p>
           Unix timestamps are commonly represented in seconds. JavaScript{" "}
-          <code className="rounded bg-slate-100 px-1 font-mono text-xs dark:bg-slate-800">
+          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
             Date
           </code>{" "}
           values internally use milliseconds since the Unix epoch, and{" "}
-          <code className="rounded bg-slate-100 px-1 font-mono text-xs dark:bg-slate-800">
+          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
             Date.getTime()
           </code>{" "}
           returns milliseconds. That is why the same instant can appear as a
@@ -32,7 +32,7 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Timestamp to date examples
         </h2>
         <div className="space-y-3">
@@ -44,14 +44,14 @@ export default function Article() {
           ].map(([timestamp, iso]) => (
             <div
               key={timestamp}
-              className="rounded-xl border border-black/10 bg-slate-50 p-3 dark:border-white/10 dark:bg-slate-900/40"
+              className="rounded-xl border border-black/10 bg-[var(--color-surface-subtle)] p-3 dark:border-white/10 dark:bg-[var(--color-code-surface)]/40"
             >
-              <p className="text-xs text-slate-500">Timestamp</p>
-              <p className="font-mono text-xs text-slate-800 dark:text-slate-200">
+              <p className="text-xs text-[var(--color-text-tertiary)]">Timestamp</p>
+              <p className="font-mono text-xs text-[var(--color-text-primary)] dark:text-[var(--color-text-secondary)]">
                 {timestamp}
               </p>
-              <p className="mt-2 text-xs text-slate-500">UTC ISO output</p>
-              <p className="font-mono text-xs text-slate-700 dark:text-slate-300">
+              <p className="mt-2 text-xs text-[var(--color-text-tertiary)]">UTC ISO output</p>
+              <p className="font-mono text-xs text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
                 {iso}
               </p>
             </div>
@@ -60,13 +60,13 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Date to timestamp examples
         </h2>
         <p>
           A browser local date/time input is interpreted using your current
           browser timezone. An ISO value such as{" "}
-          <code className="rounded bg-slate-100 px-1 font-mono text-xs dark:bg-slate-800">
+          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
             2030-01-01T00:00:00.000Z
           </code>{" "}
           includes the UTC timezone marker, so it describes the same instant for
@@ -75,7 +75,7 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           UTC vs local time
         </h2>
         <p>
@@ -88,7 +88,7 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Common developer use cases
         </h2>
         <ul className="ml-4 list-disc space-y-1.5">
@@ -101,7 +101,7 @@ export default function Article() {
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-slate-100">
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Privacy note
         </h2>
         <p>

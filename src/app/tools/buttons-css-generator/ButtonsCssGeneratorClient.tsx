@@ -81,7 +81,7 @@ export default function ButtonsCssGeneratorClient() {
         description="Preview default, hover, active, and disabled states."
         actions={<SegmentedControl ariaLabel="Preview state" value={previewState} onChange={(value) => setPreviewState(value as typeof previewState)} options={(["default", "hover", "active", "disabled"] as const).map((state) => ({ value: state, label: state }))} />}
       />
-      <div className="flex min-h-[420px] items-center justify-center rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[radial-gradient(circle_at_top,#e0e7ff,transparent_34%),linear-gradient(135deg,#f8fafc,#eef2ff)] p-8 dark:bg-[radial-gradient(circle_at_top,#1e293b,transparent_34%),linear-gradient(135deg,#020617,#111827)]">
+      <div className="flex min-h-[420px] items-center justify-center rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[radial-gradient(circle_at_top,var(--color-primary-soft),transparent_34%),linear-gradient(135deg,var(--color-preview-bg),var(--color-preview-bg-strong))] p-8">
         <div className={config.fullWidth ? "w-full max-w-md" : ""} dangerouslySetInnerHTML={{ __html: html }} />
       </div>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

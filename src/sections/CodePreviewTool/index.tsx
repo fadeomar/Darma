@@ -79,7 +79,7 @@ export default function CodePreviewTool() {
         <PreviewToolbar
           title="Code editor"
           description="Switch between HTML, CSS, and JavaScript. The preview updates as you edit."
-          actions={<SegmentedControl ariaLabel="Editor tab" value={activeTab} onChange={setActiveTab} options={editorTabs} />}
+          actions={<SegmentedControl ariaLabel="Editor tab" value={activeTab} onChange={(v) => setActiveTab(v as EditorTab)} options={editorTabs} />}
         />
         <div className="h-[620px] min-h-0 border-t border-[var(--color-border-subtle)] bg-[var(--color-code-bg)] p-3">
           <CodeEditor

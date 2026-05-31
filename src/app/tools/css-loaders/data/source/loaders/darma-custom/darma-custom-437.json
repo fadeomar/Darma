@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-437",
+  "name": "Corner Block 03",
+  "category": "creative",
+  "tags": [
+    "corner",
+    "block",
+    "03",
+    "grid",
+    "creative",
+    "tiles",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-06"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #ca8a04);\n  --loader-secondary-color: #fde047;\n  --loader-bg: #ffffff;\n  width: 85px;\n  height: 50px;\n  --g1: conic-gradient(from 90deg at left 3px top 3px,#0000 90deg,var(--loader-bg, #ffffff) 0);\n  --g2: conic-gradient(from -90deg at bottom 3px right 3px,#0000 90deg,var(--loader-bg, #ffffff) 0);\n  background: var(--g1),var(--g1),var(--g1), var(--g2),var(--g2),var(--g2);\n  background-position: left,center,right;\n  background-repeat: no-repeat;\n  animation: l9 1s infinite;\n}@keyframes l9 {0% {background-size:25px 50% ,25px 50% ,25px 50%}25% {background-size:25px 100%,25px 50% ,25px 50%}50% {background-size:25px 50% ,25px 100%,25px 50%}75% {background-size:25px 50% ,25px 50% ,25px 100%}100% {background-size:25px 50% ,25px 50% ,25px 50%}}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#ca8a04",
+    "secondaryColor": "#fde047",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

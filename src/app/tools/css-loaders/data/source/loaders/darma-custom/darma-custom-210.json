@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-210",
+  "name": "Split Dot Swing",
+  "category": "dots",
+  "tags": [
+    "split",
+    "dot",
+    "swing",
+    "dots",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: #db2777;\nheight: 15px;\naspect-ratio: 5;\n--_g:no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground: var(--_g),var(--_g),var(--_g),var(--_g);\nbackground-size: 20% 100%;\nanimation:\nl40-1 .75s infinite alternate,\nl40-2 1.5s infinite alternate;\n}\n@keyframes l40-1 {\n0%,\n10% {background-position: 0 0,0 0,0 0,0 0}\n33% {background-position: 0 0,calc(100%/3) 0,calc(100%/3) 0,calc(100%/3) 0}\n66% {background-position: 0 0,calc(100%/3) 0,calc(2*100%/3) 0,calc(2*100%/3) 0}\n90%,\n100% {background-position: 0 0,calc(100%/3) 0,calc(2*100%/3) 0,100% 0}\n}\n@keyframes l40-2 {\n0%,49.99% {transform: scale( 1)}\n50%,100% {transform: scale(-1)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#db2777",
+    "secondaryColor": "#f472b6",
+    "size": 75,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

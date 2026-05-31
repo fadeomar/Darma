@@ -1,0 +1,58 @@
+{
+  "id": "darma-custom-445",
+  "name": "Dot Orbit 06",
+  "category": "spinners",
+  "tags": [
+    "dot",
+    "orbit",
+    "06",
+    "dots",
+    "ring",
+    "spinner",
+    "outline",
+    "spinners",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-445 dot orbit 06 spinners dot orbit 06 dots ring spinner outline spinners loader css-only single-element batch-07 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-445\"></div>",
+  "previewCss": ".darma-loader-darma-custom-445 {color: var(--loader-color, #0891b2);\n  --loader-secondary-color: #22d3ee;\n  --loader-bg: #ffffff;\n   width: 50px;\n   aspect-ratio: 1;\n   box-shadow: 0 0 0 3px currentColor inset;\n   border-radius: 50%;\n   position: relative;\n   animation: darma-loader-darma-custom-445-l6 1.5s linear infinite;\n}\n.darma-loader-darma-custom-445:before  {\n  content: \"\";\n   position: absolute;\n   top: 100%;\n   box-shadow: inherit;\n   width: 25px;\n   aspect-ratio: 1;\n   border-radius: 50%;\n}\n@keyframes darma-loader-darma-custom-445-l6  {\n  to  {\n  transform: rotate(360deg);\n}\n}",
+  "defaults": {
+    "color": "#0891b2",
+    "secondaryColor": "#22d3ee",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-445\"></div>",
+    "css": ".darma-loader-darma-custom-445 {color: var(--loader-color, #0891b2);\n  --loader-secondary-color: #22d3ee;\n  --loader-bg: #ffffff;\n   width: 50px;\n   aspect-ratio: 1;\n   box-shadow: 0 0 0 3px currentColor inset;\n   border-radius: 50%;\n   position: relative;\n   animation: darma-loader-darma-custom-445-l6 1.5s linear infinite;\n}\n.darma-loader-darma-custom-445:before  {\n  content: \"\";\n   position: absolute;\n   top: 100%;\n   box-shadow: inherit;\n   width: 25px;\n   aspect-ratio: 1;\n   border-radius: 50%;\n}\n@keyframes darma-loader-darma-custom-445-l6  {\n  to  {\n  transform: rotate(360deg);\n}\n}",
+    "react": "export default function DarmaCustom445Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-445\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

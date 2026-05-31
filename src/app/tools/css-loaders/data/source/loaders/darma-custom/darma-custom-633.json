@@ -1,0 +1,47 @@
+{
+  "id": "darma-custom-633",
+  "name": "Dot Matrix 20",
+  "category": "spinners",
+  "tags": [
+    "dot",
+    "matrix",
+    "20",
+    "dots",
+    "spinner",
+    "grid",
+    "border",
+    "spinners",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #be123c);\n  --loader-secondary-color: #fda4af;\n  --loader-bg: #ffffff;\n   height: 30px;\n   aspect-ratio: 2;\n   background: radial-gradient(farthest-side,var(--loader-color, #be123c) 90%,#0000) 0 0/8px 8px, radial-gradient(farthest-side,var(--loader-color, #be123c) 90%,#0000) 0 0/8px 8px, radial-gradient(farthest-side,var(--loader-color, #be123c) 90%,#0000) 0 0/8px 8px, radial-gradient(farthest-side,var(--loader-color, #be123c) 90%,#0000) 0 0/8px 8px, radial-gradient(farthest-side,currentColor 90%,#0000) 0 0/8px 8px, linear-gradient(currentColor 0 0) center/100% 10px , linear-gradient(currentColor 0 0) right/50% 100%;\n   background-repeat:no-repeat;\n   animation: l10 2s infinite;\n}\n@keyframes l10  {\n  0% {background-position:top 1px right 1px,right 1px bottom 1px,top 1px left 31px,bottom 1px left 31px, -10px 50%,50%,right}\n50%, 60%{background-position:top 1px right 1px,right 1px bottom 1px,top 1px left 31px,bottom 1px left 31px,left 75% top 50%,50%,right}\n80% {background-position:75% 50%,75% 50%,75% 50%,75% 50%,left 75% top 50%,50%,right}\n80.01% {background-position:75% 50%,75% 50%,75% 50%,75% 50%,-10px 50%,50%,right}\n100%{background-position:top 1px right 1px,right 1px bottom 1px,top 1px left 31px,bottom 1px left 31px,-10px 50%,50%,right}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#be123c",
+    "secondaryColor": "#fda4af",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

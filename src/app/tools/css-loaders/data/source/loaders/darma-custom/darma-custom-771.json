@@ -1,0 +1,44 @@
+{
+  "id": "darma-custom-771",
+  "name": "Micro Bar 97",
+  "category": "bars",
+  "tags": [
+    "css-only",
+    "single-element",
+    "customizable",
+    "batch-08",
+    "bars",
+    "linear",
+    "micro",
+    "bars",
+    "loader"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: var(--loader-color, #0ea5e9);\n  --loader-secondary-color: #67e8f9;\n  --loader-bg: #ffffff;\nheight: 15px;\naspect-ratio: 5;\nbackground: radial-gradient(closest-side at 37.5% 50%,currentColor 94%,#0000) 0/calc(80%/3) 100%;\nanimation: l47 .75s infinite;\n}\n@keyframes l47 {\n100% {background-position: 36.36%}\n}",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#0ea5e9",
+    "secondaryColor": "#67e8f9",
+    "size": 56,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-133",
+  "name": "Crossbar Collapse",
+  "category": "bars",
+  "tags": [
+    "crossbar",
+    "collapse",
+    "bar",
+    "equalizer",
+    "bars",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: #2563eb;\nwidth: 49px;\naspect-ratio: 1;\n--c:no-repeat linear-gradient(135deg,currentColor,var(--loader-secondary-color));\nbackground:\nvar(--c) 0 0,\nvar(--c) 0 100%,\nvar(--c) 50% 50%,  \n var(--c) 100% 0,\nvar(--c) 100% 100%;\nanimation: l13 1s infinite alternate;\n}\n\n@keyframes l13 {\n0%,10% {background-size:20% 100%}\n50% {background-size:20% 20%}\n90%,100% {background-size:100% 20%}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#2563eb",
+    "secondaryColor": "#60a5fa",
+    "size": 49,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

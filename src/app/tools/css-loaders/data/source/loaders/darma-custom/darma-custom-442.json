@@ -1,0 +1,47 @@
+{
+  "id": "darma-custom-442",
+  "name": "Dot Orbit 03",
+  "category": "spinners",
+  "tags": [
+    "dot",
+    "orbit",
+    "03",
+    "dots",
+    "ring",
+    "spinner",
+    "outline",
+    "spinners",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #16a34a);\n  --loader-secondary-color: #86efac;\n  --loader-bg: #ffffff;\n   width: 65px;\n   height: 30px;\n   position: relative;\n}\n.loader:before  {\n  content: \"\";\n   position: absolute;\n   border-radius: 50px;\n   box-shadow: 0 0 0 3px inset currentColor;\n   animation: l3 0.75s infinite alternate;\n}\n@keyframes l3  {\n  0%  {\n  inset: 0 35px 0 0;\n}\n50%  {\n  inset: 0 0 0 0;\n}\n100%  {\n  inset: 0 0 0 35px;\n}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#16a34a",
+    "secondaryColor": "#86efac",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-560",
+  "name": "Micro Bar 06",
+  "category": "progress",
+  "tags": [
+    "micro",
+    "bar",
+    "06",
+    "progress",
+    "minimal",
+    "linear",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #dc2626);\n  --loader-secondary-color: #f97316;\n  --loader-bg: #ffffff;\n   height: 9px;\n   width: 60px;\n   --c:no-repeat linear-gradient(currentColor 0 0);\n   background: var(--c), var(--c), var(--c), var(--c);\n   background-size: 26% 3px;\n   animation: l6 1s infinite;\n}\n@keyframes l6  {\n  0%, 70%, 100% {background-position: calc(0*100%/3) 50%,calc(1*100%/3) 50% ,calc(2*100%/3) 50%,calc(3*100%/3) 50% }\n23.33%{background-position: calc(0*100%/3) 0 ,calc(1*100%/3) 100%,calc(2*100%/3) 0 ,calc(3*100%/3) 100%}\n46.67%{background-position: calc(1*100%/3) 0 ,calc(0*100%/3) 100%,calc(3*100%/3) 0 ,calc(2*100%/3) 100%}\n69.99%{background-position: calc(1*100%/3) 50%,calc(0*100%/3) 50% ,calc(3*100%/3) 50%,calc(2*100%/3) 50% }\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#dc2626",
+    "secondaryColor": "#f97316",
+    "size": 88,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

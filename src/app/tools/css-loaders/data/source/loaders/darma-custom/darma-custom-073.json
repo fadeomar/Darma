@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-073",
+  "name": "Offset Gear Pointer",
+  "category": "fun",
+  "tags": [
+    "offset",
+    "gear",
+    "pointer",
+    "playful",
+    "motion",
+    "css-only",
+    "single-element",
+    "batch-03"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  display: inline-grid;\n  width: 70px;\n  aspect-ratio: 1;\n  animation: l5-0 8s steps(10) infinite;\n}\n.loader:before,\n.loader:after {\n  content:\"\";\n  grid-area: 1/1;\n}\n.loader:before {\n  clip-path: polygon(100% 50%,90.45% 79.39%,65.45% 97.55%,34.55% 97.55%,9.55% 79.39%,0% 50%,9.55% 20.61%,34.55% 2.45%,65.45% 2.45%,90.45% 20.61%,100% 50%,85.6% 24.14%,63.6% 8.15%,36.4% 8.15%,14.4% 24.14%,6% 50%,14.4% 75.86%,36.4% 91.85%,63.6% 91.85%,85.6% 75.86%,94% 50%,85.6% 24.14%);\n  background: #574951;\n}\n.loader:after {\n  background: #83988E;\n  clip-path: polygon(100% 50%,65.45% 97.55%,9.55% 79.39%,9.55% 20.61%,65.45% 2.45%);\n  margin: 23%;\n  translate: -143% 0;\n  transform-origin: right;\n  animation: l5-1 .8s linear infinite;\n}\n@keyframes l5-0 {to{rotate: 1turn}}\n@keyframes l5-1 {\n  0%{rotate: -54deg}\n  to{rotate:  54deg}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#574951",
+    "secondaryColor": "#83988e",
+    "size": 70,
+    "speed": 8.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

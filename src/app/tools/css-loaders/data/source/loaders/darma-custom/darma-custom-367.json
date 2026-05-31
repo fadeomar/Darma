@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-367",
+  "name": "Flip Tile 14",
+  "category": "creative",
+  "tags": [
+    "flip",
+    "tile",
+    "14",
+    "3d",
+    "fold",
+    "creative",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-06"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #0284c7);\n  --loader-secondary-color: #7dd3fc;\n  --loader-bg: #ffffff;\n  width: 60px;\n  aspect-ratio: 1;\n  display: flex;\n}.loader::before,.loader::after {content:\"\";\n  flex:1;\n  animation: l14 1.5s -.25s infinite linear alternate both;\n}.loader::after {--s:-1,-1;\n  animation-delay: .5s;\n}@keyframes l14 {0%,30% {transform: scale(var(--s,1)) translate(0px) perspective(150px) rotateY(0deg);\n  clip-path: polygon(50% 0,100% 0,100% 100%,50% 100%,0 75%,0 25%);\n  background:var(--loader-color, #0284c7);\n}37.5%{transform: scale(var(--s,1)) translate(-10px) perspective(150px) rotateX(0deg);\n  clip-path: polygon(50% 0,100% 0,100% 100%,50% 100%,0 75%,0 25%);\n  background:var(--loader-color, #0284c7);\n}50% {transform: scale(var(--s,1)) translate(-10px) perspective(150px) rotateX(-90deg);\n  clip-path: polygon(50% 0,100% 0,100% 100%,50% 100%,0 75%,0 25%);\n  background:var(--loader-color, #0284c7);\n  border-radius: 0}50.01%{transform: scale(var(--s,1)) translate(-10px) perspective(150px) rotateX(-90.1deg);\n  clip-path: polygon(0 0,100% 0,100% 100%,50% 100%,0 100%,0 25%);\n  background:var(--loader-secondary-color, #7dd3fc);\n  border-radius: 100px 0 0 100px}62.5%{transform: scale(var(--s,1)) translate(-10px) perspective(150px) rotateX(-180deg);\n  clip-path: polygon(0 0,100% 0,100% 100%,50% 100%,0 100%,0 25%);\n  background:var(--loader-secondary-color, #7dd3fc);\n  border-radius: 100px 0 0 100px}70%,100%{transform: scale(var(--s,1)) translate(0px) perspective(150px) rotateX(-180deg);\n  clip-path: polygon(0 0,100% 0,100% 100%,50% 100%,0 100%,0 25%);\n  background:var(--loader-secondary-color, #7dd3fc);\n  border-radius: 100px 0 0 100px;\n}}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#0284c7",
+    "secondaryColor": "#7dd3fc",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

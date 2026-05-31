@@ -1,0 +1,44 @@
+{
+  "id": "darma-custom-142",
+  "name": "Corner Tile Route",
+  "category": "bars",
+  "tags": [
+    "corner",
+    "tile",
+    "route",
+    "bar",
+    "equalizer",
+    "bars",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: #e11d48;\nwidth: 49px;\naspect-ratio: 1;\n--c:no-repeat repeating-linear-gradient(90deg,currentColor 0 20%,#0000 0 40%);\nbackground: var(--c),var(--c),var(--c),var(--c);\nbackground-size: 100% 26%;\nanimation: l22 1.5s infinite;\n}\n\n@keyframes l22 {\n0% {background-position:0 -20px ,0 -20px ,0 -20px ,0 -20px}\n12.5% {background-position:0 -20px ,0 -20px ,0 -20px ,0 calc(3*100%/3)}\n25% {background-position:0 -20px ,0 -20px ,0 calc(2*100%/3),0 calc(3*100%/3)}\n37.5% {background-position:0 -20px ,0 calc(1*100%/3),0 calc(2*100%/3),0 calc(3*100%/3)}\n45%,\n50% {background-position:0 calc(0*100%/3),0 calc(1*100%/3),0 calc(2*100%/3),0 calc(3*100%/3)}\n62.5% {background-position:0 calc(0*100%/3),0 calc(1*100%/3),0 calc(2*100%/3),0 50px}\n75% {background-position:0 calc(0*100%/3),0 calc(1*100%/3),0 50px ,0 50px}\n87.5% {background-position:0 calc(0*100%/3),0 50px ,0 50px ,0 50px}\n100% {background-position:0 50px ,0 50px ,0 50px ,0 50px}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#e11d48",
+    "secondaryColor": "#fb7185",
+    "size": 49,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

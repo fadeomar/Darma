@@ -21,7 +21,7 @@
   },
   "searchText": "orbit-dots orbit dots dots dots orbit circle loop html css react cssonly customizable singleelement",
   "previewHtml": "<span class=\"darma-loader-orbit-dots\"></span>",
-  "previewCss": ".darma-loader-orbit-dots {\n  position: relative;\n  display: inline-block;\n  width: 54px;\n  height: 54px;\n  color: var(--loader-color, #6366f1);\n  animation: darma-loader-orbit-dots-spin 1.2s linear infinite;\n}\n.darma-loader-orbit-dots::before,\n.darma-loader-orbit-dots::after {\n  content: \"\";\n  position: absolute;\n  width: 14px;\n  height: 14px;\n  border-radius: 50%;\n  background: currentColor;\n  top: 0;\n  left: 50%;\n  transform: translateX(-50%);\n}\n.darma-loader-orbit-dots::after {\n  top: auto;\n  bottom: 0;\n  opacity: 0.35;\n}\n@keyframes darma-loader-orbit-dots-spin { to { transform: rotate(360deg); } }\n",
+  "previewCss": ".darma-loader-orbit-dots {\n  position: relative;\n  display: inline-block;\n  width: 54px;\n  height: 54px;\n  color: #6366f1;\n  animation: darma-loader-orbit-dots-spin 1.2s linear infinite;\n}\n.darma-loader-orbit-dots::before,\n.darma-loader-orbit-dots::after {\n  content: \"\";\n  position: absolute;\n  width: 14px;\n  height: 14px;\n  border-radius: 50%;\n  background: currentColor;\n  top: 0;\n  left: 50%;\n  transform: translateX(-50%);\n}\n.darma-loader-orbit-dots::after {\n  top: auto;\n  bottom: 0;\n  opacity: 0.35;\n}\n@keyframes darma-loader-orbit-dots-spin { to { transform: rotate(360deg); } }",
   "defaults": {
     "color": "#6366f1",
     "size": 48,
@@ -29,14 +29,13 @@
   },
   "code": {
     "html": "<span class=\"darma-loader-orbit-dots\"></span>",
-    "css": ".darma-loader-orbit-dots {\n  position: relative;\n  display: inline-block;\n  width: 54px;\n  height: 54px;\n  color: var(--loader-color, #6366f1);\n  animation: darma-loader-orbit-dots-spin 1.2s linear infinite;\n}\n.darma-loader-orbit-dots::before,\n.darma-loader-orbit-dots::after {\n  content: \"\";\n  position: absolute;\n  width: 14px;\n  height: 14px;\n  border-radius: 50%;\n  background: currentColor;\n  top: 0;\n  left: 50%;\n  transform: translateX(-50%);\n}\n.darma-loader-orbit-dots::after {\n  top: auto;\n  bottom: 0;\n  opacity: 0.35;\n}\n@keyframes darma-loader-orbit-dots-spin { to { transform: rotate(360deg); } }\n",
+    "css": ".darma-loader-orbit-dots {\n  position: relative;\n  display: inline-block;\n  width: 54px;\n  height: 54px;\n  color: #6366f1;\n  animation: darma-loader-orbit-dots-spin 1.2s linear infinite;\n}\n.darma-loader-orbit-dots::before,\n.darma-loader-orbit-dots::after {\n  content: \"\";\n  position: absolute;\n  width: 14px;\n  height: 14px;\n  border-radius: 50%;\n  background: currentColor;\n  top: 0;\n  left: 50%;\n  transform: translateX(-50%);\n}\n.darma-loader-orbit-dots::after {\n  top: auto;\n  bottom: 0;\n  opacity: 0.35;\n}\n@keyframes darma-loader-orbit-dots-spin { to { transform: rotate(360deg); } }",
     "react": "export default function OrbitDotsLoader() {\n  return (\n    <span className=\"darma-loader-orbit-dots\"></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
-    "speed": true,
-    "background": false,
-    "secondaryColor": false
-  }
+    "speed": true
+  },
+  "source": {}
 }

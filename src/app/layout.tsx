@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
+import AnalyticsRouteTracker from "@/components/analytics/AnalyticsRouteTracker";
 import { Suspense } from "react";
 import { cookies } from "next/headers";
 import SiteHeader from "@/components/navigation/SiteHeader";
@@ -29,6 +30,9 @@ export default async function RootLayout({
           <main>{children}</main>
         </div>
         <GoogleAnalytics />
+        <Suspense fallback={null}>
+          <AnalyticsRouteTracker />
+        </Suspense>
       </body>
     </html>
   );

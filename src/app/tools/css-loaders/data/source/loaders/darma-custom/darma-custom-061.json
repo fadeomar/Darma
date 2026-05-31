@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-061",
+  "name": "Split Isometric Cubes",
+  "category": "creative",
+  "tags": [
+    "split",
+    "isometric",
+    "cubes",
+    "geometric",
+    "creative",
+    "css-only",
+    "single-element",
+    "batch-03"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  --s: 25px;\n  \n  --_d: calc(0.353*var(--s));\n  width: calc(var(--s) + var(--_d));\n  aspect-ratio: 1;\n  display: flex;\n}\n.loader:before,\n.loader:after {\n  content: \"\";\n  flex: 1;\n  clip-path: polygon(var(--_d) 0,100% 0,100% calc(100% - var(--_d)),calc(100% - var(--_d)) 100%,0 100%,0 var(--_d));\n  background:\n    conic-gradient(from -90deg at calc(100% - var(--_d)) var(--_d),\n     #fff 135deg,#666 0 270deg,#aaa 0);\n  animation: l5 1.2s infinite;\n}\n.loader:before {\n  margin-right: calc(var(--_d)/-2 - 1px);\n}\n.loader:after {\n  margin-left: calc(var(--_d)/-2 - 1px);\n  animation-delay: 0.6s\n}\n@keyframes l5{\n  0%     {transform: translateY(0)}\n  16.67% {transform: translateY(-10px)}\n  33.33% {transform: translateY(10px)}\n  50%,\n  100%   {transform: translateY(0)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#666",
+    "secondaryColor": "#fff",
+    "size": 25,
+    "speed": 1.2,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

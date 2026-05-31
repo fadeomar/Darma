@@ -1,0 +1,58 @@
+{
+  "id": "darma-custom-447",
+  "name": "Dot Orbit 08",
+  "category": "spinners",
+  "tags": [
+    "dot",
+    "orbit",
+    "08",
+    "dots",
+    "ring",
+    "spinner",
+    "outline",
+    "spinners",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-447 dot orbit 08 spinners dot orbit 08 dots ring spinner outline spinners loader css-only single-element batch-07 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-447\"></div>",
+  "previewCss": ".darma-loader-darma-custom-447 {color: var(--loader-color, #0f766e);\n  --loader-secondary-color: #5eead4;\n  --loader-bg: #ffffff;\n   width: 50px;\n   aspect-ratio: 1;\n   box-shadow: 0 0 0 3px currentColor inset;\n   border-radius: 50%;\n   position: relative;\n   animation: darma-loader-darma-custom-447-l8-0 1.5s linear infinite;\n}\n.darma-loader-darma-custom-447:before  {\n  content: \"\";\n   position: absolute;\n   top: 50%;\n   left: calc(100% + 2px);\n   box-shadow: inherit;\n   width: 25px;\n   aspect-ratio: 1;\n   border-radius: 50%;\n   animation: darma-loader-darma-custom-447-l8-1 1.5s linear infinite;\n}\n@keyframes darma-loader-darma-custom-447-l8-1  {\n  0%  {\n  transform-origin: -27px 50%;\n   width: 20px;\n   transform: translateY(-50%) rotate(0);\n}\n100%  {\n  transform-origin: -12px 50%;\n   width: 50px;\n   transform: translateY(-50%) rotate(180deg);\n}\n}\n@keyframes darma-loader-darma-custom-447-l8-0  {\n  0%  {\n  width: 50px;\n   transform: translate(0);\n}\n100%  {\n  width: 20px;\n   transform: translate(37px);\n}\n}",
+  "defaults": {
+    "color": "#0f766e",
+    "secondaryColor": "#5eead4",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-447\"></div>",
+    "css": ".darma-loader-darma-custom-447 {color: var(--loader-color, #0f766e);\n  --loader-secondary-color: #5eead4;\n  --loader-bg: #ffffff;\n   width: 50px;\n   aspect-ratio: 1;\n   box-shadow: 0 0 0 3px currentColor inset;\n   border-radius: 50%;\n   position: relative;\n   animation: darma-loader-darma-custom-447-l8-0 1.5s linear infinite;\n}\n.darma-loader-darma-custom-447:before  {\n  content: \"\";\n   position: absolute;\n   top: 50%;\n   left: calc(100% + 2px);\n   box-shadow: inherit;\n   width: 25px;\n   aspect-ratio: 1;\n   border-radius: 50%;\n   animation: darma-loader-darma-custom-447-l8-1 1.5s linear infinite;\n}\n@keyframes darma-loader-darma-custom-447-l8-1  {\n  0%  {\n  transform-origin: -27px 50%;\n   width: 20px;\n   transform: translateY(-50%) rotate(0);\n}\n100%  {\n  transform-origin: -12px 50%;\n   width: 50px;\n   transform: translateY(-50%) rotate(180deg);\n}\n}\n@keyframes darma-loader-darma-custom-447-l8-0  {\n  0%  {\n  width: 50px;\n   transform: translate(0);\n}\n100%  {\n  width: 20px;\n   transform: translate(37px);\n}\n}",
+    "react": "export default function DarmaCustom447Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-447\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

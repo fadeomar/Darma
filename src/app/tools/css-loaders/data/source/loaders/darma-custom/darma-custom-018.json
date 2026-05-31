@@ -1,0 +1,35 @@
+{
+  "id": "darma-custom-018",
+  "name": "Masked Quadrant Sweep",
+  "category": "progress",
+  "tags": [
+    "mask",
+    "quadrant",
+    "sweep",
+    "square",
+    "batch-01"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 60px;\n  aspect-ratio: 1;\n  background: linear-gradient(90deg, #CEE879 50%, #FF5254 0) top / 100% 50% no-repeat, linear-gradient(90deg, #FCB653 50%, #5CACC4 0);\n  -webkit-mask: linear-gradient(#000 0 0) 0 0 / 50% 50% no-repeat;\n  animation: l18 2s infinite;\n}\n@keyframes l18 {\n  0% { -webkit-mask-position: 0 0; }\n  25% { -webkit-mask-position: 100% 0; }\n  50% { -webkit-mask-position: 100% 100%; }\n  75% { -webkit-mask-position: 0 100%; }\n  100% { -webkit-mask-position: 0 0; }\n}\n",
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#CEE879",
+    "secondaryColor": "#FF5254",
+    "size": 60,
+    "speed": 2,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

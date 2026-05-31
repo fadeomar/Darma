@@ -1444,3 +1444,51 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Rich loader containment hardening */
+.css-loader-preview-stage,
+.css-loaders-detail-stage,
+.css-loaders-detail-standalone,
+.css-loaders-demo-card-content,
+.css-loaders-overlay-layer {
+  position: relative;
+  isolation: isolate;
+}
+
+.css-loader-preview-stage {
+  overflow: hidden;
+}
+
+.css-loader-render-root,
+.css-loader-render-inner {
+  position: relative;
+  isolation: isolate;
+}
+
+.css-loader-render-root {
+  overflow: visible;
+}
+
+.css-loader-render-inner {
+  min-width: min(180px, 100%);
+  min-height: 112px;
+}
+
+.css-loaders-detail-standalone > .css-loader-custom-scale {
+  min-width: min(260px, 100%);
+  min-height: 220px;
+}
+
+.css-loader-custom-scale,
+.css-loader-custom-scale > div {
+  position: relative;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+
+.css-loaders-demo-button .css-loader-custom-scale,
+.css-loaders-demo-button .css-loader-custom-scale > div {
+  min-width: 34px;
+  min-height: 34px;
+}

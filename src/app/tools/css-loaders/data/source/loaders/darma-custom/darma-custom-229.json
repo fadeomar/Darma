@@ -1,0 +1,46 @@
+{
+  "id": "darma-custom-229",
+  "name": "Counter March Rail",
+  "category": "progress",
+  "tags": [
+    "counter",
+    "march",
+    "rail",
+    "progress",
+    "bar",
+    "track",
+    "linear",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-05"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: var(--loader-color, #ca8a04);\n  width: 90px;\n  height: 12px;\n  --c:currentColor 50%,#0000 0;\n  background: \n    linear-gradient( 90deg,var(--c)) 0 0,\n    linear-gradient(-90deg,var(--c)) 0 0;\n  background-size: 20px 100%;\n  background-repeat: repeat-x;\n  animation: l10 1s infinite linear;\n}\n@keyframes l10 {\n    100% {background-position: -20px 0,20px 0}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#ca8a04",
+    "secondaryColor": "#fde047",
+    "size": 84,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

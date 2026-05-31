@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-214",
+  "name": "Four Dot Flip",
+  "category": "dots",
+  "tags": [
+    "four",
+    "dot",
+    "flip",
+    "dots",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: #e11d48;\nheight: 30px;\naspect-ratio: 2.5;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 90%,#0000);\nbackground: var(--_g), var(--_g), var(--_g), var(--_g);\nbackground-size: 20% 50%;\nanimation: l44 1s infinite linear alternate;\n}\n@keyframes l44 {\n0%,\n5% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n12.5% {background-position: calc(0*100%/3) 0 ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n25% {background-position: calc(0*100%/3) 0 ,calc(1*100%/3) 0 ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n37.5% {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 0 ,calc(2*100%/3) 0 ,calc(3*100%/3) 50% }\n50% {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 100%,calc(2*100%/3) 0 ,calc(3*100%/3) 0 }\n62.5% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 100%,calc(2*100%/3) 100%,calc(3*100%/3) 0 }\n75% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 100%,calc(3*100%/3) 100%}\n87.5% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 100%}\n95%,\n100% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#e11d48",
+    "secondaryColor": "#fb7185",
+    "size": 75,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

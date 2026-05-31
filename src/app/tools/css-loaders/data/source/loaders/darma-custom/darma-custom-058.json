@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-058",
+  "name": "Isometric Cube Glow",
+  "category": "pulse",
+  "tags": [
+    "isometric",
+    "cube",
+    "glow",
+    "pulse",
+    "expand",
+    "css-only",
+    "single-element",
+    "batch-03"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  --s: 25px;\n  \n  --_d: calc(0.353*var(--s));\n  width: calc(var(--s) + var(--_d));\n  aspect-ratio: 1;\n  display: grid;\n  filter: drop-shadow(0 0 0 #fff);\n  animation: l2 0.8s infinite;\n}\n.loader:before {\n  content: \"\";\n  clip-path: polygon(var(--_d) 0,100% 0,100% calc(100% - var(--_d)),calc(100% - var(--_d)) 100%,0 100%,0 var(--_d));\n  background:\n    conic-gradient(from -90deg at var(--s) var(--_d),\n     #fff 135deg,#666 0 270deg,#aaa 0);\n}\n@keyframes l2{\n  50% {filter:drop-shadow(0 0 5px #fff)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#666",
+    "secondaryColor": "#fff",
+    "size": 25,
+    "speed": 0.8,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

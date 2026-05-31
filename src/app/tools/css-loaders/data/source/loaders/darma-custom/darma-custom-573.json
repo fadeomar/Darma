@@ -1,0 +1,44 @@
+{
+  "id": "darma-custom-573",
+  "name": "Mask Reveal 10",
+  "category": "pulse",
+  "tags": [
+    "mask",
+    "reveal",
+    "10",
+    "pulse",
+    "shape",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #4f46e5);\n  --loader-secondary-color: #a5b4fc;\n  --loader-bg: #ffffff;\n   width: 70px;\n   height: 70px;\n   background: var(--loader-color, #4f46e5);\n   border-radius: 50px;\n   -webkit-mask: radial-gradient(circle 31px at 50% calc(100% + 13px),currentColor 95%,#0000) top 4px left 50%, radial-gradient(circle 31px,currentColor 95%,#0000) center, radial-gradient(circle 31px at 50% -13px,currentColor 95%,#0000) bottom 4px left 50%, linear-gradient(currentColor 0 0);\n   -webkit-mask-composite:xor;\n   mask-composite:exclude;\n   -webkit-mask-repeat:no-repeat;\n   animation: l10 1.5s infinite;\n}\n@keyframes l10  {\n  0% {-webkit-mask-size:0 18px,0 18px,0 18px,auto}\n16.67%{-webkit-mask-size:100% 18px,0 18px,0 18px,auto}\n33.33%{-webkit-mask-size:100% 18px,100% 18px,0 18px,auto}\n50% {-webkit-mask-size:100% 18px,100% 18px,100% 18px,auto}\n66.67%{-webkit-mask-size:0 18px,100% 18px,100% 18px,auto}\n83.33%{-webkit-mask-size:0 18px,0 18px,100% 18px,auto}\n100% {-webkit-mask-size:0 18px,0 18px,0 18px,auto}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#4f46e5",
+    "secondaryColor": "#a5b4fc",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

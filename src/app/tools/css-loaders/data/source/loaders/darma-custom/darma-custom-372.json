@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-372",
+  "name": "Flip Tile 19",
+  "category": "creative",
+  "tags": [
+    "flip",
+    "tile",
+    "19",
+    "3d",
+    "fold",
+    "creative",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-06"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #f97316);\n  --loader-secondary-color: #facc15;\n  --loader-bg: #ffffff;\n  width: 60px;\n  aspect-ratio: 1;\n  display: grid;\n}.loader:before,.loader:after {content: \"\";\n  grid-area: 1/1;\n  color:var(--loader-color, #f97316);\n  animation: l19 1.5s infinite linear;\n}.loader:before {margin: 5px 20px;\n  background: currentColor;\n}.loader:after {border: solid;\n  border-width: 5px 20px;\n  --s:0;\n}@keyframes l19 {0% {transform: perspective(100px) rotate3d(1,var(--s,1),0,0) }25% {transform: perspective(100px) rotate3d(1,var(--s,1),0,90deg) }25.01% {transform: perspective(100px) rotate3d(1,var(--s,1),0,90deg) }40%,60% {transform: perspective(100px) rotate3d(1,var(--s,1),0,180deg)}75% {transform: perspective(100px) rotate3d(1,var(--s,1),0,270deg)}75.01% {transform: perspective(100px) rotate3d(1,var(--s,1),0,270deg)}90%,100%{transform: perspective(100px) rotate3d(1,var(--s,1),0,360deg)}}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#f97316",
+    "secondaryColor": "#facc15",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

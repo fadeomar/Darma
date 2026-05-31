@@ -1,0 +1,44 @@
+{
+  "id": "darma-custom-740",
+  "name": "Geometric Pattern 66",
+  "category": "creative",
+  "tags": [
+    "css-only",
+    "single-element",
+    "customizable",
+    "batch-08",
+    "creative",
+    "geometric",
+    "pattern",
+    "creative",
+    "loader"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: var(--loader-color, #f97316);\n  --loader-secondary-color: #fdba74;\n  --loader-bg: #ffffff;\nwidth: 60px;\naspect-ratio: 4;\nbackground: radial-gradient(closest-side at calc(100%/6) 50%,currentColor 90%,#0000) 0/75% 100%;\nposition: relative;\nanimation: l15-0 1s infinite linear;\n}\n.loader::before {\ncontent:\"\";\nposition: absolute;\nbackground: inherit;\nclip-path: inset(0 0 0 50%);\ninset: 0;\nanimation: l15-1 0.5s infinite linear;\n}\n@keyframes l15-0 {\n0%,49.99% {transform: scale(1)}\n50%,100% {transform: scale(-1)}\n}\n@keyframes l15-1 {\n0% {transform: translateX(-37.5%) rotate(0turn)}\n80%,100% {transform: translateX(-37.5%) rotate(1turn)}\n}",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#f97316",
+    "secondaryColor": "#fdba74",
+    "size": 60,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-122",
+  "name": "Rising Meter",
+  "category": "bars",
+  "tags": [
+    "rising",
+    "meter",
+    "bar",
+    "equalizer",
+    "bars",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: #7c3aed;\nwidth: 49px;\naspect-ratio: 1;\n--c: no-repeat linear-gradient(135deg,currentColor,var(--loader-secondary-color));\nbackground:\nvar(--c) 0% 100%,\nvar(--c) 50% 100%,\nvar(--c) 100% 100%;\nanimation: l2 1s infinite linear;\n}\n@keyframes l2 {\n0% {background-size: 20% 100%,20% 100%,20% 100%}\n20% {background-size: 20% 60% ,20% 100%,20% 100%}\n40% {background-size: 20% 80% ,20% 60% ,20% 100%}\n60% {background-size: 20% 100%,20% 80% ,20% 60% }\n80% {background-size: 20% 100%,20% 100%,20% 80% }\n100%{background-size: 20% 100%,20% 100%,20% 100%}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#7c3aed",
+    "secondaryColor": "#c084fc",
+    "size": 49,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

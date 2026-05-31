@@ -1,0 +1,54 @@
+{
+  "id": "darma-custom-117",
+  "name": "Hexagon Segment Swap",
+  "category": "spinners",
+  "tags": [
+    "hexagon",
+    "segment",
+    "swap",
+    "spinner",
+    "rotation",
+    "css-only",
+    "single-element",
+    "batch-03"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-117 hexagon segment swap spinners hexagon segment swap spinner rotation css-only single-element batch-03 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-117\"></div>",
+  "previewCss": ".darma-loader-darma-custom-117 {\n  width: 60px;\n  aspect-ratio: 1.154;\n  --c: #0000 ,#25b09b 2deg 59deg,#0000 61deg;\n  --c1:conic-gradient(from 149deg at top   ,var(--c));\n  --c2:conic-gradient(from -31deg at bottom,var(--c));\n  background:\n    var(--c1) top,\n    var(--c1) bottom right,\n    var(--c2) bottom,\n    var(--c1) bottom left;\n  background-size: 50% 50%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-117-l37 1s infinite;\n}\n@keyframes darma-loader-darma-custom-117-l37 {\n  80%,100%{background-position: bottom right,bottom left,bottom,top}\n}",
+  "defaults": {
+    "color": "#25b09b",
+    "secondaryColor": "#e5e7eb",
+    "size": 60,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-117\"></div>",
+    "css": ".darma-loader-darma-custom-117 {\n  width: 60px;\n  aspect-ratio: 1.154;\n  --c: #0000 ,#25b09b 2deg 59deg,#0000 61deg;\n  --c1:conic-gradient(from 149deg at top   ,var(--c));\n  --c2:conic-gradient(from -31deg at bottom,var(--c));\n  background:\n    var(--c1) top,\n    var(--c1) bottom right,\n    var(--c2) bottom,\n    var(--c1) bottom left;\n  background-size: 50% 50%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-117-l37 1s infinite;\n}\n@keyframes darma-loader-darma-custom-117-l37 {\n  80%,100%{background-position: bottom right,bottom left,bottom,top}\n}",
+    "react": "export default function DarmaCustom117Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-117\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

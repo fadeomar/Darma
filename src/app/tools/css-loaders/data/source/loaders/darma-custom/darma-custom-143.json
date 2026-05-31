@@ -1,0 +1,44 @@
+{
+  "id": "darma-custom-143",
+  "name": "Stripe Row Sweep",
+  "category": "bars",
+  "tags": [
+    "stripe",
+    "row",
+    "sweep",
+    "bar",
+    "equalizer",
+    "bars",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: #ca8a04;\nheight: 49px;\naspect-ratio: 1.6;\n--c:no-repeat repeating-linear-gradient(90deg,currentColor 0 20%,#0000 0 40%);\nbackground: var(--c),var(--c),var(--c),var(--c);\nbackground-size: 62.5% 26%;\nanimation: l23 1s infinite;\n}\n@keyframes l23 {\n0%,\n10% {background-position:50% calc(0*100%/3),50% calc(1*100%/3),50% calc(2*100%/3),50% calc(3*100%/3)}\n33% {background-position:100% calc(0*100%/3),calc(100% - 9px) calc(1*100%/3),9px calc(2*100%/3),0 calc(3*100%/3)}\n66% {background-position:0 calc(0*100%/3),9px calc(1*100%/3),calc(100% - 9px) calc(2*100%/3),100% calc(3*100%/3)}\n90%,\n100%{background-position:50% calc(0*100%/3),50% calc(1*100%/3),50% calc(2*100%/3),50% calc(3*100%/3)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#ca8a04",
+    "secondaryColor": "#facc15",
+    "size": 78,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

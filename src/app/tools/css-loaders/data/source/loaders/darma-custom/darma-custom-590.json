@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-590",
+  "name": "Color Geometry 17",
+  "category": "creative",
+  "tags": [
+    "color",
+    "geometry",
+    "17",
+    "motion",
+    "creative",
+    "tiles",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #0f766e);\n  --loader-secondary-color: #5eead4;\n  --loader-bg: #ffffff;\n   width: 60px;\n   aspect-ratio: 1;\n   background: linear-gradient(45deg,var(--loader-color, #0f766e) 50%,#0000 0), linear-gradient(45deg,#0000 50%,var(--loader-color, #0f766e) 0), linear-gradient(-45deg,var(--loader-color, #0f766e) 50%,#0000 0), linear-gradient(-45deg,#0000 50%,var(--loader-color, #0f766e) 0), linear-gradient(var(--loader-color, #0f766e) 0 0);\n   background-size: 50% 50%;\n   background-repeat: no-repeat;\n   animation: l17 1s infinite alternate;\n}\n@keyframes l17 {\n  0%, 20% {background-position:50% 50%,50% 50%,50% 50% ,50% 50%,50% 50%;\n   background-size:50% 50%,50% 50%,50% 50%,50% 50%,50% 50%}\n80%, 100% {background-position:0 100%,100% 0,100% 100%,0 0 ,50% 50%;\n   background-size:50% 50%,50% 50%,50% 50%,50% 50%,100% 100%}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#0f766e",
+    "secondaryColor": "#5eead4",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

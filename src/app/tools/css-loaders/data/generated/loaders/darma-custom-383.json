@@ -1,0 +1,55 @@
+{
+  "id": "darma-custom-383",
+  "name": "Pulse Outline 10",
+  "category": "pulse",
+  "tags": [
+    "pulse",
+    "outline",
+    "10",
+    "shape",
+    "steps",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-06"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-383 pulse outline 10 pulse pulse outline 10 shape steps loader css-only single-element batch-06 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-383\"></div>",
+  "previewCss": ".darma-loader-darma-custom-383 {color: var(--loader-color, #7c3aed);\n  --loader-secondary-color: #c084fc;\n  --loader-bg: #ffffff;\n  width: 120px;\n  height: 20px;\n  background:linear-gradient(90deg, #0000 ,var(--loader-color, #7c3aed)) left -50px top 0/50px 20px no-repeat var(--loader-secondary-color, #c084fc);\n  animation: darma-loader-darma-custom-383-l2 1s infinite linear;\n}@keyframes darma-loader-darma-custom-383-l2 {100% {background-position: right -50px top 0}}",
+  "defaults": {
+    "color": "#7c3aed",
+    "secondaryColor": "#c084fc",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-383\"></div>",
+    "css": ".darma-loader-darma-custom-383 {color: var(--loader-color, #7c3aed);\n  --loader-secondary-color: #c084fc;\n  --loader-bg: #ffffff;\n  width: 120px;\n  height: 20px;\n  background:linear-gradient(90deg, #0000 ,var(--loader-color, #7c3aed)) left -50px top 0/50px 20px no-repeat var(--loader-secondary-color, #c084fc);\n  animation: darma-loader-darma-custom-383-l2 1s infinite linear;\n}@keyframes darma-loader-darma-custom-383-l2 {100% {background-position: right -50px top 0}}",
+    "react": "export default function DarmaCustom383Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-383\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "id": "darma-custom-383",
+  "name": "Pulse Outline 10",
+  "category": "pulse",
+  "tags": [
+    "pulse",
+    "outline",
+    "10",
+    "shape",
+    "steps",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-06"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #7c3aed);\n  --loader-secondary-color: #c084fc;\n  --loader-bg: #ffffff;\n  width: 120px;\n  height: 20px;\n  background:linear-gradient(90deg, #0000 ,var(--loader-color, #7c3aed)) left -50px top 0/50px 20px no-repeat var(--loader-secondary-color, #c084fc);\n  animation: l2 1s infinite linear;\n}@keyframes l2 {100% {background-position: right -50px top 0}}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#7c3aed",
+    "secondaryColor": "#c084fc",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

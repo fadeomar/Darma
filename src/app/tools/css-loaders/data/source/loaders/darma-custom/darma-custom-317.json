@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-317",
+  "name": "Spinning Diamond Bounce",
+  "category": "fun",
+  "tags": [
+    "spinning",
+    "diamond",
+    "bounce",
+    "ball",
+    "fun",
+    "motion",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-05"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: var(--loader-color, #7c3aed);\n  width: 54px;\n  aspect-ratio: .5;\n  display: grid;\n  animation: l10-1 3s linear infinite;\n  transform-origin: 50% calc(100%/sqrt(3));\n}\n.loader:before {\n  content: \"\";\n  width: 30%;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  margin: auto auto 0;\n  background: var(--loader-color, #7c3aed);\n  animation: l10-0 .5s cubic-bezier(0,800,1,800) infinite;\n}\n.loader:after {\n  content: \"\";\n  width: 100%;\n  aspect-ratio: 1/cos(30deg);\n  margin: 0 auto auto;\n  clip-path: polygon(50% -50%,100% 50%,50% 150%,0 50%);\n  background: var(--loader-secondary-color, #c084fc);\n  animation: inherit;\n  animation-direction: reverse;\n}\n@keyframes l10-0 {\n  0%,2%  {translate: 0   0%}\n  98%,to {translate: 0 -.2%}\n}\n@keyframes l10-1 {\n  to {rotate: 1turn}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#7c3aed",
+    "secondaryColor": "#c084fc",
+    "size": 64,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

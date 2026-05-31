@@ -22,7 +22,7 @@
   },
   "searchText": "uiverse-dashboard-shimmer dashboard shimmer skeleton uiverse dashboard skeleton loader html css react popular cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-uiverse-dashboard-shimmer\"><i></i><i></i><i></i><i></i></span>",
-  "previewCss": ".darma-loader-uiverse-dashboard-shimmer {\n  display: grid;\n  width: 118px;\n  gap: 10px;\n}\n.darma-loader-uiverse-dashboard-shimmer i {\n  display: block;\n  height: 10px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, color-mix(in srgb, var(--loader-color, #06b6d4) 12%, transparent), color-mix(in srgb, var(--loader-color, #06b6d4) 34%, transparent), color-mix(in srgb, var(--loader-color, #06b6d4) 12%, transparent));\n  background-size: 220% 100%;\n  animation: darma-loader-uiverse-dashboard-shimmer-skeletonShimmer 1.1s linear infinite;\n}\n.darma-loader-uiverse-dashboard-shimmer i:first-child { width: 72px; height: 44px; border-radius: 14px; }\n.darma-loader-uiverse-dashboard-shimmer i:nth-child(2) { width: 100%; }\n.darma-loader-uiverse-dashboard-shimmer i:nth-child(3) { width: 76%; }\n.darma-loader-uiverse-dashboard-shimmer i:nth-child(4) { width: 54%; }\n@keyframes darma-loader-uiverse-dashboard-shimmer-skeletonShimmer { to { background-position: -220% 0; } }\n",
+  "previewCss": ".darma-loader-uiverse-dashboard-shimmer {\n  display: grid;\n  width: 118px;\n  gap: 10px;\n}\n.darma-loader-uiverse-dashboard-shimmer i {\n  display: block;\n  height: 10px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, color-mix(in srgb, var(--loader-color) 12%, transparent), color-mix(in srgb, var(--loader-color) 34%, transparent), color-mix(in srgb, var(--loader-color) 12%, transparent));\n  background-size: 220% 100%;\n  animation: darma-loader-uiverse-dashboard-shimmer-skeletonShimmer 1.1s linear infinite;\n}\n.darma-loader-uiverse-dashboard-shimmer i:first-child { width: 72px; height: 44px; border-radius: 14px; }\n.darma-loader-uiverse-dashboard-shimmer i:nth-child(2) { width: 100%; }\n.darma-loader-uiverse-dashboard-shimmer i:nth-child(3) { width: 76%; }\n.darma-loader-uiverse-dashboard-shimmer i:nth-child(4) { width: 54%; }\n@keyframes darma-loader-uiverse-dashboard-shimmer-skeletonShimmer { to { background-position: -220% 0; } }",
   "defaults": {
     "color": "#06b6d4",
     "secondaryColor": "#bae6fd",
@@ -32,15 +32,15 @@
   },
   "code": {
     "html": "<span class=\"darma-loader-uiverse-dashboard-shimmer\"><i></i><i></i><i></i><i></i></span>",
-    "css": ".darma-loader-uiverse-dashboard-shimmer {\n  display: grid;\n  width: 118px;\n  gap: 10px;\n}\n.darma-loader-uiverse-dashboard-shimmer i {\n  display: block;\n  height: 10px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, color-mix(in srgb, var(--loader-color, #06b6d4) 12%, transparent), color-mix(in srgb, var(--loader-color, #06b6d4) 34%, transparent), color-mix(in srgb, var(--loader-color, #06b6d4) 12%, transparent));\n  background-size: 220% 100%;\n  animation: darma-loader-uiverse-dashboard-shimmer-skeletonShimmer 1.1s linear infinite;\n}\n.darma-loader-uiverse-dashboard-shimmer i:first-child { width: 72px; height: 44px; border-radius: 14px; }\n.darma-loader-uiverse-dashboard-shimmer i:nth-child(2) { width: 100%; }\n.darma-loader-uiverse-dashboard-shimmer i:nth-child(3) { width: 76%; }\n.darma-loader-uiverse-dashboard-shimmer i:nth-child(4) { width: 54%; }\n@keyframes darma-loader-uiverse-dashboard-shimmer-skeletonShimmer { to { background-position: -220% 0; } }\n",
+    "css": ".darma-loader-uiverse-dashboard-shimmer {\n  display: grid;\n  width: 118px;\n  gap: 10px;\n}\n.darma-loader-uiverse-dashboard-shimmer i {\n  display: block;\n  height: 10px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, color-mix(in srgb, var(--loader-color) 12%, transparent), color-mix(in srgb, var(--loader-color) 34%, transparent), color-mix(in srgb, var(--loader-color) 12%, transparent));\n  background-size: 220% 100%;\n  animation: darma-loader-uiverse-dashboard-shimmer-skeletonShimmer 1.1s linear infinite;\n}\n.darma-loader-uiverse-dashboard-shimmer i:first-child { width: 72px; height: 44px; border-radius: 14px; }\n.darma-loader-uiverse-dashboard-shimmer i:nth-child(2) { width: 100%; }\n.darma-loader-uiverse-dashboard-shimmer i:nth-child(3) { width: 76%; }\n.darma-loader-uiverse-dashboard-shimmer i:nth-child(4) { width: 54%; }\n@keyframes darma-loader-uiverse-dashboard-shimmer-skeletonShimmer { to { background-position: -220% 0; } }",
     "react": "export default function UiverseDashboardShimmerLoader() {\n  return (\n    <span className=\"darma-loader-uiverse-dashboard-shimmer\"><i></i><i></i><i></i><i></i></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
-    "secondaryColor": false
+    "background": true,
+    "secondaryColor": true
   },
   "source": {
     "name": "Uiverse selected loaders",

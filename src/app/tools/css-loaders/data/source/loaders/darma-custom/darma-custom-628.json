@@ -1,0 +1,47 @@
+{
+  "id": "darma-custom-628",
+  "name": "Dot Matrix 15",
+  "category": "spinners",
+  "tags": [
+    "dot",
+    "matrix",
+    "15",
+    "dots",
+    "spinner",
+    "grid",
+    "border",
+    "spinners",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #ca8a04);\n  --loader-secondary-color: #fde047;\n  --loader-bg: #ffffff;\n   width: 70px;\n   aspect-ratio: 1;\n   background: radial-gradient(farthest-side,currentColor 90%,#0000) 0 0/8px 8px no-repeat, conic-gradient(from -90deg at 30px 30px,#0000 90deg,currentColor 0) 0 0/40px 40px , conic-gradient(from 90deg at 10px 10px,#0000 90deg,currentColor 0) 0 0/40px 40px no-repeat, conic-gradient(from -90deg at 30px 30px,#0000 90deg,currentColor 0) 100% 100%/40px 40px no-repeat;\n   animation: l5 2s infinite;\n}\n@keyframes l5  {\n  0% {background-position:left 1px top 1px,0 0,0 0,100% 100%}\n16.67% {background-position:left 50% top 1px,0 0,0 0,100% 100%}\n33.33% {background-position:left 50% bottom 1px,0 0,0 0,100% 100%}\n50% {background-position:right 1px bottom 1px,0 0,0 0,100% 100%}\n66.67% {background-position:right 1px bottom 50%,0 0,0 0,100% 100%}\n83.33% {background-position:left 1px bottom 50%,0 0,0 0,100% 100%}\n100% {background-position:left 1px top 1px,0 0,0 0,100% 100%}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#ca8a04",
+    "secondaryColor": "#fde047",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

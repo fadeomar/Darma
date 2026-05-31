@@ -1,0 +1,42 @@
+{
+  "id": "darma-custom-201",
+  "name": "Dot Conveyor",
+  "category": "dots",
+  "tags": [
+    "dot",
+    "conveyor",
+    "dots",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: #9333ea;\nheight: 15px;\naspect-ratio: 4;\ndisplay: grid;\nanimation: l31-0 1s infinite;\n}\n.loader:before,\n.loader:after {\ncontent: \"\";\ngrid-area: 1/1;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 25% 100%;\n}\n.loader:after {\ntransform: rotate(0) translate(37.5%) rotate(0);\nanimation: inherit;\nanimation-name: l31-1;\n}\n@keyframes l31-0 {\n100% {transform:translate(37.5%)}\n}\n@keyframes l31-1 {\n100% {transform:rotate(-.5turn) translate(37.5%) rotate(.5turn)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#9333ea",
+    "secondaryColor": "#d8b4fe",
+    "size": 60,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

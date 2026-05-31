@@ -1,0 +1,54 @@
+{
+  "id": "darma-custom-189",
+  "name": "Pill Dot Wave",
+  "category": "dots",
+  "tags": [
+    "pill",
+    "dot",
+    "wave",
+    "dots",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-189 pill dot wave dots pill dot wave dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-189\"></div>",
+  "previewCss": ".darma-loader-darma-custom-189 {\n  color: #9333ea;\nwidth: 15px;\naspect-ratio: 1;\nborder-radius: 50%;\nclip-path: inset(-45px);\nbox-shadow: -60px 15px,-60px 15px,-60px 15px;\ntransform: translateY(-15px);\nanimation: darma-loader-darma-custom-189-l19 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-189-l19{\n16.67% {box-shadow:-60px 15px,-60px 15px,19px 15px}\n33.33% {box-shadow:-60px 15px, 0px 15px,19px 15px}\n40%,60%{box-shadow:-19px 15px, 0px 15px,19px 15px}\n66.67% {box-shadow:-19px 15px, 0px 15px,60px 15px}\n83.33% {box-shadow:-19px 15px, 60px 15px,60px 15px}\n100% {box-shadow: 60px 15px, 60px 15px,60px 15px}\n}",
+  "defaults": {
+    "color": "#9333ea",
+    "secondaryColor": "#d8b4fe",
+    "size": 96,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-189\"></div>",
+    "css": ".darma-loader-darma-custom-189 {\n  color: #9333ea;\nwidth: 15px;\naspect-ratio: 1;\nborder-radius: 50%;\nclip-path: inset(-45px);\nbox-shadow: -60px 15px,-60px 15px,-60px 15px;\ntransform: translateY(-15px);\nanimation: darma-loader-darma-custom-189-l19 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-189-l19{\n16.67% {box-shadow:-60px 15px,-60px 15px,19px 15px}\n33.33% {box-shadow:-60px 15px, 0px 15px,19px 15px}\n40%,60%{box-shadow:-19px 15px, 0px 15px,19px 15px}\n66.67% {box-shadow:-19px 15px, 0px 15px,60px 15px}\n83.33% {box-shadow:-19px 15px, 60px 15px,60px 15px}\n100% {box-shadow: 60px 15px, 60px 15px,60px 15px}\n}",
+    "react": "export default function DarmaCustom189Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-189\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

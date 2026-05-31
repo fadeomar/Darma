@@ -1,0 +1,47 @@
+{
+  "id": "darma-custom-624",
+  "name": "Dot Matrix 11",
+  "category": "spinners",
+  "tags": [
+    "dot",
+    "matrix",
+    "11",
+    "dots",
+    "spinner",
+    "grid",
+    "border",
+    "spinners",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #0891b2);\n  --loader-secondary-color: #22d3ee;\n  --loader-bg: #ffffff;\n   width: 40px;\n   aspect-ratio: 1;\n   outline: 2px solid currentColor;\n   background: radial-gradient(farthest-side,currentColor 90%,#0000) 0 0/8px 8px no-repeat, conic-gradient(from 90deg at 10px 10px,#0000 90deg,currentColor 0), conic-gradient(from -90deg at 30px 30px,#0000 90deg,currentColor 0);\n   animation: l1 1.5s infinite;\n}\n@keyframes l1  {\n  0% {background-position:0 0}\n25% {background-position:100% 0}\n50% {background-position:100% 100%}\n75% {background-position:0 100%}\n100% {background-position:0 0}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#0891b2",
+    "secondaryColor": "#22d3ee",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

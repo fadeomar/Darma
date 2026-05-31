@@ -1,0 +1,46 @@
+{
+  "id": "darma-custom-223",
+  "name": "Cross Stripe Rail",
+  "category": "progress",
+  "tags": [
+    "cross",
+    "stripe",
+    "rail",
+    "progress",
+    "bar",
+    "track",
+    "linear",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-05"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: var(--loader-color, #f97316);\n  width: calc(72px / cos(45deg));\n  height: 14px;\n  --c: currentColor 0 15px,#0000 0 20px;\n  background: \n    repeating-linear-gradient(135deg,var(--c)) left top,\n    repeating-linear-gradient( 45deg,var(--c)) left bottom;\n  background-size:  200% 50%;\n  background-repeat: no-repeat;\n  animation: l4 2s infinite linear;\n}\n@keyframes l4 {\n    100% {background-position:top right,bottom right}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#f97316",
+    "secondaryColor": "#facc15",
+    "size": 84,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

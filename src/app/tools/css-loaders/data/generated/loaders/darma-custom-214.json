@@ -1,0 +1,54 @@
+{
+  "id": "darma-custom-214",
+  "name": "Four Dot Flip",
+  "category": "dots",
+  "tags": [
+    "four",
+    "dot",
+    "flip",
+    "dots",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-214 four dot flip dots four dot flip dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-214\"></div>",
+  "previewCss": ".darma-loader-darma-custom-214 {\n  color: #e11d48;\nheight: 30px;\naspect-ratio: 2.5;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 90%,#0000);\nbackground: var(--_g), var(--_g), var(--_g), var(--_g);\nbackground-size: 20% 50%;\nanimation: darma-loader-darma-custom-214-l44 1s infinite linear alternate;\n}\n@keyframes darma-loader-darma-custom-214-l44 {\n0%,\n5% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n12.5% {background-position: calc(0*100%/3) 0 ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n25% {background-position: calc(0*100%/3) 0 ,calc(1*100%/3) 0 ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n37.5% {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 0 ,calc(2*100%/3) 0 ,calc(3*100%/3) 50% }\n50% {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 100%,calc(2*100%/3) 0 ,calc(3*100%/3) 0 }\n62.5% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 100%,calc(2*100%/3) 100%,calc(3*100%/3) 0 }\n75% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 100%,calc(3*100%/3) 100%}\n87.5% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 100%}\n95%,\n100% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n}",
+  "defaults": {
+    "color": "#e11d48",
+    "secondaryColor": "#fb7185",
+    "size": 75,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-214\"></div>",
+    "css": ".darma-loader-darma-custom-214 {\n  color: #e11d48;\nheight: 30px;\naspect-ratio: 2.5;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 90%,#0000);\nbackground: var(--_g), var(--_g), var(--_g), var(--_g);\nbackground-size: 20% 50%;\nanimation: darma-loader-darma-custom-214-l44 1s infinite linear alternate;\n}\n@keyframes darma-loader-darma-custom-214-l44 {\n0%,\n5% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n12.5% {background-position: calc(0*100%/3) 0 ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n25% {background-position: calc(0*100%/3) 0 ,calc(1*100%/3) 0 ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n37.5% {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 0 ,calc(2*100%/3) 0 ,calc(3*100%/3) 50% }\n50% {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 100%,calc(2*100%/3) 0 ,calc(3*100%/3) 0 }\n62.5% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 100%,calc(2*100%/3) 100%,calc(3*100%/3) 0 }\n75% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 100%,calc(3*100%/3) 100%}\n87.5% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 100%}\n95%,\n100% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n}",
+    "react": "export default function DarmaCustom214Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-214\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

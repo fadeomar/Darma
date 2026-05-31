@@ -22,7 +22,7 @@
   },
   "searchText": "uiverse-pink-pulse-ring pink pulse ring pulse uiverse pulse ring loader html css react singleelement cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-uiverse-pink-pulse-ring\"></span>",
-  "previewCss": ".darma-loader-uiverse-pink-pulse-ring {\n  display: inline-block;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color, #22c55e);\n  animation: darma-loader-uiverse-pink-pulse-ring-ringPulse 1.15s ease-out infinite;\n}\n@keyframes darma-loader-uiverse-pink-pulse-ring-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }\n",
+  "previewCss": ".darma-loader-uiverse-pink-pulse-ring {\n  display: inline-block;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color);\n  animation: darma-loader-uiverse-pink-pulse-ring-ringPulse 1.15s ease-out infinite;\n}\n@keyframes darma-loader-uiverse-pink-pulse-ring-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }",
   "defaults": {
     "color": "#22c55e",
     "secondaryColor": "#bbf7d0",
@@ -32,15 +32,15 @@
   },
   "code": {
     "html": "<span class=\"darma-loader-uiverse-pink-pulse-ring\"></span>",
-    "css": ".darma-loader-uiverse-pink-pulse-ring {\n  display: inline-block;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color, #22c55e);\n  animation: darma-loader-uiverse-pink-pulse-ring-ringPulse 1.15s ease-out infinite;\n}\n@keyframes darma-loader-uiverse-pink-pulse-ring-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }\n",
+    "css": ".darma-loader-uiverse-pink-pulse-ring {\n  display: inline-block;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color);\n  animation: darma-loader-uiverse-pink-pulse-ring-ringPulse 1.15s ease-out infinite;\n}\n@keyframes darma-loader-uiverse-pink-pulse-ring-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }",
     "react": "export default function UiversePinkPulseRingLoader() {\n  return (\n    <span className=\"darma-loader-uiverse-pink-pulse-ring\"></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
-    "secondaryColor": false
+    "background": true,
+    "secondaryColor": true
   },
   "source": {
     "name": "Uiverse selected loaders",

@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-670",
+  "name": "Corner Dot Spinner",
+  "category": "spinners",
+  "tags": [
+    "rich",
+    "dots",
+    "corners",
+    "spinner",
+    "multi-element",
+    "spinners",
+    "loader",
+    "html-css",
+    "customizable",
+    "rich-batch-01"
+  ],
+  "html": "<div class=\"loader\">\n    <div class=\"circle\"></div>\n    <div class=\"circle\"></div>\n    <div class=\"circle\"></div>\n    <div class=\"circle\"></div>\n</div>",
+  "css": ".loader {color: var(--loader-color, #333333);\n  --loader-secondary-color: #94a3b8;\n  --loader-bg: #f8fafc;\n  \n  --dim: 3rem;\n  width: var(--dim);\n  height: var(--dim);\n  position: relative;\n  animation: spin988 2s linear infinite;\n}\n\n.loader .circle {\n  --color: #333;\n  --dim: 1.2rem;\n  width: var(--dim);\n  height: var(--dim);\n  background-color: var(--color);\n  border-radius: 50%;\n  position: absolute;\n}\n\n.loader .circle:nth-child(1) {\n  top: 0;\n  left: 0;\n}\n\n.loader .circle:nth-child(2) {\n  top: 0;\n  right: 0;\n}\n\n.loader .circle:nth-child(3) {\n  bottom: 0;\n  left: 0;\n}\n\n.loader .circle:nth-child(4) {\n  bottom: 0;\n  right: 0;\n}\n\n@keyframes spin988 {\n  0% {\n    transform: scale(1) rotate(0);\n  }\n\n  20%, 25% {\n    transform: scale(1.3) rotate(90deg);\n  }\n\n  45%, 50% {\n    transform: scale(1) rotate(180deg);\n  }\n\n  70%, 75% {\n    transform: scale(1.3) rotate(270deg);\n  }\n\n  95%, 100% {\n    transform: scale(1) rotate(360deg);\n  }\n}\n",
+  "source": {
+    "name": "Darma rich loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#333333",
+    "secondaryColor": "#94a3b8",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#f8fafc"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

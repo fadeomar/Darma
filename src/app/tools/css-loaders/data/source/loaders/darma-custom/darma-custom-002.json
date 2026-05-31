@@ -1,0 +1,35 @@
+{
+  "id": "darma-custom-002",
+  "name": "Diagonal Corner Fold",
+  "category": "creative",
+  "tags": [
+    "square",
+    "diagonal",
+    "fold",
+    "gradient",
+    "batch-01"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 40px;\n  aspect-ratio: 1;\n  background: linear-gradient(45deg, #0000 50%, #00AAFF 0), linear-gradient(-45deg, #0000 50%, #FF00AA 0), #00AAFF;\n  background-size: 200% 200%;\n  background-repeat: no-repeat;\n  animation: l2 1.5s infinite;\n}\n@keyframes l2 {\n  0% { background-position: bottom left, bottom right; }\n  30%, 50% { background-position: bottom left, top left; }\n  80%, 100% { background-position: top right, top left; }\n}\n",
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#00AAFF",
+    "secondaryColor": "#FF00AA",
+    "size": 40,
+    "speed": 1.5,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-330",
+  "name": "Blob Morph 11",
+  "category": "creative",
+  "tags": [
+    "blob",
+    "morph",
+    "11",
+    "shape",
+    "organic",
+    "creative",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-06"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #9333ea);\n  --loader-secondary-color: #f0abfc;\n  --loader-bg: #ffffff;\n  height: 70px;\n  aspect-ratio: 1;\n  animation: l11 2s infinite linear;\n  background: var(--loader-color, #9333ea);\n}@keyframes l11 {0%,to {clip-path: shape(from 18.64px 9.64px,curve to calc(10% + 20px) 6.5px with calc(0% + 25px) 7px,curve to calc(30% + 10px) 7.5px with calc(20% + 15px) 6px,curve to calc(50% + 0px) 6px with calc(40% + 5px) 9px,curve to calc(70% + -10px) 4.5px with calc(60% + -5px) 3px,curve to calc(90% + -20px) 6.5px with calc(80% + -15px) 6px,curve to calc(100% - 18.28px) 9.28px with calc(100% - 25px) 7px,curve to calc(100% - 6.78px) 18.28px with calc(100% - 11.56px) 11.56px,curve to calc(100% - 1.5px) calc(10% + 20.00px) with calc(100% - 2px) calc(0% + 25px),curve to calc(100% - 1px) calc(30% + 10.00px) with calc(100% - 1px) calc(20% + 15px),curve to calc(100% - 4.5px) calc(50% + 0.00px) with calc(100% - 1px) calc(40% + 5px),curve to calc(100% - 7.5px) calc(70% + -10.00px) with calc(100% - 8px) calc(60% + -5px),curve to calc(100% - 8px) calc(90% + -20.00px) with calc(100% - 7px) calc(80% + -15px),curve to calc(100% - 9.93px) calc(100% - 17.93px) with calc(100% - 9px) calc(100% - 25px),curve to calc(100% - 17.93px) calc(100% - 8.43px) with calc(100% - 10.86px) calc(100% - 10.86px),curve to calc(90% - 20px) calc(100% - 5px) with calc(100% - 25px) calc(100% - 6px),curve to calc(70% - 10px) calc(100% - 2.5px) with calc(80% - 15px) calc(100% - 4px),curve to calc(50% - 0px) calc(100% - 2px) with calc(60% - 5px) calc(100% - 1px),curve to calc(30% - -10px) calc(100% - 3.5px) with calc(40% - -5px) calc(100% - 3px),curve to calc(10% - -20px) calc(100% - 6px) with calc(20% - -15px) calc(100% - 4px),curve to 17.93px calc(100% - 9.43px) with 25px calc(100% - 8px),curve to 8.93px calc(100% - 17.93px) with 10.86px calc(100% - 10.86px),curve to 6.5px calc(90% - 20px) with 7px calc(100% - 25px),curve to 6px calc(70% - 10px) with 6px calc(80% - 15px),curve to 3px calc(50% - 0px) with 6px calc(60% - 5px),curve to 4px calc(30% - -10px) with 0px calc(40% - -5px),curve to 6.5px calc(10% - -20px) with 8px calc(20% - -15px),curve to 8.64px 18.64px with 5px 25px,curve to 18.64px 9.64px with 12.27px 12.27px)}34% {clip-path: shape(from 18.99px 7.49px,curve to calc(10% + 20px) 5px with calc(0% + 25px) 2px,curve to calc(30% + 10px) 6.5px with calc(20% + 15px) 8px,curve to calc(50% + 0px) 4.5px with calc(40% + 5px) 5px,curve to calc(70% + -10px) 5.5px with calc(60% + -5px) 4px,curve to calc(90% + -20px) 4.5px with calc(80% + -15px) 7px,curve to calc(100% - 19.7px) 8.2px with calc(100% - 25px) 2px,curve to calc(100% - 9.2px) 19.7px with calc(100% - 14.39px) 14.39px,curve to calc(100% - 2.5px) calc(10% + 20.00px) with calc(100% - 4px) calc(0% + 25px),curve to calc(100% - 1.5px) calc(30% + 10.00px) with calc(100% - 1px) calc(20% + 15px),curve to calc(100% - 1.5px) calc(50% + 0.00px) with calc(100% - 2px) calc(40% + 5px),curve to calc(100% - 5.5px) calc(70% + -10.00px) with calc(100% - 1px) calc(60% + -5px),curve to calc(100% - 7.5px) calc(90% + -20.00px) with calc(100% - 10px) calc(80% + -15px),curve to calc(100% - 8.28px) calc(100% - 18.28px) with calc(100% - 5px) calc(100% - 25px),curve to calc(100% - 18.28px) calc(100% - 5.78px) with calc(100% - 11.56px) calc(100% - 11.56px),curve to calc(90% - 20px) calc(100% - 2px) with calc(100% - 25px) calc(100% - 0px),curve to calc(70% - 10px) calc(100% - 5px) with calc(80% - 15px) calc(100% - 4px),curve to calc(50% - 0px) calc(100% - 5px) with calc(60% - 5px) calc(100% - 6px),curve to calc(30% - -10px) calc(100% - 6.5px) with calc(40% - -5px) calc(100% - 4px),curve to calc(10% - -20px) calc(100% - 9px) with calc(20% - -15px) calc(100% - 9px),curve to 17.58px calc(100% - 9.58px) with 25px calc(100% - 9px),curve to 9.08px calc(100% - 17.58px) with 10.15px calc(100% - 10.15px),curve to 7.5px calc(90% - 20px) with 8px calc(100% - 25px),curve to 5.5px calc(70% - 10px) with 7px calc(80% - 15px),curve to 2.5px calc(50% - 0px) with 4px calc(60% - 5px),curve to 1.5px calc(30% - -10px) with 1px calc(40% - -5px),curve to 2.5px calc(10% - -20px) with 2px calc(20% - -15px),curve to 7.99px 18.99px with 3px 25px,curve to 18.99px 7.49px with 12.98px 12.98px)}66% {clip-path: shape(from 16.51px 6.51px,curve to calc(10% + 20px) 6px with calc(0% + 25px) 5px,curve to calc(30% + 10px) 7px with calc(20% + 15px) 7px,curve to calc(50% + 0px) 6.5px with calc(40% + 5px) 7px,curve to calc(70% + -10px) 5px with calc(60% + -5px) 6px,curve to calc(90% + -20px) 3.5px with calc(80% + -15px) 4px,curve to calc(100% - 17.58px) 6.58px with calc(100% - 25px) 3px,curve to calc(100% - 5.58px) 17.58px with calc(100% - 10.15px) 10.15px,curve to calc(100% - 5px) calc(10% + 20.00px) with calc(100% - 1px) calc(0% + 25px),curve to calc(100% - 9px) calc(30% + 10.00px) with calc(100% - 9px) calc(20% + 15px),curve to calc(100% - 6.5px) calc(50% + 0.00px) with calc(100% - 9px) calc(40% + 5px),curve to calc(100% - 7px) calc(70% + -10.00px) with calc(100% - 4px) calc(60% + -5px),curve to calc(100% - 6px) calc(90% + -20.00px) with calc(100% - 10px) calc(80% + -15px),curve to calc(100% - 5.01px) calc(100% - 16.51px) with calc(100% - 2px) calc(100% - 25px),curve to calc(100% - 16.51px) calc(100% - 7.01px) with calc(100% - 8.03px) calc(100% - 8.03px),curve to calc(90% - 20px) calc(100% - 3.5px) with calc(100% - 25px) calc(100% - 6px),curve to calc(70% - 10px) calc(100% - 2px) with calc(80% - 15px) calc(100% - 1px),curve to calc(50% - 0px) calc(100% - 4px) with calc(60% - 5px) calc(100% - 3px),curve to calc(30% - -10px) calc(100% - 5.5px) with calc(40% - -5px) calc(100% - 5px),curve to calc(10% - -20px) calc(100% - 5px) with calc(20% - -15px) calc(100% - 6px),curve to 16.87px calc(100% - 6.37px) with 25px calc(100% - 4px),curve to 4.87px calc(100% - 16.87px) with 8.74px calc(100% - 8.74px),curve to 4px calc(90% - 20px) with 1px calc(100% - 25px),curve to 7.5px calc(70% - 10px) with 7px calc(80% - 15px),curve to 7px calc(50% - 0px) with 8px calc(60% - 5px),curve to 7.5px calc(30% - -10px) with 6px calc(40% - -5px),curve to 8px calc(10% - -20px) with 9px calc(20% - -15px),curve to 7.51px 16.51px with 7px 25px,curve to 16.51px 6.51px with 8.03px 8.03px)}}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#9333ea",
+    "secondaryColor": "#f0abfc",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

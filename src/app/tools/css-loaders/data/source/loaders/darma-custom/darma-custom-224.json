@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-224",
+  "name": "Capsule Conveyor",
+  "category": "progress",
+  "tags": [
+    "capsule",
+    "conveyor",
+    "progress",
+    "bar",
+    "track",
+    "linear",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-05"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 90px;\n  height: 14px;\n  color: var(--loader-color, #16a34a);\n  background: \n    radial-gradient(circle 10px at right 7px top 50%,#0000 92%,currentColor),\n    radial-gradient(circle 10px at right 0   top 50%,currentColor 92%,#0000);\n  background-size: calc(100%/3) 100%; \n  background-position: 50% 0%;\n  animation: l5 .5s infinite linear;\n}\n@keyframes l5 {\n    100% {background-position: 0% 0%}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#16a34a",
+    "secondaryColor": "#86efac",
+    "size": 84,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

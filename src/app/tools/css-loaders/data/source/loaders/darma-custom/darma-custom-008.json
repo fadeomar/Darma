@@ -1,0 +1,35 @@
+{
+  "id": "darma-custom-008",
+  "name": "Triangle Segment Reveal",
+  "category": "creative",
+  "tags": [
+    "triangle",
+    "segments",
+    "reveal",
+    "conic",
+    "batch-01"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 50px;\n  aspect-ratio: 1.154;\n  clip-path: polygon(50% 0, 100% 100%, 0 100%);\n  display: grid;\n  background: conic-gradient(from 0deg at 50% 60%, #3A89C9 120deg, #0000 0), conic-gradient(from 120deg at 50% 60%, #3A89C9 120deg, #0000 0), conic-gradient(from 240deg at 50% 60%, #3A89C9 120deg, #0000 0), conic-gradient(from 0deg at 50% 60%, #9CC4E4 120deg, #0000 0), conic-gradient(from 120deg at 50% 60%, #9CC4E4 120deg, #0000 0), conic-gradient(from 240deg at 50% 60%, #9CC4E4 120deg, #0000 0), #3A89C9;\n  background-size: 200% 200%;\n  background-repeat: no-repeat;\n  animation: l8 1.5s infinite;\n}\n@keyframes l8 {\n  0% { background-position: left, top, right; }\n  30%, 50% { background-position: left, top, right, center, center, center; }\n  80%, 100% { background-position: center; }\n}\n",
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#3A89C9",
+    "secondaryColor": "#9CC4E4",
+    "size": 50,
+    "speed": 1.5,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

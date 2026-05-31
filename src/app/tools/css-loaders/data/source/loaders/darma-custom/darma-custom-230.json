@@ -1,0 +1,46 @@
+{
+  "id": "darma-custom-230",
+  "name": "Wave Dots Rail",
+  "category": "progress",
+  "tags": [
+    "wave",
+    "dots",
+    "rail",
+    "progress",
+    "bar",
+    "track",
+    "linear",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-05"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: var(--loader-color, #db2777);\n  width: 90px;\n  height: 14px;\n  --c:currentColor 92%,#0000;\n  background: \n    radial-gradient(circle 7px at bottom,var(--c)) 0 0,\n    radial-gradient(circle 7px at top   ,var(--c)) 0 100%;\n  background-size: calc(100%/4) 50%;\n  background-repeat: repeat-x;\n  animation: l11 1s infinite;\n}\n@keyframes l11 {\n    80%,100% {background-position: calc(100%/3) 0,calc(100%/-3) 100%}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#db2777",
+    "secondaryColor": "#f9a8d4",
+    "size": 84,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

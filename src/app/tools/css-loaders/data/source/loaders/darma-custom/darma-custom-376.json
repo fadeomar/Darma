@@ -1,0 +1,44 @@
+{
+  "id": "darma-custom-376",
+  "name": "Pulse Outline 03",
+  "category": "pulse",
+  "tags": [
+    "pulse",
+    "outline",
+    "03",
+    "shape",
+    "steps",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-06"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #4f46e5);\n  --loader-secondary-color: #a5b4fc;\n  --loader-bg: #ffffff;\n  width: 80px;\n  aspect-ratio: 1;\n  display: grid;\n}.loader:before {content: \"\";\n  background: var(--loader-color, #4f46e5);\n  aspect-ratio: inherit;\n  aspect-ratio: 1;\n  clip-path: polygon(79.39% 90.45%,50% 69%,20.61% 90.45%,31.93% 55.87%,2.45% 34.55%,38.83% 34.63%,50% 0%,61.17% 34.63%,97.55% 34.55%,68.07% 55.87%,79.39% 90.45%,50% 69%,calc(50% - 0px) calc(69% - 6.84px),calc(79.39% - 10.58px) calc(90.45% - 14.56px),calc(68.07% - 6.51px) calc(55.87% - 2.11px),calc(97.55% - 17.12px) calc(34.55% - -5.56px),calc(61.17% - 4.02px) calc(34.63% - -5.53px),calc(50% - 0px) calc(0% - -18px),calc(38.83% - -4.02px) calc(34.63% - -5.53px),calc(2.45% - -17.12px) calc(34.55% - -5.56px),calc(31.93% - -6.51px) calc(55.87% - 2.11px),calc(20.61% - -10.58px) calc(90.45% - 14.56px),calc(50% - 0px) calc(69% - 6.84px),calc(79.39% - 10.58px) calc(90.45% - 14.56px));\n  margin: auto;\n  animation: l5 infinite 1s steps(4,jump-none);\n}@keyframes l5 {0% {width: 45% }to {width: 100%}}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#4f46e5",
+    "secondaryColor": "#a5b4fc",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

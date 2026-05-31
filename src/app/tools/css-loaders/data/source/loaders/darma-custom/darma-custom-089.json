@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-089",
+  "name": "Flip Block Bridge",
+  "category": "fun",
+  "tags": [
+    "flip",
+    "block",
+    "bridge",
+    "playful",
+    "motion",
+    "css-only",
+    "single-element",
+    "batch-03"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 40px;\n  height: 20px;\n  background: #ffa500;\n  position: relative;\n  animation: l9-0 1.5s infinite linear;\n}\n.loader:before,\n.loader:after {\n   content:\"\";\n   position: absolute;\n   background: inherit; \n   bottom: 100%;\n   width: 50%;\n   height: 100%;\n   animation: inherit;\n   animation-name: l9-1;\n}\n.loader:before {\n  left: 0;\n  transform-origin: bottom left;\n  --s:-1;\n}\n.loader:after {\n  right: 0;\n  transform-origin: bottom right;\n}\n@keyframes l9-0 {\n   0%,10%   {transform:translateY(0%)    scaleY(1)}\n   49.99%   {transform:translateY(-50%)  scaleY(1)}\n   50%      {transform:translateY(-50%)  scaleY(-1)}\n   90%,100% {transform:translateY(-100%) scaleY(-1)}\n}\n@keyframes l9-1 {\n   10%,90% {transform: rotate(0deg)}\n   50%     {transform: rotate(calc(var(--s,1)*180deg))}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#ffa500",
+    "secondaryColor": "#e5e7eb",
+    "size": 40,
+    "speed": 1.5,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

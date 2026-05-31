@@ -1,0 +1,42 @@
+{
+  "id": "darma-custom-181",
+  "name": "Sliding Dots",
+  "category": "dots",
+  "tags": [
+    "sliding",
+    "dots",
+    "dot",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: #2563eb;\nwidth: 41px;\naspect-ratio: 1;\n--_g: no-repeat radial-gradient(circle closest-side,currentColor 90%,#0000);\nbackground:\nvar(--_g) 0 0,\nvar(--_g) 0 100%,\nvar(--_g) 100% 100%;\nbackground-size: 40% 40%;\nanimation:l11 1s infinite linear;\n}\n@keyframes l11 {\n25% {background-position:100% 0 ,0 100%,100% 100%}\n50% {background-position:100% 0 ,0 0 ,100% 100%}\n75% {background-position:100% 0 ,0 0 ,0 100%}\n100%{background-position:100% 100%,0 0 ,0 100%}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#2563eb",
+    "secondaryColor": "#60a5fa",
+    "size": 41,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

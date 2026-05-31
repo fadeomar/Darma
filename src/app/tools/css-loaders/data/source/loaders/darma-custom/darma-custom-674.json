@@ -1,0 +1,46 @@
+{
+  "id": "darma-custom-674",
+  "name": "Gradient Blur Spinner",
+  "category": "spinners",
+  "tags": [
+    "rich",
+    "gradient",
+    "blur",
+    "spinner",
+    "glow",
+    "multi-element",
+    "spinners",
+    "loader",
+    "html-css",
+    "customizable",
+    "rich-batch-01"
+  ],
+  "html": "<div class=\"spinner\">\n    <div class=\"spinner1\"></div>\n</div>",
+  "css": ".spinner {color: var(--loader-color, #ba42ff);\n  --loader-bg: #111827;\n  \n  background-image: linear-gradient(var(--loader-color, #ba42ff) 35%,var(--loader-secondary-color, #00e1ff));\n  width: 100px;\n  height: 100px;\n  animation: spinning82341 1.7s linear infinite;\n  text-align: center;\n  border-radius: 50px;\n  filter: blur(1px);\n  box-shadow: 0px -5px 20px 0px var(--loader-color, #ba42ff), 0px 5px 20px 0px var(--loader-secondary-color, #00e1ff);\n}\n\n.spinner1 {\n  background-color: var(--loader-bg, #111827);\n  width: 100px;\n  height: 100px;\n  border-radius: 50px;\n  filter: blur(10px);\n}\n\n@keyframes spinning82341 {\n  to {\n    transform: rotate(360deg);\n  }\n}\n",
+  "source": {
+    "name": "Darma rich loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#ba42ff",
+    "secondaryColor": "#00e1ff",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#111827"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

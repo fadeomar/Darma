@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-669",
+  "name": "Radial Bar Spinner",
+  "category": "spinners",
+  "tags": [
+    "rich",
+    "radial",
+    "bars",
+    "spinner",
+    "multi-element",
+    "spinners",
+    "loader",
+    "html-css",
+    "customizable",
+    "rich-batch-01"
+  ],
+  "html": "<div class=\"spinner\">\n  <div></div>   \n  <div></div>    \n  <div></div>    \n  <div></div>    \n  <div></div>    \n  <div></div>    \n  <div></div>    \n  <div></div>    \n  <div></div>    \n  <div></div>    \n</div>",
+  "css": ".spinner {color: var(--loader-color, #6366f1);\n  --loader-secondary-color: #a5b4fc;\n  --loader-bg: #111827;\n  \n  position: relative;\n  width: 9px;\n  height: 9px;\n}\n\n.spinner div {\n  position: absolute;\n  width: 50%;\n  height: 150%;\n  background: var(--loader-color, #6366f1);\n  transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));\n  animation: spinner-fzua35 1s calc(var(--delay) * 1s) infinite ease;\n}\n\n.spinner div:nth-child(1) {\n  --delay: 0.1;\n  --rotation: 36;\n  --translation: 150;\n}\n\n.spinner div:nth-child(2) {\n  --delay: 0.2;\n  --rotation: 72;\n  --translation: 150;\n}\n\n.spinner div:nth-child(3) {\n  --delay: 0.3;\n  --rotation: 108;\n  --translation: 150;\n}\n\n.spinner div:nth-child(4) {\n  --delay: 0.4;\n  --rotation: 144;\n  --translation: 150;\n}\n\n.spinner div:nth-child(5) {\n  --delay: 0.5;\n  --rotation: 180;\n  --translation: 150;\n}\n\n.spinner div:nth-child(6) {\n  --delay: 0.6;\n  --rotation: 216;\n  --translation: 150;\n}\n\n.spinner div:nth-child(7) {\n  --delay: 0.7;\n  --rotation: 252;\n  --translation: 150;\n}\n\n.spinner div:nth-child(8) {\n  --delay: 0.8;\n  --rotation: 288;\n  --translation: 150;\n}\n\n.spinner div:nth-child(9) {\n  --delay: 0.9;\n  --rotation: 324;\n  --translation: 150;\n}\n\n.spinner div:nth-child(10) {\n  --delay: 1;\n  --rotation: 360;\n  --translation: 150;\n}\n\n@keyframes spinner-fzua35 {\n  0%, 10%, 20%, 30%, 50%, 60%, 70%, 80%, 90%, 100% {\n    transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));\n  }\n\n  50% {\n    transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1.5%));\n  }\n}\n",
+  "source": {
+    "name": "Darma rich loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "secondaryColor": "#a5b4fc",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#111827"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

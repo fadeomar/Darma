@@ -1,0 +1,42 @@
+{
+  "id": "darma-custom-126",
+  "name": "Alternating Bars",
+  "category": "bars",
+  "tags": [
+    "alternating",
+    "bars",
+    "bar",
+    "equalizer",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: #db2777;\nwidth: 49px;\naspect-ratio: .75;\n--c: no-repeat linear-gradient(135deg,currentColor,var(--loader-secondary-color));\nbackground:\nvar(--c) 0% 50%,\nvar(--c) 50% 50%,\nvar(--c) 100% 50%;\nbackground-size: 20% 50%;\nanimation: l6 1s infinite linear;\n}\n@keyframes l6 {\n20% {background-position: 0% 0% ,50% 50% ,100% 50% }\n40% {background-position: 0% 100%,50% 0% ,100% 50% }\n60% {background-position: 0% 50% ,50% 100%,100% 0% }\n80% {background-position: 0% 50% ,50% 50% ,100% 100%}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#db2777",
+    "secondaryColor": "#f472b6",
+    "size": 65,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

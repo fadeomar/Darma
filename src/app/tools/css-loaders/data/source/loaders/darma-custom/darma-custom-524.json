@@ -1,0 +1,46 @@
+{
+  "id": "darma-custom-524",
+  "name": "Tile Path 10",
+  "category": "bars",
+  "tags": [
+    "tile",
+    "path",
+    "10",
+    "bars",
+    "blocks",
+    "minimal",
+    "grid",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #dc2626);\n  --loader-secondary-color: #f97316;\n  --loader-bg: #ffffff;\n   height: 40px;\n   aspect-ratio: 1.5;\n   display: grid;\n}\n.loader:before, .loader:after  {\n  content: \"\";\n   background: currentColor;\n   border-radius: 80px 80px 0 0;\n   animation: l10 1s infinite alternate both;\n}\n.loader:after  {\n  transform: scale(-1);\n   animation-delay: 0.2s;\n}\n@keyframes l10  {\n  0%, 10% {margin-inline:0 33%}\n50% {margin-inline:0 0}\n90%, 100%{margin-inline:33% 0}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#dc2626",
+    "secondaryColor": "#f97316",
+    "size": 74,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

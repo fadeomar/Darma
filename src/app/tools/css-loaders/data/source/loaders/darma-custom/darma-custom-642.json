@@ -1,0 +1,46 @@
+{
+  "id": "darma-custom-642",
+  "name": "Ember Tile",
+  "category": "creative",
+  "tags": [
+    "rich",
+    "geometric",
+    "mask",
+    "ember",
+    "tile",
+    "single-element",
+    "creative",
+    "loader",
+    "html-css",
+    "customizable",
+    "rich-batch-01"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #f97316);\n  --loader-bg: #111827;\n  \n  width: 84px;\n  aspect-ratio: 1;\n  background:\n    linear-gradient(var(--loader-color, #f97316) 0 0) left/50% 100% no-repeat,\n    conic-gradient(\n      from -90deg at 32px 9.47px,\n      #fff8dc 135deg,\n      color-mix(in srgb, var(--loader-color, #f97316) 65%, #000000) 0 270deg,\n      var(--loader-secondary-color, #facc15) 0\n    );\n  background-blend-mode: multiply;\n  -webkit-mask: linear-gradient(\n      to bottom right,\n      #0000 8px,\n      var(--loader-color, #f97316) 0 52px,\n      #0000 0\n    ),\n    conic-gradient(from -90deg at right 6px bottom 6px, var(--loader-color, #f97316) 90deg, #0000 0);\n  mask: linear-gradient(to bottom right, #0000 8px, var(--loader-color, #f97316) 0 52px, #0000 0),\n    conic-gradient(from -90deg at right 6px bottom 6px, var(--loader-color, #f97316) 90deg, #0000 0);\n  background-size: 50% 50%;\n  -webkit-mask-size: 50% 50%;\n  mask-size: 50% 50%;\n  -webkit-mask-composite: source-in;\n  mask-composite: intersect;\n  animation: l9 1.8s infinite cubic-bezier(0.5, 0.2, 0.5, 1);\n  box-shadow: 0 0 15px rgba(255, 69, 0, 0.6);\n  transform: perspective(1000px) rotateY(15deg);\n}\n\n@keyframes l9 {\n  0% {\n    background-position:\n      0% 0%,\n      0 0;\n    transform: perspective(1000px) rotateY(15deg) scale(1);\n    box-shadow: 0 0 15px rgba(255, 69, 0, 0.6);\n  }\n  25% {\n    background-position:\n      100% 0%,\n      0 0;\n  }\n  50% {\n    background-position:\n      100% 100%,\n      0 0;\n    transform: perspective(1000px) rotateY(15deg) scale(1.08);\n    box-shadow: 0 0 25px rgba(255, 69, 0, 0.8);\n  }\n  75% {\n    background-position:\n      0% 100%,\n      0 0;\n  }\n  100% {\n    background-position:\n      0% 0%,\n      0 0;\n    transform: perspective(1000px) rotateY(15deg) scale(1);\n    box-shadow: 0 0 15px rgba(255, 69, 0, 0.6);\n  }\n}\n",
+  "source": {
+    "name": "Darma rich loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#f97316",
+    "secondaryColor": "#facc15",
+    "size": 96,
+    "speed": 1.0,
+    "background": "#111827"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-458",
+  "name": "Shape Morph 08",
+  "category": "creative",
+  "tags": [
+    "shape",
+    "morph",
+    "08",
+    "outline",
+    "geometric",
+    "creative",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #e11d48);\n  --loader-secondary-color: #fb7185;\n  --loader-bg: #ffffff;\n   width: 75px;\n   aspect-ratio: 1;\n   display: grid;\n}\n.loader:before, .loader:after  {\n  content: \"\";\n   grid-area: 1/1;\n   width: 35px;\n   aspect-ratio: 1;\n   box-shadow: 0 0 0 3px currentColor inset;\n   filter: drop-shadow(40px 40px 0 currentColor);\n   animation: l8 2s infinite alternate;\n}\n.loader:after  {\n  margin: 0 0 0 auto;\n   filter: drop-shadow(-40px 40px 0 currentColor);\n   animation-delay: -1s;\n}\n@keyframes l8  {\n  0%,10% {border-radius:0}\n30%,40% {border-radius:50% 0}\n60%,70% {border-radius:50%}\n90%,100% {border-radius:0 50%}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#e11d48",
+    "secondaryColor": "#fb7185",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

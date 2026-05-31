@@ -1,0 +1,44 @@
+{
+  "id": "darma-custom-158",
+  "name": "Column Lift 34",
+  "category": "bars",
+  "tags": [
+    "column",
+    "lift",
+    "34",
+    "bar",
+    "equalizer",
+    "bars",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: #7c3aed;\nwidth: 45px;\naspect-ratio: 1;\n--c:no-repeat linear-gradient(135deg,currentColor,var(--loader-secondary-color));\nbackground:\nvar(--c) 0 0,\nvar(--c) 0 100%,\nvar(--c) 50% 0,  \n var(--c) 50% 100%,\nvar(--c) 100% 0,\nvar(--c) 100% 100%;\nbackground-size: 8px 50%;\nanimation: l8-0 2s infinite;\nposition: relative;\noverflow: hidden;\n}\n.loader:before {\ncontent: \"\";\nposition: absolute;\nwidth: 8px;\nheight: 8px;\nborder-radius: 50%;\nbackground: currentColor;\ntop: calc(50% - 4px);\nleft: -8px;\nanimation: inherit;\nanimation-name: l8-1;\n}\n@keyframes l8-0 {\n16.67% {background-size:8px 30%, 8px 30%, 8px 50%, 8px 50%, 8px 50%, 8px 50%}\n33.33% {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n50% {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n66.67% {background-size:8px 50%, 8px 50%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n83.33% {background-size:8px 50%, 8px 50%, 8px 50%, 8px 50%, 8px 50%, 8px 50%}\n}\n@keyframes l8-1 {\n20% {left:0px}\n40%,100% {left:calc(50% - 4px)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#7c3aed",
+    "secondaryColor": "#c084fc",
+    "size": 45,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

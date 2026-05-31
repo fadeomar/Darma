@@ -23,7 +23,7 @@
   },
   "searchText": "loaders-css-17 square spin 17 creative loaders-css square spin creative loader html css react singleelement cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-loaders-css-17\"></span>",
-  "previewCss": ".darma-loader-loaders-css-17 {\n  display: inline-block;\n  width: 45px;\n  height: 45px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color, #06b6d4), var(--loader-secondary-color, #bae6fd));\n  animation: darma-loader-loaders-css-17-squareFlip 1.0s cubic-bezier(.55,.08,.38,.97) infinite;\n}\n@keyframes darma-loader-loaders-css-17-squareFlip { 0% { transform: perspective(120px) rotateX(0) rotateY(0); } 50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); } 100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); } }\n",
+  "previewCss": ".darma-loader-loaders-css-17 {\n  display: inline-block;\n  width: 45px;\n  height: 45px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color), var(--loader-secondary-color));\n  animation: darma-loader-loaders-css-17-squareFlip 1.0s cubic-bezier(.55,.08,.38,.97) infinite;\n}\n@keyframes darma-loader-loaders-css-17-squareFlip { 0% { transform: perspective(120px) rotateX(0) rotateY(0); } 50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); } 100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); } }",
   "defaults": {
     "color": "#06b6d4",
     "secondaryColor": "#bae6fd",
@@ -32,7 +32,7 @@
   },
   "code": {
     "html": "<span class=\"darma-loader-loaders-css-17\"></span>",
-    "css": ".darma-loader-loaders-css-17 {\n  display: inline-block;\n  width: 45px;\n  height: 45px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color, #06b6d4), var(--loader-secondary-color, #bae6fd));\n  animation: darma-loader-loaders-css-17-squareFlip 1.0s cubic-bezier(.55,.08,.38,.97) infinite;\n}\n@keyframes darma-loader-loaders-css-17-squareFlip { 0% { transform: perspective(120px) rotateX(0) rotateY(0); } 50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); } 100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); } }\n",
+    "css": ".darma-loader-loaders-css-17 {\n  display: inline-block;\n  width: 45px;\n  height: 45px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color), var(--loader-secondary-color));\n  animation: darma-loader-loaders-css-17-squareFlip 1.0s cubic-bezier(.55,.08,.38,.97) infinite;\n}\n@keyframes darma-loader-loaders-css-17-squareFlip { 0% { transform: perspective(120px) rotateX(0) rotateY(0); } 50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); } 100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); } }",
     "react": "export default function LoadersCss17Loader() {\n  return (\n    <span className=\"darma-loader-loaders-css-17\"></span>\n  );\n}\n"
   },
   "controls": {

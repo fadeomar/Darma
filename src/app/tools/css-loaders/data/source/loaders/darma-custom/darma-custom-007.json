@@ -1,0 +1,35 @@
+{
+  "id": "darma-custom-007",
+  "name": "Triangle Scale Pulse",
+  "category": "creative",
+  "tags": [
+    "triangle",
+    "scale",
+    "pulse",
+    "shape",
+    "batch-01"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 50px;\n  aspect-ratio: 1.154;\n  clip-path: polygon(50% 0, 100% 100%, 0 100%);\n  display: grid;\n  background: #3A89C9;\n}\n.loader::before,\n.loader::after {\n  content: \"\";\n  grid-area: 1/1;\n  background: inherit;\n  clip-path: inherit;\n  transform-origin: 50% 66%;\n  animation: l7-1 2s infinite;\n}\n.loader::before {\n  background: #9CC4E4;\n  animation: l7-2 2s infinite 1s;\n}\n@keyframes l7-1 {\n  0%, 99.9% { transform: scale(1); }\n  50%, 99% { transform: scale(0); }\n}\n@keyframes l7-2 {\n  0%, 51% { transform: scale(1); }\n  50% { transform: scale(0); }\n}\n",
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#3A89C9",
+    "secondaryColor": "#9CC4E4",
+    "size": 50,
+    "speed": 2,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": true,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

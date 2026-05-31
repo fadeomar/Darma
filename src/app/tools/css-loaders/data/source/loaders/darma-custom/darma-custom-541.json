@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-541",
+  "name": "Line Trace 07",
+  "category": "creative",
+  "tags": [
+    "line",
+    "trace",
+    "07",
+    "outline",
+    "geometric",
+    "creative",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #0284c7);\n  --loader-secondary-color: #7dd3fc;\n  --loader-bg: #ffffff;\n   width: 60px;\n   aspect-ratio: 1;\n   --c:no-repeat linear-gradient(var(--loader-color, #0284c7) 0 0);\n   background: var(--c) 0 38px, var(--c) right 18px bottom 18px, var(--c) right 18px top 18px, var(--c) 18px 18px, var(--c) 18px 100%, var(--c) 100% 100%, var(--c) 100% 0, var(--c) 0 0;\n   animation: l7 1.5s infinite alternate;\n}\n@keyframes l7  {\n  0% {background-size: 0 4px,4px 0 ,0 4px,4px 0 ,0 4px,4px 0 ,0 4px,4px 0 }\n12.5% {background-size: 40px 4px,4px 0 ,0 4px,4px 0 ,0 4px,4px 0 ,0 4px,4px 0 }\n25% {background-size: 40px 4px,4px 20px,0 4px,4px 0 ,0 4px,4px 0 ,0 4px,4px 0 }\n37.5% {background-size: 40px 4px,4px 20px,20px 4px,4px 0 ,0 4px,4px 0 ,0 4px,4px 0 }\n50% {background-size: 40px 4px,4px 20px,20px 4px,4px 40px,0 4px,4px 0 ,0 4px,4px 0 }\n62.5% {background-size: 40px 4px,4px 20px,20px 4px,4px 40px,40px 4px,4px 0 ,0 4px,4px 0 }\n75% {background-size: 40px 4px,4px 20px,20px 4px,4px 40px,40px 4px,4px 100%,0 4px,4px 0 }\n87.5% {background-size: 40px 4px,4px 20px,20px 4px,4px 40px,40px 4px,4px 100%,100% 4px,4px 0 }\n95%, 100% {background-size: 40px 4px,4px 20px,20px 4px,4px 40px,40px 4px,4px 100%,100% 4px,4px 40px}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#0284c7",
+    "secondaryColor": "#7dd3fc",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-485",
+  "name": "Utility Dial 09",
+  "category": "creative",
+  "tags": [
+    "utility",
+    "dial",
+    "09",
+    "clock",
+    "counter",
+    "creative",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {--loader-bg: #ffffff;\n  --loader-secondary-color: #fde047;\n   width: 50px;\n   aspect-ratio: 1;\n   color: var(--loader-color, #ca8a04);\n   border: 7px solid;\n   box-sizing: border-box;\n   border-radius: 50%;\n   background: radial-gradient(circle 3px, currentColor 95%,#0000), linear-gradient(180deg,currentColor 50%,#0000 0) center/3px 70%, linear-gradient(90deg ,currentColor 50%,#0000 0) center/50% 3px;\n   background-repeat: no-repeat;\n   position: relative;\n   animation: l9 1s infinite;\n}\n.loader:before, .loader:after  {\n  content: \"\";\n   position: absolute;\n   border-radius: 20px 20px 0 0;\n   inset: -20px calc(50% - 10px);\n   transform: rotate(40deg);\n   background: linear-gradient(currentColor 0 0) top /100% 10px, linear-gradient(currentColor 0 0) bottom/3px 10px;\n   background-repeat: no-repeat;\n}\n.loader:after  {\n  transform: rotate(-40deg);\n}\n@keyframes l9  {\n  0%,70%,100% {transform: translateY(0) rotate(0)}\n75%,85%,95% {transform: translateY(-3px) rotate(10deg)}\n80%,90% {transform: translateY(-3px) rotate(-10deg)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#ca8a04",
+    "secondaryColor": "#fde047",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

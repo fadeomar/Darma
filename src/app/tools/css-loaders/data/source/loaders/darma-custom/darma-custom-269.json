@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-269",
+  "name": "Wave Clip Pass",
+  "category": "progress",
+  "tags": [
+    "wave",
+    "clip",
+    "pass",
+    "progress",
+    "track",
+    "mask",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-05"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: var(--loader-color, #7c3aed);\n  display: inline-grid;\n}\n.loader:before,\n.loader:after {\n  content: \"\";\n  grid-area: 1/1;\n  height: 30px;\n  aspect-ratio: 6;\n  --c: #0000 64%,currentColor 66% 98%,#0000 101%;\n  background:\n    radial-gradient(35% 146% at 50% 159%,var(--c)) 0 0,\n    radial-gradient(35% 146% at 50% -59%,var(--c)) 25% 100%;\n  background-size: calc(100%/3) 50%;\n  background-repeat: repeat-x;\n  clip-path: inset(0 100% 0 0);\n  animation: l10 1.5s infinite linear;\n}\n.loader:after {\n  scale: -1;\n}\n@keyframes l10{\n  50% {clip-path: inset(0)}\n  to {clip-path: inset(0 0 0 100%)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#7c3aed",
+    "secondaryColor": "#c084fc",
+    "size": 84,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "id": "darma-custom-688",
+  "name": "Pattern Progress 14",
+  "category": "progress",
+  "tags": [
+    "css-only",
+    "single-element",
+    "customizable",
+    "batch-08",
+    "progress",
+    "striped",
+    "pattern",
+    "progress",
+    "loader"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: var(--loader-color, #14b8a6);\n  --loader-secondary-color: #99f6e4;\n  --loader-bg: #ffffff;\nwidth: 45px;\naspect-ratio: 1;\n--c:no-repeat linear-gradient(currentColor 0 0);\nbackground: var(--c), var(--c), var(--c), var(--c), var(--c), var(--c);\nanimation:\nl14-1 .5s infinite alternate,\nl14-2 2s infinite;\n}\n@keyframes l14-1 {\n0%,10% {background-size:20% 100%}\n100% {background-size:20% 20%}\n}\n@keyframes l14-2 {\n0%,49.9% {background-position: 0 0 ,0 100%,50% 50%,50% 50% ,100% 0 ,100% 100%}\n50%,100% {background-position: 0 50%,0 50%,50% 0 ,50% 100%,100% 50%,100% 50% }\n}",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#14b8a6",
+    "secondaryColor": "#99f6e4",
+    "size": 45,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "id": "darma-custom-502",
+  "name": "Radial Cutout 08",
+  "category": "spinners",
+  "tags": [
+    "radial",
+    "cutout",
+    "08",
+    "spinner",
+    "mask",
+    "geometric",
+    "spinners",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #4f46e5);\n  --loader-secondary-color: #a5b4fc;\n  --loader-bg: #ffffff;\n   width: 70px;\n   aspect-ratio: 1;\n   --c: var(--loader-color, #4f46e5) 91%,#0000;\n   background: radial-gradient(30% 50% at -3px 55%, var(--c)) top right, radial-gradient(30% 50% at -3px 45%, var(--c)) bottom right, radial-gradient(30% 50% at calc(100% + 3px) 55%, var(--c)) top left, radial-gradient(30% 50% at calc(100% + 3px) 45%, var(--c)) bottom left, radial-gradient(50% 30% at 45% calc(100% + 3px), var(--c)) top right, radial-gradient(50% 30% at 45% -3px , var(--c)) bottom right, radial-gradient(50% 30% at 55% calc(100% + 3px), var(--c)) top left, radial-gradient(50% 30% at 55% -3px , var(--c)) bottom left;\n   background-size: 50.1% 50.1%;\n   background-repeat: no-repeat;\n   -webkit-mask: radial-gradient(circle 5px,#0000 90%,currentColor);\n   animation: l8 1.5s infinite linear;\n}\n@keyframes l8  {\n  100%{transform: rotate(1turn)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#4f46e5",
+    "secondaryColor": "#a5b4fc",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

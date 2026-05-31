@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-646",
+  "name": "Rising Push",
+  "category": "pulse",
+  "tags": [
+    "rich",
+    "pulse",
+    "push",
+    "circles",
+    "minimal",
+    "single-element",
+    "loader",
+    "html-css",
+    "customizable",
+    "rich-batch-01"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader {color: var(--loader-color, #f8fafc);\n  --loader-secondary-color: #94a3b8;\n  --loader-bg: #111827;\n  \n  display: block;\n  width: 84px;\n  height: 84px;\n  position: relative;\n}\n\n.loader:before , .loader:after {\n  content: \"\";\n  position: absolute;\n  left: 50%;\n  bottom: 0;\n  width: 64px;\n  height: 64px;\n  border-radius: 50%;\n  background: currentColor;\n  transform: translate(-50% , -100%)  scale(0);\n  animation: push_401 2s infinite linear;\n}\n\n.loader:after {\n  animation-delay: 1s;\n}\n\n@keyframes push_401 {\n  0% , 50% {\n    transform: translate(-50% , 0%)  scale(1)\n  }\n\n  100% {\n    transform: translate(-50%, -100%) scale(0)\n  }\n}\n",
+  "source": {
+    "name": "Uiverse.io",
+    "author": "Shoh2008",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#f8fafc",
+    "secondaryColor": "#94a3b8",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#111827"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-644",
+  "name": "Skeleton Profile Row",
+  "category": "skeleton",
+  "tags": [
+    "rich",
+    "skeleton",
+    "profile",
+    "pulse",
+    "placeholder",
+    "tailwind-converted",
+    "loader",
+    "html-css",
+    "customizable",
+    "rich-batch-01"
+  ],
+  "html": "<div class=\"loader\">\n  <div class=\"avatar\"></div>\n  <div class=\"lines\">\n    <div class=\"line line-short\"></div>\n    <div class=\"line line-long\"></div>\n  </div>\n</div>",
+  "css": ".loader {color: var(--loader-color, #94a3b8);\n  --loader-secondary-color: #cbd5e1;\n  --loader-bg: #f8fafc;\n  \n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  gap: 10px;\n}\n.loader .avatar,\n.loader .line {\n  background: color-mix(in srgb, var(--loader-color, #94a3b8) 65%, var(--loader-bg, #f8fafc));\n  animation: skeletonPulse var(--loader-speed, 1.2s) ease-in-out infinite;\n}\n.loader .avatar {\n  width: 48px;\n  height: 48px;\n  border-radius: 999px;\n}\n.loader .lines {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n.loader .line {\n  height: 20px;\n  border-radius: 999px;\n}\n.loader .line-short { width: 112px; }\n.loader .line-long { width: 144px; }\n@keyframes skeletonPulse {\n  0%, 100% { opacity: .45; }\n  50% { opacity: 1; }\n}\n",
+  "source": {
+    "name": "Uiverse.io",
+    "author": "Deri-Kurniawan",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#94a3b8",
+    "secondaryColor": "#cbd5e1",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#f8fafc"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

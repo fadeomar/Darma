@@ -21,7 +21,7 @@
   },
   "searchText": "button-spinner button spinner button button spinner inline submit html css react popular cssonly customizable singleelement",
   "previewHtml": "<span class=\"darma-loader-button-spinner\"></span>",
-  "previewCss": ".darma-loader-button-spinner {\n  display: inline-block;\n  width: 26px;\n  height: 26px;\n  border-radius: 50%;\n  border: 3px solid color-mix(in srgb, var(--loader-color, #6366f1) 20%, transparent);\n  border-right-color: var(--loader-color, #6366f1);\n  animation: darma-loader-button-spinner-spin 0.7s linear infinite;\n}\n@keyframes darma-loader-button-spinner-spin { to { transform: rotate(360deg); } }\n",
+  "previewCss": ".darma-loader-button-spinner {\n  display: inline-block;\n  width: 26px;\n  height: 26px;\n  border-radius: 50%;\n  border: 3px solid rgba(99, 102, 241, 0.2);\n  border-right-color: #6366f1;\n  animation: darma-loader-button-spinner-spin 0.7s linear infinite;\n}\n@keyframes darma-loader-button-spinner-spin { to { transform: rotate(360deg); } }",
   "defaults": {
     "color": "#6366f1",
     "size": 48,
@@ -29,14 +29,13 @@
   },
   "code": {
     "html": "<span class=\"darma-loader-button-spinner\"></span>",
-    "css": ".darma-loader-button-spinner {\n  display: inline-block;\n  width: 26px;\n  height: 26px;\n  border-radius: 50%;\n  border: 3px solid color-mix(in srgb, var(--loader-color, #6366f1) 20%, transparent);\n  border-right-color: var(--loader-color, #6366f1);\n  animation: darma-loader-button-spinner-spin 0.7s linear infinite;\n}\n@keyframes darma-loader-button-spinner-spin { to { transform: rotate(360deg); } }\n",
+    "css": ".darma-loader-button-spinner {\n  display: inline-block;\n  width: 26px;\n  height: 26px;\n  border-radius: 50%;\n  border: 3px solid rgba(99, 102, 241, 0.2);\n  border-right-color: #6366f1;\n  animation: darma-loader-button-spinner-spin 0.7s linear infinite;\n}\n@keyframes darma-loader-button-spinner-spin { to { transform: rotate(360deg); } }",
     "react": "export default function ButtonSpinnerLoader() {\n  return (\n    <span className=\"darma-loader-button-spinner\"></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
-    "speed": true,
-    "background": false,
-    "secondaryColor": false
-  }
+    "speed": true
+  },
+  "source": {}
 }

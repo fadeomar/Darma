@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-536",
+  "name": "Line Trace 02",
+  "category": "creative",
+  "tags": [
+    "line",
+    "trace",
+    "02",
+    "outline",
+    "geometric",
+    "creative",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #db2777);\n  --loader-secondary-color: #f9a8d4;\n  --loader-bg: #ffffff;\n   width: 35px;\n   aspect-ratio: 1;\n   --c:no-repeat linear-gradient(var(--loader-color, #db2777) 0 0);\n   background: var(--c) 0 0, var(--c) 100% 0, var(--c) 100% 100%, var(--c) 0 100%;\n   animation: l2-1 2s infinite, l2-2 2s infinite;\n}\n@keyframes l2-1  {\n  0% {background-size: 0 4px,4px 0 ,0 4px,4px 0 }\n12.5%{background-size: 100% 4px,4px 0 ,0 4px,4px 0 }\n25% {background-size: 100% 4px,4px 100%,0 4px,4px 0 }\n37.5%{background-size: 100% 4px,4px 100%,100% 4px,4px 0 }\n45%, 55% {background-size: 100% 4px,4px 100%,100% 4px,4px 100%}\n62.5%{background-size: 0 4px,4px 100%,100% 4px,4px 100%}\n75% {background-size: 0 4px,4px 0 ,100% 4px,4px 100%}\n87.5%{background-size: 0 4px,4px 0 ,0 4px,4px 100%}\n100% {background-size: 0 4px,4px 0 ,0 4px,4px 0 }\n}\n@keyframes l2-2  {\n  0%,49.9%{background-position: 0 0 ,100% 0 ,100% 100%,0 100%}\n50%,100%{background-position: 100% 0,100% 100%,0 100%,0 0 }\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#db2777",
+    "secondaryColor": "#f9a8d4",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

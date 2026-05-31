@@ -1,0 +1,44 @@
+{
+  "id": "darma-custom-381",
+  "name": "Pulse Outline 08",
+  "category": "pulse",
+  "tags": [
+    "pulse",
+    "outline",
+    "08",
+    "shape",
+    "steps",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-06"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #2563eb);\n  --loader-secondary-color: #38bdf8;\n  --loader-bg: #ffffff;\n  height: 64px;\n  aspect-ratio: 2;\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n}.loader:before,.loader:after {content: \"\";\n  border: 8px solid var(--loader-color, #2563eb);\n  box-sizing: content-box;\n  margin: auto;\n  aspect-ratio: 1;\n  animation:l10-0 infinite .5s steps(4,jump-none) alternate,l10-1 infinite 2s steps(2,jump-none);\n}.loader:before {animation-delay: -.3s;\n}@keyframes l10-0 {0% {width: 0% }to {width: 75%}}@keyframes l10-1 {0% {border-radius: 0% }to {border-radius: 100%}}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#2563eb",
+    "secondaryColor": "#38bdf8",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

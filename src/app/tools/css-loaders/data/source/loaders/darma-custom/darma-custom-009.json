@@ -1,0 +1,35 @@
+{
+  "id": "darma-custom-009",
+  "name": "Triangular Conic Spinner",
+  "category": "spinners",
+  "tags": [
+    "triangle",
+    "conic",
+    "spinner",
+    "colorful",
+    "batch-01"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 50px;\n  aspect-ratio: 1.154;\n  clip-path: polygon(50% 0, 100% 100%, 0 100%);\n  position: relative;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  inset: -150% -100% -50%;\n  background: repeating-conic-gradient(from 30deg, #FFABAB 0 60deg, #ABE4FF 0 120deg, #FF7373 0 180deg);\n  animation: l9 2s infinite;\n}\n@keyframes l9 {\n  0% { transform: rotate(0); }\n  23%, 33% { transform: rotate(60deg); }\n  56%, 66% { transform: rotate(120deg); }\n  90%, 100% { transform: rotate(180deg); }\n}\n",
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#FFABAB",
+    "secondaryColor": "#ABE4FF",
+    "size": 50,
+    "speed": 2,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": true,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-175",
+  "name": "Arc Hop Meter",
+  "category": "creative",
+  "tags": [
+    "arc",
+    "hop",
+    "meter",
+    "creative",
+    "motion",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: #4f46e5;\nwidth: 15px;\naspect-ratio: 1;\nborder-radius: 50%;\nanimation: l5 1s infinite linear alternate;\n}\n@keyframes l5 {\n0% {box-shadow: 20px 0 currentColor, -20px 0 color-mix(in srgb, currentColor 13%, transparent);background: currentColor }\n33% {box-shadow: 20px 0 currentColor, -20px 0 color-mix(in srgb, currentColor 13%, transparent);background: color-mix(in srgb, currentColor 13%, transparent)}\n66% {box-shadow: 20px 0 color-mix(in srgb, currentColor 13%, transparent),-20px 0 currentColor; background: color-mix(in srgb, currentColor 13%, transparent)}\n100%{box-shadow: 20px 0 color-mix(in srgb, currentColor 13%, transparent),-20px 0 currentColor; background: currentColor }\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#4f46e5",
+    "secondaryColor": "#818cf8",
+    "size": 55,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

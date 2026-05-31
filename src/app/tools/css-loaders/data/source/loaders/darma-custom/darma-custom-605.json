@@ -1,0 +1,46 @@
+{
+  "id": "darma-custom-605",
+  "name": "Gooey Spinner 02",
+  "category": "spinners",
+  "tags": [
+    "gooey",
+    "spinner",
+    "02",
+    "blur",
+    "blob",
+    "motion",
+    "spinners",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #f97316);\n  --loader-secondary-color: #facc15;\n  --loader-bg: #ffffff;\n   width: 70px;\n   height: 70px;\n   padding: 10px;\n   box-sizing: border-box;\n   background: currentColor;\n   mix-blend-mode: darken;\n   display: grid;\n   filter: blur(4px) contrast(10) hue-rotate(270deg);\n}\n.loader:before, .loader:after  {\n  content:\"\";\n   grid-area: 1/1;\n   animation: l2 3s infinite linear;\n   background:#ff00ff;\n   border-radius: 50%;\n}\n.loader:after  {\n  animation-delay: -.8s;\n}\n@keyframes l2 {\n  12.5% {border-radius: 37% 63% 70% 30% / 30% 62% 38% 70%}\n25% {border-radius: 84% 16% 15% 85% / 55% 79% 21% 45%}\n37.5% {border-radius: 73% 27% 74% 26% / 64% 32% 68% 36%}\n50% {border-radius: 73% 27% 18% 82% / 52% 32% 68% 48%}\n62.5% {border-radius: 33% 67% 18% 82% / 52% 75% 25% 48%}\n75% {border-radius: 12% 88% 69% 31% / 10% 66% 34% 90%}\n87.5% {border-radius: 50% 50% 70% 30% / 52% 62% 38% 48%}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#f97316",
+    "secondaryColor": "#facc15",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

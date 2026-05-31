@@ -1,0 +1,57 @@
+{
+  "id": "darma-custom-429",
+  "name": "Line Orbit 15",
+  "category": "spinners",
+  "tags": [
+    "line",
+    "orbit",
+    "15",
+    "geometric",
+    "spinner",
+    "outline",
+    "spinners",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-06"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-429 line orbit 15 spinners line orbit 15 geometric spinner outline spinners loader css-only single-element batch-06 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-429\"></div>",
+  "previewCss": ".darma-loader-darma-custom-429 {color: var(--loader-color, #2563eb);\n  --loader-secondary-color: #38bdf8;\n  --loader-bg: #ffffff;\n  display: inline-flex;\n  gap: 5px;\n  animation: darma-loader-darma-custom-429-l1-0 1s infinite;\n}.darma-loader-darma-custom-429:before,.darma-loader-darma-custom-429:after {content: \"\";\n  width: 25px;\n  aspect-ratio: 1;\n  box-shadow: 0 0 0 3px inset var(--loader-bg, #ffffff);\n  transform-origin right;\n  animation: darma-loader-darma-custom-429-l1-1 1s infinite;\n}.darma-loader-darma-custom-429:before {transform-origin left;\n  --s:-1;\n}@keyframes darma-loader-darma-custom-429-l1-0 {to {transform: translate(100%)}}@keyframes darma-loader-darma-custom-429-l1-1 {to {transform: scale(calc(var(--s,1)*90deg))}}",
+  "defaults": {
+    "color": "#2563eb",
+    "secondaryColor": "#38bdf8",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-429\"></div>",
+    "css": ".darma-loader-darma-custom-429 {color: var(--loader-color, #2563eb);\n  --loader-secondary-color: #38bdf8;\n  --loader-bg: #ffffff;\n  display: inline-flex;\n  gap: 5px;\n  animation: darma-loader-darma-custom-429-l1-0 1s infinite;\n}.darma-loader-darma-custom-429:before,.darma-loader-darma-custom-429:after {content: \"\";\n  width: 25px;\n  aspect-ratio: 1;\n  box-shadow: 0 0 0 3px inset var(--loader-bg, #ffffff);\n  transform-origin right;\n  animation: darma-loader-darma-custom-429-l1-1 1s infinite;\n}.darma-loader-darma-custom-429:before {transform-origin left;\n  --s:-1;\n}@keyframes darma-loader-darma-custom-429-l1-0 {to {transform: translate(100%)}}@keyframes darma-loader-darma-custom-429-l1-1 {to {transform: scale(calc(var(--s,1)*90deg))}}",
+    "react": "export default function DarmaCustom429Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-429\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

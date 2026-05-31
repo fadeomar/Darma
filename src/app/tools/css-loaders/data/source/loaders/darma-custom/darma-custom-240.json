@@ -1,0 +1,44 @@
+{
+  "id": "darma-custom-240",
+  "name": "Chevron March",
+  "category": "progress",
+  "tags": [
+    "chevron",
+    "march",
+    "progress",
+    "track",
+    "steps",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-05"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: var(--loader-color, #9333ea);\n  height: 27px;\n  aspect-ratio: 5;\n  --c: currentColor 90deg,#0000 0;\n  background:\n   conic-gradient(from 135deg at top   ,var(--c)),\n   conic-gradient(from -45deg at bottom,var(--c)) 12.5% 100%;\n  background-size: 20% 50%;\n  background-repeat: repeat-x;\n  animation: l1 .8s infinite linear;\n}\n@keyframes l1{\n  to {background-position: 25% 0,37.5% 100%}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#9333ea",
+    "secondaryColor": "#f0abfc",
+    "size": 84,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

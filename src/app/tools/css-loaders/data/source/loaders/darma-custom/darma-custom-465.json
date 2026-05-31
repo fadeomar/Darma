@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-465",
+  "name": "Weather Icon 05",
+  "category": "fun",
+  "tags": [
+    "weather",
+    "icon",
+    "05",
+    "fun",
+    "scene",
+    "illustration",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #0f766e);\n  --loader-secondary-color: #5eead4;\n  --loader-bg: #ffffff;\n   width: 80px;\n   height: 40px;\n   border-radius: 100px 100px 0 0;\n   position: relative;\n   overflow: hidden;\n}\n.loader:before  {\n  content: \"\";\n   position: absolute;\n   inset: 0 0 -100%;\n   background: radial-gradient(farthest-side,var(--loader-color, #0f766e) 80%,#0000) left 70% top 20%/15px 15px, radial-gradient(farthest-side,var(--loader-secondary-color, #5eead4) 92%,#0000) left 65% bottom 19%/12px 12px, radial-gradient(farthest-side,var(--loader-secondary-color, #5eead4) 92%,#0000) left 70% bottom 20%/15px 15px, linear-gradient(#9eddfe 50%,var(--loader-secondary-color, #5eead4) 0);\n   background-repeat: no-repeat;\n   animation: l5 2s infinite;\n}\n@keyframes l5  {\n  0%,20% {transform: rotate(0)}\n40%,60% {transform: rotate(.5turn)}\n80%,100% {transform: rotate(1turn)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#0f766e",
+    "secondaryColor": "#5eead4",
+    "size": 64,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

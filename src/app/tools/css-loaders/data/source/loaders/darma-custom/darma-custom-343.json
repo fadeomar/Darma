@@ -1,0 +1,47 @@
+{
+  "id": "darma-custom-343",
+  "name": "Neon Halo 12",
+  "category": "spinners",
+  "tags": [
+    "neon",
+    "halo",
+    "12",
+    "glow",
+    "ring",
+    "spinner",
+    "blur",
+    "spinners",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-06"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #0284c7);\n  --loader-secondary-color: #7dd3fc;\n  --loader-bg: #ffffff;\n  --s: -100px;\n  height: 70px;\n  aspect-ratio: 1;\n  position: relative;\n  clip-path: polygon(evenodd,var(--s) var(--s),calc(100% - var(--s)) var(--s),calc(100% - var(--s)) calc(100% - var(--s)),var(--s) calc(100% - var(--s)),var(--s) var(--s),100% 50%,85.36% 85.36%,50% 100%,14.64% 85.36%,0% 50%,14.64% 14.64%,50% 0%,85.36% 14.64%,100% 50%,74.75% 25.25%,50% 15%,25.25% 25.25%,15% 50%,25.25% 74.75%,50% 85%,74.75% 74.75%,85% 50%,74.75% 25.25%,100% 50%);\n}.loader:before {content: \"\";\n  position: absolute;\n  inset: 0 35% 70%;\n  border-radius: 50%;\n  background: currentColor;\n  filter: blur(15px);\n  transform-origin: 50% 165%;\n  animation: l12 1.5s linear infinite;\n}@keyframes l12 {to {rotate: 1turn}}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#0284c7",
+    "secondaryColor": "#7dd3fc",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "id": "darma-custom-501",
+  "name": "Radial Cutout 07",
+  "category": "spinners",
+  "tags": [
+    "radial",
+    "cutout",
+    "07",
+    "spinner",
+    "mask",
+    "geometric",
+    "spinners",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-501 radial cutout 07 spinners radial cutout 07 spinner mask geometric spinners loader css-only single-element batch-07 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-501\"></div>",
+  "previewCss": ".darma-loader-darma-custom-501 {--loader-bg: #ffffff;\n  --loader-secondary-color: #5eead4;\n   width: 70px;\n   aspect-ratio: 1;\n   color: var(--loader-color, #0f766e);\n   background: radial-gradient(150% 150% at left -40% top -40%,#0000 98%,currentColor) left top, radial-gradient(150% 150% at right -40% top -40%,#0000 98%,currentColor) right top, radial-gradient(150% 150% at left -40% bottom -40%,#0000 98%,currentColor) left bottom, radial-gradient(150% 150% at right -40% bottom -40%,#0000 98%,currentColor) right bottom;\n   background-size: 50.3% 50.3%;\n   background-repeat: no-repeat;\n   -webkit-mask: radial-gradient(circle 5px,#0000 90%,currentColor);\n   animation: darma-loader-darma-custom-501-l7 1.5s infinite linear;\n}\n@keyframes darma-loader-darma-custom-501-l7  {\n  100%{transform: rotate(1turn)}\n}",
+  "defaults": {
+    "color": "#0f766e",
+    "secondaryColor": "#5eead4",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-501\"></div>",
+    "css": ".darma-loader-darma-custom-501 {--loader-bg: #ffffff;\n  --loader-secondary-color: #5eead4;\n   width: 70px;\n   aspect-ratio: 1;\n   color: var(--loader-color, #0f766e);\n   background: radial-gradient(150% 150% at left -40% top -40%,#0000 98%,currentColor) left top, radial-gradient(150% 150% at right -40% top -40%,#0000 98%,currentColor) right top, radial-gradient(150% 150% at left -40% bottom -40%,#0000 98%,currentColor) left bottom, radial-gradient(150% 150% at right -40% bottom -40%,#0000 98%,currentColor) right bottom;\n   background-size: 50.3% 50.3%;\n   background-repeat: no-repeat;\n   -webkit-mask: radial-gradient(circle 5px,#0000 90%,currentColor);\n   animation: darma-loader-darma-custom-501-l7 1.5s infinite linear;\n}\n@keyframes darma-loader-darma-custom-501-l7  {\n  100%{transform: rotate(1turn)}\n}",
+    "react": "export default function DarmaCustom501Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-501\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

@@ -22,7 +22,7 @@
   },
   "searchText": "cssloaders-github-05 cssloaders pattern 05 dots cssloaders wave dots loader html css react popular cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-cssloaders-github-05\"><i></i><i></i><i></i><i></i></span>",
-  "previewCss": ".darma-loader-cssloaders-github-05 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 5px;\n      min-width: 52px;\n      min-height: 16px;\n    }\n    .darma-loader-cssloaders-github-05 i {\n      display: block;\n      width: 8px;\n      height: 8px;\n      border-radius: 50%;\n      background: var(--loader-color, #f59e0b);\n      animation: darma-loader-cssloaders-github-05-dotPulse 0.95s ease-in-out infinite;\n    }\n    .darma-loader-cssloaders-github-05 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-cssloaders-github-05 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-cssloaders-github-05 i:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-cssloaders-github-05 i:nth-child(4) { animation-delay: 0.36s; }\n    @keyframes darma-loader-cssloaders-github-05-dotPulse { 0%, 100% { transform: translateY(0); opacity: .45; } 45% { transform: translateY(-12px); opacity: 1; } }\n",
+  "previewCss": ".darma-loader-cssloaders-github-05 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 5px;\n      min-width: 52px;\n      min-height: 16px;\n    }\n    .darma-loader-cssloaders-github-05 i {\n      display: block;\n      width: 8px;\n      height: 8px;\n      border-radius: 50%;\n      background: var(--loader-color);\n      animation: darma-loader-cssloaders-github-05-dotPulse 0.95s ease-in-out infinite;\n    }\n    .darma-loader-cssloaders-github-05 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-cssloaders-github-05 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-cssloaders-github-05 i:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-cssloaders-github-05 i:nth-child(4) { animation-delay: 0.36s; }\n    @keyframes darma-loader-cssloaders-github-05-dotPulse { 0%, 100% { transform: translateY(0); opacity: .45; } 45% { transform: translateY(-12px); opacity: 1; } }",
   "defaults": {
     "color": "#f59e0b",
     "secondaryColor": "#fde68a",
@@ -31,7 +31,7 @@
   },
   "code": {
     "html": "<span class=\"darma-loader-cssloaders-github-05\"><i></i><i></i><i></i><i></i></span>",
-    "css": ".darma-loader-cssloaders-github-05 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 5px;\n      min-width: 52px;\n      min-height: 16px;\n    }\n    .darma-loader-cssloaders-github-05 i {\n      display: block;\n      width: 8px;\n      height: 8px;\n      border-radius: 50%;\n      background: var(--loader-color, #f59e0b);\n      animation: darma-loader-cssloaders-github-05-dotPulse 0.95s ease-in-out infinite;\n    }\n    .darma-loader-cssloaders-github-05 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-cssloaders-github-05 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-cssloaders-github-05 i:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-cssloaders-github-05 i:nth-child(4) { animation-delay: 0.36s; }\n    @keyframes darma-loader-cssloaders-github-05-dotPulse { 0%, 100% { transform: translateY(0); opacity: .45; } 45% { transform: translateY(-12px); opacity: 1; } }\n",
+    "css": ".darma-loader-cssloaders-github-05 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 5px;\n      min-width: 52px;\n      min-height: 16px;\n    }\n    .darma-loader-cssloaders-github-05 i {\n      display: block;\n      width: 8px;\n      height: 8px;\n      border-radius: 50%;\n      background: var(--loader-color);\n      animation: darma-loader-cssloaders-github-05-dotPulse 0.95s ease-in-out infinite;\n    }\n    .darma-loader-cssloaders-github-05 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-cssloaders-github-05 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-cssloaders-github-05 i:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-cssloaders-github-05 i:nth-child(4) { animation-delay: 0.36s; }\n    @keyframes darma-loader-cssloaders-github-05-dotPulse { 0%, 100% { transform: translateY(0); opacity: .45; } 45% { transform: translateY(-12px); opacity: 1; } }",
     "react": "export default function CssloadersGithub05Loader() {\n  return (\n    <span className=\"darma-loader-cssloaders-github-05\"><i></i><i></i><i></i><i></i></span>\n  );\n}\n"
   },
   "controls": {
@@ -39,7 +39,7 @@
     "size": true,
     "speed": true,
     "background": false,
-    "secondaryColor": false
+    "secondaryColor": true
   },
   "source": {
     "name": "cssloaders.github.io",

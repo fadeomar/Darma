@@ -1,0 +1,46 @@
+{
+  "id": "darma-custom-506",
+  "name": "Duo Block 02",
+  "category": "creative",
+  "tags": [
+    "duo",
+    "block",
+    "02",
+    "duotone",
+    "motion",
+    "creative",
+    "tiles",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #dc2626);\n  --loader-secondary-color: #f97316;\n  --loader-bg: #ffffff;\n   width: 40px;\n   aspect-ratio: 1;\n   position: relative;\n}\n.loader:before, .loader:after  {\n  content: \"\";\n   position: absolute;\n   top: 0;\n   left: 0;\n   margin: -8px 0 0 -8px;\n   width: 16px;\n   aspect-ratio: 1;\n   background: var(--loader-color, #dc2626);\n   animation: l2-1 2s infinite, l2-2 1s infinite ;\n}\n.loader:after  {\n  background:var(--loader-secondary-color, #f97316);\n   animation-delay: -1s,0s;\n}\n@keyframes l2-1  {\n  0% {top:0 ;\n  left:0}\n25% {top:100%;\n  left:0}\n50% {top:100%;\n  left:100%}\n75% {top:0 ;\n  left:100%}\n100% {top:0 ;\n  left:0}\n}\n@keyframes l2-2  {\n  40%,50% {transform: rotate(0.25turn) scale(0.5)}\n100% {transform: rotate(0.5turn) scale(1)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#dc2626",
+    "secondaryColor": "#f97316",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

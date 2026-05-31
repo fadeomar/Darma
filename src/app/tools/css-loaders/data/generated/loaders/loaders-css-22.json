@@ -23,7 +23,7 @@
   },
   "searchText": "loaders-css-22 ball clip rotate 22 spinners loaders-css clip rotate spinners loader html css react singleelement cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-loaders-css-22\"></span>",
-  "previewCss": ".darma-loader-loaders-css-22 {\n  display: inline-block;\n  width: 52px;\n  height: 52px;\n  border-radius: 50%;\n  border: 4px solid color-mix(in srgb, var(--loader-color, #14b8a6) 18%, transparent);\n  border-top-color: var(--loader-color, #14b8a6);\n  animation: darma-loader-loaders-css-22-spin 0.9299999999999999s linear infinite;\n}\n@keyframes darma-loader-loaders-css-22-spin { to { transform: rotate(360deg); } }\n",
+  "previewCss": ".darma-loader-loaders-css-22 {\n  display: inline-block;\n  width: 52px;\n  height: 52px;\n  border-radius: 50%;\n  border: 4px solid color-mix(in srgb, var(--loader-color) 18%, transparent);\n  border-top-color: var(--loader-color);\n  animation: darma-loader-loaders-css-22-spin 0.9299999999999999s linear infinite;\n}\n@keyframes darma-loader-loaders-css-22-spin { to { transform: rotate(360deg); } }",
   "defaults": {
     "color": "#14b8a6",
     "secondaryColor": "#99f6e4",
@@ -32,7 +32,7 @@
   },
   "code": {
     "html": "<span class=\"darma-loader-loaders-css-22\"></span>",
-    "css": ".darma-loader-loaders-css-22 {\n  display: inline-block;\n  width: 52px;\n  height: 52px;\n  border-radius: 50%;\n  border: 4px solid color-mix(in srgb, var(--loader-color, #14b8a6) 18%, transparent);\n  border-top-color: var(--loader-color, #14b8a6);\n  animation: darma-loader-loaders-css-22-spin 0.9299999999999999s linear infinite;\n}\n@keyframes darma-loader-loaders-css-22-spin { to { transform: rotate(360deg); } }\n",
+    "css": ".darma-loader-loaders-css-22 {\n  display: inline-block;\n  width: 52px;\n  height: 52px;\n  border-radius: 50%;\n  border: 4px solid color-mix(in srgb, var(--loader-color) 18%, transparent);\n  border-top-color: var(--loader-color);\n  animation: darma-loader-loaders-css-22-spin 0.9299999999999999s linear infinite;\n}\n@keyframes darma-loader-loaders-css-22-spin { to { transform: rotate(360deg); } }",
     "react": "export default function LoadersCss22Loader() {\n  return (\n    <span className=\"darma-loader-loaders-css-22\"></span>\n  );\n}\n"
   },
   "controls": {
@@ -40,7 +40,7 @@
     "size": true,
     "speed": true,
     "background": false,
-    "secondaryColor": false
+    "secondaryColor": true
   },
   "source": {
     "name": "loaders.css",

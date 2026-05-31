@@ -1,0 +1,36 @@
+{
+  "id": "darma-custom-049",
+  "name": "Zigzag Mask Fill",
+  "category": "progress",
+  "tags": [
+    "zigzag",
+    "mask",
+    "linear",
+    "fill",
+    "progress",
+    "batch-02"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 124px;\n  height: 24px;\n  -webkit-mask:\n    conic-gradient(from 135deg at top, #0000, #000 .5deg 90deg, #0000 90.5deg) 0 0,\n    conic-gradient(from -45deg at bottom, #0000, #000 .5deg 90deg, #0000 90.5deg) 0 100%;\n  -webkit-mask-size: 25% 50%;\n  -webkit-mask-repeat: repeat-x;\n  background: linear-gradient(#25b09b 0 0) left/0% 100% no-repeat #ddd;\n  animation: l13 2s infinite linear;\n}\n@keyframes l13 {\n  100% { background-size: 100% 100%; }\n}\n",
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#25b09b",
+    "secondaryColor": "#dddddd",
+    "size": 124,
+    "speed": 2,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

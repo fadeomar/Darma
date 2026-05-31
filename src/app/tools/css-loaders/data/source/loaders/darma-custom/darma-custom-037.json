@@ -1,0 +1,35 @@
+{
+  "id": "darma-custom-037",
+  "name": "Linear Fill Bar",
+  "category": "progress",
+  "tags": [
+    "linear",
+    "fill",
+    "progress",
+    "single-element",
+    "batch-02"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 120px;\n  height: 20px;\n  background:\n    linear-gradient(#000 0 0) 0/0% no-repeat\n    #ddd;\n  animation: l1 2s infinite linear;\n}\n@keyframes l1 {\n  100% { background-size: 100%; }\n}\n",
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#000000",
+    "secondaryColor": "#dddddd",
+    "size": 120,
+    "speed": 2,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": true,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

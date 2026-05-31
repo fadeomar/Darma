@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-398",
+  "name": "Pop Icon 05",
+  "category": "pulse",
+  "tags": [
+    "pop",
+    "icon",
+    "05",
+    "pulse",
+    "shape",
+    "motion",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-06"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {--loader-bg: #ffffff;\n  --loader-secondary-color: #f9a8d4;\n  width: 92px;\n  height: 60px;\n  color: var(--loader-color, #db2777);\n  --c: radial-gradient(farthest-side,currentColor 96%,#0000);\n  background:var(--c) 100% 100% /30% 60%,var(--c) 70% 0 /50% 100%,var(--c) 0 100% /36% 68%,var(--c) 27% 18% /26% 40%,linear-gradient(currentColor 0 0) bottom/67% 58%;\n  background-repeat: no-repeat;\n  position: relative;\n}.loader:before {content: \"\";\n  position: absolute;\n  inset: 0;\n  background: inherit;\n  opacity: 0.4;\n  animation: l7 1s infinite;\n}@keyframes l7 {to {transform: scale(1.8);\n  opacity:0}}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#db2777",
+    "secondaryColor": "#f9a8d4",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

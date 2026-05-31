@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-200",
+  "name": "Diagonal Dot Swap",
+  "category": "dots",
+  "tags": [
+    "diagonal",
+    "dot",
+    "swap",
+    "dots",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: #0f766e;\n--s: 17px;\nwidth: calc(var(--s)*2.33);\naspect-ratio: 1;\ndisplay: flex;\njustify-content: space-between;\n}\n.loader::before,\n.loader::after {\ncontent: \"\";\nwidth: var(--s);\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) top,\nvar(--_g) bottom;\nbackground-size: 100% var(--s);\ntransform-origin: 50% calc(100% - var(--s)/2);\nanimation: l30 1s infinite;\n}\n.loader::after {\ntransform-origin: 50% calc(var(--s)/2);\n}\n@keyframes l30 {\n70%,100% {transform:rotate(-270deg)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#0f766e",
+    "secondaryColor": "#2dd4bf",
+    "size": 40,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

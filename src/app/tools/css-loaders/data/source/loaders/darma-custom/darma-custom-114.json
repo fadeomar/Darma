@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-114",
+  "name": "Six Block Morph",
+  "category": "creative",
+  "tags": [
+    "six",
+    "block",
+    "morph",
+    "geometric",
+    "creative",
+    "css-only",
+    "single-element",
+    "batch-03"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  height: 60px;\n  aspect-ratio: 1;\n  --c:no-repeat linear-gradient(#514b82 0 0);\n  background: \n    var(--c),var(--c),\n    var(--c),var(--c),\n    var(--c),var(--c);\n  animation: \n    l34-1 2s infinite alternate,\n    l34-2 2s infinite alternate;\n}\n@keyframes l34-1 {\n  0%,20%   {background-size:20px 20px}\n  40%,60%  {background-size:100% 20px}\n  80%,100% {background-size:20px 20px}\n}\n@keyframes l34-2 {\n  0%,40%  {background-position: 0   0,100% 0, 50% 50%, 50% 50%, 0   100%,100% 100%}\n  60%,100%{background-position: 50% 0,50%  0, 0   50%,100% 50%, 50% 100%,50%  100%}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#514b82",
+    "secondaryColor": "#e5e7eb",
+    "size": 60,
+    "speed": 2.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

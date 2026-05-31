@@ -1,0 +1,46 @@
+{
+  "id": "darma-custom-405",
+  "name": "Arcade Motion 02",
+  "category": "fun",
+  "tags": [
+    "arcade",
+    "motion",
+    "02",
+    "game",
+    "character",
+    "fun",
+    "pixel",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-06"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #2563eb);\n  --loader-secondary-color: #38bdf8;\n  --loader-bg: #ffffff;\n  width: 90px;\n  height: 24px;\n  padding: 2px 0;\n  box-sizing: border-box;\n  display: flex;\n  animation: l5-0 3s infinite steps(6);\n  background:linear-gradient(currentColor 0 0) 0 0/0% 100% no-repeat,radial-gradient(circle 3px,#eeee89 90%,#0000) 0 0/20% 100% currentColor;\n  overflow: hidden;\n}.loader::before {content: \"\";\n  width: 20px;\n  transform: translate(-100%);\n  border-radius: 50%;\n  background: #ffff2d;\n  animation:l5-1 .25s .153s infinite steps(5) alternate,l5-2 3s infinite linear;\n}@keyframes l5-1{0% {clip-path: polygon(50% 50%,100% 0,100% 0,0 0,0 100%,100% 100%,100% 100%)}100% {clip-path: polygon(50% 50%,100% 65%,100% 0,0 0,0 100%,100% 100%,100% 35%)}}@keyframes l5-2{100% {transform: translate(90px)}}@keyframes l5-0{100% {background-size:120% 100%,20% 100%}}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#2563eb",
+    "secondaryColor": "#38bdf8",
+    "size": 64,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

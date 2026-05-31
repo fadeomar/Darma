@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-297",
+  "name": "Text Ripple Fill",
+  "category": "minimal",
+  "tags": [
+    "text",
+    "ripple",
+    "fill",
+    "loading",
+    "typography",
+    "minimal",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-05"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: fit-content;\n  font-size: 34px;\n  font-family: system-ui,sans-serif;\n  font-weight: bold;\n  text-transform: uppercase;\n  color: #0000;\n  -webkit-text-stroke: 1px var(--loader-color, #e11d48);\n  background:\n    radial-gradient(0.71em at 50% 1em,var(--loader-color, #e11d48) 99%,#0000 101%) calc(50% - 1em) 1em/2em 200% repeat-x text,\n    radial-gradient(0.71em at 50% -0.5em,#0000 99%,var(--loader-color, #e11d48) 101%) 50% 1.5em/2em 200% repeat-x text;\n  animation: \n    l10-0 .8s linear infinite alternate,\n    l10-1  4s linear infinite;\n}\n.loader:before {\n  content: \"Loading\";\n}\n@keyframes l10-0 {\n  to {background-position-x: 50%,calc(50% + 1em)}\n}\n@keyframes l10-1 {\n  to {background-position-y: -.5em,0}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#e11d48",
+    "secondaryColor": "#fb7185",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

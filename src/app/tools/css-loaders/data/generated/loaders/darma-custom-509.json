@@ -1,0 +1,57 @@
+{
+  "id": "darma-custom-509",
+  "name": "Duo Block 05",
+  "category": "creative",
+  "tags": [
+    "duo",
+    "block",
+    "05",
+    "duotone",
+    "motion",
+    "creative",
+    "tiles",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-509 duo block 05 creative duo block 05 duotone motion creative tiles loader css-only single-element batch-07 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-509\"></div>",
+  "previewCss": ".darma-loader-darma-custom-509 {color: var(--loader-color, #0ea5e9);\n  --loader-secondary-color: #67e8f9;\n  --loader-bg: #ffffff;\n   width: 16px;\n   aspect-ratio: 1;\n   background: var(--loader-color, #0ea5e9);\n   position: relative;\n   animation: darma-loader-darma-custom-509-l5-0 2s infinite linear;\n}\n.darma-loader-darma-custom-509:before  {\n  content: \"\";\n   position: absolute;\n   inset: 0;\n   background: var(--loader-secondary-color, #67e8f9);\n   transform: translate(30px) rotate(0);\n   animation: darma-loader-darma-custom-509-l5-1 .5s infinite }\n@keyframes darma-loader-darma-custom-509-l5-0  {\n  100% {transform: rotate(1turn)}\n}\n@keyframes darma-loader-darma-custom-509-l5-1  {\n  100% {transform: translate(30px) rotate(.25turn)}\n}",
+  "defaults": {
+    "color": "#0ea5e9",
+    "secondaryColor": "#67e8f9",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-509\"></div>",
+    "css": ".darma-loader-darma-custom-509 {color: var(--loader-color, #0ea5e9);\n  --loader-secondary-color: #67e8f9;\n  --loader-bg: #ffffff;\n   width: 16px;\n   aspect-ratio: 1;\n   background: var(--loader-color, #0ea5e9);\n   position: relative;\n   animation: darma-loader-darma-custom-509-l5-0 2s infinite linear;\n}\n.darma-loader-darma-custom-509:before  {\n  content: \"\";\n   position: absolute;\n   inset: 0;\n   background: var(--loader-secondary-color, #67e8f9);\n   transform: translate(30px) rotate(0);\n   animation: darma-loader-darma-custom-509-l5-1 .5s infinite }\n@keyframes darma-loader-darma-custom-509-l5-0  {\n  100% {transform: rotate(1turn)}\n}\n@keyframes darma-loader-darma-custom-509-l5-1  {\n  100% {transform: translate(30px) rotate(.25turn)}\n}",
+    "react": "export default function DarmaCustom509Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-509\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "id": "darma-custom-451",
+  "name": "Shape Morph 01",
+  "category": "creative",
+  "tags": [
+    "shape",
+    "morph",
+    "01",
+    "outline",
+    "geometric",
+    "creative",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-451 shape morph 01 creative shape morph 01 outline geometric creative loader css-only single-element batch-07 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-451\"></div>",
+  "previewCss": ".darma-loader-darma-custom-451 {color: var(--loader-color, #0284c7);\n  --loader-secondary-color: #7dd3fc;\n  --loader-bg: #ffffff;\n   width: 35px;\n   aspect-ratio: 1;\n   border: 3px solid currentColor;\n   animation: darma-loader-darma-custom-451-l1 2s infinite;\n}\n@keyframes darma-loader-darma-custom-451-l1  {\n  0% {border-radius:50% 50% 0 0 }\n25% {border-radius:0 50% 50% 0 }\n50% {border-radius:0 0 50% 50%}\n75% {border-radius:50% 0 0 50%}\n100% {border-radius:50% 50% 0 0 }\n}",
+  "defaults": {
+    "color": "#0284c7",
+    "secondaryColor": "#7dd3fc",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-451\"></div>",
+    "css": ".darma-loader-darma-custom-451 {color: var(--loader-color, #0284c7);\n  --loader-secondary-color: #7dd3fc;\n  --loader-bg: #ffffff;\n   width: 35px;\n   aspect-ratio: 1;\n   border: 3px solid currentColor;\n   animation: darma-loader-darma-custom-451-l1 2s infinite;\n}\n@keyframes darma-loader-darma-custom-451-l1  {\n  0% {border-radius:50% 50% 0 0 }\n25% {border-radius:0 50% 50% 0 }\n50% {border-radius:0 0 50% 50%}\n75% {border-radius:50% 0 0 50%}\n100% {border-radius:50% 50% 0 0 }\n}",
+    "react": "export default function DarmaCustom451Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-451\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "id": "darma-custom-038",
+  "name": "Rounded Step Fill",
+  "category": "progress",
+  "tags": [
+    "rounded",
+    "steps",
+    "fill",
+    "progress",
+    "pill",
+    "batch-02"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 120px;\n  height: 20px;\n  border-radius: 20px;\n  background:\n    linear-gradient(#ffa500 0 0) 0/0% no-repeat\n    #add8e6;\n  animation: l2 2s infinite steps(10);\n}\n@keyframes l2 {\n  100% { background-size: 110%; }\n}\n",
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#ffa500",
+    "secondaryColor": "#add8e6",
+    "size": 120,
+    "speed": 2,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": true,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

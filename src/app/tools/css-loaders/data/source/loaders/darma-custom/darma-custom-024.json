@@ -1,0 +1,36 @@
+{
+  "id": "darma-custom-024",
+  "name": "Glowing Shuttle Block",
+  "category": "creative",
+  "tags": [
+    "glow",
+    "shuttle",
+    "block",
+    "clip-path",
+    "single-element",
+    "batch-02"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 20px;\n  aspect-ratio: 1;\n  background: #25b09b;\n  box-shadow: 0 0 60px 15px #25b09b;\n  transform: translate(-80px);\n  clip-path: inset(0);\n  animation:\n    l4-1 0.5s ease-in-out infinite alternate,\n    l4-2 1s ease-in-out infinite;\n}\n@keyframes l4-1 {\n  100% { transform: translateX(80px); }\n}\n@keyframes l4-2 {\n  33% { clip-path: inset(0 0 0 -100px); }\n  50% { clip-path: inset(0 0 0 0); }\n  83% { clip-path: inset(0 -100px 0 0); }\n}\n",
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#25b09b",
+    "secondaryColor": "#a5b4fc",
+    "size": 20,
+    "speed": 1,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": true,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

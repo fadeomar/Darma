@@ -1,0 +1,46 @@
+{
+  "id": "darma-custom-531",
+  "name": "Eye Blink 07",
+  "category": "fun",
+  "tags": [
+    "eye",
+    "blink",
+    "07",
+    "eyes",
+    "face",
+    "fun",
+    "minimal",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #2563eb);\n  --loader-secondary-color: #38bdf8;\n  --loader-bg: #ffffff;\n   display: inline-flex;\n   gap: 10px;\n}\n.loader:before, .loader:after  {\n  content: \"\";\n   height: 20px;\n   aspect-ratio: 1;\n   border-radius: 50%;\n   background: linear-gradient(var(--loader-secondary-color, #38bdf8) 0 0) top/100% 40% no-repeat, radial-gradient(farthest-side,currentColor 95%,#0000) 50%/8px 8px no-repeat currentColor;\n   animation: l7 1.5s infinite alternate ease-in;\n}\n@keyframes l7  {\n  0%, 70% {background-size:100% 40%,8px 8px}\n85% {background-size:100% 120%,8px 8px}\n100% {background-size:100% 40%,8px 8px}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#2563eb",
+    "secondaryColor": "#38bdf8",
+    "size": 64,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

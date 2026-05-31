@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-111",
+  "name": "Nine Tile Pulse",
+  "category": "dots",
+  "tags": [
+    "nine",
+    "tile",
+    "pulse",
+    "dots",
+    "grid",
+    "css-only",
+    "single-element",
+    "batch-03"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  --c:no-repeat linear-gradient(#ffa500 0 0);\n  background: \n    var(--c) 0 0,\n    var(--c) 0 50%,\n    var(--c) 0 100%,\n    var(--c) 50% 0,\n    var(--c) 50% 50%,\n    var(--c) 50% 100%,\n    var(--c) 100% 0,\n    var(--c) 100% 50%,\n    var(--c) 100% 100%;\n  background-size: 16px 16px;\n  animation: l31 .5s infinite alternate;\n}\n@keyframes l31 {\n  0%,20%  {width:45px;height: 45px}\n  90%,100%{width:65px;height: 65px}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#ffa500",
+    "secondaryColor": "#e5e7eb",
+    "size": 45,
+    "speed": 0.5,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

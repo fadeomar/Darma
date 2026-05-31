@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-586",
+  "name": "Color Geometry 13",
+  "category": "creative",
+  "tags": [
+    "color",
+    "geometry",
+    "13",
+    "motion",
+    "creative",
+    "tiles",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #7c3aed);\n  --loader-secondary-color: #c084fc;\n  --loader-bg: #ffffff;\n   width: 80px;\n   aspect-ratio: 1.154;\n   background: repeating-conic-gradient(from -30deg,#027B7F 0 60deg,#FFA588 0 120deg,#BF1E62 0 180deg);\n   animation: l13 1.5s infinite alternate;\n}\n@keyframes l13  {\n  0%, 10% {clip-path: polygon(50% 50%,25% 100%,25% 100%,25% 100%,25% 100%,75% 100%,75% 100%,75% 100%)}\n33%, 43% {clip-path: polygon(50% 50%,0 50% ,0 50% ,0 50% ,25% 100%,75% 100%,100% 50%,100% 50%)}\n66%, 76% {clip-path: polygon(50% 50%,25% 0 ,25% 0 ,0 50% ,25% 100%,75% 100%,100% 50%,75% 0 )}\n95%, 100% {clip-path: polygon(50% 50%,75% 0 ,25% 0 ,0 50% ,25% 100%,75% 100%,100% 50%,75% 0 )}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#7c3aed",
+    "secondaryColor": "#c084fc",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

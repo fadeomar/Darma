@@ -22,7 +22,7 @@
   },
   "searchText": "uiverse-minimal-arc minimal arc spinner minimal uiverse minimal arc loader html css react singleelement cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-uiverse-minimal-arc\"></span>",
-  "previewCss": ".darma-loader-uiverse-minimal-arc {\n  display: inline-block;\n  width: 38px;\n  height: 38px;\n  border-radius: 50%;\n  border: 3px solid color-mix(in srgb, var(--loader-color, #ef4444) 18%, transparent);\n  border-left-color: var(--loader-color, #ef4444);\n  animation: darma-loader-uiverse-minimal-arc-spin 0.7s linear infinite;\n}\n@keyframes darma-loader-uiverse-minimal-arc-spin { to { transform: rotate(360deg); } }\n",
+  "previewCss": ".darma-loader-uiverse-minimal-arc {\n  display: inline-block;\n  width: 38px;\n  height: 38px;\n  border-radius: 50%;\n  border: 3px solid color-mix(in srgb, var(--loader-color) 18%, transparent);\n  border-left-color: var(--loader-color);\n  animation: darma-loader-uiverse-minimal-arc-spin 0.7s linear infinite;\n}\n@keyframes darma-loader-uiverse-minimal-arc-spin { to { transform: rotate(360deg); } }",
   "defaults": {
     "color": "#ef4444",
     "secondaryColor": "#fecaca",
@@ -32,15 +32,15 @@
   },
   "code": {
     "html": "<span class=\"darma-loader-uiverse-minimal-arc\"></span>",
-    "css": ".darma-loader-uiverse-minimal-arc {\n  display: inline-block;\n  width: 38px;\n  height: 38px;\n  border-radius: 50%;\n  border: 3px solid color-mix(in srgb, var(--loader-color, #ef4444) 18%, transparent);\n  border-left-color: var(--loader-color, #ef4444);\n  animation: darma-loader-uiverse-minimal-arc-spin 0.7s linear infinite;\n}\n@keyframes darma-loader-uiverse-minimal-arc-spin { to { transform: rotate(360deg); } }\n",
+    "css": ".darma-loader-uiverse-minimal-arc {\n  display: inline-block;\n  width: 38px;\n  height: 38px;\n  border-radius: 50%;\n  border: 3px solid color-mix(in srgb, var(--loader-color) 18%, transparent);\n  border-left-color: var(--loader-color);\n  animation: darma-loader-uiverse-minimal-arc-spin 0.7s linear infinite;\n}\n@keyframes darma-loader-uiverse-minimal-arc-spin { to { transform: rotate(360deg); } }",
     "react": "export default function UiverseMinimalArcLoader() {\n  return (\n    <span className=\"darma-loader-uiverse-minimal-arc\"></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
-    "secondaryColor": false
+    "background": true,
+    "secondaryColor": true
   },
   "source": {
     "name": "Uiverse selected loaders",

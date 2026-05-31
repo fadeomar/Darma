@@ -1,0 +1,36 @@
+{
+  "id": "darma-custom-029",
+  "name": "Seesaw Dot Bar",
+  "category": "fun",
+  "tags": [
+    "seesaw",
+    "dots",
+    "bar",
+    "tilt",
+    "single-element",
+    "batch-02"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 80px;\n  height: 20px;\n  color: #514b82;\n  background:\n    radial-gradient(farthest-side, currentColor 98%, #0000) left/20px 20px,\n    radial-gradient(farthest-side, currentColor 98%, #0000) right/20px 20px,\n    radial-gradient(farthest-side, #000 98%, #0000) center/5px 5px,\n    linear-gradient(currentColor 0 0) center/100% 2px;\n  background-repeat: no-repeat;\n  animation: l9 1s cubic-bezier(.5, -150, .5, 150) infinite;\n}\n@keyframes l9 {\n  100% { transform: rotate(1deg); }\n}\n",
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#514b82",
+    "secondaryColor": "#000000",
+    "size": 80,
+    "speed": 1,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

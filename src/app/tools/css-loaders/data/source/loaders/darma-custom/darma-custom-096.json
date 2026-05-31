@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-096",
+  "name": "Cross Corner Expand",
+  "category": "creative",
+  "tags": [
+    "cross",
+    "corner",
+    "expand",
+    "geometric",
+    "creative",
+    "css-only",
+    "single-element",
+    "batch-03"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 40px;\n  height: 40px;\n  position: relative;\n  --c:no-repeat linear-gradient(#25b09b 0 0);\n  background:\n    var(--c) center/100% 10px,\n    var(--c) center/10px 100%;\n}\n.loader:before {\n  content:'';\n  position: absolute;\n  inset: 0;\n  background:\n    var(--c) 0    0,\n    var(--c) 100% 0,\n    var(--c) 0    100%,\n    var(--c) 100% 100%;\n  background-size: 15.5px 15.5px;\n  animation: l16 1.5s infinite cubic-bezier(0.3,1,0,1);\n}\n@keyframes l16 {\n   33%  {inset:-10px;transform: rotate(0deg)}\n   66%  {inset:-10px;transform: rotate(90deg)}\n   100% {inset:0    ;transform: rotate(90deg)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#25b09b",
+    "secondaryColor": "#e5e7eb",
+    "size": 40,
+    "speed": 1.5,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "darma-custom-014",
+  "name": "Box Shadow Step Orbit",
+  "category": "creative",
+  "tags": [
+    "shadow",
+    "steps",
+    "orbit",
+    "squares",
+    "batch-01"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 50px;\n  aspect-ratio: 1;\n  transform: translate(-100%, 100%);\n  animation: l14 2s infinite;\n}\n@keyframes l14 {\n  0% { box-shadow: 50px -50px #B5AC01, 50px -50px #ECBA09, 50px -50px #0000, 50px -50px #0000, 50px -50px #0000; }\n  25% { box-shadow: 100px -50px #0000, 50px -50px #ECBA09, 50px -50px #E86E1C, 50px -50px #0000, 50px -50px #0000; }\n  50% { box-shadow: 100px -50px #0000, 50px -100px #0000, 50px -50px #E86E1C, 50px -50px #D41E45, 50px -50px #0000; }\n  75% { box-shadow: 100px -50px #0000, 50px -100px #0000, 0 -50px #0000, 50px -50px #D41E45, 50px -50px #B5AC01; }\n  100% { box-shadow: 100px -50px #0000, 50px -100px #0000, 0 -50px #0000, 50px 0 #0000, 50px -50px #B5AC01; }\n}\n",
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#B5AC01",
+    "secondaryColor": "#ECBA09",
+    "size": 50,
+    "speed": 2,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

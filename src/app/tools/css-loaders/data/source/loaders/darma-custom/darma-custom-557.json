@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-557",
+  "name": "Micro Bar 03",
+  "category": "progress",
+  "tags": [
+    "micro",
+    "bar",
+    "03",
+    "progress",
+    "minimal",
+    "linear",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #ca8a04);\n  --loader-secondary-color: #fde047;\n  --loader-bg: #ffffff;\n   height: 9px;\n   width: 60px;\n   --c:no-repeat linear-gradient(currentColor 0 0);\n   background: var(--c), var(--c), var(--c), var(--c);\n   background-size: 26% 3px;\n   animation: l3 1s infinite;\n}\n@keyframes l3  {\n  0%, 10% {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 100%,calc(2*100%/3) 100%,calc(3*100%/3) 100%}\n17.5% {background-position: calc(0*100%/3) 0 ,calc(1*100%/3) 100%,calc(2*100%/3) 100%,calc(3*100%/3) 100%}\n25% {background-position: calc(0*100%/3) 0 ,calc(1*100%/3) 0 ,calc(2*100%/3) 100%,calc(3*100%/3) 100%}\n32.5% {background-position: calc(0*100%/3) 0 ,calc(1*100%/3) 0 ,calc(2*100%/3) 0 ,calc(3*100%/3) 100%}\n40%, 60% {background-position: calc(0*100%/3) 0 ,calc(1*100%/3) 0 ,calc(2*100%/3) 0 ,calc(3*100%/3) 0 }\n67.5% {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 0 ,calc(2*100%/3) 0 ,calc(3*100%/3) 0 }\n75% {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 100%,calc(2*100%/3) 0 ,calc(3*100%/3) 0 }\n82.5% {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 100%,calc(2*100%/3) 100%,calc(3*100%/3) 0 }\n90%, 100% {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 100%,calc(2*100%/3) 100%,calc(3*100%/3) 100%}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#ca8a04",
+    "secondaryColor": "#fde047",
+    "size": 88,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

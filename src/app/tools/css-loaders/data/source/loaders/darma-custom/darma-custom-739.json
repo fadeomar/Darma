@@ -1,0 +1,44 @@
+{
+  "id": "darma-custom-739",
+  "name": "Pattern Progress 65",
+  "category": "progress",
+  "tags": [
+    "css-only",
+    "single-element",
+    "customizable",
+    "batch-08",
+    "progress",
+    "striped",
+    "pattern",
+    "progress",
+    "loader"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: var(--loader-color, #0ea5e9);\n  --loader-secondary-color: #67e8f9;\n  --loader-bg: #ffffff;\n--s: 64px;\nwidth: var(--s);\naspect-ratio: 2;\n--_g: currentColor 90%,#0000;\nbackground:\nradial-gradient(farthest-side,var(--_g)) 0 50%/25% 50%,\nradial-gradient(farthest-side at bottom,var(--_g)) 50% calc(50% - var(--s)/16)/25% 25%,\nradial-gradient(farthest-side at top ,var(--_g)) 50% calc(50% + var(--s)/16)/25% 25%,\nradial-gradient(farthest-side at bottom,var(--_g)) 100% calc(50% - var(--s)/16)/25% 25%,\nradial-gradient(farthest-side at top ,var(--_g)) 100% calc(50% + var(--s)/16)/25% 25%;\nbackground-repeat: no-repeat;\nanimation: l14 1s infinite;\n}\n@keyframes l14 {\n25% {background-position:0 50%,50% 0,50% 100%,100% 0,100% 100%}\n50% {background-position:100% 50%,0 0,0 100%,50% 0,50% 100%}\n75%,\n100% {background-position:100% 50%,0 calc(50% - var(--s)/16),0 calc(50% + var(--s)/16),50% calc(50% - var(--s)/16),50% calc(50% + var(--s)/16)}\n}",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#0ea5e9",
+    "secondaryColor": "#67e8f9",
+    "size": 56,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

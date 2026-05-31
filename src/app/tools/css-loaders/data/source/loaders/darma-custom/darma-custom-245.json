@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-245",
+  "name": "Chevron Mask March",
+  "category": "progress",
+  "tags": [
+    "chevron",
+    "mask",
+    "march",
+    "progress",
+    "track",
+    "steps",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-05"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: var(--loader-color, #7c3aed);\n  height: 27px;\n  aspect-ratio: 5;\n  --c: currentColor 90deg,#0000 0;\n  background:\n   conic-gradient(from 135deg at top   ,var(--c)),\n   conic-gradient(from -45deg at bottom,var(--c)) 12.5% 100%;\n  background-size: 20% 50%;\n  background-repeat: repeat-x;\n  -webkit-mask: repeating-linear-gradient(90deg,currentColor 0 15%,#0000 0 50%) 0 0/200%;\n  animation: l6 .8s infinite linear;\n}\n@keyframes l6{\n  to {-webkit-mask-position:-100% 0}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#7c3aed",
+    "secondaryColor": "#c084fc",
+    "size": 84,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

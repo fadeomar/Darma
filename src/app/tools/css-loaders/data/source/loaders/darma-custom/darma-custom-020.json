@@ -1,0 +1,35 @@
+{
+  "id": "darma-custom-020",
+  "name": "Conic Sector Wipe",
+  "category": "progress",
+  "tags": [
+    "conic",
+    "sector",
+    "wipe",
+    "square",
+    "batch-01"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 70px;\n  aspect-ratio: 1;\n  background: conic-gradient(from -45deg, #8A8780 90deg, #94BA65 0 180deg, #2790B0 0 270deg, #2B4E72 0);\n  animation: l20 2s infinite;\n}\n@keyframes l20 {\n  0% { clip-path: polygon(0 0, 100% 0, 50% 50%); }\n  25% { clip-path: polygon(100% 0, 100% 100%, 50% 50%); }\n  50% { clip-path: polygon(100% 100%, 0 100%, 50% 50%); }\n  75% { clip-path: polygon(0 100%, 0 0, 50% 50%); }\n  100% { clip-path: polygon(0 0, 100% 0, 50% 50%); }\n}\n",
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#8A8780",
+    "secondaryColor": "#94BA65",
+    "size": 70,
+    "speed": 2,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": true,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

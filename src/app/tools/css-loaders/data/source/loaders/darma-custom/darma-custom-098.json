@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-098",
+  "name": "Radial Corner Burst",
+  "category": "pulse",
+  "tags": [
+    "radial",
+    "corner",
+    "burst",
+    "pulse",
+    "expand",
+    "css-only",
+    "single-element",
+    "batch-03"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 40px;\n  aspect-ratio: 1;\n  color: #f03355;\n  position: relative;\n  background: radial-gradient(10px,currentColor 94%,#0000);\n}\n.loader:before {\n  content: '';\n  position: absolute;\n  inset: 0;\n  border-radius: 50%;\n  background:\n    radial-gradient(9px at bottom right,#0000 94%,currentColor) top    left,\n    radial-gradient(9px at bottom left ,#0000 94%,currentColor) top    right,\n    radial-gradient(9px at top    right,#0000 94%,currentColor) bottom left,\n    radial-gradient(9px at top    left ,#0000 94%,currentColor) bottom right;\n  background-size: 20px 20px;\n  background-repeat: no-repeat;\n  animation: l18 1.5s infinite cubic-bezier(0.3,1,0,1);\n}\n@keyframes l18 {\n   33%  {inset:-10px;transform: rotate(0deg)}\n   66%  {inset:-10px;transform: rotate(90deg)}\n   100% {inset:0    ;transform: rotate(90deg)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#f03355",
+    "secondaryColor": "#e5e7eb",
+    "size": 40,
+    "speed": 1.5,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "id": "darma-custom-671",
+  "name": "Terminal Status",
+  "category": "minimal",
+  "tags": [
+    "rich",
+    "terminal",
+    "typing",
+    "status",
+    "text",
+    "multi-element",
+    "minimal",
+    "loader",
+    "html-css",
+    "customizable",
+    "rich-batch-01"
+  ],
+  "html": "<div class=\"terminal-loader\">\n  <div class=\"terminal-header\">\n    <div class=\"terminal-title\">Status</div>\n    <div class=\"terminal-controls\">\n      <div class=\"control close\"></div>\n      <div class=\"control minimize\"></div>\n      <div class=\"control maximize\"></div>\n    </div>\n  </div>\n  <div class=\"text\">Loading...</div>\n</div>",
+  "css": "@keyframes blinkCursor {\n  50% {\n    border-right-color: transparent;\n  }\n}\n\n@keyframes typeAndDelete {\n  0%,\n  10% {\n    width: 0;\n  }\n  45%,\n  55% {\n    width: 6.2em;\n  } /* adjust width based on content */\n  90%,\n  100% {\n    width: 0;\n  }\n}\n\n.terminal-loader {--loader-secondary-color: #10b981;\n  --loader-bg: #111827;\n  \n  border: 0.1em solid #333;\n  background-color: var(--loader-color, #22c55e);\n  color: #0f0;\n  font-family: \"Courier New\", Courier, monospace;\n  font-size: 1em;\n  padding: 1.5em 1em;\n  width: 12em;\n  box-shadow: 0 4px 8px color-mix(in srgb, var(--loader-color, #22c55e) 45%, transparent);\n  border-radius: 4px;\n  position: relative;\n  overflow: hidden;\n  box-sizing: border-box;\n}\n\n.terminal-header {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 1.5em;\n  background-color: #333;\n  border-top-left-radius: 4px;\n  border-top-right-radius: 4px;\n  padding: 0 0.4em;\n  box-sizing: border-box;\n}\n\n.terminal-controls {\n  float: right;\n}\n\n.control {\n  display: inline-block;\n  width: 0.6em;\n  height: 0.6em;\n  margin-left: 0.4em;\n  border-radius: 50%;\n  background-color: #777;\n}\n\n.control.close {\n  background-color: #e33;\n}\n\n.control.minimize {\n  background-color: #ee0;\n}\n\n.control.maximize {\n  background-color: #0b0;\n}\n\n.terminal-title {\n  float: left;\n  line-height: 1.5em;\n  color: #eee;\n}\n\n.text {\n  display: inline-block;\n  white-space: nowrap;\n  overflow: hidden;\n  border-right: 0.2em solid green; /* Cursor */\n  animation:\n    typeAndDelete 4s steps(11) infinite,\n    blinkCursor 0.5s step-end infinite alternate;\n  margin-top: 1.5em;\n}\n",
+  "source": {
+    "name": "Darma rich loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#22c55e",
+    "secondaryColor": "#10b981",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#111827"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

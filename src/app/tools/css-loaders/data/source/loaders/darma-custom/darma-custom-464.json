@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-464",
+  "name": "Weather Icon 04",
+  "category": "fun",
+  "tags": [
+    "weather",
+    "icon",
+    "04",
+    "fun",
+    "scene",
+    "illustration",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {--loader-bg: #ffffff;\n  --loader-secondary-color: #f9a8d4;\n   width: 50px;\n   aspect-ratio: 1;\n   background-color: var(--loader-color, #db2777);\n   border-radius: 50%;\n   animation: l4 3s infinite;\n}\n@keyframes l4  {\n  12.5% {background-image:radial-gradient(80% 65% at left, #0000 94%,color-mix(in srgb, currentColor 65%, transparent))}\n25% {background-image:linear-gradient(90deg,#0000 50%,color-mix(in srgb, currentColor 65%, transparent) 0)}\n37.5% {background-image:radial-gradient(80% 65% at right,color-mix(in srgb, currentColor 65%, transparent) 94%,#0000)}\n50% {background-image:linear-gradient(color-mix(in srgb, currentColor 65%, transparent) 0 0)}\n62.5% {background-image:radial-gradient(80% 65% at left, color-mix(in srgb, currentColor 65%, transparent) 94%,#0000)}\n75% {background-image:linear-gradient(-90deg,#0000 50%,color-mix(in srgb, currentColor 65%, transparent) 0)}\n87.5% {background-image:radial-gradient(80% 65% at right,#0000 94%,color-mix(in srgb, currentColor 65%, transparent))}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#db2777",
+    "secondaryColor": "#f9a8d4",
+    "size": 64,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

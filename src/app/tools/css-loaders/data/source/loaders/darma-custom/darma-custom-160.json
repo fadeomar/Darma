@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-160",
+  "name": "Matrix Blink Grid 41",
+  "category": "fun",
+  "tags": [
+    "matrix",
+    "blink",
+    "grid",
+    "41",
+    "fun",
+    "playful",
+    "motion",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: #059669;\nwidth: 70px;\nheight: 30px;\noverflow: hidden;\nposition: relative;\n}\n.loader:before {\ncontent: \"\";\nposition: absolute;\nwidth: 8px;\nheight: 8px;\nborder-radius:50%;\ninset:0;\nmargin:auto;\nbackground: currentColor;\ntransform-origin: bottom;\nanimation: l10-1 3s infinite;\n}\n.loader:after {\ncontent: \"\";\nposition: absolute;\nwidth:8px;\nheight:14px;\nbottom:calc(50% - 4px);\nbackground: currentColor;\nanimation: l10-2 3s infinite;\n}\n@keyframes l10-1 {\n0%,\n10% {transform:translate(0) scale(1) ;box-shadow: 60px 0 ,60px 0}\n20%,\n40% {transform:translate(20px) scale(1) ;box-shadow: 60px 0 ,60px 0}\n48% {transform:translate(20px) scale(1) ;box-shadow: 8px 0 ,60px 0}\n50% {transform:translate(20px) scale(1.5);box-shadow: 0 0 ,60px 0}\n58% {transform:translate(20px) scale(1.5);box-shadow: 0 0 ,8px 0}\n60%,\n70% {transform:translate(20px) scale(2) ;box-shadow: 0 0 ,0 0}\n\n85% {transform:translate(-50px) scale(2) ;box-shadow: 0 0 ,0 0}\n87% {transform:translate(-50px) scale(1) ;box-shadow: 0 0 ,0 0}\n100%{transform:translate(0) scale(1) ;box-shadow: 0 0 ,0 0}\n}\n@keyframes l10-2 {\n20%,70% {left:50%}\n0%,10%,85%,100% {left:-25px}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#059669",
+    "secondaryColor": "#34d399",
+    "size": 96,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

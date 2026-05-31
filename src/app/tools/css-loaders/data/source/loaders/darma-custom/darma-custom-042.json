@@ -1,0 +1,35 @@
+{
+  "id": "darma-custom-042",
+  "name": "Outline Pill Fill",
+  "category": "progress",
+  "tags": [
+    "outline",
+    "pill",
+    "fill",
+    "progress",
+    "batch-02"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 120px;\n  height: 22px;\n  border-radius: 20px;\n  color: #514b82;\n  border: 2px solid;\n  position: relative;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  margin: 2px;\n  inset: 0 100% 0 0;\n  border-radius: inherit;\n  background: currentColor;\n  animation: l6 2s infinite;\n}\n@keyframes l6 {\n  100% { inset: 0; }\n}\n",
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#514b82",
+    "secondaryColor": "#a5b4fc",
+    "size": 120,
+    "speed": 2,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": true,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

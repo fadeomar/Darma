@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-084",
+  "name": "Expanding Corner Arcs",
+  "category": "spinners",
+  "tags": [
+    "expanding",
+    "corner",
+    "arcs",
+    "spinner",
+    "rotation",
+    "css-only",
+    "single-element",
+    "batch-03"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 40px;\n  height: 40px;\n  color: #f03355;\n  background:\n    conic-gradient(from  -45deg at top    20px left 50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg),\n    conic-gradient(from   45deg at right  20px top  50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg),\n    conic-gradient(from  135deg at bottom 20px left 50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg),\n    conic-gradient(from -135deg at left   20px top  50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg);\n  animation: l4 1.5s infinite cubic-bezier(0.3,1,0,1);\n}\n@keyframes l4 {\n   50%  {width:60px;height: 60px;transform: rotate(180deg)}\n   100% {transform: rotate(360deg)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#f03355",
+    "secondaryColor": "#e5e7eb",
+    "size": 40,
+    "speed": 1.5,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": true,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

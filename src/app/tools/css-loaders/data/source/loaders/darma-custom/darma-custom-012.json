@@ -1,0 +1,35 @@
+{
+  "id": "darma-custom-012",
+  "name": "Mirror Stripe Blocks",
+  "category": "bars",
+  "tags": [
+    "stripes",
+    "blocks",
+    "mirror",
+    "bars",
+    "batch-01"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 50px;\n  aspect-ratio: 1;\n  display: grid;\n  --c: #CFF09E 25%, #79BD9A 0 50%, #0B486B 0 75%, #CFF09E 0;\n}\n.loader::before,\n.loader::after {\n  content: \"\";\n  background: linear-gradient(90deg, var(--c)), linear-gradient(-90deg, var(--c));\n  background-size: 400% 52%;\n  background-repeat: no-repeat;\n  animation: l13 2s infinite;\n}\n@keyframes l13 {\n  0% { background-position: calc(3 * 100% / 3) 0, calc(0 * 100% / 3) 100%; }\n  23%, 33% { background-position: calc(2 * 100% / 3) 0, calc(1 * 100% / 3) 100%; }\n  56%, 66% { background-position: calc(1 * 100% / 3) 0, calc(2 * 100% / 3) 100%; }\n  90%, 100% { background-position: calc(0 * 100% / 3) 0, calc(3 * 100% / 3) 100%; }\n}\n",
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#CFF09E",
+    "secondaryColor": "#79BD9A",
+    "size": 50,
+    "speed": 2,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "id": "darma-custom-271",
+  "name": "Gooey Wave Mask",
+  "category": "progress",
+  "tags": [
+    "gooey",
+    "wave",
+    "mask",
+    "progress",
+    "track",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-05"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: var(--loader-color, #f97316);\n  display: inline-grid;\n  padding: 5px;\n  background: var(--loader-bg, #ffffff);\n  border-radius: 999px;\n  filter: blur(4px) contrast(12);\n}\n.loader:before {\n  content: \"\";\n  height: 40px;\n  aspect-ratio: 3;\n  --c: #0000 64%,currentColor 66% 98%,#0000 101%;\n  background:\n    radial-gradient(35% 146% at 50% 159%,var(--c)) 0 0,\n    radial-gradient(35% 146% at 50% -59%,var(--c)) 100% 100%;\n  background-size: calc(200%/3) 50%;\n  background-repeat: repeat-x;\n  -webkit-mask: repeating-linear-gradient(90deg,currentColor 0 10%,#0000 0 20%);\n  animation: l12 .8s infinite linear;\n}\n@keyframes l12{\n  to {background-position: -200% 0,-100% 100%}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#f97316",
+    "secondaryColor": "#facc15",
+    "size": 84,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

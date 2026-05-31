@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-603",
+  "name": "Chain Motion 10",
+  "category": "creative",
+  "tags": [
+    "chain",
+    "motion",
+    "10",
+    "linked",
+    "creative",
+    "mechanical",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #16a34a);\n  --loader-secondary-color: #86efac;\n  --loader-bg: #ffffff;\n   width: 30px;\n   height: 60px;\n   padding-top: 60px;\n   box-sizing: border-box;\n   display: grid;\n   background: linear-gradient(currentColor 0 0) bottom/10px calc(100% - 15px), conic-gradient(from 134deg at top,#0000 ,currentColor 1deg 90deg,#0000 91deg) top/100% 15px;\n   background-origin: content-box;\n   background-repeat: no-repeat;\n   animation: l10-0 2s infinite;\n}\n.loader:before, .loader:after  {\n  content: \"\";\n   grid-area: 1/1;\n   background:inherit;\n   background-size: 10px calc(100% - 25px),100% 25px;\n   animation: l10-1 2s infinite;\n}\n.loader:after  {\n  background-size: 10px calc(100% - 30px),100% 30px;\n   animation: l10-2 2s infinite;\n}\n@keyframes l10-0  {\n  25%,100% {padding-top:0px}\n}\n@keyframes l10-1  {\n  0%,25% {margin:60px -10px 0}\n50%,100% {margin:8px -10px 0}\n}\n@keyframes l10-2  {\n  0%,50% {margin:60px -15px 0}\n75%,100% {margin:20px -15px 0}\n}\n------------------\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#16a34a",
+    "secondaryColor": "#86efac",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

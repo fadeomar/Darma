@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-578",
+  "name": "Color Geometry 05",
+  "category": "creative",
+  "tags": [
+    "color",
+    "geometry",
+    "05",
+    "motion",
+    "creative",
+    "tiles",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #059669);\n  --loader-secondary-color: #2dd4bf;\n  --loader-bg: #ffffff;\n   width: 30px;\n   aspect-ratio: 1;\n   background: var(--loader-color, #059669);\n   display: grid;\n   transform-origin: top right;\n   animation: l5-0 4s infinite linear;\n}\n.loader::before, .loader::after  {\n  content: \"\";\n   grid-area: 1/1;\n   background: var(--loader-color, #059669);\n   transform-origin: inherit;\n   animation: inherit;\n   animation-name: l5-1;\n   animation-duration: 1s;\n}\n.loader::after  {\n  background:var(--loader-color, #059669);\n   --s:60deg;\n}\n@keyframes l5-0  {\n  0%,5% {transform: rotate(0)}\n25%,30% {transform: rotate(90deg)}\n50%,55% {transform: rotate(180deg)}\n75%,80% {transform: rotate(270deg)}\n100% {transform: rotate(360deg)}\n}\n@keyframes l5-1  {\n  50% {transform: rotate(var(--s,30deg))}\n100% {transform: rotate(0)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#059669",
+    "secondaryColor": "#2dd4bf",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

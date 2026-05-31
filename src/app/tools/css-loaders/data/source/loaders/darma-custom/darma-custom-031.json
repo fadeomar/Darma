@@ -1,0 +1,36 @@
+{
+  "id": "darma-custom-031",
+  "name": "Vertical Pendulum Rod",
+  "category": "fun",
+  "tags": [
+    "vertical",
+    "pendulum",
+    "rod",
+    "swing",
+    "single-element",
+    "batch-02"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  height: 80px;\n  width: 20px;\n  color: #514b82;\n  background:\n    radial-gradient(farthest-side, currentColor 94%, #0000) top/8px 8px,\n    linear-gradient(currentColor 0 0) top/4px 70%,\n    conic-gradient(from -30deg at bottom, #0000, currentColor 2deg 58deg, #0000 60deg) bottom/100% 20px,\n    conic-gradient(from 150deg at top, #0000, currentColor 2deg 58deg, #0000 60deg) bottom 20px left 0/100% 20px;\n  background-repeat: no-repeat;\n  transform-origin: 50% 4px;\n  animation: l15 2s infinite cubic-bezier(0.5, 300, 0.5, -300);\n}\n@keyframes l15 {\n  100% { transform: rotate(0.5deg); }\n}\n",
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#514b82",
+    "secondaryColor": "#a5b4fc",
+    "size": 80,
+    "speed": 2,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

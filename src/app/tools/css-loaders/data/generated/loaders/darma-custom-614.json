@@ -1,0 +1,58 @@
+{
+  "id": "darma-custom-614",
+  "name": "Dot Matrix 01",
+  "category": "spinners",
+  "tags": [
+    "dot",
+    "matrix",
+    "01",
+    "dots",
+    "spinner",
+    "grid",
+    "border",
+    "spinners",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-614 dot matrix 01 spinners dot matrix 01 dots spinner grid border spinners loader css-only single-element batch-07 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-614\"></div>",
+  "previewCss": ".darma-loader-darma-custom-614 {color: var(--loader-color, #059669);\n  --loader-secondary-color: #2dd4bf;\n  --loader-bg: #ffffff;\n   width: 68px;\n   aspect-ratio: 1;\n   border: 8px solid #0000;\n   padding: 5px;\n   box-sizing: border-box;\n   background: radial-gradient(farthest-side,currentColor 98%,#0000 ) 0 0/20px 20px no-repeat, conic-gradient(from 90deg at 10px 10px,#0000 90deg,currentColor 0) content-box, conic-gradient(from -90deg at 40px 40px,#0000 90deg,currentColor 0) content-box, currentColor;\n   filter: blur(4px) contrast(10);\n   animation: darma-loader-darma-custom-614-l11 2s infinite;\n}\n@keyframes darma-loader-darma-custom-614-l11  {\n  0% {background-position:0 0}\n25% {background-position:100% 0}\n50% {background-position:100% 100%}\n75% {background-position:0% 100%}\n100% {background-position:0% 0}\n}",
+  "defaults": {
+    "color": "#059669",
+    "secondaryColor": "#2dd4bf",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-614\"></div>",
+    "css": ".darma-loader-darma-custom-614 {color: var(--loader-color, #059669);\n  --loader-secondary-color: #2dd4bf;\n  --loader-bg: #ffffff;\n   width: 68px;\n   aspect-ratio: 1;\n   border: 8px solid #0000;\n   padding: 5px;\n   box-sizing: border-box;\n   background: radial-gradient(farthest-side,currentColor 98%,#0000 ) 0 0/20px 20px no-repeat, conic-gradient(from 90deg at 10px 10px,#0000 90deg,currentColor 0) content-box, conic-gradient(from -90deg at 40px 40px,#0000 90deg,currentColor 0) content-box, currentColor;\n   filter: blur(4px) contrast(10);\n   animation: darma-loader-darma-custom-614-l11 2s infinite;\n}\n@keyframes darma-loader-darma-custom-614-l11  {\n  0% {background-position:0 0}\n25% {background-position:100% 0}\n50% {background-position:100% 100%}\n75% {background-position:0% 100%}\n100% {background-position:0% 0}\n}",
+    "react": "export default function DarmaCustom614Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-614\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

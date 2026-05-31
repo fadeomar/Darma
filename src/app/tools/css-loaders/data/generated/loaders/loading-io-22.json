@@ -22,16 +22,16 @@
   },
   "searchText": "loading-io-22 loading.io adapted loader 22 dots loading-io grid dots loader html css react cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-loading-io-22\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>",
-  "previewCss": ".darma-loader-loading-io-22 {\n      display: inline-grid;\n      grid-template-columns: repeat(3, 10px);\n      gap: 5px;\n    }\n    .darma-loader-loading-io-22 i {\n      width: 10px;\n      height: 10px;\n      border-radius: 4px;\n      background: var(--loader-color, #f97316);\n      animation: darma-loader-loading-io-22-gridFlash 1.05s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-22 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-22 i:nth-child(2) { animation-delay: 0.08s; }\n.darma-loader-loading-io-22 i:nth-child(3) { animation-delay: 0.16s; }\n.darma-loader-loading-io-22 i:nth-child(4) { animation-delay: 0.08s; }\n.darma-loader-loading-io-22 i:nth-child(5) { animation-delay: 0.16s; }\n.darma-loader-loading-io-22 i:nth-child(6) { animation-delay: 0.24s; }\n.darma-loader-loading-io-22 i:nth-child(7) { animation-delay: 0.16s; }\n.darma-loader-loading-io-22 i:nth-child(8) { animation-delay: 0.24s; }\n.darma-loader-loading-io-22 i:nth-child(9) { animation-delay: 0.32s; }\n    @keyframes darma-loader-loading-io-22-gridFlash { 0%, 70%, 100% { opacity: .25; transform: scale(.75); } 35% { opacity: 1; transform: scale(1); } }\n",
+  "previewCss": ".darma-loader-loading-io-22 {\n      display: inline-grid;\n      grid-template-columns: repeat(3, 10px);\n      gap: 5px;\n    }\n    .darma-loader-loading-io-22 i {\n      width: 10px;\n      height: 10px;\n      border-radius: 4px;\n      background: var(--loader-color);\n      animation: darma-loader-loading-io-22-gridFlash 1.05s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-22 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-22 i:nth-child(2) { animation-delay: 0.08s; }\n.darma-loader-loading-io-22 i:nth-child(3) { animation-delay: 0.16s; }\n.darma-loader-loading-io-22 i:nth-child(4) { animation-delay: 0.08s; }\n.darma-loader-loading-io-22 i:nth-child(5) { animation-delay: 0.16s; }\n.darma-loader-loading-io-22 i:nth-child(6) { animation-delay: 0.24s; }\n.darma-loader-loading-io-22 i:nth-child(7) { animation-delay: 0.16s; }\n.darma-loader-loading-io-22 i:nth-child(8) { animation-delay: 0.24s; }\n.darma-loader-loading-io-22 i:nth-child(9) { animation-delay: 0.32s; }\n    @keyframes darma-loader-loading-io-22-gridFlash { 0%, 70%, 100% { opacity: .25; transform: scale(.75); } 35% { opacity: 1; transform: scale(1); } }",
   "defaults": {
     "color": "#f97316",
     "secondaryColor": "#fed7aa",
     "size": 60,
-    "speed": 1
+    "speed": 1.0
   },
   "code": {
     "html": "<span class=\"darma-loader-loading-io-22\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>",
-    "css": ".darma-loader-loading-io-22 {\n      display: inline-grid;\n      grid-template-columns: repeat(3, 10px);\n      gap: 5px;\n    }\n    .darma-loader-loading-io-22 i {\n      width: 10px;\n      height: 10px;\n      border-radius: 4px;\n      background: var(--loader-color, #f97316);\n      animation: darma-loader-loading-io-22-gridFlash 1.05s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-22 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-22 i:nth-child(2) { animation-delay: 0.08s; }\n.darma-loader-loading-io-22 i:nth-child(3) { animation-delay: 0.16s; }\n.darma-loader-loading-io-22 i:nth-child(4) { animation-delay: 0.08s; }\n.darma-loader-loading-io-22 i:nth-child(5) { animation-delay: 0.16s; }\n.darma-loader-loading-io-22 i:nth-child(6) { animation-delay: 0.24s; }\n.darma-loader-loading-io-22 i:nth-child(7) { animation-delay: 0.16s; }\n.darma-loader-loading-io-22 i:nth-child(8) { animation-delay: 0.24s; }\n.darma-loader-loading-io-22 i:nth-child(9) { animation-delay: 0.32s; }\n    @keyframes darma-loader-loading-io-22-gridFlash { 0%, 70%, 100% { opacity: .25; transform: scale(.75); } 35% { opacity: 1; transform: scale(1); } }\n",
+    "css": ".darma-loader-loading-io-22 {\n      display: inline-grid;\n      grid-template-columns: repeat(3, 10px);\n      gap: 5px;\n    }\n    .darma-loader-loading-io-22 i {\n      width: 10px;\n      height: 10px;\n      border-radius: 4px;\n      background: var(--loader-color);\n      animation: darma-loader-loading-io-22-gridFlash 1.05s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-22 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-22 i:nth-child(2) { animation-delay: 0.08s; }\n.darma-loader-loading-io-22 i:nth-child(3) { animation-delay: 0.16s; }\n.darma-loader-loading-io-22 i:nth-child(4) { animation-delay: 0.08s; }\n.darma-loader-loading-io-22 i:nth-child(5) { animation-delay: 0.16s; }\n.darma-loader-loading-io-22 i:nth-child(6) { animation-delay: 0.24s; }\n.darma-loader-loading-io-22 i:nth-child(7) { animation-delay: 0.16s; }\n.darma-loader-loading-io-22 i:nth-child(8) { animation-delay: 0.24s; }\n.darma-loader-loading-io-22 i:nth-child(9) { animation-delay: 0.32s; }\n    @keyframes darma-loader-loading-io-22-gridFlash { 0%, 70%, 100% { opacity: .25; transform: scale(.75); } 35% { opacity: 1; transform: scale(1); } }",
     "react": "export default function LoadingIo22Loader() {\n  return (\n    <span className=\"darma-loader-loading-io-22\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>\n  );\n}\n"
   },
   "controls": {
@@ -39,7 +39,7 @@
     "size": true,
     "speed": true,
     "background": false,
-    "secondaryColor": false
+    "secondaryColor": true
   },
   "source": {
     "name": "loading.io CSS Spinner",

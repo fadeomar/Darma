@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-090",
+  "name": "Butterfly Triangle Flip",
+  "category": "creative",
+  "tags": [
+    "butterfly",
+    "triangle",
+    "flip",
+    "geometric",
+    "creative",
+    "css-only",
+    "single-element",
+    "batch-03"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  display: flex;\n  width: 50px;\n  aspect-ratio: 1;\n  animation: l10-0 1.5s infinite linear;\n}\n.loader:before,\n.loader:after {\n  content: \"\";\n  width: 50%;\n  background: #514b82;\n  clip-path: polygon(0 0,100% 50%,0% 100%);\n  animation: inherit;\n  animation-name: l10-1;\n  transform-origin: bottom left;\n}\n.loader:before {\n  clip-path: polygon(0 50%,100% 0,100% 100%);\n  transform-origin: bottom right;\n  --s:-1;\n}\n@keyframes l10-0 {\n  0%,34.99% {transform: scaley(1)}\n  35%,70%   {transform: scaley(-1)}\n  90%,100%  {transform: scaley(-1) rotate(180deg)}\n}\n\n@keyframes l10-1 {\n  0%,10%,70%,100%{transform:translateY(-100%) rotate(calc(var(--s,1)*135deg))}\n  35%            {transform:translateY(0%)    rotate(0deg)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#514b82",
+    "secondaryColor": "#e5e7eb",
+    "size": 50,
+    "speed": 1.5,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

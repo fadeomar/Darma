@@ -1,0 +1,55 @@
+{
+  "id": "darma-custom-285",
+  "name": "Star Orbit Wheel",
+  "category": "creative",
+  "tags": [
+    "star",
+    "orbit",
+    "wheel",
+    "gear",
+    "creative",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-05"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-285 star orbit wheel creative star orbit wheel gear creative loader css-only single-element batch-05 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-285\"></div>",
+  "previewCss": ".darma-loader-darma-custom-285 {\n  color: var(--loader-color, #e11d48);\n  display: inline-grid;\n  width: 68px;\n  aspect-ratio: 1;\n  animation: darma-loader-darma-custom-285-l10-0 6s linear infinite;\n}\n.darma-loader-darma-custom-285:before,\n.darma-loader-darma-custom-285:after {\n  content: \"\";\n  grid-area: 1/1;\n}\n.darma-loader-darma-custom-285:before {\n  clip-path: polygon(100% 50%,83.81% 59.06%,93.3% 75%,74.75% 74.75%,75% 93.3%,59.06% 83.81%,50% 100%,40.94% 83.81%,25% 93.3%,25.25% 74.75%,6.7% 75%,16.19% 59.06%,0% 50%,16.19% 40.94%,6.7% 25%,25.25% 25.25%,25% 6.7%,40.94% 16.19%,50% 0%,59.06% 16.19%,75% 6.7%,74.75% 25.25%,93.3% 25%,83.81% 40.94%);\n  background: var(--loader-secondary-color, #fb7185);\n  transform: rotate(0turn) translate(-12.5%) rotate(0turn);\n  animation: darma-loader-darma-custom-285-l10-1 2s linear infinite;\n}\n.darma-loader-darma-custom-285:after {\n  margin: 12.5%;\n  clip-path: polygon(100% 50%,78.19% 60.26%,88.3% 82.14%,65% 75.98%,58.68% 99.24%,44.79% 79.54%,25% 93.3%,27.02% 69.28%,3.02% 67.1%,20% 50%,3.02% 32.9%,27.02% 30.72%,25% 6.7%,44.79% 20.46%,58.68% 0.76%,65% 24.02%,88.3% 17.86%,78.19% 39.74%);\n  background: var(--loader-color, #e11d48);\n}\n@keyframes darma-loader-darma-custom-285-l10-0 {to{rotate: 1turn;}}\n@keyframes darma-loader-darma-custom-285-l10-1 {to{transform: rotate(-1turn) translate(-12.5%) rotate(.75turn);}}",
+  "defaults": {
+    "color": "#e11d48",
+    "secondaryColor": "#fb7185",
+    "size": 64,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-285\"></div>",
+    "css": ".darma-loader-darma-custom-285 {\n  color: var(--loader-color, #e11d48);\n  display: inline-grid;\n  width: 68px;\n  aspect-ratio: 1;\n  animation: darma-loader-darma-custom-285-l10-0 6s linear infinite;\n}\n.darma-loader-darma-custom-285:before,\n.darma-loader-darma-custom-285:after {\n  content: \"\";\n  grid-area: 1/1;\n}\n.darma-loader-darma-custom-285:before {\n  clip-path: polygon(100% 50%,83.81% 59.06%,93.3% 75%,74.75% 74.75%,75% 93.3%,59.06% 83.81%,50% 100%,40.94% 83.81%,25% 93.3%,25.25% 74.75%,6.7% 75%,16.19% 59.06%,0% 50%,16.19% 40.94%,6.7% 25%,25.25% 25.25%,25% 6.7%,40.94% 16.19%,50% 0%,59.06% 16.19%,75% 6.7%,74.75% 25.25%,93.3% 25%,83.81% 40.94%);\n  background: var(--loader-secondary-color, #fb7185);\n  transform: rotate(0turn) translate(-12.5%) rotate(0turn);\n  animation: darma-loader-darma-custom-285-l10-1 2s linear infinite;\n}\n.darma-loader-darma-custom-285:after {\n  margin: 12.5%;\n  clip-path: polygon(100% 50%,78.19% 60.26%,88.3% 82.14%,65% 75.98%,58.68% 99.24%,44.79% 79.54%,25% 93.3%,27.02% 69.28%,3.02% 67.1%,20% 50%,3.02% 32.9%,27.02% 30.72%,25% 6.7%,44.79% 20.46%,58.68% 0.76%,65% 24.02%,88.3% 17.86%,78.19% 39.74%);\n  background: var(--loader-color, #e11d48);\n}\n@keyframes darma-loader-darma-custom-285-l10-0 {to{rotate: 1turn;}}\n@keyframes darma-loader-darma-custom-285-l10-1 {to{transform: rotate(-1turn) translate(-12.5%) rotate(.75turn);}}",
+    "react": "export default function DarmaCustom285Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-285\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

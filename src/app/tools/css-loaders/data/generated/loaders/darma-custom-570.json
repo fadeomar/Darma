@@ -1,0 +1,55 @@
+{
+  "id": "darma-custom-570",
+  "name": "Mask Reveal 06",
+  "category": "pulse",
+  "tags": [
+    "mask",
+    "reveal",
+    "06",
+    "pulse",
+    "shape",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-570 mask reveal 06 pulse mask reveal 06 pulse shape loader css-only single-element batch-07 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-570\"></div>",
+  "previewCss": ".darma-loader-darma-custom-570 {color: var(--loader-color, #f97316);\n  --loader-secondary-color: #facc15;\n  --loader-bg: #ffffff;\n   width: 74px;\n   height: calc(27px*0.866 + 6px);\n   display: grid;\n}\n.darma-loader-darma-custom-570:before, .darma-loader-darma-custom-570:after  {\n  content: \"\";\n   grid-area: 1/1;\n   background:var(--loader-color, #f97316);\n   --c1:conic-gradient(from 150deg at top ,currentColor 60deg,#0000 0);\n   --c2:conic-gradient(from -30deg at bottom,currentColor 60deg,#0000 0);\n   --s:27px calc(27px*0.866);\n   clip-path: polygon(17px 0,calc(100% - 17px) 0,100% 100%,0 100%);\n   -webkit-mask: var(--c1) left 6px top 4px, var(--c2) center, var(--c1) right 6px top 4px, linear-gradient(currentColor 0 0);\n   -webkit-mask-composite:xor;\n   mask-composite:exclude;\n   -webkit-mask-repeat:no-repeat;\n   animation: darma-loader-darma-custom-570-l6 2s infinite both;\n}\n.darma-loader-darma-custom-570:after  {\n  transform: rotate(180deg);\n   transform-origin: 50% 99%;\n   animation-delay: 0.5s;\n}\n@keyframes darma-loader-darma-custom-570-l6  {\n  0% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,auto}\n8.33% {-webkit-mask-size:var(--s),0 0 ,0 0 ,auto}\n16.67%{-webkit-mask-size:var(--s),var(--s),0 0 ,auto}\n25%, 50% {-webkit-mask-size:var(--s),var(--s),var(--s),auto}\n58.33%{-webkit-mask-size:0 0 ,var(--s),var(--s),auto}\n66.67%{-webkit-mask-size:0 0 ,0 0 ,var(--s),auto}\n75%, 100% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,auto}\n}",
+  "defaults": {
+    "color": "#f97316",
+    "secondaryColor": "#facc15",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-570\"></div>",
+    "css": ".darma-loader-darma-custom-570 {color: var(--loader-color, #f97316);\n  --loader-secondary-color: #facc15;\n  --loader-bg: #ffffff;\n   width: 74px;\n   height: calc(27px*0.866 + 6px);\n   display: grid;\n}\n.darma-loader-darma-custom-570:before, .darma-loader-darma-custom-570:after  {\n  content: \"\";\n   grid-area: 1/1;\n   background:var(--loader-color, #f97316);\n   --c1:conic-gradient(from 150deg at top ,currentColor 60deg,#0000 0);\n   --c2:conic-gradient(from -30deg at bottom,currentColor 60deg,#0000 0);\n   --s:27px calc(27px*0.866);\n   clip-path: polygon(17px 0,calc(100% - 17px) 0,100% 100%,0 100%);\n   -webkit-mask: var(--c1) left 6px top 4px, var(--c2) center, var(--c1) right 6px top 4px, linear-gradient(currentColor 0 0);\n   -webkit-mask-composite:xor;\n   mask-composite:exclude;\n   -webkit-mask-repeat:no-repeat;\n   animation: darma-loader-darma-custom-570-l6 2s infinite both;\n}\n.darma-loader-darma-custom-570:after  {\n  transform: rotate(180deg);\n   transform-origin: 50% 99%;\n   animation-delay: 0.5s;\n}\n@keyframes darma-loader-darma-custom-570-l6  {\n  0% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,auto}\n8.33% {-webkit-mask-size:var(--s),0 0 ,0 0 ,auto}\n16.67%{-webkit-mask-size:var(--s),var(--s),0 0 ,auto}\n25%, 50% {-webkit-mask-size:var(--s),var(--s),var(--s),auto}\n58.33%{-webkit-mask-size:0 0 ,var(--s),var(--s),auto}\n66.67%{-webkit-mask-size:0 0 ,0 0 ,var(--s),auto}\n75%, 100% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,auto}\n}",
+    "react": "export default function DarmaCustom570Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-570\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

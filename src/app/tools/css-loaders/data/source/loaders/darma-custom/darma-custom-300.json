@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-300",
+  "name": "Text Cursor Sweep",
+  "category": "minimal",
+  "tags": [
+    "text",
+    "cursor",
+    "sweep",
+    "loading",
+    "typography",
+    "minimal",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-05"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: fit-content;\n  font-size: 34px;\n  font-family: monospace;\n  font-weight: bold;\n  text-transform: uppercase;\n  color: #0000;\n  -webkit-text-stroke: 1px var(--loader-color, #9333ea);\n  background: linear-gradient(90deg,var(--loader-color, #9333ea),var(--loader-secondary-color, #f0abfc)) -1ch/1ch 100% no-repeat text;\n  animation: l13 2s steps(8,jump-none) infinite;\n}\n.loader:before {\n  content: \"Loading\";\n}\n@keyframes l13 {\n  to {background-position: 100%}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#9333ea",
+    "secondaryColor": "#f0abfc",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

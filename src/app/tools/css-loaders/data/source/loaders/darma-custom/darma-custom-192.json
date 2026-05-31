@@ -1,0 +1,44 @@
+{
+  "id": "darma-custom-192",
+  "name": "Matrix Blink Grid 11",
+  "category": "creative",
+  "tags": [
+    "matrix",
+    "blink",
+    "grid",
+    "11",
+    "creative",
+    "motion",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: #0ea5e9;\nwidth: 17px;\naspect-ratio: 1;\nborder-radius: 50%;\nbackground: currentColor;\ndisplay: grid;\nanimation: l22-0 2s infinite linear;\n}\n.loader:before,\n.loader:after {\ncontent: \"\";\ngrid-area: 1/1;\nmargin: 15%;\nborder-radius: 50%;\nbackground: inherit;\ntransform: rotate(0deg) translate(150%);\nanimation: l22 1s infinite;\n}\n.loader:after {\nanimation-delay: -.5s\n}\n@keyframes l22-0 {\n100% {transform: rotate(1turn)}\n}\n@keyframes l22 {\n100% {transform: rotate(1turn) translate(150%)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#0ea5e9",
+    "secondaryColor": "#38bdf8",
+    "size": 32,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

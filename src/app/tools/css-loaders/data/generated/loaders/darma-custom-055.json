@@ -1,0 +1,48 @@
+{
+  "id": "darma-custom-055",
+  "name": "Heart Fill Loader",
+  "category": "fun",
+  "tags": [
+    "heart",
+    "fill",
+    "mask",
+    "fun",
+    "progress",
+    "batch-02"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": true,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-055 heart fill loader fun heart fill mask fun progress batch-02 html css react popular singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-055\"></div>",
+  "previewCss": ".darma-loader-darma-custom-055 {\n  width: 60px;\n  aspect-ratio: 1;\n  background: linear-gradient(#dc1818 0 0) bottom/100% 0% no-repeat #ccc;\n  -webkit-mask:\n    radial-gradient(circle at 60% 65%, #000 62%, #0000 65%) top left,\n    radial-gradient(circle at 40% 65%, #000 62%, #0000 65%) top right,\n    linear-gradient(to bottom left, #000 42%, #0000 43%) bottom left,\n    linear-gradient(to bottom right, #000 42%, #0000 43%) bottom right;\n  -webkit-mask-size: 50% 50%;\n  -webkit-mask-repeat: no-repeat;\n  animation: darma-loader-darma-custom-055-l19 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-055-l19 {\n  90%, 100% { background-size: 100% 100%; }\n}",
+  "defaults": {
+    "color": "#dc1818",
+    "secondaryColor": "#cccccc",
+    "size": 60,
+    "speed": 2,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-055\"></div>",
+    "css": ".darma-loader-darma-custom-055 {\n  width: 60px;\n  aspect-ratio: 1;\n  background: linear-gradient(#dc1818 0 0) bottom/100% 0% no-repeat #ccc;\n  -webkit-mask:\n    radial-gradient(circle at 60% 65%, #000 62%, #0000 65%) top left,\n    radial-gradient(circle at 40% 65%, #000 62%, #0000 65%) top right,\n    linear-gradient(to bottom left, #000 42%, #0000 43%) bottom left,\n    linear-gradient(to bottom right, #000 42%, #0000 43%) bottom right;\n  -webkit-mask-size: 50% 50%;\n  -webkit-mask-repeat: no-repeat;\n  animation: darma-loader-darma-custom-055-l19 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-055-l19 {\n  90%, 100% { background-size: 100% 100%; }\n}",
+    "react": "export default function DarmaCustom055Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-055\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "source": {}
+}

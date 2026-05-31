@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-355",
+  "name": "Flip Tile 02",
+  "category": "creative",
+  "tags": [
+    "flip",
+    "tile",
+    "02",
+    "3d",
+    "fold",
+    "creative",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-06"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #0284c7);\n  --loader-secondary-color: #7dd3fc;\n  --loader-bg: #ffffff;\n  width: 40px;\n  aspect-ratio: 1;\n  animation:l2-1 2s infinite linear,l2-2 1s infinite steps(1) alternate;\n}@keyframes l2-1 {0% {transform: perspective(150px) rotateX( 0deg)}100% {transform: perspective(150px) rotateX(360deg)}}@keyframes l2-2 {0% {background:var(--loader-color, #0284c7)}50% {background:var(--loader-color, #0284c7)}}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#0284c7",
+    "secondaryColor": "#7dd3fc",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

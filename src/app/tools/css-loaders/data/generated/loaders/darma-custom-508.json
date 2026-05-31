@@ -1,0 +1,57 @@
+{
+  "id": "darma-custom-508",
+  "name": "Duo Block 04",
+  "category": "creative",
+  "tags": [
+    "duo",
+    "block",
+    "04",
+    "duotone",
+    "motion",
+    "creative",
+    "tiles",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-508 duo block 04 creative duo block 04 duotone motion creative tiles loader css-only single-element batch-07 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-508\"></div>",
+  "previewCss": ".darma-loader-darma-custom-508 {color: var(--loader-color, #be123c);\n  --loader-secondary-color: #fda4af;\n  --loader-bg: #ffffff;\n   width: 16px;\n   aspect-ratio: 1;\n   background: var(--loader-color, #be123c);\n   box-shadow: 30px 0 var(--loader-secondary-color, #fda4af);\n   animation: darma-loader-darma-custom-508-l4-1 1s infinite alternate, darma-loader-darma-custom-508-l4-2 .5s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-508-l4-1  {\n  0%,40% {transform: rotate(0)}\n80%,100% {transform: rotate(.5turn)}\n}\n@keyframes darma-loader-darma-custom-508-l4-2  {\n  80%,100% {box-shadow: 16px 0 var(--loader-secondary-color, #fda4af)}\n}",
+  "defaults": {
+    "color": "#be123c",
+    "secondaryColor": "#fda4af",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-508\"></div>",
+    "css": ".darma-loader-darma-custom-508 {color: var(--loader-color, #be123c);\n  --loader-secondary-color: #fda4af;\n  --loader-bg: #ffffff;\n   width: 16px;\n   aspect-ratio: 1;\n   background: var(--loader-color, #be123c);\n   box-shadow: 30px 0 var(--loader-secondary-color, #fda4af);\n   animation: darma-loader-darma-custom-508-l4-1 1s infinite alternate, darma-loader-darma-custom-508-l4-2 .5s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-508-l4-1  {\n  0%,40% {transform: rotate(0)}\n80%,100% {transform: rotate(.5turn)}\n}\n@keyframes darma-loader-darma-custom-508-l4-2  {\n  80%,100% {box-shadow: 16px 0 var(--loader-secondary-color, #fda4af)}\n}",
+    "react": "export default function DarmaCustom508Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-508\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

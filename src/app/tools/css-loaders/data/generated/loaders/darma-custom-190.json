@@ -1,0 +1,54 @@
+{
+  "id": "darma-custom-190",
+  "name": "Pill Dot Shift",
+  "category": "dots",
+  "tags": [
+    "pill",
+    "dot",
+    "shift",
+    "dots",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-190 pill dot shift dots pill dot shift dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-190\"></div>",
+  "previewCss": ".darma-loader-darma-custom-190 {\n  color: #e11d48;\nheight: 15px;\naspect-ratio: 6;\ndisplay: flex;\n}\n.darma-loader-darma-custom-190:before,\n.darma-loader-darma-custom-190:after {\ncontent: \"\";\nflex: 1;\npadding-left: calc(100%/6);\nbackground: radial-gradient(closest-side at calc(100%/3) 50%,currentColor 90%,#0000) 0/75% 100% content-box;\nanimation: darma-loader-darma-custom-190-l20 2s infinite;\n}\n.darma-loader-darma-custom-190:after {\n--_s:-1;\n}\n@keyframes darma-loader-darma-custom-190-l20 {\n0% {transform:scale(var(--_s,1)) translate(0) rotate(0)}\n25% {transform:scale(var(--_s,1)) translate(-25%) rotate(0)}\n50% {transform:scale(var(--_s,1)) translate(-25%) rotate(1turn)}\n75%,100% {transform:scale(var(--_s,1)) translate(0) rotate(1turn)}\n}",
+  "defaults": {
+    "color": "#e11d48",
+    "secondaryColor": "#fb7185",
+    "size": 90,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-190\"></div>",
+    "css": ".darma-loader-darma-custom-190 {\n  color: #e11d48;\nheight: 15px;\naspect-ratio: 6;\ndisplay: flex;\n}\n.darma-loader-darma-custom-190:before,\n.darma-loader-darma-custom-190:after {\ncontent: \"\";\nflex: 1;\npadding-left: calc(100%/6);\nbackground: radial-gradient(closest-side at calc(100%/3) 50%,currentColor 90%,#0000) 0/75% 100% content-box;\nanimation: darma-loader-darma-custom-190-l20 2s infinite;\n}\n.darma-loader-darma-custom-190:after {\n--_s:-1;\n}\n@keyframes darma-loader-darma-custom-190-l20 {\n0% {transform:scale(var(--_s,1)) translate(0) rotate(0)}\n25% {transform:scale(var(--_s,1)) translate(-25%) rotate(0)}\n50% {transform:scale(var(--_s,1)) translate(-25%) rotate(1turn)}\n75%,100% {transform:scale(var(--_s,1)) translate(0) rotate(1turn)}\n}",
+    "react": "export default function DarmaCustom190Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-190\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

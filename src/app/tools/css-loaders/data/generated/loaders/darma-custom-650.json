@@ -1,0 +1,57 @@
+{
+  "id": "darma-custom-650",
+  "name": "Neumorphic Vortex",
+  "category": "spinners",
+  "tags": [
+    "rich",
+    "neumorphic",
+    "vortex",
+    "gradient",
+    "ring",
+    "multi-element",
+    "spinners",
+    "loader",
+    "html-css",
+    "customizable",
+    "rich-batch-01"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-650 neumorphic vortex spinners rich neumorphic vortex gradient ring multi-element spinners loader html-css customizable rich-batch-01 html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-650\">\n  <div class=\"darma-loader-darma-custom-650-circle\"></div>\n</div>",
+  "previewCss": ".darma-loader-darma-custom-650 {color: var(--loader-color, #38bdf8);\n  --loader-secondary-color: #f472b6;\n  \n  position: relative;\n  width: 200px;\n  overflow: hidden;\n  height: 200px;\n  background: #c9d5e0;\n  border-radius: 50px;\n  transform-style: preserve-3d;\n  mix-blend-mode: hard-light;\n  box-shadow:\n    25px 25px 25px -5px color-mix(in srgb, var(--loader-color, #38bdf8) 45%, transparent),\n    inset 15px 15px 10px color-mix(in srgb, var(--loader-bg, #e2e8f0) 75%, transparent),\n    -15px -15px 30px color-mix(in srgb, var(--loader-bg, #e2e8f0) 55%, transparent),\n    inset -1px -1px 10px color-mix(in srgb, var(--loader-color, #38bdf8) 45%, transparent);\n}\n\n.darma-loader-darma-custom-650-circle {\n  position: absolute;\n  inset: 35px;\n  background: #acbaca;\n  border-radius: 50%;\n  transform-style: preserve-3d;\n  box-shadow:\n    5px 5px 15px 0 #152b4a66,\n    inset 5px 5px 5px color-mix(in srgb, var(--loader-bg, #e2e8f0) 55%, transparent),\n    -6px -6px 10px rgba(255, 255, 255, 1);\n}\n\n.darma-loader-darma-custom-650-circle::before {\n  content: \"\";\n  position: absolute;\n  inset: 4px;\n  background: linear-gradient(#2196f3, #e91e63);\n  mix-blend-mode: color-burn;\n  border-radius: 50%;\n  animation: darma-loader-darma-custom-650-anim 2s linear infinite;\n}\n\n.darma-loader-darma-custom-650-circle::after {\n  content: \"\";\n  position: absolute;\n  inset: 25px;\n  filter: blur(0.9px);\n  background: #acbaca;\n  border-radius: 50%;\n  z-index: 1000;\n}\n\n@keyframes darma-loader-darma-custom-650-anim {\n  0% {\n    transform: rotate(0deg);\n    filter: blur(2px);\n  }\n  100% {\n    transform: rotate(360deg);\n    filter: blur(4px);\n  }\n}",
+  "defaults": {
+    "color": "#38bdf8",
+    "secondaryColor": "#f472b6",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#e2e8f0"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-650\">\n  <div class=\"darma-loader-darma-custom-650-circle\"></div>\n</div>",
+    "css": ".darma-loader-darma-custom-650 {color: var(--loader-color, #38bdf8);\n  --loader-secondary-color: #f472b6;\n  \n  position: relative;\n  width: 200px;\n  overflow: hidden;\n  height: 200px;\n  background: #c9d5e0;\n  border-radius: 50px;\n  transform-style: preserve-3d;\n  mix-blend-mode: hard-light;\n  box-shadow:\n    25px 25px 25px -5px color-mix(in srgb, var(--loader-color, #38bdf8) 45%, transparent),\n    inset 15px 15px 10px color-mix(in srgb, var(--loader-bg, #e2e8f0) 75%, transparent),\n    -15px -15px 30px color-mix(in srgb, var(--loader-bg, #e2e8f0) 55%, transparent),\n    inset -1px -1px 10px color-mix(in srgb, var(--loader-color, #38bdf8) 45%, transparent);\n}\n\n.darma-loader-darma-custom-650-circle {\n  position: absolute;\n  inset: 35px;\n  background: #acbaca;\n  border-radius: 50%;\n  transform-style: preserve-3d;\n  box-shadow:\n    5px 5px 15px 0 #152b4a66,\n    inset 5px 5px 5px color-mix(in srgb, var(--loader-bg, #e2e8f0) 55%, transparent),\n    -6px -6px 10px rgba(255, 255, 255, 1);\n}\n\n.darma-loader-darma-custom-650-circle::before {\n  content: \"\";\n  position: absolute;\n  inset: 4px;\n  background: linear-gradient(#2196f3, #e91e63);\n  mix-blend-mode: color-burn;\n  border-radius: 50%;\n  animation: darma-loader-darma-custom-650-anim 2s linear infinite;\n}\n\n.darma-loader-darma-custom-650-circle::after {\n  content: \"\";\n  position: absolute;\n  inset: 25px;\n  filter: blur(0.9px);\n  background: #acbaca;\n  border-radius: 50%;\n  z-index: 1000;\n}\n\n@keyframes darma-loader-darma-custom-650-anim {\n  0% {\n    transform: rotate(0deg);\n    filter: blur(2px);\n  }\n  100% {\n    transform: rotate(360deg);\n    filter: blur(4px);\n  }\n}",
+    "react": "export default function DarmaCustom650Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-650\">\n  <div className=\"darma-loader-darma-custom-650-circle\"></div>\n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "source": {
+    "name": "Darma rich loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-105",
+  "name": "Triple Conic Burst",
+  "category": "spinners",
+  "tags": [
+    "triple",
+    "conic",
+    "burst",
+    "spinner",
+    "rotation",
+    "css-only",
+    "single-element",
+    "batch-03"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 40px;\n  aspect-ratio: 1;\n  position: relative;\n}\n.loader:before {\n  content: '';\n  position: absolute;\n  inset: 0;\n  border-radius: 50%;\n  --c:#0000, #f03355 1deg 120deg,#0000 121deg;\n  background:\n    conic-gradient(from 0deg,  var(--c)) top right,\n    conic-gradient(from 120deg,var(--c)) bottom,\n    conic-gradient(from 240deg,var(--c)) top left;\n  background-size: 40px 40px;\n  background-repeat: no-repeat;\n  animation: l25 2s infinite cubic-bezier(0.3,1,0,1);\n}\n@keyframes l25 {\n   33%  {inset:-8px;transform: rotate(0deg)}\n   66%  {inset:-8px;transform: rotate(180deg)}\n   100% {inset:0   ;transform: rotate(180deg)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#f03355",
+    "secondaryColor": "#e5e7eb",
+    "size": 40,
+    "speed": 2.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

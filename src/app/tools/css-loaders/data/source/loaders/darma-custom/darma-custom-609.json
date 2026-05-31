@@ -1,0 +1,46 @@
+{
+  "id": "darma-custom-609",
+  "name": "Gooey Spinner 06",
+  "category": "spinners",
+  "tags": [
+    "gooey",
+    "spinner",
+    "06",
+    "blur",
+    "blob",
+    "motion",
+    "spinners",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #4f46e5);\n  --loader-secondary-color: #a5b4fc;\n  --loader-bg: #ffffff;\n   width: 82px;\n   aspect-ratio: 1;\n   padding: 10px;\n   box-sizing: border-box;\n   display: grid;\n   background: currentColor;\n   filter: blur(3px) contrast(7) hue-rotate(290deg);\n   mix-blend-mode: darken;\n}\n.loader:before {\n  content: \"\";\n   margin: auto;\n   width: 30px;\n   height: 30px;\n   border-radius: 50%;\n   color: #ff0000;\n   background: currentColor;\n   box-shadow: -30px 0,30px 0,0 30px, 0 -30px;\n   animation: l6 1s infinite alternate;\n}\n@keyframes l6 {\n  90%,100% {box-shadow: -10px 0,10px 0,0 10px, 0 -10px;\n  transform: rotate(180deg)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#4f46e5",
+    "secondaryColor": "#a5b4fc",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

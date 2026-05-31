@@ -1,0 +1,58 @@
+{
+  "id": "darma-custom-449",
+  "name": "Dot Orbit 10",
+  "category": "spinners",
+  "tags": [
+    "dot",
+    "orbit",
+    "10",
+    "dots",
+    "ring",
+    "spinner",
+    "outline",
+    "spinners",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-449 dot orbit 10 spinners dot orbit 10 dots ring spinner outline spinners loader css-only single-element batch-07 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-449\"></div>",
+  "previewCss": ".darma-loader-darma-custom-449 {color: var(--loader-color, #ca8a04);\n  --loader-secondary-color: #fde047;\n  --loader-bg: #ffffff;\n   width: 65px;\n   aspect-ratio: 1;\n   --g: radial-gradient(farthest-side,#0000 calc(95% - 3px),currentColor calc(100% - 3px) 98%,#0000 101%) no-repeat;\n   background: var(--g), var(--g), var(--g);\n   background-size: 30px 30px;\n   animation: darma-loader-darma-custom-449-l10 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-449-l10  {\n  0%  {\n  background-position: 0 0, 0 100%, 100% 100%;\n}\n25%  {\n  background-position: 100% 0, 0 100%, 100% 100%;\n}\n50%  {\n  background-position: 100% 0, 0 0, 100% 100%;\n}\n75%  {\n  background-position: 100% 0, 0 0, 0 100%;\n}\n100%  {\n  background-position: 100% 100%, 0 0, 0 100%;\n}\n}",
+  "defaults": {
+    "color": "#ca8a04",
+    "secondaryColor": "#fde047",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-449\"></div>",
+    "css": ".darma-loader-darma-custom-449 {color: var(--loader-color, #ca8a04);\n  --loader-secondary-color: #fde047;\n  --loader-bg: #ffffff;\n   width: 65px;\n   aspect-ratio: 1;\n   --g: radial-gradient(farthest-side,#0000 calc(95% - 3px),currentColor calc(100% - 3px) 98%,#0000 101%) no-repeat;\n   background: var(--g), var(--g), var(--g);\n   background-size: 30px 30px;\n   animation: darma-loader-darma-custom-449-l10 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-449-l10  {\n  0%  {\n  background-position: 0 0, 0 100%, 100% 100%;\n}\n25%  {\n  background-position: 100% 0, 0 100%, 100% 100%;\n}\n50%  {\n  background-position: 100% 0, 0 0, 100% 100%;\n}\n75%  {\n  background-position: 100% 0, 0 0, 0 100%;\n}\n100%  {\n  background-position: 100% 100%, 0 0, 0 100%;\n}\n}",
+    "react": "export default function DarmaCustom449Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-449\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

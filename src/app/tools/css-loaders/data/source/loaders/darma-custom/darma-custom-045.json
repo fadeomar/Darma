@@ -1,0 +1,36 @@
+{
+  "id": "darma-custom-045",
+  "name": "Wavy Circle Fill",
+  "category": "progress",
+  "tags": [
+    "circle",
+    "wave",
+    "fill",
+    "radial",
+    "single-element",
+    "batch-02"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  --r1: 154%;\n  --r2: 68.5%;\n  width: 60px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background:\n    radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, #269af2 80%),\n    radial-gradient(var(--r1) var(--r2) at bottom, #269af2 79.5%, #0000 80%),\n    radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, #269af2 80%),\n    #ccc;\n  background-size: 50.5% 220%;\n  background-position: -100% 0%, 0% 0%, 100% 0%;\n  background-repeat: no-repeat;\n  animation: l9 2s infinite linear;\n}\n@keyframes l9 {\n  33% { background-position: 0% 33%, 100% 33%, 200% 33%; }\n  66% { background-position: -100% 66%, 0% 66%, 100% 66%; }\n  100% { background-position: 0% 100%, 100% 100%, 200% 100%; }\n}\n",
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#269af2",
+    "secondaryColor": "#cccccc",
+    "size": 60,
+    "speed": 2,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": true,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

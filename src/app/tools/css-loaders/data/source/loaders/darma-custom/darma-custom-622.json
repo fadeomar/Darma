@@ -1,0 +1,47 @@
+{
+  "id": "darma-custom-622",
+  "name": "Dot Matrix 09",
+  "category": "spinners",
+  "tags": [
+    "dot",
+    "matrix",
+    "09",
+    "dots",
+    "spinner",
+    "grid",
+    "border",
+    "spinners",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #7c3aed);\n  --loader-secondary-color: #c084fc;\n  --loader-bg: #ffffff;\n   width: 68px;\n   aspect-ratio: 1;\n   border: 8px solid currentColor;\n   box-sizing: border-box;\n   background: radial-gradient(farthest-side,currentColor 98%,#0000) top, radial-gradient(farthest-side,currentColor 98%,#0000) top, radial-gradient(farthest-side,currentColor 98%,#0000) left, radial-gradient(farthest-side,currentColor 98%,#0000) right, radial-gradient(farthest-side,currentColor 98%,#0000) bottom, currentColor;\n   background-size: 20px 20px;\n   background-repeat: no-repeat;\n   filter: blur(4px) contrast(10);\n   animation: l19 2s infinite;\n}\n@keyframes l19  {\n  0% {background-position:top,top,left,right,bottom}\n25% {background-position:right,top,left,right,bottom}\n50% {background-position:bottom,top,left,right,bottom}\n75% {background-position:left,top,left,right,bottom}\n100% {background-position:top,top,left,right,bottom}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#7c3aed",
+    "secondaryColor": "#c084fc",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

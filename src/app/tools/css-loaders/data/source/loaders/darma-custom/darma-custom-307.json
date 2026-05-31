@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-307",
+  "name": "Text Pyramid Flip",
+  "category": "minimal",
+  "tags": [
+    "text",
+    "pyramid",
+    "flip",
+    "loading",
+    "typography",
+    "minimal",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-05"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: fit-content;\n  font-size: 34px;\n  font-family: monospace;\n  font-weight: bold;\n  text-transform: uppercase;\n  color: #0000;\n  -webkit-text-stroke: 1px var(--loader-color, #f97316);\n  --g:linear-gradient(90deg,var(--loader-color, #f97316),var(--loader-secondary-color, #facc15)) no-repeat text;\n  background:var(--g) 0,var(--g) 1ch,var(--g) 2ch,var(--g) 3ch,var(--g) 4ch,var(--g) 5ch,var(--g) 6ch;\n  animation: \n    l20-0 1.5s linear infinite alternate,\n    l20-1 3s   linear infinite;\n}\n.loader:before {\n  content: \"Loading\";\n}\n@keyframes l20-0 {\n  0%  {background-size: 1ch 0   ,1ch 0   ,1ch 0   ,1ch 0   ,1ch 0   ,1ch 0   ,1ch 0   }\n  25% {background-size: 1ch 100%,1ch 50% ,1ch 0   ,1ch 0   ,1ch 0   ,1ch 50% ,1ch 100%}\n  50% {background-size: 1ch 100%,1ch 100%,1ch 50% ,1ch 0   ,1ch 50% ,1ch 100%,1ch 100%}\n  75% {background-size: 1ch 100%,1ch 100%,1ch 100%,1ch 50% ,1ch 100%,1ch 100%,1ch 100%}\n  to  {background-size: 1ch 100%,1ch 100%,1ch 100%,1ch 100%,1ch 100%,1ch 100%,1ch 100%}\n}\n@keyframes l20-1 {\n  0%,50%    {background-position-y: 100%}\n  50.01%,to {background-position-y: 0   }\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#f97316",
+    "secondaryColor": "#facc15",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "id": "darma-custom-489",
+  "name": "Snack Loader 03",
+  "category": "fun",
+  "tags": [
+    "snack",
+    "loader",
+    "03",
+    "food",
+    "fun",
+    "illustration",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #059669);\n  --loader-secondary-color: #2dd4bf;\n  --loader-bg: #ffffff;\n   width: 35px;\n   height: 70px;\n   position: relative;\n}\n.loader:after  {\n  content: \"\";\n   position: absolute;\n   inset: 0 0 20px;\n   border-radius: 50px 50px 10px 10px;\n   padding: 1px;\n   background: linear-gradient(var(--loader-secondary-color, #2dd4bf) 33%,var(--loader-secondary-color, #2dd4bf) 0 66%, var(--loader-secondary-color, #2dd4bf) 0) content-box;\n   --c:radial-gradient(farthest-side,currentColor 94%,#0000);\n   -webkit-mask: linear-gradient(#0000 0 0), var(--c) -10px -10px, var(--c) 15px -14px, var(--c) 9px -6px, var(--c) -12px 9px, var(--c) 14px 9px, var(--c) 23px 27px, var(--c) -8px 35px, var(--c) 50% 50%, linear-gradient(currentColor 0 0);\n   mask: linear-gradient(currentColor 0 0), var(--c) -10px -10px, var(--c) 15px -14px, var(--c) 9px -6px, var(--c) -12px 9px, var(--c) 14px 9px, var(--c) 23px 27px, var(--c) -8px 35px, var(--c) 50% 50%, linear-gradient(#0000 0 0);\n   -webkit-mask-composite: destination-out;\n   mask-composite: exclude,add,add,add,add,add,add,add,add;\n   -webkit-mask-repeat: no-repeat;\n   animation: l3 3s infinite ;\n}\n.loader:before  {\n  content: \"\";\n   position: absolute;\n   inset: 50% calc(50% - 4px) 0;\n   background: #e0a267;\n   border-radius: 50px;\n}\n@keyframes l3  {\n  0% {-webkit-mask-size: auto,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0}\n10% {-webkit-mask-size: auto,25px 25px,0 0,0 0,0 0,0 0,0 0,0 0,0 0}\n20% {-webkit-mask-size: auto,25px 25px,25px 25px,0 0,0 0,0 0,0 0,0 0,0 0}\n30% {-webkit-mask-size: auto,25px 25px,25px 25px,30px 30px,0 0,0 0,0 0,0 0,0 0}\n40% {-webkit-mask-size: auto,25px 25px,25px 25px,30px 30px,30px 30px,0 0,0 0,0 0,0 0}\n50% {-webkit-mask-size: auto,25px 25px,25px 25px,30px 30px,30px 30px,25px 25px,0 0,0 0,0 0}\n60% {-webkit-mask-size: auto,25px 25px,25px 25px,30px 30px,30px 30px,25px 25px,25px 25px,0 0,0 0}\n70% {-webkit-mask-size: auto,25px 25px,25px 25px,30px 30px,30px 30px,25px 25px,25px 25px,25px 25px,0 0}\n80%, 100% {-webkit-mask-size: auto,25px 25px,25px 25px,30px 30px,30px 30px,25px 25px,25px 25px,25px 25px,200% 200%}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#059669",
+    "secondaryColor": "#2dd4bf",
+    "size": 64,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "darma-custom-015",
+  "name": "Rounded Quadrant Bloom",
+  "category": "pulse",
+  "tags": [
+    "circle",
+    "quadrant",
+    "bloom",
+    "rounded",
+    "batch-01"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 50px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: linear-gradient(#FF003C 0 0), linear-gradient(#FF003C 0 0), linear-gradient(#FF003C 0 0), linear-gradient(#FF003C 0 0), linear-gradient(#00C176 0 0), linear-gradient(#00C176 0 0), linear-gradient(#00C176 0 0), linear-gradient(#00C176 0 0), #FF003C;\n  background-position: 0 0, 100% 0, 100% 100%, 0 100%;\n  background-repeat: no-repeat;\n  animation: l15 2s infinite;\n}\n@keyframes l15 {\n  0% { background-size: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0; }\n  40%, 50% { background-size: 0 0, 0 0, 0 0, 0 0, 51% 51%, 51% 51%, 51% 51%, 51% 51%; }\n  90%, 100% { background-size: 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%; }\n}\n",
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#FF003C",
+    "secondaryColor": "#00C176",
+    "size": 50,
+    "speed": 2,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": true,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

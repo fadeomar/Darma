@@ -1,0 +1,46 @@
+{
+  "id": "darma-custom-516",
+  "name": "Tile Path 02",
+  "category": "bars",
+  "tags": [
+    "tile",
+    "path",
+    "02",
+    "bars",
+    "blocks",
+    "minimal",
+    "grid",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #f97316);\n  --loader-secondary-color: #facc15;\n  --loader-bg: #ffffff;\n   height: 60px;\n   aspect-ratio: 1;\n   --c:no-repeat linear-gradient(currentColor 0 0);\n   background: var(--c), var(--c), var(--c), var(--c);\n   background-size: 33.4% 33.4%;\n   animation: l2 2s infinite linear;\n}\n@keyframes l2  {\n  0% {background-position:0 0 ,50% 0 ,0 50% ,50% 50%}\n12.5% {background-position:50% 0 ,100% 0 ,0 50% ,50% 50%}\n25% {background-position:50% 0 ,100% 0 ,50% 50% ,100% 50%}\n37.5% {background-position:50% 0 ,100% 50%,50% 50% ,100% 100%}\n50% {background-position:50% 50%,100% 50%,50% 100%,100% 100%}\n62.5% {background-position:50% 50%,100% 50%,0 100%,50% 100%}\n75% {background-position:0 50%,50% 50%,0 100%,50% 100%}\n87.5% {background-position:0 0 ,50% 50%,0 50% ,50% 100%}\n100% {background-position:0 0 ,50% 0 ,0 50% ,50% 50%}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#f97316",
+    "secondaryColor": "#facc15",
+    "size": 74,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

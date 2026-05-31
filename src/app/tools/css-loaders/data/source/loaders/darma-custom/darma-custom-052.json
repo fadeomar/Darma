@@ -1,0 +1,36 @@
+{
+  "id": "darma-custom-052",
+  "name": "Material Indeterminate Line",
+  "category": "progress",
+  "tags": [
+    "material",
+    "indeterminate",
+    "line",
+    "thin",
+    "progress",
+    "batch-02"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  height: 4px;\n  width: 130px;\n  --c: no-repeat linear-gradient(#6100ee 0 0);\n  background: var(--c), var(--c), #d7b8fc;\n  background-size: 60% 100%;\n  animation: l16 3s infinite;\n}\n@keyframes l16 {\n  0% { background-position: -150% 0, -150% 0; }\n  66% { background-position: 250% 0, -150% 0; }\n  100% { background-position: 250% 0, 250% 0; }\n}\n",
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#6100ee",
+    "secondaryColor": "#d7b8fc",
+    "size": 130,
+    "speed": 3,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": true,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

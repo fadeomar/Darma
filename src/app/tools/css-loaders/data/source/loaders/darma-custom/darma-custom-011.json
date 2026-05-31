@@ -1,0 +1,35 @@
+{
+  "id": "darma-custom-011",
+  "name": "Vanishing Color Stack",
+  "category": "minimal",
+  "tags": [
+    "square",
+    "stack",
+    "vanish",
+    "minimal",
+    "batch-01"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 50px;\n  aspect-ratio: 1;\n  background: linear-gradient(#ed303c 0 0), linear-gradient(#3b8183 0 0), linear-gradient(#ff9c5b 0 0) #ed303c;\n  background-position: center;\n  background-repeat: no-repeat;\n  animation: l12 2s infinite;\n}\n@keyframes l12 {\n  0% { background-size: 100% 100%, 100% 100%, 100% 100%; }\n  33% { background-size: 0 0, 100% 100%, 100% 100%; }\n  66% { background-size: 0 0, 0 0, 100% 100%; }\n  100% { background-size: 0 0, 0 0, 0 0; }\n}\n",
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#ed303c",
+    "secondaryColor": "#3b8183",
+    "size": 50,
+    "speed": 2,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

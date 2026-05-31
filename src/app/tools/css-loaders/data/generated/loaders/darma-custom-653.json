@@ -1,0 +1,57 @@
+{
+  "id": "darma-custom-653",
+  "name": "Animated Triangle Mark",
+  "category": "creative",
+  "tags": [
+    "rich",
+    "svg",
+    "triangle",
+    "brand",
+    "geometric",
+    "illustrated",
+    "creative",
+    "loader",
+    "html-css",
+    "customizable",
+    "rich-batch-01"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-653 animated triangle mark creative rich svg triangle brand geometric illustrated creative loader html-css customizable rich-batch-01 html css react cssonly customizable",
+  "previewHtml": "<div id=\"darma-loader-darma-custom-653-triangle\"\">\n  <svg data-name=\"Layer 1\" version=\"1.1\" viewBox=\"0 0 2000 2000\" class=\"darma-loader-darma-custom-653-Layer_1\">\n    <polygon\n      class=\"darma-loader-darma-custom-653-cls-1\"\n      points=\"928 781 1021 951 784.5 1371.97 1618 1371.97 1530.32 1544 509 1539 928 781\"\n    ></polygon>\n    <polygon\n      class=\"darma-loader-darma-custom-653-cls-3\"\n      points=\"1618 1371.97 784.5 1371.97 874.93 1211 1346 1211 923.1 456 1110.06 456 1618 1371.97\"\n    ></polygon>\n    <g data-name=\"Layer 2\" class=\"darma-loader-darma-custom-653-Layer_2\">\n      <polygon\n        class=\"darma-loader-darma-custom-653-cls-2\"\n        points=\"418 1372.74 509 1539 928 781 1162.32 1211 1346 1211 923.1 456 418 1372.74\"\n      ></polygon>\n    </g>\n  </svg>\n</div>",
+  "previewCss": ".darma-loader-darma-custom-653-cls-1 {color: var(--loader-color, #f97316);\n  --loader-secondary-color: #ef4444;\n  --loader-bg: #f8fafc;\n  \n  fill: #f15a24;\n  animation: darma-loader-darma-custom-653-cls1 4s ease infinite both;\n}\n\n@keyframes darma-loader-darma-custom-653-cls1 {\n  0% {\n    fill: #f15a24;\n  }\n\n  34% {\n    fill: #ed1c24;\n  }\n\n  66% {\n    fill: #f7931e;\n  }\n\n  100% {\n    fill: #f15a24;\n  }\n}\n\n.darma-loader-darma-custom-653-cls-1,\n.darma-loader-darma-custom-653-cls-2,\n.darma-loader-darma-custom-653-cls-3 {\n  stroke-width: 0px;\n}\n\n.darma-loader-darma-custom-653-cls-2 {\n  fill: #f7931e;\n  animation: darma-loader-darma-custom-653-cls2 4s ease infinite both;\n}\n\n@keyframes darma-loader-darma-custom-653-cls2 {\n  0% {\n    fill: #f7931e;\n  }\n\n  34% {\n    fill: #f15a24;\n  }\n\n  66% {\n    fill: #ed1c24;\n  }\n\n  100% {\n    fill: #f7931e;\n  }\n}\n\n.darma-loader-darma-custom-653-cls-3 {\n  fill: #ed1c24;\n  animation: darma-loader-darma-custom-653-cls3 4s ease infinite both;\n}\n\n@keyframes darma-loader-darma-custom-653-cls3 {\n  0% {\n    fill: #ed1c24;\n  }\n\n  34% {\n    fill: #f7931e;\n  }\n\n  66% {\n    fill: #f15a24;\n  }\n\n  100% {\n    fill: #ed1c24;\n  }\n}\n\n#darma-loader-darma-custom-653-triangle {\n  height: 128px;\n  width: 128px;\n  padding-top: 0;\n  animation: darma-loader-darma-custom-653-triangle 4s both infinite;\n}\n\n@keyframes darma-loader-darma-custom-653-triangle {\n  0% {\n    transform: translateY(0px);\n  }\n\n  50% {\n    transform: translateY(15px);\n  }\n\n  100% {\n    transform: translateY(0px);\n  }\n}",
+  "defaults": {
+    "color": "#f97316",
+    "secondaryColor": "#ef4444",
+    "size": 96,
+    "speed": 1.0,
+    "background": "#f8fafc"
+  },
+  "code": {
+    "html": "<div id=\"darma-loader-darma-custom-653-triangle\"\">\n  <svg data-name=\"Layer 1\" version=\"1.1\" viewBox=\"0 0 2000 2000\" class=\"darma-loader-darma-custom-653-Layer_1\">\n    <polygon\n      class=\"darma-loader-darma-custom-653-cls-1\"\n      points=\"928 781 1021 951 784.5 1371.97 1618 1371.97 1530.32 1544 509 1539 928 781\"\n    ></polygon>\n    <polygon\n      class=\"darma-loader-darma-custom-653-cls-3\"\n      points=\"1618 1371.97 784.5 1371.97 874.93 1211 1346 1211 923.1 456 1110.06 456 1618 1371.97\"\n    ></polygon>\n    <g data-name=\"Layer 2\" class=\"darma-loader-darma-custom-653-Layer_2\">\n      <polygon\n        class=\"darma-loader-darma-custom-653-cls-2\"\n        points=\"418 1372.74 509 1539 928 781 1162.32 1211 1346 1211 923.1 456 418 1372.74\"\n      ></polygon>\n    </g>\n  </svg>\n</div>",
+    "css": ".darma-loader-darma-custom-653-cls-1 {color: var(--loader-color, #f97316);\n  --loader-secondary-color: #ef4444;\n  --loader-bg: #f8fafc;\n  \n  fill: #f15a24;\n  animation: darma-loader-darma-custom-653-cls1 4s ease infinite both;\n}\n\n@keyframes darma-loader-darma-custom-653-cls1 {\n  0% {\n    fill: #f15a24;\n  }\n\n  34% {\n    fill: #ed1c24;\n  }\n\n  66% {\n    fill: #f7931e;\n  }\n\n  100% {\n    fill: #f15a24;\n  }\n}\n\n.darma-loader-darma-custom-653-cls-1,\n.darma-loader-darma-custom-653-cls-2,\n.darma-loader-darma-custom-653-cls-3 {\n  stroke-width: 0px;\n}\n\n.darma-loader-darma-custom-653-cls-2 {\n  fill: #f7931e;\n  animation: darma-loader-darma-custom-653-cls2 4s ease infinite both;\n}\n\n@keyframes darma-loader-darma-custom-653-cls2 {\n  0% {\n    fill: #f7931e;\n  }\n\n  34% {\n    fill: #f15a24;\n  }\n\n  66% {\n    fill: #ed1c24;\n  }\n\n  100% {\n    fill: #f7931e;\n  }\n}\n\n.darma-loader-darma-custom-653-cls-3 {\n  fill: #ed1c24;\n  animation: darma-loader-darma-custom-653-cls3 4s ease infinite both;\n}\n\n@keyframes darma-loader-darma-custom-653-cls3 {\n  0% {\n    fill: #ed1c24;\n  }\n\n  34% {\n    fill: #f7931e;\n  }\n\n  66% {\n    fill: #f15a24;\n  }\n\n  100% {\n    fill: #ed1c24;\n  }\n}\n\n#darma-loader-darma-custom-653-triangle {\n  height: 128px;\n  width: 128px;\n  padding-top: 0;\n  animation: darma-loader-darma-custom-653-triangle 4s both infinite;\n}\n\n@keyframes darma-loader-darma-custom-653-triangle {\n  0% {\n    transform: translateY(0px);\n  }\n\n  50% {\n    transform: translateY(15px);\n  }\n\n  100% {\n    transform: translateY(0px);\n  }\n}",
+    "react": "export default function DarmaCustom653Loader() {\n  return (\n    <div id=\"darma-loader-darma-custom-653-triangle\"\">\n  <svg data-name=\"Layer 1\" version=\"1.1\" viewBox=\"0 0 2000 2000\" class=\"darma-loader-darma-custom-653-Layer_1\">\n    <polygon\n      className=\"darma-loader-darma-custom-653-cls-1\"\n      points=\"928 781 1021 951 784.5 1371.97 1618 1371.97 1530.32 1544 509 1539 928 781\"\n    ></polygon>\n    <polygon\n      className=\"darma-loader-darma-custom-653-cls-3\"\n      points=\"1618 1371.97 784.5 1371.97 874.93 1211 1346 1211 923.1 456 1110.06 456 1618 1371.97\"\n    ></polygon>\n    <g data-name=\"Layer 2\" class=\"darma-loader-darma-custom-653-Layer_2\">\n      <polygon\n        className=\"darma-loader-darma-custom-653-cls-2\"\n        points=\"418 1372.74 509 1539 928 781 1162.32 1211 1346 1211 923.1 456 418 1372.74\"\n      ></polygon>\n    </g>\n  </svg>\n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "source": {
+    "name": "Darma rich loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "id": "darma-custom-611",
+  "name": "Gooey Spinner 08",
+  "category": "spinners",
+  "tags": [
+    "gooey",
+    "spinner",
+    "08",
+    "blur",
+    "blob",
+    "motion",
+    "spinners",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #9333ea);\n  --loader-secondary-color: #f0abfc;\n  --loader-bg: #ffffff;\n   width: 80px;\n   aspect-ratio: 1;\n   padding: 10px;\n   box-sizing: border-box;\n   background: currentColor;\n   display: grid;\n   filter: blur(5px) contrast(15) hue-rotate(250deg);\n   mix-blend-mode: darken;\n}\n.loader:before, .loader:after  {\n  content: \"\";\n   margin: 5px;\n   border-radius: 50%;\n   background: #ff00ff;\n   grid-area: 1/1;\n   -webkit-mask-size:100% 20px,100% 100%;\n   -webkit-mask-repeat:no-repeat;\n   -webkit-mask-composite:destination-out;\n   mask-composite:exclude;\n}\n.loader:before  {\n  -webkit-mask-image: linear-gradient(currentColor 0 0), linear-gradient(currentColor 0 0);\n   animation: l8-1 2s infinite;\n}\n.loader:after  {\n  -webkit-mask-image: linear-gradient(currentColor 0 0);\n   animation: l8-1 2s infinite, l8-2 .5s infinite cubic-bezier(0.5,200,0.5,-200);\n}\n@keyframes l8-1 {\n  0% {-webkit-mask-position:0 20% ,0 0}\n20% {-webkit-mask-position:0 80% ,0 0}\n40% {-webkit-mask-position:0 100%,0 0}\n60% {-webkit-mask-position:0 0% ,0 0}\n80% {-webkit-mask-position:0 35% ,0 0}\n100% {-webkit-mask-position:0 0 ,0 0}\n}\n@keyframes l8-2 {\n  100% {transform:translate(0.1px)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#9333ea",
+    "secondaryColor": "#f0abfc",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

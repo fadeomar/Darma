@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-190",
+  "name": "Pill Dot Shift",
+  "category": "dots",
+  "tags": [
+    "pill",
+    "dot",
+    "shift",
+    "dots",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: #e11d48;\nheight: 15px;\naspect-ratio: 6;\ndisplay: flex;\n}\n.loader:before,\n.loader:after {\ncontent: \"\";\nflex: 1;\npadding-left: calc(100%/6);\nbackground: radial-gradient(closest-side at calc(100%/3) 50%,currentColor 90%,#0000) 0/75% 100% content-box;\nanimation: l20 2s infinite;\n}\n.loader:after {\n--_s:-1;\n}\n@keyframes l20 {\n0% {transform:scale(var(--_s,1)) translate(0) rotate(0)}\n25% {transform:scale(var(--_s,1)) translate(-25%) rotate(0)}\n50% {transform:scale(var(--_s,1)) translate(-25%) rotate(1turn)}\n75%,100% {transform:scale(var(--_s,1)) translate(0) rotate(1turn)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#e11d48",
+    "secondaryColor": "#fb7185",
+    "size": 90,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

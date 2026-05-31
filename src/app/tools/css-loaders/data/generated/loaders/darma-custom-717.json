@@ -1,0 +1,55 @@
+{
+  "id": "darma-custom-717",
+  "name": "Geometric Pattern 43",
+  "category": "creative",
+  "tags": [
+    "css-only",
+    "single-element",
+    "customizable",
+    "batch-08",
+    "creative",
+    "geometric",
+    "pattern",
+    "creative",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-717 geometric pattern 43 creative css-only single-element customizable batch-08 creative geometric pattern creative loader html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-717\"></div>",
+  "previewCss": ".darma-loader-darma-custom-717 {\n  color: var(--loader-color, #ec4899);\n  --loader-secondary-color: #f9a8d4;\n  --loader-bg: #ffffff;\nwidth: 40px;\naspect-ratio: 1;\n--c:no-repeat linear-gradient(currentColor 0 0);\n--m:no-repeat radial-gradient(circle closest-side,#0000 92%,currentColor);\nbackground:\nvar(--c) 0 50%,\nvar(--c) 50% 50%,\nvar(--c) 100% 50%;\nbackground-size: 8px calc(50% + 8px);\n-webkit-mask: var(--m),var(--m),var(--m);\n-webkit-mask-size: 8px 150%;\nanimation: darma-loader-darma-custom-717-l12 1s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-717-l12 {\n0%,\n100% {-webkit-mask-position: 0 50% ,50% 50% ,100% 50% }\n20% {-webkit-mask-position: 0 100%,50% 50% ,100% 50% }\n40% {-webkit-mask-position: 0 0 ,50% 100%,100% 50% }\n60% {-webkit-mask-position: 0 50% ,50% 0 ,100% 100%}\n80% {-webkit-mask-position: 0 50% ,50% 50% ,100% 0 }\n}",
+  "defaults": {
+    "color": "#ec4899",
+    "secondaryColor": "#f9a8d4",
+    "size": 40,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-717\"></div>",
+    "css": ".darma-loader-darma-custom-717 {\n  color: var(--loader-color, #ec4899);\n  --loader-secondary-color: #f9a8d4;\n  --loader-bg: #ffffff;\nwidth: 40px;\naspect-ratio: 1;\n--c:no-repeat linear-gradient(currentColor 0 0);\n--m:no-repeat radial-gradient(circle closest-side,#0000 92%,currentColor);\nbackground:\nvar(--c) 0 50%,\nvar(--c) 50% 50%,\nvar(--c) 100% 50%;\nbackground-size: 8px calc(50% + 8px);\n-webkit-mask: var(--m),var(--m),var(--m);\n-webkit-mask-size: 8px 150%;\nanimation: darma-loader-darma-custom-717-l12 1s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-717-l12 {\n0%,\n100% {-webkit-mask-position: 0 50% ,50% 50% ,100% 50% }\n20% {-webkit-mask-position: 0 100%,50% 50% ,100% 50% }\n40% {-webkit-mask-position: 0 0 ,50% 100%,100% 50% }\n60% {-webkit-mask-position: 0 50% ,50% 0 ,100% 100%}\n80% {-webkit-mask-position: 0 50% ,50% 50% ,100% 0 }\n}",
+    "react": "export default function DarmaCustom717Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-717\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

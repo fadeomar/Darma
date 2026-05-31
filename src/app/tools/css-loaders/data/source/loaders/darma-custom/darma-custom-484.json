@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-484",
+  "name": "Utility Dial 08",
+  "category": "creative",
+  "tags": [
+    "utility",
+    "dial",
+    "08",
+    "clock",
+    "counter",
+    "creative",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {--loader-bg: #ffffff;\n  --loader-secondary-color: #a5b4fc;\n   width: fit-content;\n   background: currentColor;\n   padding: 0 8px;\n   font-size: 30px;\n   font-family: monospace;\n   color: var(--loader-color, #4f46e5);\n   font-weight: bold;\n   border-radius: 8px;\n   position: relative;\n}\n.loader::before {\n  content: \"08:00\";\n   white-space: pre;\n   animation: l8 .5s infinite;\n}\n.loader::after {\n  content: \"\";\n   position: absolute;\n   inset: auto auto 100% 10px;\n   height: 5px;\n   width: 40%;\n   background: linear-gradient(90deg,var(--loader-color, #4f46e5) 40%,#0000 0 60%,var(--loader-secondary-color, #a5b4fc) 0);\n}\n@keyframes l8  {\n  100% {content: \" : \"}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#4f46e5",
+    "secondaryColor": "#a5b4fc",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

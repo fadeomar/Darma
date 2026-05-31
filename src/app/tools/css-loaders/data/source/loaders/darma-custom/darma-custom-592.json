@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-592",
+  "name": "Color Geometry 19",
+  "category": "creative",
+  "tags": [
+    "color",
+    "geometry",
+    "19",
+    "motion",
+    "creative",
+    "tiles",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #ca8a04);\n  --loader-secondary-color: #fde047;\n  --loader-bg: #ffffff;\n   width: 60px;\n   aspect-ratio: 1;\n   background: linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(1*100%/3) 50%/25% 50%, linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(2*100%/3) 50%/25% 50%, linear-gradient(var(--loader-color, #ca8a04) 0 0) 50% calc(1*100%/3)/50% 25%, linear-gradient(var(--loader-color, #ca8a04) 0 0) 50% calc(2*100%/3)/50% 25%, linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(1*100%/3) calc(1*100%/3)/25% 25%, linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(2*100%/3) calc(1*100%/3)/25% 25%, linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(1*100%/3) calc(2*100%/3)/25% 25%, linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(2*100%/3) calc(2*100%/3)/25% 25%;\n   background-repeat: no-repeat;\n   animation: l19 1s infinite alternate;\n}\n@keyframes l19  {\n  90%,100%{background-position: 0 50%,100% 50%,50% 0,50% 100%,0 0,100% 0,0 100%,100% 100%}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#ca8a04",
+    "secondaryColor": "#fde047",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

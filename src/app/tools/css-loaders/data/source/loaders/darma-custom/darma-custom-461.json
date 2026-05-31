@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-461",
+  "name": "Weather Icon 01",
+  "category": "fun",
+  "tags": [
+    "weather",
+    "icon",
+    "01",
+    "fun",
+    "scene",
+    "illustration",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #7c3aed);\n  --loader-secondary-color: #c084fc;\n  --loader-bg: #ffffff;\n   width: 50px;\n   aspect-ratio: 1;\n   background: var(--loader-color, #7c3aed);\n   border-radius: 50%;\n   display: grid;\n}\n.loader::before, .loader::after  {\n  content: \"\";\n   grid-area: 1/1;\n   background: inherit;\n   clip-path: polygon(0 0,50% 40%,100% 0,60% 50%,100% 100%,50% 60%,0 100%,40% 50%);\n   animation: l1 1s infinite alternate;\n   transform: rotate(var(--r,0)) scale(1) }\n.loader::after  {\n  --r:45deg;\n}\n@keyframes l1  {\n  100% {transform:rotate(var(--r,0)) scale(1.4) }\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#7c3aed",
+    "secondaryColor": "#c084fc",
+    "size": 64,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

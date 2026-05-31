@@ -1,0 +1,44 @@
+{
+  "id": "darma-custom-722",
+  "name": "Pattern Progress 48",
+  "category": "progress",
+  "tags": [
+    "css-only",
+    "single-element",
+    "customizable",
+    "batch-08",
+    "progress",
+    "striped",
+    "pattern",
+    "progress",
+    "loader"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: var(--loader-color, #6366f1);\n  --loader-secondary-color: #a5b4fc;\n  --loader-bg: #ffffff;\nwidth: 40px;\naspect-ratio: 1;\n--c: linear-gradient(currentColor 0 0);\n--m: radial-gradient(farthest-side,currentColor 92%,#0000);\nbackground:\nvar(--c),var(--m),\nvar(--c),var(--m),\nvar(--c),var(--m);\nbackground-size: 8px 12px,8px 8px;\nbackground-repeat: no-repeat;\nanimation: l17 1s infinite linear;\n}\n@keyframes l17 {\n0%,5% {background-position: 0 50% ,0 0 ,50% 50% ,50% 0 ,100% 50% ,100% 0}\n12.5% {background-position: 0 50% ,0 calc(50% - 10px),50% 50% ,50% 0 ,100% 50% ,100% 0}\n25% {background-position: 0 calc(50% + 10px),0 50% ,50% 50% ,50% 0 ,100% 50% ,100% 0}\n37.5% {background-position: 0 calc(50% + 10px),0 50% ,50% 50% ,50% calc(50% - 10px),100% 50% ,100% 0}\n50% {background-position: 0 50% ,0 0 ,50% calc(50% + 10px),50% 50% ,100% 50% ,100% 0}\n62.5% {background-position: 0 50% ,0 0 ,50% calc(50% + 10px),50% 50% ,100% 50% ,100% calc(50% - 10px)}\n75% {background-position: 0 50% ,0 0 ,50% 50% ,50% 0 ,100% calc(50% + 10px),100% 50%}\n87.5% {background-position: 0 50% ,0 0 ,50% 50% ,50% 0 ,100% calc(50% + 10px),100% 50%}\n95%,\n100% {background-position: 0 50% ,0 0 ,50% 50% ,50% 0 ,100% 50% ,100% 0}\n}",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "secondaryColor": "#a5b4fc",
+    "size": 40,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

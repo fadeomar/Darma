@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-299",
+  "name": "Text Scanner Band",
+  "category": "minimal",
+  "tags": [
+    "text",
+    "scanner",
+    "band",
+    "loading",
+    "typography",
+    "minimal",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-05"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: fit-content;\n  font-size: 34px;\n  font-family: monospace;\n  font-weight: bold;\n  text-transform: uppercase;\n  color: #0000;\n  -webkit-text-stroke: 1px var(--loader-color, #0f766e);\n  background: linear-gradient(90deg,#0000 33%,var(--loader-color, #0f766e) 0 67%,#0000 0) 100%/300% 100% no-repeat text;\n  animation: l12 4s steps(14) infinite;\n}\n.loader:before {\n  content: \"Loading\";\n}\n@keyframes l12 {\n  to {background-position: 0}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#0f766e",
+    "secondaryColor": "#5eead4",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

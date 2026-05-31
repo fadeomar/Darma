@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-221",
+  "name": "Dot Conveyor",
+  "category": "progress",
+  "tags": [
+    "dot",
+    "conveyor",
+    "progress",
+    "bar",
+    "track",
+    "linear",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-05"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: var(--loader-color, #7c3aed);\n  width: 90px;\n  height: 14px;\n  background: radial-gradient(circle closest-side,currentColor 92%,#0000) calc(100%/3) 0/calc(100%/4) 100%;\n  animation: l2 0.5s infinite linear;\n}\n@keyframes l2 {\n    100% {background-position: 0 0}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#7c3aed",
+    "secondaryColor": "#c084fc",
+    "size": 84,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

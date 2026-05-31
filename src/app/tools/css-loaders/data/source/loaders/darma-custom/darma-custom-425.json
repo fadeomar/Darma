@@ -1,0 +1,46 @@
+{
+  "id": "darma-custom-425",
+  "name": "Line Orbit 11",
+  "category": "spinners",
+  "tags": [
+    "line",
+    "orbit",
+    "11",
+    "geometric",
+    "spinner",
+    "outline",
+    "spinners",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-06"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #ca8a04);\n  --loader-secondary-color: #fde047;\n  --loader-bg: #ffffff;\n  width: 50px;\n  aspect-ratio: 1;\n  position: relative;\n  overflow: hidden;\n  border: 2px solid;\n}.loader::before {content: \"\";\n  position: absolute;\n  inset: -48px;\n  --c: conic-gradient(from 180deg at 50% calc(100% - 2px),currentColor 90deg, #0000 0);\n  background: var(--c),var(--c);\n  background-position: 0 0,8px 0;\n  background-size: 16px 9.6px;\n  animation: l16 2s infinite;\n}@keyframes l16 {50% {background-position: 0 -9.6px ,8px 9.6px;\n   transform: rotate(90deg)}100% {background-position: 0 -19.2px,8px 19.2px;\n  transform: rotate(180deg)}}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#ca8a04",
+    "secondaryColor": "#fde047",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

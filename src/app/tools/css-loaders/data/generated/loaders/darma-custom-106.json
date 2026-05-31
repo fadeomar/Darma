@@ -1,0 +1,54 @@
+{
+  "id": "darma-custom-106",
+  "name": "Mirrored Stripe Slide",
+  "category": "bars",
+  "tags": [
+    "mirrored",
+    "stripe",
+    "slide",
+    "bars",
+    "linear",
+    "css-only",
+    "single-element",
+    "batch-03"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-106 mirrored stripe slide bars mirrored stripe slide bars linear css-only single-element batch-03 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-106\"></div>",
+  "previewCss": ".darma-loader-darma-custom-106 {\n  width: 60px;\n  aspect-ratio: 1;\n  color: #514b82;\n  position: relative;\n}\n.darma-loader-darma-custom-106::before,\n.darma-loader-darma-custom-106::after {\n  content: \"\";\n  position: absolute;\n  inset:0;\n  background:\n    linear-gradient(currentColor 0 0) 0 calc(var(--s,0)*-100%)/100% calc(100%/3),\n    repeating-linear-gradient(90deg,currentColor 0 25%,#0000 0 50%) calc(var(--s,0)*100%) 50%/calc(4*100%/3) calc(100%/3);\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-106-l26 2s infinite;\n}\n.darma-loader-darma-custom-106::after {\n  --s:-1;\n}\n@keyframes darma-loader-darma-custom-106-l26 {\n    0%,\n    10%  {transform:translateY(calc(var(--s,1)*0));   background-position: 0 calc(var(--s,0)*-100%),calc(var(--s,0)*100%) 50%}\n    33%  {transform:translateY(calc(var(--s,1)*-20%));background-position: 0 calc(var(--s,0)*-100%),calc(var(--s,0)*100%) 50%}\n    66%  {transform:translateY(calc(var(--s,1)*-20%));background-position: 0 calc(var(--s,0)*-100%),calc(var(--s,0)*100% + 100%) 50%}\n    90%,\n    100%  {transform:translateY(calc(var(--s,1)*0));  background-position: 0 calc(var(--s,0)*-100%),calc(var(--s,0)*100% + 100%) 50%}\n}",
+  "defaults": {
+    "color": "#514b82",
+    "secondaryColor": "#e5e7eb",
+    "size": 60,
+    "speed": 2.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-106\"></div>",
+    "css": ".darma-loader-darma-custom-106 {\n  width: 60px;\n  aspect-ratio: 1;\n  color: #514b82;\n  position: relative;\n}\n.darma-loader-darma-custom-106::before,\n.darma-loader-darma-custom-106::after {\n  content: \"\";\n  position: absolute;\n  inset:0;\n  background:\n    linear-gradient(currentColor 0 0) 0 calc(var(--s,0)*-100%)/100% calc(100%/3),\n    repeating-linear-gradient(90deg,currentColor 0 25%,#0000 0 50%) calc(var(--s,0)*100%) 50%/calc(4*100%/3) calc(100%/3);\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-106-l26 2s infinite;\n}\n.darma-loader-darma-custom-106::after {\n  --s:-1;\n}\n@keyframes darma-loader-darma-custom-106-l26 {\n    0%,\n    10%  {transform:translateY(calc(var(--s,1)*0));   background-position: 0 calc(var(--s,0)*-100%),calc(var(--s,0)*100%) 50%}\n    33%  {transform:translateY(calc(var(--s,1)*-20%));background-position: 0 calc(var(--s,0)*-100%),calc(var(--s,0)*100%) 50%}\n    66%  {transform:translateY(calc(var(--s,1)*-20%));background-position: 0 calc(var(--s,0)*-100%),calc(var(--s,0)*100% + 100%) 50%}\n    90%,\n    100%  {transform:translateY(calc(var(--s,1)*0));  background-position: 0 calc(var(--s,0)*-100%),calc(var(--s,0)*100% + 100%) 50%}\n}",
+    "react": "export default function DarmaCustom106Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-106\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

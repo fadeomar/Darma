@@ -1,0 +1,44 @@
+{
+  "id": "darma-custom-751",
+  "name": "Round Spinner 77",
+  "category": "spinners",
+  "tags": [
+    "css-only",
+    "single-element",
+    "customizable",
+    "batch-08",
+    "spinner",
+    "round",
+    "micro",
+    "spinners",
+    "loader"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: var(--loader-color, #8b5cf6);\n  --loader-secondary-color: #c4b5fd;\n  --loader-bg: #ffffff;\nwidth: 4px;\ncolor: currentColor;\naspect-ratio: 1;\nborder-radius: 50%;\nbox-shadow:\n19px -19px 0 0px, 38px -19px 0 0px, 57px -19px 0 0px,\n19px 0 0 5px, 38px 0 0 5px, 57px 0 0 5px,\n19px 19px 0 0px, 38px 19px 0 0px, 57px 19px 0 0px;\ntransform: translateX(-38px);\nanimation: l26 2s infinite linear;\n}\n@keyframes l26 {\n12.5% {box-shadow:\n19px -19px 0 0px, 38px -19px 0 0px, 57px -19px 0 5px,\n19px 0 0 5px, 38px 0 0 0px, 57px 0 0 5px,\n19px 19px 0 0px, 38px 19px 0 0px, 57px 19px 0 0px}\n25% {box-shadow:\n19px -19px 0 5px, 38px -19px 0 0px, 57px -19px 0 5px,\n19px 0 0 0px, 38px 0 0 0px, 57px 0 0 0px,\n19px 19px 0 0px, 38px 19px 0 5px, 57px 19px 0 0px}\n50% {box-shadow:\n19px -19px 0 5px, 38px -19px 0 5px, 57px -19px 0 0px,\n19px 0 0 0px, 38px 0 0 0px, 57px 0 0 0px,\n19px 19px 0 0px, 38px 19px 0 0px, 57px 19px 0 5px}\n62.5% {box-shadow:\n19px -19px 0 0px, 38px -19px 0 0px, 57px -19px 0 0px,\n19px 0 0 5px, 38px 0 0 0px, 57px 0 0 0px,\n19px 19px 0 0px, 38px 19px 0 5px, 57px 19px 0 5px}\n75% {box-shadow:\n19px -19px 0 0px, 38px -19px 0 5px, 57px -19px 0 0px,\n19px 0 0 0px, 38px 0 0 0px, 57px 0 0 5px,\n19px 19px 0 0px, 38px 19px 0 0px, 57px 19px 0 5px}\n87.5% {box-shadow:\n19px -19px 0 0px, 38px -19px 0 5px, 57px -19px 0 0px,\n19px 0 0 0px, 38px 0 0 5px, 57px 0 0 0px,\n19px 19px 0 5px, 38px 19px 0 0px, 57px 19px 0 0px}\n}",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#8b5cf6",
+    "secondaryColor": "#c4b5fd",
+    "size": 48,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

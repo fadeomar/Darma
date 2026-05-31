@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-091",
+  "name": "Dual Triangle Sweep",
+  "category": "spinners",
+  "tags": [
+    "dual",
+    "triangle",
+    "sweep",
+    "spinner",
+    "rotation",
+    "css-only",
+    "single-element",
+    "batch-03"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 40px;\n  aspect-ratio: 1;\n  display: grid;\n}\n.loader::before,\n.loader::after {\n  content: \"\";\n  grid-area: 1/1;\n  background: #25b09b;\n  clip-path: polygon(0 0,50% 50%, 0 100%);\n  animation: l11 2s infinite;\n}\n.loader::after {\n  animation-delay: -1.5s;\n  --s:90deg;\n}\n@keyframes l11 {\n    0%,12.5%    {transform:rotate(var(--s,0deg)) rotate(0deg)}\n    37.5%,62.5% {transform:rotate(var(--s,0deg)) rotate(-180deg)}\n    87.5%,100%  {transform:rotate(var(--s,0deg)) rotate(-360deg)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#25b09b",
+    "secondaryColor": "#e5e7eb",
+    "size": 40,
+    "speed": 5.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

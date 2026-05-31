@@ -1,0 +1,44 @@
+{
+  "id": "darma-custom-164",
+  "name": "Mirrored Stripes 39",
+  "category": "bars",
+  "tags": [
+    "mirrored",
+    "stripes",
+    "39",
+    "bar",
+    "equalizer",
+    "bars",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: #0f766e;\nwidth: 45px;\naspect-ratio: 1;\n--c: linear-gradient(135deg,currentColor,var(--loader-secondary-color));\n--m: radial-gradient(farthest-side,currentColor 92%,#0000);\nbackground:\nvar(--c),var(--m),\nvar(--c),var(--m),\nvar(--c),var(--m);\nbackground-size: 8px 15px,8px 8px;\nbackground-repeat: no-repeat;\nanimation: l14 1s infinite alternate;\n}\n@keyframes l14 {\n0%,\n10% {background-position: 0 0 ,0 100%,50% 0 ,50% 100%,100% 0 ,100% 100%}\n33% {background-position: 0 100%,0 0 ,50% 0 ,50% 100%,100% 0 ,100% 100%}\n66% {background-position: 0 100%,0 0 ,50% 100%,50% 0 ,100% 0 ,100% 100%}\n90%,\n100%{background-position: 0 100%,0 0 ,50% 100%,50% 0 ,100% 100%,100% 0 }\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#0f766e",
+    "secondaryColor": "#2dd4bf",
+    "size": 45,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

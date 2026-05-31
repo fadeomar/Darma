@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-589",
+  "name": "Color Geometry 16",
+  "category": "creative",
+  "tags": [
+    "color",
+    "geometry",
+    "16",
+    "motion",
+    "creative",
+    "tiles",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #db2777);\n  --loader-secondary-color: #f9a8d4;\n  --loader-bg: #ffffff;\n   width: 64px;\n   aspect-ratio: 1;\n   background: radial-gradient(farthest-side at bottom right,var(--loader-color, #db2777) 90%,#0000), radial-gradient(farthest-side at bottom left ,var(--loader-color, #db2777) 90%,#0000), radial-gradient(farthest-side at top right,var(--loader-color, #db2777) 90%,#0000), radial-gradient(farthest-side at top left ,var(--loader-color, #db2777) 90%,#0000), radial-gradient(farthest-side at bottom right,var(--loader-secondary-color, #f9a8d4) 90%,#0000), radial-gradient(farthest-side at bottom left ,var(--loader-secondary-color, #f9a8d4) 90%,#0000), radial-gradient(farthest-side at top right,var(--loader-secondary-color, #f9a8d4) 90%,#0000), radial-gradient(farthest-side at top left ,var(--loader-secondary-color, #f9a8d4) 90%,#0000), radial-gradient(farthest-side at bottom right,var(--loader-secondary-color, #f9a8d4) 90%,#0000), radial-gradient(farthest-side at bottom left ,var(--loader-secondary-color, #f9a8d4) 90%,#0000), radial-gradient(farthest-side at top right,var(--loader-secondary-color, #f9a8d4) 90%,#0000), radial-gradient(farthest-side at top left ,var(--loader-secondary-color, #f9a8d4) 90%,#0000);\n   background-size: 25% 25%;\n   background-repeat: no-repeat;\n   animation: l16 2s infinite;\n}\n@keyframes l16 {\n  0% {background-position: calc(1*100%/3) calc(1*100%/3), calc(2*100%/3) calc(1*100%/3), calc(1*100%/3) calc(2*100%/3), calc(2*100%/3) calc(2*100%/3), calc(1*100%/3) calc(1*100%/3), calc(2*100%/3) calc(1*100%/3), calc(1*100%/3) calc(2*100%/3), calc(2*100%/3) calc(2*100%/3), calc(1*100%/3) calc(1*100%/3), calc(2*100%/3) calc(1*100%/3), calc(1*100%/3) calc(2*100%/3), calc(2*100%/3) calc(2*100%/3)}\n16.67% {background-position: calc(0*100%/3) calc(0*100%/3), calc(3*100%/3) calc(0*100%/3), calc(0*100%/3) calc(3*100%/3), calc(3*100%/3) calc(3*100%/3), calc(1*100%/3) calc(1*100%/3), calc(2*100%/3) calc(1*100%/3), calc(1*100%/3) calc(2*100%/3), calc(2*100%/3) calc(2*100%/3), calc(1*100%/3) calc(1*100%/3), calc(2*100%/3) calc(1*100%/3), calc(1*100%/3) calc(2*100%/3), calc(2*100%/3) calc(2*100%/3)}\n33.33% {background-position: calc(0*100%/3) calc(0*100%/3), calc(3*100%/3) calc(0*100%/3), calc(0*100%/3) calc(3*100%/3), calc(3*100%/3) calc(3*100%/3), calc(0*100%/3) calc(0*100%/3), calc(3*100%/3) calc(0*100%/3), calc(0*100%/3) calc(3*100%/3), calc(3*100%/3) calc(3*100%/3), calc(1*100%/3) calc(1*100%/3), calc(2*100%/3) calc(1*100%/3), calc(1*100%/3) calc(2*100%/3), calc(2*100%/3) calc(2*100%/3)}\n50% {background-position: calc(0*100%/3) calc(0*100%/3), calc(3*100%/3) calc(0*100%/3), calc(0*100%/3) calc(3*100%/3), calc(3*100%/3) calc(3*100%/3), calc(0*100%/3) calc(0*100%/3), calc(3*100%/3) calc(0*100%/3), calc(0*100%/3) calc(3*100%/3), calc(3*100%/3) calc(3*100%/3), calc(0*100%/3) calc(0*100%/3), calc(3*100%/3) calc(0*100%/3), calc(0*100%/3) calc(3*100%/3), calc(3*100%/3) calc(3*100%/3)}\n66.67% {background-position: calc(1*100%/3) calc(1*100%/3), calc(2*100%/3) calc(1*100%/3), calc(1*100%/3) calc(2*100%/3), calc(2*100%/3) calc(2*100%/3), calc(0*100%/3) calc(0*100%/3), calc(3*100%/3) calc(0*100%/3), calc(0*100%/3) calc(3*100%/3), calc(3*100%/3) calc(3*100%/3), calc(0*100%/3) calc(0*100%/3), calc(3*100%/3) calc(0*100%/3), calc(0*100%/3) calc(3*100%/3), calc(3*100%/3) calc(3*100%/3)}\n83.33% {background-position: calc(1*100%/3) calc(1*100%/3), calc(2*100%/3) calc(1*100%/3), calc(1*100%/3) calc(2*100%/3), calc(2*100%/3) calc(2*100%/3), calc(1*100%/3) calc(1*100%/3), calc(2*100%/3) calc(1*100%/3), calc(1*100%/3) calc(2*100%/3), calc(2*100%/3) calc(2*100%/3), calc(0*100%/3) calc(0*100%/3), calc(3*100%/3) calc(0*100%/3), calc(0*100%/3) calc(3*100%/3), calc(3*100%/3) calc(3*100%/3)}\n100% {background-position: calc(1*100%/3) calc(1*100%/3), calc(2*100%/3) calc(1*100%/3), calc(1*100%/3) calc(2*100%/3), calc(2*100%/3) calc(2*100%/3), calc(1*100%/3) calc(1*100%/3), calc(2*100%/3) calc(1*100%/3), calc(1*100%/3) calc(2*100%/3), calc(2*100%/3) calc(2*100%/3), calc(1*100%/3) calc(1*100%/3), calc(2*100%/3) calc(1*100%/3), calc(1*100%/3) calc(2*100%/3), calc(2*100%/3) calc(2*100%/3)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#db2777",
+    "secondaryColor": "#f9a8d4",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

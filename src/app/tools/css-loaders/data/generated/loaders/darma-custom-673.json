@@ -1,0 +1,57 @@
+{
+  "id": "darma-custom-673",
+  "name": "Neon Cube",
+  "category": "creative",
+  "tags": [
+    "rich",
+    "3d",
+    "cube",
+    "neon",
+    "gradient",
+    "multi-element",
+    "creative",
+    "loader",
+    "html-css",
+    "customizable",
+    "rich-batch-01"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-673 neon cube creative rich 3d cube neon gradient multi-element creative loader html-css customizable rich-batch-01 html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-673-cube-loader\">\n  <div class=\"darma-loader-darma-custom-673-cube-top\"></div>\n  <div class=\"darma-loader-darma-custom-673-cube-wrapper\">\n    <span style=\"--i:0\" class=\"darma-loader-darma-custom-673-cube-span\"></span>\n    <span style=\"--i:1\" class=\"darma-loader-darma-custom-673-cube-span\"></span>\n    <span style=\"--i:2\" class=\"darma-loader-darma-custom-673-cube-span\"></span>\n    <span style=\"--i:3\" class=\"darma-loader-darma-custom-673-cube-span\"></span>\n  </div>\n</div>",
+  "previewCss": ".darma-loader-darma-custom-673-cube-loader {color: var(--loader-color, #14b8a6);\n  --loader-secondary-color: #67e8f9;\n  --loader-bg: #0f172a;\n  \n  position: relative;\n  width: 75px;\n  height: 75px;\n  transform-style: preserve-3d;\n  transform: rotateX(-30deg);\n  animation: darma-loader-darma-custom-673-cubeSpin var(--loader-speed, 4s) linear infinite;\n}\n@keyframes darma-loader-darma-custom-673-cubeSpin {\n  0% { transform: rotateX(-30deg) rotateY(0); }\n  100% { transform: rotateX(-30deg) rotateY(360deg); }\n}\n.darma-loader-darma-custom-673-cube-loader .darma-loader-darma-custom-673-cube-wrapper {\n  position: absolute;\n  inset: 0;\n  transform-style: preserve-3d;\n}\n.darma-loader-darma-custom-673-cube-loader .darma-loader-darma-custom-673-cube-wrapper .darma-loader-darma-custom-673-cube-span {\n  position: absolute;\n  inset: 0;\n  transform: rotateY(calc(90deg * var(--i))) translateZ(37.5px);\n  background: linear-gradient(to bottom, #323232, var(--loader-color, #14b8a6), var(--loader-secondary-color, #67e8f9));\n}\n.darma-loader-darma-custom-673-cube-top {\n  position: absolute;\n  width: 75px;\n  height: 75px;\n  background: #323232;\n  transform: rotateX(90deg) translateZ(37.5px);\n  transform-style: preserve-3d;\n}\n.darma-loader-darma-custom-673-cube-top::before {\n  content: \"\";\n  position: absolute;\n  width: 75px;\n  height: 75px;\n  background: var(--loader-color, #14b8a6);\n  transform: translateZ(-90px);\n  filter: blur(10px);\n  box-shadow: 0 0 10px #323232, 0 0 24px var(--loader-color, #14b8a6), 0 0 40px var(--loader-secondary-color, #67e8f9);\n}",
+  "defaults": {
+    "color": "#14b8a6",
+    "secondaryColor": "#67e8f9",
+    "size": 96,
+    "speed": 1.0,
+    "background": "#0f172a"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-673-cube-loader\">\n  <div class=\"darma-loader-darma-custom-673-cube-top\"></div>\n  <div class=\"darma-loader-darma-custom-673-cube-wrapper\">\n    <span style=\"--i:0\" class=\"darma-loader-darma-custom-673-cube-span\"></span>\n    <span style=\"--i:1\" class=\"darma-loader-darma-custom-673-cube-span\"></span>\n    <span style=\"--i:2\" class=\"darma-loader-darma-custom-673-cube-span\"></span>\n    <span style=\"--i:3\" class=\"darma-loader-darma-custom-673-cube-span\"></span>\n  </div>\n</div>",
+    "css": ".darma-loader-darma-custom-673-cube-loader {color: var(--loader-color, #14b8a6);\n  --loader-secondary-color: #67e8f9;\n  --loader-bg: #0f172a;\n  \n  position: relative;\n  width: 75px;\n  height: 75px;\n  transform-style: preserve-3d;\n  transform: rotateX(-30deg);\n  animation: darma-loader-darma-custom-673-cubeSpin var(--loader-speed, 4s) linear infinite;\n}\n@keyframes darma-loader-darma-custom-673-cubeSpin {\n  0% { transform: rotateX(-30deg) rotateY(0); }\n  100% { transform: rotateX(-30deg) rotateY(360deg); }\n}\n.darma-loader-darma-custom-673-cube-loader .darma-loader-darma-custom-673-cube-wrapper {\n  position: absolute;\n  inset: 0;\n  transform-style: preserve-3d;\n}\n.darma-loader-darma-custom-673-cube-loader .darma-loader-darma-custom-673-cube-wrapper .darma-loader-darma-custom-673-cube-span {\n  position: absolute;\n  inset: 0;\n  transform: rotateY(calc(90deg * var(--i))) translateZ(37.5px);\n  background: linear-gradient(to bottom, #323232, var(--loader-color, #14b8a6), var(--loader-secondary-color, #67e8f9));\n}\n.darma-loader-darma-custom-673-cube-top {\n  position: absolute;\n  width: 75px;\n  height: 75px;\n  background: #323232;\n  transform: rotateX(90deg) translateZ(37.5px);\n  transform-style: preserve-3d;\n}\n.darma-loader-darma-custom-673-cube-top::before {\n  content: \"\";\n  position: absolute;\n  width: 75px;\n  height: 75px;\n  background: var(--loader-color, #14b8a6);\n  transform: translateZ(-90px);\n  filter: blur(10px);\n  box-shadow: 0 0 10px #323232, 0 0 24px var(--loader-color, #14b8a6), 0 0 40px var(--loader-secondary-color, #67e8f9);\n}",
+    "react": "export default function DarmaCustom673Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-673-cube-loader\">\n  <div className=\"darma-loader-darma-custom-673-cube-top\"></div>\n  <div className=\"darma-loader-darma-custom-673-cube-wrapper\">\n    <span style={{\"--i\": \"0\"}} className=\"darma-loader-darma-custom-673-cube-span\"></span>\n    <span style={{\"--i\": \"1\"}} className=\"darma-loader-darma-custom-673-cube-span\"></span>\n    <span style={{\"--i\": \"2\"}} className=\"darma-loader-darma-custom-673-cube-span\"></span>\n    <span style={{\"--i\": \"3\"}} className=\"darma-loader-darma-custom-673-cube-span\"></span>\n  </div>\n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "source": {
+    "name": "Darma rich loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

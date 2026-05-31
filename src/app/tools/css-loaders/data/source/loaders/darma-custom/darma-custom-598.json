@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-598",
+  "name": "Chain Motion 05",
+  "category": "creative",
+  "tags": [
+    "chain",
+    "motion",
+    "05",
+    "linked",
+    "creative",
+    "mechanical",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #0ea5e9);\n  --loader-secondary-color: #67e8f9;\n  --loader-bg: #ffffff;\n   width: 50px;\n   height: 30px;\n   display: grid;\n   overflow: hidden;\n}\n.loader:before, .loader:after  {\n  content: \"\";\n   grid-area: 1/1;\n   background: currentColor;\n   clip-path: polygon(0 10px,calc(100% - 15px) 10px,calc(100% - 15px) 0,100% 50%,calc(100% - 15px) 100%,calc(100% - 15px) calc(100% - 10px),0 calc(100% - 10px));\n   animation: l5 1s infinite;\n   transform: translate(calc(0% + var(--s,0%)));\n}\n.loader:after  {\n  --s:-100%;\n}\n@keyframes l5  {\n  80%,100%{transform: translate(calc(100% + var(--s,0%)))}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#0ea5e9",
+    "secondaryColor": "#67e8f9",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

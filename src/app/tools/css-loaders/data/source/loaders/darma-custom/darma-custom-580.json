@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-580",
+  "name": "Color Geometry 07",
+  "category": "creative",
+  "tags": [
+    "color",
+    "geometry",
+    "07",
+    "motion",
+    "creative",
+    "tiles",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #0ea5e9);\n  --loader-secondary-color: #67e8f9;\n  --loader-bg: #ffffff;\n   width: 28px;\n   aspect-ratio: 1;\n   border-radius: 50%;\n   background: var(--loader-color, #0ea5e9);\n   animation: l7 2s infinite;\n}\n@keyframes l7  {\n  0%, 100% {transform:translate(-30px,-30px);\n  box-shadow: 0 0 var(--loader-secondary-color, #67e8f9), 0 0 var(--loader-secondary-color, #67e8f9)}\n12.5% {transform:translate( 30px,-30px);\n  box-shadow: -15px 0 var(--loader-secondary-color, #67e8f9),-30px 0 var(--loader-secondary-color, #67e8f9)}\n25% {transform:translate( 30px,-30px);\n  box-shadow: 0 0 var(--loader-secondary-color, #67e8f9), 0 0 var(--loader-secondary-color, #67e8f9)}\n37.5% {transform:translate( 30px, 30px);\n  box-shadow: 0 -15px var(--loader-secondary-color, #67e8f9), 0 -30px var(--loader-secondary-color, #67e8f9)}\n50% {transform:translate( 30px, 30px);\n  box-shadow: 0 0 var(--loader-secondary-color, #67e8f9), 0 0 var(--loader-secondary-color, #67e8f9)}\n62.5% {transform:translate(-30px, 30px);\n  box-shadow: 15px 0 var(--loader-secondary-color, #67e8f9), 30px 0 var(--loader-secondary-color, #67e8f9)}\n75% {transform:translate(-30px, 30px);\n  box-shadow: 0 0 var(--loader-secondary-color, #67e8f9), 0 0 var(--loader-secondary-color, #67e8f9)}\n87.5% {transform:translate(-30px,-30px);\n  box-shadow: 0 15px var(--loader-secondary-color, #67e8f9), 0 30px var(--loader-secondary-color, #67e8f9)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#0ea5e9",
+    "secondaryColor": "#67e8f9",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

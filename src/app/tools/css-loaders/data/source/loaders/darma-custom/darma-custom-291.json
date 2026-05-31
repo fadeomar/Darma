@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-291",
+  "name": "Text Center Fill",
+  "category": "minimal",
+  "tags": [
+    "text",
+    "center",
+    "fill",
+    "loading",
+    "typography",
+    "minimal",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-05"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: fit-content;\n  font-size: 34px;\n  font-family: system-ui,sans-serif;\n  font-weight: bold;\n  text-transform: uppercase;\n  color: #0000;\n  -webkit-text-stroke: 1px var(--loader-color, #0284c7);\n  background: linear-gradient(90deg,var(--loader-color, #0284c7),var(--loader-secondary-color, #7dd3fc)) 50%/0 100% no-repeat text;\n  animation: l4 1.5s linear infinite;\n}\n.loader:before {\n  content: \"Loading\";\n}\n@keyframes l4 {\n  to{background-size: 120% 100%}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#0284c7",
+    "secondaryColor": "#7dd3fc",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

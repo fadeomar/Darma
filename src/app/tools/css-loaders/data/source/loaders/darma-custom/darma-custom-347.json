@@ -1,0 +1,46 @@
+{
+  "id": "darma-custom-347",
+  "name": "Orbit Coin 04",
+  "category": "spinners",
+  "tags": [
+    "orbit",
+    "coin",
+    "04",
+    "wheel",
+    "spinner",
+    "duotone",
+    "spinners",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-06"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #7c3aed);\n  --loader-secondary-color: #c084fc;\n  --loader-bg: #ffffff;\n  display: inline-grid;\n  width: 80px;\n  aspect-ratio: 2;\n  overflow: hidden;\n  border-image: 1 0/0 0 8px/0 0 8pxrepeating-linear-gradient(90deg,var(--loader-secondary-color, #c084fc) 0 26%,var(--loader-color, #7c3aed) 0 52%);\n}.loader:before {content:\"\";\n  margin: 0 25%;\n  border-radius: 50%;\n  background: repeating-conic-gradient(var(--loader-color, #7c3aed) 0 60deg,var(--loader-secondary-color, #c084fc) 0 120deg);\n  transform: translate(-154%,0) rotate(0turn);\n  animation: l4 3s linear infinite;\n}@keyframes l4 {to{transform: translate(160%,0) rotate(1turn)}}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#7c3aed",
+    "secondaryColor": "#c084fc",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "id": "darma-custom-030",
+  "name": "Arc Swing Ball",
+  "category": "fun",
+  "tags": [
+    "arc",
+    "ball",
+    "swing",
+    "pendulum",
+    "batch-02"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-030 arc swing ball fun arc ball swing pendulum batch-02 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-030\"></div>",
+  "previewCss": ".darma-loader-darma-custom-030 {\n  width: 80px;\n  aspect-ratio: 1;\n  background:\n    radial-gradient(farthest-side at top, #0000 calc(100% - 21px), #add8e6 calc(100% - 20px) 99%, #0000) bottom/100% 50%,\n    radial-gradient(farthest-side, #add8e6 94%, #0000) left/20px 20px,\n    radial-gradient(farthest-side, #add8e6 94%, #0000) right/20px 20px;\n  background-repeat: no-repeat;\n  position: relative;\n}\n.darma-loader-darma-custom-030::before {\n  content: \"\";\n  position: absolute;\n  width: 20px;\n  height: 20px;\n  inset: auto 0 0;\n  margin: auto;\n  border-radius: 50%;\n  background: #ffa500;\n  transform-origin: 50% -20px;\n  animation: darma-loader-darma-custom-030-l14 1s infinite cubic-bezier(0.5, 623, 0.5, -623);\n}\n@keyframes darma-loader-darma-custom-030-l14 {\n  100% { transform: rotate(0.5deg); }\n}",
+  "defaults": {
+    "color": "#ffa500",
+    "secondaryColor": "#add8e6",
+    "size": 80,
+    "speed": 1,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-030\"></div>",
+    "css": ".darma-loader-darma-custom-030 {\n  width: 80px;\n  aspect-ratio: 1;\n  background:\n    radial-gradient(farthest-side at top, #0000 calc(100% - 21px), #add8e6 calc(100% - 20px) 99%, #0000) bottom/100% 50%,\n    radial-gradient(farthest-side, #add8e6 94%, #0000) left/20px 20px,\n    radial-gradient(farthest-side, #add8e6 94%, #0000) right/20px 20px;\n  background-repeat: no-repeat;\n  position: relative;\n}\n.darma-loader-darma-custom-030::before {\n  content: \"\";\n  position: absolute;\n  width: 20px;\n  height: 20px;\n  inset: auto 0 0;\n  margin: auto;\n  border-radius: 50%;\n  background: #ffa500;\n  transform-origin: 50% -20px;\n  animation: darma-loader-darma-custom-030-l14 1s infinite cubic-bezier(0.5, 623, 0.5, -623);\n}\n@keyframes darma-loader-darma-custom-030-l14 {\n  100% { transform: rotate(0.5deg); }\n}",
+    "react": "export default function DarmaCustom030Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-030\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "source": {}
+}

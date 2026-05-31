@@ -1,0 +1,56 @@
+{
+  "id": "darma-custom-296",
+  "name": "Text Wave Fill",
+  "category": "minimal",
+  "tags": [
+    "text",
+    "wave",
+    "fill",
+    "loading",
+    "typography",
+    "minimal",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-05"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-296 text wave fill minimal text wave fill loading typography minimal loader css-only single-element batch-05 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-296\"></div>",
+  "previewCss": ".darma-loader-darma-custom-296 {\n  width: fit-content;\n  font-size: 34px;\n  line-height: 1.5;\n  font-family: system-ui,sans-serif;\n  font-weight: bold;\n  text-transform: uppercase;\n  color: #0000;\n  -webkit-text-stroke: 1px var(--loader-color, #16a34a);\n  background:\n    radial-gradient(1.13em at 50% 1.6em,var(--loader-color, #16a34a) 99%,#0000 101%) calc(50% - 1.6em) 0/3.2em 100% text,\n    radial-gradient(1.13em at 50% -0.8em,#0000 99%,var(--loader-color, #16a34a) 101%) 50% .8em/3.2em 100% repeat-x  text;\n  animation: darma-loader-darma-custom-296-l9 2s linear infinite;\n}\n.darma-loader-darma-custom-296:before {\n  content: \"Loading\";\n}\n@keyframes darma-loader-darma-custom-296-l9 {\n  to {background-position: calc(50% + 1.6em) 0,calc(50% + 3.2em) .8em}\n}",
+  "defaults": {
+    "color": "#16a34a",
+    "secondaryColor": "#86efac",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-296\"></div>",
+    "css": ".darma-loader-darma-custom-296 {\n  width: fit-content;\n  font-size: 34px;\n  line-height: 1.5;\n  font-family: system-ui,sans-serif;\n  font-weight: bold;\n  text-transform: uppercase;\n  color: #0000;\n  -webkit-text-stroke: 1px var(--loader-color, #16a34a);\n  background:\n    radial-gradient(1.13em at 50% 1.6em,var(--loader-color, #16a34a) 99%,#0000 101%) calc(50% - 1.6em) 0/3.2em 100% text,\n    radial-gradient(1.13em at 50% -0.8em,#0000 99%,var(--loader-color, #16a34a) 101%) 50% .8em/3.2em 100% repeat-x  text;\n  animation: darma-loader-darma-custom-296-l9 2s linear infinite;\n}\n.darma-loader-darma-custom-296:before {\n  content: \"Loading\";\n}\n@keyframes darma-loader-darma-custom-296-l9 {\n  to {background-position: calc(50% + 1.6em) 0,calc(50% + 3.2em) .8em}\n}",
+    "react": "export default function DarmaCustom296Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-296\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

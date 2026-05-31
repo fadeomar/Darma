@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-217",
+  "name": "Dot Chain Flip",
+  "category": "dots",
+  "tags": [
+    "dot",
+    "chain",
+    "flip",
+    "dots",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: #2563eb;\nheight: 15px;\naspect-ratio: 5;\n-webkit-mask: linear-gradient(90deg,#0000 ,currentColor 20% 80%,#0000);\nbackground: radial-gradient(closest-side at 37.5% 50%,currentColor 94%,#0000) 0/calc(80%/3) 100%;\nanimation: l48 .75s infinite linear;\n}\n@keyframes l48 {\n100% {background-position: 36.36%}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#2563eb",
+    "secondaryColor": "#60a5fa",
+    "size": 75,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

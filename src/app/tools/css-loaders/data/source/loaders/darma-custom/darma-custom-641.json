@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-641",
+  "name": "Track Runner 08",
+  "category": "progress",
+  "tags": [
+    "track",
+    "runner",
+    "08",
+    "progress",
+    "path",
+    "linear",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #f97316);\n  --loader-secondary-color: #facc15;\n  --loader-bg: #ffffff;\n   width: 90px;\n   height: 30px;\n   box-shadow: 0 3px 0 currentColor;\n   --g:repeat-x repeating-linear-gradient(90deg,var(--loader-secondary-color, #facc15) 0 16px,#0000 0 18px,var(--loader-secondary-color, #facc15) 0 34px,#0000 0 100%);\n   background: var(--g),var(--g);\n   background-size: 60px 14px,60px 14px;\n   animation: l8 1s infinite linear;\n}\n@keyframes l8  {\n  0% {background-position:0 0,0 100%}\n100% {background-position:60px 0,60px 100%}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#f97316",
+    "secondaryColor": "#facc15",
+    "size": 88,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

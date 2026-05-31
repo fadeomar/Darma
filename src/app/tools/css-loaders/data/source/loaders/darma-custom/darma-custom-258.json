@@ -1,0 +1,46 @@
+{
+  "id": "darma-custom-258",
+  "name": "Twin Chevron Step Sweep",
+  "category": "progress",
+  "tags": [
+    "twin",
+    "chevron",
+    "step",
+    "sweep",
+    "progress",
+    "track",
+    "steps",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-05"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: var(--loader-color, #0891b2);\n  display: inline-grid;\n}\n.loader:before,\n.loader:after {\n  content: \"\";\n  height: 27px;\n  aspect-ratio: 5;\n  --c: currentColor 90deg,#0000 0;\n  background:\n   conic-gradient(from 135deg at top   ,var(--c)),\n   conic-gradient(from -45deg at bottom,var(--c)) 12.5% 100%;\n  background-size: 20% 50%;\n  background-repeat: repeat-x;\n  clip-path: inset(0 60% 0 0);\n  animation: l19 .8s infinite steps(7,jump-none) alternate;\n}\n.loader:after {\n  animation-direction: alternate-reverse;\n}\n@keyframes l19{\n  to {clip-path: inset(0 0 0 60%)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#0891b2",
+    "secondaryColor": "#22d3ee",
+    "size": 84,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-088",
+  "name": "Skewed Triangle Pair",
+  "category": "creative",
+  "tags": [
+    "skewed",
+    "triangle",
+    "pair",
+    "geometric",
+    "creative",
+    "css-only",
+    "single-element",
+    "batch-03"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 40px;\n  aspect-ratio: 1;\n  display: grid;\n  animation: l8-0 1.5s infinite linear;\n}\n.loader:before,\n.loader:after {\n  content: \"\";\n  grid-area: 1/1;\n  background: #25b09b;\n  clip-path: polygon(0 0%,100% 0,100% 100%);\n  animation: inherit;\n  animation-name: l8-1;\n}\n.loader:after {\n  --s:-1;\n}\n@keyframes l8-0 {\n  66%      {transform: skewX(0deg)}\n  80%,100% {transform: skewX(-45deg)}\n}\n@keyframes l8-1 {\n  0%   {transform:scale(var(--s,1)) translate(-0.5px,0)}\n  33%  {transform:scale(var(--s,1)) translate(calc(1px - 50%),calc(1px - 50%))}\n  66%  {transform:scale(var(--s,1)) translate(calc(1px - 50%),0%)}\n  100% {transform:scale(var(--s,1)) translate(calc(0.5px - 50%),0%)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#25b09b",
+    "secondaryColor": "#e5e7eb",
+    "size": 40,
+    "speed": 1.5,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

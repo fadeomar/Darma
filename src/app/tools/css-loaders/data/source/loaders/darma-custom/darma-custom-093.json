@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-093",
+  "name": "Diagonal Triangle Travel",
+  "category": "creative",
+  "tags": [
+    "diagonal",
+    "triangle",
+    "travel",
+    "geometric",
+    "creative",
+    "css-only",
+    "single-element",
+    "batch-03"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 40px;\n  aspect-ratio: 1;\n  display: grid;\n}\n.loader::before,\n.loader::after {\n  content: \"\";\n  grid-area: 1/1;\n  background: #ffa500;\n  clip-path: polygon(0 0,101% 0, 0 100%);\n  animation: l13 2s infinite;\n}\n.loader::after {\n  --s:-1,-1;\n}\n@keyframes l13 {\n    0%,\n    10%  {transform:scale(var(--s,1)) translate(0,0)        rotate(0deg)}\n    33%  {transform:scale(var(--s,1)) translate(20px,-20px) rotate(0deg)}\n    66%  {transform:scale(var(--s,1)) translate(20px,-20px) rotate(180deg)}\n    90%,\n    100% {transform:scale(var(--s,1)) translate(0px,0px)    rotate(180deg)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#ffa500",
+    "secondaryColor": "#e5e7eb",
+    "size": 40,
+    "speed": 2.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": true,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -20,7 +20,7 @@
   },
   "searchText": "skeleton-line skeleton line skeleton skeleton shimmer line placeholder html css react popular cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-skeleton-line\"><i></i><i></i><i></i></span>",
-  "previewCss": ".darma-loader-skeleton-line {\n  display: grid;\n  gap: 10px;\n  width: 138px;\n}\n.darma-loader-skeleton-line i {\n  display: block;\n  height: 12px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, color-mix(in srgb, var(--loader-color, #6366f1) 12%, transparent), color-mix(in srgb, var(--loader-color, #6366f1) 32%, transparent), color-mix(in srgb, var(--loader-color, #6366f1) 12%, transparent));\n  background-size: 220% 100%;\n  animation: darma-loader-skeleton-line-shimmer 1.1s linear infinite;\n}\n.darma-loader-skeleton-line i:nth-child(2) { width: 82%; }\n.darma-loader-skeleton-line i:nth-child(3) { width: 58%; }\n@keyframes darma-loader-skeleton-line-shimmer {\n  to { background-position: -220% 0; }\n}\n",
+  "previewCss": ".darma-loader-skeleton-line {\n  display: grid;\n  gap: 10px;\n  width: 138px;\n}\n.darma-loader-skeleton-line i {\n  display: block;\n  height: 12px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, rgba(99,102,241,.12), rgba(99,102,241,.32), rgba(99,102,241,.12));\n  background-size: 220% 100%;\n  animation: darma-loader-skeleton-line-shimmer 1.1s linear infinite;\n}\n.darma-loader-skeleton-line i:nth-child(2) { width: 82%; }\n.darma-loader-skeleton-line i:nth-child(3) { width: 58%; }\n@keyframes darma-loader-skeleton-line-shimmer {\n  to { background-position: -220% 0; }\n}",
   "defaults": {
     "color": "#6366f1",
     "size": 48,
@@ -28,14 +28,13 @@
   },
   "code": {
     "html": "<span class=\"darma-loader-skeleton-line\"><i></i><i></i><i></i></span>",
-    "css": ".darma-loader-skeleton-line {\n  display: grid;\n  gap: 10px;\n  width: 138px;\n}\n.darma-loader-skeleton-line i {\n  display: block;\n  height: 12px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, color-mix(in srgb, var(--loader-color, #6366f1) 12%, transparent), color-mix(in srgb, var(--loader-color, #6366f1) 32%, transparent), color-mix(in srgb, var(--loader-color, #6366f1) 12%, transparent));\n  background-size: 220% 100%;\n  animation: darma-loader-skeleton-line-shimmer 1.1s linear infinite;\n}\n.darma-loader-skeleton-line i:nth-child(2) { width: 82%; }\n.darma-loader-skeleton-line i:nth-child(3) { width: 58%; }\n@keyframes darma-loader-skeleton-line-shimmer {\n  to { background-position: -220% 0; }\n}\n",
+    "css": ".darma-loader-skeleton-line {\n  display: grid;\n  gap: 10px;\n  width: 138px;\n}\n.darma-loader-skeleton-line i {\n  display: block;\n  height: 12px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, rgba(99,102,241,.12), rgba(99,102,241,.32), rgba(99,102,241,.12));\n  background-size: 220% 100%;\n  animation: darma-loader-skeleton-line-shimmer 1.1s linear infinite;\n}\n.darma-loader-skeleton-line i:nth-child(2) { width: 82%; }\n.darma-loader-skeleton-line i:nth-child(3) { width: 58%; }\n@keyframes darma-loader-skeleton-line-shimmer {\n  to { background-position: -220% 0; }\n}",
     "react": "export default function SkeletonLineLoader() {\n  return (\n    <span className=\"darma-loader-skeleton-line\"><i></i><i></i><i></i></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
-    "speed": true,
-    "background": false,
-    "secondaryColor": false
-  }
+    "speed": true
+  },
+  "source": {}
 }

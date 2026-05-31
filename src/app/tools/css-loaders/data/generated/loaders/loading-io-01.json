@@ -23,7 +23,7 @@
   },
   "searchText": "loading-io-01 loading.io adapted loader 01 spinners loading-io ring spinner spinners loader html css react popular singleelement cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-loading-io-01\"></span>",
-  "previewCss": ".darma-loader-loading-io-01 {\n  display: inline-block;\n  width: 49px;\n  height: 49px;\n  border-radius: 50%;\n  border: 4px solid color-mix(in srgb, var(--loader-color, #06b6d4) 18%, transparent);\n  border-right-color: var(--loader-color, #06b6d4);\n  animation: darma-loader-loading-io-01-spin 0.73s linear infinite;\n}\n@keyframes darma-loader-loading-io-01-spin { to { transform: rotate(360deg); } }\n",
+  "previewCss": ".darma-loader-loading-io-01 {\n  display: inline-block;\n  width: 49px;\n  height: 49px;\n  border-radius: 50%;\n  border: 4px solid color-mix(in srgb, var(--loader-color) 18%, transparent);\n  border-right-color: var(--loader-color);\n  animation: darma-loader-loading-io-01-spin 0.73s linear infinite;\n}\n@keyframes darma-loader-loading-io-01-spin { to { transform: rotate(360deg); } }",
   "defaults": {
     "color": "#06b6d4",
     "secondaryColor": "#bae6fd",
@@ -32,7 +32,7 @@
   },
   "code": {
     "html": "<span class=\"darma-loader-loading-io-01\"></span>",
-    "css": ".darma-loader-loading-io-01 {\n  display: inline-block;\n  width: 49px;\n  height: 49px;\n  border-radius: 50%;\n  border: 4px solid color-mix(in srgb, var(--loader-color, #06b6d4) 18%, transparent);\n  border-right-color: var(--loader-color, #06b6d4);\n  animation: darma-loader-loading-io-01-spin 0.73s linear infinite;\n}\n@keyframes darma-loader-loading-io-01-spin { to { transform: rotate(360deg); } }\n",
+    "css": ".darma-loader-loading-io-01 {\n  display: inline-block;\n  width: 49px;\n  height: 49px;\n  border-radius: 50%;\n  border: 4px solid color-mix(in srgb, var(--loader-color) 18%, transparent);\n  border-right-color: var(--loader-color);\n  animation: darma-loader-loading-io-01-spin 0.73s linear infinite;\n}\n@keyframes darma-loader-loading-io-01-spin { to { transform: rotate(360deg); } }",
     "react": "export default function LoadingIo01Loader() {\n  return (\n    <span className=\"darma-loader-loading-io-01\"></span>\n  );\n}\n"
   },
   "controls": {
@@ -40,7 +40,7 @@
     "size": true,
     "speed": true,
     "background": false,
-    "secondaryColor": false
+    "secondaryColor": true
   },
   "source": {
     "name": "loading.io CSS Spinner",

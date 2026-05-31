@@ -1,0 +1,56 @@
+{
+  "id": "darma-custom-483",
+  "name": "Utility Dial 07",
+  "category": "creative",
+  "tags": [
+    "utility",
+    "dial",
+    "07",
+    "clock",
+    "counter",
+    "creative",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-483 utility dial 07 creative utility dial 07 clock counter creative loader css-only single-element batch-07 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-483\"></div>",
+  "previewCss": ".darma-loader-darma-custom-483 {color: var(--loader-color, #0f766e);\n  --loader-secondary-color: #5eead4;\n  --loader-bg: #ffffff;\n   width: 60px;\n   aspect-ratio: 1;\n   border: 3px solid;\n   border-radius: 50%;\n   display: grid;\n   background: radial-gradient(circle 3px, currentColor 95%,#0000), linear-gradient(currentColor 50%,#0000 0) 50%/2px 60% no-repeat;\n}\n.darma-loader-darma-custom-483:before, .darma-loader-darma-custom-483:after  {\n  content: \"\";\n   grid-area: 1/1;\n}\n.darma-loader-darma-custom-483:before  {\n  background: repeating-conic-gradient(from -2deg, currentColor 0 4deg,#0000 0 90deg);\n   -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 6px),currentColor 0);\n}\n.darma-loader-darma-custom-483:after  {\n  background: linear-gradient(currentColor 50%,#0000 0) 50%/2px 80% no-repeat;\n   animation: darma-loader-darma-custom-483-l7 1s infinite;\n}\n@keyframes darma-loader-darma-custom-483-l7  {\n  0%, 100% {transform: rotate(30deg)}\n90% {transform: rotate(42deg)}\n95% {transform: rotate(15deg)}\n}",
+  "defaults": {
+    "color": "#0f766e",
+    "secondaryColor": "#5eead4",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-483\"></div>",
+    "css": ".darma-loader-darma-custom-483 {color: var(--loader-color, #0f766e);\n  --loader-secondary-color: #5eead4;\n  --loader-bg: #ffffff;\n   width: 60px;\n   aspect-ratio: 1;\n   border: 3px solid;\n   border-radius: 50%;\n   display: grid;\n   background: radial-gradient(circle 3px, currentColor 95%,#0000), linear-gradient(currentColor 50%,#0000 0) 50%/2px 60% no-repeat;\n}\n.darma-loader-darma-custom-483:before, .darma-loader-darma-custom-483:after  {\n  content: \"\";\n   grid-area: 1/1;\n}\n.darma-loader-darma-custom-483:before  {\n  background: repeating-conic-gradient(from -2deg, currentColor 0 4deg,#0000 0 90deg);\n   -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 6px),currentColor 0);\n}\n.darma-loader-darma-custom-483:after  {\n  background: linear-gradient(currentColor 50%,#0000 0) 50%/2px 80% no-repeat;\n   animation: darma-loader-darma-custom-483-l7 1s infinite;\n}\n@keyframes darma-loader-darma-custom-483-l7  {\n  0%, 100% {transform: rotate(30deg)}\n90% {transform: rotate(42deg)}\n95% {transform: rotate(15deg)}\n}",
+    "react": "export default function DarmaCustom483Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-483\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

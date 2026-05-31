@@ -1,0 +1,56 @@
+{
+  "id": "darma-custom-600",
+  "name": "Chain Motion 07",
+  "category": "creative",
+  "tags": [
+    "chain",
+    "motion",
+    "07",
+    "linked",
+    "creative",
+    "mechanical",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-600 chain motion 07 creative chain motion 07 linked creative mechanical loader css-only single-element batch-07 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-600\"></div>",
+  "previewCss": ".darma-loader-darma-custom-600 {--loader-bg: #ffffff;\n  --loader-secondary-color: #fcd34d;\n   width: 110px;\n   height: 30px;\n   color: var(--loader-color, #b45309);\n   display: flex;\n   background: linear-gradient(currentColor 0 0) left /30px 10px, linear-gradient(currentColor 0 0) right/30px 10px, conic-gradient(from -136deg at 15px 50%,#0000 ,currentColor 1deg 90deg,#0000 91deg) 30px 0/100% 100%, conic-gradient(from 44deg at calc(100% - 15px) 50%,#0000 ,currentColor 1deg 90deg,#0000 91deg) calc(100% - 30px) 0/100% 100%;\n   background-repeat: no-repeat;\n   animation: darma-loader-darma-custom-600-l7 .5s infinite alternate;\n}\n.darma-loader-darma-custom-600:before  {\n  content: \"\";\n   flex: 1;\n   background: inherit;\n   transform: rotate(90deg);\n}\n@keyframes darma-loader-darma-custom-600-l7  {\n  90%,100%{width:93px}\n}",
+  "defaults": {
+    "color": "#b45309",
+    "secondaryColor": "#fcd34d",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-600\"></div>",
+    "css": ".darma-loader-darma-custom-600 {--loader-bg: #ffffff;\n  --loader-secondary-color: #fcd34d;\n   width: 110px;\n   height: 30px;\n   color: var(--loader-color, #b45309);\n   display: flex;\n   background: linear-gradient(currentColor 0 0) left /30px 10px, linear-gradient(currentColor 0 0) right/30px 10px, conic-gradient(from -136deg at 15px 50%,#0000 ,currentColor 1deg 90deg,#0000 91deg) 30px 0/100% 100%, conic-gradient(from 44deg at calc(100% - 15px) 50%,#0000 ,currentColor 1deg 90deg,#0000 91deg) calc(100% - 30px) 0/100% 100%;\n   background-repeat: no-repeat;\n   animation: darma-loader-darma-custom-600-l7 .5s infinite alternate;\n}\n.darma-loader-darma-custom-600:before  {\n  content: \"\";\n   flex: 1;\n   background: inherit;\n   transform: rotate(90deg);\n}\n@keyframes darma-loader-darma-custom-600-l7  {\n  90%,100%{width:93px}\n}",
+    "react": "export default function DarmaCustom600Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-600\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

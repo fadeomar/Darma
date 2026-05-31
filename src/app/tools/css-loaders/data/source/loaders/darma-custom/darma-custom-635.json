@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-635",
+  "name": "Track Runner 02",
+  "category": "progress",
+  "tags": [
+    "track",
+    "runner",
+    "02",
+    "progress",
+    "path",
+    "linear",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #6d28d9);\n  --loader-secondary-color: #f0abfc;\n  --loader-bg: #ffffff;\n   width: 90px;\n   height: 14px;\n   box-shadow: 0 3px 0 currentColor;\n   background: linear-gradient(currentColor 0 0) center/2px 100% no-repeat;\n   display: grid;\n}\n.loader:before, .loader:after {\n  content: \"\";\n   grid-area: 1/1;\n   background: repeating-linear-gradient(90deg,currentColor 0 14px,#0000 0 100%) 0 0/calc(100%/4) 100%;\n   clip-path: inset(0 50% 0 0);\n   animation: l2 1s infinite linear;\n}\n.loader:before {\n  background: radial-gradient(circle 7px at 7px 50%,currentColor 92%,#0000) 0 0/calc(100%/4) 100%;\n   clip-path: inset(0 0 0 50%);\n}\n@keyframes l2  {\n  100% {background-position: calc(100%/3) 0}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#6d28d9",
+    "secondaryColor": "#f0abfc",
+    "size": 88,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "id": "darma-custom-205",
+  "name": "Bounce Hop Dots",
+  "category": "dots",
+  "tags": [
+    "bounce",
+    "hop",
+    "dots",
+    "dot",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-205 bounce hop dots dots bounce hop dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-205\"></div>",
+  "previewCss": ".darma-loader-darma-custom-205 {\n  color: #2563eb;\nheight: 15px;\naspect-ratio: 5;\ndisplay: grid;\n}\n.darma-loader-darma-custom-205:before,\n.darma-loader-darma-custom-205:after {\ncontent: \"\";\ngrid-area: 1/1;\nheight: inherit;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 15px 100%;\nbackground-repeat: no-repeat;\nanimation: darma-loader-darma-custom-205-l35 1s infinite linear;\n}\n.darma-loader-darma-custom-205:after {\nmargin-left: auto;\n--s:-1;\n}\n@keyframes darma-loader-darma-custom-205-l35 {\n0% {transform:translateY(calc(var(--s,1)*0px));aspect-ratio: 2.3 }\n33% {transform:translateY(calc(var(--s,1)*8px));aspect-ratio: 2.3 }\n66% {transform:translateY(calc(var(--s,1)*8px));aspect-ratio: 3.7 }\n100% {transform:translateY(calc(var(--s,1)*0px));aspect-ratio: 3.7 }\n}",
+  "defaults": {
+    "color": "#2563eb",
+    "secondaryColor": "#60a5fa",
+    "size": 75,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-205\"></div>",
+    "css": ".darma-loader-darma-custom-205 {\n  color: #2563eb;\nheight: 15px;\naspect-ratio: 5;\ndisplay: grid;\n}\n.darma-loader-darma-custom-205:before,\n.darma-loader-darma-custom-205:after {\ncontent: \"\";\ngrid-area: 1/1;\nheight: inherit;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 15px 100%;\nbackground-repeat: no-repeat;\nanimation: darma-loader-darma-custom-205-l35 1s infinite linear;\n}\n.darma-loader-darma-custom-205:after {\nmargin-left: auto;\n--s:-1;\n}\n@keyframes darma-loader-darma-custom-205-l35 {\n0% {transform:translateY(calc(var(--s,1)*0px));aspect-ratio: 2.3 }\n33% {transform:translateY(calc(var(--s,1)*8px));aspect-ratio: 2.3 }\n66% {transform:translateY(calc(var(--s,1)*8px));aspect-ratio: 3.7 }\n100% {transform:translateY(calc(var(--s,1)*0px));aspect-ratio: 3.7 }\n}",
+    "react": "export default function DarmaCustom205Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-205\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

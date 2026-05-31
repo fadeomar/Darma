@@ -21,7 +21,7 @@
   },
   "searchText": "flip-square flip square fun fun flip square playful html css react popular cssonly customizable singleelement",
   "previewHtml": "<span class=\"darma-loader-flip-square\"></span>",
-  "previewCss": ".darma-loader-flip-square {\n  display: inline-block;\n  width: 48px;\n  height: 48px;\n  border-radius: 14px;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-flip-square-flip 1.15s cubic-bezier(.7,.02,.26,.99) infinite;\n}\n@keyframes darma-loader-flip-square-flip {\n  0% { transform: perspective(120px) rotateX(0) rotateY(0); }\n  50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); }\n  100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); }\n}\n",
+  "previewCss": ".darma-loader-flip-square {\n  display: inline-block;\n  width: 48px;\n  height: 48px;\n  border-radius: 14px;\n  background: #6366f1;\n  animation: darma-loader-flip-square-flip 1.15s cubic-bezier(.7,.02,.26,.99) infinite;\n}\n@keyframes darma-loader-flip-square-flip {\n  0% { transform: perspective(120px) rotateX(0) rotateY(0); }\n  50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); }\n  100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); }\n}",
   "defaults": {
     "color": "#6366f1",
     "size": 48,
@@ -29,14 +29,13 @@
   },
   "code": {
     "html": "<span class=\"darma-loader-flip-square\"></span>",
-    "css": ".darma-loader-flip-square {\n  display: inline-block;\n  width: 48px;\n  height: 48px;\n  border-radius: 14px;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-flip-square-flip 1.15s cubic-bezier(.7,.02,.26,.99) infinite;\n}\n@keyframes darma-loader-flip-square-flip {\n  0% { transform: perspective(120px) rotateX(0) rotateY(0); }\n  50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); }\n  100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); }\n}\n",
+    "css": ".darma-loader-flip-square {\n  display: inline-block;\n  width: 48px;\n  height: 48px;\n  border-radius: 14px;\n  background: #6366f1;\n  animation: darma-loader-flip-square-flip 1.15s cubic-bezier(.7,.02,.26,.99) infinite;\n}\n@keyframes darma-loader-flip-square-flip {\n  0% { transform: perspective(120px) rotateX(0) rotateY(0); }\n  50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); }\n  100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); }\n}",
     "react": "export default function FlipSquareLoader() {\n  return (\n    <span className=\"darma-loader-flip-square\"></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
-    "speed": true,
-    "background": false,
-    "secondaryColor": false
-  }
+    "speed": true
+  },
+  "source": {}
 }

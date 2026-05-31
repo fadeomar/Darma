@@ -1,0 +1,56 @@
+{
+  "id": "darma-custom-464",
+  "name": "Weather Icon 04",
+  "category": "fun",
+  "tags": [
+    "weather",
+    "icon",
+    "04",
+    "fun",
+    "scene",
+    "illustration",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-464 weather icon 04 fun weather icon 04 fun scene illustration loader css-only single-element batch-07 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-464\"></div>",
+  "previewCss": ".darma-loader-darma-custom-464 {--loader-bg: #ffffff;\n  --loader-secondary-color: #f9a8d4;\n   width: 50px;\n   aspect-ratio: 1;\n   background-color: var(--loader-color, #db2777);\n   border-radius: 50%;\n   animation: darma-loader-darma-custom-464-l4 3s infinite;\n}\n@keyframes darma-loader-darma-custom-464-l4  {\n  12.5% {background-image:radial-gradient(80% 65% at left, #0000 94%,color-mix(in srgb, currentColor 65%, transparent))}\n25% {background-image:linear-gradient(90deg,#0000 50%,color-mix(in srgb, currentColor 65%, transparent) 0)}\n37.5% {background-image:radial-gradient(80% 65% at right,color-mix(in srgb, currentColor 65%, transparent) 94%,#0000)}\n50% {background-image:linear-gradient(color-mix(in srgb, currentColor 65%, transparent) 0 0)}\n62.5% {background-image:radial-gradient(80% 65% at left, color-mix(in srgb, currentColor 65%, transparent) 94%,#0000)}\n75% {background-image:linear-gradient(-90deg,#0000 50%,color-mix(in srgb, currentColor 65%, transparent) 0)}\n87.5% {background-image:radial-gradient(80% 65% at right,#0000 94%,color-mix(in srgb, currentColor 65%, transparent))}\n}",
+  "defaults": {
+    "color": "#db2777",
+    "secondaryColor": "#f9a8d4",
+    "size": 64,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-464\"></div>",
+    "css": ".darma-loader-darma-custom-464 {--loader-bg: #ffffff;\n  --loader-secondary-color: #f9a8d4;\n   width: 50px;\n   aspect-ratio: 1;\n   background-color: var(--loader-color, #db2777);\n   border-radius: 50%;\n   animation: darma-loader-darma-custom-464-l4 3s infinite;\n}\n@keyframes darma-loader-darma-custom-464-l4  {\n  12.5% {background-image:radial-gradient(80% 65% at left, #0000 94%,color-mix(in srgb, currentColor 65%, transparent))}\n25% {background-image:linear-gradient(90deg,#0000 50%,color-mix(in srgb, currentColor 65%, transparent) 0)}\n37.5% {background-image:radial-gradient(80% 65% at right,color-mix(in srgb, currentColor 65%, transparent) 94%,#0000)}\n50% {background-image:linear-gradient(color-mix(in srgb, currentColor 65%, transparent) 0 0)}\n62.5% {background-image:radial-gradient(80% 65% at left, color-mix(in srgb, currentColor 65%, transparent) 94%,#0000)}\n75% {background-image:linear-gradient(-90deg,#0000 50%,color-mix(in srgb, currentColor 65%, transparent) 0)}\n87.5% {background-image:radial-gradient(80% 65% at right,#0000 94%,color-mix(in srgb, currentColor 65%, transparent))}\n}",
+    "react": "export default function DarmaCustom464Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-464\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

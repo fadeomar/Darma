@@ -1,0 +1,47 @@
+{
+  "id": "darma-custom-037",
+  "name": "Linear Fill Bar",
+  "category": "progress",
+  "tags": [
+    "linear",
+    "fill",
+    "progress",
+    "single-element",
+    "batch-02"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": true,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-037 linear fill bar progress linear fill progress single-element batch-02 html css react popular singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-037\"></div>",
+  "previewCss": ".darma-loader-darma-custom-037 {\n  width: 120px;\n  height: 20px;\n  background:\n    linear-gradient(#000 0 0) 0/0% no-repeat\n    #ddd;\n  animation: darma-loader-darma-custom-037-l1 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-037-l1 {\n  100% { background-size: 100%; }\n}",
+  "defaults": {
+    "color": "#000000",
+    "secondaryColor": "#dddddd",
+    "size": 120,
+    "speed": 2,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-037\"></div>",
+    "css": ".darma-loader-darma-custom-037 {\n  width: 120px;\n  height: 20px;\n  background:\n    linear-gradient(#000 0 0) 0/0% no-repeat\n    #ddd;\n  animation: darma-loader-darma-custom-037-l1 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-037-l1 {\n  100% { background-size: 100%; }\n}",
+    "react": "export default function DarmaCustom037Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-037\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "source": {}
+}

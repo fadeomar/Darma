@@ -1,0 +1,58 @@
+{
+  "id": "darma-custom-619",
+  "name": "Dot Matrix 06",
+  "category": "spinners",
+  "tags": [
+    "dot",
+    "matrix",
+    "06",
+    "dots",
+    "spinner",
+    "grid",
+    "border",
+    "spinners",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-619 dot matrix 06 spinners dot matrix 06 dots spinner grid border spinners loader css-only single-element batch-07 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-619\"></div>",
+  "previewCss": ".darma-loader-darma-custom-619 {color: var(--loader-color, #e11d48);\n  --loader-secondary-color: #fb7185;\n  --loader-bg: #ffffff;\n   width: 68px;\n   aspect-ratio: 1;\n   border: 8px solid currentColor;\n   box-sizing: border-box;\n   background: radial-gradient(farthest-side,currentColor 98%,#0000) 50%/30px 30px, radial-gradient(farthest-side,currentColor 98%,#0000) 50%/30px 30px, radial-gradient(farthest-side,currentColor 98%,#0000) 50%/80% 80%, currentColor;\n   background-repeat: no-repeat;\n   filter: blur(4px) contrast(10);\n   animation: darma-loader-darma-custom-619-l16 1s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-619-l16  {\n  0%, 30% {background-position:50%,50%,50%}\n60% {background-position:0 0,50%,50%}\n100% {background-position:50%,100% 100%,50%}\n}",
+  "defaults": {
+    "color": "#e11d48",
+    "secondaryColor": "#fb7185",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-619\"></div>",
+    "css": ".darma-loader-darma-custom-619 {color: var(--loader-color, #e11d48);\n  --loader-secondary-color: #fb7185;\n  --loader-bg: #ffffff;\n   width: 68px;\n   aspect-ratio: 1;\n   border: 8px solid currentColor;\n   box-sizing: border-box;\n   background: radial-gradient(farthest-side,currentColor 98%,#0000) 50%/30px 30px, radial-gradient(farthest-side,currentColor 98%,#0000) 50%/30px 30px, radial-gradient(farthest-side,currentColor 98%,#0000) 50%/80% 80%, currentColor;\n   background-repeat: no-repeat;\n   filter: blur(4px) contrast(10);\n   animation: darma-loader-darma-custom-619-l16 1s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-619-l16  {\n  0%, 30% {background-position:50%,50%,50%}\n60% {background-position:0 0,50%,50%}\n100% {background-position:50%,100% 100%,50%}\n}",
+    "react": "export default function DarmaCustom619Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-619\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-575",
+  "name": "Color Geometry 02",
+  "category": "creative",
+  "tags": [
+    "color",
+    "geometry",
+    "02",
+    "motion",
+    "creative",
+    "tiles",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #9333ea);\n  --loader-secondary-color: #f0abfc;\n  --loader-bg: #ffffff;\n   width: 28px;\n   aspect-ratio: 1;\n   border-radius: 50%;\n   background: var(--loader-color, #9333ea);\n   animation: l2 1.5s infinite;\n}\n@keyframes l2  {\n  0%, 100%{transform:translate(-35px);\n  box-shadow: 0 0 var(--loader-secondary-color, #f0abfc), 0 0 var(--loader-secondary-color, #f0abfc)}\n40% {transform:translate( 35px);\n  box-shadow: -15px 0 var(--loader-secondary-color, #f0abfc),-30px 0 var(--loader-secondary-color, #f0abfc)}\n50% {transform:translate( 35px);\n  box-shadow: 0 0 var(--loader-secondary-color, #f0abfc), 0 0 var(--loader-secondary-color, #f0abfc)}\n90% {transform:translate(-35px);\n  box-shadow: 15px 0 var(--loader-secondary-color, #f0abfc), 30px 0 var(--loader-secondary-color, #f0abfc)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#9333ea",
+    "secondaryColor": "#f0abfc",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

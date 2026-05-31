@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-082",
+  "name": "Corner Triangle Flip",
+  "category": "creative",
+  "tags": [
+    "corner",
+    "triangle",
+    "flip",
+    "geometric",
+    "creative",
+    "css-only",
+    "single-element",
+    "batch-03"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 40px;\n  aspect-ratio: 1;\n  background: #25b09b;\n  clip-path: polygon(0 0,100% 0,100% 100%);\n  animation: l2 2s infinite cubic-bezier(0.3,1,0,1);\n}\n@keyframes l2 {\n  25%  {clip-path: polygon(0    0,100% 0   ,0 100%)}\n  50%  {clip-path: polygon(0    0,100% 100%,0 100%)}\n  75%  {clip-path: polygon(100% 0,100% 100%,0 100%)}\n  100% {clip-path: polygon(100% 0,100% 100%,0 0   )}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#25b09b",
+    "secondaryColor": "#e5e7eb",
+    "size": 40,
+    "speed": 2.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

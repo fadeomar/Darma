@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-202",
+  "name": "Mirrored Dot Roll",
+  "category": "dots",
+  "tags": [
+    "mirrored",
+    "dot",
+    "roll",
+    "dots",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: #e11d48;\nheight: 15px;\naspect-ratio: 5;\ndisplay: grid;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\n}\n.loader:before,\n.loader:after {\ncontent: \"\";\ngrid-area: 1/1;\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 20% 100%;\nanimation: l32 1s infinite;\n}\n.loader:after {\nbackground:\nvar(--_g) calc(1*100%/3),\nvar(--_g) calc(2*100%/3);\nbackground-size: 20% 100%;\nanimation-direction: reverse;\n}\n@keyframes l32 {\n80%,100% {transform:rotate(.5turn)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#e11d48",
+    "secondaryColor": "#fb7185",
+    "size": 75,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

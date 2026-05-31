@@ -1,0 +1,54 @@
+{
+  "id": "darma-custom-185",
+  "name": "Dual Orbit Dots",
+  "category": "dots",
+  "tags": [
+    "dual",
+    "orbit",
+    "dots",
+    "dot",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-185 dual orbit dots dots dual orbit dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-185\"></div>",
+  "previewCss": ".darma-loader-darma-custom-185 {\n  color: #ea580c;\nwidth: 60px;\naspect-ratio: 4;\nbackground: radial-gradient(closest-side at calc(100%/6) 50%,currentColor 90%,#0000) 0/75% 100%;\nposition: relative;\nanimation: darma-loader-darma-custom-185-l15-0 1s infinite linear;\n}\n.darma-loader-darma-custom-185::before {\ncontent:\"\";\nposition: absolute;\nbackground: inherit;\nclip-path: inset(0 0 0 50%);\ninset: 0;\nanimation: darma-loader-darma-custom-185-l15-1 0.5s infinite linear;\n}\n@keyframes darma-loader-darma-custom-185-l15-0 {\n0%,49.99% {transform: scale(1)}\n50%,100% {transform: scale(-1)}\n}\n@keyframes darma-loader-darma-custom-185-l15-1 {\n0% {transform: translateX(-37.5%) rotate(0turn)}\n80%,100% {transform: translateX(-37.5%) rotate(1turn)}\n}",
+  "defaults": {
+    "color": "#ea580c",
+    "secondaryColor": "#fb923c",
+    "size": 60,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-185\"></div>",
+    "css": ".darma-loader-darma-custom-185 {\n  color: #ea580c;\nwidth: 60px;\naspect-ratio: 4;\nbackground: radial-gradient(closest-side at calc(100%/6) 50%,currentColor 90%,#0000) 0/75% 100%;\nposition: relative;\nanimation: darma-loader-darma-custom-185-l15-0 1s infinite linear;\n}\n.darma-loader-darma-custom-185::before {\ncontent:\"\";\nposition: absolute;\nbackground: inherit;\nclip-path: inset(0 0 0 50%);\ninset: 0;\nanimation: darma-loader-darma-custom-185-l15-1 0.5s infinite linear;\n}\n@keyframes darma-loader-darma-custom-185-l15-0 {\n0%,49.99% {transform: scale(1)}\n50%,100% {transform: scale(-1)}\n}\n@keyframes darma-loader-darma-custom-185-l15-1 {\n0% {transform: translateX(-37.5%) rotate(0turn)}\n80%,100% {transform: translateX(-37.5%) rotate(1turn)}\n}",
+    "react": "export default function DarmaCustom185Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-185\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

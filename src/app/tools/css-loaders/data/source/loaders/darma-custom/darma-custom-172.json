@@ -1,0 +1,42 @@
+{
+  "id": "darma-custom-172",
+  "name": "Step Dots",
+  "category": "dots",
+  "tags": [
+    "step",
+    "dots",
+    "dot",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: #059669;\nwidth: 60px;\naspect-ratio: 4;\nbackground: radial-gradient(circle closest-side,currentColor 90%,#0000) 0/calc(100%/3) 100% no-repeat;\nanimation: l2 1s steps(3) infinite;\n}\n@keyframes l2 {to{background-position: 150%}}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#059669",
+    "secondaryColor": "#34d399",
+    "size": 60,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "id": "darma-custom-063",
+  "name": "Isometric Step Progress",
+  "category": "progress",
+  "tags": [
+    "isometric",
+    "step",
+    "progress",
+    "loading",
+    "css-only",
+    "single-element",
+    "batch-03"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  --s: 25px;\n  --g: 5px;  \n  \n  height: calc(1.353*var(--s) + var(--g));\n  aspect-ratio: 3;\n  background:\n    linear-gradient(#ff1818 0 0) left/33% 100% no-repeat,\n    conic-gradient(from -90deg at var(--s) calc(0.353*var(--s)),\n      #fff 135deg,#666 0 270deg,#aaa 0); \n  background-blend-mode: multiply;\n  --_m:\n    linear-gradient(to bottom right,\n       #0000 calc(0.25*var(--s)),#000 0 calc(100% - calc(0.25*var(--s)) - 1.414*var(--g)),#0000 0),\n    conic-gradient(from -90deg at right var(--g) bottom var(--g),#000 90deg,#0000 0);\n  -webkit-mask: var(--_m);\n          mask: var(--_m);\n  background-size:   calc(100%/3) 100%;\n  -webkit-mask-size: calc(100%/3) 100%;\n          mask-size: calc(100%/3) 100%;\n  -webkit-mask-composite: source-in;\n          mask-composite: intersect;\n  animation: l7 steps(3) 1.5s infinite;\n}\n@keyframes l7 {\n  to {background-position: 150% 0%}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#ff1818",
+    "secondaryColor": "#666",
+    "size": 90,
+    "speed": 1.5,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

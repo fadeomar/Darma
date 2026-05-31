@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-115",
+  "name": "Striped Circle Split",
+  "category": "spinners",
+  "tags": [
+    "striped",
+    "circle",
+    "split",
+    "spinner",
+    "rotation",
+    "css-only",
+    "single-element",
+    "batch-03"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 50px;\n  aspect-ratio: 1;\n  display: grid;\n}\n.loader:before,\n.loader:after {\n  content: \"\";\n  grid-area: 1/1;\n  border-radius: 50%;\n  background: #f03355;\n  -webkit-mask:repeating-linear-gradient(#000 0 5px,#0000 0 10px);\n  animation: l35 1.5s infinite;\n}\n.loader:after {\n  -webkit-mask:repeating-linear-gradient(#0000 0 5px,#000 0 10px);\n  --s:-1;\n}\n@keyframes l35 {\n  0%,\n  10% {transform: translate(0) rotate(0)}\n  35% {transform: translate(calc(var(--s,1)*50%)) rotate(0)}\n  66% {transform: translate(calc(var(--s,1)*50%)) rotate(calc(var(--s,1)*180deg))}\n  90%,\n  100% {transform: translate(0) rotate(calc(var(--s,1)*180deg))}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#f03355",
+    "secondaryColor": "#000",
+    "size": 50,
+    "speed": 1.5,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "id": "darma-custom-699",
+  "name": "Pattern Progress 25",
+  "category": "progress",
+  "tags": [
+    "css-only",
+    "single-element",
+    "customizable",
+    "batch-08",
+    "progress",
+    "striped",
+    "pattern",
+    "progress",
+    "loader"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: var(--loader-color, #0ea5e9);\n  --loader-secondary-color: #67e8f9;\n  --loader-bg: #ffffff;\nwidth: 45px;\naspect-ratio: .8;\n--c:no-repeat repeating-linear-gradient(90deg,currentColor 0 20%,#0000 0 40%);\nbackground: var(--c),var(--c),var(--c),var(--c);\nbackground-size: 100% 21%;\nanimation: l24 .75s infinite alternate;\n}\n@keyframes l24 {\n0%,\n10% {background-position:0 calc(0*100%/4),0 calc(1*100%/4),0 calc(2*100%/4),0 calc(3*100%/4)}\n25% {background-position:0 calc(0*100%/4),0 calc(1*100%/4),0 calc(2*100%/4),0 calc(4*100%/4)}\n50% {background-position:0 calc(0*100%/4),0 calc(1*100%/4),0 calc(3*100%/4),0 calc(4*100%/4)}\n75% {background-position:0 calc(0*100%/4),0 calc(2*100%/4),0 calc(3*100%/4),0 calc(4*100%/4)}\n90%,\n100%{background-position:0 calc(1*100%/4),0 calc(2*100%/4),0 calc(3*100%/4),0 calc(4*100%/4)}\n}",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#0ea5e9",
+    "secondaryColor": "#67e8f9",
+    "size": 45,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

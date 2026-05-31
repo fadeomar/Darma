@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-204",
+  "name": "Orbit Cluster",
+  "category": "dots",
+  "tags": [
+    "orbit",
+    "cluster",
+    "dot",
+    "dots",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: #0ea5e9;\nheight: 15px;\naspect-ratio: 4;\ndisplay: grid;\n}\n.loader:before,\n.loader:after {\ncontent: \"\";\ngrid-area: 1/1;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 25% 100%;\nanimation: l34 1s infinite;\ntransform: translate(var(--d,0)) rotate(0);\n}\n.loader:after {\n--d: 37.5%;\nanimation-delay: .5s;\n}\n@keyframes l34 {\n50%,100% {transform: translate(var(--d,0)) rotate(.5turn)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#0ea5e9",
+    "secondaryColor": "#38bdf8",
+    "size": 60,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

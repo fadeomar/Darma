@@ -1,0 +1,46 @@
+{
+  "id": "darma-custom-509",
+  "name": "Duo Block 05",
+  "category": "creative",
+  "tags": [
+    "duo",
+    "block",
+    "05",
+    "duotone",
+    "motion",
+    "creative",
+    "tiles",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #0ea5e9);\n  --loader-secondary-color: #67e8f9;\n  --loader-bg: #ffffff;\n   width: 16px;\n   aspect-ratio: 1;\n   background: var(--loader-color, #0ea5e9);\n   position: relative;\n   animation: l5-0 2s infinite linear;\n}\n.loader:before  {\n  content: \"\";\n   position: absolute;\n   inset: 0;\n   background: var(--loader-secondary-color, #67e8f9);\n   transform: translate(30px) rotate(0);\n   animation: l5-1 .5s infinite }\n@keyframes l5-0  {\n  100% {transform: rotate(1turn)}\n}\n@keyframes l5-1  {\n  100% {transform: translate(30px) rotate(.25turn)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#0ea5e9",
+    "secondaryColor": "#67e8f9",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

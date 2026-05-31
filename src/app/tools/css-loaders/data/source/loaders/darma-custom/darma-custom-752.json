@@ -1,0 +1,44 @@
+{
+  "id": "darma-custom-752",
+  "name": "Micro Bar 78",
+  "category": "bars",
+  "tags": [
+    "css-only",
+    "single-element",
+    "customizable",
+    "batch-08",
+    "bars",
+    "linear",
+    "micro",
+    "bars",
+    "loader"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: var(--loader-color, #14b8a6);\n  --loader-secondary-color: #99f6e4;\n  --loader-bg: #ffffff;\nheight: 15px;\naspect-ratio: 4;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 25% 100%;\ndisplay: grid;\n}\n.loader:before,\n.loader:after {\ncontent: \"\";\ngrid-area: 1/1;\nmargin: auto;\nheight: 100%;\naspect-ratio: 1;\nborder-radius: 50%;\nbackground: currentColor;\nclip-path: inset(0 0 49%);\ntransform-origin: -100% 50%;\nanimation: l27 .5s infinite alternate;\n}\n.loader:after {\n--s:-1;\ntransform-origin: 200% 50%;\n}\n@keyframes l27 {\n0%,40% {transform:scaleY(var(--s,1)) rotate(0)}\n100% {transform:scaleY(var(--s,1)) rotate(calc(var(--s,1)*-90deg))}\n}",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#14b8a6",
+    "secondaryColor": "#99f6e4",
+    "size": 56,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

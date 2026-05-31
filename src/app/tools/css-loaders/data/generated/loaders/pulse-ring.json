@@ -21,7 +21,7 @@
   },
   "searchText": "pulse-ring pulse ring pulse pulse ring ping notification html css react popular cssonly customizable singleelement",
   "previewHtml": "<span class=\"darma-loader-pulse-ring\"></span>",
-  "previewCss": ".darma-loader-pulse-ring {\n  position: relative;\n  display: inline-block;\n  width: 54px;\n  height: 54px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n}\n.darma-loader-pulse-ring::before,\n.darma-loader-pulse-ring::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  border-radius: inherit;\n  border: 3px solid var(--loader-color, #6366f1);\n  animation: darma-loader-pulse-ring-pulse 1.25s ease-out infinite;\n}\n.darma-loader-pulse-ring::after { animation-delay: 0.45s; }\n@keyframes darma-loader-pulse-ring-pulse {\n  to { transform: scale(1.9); opacity: 0; }\n}\n",
+  "previewCss": ".darma-loader-pulse-ring {\n  position: relative;\n  display: inline-block;\n  width: 54px;\n  height: 54px;\n  border-radius: 50%;\n  background: var(--loader-color);\n}\n.darma-loader-pulse-ring::before,\n.darma-loader-pulse-ring::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  border-radius: inherit;\n  border: 3px solid var(--loader-color);\n  animation: darma-loader-pulse-ring-pulse 1.25s ease-out infinite;\n}\n.darma-loader-pulse-ring::after { animation-delay: 0.45s; }\n@keyframes darma-loader-pulse-ring-pulse {\n  to { transform: scale(1.9); opacity: 0; }\n}",
   "defaults": {
     "color": "#6366f1",
     "size": 48,
@@ -29,14 +29,13 @@
   },
   "code": {
     "html": "<span class=\"darma-loader-pulse-ring\"></span>",
-    "css": ".darma-loader-pulse-ring {\n  position: relative;\n  display: inline-block;\n  width: 54px;\n  height: 54px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n}\n.darma-loader-pulse-ring::before,\n.darma-loader-pulse-ring::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  border-radius: inherit;\n  border: 3px solid var(--loader-color, #6366f1);\n  animation: darma-loader-pulse-ring-pulse 1.25s ease-out infinite;\n}\n.darma-loader-pulse-ring::after { animation-delay: 0.45s; }\n@keyframes darma-loader-pulse-ring-pulse {\n  to { transform: scale(1.9); opacity: 0; }\n}\n",
+    "css": ".darma-loader-pulse-ring {\n  position: relative;\n  display: inline-block;\n  width: 54px;\n  height: 54px;\n  border-radius: 50%;\n  background: var(--loader-color);\n}\n.darma-loader-pulse-ring::before,\n.darma-loader-pulse-ring::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  border-radius: inherit;\n  border: 3px solid var(--loader-color);\n  animation: darma-loader-pulse-ring-pulse 1.25s ease-out infinite;\n}\n.darma-loader-pulse-ring::after { animation-delay: 0.45s; }\n@keyframes darma-loader-pulse-ring-pulse {\n  to { transform: scale(1.9); opacity: 0; }\n}",
     "react": "export default function PulseRingLoader() {\n  return (\n    <span className=\"darma-loader-pulse-ring\"></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
-    "speed": true,
-    "background": false,
-    "secondaryColor": false
-  }
+    "speed": true
+  },
+  "source": {}
 }

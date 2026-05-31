@@ -20,7 +20,7 @@
   },
   "searchText": "stepped-progress stepped progress progress progress steps wizard checkout html css react cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-stepped-progress\"><i></i><i></i><i></i><i></i></span>",
-  "previewCss": ".darma-loader-stepped-progress {\n  display: inline-flex;\n  gap: 8px;\n  color: var(--loader-color, #6366f1);\n}\n.darma-loader-stepped-progress i {\n  width: 18px;\n  height: 18px;\n  border-radius: 7px;\n  background: currentColor;\n  opacity: 0.25;\n  animation: darma-loader-stepped-progress-step 1.2s ease-in-out infinite;\n}\n.darma-loader-stepped-progress i:nth-child(2) { animation-delay: 0.15s; }\n.darma-loader-stepped-progress i:nth-child(3) { animation-delay: 0.3s; }\n.darma-loader-stepped-progress i:nth-child(4) { animation-delay: 0.45s; }\n@keyframes darma-loader-stepped-progress-step {\n  0%, 100% { opacity: 0.22; transform: translateY(0); }\n  45% { opacity: 1; transform: translateY(-6px); }\n}\n",
+  "previewCss": ".darma-loader-stepped-progress {\n  display: inline-flex;\n  gap: 8px;\n  color: #6366f1;\n}\n.darma-loader-stepped-progress i {\n  width: 18px;\n  height: 18px;\n  border-radius: 7px;\n  background: currentColor;\n  opacity: 0.25;\n  animation: darma-loader-stepped-progress-step 1.2s ease-in-out infinite;\n}\n.darma-loader-stepped-progress i:nth-child(2) { animation-delay: 0.15s; }\n.darma-loader-stepped-progress i:nth-child(3) { animation-delay: 0.3s; }\n.darma-loader-stepped-progress i:nth-child(4) { animation-delay: 0.45s; }\n@keyframes darma-loader-stepped-progress-step {\n  0%, 100% { opacity: 0.22; transform: translateY(0); }\n  45% { opacity: 1; transform: translateY(-6px); }\n}",
   "defaults": {
     "color": "#6366f1",
     "size": 48,
@@ -28,14 +28,13 @@
   },
   "code": {
     "html": "<span class=\"darma-loader-stepped-progress\"><i></i><i></i><i></i><i></i></span>",
-    "css": ".darma-loader-stepped-progress {\n  display: inline-flex;\n  gap: 8px;\n  color: var(--loader-color, #6366f1);\n}\n.darma-loader-stepped-progress i {\n  width: 18px;\n  height: 18px;\n  border-radius: 7px;\n  background: currentColor;\n  opacity: 0.25;\n  animation: darma-loader-stepped-progress-step 1.2s ease-in-out infinite;\n}\n.darma-loader-stepped-progress i:nth-child(2) { animation-delay: 0.15s; }\n.darma-loader-stepped-progress i:nth-child(3) { animation-delay: 0.3s; }\n.darma-loader-stepped-progress i:nth-child(4) { animation-delay: 0.45s; }\n@keyframes darma-loader-stepped-progress-step {\n  0%, 100% { opacity: 0.22; transform: translateY(0); }\n  45% { opacity: 1; transform: translateY(-6px); }\n}\n",
+    "css": ".darma-loader-stepped-progress {\n  display: inline-flex;\n  gap: 8px;\n  color: #6366f1;\n}\n.darma-loader-stepped-progress i {\n  width: 18px;\n  height: 18px;\n  border-radius: 7px;\n  background: currentColor;\n  opacity: 0.25;\n  animation: darma-loader-stepped-progress-step 1.2s ease-in-out infinite;\n}\n.darma-loader-stepped-progress i:nth-child(2) { animation-delay: 0.15s; }\n.darma-loader-stepped-progress i:nth-child(3) { animation-delay: 0.3s; }\n.darma-loader-stepped-progress i:nth-child(4) { animation-delay: 0.45s; }\n@keyframes darma-loader-stepped-progress-step {\n  0%, 100% { opacity: 0.22; transform: translateY(0); }\n  45% { opacity: 1; transform: translateY(-6px); }\n}",
     "react": "export default function SteppedProgressLoader() {\n  return (\n    <span className=\"darma-loader-stepped-progress\"><i></i><i></i><i></i><i></i></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
-    "speed": true,
-    "background": false,
-    "secondaryColor": false
-  }
+    "speed": true
+  },
+  "source": {}
 }

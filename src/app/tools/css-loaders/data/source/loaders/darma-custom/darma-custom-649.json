@@ -1,0 +1,46 @@
+{
+  "id": "darma-custom-649",
+  "name": "Rainbow Halo Spinner",
+  "category": "spinners",
+  "tags": [
+    "rich",
+    "spinner",
+    "glow",
+    "gradient",
+    "ring",
+    "multi-element",
+    "spinners",
+    "loader",
+    "html-css",
+    "customizable",
+    "rich-batch-01"
+  ],
+  "html": "<div class=\"spinner\">\n    <div class=\"spinnerin\"></div>\n</div>",
+  "css": ".spinner {color: var(--loader-color, #a855f7);\n  --loader-secondary-color: #22d3ee;\n  --loader-bg: #111827;\n  \n  width: 3em;\n  height: 3em;\n  cursor: not-allowed;\n  border-radius: 50%;\n  border: 2px solid #444;\n  box-shadow: -10px -10px 10px #6359f8, 0px -10px 10px 0px #9c32e2, 10px -10px 10px #f36896, 10px 0 10px #ff0b0b, 10px 10px 10px 0px #ff5500, 0 10px 10px 0px #ff9500, -10px 10px 10px 0px #ffb700;\n  animation: rot55 0.7s linear infinite;\n}\n\n.spinnerin {\n  border: 2px solid #444;\n  width: 1.5em;\n  height: 1.5em;\n  border-radius: 50%;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n\n@keyframes rot55 {\n  to {\n    transform: rotate(360deg);\n  }\n}\n",
+  "source": {
+    "name": "Darma rich loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#a855f7",
+    "secondaryColor": "#22d3ee",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#111827"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

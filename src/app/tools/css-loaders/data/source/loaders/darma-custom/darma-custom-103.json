@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-103",
+  "name": "Diagonal Fold Bars",
+  "category": "creative",
+  "tags": [
+    "diagonal",
+    "fold",
+    "bars",
+    "geometric",
+    "creative",
+    "css-only",
+    "single-element",
+    "batch-03"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 36px;\n  aspect-ratio: 1;\n  color: #25b09b;\n  background: linear-gradient(45deg,#0000 24%,currentColor 0 76%,#0000 0);\n  position: relative;\n  animation: l23-0 1.5s infinite;\n}\n.loader:before,\n.loader:after {\n  content: \"\";\n  position: absolute;\n  width: 50%;\n  height: 50%;\n  background: currentColor; \n  transform-origin: top left;\n  clip-path: polygon(-2px 0,0 -1px,100% 100%,-2px 100%);\n  inset: auto auto 0 0;\n  animation: l23-1 1.5s infinite;\n}\n.loader:after {\n  inset:0 0 auto auto;\n  transform-origin: bottom right;\n  clip-path: polygon(0 0,calc(100% + 2px) 0,calc(100% + 2px) 100%,100% calc(100% + 1px));\n}\n@keyframes l23-0 {\n 0% ,50%   {transform:skewX(0)}\n 90%,100%  {transform:skewX(-45deg)}\n}\n@keyframes l23-1 {\n 40%,100%  {transform:rotate(180deg);box-shadow: 0 0 0 3px;}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#25b09b",
+    "secondaryColor": "#e5e7eb",
+    "size": 36,
+    "speed": 1.5,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

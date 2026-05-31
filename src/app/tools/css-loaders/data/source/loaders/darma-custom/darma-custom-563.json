@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-563",
+  "name": "Micro Bar 09",
+  "category": "progress",
+  "tags": [
+    "micro",
+    "bar",
+    "09",
+    "progress",
+    "minimal",
+    "linear",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #0ea5e9);\n  --loader-secondary-color: #67e8f9;\n  --loader-bg: #ffffff;\n   height: 6px;\n   width: 60px;\n   --c:no-repeat repeating-linear-gradient(90deg,currentColor 0 3px,#0000 0 6px);\n   background: var(--c), var(--c);\n   background-size: 100% 3px;\n   animation: l9 1s infinite;\n}\n@keyframes l9  {\n  0%, 70%, 100% {background-position: 0 50%,3px 50% }\n23.33% {background-position: 0 0 ,3px 100%}\n46.67% {background-position: 3px 0 ,0 100%}\n69.99% {background-position: 3px 50%,0 50% }\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#0ea5e9",
+    "secondaryColor": "#67e8f9",
+    "size": 88,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

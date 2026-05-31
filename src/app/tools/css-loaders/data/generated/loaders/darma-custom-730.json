@@ -1,0 +1,55 @@
+{
+  "id": "darma-custom-730",
+  "name": "Round Spinner 56",
+  "category": "spinners",
+  "tags": [
+    "css-only",
+    "single-element",
+    "customizable",
+    "batch-08",
+    "spinner",
+    "round",
+    "micro",
+    "spinners",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-730 round spinner 56 spinners css-only single-element customizable batch-08 spinner round micro spinners loader html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-730\"></div>",
+  "previewCss": ".darma-loader-darma-custom-730 {\n  color: var(--loader-color, #6366f1);\n  --loader-secondary-color: #a5b4fc;\n  --loader-bg: #ffffff;\nwidth: 15px;\naspect-ratio: 1;\nborder-radius: 50%;\nanimation: darma-loader-darma-custom-730-l5 1s infinite linear alternate;\n}\n@keyframes darma-loader-darma-custom-730-l5 {\n0% {box-shadow: 20px 0 currentColor, -20px 0 #0002;background: currentColor }\n33% {box-shadow: 20px 0 currentColor, -20px 0 #0002;background: #0002}\n66% {box-shadow: 20px 0 #0002,-20px 0 currentColor; background: #0002}\n100%{box-shadow: 20px 0 #0002,-20px 0 currentColor; background: currentColor }\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "secondaryColor": "#a5b4fc",
+    "size": 48,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-730\"></div>",
+    "css": ".darma-loader-darma-custom-730 {\n  color: var(--loader-color, #6366f1);\n  --loader-secondary-color: #a5b4fc;\n  --loader-bg: #ffffff;\nwidth: 15px;\naspect-ratio: 1;\nborder-radius: 50%;\nanimation: darma-loader-darma-custom-730-l5 1s infinite linear alternate;\n}\n@keyframes darma-loader-darma-custom-730-l5 {\n0% {box-shadow: 20px 0 currentColor, -20px 0 #0002;background: currentColor }\n33% {box-shadow: 20px 0 currentColor, -20px 0 #0002;background: #0002}\n66% {box-shadow: 20px 0 #0002,-20px 0 currentColor; background: #0002}\n100%{box-shadow: 20px 0 #0002,-20px 0 currentColor; background: currentColor }\n}",
+    "react": "export default function DarmaCustom730Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-730\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

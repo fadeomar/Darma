@@ -1,0 +1,35 @@
+{
+  "id": "darma-custom-001",
+  "name": "Gradient Square Fill",
+  "category": "creative",
+  "tags": [
+    "square",
+    "gradient",
+    "fill",
+    "single-element",
+    "batch-01"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 40px;\n  aspect-ratio: 1;\n  background: linear-gradient(#00AAFF 0 0), linear-gradient(#FF00AA 0 0), #00AAFF;\n  background-repeat: no-repeat;\n  animation: l1 1.5s infinite;\n}\n@keyframes l1 {\n  0% { background-size: 100% 0, 0 100%; }\n  30%, 50% { background-size: 100% 0, 100% 100%; }\n  80%, 100% { background-size: 100% 100%, 100% 100%; }\n}\n",
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#00AAFF",
+    "secondaryColor": "#FF00AA",
+    "size": 40,
+    "speed": 1.5,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": true,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

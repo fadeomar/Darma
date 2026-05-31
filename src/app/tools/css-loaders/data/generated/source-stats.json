@@ -1,8 +1,9 @@
 {
-  "total": 148,
+  "total": 921,
   "groups": {
     "cssloaders-github": 40,
     "darma": 28,
+    "darma-custom": 773,
     "loaders-css": 34,
     "loading-io": 34,
     "uiverse": 12

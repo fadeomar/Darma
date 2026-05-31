@@ -23,7 +23,7 @@
   },
   "searchText": "cssloaders-github-36 cssloaders pattern 36 creative cssloaders square flip creative loader html css react singleelement cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-cssloaders-github-36\"></span>",
-  "previewCss": ".darma-loader-cssloaders-github-36 {\n  display: inline-block;\n  width: 41px;\n  height: 41px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color, #ef4444), var(--loader-secondary-color, #fecaca));\n  animation: darma-loader-cssloaders-github-36-squareFlip 0.85s cubic-bezier(.55,.08,.38,.97) infinite;\n}\n@keyframes darma-loader-cssloaders-github-36-squareFlip { 0% { transform: perspective(120px) rotateX(0) rotateY(0); } 50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); } 100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); } }\n",
+  "previewCss": ".darma-loader-cssloaders-github-36 {\n  display: inline-block;\n  width: 41px;\n  height: 41px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color), var(--loader-secondary-color));\n  animation: darma-loader-cssloaders-github-36-squareFlip 0.85s cubic-bezier(.55,.08,.38,.97) infinite;\n}\n@keyframes darma-loader-cssloaders-github-36-squareFlip { 0% { transform: perspective(120px) rotateX(0) rotateY(0); } 50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); } 100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); } }",
   "defaults": {
     "color": "#ef4444",
     "secondaryColor": "#fecaca",
@@ -32,7 +32,7 @@
   },
   "code": {
     "html": "<span class=\"darma-loader-cssloaders-github-36\"></span>",
-    "css": ".darma-loader-cssloaders-github-36 {\n  display: inline-block;\n  width: 41px;\n  height: 41px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color, #ef4444), var(--loader-secondary-color, #fecaca));\n  animation: darma-loader-cssloaders-github-36-squareFlip 0.85s cubic-bezier(.55,.08,.38,.97) infinite;\n}\n@keyframes darma-loader-cssloaders-github-36-squareFlip { 0% { transform: perspective(120px) rotateX(0) rotateY(0); } 50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); } 100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); } }\n",
+    "css": ".darma-loader-cssloaders-github-36 {\n  display: inline-block;\n  width: 41px;\n  height: 41px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color), var(--loader-secondary-color));\n  animation: darma-loader-cssloaders-github-36-squareFlip 0.85s cubic-bezier(.55,.08,.38,.97) infinite;\n}\n@keyframes darma-loader-cssloaders-github-36-squareFlip { 0% { transform: perspective(120px) rotateX(0) rotateY(0); } 50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); } 100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); } }",
     "react": "export default function CssloadersGithub36Loader() {\n  return (\n    <span className=\"darma-loader-cssloaders-github-36\"></span>\n  );\n}\n"
   },
   "controls": {

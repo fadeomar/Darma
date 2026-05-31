@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-602",
+  "name": "Chain Motion 09",
+  "category": "creative",
+  "tags": [
+    "chain",
+    "motion",
+    "09",
+    "linked",
+    "creative",
+    "mechanical",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {--loader-bg: #ffffff;\n  --loader-secondary-color: #38bdf8;\n   width: 60px;\n   height: 30px;\n   color: var(--loader-color, #2563eb);\n   display: flex;\n   background: linear-gradient(currentColor 0 0) center/calc(100% - 30px) 10px, conic-gradient(from -136deg at right,#0000 ,currentColor 1deg 90deg,#0000 91deg) right/15px 100%, conic-gradient(from 44deg at left ,#0000 ,currentColor 1deg 90deg,#0000 91deg) left /15px 100%;\n   background-repeat: no-repeat;\n   animation: l9 .5s infinite linear alternate;\n}\n@keyframes l9  {\n  0% {transform: translate(-30px)}\n100% {transform: translate( 30px)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#2563eb",
+    "secondaryColor": "#38bdf8",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

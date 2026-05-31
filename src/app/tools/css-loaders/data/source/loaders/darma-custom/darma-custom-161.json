@@ -1,0 +1,44 @@
+{
+  "id": "darma-custom-161",
+  "name": "Elastic Columns 36",
+  "category": "bars",
+  "tags": [
+    "elastic",
+    "columns",
+    "36",
+    "bar",
+    "equalizer",
+    "bars",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: #ea580c;\nwidth: 45px;\naspect-ratio: 1;\n--c:no-repeat linear-gradient(135deg,currentColor,var(--loader-secondary-color));\nbackground: var(--c),var(--c),var(--c);\nbackground-size: 8px calc(50% + 8px);\n-webkit-mask:radial-gradient(circle closest-side,#0000 92%,currentColor) 0/8px 100%;\nanimation: l11 .75s infinite alternate linear;\n}\n@keyframes l11 {\n0%,\n10% {background-position: 0 100%,50% 100%,100% 100%}\n25% {background-position: 0 50% ,50% 100%,100% 100%}\n50% {background-position: 0 0 ,50% 50% ,100% 100%}\n75% {background-position: 0 0 ,50% 0 ,100% 50% }\n90%\n,100%{background-position: 0 0 ,50% 0 ,100% 0 }\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#ea580c",
+    "secondaryColor": "#fb923c",
+    "size": 45,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

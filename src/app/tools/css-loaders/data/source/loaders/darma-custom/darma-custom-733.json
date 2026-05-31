@@ -1,0 +1,44 @@
+{
+  "id": "darma-custom-733",
+  "name": "Round Spinner 59",
+  "category": "spinners",
+  "tags": [
+    "css-only",
+    "single-element",
+    "customizable",
+    "batch-08",
+    "spinner",
+    "round",
+    "micro",
+    "spinners",
+    "loader"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: var(--loader-color, #ec4899);\n  --loader-secondary-color: #f9a8d4;\n  --loader-bg: #ffffff;\nwidth: 15px;\naspect-ratio: 1;\nposition: relative;\n}\n.loader::before,\n.loader::after {\ncontent: \"\";\nposition: absolute;\ninset: 0;\nborder-radius: 50%;\nbackground: currentColor;\n}\n.loader::before {\nbox-shadow: -25px 0;\nanimation: l8-1 1s infinite linear;\n}\n.loader::after {\ntransform: rotate(0deg) translateX(25px);\nanimation: l8-2 1s infinite linear;\n}\n\n@keyframes l8-1 {\n100%{transform: translateX(25px)}\n}\n@keyframes l8-2 {\n100%{transform: rotate(-180deg) translateX(25px)}\n}",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#ec4899",
+    "secondaryColor": "#f9a8d4",
+    "size": 48,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

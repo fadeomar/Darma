@@ -1,0 +1,36 @@
+{
+  "id": "darma-custom-023",
+  "name": "Bordered Slider Fill",
+  "category": "progress",
+  "tags": [
+    "linear",
+    "bordered",
+    "slider",
+    "pill",
+    "fill",
+    "batch-02"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 120px;\n  height: 22px;\n  border-radius: 40px;\n  color: #514b82;\n  border: 2px solid;\n  position: relative;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  margin: 2px;\n  width: 25%;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  border-radius: inherit;\n  background: currentColor;\n  animation: l3 1s infinite linear;\n}\n@keyframes l3 {\n  50% { left: 100%; transform: translateX(calc(-100% - 4px)); }\n}\n",
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#514b82",
+    "secondaryColor": "#a5b4fc",
+    "size": 120,
+    "speed": 1,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": true,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

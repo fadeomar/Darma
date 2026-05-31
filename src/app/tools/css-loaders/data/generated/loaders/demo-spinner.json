@@ -21,7 +21,7 @@
   },
   "searchText": "demo-spinner classic spinner spinners spinner ring circle classic html css react popular cssonly customizable singleelement",
   "previewHtml": "<span class=\"darma-loader-demo-spinner\"></span>",
-  "previewCss": ".darma-loader-demo-spinner {\n  display: inline-block;\n  width: 54px;\n  height: 54px;\n  border-radius: 50%;\n  border: 5px solid color-mix(in srgb, var(--loader-color, #6366f1) 18%, transparent);\n  border-top-color: var(--loader-color, #6366f1);\n  animation: darma-loader-demo-spinner-spin 0.85s linear infinite;\n}\n@keyframes darma-loader-demo-spinner-spin { to { transform: rotate(360deg); } }\n",
+  "previewCss": ".darma-loader-demo-spinner {\n  display: inline-block;\n  width: 54px;\n  height: 54px;\n  border-radius: 50%;\n  border: 5px solid rgba(99, 102, 241, 0.18);\n  border-top-color: #6366f1;\n  animation: darma-loader-demo-spinner-spin 0.85s linear infinite;\n}\n@keyframes darma-loader-demo-spinner-spin { to { transform: rotate(360deg); } }",
   "defaults": {
     "color": "#6366f1",
     "size": 48,
@@ -29,14 +29,13 @@
   },
   "code": {
     "html": "<span class=\"darma-loader-demo-spinner\"></span>",
-    "css": ".darma-loader-demo-spinner {\n  display: inline-block;\n  width: 54px;\n  height: 54px;\n  border-radius: 50%;\n  border: 5px solid color-mix(in srgb, var(--loader-color, #6366f1) 18%, transparent);\n  border-top-color: var(--loader-color, #6366f1);\n  animation: darma-loader-demo-spinner-spin 0.85s linear infinite;\n}\n@keyframes darma-loader-demo-spinner-spin { to { transform: rotate(360deg); } }\n",
+    "css": ".darma-loader-demo-spinner {\n  display: inline-block;\n  width: 54px;\n  height: 54px;\n  border-radius: 50%;\n  border: 5px solid rgba(99, 102, 241, 0.18);\n  border-top-color: #6366f1;\n  animation: darma-loader-demo-spinner-spin 0.85s linear infinite;\n}\n@keyframes darma-loader-demo-spinner-spin { to { transform: rotate(360deg); } }",
     "react": "export default function DemoSpinnerLoader() {\n  return (\n    <span className=\"darma-loader-demo-spinner\"></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
-    "speed": true,
-    "background": false,
-    "secondaryColor": false
-  }
+    "speed": true
+  },
+  "source": {}
 }

@@ -1,0 +1,56 @@
+{
+  "id": "darma-custom-636",
+  "name": "Track Runner 03",
+  "category": "progress",
+  "tags": [
+    "track",
+    "runner",
+    "03",
+    "progress",
+    "path",
+    "linear",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "darma-custom-636 track runner 03 progress track runner 03 progress path linear loader css-only single-element batch-07 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-darma-custom-636\"></div>",
+  "previewCss": ".darma-loader-darma-custom-636 {color: var(--loader-color, #b45309);\n  --loader-secondary-color: #fcd34d;\n  --loader-bg: #ffffff;\n   width: 90px;\n   height: 14px;\n   box-shadow: 0 3px 0 currentColor;\n   background: linear-gradient(currentColor 0 0) 50%/2px 100% no-repeat;\n   display: grid;\n}\n.darma-loader-darma-custom-636:before, .darma-loader-darma-custom-636:after {\n  content: \"\";\n   grid-area: 1/1;\n   background: radial-gradient(circle closest-side, var(--c,currentColor) 92%,#0000 ) 0 0/calc(100%/4) 100%;\n   clip-path: inset(0 50% 0 0);\n   animation: darma-loader-darma-custom-636-l3 1s infinite linear;\n}\n.darma-loader-darma-custom-636:after {\n  --c: var(--loader-color, #b45309);\n   clip-path: inset(0 0 0 50%);\n}\n@keyframes darma-loader-darma-custom-636-l3  {\n  100% {background-position: calc(100%/3) 0}\n}",
+  "defaults": {
+    "color": "#b45309",
+    "secondaryColor": "#fcd34d",
+    "size": 88,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-custom-636\"></div>",
+    "css": ".darma-loader-darma-custom-636 {color: var(--loader-color, #b45309);\n  --loader-secondary-color: #fcd34d;\n  --loader-bg: #ffffff;\n   width: 90px;\n   height: 14px;\n   box-shadow: 0 3px 0 currentColor;\n   background: linear-gradient(currentColor 0 0) 50%/2px 100% no-repeat;\n   display: grid;\n}\n.darma-loader-darma-custom-636:before, .darma-loader-darma-custom-636:after {\n  content: \"\";\n   grid-area: 1/1;\n   background: radial-gradient(circle closest-side, var(--c,currentColor) 92%,#0000 ) 0 0/calc(100%/4) 100%;\n   clip-path: inset(0 50% 0 0);\n   animation: darma-loader-darma-custom-636-l3 1s infinite linear;\n}\n.darma-loader-darma-custom-636:after {\n  --c: var(--loader-color, #b45309);\n   clip-path: inset(0 0 0 50%);\n}\n@keyframes darma-loader-darma-custom-636-l3  {\n  100% {background-position: calc(100%/3) 0}\n}",
+    "react": "export default function DarmaCustom636Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-636\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  }
+}

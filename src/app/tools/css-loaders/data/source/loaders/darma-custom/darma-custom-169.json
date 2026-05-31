@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-169",
+  "name": "Triple Column Swap 44",
+  "category": "bars",
+  "tags": [
+    "triple",
+    "column",
+    "swap",
+    "44",
+    "bar",
+    "equalizer",
+    "bars",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: #2563eb;\nwidth: 45px;\naspect-ratio: 1;\n--c: linear-gradient(135deg,currentColor,var(--loader-secondary-color));\n--m: radial-gradient(farthest-side,currentColor 90%,#0000);\nbackground: var(--c),var(--m),var(--c);\nbackground-size:16px 8px,10px 10px;\nbackground-repeat: no-repeat;\nanimation:\nl19-1 .5s infinite alternate,\nl19-2 4s infinite linear .5s;\n}\n@keyframes l19-1 {\n0%,10% {background-position: calc(50% - 8px) 50%,50% 10%,calc(50% + 8px) 50%}\n80%,100% {background-position: -20px 50%,50% 50%,calc(100% + 20px) 50%}\n}\n@keyframes l19-2 {\n0% ,24.99% {transform: rotate(0)}\n25%,49.99% {transform: rotate(90deg)}\n50%,74.99% {transform: rotate(180deg)}\n75%,100% {transform: rotate(270deg)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#2563eb",
+    "secondaryColor": "#60a5fa",
+    "size": 45,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

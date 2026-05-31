@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-385",
+  "name": "Shimmer Bar 02",
+  "category": "progress",
+  "tags": [
+    "shimmer",
+    "bar",
+    "02",
+    "progress",
+    "track",
+    "linear",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-06"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {--loader-bg: #ffffff;\n  --loader-secondary-color: #22d3ee;\n  width: 120px;\n  height: 22px;\n  border-radius: 40px;\n  color: var(--loader-color, #0891b2);\n  border: 2px solid;\n  position: relative;\n  overflow: hidden;\n}.loader::before {content: \"\";\n  position: absolute;\n  margin: 2px;\n  width: 14px;\n  top: 0;\n  bottom: 0;\n  left: -20px;\n  border-radius: inherit;\n  background: currentColor;\n  box-shadow: -10px 0 12px 3px currentColor;\n  clip-path: polygon(0 5%, 100% 0,100% 100%,0 95%,-30px 50%);\n  animation: l14 1s infinite linear;\n}@keyframes l14 {100% {left: calc(100% + 20px)}}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#0891b2",
+    "secondaryColor": "#22d3ee",
+    "size": 84,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

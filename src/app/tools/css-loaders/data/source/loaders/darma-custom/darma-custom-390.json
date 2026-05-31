@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-390",
+  "name": "Shimmer Bar 07",
+  "category": "progress",
+  "tags": [
+    "shimmer",
+    "bar",
+    "07",
+    "progress",
+    "track",
+    "linear",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-06"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #9333ea);\n  --loader-secondary-color: #f0abfc;\n  --loader-bg: #ffffff;\n  width: 120px;\n  height: 20px;\n  background:radial-gradient(circle closest-side,var(--loader-color, #9333ea) 94%,#0000) 50% 50%/calc(50% + 10px) 70% repeat-x var(--loader-secondary-color, #f0abfc);\n  animation: l9 1s infinite cubic-bezier(0.3,1,0,1);\n}@keyframes l9 {100% {background-position: calc(200% - 5px)}}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#9333ea",
+    "secondaryColor": "#f0abfc",
+    "size": 84,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "darma-custom-046",
+  "name": "Semi Circle Step Fill",
+  "category": "progress",
+  "tags": [
+    "semi-circle",
+    "steps",
+    "radial",
+    "progress",
+    "batch-02"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 120px;\n  height: 60px;\n  border-radius: 200px 200px 0 0;\n  -webkit-mask: repeating-radial-gradient(farthest-side at bottom, #0000 0, #000 1px 12%, #0000 calc(12% + 1px) 20%);\n  background:\n    radial-gradient(farthest-side at bottom, #514b82 0 95%, #0000 0) bottom/0% 0% no-repeat\n    #ddd;\n  animation: l10 2s infinite steps(6);\n}\n@keyframes l10 {\n  100% { background-size: 120% 120%; }\n}\n",
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#514b82",
+    "secondaryColor": "#dddddd",
+    "size": 120,
+    "speed": 2,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

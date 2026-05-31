@@ -1,0 +1,46 @@
+{
+  "id": "darma-custom-665",
+  "name": "AI Matrix",
+  "category": "creative",
+  "tags": [
+    "rich",
+    "ai",
+    "matrix",
+    "digits",
+    "glow",
+    "multi-element",
+    "creative",
+    "loader",
+    "html-css",
+    "customizable",
+    "rich-batch-01"
+  ],
+  "html": "<div class=\"ai-matrix-loader\">\n  <div class=\"digit\">0</div>\n  <div class=\"digit\">1</div>\n  <div class=\"digit\">0</div>\n  <div class=\"digit\">1</div>\n  <div class=\"digit\">1</div>\n  <div class=\"digit\">0</div>\n  <div class=\"digit\">0</div>\n  <div class=\"digit\">1</div>\n  <div class=\"glow\"></div>\n</div>",
+  "css": ".ai-matrix-loader {color: var(--loader-color, #00ff88);\n  --loader-secondary-color: #22c55e;\n  --loader-bg: #020617;\n  \n  width: 120px;\n  height: 160px;\n  margin: 0;\n  position: relative;\n  perspective: 800px;\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 5px;\n}\n\n.digit {\n  color: var(--loader-color, #00ff88);\n  font-family: monospace;\n  font-size: 18px;\n  text-align: center;\n  text-shadow: 0 0 5px var(--loader-color, #00ff88);\n  animation:\n    matrix-fall 2s infinite,\n    matrix-flicker 0.5s infinite;\n  opacity: 0;\n}\n\n.digit:nth-child(1) {\n  animation-delay: 0.1s;\n}\n.digit:nth-child(2) {\n  animation-delay: 0.3s;\n}\n.digit:nth-child(3) {\n  animation-delay: 0.5s;\n}\n.digit:nth-child(4) {\n  animation-delay: 0.7s;\n}\n.digit:nth-child(5) {\n  animation-delay: 0.9s;\n}\n.digit:nth-child(6) {\n  animation-delay: 1.1s;\n}\n.digit:nth-child(7) {\n  animation-delay: 1.3s;\n}\n.digit:nth-child(8) {\n  animation-delay: 1.5s;\n}\n\n.glow {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: radial-gradient(\n    circle,\n    rgba(0, 255, 136, 0.1) 0%,\n    transparent 70%\n  );\n  animation: matrix-pulse 2s infinite;\n}\n\n@keyframes matrix-fall {\n  0% {\n    transform: translateY(-50px) rotateX(90deg);\n    opacity: 0;\n  }\n  20%,\n  80% {\n    transform: translateY(0) rotateX(0deg);\n    opacity: 0.8;\n  }\n  100% {\n    transform: translateY(50px) rotateX(-90deg);\n    opacity: 0;\n  }\n}\n\n@keyframes matrix-flicker {\n  0%,\n  19%,\n  21%,\n  100% {\n    opacity: 0.8;\n  }\n  20% {\n    opacity: 0.2;\n  }\n}\n\n@keyframes matrix-pulse {\n  0%,\n  100% {\n    opacity: 0.3;\n  }\n  50% {\n    opacity: 0.7;\n  }\n}\n",
+  "source": {
+    "name": "Darma rich loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#00ff88",
+    "secondaryColor": "#22c55e",
+    "size": 96,
+    "speed": 1.0,
+    "background": "#020617"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

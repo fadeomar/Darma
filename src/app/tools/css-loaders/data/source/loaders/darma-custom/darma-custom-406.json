@@ -1,0 +1,46 @@
+{
+  "id": "darma-custom-406",
+  "name": "Arcade Motion 03",
+  "category": "fun",
+  "tags": [
+    "arcade",
+    "motion",
+    "03",
+    "game",
+    "character",
+    "fun",
+    "pixel",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-06"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #16a34a);\n  --loader-secondary-color: #86efac;\n  --loader-bg: #ffffff;\n  width: 80px;\n  height: 60px;\n  box-sizing: border-box;\n  background:linear-gradient(var(--loader-bg, #ffffff) 0 0) left /calc(50% - 15px) 8px no-repeat,linear-gradient(var(--loader-bg, #ffffff) 0 0) right/calc(50% - 15px) 8px no-repeat,conic-gradient(from 135deg at top,#0000, var(--loader-secondary-color, #86efac) 1deg 90deg,#0000 91deg) bottom/14px 8px repeat-x,currentColor;\n  border-bottom: 2px solid var(--loader-secondary-color, #86efac);\n  position: relative;\n  overflow: hidden;\n  animation: l6-0 1s infinite linear;\n}.loader::before {content: \"\";\n  position: absolute;\n  width: 10px;\n  height: 14px;\n  background: var(--loader-secondary-color, #86efac);\n  left: -5px;\n  animation:l6-1 2s infinite cubic-bezier(0,100,1,100),l6-2 2s infinite linear;\n}@keyframes l6-0{50%  {\n  background-position: left,right,bottom -2px left -4px}}@keyframes l6-1{0%,27% {bottom: calc(50% + 4px)}65%,100% {bottom: calc(50% + 4.1px)}}@keyframes l6-2{100% {left:100%}}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#16a34a",
+    "secondaryColor": "#86efac",
+    "size": 64,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

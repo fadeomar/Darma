@@ -1,0 +1,36 @@
+{
+  "id": "darma-custom-027",
+  "name": "Micro Jitter Ball",
+  "category": "fun",
+  "tags": [
+    "ball",
+    "jitter",
+    "bounce",
+    "radial",
+    "single-element",
+    "batch-02"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 20px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: radial-gradient(at 30% 30%, #0000, #000a) #ff0000;\n  position: relative;\n  left: 0;\n  top: 0;\n  animation:\n    l7-1 0.6s,\n    l7-2 0.3s;\n  animation-timing-function: cubic-bezier(.5, -200, .5, 200);\n  animation-iteration-count: infinite;\n}\n@keyframes l7-1 {\n  100% { left: 1px; }\n}\n@keyframes l7-2 {\n  100% { top: 0.3px; }\n}\n",
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#ff0000",
+    "secondaryColor": "#000000",
+    "size": 20,
+    "speed": 0.6,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

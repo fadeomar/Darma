@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-400",
+  "name": "Pop Icon 07",
+  "category": "pulse",
+  "tags": [
+    "pop",
+    "icon",
+    "07",
+    "pulse",
+    "shape",
+    "motion",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-06"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #4f46e5);\n  --loader-secondary-color: #a5b4fc;\n  --loader-bg: #ffffff;\n  width: 88px;\n  height: 45px;\n  position: relative;\n}.loader:before,.loader:after {content: \"\";\n  position: absolute;\n  inset: 0;\n  background: currentColor;\n  box-shadow: 0 0 0 50px;\n  clip-path: polygon(-50px -20px,10% -12px,20% 0,calc(50% - 15px) 0,calc(50% - 10px) -20px,calc(50% - 8px) -15px,calc(50% + 8px) -15px,calc(50% + 10px) -20px,calc(50% + 15px) 0,80% 0,90% -12px,calc(100% + 50px) -20px,100% 80%,calc(100% + 10px) calc(100% + 10px),60% 100%,50% calc(100% + 15px),40% 100%,-10px calc(100% + 10px),0 80%);\n}.loader:before {animation: l9 1s infinite;\n  transform: perspective(300px) translateZ(0px)}@keyframes l9 {to {transform: perspective(300px) translateZ(100px);\n  opacity:0}}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#4f46e5",
+    "secondaryColor": "#a5b4fc",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

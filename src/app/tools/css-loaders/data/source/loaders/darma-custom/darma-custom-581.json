@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-581",
+  "name": "Color Geometry 08",
+  "category": "creative",
+  "tags": [
+    "color",
+    "geometry",
+    "08",
+    "motion",
+    "creative",
+    "tiles",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #6d28d9);\n  --loader-secondary-color: #f0abfc;\n  --loader-bg: #ffffff;\n   width: 60px;\n   aspect-ratio: 1;\n   display: flex;\n   --c1:linear-gradient(var(--loader-color, #6d28d9) 0 0);\n   --c2:linear-gradient(var(--loader-color, #6d28d9) 0 0);\n   --s:calc(100%/3) calc(100%/3);\n   background: var(--c1) 0 0 ,var(--c2) 50% 0 ,var(--c1) 100% 0, var(--c2) 0 50%, var(--c2) 100% 50%, var(--c1) 0 100%,var(--c2) 50% 100%,var(--c1) 100% 100%;\n   background-repeat: no-repeat;\n   animation: l8-0 1.5s infinite alternate;\n}\n.loader:before  {\n  content: \"\";\n   width: calc(100%/3);\n   height: calc(100%/3);\n   background: var(--loader-color, #6d28d9);\n   animation: inherit;\n   animation-delay: 0s;\n   animation-name: l8-1;\n}\n@keyframes l8-0  {\n  0%,12.49% {background-size: var(--s),0 0 ,0 0 ,0 0 ,0 0 ,0 0 ,0 0 ,0 0 }\n12.5%,24.9% {background-size: var(--s),var(--s),0 0 ,0 0 ,0 0 ,0 0 ,0 0 ,0 0 }\n25%,37.4% {background-size: var(--s),var(--s),var(--s),0 0 ,0 0 ,0 0 ,0 0 ,0 0 }\n37.5%,49.9% {background-size: var(--s),var(--s),var(--s),0 0 ,var(--s),0 0 ,0 0 ,0 0 }\n50%,61.4% {background-size: var(--s),var(--s),var(--s),0 0 ,var(--s),0 0 ,0 0 ,var(--s)}\n62.5%,74.9% {background-size: var(--s),var(--s),var(--s),0 0 ,var(--s),0 0 ,var(--s),var(--s)}\n75%,86.4% {background-size: var(--s),var(--s),var(--s),0 0 ,var(--s),var(--s),var(--s),var(--s)}\n87.5%,100% {background-size: var(--s),var(--s),var(--s),var(--s),var(--s),var(--s),var(--s),var(--s)}\n}\n@keyframes l8-1  {\n  0%, 5% {transform: translate(0 ,0 )}\n12.5% {transform: translate(100%,0 )}\n25% {transform: translate(200%,0 )}\n37.5% {transform: translate(200%,100%)}\n50% {transform: translate(200%,200%)}\n62.5% {transform: translate(100%,200%)}\n75% {transform: translate(0 ,200%)}\n87.5% {transform: translate(0 ,100%)}\n95%, 100% {transform: translate(100%,100%)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#6d28d9",
+    "secondaryColor": "#f0abfc",
+    "size": 72,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "darma-custom-476",
+  "name": "Weather Icon 16",
+  "category": "fun",
+  "tags": [
+    "weather",
+    "icon",
+    "16",
+    "fun",
+    "scene",
+    "illustration",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-07"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {color: var(--loader-color, #e11d48);\n  --loader-secondary-color: #fb7185;\n  --loader-bg: #ffffff;\n   width: 20px;\n   height: 80px;\n   background: var(--loader-color, #e11d48);\n   position: relative;\n}\n.loader:before  {\n  content: \"\";\n   position: absolute;\n   top: 10px;\n   left: -22px;\n   width: 25px;\n   height: 60px;\n   background: radial-gradient(farthest-side,currentColor 92%,#0000) 60% 6px/4px 4px, radial-gradient(50% 60%,var(--loader-secondary-color, #fb7185) 92%,#0000) center/70% 55%, radial-gradient(farthest-side,var(--loader-secondary-color, #fb7185) 92%,#0000) 50% 3px/14px 14px, radial-gradient(142% 100% at bottom right,#0000 64%,var(--loader-secondary-color, #fb7185) 65%) bottom/57% 40%, conic-gradient(from -120deg at right,var(--loader-secondary-color, #fb7185) 36deg,#0000 0)100% 3px/51% 12px, conic-gradient(from 120deg at top left,#0000 ,#ef524a 2deg 40deg,#0000 43deg) top/100% 10px;\n   background-repeat: no-repeat;\n   transform: rotate(-26deg);\n   transform-origin: 100% 80%;\n   animation: l16 .25s infinite linear alternate;\n}\n.loader:after  {\n  content: \"\";\n   position: absolute;\n   width: 6px;\n   height: 12px;\n   left: -6px;\n   bottom: 15px;\n   border-radius: 100px 0 0 100px;\n   background: var(--loader-secondary-color, #fb7185);\n}\n@keyframes l16  {\n  100% {transform: rotate(0)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#e11d48",
+    "secondaryColor": "#fb7185",
+    "size": 64,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

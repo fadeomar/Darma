@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-140",
+  "name": "Matrix Pop Grid",
+  "category": "creative",
+  "tags": [
+    "matrix",
+    "pop",
+    "grid",
+    "creative",
+    "motion",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: #0f766e;\nwidth: 49px;\naspect-ratio: 1;\n--c: conic-gradient(from -90deg,currentColor 90deg,#0000 0);\nbackground: var(--c), var(--c);\nbackground-size: 40% 40%;\nanimation: l20 1.5s infinite;\n}\n@keyframes l20 {\n0%,\n20% {background-position: 0 0 ,0 calc(100%/3)}\n33% {background-position: 0 0 ,calc(100%/3) calc(100%/3)}\n66% {background-position: 0 calc(100%/3),calc(100%/3) 0 }\n80%,\n100% {background-position: 0 calc(100%/3),0 0 }\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#0f766e",
+    "secondaryColor": "#2dd4bf",
+    "size": 49,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "darma-custom-010",
+  "name": "Stacked Column Sweep",
+  "category": "bars",
+  "tags": [
+    "bars",
+    "columns",
+    "stacked",
+    "progress",
+    "batch-01"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 80px;\n  aspect-ratio: 2;\n  --c: linear-gradient(#FFD412 25%, #ABD406 0 50%, #FF821C 0 75%, #FFD412 0);\n  background: var(--c), var(--c), var(--c), var(--c);\n  background-size: 26% 400%;\n  background-position: calc(0 * 100% / 3) 100%, calc(1 * 100% / 3) 100%, calc(2 * 100% / 3) 100%, calc(3 * 100% / 3) 100%;\n  background-repeat: no-repeat;\n  animation: l10 2s infinite;\n}\n@keyframes l10 {\n  0% { background-position: calc(0 * 100% / 3) calc(3 * 100% / 3), calc(1 * 100% / 3) calc(3 * 100% / 3), calc(2 * 100% / 3) calc(3 * 100% / 3), calc(3 * 100% / 3) calc(3 * 100% / 3); }\n  8.33% { background-position: calc(0 * 100% / 3) calc(2 * 100% / 3), calc(1 * 100% / 3) calc(3 * 100% / 3), calc(2 * 100% / 3) calc(3 * 100% / 3), calc(3 * 100% / 3) calc(3 * 100% / 3); }\n  16.67% { background-position: calc(0 * 100% / 3) calc(2 * 100% / 3), calc(1 * 100% / 3) calc(2 * 100% / 3), calc(2 * 100% / 3) calc(3 * 100% / 3), calc(3 * 100% / 3) calc(3 * 100% / 3); }\n  25% { background-position: calc(0 * 100% / 3) calc(2 * 100% / 3), calc(1 * 100% / 3) calc(2 * 100% / 3), calc(2 * 100% / 3) calc(2 * 100% / 3), calc(3 * 100% / 3) calc(3 * 100% / 3); }\n  30%, 33.33% { background-position: calc(0 * 100% / 3) calc(2 * 100% / 3), calc(1 * 100% / 3) calc(2 * 100% / 3), calc(2 * 100% / 3) calc(2 * 100% / 3), calc(3 * 100% / 3) calc(2 * 100% / 3); }\n  41.67% { background-position: calc(0 * 100% / 3) calc(1 * 100% / 3), calc(1 * 100% / 3) calc(2 * 100% / 3), calc(2 * 100% / 3) calc(2 * 100% / 3), calc(3 * 100% / 3) calc(2 * 100% / 3); }\n  50% { background-position: calc(0 * 100% / 3) calc(1 * 100% / 3), calc(1 * 100% / 3) calc(1 * 100% / 3), calc(2 * 100% / 3) calc(2 * 100% / 3), calc(3 * 100% / 3) calc(2 * 100% / 3); }\n  58.33% { background-position: calc(0 * 100% / 3) calc(1 * 100% / 3), calc(1 * 100% / 3) calc(1 * 100% / 3), calc(2 * 100% / 3) calc(1 * 100% / 3), calc(3 * 100% / 3) calc(2 * 100% / 3); }\n  63%, 66.67% { background-position: calc(0 * 100% / 3) calc(1 * 100% / 3), calc(1 * 100% / 3) calc(1 * 100% / 3), calc(2 * 100% / 3) calc(1 * 100% / 3), calc(3 * 100% / 3) calc(1 * 100% / 3); }\n  75% { background-position: calc(0 * 100% / 3) calc(0 * 100% / 3), calc(1 * 100% / 3) calc(1 * 100% / 3), calc(2 * 100% / 3) calc(1 * 100% / 3), calc(3 * 100% / 3) calc(1 * 100% / 3); }\n  83.33% { background-position: calc(0 * 100% / 3) calc(0 * 100% / 3), calc(1 * 100% / 3) calc(0 * 100% / 3), calc(2 * 100% / 3) calc(1 * 100% / 3), calc(3 * 100% / 3) calc(1 * 100% / 3); }\n  91.67% { background-position: calc(0 * 100% / 3) calc(0 * 100% / 3), calc(1 * 100% / 3) calc(0 * 100% / 3), calc(2 * 100% / 3) calc(0 * 100% / 3), calc(3 * 100% / 3) calc(1 * 100% / 3); }\n  97%, 100% { background-position: calc(0 * 100% / 3) calc(0 * 100% / 3), calc(1 * 100% / 3) calc(0 * 100% / 3), calc(2 * 100% / 3) calc(0 * 100% / 3), calc(3 * 100% / 3) calc(0 * 100% / 3); }\n}\n",
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#FFD412",
+    "secondaryColor": "#ABD406",
+    "size": 80,
+    "speed": 2,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": true,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

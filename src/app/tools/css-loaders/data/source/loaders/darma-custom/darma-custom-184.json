@@ -1,0 +1,43 @@
+{
+  "id": "darma-custom-184",
+  "name": "Flip Orbit Dots",
+  "category": "dots",
+  "tags": [
+    "flip",
+    "orbit",
+    "dots",
+    "dot",
+    "loader",
+    "css-only",
+    "single-element",
+    "batch-04"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  color: #059669;\n--s: 64px;\nwidth: var(--s);\naspect-ratio: 2;\n--_g: currentColor 90%,#0000;\nbackground:\nradial-gradient(farthest-side,var(--_g)) 0 50%/25% 50%,\nradial-gradient(farthest-side at bottom,var(--_g)) 50% calc(50% - var(--s)/16)/25% 25%,\nradial-gradient(farthest-side at top ,var(--_g)) 50% calc(50% + var(--s)/16)/25% 25%,\nradial-gradient(farthest-side at bottom,var(--_g)) 100% calc(50% - var(--s)/16)/25% 25%,\nradial-gradient(farthest-side at top ,var(--_g)) 100% calc(50% + var(--s)/16)/25% 25%;\nbackground-repeat: no-repeat;\nanimation: l14 1s infinite;\n}\n@keyframes l14 {\n25% {background-position:0 50%,50% 0,50% 100%,100% 0,100% 100%}\n50% {background-position:100% 50%,0 0,0 100%,50% 0,50% 100%}\n75%,\n100% {background-position:100% 50%,0 calc(50% - var(--s)/16),0 calc(50% + var(--s)/16),50% calc(50% - var(--s)/16),50% calc(50% + var(--s)/16)}\n}\n",
+  "source": {
+    "name": "Darma custom loaders",
+    "author": "Darma",
+    "license": "Custom"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#059669",
+    "secondaryColor": "#34d399",
+    "size": 64,
+    "speed": 1.0,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

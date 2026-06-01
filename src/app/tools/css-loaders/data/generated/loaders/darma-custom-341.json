@@ -30,25 +30,25 @@
   },
   "searchText": "darma-custom-341 neon halo 10 spinners neon halo 10 glow ring spinner blur spinners loader css-only single-element batch-06 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-341\"></div>",
-  "previewCss": ".darma-loader-darma-custom-341 {color: var(--loader-color, #ca8a04);\n  --loader-secondary-color: #fde047;\n  --loader-bg: #ffffff;\n  height: 82px;\n  aspect-ratio: 1;\n  position: relative;\n  --g:/calc(30.259% + 5.027px) calc(30.259% + 5.027px) radial-gradient(#0000 calc(70% - 8px),currentColor calc(71% - 8px) 70%,#0000 71%) no-repeat;\n  mask: radial-gradient(100% 100%,currentColor calc((30.259% + 5.027px)/0.964 - 8.306px),#0000 calc((30.259% + 5.027px)/0.964 - 8.306px + 1px)) intersect,100% 50% var(--g),81.174% 89.092% var(--g),38.874% 98.746% var(--g),4.952% 71.694% var(--g),4.952% 28.306% var(--g),38.874% 1.254% var(--g),81.174% 10.908% var(--g);\n  filter: blur(12px);\n}.darma-loader-darma-custom-341:before {content: \"\";\n  position: absolute;\n  inset: 0;\n  background: conic-gradient(#0000 35%,var(--loader-color, #ca8a04),#0000 65%);\n  animation: darma-loader-darma-custom-341-l10 2s linear infinite;\n}@keyframes darma-loader-darma-custom-341-l10 {to {rotate: 1turn}}",
+  "previewCss": ".darma-loader-darma-custom-341 {color: var(--loader-color, #ca8a04);\n  height: 82px;\n  aspect-ratio: 1;\n  position: relative;\n  --g:/calc(30.259% + 5.027px) calc(30.259% + 5.027px) radial-gradient(#0000 calc(70% - 8px),currentColor calc(71% - 8px) 70%,#0000 71%) no-repeat;\n  mask: radial-gradient(100% 100%,currentColor calc((30.259% + 5.027px)/0.964 - 8.306px),#0000 calc((30.259% + 5.027px)/0.964 - 8.306px + 1px)) intersect,100% 50% var(--g),81.174% 89.092% var(--g),38.874% 98.746% var(--g),4.952% 71.694% var(--g),4.952% 28.306% var(--g),38.874% 1.254% var(--g),81.174% 10.908% var(--g);\n  filter: blur(12px);\n}.darma-loader-darma-custom-341:before {content: \"\";\n  position: absolute;\n  inset: 0;\n  background: conic-gradient(#0000 35%,var(--loader-color, #ca8a04),#0000 65%);\n  animation: darma-loader-darma-custom-341-l10 2s linear infinite;\n}@keyframes darma-loader-darma-custom-341-l10 {to {rotate: 1turn}}\n",
   "defaults": {
     "color": "#ca8a04",
     "secondaryColor": "#fde047",
     "size": 72,
-    "speed": 1.0,
+    "speed": 2,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-341\"></div>",
-    "css": ".darma-loader-darma-custom-341 {color: var(--loader-color, #ca8a04);\n  --loader-secondary-color: #fde047;\n  --loader-bg: #ffffff;\n  height: 82px;\n  aspect-ratio: 1;\n  position: relative;\n  --g:/calc(30.259% + 5.027px) calc(30.259% + 5.027px) radial-gradient(#0000 calc(70% - 8px),currentColor calc(71% - 8px) 70%,#0000 71%) no-repeat;\n  mask: radial-gradient(100% 100%,currentColor calc((30.259% + 5.027px)/0.964 - 8.306px),#0000 calc((30.259% + 5.027px)/0.964 - 8.306px + 1px)) intersect,100% 50% var(--g),81.174% 89.092% var(--g),38.874% 98.746% var(--g),4.952% 71.694% var(--g),4.952% 28.306% var(--g),38.874% 1.254% var(--g),81.174% 10.908% var(--g);\n  filter: blur(12px);\n}.darma-loader-darma-custom-341:before {content: \"\";\n  position: absolute;\n  inset: 0;\n  background: conic-gradient(#0000 35%,var(--loader-color, #ca8a04),#0000 65%);\n  animation: darma-loader-darma-custom-341-l10 2s linear infinite;\n}@keyframes darma-loader-darma-custom-341-l10 {to {rotate: 1turn}}",
-    "react": "export default function DarmaCustom341Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-341\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-341 {color: var(--loader-color, #ca8a04);\n  height: 82px;\n  aspect-ratio: 1;\n  position: relative;\n  --g:/calc(30.259% + 5.027px) calc(30.259% + 5.027px) radial-gradient(#0000 calc(70% - 8px),currentColor calc(71% - 8px) 70%,#0000 71%) no-repeat;\n  mask: radial-gradient(100% 100%,currentColor calc((30.259% + 5.027px)/0.964 - 8.306px),#0000 calc((30.259% + 5.027px)/0.964 - 8.306px + 1px)) intersect,100% 50% var(--g),81.174% 89.092% var(--g),38.874% 98.746% var(--g),4.952% 71.694% var(--g),4.952% 28.306% var(--g),38.874% 1.254% var(--g),81.174% 10.908% var(--g);\n  filter: blur(12px);\n}.darma-loader-darma-custom-341:before {content: \"\";\n  position: absolute;\n  inset: 0;\n  background: conic-gradient(#0000 35%,var(--loader-color, #ca8a04),#0000 65%);\n  animation: darma-loader-darma-custom-341-l10 2s linear infinite;\n}@keyframes darma-loader-darma-custom-341-l10 {to {rotate: 1turn}}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom341Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-341\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": true
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

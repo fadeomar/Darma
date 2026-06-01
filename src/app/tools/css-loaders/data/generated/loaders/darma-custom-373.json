@@ -28,25 +28,25 @@
   },
   "searchText": "darma-custom-373 flip tile 20 creative flip tile 20 3d fold creative loader css-only single-element batch-06 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-373\"></div>",
-  "previewCss": ".darma-loader-darma-custom-373 {color: var(--loader-color, #0891b2);\n  --loader-secondary-color: #22d3ee;\n  --loader-bg: #ffffff;\n  width: 60px;\n  height: 60px;\n  display: grid;\n}.darma-loader-darma-custom-373:before,.darma-loader-darma-custom-373:after {content: \"\";\n  grid-area: 1/1;\n  background: var(--loader-color, #0891b2);\n  clip-path: polygon(0 0,100% 0,100% 100%,75% 25%,0 0,0 100%,100% 100%,25% 75%,0 0);\n  animation: darma-loader-darma-custom-373-l20 1.5s infinite linear;\n}.darma-loader-darma-custom-373:before {clip-path: polygon(0 0,76% 24%,100% 100%,24% 76%);\n  --s:0;\n}@keyframes darma-loader-darma-custom-373-l20 {0% {transform: perspective(100px) rotate3d(1,var(--s,1),0,0) }25% {transform: perspective(100px) rotate3d(1,var(--s,1),0,-90deg) }25.01% {transform: perspective(100px) rotate3d(1,var(--s,1),0,-90deg) }40%,60% {transform: perspective(100px) rotate3d(1,var(--s,1),0,-180deg)}75% {transform: perspective(100px) rotate3d(1,var(--s,1),0,-270deg)}75.01% {transform: perspective(100px) rotate3d(1,var(--s,1),0,-270deg)}90%,100%{transform: perspective(100px) rotate3d(1,var(--s,1),0,-360deg)}}",
+  "previewCss": ".darma-loader-darma-custom-373 {color: var(--loader-color, #0891b2);\n  width: 60px;\n  height: 60px;\n  display: grid;\n}.darma-loader-darma-custom-373:before,.darma-loader-darma-custom-373:after {content: \"\";\n  grid-area: 1/1;\n  background: var(--loader-color, #0891b2);\n  clip-path: polygon(0 0,100% 0,100% 100%,75% 25%,0 0,0 100%,100% 100%,25% 75%,0 0);\n  animation: darma-loader-darma-custom-373-l20 1.5s infinite linear;\n}.darma-loader-darma-custom-373:before {clip-path: polygon(0 0,76% 24%,100% 100%,24% 76%);\n  --s:0;\n}@keyframes darma-loader-darma-custom-373-l20 {0% {transform: perspective(100px) rotate3d(1,var(--s,1),0,0) }25% {transform: perspective(100px) rotate3d(1,var(--s,1),0,-90deg) }25.01% {transform: perspective(100px) rotate3d(1,var(--s,1),0,-90deg) }40%,60% {transform: perspective(100px) rotate3d(1,var(--s,1),0,-180deg)}75% {transform: perspective(100px) rotate3d(1,var(--s,1),0,-270deg)}75.01% {transform: perspective(100px) rotate3d(1,var(--s,1),0,-270deg)}90%,100%{transform: perspective(100px) rotate3d(1,var(--s,1),0,-360deg)}}\n",
   "defaults": {
     "color": "#0891b2",
     "secondaryColor": "#22d3ee",
     "size": 72,
-    "speed": 1.0,
+    "speed": 1.5,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-373\"></div>",
-    "css": ".darma-loader-darma-custom-373 {color: var(--loader-color, #0891b2);\n  --loader-secondary-color: #22d3ee;\n  --loader-bg: #ffffff;\n  width: 60px;\n  height: 60px;\n  display: grid;\n}.darma-loader-darma-custom-373:before,.darma-loader-darma-custom-373:after {content: \"\";\n  grid-area: 1/1;\n  background: var(--loader-color, #0891b2);\n  clip-path: polygon(0 0,100% 0,100% 100%,75% 25%,0 0,0 100%,100% 100%,25% 75%,0 0);\n  animation: darma-loader-darma-custom-373-l20 1.5s infinite linear;\n}.darma-loader-darma-custom-373:before {clip-path: polygon(0 0,76% 24%,100% 100%,24% 76%);\n  --s:0;\n}@keyframes darma-loader-darma-custom-373-l20 {0% {transform: perspective(100px) rotate3d(1,var(--s,1),0,0) }25% {transform: perspective(100px) rotate3d(1,var(--s,1),0,-90deg) }25.01% {transform: perspective(100px) rotate3d(1,var(--s,1),0,-90deg) }40%,60% {transform: perspective(100px) rotate3d(1,var(--s,1),0,-180deg)}75% {transform: perspective(100px) rotate3d(1,var(--s,1),0,-270deg)}75.01% {transform: perspective(100px) rotate3d(1,var(--s,1),0,-270deg)}90%,100%{transform: perspective(100px) rotate3d(1,var(--s,1),0,-360deg)}}",
-    "react": "export default function DarmaCustom373Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-373\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-373 {color: var(--loader-color, #0891b2);\n  width: 60px;\n  height: 60px;\n  display: grid;\n}.darma-loader-darma-custom-373:before,.darma-loader-darma-custom-373:after {content: \"\";\n  grid-area: 1/1;\n  background: var(--loader-color, #0891b2);\n  clip-path: polygon(0 0,100% 0,100% 100%,75% 25%,0 0,0 100%,100% 100%,25% 75%,0 0);\n  animation: darma-loader-darma-custom-373-l20 1.5s infinite linear;\n}.darma-loader-darma-custom-373:before {clip-path: polygon(0 0,76% 24%,100% 100%,24% 76%);\n  --s:0;\n}@keyframes darma-loader-darma-custom-373-l20 {0% {transform: perspective(100px) rotate3d(1,var(--s,1),0,0) }25% {transform: perspective(100px) rotate3d(1,var(--s,1),0,-90deg) }25.01% {transform: perspective(100px) rotate3d(1,var(--s,1),0,-90deg) }40%,60% {transform: perspective(100px) rotate3d(1,var(--s,1),0,-180deg)}75% {transform: perspective(100px) rotate3d(1,var(--s,1),0,-270deg)}75.01% {transform: perspective(100px) rotate3d(1,var(--s,1),0,-270deg)}90%,100%{transform: perspective(100px) rotate3d(1,var(--s,1),0,-360deg)}}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom373Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-373\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": true
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

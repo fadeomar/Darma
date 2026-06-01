@@ -246,33 +246,37 @@ function LoaderDetailModalContent({
                 </div>
               </div>
 
-              <LoaderPreviewStage loader={loader} customization={customization} mode={previewMode} theme={previewTheme} />
+              <div className="css-loaders-stage-wrap">
+                <div className="css-loaders-preview-meta css-loaders-preview-meta-top" aria-label="Loader metadata">
+                  <div className="css-loaders-preview-meta-chips">
+                    {loader.formats.map((format) => (
+                      <Badge key={format} variant="outline">
+                        {format.toUpperCase()}
+                      </Badge>
+                    ))}
+                    {activeFlags.slice(0, 4).map((flag) => (
+                      <Badge key={flag} variant="soft">
+                        {formatLoaderLabel(flag)}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+
+                <LoaderPreviewStage loader={loader} customization={customization} mode={previewMode} theme={previewTheme} />
+
+                <div className="css-loaders-preview-meta css-loaders-preview-meta-bottom">
+                  {loader.tags.length ? <p>{loader.tags.slice(0, 9).map((tag) => `#${tag}`).join("  ")}</p> : null}
+                  {loader.source?.name || loader.source?.author || loader.source?.license ? (
+                    <p className="css-loaders-preview-source">{[loader.source?.name, loader.source?.author, loader.source?.license].filter(Boolean).join(" · ")}</p>
+                  ) : null}
+                </div>
+              </div>
             </section>
 
             <div className="css-loaders-modal-side-column">
               <LoaderControls loader={loader} value={customization} onChange={setCustomization} />
 
               <LoaderCodeTabs loader={loader} customization={customization} onCopySuccess={onCopySuccess} />
-
-              <section className="css-loaders-detail-meta" aria-label="Loader metadata">
-                <h3>Details</h3>
-                <div>
-                  {loader.formats.map((format) => (
-                    <Badge key={format} variant="outline">
-                      {format.toUpperCase()}
-                    </Badge>
-                  ))}
-                  {activeFlags.map((flag) => (
-                    <Badge key={flag} variant="soft">
-                      {formatLoaderLabel(flag)}
-                    </Badge>
-                  ))}
-                </div>
-                {loader.tags.length ? <p>Tags: {loader.tags.map((tag) => `#${tag}`).join("  ")}</p> : null}
-                {loader.source?.name || loader.source?.author || loader.source?.license ? (
-                  <p>Source: {[loader.source?.name, loader.source?.author, loader.source?.license].filter(Boolean).join(" · ")}</p>
-                ) : null}
-              </section>
             </div>
           </div>
         )}

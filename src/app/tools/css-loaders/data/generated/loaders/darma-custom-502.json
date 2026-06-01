@@ -29,25 +29,25 @@
   },
   "searchText": "darma-custom-502 radial cutout 08 spinners radial cutout 08 spinner mask geometric spinners loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-502\"></div>",
-  "previewCss": ".darma-loader-darma-custom-502 {color: var(--loader-color, #4f46e5);\n  --loader-secondary-color: #a5b4fc;\n  --loader-bg: #ffffff;\n   width: 70px;\n   aspect-ratio: 1;\n   --c: var(--loader-color, #4f46e5) 91%,#0000;\n   background: radial-gradient(30% 50% at -3px 55%, var(--c)) top right, radial-gradient(30% 50% at -3px 45%, var(--c)) bottom right, radial-gradient(30% 50% at calc(100% + 3px) 55%, var(--c)) top left, radial-gradient(30% 50% at calc(100% + 3px) 45%, var(--c)) bottom left, radial-gradient(50% 30% at 45% calc(100% + 3px), var(--c)) top right, radial-gradient(50% 30% at 45% -3px , var(--c)) bottom right, radial-gradient(50% 30% at 55% calc(100% + 3px), var(--c)) top left, radial-gradient(50% 30% at 55% -3px , var(--c)) bottom left;\n   background-size: 50.1% 50.1%;\n   background-repeat: no-repeat;\n   -webkit-mask: radial-gradient(circle 5px,#0000 90%,currentColor);\n   animation: darma-loader-darma-custom-502-l8 1.5s infinite linear;\n}\n@keyframes darma-loader-darma-custom-502-l8  {\n  100%{transform: rotate(1turn)}\n}",
+  "previewCss": ".darma-loader-darma-custom-502 {color: var(--loader-color, #4f46e5);\n   width: 70px;\n   aspect-ratio: 1;\n   --c: var(--loader-color, #4f46e5) 91%,#0000;\n   background: radial-gradient(30% 50% at -3px 55%, var(--c)) top right, radial-gradient(30% 50% at -3px 45%, var(--c)) bottom right, radial-gradient(30% 50% at calc(100% + 3px) 55%, var(--c)) top left, radial-gradient(30% 50% at calc(100% + 3px) 45%, var(--c)) bottom left, radial-gradient(50% 30% at 45% calc(100% + 3px), var(--c)) top right, radial-gradient(50% 30% at 45% -3px , var(--c)) bottom right, radial-gradient(50% 30% at 55% calc(100% + 3px), var(--c)) top left, radial-gradient(50% 30% at 55% -3px , var(--c)) bottom left;\n   background-size: 50.1% 50.1%;\n   background-repeat: no-repeat;\n   -webkit-mask: radial-gradient(circle 5px,#0000 90%,currentColor);\n   animation: darma-loader-darma-custom-502-l8 1.5s infinite linear;\n}\n@keyframes darma-loader-darma-custom-502-l8  {\n  100%{transform: rotate(1turn)}\n}\n",
   "defaults": {
     "color": "#4f46e5",
     "secondaryColor": "#a5b4fc",
     "size": 72,
-    "speed": 1.0,
+    "speed": 1.5,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-502\"></div>",
-    "css": ".darma-loader-darma-custom-502 {color: var(--loader-color, #4f46e5);\n  --loader-secondary-color: #a5b4fc;\n  --loader-bg: #ffffff;\n   width: 70px;\n   aspect-ratio: 1;\n   --c: var(--loader-color, #4f46e5) 91%,#0000;\n   background: radial-gradient(30% 50% at -3px 55%, var(--c)) top right, radial-gradient(30% 50% at -3px 45%, var(--c)) bottom right, radial-gradient(30% 50% at calc(100% + 3px) 55%, var(--c)) top left, radial-gradient(30% 50% at calc(100% + 3px) 45%, var(--c)) bottom left, radial-gradient(50% 30% at 45% calc(100% + 3px), var(--c)) top right, radial-gradient(50% 30% at 45% -3px , var(--c)) bottom right, radial-gradient(50% 30% at 55% calc(100% + 3px), var(--c)) top left, radial-gradient(50% 30% at 55% -3px , var(--c)) bottom left;\n   background-size: 50.1% 50.1%;\n   background-repeat: no-repeat;\n   -webkit-mask: radial-gradient(circle 5px,#0000 90%,currentColor);\n   animation: darma-loader-darma-custom-502-l8 1.5s infinite linear;\n}\n@keyframes darma-loader-darma-custom-502-l8  {\n  100%{transform: rotate(1turn)}\n}",
-    "react": "export default function DarmaCustom502Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-502\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-502 {color: var(--loader-color, #4f46e5);\n   width: 70px;\n   aspect-ratio: 1;\n   --c: var(--loader-color, #4f46e5) 91%,#0000;\n   background: radial-gradient(30% 50% at -3px 55%, var(--c)) top right, radial-gradient(30% 50% at -3px 45%, var(--c)) bottom right, radial-gradient(30% 50% at calc(100% + 3px) 55%, var(--c)) top left, radial-gradient(30% 50% at calc(100% + 3px) 45%, var(--c)) bottom left, radial-gradient(50% 30% at 45% calc(100% + 3px), var(--c)) top right, radial-gradient(50% 30% at 45% -3px , var(--c)) bottom right, radial-gradient(50% 30% at 55% calc(100% + 3px), var(--c)) top left, radial-gradient(50% 30% at 55% -3px , var(--c)) bottom left;\n   background-size: 50.1% 50.1%;\n   background-repeat: no-repeat;\n   -webkit-mask: radial-gradient(circle 5px,#0000 90%,currentColor);\n   animation: darma-loader-darma-custom-502-l8 1.5s infinite linear;\n}\n@keyframes darma-loader-darma-custom-502-l8  {\n  100%{transform: rotate(1turn)}\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom502Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-502\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": true
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

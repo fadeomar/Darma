@@ -29,25 +29,25 @@
   },
   "searchText": "darma-custom-510 duo block 06 creative duo block 06 duotone motion creative tiles loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-510\"></div>",
-  "previewCss": ".darma-loader-darma-custom-510 {color: var(--loader-color, #6d28d9);\n  --loader-secondary-color: #f0abfc;\n  --loader-bg: #ffffff;\n   width: 16px;\n   aspect-ratio: 1;\n   background: var(--loader-color, #6d28d9);\n   box-shadow: 0 -16px var(--loader-secondary-color, #f0abfc);\n   animation: darma-loader-darma-custom-510-l6 2s infinite;\n}\n@keyframes darma-loader-darma-custom-510-l6  {\n  0% {transform: translate(0 ,0 ) rotate(0)}\n25% {transform: translate(0 ,0 ) rotate(90deg)}\n50% {transform: translate(100%,-100%) rotate(180deg)}\n75% {transform: translate(100%,-100%) rotate(270deg)}\n100% {transform: translate(0 ,0 ) rotate(360deg)}\n}",
+  "previewCss": ".darma-loader-darma-custom-510 {color: var(--loader-color, #6d28d9);\n   width: 16px;\n   aspect-ratio: 1;\n   background: var(--loader-color, #6d28d9);\n   box-shadow: 0 -16px var(--loader-secondary-color, #f0abfc);\n   animation: darma-loader-darma-custom-510-l6 2s infinite;\n}\n@keyframes darma-loader-darma-custom-510-l6  {\n  0% {transform: translate(0 ,0 ) rotate(0)}\n25% {transform: translate(0 ,0 ) rotate(90deg)}\n50% {transform: translate(100%,-100%) rotate(180deg)}\n75% {transform: translate(100%,-100%) rotate(270deg)}\n100% {transform: translate(0 ,0 ) rotate(360deg)}\n}\n",
   "defaults": {
     "color": "#6d28d9",
     "secondaryColor": "#f0abfc",
     "size": 72,
-    "speed": 1.0,
+    "speed": 2,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-510\"></div>",
-    "css": ".darma-loader-darma-custom-510 {color: var(--loader-color, #6d28d9);\n  --loader-secondary-color: #f0abfc;\n  --loader-bg: #ffffff;\n   width: 16px;\n   aspect-ratio: 1;\n   background: var(--loader-color, #6d28d9);\n   box-shadow: 0 -16px var(--loader-secondary-color, #f0abfc);\n   animation: darma-loader-darma-custom-510-l6 2s infinite;\n}\n@keyframes darma-loader-darma-custom-510-l6  {\n  0% {transform: translate(0 ,0 ) rotate(0)}\n25% {transform: translate(0 ,0 ) rotate(90deg)}\n50% {transform: translate(100%,-100%) rotate(180deg)}\n75% {transform: translate(100%,-100%) rotate(270deg)}\n100% {transform: translate(0 ,0 ) rotate(360deg)}\n}",
-    "react": "export default function DarmaCustom510Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-510\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-510 {color: var(--loader-color, #6d28d9);\n   width: 16px;\n   aspect-ratio: 1;\n   background: var(--loader-color, #6d28d9);\n   box-shadow: 0 -16px var(--loader-secondary-color, #f0abfc);\n   animation: darma-loader-darma-custom-510-l6 2s infinite;\n}\n@keyframes darma-loader-darma-custom-510-l6  {\n  0% {transform: translate(0 ,0 ) rotate(0)}\n25% {transform: translate(0 ,0 ) rotate(90deg)}\n50% {transform: translate(100%,-100%) rotate(180deg)}\n75% {transform: translate(100%,-100%) rotate(270deg)}\n100% {transform: translate(0 ,0 ) rotate(360deg)}\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom510Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-510\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": true
+    "background": false,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

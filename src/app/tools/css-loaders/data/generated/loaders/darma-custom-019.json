@@ -23,7 +23,7 @@
   },
   "searchText": "darma-custom-019 bowtie conic spinner spinners bowtie conic spinner clip-path batch-01 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-019\"></div>",
-  "previewCss": ".darma-loader-darma-custom-019 {\n  width: 40px;\n  aspect-ratio: .577;\n  clip-path: polygon(0 0, 100% 100%, 0 100%, 100% 0);\n  position: relative;\n  animation: darma-loader-darma-custom-019-l19 2s infinite linear;\n  overflow: hidden;\n}\n.darma-loader-darma-custom-019::before {\n  content: \"\";\n  position: absolute;\n  inset: -150%;\n  background: repeating-conic-gradient(from 30deg, #FFABAB 0 60deg, #ABE4FF 0 120deg, #FF7373 0 180deg);\n  animation: inherit;\n  animation-direction: reverse;\n}\n@keyframes darma-loader-darma-custom-019-l19 {\n  100% { transform: rotate(360deg); }\n}",
+  "previewCss": ".darma-loader-darma-custom-019 {\n  width: 40px;\n  aspect-ratio: .577;\n  clip-path: polygon(0 0, 100% 100%, 0 100%, 100% 0);\n  position: relative;\n  animation: darma-loader-darma-custom-019-l19 2s infinite linear;\n  overflow: hidden;\n}\n.darma-loader-darma-custom-019::before {\n  content: \"\";\n  position: absolute;\n  inset: -150%;\n  background: repeating-conic-gradient(from 30deg, var(--loader-color, #FFABAB) 0 60deg, var(--loader-secondary-color, #ABE4FF) 0 120deg, #FF7373 0 180deg);\n  animation: inherit;\n  animation-direction: reverse;\n}\n@keyframes darma-loader-darma-custom-019-l19 {\n  100% { transform: rotate(360deg); }\n}\n",
   "defaults": {
     "color": "#FFABAB",
     "secondaryColor": "#ABE4FF",
@@ -33,15 +33,14 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-019\"></div>",
-    "css": ".darma-loader-darma-custom-019 {\n  width: 40px;\n  aspect-ratio: .577;\n  clip-path: polygon(0 0, 100% 100%, 0 100%, 100% 0);\n  position: relative;\n  animation: darma-loader-darma-custom-019-l19 2s infinite linear;\n  overflow: hidden;\n}\n.darma-loader-darma-custom-019::before {\n  content: \"\";\n  position: absolute;\n  inset: -150%;\n  background: repeating-conic-gradient(from 30deg, #FFABAB 0 60deg, #ABE4FF 0 120deg, #FF7373 0 180deg);\n  animation: inherit;\n  animation-direction: reverse;\n}\n@keyframes darma-loader-darma-custom-019-l19 {\n  100% { transform: rotate(360deg); }\n}",
-    "react": "export default function DarmaCustom019Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-019\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-019 {\n  width: 40px;\n  aspect-ratio: .577;\n  clip-path: polygon(0 0, 100% 100%, 0 100%, 100% 0);\n  position: relative;\n  animation: darma-loader-darma-custom-019-l19 2s infinite linear;\n  overflow: hidden;\n}\n.darma-loader-darma-custom-019::before {\n  content: \"\";\n  position: absolute;\n  inset: -150%;\n  background: repeating-conic-gradient(from 30deg, var(--loader-color, #FFABAB) 0 60deg, var(--loader-secondary-color, #ABE4FF) 0 120deg, #FF7373 0 180deg);\n  animation: inherit;\n  animation-direction: reverse;\n}\n@keyframes darma-loader-darma-custom-019-l19 {\n  100% { transform: rotate(360deg); }\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom019Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-019\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": false
-  },
-  "source": {}
+    "background": false,
+    "secondaryColor": true
+  }
 }

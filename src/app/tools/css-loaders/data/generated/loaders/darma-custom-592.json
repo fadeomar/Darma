@@ -28,25 +28,25 @@
   },
   "searchText": "darma-custom-592 color geometry 19 creative color geometry 19 motion creative tiles loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-592\"></div>",
-  "previewCss": ".darma-loader-darma-custom-592 {color: var(--loader-color, #ca8a04);\n  --loader-secondary-color: #fde047;\n  --loader-bg: #ffffff;\n   width: 60px;\n   aspect-ratio: 1;\n   background: linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(1*100%/3) 50%/25% 50%, linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(2*100%/3) 50%/25% 50%, linear-gradient(var(--loader-color, #ca8a04) 0 0) 50% calc(1*100%/3)/50% 25%, linear-gradient(var(--loader-color, #ca8a04) 0 0) 50% calc(2*100%/3)/50% 25%, linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(1*100%/3) calc(1*100%/3)/25% 25%, linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(2*100%/3) calc(1*100%/3)/25% 25%, linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(1*100%/3) calc(2*100%/3)/25% 25%, linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(2*100%/3) calc(2*100%/3)/25% 25%;\n   background-repeat: no-repeat;\n   animation: darma-loader-darma-custom-592-l19 1s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-592-l19  {\n  90%,100%{background-position: 0 50%,100% 50%,50% 0,50% 100%,0 0,100% 0,0 100%,100% 100%}\n}",
+  "previewCss": ".darma-loader-darma-custom-592 {color: var(--loader-color, #ca8a04);\n   width: 60px;\n   aspect-ratio: 1;\n   background: linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(1*100%/3) 50%/25% 50%, linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(2*100%/3) 50%/25% 50%, linear-gradient(var(--loader-color, #ca8a04) 0 0) 50% calc(1*100%/3)/50% 25%, linear-gradient(var(--loader-color, #ca8a04) 0 0) 50% calc(2*100%/3)/50% 25%, linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(1*100%/3) calc(1*100%/3)/25% 25%, linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(2*100%/3) calc(1*100%/3)/25% 25%, linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(1*100%/3) calc(2*100%/3)/25% 25%, linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(2*100%/3) calc(2*100%/3)/25% 25%;\n   background-repeat: no-repeat;\n   animation: darma-loader-darma-custom-592-l19 1s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-592-l19  {\n  90%,100%{background-position: 0 50%,100% 50%,50% 0,50% 100%,0 0,100% 0,0 100%,100% 100%}\n}\n",
   "defaults": {
     "color": "#ca8a04",
     "secondaryColor": "#fde047",
     "size": 72,
-    "speed": 1.0,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-592\"></div>",
-    "css": ".darma-loader-darma-custom-592 {color: var(--loader-color, #ca8a04);\n  --loader-secondary-color: #fde047;\n  --loader-bg: #ffffff;\n   width: 60px;\n   aspect-ratio: 1;\n   background: linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(1*100%/3) 50%/25% 50%, linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(2*100%/3) 50%/25% 50%, linear-gradient(var(--loader-color, #ca8a04) 0 0) 50% calc(1*100%/3)/50% 25%, linear-gradient(var(--loader-color, #ca8a04) 0 0) 50% calc(2*100%/3)/50% 25%, linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(1*100%/3) calc(1*100%/3)/25% 25%, linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(2*100%/3) calc(1*100%/3)/25% 25%, linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(1*100%/3) calc(2*100%/3)/25% 25%, linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(2*100%/3) calc(2*100%/3)/25% 25%;\n   background-repeat: no-repeat;\n   animation: darma-loader-darma-custom-592-l19 1s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-592-l19  {\n  90%,100%{background-position: 0 50%,100% 50%,50% 0,50% 100%,0 0,100% 0,0 100%,100% 100%}\n}",
-    "react": "export default function DarmaCustom592Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-592\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-592 {color: var(--loader-color, #ca8a04);\n   width: 60px;\n   aspect-ratio: 1;\n   background: linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(1*100%/3) 50%/25% 50%, linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(2*100%/3) 50%/25% 50%, linear-gradient(var(--loader-color, #ca8a04) 0 0) 50% calc(1*100%/3)/50% 25%, linear-gradient(var(--loader-color, #ca8a04) 0 0) 50% calc(2*100%/3)/50% 25%, linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(1*100%/3) calc(1*100%/3)/25% 25%, linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(2*100%/3) calc(1*100%/3)/25% 25%, linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(1*100%/3) calc(2*100%/3)/25% 25%, linear-gradient(var(--loader-color, #ca8a04) 0 0) calc(2*100%/3) calc(2*100%/3)/25% 25%;\n   background-repeat: no-repeat;\n   animation: darma-loader-darma-custom-592-l19 1s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-592-l19  {\n  90%,100%{background-position: 0 50%,100% 50%,50% 0,50% 100%,0 0,100% 0,0 100%,100% 100%}\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom592Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-592\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": true
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

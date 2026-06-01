@@ -26,25 +26,25 @@
   },
   "searchText": "darma-custom-072 gear wobble spinner fun gear wobble spinner playful motion css-only single-element batch-03 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-072\"></div>",
-  "previewCss": ".darma-loader-darma-custom-072 {\n  display: inline-grid;\n  width: 90px;\n  aspect-ratio: 1;\n  transform: rotate(90deg);\n  animation: darma-loader-darma-custom-072-l4 1s linear infinite;\n}\n.darma-loader-darma-custom-072:before,\n.darma-loader-darma-custom-072:after {\n  content:\"\";\n  grid-area: 1/1;\n}\n.darma-loader-darma-custom-072:before {\n  clip-path: polygon(100% 50%,90.45% 79.39%,65.45% 97.55%,34.55% 97.55%,9.55% 79.39%,0% 50%,9.55% 20.61%,34.55% 2.45%,65.45% 2.45%,90.45% 20.61%,100% 50%,85.6% 24.14%,63.6% 8.15%,36.4% 8.15%,14.4% 24.14%,6% 50%,14.4% 75.86%,36.4% 91.85%,63.6% 91.85%,85.6% 75.86%,94% 50%,85.6% 24.14%);\n  background: #574951;\n}\n.darma-loader-darma-custom-072:after {\n  background: #83988E;\n  clip-path: polygon(100% 50%,65.45% 97.55%,9.55% 79.39%,9.55% 20.61%,65.45% 2.45%);\n  margin: 27%;\n  translate: 46% 0;\n  transform-origin: right;\n  animation: inherit;\n}\n@keyframes darma-loader-darma-custom-072-l4 {\n  0%{rotate:  18deg}\n  to{rotate: -18deg}\n}",
+  "previewCss": ".darma-loader-darma-custom-072 {\n  display: inline-grid;\n  width: 90px;\n  aspect-ratio: 1;\n  transform: rotate(90deg);\n  animation: darma-loader-darma-custom-072-l4 1s linear infinite;\n}\n.darma-loader-darma-custom-072:before,\n.darma-loader-darma-custom-072:after {\n  content:\"\";\n  grid-area: 1/1;\n}\n.darma-loader-darma-custom-072:before {\n  clip-path: polygon(100% 50%,90.45% 79.39%,65.45% 97.55%,34.55% 97.55%,9.55% 79.39%,0% 50%,9.55% 20.61%,34.55% 2.45%,65.45% 2.45%,90.45% 20.61%,100% 50%,85.6% 24.14%,63.6% 8.15%,36.4% 8.15%,14.4% 24.14%,6% 50%,14.4% 75.86%,36.4% 91.85%,63.6% 91.85%,85.6% 75.86%,94% 50%,85.6% 24.14%);\n  background: var(--loader-color, #574951);\n}\n.darma-loader-darma-custom-072:after {\n  background: var(--loader-secondary-color, #83988e);\n  clip-path: polygon(100% 50%,65.45% 97.55%,9.55% 79.39%,9.55% 20.61%,65.45% 2.45%);\n  margin: 27%;\n  translate: 46% 0;\n  transform-origin: right;\n  animation: inherit;\n}\n@keyframes darma-loader-darma-custom-072-l4 {\n  0%{rotate:  18deg}\n  to{rotate: -18deg}\n}\n",
   "defaults": {
     "color": "#574951",
     "secondaryColor": "#83988e",
     "size": 90,
-    "speed": 1.0,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-072\"></div>",
-    "css": ".darma-loader-darma-custom-072 {\n  display: inline-grid;\n  width: 90px;\n  aspect-ratio: 1;\n  transform: rotate(90deg);\n  animation: darma-loader-darma-custom-072-l4 1s linear infinite;\n}\n.darma-loader-darma-custom-072:before,\n.darma-loader-darma-custom-072:after {\n  content:\"\";\n  grid-area: 1/1;\n}\n.darma-loader-darma-custom-072:before {\n  clip-path: polygon(100% 50%,90.45% 79.39%,65.45% 97.55%,34.55% 97.55%,9.55% 79.39%,0% 50%,9.55% 20.61%,34.55% 2.45%,65.45% 2.45%,90.45% 20.61%,100% 50%,85.6% 24.14%,63.6% 8.15%,36.4% 8.15%,14.4% 24.14%,6% 50%,14.4% 75.86%,36.4% 91.85%,63.6% 91.85%,85.6% 75.86%,94% 50%,85.6% 24.14%);\n  background: #574951;\n}\n.darma-loader-darma-custom-072:after {\n  background: #83988E;\n  clip-path: polygon(100% 50%,65.45% 97.55%,9.55% 79.39%,9.55% 20.61%,65.45% 2.45%);\n  margin: 27%;\n  translate: 46% 0;\n  transform-origin: right;\n  animation: inherit;\n}\n@keyframes darma-loader-darma-custom-072-l4 {\n  0%{rotate:  18deg}\n  to{rotate: -18deg}\n}",
-    "react": "export default function DarmaCustom072Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-072\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-072 {\n  display: inline-grid;\n  width: 90px;\n  aspect-ratio: 1;\n  transform: rotate(90deg);\n  animation: darma-loader-darma-custom-072-l4 1s linear infinite;\n}\n.darma-loader-darma-custom-072:before,\n.darma-loader-darma-custom-072:after {\n  content:\"\";\n  grid-area: 1/1;\n}\n.darma-loader-darma-custom-072:before {\n  clip-path: polygon(100% 50%,90.45% 79.39%,65.45% 97.55%,34.55% 97.55%,9.55% 79.39%,0% 50%,9.55% 20.61%,34.55% 2.45%,65.45% 2.45%,90.45% 20.61%,100% 50%,85.6% 24.14%,63.6% 8.15%,36.4% 8.15%,14.4% 24.14%,6% 50%,14.4% 75.86%,36.4% 91.85%,63.6% 91.85%,85.6% 75.86%,94% 50%,85.6% 24.14%);\n  background: var(--loader-color, #574951);\n}\n.darma-loader-darma-custom-072:after {\n  background: var(--loader-secondary-color, #83988e);\n  clip-path: polygon(100% 50%,65.45% 97.55%,9.55% 79.39%,9.55% 20.61%,65.45% 2.45%);\n  margin: 27%;\n  translate: 46% 0;\n  transform-origin: right;\n  animation: inherit;\n}\n@keyframes darma-loader-darma-custom-072-l4 {\n  0%{rotate:  18deg}\n  to{rotate: -18deg}\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom072Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-072\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": false
+    "background": false,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

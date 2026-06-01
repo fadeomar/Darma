@@ -27,25 +27,25 @@
   },
   "searchText": "darma-custom-746 round spinner 72 spinners css-only single-element customizable batch-08 spinner round micro spinners loader html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-746\"></div>",
-  "previewCss": ".darma-loader-darma-custom-746 {\n  color: var(--loader-color, #6366f1);\n  --loader-secondary-color: #a5b4fc;\n  --loader-bg: #ffffff;\ncolor: currentColor;\nwidth: 4px;\naspect-ratio: 1;\nborder-radius: 50%;\nbox-shadow: 19px 0 0 7px, 38px 0 0 3px, 57px 0 0 0;\ntransform: translateX(-38px);\nanimation: darma-loader-darma-custom-746-l21 .5s infinite alternate linear;\n}\n\n@keyframes darma-loader-darma-custom-746-l21 {\n50% {box-shadow: 19px 0 0 3px, 38px 0 0 7px, 57px 0 0 3px}\n100% {box-shadow: 19px 0 0 0 , 38px 0 0 3px, 57px 0 0 7px}\n}",
+  "previewCss": ".darma-loader-darma-custom-746 {\n  color: var(--loader-color, #6366f1);\ncolor: currentColor;\nwidth: 4px;\naspect-ratio: 1;\nborder-radius: 50%;\nbox-shadow: 19px 0 0 7px, 38px 0 0 3px, 57px 0 0 0;\ntransform: translateX(-38px);\nanimation: darma-loader-darma-custom-746-l21 .5s infinite alternate linear;\n}\n\n@keyframes darma-loader-darma-custom-746-l21 {\n50% {box-shadow: 19px 0 0 3px, 38px 0 0 7px, 57px 0 0 3px}\n100% {box-shadow: 19px 0 0 0 , 38px 0 0 3px, 57px 0 0 7px}\n}",
   "defaults": {
     "color": "#6366f1",
     "secondaryColor": "#a5b4fc",
     "size": 48,
-    "speed": 1.0,
+    "speed": 0.5,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-746\"></div>",
-    "css": ".darma-loader-darma-custom-746 {\n  color: var(--loader-color, #6366f1);\n  --loader-secondary-color: #a5b4fc;\n  --loader-bg: #ffffff;\ncolor: currentColor;\nwidth: 4px;\naspect-ratio: 1;\nborder-radius: 50%;\nbox-shadow: 19px 0 0 7px, 38px 0 0 3px, 57px 0 0 0;\ntransform: translateX(-38px);\nanimation: darma-loader-darma-custom-746-l21 .5s infinite alternate linear;\n}\n\n@keyframes darma-loader-darma-custom-746-l21 {\n50% {box-shadow: 19px 0 0 3px, 38px 0 0 7px, 57px 0 0 3px}\n100% {box-shadow: 19px 0 0 0 , 38px 0 0 3px, 57px 0 0 7px}\n}",
-    "react": "export default function DarmaCustom746Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-746\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-746 {\n  color: var(--loader-color, #6366f1);\ncolor: currentColor;\nwidth: 4px;\naspect-ratio: 1;\nborder-radius: 50%;\nbox-shadow: 19px 0 0 7px, 38px 0 0 3px, 57px 0 0 0;\ntransform: translateX(-38px);\nanimation: darma-loader-darma-custom-746-l21 .5s infinite alternate linear;\n}\n\n@keyframes darma-loader-darma-custom-746-l21 {\n50% {box-shadow: 19px 0 0 3px, 38px 0 0 7px, 57px 0 0 3px}\n100% {box-shadow: 19px 0 0 0 , 38px 0 0 3px, 57px 0 0 7px}\n}",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom746Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-746\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": false
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

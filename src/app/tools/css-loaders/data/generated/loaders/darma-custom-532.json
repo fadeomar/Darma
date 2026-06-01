@@ -29,25 +29,25 @@
   },
   "searchText": "darma-custom-532 eye blink 08 fun eye blink 08 eyes face fun minimal loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-532\"></div>",
-  "previewCss": ".darma-loader-darma-custom-532 {color: var(--loader-color, #16a34a);\n  --loader-secondary-color: #86efac;\n  --loader-bg: #ffffff;\n   display: inline-flex;\n   gap: 10px;\n}\n.darma-loader-darma-custom-532:before, .darma-loader-darma-custom-532:after  {\n  content: \"\";\n   height: 20px;\n   aspect-ratio: 1;\n   border-radius: 50%;\n   background: linear-gradient(var(--loader-secondary-color, #86efac) 0 0) top/100% 40% no-repeat, radial-gradient(farthest-side,currentColor 95%,#0000) 50%/8px 8px no-repeat currentColor;\n   animation: 2.5s infinite ;\n   animation-name: darma-loader-darma-custom-532-l8-1, e8-2;\n}\n@keyframes darma-loader-darma-custom-532-l8-1  {\n  0%, 40%, 100%{background-size:100% 40%,8px 8px}\n50%, 80% {background-size:100% 0% ,8px 8px}\n}\n@keyframes darma-loader-darma-custom-532-l8-2  {\n  0%, 50% {background-position:top,50% 50%}\n60%, 65%{background-position:top,70% 50%}\n70%, 75%{background-position:top,30% 50%}\n90%, 100%{background-position:top,50% 50%}\n}",
+  "previewCss": ".darma-loader-darma-custom-532 {color: var(--loader-color, #16a34a);\n   display: inline-flex;\n   gap: 10px;\n}\n.darma-loader-darma-custom-532:before, .darma-loader-darma-custom-532:after  {\n  content: \"\";\n   height: 20px;\n   aspect-ratio: 1;\n   border-radius: 50%;\n   background: linear-gradient(var(--loader-secondary-color, #86efac) 0 0) top/100% 40% no-repeat, radial-gradient(farthest-side,currentColor 95%,#0000) 50%/8px 8px no-repeat currentColor;\n   animation: 2.5s infinite ;\n   animation-name: darma-loader-darma-custom-532-l8-1, e8-2;\n}\n@keyframes darma-loader-darma-custom-532-l8-1  {\n  0%, 40%, 100%{background-size:100% 40%,8px 8px}\n50%, 80% {background-size:100% 0% ,8px 8px}\n}\n@keyframes darma-loader-darma-custom-532-l8-2  {\n  0%, 50% {background-position:top,50% 50%}\n60%, 65%{background-position:top,70% 50%}\n70%, 75%{background-position:top,30% 50%}\n90%, 100%{background-position:top,50% 50%}\n}\n",
   "defaults": {
     "color": "#16a34a",
     "secondaryColor": "#86efac",
     "size": 64,
-    "speed": 1.0,
+    "speed": 2.5,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-532\"></div>",
-    "css": ".darma-loader-darma-custom-532 {color: var(--loader-color, #16a34a);\n  --loader-secondary-color: #86efac;\n  --loader-bg: #ffffff;\n   display: inline-flex;\n   gap: 10px;\n}\n.darma-loader-darma-custom-532:before, .darma-loader-darma-custom-532:after  {\n  content: \"\";\n   height: 20px;\n   aspect-ratio: 1;\n   border-radius: 50%;\n   background: linear-gradient(var(--loader-secondary-color, #86efac) 0 0) top/100% 40% no-repeat, radial-gradient(farthest-side,currentColor 95%,#0000) 50%/8px 8px no-repeat currentColor;\n   animation: 2.5s infinite ;\n   animation-name: darma-loader-darma-custom-532-l8-1, e8-2;\n}\n@keyframes darma-loader-darma-custom-532-l8-1  {\n  0%, 40%, 100%{background-size:100% 40%,8px 8px}\n50%, 80% {background-size:100% 0% ,8px 8px}\n}\n@keyframes darma-loader-darma-custom-532-l8-2  {\n  0%, 50% {background-position:top,50% 50%}\n60%, 65%{background-position:top,70% 50%}\n70%, 75%{background-position:top,30% 50%}\n90%, 100%{background-position:top,50% 50%}\n}",
-    "react": "export default function DarmaCustom532Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-532\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-532 {color: var(--loader-color, #16a34a);\n   display: inline-flex;\n   gap: 10px;\n}\n.darma-loader-darma-custom-532:before, .darma-loader-darma-custom-532:after  {\n  content: \"\";\n   height: 20px;\n   aspect-ratio: 1;\n   border-radius: 50%;\n   background: linear-gradient(var(--loader-secondary-color, #86efac) 0 0) top/100% 40% no-repeat, radial-gradient(farthest-side,currentColor 95%,#0000) 50%/8px 8px no-repeat currentColor;\n   animation: 2.5s infinite ;\n   animation-name: darma-loader-darma-custom-532-l8-1, e8-2;\n}\n@keyframes darma-loader-darma-custom-532-l8-1  {\n  0%, 40%, 100%{background-size:100% 40%,8px 8px}\n50%, 80% {background-size:100% 0% ,8px 8px}\n}\n@keyframes darma-loader-darma-custom-532-l8-2  {\n  0%, 50% {background-position:top,50% 50%}\n60%, 65%{background-position:top,70% 50%}\n70%, 75%{background-position:top,30% 50%}\n90%, 100%{background-position:top,50% 50%}\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom532Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-532\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": true
+    "background": false,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

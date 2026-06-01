@@ -23,7 +23,7 @@
   },
   "searchText": "darma-custom-015 rounded quadrant bloom pulse circle quadrant bloom rounded batch-01 html css react popular singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-015\"></div>",
-  "previewCss": ".darma-loader-darma-custom-015 {\n  width: 50px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: linear-gradient(#FF003C 0 0), linear-gradient(#FF003C 0 0), linear-gradient(#FF003C 0 0), linear-gradient(#FF003C 0 0), linear-gradient(#00C176 0 0), linear-gradient(#00C176 0 0), linear-gradient(#00C176 0 0), linear-gradient(#00C176 0 0), #FF003C;\n  background-position: 0 0, 100% 0, 100% 100%, 0 100%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-015-l15 2s infinite;\n}\n@keyframes darma-loader-darma-custom-015-l15 {\n  0% { background-size: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0; }\n  40%, 50% { background-size: 0 0, 0 0, 0 0, 0 0, 51% 51%, 51% 51%, 51% 51%, 51% 51%; }\n  90%, 100% { background-size: 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%; }\n}",
+  "previewCss": ".darma-loader-darma-custom-015 {\n  width: 50px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: linear-gradient(var(--loader-color, #FF003C) 0 0), linear-gradient(var(--loader-color, #FF003C) 0 0), linear-gradient(var(--loader-color, #FF003C) 0 0), linear-gradient(var(--loader-color, #FF003C) 0 0), linear-gradient(var(--loader-secondary-color, #00C176) 0 0), linear-gradient(var(--loader-secondary-color, #00C176) 0 0), linear-gradient(var(--loader-secondary-color, #00C176) 0 0), linear-gradient(var(--loader-secondary-color, #00C176) 0 0), var(--loader-color, #FF003C);\n  background-position: 0 0, 100% 0, 100% 100%, 0 100%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-015-l15 2s infinite;\n}\n@keyframes darma-loader-darma-custom-015-l15 {\n  0% { background-size: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0; }\n  40%, 50% { background-size: 0 0, 0 0, 0 0, 0 0, 51% 51%, 51% 51%, 51% 51%, 51% 51%; }\n  90%, 100% { background-size: 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%; }\n}\n",
   "defaults": {
     "color": "#FF003C",
     "secondaryColor": "#00C176",
@@ -33,15 +33,14 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-015\"></div>",
-    "css": ".darma-loader-darma-custom-015 {\n  width: 50px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: linear-gradient(#FF003C 0 0), linear-gradient(#FF003C 0 0), linear-gradient(#FF003C 0 0), linear-gradient(#FF003C 0 0), linear-gradient(#00C176 0 0), linear-gradient(#00C176 0 0), linear-gradient(#00C176 0 0), linear-gradient(#00C176 0 0), #FF003C;\n  background-position: 0 0, 100% 0, 100% 100%, 0 100%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-015-l15 2s infinite;\n}\n@keyframes darma-loader-darma-custom-015-l15 {\n  0% { background-size: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0; }\n  40%, 50% { background-size: 0 0, 0 0, 0 0, 0 0, 51% 51%, 51% 51%, 51% 51%, 51% 51%; }\n  90%, 100% { background-size: 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%; }\n}",
-    "react": "export default function DarmaCustom015Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-015\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-015 {\n  width: 50px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: linear-gradient(var(--loader-color, #FF003C) 0 0), linear-gradient(var(--loader-color, #FF003C) 0 0), linear-gradient(var(--loader-color, #FF003C) 0 0), linear-gradient(var(--loader-color, #FF003C) 0 0), linear-gradient(var(--loader-secondary-color, #00C176) 0 0), linear-gradient(var(--loader-secondary-color, #00C176) 0 0), linear-gradient(var(--loader-secondary-color, #00C176) 0 0), linear-gradient(var(--loader-secondary-color, #00C176) 0 0), var(--loader-color, #FF003C);\n  background-position: 0 0, 100% 0, 100% 100%, 0 100%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-015-l15 2s infinite;\n}\n@keyframes darma-loader-darma-custom-015-l15 {\n  0% { background-size: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0; }\n  40%, 50% { background-size: 0 0, 0 0, 0 0, 0 0, 51% 51%, 51% 51%, 51% 51%, 51% 51%; }\n  90%, 100% { background-size: 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%; }\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom015Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-015\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": false
-  },
-  "source": {}
+    "background": false,
+    "secondaryColor": true
+  }
 }

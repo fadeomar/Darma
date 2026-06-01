@@ -10,7 +10,6 @@
     "bars",
     "linear",
     "micro",
-    "bars",
     "loader"
   ],
   "html": "<div class=\"loader\"></div>",

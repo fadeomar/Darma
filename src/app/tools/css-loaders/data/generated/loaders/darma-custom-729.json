@@ -10,7 +10,6 @@
     "progress",
     "striped",
     "pattern",
-    "progress",
     "loader"
   ],
   "formats": [
@@ -25,27 +24,27 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-729 pattern progress 55 progress css-only single-element customizable batch-08 progress striped pattern progress loader html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-729 pattern progress 55 progress css-only single-element customizable batch-08 progress striped pattern loader html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-729\"></div>",
-  "previewCss": ".darma-loader-darma-custom-729 {\n  color: var(--loader-color, #f59e0b);\n  --loader-secondary-color: #fde68a;\n  --loader-bg: #ffffff;\nwidth: 60px;\naspect-ratio: 4;\n--c:currentColor 90%,#0000;\nbackground:\nradial-gradient(circle closest-side at left 6px top 50%,var(--c)),\nradial-gradient(circle closest-side ,var(--c)),\nradial-gradient(circle closest-side at right 6px top 50%,var(--c));\nbackground-size: 100% 100%;\nbackground-repeat: no-repeat;\nanimation: darma-loader-darma-custom-729-l4 1s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-729-l4 {\nto{width:25px;aspect-ratio: 1}\n}",
+  "previewCss": ".darma-loader-darma-custom-729 {\n  color: var(--loader-color, #f59e0b);\nwidth: 60px;\naspect-ratio: 4;\n--c:currentColor 90%,#0000;\nbackground:\nradial-gradient(circle closest-side at left 6px top 50%,var(--c)),\nradial-gradient(circle closest-side ,var(--c)),\nradial-gradient(circle closest-side at right 6px top 50%,var(--c));\nbackground-size: 100% 100%;\nbackground-repeat: no-repeat;\nanimation: darma-loader-darma-custom-729-l4 1s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-729-l4 {\nto{width:25px;aspect-ratio: 1}\n}",
   "defaults": {
     "color": "#f59e0b",
     "secondaryColor": "#fde68a",
     "size": 60,
-    "speed": 1.0,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-729\"></div>",
-    "css": ".darma-loader-darma-custom-729 {\n  color: var(--loader-color, #f59e0b);\n  --loader-secondary-color: #fde68a;\n  --loader-bg: #ffffff;\nwidth: 60px;\naspect-ratio: 4;\n--c:currentColor 90%,#0000;\nbackground:\nradial-gradient(circle closest-side at left 6px top 50%,var(--c)),\nradial-gradient(circle closest-side ,var(--c)),\nradial-gradient(circle closest-side at right 6px top 50%,var(--c));\nbackground-size: 100% 100%;\nbackground-repeat: no-repeat;\nanimation: darma-loader-darma-custom-729-l4 1s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-729-l4 {\nto{width:25px;aspect-ratio: 1}\n}",
-    "react": "export default function DarmaCustom729Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-729\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-729 {\n  color: var(--loader-color, #f59e0b);\nwidth: 60px;\naspect-ratio: 4;\n--c:currentColor 90%,#0000;\nbackground:\nradial-gradient(circle closest-side at left 6px top 50%,var(--c)),\nradial-gradient(circle closest-side ,var(--c)),\nradial-gradient(circle closest-side at right 6px top 50%,var(--c));\nbackground-size: 100% 100%;\nbackground-repeat: no-repeat;\nanimation: darma-loader-darma-custom-729-l4 1s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-729-l4 {\nto{width:25px;aspect-ratio: 1}\n}",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom729Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-729\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": false
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

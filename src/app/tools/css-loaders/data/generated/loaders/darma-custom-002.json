@@ -23,7 +23,7 @@
   },
   "searchText": "darma-custom-002 diagonal corner fold creative square diagonal fold gradient batch-01 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-002\"></div>",
-  "previewCss": ".darma-loader-darma-custom-002 {\n  width: 40px;\n  aspect-ratio: 1;\n  background: linear-gradient(45deg, #0000 50%, #00AAFF 0), linear-gradient(-45deg, #0000 50%, #FF00AA 0), #00AAFF;\n  background-size: 200% 200%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-002-l2 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-002-l2 {\n  0% { background-position: bottom left, bottom right; }\n  30%, 50% { background-position: bottom left, top left; }\n  80%, 100% { background-position: top right, top left; }\n}",
+  "previewCss": ".darma-loader-darma-custom-002 {\n  width: 40px;\n  aspect-ratio: 1;\n  background: linear-gradient(45deg, #0000 50%, var(--loader-color, #00AAFF) 0), linear-gradient(-45deg, #0000 50%, var(--loader-secondary-color, #FF00AA) 0), var(--loader-color, #00AAFF);\n  background-size: 200% 200%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-002-l2 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-002-l2 {\n  0% { background-position: bottom left, bottom right; }\n  30%, 50% { background-position: bottom left, top left; }\n  80%, 100% { background-position: top right, top left; }\n}\n",
   "defaults": {
     "color": "#00AAFF",
     "secondaryColor": "#FF00AA",
@@ -33,15 +33,14 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-002\"></div>",
-    "css": ".darma-loader-darma-custom-002 {\n  width: 40px;\n  aspect-ratio: 1;\n  background: linear-gradient(45deg, #0000 50%, #00AAFF 0), linear-gradient(-45deg, #0000 50%, #FF00AA 0), #00AAFF;\n  background-size: 200% 200%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-002-l2 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-002-l2 {\n  0% { background-position: bottom left, bottom right; }\n  30%, 50% { background-position: bottom left, top left; }\n  80%, 100% { background-position: top right, top left; }\n}",
-    "react": "export default function DarmaCustom002Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-002\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-002 {\n  width: 40px;\n  aspect-ratio: 1;\n  background: linear-gradient(45deg, #0000 50%, var(--loader-color, #00AAFF) 0), linear-gradient(-45deg, #0000 50%, var(--loader-secondary-color, #FF00AA) 0), var(--loader-color, #00AAFF);\n  background-size: 200% 200%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-002-l2 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-002-l2 {\n  0% { background-position: bottom left, bottom right; }\n  30%, 50% { background-position: bottom left, top left; }\n  80%, 100% { background-position: top right, top left; }\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom002Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-002\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": false
-  },
-  "source": {}
+    "background": false,
+    "secondaryColor": true
+  }
 }

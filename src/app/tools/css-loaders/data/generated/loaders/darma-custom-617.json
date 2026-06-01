@@ -30,25 +30,25 @@
   },
   "searchText": "darma-custom-617 dot matrix 04 spinners dot matrix 04 dots spinner grid border spinners loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-617\"></div>",
-  "previewCss": ".darma-loader-darma-custom-617 {color: var(--loader-color, #6d28d9);\n  --loader-secondary-color: #f0abfc;\n  --loader-bg: #ffffff;\n   height: 50px;\n   aspect-ratio: 2;\n   border: 8px solid currentColor;\n   box-sizing: border-box;\n   background: radial-gradient(farthest-side,currentColor 98%,#0000) left/20px 20px, radial-gradient(farthest-side,currentColor 98%,#0000) left/20px 20px, radial-gradient(farthest-side,currentColor 98%,#0000) center/20px 20px, radial-gradient(farthest-side,currentColor 98%,#0000) right/20px 20px, currentColor;\n   background-repeat: no-repeat;\n   filter: blur(4px) contrast(10);\n   animation: darma-loader-darma-custom-617-l14 1s infinite;\n}\n@keyframes darma-loader-darma-custom-617-l14  {\n  100% {background-position:right,left,center,right}\n}",
+  "previewCss": ".darma-loader-darma-custom-617 {color: var(--loader-color, #6d28d9);\n   height: 50px;\n   aspect-ratio: 2;\n   border: 8px solid currentColor;\n   box-sizing: border-box;\n   background: radial-gradient(farthest-side,currentColor 98%,#0000) left/20px 20px, radial-gradient(farthest-side,currentColor 98%,#0000) left/20px 20px, radial-gradient(farthest-side,currentColor 98%,#0000) center/20px 20px, radial-gradient(farthest-side,currentColor 98%,#0000) right/20px 20px, currentColor;\n   background-repeat: no-repeat;\n   filter: blur(4px) contrast(10);\n   animation: darma-loader-darma-custom-617-l14 1s infinite;\n}\n@keyframes darma-loader-darma-custom-617-l14  {\n  100% {background-position:right,left,center,right}\n}\n",
   "defaults": {
     "color": "#6d28d9",
     "secondaryColor": "#f0abfc",
     "size": 72,
-    "speed": 1.0,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-617\"></div>",
-    "css": ".darma-loader-darma-custom-617 {color: var(--loader-color, #6d28d9);\n  --loader-secondary-color: #f0abfc;\n  --loader-bg: #ffffff;\n   height: 50px;\n   aspect-ratio: 2;\n   border: 8px solid currentColor;\n   box-sizing: border-box;\n   background: radial-gradient(farthest-side,currentColor 98%,#0000) left/20px 20px, radial-gradient(farthest-side,currentColor 98%,#0000) left/20px 20px, radial-gradient(farthest-side,currentColor 98%,#0000) center/20px 20px, radial-gradient(farthest-side,currentColor 98%,#0000) right/20px 20px, currentColor;\n   background-repeat: no-repeat;\n   filter: blur(4px) contrast(10);\n   animation: darma-loader-darma-custom-617-l14 1s infinite;\n}\n@keyframes darma-loader-darma-custom-617-l14  {\n  100% {background-position:right,left,center,right}\n}",
-    "react": "export default function DarmaCustom617Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-617\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-617 {color: var(--loader-color, #6d28d9);\n   height: 50px;\n   aspect-ratio: 2;\n   border: 8px solid currentColor;\n   box-sizing: border-box;\n   background: radial-gradient(farthest-side,currentColor 98%,#0000) left/20px 20px, radial-gradient(farthest-side,currentColor 98%,#0000) left/20px 20px, radial-gradient(farthest-side,currentColor 98%,#0000) center/20px 20px, radial-gradient(farthest-side,currentColor 98%,#0000) right/20px 20px, currentColor;\n   background-repeat: no-repeat;\n   filter: blur(4px) contrast(10);\n   animation: darma-loader-darma-custom-617-l14 1s infinite;\n}\n@keyframes darma-loader-darma-custom-617-l14  {\n  100% {background-position:right,left,center,right}\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom617Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-617\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": true
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

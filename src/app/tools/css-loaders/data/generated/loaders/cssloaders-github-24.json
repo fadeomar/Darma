@@ -22,17 +22,17 @@
   },
   "searchText": "cssloaders-github-24 cssloaders pattern 24 progress cssloaders progress bar loader html css react singleelement cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-cssloaders-github-24\"></span>",
-  "previewCss": ".darma-loader-cssloaders-github-24 {\n  display: inline-block;\n  width: 128px;\n  height: 8px;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color) 16%, transparent);\n  overflow: hidden;\n}\n.darma-loader-cssloaders-github-24::before {\n      content: \"\";\n      display: block;\n      width: 42%;\n      height: 100%;\n      border-radius: inherit;\n      background: linear-gradient(90deg, var(--loader-color), var(--loader-secondary-color));\n      animation: darma-loader-cssloaders-github-24-progressSlide 0.9s ease-in-out infinite;\n    }\n    @keyframes darma-loader-cssloaders-github-24-progressSlide { 0% { transform: translateX(-120%); } 100% { transform: translateX(260%); } }",
+  "previewCss": ".darma-loader-cssloaders-github-24 {\n  display: inline-block;\n  width: 128px;\n  height: 8px;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #14b8a6) 16%, transparent);\n  overflow: hidden;\n}\n.darma-loader-cssloaders-github-24::before {\n      content: \"\";\n      display: block;\n      width: 42%;\n      height: 100%;\n      border-radius: inherit;\n      background: linear-gradient(90deg, var(--loader-color, #14b8a6), var(--loader-secondary-color, #99f6e4));\n      animation: darma-loader-cssloaders-github-24-progressSlide 0.9s ease-in-out infinite;\n    }\n    @keyframes darma-loader-cssloaders-github-24-progressSlide { 0% { transform: translateX(-120%); } 100% { transform: translateX(260%); } }\n",
   "defaults": {
     "color": "#14b8a6",
     "secondaryColor": "#99f6e4",
     "size": 66,
-    "speed": 0.85
+    "speed": 0.9
   },
   "code": {
     "html": "<span class=\"darma-loader-cssloaders-github-24\"></span>",
-    "css": ".darma-loader-cssloaders-github-24 {\n  display: inline-block;\n  width: 128px;\n  height: 8px;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color) 16%, transparent);\n  overflow: hidden;\n}\n.darma-loader-cssloaders-github-24::before {\n      content: \"\";\n      display: block;\n      width: 42%;\n      height: 100%;\n      border-radius: inherit;\n      background: linear-gradient(90deg, var(--loader-color), var(--loader-secondary-color));\n      animation: darma-loader-cssloaders-github-24-progressSlide 0.9s ease-in-out infinite;\n    }\n    @keyframes darma-loader-cssloaders-github-24-progressSlide { 0% { transform: translateX(-120%); } 100% { transform: translateX(260%); } }",
-    "react": "export default function CssloadersGithub24Loader() {\n  return (\n    <span className=\"darma-loader-cssloaders-github-24\"></span>\n  );\n}\n"
+    "css": ".darma-loader-cssloaders-github-24 {\n  display: inline-block;\n  width: 128px;\n  height: 8px;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #14b8a6) 16%, transparent);\n  overflow: hidden;\n}\n.darma-loader-cssloaders-github-24::before {\n      content: \"\";\n      display: block;\n      width: 42%;\n      height: 100%;\n      border-radius: inherit;\n      background: linear-gradient(90deg, var(--loader-color, #14b8a6), var(--loader-secondary-color, #99f6e4));\n      animation: darma-loader-cssloaders-github-24-progressSlide 0.9s ease-in-out infinite;\n    }\n    @keyframes darma-loader-cssloaders-github-24-progressSlide { 0% { transform: translateX(-120%); } 100% { transform: translateX(260%); } }\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function CssloadersGithub24Loader() {\n  return (\n    <span className=\"darma-loader-cssloaders-github-24\"></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,

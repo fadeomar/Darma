@@ -29,25 +29,25 @@
   },
   "searchText": "darma-custom-529 eye blink 05 fun eye blink 05 eyes face fun minimal loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-529\"></div>",
-  "previewCss": ".darma-loader-darma-custom-529 {color: var(--loader-color, #b45309);\n  --loader-secondary-color: #fcd34d;\n  --loader-bg: #ffffff;\n   display: inline-flex;\n   gap: 10px;\n}\n.darma-loader-darma-custom-529:before, .darma-loader-darma-custom-529:after  {\n  content: \"\";\n   height: 20px;\n   aspect-ratio: 1;\n   border-radius: 50%;\n   background: radial-gradient(farthest-side,currentColor 95%,#0000) 35% 35%/6px 6px no-repeat currentColor;\n   animation: darma-loader-darma-custom-529-l5 3s infinite;\n}\n@keyframes darma-loader-darma-custom-529-l5  {\n  0%,11% {background-position:35% 35%}\n14%,36% {background-position:65% 35%}\n38%,61% {background-position:65% 65%}\n64%,86% {background-position:35% 65%}\n88%,100% {background-position:35% 35%}\n}",
+  "previewCss": ".darma-loader-darma-custom-529 {color: var(--loader-color, #b45309);\n   display: inline-flex;\n   gap: 10px;\n}\n.darma-loader-darma-custom-529:before, .darma-loader-darma-custom-529:after  {\n  content: \"\";\n   height: 20px;\n   aspect-ratio: 1;\n   border-radius: 50%;\n   background: radial-gradient(farthest-side,currentColor 95%,#0000) 35% 35%/6px 6px no-repeat currentColor;\n   animation: darma-loader-darma-custom-529-l5 3s infinite;\n}\n@keyframes darma-loader-darma-custom-529-l5  {\n  0%,11% {background-position:35% 35%}\n14%,36% {background-position:65% 35%}\n38%,61% {background-position:65% 65%}\n64%,86% {background-position:35% 65%}\n88%,100% {background-position:35% 35%}\n}\n",
   "defaults": {
     "color": "#b45309",
     "secondaryColor": "#fcd34d",
     "size": 64,
-    "speed": 1.0,
+    "speed": 3,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-529\"></div>",
-    "css": ".darma-loader-darma-custom-529 {color: var(--loader-color, #b45309);\n  --loader-secondary-color: #fcd34d;\n  --loader-bg: #ffffff;\n   display: inline-flex;\n   gap: 10px;\n}\n.darma-loader-darma-custom-529:before, .darma-loader-darma-custom-529:after  {\n  content: \"\";\n   height: 20px;\n   aspect-ratio: 1;\n   border-radius: 50%;\n   background: radial-gradient(farthest-side,currentColor 95%,#0000) 35% 35%/6px 6px no-repeat currentColor;\n   animation: darma-loader-darma-custom-529-l5 3s infinite;\n}\n@keyframes darma-loader-darma-custom-529-l5  {\n  0%,11% {background-position:35% 35%}\n14%,36% {background-position:65% 35%}\n38%,61% {background-position:65% 65%}\n64%,86% {background-position:35% 65%}\n88%,100% {background-position:35% 35%}\n}",
-    "react": "export default function DarmaCustom529Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-529\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-529 {color: var(--loader-color, #b45309);\n   display: inline-flex;\n   gap: 10px;\n}\n.darma-loader-darma-custom-529:before, .darma-loader-darma-custom-529:after  {\n  content: \"\";\n   height: 20px;\n   aspect-ratio: 1;\n   border-radius: 50%;\n   background: radial-gradient(farthest-side,currentColor 95%,#0000) 35% 35%/6px 6px no-repeat currentColor;\n   animation: darma-loader-darma-custom-529-l5 3s infinite;\n}\n@keyframes darma-loader-darma-custom-529-l5  {\n  0%,11% {background-position:35% 35%}\n14%,36% {background-position:65% 35%}\n38%,61% {background-position:65% 65%}\n64%,86% {background-position:35% 65%}\n88%,100% {background-position:35% 35%}\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom529Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-529\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": true
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

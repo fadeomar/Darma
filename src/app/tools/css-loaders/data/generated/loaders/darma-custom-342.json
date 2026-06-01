@@ -30,25 +30,25 @@
   },
   "searchText": "darma-custom-342 neon halo 11 spinners neon halo 11 glow ring spinner blur spinners loader css-only single-element batch-06 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-342\"></div>",
-  "previewCss": ".darma-loader-darma-custom-342 {color: var(--loader-color, #9333ea);\n  --loader-secondary-color: #f0abfc;\n  --loader-bg: #ffffff;\n  height: 70px;\n  aspect-ratio: 1;\n  box-sizing: border-box;\n  position: relative;\n  mask:radial-gradient(#0000 47%,currentColor 48% 71%,#0000 72%) exclude,conic-gradient(currentColor 0 0) no-clip;\n  animation: darma-loader-darma-custom-342-l11 1.5s linear infinite;\n}.darma-loader-darma-custom-342:before {content: \"\";\n  position: absolute;\n  inset: 0 35% 70%;\n  border-radius: 50%;\n  background: currentColor;\n  filter: blur(15px);\n}@keyframes darma-loader-darma-custom-342-l11 {to {rotate: 1turn}}",
+  "previewCss": ".darma-loader-darma-custom-342 {color: var(--loader-color, #9333ea);\n  height: 70px;\n  aspect-ratio: 1;\n  box-sizing: border-box;\n  position: relative;\n  mask:radial-gradient(#0000 47%,currentColor 48% 71%,#0000 72%) exclude,conic-gradient(currentColor 0 0) no-clip;\n  animation: darma-loader-darma-custom-342-l11 1.5s linear infinite;\n}.darma-loader-darma-custom-342:before {content: \"\";\n  position: absolute;\n  inset: 0 35% 70%;\n  border-radius: 50%;\n  background: currentColor;\n  filter: blur(15px);\n}@keyframes darma-loader-darma-custom-342-l11 {to {rotate: 1turn}}\n",
   "defaults": {
     "color": "#9333ea",
     "secondaryColor": "#f0abfc",
     "size": 72,
-    "speed": 1.0,
+    "speed": 1.5,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-342\"></div>",
-    "css": ".darma-loader-darma-custom-342 {color: var(--loader-color, #9333ea);\n  --loader-secondary-color: #f0abfc;\n  --loader-bg: #ffffff;\n  height: 70px;\n  aspect-ratio: 1;\n  box-sizing: border-box;\n  position: relative;\n  mask:radial-gradient(#0000 47%,currentColor 48% 71%,#0000 72%) exclude,conic-gradient(currentColor 0 0) no-clip;\n  animation: darma-loader-darma-custom-342-l11 1.5s linear infinite;\n}.darma-loader-darma-custom-342:before {content: \"\";\n  position: absolute;\n  inset: 0 35% 70%;\n  border-radius: 50%;\n  background: currentColor;\n  filter: blur(15px);\n}@keyframes darma-loader-darma-custom-342-l11 {to {rotate: 1turn}}",
-    "react": "export default function DarmaCustom342Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-342\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-342 {color: var(--loader-color, #9333ea);\n  height: 70px;\n  aspect-ratio: 1;\n  box-sizing: border-box;\n  position: relative;\n  mask:radial-gradient(#0000 47%,currentColor 48% 71%,#0000 72%) exclude,conic-gradient(currentColor 0 0) no-clip;\n  animation: darma-loader-darma-custom-342-l11 1.5s linear infinite;\n}.darma-loader-darma-custom-342:before {content: \"\";\n  position: absolute;\n  inset: 0 35% 70%;\n  border-radius: 50%;\n  background: currentColor;\n  filter: blur(15px);\n}@keyframes darma-loader-darma-custom-342-l11 {to {rotate: 1turn}}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom342Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-342\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": true
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

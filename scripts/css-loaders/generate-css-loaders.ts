@@ -26,6 +26,46 @@ function getFormats(definition: LoaderSourceDefinition): LoaderFormat[] {
   return formats;
 }
 
+const SPEED_VAR_FALLBACK_PATTERN = /var\(\s*--loader-speed\s*,\s*(\d*\.?\d+)(ms|s)\s*\)/i;
+const TIME_TOKEN_PATTERN = /(^|[^\w.-])(\d*\.?\d+)(ms|s)\b/g;
+const ANIMATION_DECLARATION_PATTERN = /(^|[;{}\n]\s*)(animation(?:-duration)?\s*:\s*)([^;{}]+)/gi;
+const TIMING_VARIABLE_PATTERN = /(--[a-z0-9_-]*(?:time|speed|duration|animation)[a-z0-9_-]*\s*:\s*)([^;{}]+)/gi;
+
+function collectTimeTokens(value: string) {
+  const tokens: number[] = [];
+
+  for (const match of value.matchAll(TIME_TOKEN_PATTERN)) {
+    const amount = Number(match[2]);
+    if (!Number.isFinite(amount) || amount <= 0) continue;
+    tokens.push(match[3] === "ms" ? amount / 1000 : amount);
+  }
+
+  return tokens;
+}
+
+function getGeneratedDefaultSpeed(scopedCss: string, definition: LoaderSourceDefinition) {
+  const speedVarMatch = scopedCss.match(SPEED_VAR_FALLBACK_PATTERN);
+  if (speedVarMatch) {
+    const amount = Number(speedVarMatch[1]);
+    if (Number.isFinite(amount) && amount > 0) return speedVarMatch[2] === "ms" ? amount / 1000 : amount;
+  }
+
+  const tokens: number[] = [];
+  ANIMATION_DECLARATION_PATTERN.lastIndex = 0;
+  TIMING_VARIABLE_PATTERN.lastIndex = 0;
+
+  for (const match of scopedCss.matchAll(ANIMATION_DECLARATION_PATTERN)) {
+    tokens.push(...collectTimeTokens(match[3]));
+  }
+
+  for (const match of scopedCss.matchAll(TIMING_VARIABLE_PATTERN)) {
+    tokens.push(...collectTimeTokens(match[2]));
+  }
+
+  if (tokens.length) return Math.max(...tokens);
+  return definition.defaults?.speed;
+}
+
 function normalizeControls(definition: LoaderSourceDefinition, scopedCss: string): NonNullable<LoaderSourceDefinition["controls"]> {
   // Detect which CSS variables the loader actually uses, so we only expose controls
   // that will produce a visible effect. Source can still explicitly disable a control
@@ -42,10 +82,17 @@ function normalizeControls(definition: LoaderSourceDefinition, scopedCss: string
   };
 }
 
-function normalizeDefaults(definition: LoaderSourceDefinition): NonNullable<LoaderSourceDefinition["defaults"]> {
-  return {
+function normalizeDefaults(definition: LoaderSourceDefinition, scopedCss: string): NonNullable<LoaderSourceDefinition["defaults"]> {
+  const defaults = {
     ...definition.defaults,
   };
+
+  const generatedSpeed = getGeneratedDefaultSpeed(scopedCss, definition);
+  if (typeof generatedSpeed === "number" && Number.isFinite(generatedSpeed) && generatedSpeed > 0) {
+    defaults.speed = Number(generatedSpeed.toFixed(3));
+  }
+
+  return defaults;
 }
 
 function normalizeFlags(definition: LoaderSourceDefinition): NonNullable<LoaderSourceDefinition["flags"]> {
@@ -77,7 +124,7 @@ function createLoaderDefinition(sourceFile: SourceFile): LoaderDefinition {
     flags,
   };
 
-  const defaults = normalizeDefaults(definition);
+  const defaults = normalizeDefaults(definition, scoped.css);
   const previewItem: LoaderPreviewItem = {
     ...indexItem,
     searchText: buildSearchText(indexItem),
@@ -95,7 +142,7 @@ function createLoaderDefinition(sourceFile: SourceFile): LoaderDefinition {
       ...(definition.tailwind ? { tailwind: definition.tailwind } : {}),
     },
     controls: normalizeControls(definition, scoped.css),
-    defaults: normalizeDefaults(definition),
+    defaults,
     ...(definition.source ? { source: definition.source } : {}),
   };
 }
@@ -169,7 +216,9 @@ function buildLoaderDetailManifest(definitions: LoaderDefinition[]) {
   return [
     "export const loaderDetailLoaders: Record<string, () => Promise<unknown>> = {",
     entries,
-    "};",
+    "} as const;",
+    "",
+    "export const loaderDetailManifest = loaderDetailLoaders;",
     "",
   ].join("\n");
 }

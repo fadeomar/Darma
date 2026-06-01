@@ -26,7 +26,7 @@
   },
   "searchText": "darma-custom-098 radial corner burst pulse radial corner burst pulse expand css-only single-element batch-03 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-098\"></div>",
-  "previewCss": ".darma-loader-darma-custom-098 {\n  width: 40px;\n  aspect-ratio: 1;\n  color: #f03355;\n  position: relative;\n  background: radial-gradient(10px,currentColor 94%,#0000);\n}\n.darma-loader-darma-custom-098:before {\n  content: '';\n  position: absolute;\n  inset: 0;\n  border-radius: 50%;\n  background:\n    radial-gradient(9px at bottom right,#0000 94%,currentColor) top    left,\n    radial-gradient(9px at bottom left ,#0000 94%,currentColor) top    right,\n    radial-gradient(9px at top    right,#0000 94%,currentColor) bottom left,\n    radial-gradient(9px at top    left ,#0000 94%,currentColor) bottom right;\n  background-size: 20px 20px;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-098-l18 1.5s infinite cubic-bezier(0.3,1,0,1);\n}\n@keyframes darma-loader-darma-custom-098-l18 {\n   33%  {inset:-10px;transform: rotate(0deg)}\n   66%  {inset:-10px;transform: rotate(90deg)}\n   100% {inset:0    ;transform: rotate(90deg)}\n}",
+  "previewCss": ".darma-loader-darma-custom-098 {\n  width: 40px;\n  aspect-ratio: 1;\n  color: var(--loader-color, #f03355);\n  position: relative;\n  background: radial-gradient(10px,currentColor 94%,#0000);\n}\n.darma-loader-darma-custom-098:before {\n  content: '';\n  position: absolute;\n  inset: 0;\n  border-radius: 50%;\n  background:\n    radial-gradient(9px at bottom right,#0000 94%,currentColor) top    left,\n    radial-gradient(9px at bottom left ,#0000 94%,currentColor) top    right,\n    radial-gradient(9px at top    right,#0000 94%,currentColor) bottom left,\n    radial-gradient(9px at top    left ,#0000 94%,currentColor) bottom right;\n  background-size: 20px 20px;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-098-l18 1.5s infinite cubic-bezier(0.3,1,0,1);\n}\n@keyframes darma-loader-darma-custom-098-l18 {\n   33%  {inset:-10px;transform: rotate(0deg)}\n   66%  {inset:-10px;transform: rotate(90deg)}\n   100% {inset:0    ;transform: rotate(90deg)}\n}\n",
   "defaults": {
     "color": "#f03355",
     "secondaryColor": "#e5e7eb",
@@ -36,15 +36,15 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-098\"></div>",
-    "css": ".darma-loader-darma-custom-098 {\n  width: 40px;\n  aspect-ratio: 1;\n  color: #f03355;\n  position: relative;\n  background: radial-gradient(10px,currentColor 94%,#0000);\n}\n.darma-loader-darma-custom-098:before {\n  content: '';\n  position: absolute;\n  inset: 0;\n  border-radius: 50%;\n  background:\n    radial-gradient(9px at bottom right,#0000 94%,currentColor) top    left,\n    radial-gradient(9px at bottom left ,#0000 94%,currentColor) top    right,\n    radial-gradient(9px at top    right,#0000 94%,currentColor) bottom left,\n    radial-gradient(9px at top    left ,#0000 94%,currentColor) bottom right;\n  background-size: 20px 20px;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-098-l18 1.5s infinite cubic-bezier(0.3,1,0,1);\n}\n@keyframes darma-loader-darma-custom-098-l18 {\n   33%  {inset:-10px;transform: rotate(0deg)}\n   66%  {inset:-10px;transform: rotate(90deg)}\n   100% {inset:0    ;transform: rotate(90deg)}\n}",
-    "react": "export default function DarmaCustom098Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-098\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-098 {\n  width: 40px;\n  aspect-ratio: 1;\n  color: var(--loader-color, #f03355);\n  position: relative;\n  background: radial-gradient(10px,currentColor 94%,#0000);\n}\n.darma-loader-darma-custom-098:before {\n  content: '';\n  position: absolute;\n  inset: 0;\n  border-radius: 50%;\n  background:\n    radial-gradient(9px at bottom right,#0000 94%,currentColor) top    left,\n    radial-gradient(9px at bottom left ,#0000 94%,currentColor) top    right,\n    radial-gradient(9px at top    right,#0000 94%,currentColor) bottom left,\n    radial-gradient(9px at top    left ,#0000 94%,currentColor) bottom right;\n  background-size: 20px 20px;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-098-l18 1.5s infinite cubic-bezier(0.3,1,0,1);\n}\n@keyframes darma-loader-darma-custom-098-l18 {\n   33%  {inset:-10px;transform: rotate(0deg)}\n   66%  {inset:-10px;transform: rotate(90deg)}\n   100% {inset:0    ;transform: rotate(90deg)}\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom098Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-098\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": false
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

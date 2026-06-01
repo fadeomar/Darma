@@ -22,24 +22,24 @@
   },
   "searchText": "cssloaders-github-18 cssloaders pattern 18 pulse cssloaders pulse circle loader html css react singleelement cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-cssloaders-github-18\"></span>",
-  "previewCss": ".darma-loader-cssloaders-github-18 {\n  display: inline-block;\n  width: 53px;\n  height: 53px;\n  border-radius: 50%;\n  background: var(--loader-color);\n  box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color) 45%, transparent);\n  animation: darma-loader-cssloaders-github-18-softPulse 1.1400000000000001s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-18-softPulse { 0% { transform: scale(.82); box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color) 45%, transparent); } 70% { transform: scale(1); box-shadow: 0 0 0 22px transparent; } 100% { transform: scale(.82); box-shadow: 0 0 0 0 transparent; } }",
+  "previewCss": ".darma-loader-cssloaders-github-18 {\n  display: inline-block;\n  width: 53px;\n  height: 53px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n  box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #6366f1) 45%, transparent);\n  animation: darma-loader-cssloaders-github-18-softPulse 1.1400000000000001s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-18-softPulse { 0% { transform: scale(.82); box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #6366f1) 45%, transparent); } 70% { transform: scale(1); box-shadow: 0 0 0 22px transparent; } 100% { transform: scale(.82); box-shadow: 0 0 0 0 transparent; } }\n",
   "defaults": {
     "color": "#6366f1",
     "secondaryColor": "#a5b4fc",
     "size": 62,
-    "speed": 1.05
+    "speed": 1.14
   },
   "code": {
     "html": "<span class=\"darma-loader-cssloaders-github-18\"></span>",
-    "css": ".darma-loader-cssloaders-github-18 {\n  display: inline-block;\n  width: 53px;\n  height: 53px;\n  border-radius: 50%;\n  background: var(--loader-color);\n  box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color) 45%, transparent);\n  animation: darma-loader-cssloaders-github-18-softPulse 1.1400000000000001s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-18-softPulse { 0% { transform: scale(.82); box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color) 45%, transparent); } 70% { transform: scale(1); box-shadow: 0 0 0 22px transparent; } 100% { transform: scale(.82); box-shadow: 0 0 0 0 transparent; } }",
-    "react": "export default function CssloadersGithub18Loader() {\n  return (\n    <span className=\"darma-loader-cssloaders-github-18\"></span>\n  );\n}\n"
+    "css": ".darma-loader-cssloaders-github-18 {\n  display: inline-block;\n  width: 53px;\n  height: 53px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n  box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #6366f1) 45%, transparent);\n  animation: darma-loader-cssloaders-github-18-softPulse 1.1400000000000001s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-18-softPulse { 0% { transform: scale(.82); box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #6366f1) 45%, transparent); } 70% { transform: scale(1); box-shadow: 0 0 0 22px transparent; } 100% { transform: scale(.82); box-shadow: 0 0 0 0 transparent; } }\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function CssloadersGithub18Loader() {\n  return (\n    <span className=\"darma-loader-cssloaders-github-18\"></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
     "background": false,
-    "secondaryColor": true
+    "secondaryColor": false
   },
   "source": {
     "name": "cssloaders.github.io",

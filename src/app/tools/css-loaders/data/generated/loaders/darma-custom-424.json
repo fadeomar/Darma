@@ -29,25 +29,25 @@
   },
   "searchText": "darma-custom-424 line orbit 10 spinners line orbit 10 geometric spinner outline spinners loader css-only single-element batch-06 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-424\"></div>",
-  "previewCss": ".darma-loader-darma-custom-424 {color: var(--loader-color, #4f46e5);\n  --loader-secondary-color: #a5b4fc;\n  --loader-bg: #ffffff;\n  width: 50px;\n  aspect-ratio: 1;\n  border: 2px solid;\n  box-sizing: border-box;\n  --c: conic-gradient(from 180deg at 50% calc(100% - 2px),currentColor 90deg, #0000 0);\n  background: var(--c),var(--c);\n  background-position: 0 0,8px 0;\n  background-size: 16px 9.6px;\n  animation: darma-loader-darma-custom-424-l15 1s infinite;\n}@keyframes darma-loader-darma-custom-424-l15 {100% {background-position: 0 -9.6px,8px 9.6px}}",
+  "previewCss": ".darma-loader-darma-custom-424 {color: var(--loader-color, #4f46e5);\n  width: 50px;\n  aspect-ratio: 1;\n  border: 2px solid;\n  box-sizing: border-box;\n  --c: conic-gradient(from 180deg at 50% calc(100% - 2px),currentColor 90deg, #0000 0);\n  background: var(--c),var(--c);\n  background-position: 0 0,8px 0;\n  background-size: 16px 9.6px;\n  animation: darma-loader-darma-custom-424-l15 1s infinite;\n}@keyframes darma-loader-darma-custom-424-l15 {100% {background-position: 0 -9.6px,8px 9.6px}}\n",
   "defaults": {
     "color": "#4f46e5",
     "secondaryColor": "#a5b4fc",
     "size": 72,
-    "speed": 1.0,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-424\"></div>",
-    "css": ".darma-loader-darma-custom-424 {color: var(--loader-color, #4f46e5);\n  --loader-secondary-color: #a5b4fc;\n  --loader-bg: #ffffff;\n  width: 50px;\n  aspect-ratio: 1;\n  border: 2px solid;\n  box-sizing: border-box;\n  --c: conic-gradient(from 180deg at 50% calc(100% - 2px),currentColor 90deg, #0000 0);\n  background: var(--c),var(--c);\n  background-position: 0 0,8px 0;\n  background-size: 16px 9.6px;\n  animation: darma-loader-darma-custom-424-l15 1s infinite;\n}@keyframes darma-loader-darma-custom-424-l15 {100% {background-position: 0 -9.6px,8px 9.6px}}",
-    "react": "export default function DarmaCustom424Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-424\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-424 {color: var(--loader-color, #4f46e5);\n  width: 50px;\n  aspect-ratio: 1;\n  border: 2px solid;\n  box-sizing: border-box;\n  --c: conic-gradient(from 180deg at 50% calc(100% - 2px),currentColor 90deg, #0000 0);\n  background: var(--c),var(--c);\n  background-position: 0 0,8px 0;\n  background-size: 16px 9.6px;\n  animation: darma-loader-darma-custom-424-l15 1s infinite;\n}@keyframes darma-loader-darma-custom-424-l15 {100% {background-position: 0 -9.6px,8px 9.6px}}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom424Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-424\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": true
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

@@ -20,21 +20,22 @@
   },
   "searchText": "typing-dots typing dots dots dots typing chat message html css react popular cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-typing-dots\"><i></i><i></i><i></i></span>",
-  "previewCss": ".darma-loader-typing-dots {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  border-radius: 999px;\n  background: rgba(99, 102, 241, 0.1);\n  padding: 13px 16px;\n  color: #6366f1;\n}\n.darma-loader-typing-dots i {\n  width: 8px;\n  height: 8px;\n  border-radius: 50%;\n  background: currentColor;\n  animation: darma-loader-typing-dots-typing 1.05s ease-in-out infinite;\n}\n.darma-loader-typing-dots i:nth-child(2) { animation-delay: 0.16s; }\n.darma-loader-typing-dots i:nth-child(3) { animation-delay: 0.32s; }\n@keyframes darma-loader-typing-dots-typing {\n  0%, 80%, 100% { transform: translateY(0); opacity: 0.35; }\n  40% { transform: translateY(-7px); opacity: 1; }\n}",
+  "previewCss": ".darma-loader-typing-dots {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #6366f1) 10%, transparent);\n  padding: 13px 16px;\n  color: var(--loader-color, #6366f1);\n}\n.darma-loader-typing-dots i {\n  width: 8px;\n  height: 8px;\n  border-radius: 50%;\n  background: currentColor;\n  animation: darma-loader-typing-dots-typing 1.05s ease-in-out infinite;\n}\n.darma-loader-typing-dots i:nth-child(2) { animation-delay: 0.16s; }\n.darma-loader-typing-dots i:nth-child(3) { animation-delay: 0.32s; }\n@keyframes darma-loader-typing-dots-typing {\n  0%, 80%, 100% { transform: translateY(0); opacity: 0.35; }\n  40% { transform: translateY(-7px); opacity: 1; }\n}\n",
   "defaults": {
     "color": "#6366f1",
     "size": 48,
-    "speed": 1
+    "speed": 1.05
   },
   "code": {
     "html": "<span class=\"darma-loader-typing-dots\"><i></i><i></i><i></i></span>",
-    "css": ".darma-loader-typing-dots {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  border-radius: 999px;\n  background: rgba(99, 102, 241, 0.1);\n  padding: 13px 16px;\n  color: #6366f1;\n}\n.darma-loader-typing-dots i {\n  width: 8px;\n  height: 8px;\n  border-radius: 50%;\n  background: currentColor;\n  animation: darma-loader-typing-dots-typing 1.05s ease-in-out infinite;\n}\n.darma-loader-typing-dots i:nth-child(2) { animation-delay: 0.16s; }\n.darma-loader-typing-dots i:nth-child(3) { animation-delay: 0.32s; }\n@keyframes darma-loader-typing-dots-typing {\n  0%, 80%, 100% { transform: translateY(0); opacity: 0.35; }\n  40% { transform: translateY(-7px); opacity: 1; }\n}",
-    "react": "export default function TypingDotsLoader() {\n  return (\n    <span className=\"darma-loader-typing-dots\"><i></i><i></i><i></i></span>\n  );\n}\n"
+    "css": ".darma-loader-typing-dots {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #6366f1) 10%, transparent);\n  padding: 13px 16px;\n  color: var(--loader-color, #6366f1);\n}\n.darma-loader-typing-dots i {\n  width: 8px;\n  height: 8px;\n  border-radius: 50%;\n  background: currentColor;\n  animation: darma-loader-typing-dots-typing 1.05s ease-in-out infinite;\n}\n.darma-loader-typing-dots i:nth-child(2) { animation-delay: 0.16s; }\n.darma-loader-typing-dots i:nth-child(3) { animation-delay: 0.32s; }\n@keyframes darma-loader-typing-dots-typing {\n  0%, 80%, 100% { transform: translateY(0); opacity: 0.35; }\n  40% { transform: translateY(-7px); opacity: 1; }\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function TypingDotsLoader() {\n  return (\n    <span className=\"darma-loader-typing-dots\"><i></i><i></i><i></i></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
-    "speed": true
-  },
-  "source": {}
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
 }

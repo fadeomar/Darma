@@ -1,233 +1,5 @@
 [
   {
-    "id": "cssloaders-github-02",
-    "name": "CSSLoaders Pattern 02",
-    "category": "pulse",
-    "tags": [
-      "cssloaders",
-      "pulse",
-      "circle",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-02 cssloaders pattern 02 pulse cssloaders pulse circle loader html css react popular singleelement cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-cssloaders-github-02\"></span>",
-    "previewCss": ".darma-loader-cssloaders-github-02 {\n  display: inline-block;\n  width: 48px;\n  height: 48px;\n  border-radius: 50%;\n  background: var(--loader-color);\n  box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color) 45%, transparent);\n  animation: darma-loader-cssloaders-github-02-softPulse 1.1400000000000001s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-02-softPulse { 0% { transform: scale(.82); box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color) 45%, transparent); } 70% { transform: scale(1); box-shadow: 0 0 0 22px transparent; } 100% { transform: scale(.82); box-shadow: 0 0 0 0 transparent; } }",
-    "defaults": {
-      "color": "#ec4899",
-      "secondaryColor": "#fbcfe8",
-      "size": 58,
-      "speed": 1.05
-    }
-  },
-  {
-    "id": "cssloaders-github-03",
-    "name": "CSSLoaders Pattern 03",
-    "category": "pulse",
-    "tags": [
-      "cssloaders",
-      "ring",
-      "pulse",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-03 cssloaders pattern 03 pulse cssloaders ring pulse loader html css react popular singleelement cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-cssloaders-github-03\"></span>",
-    "previewCss": ".darma-loader-cssloaders-github-03 {\n  display: inline-block;\n  width: 57px;\n  height: 57px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color);\n  animation: darma-loader-cssloaders-github-03-ringPulse 1.45s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-03-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }",
-    "defaults": {
-      "color": "#8b5cf6",
-      "secondaryColor": "#ddd6fe",
-      "size": 62,
-      "speed": 1.15
-    }
-  },
-  {
-    "id": "cssloaders-github-10",
-    "name": "CSSLoaders Pattern 10",
-    "category": "pulse",
-    "tags": [
-      "cssloaders",
-      "pulse",
-      "circle",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-10 cssloaders pattern 10 pulse cssloaders pulse circle loader html css react popular singleelement cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-cssloaders-github-10\"></span>",
-    "previewCss": ".darma-loader-cssloaders-github-10 {\n  display: inline-block;\n  width: 38px;\n  height: 38px;\n  border-radius: 50%;\n  background: var(--loader-color);\n  box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color) 45%, transparent);\n  animation: darma-loader-cssloaders-github-10-softPulse 1.1400000000000001s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-10-softPulse { 0% { transform: scale(.82); box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color) 45%, transparent); } 70% { transform: scale(1); box-shadow: 0 0 0 22px transparent; } 100% { transform: scale(.82); box-shadow: 0 0 0 0 transparent; } }",
-    "defaults": {
-      "color": "#f97316",
-      "secondaryColor": "#fed7aa",
-      "size": 50,
-      "speed": 1.05
-    }
-  },
-  {
-    "id": "darma-custom-005",
-    "name": "Orbiting Dot Bloom",
-    "category": "pulse",
-    "tags": [
-      "circle",
-      "radial",
-      "orbit",
-      "bloom",
-      "batch-01"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-005 orbiting dot bloom pulse circle radial orbit bloom batch-01 html css react popular singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-005\"></div>",
-    "previewCss": ".darma-loader-darma-custom-005 {\n  width: 40px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: radial-gradient(farthest-side, #ED303C 94%, #0000), radial-gradient(farthest-side, #3B8183 94%, #0000), radial-gradient(farthest-side, #FAD089 94%, #0000), radial-gradient(farthest-side, #FF9C5B 94%, #0000), #ED303C;\n  background-size: 105% 105%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-005-l5 2s infinite;\n}\n@keyframes darma-loader-darma-custom-005-l5 {\n  0% { background-position: 50% -50px, -40px 50%, 50% calc(100% + 50px), calc(100% + 50px) 50%; }\n  20%, 25% { background-position: 50% -50px, -50px 50%, 50% calc(100% + 50px), 50% 50%; }\n  45%, 50% { background-position: 50% -50px, -50px 50%, 50% 50%, 50% 50%; }\n  75% { background-position: 50% -50px, 50% 50%, 50% 50%, 50% 50%; }\n  95%, 100% { background-position: 50% 50%, 50% 50%, 50% 50%, 50% 50%; }\n}",
-    "defaults": {
-      "color": "#ED303C",
-      "secondaryColor": "#FF9C5B",
-      "size": 40,
-      "speed": 2,
-      "background": "#ffffff"
-    }
-  },
-  {
-    "id": "pulse-ring",
-    "name": "Pulse Ring",
-    "category": "pulse",
-    "tags": [
-      "pulse",
-      "ring",
-      "ping",
-      "notification"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "cssOnly": true,
-      "customizable": true,
-      "singleElement": true
-    },
-    "searchText": "pulse-ring pulse ring pulse pulse ring ping notification html css react popular cssonly customizable singleelement",
-    "previewHtml": "<span class=\"darma-loader-pulse-ring\"></span>",
-    "previewCss": ".darma-loader-pulse-ring {\n  position: relative;\n  display: inline-block;\n  width: 54px;\n  height: 54px;\n  border-radius: 50%;\n  background: var(--loader-color);\n}\n.darma-loader-pulse-ring::before,\n.darma-loader-pulse-ring::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  border-radius: inherit;\n  border: 3px solid var(--loader-color);\n  animation: darma-loader-pulse-ring-pulse 1.25s ease-out infinite;\n}\n.darma-loader-pulse-ring::after { animation-delay: 0.45s; }\n@keyframes darma-loader-pulse-ring-pulse {\n  to { transform: scale(1.9); opacity: 0; }\n}",
-    "defaults": {
-      "color": "#6366f1",
-      "size": 48,
-      "speed": 1
-    }
-  },
-  {
-    "id": "darma-custom-004",
-    "name": "Radial Bubble Fill",
-    "category": "pulse",
-    "tags": [
-      "circle",
-      "radial",
-      "bubble",
-      "fill",
-      "batch-01"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-004 radial bubble fill pulse circle radial bubble fill batch-01 html css react popular singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-004\"></div>",
-    "previewCss": ".darma-loader-darma-custom-004 {\n  width: 40px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: radial-gradient(farthest-side, #ED303C 94%, #0000), radial-gradient(farthest-side, #FF9C5B 94%, #0000), #ED303C;\n  background-position: center;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-004-l4 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-004-l4 {\n  0% { background-size: 0 0, 0 0; }\n  30%, 50% { background-size: 0 0, 120% 120%; }\n  80%, 100% { background-size: 120% 120%, 120% 120%; }\n}",
-    "defaults": {
-      "color": "#ED303C",
-      "secondaryColor": "#FF9C5B",
-      "size": 40,
-      "speed": 1.5,
-      "background": "#ffffff"
-    }
-  },
-  {
-    "id": "darma-custom-015",
-    "name": "Rounded Quadrant Bloom",
-    "category": "pulse",
-    "tags": [
-      "circle",
-      "quadrant",
-      "bloom",
-      "rounded",
-      "batch-01"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-015 rounded quadrant bloom pulse circle quadrant bloom rounded batch-01 html css react popular singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-015\"></div>",
-    "previewCss": ".darma-loader-darma-custom-015 {\n  width: 50px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: linear-gradient(#FF003C 0 0), linear-gradient(#FF003C 0 0), linear-gradient(#FF003C 0 0), linear-gradient(#FF003C 0 0), linear-gradient(#00C176 0 0), linear-gradient(#00C176 0 0), linear-gradient(#00C176 0 0), linear-gradient(#00C176 0 0), #FF003C;\n  background-position: 0 0, 100% 0, 100% 100%, 0 100%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-015-l15 2s infinite;\n}\n@keyframes darma-loader-darma-custom-015-l15 {\n  0% { background-size: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0; }\n  40%, 50% { background-size: 0 0, 0 0, 0 0, 0 0, 51% 51%, 51% 51%, 51% 51%, 51% 51%; }\n  90%, 100% { background-size: 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%; }\n}",
-    "defaults": {
-      "color": "#FF003C",
-      "secondaryColor": "#00C176",
-      "size": 50,
-      "speed": 2,
-      "background": "#ffffff"
-    }
-  },
-  {
     "id": "darma-custom-659",
     "name": "Blink Grid",
     "category": "pulse",
@@ -257,12 +29,12 @@
     },
     "searchText": "darma-custom-659 blink grid pulse rich grid blink blocks pulse multi-element loader html-css customizable rich-batch-01 html css react cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-659\">\n  <span></span>\n  <span></span>\n  <span></span>\n  <span></span>\n  <span></span>\n  <span></span>\n</div>",
-    "previewCss": ".darma-loader-darma-custom-659 {--loader-secondary-color: #64748b;\n  --loader-bg: #111827;\n  \n  --color: var(--loader-color, #94a3b8);\n  --size: 70px;\n  width: var(--size);\n  height: var(--size);\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 5px;\n}\n\n.darma-loader-darma-custom-659 span {\n  width: 100%;\n  height: 100%;\n  background-color: var(--color);\n  animation: darma-loader-darma-custom-659-keyframes-blink 0.6s alternate infinite linear;\n}\n\n.darma-loader-darma-custom-659 span:nth-child(1) {\n  animation-delay: 0ms;\n}\n\n.darma-loader-darma-custom-659 span:nth-child(2) {\n  animation-delay: 200ms;\n}\n\n.darma-loader-darma-custom-659 span:nth-child(3) {\n  animation-delay: 300ms;\n}\n\n.darma-loader-darma-custom-659 span:nth-child(4) {\n  animation-delay: 400ms;\n}\n\n.darma-loader-darma-custom-659 span:nth-child(5) {\n  animation-delay: 500ms;\n}\n\n.darma-loader-darma-custom-659 span:nth-child(6) {\n  animation-delay: 600ms;\n}\n\n@keyframes darma-loader-darma-custom-659-keyframes-blink {\n  0% {\n    opacity: 0.3;\n    transform: scale(0.5) rotate(5deg);\n  }\n\n  50% {\n    opacity: 1;\n    transform: scale(1);\n  }\n}",
+    "previewCss": ".darma-loader-darma-custom-659 {\n  \n  --color: var(--loader-color, #94a3b8);\n  --size: 70px;\n  width: var(--size);\n  height: var(--size);\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 5px;\n}\n\n.darma-loader-darma-custom-659 span {\n  width: 100%;\n  height: 100%;\n  background-color: var(--color);\n  animation: darma-loader-darma-custom-659-keyframes-blink 0.6s alternate infinite linear;\n}\n\n.darma-loader-darma-custom-659 span:nth-child(1) {\n  animation-delay: 0ms;\n}\n\n.darma-loader-darma-custom-659 span:nth-child(2) {\n  animation-delay: 200ms;\n}\n\n.darma-loader-darma-custom-659 span:nth-child(3) {\n  animation-delay: 300ms;\n}\n\n.darma-loader-darma-custom-659 span:nth-child(4) {\n  animation-delay: 400ms;\n}\n\n.darma-loader-darma-custom-659 span:nth-child(5) {\n  animation-delay: 500ms;\n}\n\n.darma-loader-darma-custom-659 span:nth-child(6) {\n  animation-delay: 600ms;\n}\n\n@keyframes darma-loader-darma-custom-659-keyframes-blink {\n  0% {\n    opacity: 0.3;\n    transform: scale(0.5) rotate(5deg);\n  }\n\n  50% {\n    opacity: 1;\n    transform: scale(1);\n  }\n}\n",
     "defaults": {
       "color": "#94a3b8",
       "secondaryColor": "#64748b",
       "size": 72,
-      "speed": 1.0,
+      "speed": 0.6,
       "background": "#111827"
     }
   },
@@ -293,12 +65,12 @@
     },
     "searchText": "darma-custom-120 corner ring expand pulse corner ring expand pulse css-only single-element batch-03 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-120\"></div>",
-    "previewCss": ".darma-loader-darma-custom-120 {\n  width: 50px;\n  aspect-ratio: 1;\n  color: #398EB6;\n  position: relative;\n  animation: l40 .5s infinite alternate;\n}\n.darma-loader-darma-custom-120:before,\n.darma-loader-darma-custom-120:after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  background-size: 25px 25px;\n  background-position: 0 0,100% 0,100% 100%,0 100%;\n  background-repeat: no-repeat;\n}\n.darma-loader-darma-custom-120:before {\n  background-image:\n    radial-gradient(farthest-side at top    left ,currentColor 96%,#0000),\n    radial-gradient(farthest-side at top    right,currentColor 96%,#0000),\n    radial-gradient(farthest-side at bottom right,currentColor 96%,#0000),\n    radial-gradient(farthest-side at bottom left ,currentColor 96%,#0000);\n  animation: darma-loader-darma-custom-120-l40-1 1s infinite;\n}\n.darma-loader-darma-custom-120:after {\n  background-image: \n    radial-gradient(farthest-side at top    left ,#0000 94%,currentColor 96%),\n    radial-gradient(farthest-side at top    right,#0000 94%,currentColor 96%),\n    radial-gradient(farthest-side at bottom right,#0000 94%,currentColor 96%),\n    radial-gradient(farthest-side at bottom left ,#0000 94%,currentColor 96%);\n  animation: darma-loader-darma-custom-120-l40-2 1s infinite;\n}\n@keyframes darma-loader-darma-custom-120-l40-1 {\n  0%,10%,90%,100% {inset:0}\n  40%,60% {inset:-10px}\n}\n@keyframes darma-loader-darma-custom-120-l40-2 {\n  0%,40%  {transform: rotate(0)}\n  60%,100%{transform: rotate(90deg)}\n}",
+    "previewCss": ".darma-loader-darma-custom-120 {\n  width: 50px;\n  aspect-ratio: 1;\n  color: var(--loader-color, #398eb6);\n  position: relative;\n  animation: l40 .5s infinite alternate;\n}\n.darma-loader-darma-custom-120:before,\n.darma-loader-darma-custom-120:after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  background-size: 25px 25px;\n  background-position: 0 0,100% 0,100% 100%,0 100%;\n  background-repeat: no-repeat;\n}\n.darma-loader-darma-custom-120:before {\n  background-image:\n    radial-gradient(farthest-side at top    left ,currentColor 96%,#0000),\n    radial-gradient(farthest-side at top    right,currentColor 96%,#0000),\n    radial-gradient(farthest-side at bottom right,currentColor 96%,#0000),\n    radial-gradient(farthest-side at bottom left ,currentColor 96%,#0000);\n  animation: darma-loader-darma-custom-120-l40-1 1s infinite;\n}\n.darma-loader-darma-custom-120:after {\n  background-image: \n    radial-gradient(farthest-side at top    left ,#0000 94%,currentColor 96%),\n    radial-gradient(farthest-side at top    right,#0000 94%,currentColor 96%),\n    radial-gradient(farthest-side at bottom right,#0000 94%,currentColor 96%),\n    radial-gradient(farthest-side at bottom left ,#0000 94%,currentColor 96%);\n  animation: darma-loader-darma-custom-120-l40-2 1s infinite;\n}\n@keyframes darma-loader-darma-custom-120-l40-1 {\n  0%,10%,90%,100% {inset:0}\n  40%,60% {inset:-10px}\n}\n@keyframes darma-loader-darma-custom-120-l40-2 {\n  0%,40%  {transform: rotate(0)}\n  60%,100%{transform: rotate(90deg)}\n}\n",
     "defaults": {
       "color": "#398eb6",
       "secondaryColor": "#e5e7eb",
       "size": 50,
-      "speed": 1.0,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -329,13 +101,109 @@
     },
     "searchText": "darma-custom-119 corner ring pulse pulse corner ring pulse expand css-only single-element batch-03 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-119\"></div>",
-    "previewCss": ".darma-loader-darma-custom-119 {\n  width: 50px;\n  aspect-ratio: 1;\n  color: #398EB6;\n  background: currentColor;\n  border-radius: 50%;\n  position: relative;\n}\n.darma-loader-darma-custom-119:before {\n  content: \"\";\n  position: absolute;\n  background:\n    radial-gradient(farthest-side at bottom right,#0000 94%,currentColor 96%) 0    0   ,\n    radial-gradient(farthest-side at bottom left ,#0000 94%,currentColor 96%) 100% 0   ,\n    radial-gradient(farthest-side at top    left ,#0000 94%,currentColor 96%) 100% 100%,\n    radial-gradient(farthest-side at top    right,#0000 94%,currentColor 96%) 0    100%;\n  background-size: 25px 25px;\n  background-repeat: no-repeat;\n  animation: \n    darma-loader-darma-custom-119-l39-1 1s infinite,\n    darma-loader-darma-custom-119-l39-2 1s infinite;\n}\n@keyframes darma-loader-darma-custom-119-l39-1 {\n  0%,10%,90%,100% {inset:0}\n  40%,60% {inset:-10px}\n}\n\n@keyframes darma-loader-darma-custom-119-l39-2 {\n  0%,40%  {transform: rotate(0)}\n  60%,100%{transform: rotate(90deg)}\n}",
+    "previewCss": ".darma-loader-darma-custom-119 {\n  width: 50px;\n  aspect-ratio: 1;\n  color: var(--loader-color, #398eb6);\n  background: currentColor;\n  border-radius: 50%;\n  position: relative;\n}\n.darma-loader-darma-custom-119:before {\n  content: \"\";\n  position: absolute;\n  background:\n    radial-gradient(farthest-side at bottom right,#0000 94%,currentColor 96%) 0    0   ,\n    radial-gradient(farthest-side at bottom left ,#0000 94%,currentColor 96%) 100% 0   ,\n    radial-gradient(farthest-side at top    left ,#0000 94%,currentColor 96%) 100% 100%,\n    radial-gradient(farthest-side at top    right,#0000 94%,currentColor 96%) 0    100%;\n  background-size: 25px 25px;\n  background-repeat: no-repeat;\n  animation: \n    darma-loader-darma-custom-119-l39-1 1s infinite,\n    darma-loader-darma-custom-119-l39-2 1s infinite;\n}\n@keyframes darma-loader-darma-custom-119-l39-1 {\n  0%,10%,90%,100% {inset:0}\n  40%,60% {inset:-10px}\n}\n\n@keyframes darma-loader-darma-custom-119-l39-2 {\n  0%,40%  {transform: rotate(0)}\n  60%,100%{transform: rotate(90deg)}\n}\n",
     "defaults": {
       "color": "#398eb6",
       "secondaryColor": "#e5e7eb",
       "size": 50,
-      "speed": 1.0,
+      "speed": 1,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "cssloaders-github-02",
+    "name": "CSSLoaders Pattern 02",
+    "category": "pulse",
+    "tags": [
+      "cssloaders",
+      "pulse",
+      "circle",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-02 cssloaders pattern 02 pulse cssloaders pulse circle loader html css react popular singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-02\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-02 {\n  display: inline-block;\n  width: 48px;\n  height: 48px;\n  border-radius: 50%;\n  background: var(--loader-color, #ec4899);\n  box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #ec4899) 45%, transparent);\n  animation: darma-loader-cssloaders-github-02-softPulse 1.1400000000000001s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-02-softPulse { 0% { transform: scale(.82); box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #ec4899) 45%, transparent); } 70% { transform: scale(1); box-shadow: 0 0 0 22px transparent; } 100% { transform: scale(.82); box-shadow: 0 0 0 0 transparent; } }\n",
+    "defaults": {
+      "color": "#ec4899",
+      "secondaryColor": "#fbcfe8",
+      "size": 58,
+      "speed": 1.14
+    }
+  },
+  {
+    "id": "cssloaders-github-03",
+    "name": "CSSLoaders Pattern 03",
+    "category": "pulse",
+    "tags": [
+      "cssloaders",
+      "ring",
+      "pulse",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-03 cssloaders pattern 03 pulse cssloaders ring pulse loader html css react popular singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-03\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-03 {\n  display: inline-block;\n  width: 57px;\n  height: 57px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color, #8b5cf6);\n  animation: darma-loader-cssloaders-github-03-ringPulse 1.45s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-03-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }\n",
+    "defaults": {
+      "color": "#8b5cf6",
+      "secondaryColor": "#ddd6fe",
+      "size": 62,
+      "speed": 1.45
+    }
+  },
+  {
+    "id": "cssloaders-github-10",
+    "name": "CSSLoaders Pattern 10",
+    "category": "pulse",
+    "tags": [
+      "cssloaders",
+      "pulse",
+      "circle",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-10 cssloaders pattern 10 pulse cssloaders pulse circle loader html css react popular singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-10\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-10 {\n  display: inline-block;\n  width: 38px;\n  height: 38px;\n  border-radius: 50%;\n  background: var(--loader-color, #f97316);\n  box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #f97316) 45%, transparent);\n  animation: darma-loader-cssloaders-github-10-softPulse 1.1400000000000001s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-10-softPulse { 0% { transform: scale(.82); box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #f97316) 45%, transparent); } 70% { transform: scale(1); box-shadow: 0 0 0 22px transparent; } 100% { transform: scale(.82); box-shadow: 0 0 0 0 transparent; } }\n",
+    "defaults": {
+      "color": "#f97316",
+      "secondaryColor": "#fed7aa",
+      "size": 50,
+      "speed": 1.14
     }
   },
   {
@@ -362,12 +230,12 @@
     },
     "searchText": "cssloaders-github-11 cssloaders pattern 11 pulse cssloaders ring pulse loader html css react singleelement cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-cssloaders-github-11\"></span>",
-    "previewCss": ".darma-loader-cssloaders-github-11 {\n  display: inline-block;\n  width: 57px;\n  height: 57px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color);\n  animation: darma-loader-cssloaders-github-11-ringPulse 1.45s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-11-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }",
+    "previewCss": ".darma-loader-cssloaders-github-11 {\n  display: inline-block;\n  width: 57px;\n  height: 57px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color, #22c55e);\n  animation: darma-loader-cssloaders-github-11-ringPulse 1.45s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-11-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }\n",
     "defaults": {
       "color": "#22c55e",
       "secondaryColor": "#bbf7d0",
       "size": 54,
-      "speed": 1.15
+      "speed": 1.45
     }
   },
   {
@@ -394,12 +262,12 @@
     },
     "searchText": "cssloaders-github-18 cssloaders pattern 18 pulse cssloaders pulse circle loader html css react singleelement cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-cssloaders-github-18\"></span>",
-    "previewCss": ".darma-loader-cssloaders-github-18 {\n  display: inline-block;\n  width: 53px;\n  height: 53px;\n  border-radius: 50%;\n  background: var(--loader-color);\n  box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color) 45%, transparent);\n  animation: darma-loader-cssloaders-github-18-softPulse 1.1400000000000001s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-18-softPulse { 0% { transform: scale(.82); box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color) 45%, transparent); } 70% { transform: scale(1); box-shadow: 0 0 0 22px transparent; } 100% { transform: scale(.82); box-shadow: 0 0 0 0 transparent; } }",
+    "previewCss": ".darma-loader-cssloaders-github-18 {\n  display: inline-block;\n  width: 53px;\n  height: 53px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n  box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #6366f1) 45%, transparent);\n  animation: darma-loader-cssloaders-github-18-softPulse 1.1400000000000001s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-18-softPulse { 0% { transform: scale(.82); box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #6366f1) 45%, transparent); } 70% { transform: scale(1); box-shadow: 0 0 0 22px transparent; } 100% { transform: scale(.82); box-shadow: 0 0 0 0 transparent; } }\n",
     "defaults": {
       "color": "#6366f1",
       "secondaryColor": "#a5b4fc",
       "size": 62,
-      "speed": 1.05
+      "speed": 1.14
     }
   },
   {
@@ -426,12 +294,12 @@
     },
     "searchText": "cssloaders-github-19 cssloaders pattern 19 pulse cssloaders ring pulse loader html css react singleelement cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-cssloaders-github-19\"></span>",
-    "previewCss": ".darma-loader-cssloaders-github-19 {\n  display: inline-block;\n  width: 57px;\n  height: 57px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color);\n  animation: darma-loader-cssloaders-github-19-ringPulse 1.45s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-19-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }",
+    "previewCss": ".darma-loader-cssloaders-github-19 {\n  display: inline-block;\n  width: 57px;\n  height: 57px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color, #06b6d4);\n  animation: darma-loader-cssloaders-github-19-ringPulse 1.45s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-19-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }\n",
     "defaults": {
       "color": "#06b6d4",
       "secondaryColor": "#bae6fd",
       "size": 66,
-      "speed": 1.15
+      "speed": 1.45
     }
   },
   {
@@ -458,12 +326,12 @@
     },
     "searchText": "cssloaders-github-26 cssloaders pattern 26 pulse cssloaders pulse circle loader html css react singleelement cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-cssloaders-github-26\"></span>",
-    "previewCss": ".darma-loader-cssloaders-github-26 {\n  display: inline-block;\n  width: 43px;\n  height: 43px;\n  border-radius: 50%;\n  background: var(--loader-color);\n  box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color) 45%, transparent);\n  animation: darma-loader-cssloaders-github-26-softPulse 1.1400000000000001s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-26-softPulse { 0% { transform: scale(.82); box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color) 45%, transparent); } 70% { transform: scale(1); box-shadow: 0 0 0 22px transparent; } 100% { transform: scale(.82); box-shadow: 0 0 0 0 transparent; } }",
+    "previewCss": ".darma-loader-cssloaders-github-26 {\n  display: inline-block;\n  width: 43px;\n  height: 43px;\n  border-radius: 50%;\n  background: var(--loader-color, #ef4444);\n  box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #ef4444) 45%, transparent);\n  animation: darma-loader-cssloaders-github-26-softPulse 1.1400000000000001s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-26-softPulse { 0% { transform: scale(.82); box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #ef4444) 45%, transparent); } 70% { transform: scale(1); box-shadow: 0 0 0 22px transparent; } 100% { transform: scale(.82); box-shadow: 0 0 0 0 transparent; } }\n",
     "defaults": {
       "color": "#ef4444",
       "secondaryColor": "#fecaca",
       "size": 54,
-      "speed": 1.05
+      "speed": 1.14
     }
   },
   {
@@ -490,12 +358,12 @@
     },
     "searchText": "cssloaders-github-27 cssloaders pattern 27 pulse cssloaders ring pulse loader html css react singleelement cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-cssloaders-github-27\"></span>",
-    "previewCss": ".darma-loader-cssloaders-github-27 {\n  display: inline-block;\n  width: 57px;\n  height: 57px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color);\n  animation: darma-loader-cssloaders-github-27-ringPulse 1.45s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-27-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }",
+    "previewCss": ".darma-loader-cssloaders-github-27 {\n  display: inline-block;\n  width: 57px;\n  height: 57px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color, #0ea5e9);\n  animation: darma-loader-cssloaders-github-27-ringPulse 1.45s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-27-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }\n",
     "defaults": {
       "color": "#0ea5e9",
       "secondaryColor": "#bae6fd",
       "size": 58,
-      "speed": 1.15
+      "speed": 1.45
     }
   },
   {
@@ -522,12 +390,12 @@
     },
     "searchText": "cssloaders-github-34 cssloaders pattern 34 pulse cssloaders pulse circle loader html css react singleelement cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-cssloaders-github-34\"></span>",
-    "previewCss": ".darma-loader-cssloaders-github-34 {\n  display: inline-block;\n  width: 58px;\n  height: 58px;\n  border-radius: 50%;\n  background: var(--loader-color);\n  box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color) 45%, transparent);\n  animation: darma-loader-cssloaders-github-34-softPulse 1.1400000000000001s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-34-softPulse { 0% { transform: scale(.82); box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color) 45%, transparent); } 70% { transform: scale(1); box-shadow: 0 0 0 22px transparent; } 100% { transform: scale(.82); box-shadow: 0 0 0 0 transparent; } }",
+    "previewCss": ".darma-loader-cssloaders-github-34 {\n  display: inline-block;\n  width: 58px;\n  height: 58px;\n  border-radius: 50%;\n  background: var(--loader-color, #14b8a6);\n  box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #14b8a6) 45%, transparent);\n  animation: darma-loader-cssloaders-github-34-softPulse 1.1400000000000001s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-34-softPulse { 0% { transform: scale(.82); box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #14b8a6) 45%, transparent); } 70% { transform: scale(1); box-shadow: 0 0 0 22px transparent; } 100% { transform: scale(.82); box-shadow: 0 0 0 0 transparent; } }\n",
     "defaults": {
       "color": "#14b8a6",
       "secondaryColor": "#99f6e4",
       "size": 66,
-      "speed": 1.05
+      "speed": 1.14
     }
   },
   {
@@ -554,12 +422,12 @@
     },
     "searchText": "cssloaders-github-35 cssloaders pattern 35 pulse cssloaders ring pulse loader html css react singleelement cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-cssloaders-github-35\"></span>",
-    "previewCss": ".darma-loader-cssloaders-github-35 {\n  display: inline-block;\n  width: 57px;\n  height: 57px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color);\n  animation: darma-loader-cssloaders-github-35-ringPulse 1.45s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-35-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }",
+    "previewCss": ".darma-loader-cssloaders-github-35 {\n  display: inline-block;\n  width: 57px;\n  height: 57px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color, #f59e0b);\n  animation: darma-loader-cssloaders-github-35-ringPulse 1.45s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-35-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }\n",
     "defaults": {
       "color": "#f59e0b",
       "secondaryColor": "#fde68a",
       "size": 50,
-      "speed": 1.15
+      "speed": 1.45
     }
   },
   {
@@ -584,11 +452,11 @@
     },
     "searchText": "glow-pulse glow pulse pulse pulse glow status indicator html css react cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-glow-pulse\"></span>",
-    "previewCss": ".darma-loader-glow-pulse {\n  display: inline-block;\n  width: 46px;\n  height: 46px;\n  border-radius: 50%;\n  background: #6366f1;\n  box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.42);\n  animation: darma-loader-glow-pulse-glow 1.1s ease-in-out infinite;\n}\n@keyframes darma-loader-glow-pulse-glow {\n  0%, 100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.42); }\n  50% { transform: scale(1); box-shadow: 0 0 0 18px rgba(99, 102, 241, 0); }\n}",
+    "previewCss": ".darma-loader-glow-pulse {\n  display: inline-block;\n  width: 46px;\n  height: 46px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n  box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #6366f1) 42%, transparent);\n  animation: darma-loader-glow-pulse-glow 1.1s ease-in-out infinite;\n}\n@keyframes darma-loader-glow-pulse-glow {\n  0%, 100% { transform: scale(0.9); box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #6366f1) 42%, transparent); }\n  50% { transform: scale(1); box-shadow: 0 0 0 18px transparent; }\n}\n",
     "defaults": {
       "color": "#6366f1",
       "size": 48,
-      "speed": 1
+      "speed": 1.1
     }
   },
   {
@@ -614,11 +482,11 @@
     },
     "searchText": "heartbeat-pulse heartbeat pulse pulse pulse heartbeat status soft html css react cssonly customizable singleelement",
     "previewHtml": "<span class=\"darma-loader-heartbeat-pulse\"></span>",
-    "previewCss": ".darma-loader-heartbeat-pulse {\n  display: inline-block;\n  width: 50px;\n  height: 50px;\n  border-radius: 18px;\n  background: #6366f1;\n  transform: rotate(45deg);\n  animation: darma-loader-heartbeat-pulse-heartbeat 1.05s ease-in-out infinite;\n}\n@keyframes darma-loader-heartbeat-pulse-heartbeat {\n  0%, 100% { transform: rotate(45deg) scale(0.9); opacity: 0.7; }\n  30% { transform: rotate(45deg) scale(1.05); opacity: 1; }\n  45% { transform: rotate(45deg) scale(0.92); }\n  60% { transform: rotate(45deg) scale(1.08); }\n}",
+    "previewCss": ".darma-loader-heartbeat-pulse {\n  display: inline-block;\n  width: 50px;\n  height: 50px;\n  border-radius: 18px;\n  background: var(--loader-color, #6366f1);\n  transform: rotate(45deg);\n  animation: darma-loader-heartbeat-pulse-heartbeat 1.05s ease-in-out infinite;\n}\n@keyframes darma-loader-heartbeat-pulse-heartbeat {\n  0%, 100% { transform: rotate(45deg) scale(0.9); opacity: 0.7; }\n  30% { transform: rotate(45deg) scale(1.05); opacity: 1; }\n  45% { transform: rotate(45deg) scale(0.92); }\n  60% { transform: rotate(45deg) scale(1.08); }\n}\n",
     "defaults": {
       "color": "#6366f1",
       "size": 48,
-      "speed": 1
+      "speed": 1.05
     }
   },
   {
@@ -649,7 +517,7 @@
     },
     "searchText": "darma-custom-058 isometric cube glow pulse isometric cube glow pulse expand css-only single-element batch-03 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-058\"></div>",
-    "previewCss": ".darma-loader-darma-custom-058 {\n  --s: 25px;\n  \n  --_d: calc(0.353*var(--s));\n  width: calc(var(--s) + var(--_d));\n  aspect-ratio: 1;\n  display: grid;\n  filter: drop-shadow(0 0 0 #fff);\n  animation: darma-loader-darma-custom-058-l2 0.8s infinite;\n}\n.darma-loader-darma-custom-058:before {\n  content: \"\";\n  clip-path: polygon(var(--_d) 0,100% 0,100% calc(100% - var(--_d)),calc(100% - var(--_d)) 100%,0 100%,0 var(--_d));\n  background:\n    conic-gradient(from -90deg at var(--s) var(--_d),\n     #fff 135deg,#666 0 270deg,#aaa 0);\n}\n@keyframes darma-loader-darma-custom-058-l2{\n  50% {filter:drop-shadow(0 0 5px #fff)}\n}",
+    "previewCss": ".darma-loader-darma-custom-058 {\n  --s: 25px;\n  \n  --_d: calc(0.353*var(--s));\n  width: calc(var(--s) + var(--_d));\n  aspect-ratio: 1;\n  display: grid;\n  filter: drop-shadow(0 0 0 var(--loader-secondary-color, #fff));\n  animation: darma-loader-darma-custom-058-l2 0.8s infinite;\n}\n.darma-loader-darma-custom-058:before {\n  content: \"\";\n  clip-path: polygon(var(--_d) 0,100% 0,100% calc(100% - var(--_d)),calc(100% - var(--_d)) 100%,0 100%,0 var(--_d));\n  background:\n    conic-gradient(from -90deg at var(--s) var(--_d),\n     var(--loader-secondary-color, #fff) 135deg,var(--loader-color, #666) 0 270deg,#aaa 0);\n}\n@keyframes darma-loader-darma-custom-058-l2{\n  50% {filter:drop-shadow(0 0 5px var(--loader-secondary-color, #fff))}\n}\n",
     "defaults": {
       "color": "#666",
       "secondaryColor": "#fff",
@@ -686,7 +554,7 @@
     },
     "searchText": "darma-custom-059 isometric cube squash pulse isometric cube squash pulse expand css-only single-element batch-03 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-059\"></div>",
-    "previewCss": ".darma-loader-darma-custom-059 {\n  --s: 25px;\n  --_d: calc(0.353*var(--s));\n  \n  height: calc(var(--s) + var(--_d));\n  aspect-ratio: 1;\n  display: grid;\n}\n.darma-loader-darma-custom-059:before {\n  content: \"\";\n  height: 100%;\n  margin: auto 0;\n  clip-path: polygon(var(--_d) 0,100% 0,100% calc(100% - var(--_d)),calc(100% - var(--_d)) 100%,0 100%,0 var(--_d));\n  background:\n    conic-gradient(from -90deg at var(--s) var(--_d),\n     #fff 135deg,#666 0 270deg,#aaa 0);\n  animation: darma-loader-darma-custom-059-l3 .8s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-059-l3{\n  100% {height:40%}\n}",
+    "previewCss": ".darma-loader-darma-custom-059 {\n  --s: 25px;\n  --_d: calc(0.353*var(--s));\n  \n  height: calc(var(--s) + var(--_d));\n  aspect-ratio: 1;\n  display: grid;\n}\n.darma-loader-darma-custom-059:before {\n  content: \"\";\n  height: 100%;\n  margin: auto 0;\n  clip-path: polygon(var(--_d) 0,100% 0,100% calc(100% - var(--_d)),calc(100% - var(--_d)) 100%,0 100%,0 var(--_d));\n  background:\n    conic-gradient(from -90deg at var(--s) var(--_d),\n     var(--loader-secondary-color, #fff) 135deg,var(--loader-color, #666) 0 270deg,#aaa 0);\n  animation: darma-loader-darma-custom-059-l3 .8s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-059-l3{\n  100% {height:40%}\n}\n",
     "defaults": {
       "color": "#666",
       "secondaryColor": "#fff",
@@ -724,12 +592,12 @@
     },
     "searchText": "darma-custom-565 mask reveal 01 pulse mask reveal 01 pulse shape loader css-only single-element batch-07 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-565\"></div>",
-    "previewCss": ".darma-loader-darma-custom-565 {color: var(--loader-color, #b45309);\n  --loader-secondary-color: #fcd34d;\n  --loader-bg: #ffffff;\n   width: 70px;\n   height: 26px;\n   background: var(--loader-color, #b45309);\n   border-radius: 50px;\n   --c:no-repeat radial-gradient(farthest-side,currentColor 92%,#0000);\n   --s:18px 18px;\n   -webkit-mask: var(--c) left 4px top 50%, var(--c) center, var(--c) right 4px top 50%, linear-gradient(currentColor 0 0);\n   -webkit-mask-composite:xor;\n   mask-composite:exclude;\n   animation: darma-loader-darma-custom-565-l1 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-565-l1  {\n  0% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,auto}\n16.67%{-webkit-mask-size:var(--s),0 0 ,0 0 ,auto}\n33.33%{-webkit-mask-size:var(--s),var(--s),0 0 ,auto}\n50% {-webkit-mask-size:var(--s),var(--s),var(--s),auto}\n66.67%{-webkit-mask-size:0 0 ,var(--s),var(--s),auto}\n83.33%{-webkit-mask-size:0 0 ,0 0 ,var(--s),auto}\n100% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,auto}\n}",
+    "previewCss": ".darma-loader-darma-custom-565 {color: var(--loader-color, #b45309);\n   width: 70px;\n   height: 26px;\n   background: var(--loader-color, #b45309);\n   border-radius: 50px;\n   --c:no-repeat radial-gradient(farthest-side,currentColor 92%,#0000);\n   --s:18px 18px;\n   -webkit-mask: var(--c) left 4px top 50%, var(--c) center, var(--c) right 4px top 50%, linear-gradient(currentColor 0 0);\n   -webkit-mask-composite:xor;\n   mask-composite:exclude;\n   animation: darma-loader-darma-custom-565-l1 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-565-l1  {\n  0% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,auto}\n16.67%{-webkit-mask-size:var(--s),0 0 ,0 0 ,auto}\n33.33%{-webkit-mask-size:var(--s),var(--s),0 0 ,auto}\n50% {-webkit-mask-size:var(--s),var(--s),var(--s),auto}\n66.67%{-webkit-mask-size:0 0 ,var(--s),var(--s),auto}\n83.33%{-webkit-mask-size:0 0 ,0 0 ,var(--s),auto}\n100% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,auto}\n}\n",
     "defaults": {
       "color": "#b45309",
       "secondaryColor": "#fcd34d",
       "size": 72,
-      "speed": 1.0,
+      "speed": 1.5,
       "background": "#ffffff"
     }
   },
@@ -762,12 +630,12 @@
     },
     "searchText": "darma-custom-566 mask reveal 02 pulse mask reveal 02 pulse shape loader css-only single-element batch-07 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-566\"></div>",
-    "previewCss": ".darma-loader-darma-custom-566 {color: var(--loader-color, #e11d48);\n  --loader-secondary-color: #fb7185;\n  --loader-bg: #ffffff;\n   width: 70px;\n   height: 26px;\n   background: #3FD97F;\n   --c:no-repeat linear-gradient(currentColor 0 0);\n   --s:18px 18px;\n   -webkit-mask: var(--c) left 4px top 50%, var(--c) center, var(--c) right 4px top 50%, linear-gradient(currentColor 0 0);\n   -webkit-mask-composite:xor;\n   mask-composite:exclude;\n   animation: darma-loader-darma-custom-566-l2 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-566-l2  {\n  0% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,auto}\n16.67%{-webkit-mask-size:var(--s),0 0 ,0 0 ,auto}\n33.33%{-webkit-mask-size:var(--s),var(--s),0 0 ,auto}\n50% {-webkit-mask-size:var(--s),var(--s),var(--s),auto}\n66.67%{-webkit-mask-size:0 0 ,var(--s),var(--s),auto}\n83.33%{-webkit-mask-size:0 0 ,0 0 ,var(--s),auto}\n100% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,auto}\n}",
+    "previewCss": ".darma-loader-darma-custom-566 {color: var(--loader-color, #e11d48);\n   width: 70px;\n   height: 26px;\n   background: #3FD97F;\n   --c:no-repeat linear-gradient(currentColor 0 0);\n   --s:18px 18px;\n   -webkit-mask: var(--c) left 4px top 50%, var(--c) center, var(--c) right 4px top 50%, linear-gradient(currentColor 0 0);\n   -webkit-mask-composite:xor;\n   mask-composite:exclude;\n   animation: darma-loader-darma-custom-566-l2 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-566-l2  {\n  0% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,auto}\n16.67%{-webkit-mask-size:var(--s),0 0 ,0 0 ,auto}\n33.33%{-webkit-mask-size:var(--s),var(--s),0 0 ,auto}\n50% {-webkit-mask-size:var(--s),var(--s),var(--s),auto}\n66.67%{-webkit-mask-size:0 0 ,var(--s),var(--s),auto}\n83.33%{-webkit-mask-size:0 0 ,0 0 ,var(--s),auto}\n100% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,auto}\n}\n",
     "defaults": {
       "color": "#e11d48",
       "secondaryColor": "#fb7185",
       "size": 72,
-      "speed": 1.0,
+      "speed": 1.5,
       "background": "#ffffff"
     }
   },
@@ -800,12 +668,12 @@
     },
     "searchText": "darma-custom-567 mask reveal 03 pulse mask reveal 03 pulse shape loader css-only single-element batch-07 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-567\"></div>",
-    "previewCss": ".darma-loader-darma-custom-567 {color: var(--loader-color, #2563eb);\n  --loader-secondary-color: #38bdf8;\n  --loader-bg: #ffffff;\n   width: 78px;\n   height: calc(27px*0.866 + 8px);\n   background:var(--loader-color, #2563eb);\n   --c1:conic-gradient(from 150deg at top ,currentColor 60deg,#0000 0);\n   --c2:conic-gradient(from -30deg at bottom,currentColor 60deg,#0000 0);\n   --s:27px calc(27px*0.866);\n   clip-path: polygon(18.1px 0,calc(100% - 18.1px) 0,100% 100%,0 100%);\n   -webkit-mask: var(--c1) left 8px top 50%, var(--c2) center, var(--c1) right 8px top 50%, linear-gradient(currentColor 0 0);\n   -webkit-mask-composite:xor;\n   mask-composite:exclude;\n   -webkit-mask-repeat:no-repeat;\n   animation: darma-loader-darma-custom-567-l3 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-567-l3  {\n  0% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,auto}\n16.67%{-webkit-mask-size:var(--s),0 0 ,0 0 ,auto}\n33.33%{-webkit-mask-size:var(--s),var(--s),0 0 ,auto}\n50% {-webkit-mask-size:var(--s),var(--s),var(--s),auto}\n66.67%{-webkit-mask-size:0 0 ,var(--s),var(--s),auto}\n83.33%{-webkit-mask-size:0 0 ,0 0 ,var(--s),auto}\n100% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,auto}\n}",
+    "previewCss": ".darma-loader-darma-custom-567 {color: var(--loader-color, #2563eb);\n   width: 78px;\n   height: calc(27px*0.866 + 8px);\n   background:var(--loader-color, #2563eb);\n   --c1:conic-gradient(from 150deg at top ,currentColor 60deg,#0000 0);\n   --c2:conic-gradient(from -30deg at bottom,currentColor 60deg,#0000 0);\n   --s:27px calc(27px*0.866);\n   clip-path: polygon(18.1px 0,calc(100% - 18.1px) 0,100% 100%,0 100%);\n   -webkit-mask: var(--c1) left 8px top 50%, var(--c2) center, var(--c1) right 8px top 50%, linear-gradient(currentColor 0 0);\n   -webkit-mask-composite:xor;\n   mask-composite:exclude;\n   -webkit-mask-repeat:no-repeat;\n   animation: darma-loader-darma-custom-567-l3 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-567-l3  {\n  0% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,auto}\n16.67%{-webkit-mask-size:var(--s),0 0 ,0 0 ,auto}\n33.33%{-webkit-mask-size:var(--s),var(--s),0 0 ,auto}\n50% {-webkit-mask-size:var(--s),var(--s),var(--s),auto}\n66.67%{-webkit-mask-size:0 0 ,var(--s),var(--s),auto}\n83.33%{-webkit-mask-size:0 0 ,0 0 ,var(--s),auto}\n100% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,auto}\n}\n",
     "defaults": {
       "color": "#2563eb",
       "secondaryColor": "#38bdf8",
       "size": 72,
-      "speed": 1.0,
+      "speed": 1.5,
       "background": "#ffffff"
     }
   },
@@ -838,12 +706,12 @@
     },
     "searchText": "darma-custom-568 mask reveal 04 pulse mask reveal 04 pulse shape loader css-only single-element batch-07 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-568\"></div>",
-    "previewCss": ".darma-loader-darma-custom-568 {color: var(--loader-color, #16a34a);\n  --loader-secondary-color: #86efac;\n  --loader-bg: #ffffff;\n   width: 48px;\n   height: 48px;\n   background: var(--loader-color, #16a34a);\n   border-radius: 9px;\n   --c:no-repeat radial-gradient(farthest-side,currentColor 92%,#0000);\n   --s:18px 18px;\n   -webkit-mask: var(--c) left 4px top 4px, var(--c) right 4px top 4px, var(--c) right 4px bottom 4px, var(--c) left 4px bottom 4px, linear-gradient(currentColor 0 0);\n   -webkit-mask-composite:xor;\n   mask-composite:exclude;\n   animation: darma-loader-darma-custom-568-l4 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-568-l4  {\n  0% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,0 0 ,auto}\n12.5% {-webkit-mask-size:var(--s),0 0 ,0 0 ,0 0 ,auto}\n25% {-webkit-mask-size:var(--s),var(--s),0 0 ,0 0 ,auto}\n37.5% {-webkit-mask-size:var(--s),var(--s),var(--s),0 0 ,auto}\n50% {-webkit-mask-size:var(--s),var(--s),var(--s),var(--s),auto}\n62.5% {-webkit-mask-size:0 0 ,var(--s),var(--s),var(--s),auto}\n75% {-webkit-mask-size:0 0 ,0 0 ,var(--s),var(--s),auto}\n87.5% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,var(--s),auto}\n100% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,0 0 ,auto}\n}",
+    "previewCss": ".darma-loader-darma-custom-568 {color: var(--loader-color, #16a34a);\n   width: 48px;\n   height: 48px;\n   background: var(--loader-color, #16a34a);\n   border-radius: 9px;\n   --c:no-repeat radial-gradient(farthest-side,currentColor 92%,#0000);\n   --s:18px 18px;\n   -webkit-mask: var(--c) left 4px top 4px, var(--c) right 4px top 4px, var(--c) right 4px bottom 4px, var(--c) left 4px bottom 4px, linear-gradient(currentColor 0 0);\n   -webkit-mask-composite:xor;\n   mask-composite:exclude;\n   animation: darma-loader-darma-custom-568-l4 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-568-l4  {\n  0% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,0 0 ,auto}\n12.5% {-webkit-mask-size:var(--s),0 0 ,0 0 ,0 0 ,auto}\n25% {-webkit-mask-size:var(--s),var(--s),0 0 ,0 0 ,auto}\n37.5% {-webkit-mask-size:var(--s),var(--s),var(--s),0 0 ,auto}\n50% {-webkit-mask-size:var(--s),var(--s),var(--s),var(--s),auto}\n62.5% {-webkit-mask-size:0 0 ,var(--s),var(--s),var(--s),auto}\n75% {-webkit-mask-size:0 0 ,0 0 ,var(--s),var(--s),auto}\n87.5% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,var(--s),auto}\n100% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,0 0 ,auto}\n}\n",
     "defaults": {
       "color": "#16a34a",
       "secondaryColor": "#86efac",
       "size": 72,
-      "speed": 1.0,
+      "speed": 1.5,
       "background": "#ffffff"
     }
   },
@@ -876,12 +744,12 @@
     },
     "searchText": "darma-custom-569 mask reveal 05 pulse mask reveal 05 pulse shape loader css-only single-element batch-07 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-569\"></div>",
-    "previewCss": ".darma-loader-darma-custom-569 {color: var(--loader-color, #7c3aed);\n  --loader-secondary-color: #c084fc;\n  --loader-bg: #ffffff;\n   width: 48px;\n   height: 48px;\n   background:#3FD97F;\n   --c:no-repeat linear-gradient(currentColor 0 0);\n   --s:18px 18px;\n   -webkit-mask: var(--c) left 4px top 4px, var(--c) right 4px top 4px, var(--c) right 4px bottom 4px, var(--c) left 4px bottom 4px, linear-gradient(currentColor 0 0);\n   -webkit-mask-composite:xor;\n   mask-composite:exclude;\n   animation: darma-loader-darma-custom-569-l5 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-569-l5  {\n  0% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,0 0 ,auto}\n12.5% {-webkit-mask-size:var(--s),0 0 ,0 0 ,0 0 ,auto}\n25% {-webkit-mask-size:var(--s),var(--s),0 0 ,0 0 ,auto}\n37.5% {-webkit-mask-size:var(--s),var(--s),var(--s),0 0 ,auto}\n50% {-webkit-mask-size:var(--s),var(--s),var(--s),var(--s),auto}\n62.5% {-webkit-mask-size:0 0 ,var(--s),var(--s),var(--s),auto}\n75% {-webkit-mask-size:0 0 ,0 0 ,var(--s),var(--s),auto}\n87.5% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,var(--s),auto}\n100% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,0 0 ,auto}\n}",
+    "previewCss": ".darma-loader-darma-custom-569 {color: var(--loader-color, #7c3aed);\n   width: 48px;\n   height: 48px;\n   background:#3FD97F;\n   --c:no-repeat linear-gradient(currentColor 0 0);\n   --s:18px 18px;\n   -webkit-mask: var(--c) left 4px top 4px, var(--c) right 4px top 4px, var(--c) right 4px bottom 4px, var(--c) left 4px bottom 4px, linear-gradient(currentColor 0 0);\n   -webkit-mask-composite:xor;\n   mask-composite:exclude;\n   animation: darma-loader-darma-custom-569-l5 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-569-l5  {\n  0% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,0 0 ,auto}\n12.5% {-webkit-mask-size:var(--s),0 0 ,0 0 ,0 0 ,auto}\n25% {-webkit-mask-size:var(--s),var(--s),0 0 ,0 0 ,auto}\n37.5% {-webkit-mask-size:var(--s),var(--s),var(--s),0 0 ,auto}\n50% {-webkit-mask-size:var(--s),var(--s),var(--s),var(--s),auto}\n62.5% {-webkit-mask-size:0 0 ,var(--s),var(--s),var(--s),auto}\n75% {-webkit-mask-size:0 0 ,0 0 ,var(--s),var(--s),auto}\n87.5% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,var(--s),auto}\n100% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,0 0 ,auto}\n}\n",
     "defaults": {
       "color": "#7c3aed",
       "secondaryColor": "#c084fc",
       "size": 72,
-      "speed": 1.0,
+      "speed": 1.5,
       "background": "#ffffff"
     }
   },
@@ -914,12 +782,12 @@
     },
     "searchText": "darma-custom-570 mask reveal 06 pulse mask reveal 06 pulse shape loader css-only single-element batch-07 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-570\"></div>",
-    "previewCss": ".darma-loader-darma-custom-570 {color: var(--loader-color, #f97316);\n  --loader-secondary-color: #facc15;\n  --loader-bg: #ffffff;\n   width: 74px;\n   height: calc(27px*0.866 + 6px);\n   display: grid;\n}\n.darma-loader-darma-custom-570:before, .darma-loader-darma-custom-570:after  {\n  content: \"\";\n   grid-area: 1/1;\n   background:var(--loader-color, #f97316);\n   --c1:conic-gradient(from 150deg at top ,currentColor 60deg,#0000 0);\n   --c2:conic-gradient(from -30deg at bottom,currentColor 60deg,#0000 0);\n   --s:27px calc(27px*0.866);\n   clip-path: polygon(17px 0,calc(100% - 17px) 0,100% 100%,0 100%);\n   -webkit-mask: var(--c1) left 6px top 4px, var(--c2) center, var(--c1) right 6px top 4px, linear-gradient(currentColor 0 0);\n   -webkit-mask-composite:xor;\n   mask-composite:exclude;\n   -webkit-mask-repeat:no-repeat;\n   animation: darma-loader-darma-custom-570-l6 2s infinite both;\n}\n.darma-loader-darma-custom-570:after  {\n  transform: rotate(180deg);\n   transform-origin: 50% 99%;\n   animation-delay: 0.5s;\n}\n@keyframes darma-loader-darma-custom-570-l6  {\n  0% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,auto}\n8.33% {-webkit-mask-size:var(--s),0 0 ,0 0 ,auto}\n16.67%{-webkit-mask-size:var(--s),var(--s),0 0 ,auto}\n25%, 50% {-webkit-mask-size:var(--s),var(--s),var(--s),auto}\n58.33%{-webkit-mask-size:0 0 ,var(--s),var(--s),auto}\n66.67%{-webkit-mask-size:0 0 ,0 0 ,var(--s),auto}\n75%, 100% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,auto}\n}",
+    "previewCss": ".darma-loader-darma-custom-570 {color: var(--loader-color, #f97316);\n   width: 74px;\n   height: calc(27px*0.866 + 6px);\n   display: grid;\n}\n.darma-loader-darma-custom-570:before, .darma-loader-darma-custom-570:after  {\n  content: \"\";\n   grid-area: 1/1;\n   background:var(--loader-color, #f97316);\n   --c1:conic-gradient(from 150deg at top ,currentColor 60deg,#0000 0);\n   --c2:conic-gradient(from -30deg at bottom,currentColor 60deg,#0000 0);\n   --s:27px calc(27px*0.866);\n   clip-path: polygon(17px 0,calc(100% - 17px) 0,100% 100%,0 100%);\n   -webkit-mask: var(--c1) left 6px top 4px, var(--c2) center, var(--c1) right 6px top 4px, linear-gradient(currentColor 0 0);\n   -webkit-mask-composite:xor;\n   mask-composite:exclude;\n   -webkit-mask-repeat:no-repeat;\n   animation: darma-loader-darma-custom-570-l6 2s infinite both;\n}\n.darma-loader-darma-custom-570:after  {\n  transform: rotate(180deg);\n   transform-origin: 50% 99%;\n   animation-delay: 0.5s;\n}\n@keyframes darma-loader-darma-custom-570-l6  {\n  0% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,auto}\n8.33% {-webkit-mask-size:var(--s),0 0 ,0 0 ,auto}\n16.67%{-webkit-mask-size:var(--s),var(--s),0 0 ,auto}\n25%, 50% {-webkit-mask-size:var(--s),var(--s),var(--s),auto}\n58.33%{-webkit-mask-size:0 0 ,var(--s),var(--s),auto}\n66.67%{-webkit-mask-size:0 0 ,0 0 ,var(--s),auto}\n75%, 100% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,auto}\n}\n",
     "defaults": {
       "color": "#f97316",
       "secondaryColor": "#facc15",
       "size": 72,
-      "speed": 1.0,
+      "speed": 2,
       "background": "#ffffff"
     }
   },
@@ -952,12 +820,12 @@
     },
     "searchText": "darma-custom-571 mask reveal 07 pulse mask reveal 07 pulse shape loader css-only single-element batch-07 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-571\"></div>",
-    "previewCss": ".darma-loader-darma-custom-571 {color: var(--loader-color, #0891b2);\n  --loader-secondary-color: #22d3ee;\n  --loader-bg: #ffffff;\n   width: 48px;\n   height: 48px;\n   background: var(--loader-color, #0891b2);\n   border-radius: 50%;\n   --c:no-repeat linear-gradient(currentColor 0 0);\n   --s:15px 15px;\n   -webkit-mask: var(--c) top, var(--c) right, var(--c) bottom, var(--c) left, linear-gradient(currentColor 0 0);\n   -webkit-mask-composite:xor;\n   mask-composite:exclude;\n   animation: darma-loader-darma-custom-571-l7 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-571-l7  {\n  0% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,0 0 ,auto}\n12.5% {-webkit-mask-size:var(--s),0 0 ,0 0 ,0 0 ,auto}\n25% {-webkit-mask-size:var(--s),var(--s),0 0 ,0 0 ,auto}\n37.5% {-webkit-mask-size:var(--s),var(--s),var(--s),0 0 ,auto}\n45%, 55% {-webkit-mask-size:var(--s),var(--s),var(--s),var(--s),auto}\n62.5% {-webkit-mask-size:0 0 ,var(--s),var(--s),var(--s),auto}\n75% {-webkit-mask-size:0 0 ,0 0 ,var(--s),var(--s),auto}\n87.5% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,var(--s),auto}\n100% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,0 0 ,auto}\n}",
+    "previewCss": ".darma-loader-darma-custom-571 {color: var(--loader-color, #0891b2);\n   width: 48px;\n   height: 48px;\n   background: var(--loader-color, #0891b2);\n   border-radius: 50%;\n   --c:no-repeat linear-gradient(currentColor 0 0);\n   --s:15px 15px;\n   -webkit-mask: var(--c) top, var(--c) right, var(--c) bottom, var(--c) left, linear-gradient(currentColor 0 0);\n   -webkit-mask-composite:xor;\n   mask-composite:exclude;\n   animation: darma-loader-darma-custom-571-l7 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-571-l7  {\n  0% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,0 0 ,auto}\n12.5% {-webkit-mask-size:var(--s),0 0 ,0 0 ,0 0 ,auto}\n25% {-webkit-mask-size:var(--s),var(--s),0 0 ,0 0 ,auto}\n37.5% {-webkit-mask-size:var(--s),var(--s),var(--s),0 0 ,auto}\n45%, 55% {-webkit-mask-size:var(--s),var(--s),var(--s),var(--s),auto}\n62.5% {-webkit-mask-size:0 0 ,var(--s),var(--s),var(--s),auto}\n75% {-webkit-mask-size:0 0 ,0 0 ,var(--s),var(--s),auto}\n87.5% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,var(--s),auto}\n100% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,0 0 ,auto}\n}\n",
     "defaults": {
       "color": "#0891b2",
       "secondaryColor": "#22d3ee",
       "size": 72,
-      "speed": 1.0,
+      "speed": 1.5,
       "background": "#ffffff"
     }
   },
@@ -990,12 +858,12 @@
     },
     "searchText": "darma-custom-572 mask reveal 09 pulse mask reveal 09 pulse shape loader css-only single-element batch-07 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-572\"></div>",
-    "previewCss": ".darma-loader-darma-custom-572 {color: var(--loader-color, #0f766e);\n  --loader-secondary-color: #5eead4;\n  --loader-bg: #ffffff;\n   width: 50px;\n   height: calc(50px*0.866);\n   background: var(--loader-color, #0f766e);\n   clip-path: polygon(50% 0,100% 100%,0 100%);\n   --c:at 50% 66%,currentColor 60deg,#0000 0;\n   -webkit-mask: conic-gradient(from 30deg var(--c)) right, conic-gradient(from 150deg var(--c)) bottom, conic-gradient(from -90deg var(--c)) left, linear-gradient(currentColor 0 0);\n   -webkit-mask-composite:xor;\n   mask-composite:exclude;\n   -webkit-mask-repeat:no-repeat;\n   animation: darma-loader-darma-custom-572-l9 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-572-l9  {\n  0% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,auto}\n13.33% {-webkit-mask-size:100% 100%,0 0 ,0 0 ,auto}\n26.67% {-webkit-mask-size:100% 100%,100% 100%,0 0 ,auto}\n40%, 60% {-webkit-mask-size:100% 100%,100% 100%,100% 100%,auto}\n73.33% {-webkit-mask-size:0 0 ,100% 100%,100% 100%,auto}\n86.67% {-webkit-mask-size:0 0 ,0 0 ,100% 100%,auto}\n100% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,auto}\n}",
+    "previewCss": ".darma-loader-darma-custom-572 {color: var(--loader-color, #0f766e);\n   width: 50px;\n   height: calc(50px*0.866);\n   background: var(--loader-color, #0f766e);\n   clip-path: polygon(50% 0,100% 100%,0 100%);\n   --c:at 50% 66%,currentColor 60deg,#0000 0;\n   -webkit-mask: conic-gradient(from 30deg var(--c)) right, conic-gradient(from 150deg var(--c)) bottom, conic-gradient(from -90deg var(--c)) left, linear-gradient(currentColor 0 0);\n   -webkit-mask-composite:xor;\n   mask-composite:exclude;\n   -webkit-mask-repeat:no-repeat;\n   animation: darma-loader-darma-custom-572-l9 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-572-l9  {\n  0% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,auto}\n13.33% {-webkit-mask-size:100% 100%,0 0 ,0 0 ,auto}\n26.67% {-webkit-mask-size:100% 100%,100% 100%,0 0 ,auto}\n40%, 60% {-webkit-mask-size:100% 100%,100% 100%,100% 100%,auto}\n73.33% {-webkit-mask-size:0 0 ,100% 100%,100% 100%,auto}\n86.67% {-webkit-mask-size:0 0 ,0 0 ,100% 100%,auto}\n100% {-webkit-mask-size:0 0 ,0 0 ,0 0 ,auto}\n}\n",
     "defaults": {
       "color": "#0f766e",
       "secondaryColor": "#5eead4",
       "size": 72,
-      "speed": 1.0,
+      "speed": 1.5,
       "background": "#ffffff"
     }
   },
@@ -1028,12 +896,46 @@
     },
     "searchText": "darma-custom-573 mask reveal 10 pulse mask reveal 10 pulse shape loader css-only single-element batch-07 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-573\"></div>",
-    "previewCss": ".darma-loader-darma-custom-573 {color: var(--loader-color, #4f46e5);\n  --loader-secondary-color: #a5b4fc;\n  --loader-bg: #ffffff;\n   width: 70px;\n   height: 70px;\n   background: var(--loader-color, #4f46e5);\n   border-radius: 50px;\n   -webkit-mask: radial-gradient(circle 31px at 50% calc(100% + 13px),currentColor 95%,#0000) top 4px left 50%, radial-gradient(circle 31px,currentColor 95%,#0000) center, radial-gradient(circle 31px at 50% -13px,currentColor 95%,#0000) bottom 4px left 50%, linear-gradient(currentColor 0 0);\n   -webkit-mask-composite:xor;\n   mask-composite:exclude;\n   -webkit-mask-repeat:no-repeat;\n   animation: darma-loader-darma-custom-573-l10 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-573-l10  {\n  0% {-webkit-mask-size:0 18px,0 18px,0 18px,auto}\n16.67%{-webkit-mask-size:100% 18px,0 18px,0 18px,auto}\n33.33%{-webkit-mask-size:100% 18px,100% 18px,0 18px,auto}\n50% {-webkit-mask-size:100% 18px,100% 18px,100% 18px,auto}\n66.67%{-webkit-mask-size:0 18px,100% 18px,100% 18px,auto}\n83.33%{-webkit-mask-size:0 18px,0 18px,100% 18px,auto}\n100% {-webkit-mask-size:0 18px,0 18px,0 18px,auto}\n}",
+    "previewCss": ".darma-loader-darma-custom-573 {color: var(--loader-color, #4f46e5);\n   width: 70px;\n   height: 70px;\n   background: var(--loader-color, #4f46e5);\n   border-radius: 50px;\n   -webkit-mask: radial-gradient(circle 31px at 50% calc(100% + 13px),currentColor 95%,#0000) top 4px left 50%, radial-gradient(circle 31px,currentColor 95%,#0000) center, radial-gradient(circle 31px at 50% -13px,currentColor 95%,#0000) bottom 4px left 50%, linear-gradient(currentColor 0 0);\n   -webkit-mask-composite:xor;\n   mask-composite:exclude;\n   -webkit-mask-repeat:no-repeat;\n   animation: darma-loader-darma-custom-573-l10 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-573-l10  {\n  0% {-webkit-mask-size:0 18px,0 18px,0 18px,auto}\n16.67%{-webkit-mask-size:100% 18px,0 18px,0 18px,auto}\n33.33%{-webkit-mask-size:100% 18px,100% 18px,0 18px,auto}\n50% {-webkit-mask-size:100% 18px,100% 18px,100% 18px,auto}\n66.67%{-webkit-mask-size:0 18px,100% 18px,100% 18px,auto}\n83.33%{-webkit-mask-size:0 18px,0 18px,100% 18px,auto}\n100% {-webkit-mask-size:0 18px,0 18px,0 18px,auto}\n}\n",
     "defaults": {
       "color": "#4f46e5",
       "secondaryColor": "#a5b4fc",
       "size": 72,
-      "speed": 1.0,
+      "speed": 1.5,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-custom-005",
+    "name": "Orbiting Dot Bloom",
+    "category": "pulse",
+    "tags": [
+      "circle",
+      "radial",
+      "orbit",
+      "bloom",
+      "batch-01"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "darma-custom-005 orbiting dot bloom pulse circle radial orbit bloom batch-01 html css react popular singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-darma-custom-005\"></div>",
+    "previewCss": ".darma-loader-darma-custom-005 {\n  width: 40px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: radial-gradient(farthest-side, var(--loader-color, #ED303C) 94%, #0000), radial-gradient(farthest-side, #3B8183 94%, #0000), radial-gradient(farthest-side, #FAD089 94%, #0000), radial-gradient(farthest-side, var(--loader-secondary-color, #FF9C5B) 94%, #0000), var(--loader-color, #ED303C);\n  background-size: 105% 105%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-005-l5 2s infinite;\n}\n@keyframes darma-loader-darma-custom-005-l5 {\n  0% { background-position: 50% -50px, -40px 50%, 50% calc(100% + 50px), calc(100% + 50px) 50%; }\n  20%, 25% { background-position: 50% -50px, -50px 50%, 50% calc(100% + 50px), 50% 50%; }\n  45%, 50% { background-position: 50% -50px, -50px 50%, 50% 50%, 50% 50%; }\n  75% { background-position: 50% -50px, 50% 50%, 50% 50%, 50% 50%; }\n  95%, 100% { background-position: 50% 50%, 50% 50%, 50% 50%, 50% 50%; }\n}\n",
+    "defaults": {
+      "color": "#ED303C",
+      "secondaryColor": "#FF9C5B",
+      "size": 40,
+      "speed": 2,
       "background": "#ffffff"
     }
   },
@@ -1061,7 +963,7 @@
     },
     "searchText": "uiverse-pink-pulse-ring pink pulse ring pulse uiverse pulse ring loader html css react singleelement cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-uiverse-pink-pulse-ring\"></span>",
-    "previewCss": ".darma-loader-uiverse-pink-pulse-ring {\n  display: inline-block;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color);\n  animation: darma-loader-uiverse-pink-pulse-ring-ringPulse 1.15s ease-out infinite;\n}\n@keyframes darma-loader-uiverse-pink-pulse-ring-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }",
+    "previewCss": ".darma-loader-uiverse-pink-pulse-ring {\n  display: inline-block;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color, #22c55e);\n  animation: darma-loader-uiverse-pink-pulse-ring-ringPulse 1.15s ease-out infinite;\n}\n@keyframes darma-loader-uiverse-pink-pulse-ring-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }\n",
     "defaults": {
       "color": "#22c55e",
       "secondaryColor": "#bbf7d0",
@@ -1100,12 +1002,12 @@
     },
     "searchText": "darma-custom-394 pop icon 01 pulse pop icon 01 pulse shape motion loader css-only single-element batch-06 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-394\"></div>",
-    "previewCss": ".darma-loader-darma-custom-394 {--loader-bg: #ffffff;\n  --loader-secondary-color: #86efac;\n  width: 50px;\n  aspect-ratio: 1;\n  color: var(--loader-color, #16a34a);\n  background:radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,linear-gradient(to bottom left, currentColor 42%,#0000 43%) bottom left ,linear-gradient(to bottom right,currentColor 42%,#0000 43%) bottom right;\n  background-size: 50% 50%;\n  background-repeat: no-repeat;\n  position: relative;\n}.darma-loader-darma-custom-394:before {content: \"\";\n  position: absolute;\n  inset: 0;\n  background: inherit;\n  opacity: 0.4;\n  animation: darma-loader-darma-custom-394-l3 1s infinite;\n}@keyframes darma-loader-darma-custom-394-l3 {to {transform: scale(1.8);\n  opacity:0}}",
+    "previewCss": ".darma-loader-darma-custom-394 {\n  width: 50px;\n  aspect-ratio: 1;\n  color: var(--loader-color, #16a34a);\n  background:radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,linear-gradient(to bottom left, currentColor 42%,#0000 43%) bottom left ,linear-gradient(to bottom right,currentColor 42%,#0000 43%) bottom right;\n  background-size: 50% 50%;\n  background-repeat: no-repeat;\n  position: relative;\n}.darma-loader-darma-custom-394:before {content: \"\";\n  position: absolute;\n  inset: 0;\n  background: inherit;\n  opacity: 0.4;\n  animation: darma-loader-darma-custom-394-l3 1s infinite;\n}@keyframes darma-loader-darma-custom-394-l3 {to {transform: scale(1.8);\n  opacity:0}}\n",
     "defaults": {
       "color": "#16a34a",
       "secondaryColor": "#86efac",
       "size": 72,
-      "speed": 1.0,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -1139,12 +1041,12 @@
     },
     "searchText": "darma-custom-395 pop icon 02 pulse pop icon 02 pulse shape motion loader css-only single-element batch-06 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-395\"></div>",
-    "previewCss": ".darma-loader-darma-custom-395 {color: var(--loader-color, #7c3aed);\n  --loader-secondary-color: #c084fc;\n  --loader-bg: #ffffff;\n  width: 60px;\n  aspect-ratio: 1;\n  position: relative;\n}.darma-loader-darma-custom-395:before,.darma-loader-darma-custom-395:after {content: \"\";\n  position: absolute;\n  border-radius: 50%;\n  inset: 0;\n  background:radial-gradient(circle 10px,var(--loader-color, #7c3aed) 94%,#0000),repeating-conic-gradient(from -30deg,#0000 0 60deg,var(--loader-color, #7c3aed) 61deg 120deg);\n  -webkit-mask: radial-gradient(circle 15px,currentColor calc(100% - 6px),#0000 calc(100% - 5px) 94%,currentColor);\n}.darma-loader-darma-custom-395:before {animation: darma-loader-darma-custom-395-l4 1s infinite;\n  transform: perspective(300px) translateZ(0px)}@keyframes darma-loader-darma-custom-395-l4 {to {transform: perspective(300px) translateZ(150px);\n  opacity:0}}",
+    "previewCss": ".darma-loader-darma-custom-395 {color: var(--loader-color, #7c3aed);\n  width: 60px;\n  aspect-ratio: 1;\n  position: relative;\n}.darma-loader-darma-custom-395:before,.darma-loader-darma-custom-395:after {content: \"\";\n  position: absolute;\n  border-radius: 50%;\n  inset: 0;\n  background:radial-gradient(circle 10px,var(--loader-color, #7c3aed) 94%,#0000),repeating-conic-gradient(from -30deg,#0000 0 60deg,var(--loader-color, #7c3aed) 61deg 120deg);\n  -webkit-mask: radial-gradient(circle 15px,currentColor calc(100% - 6px),#0000 calc(100% - 5px) 94%,currentColor);\n}.darma-loader-darma-custom-395:before {animation: darma-loader-darma-custom-395-l4 1s infinite;\n  transform: perspective(300px) translateZ(0px)}@keyframes darma-loader-darma-custom-395-l4 {to {transform: perspective(300px) translateZ(150px);\n  opacity:0}}\n",
     "defaults": {
       "color": "#7c3aed",
       "secondaryColor": "#c084fc",
       "size": 72,
-      "speed": 1.0,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -1178,12 +1080,12 @@
     },
     "searchText": "darma-custom-396 pop icon 03 pulse pop icon 03 pulse shape motion loader css-only single-element batch-06 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-396\"></div>",
-    "previewCss": ".darma-loader-darma-custom-396 {color: var(--loader-color, #f97316);\n  --loader-secondary-color: #facc15;\n  --loader-bg: #ffffff;\n  width: 80px;\n  aspect-ratio: 1;\n  position: relative;\n}.darma-loader-darma-custom-396:before,.darma-loader-darma-custom-396:after {content: \"\";\n  position: absolute;\n  inset: 0;\n  background: var(--loader-color, #f97316);\n  box-shadow: 0 0 0 50px;\n  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);\n}.darma-loader-darma-custom-396:before {animation: darma-loader-darma-custom-396-l5 1s infinite;\n  transform: perspective(300px) translateZ(0px)}@keyframes darma-loader-darma-custom-396-l5 {to {transform: perspective(300px) translateZ(150px);\n  opacity:0}}",
+    "previewCss": ".darma-loader-darma-custom-396 {color: var(--loader-color, #f97316);\n  width: 80px;\n  aspect-ratio: 1;\n  position: relative;\n}.darma-loader-darma-custom-396:before,.darma-loader-darma-custom-396:after {content: \"\";\n  position: absolute;\n  inset: 0;\n  background: var(--loader-color, #f97316);\n  box-shadow: 0 0 0 50px;\n  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);\n}.darma-loader-darma-custom-396:before {animation: darma-loader-darma-custom-396-l5 1s infinite;\n  transform: perspective(300px) translateZ(0px)}@keyframes darma-loader-darma-custom-396-l5 {to {transform: perspective(300px) translateZ(150px);\n  opacity:0}}\n",
     "defaults": {
       "color": "#f97316",
       "secondaryColor": "#facc15",
       "size": 72,
-      "speed": 1.0,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -1217,12 +1119,12 @@
     },
     "searchText": "darma-custom-397 pop icon 04 pulse pop icon 04 pulse shape motion loader css-only single-element batch-06 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-397\"></div>",
-    "previewCss": ".darma-loader-darma-custom-397 {color: var(--loader-color, #0891b2);\n  --loader-secondary-color: #22d3ee;\n  --loader-bg: #ffffff;\n  width: 40px;\n  aspect-ratio: 1;\n  position: relative;\n  transform: rotate(45deg);\n}.darma-loader-darma-custom-397:before,.darma-loader-darma-custom-397:after {content: \"\";\n  position: absolute;\n  inset: 0;\n  border-radius: 50% 50% 0 50%;\n  background: var(--loader-color, #0891b2);\n  -webkit-mask: radial-gradient(circle 10px at 50% 50%,#0000 94%,currentColor);\n}.darma-loader-darma-custom-397:before {animation: darma-loader-darma-custom-397-l6 1s infinite;\n  transform: perspective(300px) translateZ(0px)}@keyframes darma-loader-darma-custom-397-l6 {to {transform: perspective(300px) translateZ(150px);\n  opacity:0}}",
+    "previewCss": ".darma-loader-darma-custom-397 {color: var(--loader-color, #0891b2);\n  width: 40px;\n  aspect-ratio: 1;\n  position: relative;\n  transform: rotate(45deg);\n}.darma-loader-darma-custom-397:before,.darma-loader-darma-custom-397:after {content: \"\";\n  position: absolute;\n  inset: 0;\n  border-radius: 50% 50% 0 50%;\n  background: var(--loader-color, #0891b2);\n  -webkit-mask: radial-gradient(circle 10px at 50% 50%,#0000 94%,currentColor);\n}.darma-loader-darma-custom-397:before {animation: darma-loader-darma-custom-397-l6 1s infinite;\n  transform: perspective(300px) translateZ(0px)}@keyframes darma-loader-darma-custom-397-l6 {to {transform: perspective(300px) translateZ(150px);\n  opacity:0}}\n",
     "defaults": {
       "color": "#0891b2",
       "secondaryColor": "#22d3ee",
       "size": 72,
-      "speed": 1.0,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -1256,12 +1158,12 @@
     },
     "searchText": "darma-custom-398 pop icon 05 pulse pop icon 05 pulse shape motion loader css-only single-element batch-06 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-398\"></div>",
-    "previewCss": ".darma-loader-darma-custom-398 {--loader-bg: #ffffff;\n  --loader-secondary-color: #f9a8d4;\n  width: 92px;\n  height: 60px;\n  color: var(--loader-color, #db2777);\n  --c: radial-gradient(farthest-side,currentColor 96%,#0000);\n  background:var(--c) 100% 100% /30% 60%,var(--c) 70% 0 /50% 100%,var(--c) 0 100% /36% 68%,var(--c) 27% 18% /26% 40%,linear-gradient(currentColor 0 0) bottom/67% 58%;\n  background-repeat: no-repeat;\n  position: relative;\n}.darma-loader-darma-custom-398:before {content: \"\";\n  position: absolute;\n  inset: 0;\n  background: inherit;\n  opacity: 0.4;\n  animation: darma-loader-darma-custom-398-l7 1s infinite;\n}@keyframes darma-loader-darma-custom-398-l7 {to {transform: scale(1.8);\n  opacity:0}}",
+    "previewCss": ".darma-loader-darma-custom-398 {\n  width: 92px;\n  height: 60px;\n  color: var(--loader-color, #db2777);\n  --c: radial-gradient(farthest-side,currentColor 96%,#0000);\n  background:var(--c) 100% 100% /30% 60%,var(--c) 70% 0 /50% 100%,var(--c) 0 100% /36% 68%,var(--c) 27% 18% /26% 40%,linear-gradient(currentColor 0 0) bottom/67% 58%;\n  background-repeat: no-repeat;\n  position: relative;\n}.darma-loader-darma-custom-398:before {content: \"\";\n  position: absolute;\n  inset: 0;\n  background: inherit;\n  opacity: 0.4;\n  animation: darma-loader-darma-custom-398-l7 1s infinite;\n}@keyframes darma-loader-darma-custom-398-l7 {to {transform: scale(1.8);\n  opacity:0}}\n",
     "defaults": {
       "color": "#db2777",
       "secondaryColor": "#f9a8d4",
       "size": 72,
-      "speed": 1.0,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -1295,12 +1197,12 @@
     },
     "searchText": "darma-custom-399 pop icon 06 pulse pop icon 06 pulse shape motion loader css-only single-element batch-06 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-399\"></div>",
-    "previewCss": ".darma-loader-darma-custom-399 {color: var(--loader-color, #0f766e);\n  --loader-secondary-color: #5eead4;\n  --loader-bg: #ffffff;\n  width: 52px;\n  height: 92px;\n  position: relative;\n}.darma-loader-darma-custom-399:before,.darma-loader-darma-custom-399:after {content: \"\";\n  position: absolute;\n  inset: 0;\n  background: var(--loader-color, #0f766e);\n  box-shadow: 0 0 0 50px;\n  clip-path: polygon(100% 0, 23% 46%, 46% 44%, 15% 69%, 38% 67%, 0 100%, 76% 57%, 53% 58%, 88% 33%, 60% 37%);\n  ;\n}.darma-loader-darma-custom-399:before {animation: darma-loader-darma-custom-399-l8 1s infinite;\n  transform: perspective(300px) translateZ(0px)}@keyframes darma-loader-darma-custom-399-l8 {to {transform: perspective(300px) translateZ(180px);\n  opacity:0}}",
+    "previewCss": ".darma-loader-darma-custom-399 {color: var(--loader-color, #0f766e);\n  width: 52px;\n  height: 92px;\n  position: relative;\n}.darma-loader-darma-custom-399:before,.darma-loader-darma-custom-399:after {content: \"\";\n  position: absolute;\n  inset: 0;\n  background: var(--loader-color, #0f766e);\n  box-shadow: 0 0 0 50px;\n  clip-path: polygon(100% 0, 23% 46%, 46% 44%, 15% 69%, 38% 67%, 0 100%, 76% 57%, 53% 58%, 88% 33%, 60% 37%);\n  ;\n}.darma-loader-darma-custom-399:before {animation: darma-loader-darma-custom-399-l8 1s infinite;\n  transform: perspective(300px) translateZ(0px)}@keyframes darma-loader-darma-custom-399-l8 {to {transform: perspective(300px) translateZ(180px);\n  opacity:0}}\n",
     "defaults": {
       "color": "#0f766e",
       "secondaryColor": "#5eead4",
       "size": 72,
-      "speed": 1.0,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -1334,12 +1236,12 @@
     },
     "searchText": "darma-custom-400 pop icon 07 pulse pop icon 07 pulse shape motion loader css-only single-element batch-06 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-400\"></div>",
-    "previewCss": ".darma-loader-darma-custom-400 {color: var(--loader-color, #4f46e5);\n  --loader-secondary-color: #a5b4fc;\n  --loader-bg: #ffffff;\n  width: 88px;\n  height: 45px;\n  position: relative;\n}.darma-loader-darma-custom-400:before,.darma-loader-darma-custom-400:after {content: \"\";\n  position: absolute;\n  inset: 0;\n  background: currentColor;\n  box-shadow: 0 0 0 50px;\n  clip-path: polygon(-50px -20px,10% -12px,20% 0,calc(50% - 15px) 0,calc(50% - 10px) -20px,calc(50% - 8px) -15px,calc(50% + 8px) -15px,calc(50% + 10px) -20px,calc(50% + 15px) 0,80% 0,90% -12px,calc(100% + 50px) -20px,100% 80%,calc(100% + 10px) calc(100% + 10px),60% 100%,50% calc(100% + 15px),40% 100%,-10px calc(100% + 10px),0 80%);\n}.darma-loader-darma-custom-400:before {animation: darma-loader-darma-custom-400-l9 1s infinite;\n  transform: perspective(300px) translateZ(0px)}@keyframes darma-loader-darma-custom-400-l9 {to {transform: perspective(300px) translateZ(100px);\n  opacity:0}}",
+    "previewCss": ".darma-loader-darma-custom-400 {color: var(--loader-color, #4f46e5);\n  width: 88px;\n  height: 45px;\n  position: relative;\n}.darma-loader-darma-custom-400:before,.darma-loader-darma-custom-400:after {content: \"\";\n  position: absolute;\n  inset: 0;\n  background: currentColor;\n  box-shadow: 0 0 0 50px;\n  clip-path: polygon(-50px -20px,10% -12px,20% 0,calc(50% - 15px) 0,calc(50% - 10px) -20px,calc(50% - 8px) -15px,calc(50% + 8px) -15px,calc(50% + 10px) -20px,calc(50% + 15px) 0,80% 0,90% -12px,calc(100% + 50px) -20px,100% 80%,calc(100% + 10px) calc(100% + 10px),60% 100%,50% calc(100% + 15px),40% 100%,-10px calc(100% + 10px),0 80%);\n}.darma-loader-darma-custom-400:before {animation: darma-loader-darma-custom-400-l9 1s infinite;\n  transform: perspective(300px) translateZ(0px)}@keyframes darma-loader-darma-custom-400-l9 {to {transform: perspective(300px) translateZ(100px);\n  opacity:0}}\n",
     "defaults": {
       "color": "#4f46e5",
       "secondaryColor": "#a5b4fc",
       "size": 72,
-      "speed": 1.0,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -1373,12 +1275,12 @@
     },
     "searchText": "darma-custom-401 pop icon 08 pulse pop icon 08 pulse shape motion loader css-only single-element batch-06 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-401\"></div>",
-    "previewCss": ".darma-loader-darma-custom-401 {color: var(--loader-color, #ca8a04);\n  --loader-secondary-color: #fde047;\n  --loader-bg: #ffffff;\n  display: inline-grid;\n  font-size: 50px;\n}.darma-loader-darma-custom-401:before,.darma-loader-darma-custom-401:after {content: \"💯\";\n  grid-area: 1/1;\n}.darma-loader-darma-custom-401:before {animation: darma-loader-darma-custom-401-l10 1s infinite;\n}@keyframes darma-loader-darma-custom-401-l10 {to {transform: scale(1.8);\n  opacity:0}}",
+    "previewCss": ".darma-loader-darma-custom-401 {color: var(--loader-color, #ca8a04);\n  display: inline-grid;\n  font-size: 50px;\n}.darma-loader-darma-custom-401:before,.darma-loader-darma-custom-401:after {content: \"💯\";\n  grid-area: 1/1;\n}.darma-loader-darma-custom-401:before {animation: darma-loader-darma-custom-401-l10 1s infinite;\n}@keyframes darma-loader-darma-custom-401-l10 {to {transform: scale(1.8);\n  opacity:0}}\n",
     "defaults": {
       "color": "#ca8a04",
       "secondaryColor": "#fde047",
       "size": 72,
-      "speed": 1.0,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -1412,12 +1314,12 @@
     },
     "searchText": "darma-custom-402 pop icon 09 pulse pop icon 09 pulse shape motion loader css-only single-element batch-06 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-402\"></div>",
-    "previewCss": ".darma-loader-darma-custom-402 {color: var(--loader-color, #9333ea);\n  --loader-secondary-color: #f0abfc;\n  --loader-bg: #ffffff;\n  width: 45px;\n  height: 30px;\n  animation: darma-loader-darma-custom-402-l1 2s infinite linear;\n}@keyframes darma-loader-darma-custom-402-l1{0%,25% {background:linear-gradient(#e50021 0 0) 50% 0/66% 100% no-repeat}25.1%,50% {background:linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 0 0/100% 50% no-repeat,linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 0 0/33% 100% no-repeat}50.1%,75% {background:linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 100% 0/66% 50% no-repeat,linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 0 100%/66% 50% no-repeat}75.1%,100% {background:linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 0 100%/100% 50% no-repeat,linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 50% 0 /33% 50% no-repeat}}",
+    "previewCss": ".darma-loader-darma-custom-402 {color: var(--loader-color, #9333ea);\n  width: 45px;\n  height: 30px;\n  animation: darma-loader-darma-custom-402-l1 2s infinite linear;\n}@keyframes darma-loader-darma-custom-402-l1{0%,25% {background:linear-gradient(#e50021 0 0) 50% 0/66% 100% no-repeat}25.1%,50% {background:linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 0 0/100% 50% no-repeat,linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 0 0/33% 100% no-repeat}50.1%,75% {background:linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 100% 0/66% 50% no-repeat,linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 0 100%/66% 50% no-repeat}75.1%,100% {background:linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 0 100%/100% 50% no-repeat,linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 50% 0 /33% 50% no-repeat}}\n",
     "defaults": {
       "color": "#9333ea",
       "secondaryColor": "#f0abfc",
       "size": 72,
-      "speed": 1.0,
+      "speed": 2,
       "background": "#ffffff"
     }
   },
@@ -1451,12 +1353,12 @@
     },
     "searchText": "darma-custom-403 pop icon 10 pulse pop icon 10 pulse shape motion loader css-only single-element batch-06 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-403\"></div>",
-    "previewCss": ".darma-loader-darma-custom-403 {color: var(--loader-color, #0284c7);\n  --loader-secondary-color: #7dd3fc;\n  --loader-bg: #ffffff;\n  width: 80px;\n  height: 70px;\n  border: 5px solid currentColor;\n  padding: 0 8px;\n  box-sizing: border-box;\n  background:linear-gradient(var(--loader-bg, #ffffff) 0 0) 0 0/8px 20px,linear-gradient(var(--loader-bg, #ffffff) 0 0) 100% 0/8px 20px,radial-gradient(farthest-side,var(--loader-bg, #ffffff) 90%,#0000) 0 5px/8px 8px content-box,currentColor;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-403-l3 2s infinite linear;\n}@keyframes darma-loader-darma-custom-403-l3{25% {background-position: 0 0 ,100% 100%,100% calc(100% - 5px)}50% {background-position: 0 100%,100% 100%,0 calc(100% - 5px)}75% {background-position: 0 100%,100% 0,100% 5px}}",
+    "previewCss": ".darma-loader-darma-custom-403 {color: var(--loader-color, #0284c7);\n  width: 80px;\n  height: 70px;\n  border: 5px solid currentColor;\n  padding: 0 8px;\n  box-sizing: border-box;\n  background:linear-gradient(var(--loader-bg, #ffffff) 0 0) 0 0/8px 20px,linear-gradient(var(--loader-bg, #ffffff) 0 0) 100% 0/8px 20px,radial-gradient(farthest-side,var(--loader-bg, #ffffff) 90%,#0000) 0 5px/8px 8px content-box,currentColor;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-403-l3 2s infinite linear;\n}@keyframes darma-loader-darma-custom-403-l3{25% {background-position: 0 0 ,100% 100%,100% calc(100% - 5px)}50% {background-position: 0 100%,100% 100%,0 calc(100% - 5px)}75% {background-position: 0 100%,100% 0,100% 5px}}\n",
     "defaults": {
       "color": "#0284c7",
       "secondaryColor": "#7dd3fc",
       "size": 72,
-      "speed": 1.0,
+      "speed": 2,
       "background": "#ffffff"
     }
   },
@@ -1489,12 +1391,12 @@
     },
     "searchText": "darma-custom-374 pulse outline 01 pulse pulse outline 01 shape steps loader css-only single-element batch-06 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-374\"></div>",
-    "previewCss": ".darma-loader-darma-custom-374 {color: var(--loader-color, #db2777);\n  --loader-secondary-color: #f9a8d4;\n  --loader-bg: #ffffff;\n  width: 64px;\n  aspect-ratio: 1;\n  display: grid;\n}.darma-loader-darma-custom-374:before {content: \"\";\n  border: 8px solid var(--loader-color, #db2777);\n  box-sizing: content-box;\n  margin: auto;\n  aspect-ratio: 1;\n  animation: darma-loader-darma-custom-374-l1 infinite 1s steps(4,jump-none);\n}@keyframes darma-loader-darma-custom-374-l1 {0% {width: 0% }to {width: 75%}}",
+    "previewCss": ".darma-loader-darma-custom-374 {color: var(--loader-color, #db2777);\n  width: 64px;\n  aspect-ratio: 1;\n  display: grid;\n}.darma-loader-darma-custom-374:before {content: \"\";\n  border: 8px solid var(--loader-color, #db2777);\n  box-sizing: content-box;\n  margin: auto;\n  aspect-ratio: 1;\n  animation: darma-loader-darma-custom-374-l1 infinite 1s steps(4,jump-none);\n}@keyframes darma-loader-darma-custom-374-l1 {0% {width: 0% }to {width: 75%}}\n",
     "defaults": {
       "color": "#db2777",
       "secondaryColor": "#f9a8d4",
       "size": 72,
-      "speed": 1.0,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -1527,12 +1429,12 @@
     },
     "searchText": "darma-custom-375 pulse outline 02 pulse pulse outline 02 shape steps loader css-only single-element batch-06 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-375\"></div>",
-    "previewCss": ".darma-loader-darma-custom-375 {color: var(--loader-color, #0f766e);\n  --loader-secondary-color: #5eead4;\n  --loader-bg: #ffffff;\n  width: 64px;\n  aspect-ratio: 1;\n  display: grid;\n}.darma-loader-darma-custom-375:before {content: \"\";\n  border: 8px solid var(--loader-color, #0f766e);\n  border-radius: 50%;\n  box-sizing: content-box;\n  margin: auto;\n  aspect-ratio: 1;\n  animation: darma-loader-darma-custom-375-l2 infinite 1s steps(4,jump-none);\n}@keyframes darma-loader-darma-custom-375-l2 {0% {width: 0% }to {width: 75%}}",
+    "previewCss": ".darma-loader-darma-custom-375 {color: var(--loader-color, #0f766e);\n  width: 64px;\n  aspect-ratio: 1;\n  display: grid;\n}.darma-loader-darma-custom-375:before {content: \"\";\n  border: 8px solid var(--loader-color, #0f766e);\n  border-radius: 50%;\n  box-sizing: content-box;\n  margin: auto;\n  aspect-ratio: 1;\n  animation: darma-loader-darma-custom-375-l2 infinite 1s steps(4,jump-none);\n}@keyframes darma-loader-darma-custom-375-l2 {0% {width: 0% }to {width: 75%}}\n",
     "defaults": {
       "color": "#0f766e",
       "secondaryColor": "#5eead4",
       "size": 72,
-      "speed": 1.0,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -1565,12 +1467,12 @@
     },
     "searchText": "darma-custom-376 pulse outline 03 pulse pulse outline 03 shape steps loader css-only single-element batch-06 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-376\"></div>",
-    "previewCss": ".darma-loader-darma-custom-376 {color: var(--loader-color, #4f46e5);\n  --loader-secondary-color: #a5b4fc;\n  --loader-bg: #ffffff;\n  width: 80px;\n  aspect-ratio: 1;\n  display: grid;\n}.darma-loader-darma-custom-376:before {content: \"\";\n  background: var(--loader-color, #4f46e5);\n  aspect-ratio: inherit;\n  aspect-ratio: 1;\n  clip-path: polygon(79.39% 90.45%,50% 69%,20.61% 90.45%,31.93% 55.87%,2.45% 34.55%,38.83% 34.63%,50% 0%,61.17% 34.63%,97.55% 34.55%,68.07% 55.87%,79.39% 90.45%,50% 69%,calc(50% - 0px) calc(69% - 6.84px),calc(79.39% - 10.58px) calc(90.45% - 14.56px),calc(68.07% - 6.51px) calc(55.87% - 2.11px),calc(97.55% - 17.12px) calc(34.55% - -5.56px),calc(61.17% - 4.02px) calc(34.63% - -5.53px),calc(50% - 0px) calc(0% - -18px),calc(38.83% - -4.02px) calc(34.63% - -5.53px),calc(2.45% - -17.12px) calc(34.55% - -5.56px),calc(31.93% - -6.51px) calc(55.87% - 2.11px),calc(20.61% - -10.58px) calc(90.45% - 14.56px),calc(50% - 0px) calc(69% - 6.84px),calc(79.39% - 10.58px) calc(90.45% - 14.56px));\n  margin: auto;\n  animation: darma-loader-darma-custom-376-l5 infinite 1s steps(4,jump-none);\n}@keyframes darma-loader-darma-custom-376-l5 {0% {width: 45% }to {width: 100%}}",
+    "previewCss": ".darma-loader-darma-custom-376 {color: var(--loader-color, #4f46e5);\n  width: 80px;\n  aspect-ratio: 1;\n  display: grid;\n}.darma-loader-darma-custom-376:before {content: \"\";\n  background: var(--loader-color, #4f46e5);\n  aspect-ratio: inherit;\n  aspect-ratio: 1;\n  clip-path: polygon(79.39% 90.45%,50% 69%,20.61% 90.45%,31.93% 55.87%,2.45% 34.55%,38.83% 34.63%,50% 0%,61.17% 34.63%,97.55% 34.55%,68.07% 55.87%,79.39% 90.45%,50% 69%,calc(50% - 0px) calc(69% - 6.84px),calc(79.39% - 10.58px) calc(90.45% - 14.56px),calc(68.07% - 6.51px) calc(55.87% - 2.11px),calc(97.55% - 17.12px) calc(34.55% - -5.56px),calc(61.17% - 4.02px) calc(34.63% - -5.53px),calc(50% - 0px) calc(0% - -18px),calc(38.83% - -4.02px) calc(34.63% - -5.53px),calc(2.45% - -17.12px) calc(34.55% - -5.56px),calc(31.93% - -6.51px) calc(55.87% - 2.11px),calc(20.61% - -10.58px) calc(90.45% - 14.56px),calc(50% - 0px) calc(69% - 6.84px),calc(79.39% - 10.58px) calc(90.45% - 14.56px));\n  margin: auto;\n  animation: darma-loader-darma-custom-376-l5 infinite 1s steps(4,jump-none);\n}@keyframes darma-loader-darma-custom-376-l5 {0% {width: 45% }to {width: 100%}}\n",
     "defaults": {
       "color": "#4f46e5",
       "secondaryColor": "#a5b4fc",
       "size": 72,
-      "speed": 1.0,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -1603,12 +1505,12 @@
     },
     "searchText": "darma-custom-377 pulse outline 04 pulse pulse outline 04 shape steps loader css-only single-element batch-06 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-377\"></div>",
-    "previewCss": ".darma-loader-darma-custom-377 {color: var(--loader-color, #ca8a04);\n  --loader-secondary-color: #fde047;\n  --loader-bg: #ffffff;\n  width: 80px;\n  aspect-ratio: 1;\n  display: grid;\n}.darma-loader-darma-custom-377:before {content: \"\";\n  background: var(--loader-color, #ca8a04);\n  aspect-ratio: inherit;\n  aspect-ratio: 1;\n  clip-path: polygon(91.57% 77.78%,65.56% 73.28%,59.75% 99.04%,44.54% 77.46%,22.22% 91.57%,26.72% 65.56%,0.96% 59.75%,22.54% 44.54%,8.43% 22.22%,34.44% 26.72%,40.25% 0.96%,55.46% 22.54%,77.78% 8.43%,73.28% 34.44%,99.04% 40.25%,77.46% 55.46%,91.57% 77.78%,65.56% 73.28%,calc(65.56% - 5.6px) calc(73.28% - 8.38px),calc(91.57% - 14.97px) calc(77.78% - 10px),calc(77.46% - 9.89px) calc(55.46% - 1.97px),calc(99.04% - 17.65px) calc(40.25% - -3.51px),calc(73.28% - 8.38px) calc(34.44% - -5.6px),calc(77.78% - 10px) calc(8.43% - -14.97px),calc(55.46% - 1.97px) calc(22.54% - -9.89px),calc(40.25% - -3.51px) calc(0.96% - -17.65px),calc(34.44% - -5.6px) calc(26.72% - -8.38px),calc(8.43% - -14.97px) calc(22.22% - -10px),calc(22.54% - -9.89px) calc(44.54% - -1.97px),calc(0.96% - -17.65px) calc(59.75% - 3.51px),calc(26.72% - -8.38px) calc(65.56% - 5.6px),calc(22.22% - -10px) calc(91.57% - 14.97px),calc(44.54% - -1.97px) calc(77.46% - 9.89px),calc(59.75% - 3.51px) calc(99.04% - 17.65px),calc(65.56% - 5.6px) calc(73.28% - 8.38px),calc(91.57% - 14.97px) calc(77.78% - 10px));\n  margin: auto;\n  animation: darma-loader-darma-custom-377-l6 infinite 1s steps(4,jump-none);\n}@keyframes darma-loader-darma-custom-377-l6 {0% {width: 45% }to {width: 100%}}",
+    "previewCss": ".darma-loader-darma-custom-377 {color: var(--loader-color, #ca8a04);\n  width: 80px;\n  aspect-ratio: 1;\n  display: grid;\n}.darma-loader-darma-custom-377:before {content: \"\";\n  background: var(--loader-color, #ca8a04);\n  aspect-ratio: inherit;\n  aspect-ratio: 1;\n  clip-path: polygon(91.57% 77.78%,65.56% 73.28%,59.75% 99.04%,44.54% 77.46%,22.22% 91.57%,26.72% 65.56%,0.96% 59.75%,22.54% 44.54%,8.43% 22.22%,34.44% 26.72%,40.25% 0.96%,55.46% 22.54%,77.78% 8.43%,73.28% 34.44%,99.04% 40.25%,77.46% 55.46%,91.57% 77.78%,65.56% 73.28%,calc(65.56% - 5.6px) calc(73.28% - 8.38px),calc(91.57% - 14.97px) calc(77.78% - 10px),calc(77.46% - 9.89px) calc(55.46% - 1.97px),calc(99.04% - 17.65px) calc(40.25% - -3.51px),calc(73.28% - 8.38px) calc(34.44% - -5.6px),calc(77.78% - 10px) calc(8.43% - -14.97px),calc(55.46% - 1.97px) calc(22.54% - -9.89px),calc(40.25% - -3.51px) calc(0.96% - -17.65px),calc(34.44% - -5.6px) calc(26.72% - -8.38px),calc(8.43% - -14.97px) calc(22.22% - -10px),calc(22.54% - -9.89px) calc(44.54% - -1.97px),calc(0.96% - -17.65px) calc(59.75% - 3.51px),calc(26.72% - -8.38px) calc(65.56% - 5.6px),calc(22.22% - -10px) calc(91.57% - 14.97px),calc(44.54% - -1.97px) calc(77.46% - 9.89px),calc(59.75% - 3.51px) calc(99.04% - 17.65px),calc(65.56% - 5.6px) calc(73.28% - 8.38px),calc(91.57% - 14.97px) calc(77.78% - 10px));\n  margin: auto;\n  animation: darma-loader-darma-custom-377-l6 infinite 1s steps(4,jump-none);\n}@keyframes darma-loader-darma-custom-377-l6 {0% {width: 45% }to {width: 100%}}\n",
     "defaults": {
       "color": "#ca8a04",
       "secondaryColor": "#fde047",
       "size": 72,
-      "speed": 1.0,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -1641,12 +1543,12 @@
     },
     "searchText": "darma-custom-378 pulse outline 05 pulse pulse outline 05 shape steps loader css-only single-element batch-06 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-378\"></div>",
-    "previewCss": ".darma-loader-darma-custom-378 {color: var(--loader-color, #9333ea);\n  --loader-secondary-color: #f0abfc;\n  --loader-bg: #ffffff;\n  width: 64px;\n  aspect-ratio: 1;\n  display: grid;\n}.darma-loader-darma-custom-378:before {content: \"\";\n  border: 8px solid var(--loader-color, #9333ea);\n  box-sizing: content-box;\n  margin: auto;\n  aspect-ratio: 1;\n  animation: darma-loader-darma-custom-378-l7 infinite 1s steps(4,jump-none);\n}@keyframes darma-loader-darma-custom-378-l7 {0% {width: 0% ;\n  rotate: 0 }to {width: 75%;\n  rotate: 90deg}}",
+    "previewCss": ".darma-loader-darma-custom-378 {color: var(--loader-color, #9333ea);\n  width: 64px;\n  aspect-ratio: 1;\n  display: grid;\n}.darma-loader-darma-custom-378:before {content: \"\";\n  border: 8px solid var(--loader-color, #9333ea);\n  box-sizing: content-box;\n  margin: auto;\n  aspect-ratio: 1;\n  animation: darma-loader-darma-custom-378-l7 infinite 1s steps(4,jump-none);\n}@keyframes darma-loader-darma-custom-378-l7 {0% {width: 0% ;\n  rotate: 0 }to {width: 75%;\n  rotate: 90deg}}\n",
     "defaults": {
       "color": "#9333ea",
       "secondaryColor": "#f0abfc",
       "size": 72,
-      "speed": 1.0,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -1679,12 +1581,12 @@
     },
     "searchText": "darma-custom-379 pulse outline 06 pulse pulse outline 06 shape steps loader css-only single-element batch-06 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-379\"></div>",
-    "previewCss": ".darma-loader-darma-custom-379 {color: var(--loader-color, #0284c7);\n  --loader-secondary-color: #7dd3fc;\n  --loader-bg: #ffffff;\n  width: 64px;\n  aspect-ratio: 1;\n  display: grid;\n}.darma-loader-darma-custom-379:before,.darma-loader-darma-custom-379:after {content: \"\";\n  grid-area: 1/1;\n  border: 8px solid var(--loader-color, #0284c7);\n  box-sizing: content-box;\n  margin: auto;\n  aspect-ratio: 1;\n  animation: darma-loader-darma-custom-379-l8 infinite 1s steps(4,jump-none);\n}.darma-loader-darma-custom-379:before {animation-delay: -.5s;\n  border-radius: 50%;\n}@keyframes darma-loader-darma-custom-379-l8 {0% {width: 0% }to {width: 75%}}",
+    "previewCss": ".darma-loader-darma-custom-379 {color: var(--loader-color, #0284c7);\n  width: 64px;\n  aspect-ratio: 1;\n  display: grid;\n}.darma-loader-darma-custom-379:before,.darma-loader-darma-custom-379:after {content: \"\";\n  grid-area: 1/1;\n  border: 8px solid var(--loader-color, #0284c7);\n  box-sizing: content-box;\n  margin: auto;\n  aspect-ratio: 1;\n  animation: darma-loader-darma-custom-379-l8 infinite 1s steps(4,jump-none);\n}.darma-loader-darma-custom-379:before {animation-delay: -.5s;\n  border-radius: 50%;\n}@keyframes darma-loader-darma-custom-379-l8 {0% {width: 0% }to {width: 75%}}\n",
     "defaults": {
       "color": "#0284c7",
       "secondaryColor": "#7dd3fc",
       "size": 72,
-      "speed": 1.0,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -1717,12 +1619,12 @@
     },
     "searchText": "darma-custom-380 pulse outline 07 pulse pulse outline 07 shape steps loader css-only single-element batch-06 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-380\"></div>",
-    "previewCss": ".darma-loader-darma-custom-380 {color: var(--loader-color, #e11d48);\n  --loader-secondary-color: #fb7185;\n  --loader-bg: #ffffff;\n  height: 64px;\n  aspect-ratio: 1.5;\n  display: flex;\n  gap: 8px;\n}.darma-loader-darma-custom-380:before,.darma-loader-darma-custom-380:after {content: \"\";\n  border: 8px solid var(--loader-color, #e11d48);\n  border-radius: 50%;\n  box-sizing: content-box;\n  margin: auto;\n  aspect-ratio: 1;\n  animation: darma-loader-darma-custom-380-l9 infinite 1s steps(4,jump-none);\n}.darma-loader-darma-custom-380:before {animation-direction: reverse;\n}@keyframes darma-loader-darma-custom-380-l9 {0% {width: 0% }to {width: 75%}}",
+    "previewCss": ".darma-loader-darma-custom-380 {color: var(--loader-color, #e11d48);\n  height: 64px;\n  aspect-ratio: 1.5;\n  display: flex;\n  gap: 8px;\n}.darma-loader-darma-custom-380:before,.darma-loader-darma-custom-380:after {content: \"\";\n  border: 8px solid var(--loader-color, #e11d48);\n  border-radius: 50%;\n  box-sizing: content-box;\n  margin: auto;\n  aspect-ratio: 1;\n  animation: darma-loader-darma-custom-380-l9 infinite 1s steps(4,jump-none);\n}.darma-loader-darma-custom-380:before {animation-direction: reverse;\n}@keyframes darma-loader-darma-custom-380-l9 {0% {width: 0% }to {width: 75%}}\n",
     "defaults": {
       "color": "#e11d48",
       "secondaryColor": "#fb7185",
       "size": 72,
-      "speed": 1.0,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -1755,12 +1657,12 @@
     },
     "searchText": "darma-custom-381 pulse outline 08 pulse pulse outline 08 shape steps loader css-only single-element batch-06 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-381\"></div>",
-    "previewCss": ".darma-loader-darma-custom-381 {color: var(--loader-color, #2563eb);\n  --loader-secondary-color: #38bdf8;\n  --loader-bg: #ffffff;\n  height: 64px;\n  aspect-ratio: 2;\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n}.darma-loader-darma-custom-381:before,.darma-loader-darma-custom-381:after {content: \"\";\n  border: 8px solid var(--loader-color, #2563eb);\n  box-sizing: content-box;\n  margin: auto;\n  aspect-ratio: 1;\n  animation:darma-loader-darma-custom-381-l10-0 infinite .5s steps(4,jump-none) alternate,darma-loader-darma-custom-381-l10-1 infinite 2s steps(2,jump-none);\n}.darma-loader-darma-custom-381:before {animation-delay: -.3s;\n}@keyframes darma-loader-darma-custom-381-l10-0 {0% {width: 0% }to {width: 75%}}@keyframes darma-loader-darma-custom-381-l10-1 {0% {border-radius: 0% }to {border-radius: 100%}}",
+    "previewCss": ".darma-loader-darma-custom-381 {color: var(--loader-color, #2563eb);\n  height: 64px;\n  aspect-ratio: 2;\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n}.darma-loader-darma-custom-381:before,.darma-loader-darma-custom-381:after {content: \"\";\n  border: 8px solid var(--loader-color, #2563eb);\n  box-sizing: content-box;\n  margin: auto;\n  aspect-ratio: 1;\n  animation:darma-loader-darma-custom-381-l10-0 infinite .5s steps(4,jump-none) alternate,darma-loader-darma-custom-381-l10-1 infinite 2s steps(2,jump-none);\n}.darma-loader-darma-custom-381:before {animation-delay: -.3s;\n}@keyframes darma-loader-darma-custom-381-l10-0 {0% {width: 0% }to {width: 75%}}@keyframes darma-loader-darma-custom-381-l10-1 {0% {border-radius: 0% }to {border-radius: 100%}}\n",
     "defaults": {
       "color": "#2563eb",
       "secondaryColor": "#38bdf8",
       "size": 72,
-      "speed": 1.0,
+      "speed": 2,
       "background": "#ffffff"
     }
   },
@@ -1793,12 +1695,12 @@
     },
     "searchText": "darma-custom-382 pulse outline 09 pulse pulse outline 09 shape steps loader css-only single-element batch-06 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-382\"></div>",
-    "previewCss": ".darma-loader-darma-custom-382 {color: var(--loader-color, #16a34a);\n  --loader-secondary-color: #86efac;\n  --loader-bg: #ffffff;\n  width: 120px;\n  height: 20px;\n  background:linear-gradient(90deg,color-mix(in srgb, currentColor 25%, transparent) 33%,color-mix(in srgb, currentColor 25%, transparent) 50%,color-mix(in srgb, currentColor 25%, transparent) 66%)var(--loader-secondary-color, #86efac);\n  background-size:300% 100%;\n  animation: darma-loader-darma-custom-382-l1 1s infinite linear;\n}@keyframes darma-loader-darma-custom-382-l1 {0% {background-position: right}}",
+    "previewCss": ".darma-loader-darma-custom-382 {color: var(--loader-color, #16a34a);\n  width: 120px;\n  height: 20px;\n  background:linear-gradient(90deg,color-mix(in srgb, currentColor 25%, transparent) 33%,color-mix(in srgb, currentColor 25%, transparent) 50%,color-mix(in srgb, currentColor 25%, transparent) 66%)var(--loader-secondary-color, #86efac);\n  background-size:300% 100%;\n  animation: darma-loader-darma-custom-382-l1 1s infinite linear;\n}@keyframes darma-loader-darma-custom-382-l1 {0% {background-position: right}}\n",
     "defaults": {
       "color": "#16a34a",
       "secondaryColor": "#86efac",
       "size": 72,
-      "speed": 1.0,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -1831,12 +1733,76 @@
     },
     "searchText": "darma-custom-383 pulse outline 10 pulse pulse outline 10 shape steps loader css-only single-element batch-06 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-383\"></div>",
-    "previewCss": ".darma-loader-darma-custom-383 {color: var(--loader-color, #7c3aed);\n  --loader-secondary-color: #c084fc;\n  --loader-bg: #ffffff;\n  width: 120px;\n  height: 20px;\n  background:linear-gradient(90deg, #0000 ,var(--loader-color, #7c3aed)) left -50px top 0/50px 20px no-repeat var(--loader-secondary-color, #c084fc);\n  animation: darma-loader-darma-custom-383-l2 1s infinite linear;\n}@keyframes darma-loader-darma-custom-383-l2 {100% {background-position: right -50px top 0}}",
+    "previewCss": ".darma-loader-darma-custom-383 {color: var(--loader-color, #7c3aed);\n  width: 120px;\n  height: 20px;\n  background:linear-gradient(90deg, #0000 ,var(--loader-color, #7c3aed)) left -50px top 0/50px 20px no-repeat var(--loader-secondary-color, #c084fc);\n  animation: darma-loader-darma-custom-383-l2 1s infinite linear;\n}@keyframes darma-loader-darma-custom-383-l2 {100% {background-position: right -50px top 0}}\n",
     "defaults": {
       "color": "#7c3aed",
       "secondaryColor": "#c084fc",
       "size": 72,
-      "speed": 1.0,
+      "speed": 1,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "pulse-ring",
+    "name": "Pulse Ring",
+    "category": "pulse",
+    "tags": [
+      "pulse",
+      "ring",
+      "ping",
+      "notification"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "pulse-ring pulse ring pulse pulse ring ping notification html css react popular cssonly customizable singleelement",
+    "previewHtml": "<span class=\"darma-loader-pulse-ring\"></span>",
+    "previewCss": ".darma-loader-pulse-ring {\n  position: relative;\n  display: inline-block;\n  width: 54px;\n  height: 54px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n}\n.darma-loader-pulse-ring::before,\n.darma-loader-pulse-ring::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  border-radius: inherit;\n  border: 3px solid var(--loader-color, #6366f1);\n  animation: darma-loader-pulse-ring-pulse 1.25s ease-out infinite;\n}\n.darma-loader-pulse-ring::after { animation-delay: 0.45s; }\n@keyframes darma-loader-pulse-ring-pulse {\n  to { transform: scale(1.9); opacity: 0; }\n}\n",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 48,
+      "speed": 1.25
+    }
+  },
+  {
+    "id": "darma-custom-004",
+    "name": "Radial Bubble Fill",
+    "category": "pulse",
+    "tags": [
+      "circle",
+      "radial",
+      "bubble",
+      "fill",
+      "batch-01"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "darma-custom-004 radial bubble fill pulse circle radial bubble fill batch-01 html css react popular singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-darma-custom-004\"></div>",
+    "previewCss": ".darma-loader-darma-custom-004 {\n  width: 40px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: radial-gradient(farthest-side, var(--loader-color, #ED303C) 94%, #0000), radial-gradient(farthest-side, var(--loader-secondary-color, #FF9C5B) 94%, #0000), var(--loader-color, #ED303C);\n  background-position: center;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-004-l4 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-004-l4 {\n  0% { background-size: 0 0, 0 0; }\n  30%, 50% { background-size: 0 0, 120% 120%; }\n  80%, 100% { background-size: 120% 120%, 120% 120%; }\n}\n",
+    "defaults": {
+      "color": "#ED303C",
+      "secondaryColor": "#FF9C5B",
+      "size": 40,
+      "speed": 1.5,
       "background": "#ffffff"
     }
   },
@@ -1868,7 +1834,7 @@
     },
     "searchText": "darma-custom-098 radial corner burst pulse radial corner burst pulse expand css-only single-element batch-03 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-098\"></div>",
-    "previewCss": ".darma-loader-darma-custom-098 {\n  width: 40px;\n  aspect-ratio: 1;\n  color: #f03355;\n  position: relative;\n  background: radial-gradient(10px,currentColor 94%,#0000);\n}\n.darma-loader-darma-custom-098:before {\n  content: '';\n  position: absolute;\n  inset: 0;\n  border-radius: 50%;\n  background:\n    radial-gradient(9px at bottom right,#0000 94%,currentColor) top    left,\n    radial-gradient(9px at bottom left ,#0000 94%,currentColor) top    right,\n    radial-gradient(9px at top    right,#0000 94%,currentColor) bottom left,\n    radial-gradient(9px at top    left ,#0000 94%,currentColor) bottom right;\n  background-size: 20px 20px;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-098-l18 1.5s infinite cubic-bezier(0.3,1,0,1);\n}\n@keyframes darma-loader-darma-custom-098-l18 {\n   33%  {inset:-10px;transform: rotate(0deg)}\n   66%  {inset:-10px;transform: rotate(90deg)}\n   100% {inset:0    ;transform: rotate(90deg)}\n}",
+    "previewCss": ".darma-loader-darma-custom-098 {\n  width: 40px;\n  aspect-ratio: 1;\n  color: var(--loader-color, #f03355);\n  position: relative;\n  background: radial-gradient(10px,currentColor 94%,#0000);\n}\n.darma-loader-darma-custom-098:before {\n  content: '';\n  position: absolute;\n  inset: 0;\n  border-radius: 50%;\n  background:\n    radial-gradient(9px at bottom right,#0000 94%,currentColor) top    left,\n    radial-gradient(9px at bottom left ,#0000 94%,currentColor) top    right,\n    radial-gradient(9px at top    right,#0000 94%,currentColor) bottom left,\n    radial-gradient(9px at top    left ,#0000 94%,currentColor) bottom right;\n  background-size: 20px 20px;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-098-l18 1.5s infinite cubic-bezier(0.3,1,0,1);\n}\n@keyframes darma-loader-darma-custom-098-l18 {\n   33%  {inset:-10px;transform: rotate(0deg)}\n   66%  {inset:-10px;transform: rotate(90deg)}\n   100% {inset:0    ;transform: rotate(90deg)}\n}\n",
     "defaults": {
       "color": "#f03355",
       "secondaryColor": "#e5e7eb",
@@ -1907,13 +1873,47 @@
     },
     "searchText": "darma-custom-646 rising push pulse rich pulse push circles minimal single-element loader html-css customizable rich-batch-01 html css react singleelement cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-darma-custom-646\"></span>",
-    "previewCss": ".darma-loader-darma-custom-646 {color: var(--loader-color, #f8fafc);\n  --loader-secondary-color: #94a3b8;\n  --loader-bg: #111827;\n  \n  display: block;\n  width: 84px;\n  height: 84px;\n  position: relative;\n}\n\n.darma-loader-darma-custom-646:before , .darma-loader-darma-custom-646:after {\n  content: \"\";\n  position: absolute;\n  left: 50%;\n  bottom: 0;\n  width: 64px;\n  height: 64px;\n  border-radius: 50%;\n  background: currentColor;\n  transform: translate(-50% , -100%)  scale(0);\n  animation: darma-loader-darma-custom-646-push_401 2s infinite linear;\n}\n\n.darma-loader-darma-custom-646:after {\n  animation-delay: 1s;\n}\n\n@keyframes darma-loader-darma-custom-646-push_401 {\n  0% , 50% {\n    transform: translate(-50% , 0%)  scale(1)\n  }\n\n  100% {\n    transform: translate(-50%, -100%) scale(0)\n  }\n}",
+    "previewCss": ".darma-loader-darma-custom-646 {color: var(--loader-color, #f8fafc);\n  \n  display: block;\n  width: 84px;\n  height: 84px;\n  position: relative;\n}\n\n.darma-loader-darma-custom-646:before , .darma-loader-darma-custom-646:after {\n  content: \"\";\n  position: absolute;\n  left: 50%;\n  bottom: 0;\n  width: 64px;\n  height: 64px;\n  border-radius: 50%;\n  background: currentColor;\n  transform: translate(-50% , -100%)  scale(0);\n  animation: darma-loader-darma-custom-646-push_401 2s infinite linear;\n}\n\n.darma-loader-darma-custom-646:after {\n  animation-delay: 1s;\n}\n\n@keyframes darma-loader-darma-custom-646-push_401 {\n  0% , 50% {\n    transform: translate(-50% , 0%)  scale(1)\n  }\n\n  100% {\n    transform: translate(-50%, -100%) scale(0)\n  }\n}\n",
     "defaults": {
       "color": "#f8fafc",
       "secondaryColor": "#94a3b8",
       "size": 72,
-      "speed": 1.0,
+      "speed": 2,
       "background": "#111827"
+    }
+  },
+  {
+    "id": "darma-custom-015",
+    "name": "Rounded Quadrant Bloom",
+    "category": "pulse",
+    "tags": [
+      "circle",
+      "quadrant",
+      "bloom",
+      "rounded",
+      "batch-01"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "darma-custom-015 rounded quadrant bloom pulse circle quadrant bloom rounded batch-01 html css react popular singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-darma-custom-015\"></div>",
+    "previewCss": ".darma-loader-darma-custom-015 {\n  width: 50px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: linear-gradient(var(--loader-color, #FF003C) 0 0), linear-gradient(var(--loader-color, #FF003C) 0 0), linear-gradient(var(--loader-color, #FF003C) 0 0), linear-gradient(var(--loader-color, #FF003C) 0 0), linear-gradient(var(--loader-secondary-color, #00C176) 0 0), linear-gradient(var(--loader-secondary-color, #00C176) 0 0), linear-gradient(var(--loader-secondary-color, #00C176) 0 0), linear-gradient(var(--loader-secondary-color, #00C176) 0 0), var(--loader-color, #FF003C);\n  background-position: 0 0, 100% 0, 100% 100%, 0 100%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-015-l15 2s infinite;\n}\n@keyframes darma-loader-darma-custom-015-l15 {\n  0% { background-size: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0; }\n  40%, 50% { background-size: 0 0, 0 0, 0 0, 0 0, 51% 51%, 51% 51%, 51% 51%, 51% 51%; }\n  90%, 100% { background-size: 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%, 51% 51%; }\n}\n",
+    "defaults": {
+      "color": "#FF003C",
+      "secondaryColor": "#00C176",
+      "size": 50,
+      "speed": 2,
+      "background": "#ffffff"
     }
   }
 ]

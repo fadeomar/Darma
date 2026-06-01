@@ -26,25 +26,25 @@
   },
   "searchText": "darma-custom-177 faded signal dots dots faded signal dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-177\"></div>",
-  "previewCss": ".darma-loader-darma-custom-177 {\n  color: #9333ea;\nwidth: 60px;\naspect-ratio: 4;\n--_g: no-repeat radial-gradient(circle closest-side,currentColor 90%,#0000);\nbackground:\nvar(--_g) 0% 50%,\nvar(--_g) 50% 50%,\nvar(--_g) 100% 50%;\nbackground-size: calc(100%/3) 100%;\nanimation: darma-loader-darma-custom-177-l7 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-177-l7 {\n33%{background-size:calc(100%/3) 0% ,calc(100%/3) 100%,calc(100%/3) 100%}\n50%{background-size:calc(100%/3) 100%,calc(100%/3) 0% ,calc(100%/3) 100%}\n66%{background-size:calc(100%/3) 100%,calc(100%/3) 100%,calc(100%/3) 0% }\n}",
+  "previewCss": ".darma-loader-darma-custom-177 {\n  color: var(--loader-color, #9333ea);\nwidth: 60px;\naspect-ratio: 4;\n--_g: no-repeat radial-gradient(circle closest-side,currentColor 90%,#0000);\nbackground:\nvar(--_g) 0% 50%,\nvar(--_g) 50% 50%,\nvar(--_g) 100% 50%;\nbackground-size: calc(100%/3) 100%;\nanimation: darma-loader-darma-custom-177-l7 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-177-l7 {\n33%{background-size:calc(100%/3) 0% ,calc(100%/3) 100%,calc(100%/3) 100%}\n50%{background-size:calc(100%/3) 100%,calc(100%/3) 0% ,calc(100%/3) 100%}\n66%{background-size:calc(100%/3) 100%,calc(100%/3) 100%,calc(100%/3) 0% }\n}\n",
   "defaults": {
     "color": "#9333ea",
     "secondaryColor": "#d8b4fe",
     "size": 60,
-    "speed": 1.0,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-177\"></div>",
-    "css": ".darma-loader-darma-custom-177 {\n  color: #9333ea;\nwidth: 60px;\naspect-ratio: 4;\n--_g: no-repeat radial-gradient(circle closest-side,currentColor 90%,#0000);\nbackground:\nvar(--_g) 0% 50%,\nvar(--_g) 50% 50%,\nvar(--_g) 100% 50%;\nbackground-size: calc(100%/3) 100%;\nanimation: darma-loader-darma-custom-177-l7 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-177-l7 {\n33%{background-size:calc(100%/3) 0% ,calc(100%/3) 100%,calc(100%/3) 100%}\n50%{background-size:calc(100%/3) 100%,calc(100%/3) 0% ,calc(100%/3) 100%}\n66%{background-size:calc(100%/3) 100%,calc(100%/3) 100%,calc(100%/3) 0% }\n}",
-    "react": "export default function DarmaCustom177Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-177\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-177 {\n  color: var(--loader-color, #9333ea);\nwidth: 60px;\naspect-ratio: 4;\n--_g: no-repeat radial-gradient(circle closest-side,currentColor 90%,#0000);\nbackground:\nvar(--_g) 0% 50%,\nvar(--_g) 50% 50%,\nvar(--_g) 100% 50%;\nbackground-size: calc(100%/3) 100%;\nanimation: darma-loader-darma-custom-177-l7 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-177-l7 {\n33%{background-size:calc(100%/3) 0% ,calc(100%/3) 100%,calc(100%/3) 100%}\n50%{background-size:calc(100%/3) 100%,calc(100%/3) 0% ,calc(100%/3) 100%}\n66%{background-size:calc(100%/3) 100%,calc(100%/3) 100%,calc(100%/3) 0% }\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom177Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-177\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": false,
     "size": true,
     "speed": true,
-    "background": false
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

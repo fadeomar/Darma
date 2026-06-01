@@ -21,6 +21,11 @@ function isVisibleFocusable(node: HTMLElement) {
 
 export function useModalFocusTrap<T extends HTMLElement>({ open, panelRef, onClose }: UseModalFocusTrapOptions<T>) {
   const previousFocusRef = useRef<HTMLElement | null>(null);
+  const onCloseRef = useRef(onClose);
+
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  }, [onClose]);
 
   useEffect(() => {
     if (!open) return;
@@ -28,18 +33,16 @@ export function useModalFocusTrap<T extends HTMLElement>({ open, panelRef, onClo
     previousFocusRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
 
     const panel = panelRef.current;
-    const focusable = panel ? Array.from(panel.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)).filter(isVisibleFocusable) : [];
     const closeButton = panel?.querySelector<HTMLElement>("[data-modal-close]");
-    const firstFocusable = focusable[0];
-
-    window.requestAnimationFrame(() => {
+    const firstFocusable = panel ? Array.from(panel.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)).filter(isVisibleFocusable)[0] : null;
+    const focusFrame = window.requestAnimationFrame(() => {
       (firstFocusable ?? closeButton ?? panel)?.focus();
     });
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
         event.preventDefault();
-        onClose();
+        onCloseRef.current();
         return;
       }
 
@@ -68,11 +71,12 @@ export function useModalFocusTrap<T extends HTMLElement>({ open, panelRef, onClo
     document.addEventListener("keydown", handleKeyDown);
 
     return () => {
+      window.cancelAnimationFrame(focusFrame);
       document.removeEventListener("keydown", handleKeyDown);
       const previousFocus = previousFocusRef.current;
       if (previousFocus && document.contains(previousFocus)) {
         previousFocus.focus({ preventScroll: true });
       }
     };
-  }, [open, panelRef, onClose]);
+  }, [open, panelRef]);
 }

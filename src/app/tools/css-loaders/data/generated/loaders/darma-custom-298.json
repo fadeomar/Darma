@@ -28,25 +28,25 @@
   },
   "searchText": "darma-custom-298 text type fill minimal text type fill loading typography minimal loader css-only single-element batch-05 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-298\"></div>",
-  "previewCss": ".darma-loader-darma-custom-298 {\n  width: fit-content;\n  font-size: 34px;\n  font-family: monospace;\n  font-weight: bold;\n  text-transform: uppercase;\n  color: #0000;\n  -webkit-text-stroke: 1px var(--loader-color, #4f46e5);\n  background: linear-gradient(90deg,var(--loader-color, #4f46e5),var(--loader-secondary-color, #a5b4fc)) 0/0 100% no-repeat text;\n  animation: darma-loader-darma-custom-298-l11 2s steps(8,jump-none) infinite;\n}\n.darma-loader-darma-custom-298:before {\n  content: \"Loading\";\n}\n@keyframes darma-loader-darma-custom-298-l11 {\n  to {background-size: 100% 100%}\n}",
+  "previewCss": ".darma-loader-darma-custom-298 {\n  width: fit-content;\n  font-size: 34px;\n  font-family: monospace;\n  font-weight: bold;\n  text-transform: uppercase;\n  color: #0000;\n  -webkit-text-stroke: 1px var(--loader-color, #4f46e5);\n  background: linear-gradient(90deg,var(--loader-color, #4f46e5),var(--loader-secondary-color, #a5b4fc)) 0/0 100% no-repeat text;\n  animation: darma-loader-darma-custom-298-l11 2s steps(8,jump-none) infinite;\n}\n.darma-loader-darma-custom-298:before {\n  content: \"Loading\";\n}\n@keyframes darma-loader-darma-custom-298-l11 {\n  to {background-size: 100% 100%}\n}\n",
   "defaults": {
     "color": "#4f46e5",
     "secondaryColor": "#a5b4fc",
     "size": 72,
-    "speed": 1.0,
+    "speed": 2,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-298\"></div>",
-    "css": ".darma-loader-darma-custom-298 {\n  width: fit-content;\n  font-size: 34px;\n  font-family: monospace;\n  font-weight: bold;\n  text-transform: uppercase;\n  color: #0000;\n  -webkit-text-stroke: 1px var(--loader-color, #4f46e5);\n  background: linear-gradient(90deg,var(--loader-color, #4f46e5),var(--loader-secondary-color, #a5b4fc)) 0/0 100% no-repeat text;\n  animation: darma-loader-darma-custom-298-l11 2s steps(8,jump-none) infinite;\n}\n.darma-loader-darma-custom-298:before {\n  content: \"Loading\";\n}\n@keyframes darma-loader-darma-custom-298-l11 {\n  to {background-size: 100% 100%}\n}",
-    "react": "export default function DarmaCustom298Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-298\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-298 {\n  width: fit-content;\n  font-size: 34px;\n  font-family: monospace;\n  font-weight: bold;\n  text-transform: uppercase;\n  color: #0000;\n  -webkit-text-stroke: 1px var(--loader-color, #4f46e5);\n  background: linear-gradient(90deg,var(--loader-color, #4f46e5),var(--loader-secondary-color, #a5b4fc)) 0/0 100% no-repeat text;\n  animation: darma-loader-darma-custom-298-l11 2s steps(8,jump-none) infinite;\n}\n.darma-loader-darma-custom-298:before {\n  content: \"Loading\";\n}\n@keyframes darma-loader-darma-custom-298-l11 {\n  to {background-size: 100% 100%}\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom298Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-298\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": false
+    "background": false,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

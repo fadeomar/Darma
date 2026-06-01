@@ -24,7 +24,7 @@
   },
   "searchText": "darma-custom-045 wavy circle fill progress circle wave fill radial single-element batch-02 html css react popular singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-045\"></div>",
-  "previewCss": ".darma-loader-darma-custom-045 {\n  --r1: 154%;\n  --r2: 68.5%;\n  width: 60px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background:\n    radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, #269af2 80%),\n    radial-gradient(var(--r1) var(--r2) at bottom, #269af2 79.5%, #0000 80%),\n    radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, #269af2 80%),\n    #ccc;\n  background-size: 50.5% 220%;\n  background-position: -100% 0%, 0% 0%, 100% 0%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-045-l9 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-045-l9 {\n  33% { background-position: 0% 33%, 100% 33%, 200% 33%; }\n  66% { background-position: -100% 66%, 0% 66%, 100% 66%; }\n  100% { background-position: 0% 100%, 100% 100%, 200% 100%; }\n}",
+  "previewCss": ".darma-loader-darma-custom-045 {\n  --r1: 154%;\n  --r2: 68.5%;\n  width: 60px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background:\n    radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, var(--loader-color, #269af2) 80%),\n    radial-gradient(var(--r1) var(--r2) at bottom, var(--loader-color, #269af2) 79.5%, #0000 80%),\n    radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, var(--loader-color, #269af2) 80%),\n    #ccc;\n  background-size: 50.5% 220%;\n  background-position: -100% 0%, 0% 0%, 100% 0%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-045-l9 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-045-l9 {\n  33% { background-position: 0% 33%, 100% 33%, 200% 33%; }\n  66% { background-position: -100% 66%, 0% 66%, 100% 66%; }\n  100% { background-position: 0% 100%, 100% 100%, 200% 100%; }\n}\n",
   "defaults": {
     "color": "#269af2",
     "secondaryColor": "#cccccc",
@@ -34,15 +34,14 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-045\"></div>",
-    "css": ".darma-loader-darma-custom-045 {\n  --r1: 154%;\n  --r2: 68.5%;\n  width: 60px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background:\n    radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, #269af2 80%),\n    radial-gradient(var(--r1) var(--r2) at bottom, #269af2 79.5%, #0000 80%),\n    radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, #269af2 80%),\n    #ccc;\n  background-size: 50.5% 220%;\n  background-position: -100% 0%, 0% 0%, 100% 0%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-045-l9 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-045-l9 {\n  33% { background-position: 0% 33%, 100% 33%, 200% 33%; }\n  66% { background-position: -100% 66%, 0% 66%, 100% 66%; }\n  100% { background-position: 0% 100%, 100% 100%, 200% 100%; }\n}",
-    "react": "export default function DarmaCustom045Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-045\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-045 {\n  --r1: 154%;\n  --r2: 68.5%;\n  width: 60px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background:\n    radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, var(--loader-color, #269af2) 80%),\n    radial-gradient(var(--r1) var(--r2) at bottom, var(--loader-color, #269af2) 79.5%, #0000 80%),\n    radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, var(--loader-color, #269af2) 80%),\n    #ccc;\n  background-size: 50.5% 220%;\n  background-position: -100% 0%, 0% 0%, 100% 0%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-045-l9 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-045-l9 {\n  33% { background-position: 0% 33%, 100% 33%, 200% 33%; }\n  66% { background-position: -100% 66%, 0% 66%, 100% 66%; }\n  100% { background-position: 0% 100%, 100% 100%, 200% 100%; }\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom045Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-045\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": false
-  },
-  "source": {}
+    "background": false,
+    "secondaryColor": false
+  }
 }

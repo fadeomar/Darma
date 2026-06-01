@@ -24,7 +24,7 @@
   },
   "searchText": "darma-custom-041 battery charging steps progress battery charging steps progress device batch-02 html css react popular singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-041\"></div>",
-  "previewCss": ".darma-loader-darma-custom-041 {\n  width: 80px;\n  height: 40px;\n  color: #000;\n  border: 2px solid currentColor;\n  border-right-color: transparent;\n  padding: 3px;\n  background:\n    repeating-linear-gradient(90deg, currentColor 0 10px, #0000 0 15px)\n    0/0% no-repeat content-box content-box;\n  position: relative;\n  box-sizing: border-box;\n  animation: darma-loader-darma-custom-041-l5 2s infinite steps(6);\n}\n.darma-loader-darma-custom-041::before {\n  content: \"\";\n  position: absolute;\n  top: -2px;\n  bottom: -2px;\n  left: 100%;\n  width: 10px;\n  background:\n    linear-gradient(#0000 calc(50% - 7px), currentColor 0 calc(50% - 5px), #0000 0 calc(50% + 5px), currentColor 0 calc(50% + 7px), #0000 0) left/100% 100%,\n    linear-gradient(currentColor calc(50% - 5px), #0000 0 calc(50% + 5px), currentColor 0) left/2px 100%,\n    linear-gradient(#0000 calc(50% - 5px), currentColor 0 calc(50% + 5px), #0000 0) right/2px 100%;\n  background-repeat: no-repeat;\n}\n@keyframes darma-loader-darma-custom-041-l5 {\n  100% { background-size: 120%; }\n}",
+  "previewCss": ".darma-loader-darma-custom-041 {\n  width: 80px;\n  height: 40px;\n  color: #000;\n  border: 2px solid currentColor;\n  border-right-color: transparent;\n  padding: 3px;\n  background:\n    repeating-linear-gradient(90deg, currentColor 0 10px, #0000 0 15px)\n    0/0% no-repeat content-box content-box;\n  position: relative;\n  box-sizing: border-box;\n  animation: darma-loader-darma-custom-041-l5 2s infinite steps(6);\n}\n.darma-loader-darma-custom-041::before {\n  content: \"\";\n  position: absolute;\n  top: -2px;\n  bottom: -2px;\n  left: 100%;\n  width: 10px;\n  background:\n    linear-gradient(#0000 calc(50% - 7px), currentColor 0 calc(50% - 5px), #0000 0 calc(50% + 5px), currentColor 0 calc(50% + 7px), #0000 0) left/100% 100%,\n    linear-gradient(currentColor calc(50% - 5px), #0000 0 calc(50% + 5px), currentColor 0) left/2px 100%,\n    linear-gradient(#0000 calc(50% - 5px), currentColor 0 calc(50% + 5px), #0000 0) right/2px 100%;\n  background-repeat: no-repeat;\n}\n@keyframes darma-loader-darma-custom-041-l5 {\n  100% { background-size: 120%; }\n}\n",
   "defaults": {
     "color": "#000000",
     "secondaryColor": "#dddddd",
@@ -34,15 +34,14 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-041\"></div>",
-    "css": ".darma-loader-darma-custom-041 {\n  width: 80px;\n  height: 40px;\n  color: #000;\n  border: 2px solid currentColor;\n  border-right-color: transparent;\n  padding: 3px;\n  background:\n    repeating-linear-gradient(90deg, currentColor 0 10px, #0000 0 15px)\n    0/0% no-repeat content-box content-box;\n  position: relative;\n  box-sizing: border-box;\n  animation: darma-loader-darma-custom-041-l5 2s infinite steps(6);\n}\n.darma-loader-darma-custom-041::before {\n  content: \"\";\n  position: absolute;\n  top: -2px;\n  bottom: -2px;\n  left: 100%;\n  width: 10px;\n  background:\n    linear-gradient(#0000 calc(50% - 7px), currentColor 0 calc(50% - 5px), #0000 0 calc(50% + 5px), currentColor 0 calc(50% + 7px), #0000 0) left/100% 100%,\n    linear-gradient(currentColor calc(50% - 5px), #0000 0 calc(50% + 5px), currentColor 0) left/2px 100%,\n    linear-gradient(#0000 calc(50% - 5px), currentColor 0 calc(50% + 5px), #0000 0) right/2px 100%;\n  background-repeat: no-repeat;\n}\n@keyframes darma-loader-darma-custom-041-l5 {\n  100% { background-size: 120%; }\n}",
-    "react": "export default function DarmaCustom041Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-041\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-041 {\n  width: 80px;\n  height: 40px;\n  color: #000;\n  border: 2px solid currentColor;\n  border-right-color: transparent;\n  padding: 3px;\n  background:\n    repeating-linear-gradient(90deg, currentColor 0 10px, #0000 0 15px)\n    0/0% no-repeat content-box content-box;\n  position: relative;\n  box-sizing: border-box;\n  animation: darma-loader-darma-custom-041-l5 2s infinite steps(6);\n}\n.darma-loader-darma-custom-041::before {\n  content: \"\";\n  position: absolute;\n  top: -2px;\n  bottom: -2px;\n  left: 100%;\n  width: 10px;\n  background:\n    linear-gradient(#0000 calc(50% - 7px), currentColor 0 calc(50% - 5px), #0000 0 calc(50% + 5px), currentColor 0 calc(50% + 7px), #0000 0) left/100% 100%,\n    linear-gradient(currentColor calc(50% - 5px), #0000 0 calc(50% + 5px), currentColor 0) left/2px 100%,\n    linear-gradient(#0000 calc(50% - 5px), currentColor 0 calc(50% + 5px), #0000 0) right/2px 100%;\n  background-repeat: no-repeat;\n}\n@keyframes darma-loader-darma-custom-041-l5 {\n  100% { background-size: 120%; }\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom041Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-041\"></div>\n  );\n}\n"
   },
   "controls": {
-    "color": true,
-    "secondaryColor": true,
+    "color": false,
     "size": true,
     "speed": true,
-    "background": false
-  },
-  "source": {}
+    "background": false,
+    "secondaryColor": false
+  }
 }

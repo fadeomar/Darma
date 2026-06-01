@@ -84,6 +84,14 @@ function scopeCss(css: string, id: string, classMap: Map<string, string>) {
   return output;
 }
 
+
+function stripStandardLoaderVariableDeclarations(css: string) {
+  // The preview and copied wrapper own these variables. Source loaders may
+  // include default declarations, but keeping them on the loader element
+  // overrides user-selected controls inherited from the wrapper.
+  return css.replace(/\s*--loader-(?:color|secondary-color|bg|size|speed)\s*:\s*[^;{}]+;?/g, "");
+}
+
 function withLoaderVariableFallbacks(css: string, definition: LoaderSourceDefinition) {
   const defaults = {
     color: definition.defaults?.color ?? "#6366f1",
@@ -219,7 +227,7 @@ function validateScopedOutput(definition: LoaderSourceDefinition, scoped: Transf
 export function scopeLoaderCode(definition: LoaderSourceDefinition, filename: string): TransformResult {
   const classNames = collectClassNames(definition.html, definition.css);
   const classMap = new Map(classNames.map((className) => [className, toScopedClassName(definition.id, className)]));
-  const scopedCss = scopeCss(definition.css, definition.id, classMap);
+  const scopedCss = stripStandardLoaderVariableDeclarations(scopeCss(definition.css, definition.id, classMap));
   const injectedCss = injectLoaderVariables(scopedCss, definition);
   const scoped = {
     html: scopeHtml(definition.html, classMap),

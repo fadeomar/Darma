@@ -12,7 +12,10 @@ function getPreviewInlineStyle(loaderPreview?: LoaderPreviewItem): CSSProperties
   if (!defaults) return undefined;
 
   const style: Record<string, string> = {};
-  if (defaults.color) style["--loader-color"] = defaults.color;
+  if (defaults.color) {
+    style.color = defaults.color;
+    style["--loader-color"] = defaults.color;
+  }
   if (defaults.secondaryColor) style["--loader-secondary-color"] = defaults.secondaryColor;
   if (defaults.size) style["--loader-size"] = `${defaults.size}px`;
   if (defaults.speed) style["--loader-speed"] = `${defaults.speed}s`;
@@ -150,7 +153,7 @@ export default function LoaderCard({
           >
             {copiedFormat === "html" ? "Copied" : "HTML"}
           </Button>
-          <Button variant="primary" size="sm" onClick={() => onOpen(loader)} leftIcon={<Eye className="h-4 w-4" />}>
+          <Button className="css-loaders-card-open-action" variant="primary" size="sm" onClick={() => onOpen(loader)} leftIcon={<Eye className="h-4 w-4" />}>
             Open
           </Button>
         </div>

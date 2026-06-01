@@ -23,7 +23,7 @@
   },
   "searchText": "darma-custom-033 tilted track ball fun tilted track ball slope batch-02 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-033\"></div>",
-  "previewCss": ".darma-loader-darma-custom-033 {\n  height: 20px;\n  width: 80px;\n  transform: rotate(-30deg);\n  background:\n    radial-gradient(farthest-side, #f03355 90%, #0000) left bottom/15px 15px no-repeat\n    #ddd;\n  animation:\n    darma-loader-darma-custom-033-l17-0 2s infinite alternate linear,\n    darma-loader-darma-custom-033-l17-1 2s infinite cubic-bezier(.75, 0, 1, .6);\n}\n@keyframes darma-loader-darma-custom-033-l17-0 {\n  50% { transform: rotate(30deg); }\n}\n@keyframes darma-loader-darma-custom-033-l17-1 {\n  50% { background-position: right bottom; }\n}",
+  "previewCss": ".darma-loader-darma-custom-033 {\n  height: 20px;\n  width: 80px;\n  transform: rotate(-30deg);\n  background:\n    radial-gradient(farthest-side, var(--loader-color, #f03355) 90%, #0000) left bottom/15px 15px no-repeat\n    #ddd;\n  animation:\n    darma-loader-darma-custom-033-l17-0 2s infinite alternate linear,\n    darma-loader-darma-custom-033-l17-1 2s infinite cubic-bezier(.75, 0, 1, .6);\n}\n@keyframes darma-loader-darma-custom-033-l17-0 {\n  50% { transform: rotate(30deg); }\n}\n@keyframes darma-loader-darma-custom-033-l17-1 {\n  50% { background-position: right bottom; }\n}\n",
   "defaults": {
     "color": "#f03355",
     "secondaryColor": "#dddddd",
@@ -33,15 +33,14 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-033\"></div>",
-    "css": ".darma-loader-darma-custom-033 {\n  height: 20px;\n  width: 80px;\n  transform: rotate(-30deg);\n  background:\n    radial-gradient(farthest-side, #f03355 90%, #0000) left bottom/15px 15px no-repeat\n    #ddd;\n  animation:\n    darma-loader-darma-custom-033-l17-0 2s infinite alternate linear,\n    darma-loader-darma-custom-033-l17-1 2s infinite cubic-bezier(.75, 0, 1, .6);\n}\n@keyframes darma-loader-darma-custom-033-l17-0 {\n  50% { transform: rotate(30deg); }\n}\n@keyframes darma-loader-darma-custom-033-l17-1 {\n  50% { background-position: right bottom; }\n}",
-    "react": "export default function DarmaCustom033Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-033\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-033 {\n  height: 20px;\n  width: 80px;\n  transform: rotate(-30deg);\n  background:\n    radial-gradient(farthest-side, var(--loader-color, #f03355) 90%, #0000) left bottom/15px 15px no-repeat\n    #ddd;\n  animation:\n    darma-loader-darma-custom-033-l17-0 2s infinite alternate linear,\n    darma-loader-darma-custom-033-l17-1 2s infinite cubic-bezier(.75, 0, 1, .6);\n}\n@keyframes darma-loader-darma-custom-033-l17-0 {\n  50% { transform: rotate(30deg); }\n}\n@keyframes darma-loader-darma-custom-033-l17-1 {\n  50% { background-position: right bottom; }\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom033Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-033\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": false
-  },
-  "source": {}
+    "background": false,
+    "secondaryColor": false
+  }
 }

@@ -8,8 +8,6 @@
     "customizable",
     "batch-08",
     "minimal",
-    "loader",
-    "minimal",
     "loader"
   ],
   "html": "<div class=\"loader\"></div>",

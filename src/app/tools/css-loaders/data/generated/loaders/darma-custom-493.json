@@ -27,25 +27,25 @@
   },
   "searchText": "darma-custom-493 snack loader 07 fun snack loader 07 food fun illustration css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-493\"></div>",
-  "previewCss": ".darma-loader-darma-custom-493 {color: var(--loader-color, #b45309);\n  --loader-secondary-color: #fcd34d;\n  --loader-bg: #ffffff;\n   height: 35px;\n   width: 80px;\n   margin-left: 0px;\n   background: radial-gradient(farthest-side,var(--loader-secondary-color, #fcd34d) 94%,#0000 ) 4px 22px/5px 5px, radial-gradient(farthest-side,var(--loader-secondary-color, #fcd34d) 94%,#0000 ) 12px 18px/5px 5px, radial-gradient(farthest-side,var(--loader-secondary-color, #fcd34d) 94%,#0000 ) 3px 6px/8px 8px, radial-gradient(farthest-side,var(--loader-secondary-color, #fcd34d) 90%,#0000 94%) left/20px 100%, var(--loader-color, #b45309);\n   background-repeat: no-repeat;\n   border-radius: 0 50px 50px 0;\n   border-top-left-radius: 30px 40px;\n   border-bottom-left-radius: 30px 40px;\n   animation: darma-loader-darma-custom-493-l7 3s infinite steps(10);\n   position: relative;\n}\n.darma-loader-darma-custom-493::before  {\n  content: \" \";\n   position: absolute;\n   inset: calc(50% - 8px) -10px calc(50% - 8px) auto;\n   width: 15px;\n   background: var(--loader-color, #b45309);\n   clip-path: polygon(0 50%,100% 0,70% 50%,100% 100%);\n}\n@keyframes darma-loader-darma-custom-493-l7  {\n  100% {width: 20px;\n  margin-left:60px;\n}\n}",
+  "previewCss": ".darma-loader-darma-custom-493 {color: var(--loader-color, #b45309);\n   height: 35px;\n   width: 80px;\n   margin-left: 0px;\n   background: radial-gradient(farthest-side,var(--loader-secondary-color, #fcd34d) 94%,#0000 ) 4px 22px/5px 5px, radial-gradient(farthest-side,var(--loader-secondary-color, #fcd34d) 94%,#0000 ) 12px 18px/5px 5px, radial-gradient(farthest-side,var(--loader-secondary-color, #fcd34d) 94%,#0000 ) 3px 6px/8px 8px, radial-gradient(farthest-side,var(--loader-secondary-color, #fcd34d) 90%,#0000 94%) left/20px 100%, var(--loader-color, #b45309);\n   background-repeat: no-repeat;\n   border-radius: 0 50px 50px 0;\n   border-top-left-radius: 30px 40px;\n   border-bottom-left-radius: 30px 40px;\n   animation: darma-loader-darma-custom-493-l7 3s infinite steps(10);\n   position: relative;\n}\n.darma-loader-darma-custom-493::before  {\n  content: \" \";\n   position: absolute;\n   inset: calc(50% - 8px) -10px calc(50% - 8px) auto;\n   width: 15px;\n   background: var(--loader-color, #b45309);\n   clip-path: polygon(0 50%,100% 0,70% 50%,100% 100%);\n}\n@keyframes darma-loader-darma-custom-493-l7  {\n  100% {width: 20px;\n  margin-left:60px;\n}\n}\n",
   "defaults": {
     "color": "#b45309",
     "secondaryColor": "#fcd34d",
     "size": 64,
-    "speed": 1.0,
+    "speed": 3,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-493\"></div>",
-    "css": ".darma-loader-darma-custom-493 {color: var(--loader-color, #b45309);\n  --loader-secondary-color: #fcd34d;\n  --loader-bg: #ffffff;\n   height: 35px;\n   width: 80px;\n   margin-left: 0px;\n   background: radial-gradient(farthest-side,var(--loader-secondary-color, #fcd34d) 94%,#0000 ) 4px 22px/5px 5px, radial-gradient(farthest-side,var(--loader-secondary-color, #fcd34d) 94%,#0000 ) 12px 18px/5px 5px, radial-gradient(farthest-side,var(--loader-secondary-color, #fcd34d) 94%,#0000 ) 3px 6px/8px 8px, radial-gradient(farthest-side,var(--loader-secondary-color, #fcd34d) 90%,#0000 94%) left/20px 100%, var(--loader-color, #b45309);\n   background-repeat: no-repeat;\n   border-radius: 0 50px 50px 0;\n   border-top-left-radius: 30px 40px;\n   border-bottom-left-radius: 30px 40px;\n   animation: darma-loader-darma-custom-493-l7 3s infinite steps(10);\n   position: relative;\n}\n.darma-loader-darma-custom-493::before  {\n  content: \" \";\n   position: absolute;\n   inset: calc(50% - 8px) -10px calc(50% - 8px) auto;\n   width: 15px;\n   background: var(--loader-color, #b45309);\n   clip-path: polygon(0 50%,100% 0,70% 50%,100% 100%);\n}\n@keyframes darma-loader-darma-custom-493-l7  {\n  100% {width: 20px;\n  margin-left:60px;\n}\n}",
-    "react": "export default function DarmaCustom493Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-493\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-493 {color: var(--loader-color, #b45309);\n   height: 35px;\n   width: 80px;\n   margin-left: 0px;\n   background: radial-gradient(farthest-side,var(--loader-secondary-color, #fcd34d) 94%,#0000 ) 4px 22px/5px 5px, radial-gradient(farthest-side,var(--loader-secondary-color, #fcd34d) 94%,#0000 ) 12px 18px/5px 5px, radial-gradient(farthest-side,var(--loader-secondary-color, #fcd34d) 94%,#0000 ) 3px 6px/8px 8px, radial-gradient(farthest-side,var(--loader-secondary-color, #fcd34d) 90%,#0000 94%) left/20px 100%, var(--loader-color, #b45309);\n   background-repeat: no-repeat;\n   border-radius: 0 50px 50px 0;\n   border-top-left-radius: 30px 40px;\n   border-bottom-left-radius: 30px 40px;\n   animation: darma-loader-darma-custom-493-l7 3s infinite steps(10);\n   position: relative;\n}\n.darma-loader-darma-custom-493::before  {\n  content: \" \";\n   position: absolute;\n   inset: calc(50% - 8px) -10px calc(50% - 8px) auto;\n   width: 15px;\n   background: var(--loader-color, #b45309);\n   clip-path: polygon(0 50%,100% 0,70% 50%,100% 100%);\n}\n@keyframes darma-loader-darma-custom-493-l7  {\n  100% {width: 20px;\n  margin-left:60px;\n}\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom493Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-493\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": true
+    "background": false,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

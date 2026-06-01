@@ -24,7 +24,7 @@
     },
     "searchText": "tailwind-pulse tailwind pulse tailwind tailwind pulse utility inline html css react tailwind popular cssonly customizable singleelement tailwind",
     "previewHtml": "<span class=\"darma-loader-tailwind-pulse\"></span>",
-    "previewCss": ".darma-loader-tailwind-pulse {\n  display: inline-block;\n  width: 48px;\n  height: 48px;\n  border-radius: 999px;\n  background: #6366f1;\n  animation: darma-loader-tailwind-pulse-tw-pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;\n}\n@keyframes darma-loader-tailwind-pulse-tw-pulse {\n  50% { opacity: .5; }\n}",
+    "previewCss": ".darma-loader-tailwind-pulse {\n  display: inline-block;\n  width: 48px;\n  height: 48px;\n  border-radius: 999px;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-tailwind-pulse-tw-pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;\n}\n@keyframes darma-loader-tailwind-pulse-tw-pulse {\n  50% { opacity: .5; }\n}\n",
     "defaults": {
       "color": "#6366f1",
       "size": 48,

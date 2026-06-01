@@ -8,8 +8,6 @@
     "customizable",
     "batch-08",
     "minimal",
-    "loader",
-    "minimal",
     "loader"
   ],
   "formats": [
@@ -24,27 +22,27 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-704 minimal loader 30 minimal css-only single-element customizable batch-08 minimal loader minimal loader html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-704 minimal loader 30 minimal css-only single-element customizable batch-08 minimal loader html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-704\"></div>",
-  "previewCss": ".darma-loader-darma-custom-704 {\n  color: var(--loader-color, #14b8a6);\n  --loader-secondary-color: #99f6e4;\n  --loader-bg: #ffffff;\nwidth: 9px;\nheight: 9px;\nbackground: currentColor;\ncolor: currentColor;\nbox-shadow:\n-18px -9px,0 -9px,18px -9px,\n-18px 0 , 18px 0 ,\n-18px 9px,0 9px,18px 9px,\n-18px 18px,0 18px,18px 18px;\nanimation: darma-loader-darma-custom-704-l29 2s infinite;\n}\n\n@keyframes darma-loader-darma-custom-704-l29 {\n10% {\nbox-shadow:\n-18px -9px,0 -9px,18px -9px,\n-18px 0 , 18px 0 ,\n-18px 9px #0000,0 9px,18px 9px #0000,\n-18px 18px,0 18px,18px 18px;\n}\n20% {\nbox-shadow:\n-18px -9px,0 -9px,18px -9px,\n-18px 0 , 18px 0 ,\n-18px 9px,0 9px,18px 9px #0000,\n-18px 18px #0000,0 18px,18px 18px;\n}\n30% {\nbox-shadow:\n-18px -9px,0 -9px #0000,18px -9px,\n-18px 0 #0000, 18px 0 ,\n-18px 9px,0 9px #0000,18px 9px,\n-18px 18px #0000,0 18px,18px 18px #0000;\n}\n40% {\nbox-shadow:\n-18px -9px,0 -9px,18px -9px,\n-18px 0 #0000, 18px 0 #0000,\n-18px 9px,0 9px,18px 9px,\n-18px 18px,0 18px,18px 18px;\n}\n50% {\nbox-shadow:\n-18px -9px,0 -9px,18px -9px,\n-18px 0 , 18px 0 #0000,\n-18px 9px #0000,0 9px,18px 9px,\n-18px 18px,0 18px,18px 18px;\n}\n60% {\nbox-shadow:\n-18px -9px,0 -9px #0000,18px -9px,\n-18px 0 , 18px 0 ,\n-18px 9px #0000,0 9px,18px 9px,\n-18px 18px #0000,0 18px,18px 18px;\n}\n70% {\nbox-shadow:\n-18px -9px,0 -9px #0000,18px -9px #0000,\n-18px 0 , 18px 0 ,\n-18px 9px,0 9px,18px 9px,\n-18px 18px #0000,0 18px,18px 18px;\n}\n80% {\nbox-shadow:\n-18px -9px #0000,0 -9px,18px -9px,\n-18px 0 , 18px 0 ,\n-18px 9px,0 9px,18px 9px,\n-18px 18px,0 18px,18px 18px #0000;\n}\n90% {\nbox-shadow:\n-18px -9px #0000,0 -9px,18px -9px,\n-18px 0 , 18px 0 ,\n-18px 9px,0 9px #0000,18px 9px,\n-18px 18px,0 18px,18px 18px #0000;\n}\n}",
+  "previewCss": ".darma-loader-darma-custom-704 {\n  color: var(--loader-color, #14b8a6);\nwidth: 9px;\nheight: 9px;\nbackground: currentColor;\ncolor: currentColor;\nbox-shadow:\n-18px -9px,0 -9px,18px -9px,\n-18px 0 , 18px 0 ,\n-18px 9px,0 9px,18px 9px,\n-18px 18px,0 18px,18px 18px;\nanimation: darma-loader-darma-custom-704-l29 2s infinite;\n}\n\n@keyframes darma-loader-darma-custom-704-l29 {\n10% {\nbox-shadow:\n-18px -9px,0 -9px,18px -9px,\n-18px 0 , 18px 0 ,\n-18px 9px #0000,0 9px,18px 9px #0000,\n-18px 18px,0 18px,18px 18px;\n}\n20% {\nbox-shadow:\n-18px -9px,0 -9px,18px -9px,\n-18px 0 , 18px 0 ,\n-18px 9px,0 9px,18px 9px #0000,\n-18px 18px #0000,0 18px,18px 18px;\n}\n30% {\nbox-shadow:\n-18px -9px,0 -9px #0000,18px -9px,\n-18px 0 #0000, 18px 0 ,\n-18px 9px,0 9px #0000,18px 9px,\n-18px 18px #0000,0 18px,18px 18px #0000;\n}\n40% {\nbox-shadow:\n-18px -9px,0 -9px,18px -9px,\n-18px 0 #0000, 18px 0 #0000,\n-18px 9px,0 9px,18px 9px,\n-18px 18px,0 18px,18px 18px;\n}\n50% {\nbox-shadow:\n-18px -9px,0 -9px,18px -9px,\n-18px 0 , 18px 0 #0000,\n-18px 9px #0000,0 9px,18px 9px,\n-18px 18px,0 18px,18px 18px;\n}\n60% {\nbox-shadow:\n-18px -9px,0 -9px #0000,18px -9px,\n-18px 0 , 18px 0 ,\n-18px 9px #0000,0 9px,18px 9px,\n-18px 18px #0000,0 18px,18px 18px;\n}\n70% {\nbox-shadow:\n-18px -9px,0 -9px #0000,18px -9px #0000,\n-18px 0 , 18px 0 ,\n-18px 9px,0 9px,18px 9px,\n-18px 18px #0000,0 18px,18px 18px;\n}\n80% {\nbox-shadow:\n-18px -9px #0000,0 -9px,18px -9px,\n-18px 0 , 18px 0 ,\n-18px 9px,0 9px,18px 9px,\n-18px 18px,0 18px,18px 18px #0000;\n}\n90% {\nbox-shadow:\n-18px -9px #0000,0 -9px,18px -9px,\n-18px 0 , 18px 0 ,\n-18px 9px,0 9px #0000,18px 9px,\n-18px 18px,0 18px,18px 18px #0000;\n}\n}",
   "defaults": {
     "color": "#14b8a6",
     "secondaryColor": "#99f6e4",
     "size": 48,
-    "speed": 1.0,
+    "speed": 2,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-704\"></div>",
-    "css": ".darma-loader-darma-custom-704 {\n  color: var(--loader-color, #14b8a6);\n  --loader-secondary-color: #99f6e4;\n  --loader-bg: #ffffff;\nwidth: 9px;\nheight: 9px;\nbackground: currentColor;\ncolor: currentColor;\nbox-shadow:\n-18px -9px,0 -9px,18px -9px,\n-18px 0 , 18px 0 ,\n-18px 9px,0 9px,18px 9px,\n-18px 18px,0 18px,18px 18px;\nanimation: darma-loader-darma-custom-704-l29 2s infinite;\n}\n\n@keyframes darma-loader-darma-custom-704-l29 {\n10% {\nbox-shadow:\n-18px -9px,0 -9px,18px -9px,\n-18px 0 , 18px 0 ,\n-18px 9px #0000,0 9px,18px 9px #0000,\n-18px 18px,0 18px,18px 18px;\n}\n20% {\nbox-shadow:\n-18px -9px,0 -9px,18px -9px,\n-18px 0 , 18px 0 ,\n-18px 9px,0 9px,18px 9px #0000,\n-18px 18px #0000,0 18px,18px 18px;\n}\n30% {\nbox-shadow:\n-18px -9px,0 -9px #0000,18px -9px,\n-18px 0 #0000, 18px 0 ,\n-18px 9px,0 9px #0000,18px 9px,\n-18px 18px #0000,0 18px,18px 18px #0000;\n}\n40% {\nbox-shadow:\n-18px -9px,0 -9px,18px -9px,\n-18px 0 #0000, 18px 0 #0000,\n-18px 9px,0 9px,18px 9px,\n-18px 18px,0 18px,18px 18px;\n}\n50% {\nbox-shadow:\n-18px -9px,0 -9px,18px -9px,\n-18px 0 , 18px 0 #0000,\n-18px 9px #0000,0 9px,18px 9px,\n-18px 18px,0 18px,18px 18px;\n}\n60% {\nbox-shadow:\n-18px -9px,0 -9px #0000,18px -9px,\n-18px 0 , 18px 0 ,\n-18px 9px #0000,0 9px,18px 9px,\n-18px 18px #0000,0 18px,18px 18px;\n}\n70% {\nbox-shadow:\n-18px -9px,0 -9px #0000,18px -9px #0000,\n-18px 0 , 18px 0 ,\n-18px 9px,0 9px,18px 9px,\n-18px 18px #0000,0 18px,18px 18px;\n}\n80% {\nbox-shadow:\n-18px -9px #0000,0 -9px,18px -9px,\n-18px 0 , 18px 0 ,\n-18px 9px,0 9px,18px 9px,\n-18px 18px,0 18px,18px 18px #0000;\n}\n90% {\nbox-shadow:\n-18px -9px #0000,0 -9px,18px -9px,\n-18px 0 , 18px 0 ,\n-18px 9px,0 9px #0000,18px 9px,\n-18px 18px,0 18px,18px 18px #0000;\n}\n}",
-    "react": "export default function DarmaCustom704Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-704\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-704 {\n  color: var(--loader-color, #14b8a6);\nwidth: 9px;\nheight: 9px;\nbackground: currentColor;\ncolor: currentColor;\nbox-shadow:\n-18px -9px,0 -9px,18px -9px,\n-18px 0 , 18px 0 ,\n-18px 9px,0 9px,18px 9px,\n-18px 18px,0 18px,18px 18px;\nanimation: darma-loader-darma-custom-704-l29 2s infinite;\n}\n\n@keyframes darma-loader-darma-custom-704-l29 {\n10% {\nbox-shadow:\n-18px -9px,0 -9px,18px -9px,\n-18px 0 , 18px 0 ,\n-18px 9px #0000,0 9px,18px 9px #0000,\n-18px 18px,0 18px,18px 18px;\n}\n20% {\nbox-shadow:\n-18px -9px,0 -9px,18px -9px,\n-18px 0 , 18px 0 ,\n-18px 9px,0 9px,18px 9px #0000,\n-18px 18px #0000,0 18px,18px 18px;\n}\n30% {\nbox-shadow:\n-18px -9px,0 -9px #0000,18px -9px,\n-18px 0 #0000, 18px 0 ,\n-18px 9px,0 9px #0000,18px 9px,\n-18px 18px #0000,0 18px,18px 18px #0000;\n}\n40% {\nbox-shadow:\n-18px -9px,0 -9px,18px -9px,\n-18px 0 #0000, 18px 0 #0000,\n-18px 9px,0 9px,18px 9px,\n-18px 18px,0 18px,18px 18px;\n}\n50% {\nbox-shadow:\n-18px -9px,0 -9px,18px -9px,\n-18px 0 , 18px 0 #0000,\n-18px 9px #0000,0 9px,18px 9px,\n-18px 18px,0 18px,18px 18px;\n}\n60% {\nbox-shadow:\n-18px -9px,0 -9px #0000,18px -9px,\n-18px 0 , 18px 0 ,\n-18px 9px #0000,0 9px,18px 9px,\n-18px 18px #0000,0 18px,18px 18px;\n}\n70% {\nbox-shadow:\n-18px -9px,0 -9px #0000,18px -9px #0000,\n-18px 0 , 18px 0 ,\n-18px 9px,0 9px,18px 9px,\n-18px 18px #0000,0 18px,18px 18px;\n}\n80% {\nbox-shadow:\n-18px -9px #0000,0 -9px,18px -9px,\n-18px 0 , 18px 0 ,\n-18px 9px,0 9px,18px 9px,\n-18px 18px,0 18px,18px 18px #0000;\n}\n90% {\nbox-shadow:\n-18px -9px #0000,0 -9px,18px -9px,\n-18px 0 , 18px 0 ,\n-18px 9px,0 9px #0000,18px 9px,\n-18px 18px,0 18px,18px 18px #0000;\n}\n}",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom704Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-704\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": false
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

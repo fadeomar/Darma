@@ -28,25 +28,25 @@
   },
   "searchText": "darma-custom-467 weather icon 07 fun weather icon 07 fun scene illustration loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-467\"></div>",
-  "previewCss": ".darma-loader-darma-custom-467 {color: var(--loader-color, #ca8a04);\n  --loader-secondary-color: #fde047;\n  --loader-bg: #ffffff;\n   width: 80px;\n   height: 40px;\n   background: radial-gradient(circle 11px at top,#0000 94%,var(--loader-secondary-color, #fde047)) 0 20px, radial-gradient(circle 11px at top,#0000 94%,var(--loader-secondary-color, #fde047)) 0 10px, radial-gradient(circle 11px at top,#0000 94%,var(--loader-secondary-color, #fde047)) 0 0 ;\n   background-size: 20px 100%;\n   background-repeat: repeat-x;\n   animation: darma-loader-darma-custom-467-l7 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-467-l7  {\n  50% {background-position: 10px 15px,-10px 12px,15px 8px}\n100% {background-position: 20px 20px,-20px 10px,20px 0px}\n}",
+  "previewCss": ".darma-loader-darma-custom-467 {color: var(--loader-color, #ca8a04);\n   width: 80px;\n   height: 40px;\n   background: radial-gradient(circle 11px at top,#0000 94%,var(--loader-secondary-color, #fde047)) 0 20px, radial-gradient(circle 11px at top,#0000 94%,var(--loader-secondary-color, #fde047)) 0 10px, radial-gradient(circle 11px at top,#0000 94%,var(--loader-secondary-color, #fde047)) 0 0 ;\n   background-size: 20px 100%;\n   background-repeat: repeat-x;\n   animation: darma-loader-darma-custom-467-l7 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-467-l7  {\n  50% {background-position: 10px 15px,-10px 12px,15px 8px}\n100% {background-position: 20px 20px,-20px 10px,20px 0px}\n}\n",
   "defaults": {
     "color": "#ca8a04",
     "secondaryColor": "#fde047",
     "size": 64,
-    "speed": 1.0,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-467\"></div>",
-    "css": ".darma-loader-darma-custom-467 {color: var(--loader-color, #ca8a04);\n  --loader-secondary-color: #fde047;\n  --loader-bg: #ffffff;\n   width: 80px;\n   height: 40px;\n   background: radial-gradient(circle 11px at top,#0000 94%,var(--loader-secondary-color, #fde047)) 0 20px, radial-gradient(circle 11px at top,#0000 94%,var(--loader-secondary-color, #fde047)) 0 10px, radial-gradient(circle 11px at top,#0000 94%,var(--loader-secondary-color, #fde047)) 0 0 ;\n   background-size: 20px 100%;\n   background-repeat: repeat-x;\n   animation: darma-loader-darma-custom-467-l7 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-467-l7  {\n  50% {background-position: 10px 15px,-10px 12px,15px 8px}\n100% {background-position: 20px 20px,-20px 10px,20px 0px}\n}",
-    "react": "export default function DarmaCustom467Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-467\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-467 {color: var(--loader-color, #ca8a04);\n   width: 80px;\n   height: 40px;\n   background: radial-gradient(circle 11px at top,#0000 94%,var(--loader-secondary-color, #fde047)) 0 20px, radial-gradient(circle 11px at top,#0000 94%,var(--loader-secondary-color, #fde047)) 0 10px, radial-gradient(circle 11px at top,#0000 94%,var(--loader-secondary-color, #fde047)) 0 0 ;\n   background-size: 20px 100%;\n   background-repeat: repeat-x;\n   animation: darma-loader-darma-custom-467-l7 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-467-l7  {\n  50% {background-position: 10px 15px,-10px 12px,15px 8px}\n100% {background-position: 20px 20px,-20px 10px,20px 0px}\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom467Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-467\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": true
+    "background": false,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

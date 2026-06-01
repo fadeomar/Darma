@@ -10,7 +10,6 @@
     "dots",
     "pulse",
     "micro",
-    "dots",
     "loader"
   ],
   "html": "<div class=\"loader\"></div>",

@@ -27,25 +27,25 @@
   },
   "searchText": "darma-custom-490 snack loader 04 fun snack loader 04 food fun illustration css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-490\"></div>",
-  "previewCss": ".darma-loader-darma-custom-490 {color: var(--loader-color, #be123c);\n  --loader-secondary-color: #fda4af;\n  --loader-bg: #ffffff;\n   width: 80px;\n   height: 70px;\n   border-radius: 50%;\n   border: 8px solid var(--loader-color, #be123c);\n   box-sizing: border-box;\n   --c:no-repeat radial-gradient(farthest-side, var(--loader-secondary-color, #fda4af) 94%,#0000);\n   --b:no-repeat radial-gradient(farthest-side, currentColor 94%,#0000);\n   background: var(--c) 11px 15px, var(--b) 6px 15px, var(--c) 35px 23px, var(--b) 29px 15px, var(--c) 11px 46px, var(--b) 11px 34px, var(--c) 36px 0px, var(--b) 50px 31px, var(--c) 47px 43px, var(--b) 31px 48px, var(--loader-color, #be123c);\n   background-size: 15px 15px,6px 6px;\n   animation: darma-loader-darma-custom-490-l4 3s infinite;\n}\n@keyframes darma-loader-darma-custom-490-l4  {\n  0% {-webkit-mask:conic-gradient(#0000 0 ,currentColor 0)}\n16.67% {-webkit-mask:conic-gradient(#0000 60deg ,currentColor 0)}\n33.33% {-webkit-mask:conic-gradient(#0000 120deg,currentColor 0)}\n50% {-webkit-mask:conic-gradient(#0000 180deg,currentColor 0)}\n66.67% {-webkit-mask:conic-gradient(#0000 240deg,currentColor 0)}\n83.33% {-webkit-mask:conic-gradient(#0000 300deg,currentColor 0)}\n100% {-webkit-mask:conic-gradient(#0000 360deg,currentColor 0)}\n}",
+  "previewCss": ".darma-loader-darma-custom-490 {color: var(--loader-color, #be123c);\n   width: 80px;\n   height: 70px;\n   border-radius: 50%;\n   border: 8px solid var(--loader-color, #be123c);\n   box-sizing: border-box;\n   --c:no-repeat radial-gradient(farthest-side, var(--loader-secondary-color, #fda4af) 94%,#0000);\n   --b:no-repeat radial-gradient(farthest-side, currentColor 94%,#0000);\n   background: var(--c) 11px 15px, var(--b) 6px 15px, var(--c) 35px 23px, var(--b) 29px 15px, var(--c) 11px 46px, var(--b) 11px 34px, var(--c) 36px 0px, var(--b) 50px 31px, var(--c) 47px 43px, var(--b) 31px 48px, var(--loader-color, #be123c);\n   background-size: 15px 15px,6px 6px;\n   animation: darma-loader-darma-custom-490-l4 3s infinite;\n}\n@keyframes darma-loader-darma-custom-490-l4  {\n  0% {-webkit-mask:conic-gradient(#0000 0 ,currentColor 0)}\n16.67% {-webkit-mask:conic-gradient(#0000 60deg ,currentColor 0)}\n33.33% {-webkit-mask:conic-gradient(#0000 120deg,currentColor 0)}\n50% {-webkit-mask:conic-gradient(#0000 180deg,currentColor 0)}\n66.67% {-webkit-mask:conic-gradient(#0000 240deg,currentColor 0)}\n83.33% {-webkit-mask:conic-gradient(#0000 300deg,currentColor 0)}\n100% {-webkit-mask:conic-gradient(#0000 360deg,currentColor 0)}\n}\n",
   "defaults": {
     "color": "#be123c",
     "secondaryColor": "#fda4af",
     "size": 64,
-    "speed": 1.0,
+    "speed": 3,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-490\"></div>",
-    "css": ".darma-loader-darma-custom-490 {color: var(--loader-color, #be123c);\n  --loader-secondary-color: #fda4af;\n  --loader-bg: #ffffff;\n   width: 80px;\n   height: 70px;\n   border-radius: 50%;\n   border: 8px solid var(--loader-color, #be123c);\n   box-sizing: border-box;\n   --c:no-repeat radial-gradient(farthest-side, var(--loader-secondary-color, #fda4af) 94%,#0000);\n   --b:no-repeat radial-gradient(farthest-side, currentColor 94%,#0000);\n   background: var(--c) 11px 15px, var(--b) 6px 15px, var(--c) 35px 23px, var(--b) 29px 15px, var(--c) 11px 46px, var(--b) 11px 34px, var(--c) 36px 0px, var(--b) 50px 31px, var(--c) 47px 43px, var(--b) 31px 48px, var(--loader-color, #be123c);\n   background-size: 15px 15px,6px 6px;\n   animation: darma-loader-darma-custom-490-l4 3s infinite;\n}\n@keyframes darma-loader-darma-custom-490-l4  {\n  0% {-webkit-mask:conic-gradient(#0000 0 ,currentColor 0)}\n16.67% {-webkit-mask:conic-gradient(#0000 60deg ,currentColor 0)}\n33.33% {-webkit-mask:conic-gradient(#0000 120deg,currentColor 0)}\n50% {-webkit-mask:conic-gradient(#0000 180deg,currentColor 0)}\n66.67% {-webkit-mask:conic-gradient(#0000 240deg,currentColor 0)}\n83.33% {-webkit-mask:conic-gradient(#0000 300deg,currentColor 0)}\n100% {-webkit-mask:conic-gradient(#0000 360deg,currentColor 0)}\n}",
-    "react": "export default function DarmaCustom490Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-490\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-490 {color: var(--loader-color, #be123c);\n   width: 80px;\n   height: 70px;\n   border-radius: 50%;\n   border: 8px solid var(--loader-color, #be123c);\n   box-sizing: border-box;\n   --c:no-repeat radial-gradient(farthest-side, var(--loader-secondary-color, #fda4af) 94%,#0000);\n   --b:no-repeat radial-gradient(farthest-side, currentColor 94%,#0000);\n   background: var(--c) 11px 15px, var(--b) 6px 15px, var(--c) 35px 23px, var(--b) 29px 15px, var(--c) 11px 46px, var(--b) 11px 34px, var(--c) 36px 0px, var(--b) 50px 31px, var(--c) 47px 43px, var(--b) 31px 48px, var(--loader-color, #be123c);\n   background-size: 15px 15px,6px 6px;\n   animation: darma-loader-darma-custom-490-l4 3s infinite;\n}\n@keyframes darma-loader-darma-custom-490-l4  {\n  0% {-webkit-mask:conic-gradient(#0000 0 ,currentColor 0)}\n16.67% {-webkit-mask:conic-gradient(#0000 60deg ,currentColor 0)}\n33.33% {-webkit-mask:conic-gradient(#0000 120deg,currentColor 0)}\n50% {-webkit-mask:conic-gradient(#0000 180deg,currentColor 0)}\n66.67% {-webkit-mask:conic-gradient(#0000 240deg,currentColor 0)}\n83.33% {-webkit-mask:conic-gradient(#0000 300deg,currentColor 0)}\n100% {-webkit-mask:conic-gradient(#0000 360deg,currentColor 0)}\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom490Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-490\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": true
+    "background": false,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

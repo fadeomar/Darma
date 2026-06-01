@@ -26,25 +26,25 @@
   },
   "searchText": "darma-custom-101 split capsule slide fun split capsule slide playful motion css-only single-element batch-03 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-101\"></div>",
-  "previewCss": ".darma-loader-darma-custom-101 {\n  width: 40px;\n  aspect-ratio: 1;\n  display: flex;\n}\n.darma-loader-darma-custom-101:before,\n.darma-loader-darma-custom-101:after {\n  content: \"\";\n  flex: 1;\n  background: #f03355;\n  animation: darma-loader-darma-custom-101-l21 2s infinite;\n  border-radius: 100px 0 0 100px;\n  transform-origin: top right;\n  transform: translateY(calc(var(--s,1)*0%)) rotate(0);\n}\n.darma-loader-darma-custom-101:after {\n  transform-origin: bottom left;\n  border-radius: 0 100px 100px 0;\n  --s:-1;\n}\n@keyframes darma-loader-darma-custom-101-l21 {\n  33%  {transform: translate(0,calc(var(--s,1)*50%)) rotate(0)}\n  66%  {transform: translate(0,calc(var(--s,1)*50%)) rotate(-90deg)}\n  90%,\n  100% {transform: translate(calc(var(--s,1)*-100%),calc(var(--s,1)*50%))  rotate(-90deg)}\n}",
+  "previewCss": ".darma-loader-darma-custom-101 {\n  width: 40px;\n  aspect-ratio: 1;\n  display: flex;\n}\n.darma-loader-darma-custom-101:before,\n.darma-loader-darma-custom-101:after {\n  content: \"\";\n  flex: 1;\n  background: var(--loader-color, #f03355);\n  animation: darma-loader-darma-custom-101-l21 2s infinite;\n  border-radius: 100px 0 0 100px;\n  transform-origin: top right;\n  transform: translateY(calc(var(--s,1)*0%)) rotate(0);\n}\n.darma-loader-darma-custom-101:after {\n  transform-origin: bottom left;\n  border-radius: 0 100px 100px 0;\n  --s:-1;\n}\n@keyframes darma-loader-darma-custom-101-l21 {\n  33%  {transform: translate(0,calc(var(--s,1)*50%)) rotate(0)}\n  66%  {transform: translate(0,calc(var(--s,1)*50%)) rotate(-90deg)}\n  90%,\n  100% {transform: translate(calc(var(--s,1)*-100%),calc(var(--s,1)*50%))  rotate(-90deg)}\n}\n",
   "defaults": {
     "color": "#f03355",
     "secondaryColor": "#e5e7eb",
     "size": 40,
-    "speed": 2.0,
+    "speed": 2,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-101\"></div>",
-    "css": ".darma-loader-darma-custom-101 {\n  width: 40px;\n  aspect-ratio: 1;\n  display: flex;\n}\n.darma-loader-darma-custom-101:before,\n.darma-loader-darma-custom-101:after {\n  content: \"\";\n  flex: 1;\n  background: #f03355;\n  animation: darma-loader-darma-custom-101-l21 2s infinite;\n  border-radius: 100px 0 0 100px;\n  transform-origin: top right;\n  transform: translateY(calc(var(--s,1)*0%)) rotate(0);\n}\n.darma-loader-darma-custom-101:after {\n  transform-origin: bottom left;\n  border-radius: 0 100px 100px 0;\n  --s:-1;\n}\n@keyframes darma-loader-darma-custom-101-l21 {\n  33%  {transform: translate(0,calc(var(--s,1)*50%)) rotate(0)}\n  66%  {transform: translate(0,calc(var(--s,1)*50%)) rotate(-90deg)}\n  90%,\n  100% {transform: translate(calc(var(--s,1)*-100%),calc(var(--s,1)*50%))  rotate(-90deg)}\n}",
-    "react": "export default function DarmaCustom101Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-101\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-101 {\n  width: 40px;\n  aspect-ratio: 1;\n  display: flex;\n}\n.darma-loader-darma-custom-101:before,\n.darma-loader-darma-custom-101:after {\n  content: \"\";\n  flex: 1;\n  background: var(--loader-color, #f03355);\n  animation: darma-loader-darma-custom-101-l21 2s infinite;\n  border-radius: 100px 0 0 100px;\n  transform-origin: top right;\n  transform: translateY(calc(var(--s,1)*0%)) rotate(0);\n}\n.darma-loader-darma-custom-101:after {\n  transform-origin: bottom left;\n  border-radius: 0 100px 100px 0;\n  --s:-1;\n}\n@keyframes darma-loader-darma-custom-101-l21 {\n  33%  {transform: translate(0,calc(var(--s,1)*50%)) rotate(0)}\n  66%  {transform: translate(0,calc(var(--s,1)*50%)) rotate(-90deg)}\n  90%,\n  100% {transform: translate(calc(var(--s,1)*-100%),calc(var(--s,1)*50%))  rotate(-90deg)}\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom101Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-101\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": false
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

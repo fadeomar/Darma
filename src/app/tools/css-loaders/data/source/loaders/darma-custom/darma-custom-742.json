@@ -10,7 +10,6 @@
     "progress",
     "striped",
     "pattern",
-    "progress",
     "loader"
   ],
   "html": "<div class=\"loader\"></div>",

@@ -10,7 +10,6 @@
     "progress",
     "striped",
     "pattern",
-    "progress",
     "loader"
   ],
   "formats": [
@@ -25,27 +24,27 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-721 pattern progress 47 progress css-only single-element customizable batch-08 progress striped pattern progress loader html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-721 pattern progress 47 progress css-only single-element customizable batch-08 progress striped pattern loader html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-721\"></div>",
-  "previewCss": ".darma-loader-darma-custom-721 {\n  color: var(--loader-color, #f59e0b);\n  --loader-secondary-color: #fde68a;\n  --loader-bg: #ffffff;\nwidth: 40px;\naspect-ratio: 1;\n--c: linear-gradient(currentColor 0 0);\n--m: radial-gradient(farthest-side,currentColor 92%,#0000);\nbackground:\nvar(--c),var(--m),\nvar(--c),var(--m),\nvar(--c),var(--m);\nbackground-size: 8px 12px,8px 8px;\nbackground-repeat: no-repeat;\nanimation: darma-loader-darma-custom-721-l16 1s infinite linear alternate;\n}\n@keyframes darma-loader-darma-custom-721-l16 {\n0%,5% {background-position: 0 50% ,0 0 ,50% 50% ,50% 0 ,100% 50% ,100% 0}\n16.67% {background-position: 0 50% ,0 calc(50% - 10px),50% 50% ,50% 0 ,100% 50% ,100% 0}\n33.33% {background-position: 0 calc(50% + 10px),0 50% ,50% 50% ,50% 0 ,100% 50% ,100% 0}\n50% {background-position: 0 calc(50% + 10px),0 50% ,50% 50% ,50% calc(50% - 10px),100% 50% ,100% 0}\n66.67% {background-position: 0 calc(50% + 10px),0 50% ,50% calc(50% + 10px),50% 50% ,100% 50% ,100% 0}\n83.33% {background-position: 0 calc(50% + 10px),0 50% ,50% calc(50% + 10px),50% 50% ,100% 50% ,100% calc(50% - 10px)}\n95%,100%{background-position: 0 calc(50% + 10px),0 50% ,50% calc(50% + 10px),50% 50% ,100% calc(50% + 10px),100% 50%}\n}",
+  "previewCss": ".darma-loader-darma-custom-721 {\n  color: var(--loader-color, #f59e0b);\nwidth: 40px;\naspect-ratio: 1;\n--c: linear-gradient(currentColor 0 0);\n--m: radial-gradient(farthest-side,currentColor 92%,#0000);\nbackground:\nvar(--c),var(--m),\nvar(--c),var(--m),\nvar(--c),var(--m);\nbackground-size: 8px 12px,8px 8px;\nbackground-repeat: no-repeat;\nanimation: darma-loader-darma-custom-721-l16 1s infinite linear alternate;\n}\n@keyframes darma-loader-darma-custom-721-l16 {\n0%,5% {background-position: 0 50% ,0 0 ,50% 50% ,50% 0 ,100% 50% ,100% 0}\n16.67% {background-position: 0 50% ,0 calc(50% - 10px),50% 50% ,50% 0 ,100% 50% ,100% 0}\n33.33% {background-position: 0 calc(50% + 10px),0 50% ,50% 50% ,50% 0 ,100% 50% ,100% 0}\n50% {background-position: 0 calc(50% + 10px),0 50% ,50% 50% ,50% calc(50% - 10px),100% 50% ,100% 0}\n66.67% {background-position: 0 calc(50% + 10px),0 50% ,50% calc(50% + 10px),50% 50% ,100% 50% ,100% 0}\n83.33% {background-position: 0 calc(50% + 10px),0 50% ,50% calc(50% + 10px),50% 50% ,100% 50% ,100% calc(50% - 10px)}\n95%,100%{background-position: 0 calc(50% + 10px),0 50% ,50% calc(50% + 10px),50% 50% ,100% calc(50% + 10px),100% 50%}\n}",
   "defaults": {
     "color": "#f59e0b",
     "secondaryColor": "#fde68a",
     "size": 40,
-    "speed": 1.0,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-721\"></div>",
-    "css": ".darma-loader-darma-custom-721 {\n  color: var(--loader-color, #f59e0b);\n  --loader-secondary-color: #fde68a;\n  --loader-bg: #ffffff;\nwidth: 40px;\naspect-ratio: 1;\n--c: linear-gradient(currentColor 0 0);\n--m: radial-gradient(farthest-side,currentColor 92%,#0000);\nbackground:\nvar(--c),var(--m),\nvar(--c),var(--m),\nvar(--c),var(--m);\nbackground-size: 8px 12px,8px 8px;\nbackground-repeat: no-repeat;\nanimation: darma-loader-darma-custom-721-l16 1s infinite linear alternate;\n}\n@keyframes darma-loader-darma-custom-721-l16 {\n0%,5% {background-position: 0 50% ,0 0 ,50% 50% ,50% 0 ,100% 50% ,100% 0}\n16.67% {background-position: 0 50% ,0 calc(50% - 10px),50% 50% ,50% 0 ,100% 50% ,100% 0}\n33.33% {background-position: 0 calc(50% + 10px),0 50% ,50% 50% ,50% 0 ,100% 50% ,100% 0}\n50% {background-position: 0 calc(50% + 10px),0 50% ,50% 50% ,50% calc(50% - 10px),100% 50% ,100% 0}\n66.67% {background-position: 0 calc(50% + 10px),0 50% ,50% calc(50% + 10px),50% 50% ,100% 50% ,100% 0}\n83.33% {background-position: 0 calc(50% + 10px),0 50% ,50% calc(50% + 10px),50% 50% ,100% 50% ,100% calc(50% - 10px)}\n95%,100%{background-position: 0 calc(50% + 10px),0 50% ,50% calc(50% + 10px),50% 50% ,100% calc(50% + 10px),100% 50%}\n}",
-    "react": "export default function DarmaCustom721Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-721\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-721 {\n  color: var(--loader-color, #f59e0b);\nwidth: 40px;\naspect-ratio: 1;\n--c: linear-gradient(currentColor 0 0);\n--m: radial-gradient(farthest-side,currentColor 92%,#0000);\nbackground:\nvar(--c),var(--m),\nvar(--c),var(--m),\nvar(--c),var(--m);\nbackground-size: 8px 12px,8px 8px;\nbackground-repeat: no-repeat;\nanimation: darma-loader-darma-custom-721-l16 1s infinite linear alternate;\n}\n@keyframes darma-loader-darma-custom-721-l16 {\n0%,5% {background-position: 0 50% ,0 0 ,50% 50% ,50% 0 ,100% 50% ,100% 0}\n16.67% {background-position: 0 50% ,0 calc(50% - 10px),50% 50% ,50% 0 ,100% 50% ,100% 0}\n33.33% {background-position: 0 calc(50% + 10px),0 50% ,50% 50% ,50% 0 ,100% 50% ,100% 0}\n50% {background-position: 0 calc(50% + 10px),0 50% ,50% 50% ,50% calc(50% - 10px),100% 50% ,100% 0}\n66.67% {background-position: 0 calc(50% + 10px),0 50% ,50% calc(50% + 10px),50% 50% ,100% 50% ,100% 0}\n83.33% {background-position: 0 calc(50% + 10px),0 50% ,50% calc(50% + 10px),50% 50% ,100% 50% ,100% calc(50% - 10px)}\n95%,100%{background-position: 0 calc(50% + 10px),0 50% ,50% calc(50% + 10px),50% 50% ,100% calc(50% + 10px),100% 50%}\n}",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom721Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-721\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": false
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

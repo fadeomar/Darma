@@ -30,7 +30,7 @@
     "color": "#6366f1",
     "secondaryColor": "#a5b4fc",
     "size": 56,
-    "speed": 1.0,
+    "speed": 1,
     "background": "#ffffff"
   },
   "flags": {

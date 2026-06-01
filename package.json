@@ -11,7 +11,8 @@
     "seed:admin": "ts-node prisma/seed-admin.ts",
     "check:tools": "tsx scripts/check-tools-registry.ts",
     "generate:css-loaders": "tsx scripts/css-loaders/generate-css-loaders.ts",
-    "audit:design": "node scripts/design-refactor-audit.mjs"
+    "audit:design": "node scripts/design-refactor-audit.mjs",
+    "qa:css-loaders": "node scripts/css-loaders/qa-generated-loaders.mjs"
   },
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",

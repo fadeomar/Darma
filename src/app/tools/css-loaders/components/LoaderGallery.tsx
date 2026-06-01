@@ -39,7 +39,7 @@ export default function LoaderGallery({
     <section aria-label="CSS loaders gallery" className={cn("css-loaders-gallery", `css-loaders-gallery-${galleryMode}`)}>
       <div className="css-loaders-performance-note" aria-live="polite">
         <span>{visibleLoaders.length} cards rendered</span>
-        <span>{loaderPreviewById.size} preview chunks cached</span>
+        <span>{loaderPreviewById.size} previews cached</span>
         {isLoadingVisiblePreviews ? <strong>Loading visible previews…</strong> : <strong>Visible CSS only</strong>}
       </div>
 

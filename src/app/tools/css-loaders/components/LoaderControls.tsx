@@ -27,7 +27,7 @@ export default function LoaderControls({ loader, value, onChange }: LoaderContro
       <div className="css-loaders-controls-header">
         <div>
           <h3>Customize</h3>
-          <p>Controls now only appear when they can affect this loader. Background controls the preview canvas.</p>
+          <p>Only safe controls are shown. Duration preserves each loader's animation timing ratios; preview background changes the canvas only.</p>
         </div>
         <Button variant="ghost" size="sm" onClick={() => onChange(getDefaultLoaderCustomization(loader))}>
           Reset
@@ -82,7 +82,7 @@ export default function LoaderControls({ loader, value, onChange }: LoaderContro
             {controls.speed ? (
               <label className="css-loaders-control-field css-loaders-range-field">
                 <span>
-                  Speed <strong>{value.speed.toFixed(2)}s</strong>
+                  Duration <strong>{value.speed.toFixed(2)}s</strong>
                 </span>
                 <input
                   type="range"

@@ -1497,15 +1497,6 @@
   color: var(--color-text) !important;
 }
 
-.css-loaders-card-quick-actions button:last-child {
-  border-color: transparent !important;
-  background: var(--color-primary) !important;
-  color: var(--color-primary-text) !important;
-}
-
-.css-loaders-card-quick-actions button:last-child:hover {
-  background: var(--color-primary-hover) !important;
-}
 
 .css-loaders-modal-body {
   grid-template-columns: minmax(0, 1.55fr) minmax(390px, 0.85fr);
@@ -1704,4 +1695,77 @@
 .css-loaders-card-quick-actions .css-loaders-card-open-action:hover,
 .css-loaders-card-quick-actions .css-loaders-card-open-action:focus-visible {
   background: var(--color-primary-hover) !important;
+}
+
+
+/* QA fix 04: mobile/detail polish and touch safety */
+.css-loaders-code-block:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--color-primary) 72%, transparent);
+  outline-offset: -2px;
+}
+
+.css-loaders-preview-background-field {
+  grid-column: 1 / -1;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .css-loaders-card-quick-actions {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 720px) {
+  .css-loaders-stage-wrap {
+    display: grid;
+    gap: 0.75rem;
+    overflow: visible;
+  }
+
+  .css-loaders-preview-meta {
+    position: static;
+    max-width: 100%;
+    pointer-events: auto;
+  }
+
+  .css-loaders-preview-meta-top {
+    order: 0;
+  }
+
+  .css-loaders-stage-wrap .css-loaders-detail-stage {
+    order: 1;
+    min-height: 310px;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .css-loaders-preview-meta-bottom {
+    order: 2;
+    margin-inline: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .css-loaders-preview-meta-top {
+    padding: 0.75rem 0.75rem 0;
+  }
+
+  .css-loaders-code-header-tools {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 520px) {
+  .css-loaders-card-quick-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .css-loaders-card-open-action {
+    grid-column: 1 / -1;
+  }
+
+  .css-loaders-code-block {
+    font-size: 0.76rem;
+    line-height: 1.55;
+  }
 }

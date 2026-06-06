@@ -34,6 +34,13 @@ body {
   color: var(--color-text-primary);
 }
 
+.darma-code-output-pre::selection,
+.darma-code-output-pre *::selection {
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+  text-shadow: none;
+}
+
 :where(a, button, input, textarea, select, summary):focus-visible {
   outline: none;
   box-shadow: var(--focus-ring);

@@ -8,7 +8,7 @@ import SurfaceCard from "@/components/ui/SurfaceCard";
 export const metadata: Metadata = {
   title: "JSON Formatter & Validator | Darma Tools",
   description:
-    "Format, validate, and minify JSON instantly in your browser. Clear error messages with line and column numbers, 2/4-space or tab indentation, one-click copy and download. No signup, nothing uploaded.",
+    "Format, validate, repair, minify, sort, and inspect JSON in your browser. Syntax highlighting, line numbers, tree/table views, payload stats, drag-and-drop upload, one-click copy and download.",
   keywords: [
     "json formatter",
     "json validator",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "JSON Formatter & Validator — Instant, Free, Private",
     description:
-      "Paste JSON, format it for readability, minify it for transport, and get precise error messages when something is broken. All client-side — nothing leaves your browser.",
+      "Paste JSON, format it, repair common syntax mistakes, inspect it as a tree or table, and get clear line/column errors. All client-side — nothing leaves your browser.",
   },
 };
 
@@ -48,9 +48,9 @@ export default function JsonFormatterPage() {
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
           Paste any JSON — from an API response, config file, or log export —
-          and format it for reading, minify it for transport, or validate it to
-          find exactly where the syntax breaks. Clear error messages, line and
-          column numbers, one-click copy. Everything runs locally.
+          then format, minify, repair common syntax mistakes, sort keys, and
+          inspect the payload as text, tree, table, or stats. Everything runs
+          locally in your browser.
         </p>
       }
       sidebar={
@@ -64,7 +64,7 @@ export default function JsonFormatterPage() {
                 <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
                   Format
                 </strong>{" "}
-                — prettify with 2 spaces, 4 spaces, or tabs
+                — prettify with 2 spaces, 4 spaces, tabs, and optional sorted keys
               </li>
               <li>
                 <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
@@ -76,19 +76,19 @@ export default function JsonFormatterPage() {
                 <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
                   Validate
                 </strong>{" "}
-                — check syntax with line + column errors
+                — check syntax with live line + column errors
               </li>
               <li>
                 <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-                  Copy
+                  Fix JSON
                 </strong>{" "}
-                — one-click clipboard copy
+                — repair comments, single quotes, unquoted keys, and trailing commas
               </li>
               <li>
                 <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-                  Download
+                  Inspect
                 </strong>{" "}
-                — save as <code className="font-mono text-xs">.json</code>
+                — browse text, tree, table, and stats views
               </li>
             </ul>
           </SurfaceCard>
@@ -127,7 +127,7 @@ export default function JsonFormatterPage() {
     >
       <ToolContentCard
         title="JSON Formatter & Validator"
-        description="Paste JSON on the left, pick an action, and inspect the result on the right."
+        description="A browser-only JSON studio with formatting, validation, repair, sorted keys, tree/table inspection, stats, copy, upload, and download."
       >
         <JsonFormatterClient />
       </ToolContentCard>

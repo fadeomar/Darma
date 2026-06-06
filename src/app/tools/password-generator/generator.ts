@@ -180,8 +180,10 @@ export function generatePassphrase(config: PasswordConfig): string {
 
 function calcEntropy(config: PasswordConfig): number {
   if (config.mode === "passphrase") {
-    const effectiveCount = config.includeNumber ? config.wordCount + 1 : config.wordCount;
-    return Math.round(effectiveCount * Math.log2(WORDLIST.length));
+    const wordEntropy = config.wordCount * Math.log2(WORDLIST.length);
+    const numberEntropy = config.includeNumber ? Math.log2(90) : 0;
+    const symbolEntropy = config.includeSymbol ? Math.log2(PASSPHRASE_SYMBOLS.length) : 0;
+    return Math.round(wordEntropy + numberEntropy + symbolEntropy);
   }
 
   let pool = 0;

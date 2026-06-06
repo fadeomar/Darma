@@ -136,6 +136,40 @@ export default function Article() {
         </p>
       </section>
 
+
+
+      <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
+          New workspace views
+        </h2>
+        <div className="grid gap-4 md:grid-cols-2">
+          {[
+            [
+              "Text view",
+              "Use this for the formatted or minified JSON output. It includes code-style highlighting, line numbers, folding, and safe copy/download controls.",
+            ],
+            [
+              "Tree view",
+              "Use this when a response has deeply nested objects or arrays. You can collapse sections and inspect the shape without scrolling through raw text.",
+            ],
+            [
+              "Table view",
+              "Use this when the root value is an array of objects, such as product lists, API rows, logs, or exported records.",
+            ],
+            [
+              "Stats view",
+              "Use this to understand payload depth, key counts, root type, object/array counts, and minified size reduction.",
+            ],
+          ].map(([title, body]) => (
+            <div key={title as string} className="rounded-xl border border-black/8 bg-[var(--color-surface-subtle)] p-4 dark:border-white/10 dark:bg-[var(--color-code-surface)]/40">
+              <h3 className="font-semibold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">{title}</h3>
+              <p className="mt-1 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">{body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+
       <section>
         <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
           Privacy and security
@@ -150,7 +184,8 @@ export default function Article() {
             JSON.stringify
           </code>{" "}
           APIs that ship in every modern JavaScript engine. Your data is never
-          sent to a server, never logged, and never stored. This makes the tool
+          sent to a server or logged. Optional history is stored only in your
+          current browser if you explicitly enable it. This makes the tool
           safe for use with internal API payloads, customer data, credentials,
           or any content you would not want to pass through a third-party
           service.
@@ -177,7 +212,7 @@ export default function Article() {
             ],
             [
               "What is the difference between JSON and JSON5 or JSONC?",
-              "Standard JSON (RFC 8259) does not allow comments, trailing commas, or single-quoted strings. JSON5 and JSONC (JSON with Comments) are supersets that add these features. This tool validates and formats standard JSON only. If your input uses JSON5 or JSONC features, you will need to strip those additions first.",
+              "Standard JSON (RFC 8259) does not allow comments, trailing commas, or single-quoted strings. JSON5 and JSONC (JSON with Comments) are supersets that add these features. This tool validates standard JSON, but the Fix JSON action can safely remove common JSON5/JSONC-style additions such as comments and trailing commas before producing standard JSON output.",
             ],
             [
               "Can I use this for JSON inside environment variables or dotenv files?",
@@ -185,7 +220,7 @@ export default function Article() {
             ],
             [
               "Does the tool support JSON arrays at the root level?",
-              "Yes. A root-level JSON array — for example a list of objects — is fully valid JSON and is handled correctly by all three operations: Format, Minify, and Validate.",
+              "Yes. A root-level JSON array — for example a list of objects — is fully valid JSON and is handled correctly by Format, Minify, Validate, Tree, Table, and Stats views.",
             ],
           ].map(([q, a]) => (
             <div key={q as string}>

@@ -74,7 +74,7 @@ export function CodeOutputPanel({
 
       <div className="p-3.5 sm:p-4">
         {currentTab && hasCode ? (
-          <pre className="min-h-[22rem] max-h-[32rem] overflow-auto whitespace-pre-wrap rounded-[var(--radius-md)] border border-[var(--color-code-border)] bg-[var(--color-code-bg)] p-4 font-mono text-xs leading-6 text-[var(--color-code-text)] shadow-[inset_0_1px_0_rgba(244,241,234,0.04)]">
+          <pre className="darma-code-output-pre min-h-[22rem] max-h-[32rem] overflow-auto whitespace-pre-wrap rounded-[var(--radius-md)] border border-[var(--color-code-border)] bg-[var(--color-code-bg)] p-4 font-mono text-xs leading-6 text-[var(--color-code-text)] shadow-[inset_0_1px_0_rgba(244,241,234,0.04)]">
             <code data-language={currentTab.language}>{currentTab.code}</code>
           </pre>
         ) : (

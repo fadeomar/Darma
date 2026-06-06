@@ -28,25 +28,25 @@
   },
   "searchText": "darma-custom-466 weather icon 06 fun weather icon 06 fun scene illustration loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-466\"></div>",
-  "previewCss": ".darma-loader-darma-custom-466 {color: var(--loader-color, #4f46e5);\n  --loader-secondary-color: #a5b4fc;\n  --loader-bg: #ffffff;\n   width: 80px;\n   height: 40px;\n   border-radius: 100px 100px 0 0;\n   background: linear-gradient(0deg, #0000,currentColor,#0000) 70% 30%, linear-gradient(90deg,#0000,currentColor,#0000) 72% 32%, linear-gradient(0deg, #0000,currentColor,#0000) 26% 42%, linear-gradient(90deg,#0000,currentColor,#0000) 23% 44%, linear-gradient(0deg, #0000,currentColor,#0000) 51% 54%, linear-gradient(90deg,#0000,currentColor,#0000) 51% 53% var(--loader-secondary-color, #a5b4fc);\n   background-size: 2px 10px,10px 2px;\n   background-repeat: no-repeat;\n   position: relative;\n   overflow: hidden;\n}\n.darma-loader-darma-custom-466:before, .darma-loader-darma-custom-466:after  {\n  content: \"\";\n   position: absolute;\n   inset: 100% auto auto 20px;\n   height: 3px;\n   width: 20px;\n   background: linear-gradient(90deg,#0000,currentColor);\n   transform-origin: right;\n   transform: rotate(-20deg) translate(-20px);\n   animation: darma-loader-darma-custom-466-l6 2s infinite;\n}\n.darma-loader-darma-custom-466:after  {\n  inset: 100% auto auto -5px;\n   animation-delay: .75s;\n}\n@keyframes darma-loader-darma-custom-466-l6  {\n  100% {transform: rotate(-20deg) translate(120px)}\n}",
+  "previewCss": ".darma-loader-darma-custom-466 {color: var(--loader-color, #4f46e5);\n   width: 80px;\n   height: 40px;\n   border-radius: 100px 100px 0 0;\n   background: linear-gradient(0deg, #0000,currentColor,#0000) 70% 30%, linear-gradient(90deg,#0000,currentColor,#0000) 72% 32%, linear-gradient(0deg, #0000,currentColor,#0000) 26% 42%, linear-gradient(90deg,#0000,currentColor,#0000) 23% 44%, linear-gradient(0deg, #0000,currentColor,#0000) 51% 54%, linear-gradient(90deg,#0000,currentColor,#0000) 51% 53% var(--loader-secondary-color, #a5b4fc);\n   background-size: 2px 10px,10px 2px;\n   background-repeat: no-repeat;\n   position: relative;\n   overflow: hidden;\n}\n.darma-loader-darma-custom-466:before, .darma-loader-darma-custom-466:after  {\n  content: \"\";\n   position: absolute;\n   inset: 100% auto auto 20px;\n   height: 3px;\n   width: 20px;\n   background: linear-gradient(90deg,#0000,currentColor);\n   transform-origin: right;\n   transform: rotate(-20deg) translate(-20px);\n   animation: darma-loader-darma-custom-466-l6 2s infinite;\n}\n.darma-loader-darma-custom-466:after  {\n  inset: 100% auto auto -5px;\n   animation-delay: .75s;\n}\n@keyframes darma-loader-darma-custom-466-l6  {\n  100% {transform: rotate(-20deg) translate(120px)}\n}\n",
   "defaults": {
     "color": "#4f46e5",
     "secondaryColor": "#a5b4fc",
     "size": 64,
-    "speed": 1.0,
+    "speed": 2,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-466\"></div>",
-    "css": ".darma-loader-darma-custom-466 {color: var(--loader-color, #4f46e5);\n  --loader-secondary-color: #a5b4fc;\n  --loader-bg: #ffffff;\n   width: 80px;\n   height: 40px;\n   border-radius: 100px 100px 0 0;\n   background: linear-gradient(0deg, #0000,currentColor,#0000) 70% 30%, linear-gradient(90deg,#0000,currentColor,#0000) 72% 32%, linear-gradient(0deg, #0000,currentColor,#0000) 26% 42%, linear-gradient(90deg,#0000,currentColor,#0000) 23% 44%, linear-gradient(0deg, #0000,currentColor,#0000) 51% 54%, linear-gradient(90deg,#0000,currentColor,#0000) 51% 53% var(--loader-secondary-color, #a5b4fc);\n   background-size: 2px 10px,10px 2px;\n   background-repeat: no-repeat;\n   position: relative;\n   overflow: hidden;\n}\n.darma-loader-darma-custom-466:before, .darma-loader-darma-custom-466:after  {\n  content: \"\";\n   position: absolute;\n   inset: 100% auto auto 20px;\n   height: 3px;\n   width: 20px;\n   background: linear-gradient(90deg,#0000,currentColor);\n   transform-origin: right;\n   transform: rotate(-20deg) translate(-20px);\n   animation: darma-loader-darma-custom-466-l6 2s infinite;\n}\n.darma-loader-darma-custom-466:after  {\n  inset: 100% auto auto -5px;\n   animation-delay: .75s;\n}\n@keyframes darma-loader-darma-custom-466-l6  {\n  100% {transform: rotate(-20deg) translate(120px)}\n}",
-    "react": "export default function DarmaCustom466Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-466\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-466 {color: var(--loader-color, #4f46e5);\n   width: 80px;\n   height: 40px;\n   border-radius: 100px 100px 0 0;\n   background: linear-gradient(0deg, #0000,currentColor,#0000) 70% 30%, linear-gradient(90deg,#0000,currentColor,#0000) 72% 32%, linear-gradient(0deg, #0000,currentColor,#0000) 26% 42%, linear-gradient(90deg,#0000,currentColor,#0000) 23% 44%, linear-gradient(0deg, #0000,currentColor,#0000) 51% 54%, linear-gradient(90deg,#0000,currentColor,#0000) 51% 53% var(--loader-secondary-color, #a5b4fc);\n   background-size: 2px 10px,10px 2px;\n   background-repeat: no-repeat;\n   position: relative;\n   overflow: hidden;\n}\n.darma-loader-darma-custom-466:before, .darma-loader-darma-custom-466:after  {\n  content: \"\";\n   position: absolute;\n   inset: 100% auto auto 20px;\n   height: 3px;\n   width: 20px;\n   background: linear-gradient(90deg,#0000,currentColor);\n   transform-origin: right;\n   transform: rotate(-20deg) translate(-20px);\n   animation: darma-loader-darma-custom-466-l6 2s infinite;\n}\n.darma-loader-darma-custom-466:after  {\n  inset: 100% auto auto -5px;\n   animation-delay: .75s;\n}\n@keyframes darma-loader-darma-custom-466-l6  {\n  100% {transform: rotate(-20deg) translate(120px)}\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom466Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-466\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": true
+    "background": false,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

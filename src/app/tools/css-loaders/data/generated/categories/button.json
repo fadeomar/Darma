@@ -21,11 +21,11 @@
     },
     "searchText": "button-dots button dots button button dots inline submit html css react popular cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-button-dots\"><i></i><i></i><i></i></span>",
-    "previewCss": ".darma-loader-button-dots {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n  border-radius: 999px;\n  background: #6366f1;\n  padding: 12px 18px;\n  color: #fff;\n}\n.darma-loader-button-dots i {\n  width: 7px;\n  height: 7px;\n  border-radius: 50%;\n  background: currentColor;\n  animation: darma-loader-button-dots-blink 0.95s ease-in-out infinite;\n}\n.darma-loader-button-dots i:nth-child(2) { animation-delay: 0.15s; }\n.darma-loader-button-dots i:nth-child(3) { animation-delay: 0.3s; }\n@keyframes darma-loader-button-dots-blink {\n  0%, 100% { opacity: 0.28; transform: scale(0.8); }\n  50% { opacity: 1; transform: scale(1); }\n}",
+    "previewCss": ".darma-loader-button-dots {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n  border-radius: 999px;\n  background: var(--loader-color, #6366f1);\n  padding: 12px 18px;\n  color: #fff;\n}\n.darma-loader-button-dots i {\n  width: 7px;\n  height: 7px;\n  border-radius: 50%;\n  background: currentColor;\n  animation: darma-loader-button-dots-blink 0.95s ease-in-out infinite;\n}\n.darma-loader-button-dots i:nth-child(2) { animation-delay: 0.15s; }\n.darma-loader-button-dots i:nth-child(3) { animation-delay: 0.3s; }\n@keyframes darma-loader-button-dots-blink {\n  0%, 100% { opacity: 0.28; transform: scale(0.8); }\n  50% { opacity: 1; transform: scale(1); }\n}\n",
     "defaults": {
       "color": "#6366f1",
       "size": 48,
-      "speed": 1
+      "speed": 0.95
     }
   },
   {
@@ -52,12 +52,12 @@
     },
     "searchText": "uiverse-button-save-dots button save dots button uiverse button saving loader html css react popular cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-uiverse-button-save-dots\"><i></i><i></i><i></i></span>",
-    "previewCss": ".darma-loader-uiverse-button-save-dots {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 5px;\n      min-width: 36px;\n      min-height: 14px;\n    }\n    .darma-loader-uiverse-button-save-dots i {\n      display: block;\n      width: 7px;\n      height: 7px;\n      border-radius: 50%;\n      background: var(--loader-color);\n      animation: darma-loader-uiverse-button-save-dots-dotPulse 0.72s ease-in-out infinite;\n    }\n    .darma-loader-uiverse-button-save-dots i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-uiverse-button-save-dots i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-uiverse-button-save-dots i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-uiverse-button-save-dots-dotPulse { 0%, 80%, 100% { transform: translateY(0) scale(.75); opacity: .45; } 40% { transform: translateY(-8px) scale(1); opacity: 1; } }",
+    "previewCss": ".darma-loader-uiverse-button-save-dots {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 5px;\n      min-width: 36px;\n      min-height: 14px;\n    }\n    .darma-loader-uiverse-button-save-dots i {\n      display: block;\n      width: 7px;\n      height: 7px;\n      border-radius: 50%;\n      background: var(--loader-color, #0ea5e9);\n      animation: darma-loader-uiverse-button-save-dots-dotPulse 0.72s ease-in-out infinite;\n    }\n    .darma-loader-uiverse-button-save-dots i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-uiverse-button-save-dots i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-uiverse-button-save-dots i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-uiverse-button-save-dots-dotPulse { 0%, 80%, 100% { transform: translateY(0) scale(.75); opacity: .45; } 40% { transform: translateY(-8px) scale(1); opacity: 1; } }\n",
     "defaults": {
       "color": "#0ea5e9",
       "secondaryColor": "#bae6fd",
       "size": 62,
-      "speed": 1.15,
+      "speed": 0.72,
       "background": "#ffffff"
     }
   },
@@ -84,11 +84,11 @@
     },
     "searchText": "button-spinner button spinner button button spinner inline submit html css react popular cssonly customizable singleelement",
     "previewHtml": "<span class=\"darma-loader-button-spinner\"></span>",
-    "previewCss": ".darma-loader-button-spinner {\n  display: inline-block;\n  width: 26px;\n  height: 26px;\n  border-radius: 50%;\n  border: 3px solid rgba(99, 102, 241, 0.2);\n  border-right-color: #6366f1;\n  animation: darma-loader-button-spinner-spin 0.7s linear infinite;\n}\n@keyframes darma-loader-button-spinner-spin { to { transform: rotate(360deg); } }",
+    "previewCss": ".darma-loader-button-spinner {\n  display: inline-block;\n  width: 26px;\n  height: 26px;\n  border-radius: 50%;\n  border: 3px solid color-mix(in srgb, var(--loader-color, #6366f1) 20%, transparent);\n  border-right-color: var(--loader-color, #6366f1);\n  animation: darma-loader-button-spinner-spin 0.7s linear infinite;\n}\n@keyframes darma-loader-button-spinner-spin { to { transform: rotate(360deg); } }\n",
     "defaults": {
       "color": "#6366f1",
       "size": 48,
-      "speed": 1
+      "speed": 0.7
     }
   },
   {
@@ -115,12 +115,12 @@
     },
     "searchText": "uiverse-orbital-button-spinner orbital button spinner button uiverse button spinner loader html css react cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-uiverse-orbital-button-spinner\"><i></i><i></i></span>",
-    "previewCss": ".darma-loader-uiverse-orbital-button-spinner {\n      position: relative;\n      display: inline-block;\n      width: 34px;\n      height: 34px;\n      border-radius: 50%;\n      border: 1px solid color-mix(in srgb, var(--loader-color) 24%, transparent);\n    }\n    .darma-loader-uiverse-orbital-button-spinner i {\n      position: absolute;\n      inset: -3px;\n      border-radius: 50%;\n      animation: darma-loader-uiverse-orbital-button-spinner-orbit 0.8s linear infinite;\n    }\n    .darma-loader-uiverse-orbital-button-spinner i::before {\n      content: \"\";\n      position: absolute;\n      top: 0;\n      left: 50%;\n      width: 10px;\n      height: 10px;\n      margin-left: -5px;\n      border-radius: 50%;\n      background: var(--loader-color);\n      box-shadow: 0 0 18px color-mix(in srgb, var(--loader-color) 45%, transparent);\n    }\n    .darma-loader-uiverse-orbital-button-spinner i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-uiverse-orbital-button-spinner i:nth-child(2) { animation-delay: -0.40s; }\n    @keyframes darma-loader-uiverse-orbital-button-spinner-orbit { to { transform: rotate(360deg); } }",
+    "previewCss": ".darma-loader-uiverse-orbital-button-spinner {\n      position: relative;\n      display: inline-block;\n      width: 34px;\n      height: 34px;\n      border-radius: 50%;\n      border: 1px solid color-mix(in srgb, var(--loader-color, #ec4899) 24%, transparent);\n    }\n    .darma-loader-uiverse-orbital-button-spinner i {\n      position: absolute;\n      inset: -3px;\n      border-radius: 50%;\n      animation: darma-loader-uiverse-orbital-button-spinner-orbit 0.8s linear infinite;\n    }\n    .darma-loader-uiverse-orbital-button-spinner i::before {\n      content: \"\";\n      position: absolute;\n      top: 0;\n      left: 50%;\n      width: 10px;\n      height: 10px;\n      margin-left: -5px;\n      border-radius: 50%;\n      background: var(--loader-color, #ec4899);\n      box-shadow: 0 0 18px color-mix(in srgb, var(--loader-color, #ec4899) 45%, transparent);\n    }\n    .darma-loader-uiverse-orbital-button-spinner i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-uiverse-orbital-button-spinner i:nth-child(2) { animation-delay: -0.40s; }\n    @keyframes darma-loader-uiverse-orbital-button-spinner-orbit { to { transform: rotate(360deg); } }\n",
     "defaults": {
       "color": "#ec4899",
       "secondaryColor": "#fbcfe8",
       "size": 62,
-      "speed": 0.85,
+      "speed": 0.8,
       "background": "#ffffff"
     }
   }

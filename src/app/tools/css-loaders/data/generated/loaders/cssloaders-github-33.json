@@ -22,17 +22,17 @@
   },
   "searchText": "cssloaders-github-33 cssloaders pattern 33 progress cssloaders stripe progress loader html css react singleelement cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-cssloaders-github-33\"></span>",
-  "previewCss": ".darma-loader-cssloaders-github-33 {\n  display: inline-block;\n  width: 118px;\n  height: 10px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, var(--loader-color) 25%, var(--loader-secondary-color) 25%, var(--loader-secondary-color) 50%, var(--loader-color) 50%, var(--loader-color) 75%, var(--loader-secondary-color) 75%);\n  background-size: 32px 100%; animation: darma-loader-cssloaders-github-33-progressStripe 0.97s linear infinite;\n}\n@keyframes darma-loader-cssloaders-github-33-progressStripe { 0% { background-position: 0 0; } 100% { background-position: 32px 0; } }",
+  "previewCss": ".darma-loader-cssloaders-github-33 {\n  display: inline-block;\n  width: 118px;\n  height: 10px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, var(--loader-color, #8b5cf6) 25%, var(--loader-secondary-color, #ddd6fe) 25%, var(--loader-secondary-color, #ddd6fe) 50%, var(--loader-color, #8b5cf6) 50%, var(--loader-color, #8b5cf6) 75%, var(--loader-secondary-color, #ddd6fe) 75%);\n  background-size: 32px 100%; animation: darma-loader-cssloaders-github-33-progressStripe 0.97s linear infinite;\n}\n@keyframes darma-loader-cssloaders-github-33-progressStripe { 0% { background-position: 0 0; } 100% { background-position: 32px 0; } }\n",
   "defaults": {
     "color": "#8b5cf6",
     "secondaryColor": "#ddd6fe",
     "size": 62,
-    "speed": 0.95
+    "speed": 0.97
   },
   "code": {
     "html": "<span class=\"darma-loader-cssloaders-github-33\"></span>",
-    "css": ".darma-loader-cssloaders-github-33 {\n  display: inline-block;\n  width: 118px;\n  height: 10px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, var(--loader-color) 25%, var(--loader-secondary-color) 25%, var(--loader-secondary-color) 50%, var(--loader-color) 50%, var(--loader-color) 75%, var(--loader-secondary-color) 75%);\n  background-size: 32px 100%; animation: darma-loader-cssloaders-github-33-progressStripe 0.97s linear infinite;\n}\n@keyframes darma-loader-cssloaders-github-33-progressStripe { 0% { background-position: 0 0; } 100% { background-position: 32px 0; } }",
-    "react": "export default function CssloadersGithub33Loader() {\n  return (\n    <span className=\"darma-loader-cssloaders-github-33\"></span>\n  );\n}\n"
+    "css": ".darma-loader-cssloaders-github-33 {\n  display: inline-block;\n  width: 118px;\n  height: 10px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, var(--loader-color, #8b5cf6) 25%, var(--loader-secondary-color, #ddd6fe) 25%, var(--loader-secondary-color, #ddd6fe) 50%, var(--loader-color, #8b5cf6) 50%, var(--loader-color, #8b5cf6) 75%, var(--loader-secondary-color, #ddd6fe) 75%);\n  background-size: 32px 100%; animation: darma-loader-cssloaders-github-33-progressStripe 0.97s linear infinite;\n}\n@keyframes darma-loader-cssloaders-github-33-progressStripe { 0% { background-position: 0 0; } 100% { background-position: 32px 0; } }\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function CssloadersGithub33Loader() {\n  return (\n    <span className=\"darma-loader-cssloaders-github-33\"></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,

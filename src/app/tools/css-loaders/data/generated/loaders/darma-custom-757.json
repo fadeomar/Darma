@@ -10,7 +10,6 @@
     "bars",
     "linear",
     "micro",
-    "bars",
     "loader"
   ],
   "formats": [
@@ -25,27 +24,27 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-757 micro bar 83 bars css-only single-element customizable batch-08 bars linear micro bars loader html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-757 micro bar 83 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-757\"></div>",
-  "previewCss": ".darma-loader-darma-custom-757 {\n  color: var(--loader-color, #ec4899);\n  --loader-secondary-color: #f9a8d4;\n  --loader-bg: #ffffff;\nheight: 15px;\naspect-ratio: 5;\ndisplay: grid;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\n}\n.darma-loader-darma-custom-757:before,\n.darma-loader-darma-custom-757:after {\ncontent: \"\";\ngrid-area: 1/1;\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 20% 100%;\nanimation: darma-loader-darma-custom-757-l32 1s infinite;\n}\n.darma-loader-darma-custom-757:after {\nbackground:\nvar(--_g) calc(1*100%/3),\nvar(--_g) calc(2*100%/3);\nbackground-size: 20% 100%;\nanimation-direction: reverse;\n}\n@keyframes darma-loader-darma-custom-757-l32 {\n80%,100% {transform:rotate(.5turn)}\n}",
+  "previewCss": ".darma-loader-darma-custom-757 {\n  color: var(--loader-color, #ec4899);\nheight: 15px;\naspect-ratio: 5;\ndisplay: grid;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\n}\n.darma-loader-darma-custom-757:before,\n.darma-loader-darma-custom-757:after {\ncontent: \"\";\ngrid-area: 1/1;\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 20% 100%;\nanimation: darma-loader-darma-custom-757-l32 1s infinite;\n}\n.darma-loader-darma-custom-757:after {\nbackground:\nvar(--_g) calc(1*100%/3),\nvar(--_g) calc(2*100%/3);\nbackground-size: 20% 100%;\nanimation-direction: reverse;\n}\n@keyframes darma-loader-darma-custom-757-l32 {\n80%,100% {transform:rotate(.5turn)}\n}",
   "defaults": {
     "color": "#ec4899",
     "secondaryColor": "#f9a8d4",
     "size": 56,
-    "speed": 1.0,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-757\"></div>",
-    "css": ".darma-loader-darma-custom-757 {\n  color: var(--loader-color, #ec4899);\n  --loader-secondary-color: #f9a8d4;\n  --loader-bg: #ffffff;\nheight: 15px;\naspect-ratio: 5;\ndisplay: grid;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\n}\n.darma-loader-darma-custom-757:before,\n.darma-loader-darma-custom-757:after {\ncontent: \"\";\ngrid-area: 1/1;\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 20% 100%;\nanimation: darma-loader-darma-custom-757-l32 1s infinite;\n}\n.darma-loader-darma-custom-757:after {\nbackground:\nvar(--_g) calc(1*100%/3),\nvar(--_g) calc(2*100%/3);\nbackground-size: 20% 100%;\nanimation-direction: reverse;\n}\n@keyframes darma-loader-darma-custom-757-l32 {\n80%,100% {transform:rotate(.5turn)}\n}",
-    "react": "export default function DarmaCustom757Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-757\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-757 {\n  color: var(--loader-color, #ec4899);\nheight: 15px;\naspect-ratio: 5;\ndisplay: grid;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\n}\n.darma-loader-darma-custom-757:before,\n.darma-loader-darma-custom-757:after {\ncontent: \"\";\ngrid-area: 1/1;\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 20% 100%;\nanimation: darma-loader-darma-custom-757-l32 1s infinite;\n}\n.darma-loader-darma-custom-757:after {\nbackground:\nvar(--_g) calc(1*100%/3),\nvar(--_g) calc(2*100%/3);\nbackground-size: 20% 100%;\nanimation-direction: reverse;\n}\n@keyframes darma-loader-darma-custom-757-l32 {\n80%,100% {transform:rotate(.5turn)}\n}",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom757Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-757\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": false
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

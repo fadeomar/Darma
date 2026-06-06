@@ -5,7 +5,6 @@ import {
   useMemo,
   useRef,
   useState,
-  type CSSProperties,
   type InputHTMLAttributes,
   type ReactNode,
   type TextareaHTMLAttributes,
@@ -114,14 +113,6 @@ const ERROR_TEMPLATE_VALUES = ERROR_TEMPLATES.map((item) => item.value);
 const SCREENSAVER_TEMPLATE_VALUES = SCREENSAVER_TEMPLATES.map((item) => item.value);
 const CANVAS_TEMPLATE_VALUES = CANVAS_TEMPLATES.map((item) => item.value);
 
-const FAKE_SCREEN_ASSETS = {
-  windowsXpLogo: "/fake-screen/windows-xp-logo.png",
-  ubuntuLogo: "/fake-screen/ubuntu-logo.png",
-  appleLogo: "/fake-screen/apple-logo.svg",
-  chromeLogo: "/fake-screen/chrome-icon.png",
-  brokenGlass: "/fake-screen/broken.webp",
-};
-
 function calculateProgress(state: FakeScreenState, startedAt: number, now: number): number {
   if (state.updateProgressMode === "manual") return state.manualProgress;
   const durationMs = Math.max(1, state.updateDurationMinutes) * 60 * 1000;
@@ -133,30 +124,6 @@ function calculateProgress(state: FakeScreenState, startedAt: number, now: numbe
   if (state.updateProgressMode === "stuck-99") return Math.min(99, Math.round(start + (99 - start) * Math.min(1, capped * 1.7)));
   const realistic = capped < 0.55 ? capped * 1.25 : 0.69 + (1 - Math.exp(-(capped - 0.55) * 4.1)) * 0.3;
   return Math.min(99, Math.round(start + (99 - start) * realistic));
-}
-
-
-function AssetMark({ src, label, className = "", style }: { src: string; label: string; className?: string; style?: CSSProperties }) {
-  return (
-    <span
-      role="img"
-      aria-label={label}
-      className={["block bg-contain bg-center bg-no-repeat", className].join(" ")}
-      style={{ backgroundImage: `url(${src})`, ...style }}
-    />
-  );
-}
-
-function MessageLines({ text, className = "" }: { text: string; className?: string }) {
-  const lines = text.split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
-  if (!lines.length) return null;
-  return (
-    <>
-      {lines.map((line, index) => (
-        <p key={`${line}-${index}`} className={className}>{line}</p>
-      ))}
-    </>
-  );
 }
 
 function Field({ label, hint, children }: { label: string; hint?: string; children: ReactNode }) {
@@ -195,7 +162,16 @@ function SelectButtons<T extends string>({ options, value, onChange }: { options
 }
 
 function ExitHint() {
-  return <div className="fake-screen-exit-hint absolute right-4 top-4 z-30 rounded-full bg-black/55 px-4 py-2 text-xs font-bold text-white shadow-lg backdrop-blur">Press Esc to exit fullscreen</div>;
+  return <div className="absolute right-4 top-4 z-30 rounded-full bg-black/55 px-4 py-2 text-xs font-bold text-white shadow-lg backdrop-blur">Press Esc to exit fullscreen</div>;
+}
+
+function WindowsMark({ colorful = false }: { colorful?: boolean }) {
+  const colors = colorful ? ["#f25022", "#7fba00", "#00a4ef", "#ffb900"] : ["#fff", "#fff", "#fff", "#fff"];
+  return (
+    <div className="grid h-16 w-16 rotate-3 grid-cols-2 gap-1.5 drop-shadow-[var(--shadow-md)]" aria-hidden>
+      {colors.map((color, index) => <span key={`${color}-${index}`} className="rounded-sm" style={{ backgroundColor: color }} />)}
+    </div>
+  );
 }
 
 function WindowsSpinner({ color = "#fff", small = false }: { color?: string; small?: boolean }) {
@@ -204,6 +180,14 @@ function WindowsSpinner({ color = "#fff", small = false }: { color?: string; sma
       {Array.from({ length: 8 }).map((_, index) => <span key={index} style={{ animationDelay: `${index * 0.1}s`, backgroundColor: color }} />)}
     </div>
   );
+}
+
+function AppleLikeMark() {
+  return <div className="apple-like-mark" aria-hidden><span /></div>;
+}
+
+function ChromeLikeMark() {
+  return <div className="chrome-like-mark" aria-hidden><span /></div>;
 }
 
 function AndroidLikeMark() {
@@ -269,13 +253,14 @@ function UpdatePreview({ state, progress }: { state: FakeScreenState; progress: 
         <div className="absolute inset-x-0 top-0 h-[76px] bg-[#003399]" />
         <div className="absolute inset-x-0 bottom-0 h-[76px] bg-gradient-to-r from-[#30279d] via-[#2149c7] to-[#003399]" />
         <div className="absolute bottom-[76px] left-0 right-0 h-[3px] bg-[#e89b18]" />
-        <div className="z-10 flex w-full max-w-[520px] flex-col items-center text-center">
-          <AssetMark src={FAKE_SCREEN_ASSETS.windowsXpLogo} label="Windows XP style logo" className="h-[154px] w-[270px] sm:h-[190px] sm:w-[330px]" />
-          <div className="mt-8 w-full max-w-[360px] rounded-sm bg-white/20 p-1 shadow-inner">
+        <div className="z-10 flex flex-col items-center text-center">
+          <WindowsMark colorful />
+          <div className="mt-4 flex items-end gap-1 drop-shadow-sm"><span className="text-xs">Microsoft</span><span className="text-5xl font-semibold leading-none">Windows</span><span className="pb-1 text-2xl font-black text-orange-500">XP</span></div>
+          <div className="mt-8 w-[340px] rounded-sm bg-white/20 p-1 shadow-inner">
             <div className="flex gap-1">{Array.from({ length: 18 }).map((_, i) => <span key={i} className="h-3 flex-1 rounded-[1px]" style={{ backgroundColor: i < Math.round(p / 5.6) ? "#30d158" : "rgba(255,255,255,.22)" }} />)}</div>
           </div>
-          <p className="mt-5 text-xl font-semibold">{state.updateTitle || "Installing update"} {step} of 117...</p>
-          <MessageLines text={state.updateSubtitle || "Do not turn off or unplug your computer."} className="mt-3 text-xl" />
+          <p className="mt-5 text-xl font-semibold">Installing update {step} of 117...</p>
+          <p className="mt-3 text-xl">Do not turn off or unplug your computer.</p>
         </div>
       </div>
     );
@@ -285,10 +270,10 @@ function UpdatePreview({ state, progress }: { state: FakeScreenState; progress: 
     return (
       <div className="relative flex h-full min-h-[520px] items-center justify-center rounded-[28px] bg-[#0078d7] text-white">
         <ExitHint />
-        <div className="flex flex-col items-center px-6 text-center">
+        <div className="flex flex-col items-center text-center">
           <WindowsSpinner />
-          <p className="mt-10 text-2xl font-normal">{state.updateTitle || "Working on updates"} {p}%</p>
-          <MessageLines text={state.updateSubtitle || "Don't turn off your PC. This will take a while."} className="mt-5 text-xl" />
+          <p className="mt-10 text-2xl font-normal">Working on updates {p}%</p>
+          <p className="mt-5 text-xl">Don't turn off your PC. This will take a while.</p>
           <p className="mt-3 text-lg">Your PC will restart several times.</p>
         </div>
       </div>
@@ -300,11 +285,11 @@ function UpdatePreview({ state, progress }: { state: FakeScreenState; progress: 
       <div className="relative flex h-full min-h-[520px] items-center justify-center rounded-[28px] bg-[#05070c] text-white">
         <ExitHint />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(40,80,180,.25),transparent_45%)]" />
-        <div className="relative flex flex-col items-center px-6 text-center">
+        <div className="relative flex flex-col items-center text-center">
           <WindowsSpinner color="#dbeafe" />
-          <p className="mt-10 text-2xl font-light">{state.updateTitle || "Updates are underway"}</p>
+          <p className="mt-10 text-2xl font-light">Updates are underway</p>
           <p className="mt-3 text-xl">{p}% complete</p>
-          <MessageLines text={state.updateSubtitle || "Please keep your device on."} className="mt-8 text-lg text-white/75" />
+          <p className="mt-8 text-lg text-white/75">Please keep your device on.</p>
         </div>
       </div>
     );
@@ -314,11 +299,10 @@ function UpdatePreview({ state, progress }: { state: FakeScreenState; progress: 
     return (
       <div className="relative flex h-full min-h-[520px] items-center justify-center rounded-[28px] bg-black text-white">
         <ExitHint />
-        <div className="flex w-full max-w-md flex-col items-center px-6 text-center">
-          <AssetMark src={FAKE_SCREEN_ASSETS.appleLogo} label="Apple style logo" className="h-24 w-24 opacity-95 invert" />
-          <div className="mt-12 h-1.5 w-full max-w-[20rem] overflow-hidden rounded-full bg-white/20"><div className="h-full rounded-full bg-white" style={{ width: `${p}%` }} /></div>
-          <p className="mt-5 text-sm text-white/70">{state.updateTitle || "Installing update"}... {p}%</p>
-          <MessageLines text={state.updateSubtitle} className="mt-3 text-sm text-white/55" />
+        <div className="flex w-full max-w-md flex-col items-center">
+          <AppleLikeMark />
+          <div className="mt-12 h-1.5 w-80 overflow-hidden rounded-full bg-white/20"><div className="h-full rounded-full bg-white" style={{ width: `${p}%` }} /></div>
+          <p className="mt-5 text-sm text-white/70">Installing update... {p}%</p>
         </div>
       </div>
     );
@@ -329,10 +313,10 @@ function UpdatePreview({ state, progress }: { state: FakeScreenState; progress: 
       <div className="relative flex h-full min-h-[520px] items-center justify-center rounded-[28px] bg-[#300a24] text-white">
         <ExitHint />
         <div className="absolute left-0 top-0 h-full w-20 bg-black/25" />
-        <div className="flex flex-col items-center px-6 text-center">
-          <AssetMark src={FAKE_SCREEN_ASSETS.ubuntuLogo} label="Ubuntu style logo" className="h-[92px] w-[296px] max-w-[70vw]" />
-          <p className="mt-8 text-xl">{state.updateTitle || "Installing system updates"}</p>
-          <MessageLines text={state.updateSubtitle} className="mt-3 text-sm text-white/65" />
+        <div className="flex flex-col items-center text-center">
+          <div className="ubuntu-orb"><span /><span /><span /></div>
+          <p className="mt-8 text-4xl font-light tracking-tight">ubuntu</p>
+          <p className="mt-8 text-xl">Installing system updates</p>
           <div className="mt-6 flex gap-2">{Array.from({ length: 14 }).map((_, i) => <span key={i} className="h-2 w-7 rounded-full" style={{ backgroundColor: i < Math.round(p / 7.2) ? "#e95420" : "rgba(255,255,255,.22)" }} />)}</div>
           <p className="mt-5 text-sm text-white/75">{p}% complete</p>
         </div>
@@ -344,11 +328,11 @@ function UpdatePreview({ state, progress }: { state: FakeScreenState; progress: 
     return (
       <div className="relative flex h-full min-h-[520px] items-center justify-center rounded-[28px] bg-[#202124] text-white">
         <ExitHint />
-        <div className="flex flex-col items-center px-6 text-center">
-          <AssetMark src={FAKE_SCREEN_ASSETS.chromeLogo} label="Chrome OS style logo" className="h-20 w-20" />
-          <p className="mt-8 text-2xl">{state.updateTitle || "Applying critical update"}</p>
-          <MessageLines text={state.updateSubtitle || "Do not turn off your device"} className="mt-3 text-sm text-white/60" />
-          <div className="mt-8 h-1.5 w-full max-w-[20rem] overflow-hidden rounded-full bg-white/15"><div className="h-full rounded-full bg-blue-400" style={{ width: `${p}%` }} /></div>
+        <div className="flex flex-col items-center text-center">
+          <ChromeLikeMark />
+          <p className="mt-8 text-2xl">Applying critical update</p>
+          <p className="mt-3 text-sm text-white/60">Do not turn off your device</p>
+          <div className="mt-8 h-1.5 w-80 overflow-hidden rounded-full bg-white/15"><div className="h-full rounded-full bg-blue-400" style={{ width: `${p}%` }} /></div>
         </div>
       </div>
     );
@@ -358,11 +342,11 @@ function UpdatePreview({ state, progress }: { state: FakeScreenState; progress: 
     return (
       <div className="relative flex h-full min-h-[520px] items-center justify-center rounded-[28px] bg-[#121212] text-[#a7f3d0]">
         <ExitHint />
-        <div className="flex flex-col items-center px-6 text-center">
+        <div className="flex flex-col items-center text-center">
           <AndroidLikeMark />
           <WindowsSpinner color="#3ddc84" small />
-          <p className="mt-8 text-2xl text-white">{state.updateTitle || "Installing system update"}</p>
-          <p className="mt-2 text-lg text-white/70">{state.updateSubtitle || "Optimizing apps"} {p}%</p>
+          <p className="mt-8 text-2xl text-white">Installing system update</p>
+          <p className="mt-2 text-lg text-white/70">Optimizing apps {p}%</p>
         </div>
       </div>
     );
@@ -371,8 +355,7 @@ function UpdatePreview({ state, progress }: { state: FakeScreenState; progress: 
   return (
     <div className="relative h-full min-h-[520px] overflow-hidden rounded-[28px] bg-black p-8 font-mono text-green-400">
       <ExitHint />
-      <p className="text-lg">$ {state.updateTitle || "sudo apt update && sudo apt upgrade"}</p>
-      <MessageLines text={state.updateSubtitle} className="mt-2 text-sm text-green-300/75" />
+      <p className="text-lg">$ sudo apt update && sudo apt upgrade</p>
       {Array.from({ length: 18 }).map((_, i) => <p key={i} className="mt-2 text-sm opacity-80">[{String(i + 1).padStart(2, "0")}] resolving package-{i * 7 + p}.visual ... done</p>)}
       <p className="absolute bottom-8 left-8 text-xl">Progress: {p}%</p>
     </div>
@@ -432,13 +415,11 @@ function ErrorPreview({ state }: { state: FakeScreenState }) {
 
   if (state.errorTemplate === "broken") {
     return (
-      <div
-        className="relative flex h-full min-h-[520px] items-center justify-center overflow-hidden rounded-[28px] bg-zinc-950 text-white"
-        style={{ backgroundImage: `url(${FAKE_SCREEN_ASSETS.brokenGlass})`, backgroundPosition: "center", backgroundSize: "cover" }}
-      >
+      <div className="relative flex h-full min-h-[520px] items-center justify-center overflow-hidden rounded-[28px] bg-zinc-950 text-white">
         <ExitHint />
-        <div className="absolute inset-0 bg-black/10" />
-        <div className="relative rounded-[var(--radius-lg)] bg-black/45 p-6 text-center opacity-0 transition hover:opacity-100 focus-within:opacity-100 backdrop-blur"><p className="text-3xl font-black">{state.errorTitle}</p><p className="mt-3 text-sm opacity-80">{state.errorMessage}</p></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_48%_43%,rgba(255,255,255,.32),transparent_10%),linear-gradient(135deg,rgba(255,255,255,.12),transparent_40%)]" />
+        {Array.from({ length: 30 }).map((_, i) => <span key={i} className="absolute left-1/2 top-1/2 h-px origin-left bg-white/55" style={{ width: `${24 + (i % 7) * 7}%`, transform: `rotate(${i * 19}deg)` }} />)}
+        <div className="rounded-[var(--radius-lg)] bg-black/60 p-6 text-center backdrop-blur"><p className="text-3xl font-black">{state.errorTitle}</p><p className="mt-3 text-sm opacity-80">{state.errorMessage}</p></div>
       </div>
     );
   }
@@ -518,14 +499,11 @@ function BouncingText({ state, dvdStyle }: { state: FakeScreenState; dvdStyle?: 
 
 function DvdLogo({ text }: { text: string }) {
   return (
-    <svg className="dvd-logo h-[1.95em] w-[3.25em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" role="img" aria-label={`${text} screensaver logo`}>
-      <path
-        fill="currentColor"
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M469.9 212.1h-14.7l-.4 2.2h6.2l-2.2 17.3h2.6l2.3-17.3h5.7zM480.1 224.9l-3.1-12.8h-1.8l-6.7 19.5h2.2l5.4-15.1 3.1 15.1 8-15.1v15.1h2.6v-19.5h-2.6zM76.2 282.1 59 249.7H44.3l27.1 49.7h8.4l27.5-49.7H92.2zM141 275.4v24h13.3v-49.7H141zM285 299.4h36.8V291h-23v-13.3h21.7v-8.5h-21.7v-11h23v-8.5H285zM472 188.1c0-18.6-105.6-33.7-236-33.7S0 169.5 0 188.1s105.7 33.7 236 33.7 236-15 236-33.7zm-298.7.5c0-6.2 24.2-11.1 54.1-11.1s54 5 54 11-24.1 11.1-54 11.1-54-5-54-11zM392.3 249.5c-19.3 0-35 11.1-35 24.8s15.7 24.8 35 24.8 35-11 35-24.8c0-13.7-15.7-24.8-35-24.8zm0 40.6c-11.5 0-20.8-7-20.8-15.8 0-8.7 9.3-15.7 20.8-15.7s20.8 7 20.8 15.7-9.3 15.8-20.8 15.8zM214.8 249.7h-21v49.7h21s33.4 0 33.4-24.6-33.4-25-33.4-25zm-7 41.2v-32.7s26.2-1.7 26.2 16.5c0 18.1-26.1 16.2-26.1 16.2zM192 54.3a78 78 0 0 0-4-26.2h1.7L234.5 154 344.5 28h59.3S450 26.8 450 56.5s-38.4 41.2-63 41.2h-10.6l13.8-59.4h-48.3l-20.4 86.4h65.8c63 0 112.8-34.6 112.8-70.4C500 1.3 418.9.6 418.9.6h-102l-64.7 81.6L227 .6H43l-6.7 27.5h61.5c8.7.2 44 2.4 44 28.4 0 29.7-38.4 41.2-62.9 41.2H68.3L82 38.3H33.7l-20.4 86.4h65.8c63 0 112.8-34.6 112.8-70.4z"
-      />
-    </svg>
+    <div className="dvd-logo min-w-[170px]">
+      <div className="-skew-x-12 font-black italic tracking-tighter">{text}</div>
+      <div className="mx-auto mt-1 h-4 w-32 rounded-[50%] border-[5px]" />
+      <div className="mt-1 text-[0.34em] tracking-[0.5em]">VIDEO</div>
+    </div>
   );
 }
 
@@ -544,207 +522,94 @@ function ScreensaverPreview({ state }: { state: FakeScreenState }) {
 }
 
 function CanvasBackground({ state }: { state: FakeScreenState }) {
-  const wrapRef = useRef<HTMLDivElement | null>(null);
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const ref = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
-    const wrap = wrapRef.current;
-    const canvas = canvasRef.current;
-    if (!wrap || !canvas) return;
-    const context = canvas.getContext("2d", { alpha: false });
-    if (!context) return;
-    const wrapNode: HTMLDivElement = wrap;
-    const canvasNode: HTMLCanvasElement = canvas;
-    const ctx: CanvasRenderingContext2D = context;
+    const canvas = ref.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
     let raf = 0;
-    let width = 1;
-    let height = 1;
+    let width = 0;
+    let height = 0;
     let t = 0;
-    let dpr = 1;
-    let disposed = false;
     const mouse = { x: -9999, y: -9999 };
     const speed = CANVAS_SPEED_MAP[state.canvasSpeed];
-    type Particle = { x: number; y: number; vx: number; vy: number; r: number; color: string; a: number; z: number; life: number; depth: number };
+    type Particle = { x: number; y: number; vx: number; vy: number; r: number; color: string; a: number; z: number; life: number };
     let particles: Particle[] = [];
     const palette = [state.canvasPrimaryColor, "#ff5d70", "#fffa77", "#7dd3fc", "#f97316", "#ffffff"];
 
-    function randomColor() {
-      return palette[Math.floor(Math.random() * palette.length)];
-    }
+    function randomColor() { return palette[Math.floor(Math.random() * palette.length)]; }
 
     function resize() {
-      const rect = wrapNode.getBoundingClientRect();
-      width = Math.max(2, Math.floor(rect.width));
-      height = Math.max(2, Math.floor(rect.height));
-      dpr = Math.min(2, Math.max(1, window.devicePixelRatio || 1));
-      canvasNode.width = Math.floor(width * dpr);
-      canvasNode.height = Math.floor(height * dpr);
-      canvasNode.style.width = `${width}px`;
-      canvasNode.style.height = `${height}px`;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const rect = canvas.getBoundingClientRect();
+      width = Math.max(1, Math.floor(rect.width));
+      height = Math.max(1, Math.floor(rect.height));
+      canvas.width = width * window.devicePixelRatio;
+      canvas.height = height * window.devicePixelRatio;
+      ctx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
       seed();
     }
 
     function seed() {
-      const base = Math.max(12, state.canvasDensity);
       const countByTemplate: Record<CanvasTemplate, number> = {
-        "interactive-circles": Math.min(1300, Math.max(180, base)),
-        starfield: Math.min(1500, Math.max(260, base * 2)),
-        network: Math.min(240, Math.max(70, base)),
-        waves: Math.min(28, Math.max(6, base)),
-        aurora: Math.min(30, Math.max(12, Math.round(base / 5))),
-        fireflies: Math.min(260, Math.max(70, base)),
-        bubbles: Math.min(220, Math.max(50, base)),
-        snow: Math.min(900, Math.max(160, base * 1.6)),
+        "interactive-circles": Math.min(1300, Math.max(180, state.canvasDensity)),
+        starfield: Math.min(1500, Math.max(260, state.canvasDensity * 2)),
+        network: Math.min(240, Math.max(70, state.canvasDensity)),
+        waves: Math.min(28, Math.max(6, state.canvasDensity)),
+        aurora: 10,
+        fireflies: Math.min(260, Math.max(70, state.canvasDensity)),
+        bubbles: Math.min(180, Math.max(40, state.canvasDensity)),
+        snow: Math.min(700, Math.max(140, state.canvasDensity)),
         plasma: 1,
-        confetti: Math.min(400, Math.max(90, base)),
+        confetti: Math.min(400, Math.max(90, state.canvasDensity)),
       };
       const count = countByTemplate[state.canvasTemplate];
-      particles = Array.from({ length: count }, (_, index) => {
-        const depth = 0.35 + Math.random() * 0.9;
-        const radiusBase = state.canvasTemplate === "bubbles"
-          ? 3.5 + Math.random() * 18
-          : state.canvasTemplate === "snow"
-            ? 0.8 + Math.random() * 3.5
-            : Math.random() * 4 + 1;
-        return {
-          x: state.canvasTemplate === "starfield" ? Math.random() * width - width / 2 : Math.random() * width,
-          y: state.canvasTemplate === "starfield" ? Math.random() * height - height / 2 : Math.random() * height,
-          vx: (Math.random() - 0.5) * speed * depth,
-          vy: (Math.random() - 0.5) * speed * depth,
-          r: radiusBase,
-          color: randomColor(),
-          a: Math.random() * Math.PI * 2 + index * 0.01,
-          z: Math.random() * width + 1,
-          life: Math.random(),
-          depth,
-        };
-      });
+      particles = Array.from({ length: count }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * speed,
+        vy: (Math.random() - 0.5) * speed,
+        r: Math.random() * 4 + 1,
+        color: randomColor(),
+        a: Math.random() * Math.PI * 2,
+        z: Math.random() * width + 1,
+        life: Math.random(),
+      }));
     }
 
     function clear(alpha = 1) {
-      ctx.globalAlpha = 1;
-      ctx.globalCompositeOperation = "source-over";
       ctx.fillStyle = alpha >= 1 ? state.canvasBackground : hexToRgba(state.canvasBackground, alpha);
       ctx.fillRect(0, 0, width, height);
     }
 
-    function drawVignette(strength = 0.42) {
-      const gradient = ctx.createRadialGradient(width * 0.5, height * 0.45, Math.min(width, height) * 0.18, width * 0.5, height * 0.5, Math.max(width, height) * 0.72);
-      gradient.addColorStop(0, "rgba(0,0,0,0)");
-      gradient.addColorStop(1, `rgba(0,0,0,${strength})`);
-      ctx.globalCompositeOperation = "multiply";
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, width, height);
-      ctx.globalCompositeOperation = "source-over";
-    }
-
-    function drawSphere(x: number, y: number, radius: number, tint: string, alpha = 0.62) {
-      const shell = ctx.createRadialGradient(x - radius * 0.42, y - radius * 0.48, Math.max(1, radius * 0.08), x, y, radius);
-      shell.addColorStop(0, hexToRgba("#ffffff", alpha * 0.92));
-      shell.addColorStop(0.2, hexToRgba(tint, alpha * 0.42));
-      shell.addColorStop(0.68, hexToRgba(tint, alpha * 0.14));
-      shell.addColorStop(1, hexToRgba("#00131a", alpha * 0.12));
-      ctx.fillStyle = shell;
-      ctx.beginPath();
-      ctx.arc(x, y, radius, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.strokeStyle = hexToRgba("#ffffff", alpha * 0.5);
-      ctx.lineWidth = Math.max(0.75, radius * 0.045);
-      ctx.stroke();
-      ctx.fillStyle = hexToRgba("#ffffff", alpha * 0.55);
-      ctx.beginPath();
-      ctx.ellipse(x - radius * 0.38, y - radius * 0.42, radius * 0.18, radius * 0.08, -0.65, 0, Math.PI * 2);
-      ctx.fill();
-    }
-
-    function drawSnowflake(x: number, y: number, radius: number, alpha: number) {
-      ctx.save();
-      ctx.translate(x, y);
-      ctx.rotate(t * 0.35 + radius);
-      ctx.strokeStyle = hexToRgba("#ffffff", alpha);
-      ctx.lineWidth = Math.max(0.7, radius * 0.22);
-      ctx.lineCap = "round";
-      for (let arm = 0; arm < 6; arm++) {
-        ctx.rotate(Math.PI / 3);
-        ctx.beginPath();
-        ctx.moveTo(0, 0);
-        ctx.lineTo(0, -radius * 2.4);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(0, -radius * 1.25);
-        ctx.lineTo(radius * 0.62, -radius * 1.75);
-        ctx.moveTo(0, -radius * 1.25);
-        ctx.lineTo(-radius * 0.62, -radius * 1.75);
-        ctx.stroke();
-      }
-      ctx.restore();
-    }
-
     function drawWaves() {
       clear();
-      const horizon = height * 0.52;
       for (let j = 0; j < Math.min(28, Math.max(6, state.canvasDensity)); j++) {
         ctx.beginPath();
-        ctx.strokeStyle = hexToRgba(state.canvasPrimaryColor, Math.max(0.12, 0.78 - j * 0.03));
+        ctx.strokeStyle = hexToRgba(state.canvasPrimaryColor, Math.max(0.16, 0.72 - j * 0.03));
         ctx.lineWidth = 1.5 + (j % 3);
         for (let x = 0; x <= width; x += 8) {
-          const y = horizon + Math.sin(x / (70 + j * 4) + t + j * 0.35) * (22 + j * 2.5) + (j - 13) * 12;
+          const y = height * 0.5 + Math.sin(x / (70 + j * 4) + t + j * 0.35) * (22 + j * 2.5) + (j - 13) * 12;
           x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
         }
         ctx.stroke();
       }
-      drawVignette(0.26);
     }
 
     function drawAurora() {
       clear();
-      const sky = ctx.createLinearGradient(0, 0, 0, height);
-      sky.addColorStop(0, hexToRgba("#020617", 0.94));
-      sky.addColorStop(0.52, hexToRgba(state.canvasBackground, 0.68));
-      sky.addColorStop(1, hexToRgba("#000000", 0.9));
-      ctx.fillStyle = sky;
-      ctx.fillRect(0, 0, width, height);
-
-      ctx.save();
-      ctx.globalCompositeOperation = "screen";
-      ctx.filter = "blur(18px)";
-      for (let band = 0; band < 7; band++) {
-        const bandAlpha = 0.22 - band * 0.014;
-        const amplitude = height * (0.11 + band * 0.018);
-        const yBase = height * (0.22 + band * 0.065);
-        const ribbon = ctx.createLinearGradient(0, yBase - amplitude, width, yBase + amplitude);
-        ribbon.addColorStop(0, hexToRgba(palette[band % palette.length], bandAlpha));
-        ribbon.addColorStop(0.48, hexToRgba(state.canvasPrimaryColor, bandAlpha * 1.85));
-        ribbon.addColorStop(1, hexToRgba(palette[(band + 3) % palette.length], bandAlpha));
-        ctx.fillStyle = ribbon;
-        ctx.beginPath();
-        ctx.moveTo(0, yBase);
-        for (let x = 0; x <= width; x += 22) {
-          const y = yBase + Math.sin(x * 0.008 + t * (0.8 + band * 0.13) + band) * amplitude + Math.sin(x * 0.023 - t * 0.7) * amplitude * 0.38;
-          ctx.lineTo(x, y);
-        }
-        for (let x = width; x >= 0; x -= 22) {
-          const y = yBase + height * 0.18 + Math.sin(x * 0.009 + t * (0.72 + band * 0.1) + band + 2) * amplitude * 0.55;
-          ctx.lineTo(x, y);
-        }
-        ctx.closePath();
-        ctx.fill();
-      }
-      ctx.restore();
-
-      ctx.save();
       ctx.globalCompositeOperation = "lighter";
-      particles.slice(0, 120).forEach((p) => {
-        const twinkle = 0.18 + Math.max(0, Math.sin(t * 3 + p.a)) * 0.38;
-        ctx.fillStyle = hexToRgba("#ffffff", twinkle);
-        ctx.beginPath();
-        ctx.arc(p.x, p.y * 0.58, Math.max(0.5, p.r * 0.34), 0, Math.PI * 2);
-        ctx.fill();
-      });
-      ctx.restore();
-      drawVignette(0.36);
+      for (let i = 0; i < 7; i++) {
+        const g = ctx.createRadialGradient(width * (0.25 + 0.45 * Math.sin(t * 0.45 + i)), height * (0.28 + 0.36 * Math.cos(t * 0.35 + i)), 10, width * 0.5, height * 0.45, Math.max(width, height) * 0.72);
+        g.addColorStop(0, hexToRgba(palette[i % palette.length], 0.48));
+        g.addColorStop(0.46, hexToRgba(palette[(i + 2) % palette.length], 0.16));
+        g.addColorStop(1, "rgba(0,0,0,0)");
+        ctx.fillStyle = g;
+        ctx.fillRect(0, 0, width, height);
+      }
+      ctx.globalCompositeOperation = "source-over";
     }
 
     function drawPlasma() {
@@ -758,103 +623,47 @@ function CanvasBackground({ state }: { state: FakeScreenState }) {
           const b = Math.floor(128 + 127 * Math.sin(v + 4.2));
           for (let oy = 0; oy < 2; oy++) for (let ox = 0; ox < 2; ox++) {
             const idx = ((y + oy) * width + x + ox) * 4;
-            if (idx + 3 < data.length) {
-              data[idx] = r; data[idx + 1] = g; data[idx + 2] = b; data[idx + 3] = 255;
-            }
+            data[idx] = r; data[idx + 1] = g; data[idx + 2] = b; data[idx + 3] = 255;
           }
         }
       }
       ctx.putImageData(image, 0, 0);
     }
 
-    function drawStarfield() {
-      clear(0.32);
-      const focal = Math.min(width, height) * 0.68;
-      particles.forEach((p) => {
-        p.z -= 8 * speed * p.depth;
-        if (p.z <= 1) {
-          p.x = Math.random() * width - width / 2;
-          p.y = Math.random() * height - height / 2;
-          p.z = width;
-        }
-        const sx = (p.x / p.z) * focal + width / 2;
-        const sy = (p.y / p.z) * focal + height / 2;
-        const radius = Math.max(0.6, (1 - p.z / width) * 3.2);
-        ctx.fillStyle = hexToRgba(p.color, Math.min(1, 0.35 + radius * 0.32));
-        ctx.beginPath();
-        ctx.arc(sx, sy, radius, 0, Math.PI * 2);
-        ctx.fill();
-      });
-    }
-
     function drawParticles() {
+      clear(state.canvasTemplate === "starfield" ? 0.35 : 1);
       if (state.canvasTemplate === "starfield") {
-        drawStarfield();
+        particles.forEach((p) => {
+          p.z -= 7 * speed;
+          if (p.z <= 1) { p.x = Math.random() * width - width / 2; p.y = Math.random() * height - height / 2; p.z = width; }
+          const sx = (p.x / p.z) * width + width / 2;
+          const sy = (p.y / p.z) * width + height / 2;
+          const radius = Math.max(0.7, (1 - p.z / width) * 3);
+          ctx.fillStyle = p.color;
+          ctx.beginPath(); ctx.arc(sx, sy, radius, 0, Math.PI * 2); ctx.fill();
+        });
         return;
-      }
-
-      clear();
-
-      if (state.canvasTemplate === "snow") {
-        const sky = ctx.createLinearGradient(0, 0, 0, height);
-        sky.addColorStop(0, hexToRgba(state.canvasBackground, 1));
-        sky.addColorStop(1, hexToRgba("#020617", 1));
-        ctx.fillStyle = sky;
-        ctx.fillRect(0, 0, width, height);
-      }
-
-      if (state.canvasTemplate === "bubbles") {
-        const water = ctx.createLinearGradient(0, 0, 0, height);
-        water.addColorStop(0, hexToRgba("#67e8f9", 0.56));
-        water.addColorStop(0.48, hexToRgba(state.canvasBackground, 0.88));
-        water.addColorStop(1, hexToRgba("#083344", 1));
-        ctx.fillStyle = water;
-        ctx.fillRect(0, 0, width, height);
-        for (let ray = 0; ray < 7; ray++) {
-          ctx.save();
-          ctx.globalCompositeOperation = "screen";
-          ctx.translate(width * (0.1 + ray * 0.13), 0);
-          ctx.rotate(-0.16 + ray * 0.035 + Math.sin(t + ray) * 0.02);
-          const beam = ctx.createLinearGradient(0, 0, 0, height * 0.7);
-          beam.addColorStop(0, "rgba(255,255,255,.14)");
-          beam.addColorStop(1, "rgba(255,255,255,0)");
-          ctx.fillStyle = beam;
-          ctx.beginPath();
-          ctx.moveTo(-22, 0);
-          ctx.lineTo(22, 0);
-          ctx.lineTo(78, height);
-          ctx.lineTo(-78, height);
-          ctx.closePath();
-          ctx.fill();
-          ctx.restore();
-        }
       }
 
       particles.forEach((p, index) => {
         if (state.canvasTemplate === "snow") {
-          p.y += (0.38 + p.r * 0.3) * speed * p.depth;
-          p.x += Math.sin(t * 1.9 + p.a + p.y * 0.01) * 0.55 * p.depth;
-          p.a += 0.012 * speed;
-          if (p.y > height + 18) { p.y = -18; p.x = Math.random() * width; }
-          if (p.x < -20) p.x = width + 20;
-          if (p.x > width + 20) p.x = -20;
-          const alpha = Math.min(0.96, 0.38 + p.life * 0.48 + p.depth * 0.18);
-          if (p.r > 2.65) drawSnowflake(p.x, p.y, p.r, alpha);
-          else {
-            ctx.fillStyle = hexToRgba("#ffffff", alpha);
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, Math.max(1.1, p.r), 0, Math.PI * 2);
-            ctx.fill();
-          }
+          p.y += (0.55 + p.r * 0.2) * speed;
+          p.x += Math.sin(t * 2 + p.a) * 0.45;
+          if (p.y > height + 12) { p.y = -12; p.x = Math.random() * width; }
+          ctx.fillStyle = hexToRgba("#ffffff", 0.62 + p.life * 0.35);
+          ctx.beginPath(); ctx.arc(p.x, p.y, Math.max(1.2, p.r * 0.75), 0, Math.PI * 2); ctx.fill();
           return;
         }
 
         if (state.canvasTemplate === "bubbles") {
-          p.y -= (0.32 + p.r * 0.03) * speed * (0.8 + p.depth);
-          p.x += Math.sin(t * 1.35 + p.a + p.y * 0.018) * 0.45 * p.depth;
-          p.a += 0.015 * speed;
-          if (p.y < -p.r * 3) { p.y = height + p.r * 3; p.x = Math.random() * width; p.r = 3.5 + Math.random() * 18; }
-          drawSphere(p.x, p.y, p.r, state.canvasPrimaryColor, Math.min(0.78, 0.28 + p.depth * 0.36));
+          p.y -= (0.35 + p.r * 0.12) * speed;
+          p.x += Math.sin(t + p.a) * 0.35;
+          if (p.y < -20) { p.y = height + 20; p.x = Math.random() * width; }
+          ctx.strokeStyle = hexToRgba("#ecfeff", 0.42);
+          ctx.lineWidth = 1.5;
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.r * 3.2, 0, Math.PI * 2); ctx.stroke();
+          ctx.fillStyle = hexToRgba("#ffffff", 0.2);
+          ctx.beginPath(); ctx.arc(p.x - p.r, p.y - p.r, Math.max(1, p.r * 0.6), 0, Math.PI * 2); ctx.fill();
           return;
         }
 
@@ -880,8 +689,7 @@ function CanvasBackground({ state }: { state: FakeScreenState }) {
           return;
         }
 
-        p.x += p.vx;
-        p.y += p.vy;
+        p.x += p.vx; p.y += p.vy;
         if (p.x + p.r > width || p.x - p.r < 0) p.vx *= -1;
         if (p.y + p.r > height || p.y - p.r < 0) p.vy *= -1;
 
@@ -899,49 +707,25 @@ function CanvasBackground({ state }: { state: FakeScreenState }) {
           }
         }
       });
-
-      if (state.canvasTemplate === "bubbles") drawVignette(0.28);
-      if (state.canvasTemplate === "snow") drawVignette(0.2);
     }
 
     function draw() {
-      if (disposed) return;
       t += 0.016 * speed;
       if (state.canvasTemplate === "waves") drawWaves();
       else if (state.canvasTemplate === "aurora") drawAurora();
       else if (state.canvasTemplate === "plasma") drawPlasma();
       else drawParticles();
-      raf = window.requestAnimationFrame(draw);
+      raf = requestAnimationFrame(draw);
     }
 
-    const onMove = (event: MouseEvent) => {
-      const rect = canvasNode.getBoundingClientRect();
-      mouse.x = event.clientX - rect.left;
-      mouse.y = event.clientY - rect.top;
-    };
-    const onLeave = () => { mouse.x = -9999; mouse.y = -9999; };
-    const resizeObserver = new ResizeObserver(resize);
-    resizeObserver.observe(wrapNode);
-    canvasNode.addEventListener("mousemove", onMove);
-    canvasNode.addEventListener("mouseleave", onLeave);
-    resize();
-    draw();
-
-    return () => {
-      disposed = true;
-      window.cancelAnimationFrame(raf);
-      resizeObserver.disconnect();
-      canvasNode.removeEventListener("mousemove", onMove);
-      canvasNode.removeEventListener("mouseleave", onLeave);
-    };
+    const onMove = (event: MouseEvent) => { const rect = canvas.getBoundingClientRect(); mouse.x = event.clientX - rect.left; mouse.y = event.clientY - rect.top; };
+    canvas.addEventListener("mousemove", onMove);
+    window.addEventListener("resize", resize);
+    resize(); draw();
+    return () => { cancelAnimationFrame(raf); canvas.removeEventListener("mousemove", onMove); window.removeEventListener("resize", resize); };
   }, [state.canvasTemplate, state.canvasDensity, state.canvasSpeed, state.canvasPrimaryColor, state.canvasBackground]);
 
-  return (
-    <div ref={wrapRef} className="fake-canvas-wrap relative h-full min-h-[520px] overflow-hidden rounded-[28px] bg-black">
-      <ExitHint />
-      <canvas ref={canvasRef} className="block h-full min-h-[520px] w-full" />
-    </div>
-  );
+  return <div className="relative h-full min-h-[520px] overflow-hidden rounded-[28px]"><ExitHint /><canvas ref={ref} className="h-full min-h-[520px] w-full" /></div>;
 }
 
 function hexToRgba(hex: string, alpha: number) {
@@ -958,10 +742,10 @@ function PresetThumbnail({ preset }: { preset: FakeScreenPreset }) {
   const s = preset.state;
   if (preset.mode === "update") {
     const template = s.updateTemplate;
-    if (template === "winxp") return <span className="preview-art bg-[#5d83df]"><i className="absolute inset-x-0 top-0 h-3 bg-[#003399]" /><i className="absolute inset-x-0 bottom-0 h-3 bg-[#1b38b4]" /><AssetMark src={FAKE_SCREEN_ASSETS.windowsXpLogo} label="Windows XP style thumbnail" className="h-16 w-28" /></span>;
-    if (template === "mac") return <span className="preview-art bg-black"><AssetMark src={FAKE_SCREEN_ASSETS.appleLogo} label="Mac style thumbnail" className="h-11 w-11 invert" /></span>;
-    if (template === "ubuntu") return <span className="preview-art bg-[#300a24]"><AssetMark src={FAKE_SCREEN_ASSETS.ubuntuLogo} label="Ubuntu style thumbnail" className="h-9 w-28" /></span>;
-    if (template === "chrome") return <span className="preview-art bg-[#202124]"><AssetMark src={FAKE_SCREEN_ASSETS.chromeLogo} label="Chrome OS style thumbnail" className="h-12 w-12" /></span>;
+    if (template === "winxp") return <span className="preview-art bg-[#5d83df]"><i className="absolute inset-x-0 top-0 h-3 bg-[#003399]" /><i className="absolute inset-x-0 bottom-0 h-3 bg-[#1b38b4]" /><WindowsMark colorful /></span>;
+    if (template === "mac") return <span className="preview-art bg-black"><AppleLikeMark /></span>;
+    if (template === "ubuntu") return <span className="preview-art bg-[#300a24]"><b className="text-[11px] font-light text-white">ubuntu</b></span>;
+    if (template === "chrome") return <span className="preview-art bg-[#202124]"><ChromeLikeMark /></span>;
     if (template === "android") return <span className="preview-art bg-[#121212]"><AndroidLikeMark /></span>;
     if (template === "terminal") return <span className="preview-art bg-black p-2 font-mono text-[9px] leading-3 text-green-400">$ update<br />pkg done<br />pkg done</span>;
     return <span className={template === "win10" ? "preview-art bg-[#0078d7]" : "preview-art bg-[#05070c]"}><WindowsSpinner small /></span>;
@@ -970,7 +754,7 @@ function PresetThumbnail({ preset }: { preset: FakeScreenPreset }) {
     if (s.errorTemplate === "blue-modern") return <span className="preview-art bg-[#0078d7] p-3 text-white"><b className="text-2xl font-light">:(</b><QrPlaceholder /></span>;
     if (s.errorTemplate === "radar") return <span className="preview-art bg-emerald-950"><i className="radar-sweep h-14 w-14 rounded-full border border-emerald-400/60" /></span>;
     if (s.errorTemplate === "no-signal") return <span className="preview-art grid grid-cols-7"><i className="bg-white" /><i className="bg-yellow-300" /><i className="bg-cyan-400" /><i className="bg-green-500" /><i className="bg-fuchsia-500" /><i className="bg-red-500" /><i className="bg-blue-600" /></span>;
-    if (s.errorTemplate === "broken") return <span className="preview-art bg-zinc-950" style={{ backgroundImage: `url(${FAKE_SCREEN_ASSETS.brokenGlass})`, backgroundPosition: "center", backgroundSize: "cover" }} />;
+    if (s.errorTemplate === "broken") return <span className="preview-art bg-zinc-950"><i className="h-px w-20 rotate-45 bg-white/70" /><i className="absolute h-px w-16 -rotate-12 bg-white/70" /></span>;
     return <span className="preview-art bg-black p-2 font-mono text-[9px] leading-3 text-green-400">0101<br />ACCESS<br />READY</span>;
   }
   if (preset.mode === "screensaver") {
@@ -984,29 +768,22 @@ function PresetThumbnail({ preset }: { preset: FakeScreenPreset }) {
 }
 
 function CanvasMini({ template }: { template: CanvasTemplate }) {
-  if (template === "snow") return <span className="preview-art bg-gradient-to-b from-slate-700 to-slate-950">{Array.from({ length: 18 }).map((_, i) => <i key={i} className="absolute rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,.9)]" style={{ left: `${(i * 19) % 96}%`, top: `${(i * 31) % 82}%`, width: 2 + (i % 3), height: 2 + (i % 3), opacity: 0.48 + (i % 5) * 0.1 }} />)}<i className="absolute bottom-0 left-0 h-6 w-full bg-gradient-to-t from-white/30 to-transparent" /></span>;
-  if (template === "bubbles") return <span className="preview-art bg-gradient-to-b from-cyan-400 via-cyan-700 to-cyan-950">{Array.from({ length: 9 }).map((_, i) => <i key={i} className="absolute rounded-full border border-white/70 bg-white/10 shadow-[inset_4px_4px_10px_rgba(255,255,255,.45),0_8px_16px_rgba(0,0,0,.22)]" style={{ left: `${(i * 17) % 88}%`, top: `${(i * 23) % 75}%`, width: 9 + (i % 3) * 7, height: 9 + (i % 3) * 7 }} />)}</span>;
-  if (template === "confetti") return <span className="preview-art bg-gradient-to-b from-white to-orange-50">{Array.from({ length: 14 }).map((_, i) => <i key={i} className="absolute h-1.5 w-4 rotate-45 rounded-[2px] shadow-sm" style={{ left: `${(i * 13) % 90}%`, top: `${(i * 29) % 80}%`, backgroundColor: ["#f97316", "#22c55e", "#3b82f6", "#ef4444"][i % 4] }} />)}</span>;
-  if (template === "starfield") return <span className="preview-art bg-black">{Array.from({ length: 26 }).map((_, i) => <i key={i} className="absolute rounded-full bg-white shadow-[0_0_10px_white]" style={{ left: `${(i * 23) % 96}%`, top: `${(i * 41) % 88}%`, width: 1 + (i % 3), height: 1 + (i % 3), opacity: 0.4 + (i % 6) * 0.09 }} />)}<i className="absolute h-px w-24 rotate-12 bg-white/30 blur-[1px]" /></span>;
-  if (template === "network") return <span className="preview-art bg-[var(--color-code-bg)]"><i className="h-px w-24 rotate-12 bg-sky-300/70 shadow-[0_0_8px_#7dd3fc]" /><i className="absolute h-px w-20 -rotate-45 bg-sky-300/60" /><i className="absolute h-2 w-2 rounded-full bg-sky-300 shadow-[0_0_12px_#7dd3fc]" /><i className="absolute left-8 top-5 h-1.5 w-1.5 rounded-full bg-sky-100" /><i className="absolute bottom-6 right-10 h-1.5 w-1.5 rounded-full bg-sky-100" /></span>;
-  if (template === "waves") return <span className="preview-art bg-gradient-to-b from-blue-900 to-slate-950"><i className="h-6 w-full rounded-[50%] border-t-2 border-sky-300 shadow-[0_0_14px_#38bdf8]" /><i className="absolute mt-5 h-6 w-full rounded-[50%] border-t-2 border-sky-300/60" /><i className="absolute -bottom-2 h-16 w-full bg-gradient-to-t from-sky-500/20 to-transparent" /></span>;
-  if (template === "fireflies") return <span className="preview-art bg-gradient-to-b from-stone-900 to-black">{Array.from({ length: 9 }).map((_, i) => <i key={i} className="absolute h-1.5 w-1.5 rounded-full bg-yellow-200 shadow-[0_0_16px_#fde68a]" style={{ left: `${(i * 17) % 88}%`, top: `${(i * 23) % 82}%` }} />)}</span>;
-  if (template === "aurora") return <span className="preview-art bg-gradient-to-b from-slate-950 via-emerald-950 to-black"><i className="absolute h-24 w-[115%] -rotate-6 rounded-[50%] bg-gradient-to-r from-emerald-400/50 via-purple-400/45 to-sky-400/40 blur-md" /><i className="absolute top-2 h-12 w-[95%] rotate-3 rounded-[50%] bg-gradient-to-r from-purple-400/35 via-cyan-300/35 to-emerald-300/35 blur-sm" />{Array.from({ length: 12 }).map((_, i) => <i key={i} className="absolute h-0.5 w-0.5 rounded-full bg-white" style={{ left: `${(i * 29) % 94}%`, top: `${(i * 17) % 45}%` }} />)}</span>;
+  if (template === "snow") return <span className="preview-art bg-[var(--color-code-surface)]">{Array.from({ length: 16 }).map((_, i) => <i key={i} className="absolute h-1 w-1 rounded-full bg-white" style={{ left: `${(i * 19) % 96}%`, top: `${(i * 31) % 82}%` }} />)}</span>;
+  if (template === "bubbles") return <span className="preview-art bg-cyan-700">{Array.from({ length: 8 }).map((_, i) => <i key={i} className="absolute rounded-full border border-cyan-100/70" style={{ left: `${(i * 17) % 88}%`, top: `${(i * 23) % 75}%`, width: 8 + (i % 3) * 5, height: 8 + (i % 3) * 5 }} />)}</span>;
+  if (template === "confetti") return <span className="preview-art bg-white">{Array.from({ length: 14 }).map((_, i) => <i key={i} className="absolute h-1.5 w-4 rotate-45" style={{ left: `${(i * 13) % 90}%`, top: `${(i * 29) % 80}%`, backgroundColor: ["#f97316", "#22c55e", "#3b82f6", "#ef4444"][i % 4] }} />)}</span>;
+  if (template === "starfield") return <span className="preview-art bg-black">{Array.from({ length: 26 }).map((_, i) => <i key={i} className="absolute h-0.5 w-0.5 rounded-full bg-white" style={{ left: `${(i * 23) % 96}%`, top: `${(i * 41) % 88}%` }} />)}</span>;
+  if (template === "network") return <span className="preview-art bg-[var(--color-code-bg)]"><i className="h-px w-24 rotate-12 bg-sky-300/70" /><i className="absolute h-px w-20 -rotate-45 bg-sky-300/60" /><i className="absolute h-2 w-2 rounded-full bg-sky-300" /></span>;
+  if (template === "waves") return <span className="preview-art bg-blue-950"><i className="h-6 w-full rounded-[50%] border-t-2 border-sky-300" /><i className="absolute mt-5 h-6 w-full rounded-[50%] border-t-2 border-sky-300/60" /></span>;
+  if (template === "fireflies") return <span className="preview-art bg-stone-950">{Array.from({ length: 9 }).map((_, i) => <i key={i} className="absolute h-1.5 w-1.5 rounded-full bg-yellow-200 shadow-[0_0_10px_#fde68a]" style={{ left: `${(i * 17) % 88}%`, top: `${(i * 23) % 82}%` }} />)}</span>;
   return <span className="preview-art bg-gradient-to-br from-emerald-400 via-purple-500 to-slate-950" />;
 }
 
 function Preview({ state, progress, patch }: { state: FakeScreenState; progress: number; patch: (next: Partial<FakeScreenState>) => void }) {
-  const screen = state.mode === "color"
-    ? <ColorPreview state={state} patch={patch} />
-    : state.mode === "update"
-      ? <UpdatePreview state={state} progress={progress} />
-      : state.mode === "error"
-        ? <ErrorPreview state={state} />
-        : state.mode === "canvas"
-          ? <CanvasBackground state={state} />
-          : <ScreensaverPreview state={state} />;
-
-  return <div className="fake-screen-screen h-full">{screen}</div>;
+  if (state.mode === "color") return <ColorPreview state={state} patch={patch} />;
+  if (state.mode === "update") return <UpdatePreview state={state} progress={progress} />;
+  if (state.mode === "error") return <ErrorPreview state={state} />;
+  if (state.mode === "canvas") return <CanvasBackground state={state} />;
+  return <ScreensaverPreview state={state} />;
 }
 
 export default function FakeScreenClient() {
@@ -1078,7 +855,7 @@ export default function FakeScreenClient() {
           </div>
         }
         previewSlot={
-          <div ref={stageRef} className="fake-screen-stage h-full overflow-hidden rounded-[30px] bg-[var(--color-surface-subtle)] shadow-sm">
+          <div ref={stageRef} className="h-full overflow-hidden rounded-[30px] bg-[var(--color-surface-subtle)] shadow-sm">
             <Preview state={state} progress={progress} patch={patch} />
           </div>
         }
@@ -1157,14 +934,8 @@ function ScreensaverControls({ state, patch }: { state: FakeScreenState; patch: 
   return <div className="space-y-4"><Field label="Screensaver example"><SelectButtons options={SCREENSAVER_TEMPLATES} value={state.screensaverTemplate} onChange={(screensaverTemplate) => patch({ screensaverTemplate, screensaverText: screensaverTemplate === "dvd" ? "DVD" : state.screensaverText })} /></Field><Field label="Text"><TextInput value={state.screensaverText} maxLength={state.screensaverTemplate === "quote" ? 120 : 28} onChange={(e) => patch({ screensaverText: e.target.value })} /></Field><Field label="Speed"><SelectButtons options={SPEEDS} value={state.screensaverSpeed} onChange={(screensaverSpeed) => patch({ screensaverSpeed })} /></Field><Field label={`Text size: ${state.screensaverSize}px`}><input type="range" min="24" max="110" value={state.screensaverSize} onChange={(e) => patch({ screensaverSize: Number(e.target.value) })} className="w-full" /></Field><div className="grid gap-3 sm:grid-cols-2"><Field label="Background"><input type="color" value={state.screensaverBackground} onChange={(e) => patch({ screensaverBackground: e.target.value })} className="h-10 w-full rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)]" /></Field><Field label="Text color"><input type="color" value={state.screensaverColor} onChange={(e) => patch({ screensaverColor: e.target.value })} className="h-10 w-full rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)]" /></Field></div><label className="flex items-center gap-3 rounded-2xl border border-black/10 bg-[var(--color-surface-subtle)] p-3 text-sm font-bold text-[var(--color-text-secondary)]"><input type="checkbox" checked={state.showCornerCounter} onChange={(e) => patch({ showCornerCounter: e.target.checked })} /> Show corner hit counter</label></div>;
 }
 
-
-function getCanvasTemplateDefaults(canvasTemplate: CanvasTemplate): Partial<FakeScreenState> {
-  const preset = FAKE_SCREEN_PRESETS.find((item) => item.mode === "canvas" && item.state.canvasTemplate === canvasTemplate);
-  return preset?.state ?? { mode: "canvas", canvasTemplate };
-}
-
 function CanvasControls({ state, patch }: { state: FakeScreenState; patch: (next: Partial<FakeScreenState>) => void }) {
-  return <div className="space-y-4"><Field label="Canvas example"><SelectButtons options={CANVAS_TEMPLATES} value={state.canvasTemplate} onChange={(canvasTemplate) => patch(getCanvasTemplateDefaults(canvasTemplate))} /></Field><Field label={`Density: ${state.canvasDensity}`}><input type="range" min="12" max="1300" value={state.canvasDensity} onChange={(e) => patch({ canvasDensity: Number(e.target.value) })} className="w-full" /></Field><Field label="Animation speed"><SelectButtons options={SPEEDS} value={state.canvasSpeed} onChange={(canvasSpeed) => patch({ canvasSpeed })} /></Field><div className="grid gap-3 sm:grid-cols-2"><Field label="Background"><input type="color" value={state.canvasBackground} onChange={(e) => patch({ canvasBackground: e.target.value })} className="h-10 w-full rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)]" /></Field><Field label="Main color"><input type="color" value={state.canvasPrimaryColor} onChange={(e) => patch({ canvasPrimaryColor: e.target.value })} className="h-10 w-full rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)]" /></Field></div><p className="text-xs leading-5 text-[var(--color-text-tertiary)]">Each canvas example has a different drawing system: snow flakes fall, bubbles float upward, fireflies glow, starfield uses depth, and network links only nearby particles.</p></div>;
+  return <div className="space-y-4"><Field label="Canvas example"><SelectButtons options={CANVAS_TEMPLATES} value={state.canvasTemplate} onChange={(canvasTemplate) => patch({ canvasTemplate })} /></Field><Field label={`Density: ${state.canvasDensity}`}><input type="range" min="12" max="1300" value={state.canvasDensity} onChange={(e) => patch({ canvasDensity: Number(e.target.value) })} className="w-full" /></Field><Field label="Animation speed"><SelectButtons options={SPEEDS} value={state.canvasSpeed} onChange={(canvasSpeed) => patch({ canvasSpeed })} /></Field><div className="grid gap-3 sm:grid-cols-2"><Field label="Background"><input type="color" value={state.canvasBackground} onChange={(e) => patch({ canvasBackground: e.target.value })} className="h-10 w-full rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)]" /></Field><Field label="Main color"><input type="color" value={state.canvasPrimaryColor} onChange={(e) => patch({ canvasPrimaryColor: e.target.value })} className="h-10 w-full rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)]" /></Field></div><p className="text-xs leading-5 text-[var(--color-text-tertiary)]">Each canvas example has a different drawing system: snow flakes fall, bubbles float upward, fireflies glow, starfield uses depth, and network links only nearby particles.</p></div>;
 }
 
 const styles = `
@@ -1174,8 +945,5 @@ const styles = `
 .android-like-mark{position:relative;width:86px;height:70px;border-radius:18px 18px 22px 22px;background:#3ddc84}.android-like-mark:before,.android-like-mark:after{content:"";position:absolute;top:-18px;width:3px;height:22px;background:#3ddc84;border-radius:999px}.android-like-mark:before{left:25px;transform:rotate(-30deg)}.android-like-mark:after{right:25px;transform:rotate(30deg)}.android-like-mark .eye{position:absolute;top:21px;width:7px;height:7px;border-radius:50%;background:#121212}.android-like-mark .eye.left{left:25px}.android-like-mark .eye.right{right:25px}.android-like-mark .arm{position:absolute;top:20px;width:10px;height:44px;border-radius:999px;background:#3ddc84}.android-like-mark .arm.left{left:-16px}.android-like-mark .arm.right{right:-16px}
 .ubuntu-orb{position:relative;width:72px;height:72px;border:7px solid #e95420;border-radius:50%}.ubuntu-orb span{position:absolute;width:16px;height:16px;border-radius:50%;background:#e95420}.ubuntu-orb span:nth-child(1){left:50%;top:-12px;transform:translateX(-50%)}.ubuntu-orb span:nth-child(2){right:-10px;bottom:9px}.ubuntu-orb span:nth-child(3){left:-10px;bottom:9px}
 @keyframes spin{to{transform:rotate(360deg)}}.radar-sweep:before{content:"";position:absolute;inset:0;border-radius:inherit;background:conic-gradient(from 0deg,rgba(52,211,153,.72),transparent 38deg,transparent);animation:spin 2.4s linear infinite}.radar-grid{background:radial-gradient(circle,transparent 0 23%,rgba(52,211,153,.16) 24% 25%,transparent 26% 48%,rgba(52,211,153,.16) 49% 50%,transparent 51% 73%,rgba(52,211,153,.16) 74% 75%,transparent 76%),linear-gradient(rgba(52,211,153,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(52,211,153,.12) 1px,transparent 1px);background-size:100% 100%,36px 36px,36px 36px}.dvd-logo{filter:drop-shadow(0 0 10px currentColor)}.dvd-logo div:nth-child(2){border-color:currentColor}.matrix-row{animation:matrixDrift 2.8s linear infinite}@keyframes matrixDrift{50%{opacity:.35;transform:translateY(3px)}}.tv-noise{background-image:radial-gradient(circle,rgba(255,255,255,.8) 1px,transparent 1px);background-size:3px 3px;animation:noise .25s steps(2) infinite}@keyframes noise{50%{transform:translate(3px,-2px)}}
-.preview-art{position:relative;display:flex;height:88px;align-items:center;justify-content:center;overflow:hidden;border-radius:18px;border:1px solid rgba(0,0,0,.1);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}.preview-art .win-spinner{transform:scale(.45)}.preview-art .win-spinner.is-small{margin:0}.preview-art .android-like-mark{transform:scale(.52)}.preview-art .dvd-logo{transform:scale(.5)}.preview-art .grid{height:100%;width:100%}.preview-art .grid span{display:block}
-
-.fake-screen-stage,.fake-screen-screen{height:100%}.fake-screen-screen>div{height:100%;min-height:100%}
-.fake-screen-stage:fullscreen,.fake-screen-stage:-webkit-full-screen{width:100vw!important;height:100vh!important;border-radius:0!important;background:#000!important;box-shadow:none!important}.fake-screen-stage:fullscreen .fake-screen-screen,.fake-screen-stage:fullscreen .fake-screen-screen>div,.fake-screen-stage:-webkit-full-screen .fake-screen-screen,.fake-screen-stage:-webkit-full-screen .fake-screen-screen>div{width:100vw!important;height:100vh!important;min-height:100vh!important;border-radius:0!important}.fake-screen-stage:fullscreen canvas,.fake-screen-stage:-webkit-full-screen canvas{height:100vh!important;min-height:100vh!important}.fake-screen-stage:fullscreen .fake-screen-exit-hint,.fake-screen-stage:-webkit-full-screen .fake-screen-exit-hint{animation:fakeScreenExitHint 4.5s ease forwards}@keyframes fakeScreenExitHint{0%,58%{opacity:1}100%{opacity:0;pointer-events:none}}
+.preview-art{position:relative;display:flex;height:88px;align-items:center;justify-content:center;overflow:hidden;border-radius:18px;border:1px solid rgba(0,0,0,.1);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}.preview-art .win-spinner{transform:scale(.45)}.preview-art .win-spinner.is-small{margin:0}.preview-art .apple-like-mark{transform:scale(.55)}.preview-art .chrome-like-mark{transform:scale(.58)}.preview-art .android-like-mark{transform:scale(.52)}.preview-art .dvd-logo{transform:scale(.5)}.preview-art .ubuntu-orb{transform:scale(.55)}.preview-art .grid{height:100%;width:100%}.preview-art .grid span{display:block}
 `;

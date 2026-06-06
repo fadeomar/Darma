@@ -27,25 +27,25 @@
   },
   "searchText": "darma-custom-162 step lift bars 37 bars step lift bars 37 bar equalizer css-only single-element batch-04 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-162\"></div>",
-  "previewCss": ".darma-loader-darma-custom-162 {\n  color: #db2777;\nwidth: 45px;\naspect-ratio: 1;\n--c:no-repeat linear-gradient(135deg,currentColor,var(--loader-secondary-color));\n--m:no-repeat radial-gradient(circle closest-side,#0000 92%,currentColor);\nbackground:\nvar(--c) 0 50%,\nvar(--c) 50% 50%,\nvar(--c) 100% 50%;\nbackground-size: 8px calc(50% + 8px);\n-webkit-mask: var(--m),var(--m),var(--m);\n-webkit-mask-size: 8px 150%;\nanimation: darma-loader-darma-custom-162-l12 1s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-162-l12 {\n0%,\n100% {-webkit-mask-position: 0 50% ,50% 50% ,100% 50% }\n20% {-webkit-mask-position: 0 100%,50% 50% ,100% 50% }\n40% {-webkit-mask-position: 0 0 ,50% 100%,100% 50% }\n60% {-webkit-mask-position: 0 50% ,50% 0 ,100% 100%}\n80% {-webkit-mask-position: 0 50% ,50% 50% ,100% 0 }\n}",
+  "previewCss": ".darma-loader-darma-custom-162 {\n  color: var(--loader-color, #db2777);\nwidth: 45px;\naspect-ratio: 1;\n--c:no-repeat linear-gradient(135deg,currentColor,var(--loader-secondary-color, #f472b6));\n--m:no-repeat radial-gradient(circle closest-side,#0000 92%,currentColor);\nbackground:\nvar(--c) 0 50%,\nvar(--c) 50% 50%,\nvar(--c) 100% 50%;\nbackground-size: 8px calc(50% + 8px);\n-webkit-mask: var(--m),var(--m),var(--m);\n-webkit-mask-size: 8px 150%;\nanimation: darma-loader-darma-custom-162-l12 1s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-162-l12 {\n0%,\n100% {-webkit-mask-position: 0 50% ,50% 50% ,100% 50% }\n20% {-webkit-mask-position: 0 100%,50% 50% ,100% 50% }\n40% {-webkit-mask-position: 0 0 ,50% 100%,100% 50% }\n60% {-webkit-mask-position: 0 50% ,50% 0 ,100% 100%}\n80% {-webkit-mask-position: 0 50% ,50% 50% ,100% 0 }\n}\n",
   "defaults": {
     "color": "#db2777",
     "secondaryColor": "#f472b6",
     "size": 45,
-    "speed": 1.0,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-162\"></div>",
-    "css": ".darma-loader-darma-custom-162 {\n  color: #db2777;\nwidth: 45px;\naspect-ratio: 1;\n--c:no-repeat linear-gradient(135deg,currentColor,var(--loader-secondary-color));\n--m:no-repeat radial-gradient(circle closest-side,#0000 92%,currentColor);\nbackground:\nvar(--c) 0 50%,\nvar(--c) 50% 50%,\nvar(--c) 100% 50%;\nbackground-size: 8px calc(50% + 8px);\n-webkit-mask: var(--m),var(--m),var(--m);\n-webkit-mask-size: 8px 150%;\nanimation: darma-loader-darma-custom-162-l12 1s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-162-l12 {\n0%,\n100% {-webkit-mask-position: 0 50% ,50% 50% ,100% 50% }\n20% {-webkit-mask-position: 0 100%,50% 50% ,100% 50% }\n40% {-webkit-mask-position: 0 0 ,50% 100%,100% 50% }\n60% {-webkit-mask-position: 0 50% ,50% 0 ,100% 100%}\n80% {-webkit-mask-position: 0 50% ,50% 50% ,100% 0 }\n}",
-    "react": "export default function DarmaCustom162Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-162\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-162 {\n  color: var(--loader-color, #db2777);\nwidth: 45px;\naspect-ratio: 1;\n--c:no-repeat linear-gradient(135deg,currentColor,var(--loader-secondary-color, #f472b6));\n--m:no-repeat radial-gradient(circle closest-side,#0000 92%,currentColor);\nbackground:\nvar(--c) 0 50%,\nvar(--c) 50% 50%,\nvar(--c) 100% 50%;\nbackground-size: 8px calc(50% + 8px);\n-webkit-mask: var(--m),var(--m),var(--m);\n-webkit-mask-size: 8px 150%;\nanimation: darma-loader-darma-custom-162-l12 1s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-162-l12 {\n0%,\n100% {-webkit-mask-position: 0 50% ,50% 50% ,100% 50% }\n20% {-webkit-mask-position: 0 100%,50% 50% ,100% 50% }\n40% {-webkit-mask-position: 0 0 ,50% 100%,100% 50% }\n60% {-webkit-mask-position: 0 50% ,50% 0 ,100% 100%}\n80% {-webkit-mask-position: 0 50% ,50% 50% ,100% 0 }\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom162Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-162\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": false
+    "background": false,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

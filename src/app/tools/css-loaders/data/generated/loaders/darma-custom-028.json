@@ -23,7 +23,7 @@
   },
   "searchText": "darma-custom-028 hanging pendulum ball fun ball pendulum hanging swing batch-02 html css react popular singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-028\"></div>",
-  "previewCss": ".darma-loader-darma-custom-028 {\n  width: 20px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  position: relative;\n  transform-origin: 50% -200%;\n  background: radial-gradient(at 30% 30%, #0000, #000a) #ff0000;\n  animation: darma-loader-darma-custom-028-l8 1s cubic-bezier(.5, -200, .5, 200) infinite;\n}\n.darma-loader-darma-custom-028:before {\n  content: \"\";\n  position: absolute;\n  inset: -200% 8px 100%;\n  background: #ddd;\n}\n@keyframes darma-loader-darma-custom-028-l8 {\n  100% { transform: rotate(1deg); }\n}",
+  "previewCss": ".darma-loader-darma-custom-028 {\n  width: 20px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  position: relative;\n  transform-origin: 50% -200%;\n  background: radial-gradient(at 30% 30%, #0000, #000a) var(--loader-color, #ff0000);\n  animation: darma-loader-darma-custom-028-l8 1s cubic-bezier(.5, -200, .5, 200) infinite;\n}\n.darma-loader-darma-custom-028:before {\n  content: \"\";\n  position: absolute;\n  inset: -200% 8px 100%;\n  background: #ddd;\n}\n@keyframes darma-loader-darma-custom-028-l8 {\n  100% { transform: rotate(1deg); }\n}\n",
   "defaults": {
     "color": "#ff0000",
     "secondaryColor": "#dddddd",
@@ -33,15 +33,14 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-028\"></div>",
-    "css": ".darma-loader-darma-custom-028 {\n  width: 20px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  position: relative;\n  transform-origin: 50% -200%;\n  background: radial-gradient(at 30% 30%, #0000, #000a) #ff0000;\n  animation: darma-loader-darma-custom-028-l8 1s cubic-bezier(.5, -200, .5, 200) infinite;\n}\n.darma-loader-darma-custom-028:before {\n  content: \"\";\n  position: absolute;\n  inset: -200% 8px 100%;\n  background: #ddd;\n}\n@keyframes darma-loader-darma-custom-028-l8 {\n  100% { transform: rotate(1deg); }\n}",
-    "react": "export default function DarmaCustom028Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-028\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-028 {\n  width: 20px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  position: relative;\n  transform-origin: 50% -200%;\n  background: radial-gradient(at 30% 30%, #0000, #000a) var(--loader-color, #ff0000);\n  animation: darma-loader-darma-custom-028-l8 1s cubic-bezier(.5, -200, .5, 200) infinite;\n}\n.darma-loader-darma-custom-028:before {\n  content: \"\";\n  position: absolute;\n  inset: -200% 8px 100%;\n  background: #ddd;\n}\n@keyframes darma-loader-darma-custom-028-l8 {\n  100% { transform: rotate(1deg); }\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom028Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-028\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": false
-  },
-  "source": {}
+    "background": false,
+    "secondaryColor": false
+  }
 }

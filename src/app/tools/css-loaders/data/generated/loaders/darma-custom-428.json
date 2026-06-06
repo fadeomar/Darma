@@ -29,25 +29,25 @@
   },
   "searchText": "darma-custom-428 line orbit 14 spinners line orbit 14 geometric spinner outline spinners loader css-only single-element batch-06 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-428\"></div>",
-  "previewCss": ".darma-loader-darma-custom-428 {color: var(--loader-color, #e11d48);\n  --loader-secondary-color: #fb7185;\n  --loader-bg: #ffffff;\n  width: 50px;\n  aspect-ratio: 1;\n  display: grid;\n}.darma-loader-darma-custom-428::before,.darma-loader-darma-custom-428::after {content: \"\";\n  grid-area: 1/1;\n  border-radius: 50%;\n  background: repeating-radial-gradient(farthest-side,#0000 0%,currentColor 1% 10%,#0000 11% 30%);\n  -webkit-mask: repeating-conic-gradient(currentColor 0 36deg,#0000 0 72deg);\n  animation: darma-loader-darma-custom-428-l19 4s infinite linear;\n}.darma-loader-darma-custom-428::after {-webkit-mask: repeating-conic-gradient(#0000 0 36deg,currentColor 0 72deg);\n  animation-direction: reverse;\n}@keyframes darma-loader-darma-custom-428-l19 {100% {transform: rotate(1turn)}}",
+  "previewCss": ".darma-loader-darma-custom-428 {color: var(--loader-color, #e11d48);\n  width: 50px;\n  aspect-ratio: 1;\n  display: grid;\n}.darma-loader-darma-custom-428::before,.darma-loader-darma-custom-428::after {content: \"\";\n  grid-area: 1/1;\n  border-radius: 50%;\n  background: repeating-radial-gradient(farthest-side,#0000 0%,currentColor 1% 10%,#0000 11% 30%);\n  -webkit-mask: repeating-conic-gradient(currentColor 0 36deg,#0000 0 72deg);\n  animation: darma-loader-darma-custom-428-l19 4s infinite linear;\n}.darma-loader-darma-custom-428::after {-webkit-mask: repeating-conic-gradient(#0000 0 36deg,currentColor 0 72deg);\n  animation-direction: reverse;\n}@keyframes darma-loader-darma-custom-428-l19 {100% {transform: rotate(1turn)}}\n",
   "defaults": {
     "color": "#e11d48",
     "secondaryColor": "#fb7185",
     "size": 72,
-    "speed": 1.0,
+    "speed": 4,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-428\"></div>",
-    "css": ".darma-loader-darma-custom-428 {color: var(--loader-color, #e11d48);\n  --loader-secondary-color: #fb7185;\n  --loader-bg: #ffffff;\n  width: 50px;\n  aspect-ratio: 1;\n  display: grid;\n}.darma-loader-darma-custom-428::before,.darma-loader-darma-custom-428::after {content: \"\";\n  grid-area: 1/1;\n  border-radius: 50%;\n  background: repeating-radial-gradient(farthest-side,#0000 0%,currentColor 1% 10%,#0000 11% 30%);\n  -webkit-mask: repeating-conic-gradient(currentColor 0 36deg,#0000 0 72deg);\n  animation: darma-loader-darma-custom-428-l19 4s infinite linear;\n}.darma-loader-darma-custom-428::after {-webkit-mask: repeating-conic-gradient(#0000 0 36deg,currentColor 0 72deg);\n  animation-direction: reverse;\n}@keyframes darma-loader-darma-custom-428-l19 {100% {transform: rotate(1turn)}}",
-    "react": "export default function DarmaCustom428Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-428\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-428 {color: var(--loader-color, #e11d48);\n  width: 50px;\n  aspect-ratio: 1;\n  display: grid;\n}.darma-loader-darma-custom-428::before,.darma-loader-darma-custom-428::after {content: \"\";\n  grid-area: 1/1;\n  border-radius: 50%;\n  background: repeating-radial-gradient(farthest-side,#0000 0%,currentColor 1% 10%,#0000 11% 30%);\n  -webkit-mask: repeating-conic-gradient(currentColor 0 36deg,#0000 0 72deg);\n  animation: darma-loader-darma-custom-428-l19 4s infinite linear;\n}.darma-loader-darma-custom-428::after {-webkit-mask: repeating-conic-gradient(#0000 0 36deg,currentColor 0 72deg);\n  animation-direction: reverse;\n}@keyframes darma-loader-darma-custom-428-l19 {100% {transform: rotate(1turn)}}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom428Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-428\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": true
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

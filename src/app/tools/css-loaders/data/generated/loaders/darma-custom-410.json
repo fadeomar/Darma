@@ -29,25 +29,25 @@
   },
   "searchText": "darma-custom-410 arcade motion 07 fun arcade motion 07 game character fun pixel loader css-only single-element batch-06 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-410\"></div>",
-  "previewCss": ".darma-loader-darma-custom-410 {--loader-bg: #ffffff;\n  --loader-secondary-color: #f9a8d4;\n  width: 50px;\n  aspect-ratio: 1;\n  color: var(--loader-color, #db2777);\n  border: 2px solid;\n  display: grid;\n  box-sizing: border-box;\n  animation: darma-loader-darma-custom-410-l1 4s infinite linear;\n}.darma-loader-darma-custom-410::before,.darma-loader-darma-custom-410::after {content: \"\";\n  grid-area: 1/1;\n  margin: auto;\n  width: 70.7%;\n  aspect-ratio: 1;\n  border: 2px solid;\n  box-sizing: content-box;\n  animation: inherit;\n}.darma-loader-darma-custom-410::after {width: 50%;\n  aspect-ratio: 1;\n  border: 2px solid;\n  animation-duration: 2s;\n}@keyframes darma-loader-darma-custom-410-l1{100% {transform: rotate(1turn)}}",
+  "previewCss": ".darma-loader-darma-custom-410 {\n  width: 50px;\n  aspect-ratio: 1;\n  color: var(--loader-color, #db2777);\n  border: 2px solid;\n  display: grid;\n  box-sizing: border-box;\n  animation: darma-loader-darma-custom-410-l1 4s infinite linear;\n}.darma-loader-darma-custom-410::before,.darma-loader-darma-custom-410::after {content: \"\";\n  grid-area: 1/1;\n  margin: auto;\n  width: 70.7%;\n  aspect-ratio: 1;\n  border: 2px solid;\n  box-sizing: content-box;\n  animation: inherit;\n}.darma-loader-darma-custom-410::after {width: 50%;\n  aspect-ratio: 1;\n  border: 2px solid;\n  animation-duration: 2s;\n}@keyframes darma-loader-darma-custom-410-l1{100% {transform: rotate(1turn)}}\n",
   "defaults": {
     "color": "#db2777",
     "secondaryColor": "#f9a8d4",
     "size": 64,
-    "speed": 1.0,
+    "speed": 4,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-410\"></div>",
-    "css": ".darma-loader-darma-custom-410 {--loader-bg: #ffffff;\n  --loader-secondary-color: #f9a8d4;\n  width: 50px;\n  aspect-ratio: 1;\n  color: var(--loader-color, #db2777);\n  border: 2px solid;\n  display: grid;\n  box-sizing: border-box;\n  animation: darma-loader-darma-custom-410-l1 4s infinite linear;\n}.darma-loader-darma-custom-410::before,.darma-loader-darma-custom-410::after {content: \"\";\n  grid-area: 1/1;\n  margin: auto;\n  width: 70.7%;\n  aspect-ratio: 1;\n  border: 2px solid;\n  box-sizing: content-box;\n  animation: inherit;\n}.darma-loader-darma-custom-410::after {width: 50%;\n  aspect-ratio: 1;\n  border: 2px solid;\n  animation-duration: 2s;\n}@keyframes darma-loader-darma-custom-410-l1{100% {transform: rotate(1turn)}}",
-    "react": "export default function DarmaCustom410Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-410\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-410 {\n  width: 50px;\n  aspect-ratio: 1;\n  color: var(--loader-color, #db2777);\n  border: 2px solid;\n  display: grid;\n  box-sizing: border-box;\n  animation: darma-loader-darma-custom-410-l1 4s infinite linear;\n}.darma-loader-darma-custom-410::before,.darma-loader-darma-custom-410::after {content: \"\";\n  grid-area: 1/1;\n  margin: auto;\n  width: 70.7%;\n  aspect-ratio: 1;\n  border: 2px solid;\n  box-sizing: content-box;\n  animation: inherit;\n}.darma-loader-darma-custom-410::after {width: 50%;\n  aspect-ratio: 1;\n  border: 2px solid;\n  animation-duration: 2s;\n}@keyframes darma-loader-darma-custom-410-l1{100% {transform: rotate(1turn)}}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom410Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-410\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": true
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

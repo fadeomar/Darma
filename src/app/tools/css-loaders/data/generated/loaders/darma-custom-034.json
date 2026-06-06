@@ -24,7 +24,7 @@
   },
   "searchText": "darma-custom-034 four bar micro bounce bars bars equalizer bounce minimal single-element batch-02 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-034\"></div>",
-  "previewCss": ".darma-loader-darma-custom-034 {\n  height: 40px;\n  aspect-ratio: 2;\n  --c: no-repeat linear-gradient(#25b09b 0 0);\n  background: var(--c), var(--c), var(--c), var(--c);\n  background-size: 26% 50%;\n  animation: darma-loader-darma-custom-034-l18 1s infinite cubic-bezier(0.5, 150, 0.5, -150);\n}\n@keyframes darma-loader-darma-custom-034-l18 {\n  0% { background-position: calc(0*100%/3) 50%, calc(1*100%/3) 50%, calc(2*100%/3) 50%, calc(3*100%/3) 50%; }\n  100% { background-position: calc(0*100%/3) 51%, calc(1*100%/3) 50.5%, calc(2*100%/3) 49.5%, calc(3*100%/3) 49%; }\n}",
+  "previewCss": ".darma-loader-darma-custom-034 {\n  height: 40px;\n  aspect-ratio: 2;\n  --c: no-repeat linear-gradient(var(--loader-color, #25b09b) 0 0);\n  background: var(--c), var(--c), var(--c), var(--c);\n  background-size: 26% 50%;\n  animation: darma-loader-darma-custom-034-l18 1s infinite cubic-bezier(0.5, 150, 0.5, -150);\n}\n@keyframes darma-loader-darma-custom-034-l18 {\n  0% { background-position: calc(0*100%/3) 50%, calc(1*100%/3) 50%, calc(2*100%/3) 50%, calc(3*100%/3) 50%; }\n  100% { background-position: calc(0*100%/3) 51%, calc(1*100%/3) 50.5%, calc(2*100%/3) 49.5%, calc(3*100%/3) 49%; }\n}\n",
   "defaults": {
     "color": "#25b09b",
     "secondaryColor": "#a5b4fc",
@@ -34,15 +34,14 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-034\"></div>",
-    "css": ".darma-loader-darma-custom-034 {\n  height: 40px;\n  aspect-ratio: 2;\n  --c: no-repeat linear-gradient(#25b09b 0 0);\n  background: var(--c), var(--c), var(--c), var(--c);\n  background-size: 26% 50%;\n  animation: darma-loader-darma-custom-034-l18 1s infinite cubic-bezier(0.5, 150, 0.5, -150);\n}\n@keyframes darma-loader-darma-custom-034-l18 {\n  0% { background-position: calc(0*100%/3) 50%, calc(1*100%/3) 50%, calc(2*100%/3) 50%, calc(3*100%/3) 50%; }\n  100% { background-position: calc(0*100%/3) 51%, calc(1*100%/3) 50.5%, calc(2*100%/3) 49.5%, calc(3*100%/3) 49%; }\n}",
-    "react": "export default function DarmaCustom034Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-034\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-034 {\n  height: 40px;\n  aspect-ratio: 2;\n  --c: no-repeat linear-gradient(var(--loader-color, #25b09b) 0 0);\n  background: var(--c), var(--c), var(--c), var(--c);\n  background-size: 26% 50%;\n  animation: darma-loader-darma-custom-034-l18 1s infinite cubic-bezier(0.5, 150, 0.5, -150);\n}\n@keyframes darma-loader-darma-custom-034-l18 {\n  0% { background-position: calc(0*100%/3) 50%, calc(1*100%/3) 50%, calc(2*100%/3) 50%, calc(3*100%/3) 50%; }\n  100% { background-position: calc(0*100%/3) 51%, calc(1*100%/3) 50.5%, calc(2*100%/3) 49.5%, calc(3*100%/3) 49%; }\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom034Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-034\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": false
-  },
-  "source": {}
+    "background": false,
+    "secondaryColor": false
+  }
 }

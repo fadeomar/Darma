@@ -29,25 +29,25 @@
   },
   "searchText": "darma-custom-525 eye blink 01 fun eye blink 01 eyes face fun minimal loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-525\"></div>",
-  "previewCss": ".darma-loader-darma-custom-525 {color: var(--loader-color, #059669);\n  --loader-secondary-color: #2dd4bf;\n  --loader-bg: #ffffff;\n   height: 30px;\n   aspect-ratio: 1;\n   display: grid;\n   background: radial-gradient(farthest-side,currentColor 15%,#0000 18%), radial-gradient(50% 100% at 50% 160%,currentColor 95%,#0000) top/100% 50%, radial-gradient(50% 100% at 50% -60%,currentColor 95%,#0000) bottom/100% 50%;\n   background-repeat: no-repeat;\n}\n.darma-loader-darma-custom-525:before  {\n  content: \"\";\n   background: inherit;\n   opacity: 0.6;\n   animation: darma-loader-darma-custom-525-l1 1s infinite;\n}\n@keyframes darma-loader-darma-custom-525-l1  {\n  to {transform:scale(3);\n  opacity:0}\n}",
+  "previewCss": ".darma-loader-darma-custom-525 {color: var(--loader-color, #059669);\n   height: 30px;\n   aspect-ratio: 1;\n   display: grid;\n   background: radial-gradient(farthest-side,currentColor 15%,#0000 18%), radial-gradient(50% 100% at 50% 160%,currentColor 95%,#0000) top/100% 50%, radial-gradient(50% 100% at 50% -60%,currentColor 95%,#0000) bottom/100% 50%;\n   background-repeat: no-repeat;\n}\n.darma-loader-darma-custom-525:before  {\n  content: \"\";\n   background: inherit;\n   opacity: 0.6;\n   animation: darma-loader-darma-custom-525-l1 1s infinite;\n}\n@keyframes darma-loader-darma-custom-525-l1  {\n  to {transform:scale(3);\n  opacity:0}\n}\n",
   "defaults": {
     "color": "#059669",
     "secondaryColor": "#2dd4bf",
     "size": 64,
-    "speed": 1.0,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-525\"></div>",
-    "css": ".darma-loader-darma-custom-525 {color: var(--loader-color, #059669);\n  --loader-secondary-color: #2dd4bf;\n  --loader-bg: #ffffff;\n   height: 30px;\n   aspect-ratio: 1;\n   display: grid;\n   background: radial-gradient(farthest-side,currentColor 15%,#0000 18%), radial-gradient(50% 100% at 50% 160%,currentColor 95%,#0000) top/100% 50%, radial-gradient(50% 100% at 50% -60%,currentColor 95%,#0000) bottom/100% 50%;\n   background-repeat: no-repeat;\n}\n.darma-loader-darma-custom-525:before  {\n  content: \"\";\n   background: inherit;\n   opacity: 0.6;\n   animation: darma-loader-darma-custom-525-l1 1s infinite;\n}\n@keyframes darma-loader-darma-custom-525-l1  {\n  to {transform:scale(3);\n  opacity:0}\n}",
-    "react": "export default function DarmaCustom525Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-525\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-525 {color: var(--loader-color, #059669);\n   height: 30px;\n   aspect-ratio: 1;\n   display: grid;\n   background: radial-gradient(farthest-side,currentColor 15%,#0000 18%), radial-gradient(50% 100% at 50% 160%,currentColor 95%,#0000) top/100% 50%, radial-gradient(50% 100% at 50% -60%,currentColor 95%,#0000) bottom/100% 50%;\n   background-repeat: no-repeat;\n}\n.darma-loader-darma-custom-525:before  {\n  content: \"\";\n   background: inherit;\n   opacity: 0.6;\n   animation: darma-loader-darma-custom-525-l1 1s infinite;\n}\n@keyframes darma-loader-darma-custom-525-l1  {\n  to {transform:scale(3);\n  opacity:0}\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom525Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-525\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": true
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

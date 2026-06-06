@@ -8,8 +8,6 @@
     "customizable",
     "batch-08",
     "minimal",
-    "loader",
-    "minimal",
     "loader"
   ],
   "html": "<div class=\"loader\"></div>",
@@ -30,7 +28,7 @@
     "color": "#f59e0b",
     "secondaryColor": "#fde68a",
     "size": 48,
-    "speed": 1.0,
+    "speed": 1,
     "background": "#ffffff"
   },
   "flags": {

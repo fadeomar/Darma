@@ -10,7 +10,6 @@
     "progress",
     "striped",
     "pattern",
-    "progress",
     "loader"
   ],
   "formats": [
@@ -25,27 +24,27 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-700 pattern progress 26 progress css-only single-element customizable batch-08 progress striped pattern progress loader html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-700 pattern progress 26 progress css-only single-element customizable batch-08 progress striped pattern loader html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-700\"></div>",
-  "previewCss": ".darma-loader-darma-custom-700 {\n  color: var(--loader-color, #f97316);\n  --loader-secondary-color: #fdba74;\n  --loader-bg: #ffffff;\nwidth: 45px;\naspect-ratio: 1;\n--c:no-repeat repeating-linear-gradient(90deg,currentColor 0 calc(100%/7),#0000 0 calc(200%/7));\nbackground: var(--c),var(--c),var(--c),var(--c);\nbackground-size: 140% 26%;\nanimation: darma-loader-darma-custom-700-l25 .75s infinite;\n}\n@keyframes darma-loader-darma-custom-700-l25 {\n0% {background-position:0 calc(0*100%/3),100% calc(1*100%/3),0 calc(2*100%/3),100% calc(3*100%/3)}\n25% {background-position:100% calc(0*100%/3),100% calc(1*100%/3),0 calc(2*100%/3),100% calc(3*100%/3)}\n50% {background-position:100% calc(0*100%/3),0 calc(1*100%/3),0 calc(2*100%/3),100% calc(3*100%/3)}\n75% {background-position:100% calc(0*100%/3),0 calc(1*100%/3),100% calc(2*100%/3),100% calc(3*100%/3)}\n100% {background-position:100% calc(0*100%/3),0 calc(1*100%/3),100% calc(2*100%/3),0 calc(3*100%/3)}\n}",
+  "previewCss": ".darma-loader-darma-custom-700 {\n  color: var(--loader-color, #f97316);\nwidth: 45px;\naspect-ratio: 1;\n--c:no-repeat repeating-linear-gradient(90deg,currentColor 0 calc(100%/7),#0000 0 calc(200%/7));\nbackground: var(--c),var(--c),var(--c),var(--c);\nbackground-size: 140% 26%;\nanimation: darma-loader-darma-custom-700-l25 .75s infinite;\n}\n@keyframes darma-loader-darma-custom-700-l25 {\n0% {background-position:0 calc(0*100%/3),100% calc(1*100%/3),0 calc(2*100%/3),100% calc(3*100%/3)}\n25% {background-position:100% calc(0*100%/3),100% calc(1*100%/3),0 calc(2*100%/3),100% calc(3*100%/3)}\n50% {background-position:100% calc(0*100%/3),0 calc(1*100%/3),0 calc(2*100%/3),100% calc(3*100%/3)}\n75% {background-position:100% calc(0*100%/3),0 calc(1*100%/3),100% calc(2*100%/3),100% calc(3*100%/3)}\n100% {background-position:100% calc(0*100%/3),0 calc(1*100%/3),100% calc(2*100%/3),0 calc(3*100%/3)}\n}",
   "defaults": {
     "color": "#f97316",
     "secondaryColor": "#fdba74",
     "size": 45,
-    "speed": 1.0,
+    "speed": 0.75,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-700\"></div>",
-    "css": ".darma-loader-darma-custom-700 {\n  color: var(--loader-color, #f97316);\n  --loader-secondary-color: #fdba74;\n  --loader-bg: #ffffff;\nwidth: 45px;\naspect-ratio: 1;\n--c:no-repeat repeating-linear-gradient(90deg,currentColor 0 calc(100%/7),#0000 0 calc(200%/7));\nbackground: var(--c),var(--c),var(--c),var(--c);\nbackground-size: 140% 26%;\nanimation: darma-loader-darma-custom-700-l25 .75s infinite;\n}\n@keyframes darma-loader-darma-custom-700-l25 {\n0% {background-position:0 calc(0*100%/3),100% calc(1*100%/3),0 calc(2*100%/3),100% calc(3*100%/3)}\n25% {background-position:100% calc(0*100%/3),100% calc(1*100%/3),0 calc(2*100%/3),100% calc(3*100%/3)}\n50% {background-position:100% calc(0*100%/3),0 calc(1*100%/3),0 calc(2*100%/3),100% calc(3*100%/3)}\n75% {background-position:100% calc(0*100%/3),0 calc(1*100%/3),100% calc(2*100%/3),100% calc(3*100%/3)}\n100% {background-position:100% calc(0*100%/3),0 calc(1*100%/3),100% calc(2*100%/3),0 calc(3*100%/3)}\n}",
-    "react": "export default function DarmaCustom700Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-700\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-700 {\n  color: var(--loader-color, #f97316);\nwidth: 45px;\naspect-ratio: 1;\n--c:no-repeat repeating-linear-gradient(90deg,currentColor 0 calc(100%/7),#0000 0 calc(200%/7));\nbackground: var(--c),var(--c),var(--c),var(--c);\nbackground-size: 140% 26%;\nanimation: darma-loader-darma-custom-700-l25 .75s infinite;\n}\n@keyframes darma-loader-darma-custom-700-l25 {\n0% {background-position:0 calc(0*100%/3),100% calc(1*100%/3),0 calc(2*100%/3),100% calc(3*100%/3)}\n25% {background-position:100% calc(0*100%/3),100% calc(1*100%/3),0 calc(2*100%/3),100% calc(3*100%/3)}\n50% {background-position:100% calc(0*100%/3),0 calc(1*100%/3),0 calc(2*100%/3),100% calc(3*100%/3)}\n75% {background-position:100% calc(0*100%/3),0 calc(1*100%/3),100% calc(2*100%/3),100% calc(3*100%/3)}\n100% {background-position:100% calc(0*100%/3),0 calc(1*100%/3),100% calc(2*100%/3),0 calc(3*100%/3)}\n}",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom700Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-700\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": false
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

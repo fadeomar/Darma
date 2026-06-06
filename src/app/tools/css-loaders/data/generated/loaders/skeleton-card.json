@@ -20,21 +20,22 @@
   },
   "searchText": "skeleton-card skeleton card skeleton skeleton card placeholder layout html css react cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-skeleton-card\"><b></b><i></i><i></i></span>",
-  "previewCss": ".darma-loader-skeleton-card {\n  display: grid;\n  gap: 10px;\n  width: 148px;\n  border-radius: 18px;\n  padding: 14px;\n  background: rgba(99, 102, 241, 0.08);\n}\n.darma-loader-skeleton-card b,\n.darma-loader-skeleton-card i {\n  display: block;\n  border-radius: 12px;\n  background: linear-gradient(90deg, rgba(99,102,241,.14), rgba(99,102,241,.34), rgba(99,102,241,.14));\n  background-size: 220% 100%;\n  animation: darma-loader-skeleton-card-shimmer 1.15s linear infinite;\n}\n.darma-loader-skeleton-card b { height: 44px; }\n.darma-loader-skeleton-card i { height: 10px; }\n.darma-loader-skeleton-card i:last-child { width: 66%; }\n@keyframes darma-loader-skeleton-card-shimmer { to { background-position: -220% 0; } }",
+  "previewCss": ".darma-loader-skeleton-card {\n  display: grid;\n  gap: 10px;\n  width: 148px;\n  border-radius: 18px;\n  padding: 14px;\n  background: color-mix(in srgb, var(--loader-color, #6366f1) 8%, transparent);\n}\n.darma-loader-skeleton-card b,\n.darma-loader-skeleton-card i {\n  display: block;\n  border-radius: 12px;\n  background: linear-gradient(90deg, color-mix(in srgb, var(--loader-color, #6366f1) 14%, transparent), color-mix(in srgb, var(--loader-color, #6366f1) 34%, transparent), color-mix(in srgb, var(--loader-color, #6366f1) 14%, transparent));\n  background-size: 220% 100%;\n  animation: darma-loader-skeleton-card-shimmer 1.15s linear infinite;\n}\n.darma-loader-skeleton-card b { height: 44px; }\n.darma-loader-skeleton-card i { height: 10px; }\n.darma-loader-skeleton-card i:last-child { width: 66%; }\n@keyframes darma-loader-skeleton-card-shimmer { to { background-position: -220% 0; } }\n",
   "defaults": {
     "color": "#6366f1",
     "size": 48,
-    "speed": 1
+    "speed": 1.15
   },
   "code": {
     "html": "<span class=\"darma-loader-skeleton-card\"><b></b><i></i><i></i></span>",
-    "css": ".darma-loader-skeleton-card {\n  display: grid;\n  gap: 10px;\n  width: 148px;\n  border-radius: 18px;\n  padding: 14px;\n  background: rgba(99, 102, 241, 0.08);\n}\n.darma-loader-skeleton-card b,\n.darma-loader-skeleton-card i {\n  display: block;\n  border-radius: 12px;\n  background: linear-gradient(90deg, rgba(99,102,241,.14), rgba(99,102,241,.34), rgba(99,102,241,.14));\n  background-size: 220% 100%;\n  animation: darma-loader-skeleton-card-shimmer 1.15s linear infinite;\n}\n.darma-loader-skeleton-card b { height: 44px; }\n.darma-loader-skeleton-card i { height: 10px; }\n.darma-loader-skeleton-card i:last-child { width: 66%; }\n@keyframes darma-loader-skeleton-card-shimmer { to { background-position: -220% 0; } }",
-    "react": "export default function SkeletonCardLoader() {\n  return (\n    <span className=\"darma-loader-skeleton-card\"><b></b><i></i><i></i></span>\n  );\n}\n"
+    "css": ".darma-loader-skeleton-card {\n  display: grid;\n  gap: 10px;\n  width: 148px;\n  border-radius: 18px;\n  padding: 14px;\n  background: color-mix(in srgb, var(--loader-color, #6366f1) 8%, transparent);\n}\n.darma-loader-skeleton-card b,\n.darma-loader-skeleton-card i {\n  display: block;\n  border-radius: 12px;\n  background: linear-gradient(90deg, color-mix(in srgb, var(--loader-color, #6366f1) 14%, transparent), color-mix(in srgb, var(--loader-color, #6366f1) 34%, transparent), color-mix(in srgb, var(--loader-color, #6366f1) 14%, transparent));\n  background-size: 220% 100%;\n  animation: darma-loader-skeleton-card-shimmer 1.15s linear infinite;\n}\n.darma-loader-skeleton-card b { height: 44px; }\n.darma-loader-skeleton-card i { height: 10px; }\n.darma-loader-skeleton-card i:last-child { width: 66%; }\n@keyframes darma-loader-skeleton-card-shimmer { to { background-position: -220% 0; } }\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function SkeletonCardLoader() {\n  return (\n    <span className=\"darma-loader-skeleton-card\"><b></b><i></i><i></i></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
-    "speed": true
-  },
-  "source": {}
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
 }

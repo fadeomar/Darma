@@ -21,21 +21,22 @@
   },
   "searchText": "linear-progress linear progress progress progress bar upload linear html css react popular cssonly customizable singleelement",
   "previewHtml": "<span class=\"darma-loader-linear-progress\"></span>",
-  "previewCss": ".darma-loader-linear-progress {\n  position: relative;\n  display: inline-block;\n  width: 132px;\n  height: 10px;\n  overflow: hidden;\n  border-radius: 999px;\n  background: rgba(99, 102, 241, 0.15);\n}\n.darma-loader-linear-progress::before {\n  content: \"\";\n  position: absolute;\n  inset: 0 auto 0 0;\n  width: 48%;\n  border-radius: inherit;\n  background: #6366f1;\n  animation: darma-loader-linear-progress-progress 1.25s ease-in-out infinite;\n}\n@keyframes darma-loader-linear-progress-progress {\n  0% { transform: translateX(-105%); }\n  55%, 100% { transform: translateX(210%); }\n}",
+  "previewCss": ".darma-loader-linear-progress {\n  position: relative;\n  display: inline-block;\n  width: 132px;\n  height: 10px;\n  overflow: hidden;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #6366f1) 15%, transparent);\n}\n.darma-loader-linear-progress::before {\n  content: \"\";\n  position: absolute;\n  inset: 0 auto 0 0;\n  width: 48%;\n  border-radius: inherit;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-linear-progress-progress 1.25s ease-in-out infinite;\n}\n@keyframes darma-loader-linear-progress-progress {\n  0% { transform: translateX(-105%); }\n  55%, 100% { transform: translateX(210%); }\n}\n",
   "defaults": {
     "color": "#6366f1",
     "size": 48,
-    "speed": 1
+    "speed": 1.25
   },
   "code": {
     "html": "<span class=\"darma-loader-linear-progress\"></span>",
-    "css": ".darma-loader-linear-progress {\n  position: relative;\n  display: inline-block;\n  width: 132px;\n  height: 10px;\n  overflow: hidden;\n  border-radius: 999px;\n  background: rgba(99, 102, 241, 0.15);\n}\n.darma-loader-linear-progress::before {\n  content: \"\";\n  position: absolute;\n  inset: 0 auto 0 0;\n  width: 48%;\n  border-radius: inherit;\n  background: #6366f1;\n  animation: darma-loader-linear-progress-progress 1.25s ease-in-out infinite;\n}\n@keyframes darma-loader-linear-progress-progress {\n  0% { transform: translateX(-105%); }\n  55%, 100% { transform: translateX(210%); }\n}",
-    "react": "export default function LinearProgressLoader() {\n  return (\n    <span className=\"darma-loader-linear-progress\"></span>\n  );\n}\n"
+    "css": ".darma-loader-linear-progress {\n  position: relative;\n  display: inline-block;\n  width: 132px;\n  height: 10px;\n  overflow: hidden;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #6366f1) 15%, transparent);\n}\n.darma-loader-linear-progress::before {\n  content: \"\";\n  position: absolute;\n  inset: 0 auto 0 0;\n  width: 48%;\n  border-radius: inherit;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-linear-progress-progress 1.25s ease-in-out infinite;\n}\n@keyframes darma-loader-linear-progress-progress {\n  0% { transform: translateX(-105%); }\n  55%, 100% { transform: translateX(210%); }\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function LinearProgressLoader() {\n  return (\n    <span className=\"darma-loader-linear-progress\"></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
-    "speed": true
-  },
-  "source": {}
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
 }

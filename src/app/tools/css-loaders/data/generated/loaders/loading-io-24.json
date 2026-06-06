@@ -23,24 +23,24 @@
   },
   "searchText": "loading-io-24 loading.io adapted loader 24 spinners loading-io orbit circle spinners loader html css react cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-loading-io-24\"><i></i><i></i></span>",
-  "previewCss": ".darma-loader-loading-io-24 {\n      position: relative;\n      display: inline-block;\n      width: 64px;\n      height: 64px;\n      border-radius: 50%;\n      border: 1px solid color-mix(in srgb, var(--loader-color) 24%, transparent);\n    }\n    .darma-loader-loading-io-24 i {\n      position: absolute;\n      inset: -3px;\n      border-radius: 50%;\n      animation: darma-loader-loading-io-24-orbit 0.9s linear infinite;\n    }\n    .darma-loader-loading-io-24 i::before {\n      content: \"\";\n      position: absolute;\n      top: 0;\n      left: 50%;\n      width: 10px;\n      height: 10px;\n      margin-left: -5px;\n      border-radius: 50%;\n      background: var(--loader-color);\n      box-shadow: 0 0 18px color-mix(in srgb, var(--loader-color) 45%, transparent);\n    }\n    .darma-loader-loading-io-24 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-24 i:nth-child(2) { animation-delay: -0.45s; }\n    @keyframes darma-loader-loading-io-24-orbit { to { transform: rotate(360deg); } }",
+  "previewCss": ".darma-loader-loading-io-24 {\n      position: relative;\n      display: inline-block;\n      width: 64px;\n      height: 64px;\n      border-radius: 50%;\n      border: 1px solid color-mix(in srgb, var(--loader-color, #ec4899) 24%, transparent);\n    }\n    .darma-loader-loading-io-24 i {\n      position: absolute;\n      inset: -3px;\n      border-radius: 50%;\n      animation: darma-loader-loading-io-24-orbit 0.9s linear infinite;\n    }\n    .darma-loader-loading-io-24 i::before {\n      content: \"\";\n      position: absolute;\n      top: 0;\n      left: 50%;\n      width: 10px;\n      height: 10px;\n      margin-left: -5px;\n      border-radius: 50%;\n      background: var(--loader-color, #ec4899);\n      box-shadow: 0 0 18px color-mix(in srgb, var(--loader-color, #ec4899) 45%, transparent);\n    }\n    .darma-loader-loading-io-24 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-24 i:nth-child(2) { animation-delay: -0.45s; }\n    @keyframes darma-loader-loading-io-24-orbit { to { transform: rotate(360deg); } }\n",
   "defaults": {
     "color": "#ec4899",
     "secondaryColor": "#fbcfe8",
     "size": 52,
-    "speed": 1.2
+    "speed": 0.9
   },
   "code": {
     "html": "<span class=\"darma-loader-loading-io-24\"><i></i><i></i></span>",
-    "css": ".darma-loader-loading-io-24 {\n      position: relative;\n      display: inline-block;\n      width: 64px;\n      height: 64px;\n      border-radius: 50%;\n      border: 1px solid color-mix(in srgb, var(--loader-color) 24%, transparent);\n    }\n    .darma-loader-loading-io-24 i {\n      position: absolute;\n      inset: -3px;\n      border-radius: 50%;\n      animation: darma-loader-loading-io-24-orbit 0.9s linear infinite;\n    }\n    .darma-loader-loading-io-24 i::before {\n      content: \"\";\n      position: absolute;\n      top: 0;\n      left: 50%;\n      width: 10px;\n      height: 10px;\n      margin-left: -5px;\n      border-radius: 50%;\n      background: var(--loader-color);\n      box-shadow: 0 0 18px color-mix(in srgb, var(--loader-color) 45%, transparent);\n    }\n    .darma-loader-loading-io-24 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-24 i:nth-child(2) { animation-delay: -0.45s; }\n    @keyframes darma-loader-loading-io-24-orbit { to { transform: rotate(360deg); } }",
-    "react": "export default function LoadingIo24Loader() {\n  return (\n    <span className=\"darma-loader-loading-io-24\"><i></i><i></i></span>\n  );\n}\n"
+    "css": ".darma-loader-loading-io-24 {\n      position: relative;\n      display: inline-block;\n      width: 64px;\n      height: 64px;\n      border-radius: 50%;\n      border: 1px solid color-mix(in srgb, var(--loader-color, #ec4899) 24%, transparent);\n    }\n    .darma-loader-loading-io-24 i {\n      position: absolute;\n      inset: -3px;\n      border-radius: 50%;\n      animation: darma-loader-loading-io-24-orbit 0.9s linear infinite;\n    }\n    .darma-loader-loading-io-24 i::before {\n      content: \"\";\n      position: absolute;\n      top: 0;\n      left: 50%;\n      width: 10px;\n      height: 10px;\n      margin-left: -5px;\n      border-radius: 50%;\n      background: var(--loader-color, #ec4899);\n      box-shadow: 0 0 18px color-mix(in srgb, var(--loader-color, #ec4899) 45%, transparent);\n    }\n    .darma-loader-loading-io-24 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-24 i:nth-child(2) { animation-delay: -0.45s; }\n    @keyframes darma-loader-loading-io-24-orbit { to { transform: rotate(360deg); } }\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function LoadingIo24Loader() {\n  return (\n    <span className=\"darma-loader-loading-io-24\"><i></i><i></i></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
     "background": false,
-    "secondaryColor": true
+    "secondaryColor": false
   },
   "source": {
     "name": "loading.io CSS Spinner",

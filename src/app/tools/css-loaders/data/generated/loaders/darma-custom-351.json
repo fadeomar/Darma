@@ -29,25 +29,25 @@
   },
   "searchText": "darma-custom-351 orbit coin 08 spinners orbit coin 08 wheel spinner duotone spinners loader css-only single-element batch-06 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-351\"></div>",
-  "previewCss": ".darma-loader-darma-custom-351 {color: var(--loader-color, #0f766e);\n  --loader-secondary-color: #5eead4;\n  --loader-bg: #ffffff;\n  display: inline-grid;\n  width: 80px;\n  aspect-ratio: 2;\n  box-sizing: content-box;\n  border-bottom: 8px solid #0000;\n  background:linear-gradient(90deg,var(--loader-secondary-color, #5eead4) 50%,var(--loader-color, #0f766e) 0)50% 100%/52% 8px border-box repeat-x;\n  animation: darma-loader-darma-custom-351-l8-0 1s linear infinite;\n}.darma-loader-darma-custom-351:before {content:\"\";\n  margin: 0 25%;\n  border-radius: 50%;\n  background: repeating-conic-gradient(var(--loader-color, #0f766e) 0 60deg,var(--loader-secondary-color, #5eead4) 0 120deg);\n  animation: darma-loader-darma-custom-351-l8-1 1s linear infinite;\n}@keyframes darma-loader-darma-custom-351-l8-0 {to{background-position: -58% 100%}}@keyframes darma-loader-darma-custom-351-l8-1 {to{rotate: 120deg}}",
+  "previewCss": ".darma-loader-darma-custom-351 {color: var(--loader-color, #0f766e);\n  display: inline-grid;\n  width: 80px;\n  aspect-ratio: 2;\n  box-sizing: content-box;\n  border-bottom: 8px solid #0000;\n  background:linear-gradient(90deg,var(--loader-secondary-color, #5eead4) 50%,var(--loader-color, #0f766e) 0)50% 100%/52% 8px border-box repeat-x;\n  animation: darma-loader-darma-custom-351-l8-0 1s linear infinite;\n}.darma-loader-darma-custom-351:before {content:\"\";\n  margin: 0 25%;\n  border-radius: 50%;\n  background: repeating-conic-gradient(var(--loader-color, #0f766e) 0 60deg,var(--loader-secondary-color, #5eead4) 0 120deg);\n  animation: darma-loader-darma-custom-351-l8-1 1s linear infinite;\n}@keyframes darma-loader-darma-custom-351-l8-0 {to{background-position: -58% 100%}}@keyframes darma-loader-darma-custom-351-l8-1 {to{rotate: 120deg}}\n",
   "defaults": {
     "color": "#0f766e",
     "secondaryColor": "#5eead4",
     "size": 72,
-    "speed": 1.0,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-351\"></div>",
-    "css": ".darma-loader-darma-custom-351 {color: var(--loader-color, #0f766e);\n  --loader-secondary-color: #5eead4;\n  --loader-bg: #ffffff;\n  display: inline-grid;\n  width: 80px;\n  aspect-ratio: 2;\n  box-sizing: content-box;\n  border-bottom: 8px solid #0000;\n  background:linear-gradient(90deg,var(--loader-secondary-color, #5eead4) 50%,var(--loader-color, #0f766e) 0)50% 100%/52% 8px border-box repeat-x;\n  animation: darma-loader-darma-custom-351-l8-0 1s linear infinite;\n}.darma-loader-darma-custom-351:before {content:\"\";\n  margin: 0 25%;\n  border-radius: 50%;\n  background: repeating-conic-gradient(var(--loader-color, #0f766e) 0 60deg,var(--loader-secondary-color, #5eead4) 0 120deg);\n  animation: darma-loader-darma-custom-351-l8-1 1s linear infinite;\n}@keyframes darma-loader-darma-custom-351-l8-0 {to{background-position: -58% 100%}}@keyframes darma-loader-darma-custom-351-l8-1 {to{rotate: 120deg}}",
-    "react": "export default function DarmaCustom351Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-351\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-351 {color: var(--loader-color, #0f766e);\n  display: inline-grid;\n  width: 80px;\n  aspect-ratio: 2;\n  box-sizing: content-box;\n  border-bottom: 8px solid #0000;\n  background:linear-gradient(90deg,var(--loader-secondary-color, #5eead4) 50%,var(--loader-color, #0f766e) 0)50% 100%/52% 8px border-box repeat-x;\n  animation: darma-loader-darma-custom-351-l8-0 1s linear infinite;\n}.darma-loader-darma-custom-351:before {content:\"\";\n  margin: 0 25%;\n  border-radius: 50%;\n  background: repeating-conic-gradient(var(--loader-color, #0f766e) 0 60deg,var(--loader-secondary-color, #5eead4) 0 120deg);\n  animation: darma-loader-darma-custom-351-l8-1 1s linear infinite;\n}@keyframes darma-loader-darma-custom-351-l8-0 {to{background-position: -58% 100%}}@keyframes darma-loader-darma-custom-351-l8-1 {to{rotate: 120deg}}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom351Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-351\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": true
+    "background": false,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

@@ -28,25 +28,25 @@
   },
   "searchText": "darma-custom-550 line trace 16 creative line trace 16 outline geometric creative loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-550\"></div>",
-  "previewCss": ".darma-loader-darma-custom-550 {color: var(--loader-color, #16a34a);\n  --loader-secondary-color: #86efac;\n  --loader-bg: #ffffff;\n   width: 60px;\n   height: 16px;\n   display: grid;\n}\n.darma-loader-darma-custom-550:before, .darma-loader-darma-custom-550:after  {\n  content: \"\";\n   grid-area: 1/1;\n   --c:no-repeat linear-gradient(var(--loader-color, #16a34a) 0 0);\n   background: var(--c), var(--c), var(--c);\n   animation: darma-loader-darma-custom-550-l16-1 1.5s infinite linear, darma-loader-darma-custom-550-l16-2 1.5s infinite linear;\n   transform: scale(var(--s,1)) translate(3px,-3px);\n}\n.darma-loader-darma-custom-550:after  {\n  --s:-1;\n}\n@keyframes darma-loader-darma-custom-550-l16-1  {\n  0%, 3% {background-size: 0 4px,4px 0 ,0 4px}\n16.67%{background-size: 100% 4px,4px 0 ,0 4px}\n33.33%{background-size: 100% 4px,4px 100%,0 4px}\n46%, 54% {background-size: 100% 4px,4px 100%,100% 4px}\n66.67%{background-size: 0 4px,4px 100%,100% 4px}\n83.33%{background-size: 0 4px,4px 0 ,100% 4px}\n96%, 100% {background-size: 0 4px,4px 0 ,0 4px}\n}\n@keyframes darma-loader-darma-custom-550-l16-2  {\n  0%,49.9%{background-position: 0 0,100% 0 ,100% 100%}\n50%,100%{background-position: 100% 0,100% 100%,0 100%}\n}",
+  "previewCss": ".darma-loader-darma-custom-550 {color: var(--loader-color, #16a34a);\n   width: 60px;\n   height: 16px;\n   display: grid;\n}\n.darma-loader-darma-custom-550:before, .darma-loader-darma-custom-550:after  {\n  content: \"\";\n   grid-area: 1/1;\n   --c:no-repeat linear-gradient(var(--loader-color, #16a34a) 0 0);\n   background: var(--c), var(--c), var(--c);\n   animation: darma-loader-darma-custom-550-l16-1 1.5s infinite linear, darma-loader-darma-custom-550-l16-2 1.5s infinite linear;\n   transform: scale(var(--s,1)) translate(3px,-3px);\n}\n.darma-loader-darma-custom-550:after  {\n  --s:-1;\n}\n@keyframes darma-loader-darma-custom-550-l16-1  {\n  0%, 3% {background-size: 0 4px,4px 0 ,0 4px}\n16.67%{background-size: 100% 4px,4px 0 ,0 4px}\n33.33%{background-size: 100% 4px,4px 100%,0 4px}\n46%, 54% {background-size: 100% 4px,4px 100%,100% 4px}\n66.67%{background-size: 0 4px,4px 100%,100% 4px}\n83.33%{background-size: 0 4px,4px 0 ,100% 4px}\n96%, 100% {background-size: 0 4px,4px 0 ,0 4px}\n}\n@keyframes darma-loader-darma-custom-550-l16-2  {\n  0%,49.9%{background-position: 0 0,100% 0 ,100% 100%}\n50%,100%{background-position: 100% 0,100% 100%,0 100%}\n}\n",
   "defaults": {
     "color": "#16a34a",
     "secondaryColor": "#86efac",
     "size": 72,
-    "speed": 1.0,
+    "speed": 1.5,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-550\"></div>",
-    "css": ".darma-loader-darma-custom-550 {color: var(--loader-color, #16a34a);\n  --loader-secondary-color: #86efac;\n  --loader-bg: #ffffff;\n   width: 60px;\n   height: 16px;\n   display: grid;\n}\n.darma-loader-darma-custom-550:before, .darma-loader-darma-custom-550:after  {\n  content: \"\";\n   grid-area: 1/1;\n   --c:no-repeat linear-gradient(var(--loader-color, #16a34a) 0 0);\n   background: var(--c), var(--c), var(--c);\n   animation: darma-loader-darma-custom-550-l16-1 1.5s infinite linear, darma-loader-darma-custom-550-l16-2 1.5s infinite linear;\n   transform: scale(var(--s,1)) translate(3px,-3px);\n}\n.darma-loader-darma-custom-550:after  {\n  --s:-1;\n}\n@keyframes darma-loader-darma-custom-550-l16-1  {\n  0%, 3% {background-size: 0 4px,4px 0 ,0 4px}\n16.67%{background-size: 100% 4px,4px 0 ,0 4px}\n33.33%{background-size: 100% 4px,4px 100%,0 4px}\n46%, 54% {background-size: 100% 4px,4px 100%,100% 4px}\n66.67%{background-size: 0 4px,4px 100%,100% 4px}\n83.33%{background-size: 0 4px,4px 0 ,100% 4px}\n96%, 100% {background-size: 0 4px,4px 0 ,0 4px}\n}\n@keyframes darma-loader-darma-custom-550-l16-2  {\n  0%,49.9%{background-position: 0 0,100% 0 ,100% 100%}\n50%,100%{background-position: 100% 0,100% 100%,0 100%}\n}",
-    "react": "export default function DarmaCustom550Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-550\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-550 {color: var(--loader-color, #16a34a);\n   width: 60px;\n   height: 16px;\n   display: grid;\n}\n.darma-loader-darma-custom-550:before, .darma-loader-darma-custom-550:after  {\n  content: \"\";\n   grid-area: 1/1;\n   --c:no-repeat linear-gradient(var(--loader-color, #16a34a) 0 0);\n   background: var(--c), var(--c), var(--c);\n   animation: darma-loader-darma-custom-550-l16-1 1.5s infinite linear, darma-loader-darma-custom-550-l16-2 1.5s infinite linear;\n   transform: scale(var(--s,1)) translate(3px,-3px);\n}\n.darma-loader-darma-custom-550:after  {\n  --s:-1;\n}\n@keyframes darma-loader-darma-custom-550-l16-1  {\n  0%, 3% {background-size: 0 4px,4px 0 ,0 4px}\n16.67%{background-size: 100% 4px,4px 0 ,0 4px}\n33.33%{background-size: 100% 4px,4px 100%,0 4px}\n46%, 54% {background-size: 100% 4px,4px 100%,100% 4px}\n66.67%{background-size: 0 4px,4px 100%,100% 4px}\n83.33%{background-size: 0 4px,4px 0 ,100% 4px}\n96%, 100% {background-size: 0 4px,4px 0 ,0 4px}\n}\n@keyframes darma-loader-darma-custom-550-l16-2  {\n  0%,49.9%{background-position: 0 0,100% 0 ,100% 100%}\n50%,100%{background-position: 100% 0,100% 100%,0 100%}\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom550Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-550\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": true
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

@@ -25,25 +25,25 @@
   },
   "searchText": "darma-custom-172 step dots dots step dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-172\"></div>",
-  "previewCss": ".darma-loader-darma-custom-172 {\n  color: #059669;\nwidth: 60px;\naspect-ratio: 4;\nbackground: radial-gradient(circle closest-side,currentColor 90%,#0000) 0/calc(100%/3) 100% no-repeat;\nanimation: darma-loader-darma-custom-172-l2 1s steps(3) infinite;\n}\n@keyframes darma-loader-darma-custom-172-l2 {to{background-position: 150%}}",
+  "previewCss": ".darma-loader-darma-custom-172 {\n  color: var(--loader-color, #059669);\nwidth: 60px;\naspect-ratio: 4;\nbackground: radial-gradient(circle closest-side,currentColor 90%,#0000) 0/calc(100%/3) 100% no-repeat;\nanimation: darma-loader-darma-custom-172-l2 1s steps(3) infinite;\n}\n@keyframes darma-loader-darma-custom-172-l2 {to{background-position: 150%}}\n",
   "defaults": {
     "color": "#059669",
     "secondaryColor": "#34d399",
     "size": 60,
-    "speed": 1.0,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-172\"></div>",
-    "css": ".darma-loader-darma-custom-172 {\n  color: #059669;\nwidth: 60px;\naspect-ratio: 4;\nbackground: radial-gradient(circle closest-side,currentColor 90%,#0000) 0/calc(100%/3) 100% no-repeat;\nanimation: darma-loader-darma-custom-172-l2 1s steps(3) infinite;\n}\n@keyframes darma-loader-darma-custom-172-l2 {to{background-position: 150%}}",
-    "react": "export default function DarmaCustom172Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-172\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-172 {\n  color: var(--loader-color, #059669);\nwidth: 60px;\naspect-ratio: 4;\nbackground: radial-gradient(circle closest-side,currentColor 90%,#0000) 0/calc(100%/3) 100% no-repeat;\nanimation: darma-loader-darma-custom-172-l2 1s steps(3) infinite;\n}\n@keyframes darma-loader-darma-custom-172-l2 {to{background-position: 150%}}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom172Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-172\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": false,
     "size": true,
     "speed": true,
-    "background": false
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

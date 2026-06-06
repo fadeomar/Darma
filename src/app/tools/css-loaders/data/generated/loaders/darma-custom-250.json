@@ -28,25 +28,25 @@
   },
   "searchText": "darma-custom-250 chevron step fill progress chevron step fill progress track steps loader css-only single-element batch-05 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-250\"></div>",
-  "previewCss": ".darma-loader-darma-custom-250 {\n  color: var(--loader-color, #4f46e5);\n  height: 27px;\n  aspect-ratio: 5;\n  --c: currentColor 90deg,#0000 0;\n  background:\n   conic-gradient(from 135deg at top   ,var(--c)),\n   conic-gradient(from -45deg at bottom,var(--c)) 12.5% 100%;\n  background-size: 20% 50%;\n  background-repeat: repeat-x;\n  clip-path: inset(0 100% 0 0);\n  animation: darma-loader-darma-custom-250-l11 2.5s infinite steps(11,jump-none);\n}\n@keyframes darma-loader-darma-custom-250-l11{\n  to {clip-path: inset(0)}\n}",
+  "previewCss": ".darma-loader-darma-custom-250 {\n  color: var(--loader-color, #4f46e5);\n  height: 27px;\n  aspect-ratio: 5;\n  --c: currentColor 90deg,#0000 0;\n  background:\n   conic-gradient(from 135deg at top   ,var(--c)),\n   conic-gradient(from -45deg at bottom,var(--c)) 12.5% 100%;\n  background-size: 20% 50%;\n  background-repeat: repeat-x;\n  clip-path: inset(0 100% 0 0);\n  animation: darma-loader-darma-custom-250-l11 2.5s infinite steps(11,jump-none);\n}\n@keyframes darma-loader-darma-custom-250-l11{\n  to {clip-path: inset(0)}\n}\n",
   "defaults": {
     "color": "#4f46e5",
     "secondaryColor": "#a5b4fc",
     "size": 84,
-    "speed": 1.0,
+    "speed": 2.5,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-250\"></div>",
-    "css": ".darma-loader-darma-custom-250 {\n  color: var(--loader-color, #4f46e5);\n  height: 27px;\n  aspect-ratio: 5;\n  --c: currentColor 90deg,#0000 0;\n  background:\n   conic-gradient(from 135deg at top   ,var(--c)),\n   conic-gradient(from -45deg at bottom,var(--c)) 12.5% 100%;\n  background-size: 20% 50%;\n  background-repeat: repeat-x;\n  clip-path: inset(0 100% 0 0);\n  animation: darma-loader-darma-custom-250-l11 2.5s infinite steps(11,jump-none);\n}\n@keyframes darma-loader-darma-custom-250-l11{\n  to {clip-path: inset(0)}\n}",
-    "react": "export default function DarmaCustom250Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-250\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-250 {\n  color: var(--loader-color, #4f46e5);\n  height: 27px;\n  aspect-ratio: 5;\n  --c: currentColor 90deg,#0000 0;\n  background:\n   conic-gradient(from 135deg at top   ,var(--c)),\n   conic-gradient(from -45deg at bottom,var(--c)) 12.5% 100%;\n  background-size: 20% 50%;\n  background-repeat: repeat-x;\n  clip-path: inset(0 100% 0 0);\n  animation: darma-loader-darma-custom-250-l11 2.5s infinite steps(11,jump-none);\n}\n@keyframes darma-loader-darma-custom-250-l11{\n  to {clip-path: inset(0)}\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom250Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-250\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": false,
     "size": true,
     "speed": true,
-    "background": false
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

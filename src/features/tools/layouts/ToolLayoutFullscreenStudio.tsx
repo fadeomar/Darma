@@ -22,7 +22,7 @@ export function ToolLayoutFullscreenStudio({
     <div className="space-y-5 sm:space-y-6">
       {categorySlot ? <section>{categorySlot}</section> : null}
 
-      <PreviewFrame variant="studio" className="h-[clamp(420px,44vw,560px)] min-h-0 [&>*]:h-full">
+      <PreviewFrame variant="studio" className="min-h-[480px] sm:min-h-[560px] xl:min-h-[640px]">
         {previewSlot}
       </PreviewFrame>
 

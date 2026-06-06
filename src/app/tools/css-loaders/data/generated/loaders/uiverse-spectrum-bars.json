@@ -23,24 +23,24 @@
   },
   "searchText": "uiverse-spectrum-bars spectrum bars fun uiverse colorful bars fun loader html css react cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-uiverse-spectrum-bars\"><i></i><i></i><i></i><i></i><i></i></span>",
-  "previewCss": ".darma-loader-uiverse-spectrum-bars {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 5px;\n      height: 44px;\n    }\n    .darma-loader-uiverse-spectrum-bars i {\n      display: block;\n      width: 7px;\n      height: 44px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color), var(--loader-secondary-color));\n      transform-origin: center bottom;\n      animation: darma-loader-uiverse-spectrum-bars-barPulse 0.8s ease-in-out infinite;\n    }\n    .darma-loader-uiverse-spectrum-bars i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-uiverse-spectrum-bars i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-uiverse-spectrum-bars i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-uiverse-spectrum-bars i:nth-child(4) { animation-delay: 0.27s; }\n.darma-loader-uiverse-spectrum-bars i:nth-child(5) { animation-delay: 0.36s; }\n    @keyframes darma-loader-uiverse-spectrum-bars-barPulse { 0%, 100% { opacity: .25; transform: scaleY(.5); } 45% { opacity: 1; transform: scaleY(1); } }",
+  "previewCss": ".darma-loader-uiverse-spectrum-bars {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 5px;\n      height: 44px;\n    }\n    .darma-loader-uiverse-spectrum-bars i {\n      display: block;\n      width: 7px;\n      height: 44px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #8b5cf6), var(--loader-secondary-color, #ddd6fe));\n      transform-origin: center bottom;\n      animation: darma-loader-uiverse-spectrum-bars-barPulse 0.8s ease-in-out infinite;\n    }\n    .darma-loader-uiverse-spectrum-bars i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-uiverse-spectrum-bars i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-uiverse-spectrum-bars i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-uiverse-spectrum-bars i:nth-child(4) { animation-delay: 0.27s; }\n.darma-loader-uiverse-spectrum-bars i:nth-child(5) { animation-delay: 0.36s; }\n    @keyframes darma-loader-uiverse-spectrum-bars-barPulse { 0%, 100% { opacity: .25; transform: scaleY(.5); } 45% { opacity: 1; transform: scaleY(1); } }\n",
   "defaults": {
     "color": "#8b5cf6",
     "secondaryColor": "#ddd6fe",
     "size": 66,
-    "speed": 0.95,
+    "speed": 0.8,
     "background": "#ffffff"
   },
   "code": {
     "html": "<span class=\"darma-loader-uiverse-spectrum-bars\"><i></i><i></i><i></i><i></i><i></i></span>",
-    "css": ".darma-loader-uiverse-spectrum-bars {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 5px;\n      height: 44px;\n    }\n    .darma-loader-uiverse-spectrum-bars i {\n      display: block;\n      width: 7px;\n      height: 44px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color), var(--loader-secondary-color));\n      transform-origin: center bottom;\n      animation: darma-loader-uiverse-spectrum-bars-barPulse 0.8s ease-in-out infinite;\n    }\n    .darma-loader-uiverse-spectrum-bars i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-uiverse-spectrum-bars i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-uiverse-spectrum-bars i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-uiverse-spectrum-bars i:nth-child(4) { animation-delay: 0.27s; }\n.darma-loader-uiverse-spectrum-bars i:nth-child(5) { animation-delay: 0.36s; }\n    @keyframes darma-loader-uiverse-spectrum-bars-barPulse { 0%, 100% { opacity: .25; transform: scaleY(.5); } 45% { opacity: 1; transform: scaleY(1); } }",
-    "react": "export default function UiverseSpectrumBarsLoader() {\n  return (\n    <span className=\"darma-loader-uiverse-spectrum-bars\"><i></i><i></i><i></i><i></i><i></i></span>\n  );\n}\n"
+    "css": ".darma-loader-uiverse-spectrum-bars {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 5px;\n      height: 44px;\n    }\n    .darma-loader-uiverse-spectrum-bars i {\n      display: block;\n      width: 7px;\n      height: 44px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #8b5cf6), var(--loader-secondary-color, #ddd6fe));\n      transform-origin: center bottom;\n      animation: darma-loader-uiverse-spectrum-bars-barPulse 0.8s ease-in-out infinite;\n    }\n    .darma-loader-uiverse-spectrum-bars i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-uiverse-spectrum-bars i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-uiverse-spectrum-bars i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-uiverse-spectrum-bars i:nth-child(4) { animation-delay: 0.27s; }\n.darma-loader-uiverse-spectrum-bars i:nth-child(5) { animation-delay: 0.36s; }\n    @keyframes darma-loader-uiverse-spectrum-bars-barPulse { 0%, 100% { opacity: .25; transform: scaleY(.5); } 45% { opacity: 1; transform: scaleY(1); } }\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function UiverseSpectrumBarsLoader() {\n  return (\n    <span className=\"darma-loader-uiverse-spectrum-bars\"><i></i><i></i><i></i><i></i><i></i></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": true,
+    "background": false,
     "secondaryColor": true
   },
   "source": {

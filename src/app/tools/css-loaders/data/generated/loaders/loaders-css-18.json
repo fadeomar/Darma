@@ -23,24 +23,24 @@
   },
   "searchText": "loaders-css-18 cube transition 18 creative loaders-css cube transition creative loader html css react cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-loaders-css-18\"><i></i><i></i><i></i><i></i></span>",
-  "previewCss": ".darma-loader-loaders-css-18 {\n      display: inline-grid;\n      grid-template-columns: repeat(2, 17px);\n      gap: 8px;\n    }\n    .darma-loader-loaders-css-18 i {\n      width: 17px;\n      height: 17px;\n      border-radius: 4px;\n      background: var(--loader-color);\n      animation: darma-loader-loaders-css-18-gridFlash 1.1400000000000001s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-18 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-18 i:nth-child(2) { animation-delay: 0.08s; }\n.darma-loader-loaders-css-18 i:nth-child(3) { animation-delay: 0.08s; }\n.darma-loader-loaders-css-18 i:nth-child(4) { animation-delay: 0.16s; }\n    @keyframes darma-loader-loaders-css-18-gridFlash { 0%, 70%, 100% { opacity: .25; transform: scale(.75); } 35% { opacity: 1; transform: scale(1); } }",
+  "previewCss": ".darma-loader-loaders-css-18 {\n      display: inline-grid;\n      grid-template-columns: repeat(2, 17px);\n      gap: 8px;\n    }\n    .darma-loader-loaders-css-18 i {\n      width: 17px;\n      height: 17px;\n      border-radius: 4px;\n      background: var(--loader-color, #f97316);\n      animation: darma-loader-loaders-css-18-gridFlash 1.1400000000000001s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-18 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-18 i:nth-child(2) { animation-delay: 0.08s; }\n.darma-loader-loaders-css-18 i:nth-child(3) { animation-delay: 0.08s; }\n.darma-loader-loaders-css-18 i:nth-child(4) { animation-delay: 0.16s; }\n    @keyframes darma-loader-loaders-css-18-gridFlash { 0%, 70%, 100% { opacity: .25; transform: scale(.75); } 35% { opacity: 1; transform: scale(1); } }\n",
   "defaults": {
     "color": "#f97316",
     "secondaryColor": "#fed7aa",
     "size": 64,
-    "speed": 0.99
+    "speed": 1.14
   },
   "code": {
     "html": "<span class=\"darma-loader-loaders-css-18\"><i></i><i></i><i></i><i></i></span>",
-    "css": ".darma-loader-loaders-css-18 {\n      display: inline-grid;\n      grid-template-columns: repeat(2, 17px);\n      gap: 8px;\n    }\n    .darma-loader-loaders-css-18 i {\n      width: 17px;\n      height: 17px;\n      border-radius: 4px;\n      background: var(--loader-color);\n      animation: darma-loader-loaders-css-18-gridFlash 1.1400000000000001s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-18 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-18 i:nth-child(2) { animation-delay: 0.08s; }\n.darma-loader-loaders-css-18 i:nth-child(3) { animation-delay: 0.08s; }\n.darma-loader-loaders-css-18 i:nth-child(4) { animation-delay: 0.16s; }\n    @keyframes darma-loader-loaders-css-18-gridFlash { 0%, 70%, 100% { opacity: .25; transform: scale(.75); } 35% { opacity: 1; transform: scale(1); } }",
-    "react": "export default function LoadersCss18Loader() {\n  return (\n    <span className=\"darma-loader-loaders-css-18\"><i></i><i></i><i></i><i></i></span>\n  );\n}\n"
+    "css": ".darma-loader-loaders-css-18 {\n      display: inline-grid;\n      grid-template-columns: repeat(2, 17px);\n      gap: 8px;\n    }\n    .darma-loader-loaders-css-18 i {\n      width: 17px;\n      height: 17px;\n      border-radius: 4px;\n      background: var(--loader-color, #f97316);\n      animation: darma-loader-loaders-css-18-gridFlash 1.1400000000000001s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-18 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-18 i:nth-child(2) { animation-delay: 0.08s; }\n.darma-loader-loaders-css-18 i:nth-child(3) { animation-delay: 0.08s; }\n.darma-loader-loaders-css-18 i:nth-child(4) { animation-delay: 0.16s; }\n    @keyframes darma-loader-loaders-css-18-gridFlash { 0%, 70%, 100% { opacity: .25; transform: scale(.75); } 35% { opacity: 1; transform: scale(1); } }\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function LoadersCss18Loader() {\n  return (\n    <span className=\"darma-loader-loaders-css-18\"><i></i><i></i><i></i><i></i></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
     "background": false,
-    "secondaryColor": true
+    "secondaryColor": false
   },
   "source": {
     "name": "loaders.css",

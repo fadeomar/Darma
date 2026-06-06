@@ -24,7 +24,7 @@
   },
   "searchText": "darma-custom-023 bordered slider fill progress linear bordered slider pill fill batch-02 html css react popular singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-023\"></div>",
-  "previewCss": ".darma-loader-darma-custom-023 {\n  width: 120px;\n  height: 22px;\n  border-radius: 40px;\n  color: #514b82;\n  border: 2px solid;\n  position: relative;\n}\n.darma-loader-darma-custom-023::before {\n  content: \"\";\n  position: absolute;\n  margin: 2px;\n  width: 25%;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  border-radius: inherit;\n  background: currentColor;\n  animation: darma-loader-darma-custom-023-l3 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-023-l3 {\n  50% { left: 100%; transform: translateX(calc(-100% - 4px)); }\n}",
+  "previewCss": ".darma-loader-darma-custom-023 {\n  width: 120px;\n  height: 22px;\n  border-radius: 40px;\n  color: var(--loader-color, #514b82);\n  border: 2px solid;\n  position: relative;\n}\n.darma-loader-darma-custom-023::before {\n  content: \"\";\n  position: absolute;\n  margin: 2px;\n  width: 25%;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  border-radius: inherit;\n  background: currentColor;\n  animation: darma-loader-darma-custom-023-l3 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-023-l3 {\n  50% { left: 100%; transform: translateX(calc(-100% - 4px)); }\n}\n",
   "defaults": {
     "color": "#514b82",
     "secondaryColor": "#a5b4fc",
@@ -34,15 +34,14 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-023\"></div>",
-    "css": ".darma-loader-darma-custom-023 {\n  width: 120px;\n  height: 22px;\n  border-radius: 40px;\n  color: #514b82;\n  border: 2px solid;\n  position: relative;\n}\n.darma-loader-darma-custom-023::before {\n  content: \"\";\n  position: absolute;\n  margin: 2px;\n  width: 25%;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  border-radius: inherit;\n  background: currentColor;\n  animation: darma-loader-darma-custom-023-l3 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-023-l3 {\n  50% { left: 100%; transform: translateX(calc(-100% - 4px)); }\n}",
-    "react": "export default function DarmaCustom023Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-023\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-023 {\n  width: 120px;\n  height: 22px;\n  border-radius: 40px;\n  color: var(--loader-color, #514b82);\n  border: 2px solid;\n  position: relative;\n}\n.darma-loader-darma-custom-023::before {\n  content: \"\";\n  position: absolute;\n  margin: 2px;\n  width: 25%;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  border-radius: inherit;\n  background: currentColor;\n  animation: darma-loader-darma-custom-023-l3 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-023-l3 {\n  50% { left: 100%; transform: translateX(calc(-100% - 4px)); }\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom023Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-023\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": false
-  },
-  "source": {}
+    "background": false,
+    "secondaryColor": false
+  }
 }

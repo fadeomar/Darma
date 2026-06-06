@@ -23,7 +23,7 @@
   },
   "searchText": "darma-custom-007 triangle scale pulse creative triangle scale pulse shape batch-01 html css react popular singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-007\"></div>",
-  "previewCss": ".darma-loader-darma-custom-007 {\n  width: 50px;\n  aspect-ratio: 1.154;\n  clip-path: polygon(50% 0, 100% 100%, 0 100%);\n  display: grid;\n  background: #3A89C9;\n}\n.darma-loader-darma-custom-007::before,\n.darma-loader-darma-custom-007::after {\n  content: \"\";\n  grid-area: 1/1;\n  background: inherit;\n  clip-path: inherit;\n  transform-origin: 50% 66%;\n  animation: darma-loader-darma-custom-007-l7-1 2s infinite;\n}\n.darma-loader-darma-custom-007::before {\n  background: #9CC4E4;\n  animation: darma-loader-darma-custom-007-l7-2 2s infinite 1s;\n}\n@keyframes darma-loader-darma-custom-007-l7-1 {\n  0%, 99.9% { transform: scale(1); }\n  50%, 99% { transform: scale(0); }\n}\n@keyframes darma-loader-darma-custom-007-l7-2 {\n  0%, 51% { transform: scale(1); }\n  50% { transform: scale(0); }\n}",
+  "previewCss": ".darma-loader-darma-custom-007 {\n  width: 50px;\n  aspect-ratio: 1.154;\n  clip-path: polygon(50% 0, 100% 100%, 0 100%);\n  display: grid;\n  background: var(--loader-color, #3A89C9);\n}\n.darma-loader-darma-custom-007::before,\n.darma-loader-darma-custom-007::after {\n  content: \"\";\n  grid-area: 1/1;\n  background: inherit;\n  clip-path: inherit;\n  transform-origin: 50% 66%;\n  animation: darma-loader-darma-custom-007-l7-1 2s infinite;\n}\n.darma-loader-darma-custom-007::before {\n  background: var(--loader-secondary-color, #9CC4E4);\n  animation: darma-loader-darma-custom-007-l7-2 2s infinite 1s;\n}\n@keyframes darma-loader-darma-custom-007-l7-1 {\n  0%, 99.9% { transform: scale(1); }\n  50%, 99% { transform: scale(0); }\n}\n@keyframes darma-loader-darma-custom-007-l7-2 {\n  0%, 51% { transform: scale(1); }\n  50% { transform: scale(0); }\n}\n",
   "defaults": {
     "color": "#3A89C9",
     "secondaryColor": "#9CC4E4",
@@ -33,15 +33,14 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-007\"></div>",
-    "css": ".darma-loader-darma-custom-007 {\n  width: 50px;\n  aspect-ratio: 1.154;\n  clip-path: polygon(50% 0, 100% 100%, 0 100%);\n  display: grid;\n  background: #3A89C9;\n}\n.darma-loader-darma-custom-007::before,\n.darma-loader-darma-custom-007::after {\n  content: \"\";\n  grid-area: 1/1;\n  background: inherit;\n  clip-path: inherit;\n  transform-origin: 50% 66%;\n  animation: darma-loader-darma-custom-007-l7-1 2s infinite;\n}\n.darma-loader-darma-custom-007::before {\n  background: #9CC4E4;\n  animation: darma-loader-darma-custom-007-l7-2 2s infinite 1s;\n}\n@keyframes darma-loader-darma-custom-007-l7-1 {\n  0%, 99.9% { transform: scale(1); }\n  50%, 99% { transform: scale(0); }\n}\n@keyframes darma-loader-darma-custom-007-l7-2 {\n  0%, 51% { transform: scale(1); }\n  50% { transform: scale(0); }\n}",
-    "react": "export default function DarmaCustom007Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-007\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-007 {\n  width: 50px;\n  aspect-ratio: 1.154;\n  clip-path: polygon(50% 0, 100% 100%, 0 100%);\n  display: grid;\n  background: var(--loader-color, #3A89C9);\n}\n.darma-loader-darma-custom-007::before,\n.darma-loader-darma-custom-007::after {\n  content: \"\";\n  grid-area: 1/1;\n  background: inherit;\n  clip-path: inherit;\n  transform-origin: 50% 66%;\n  animation: darma-loader-darma-custom-007-l7-1 2s infinite;\n}\n.darma-loader-darma-custom-007::before {\n  background: var(--loader-secondary-color, #9CC4E4);\n  animation: darma-loader-darma-custom-007-l7-2 2s infinite 1s;\n}\n@keyframes darma-loader-darma-custom-007-l7-1 {\n  0%, 99.9% { transform: scale(1); }\n  50%, 99% { transform: scale(0); }\n}\n@keyframes darma-loader-darma-custom-007-l7-2 {\n  0%, 51% { transform: scale(1); }\n  50% { transform: scale(0); }\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom007Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-007\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": false
-  },
-  "source": {}
+    "background": false,
+    "secondaryColor": true
+  }
 }

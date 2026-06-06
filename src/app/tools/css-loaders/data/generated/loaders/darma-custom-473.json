@@ -28,25 +28,25 @@
   },
   "searchText": "darma-custom-473 weather icon 13 fun weather icon 13 fun scene illustration loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-473\"></div>",
-  "previewCss": ".darma-loader-darma-custom-473 {--loader-bg: #ffffff;\n  --loader-secondary-color: #67e8f9;\n   width: calc(5*24px);\n   height: 42px;\n   display: flex;\n   color: var(--loader-color, #0ea5e9);\n   filter: drop-shadow(30px 25px 0 currentColor) drop-shadow(60px 0 0 currentColor) drop-shadow(120px 0 0 currentColor);\n   clip-path: inset(0 100% 0 0);\n   animation: darma-loader-darma-custom-473-l13 2s infinite steps(7);\n}\n.darma-loader-darma-custom-473:before  {\n  content: \"\";\n   width: 24px;\n   height: 20px;\n   background: radial-gradient(farthest-side at right,currentColor 92%,#0000) left/20px 100% no-repeat, radial-gradient(farthest-side, currentColor 92%,#0000) right/17px 9px repeat-y;\n}\n@keyframes darma-loader-darma-custom-473-l13  {\n  100% {clip-path: inset(0 -30px 0 0)}\n}",
+  "previewCss": ".darma-loader-darma-custom-473 {\n   width: calc(5*24px);\n   height: 42px;\n   display: flex;\n   color: var(--loader-color, #0ea5e9);\n   filter: drop-shadow(30px 25px 0 currentColor) drop-shadow(60px 0 0 currentColor) drop-shadow(120px 0 0 currentColor);\n   clip-path: inset(0 100% 0 0);\n   animation: darma-loader-darma-custom-473-l13 2s infinite steps(7);\n}\n.darma-loader-darma-custom-473:before  {\n  content: \"\";\n   width: 24px;\n   height: 20px;\n   background: radial-gradient(farthest-side at right,currentColor 92%,#0000) left/20px 100% no-repeat, radial-gradient(farthest-side, currentColor 92%,#0000) right/17px 9px repeat-y;\n}\n@keyframes darma-loader-darma-custom-473-l13  {\n  100% {clip-path: inset(0 -30px 0 0)}\n}\n",
   "defaults": {
     "color": "#0ea5e9",
     "secondaryColor": "#67e8f9",
     "size": 64,
-    "speed": 1.0,
+    "speed": 2,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-473\"></div>",
-    "css": ".darma-loader-darma-custom-473 {--loader-bg: #ffffff;\n  --loader-secondary-color: #67e8f9;\n   width: calc(5*24px);\n   height: 42px;\n   display: flex;\n   color: var(--loader-color, #0ea5e9);\n   filter: drop-shadow(30px 25px 0 currentColor) drop-shadow(60px 0 0 currentColor) drop-shadow(120px 0 0 currentColor);\n   clip-path: inset(0 100% 0 0);\n   animation: darma-loader-darma-custom-473-l13 2s infinite steps(7);\n}\n.darma-loader-darma-custom-473:before  {\n  content: \"\";\n   width: 24px;\n   height: 20px;\n   background: radial-gradient(farthest-side at right,currentColor 92%,#0000) left/20px 100% no-repeat, radial-gradient(farthest-side, currentColor 92%,#0000) right/17px 9px repeat-y;\n}\n@keyframes darma-loader-darma-custom-473-l13  {\n  100% {clip-path: inset(0 -30px 0 0)}\n}",
-    "react": "export default function DarmaCustom473Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-473\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-473 {\n   width: calc(5*24px);\n   height: 42px;\n   display: flex;\n   color: var(--loader-color, #0ea5e9);\n   filter: drop-shadow(30px 25px 0 currentColor) drop-shadow(60px 0 0 currentColor) drop-shadow(120px 0 0 currentColor);\n   clip-path: inset(0 100% 0 0);\n   animation: darma-loader-darma-custom-473-l13 2s infinite steps(7);\n}\n.darma-loader-darma-custom-473:before  {\n  content: \"\";\n   width: 24px;\n   height: 20px;\n   background: radial-gradient(farthest-side at right,currentColor 92%,#0000) left/20px 100% no-repeat, radial-gradient(farthest-side, currentColor 92%,#0000) right/17px 9px repeat-y;\n}\n@keyframes darma-loader-darma-custom-473-l13  {\n  100% {clip-path: inset(0 -30px 0 0)}\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom473Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-473\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": true
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

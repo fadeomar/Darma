@@ -26,25 +26,25 @@
   },
   "searchText": "darma-custom-062 traveling isometric tiles creative traveling isometric tiles geometric creative css-only single-element batch-03 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-062\"></div>",
-  "previewCss": ".darma-loader-darma-custom-062 {\n  --s: 20px;\n  \n  --_d: calc(0.353*var(--s));\n  width: calc(var(--s) + var(--_d));\n  aspect-ratio: 1;\n  display: grid;\n}\n.darma-loader-darma-custom-062:before,\n.darma-loader-darma-custom-062:after {\n  content: \"\";\n  grid-area: 1/1;\n  clip-path: polygon(var(--_d) 0,100% 0,100% calc(100% - var(--_d)),calc(100% - var(--_d)) 100%,0 100%,0 var(--_d));\n  background:\n    conic-gradient(from -90deg at calc(100% - var(--_d)) var(--_d),\n     #fff 135deg,#666 0 270deg,#aaa 0);\n  animation: darma-loader-darma-custom-062-l6 2s infinite;\n}\n.darma-loader-darma-custom-062:after {\n  animation-delay:-1s;\n}\n@keyframes darma-loader-darma-custom-062-l6{\n  0%  {transform:translate(0,0)}\n  25% {transform:translate(30px,0)}\n  50% {transform:translate(30px,30px)}\n  75% {transform:translate(0,30px)}\n  100%{transform:translate(0,0)}\n}",
+  "previewCss": ".darma-loader-darma-custom-062 {\n  --s: 20px;\n  \n  --_d: calc(0.353*var(--s));\n  width: calc(var(--s) + var(--_d));\n  aspect-ratio: 1;\n  display: grid;\n}\n.darma-loader-darma-custom-062:before,\n.darma-loader-darma-custom-062:after {\n  content: \"\";\n  grid-area: 1/1;\n  clip-path: polygon(var(--_d) 0,100% 0,100% calc(100% - var(--_d)),calc(100% - var(--_d)) 100%,0 100%,0 var(--_d));\n  background:\n    conic-gradient(from -90deg at calc(100% - var(--_d)) var(--_d),\n     var(--loader-secondary-color, #fff) 135deg,var(--loader-color, #666) 0 270deg,#aaa 0);\n  animation: darma-loader-darma-custom-062-l6 2s infinite;\n}\n.darma-loader-darma-custom-062:after {\n  animation-delay:-1s;\n}\n@keyframes darma-loader-darma-custom-062-l6{\n  0%  {transform:translate(0,0)}\n  25% {transform:translate(30px,0)}\n  50% {transform:translate(30px,30px)}\n  75% {transform:translate(0,30px)}\n  100%{transform:translate(0,0)}\n}\n",
   "defaults": {
     "color": "#666",
     "secondaryColor": "#fff",
     "size": 20,
-    "speed": 2.0,
+    "speed": 2,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-062\"></div>",
-    "css": ".darma-loader-darma-custom-062 {\n  --s: 20px;\n  \n  --_d: calc(0.353*var(--s));\n  width: calc(var(--s) + var(--_d));\n  aspect-ratio: 1;\n  display: grid;\n}\n.darma-loader-darma-custom-062:before,\n.darma-loader-darma-custom-062:after {\n  content: \"\";\n  grid-area: 1/1;\n  clip-path: polygon(var(--_d) 0,100% 0,100% calc(100% - var(--_d)),calc(100% - var(--_d)) 100%,0 100%,0 var(--_d));\n  background:\n    conic-gradient(from -90deg at calc(100% - var(--_d)) var(--_d),\n     #fff 135deg,#666 0 270deg,#aaa 0);\n  animation: darma-loader-darma-custom-062-l6 2s infinite;\n}\n.darma-loader-darma-custom-062:after {\n  animation-delay:-1s;\n}\n@keyframes darma-loader-darma-custom-062-l6{\n  0%  {transform:translate(0,0)}\n  25% {transform:translate(30px,0)}\n  50% {transform:translate(30px,30px)}\n  75% {transform:translate(0,30px)}\n  100%{transform:translate(0,0)}\n}",
-    "react": "export default function DarmaCustom062Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-062\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-062 {\n  --s: 20px;\n  \n  --_d: calc(0.353*var(--s));\n  width: calc(var(--s) + var(--_d));\n  aspect-ratio: 1;\n  display: grid;\n}\n.darma-loader-darma-custom-062:before,\n.darma-loader-darma-custom-062:after {\n  content: \"\";\n  grid-area: 1/1;\n  clip-path: polygon(var(--_d) 0,100% 0,100% calc(100% - var(--_d)),calc(100% - var(--_d)) 100%,0 100%,0 var(--_d));\n  background:\n    conic-gradient(from -90deg at calc(100% - var(--_d)) var(--_d),\n     var(--loader-secondary-color, #fff) 135deg,var(--loader-color, #666) 0 270deg,#aaa 0);\n  animation: darma-loader-darma-custom-062-l6 2s infinite;\n}\n.darma-loader-darma-custom-062:after {\n  animation-delay:-1s;\n}\n@keyframes darma-loader-darma-custom-062-l6{\n  0%  {transform:translate(0,0)}\n  25% {transform:translate(30px,0)}\n  50% {transform:translate(30px,30px)}\n  75% {transform:translate(0,30px)}\n  100%{transform:translate(0,0)}\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom062Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-062\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": false
+    "background": false,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

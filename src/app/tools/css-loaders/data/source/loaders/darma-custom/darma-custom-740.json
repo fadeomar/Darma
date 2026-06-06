@@ -10,7 +10,6 @@
     "creative",
     "geometric",
     "pattern",
-    "creative",
     "loader"
   ],
   "html": "<div class=\"loader\"></div>",
@@ -31,7 +30,7 @@
     "color": "#f97316",
     "secondaryColor": "#fdba74",
     "size": 60,
-    "speed": 1.0,
+    "speed": 1,
     "background": "#ffffff"
   },
   "flags": {

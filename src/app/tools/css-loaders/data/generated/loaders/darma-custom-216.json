@@ -26,25 +26,25 @@
   },
   "searchText": "darma-custom-216 dot chain swap dots dot chain swap dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-216\"></div>",
-  "previewCss": ".darma-loader-darma-custom-216 {\n  color: #0ea5e9;\nheight: 15px;\naspect-ratio: 5;\nbackground: radial-gradient(closest-side at 37.5% 50%,currentColor 94%,#0000) 0/calc(80%/3) 100%;\nanimation: darma-loader-darma-custom-216-l47 .75s infinite;\n}\n@keyframes darma-loader-darma-custom-216-l47 {\n100% {background-position: 36.36%}\n}",
+  "previewCss": ".darma-loader-darma-custom-216 {\n  color: var(--loader-color, #0ea5e9);\nheight: 15px;\naspect-ratio: 5;\nbackground: radial-gradient(closest-side at 37.5% 50%,currentColor 94%,#0000) 0/calc(80%/3) 100%;\nanimation: darma-loader-darma-custom-216-l47 .75s infinite;\n}\n@keyframes darma-loader-darma-custom-216-l47 {\n100% {background-position: 36.36%}\n}\n",
   "defaults": {
     "color": "#0ea5e9",
     "secondaryColor": "#38bdf8",
     "size": 75,
-    "speed": 1.0,
+    "speed": 0.75,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-216\"></div>",
-    "css": ".darma-loader-darma-custom-216 {\n  color: #0ea5e9;\nheight: 15px;\naspect-ratio: 5;\nbackground: radial-gradient(closest-side at 37.5% 50%,currentColor 94%,#0000) 0/calc(80%/3) 100%;\nanimation: darma-loader-darma-custom-216-l47 .75s infinite;\n}\n@keyframes darma-loader-darma-custom-216-l47 {\n100% {background-position: 36.36%}\n}",
-    "react": "export default function DarmaCustom216Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-216\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-216 {\n  color: var(--loader-color, #0ea5e9);\nheight: 15px;\naspect-ratio: 5;\nbackground: radial-gradient(closest-side at 37.5% 50%,currentColor 94%,#0000) 0/calc(80%/3) 100%;\nanimation: darma-loader-darma-custom-216-l47 .75s infinite;\n}\n@keyframes darma-loader-darma-custom-216-l47 {\n100% {background-position: 36.36%}\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom216Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-216\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": false,
     "size": true,
     "speed": true,
-    "background": false
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

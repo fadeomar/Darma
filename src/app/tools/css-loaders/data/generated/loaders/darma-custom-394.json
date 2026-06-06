@@ -28,25 +28,25 @@
   },
   "searchText": "darma-custom-394 pop icon 01 pulse pop icon 01 pulse shape motion loader css-only single-element batch-06 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-394\"></div>",
-  "previewCss": ".darma-loader-darma-custom-394 {--loader-bg: #ffffff;\n  --loader-secondary-color: #86efac;\n  width: 50px;\n  aspect-ratio: 1;\n  color: var(--loader-color, #16a34a);\n  background:radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,linear-gradient(to bottom left, currentColor 42%,#0000 43%) bottom left ,linear-gradient(to bottom right,currentColor 42%,#0000 43%) bottom right;\n  background-size: 50% 50%;\n  background-repeat: no-repeat;\n  position: relative;\n}.darma-loader-darma-custom-394:before {content: \"\";\n  position: absolute;\n  inset: 0;\n  background: inherit;\n  opacity: 0.4;\n  animation: darma-loader-darma-custom-394-l3 1s infinite;\n}@keyframes darma-loader-darma-custom-394-l3 {to {transform: scale(1.8);\n  opacity:0}}",
+  "previewCss": ".darma-loader-darma-custom-394 {\n  width: 50px;\n  aspect-ratio: 1;\n  color: var(--loader-color, #16a34a);\n  background:radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,linear-gradient(to bottom left, currentColor 42%,#0000 43%) bottom left ,linear-gradient(to bottom right,currentColor 42%,#0000 43%) bottom right;\n  background-size: 50% 50%;\n  background-repeat: no-repeat;\n  position: relative;\n}.darma-loader-darma-custom-394:before {content: \"\";\n  position: absolute;\n  inset: 0;\n  background: inherit;\n  opacity: 0.4;\n  animation: darma-loader-darma-custom-394-l3 1s infinite;\n}@keyframes darma-loader-darma-custom-394-l3 {to {transform: scale(1.8);\n  opacity:0}}\n",
   "defaults": {
     "color": "#16a34a",
     "secondaryColor": "#86efac",
     "size": 72,
-    "speed": 1.0,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-394\"></div>",
-    "css": ".darma-loader-darma-custom-394 {--loader-bg: #ffffff;\n  --loader-secondary-color: #86efac;\n  width: 50px;\n  aspect-ratio: 1;\n  color: var(--loader-color, #16a34a);\n  background:radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,linear-gradient(to bottom left, currentColor 42%,#0000 43%) bottom left ,linear-gradient(to bottom right,currentColor 42%,#0000 43%) bottom right;\n  background-size: 50% 50%;\n  background-repeat: no-repeat;\n  position: relative;\n}.darma-loader-darma-custom-394:before {content: \"\";\n  position: absolute;\n  inset: 0;\n  background: inherit;\n  opacity: 0.4;\n  animation: darma-loader-darma-custom-394-l3 1s infinite;\n}@keyframes darma-loader-darma-custom-394-l3 {to {transform: scale(1.8);\n  opacity:0}}",
-    "react": "export default function DarmaCustom394Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-394\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-394 {\n  width: 50px;\n  aspect-ratio: 1;\n  color: var(--loader-color, #16a34a);\n  background:radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,linear-gradient(to bottom left, currentColor 42%,#0000 43%) bottom left ,linear-gradient(to bottom right,currentColor 42%,#0000 43%) bottom right;\n  background-size: 50% 50%;\n  background-repeat: no-repeat;\n  position: relative;\n}.darma-loader-darma-custom-394:before {content: \"\";\n  position: absolute;\n  inset: 0;\n  background: inherit;\n  opacity: 0.4;\n  animation: darma-loader-darma-custom-394-l3 1s infinite;\n}@keyframes darma-loader-darma-custom-394-l3 {to {transform: scale(1.8);\n  opacity:0}}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom394Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-394\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": true
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

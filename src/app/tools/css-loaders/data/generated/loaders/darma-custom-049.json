@@ -24,7 +24,7 @@
   },
   "searchText": "darma-custom-049 zigzag mask fill progress zigzag mask linear fill progress batch-02 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-049\"></div>",
-  "previewCss": ".darma-loader-darma-custom-049 {\n  width: 124px;\n  height: 24px;\n  -webkit-mask:\n    conic-gradient(from 135deg at top, #0000, #000 .5deg 90deg, #0000 90.5deg) 0 0,\n    conic-gradient(from -45deg at bottom, #0000, #000 .5deg 90deg, #0000 90.5deg) 0 100%;\n  -webkit-mask-size: 25% 50%;\n  -webkit-mask-repeat: repeat-x;\n  background: linear-gradient(#25b09b 0 0) left/0% 100% no-repeat #ddd;\n  animation: darma-loader-darma-custom-049-l13 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-049-l13 {\n  100% { background-size: 100% 100%; }\n}",
+  "previewCss": ".darma-loader-darma-custom-049 {\n  width: 124px;\n  height: 24px;\n  -webkit-mask:\n    conic-gradient(from 135deg at top, #0000, #000 .5deg 90deg, #0000 90.5deg) 0 0,\n    conic-gradient(from -45deg at bottom, #0000, #000 .5deg 90deg, #0000 90.5deg) 0 100%;\n  -webkit-mask-size: 25% 50%;\n  -webkit-mask-repeat: repeat-x;\n  background: linear-gradient(var(--loader-color, #25b09b) 0 0) left/0% 100% no-repeat #ddd;\n  animation: darma-loader-darma-custom-049-l13 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-049-l13 {\n  100% { background-size: 100% 100%; }\n}\n",
   "defaults": {
     "color": "#25b09b",
     "secondaryColor": "#dddddd",
@@ -34,15 +34,14 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-049\"></div>",
-    "css": ".darma-loader-darma-custom-049 {\n  width: 124px;\n  height: 24px;\n  -webkit-mask:\n    conic-gradient(from 135deg at top, #0000, #000 .5deg 90deg, #0000 90.5deg) 0 0,\n    conic-gradient(from -45deg at bottom, #0000, #000 .5deg 90deg, #0000 90.5deg) 0 100%;\n  -webkit-mask-size: 25% 50%;\n  -webkit-mask-repeat: repeat-x;\n  background: linear-gradient(#25b09b 0 0) left/0% 100% no-repeat #ddd;\n  animation: darma-loader-darma-custom-049-l13 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-049-l13 {\n  100% { background-size: 100% 100%; }\n}",
-    "react": "export default function DarmaCustom049Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-049\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-049 {\n  width: 124px;\n  height: 24px;\n  -webkit-mask:\n    conic-gradient(from 135deg at top, #0000, #000 .5deg 90deg, #0000 90.5deg) 0 0,\n    conic-gradient(from -45deg at bottom, #0000, #000 .5deg 90deg, #0000 90.5deg) 0 100%;\n  -webkit-mask-size: 25% 50%;\n  -webkit-mask-repeat: repeat-x;\n  background: linear-gradient(var(--loader-color, #25b09b) 0 0) left/0% 100% no-repeat #ddd;\n  animation: darma-loader-darma-custom-049-l13 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-049-l13 {\n  100% { background-size: 100% 100%; }\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom049Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-049\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": false
-  },
-  "source": {}
+    "background": false,
+    "secondaryColor": false
+  }
 }

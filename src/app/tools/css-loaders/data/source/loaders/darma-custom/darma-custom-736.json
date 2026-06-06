@@ -10,7 +10,6 @@
     "progress",
     "striped",
     "pattern",
-    "progress",
     "loader"
   ],
   "html": "<div class=\"loader\"></div>",
@@ -31,7 +30,7 @@
     "color": "#14b8a6",
     "secondaryColor": "#99f6e4",
     "size": 36,
-    "speed": 1.0,
+    "speed": 1,
     "background": "#ffffff"
   },
   "flags": {

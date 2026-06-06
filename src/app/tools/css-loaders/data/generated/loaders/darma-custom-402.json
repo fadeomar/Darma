@@ -28,25 +28,25 @@
   },
   "searchText": "darma-custom-402 pop icon 09 pulse pop icon 09 pulse shape motion loader css-only single-element batch-06 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-402\"></div>",
-  "previewCss": ".darma-loader-darma-custom-402 {color: var(--loader-color, #9333ea);\n  --loader-secondary-color: #f0abfc;\n  --loader-bg: #ffffff;\n  width: 45px;\n  height: 30px;\n  animation: darma-loader-darma-custom-402-l1 2s infinite linear;\n}@keyframes darma-loader-darma-custom-402-l1{0%,25% {background:linear-gradient(#e50021 0 0) 50% 0/66% 100% no-repeat}25.1%,50% {background:linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 0 0/100% 50% no-repeat,linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 0 0/33% 100% no-repeat}50.1%,75% {background:linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 100% 0/66% 50% no-repeat,linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 0 100%/66% 50% no-repeat}75.1%,100% {background:linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 0 100%/100% 50% no-repeat,linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 50% 0 /33% 50% no-repeat}}",
+  "previewCss": ".darma-loader-darma-custom-402 {color: var(--loader-color, #9333ea);\n  width: 45px;\n  height: 30px;\n  animation: darma-loader-darma-custom-402-l1 2s infinite linear;\n}@keyframes darma-loader-darma-custom-402-l1{0%,25% {background:linear-gradient(#e50021 0 0) 50% 0/66% 100% no-repeat}25.1%,50% {background:linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 0 0/100% 50% no-repeat,linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 0 0/33% 100% no-repeat}50.1%,75% {background:linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 100% 0/66% 50% no-repeat,linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 0 100%/66% 50% no-repeat}75.1%,100% {background:linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 0 100%/100% 50% no-repeat,linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 50% 0 /33% 50% no-repeat}}\n",
   "defaults": {
     "color": "#9333ea",
     "secondaryColor": "#f0abfc",
     "size": 72,
-    "speed": 1.0,
+    "speed": 2,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-402\"></div>",
-    "css": ".darma-loader-darma-custom-402 {color: var(--loader-color, #9333ea);\n  --loader-secondary-color: #f0abfc;\n  --loader-bg: #ffffff;\n  width: 45px;\n  height: 30px;\n  animation: darma-loader-darma-custom-402-l1 2s infinite linear;\n}@keyframes darma-loader-darma-custom-402-l1{0%,25% {background:linear-gradient(#e50021 0 0) 50% 0/66% 100% no-repeat}25.1%,50% {background:linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 0 0/100% 50% no-repeat,linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 0 0/33% 100% no-repeat}50.1%,75% {background:linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 100% 0/66% 50% no-repeat,linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 0 100%/66% 50% no-repeat}75.1%,100% {background:linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 0 100%/100% 50% no-repeat,linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 50% 0 /33% 50% no-repeat}}",
-    "react": "export default function DarmaCustom402Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-402\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-402 {color: var(--loader-color, #9333ea);\n  width: 45px;\n  height: 30px;\n  animation: darma-loader-darma-custom-402-l1 2s infinite linear;\n}@keyframes darma-loader-darma-custom-402-l1{0%,25% {background:linear-gradient(#e50021 0 0) 50% 0/66% 100% no-repeat}25.1%,50% {background:linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 0 0/100% 50% no-repeat,linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 0 0/33% 100% no-repeat}50.1%,75% {background:linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 100% 0/66% 50% no-repeat,linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 0 100%/66% 50% no-repeat}75.1%,100% {background:linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 0 100%/100% 50% no-repeat,linear-gradient(var(--loader-secondary-color, #f0abfc) 0 0) 50% 0 /33% 50% no-repeat}}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom402Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-402\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": true
+    "background": false,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

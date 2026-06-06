@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Check, Code2, Copy, Download } from "lucide-react";
 import { Badge, Button, Tabs } from "@/components/ui";
 import { buildLoaderCopyAllText, buildLoaderCopyText, copyTextToClipboard } from "../copy-utils";
@@ -20,11 +20,20 @@ export default function LoaderCodeTabs({ loader, customization, onCopySuccess }:
   const availableFormats = useMemo(() => BASE_TABS.filter((format) => loader.formats.includes(format)), [loader.formats]);
   const [activeFormat, setActiveFormat] = useState<LoaderFormat>(availableFormats[0] ?? "html");
   const [copiedAction, setCopiedAction] = useState<LoaderFormat | "selected" | "all" | null>(null);
+  const [wrapLines, setWrapLines] = useState(false);
+  const copyTimerRef = useRef<number | null>(null);
 
   useEffect(() => {
     setActiveFormat(availableFormats[0] ?? "html");
     setCopiedAction(null);
+    setWrapLines(false);
   }, [availableFormats, loader.id]);
+
+  useEffect(() => {
+    return () => {
+      if (copyTimerRef.current) window.clearTimeout(copyTimerRef.current);
+    };
+  }, []);
 
   const selectedCode = buildLoaderCopyText(loader, activeFormat, customization);
   const tabItems = availableFormats.map((format) => ({ value: format, label: getLoaderFormatLabel(format) }));
@@ -36,7 +45,8 @@ export default function LoaderCodeTabs({ loader, customization, onCopySuccess }:
       await copyTextToClipboard(text);
       setCopiedAction(format);
       onCopySuccess(format === "all" ? `All code copied from ${loader.name}` : `${format === "selected" ? activeFormat.toUpperCase() : format.toUpperCase()} copied from ${loader.name}`);
-      window.setTimeout(() => setCopiedAction(null), 1400);
+      if (copyTimerRef.current) window.clearTimeout(copyTimerRef.current);
+      copyTimerRef.current = window.setTimeout(() => setCopiedAction(null), 1400);
     } catch {
       onCopySuccess("Could not copy automatically. Select the code and copy it manually.");
     }
@@ -63,12 +73,22 @@ export default function LoaderCodeTabs({ loader, customization, onCopySuccess }:
           </div>
           <p>Generated from the current modal controls.</p>
         </div>
-        <Badge variant="outline">{activeFormat.toUpperCase()}</Badge>
+        <div className="css-loaders-code-header-tools">
+          <Button
+            variant={wrapLines ? "soft" : "ghost"}
+            size="sm"
+            onClick={() => setWrapLines((current) => !current)}
+            aria-pressed={wrapLines}
+          >
+            {wrapLines ? "Wrapped" : "Wrap lines"}
+          </Button>
+          <Badge variant="outline">{activeFormat.toUpperCase()}</Badge>
+        </div>
       </div>
 
       <Tabs items={tabItems} value={activeFormat} onChange={(v) => setActiveFormat(v)} ariaLabel="Loader code tabs" className="css-loaders-code-tabs" />
 
-      <pre className="css-loaders-code-block" tabIndex={0}>
+      <pre className={wrapLines ? "css-loaders-code-block css-loaders-code-block-wrap" : "css-loaders-code-block"} tabIndex={0}>
         <code>{selectedCode}</code>
       </pre>
 

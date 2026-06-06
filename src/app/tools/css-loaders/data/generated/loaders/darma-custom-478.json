@@ -28,25 +28,25 @@
   },
   "searchText": "darma-custom-478 utility dial 02 creative utility dial 02 clock counter creative loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-478\"></div>",
-  "previewCss": ".darma-loader-darma-custom-478 {--loader-bg: #ffffff;\n  --loader-secondary-color: #86efac;\n   width: 40px;\n   aspect-ratio: 1;\n   border:2px solid;\n   box-sizing: border-box;\n   color: var(--loader-color, #16a34a);\n   background: radial-gradient(circle 3px, currentColor 95%,#0000), linear-gradient( currentColor 50%,#0000 0) 50%/3px 80% no-repeat, linear-gradient(90deg,currentColor 50%,#0000 0) 50%/60% 3px no-repeat;\n   position: relative;\n}\n.darma-loader-darma-custom-478:before  {\n  content: \"\";\n   position: absolute;\n   height: 50px;\n   inset: 100% 10% auto;\n   background: radial-gradient(circle closest-side at 50% calc(100% - 10px), currentColor 94%,#0000), linear-gradient(currentColor 0 0) top/3px 80% no-repeat;\n   transform-origin: top;\n   animation: darma-loader-darma-custom-478-l2 2s infinite cubic-bezier(0.5,200,0.5,-200);\n}\n@keyframes darma-loader-darma-custom-478-l2  {\n  100% {transform: rotate(0.4deg)}\n}",
+  "previewCss": ".darma-loader-darma-custom-478 {\n   width: 40px;\n   aspect-ratio: 1;\n   border:2px solid;\n   box-sizing: border-box;\n   color: var(--loader-color, #16a34a);\n   background: radial-gradient(circle 3px, currentColor 95%,#0000), linear-gradient( currentColor 50%,#0000 0) 50%/3px 80% no-repeat, linear-gradient(90deg,currentColor 50%,#0000 0) 50%/60% 3px no-repeat;\n   position: relative;\n}\n.darma-loader-darma-custom-478:before  {\n  content: \"\";\n   position: absolute;\n   height: 50px;\n   inset: 100% 10% auto;\n   background: radial-gradient(circle closest-side at 50% calc(100% - 10px), currentColor 94%,#0000), linear-gradient(currentColor 0 0) top/3px 80% no-repeat;\n   transform-origin: top;\n   animation: darma-loader-darma-custom-478-l2 2s infinite cubic-bezier(0.5,200,0.5,-200);\n}\n@keyframes darma-loader-darma-custom-478-l2  {\n  100% {transform: rotate(0.4deg)}\n}\n",
   "defaults": {
     "color": "#16a34a",
     "secondaryColor": "#86efac",
     "size": 72,
-    "speed": 1.0,
+    "speed": 2,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-478\"></div>",
-    "css": ".darma-loader-darma-custom-478 {--loader-bg: #ffffff;\n  --loader-secondary-color: #86efac;\n   width: 40px;\n   aspect-ratio: 1;\n   border:2px solid;\n   box-sizing: border-box;\n   color: var(--loader-color, #16a34a);\n   background: radial-gradient(circle 3px, currentColor 95%,#0000), linear-gradient( currentColor 50%,#0000 0) 50%/3px 80% no-repeat, linear-gradient(90deg,currentColor 50%,#0000 0) 50%/60% 3px no-repeat;\n   position: relative;\n}\n.darma-loader-darma-custom-478:before  {\n  content: \"\";\n   position: absolute;\n   height: 50px;\n   inset: 100% 10% auto;\n   background: radial-gradient(circle closest-side at 50% calc(100% - 10px), currentColor 94%,#0000), linear-gradient(currentColor 0 0) top/3px 80% no-repeat;\n   transform-origin: top;\n   animation: darma-loader-darma-custom-478-l2 2s infinite cubic-bezier(0.5,200,0.5,-200);\n}\n@keyframes darma-loader-darma-custom-478-l2  {\n  100% {transform: rotate(0.4deg)}\n}",
-    "react": "export default function DarmaCustom478Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-478\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-478 {\n   width: 40px;\n   aspect-ratio: 1;\n   border:2px solid;\n   box-sizing: border-box;\n   color: var(--loader-color, #16a34a);\n   background: radial-gradient(circle 3px, currentColor 95%,#0000), linear-gradient( currentColor 50%,#0000 0) 50%/3px 80% no-repeat, linear-gradient(90deg,currentColor 50%,#0000 0) 50%/60% 3px no-repeat;\n   position: relative;\n}\n.darma-loader-darma-custom-478:before  {\n  content: \"\";\n   position: absolute;\n   height: 50px;\n   inset: 100% 10% auto;\n   background: radial-gradient(circle closest-side at 50% calc(100% - 10px), currentColor 94%,#0000), linear-gradient(currentColor 0 0) top/3px 80% no-repeat;\n   transform-origin: top;\n   animation: darma-loader-darma-custom-478-l2 2s infinite cubic-bezier(0.5,200,0.5,-200);\n}\n@keyframes darma-loader-darma-custom-478-l2  {\n  100% {transform: rotate(0.4deg)}\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom478Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-478\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": true
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

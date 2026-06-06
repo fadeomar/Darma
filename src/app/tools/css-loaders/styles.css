@@ -1096,7 +1096,7 @@
   left: 0.7rem;
   z-index: 3;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(64px, 1fr));
   gap: 0.45rem;
   opacity: 0;
   transform: translateY(10px);
@@ -1117,7 +1117,6 @@
   box-shadow: 0 12px 28px rgb(15 23 42 / 0.14);
   backdrop-filter: blur(14px);
   white-space: nowrap;
-  overflow: hidden;
 }
 
 .css-loaders-card-badges {
@@ -1491,4 +1490,282 @@
 .css-loaders-demo-button .css-loader-custom-scale > div {
   min-width: 34px;
   min-height: 34px;
+}
+
+/* Loaders modal/card QA fixes */
+.css-loaders-card-quick-actions button {
+  color: var(--color-text) !important;
+}
+
+
+.css-loaders-modal-body {
+  grid-template-columns: minmax(0, 1.55fr) minmax(390px, 0.85fr);
+}
+
+.css-loaders-modal-side-column {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.css-loaders-stage-wrap {
+  position: relative;
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  overflow: hidden;
+}
+
+.css-loaders-stage-wrap .css-loaders-detail-stage {
+  width: 100%;
+  min-height: 0;
+  flex: 1;
+}
+
+.css-loaders-preview-meta {
+  position: absolute;
+  z-index: 4;
+  max-width: min(72%, 640px);
+  pointer-events: none;
+}
+
+.css-loaders-preview-meta-top {
+  top: 1rem;
+  left: 1rem;
+}
+
+.css-loaders-preview-meta-bottom {
+  bottom: 1rem;
+  left: 1rem;
+  display: grid;
+  gap: 0.35rem;
+  border: 1px solid color-mix(in srgb, var(--color-border) 72%, transparent);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color-surface) 76%, transparent);
+  box-shadow: 0 14px 34px rgb(15 23 42 / 0.12);
+  padding: 0.55rem 0.7rem;
+  backdrop-filter: blur(14px);
+}
+
+.css-loaders-preview-meta-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.css-loaders-preview-meta p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.76rem;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.css-loaders-preview-source {
+  color: var(--color-text-soft) !important;
+  font-size: 0.72rem !important;
+}
+
+.css-loaders-controls {
+  flex: 0 0 auto;
+}
+
+.css-loaders-controls-header,
+.css-loaders-code-header {
+  padding: 0.85rem 1rem;
+}
+
+.css-loaders-controls-header p,
+.css-loaders-code-header p {
+  font-size: 0.75rem;
+}
+
+.css-loaders-control-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+  padding: 0 1rem 0.9rem;
+}
+
+.css-loaders-control-field > span {
+  font-size: 0.7rem;
+}
+
+.css-loaders-control-note {
+  grid-column: 1 / -1;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-surface) 56%, transparent);
+  color: var(--color-text-muted);
+  padding: 0.65rem;
+  font-size: 0.78rem;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
+.css-loaders-code-panel {
+  display: flex;
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.css-loaders-code-tabs {
+  border-top: 1px solid var(--color-border);
+}
+.css-loaders-code-header-tools {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.css-loaders-code-block-wrap {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+
+.css-loaders-code-block {
+  min-height: 260px;
+  flex: 1 1 auto;
+  white-space: pre;
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+.css-loaders-code-actions {
+  flex: 0 0 auto;
+  padding: 0.65rem 0.85rem;
+}
+
+.css-loaders-code-actions-primary {
+  display: none;
+}
+
+.css-loaders-code-actions-secondary {
+  border-top: 1px solid var(--color-border);
+  justify-content: space-between;
+}
+
+@media (min-width: 1180px) {
+  .css-loaders-code-block {
+    min-height: 340px;
+  }
+}
+
+@media (max-width: 920px) {
+  .css-loaders-modal-side-column {
+    overflow: visible;
+  }
+
+  .css-loaders-code-panel {
+    min-height: 420px;
+  }
+
+  .css-loaders-preview-meta {
+    max-width: calc(100% - 2rem);
+  }
+
+  .css-loaders-preview-meta-top,
+  .css-loaders-preview-meta-bottom {
+    left: 0.75rem;
+  }
+
+  .css-loaders-preview-meta-top {
+    top: 0.75rem;
+  }
+
+  .css-loaders-preview-meta-bottom {
+    bottom: 0.75rem;
+  }
+}
+
+.css-loaders-code-panel {
+  flex-direction: column;
+}
+
+/* QA fix 03: explicit quick-action roles instead of relying on child order */
+.css-loaders-card-quick-actions .css-loaders-card-open-action {
+  border-color: transparent !important;
+  background: var(--color-primary) !important;
+  color: var(--color-primary-text) !important;
+}
+
+.css-loaders-card-quick-actions .css-loaders-card-open-action:hover,
+.css-loaders-card-quick-actions .css-loaders-card-open-action:focus-visible {
+  background: var(--color-primary-hover) !important;
+}
+
+
+/* QA fix 04: mobile/detail polish and touch safety */
+.css-loaders-code-block:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--color-primary) 72%, transparent);
+  outline-offset: -2px;
+}
+
+.css-loaders-preview-background-field {
+  grid-column: 1 / -1;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .css-loaders-card-quick-actions {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 720px) {
+  .css-loaders-stage-wrap {
+    display: grid;
+    gap: 0.75rem;
+    overflow: visible;
+  }
+
+  .css-loaders-preview-meta {
+    position: static;
+    max-width: 100%;
+    pointer-events: auto;
+  }
+
+  .css-loaders-preview-meta-top {
+    order: 0;
+  }
+
+  .css-loaders-stage-wrap .css-loaders-detail-stage {
+    order: 1;
+    min-height: 310px;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .css-loaders-preview-meta-bottom {
+    order: 2;
+    margin-inline: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .css-loaders-preview-meta-top {
+    padding: 0.75rem 0.75rem 0;
+  }
+
+  .css-loaders-code-header-tools {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 520px) {
+  .css-loaders-card-quick-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .css-loaders-card-open-action {
+    grid-column: 1 / -1;
+  }
+
+  .css-loaders-code-block {
+    font-size: 0.76rem;
+    line-height: 1.55;
+  }
 }

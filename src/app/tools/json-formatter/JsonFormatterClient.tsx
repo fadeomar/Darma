@@ -489,7 +489,14 @@ export default function JsonFormatterClient() {
                 <Button size="sm" variant="secondary" onClick={() => loadSample("api")}>API sample</Button>
                 <Button size="sm" variant="secondary" onClick={() => loadSample("table")}>Table sample</Button>
                 {error ? (
-                  <Button size="sm" variant="danger" onClick={() => inputEditorRef.current?.focusLine(validation && !validation.ok ? validation.line : undefined, validation && !validation.ok ? validation.col : undefined)}>
+                  <Button
+                    size="sm"
+                    variant="danger"
+                    onClick={() => {
+                      const validationError = validation?.ok === false ? validation : null;
+                      inputEditorRef.current?.focusLine(validationError?.line, validationError?.col);
+                    }}
+                  >
                     Jump to error
                   </Button>
                 ) : null}

@@ -23,24 +23,24 @@
   },
   "searchText": "loaders-css-30 ball pulse 30 dots loaders-css ball pulse dots loader html css react cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-loaders-css-30\"><i></i><i></i><i></i></span>",
-  "previewCss": ".darma-loader-loaders-css-30 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      min-width: 54px;\n      min-height: 24px;\n    }\n    .darma-loader-loaders-css-30 i {\n      display: block;\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: var(--loader-color);\n      animation: darma-loader-loaders-css-30-dotPulse 0.7s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-30 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-30 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loaders-css-30 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loaders-css-30-dotPulse { 0%, 80%, 100% { transform: translateY(0) scale(.75); opacity: .45; } 40% { transform: translateY(-8px) scale(1); opacity: 1; } }",
+  "previewCss": ".darma-loader-loaders-css-30 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      min-width: 54px;\n      min-height: 24px;\n    }\n    .darma-loader-loaders-css-30 i {\n      display: block;\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: var(--loader-color, #ec4899);\n      animation: darma-loader-loaders-css-30-dotPulse 0.7s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-30 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-30 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loaders-css-30 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loaders-css-30-dotPulse { 0%, 80%, 100% { transform: translateY(0) scale(.75); opacity: .45; } 40% { transform: translateY(-8px) scale(1); opacity: 1; } }\n",
   "defaults": {
     "color": "#ec4899",
     "secondaryColor": "#fbcfe8",
     "size": 52,
-    "speed": 0.75
+    "speed": 0.7
   },
   "code": {
     "html": "<span class=\"darma-loader-loaders-css-30\"><i></i><i></i><i></i></span>",
-    "css": ".darma-loader-loaders-css-30 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      min-width: 54px;\n      min-height: 24px;\n    }\n    .darma-loader-loaders-css-30 i {\n      display: block;\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: var(--loader-color);\n      animation: darma-loader-loaders-css-30-dotPulse 0.7s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-30 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-30 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loaders-css-30 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loaders-css-30-dotPulse { 0%, 80%, 100% { transform: translateY(0) scale(.75); opacity: .45; } 40% { transform: translateY(-8px) scale(1); opacity: 1; } }",
-    "react": "export default function LoadersCss30Loader() {\n  return (\n    <span className=\"darma-loader-loaders-css-30\"><i></i><i></i><i></i></span>\n  );\n}\n"
+    "css": ".darma-loader-loaders-css-30 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      min-width: 54px;\n      min-height: 24px;\n    }\n    .darma-loader-loaders-css-30 i {\n      display: block;\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: var(--loader-color, #ec4899);\n      animation: darma-loader-loaders-css-30-dotPulse 0.7s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-30 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-30 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loaders-css-30 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loaders-css-30-dotPulse { 0%, 80%, 100% { transform: translateY(0) scale(.75); opacity: .45; } 40% { transform: translateY(-8px) scale(1); opacity: 1; } }\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function LoadersCss30Loader() {\n  return (\n    <span className=\"darma-loader-loaders-css-30\"><i></i><i></i><i></i></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
     "background": false,
-    "secondaryColor": true
+    "secondaryColor": false
   },
   "source": {
     "name": "loaders.css",

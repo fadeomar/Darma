@@ -29,25 +29,25 @@
   },
   "searchText": "darma-custom-315 twin ping box fun twin ping box bounce ball fun motion loader css-only single-element batch-05 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-315\"></div>",
-  "previewCss": ".darma-loader-darma-custom-315 {\n  color: var(--loader-color, #0284c7);\n  height: 54px;\n  aspect-ratio: 1;\n  border: 3px solid var(--loader-secondary-color, #7dd3fc);\n  position: relative;\n}\n.darma-loader-darma-custom-315:before,\n.darma-loader-darma-custom-315:after {\n  content: \"\";\n  position: absolute;\n  width: 20%;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: var(--loader-color, #0284c7);\n  animation: \n    darma-loader-darma-custom-315-l8-0 .57s infinite alternate linear -.13s,\n    darma-loader-darma-custom-315-l8-1 .35s infinite alternate linear -.23s;\n}\n.darma-loader-darma-custom-315:after {\n  background: var(--loader-secondary-color, #7dd3fc);\n  animation: \n    darma-loader-darma-custom-315-l8-0 .29s infinite alternate linear -.11s,\n    darma-loader-darma-custom-315-l8-1 .51s infinite alternate linear -.34s;\n}\n@keyframes darma-loader-darma-custom-315-l8-0 {\n  0%,5%  {bottom: 0%}\n  95%,to {bottom: 80%}\n}\n@keyframes darma-loader-darma-custom-315-l8-1 {\n  0%,5%  {left: 0%}\n  95%,to {left: 80%}\n}",
+  "previewCss": ".darma-loader-darma-custom-315 {\n  color: var(--loader-color, #0284c7);\n  height: 54px;\n  aspect-ratio: 1;\n  border: 3px solid var(--loader-secondary-color, #7dd3fc);\n  position: relative;\n}\n.darma-loader-darma-custom-315:before,\n.darma-loader-darma-custom-315:after {\n  content: \"\";\n  position: absolute;\n  width: 20%;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: var(--loader-color, #0284c7);\n  animation: \n    darma-loader-darma-custom-315-l8-0 .57s infinite alternate linear -.13s,\n    darma-loader-darma-custom-315-l8-1 .35s infinite alternate linear -.23s;\n}\n.darma-loader-darma-custom-315:after {\n  background: var(--loader-secondary-color, #7dd3fc);\n  animation: \n    darma-loader-darma-custom-315-l8-0 .29s infinite alternate linear -.11s,\n    darma-loader-darma-custom-315-l8-1 .51s infinite alternate linear -.34s;\n}\n@keyframes darma-loader-darma-custom-315-l8-0 {\n  0%,5%  {bottom: 0%}\n  95%,to {bottom: 80%}\n}\n@keyframes darma-loader-darma-custom-315-l8-1 {\n  0%,5%  {left: 0%}\n  95%,to {left: 80%}\n}\n",
   "defaults": {
     "color": "#0284c7",
     "secondaryColor": "#7dd3fc",
     "size": 64,
-    "speed": 1.0,
+    "speed": 0.57,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-315\"></div>",
-    "css": ".darma-loader-darma-custom-315 {\n  color: var(--loader-color, #0284c7);\n  height: 54px;\n  aspect-ratio: 1;\n  border: 3px solid var(--loader-secondary-color, #7dd3fc);\n  position: relative;\n}\n.darma-loader-darma-custom-315:before,\n.darma-loader-darma-custom-315:after {\n  content: \"\";\n  position: absolute;\n  width: 20%;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: var(--loader-color, #0284c7);\n  animation: \n    darma-loader-darma-custom-315-l8-0 .57s infinite alternate linear -.13s,\n    darma-loader-darma-custom-315-l8-1 .35s infinite alternate linear -.23s;\n}\n.darma-loader-darma-custom-315:after {\n  background: var(--loader-secondary-color, #7dd3fc);\n  animation: \n    darma-loader-darma-custom-315-l8-0 .29s infinite alternate linear -.11s,\n    darma-loader-darma-custom-315-l8-1 .51s infinite alternate linear -.34s;\n}\n@keyframes darma-loader-darma-custom-315-l8-0 {\n  0%,5%  {bottom: 0%}\n  95%,to {bottom: 80%}\n}\n@keyframes darma-loader-darma-custom-315-l8-1 {\n  0%,5%  {left: 0%}\n  95%,to {left: 80%}\n}",
-    "react": "export default function DarmaCustom315Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-315\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-315 {\n  color: var(--loader-color, #0284c7);\n  height: 54px;\n  aspect-ratio: 1;\n  border: 3px solid var(--loader-secondary-color, #7dd3fc);\n  position: relative;\n}\n.darma-loader-darma-custom-315:before,\n.darma-loader-darma-custom-315:after {\n  content: \"\";\n  position: absolute;\n  width: 20%;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: var(--loader-color, #0284c7);\n  animation: \n    darma-loader-darma-custom-315-l8-0 .57s infinite alternate linear -.13s,\n    darma-loader-darma-custom-315-l8-1 .35s infinite alternate linear -.23s;\n}\n.darma-loader-darma-custom-315:after {\n  background: var(--loader-secondary-color, #7dd3fc);\n  animation: \n    darma-loader-darma-custom-315-l8-0 .29s infinite alternate linear -.11s,\n    darma-loader-darma-custom-315-l8-1 .51s infinite alternate linear -.34s;\n}\n@keyframes darma-loader-darma-custom-315-l8-0 {\n  0%,5%  {bottom: 0%}\n  95%,to {bottom: 80%}\n}\n@keyframes darma-loader-darma-custom-315-l8-1 {\n  0%,5%  {left: 0%}\n  95%,to {left: 80%}\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom315Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-315\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": false
+    "background": false,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

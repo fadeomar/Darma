@@ -29,25 +29,25 @@
   },
   "searchText": "darma-custom-432 line orbit 18 spinners line orbit 18 geometric spinner outline spinners loader css-only single-element batch-06 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-432\"></div>",
-  "previewCss": ".darma-loader-darma-custom-432 {color: var(--loader-color, #f97316);\n  --loader-secondary-color: #facc15;\n  --loader-bg: #ffffff;\n  display: inline-flex;\n  gap: 5px;\n}.darma-loader-darma-custom-432:before,.darma-loader-darma-custom-432:after {content: \"\";\n  width: 25px;\n  aspect-ratio: 1;\n  box-shadow: 0 0 0 3px inset var(--loader-bg, #ffffff);\n  animation: darma-loader-darma-custom-432-l4 1.5s infinite;\n}.darma-loader-darma-custom-432:before {--s: -1;\n  animation-delay: 0.75s}@keyframes darma-loader-darma-custom-432-l4 {0% {transform: scale(var(--s,1)) translate(0) rotate(0)}16.67% {transform: scale(var(--s,1)) translate(-50%) rotate(0)}33.33% {transform: scale(var(--s,1)) translate(-50%) rotate(90deg)}50%,100% {transform: scale(var(--s,1)) translate(0) rotate(90deg)}}",
+  "previewCss": ".darma-loader-darma-custom-432 {color: var(--loader-color, #f97316);\n  display: inline-flex;\n  gap: 5px;\n}.darma-loader-darma-custom-432:before,.darma-loader-darma-custom-432:after {content: \"\";\n  width: 25px;\n  aspect-ratio: 1;\n  box-shadow: 0 0 0 3px inset var(--loader-bg, #ffffff);\n  animation: darma-loader-darma-custom-432-l4 1.5s infinite;\n}.darma-loader-darma-custom-432:before {--s: -1;\n  animation-delay: 0.75s}@keyframes darma-loader-darma-custom-432-l4 {0% {transform: scale(var(--s,1)) translate(0) rotate(0)}16.67% {transform: scale(var(--s,1)) translate(-50%) rotate(0)}33.33% {transform: scale(var(--s,1)) translate(-50%) rotate(90deg)}50%,100% {transform: scale(var(--s,1)) translate(0) rotate(90deg)}}\n",
   "defaults": {
     "color": "#f97316",
     "secondaryColor": "#facc15",
     "size": 72,
-    "speed": 1.0,
+    "speed": 1.5,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-432\"></div>",
-    "css": ".darma-loader-darma-custom-432 {color: var(--loader-color, #f97316);\n  --loader-secondary-color: #facc15;\n  --loader-bg: #ffffff;\n  display: inline-flex;\n  gap: 5px;\n}.darma-loader-darma-custom-432:before,.darma-loader-darma-custom-432:after {content: \"\";\n  width: 25px;\n  aspect-ratio: 1;\n  box-shadow: 0 0 0 3px inset var(--loader-bg, #ffffff);\n  animation: darma-loader-darma-custom-432-l4 1.5s infinite;\n}.darma-loader-darma-custom-432:before {--s: -1;\n  animation-delay: 0.75s}@keyframes darma-loader-darma-custom-432-l4 {0% {transform: scale(var(--s,1)) translate(0) rotate(0)}16.67% {transform: scale(var(--s,1)) translate(-50%) rotate(0)}33.33% {transform: scale(var(--s,1)) translate(-50%) rotate(90deg)}50%,100% {transform: scale(var(--s,1)) translate(0) rotate(90deg)}}",
-    "react": "export default function DarmaCustom432Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-432\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-432 {color: var(--loader-color, #f97316);\n  display: inline-flex;\n  gap: 5px;\n}.darma-loader-darma-custom-432:before,.darma-loader-darma-custom-432:after {content: \"\";\n  width: 25px;\n  aspect-ratio: 1;\n  box-shadow: 0 0 0 3px inset var(--loader-bg, #ffffff);\n  animation: darma-loader-darma-custom-432-l4 1.5s infinite;\n}.darma-loader-darma-custom-432:before {--s: -1;\n  animation-delay: 0.75s}@keyframes darma-loader-darma-custom-432-l4 {0% {transform: scale(var(--s,1)) translate(0) rotate(0)}16.67% {transform: scale(var(--s,1)) translate(-50%) rotate(0)}33.33% {transform: scale(var(--s,1)) translate(-50%) rotate(90deg)}50%,100% {transform: scale(var(--s,1)) translate(0) rotate(90deg)}}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom432Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-432\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": true
+    "background": true,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

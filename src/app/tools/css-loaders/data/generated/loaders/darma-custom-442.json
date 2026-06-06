@@ -30,25 +30,25 @@
   },
   "searchText": "darma-custom-442 dot orbit 03 spinners dot orbit 03 dots ring spinner outline spinners loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-442\"></div>",
-  "previewCss": ".darma-loader-darma-custom-442 {color: var(--loader-color, #16a34a);\n  --loader-secondary-color: #86efac;\n  --loader-bg: #ffffff;\n   width: 65px;\n   height: 30px;\n   position: relative;\n}\n.darma-loader-darma-custom-442:before  {\n  content: \"\";\n   position: absolute;\n   border-radius: 50px;\n   box-shadow: 0 0 0 3px inset currentColor;\n   animation: darma-loader-darma-custom-442-l3 0.75s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-442-l3  {\n  0%  {\n  inset: 0 35px 0 0;\n}\n50%  {\n  inset: 0 0 0 0;\n}\n100%  {\n  inset: 0 0 0 35px;\n}\n}",
+  "previewCss": ".darma-loader-darma-custom-442 {color: var(--loader-color, #16a34a);\n   width: 65px;\n   height: 30px;\n   position: relative;\n}\n.darma-loader-darma-custom-442:before  {\n  content: \"\";\n   position: absolute;\n   border-radius: 50px;\n   box-shadow: 0 0 0 3px inset currentColor;\n   animation: darma-loader-darma-custom-442-l3 0.75s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-442-l3  {\n  0%  {\n  inset: 0 35px 0 0;\n}\n50%  {\n  inset: 0 0 0 0;\n}\n100%  {\n  inset: 0 0 0 35px;\n}\n}\n",
   "defaults": {
     "color": "#16a34a",
     "secondaryColor": "#86efac",
     "size": 72,
-    "speed": 1.0,
+    "speed": 0.75,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-442\"></div>",
-    "css": ".darma-loader-darma-custom-442 {color: var(--loader-color, #16a34a);\n  --loader-secondary-color: #86efac;\n  --loader-bg: #ffffff;\n   width: 65px;\n   height: 30px;\n   position: relative;\n}\n.darma-loader-darma-custom-442:before  {\n  content: \"\";\n   position: absolute;\n   border-radius: 50px;\n   box-shadow: 0 0 0 3px inset currentColor;\n   animation: darma-loader-darma-custom-442-l3 0.75s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-442-l3  {\n  0%  {\n  inset: 0 35px 0 0;\n}\n50%  {\n  inset: 0 0 0 0;\n}\n100%  {\n  inset: 0 0 0 35px;\n}\n}",
-    "react": "export default function DarmaCustom442Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-442\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-442 {color: var(--loader-color, #16a34a);\n   width: 65px;\n   height: 30px;\n   position: relative;\n}\n.darma-loader-darma-custom-442:before  {\n  content: \"\";\n   position: absolute;\n   border-radius: 50px;\n   box-shadow: 0 0 0 3px inset currentColor;\n   animation: darma-loader-darma-custom-442-l3 0.75s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-442-l3  {\n  0%  {\n  inset: 0 35px 0 0;\n}\n50%  {\n  inset: 0 0 0 0;\n}\n100%  {\n  inset: 0 0 0 35px;\n}\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom442Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-442\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": true
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

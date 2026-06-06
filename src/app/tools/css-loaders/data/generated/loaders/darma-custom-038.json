@@ -24,7 +24,7 @@
   },
   "searchText": "darma-custom-038 rounded step fill progress rounded steps fill progress pill batch-02 html css react popular singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-038\"></div>",
-  "previewCss": ".darma-loader-darma-custom-038 {\n  width: 120px;\n  height: 20px;\n  border-radius: 20px;\n  background:\n    linear-gradient(#ffa500 0 0) 0/0% no-repeat\n    #add8e6;\n  animation: darma-loader-darma-custom-038-l2 2s infinite steps(10);\n}\n@keyframes darma-loader-darma-custom-038-l2 {\n  100% { background-size: 110%; }\n}",
+  "previewCss": ".darma-loader-darma-custom-038 {\n  width: 120px;\n  height: 20px;\n  border-radius: 20px;\n  background:\n    linear-gradient(var(--loader-color, #ffa500) 0 0) 0/0% no-repeat\n    var(--loader-secondary-color, #add8e6);\n  animation: darma-loader-darma-custom-038-l2 2s infinite steps(10);\n}\n@keyframes darma-loader-darma-custom-038-l2 {\n  100% { background-size: 110%; }\n}\n",
   "defaults": {
     "color": "#ffa500",
     "secondaryColor": "#add8e6",
@@ -34,15 +34,14 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-038\"></div>",
-    "css": ".darma-loader-darma-custom-038 {\n  width: 120px;\n  height: 20px;\n  border-radius: 20px;\n  background:\n    linear-gradient(#ffa500 0 0) 0/0% no-repeat\n    #add8e6;\n  animation: darma-loader-darma-custom-038-l2 2s infinite steps(10);\n}\n@keyframes darma-loader-darma-custom-038-l2 {\n  100% { background-size: 110%; }\n}",
-    "react": "export default function DarmaCustom038Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-038\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-038 {\n  width: 120px;\n  height: 20px;\n  border-radius: 20px;\n  background:\n    linear-gradient(var(--loader-color, #ffa500) 0 0) 0/0% no-repeat\n    var(--loader-secondary-color, #add8e6);\n  animation: darma-loader-darma-custom-038-l2 2s infinite steps(10);\n}\n@keyframes darma-loader-darma-custom-038-l2 {\n  100% { background-size: 110%; }\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom038Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-038\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": false
-  },
-  "source": {}
+    "background": false,
+    "secondaryColor": true
+  }
 }

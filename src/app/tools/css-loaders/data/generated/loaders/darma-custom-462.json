@@ -28,25 +28,25 @@
   },
   "searchText": "darma-custom-462 weather icon 02 fun weather icon 02 fun scene illustration loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-462\"></div>",
-  "previewCss": ".darma-loader-darma-custom-462 {color: var(--loader-color, #f97316);\n  --loader-secondary-color: #facc15;\n  --loader-bg: #ffffff;\n   width: 60px;\n   aspect-ratio: 1;\n   display: grid;\n   border-radius: 50%;\n   background: radial-gradient(circle 15px, var(--loader-color, #f97316) 90%,#0000 );\n   filter: drop-shadow(0px 0px 1px var(--loader-color, #f97316));\n   animation: darma-loader-darma-custom-462-l2 1s infinite alternate linear;\n}\n.darma-loader-darma-custom-462::before, .darma-loader-darma-custom-462::after  {\n  content: \"\";\n   grid-area: 1/1;\n   border-radius: 50%;\n   --g:no-repeat linear-gradient(var(--loader-color, #f97316) 0 0) 50%;\n   background: var(--g)/100% 5px, var(--g)/5px 100%;\n   -webkit-mask: radial-gradient(farthest-side,#0000 60%,currentColor 61%);\n}\n.darma-loader-darma-custom-462::after  {\n  transform: rotate(45deg);\n}\n@keyframes darma-loader-darma-custom-462-l2  {\n  100% {filter:drop-shadow(0px 0px 20px var(--loader-color, #f97316))}\n}",
+  "previewCss": ".darma-loader-darma-custom-462 {color: var(--loader-color, #f97316);\n   width: 60px;\n   aspect-ratio: 1;\n   display: grid;\n   border-radius: 50%;\n   background: radial-gradient(circle 15px, var(--loader-color, #f97316) 90%,#0000 );\n   filter: drop-shadow(0px 0px 1px var(--loader-color, #f97316));\n   animation: darma-loader-darma-custom-462-l2 1s infinite alternate linear;\n}\n.darma-loader-darma-custom-462::before, .darma-loader-darma-custom-462::after  {\n  content: \"\";\n   grid-area: 1/1;\n   border-radius: 50%;\n   --g:no-repeat linear-gradient(var(--loader-color, #f97316) 0 0) 50%;\n   background: var(--g)/100% 5px, var(--g)/5px 100%;\n   -webkit-mask: radial-gradient(farthest-side,#0000 60%,currentColor 61%);\n}\n.darma-loader-darma-custom-462::after  {\n  transform: rotate(45deg);\n}\n@keyframes darma-loader-darma-custom-462-l2  {\n  100% {filter:drop-shadow(0px 0px 20px var(--loader-color, #f97316))}\n}\n",
   "defaults": {
     "color": "#f97316",
     "secondaryColor": "#facc15",
     "size": 64,
-    "speed": 1.0,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-462\"></div>",
-    "css": ".darma-loader-darma-custom-462 {color: var(--loader-color, #f97316);\n  --loader-secondary-color: #facc15;\n  --loader-bg: #ffffff;\n   width: 60px;\n   aspect-ratio: 1;\n   display: grid;\n   border-radius: 50%;\n   background: radial-gradient(circle 15px, var(--loader-color, #f97316) 90%,#0000 );\n   filter: drop-shadow(0px 0px 1px var(--loader-color, #f97316));\n   animation: darma-loader-darma-custom-462-l2 1s infinite alternate linear;\n}\n.darma-loader-darma-custom-462::before, .darma-loader-darma-custom-462::after  {\n  content: \"\";\n   grid-area: 1/1;\n   border-radius: 50%;\n   --g:no-repeat linear-gradient(var(--loader-color, #f97316) 0 0) 50%;\n   background: var(--g)/100% 5px, var(--g)/5px 100%;\n   -webkit-mask: radial-gradient(farthest-side,#0000 60%,currentColor 61%);\n}\n.darma-loader-darma-custom-462::after  {\n  transform: rotate(45deg);\n}\n@keyframes darma-loader-darma-custom-462-l2  {\n  100% {filter:drop-shadow(0px 0px 20px var(--loader-color, #f97316))}\n}",
-    "react": "export default function DarmaCustom462Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-462\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-462 {color: var(--loader-color, #f97316);\n   width: 60px;\n   aspect-ratio: 1;\n   display: grid;\n   border-radius: 50%;\n   background: radial-gradient(circle 15px, var(--loader-color, #f97316) 90%,#0000 );\n   filter: drop-shadow(0px 0px 1px var(--loader-color, #f97316));\n   animation: darma-loader-darma-custom-462-l2 1s infinite alternate linear;\n}\n.darma-loader-darma-custom-462::before, .darma-loader-darma-custom-462::after  {\n  content: \"\";\n   grid-area: 1/1;\n   border-radius: 50%;\n   --g:no-repeat linear-gradient(var(--loader-color, #f97316) 0 0) 50%;\n   background: var(--g)/100% 5px, var(--g)/5px 100%;\n   -webkit-mask: radial-gradient(farthest-side,#0000 60%,currentColor 61%);\n}\n.darma-loader-darma-custom-462::after  {\n  transform: rotate(45deg);\n}\n@keyframes darma-loader-darma-custom-462-l2  {\n  100% {filter:drop-shadow(0px 0px 20px var(--loader-color, #f97316))}\n}\n",
+    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom462Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-462\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": true
+    "background": false,
+    "secondaryColor": false
   },
   "source": {
     "name": "Darma custom loaders",

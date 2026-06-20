@@ -3,6 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import { type ReactNode } from "react";
 import { Badge } from "@/components/ui";
 import { RelatedToolsGrid } from "@/features/tools/components/RelatedToolsGrid";
+import { RecentToolTracker } from "@/features/tools/components/RecentToolTracker";
 import type { ToolDefinition } from "@/features/tools/domain/tool";
 import { cn } from "@/lib/cn";
 
@@ -65,6 +66,7 @@ export function ToolPage({
 
   return (
     <div className={cn("mx-auto px-4 py-7 sm:px-6 sm:py-9 lg:px-8", maxWidthClass[maxWidth])}>
+      {tool ? <RecentToolTracker id={tool.id} title={tool.title} href={tool.href} /> : null}
       <header
         className={cn(
           "relative overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] px-5 py-5 shadow-[var(--shadow-card)] sm:px-7 sm:py-7",

@@ -7,35 +7,35 @@
         "url": "https://developer.mozilla.org/",
         "favIcon": "https://developer.mozilla.org/static/img/favicon144.png",
         "logo": "https://developer.mozilla.org/static/img/mdn-logo-sm.png",
-        "about": "A comprehensive resource maintained by Mozilla offering detailed documentation, tutorials, and guides for HTML, CSS, and JavaScript. :contentReference[oaicite:0]{index=0}."
+        "about": "A comprehensive resource maintained by Mozilla offering detailed documentation, tutorials, and guides for HTML, CSS, and JavaScript.."
       },
       {
         "name": "W3Schools",
         "url": "https://www.w3schools.com",
         "favIcon": "https://www.w3schools.com/favicon.ico",
         "logo": "https://www.w3schools.com/images/w3schools_logo_436_2.png",
-        "about": "A freemium e-learning portal that provides tutorials, interactive code examples, and references for various web development languages including HTML, CSS, and JavaScript. :contentReference[oaicite:1]{index=1}."
+        "about": "A freemium e-learning portal that provides tutorials, interactive code examples, and references for various web development languages including HTML, CSS, and JavaScript.."
       },
       {
         "name": "freeCodeCamp",
         "url": "https://www.freecodecamp.org",
         "favIcon": "https://www.freecodecamp.org/news/favicon.ico",
         "logo": "https://design-style-guide.freecodecamp.org/downloads/fcc_primary_large.svg",
-        "about": "A non-profit interactive learning platform with hundreds of coding challenges and projects that cover HTML, CSS, JavaScript, and more. :contentReference[oaicite:2]{index=2}."
+        "about": "A non-profit interactive learning platform with hundreds of coding challenges and projects that cover HTML, CSS, JavaScript, and more.."
       },
       {
         "name": "The Odin Project",
         "url": "https://www.theodinproject.com/",
         "favIcon": "https://www.theodinproject.com/favicon.ico",
         "logo": "https://www.theodinproject.com/images/odin-logo.svg",
-        "about": "An open-source full-stack curriculum for aspiring web developers that emphasizes hands-on projects and covers HTML, CSS, and JavaScript. :contentReference[oaicite:3]{index=3}."
+        "about": "An open-source full-stack curriculum for aspiring web developers that emphasizes hands-on projects and covers HTML, CSS, and JavaScript.."
       },
       {
         "name": "Codecademy",
         "url": "https://www.codecademy.com/catalog/subject/web-development",
         "favIcon": "https://www.codecademy.com/favicon.ico",
         "logo": "https://www.codecademy.com/assets/images/brand/codecademy-logo.png",
-        "about": "An interactive online learning platform offering structured courses in web development topics including HTML, CSS, and JavaScript. :contentReference[oaicite:4]{index=4}."
+        "about": "An interactive online learning platform offering structured courses in web development topics including HTML, CSS, and JavaScript.."
       },
       {
         "name": "Scrimba",
@@ -91,7 +91,7 @@
         "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Solve_HTML_problems/Cheatsheet",
         "favIcon": "https://developer.mozilla.org/static/img/favicon144.png",
         "logo": "https://developer.mozilla.org/static/img/mdn-logo-sm.png",
-        "about": "A quick reference guide with ready-to-use HTML code snippets and best practices, designed to help you solve common HTML issues. :contentReference[oaicite:5]{index=5}."
+        "about": "A quick reference guide with ready-to-use HTML code snippets and best practices, designed to help you solve common HTML issues.."
       },
       {
         "name": "Cheatography",
@@ -791,7 +791,6 @@
         "logo": "https://www.cssportal.com/logo.png",
         "description": "Applies filters like blur to images, perfect for effects. Use it for enhancing visuals."
       },
-
       {
         "name": "CSS Portal Text Generator",
         "url": "https://www.cssportal.com/css-text-generator/",

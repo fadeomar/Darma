@@ -37,7 +37,7 @@
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-096\"></div>",
     "css": ".darma-loader-darma-custom-096 {\n  width: 40px;\n  height: 40px;\n  position: relative;\n  --c:no-repeat linear-gradient(var(--loader-color, #25b09b) 0 0);\n  background:\n    var(--c) center/100% 10px,\n    var(--c) center/10px 100%;\n}\n.darma-loader-darma-custom-096:before {\n  content:'';\n  position: absolute;\n  inset: 0;\n  background:\n    var(--c) 0    0,\n    var(--c) 100% 0,\n    var(--c) 0    100%,\n    var(--c) 100% 100%;\n  background-size: 15.5px 15.5px;\n  animation: darma-loader-darma-custom-096-l16 1.5s infinite cubic-bezier(0.3,1,0,1);\n}\n@keyframes darma-loader-darma-custom-096-l16 {\n   33%  {inset:-10px;transform: rotate(0deg)}\n   66%  {inset:-10px;transform: rotate(90deg)}\n   100% {inset:0    ;transform: rotate(90deg)}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom096Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-096\"></div>\n  );\n}\n"
+    "react": "export default function DarmaCustom096Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-096\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,

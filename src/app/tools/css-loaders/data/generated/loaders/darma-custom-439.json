@@ -28,25 +28,25 @@
   },
   "searchText": "darma-custom-439 corner block 05 creative corner block 05 grid creative tiles loader css-only single-element batch-06 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-439\"></div>",
-  "previewCss": ".darma-loader-darma-custom-439 {color: var(--loader-color, #0284c7);\n  width: 55px;\n  aspect-ratio: 1;\n  --g1: conic-gradient(from 90deg at top 3px left 3px,#0000 90deg,var(--loader-bg, #ffffff) 0);\n  --g2: conic-gradient(from -90deg at bottom 3px right 3px,#0000 90deg,var(--loader-bg, #ffffff) 0);\n  background:var(--g1),var(--g1),var(--g1),var(--g1),var(--g2),var(--g2),var(--g2),var(--g2);\n  background-position: 0 0,100% 0,100% 100%,0 100%;\n  background-size: 25px 25px;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-439-l11 1.5s infinite;\n}@keyframes darma-loader-darma-custom-439-l11 {0% {background-size:35px 15px,15px 15px,15px 35px,35px 35px}25% {background-size:35px 35px,15px 35px,15px 15px,35px 15px}50% {background-size:15px 35px,35px 35px,35px 15px,15px 15px}75% {background-size:15px 15px,35px 15px,35px 35px,15px 35px}100% {background-size:35px 15px,15px 15px,15px 35px,35px 35px}}\n",
+  "previewCss": ".darma-loader-darma-custom-439 {color: var(--loader-color, #0284c7);\n  --loader-secondary-color: var(--loader-secondary-color, #7dd3fc);\n  --loader-bg: var(--loader-bg, #ffffff);\n  width: 55px;\n  aspect-ratio: 1;\n  --g1: conic-gradient(from 90deg at top 3px left 3px,#0000 90deg,var(--loader-bg, #ffffff) 0);\n  --g2: conic-gradient(from -90deg at bottom 3px right 3px,#0000 90deg,var(--loader-bg, #ffffff) 0);\n  background:var(--g1),var(--g1),var(--g1),var(--g1),var(--g2),var(--g2),var(--g2),var(--g2);\n  background-position: 0 0,100% 0,100% 100%,0 100%;\n  background-size: 25px 25px;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-439-l11 1.5s infinite;\n}@keyframes darma-loader-darma-custom-439-l11 {0% {background-size:35px 15px,15px 15px,15px 35px,35px 35px}25% {background-size:35px 35px,15px 35px,15px 15px,35px 15px}50% {background-size:15px 35px,35px 35px,35px 15px,15px 15px}75% {background-size:15px 15px,35px 15px,35px 35px,15px 35px}100% {background-size:35px 15px,15px 15px,15px 35px,35px 35px}}\n",
   "defaults": {
     "color": "#0284c7",
     "secondaryColor": "#7dd3fc",
     "size": 72,
-    "speed": 1.5,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-439\"></div>",
-    "css": ".darma-loader-darma-custom-439 {color: var(--loader-color, #0284c7);\n  width: 55px;\n  aspect-ratio: 1;\n  --g1: conic-gradient(from 90deg at top 3px left 3px,#0000 90deg,var(--loader-bg, #ffffff) 0);\n  --g2: conic-gradient(from -90deg at bottom 3px right 3px,#0000 90deg,var(--loader-bg, #ffffff) 0);\n  background:var(--g1),var(--g1),var(--g1),var(--g1),var(--g2),var(--g2),var(--g2),var(--g2);\n  background-position: 0 0,100% 0,100% 100%,0 100%;\n  background-size: 25px 25px;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-439-l11 1.5s infinite;\n}@keyframes darma-loader-darma-custom-439-l11 {0% {background-size:35px 15px,15px 15px,15px 35px,35px 35px}25% {background-size:35px 35px,15px 35px,15px 15px,35px 15px}50% {background-size:15px 35px,35px 35px,35px 15px,15px 15px}75% {background-size:15px 15px,35px 15px,35px 35px,15px 35px}100% {background-size:35px 15px,15px 15px,15px 35px,35px 35px}}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom439Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-439\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-439 {color: var(--loader-color, #0284c7);\n  --loader-secondary-color: var(--loader-secondary-color, #7dd3fc);\n  --loader-bg: var(--loader-bg, #ffffff);\n  width: 55px;\n  aspect-ratio: 1;\n  --g1: conic-gradient(from 90deg at top 3px left 3px,#0000 90deg,var(--loader-bg, #ffffff) 0);\n  --g2: conic-gradient(from -90deg at bottom 3px right 3px,#0000 90deg,var(--loader-bg, #ffffff) 0);\n  background:var(--g1),var(--g1),var(--g1),var(--g1),var(--g2),var(--g2),var(--g2),var(--g2);\n  background-position: 0 0,100% 0,100% 100%,0 100%;\n  background-size: 25px 25px;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-439-l11 1.5s infinite;\n}@keyframes darma-loader-darma-custom-439-l11 {0% {background-size:35px 15px,15px 15px,15px 35px,35px 35px}25% {background-size:35px 35px,15px 35px,15px 15px,35px 15px}50% {background-size:15px 35px,35px 35px,35px 15px,15px 15px}75% {background-size:15px 15px,35px 15px,35px 35px,15px 35px}100% {background-size:35px 15px,15px 15px,15px 35px,35px 35px}}\n",
+    "react": "export default function DarmaCustom439Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-439\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
     "background": true,
-    "secondaryColor": false
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

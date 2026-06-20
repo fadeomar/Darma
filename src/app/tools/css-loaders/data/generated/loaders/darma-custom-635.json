@@ -28,7 +28,7 @@
   },
   "searchText": "darma-custom-635 track runner 02 progress track runner 02 progress path linear loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-635\"></div>",
-  "previewCss": ".darma-loader-darma-custom-635 {color: var(--loader-color, #6d28d9);\n   width: 90px;\n   height: 14px;\n   box-shadow: 0 3px 0 currentColor;\n   background: linear-gradient(currentColor 0 0) center/2px 100% no-repeat;\n   display: grid;\n}\n.darma-loader-darma-custom-635:before, .darma-loader-darma-custom-635:after {\n  content: \"\";\n   grid-area: 1/1;\n   background: repeating-linear-gradient(90deg,currentColor 0 14px,#0000 0 100%) 0 0/calc(100%/4) 100%;\n   clip-path: inset(0 50% 0 0);\n   animation: darma-loader-darma-custom-635-l2 1s infinite linear;\n}\n.darma-loader-darma-custom-635:before {\n  background: radial-gradient(circle 7px at 7px 50%,currentColor 92%,#0000) 0 0/calc(100%/4) 100%;\n   clip-path: inset(0 0 0 50%);\n}\n@keyframes darma-loader-darma-custom-635-l2  {\n  100% {background-position: calc(100%/3) 0}\n}\n",
+  "previewCss": ".darma-loader-darma-custom-635 {color: var(--loader-color, #6d28d9);\n  --loader-secondary-color: var(--loader-secondary-color, #f0abfc);\n  --loader-bg: var(--loader-bg, #ffffff);\n   width: 90px;\n   height: 14px;\n   box-shadow: 0 3px 0 currentColor;\n   background: linear-gradient(currentColor 0 0) center/2px 100% no-repeat;\n   display: grid;\n}\n.darma-loader-darma-custom-635:before, .darma-loader-darma-custom-635:after {\n  content: \"\";\n   grid-area: 1/1;\n   background: repeating-linear-gradient(90deg,currentColor 0 14px,#0000 0 100%) 0 0/calc(100%/4) 100%;\n   clip-path: inset(0 50% 0 0);\n   animation: darma-loader-darma-custom-635-l2 1s infinite linear;\n}\n.darma-loader-darma-custom-635:before {\n  background: radial-gradient(circle 7px at 7px 50%,currentColor 92%,#0000) 0 0/calc(100%/4) 100%;\n   clip-path: inset(0 0 0 50%);\n}\n@keyframes darma-loader-darma-custom-635-l2  {\n  100% {background-position: calc(100%/3) 0}\n}\n",
   "defaults": {
     "color": "#6d28d9",
     "secondaryColor": "#f0abfc",
@@ -38,15 +38,15 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-635\"></div>",
-    "css": ".darma-loader-darma-custom-635 {color: var(--loader-color, #6d28d9);\n   width: 90px;\n   height: 14px;\n   box-shadow: 0 3px 0 currentColor;\n   background: linear-gradient(currentColor 0 0) center/2px 100% no-repeat;\n   display: grid;\n}\n.darma-loader-darma-custom-635:before, .darma-loader-darma-custom-635:after {\n  content: \"\";\n   grid-area: 1/1;\n   background: repeating-linear-gradient(90deg,currentColor 0 14px,#0000 0 100%) 0 0/calc(100%/4) 100%;\n   clip-path: inset(0 50% 0 0);\n   animation: darma-loader-darma-custom-635-l2 1s infinite linear;\n}\n.darma-loader-darma-custom-635:before {\n  background: radial-gradient(circle 7px at 7px 50%,currentColor 92%,#0000) 0 0/calc(100%/4) 100%;\n   clip-path: inset(0 0 0 50%);\n}\n@keyframes darma-loader-darma-custom-635-l2  {\n  100% {background-position: calc(100%/3) 0}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom635Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-635\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-635 {color: var(--loader-color, #6d28d9);\n  --loader-secondary-color: var(--loader-secondary-color, #f0abfc);\n  --loader-bg: var(--loader-bg, #ffffff);\n   width: 90px;\n   height: 14px;\n   box-shadow: 0 3px 0 currentColor;\n   background: linear-gradient(currentColor 0 0) center/2px 100% no-repeat;\n   display: grid;\n}\n.darma-loader-darma-custom-635:before, .darma-loader-darma-custom-635:after {\n  content: \"\";\n   grid-area: 1/1;\n   background: repeating-linear-gradient(90deg,currentColor 0 14px,#0000 0 100%) 0 0/calc(100%/4) 100%;\n   clip-path: inset(0 50% 0 0);\n   animation: darma-loader-darma-custom-635-l2 1s infinite linear;\n}\n.darma-loader-darma-custom-635:before {\n  background: radial-gradient(circle 7px at 7px 50%,currentColor 92%,#0000) 0 0/calc(100%/4) 100%;\n   clip-path: inset(0 0 0 50%);\n}\n@keyframes darma-loader-darma-custom-635-l2  {\n  100% {background-position: calc(100%/3) 0}\n}\n",
+    "react": "export default function DarmaCustom635Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-635\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
-    "secondaryColor": false
+    "background": true,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

@@ -27,7 +27,7 @@
   },
   "searchText": "darma-custom-380 pulse outline 07 pulse pulse outline 07 shape steps loader css-only single-element batch-06 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-380\"></div>",
-  "previewCss": ".darma-loader-darma-custom-380 {color: var(--loader-color, #e11d48);\n  height: 64px;\n  aspect-ratio: 1.5;\n  display: flex;\n  gap: 8px;\n}.darma-loader-darma-custom-380:before,.darma-loader-darma-custom-380:after {content: \"\";\n  border: 8px solid var(--loader-color, #e11d48);\n  border-radius: 50%;\n  box-sizing: content-box;\n  margin: auto;\n  aspect-ratio: 1;\n  animation: darma-loader-darma-custom-380-l9 infinite 1s steps(4,jump-none);\n}.darma-loader-darma-custom-380:before {animation-direction: reverse;\n}@keyframes darma-loader-darma-custom-380-l9 {0% {width: 0% }to {width: 75%}}\n",
+  "previewCss": ".darma-loader-darma-custom-380 {color: var(--loader-color, #e11d48);\n  --loader-secondary-color: var(--loader-secondary-color, #fb7185);\n  --loader-bg: var(--loader-bg, #ffffff);\n  height: 64px;\n  aspect-ratio: 1.5;\n  display: flex;\n  gap: 8px;\n}.darma-loader-darma-custom-380:before,.darma-loader-darma-custom-380:after {content: \"\";\n  border: 8px solid var(--loader-color, #e11d48);\n  border-radius: 50%;\n  box-sizing: content-box;\n  margin: auto;\n  aspect-ratio: 1;\n  animation: darma-loader-darma-custom-380-l9 infinite 1s steps(4,jump-none);\n}.darma-loader-darma-custom-380:before {animation-direction: reverse;\n}@keyframes darma-loader-darma-custom-380-l9 {0% {width: 0% }to {width: 75%}}\n",
   "defaults": {
     "color": "#e11d48",
     "secondaryColor": "#fb7185",
@@ -37,15 +37,15 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-380\"></div>",
-    "css": ".darma-loader-darma-custom-380 {color: var(--loader-color, #e11d48);\n  height: 64px;\n  aspect-ratio: 1.5;\n  display: flex;\n  gap: 8px;\n}.darma-loader-darma-custom-380:before,.darma-loader-darma-custom-380:after {content: \"\";\n  border: 8px solid var(--loader-color, #e11d48);\n  border-radius: 50%;\n  box-sizing: content-box;\n  margin: auto;\n  aspect-ratio: 1;\n  animation: darma-loader-darma-custom-380-l9 infinite 1s steps(4,jump-none);\n}.darma-loader-darma-custom-380:before {animation-direction: reverse;\n}@keyframes darma-loader-darma-custom-380-l9 {0% {width: 0% }to {width: 75%}}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom380Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-380\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-380 {color: var(--loader-color, #e11d48);\n  --loader-secondary-color: var(--loader-secondary-color, #fb7185);\n  --loader-bg: var(--loader-bg, #ffffff);\n  height: 64px;\n  aspect-ratio: 1.5;\n  display: flex;\n  gap: 8px;\n}.darma-loader-darma-custom-380:before,.darma-loader-darma-custom-380:after {content: \"\";\n  border: 8px solid var(--loader-color, #e11d48);\n  border-radius: 50%;\n  box-sizing: content-box;\n  margin: auto;\n  aspect-ratio: 1;\n  animation: darma-loader-darma-custom-380-l9 infinite 1s steps(4,jump-none);\n}.darma-loader-darma-custom-380:before {animation-direction: reverse;\n}@keyframes darma-loader-darma-custom-380-l9 {0% {width: 0% }to {width: 75%}}\n",
+    "react": "export default function DarmaCustom380Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-380\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
-    "secondaryColor": false
+    "background": true,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

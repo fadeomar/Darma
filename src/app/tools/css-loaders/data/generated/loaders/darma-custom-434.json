@@ -29,7 +29,7 @@
   },
   "searchText": "darma-custom-434 line orbit 20 spinners line orbit 20 geometric spinner outline spinners loader css-only single-element batch-06 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-434\"></div>",
-  "previewCss": ".darma-loader-darma-custom-434 {color: var(--loader-color, #db2777);\n  width: 85px;\n  height: 35px;\n  --g1: conic-gradient(from 90deg at 3px 3px ,#0000 90deg,var(--loader-bg, #ffffff) 0);\n  --g2: conic-gradient(from -90deg at 22px 22px,#0000 90deg,var(--loader-bg, #ffffff) 0);\n  background: var(--g1),var(--g1),var(--g1), var(--g2),var(--g2),var(--g2);\n  background-size: 25px 25px;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-434-l6 1s infinite alternate;\n}@keyframes darma-loader-darma-custom-434-l6 {0% {background-position:0 50% ,50% 50% ,100% 50% }20% {background-position:0 0 ,50% 50% ,100% 50% }40% {background-position:0 100%,50% 0 ,100% 50% }60% {background-position:0 50% ,50% 100%,100% 0 }80% {background-position:0 50% ,50% 50% ,100% 100%}100% {background-position:0 50% ,50% 50% ,100% 50% }}\n",
+  "previewCss": ".darma-loader-darma-custom-434 {color: var(--loader-color, #db2777);\n  --loader-secondary-color: var(--loader-secondary-color, #f9a8d4);\n  --loader-bg: var(--loader-bg, #ffffff);\n  width: 85px;\n  height: 35px;\n  --g1: conic-gradient(from 90deg at 3px 3px ,#0000 90deg,var(--loader-bg, #ffffff) 0);\n  --g2: conic-gradient(from -90deg at 22px 22px,#0000 90deg,var(--loader-bg, #ffffff) 0);\n  background: var(--g1),var(--g1),var(--g1), var(--g2),var(--g2),var(--g2);\n  background-size: 25px 25px;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-434-l6 1s infinite alternate;\n}@keyframes darma-loader-darma-custom-434-l6 {0% {background-position:0 50% ,50% 50% ,100% 50% }20% {background-position:0 0 ,50% 50% ,100% 50% }40% {background-position:0 100%,50% 0 ,100% 50% }60% {background-position:0 50% ,50% 100%,100% 0 }80% {background-position:0 50% ,50% 50% ,100% 100%}100% {background-position:0 50% ,50% 50% ,100% 50% }}\n",
   "defaults": {
     "color": "#db2777",
     "secondaryColor": "#f9a8d4",
@@ -39,15 +39,15 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-434\"></div>",
-    "css": ".darma-loader-darma-custom-434 {color: var(--loader-color, #db2777);\n  width: 85px;\n  height: 35px;\n  --g1: conic-gradient(from 90deg at 3px 3px ,#0000 90deg,var(--loader-bg, #ffffff) 0);\n  --g2: conic-gradient(from -90deg at 22px 22px,#0000 90deg,var(--loader-bg, #ffffff) 0);\n  background: var(--g1),var(--g1),var(--g1), var(--g2),var(--g2),var(--g2);\n  background-size: 25px 25px;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-434-l6 1s infinite alternate;\n}@keyframes darma-loader-darma-custom-434-l6 {0% {background-position:0 50% ,50% 50% ,100% 50% }20% {background-position:0 0 ,50% 50% ,100% 50% }40% {background-position:0 100%,50% 0 ,100% 50% }60% {background-position:0 50% ,50% 100%,100% 0 }80% {background-position:0 50% ,50% 50% ,100% 100%}100% {background-position:0 50% ,50% 50% ,100% 50% }}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom434Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-434\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-434 {color: var(--loader-color, #db2777);\n  --loader-secondary-color: var(--loader-secondary-color, #f9a8d4);\n  --loader-bg: var(--loader-bg, #ffffff);\n  width: 85px;\n  height: 35px;\n  --g1: conic-gradient(from 90deg at 3px 3px ,#0000 90deg,var(--loader-bg, #ffffff) 0);\n  --g2: conic-gradient(from -90deg at 22px 22px,#0000 90deg,var(--loader-bg, #ffffff) 0);\n  background: var(--g1),var(--g1),var(--g1), var(--g2),var(--g2),var(--g2);\n  background-size: 25px 25px;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-434-l6 1s infinite alternate;\n}@keyframes darma-loader-darma-custom-434-l6 {0% {background-position:0 50% ,50% 50% ,100% 50% }20% {background-position:0 0 ,50% 50% ,100% 50% }40% {background-position:0 100%,50% 0 ,100% 50% }60% {background-position:0 50% ,50% 100%,100% 0 }80% {background-position:0 50% ,50% 50% ,100% 100%}100% {background-position:0 50% ,50% 50% ,100% 50% }}\n",
+    "react": "export default function DarmaCustom434Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-434\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
     "background": true,
-    "secondaryColor": false
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

@@ -33,13 +33,13 @@
     "color": "#16a34a",
     "secondaryColor": "#86efac",
     "size": 84,
-    "speed": 1.5,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-272\"></div>",
     "css": ".darma-loader-darma-custom-272 {\n  color: var(--loader-color, #16a34a);\n  display: inline-grid;\n  padding: 5px;\n  background: var(--loader-bg, #ffffff);\n  border-radius: 999px;\n  filter: blur(4px) contrast(12);\n}\n.darma-loader-darma-custom-272:before,\n.darma-loader-darma-custom-272:after {\n  content: \"\";\n  grid-area: 1/1;\n  height: 40px;\n  aspect-ratio: 3;\n  --c: #0000 64%,currentColor 66% 98%,#0000 101%;\n  background:\n    radial-gradient(35% 146% at 50% 159%,var(--c)) 0 0,\n    radial-gradient(35% 146% at 50% -59%,var(--c)) 100% 100%;\n  background-size: calc(200%/3) 50%;\n  background-repeat: repeat-x;\n}\n.darma-loader-darma-custom-272:before {\n  -webkit-mask: repeating-linear-gradient(90deg,currentColor 0 8%,#0000 0 15%);\n}\n.darma-loader-darma-custom-272:after {\n  clip-path: inset(0 100% 0 0);\n  animation: darma-loader-darma-custom-272-l13 1.5s infinite linear;\n}\n@keyframes darma-loader-darma-custom-272-l13{\n  50% {clip-path: inset(0)}\n  to {clip-path: inset(0 0 0 100%)}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom272Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-272\"></div>\n  );\n}\n"
+    "react": "export default function DarmaCustom272Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-272\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,

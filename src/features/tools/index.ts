@@ -7,6 +7,8 @@ export type {
   ToolPrivacy,
   ToolVisibility,
   ToolAudience,
+  ToolDifficulty,
+  ToolPowerLevel,
   ToolLayoutType,
 } from "./domain/tool";
 export type { ToolRegistry, ToolRegistryQuery } from "./domain/toolRegistry";

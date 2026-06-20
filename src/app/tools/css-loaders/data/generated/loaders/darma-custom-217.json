@@ -31,13 +31,13 @@
     "color": "#2563eb",
     "secondaryColor": "#60a5fa",
     "size": 75,
-    "speed": 0.75,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-217\"></div>",
     "css": ".darma-loader-darma-custom-217 {\n  color: var(--loader-color, #2563eb);\nheight: 15px;\naspect-ratio: 5;\n-webkit-mask: linear-gradient(90deg,#0000 ,currentColor 20% 80%,#0000);\nbackground: radial-gradient(closest-side at 37.5% 50%,currentColor 94%,#0000) 0/calc(80%/3) 100%;\nanimation: darma-loader-darma-custom-217-l48 .75s infinite linear;\n}\n@keyframes darma-loader-darma-custom-217-l48 {\n100% {background-position: 36.36%}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom217Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-217\"></div>\n  );\n}\n"
+    "react": "export default function DarmaCustom217Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-217\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,

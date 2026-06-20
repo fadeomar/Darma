@@ -4,6 +4,7 @@ import { getToolRegistry } from "@/features/tools";
 import ToolPageShell from "@/features/tools/ui/ToolPageShell";
 import ToolContentCard from "@/features/tools/ui/ToolContentCard";
 import SurfaceCard from "@/components/ui/SurfaceCard";
+import { NextToolSuggestions } from "@/features/tools/components/NextToolSuggestions";
 
 export const metadata: Metadata = {
   title: "JSON Formatter & Validator | Darma Tools",
@@ -122,6 +123,12 @@ export default function JsonFormatterPage() {
               sensitive configs.
             </p>
           </SurfaceCard>
+
+          <NextToolSuggestions
+            title="Continue debugging"
+            description="Useful companion tools for API payloads, tokens, and encoded request data."
+            toolIds={["json-to-typescript", "base64-encoder-decoder", "url-encoder-decoder", "jwt-decoder"]}
+          />
         </div>
       }
     >

@@ -112,14 +112,22 @@ export function getContrastPairs(colors: PaletteColor[]): ContrastPair[] {
 }
 
 export function exportPaletteCssVariables(colors: PaletteColor[]): string {
-  return colors
-    .map((color, index) => `--color-palette-${index + 1}: ${color.hex};`)
-    .join("\n");
+  const lines = colors.flatMap((color, index) => {
+    const tokenName = color.name.toLowerCase().replace(/\s+/g, "-");
+    return [
+      `  --color-palette-${index + 1}: ${color.hex};`,
+      `  --color-${tokenName}: ${color.hex};`,
+    ];
+  });
+  return `:root {\n${lines.join("\n")}\n}`;
 }
 
 export function exportPaletteTailwindObject(colors: PaletteColor[]): string {
-  const lines = colors.map((color, index) => `    ${index + 1}: "${color.hex}",`);
-  return `palette: {\n${lines.join("\n")}\n  }`;
+  const lines = colors.map((color, index) => {
+    const tokenName = color.name.toLowerCase().replace(/\s+/g, "-");
+    return `      "${tokenName}": "${color.hex}",\n      "${index + 1}": "${color.hex}",`;
+  });
+  return `colors: {\n  darma: {\n${lines.join("\n")}\n  }\n}`;
 }
 
 export function exportPaletteJson(colors: PaletteColor[]): string {
@@ -138,6 +146,18 @@ export function exportPaletteJson(colors: PaletteColor[]): string {
 
 export function exportHexList(colors: PaletteColor[]): string {
   return colors.map((color) => color.hex).join("\n");
+}
+
+export function exportGradientSuggestion(colors: PaletteColor[]): string {
+  const start = colors[2]?.hex ?? colors[0]?.hex ?? "#2563EB";
+  const end = colors[4]?.hex ?? colors[colors.length - 1]?.hex ?? "#7C3AED";
+  return `linear-gradient(135deg, ${start} 0%, ${end} 100%)`;
+}
+
+export function getAccessibilityStatus(rating: WcagRating): string {
+  if (rating === "AAA") return "Excellent readability";
+  if (rating === "AA") return "Accessible for normal text";
+  return "Needs stronger contrast";
 }
 
 function getHarmonyOffsets(mode: HarmonyMode, size: number): number[] {
@@ -195,7 +215,7 @@ function clamp(value: number, min: number, max: number): number {
   return Math.min(max, Math.max(min, value));
 }
 
-function hexToRgb(hexInput: string): { r: number; g: number; b: number } {
+export function hexToRgb(hexInput: string): { r: number; g: number; b: number } {
   const hex = (normalizeHex(hexInput) ?? "#000000").slice(1);
   const value = Number.parseInt(hex, 16);
   return {
@@ -205,11 +225,11 @@ function hexToRgb(hexInput: string): { r: number; g: number; b: number } {
   };
 }
 
-function rgbToHex(r: number, g: number, b: number): string {
+export function rgbToHex(r: number, g: number, b: number): string {
   return `#${[r, g, b].map((value) => value.toString(16).padStart(2, "0")).join("")}`.toUpperCase();
 }
 
-function hexToHsl(hex: string): { h: number; s: number; l: number } {
+export function hexToHsl(hex: string): { h: number; s: number; l: number } {
   const { r, g, b } = hexToRgb(hex);
   const rNorm = r / 255;
   const gNorm = g / 255;
@@ -240,7 +260,7 @@ function hexToHsl(hex: string): { h: number; s: number; l: number } {
   return { h, s: s * 100, l: l * 100 };
 }
 
-function hslToHex(h: number, s: number, l: number): string {
+export function hslToHex(h: number, s: number, l: number): string {
   const sNorm = s / 100;
   const lNorm = l / 100;
   const c = (1 - Math.abs(2 * lNorm - 1)) * sNorm;

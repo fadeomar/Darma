@@ -29,7 +29,7 @@
   },
   "searchText": "darma-custom-411 arcade motion 08 fun arcade motion 08 game character fun pixel loader css-only single-element batch-06 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-411\"></div>",
-  "previewCss": ".darma-loader-darma-custom-411 {\n  width: 40px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  color: var(--loader-color, #0f766e);\n  border: 2px solid;\n  box-sizing: border-box;\n  position: relative;\n  transform-origin: left;\n  animation: darma-loader-darma-custom-411-l2 1s infinite linear;\n}.darma-loader-darma-custom-411::before,.darma-loader-darma-custom-411::after {content: \"\";\n  position: absolute;\n  inset: 0 0 auto;\n  margin: auto;\n  width: 50%;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  border: 2px solid;\n  box-sizing: content-box;\n  transform-origin: 50% calc(100% - 4px);\n  animation: inherit;\n}.darma-loader-darma-custom-411::after {inset:auto 0 calc(100% + 2px);\n  animation-duration: 0.5s;\n  animation-direction: reverse;\n  transform-origin: 50% calc(200% - 2px);\n}@keyframes darma-loader-darma-custom-411-l2{100% {transform: rotate(1turn)}}\n",
+  "previewCss": ".darma-loader-darma-custom-411 {--loader-bg: var(--loader-bg, #ffffff);\n  --loader-secondary-color: var(--loader-secondary-color, #5eead4);\n  width: 40px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  color: var(--loader-color, #0f766e);\n  border: 2px solid;\n  box-sizing: border-box;\n  position: relative;\n  transform-origin: left;\n  animation: darma-loader-darma-custom-411-l2 1s infinite linear;\n}.darma-loader-darma-custom-411::before,.darma-loader-darma-custom-411::after {content: \"\";\n  position: absolute;\n  inset: 0 0 auto;\n  margin: auto;\n  width: 50%;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  border: 2px solid;\n  box-sizing: content-box;\n  transform-origin: 50% calc(100% - 4px);\n  animation: inherit;\n}.darma-loader-darma-custom-411::after {inset:auto 0 calc(100% + 2px);\n  animation-duration: 0.5s;\n  animation-direction: reverse;\n  transform-origin: 50% calc(200% - 2px);\n}@keyframes darma-loader-darma-custom-411-l2{100% {transform: rotate(1turn)}}\n",
   "defaults": {
     "color": "#0f766e",
     "secondaryColor": "#5eead4",
@@ -39,15 +39,15 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-411\"></div>",
-    "css": ".darma-loader-darma-custom-411 {\n  width: 40px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  color: var(--loader-color, #0f766e);\n  border: 2px solid;\n  box-sizing: border-box;\n  position: relative;\n  transform-origin: left;\n  animation: darma-loader-darma-custom-411-l2 1s infinite linear;\n}.darma-loader-darma-custom-411::before,.darma-loader-darma-custom-411::after {content: \"\";\n  position: absolute;\n  inset: 0 0 auto;\n  margin: auto;\n  width: 50%;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  border: 2px solid;\n  box-sizing: content-box;\n  transform-origin: 50% calc(100% - 4px);\n  animation: inherit;\n}.darma-loader-darma-custom-411::after {inset:auto 0 calc(100% + 2px);\n  animation-duration: 0.5s;\n  animation-direction: reverse;\n  transform-origin: 50% calc(200% - 2px);\n}@keyframes darma-loader-darma-custom-411-l2{100% {transform: rotate(1turn)}}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom411Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-411\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-411 {--loader-bg: var(--loader-bg, #ffffff);\n  --loader-secondary-color: var(--loader-secondary-color, #5eead4);\n  width: 40px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  color: var(--loader-color, #0f766e);\n  border: 2px solid;\n  box-sizing: border-box;\n  position: relative;\n  transform-origin: left;\n  animation: darma-loader-darma-custom-411-l2 1s infinite linear;\n}.darma-loader-darma-custom-411::before,.darma-loader-darma-custom-411::after {content: \"\";\n  position: absolute;\n  inset: 0 0 auto;\n  margin: auto;\n  width: 50%;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  border: 2px solid;\n  box-sizing: content-box;\n  transform-origin: 50% calc(100% - 4px);\n  animation: inherit;\n}.darma-loader-darma-custom-411::after {inset:auto 0 calc(100% + 2px);\n  animation-duration: 0.5s;\n  animation-direction: reverse;\n  transform-origin: 50% calc(200% - 2px);\n}@keyframes darma-loader-darma-custom-411-l2{100% {transform: rotate(1turn)}}\n",
+    "react": "export default function DarmaCustom411Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-411\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
-    "secondaryColor": false
+    "background": true,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

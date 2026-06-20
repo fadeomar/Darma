@@ -46,6 +46,16 @@ export default function WorkflowPage({ params }: { params: { workflow: string } 
       <Card variant="article" padding="lg" className="mt-8">
         <h2 className="text-2xl font-black text-[var(--color-text)]">Recommended use case</h2>
         <p className="mt-3 text-sm leading-7 text-[var(--color-text-muted)]">{workflow.useCase}</p>
+        {workflow.steps?.length ? (
+          <ol className="mt-5 grid gap-3 md:grid-cols-2">
+            {workflow.steps.map((step, index) => (
+              <li key={step} className="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 text-sm leading-6 text-[var(--color-text-muted)]">
+                <span className="mr-2 font-mono text-xs font-black text-[var(--color-primary)]">{index + 1}</span>
+                {step}
+              </li>
+            ))}
+          </ol>
+        ) : null}
       </Card>
       <section className="mt-8">
         <ToolGrid tools={tools as NonNullable<(typeof tools)[number]>[]} />

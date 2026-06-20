@@ -35,7 +35,7 @@
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-047\"></div>",
     "css": ".darma-loader-darma-custom-047 {\n  width: 60px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  animation: darma-loader-darma-custom-047-l11 2s infinite;\n}\n@keyframes darma-loader-darma-custom-047-l11 {\n  0% { background: conic-gradient(var(--loader-color, #f03355) 0, #0000 0); }\n  12.5% { background: conic-gradient(var(--loader-color, #f03355) 45deg, #0000 46deg); }\n  25% { background: conic-gradient(var(--loader-color, #f03355) 90deg, #0000 91deg); }\n  37.5% { background: conic-gradient(var(--loader-color, #f03355) 135deg, #0000 136deg); }\n  50% { background: conic-gradient(var(--loader-color, #f03355) 180deg, #0000 181deg); }\n  62.5% { background: conic-gradient(var(--loader-color, #f03355) 225deg, #0000 226deg); }\n  75% { background: conic-gradient(var(--loader-color, #f03355) 270deg, #0000 271deg); }\n  87.5% { background: conic-gradient(var(--loader-color, #f03355) 315deg, #0000 316deg); }\n  100% { background: conic-gradient(var(--loader-color, #f03355) 360deg, #0000 360deg); }\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom047Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-047\"></div>\n  );\n}\n"
+    "react": "export default function DarmaCustom047Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-047\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,

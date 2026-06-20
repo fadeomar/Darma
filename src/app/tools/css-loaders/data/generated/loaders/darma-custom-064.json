@@ -36,7 +36,7 @@
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-064\"></div>",
     "css": ".darma-loader-darma-custom-064 {\n  --s: 25px;\n  --g: 5px;  \n  \n  height: calc(1.353*var(--s) + var(--g));\n  aspect-ratio: 3;\n  display: grid;\n  justify-items: end;\n  overflow: hidden;\n  --_m: linear-gradient(90deg,#0000,var(--loader-color, #000) 15px calc(100% - 15px),#0000);\n  -webkit-mask: var(--_m);\n          mask: var(--_m);\n}\n.darma-loader-darma-custom-064:before { \n  content: \"\";\n  width: calc(4*100%/3);\n  background:\n  conic-gradient(from -90deg at var(--s) calc(0.353*var(--s)),\n      #fff 135deg,var(--loader-secondary-color, #666) 0 270deg,#aaa 0); \n  --_m:\n    linear-gradient(to bottom right,\n       #0000 calc(0.25*var(--s)),var(--loader-color, #000) 0 calc(100% - calc(0.25*var(--s)) - 1.414*var(--g)),#0000 0),\n    conic-gradient(from -90deg at right var(--g) bottom var(--g),var(--loader-color, #000) 90deg,#0000 0);\n   -webkit-mask: var(--_m);\n           mask: var(--_m);\n  background-size:   calc(100%/4) 100%;\n  -webkit-mask-size: calc(100%/4) 100%;\n          mask-size: calc(100%/4) 100%;\n  -webkit-mask-composite: source-in;\n          mask-composite: intersect;\n  animation: darma-loader-darma-custom-064-l8 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-064-l8 {\n  to {transform:translate(calc(100%/4))}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom064Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-064\"></div>\n  );\n}\n"
+    "react": "export default function DarmaCustom064Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-064\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,

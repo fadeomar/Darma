@@ -58,6 +58,16 @@ export default async function WorkflowDetailPage({ params }: Props) {
       <Card variant="article" padding="lg" className="mt-8">
         <h2 className="text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">Why this order?</h2>
         <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">{workflow.useCase}</p>
+        {workflow.steps?.length ? (
+          <ol className="mt-5 grid gap-3 md:grid-cols-2">
+            {workflow.steps.map((step, index) => (
+              <li key={step} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 text-sm leading-6 text-[var(--color-text-secondary)]">
+                <span className="mr-2 font-mono text-xs font-black text-[var(--color-primary)]">{index + 1}</span>
+                {step}
+              </li>
+            ))}
+          </ol>
+        ) : null}
       </Card>
 
       <section className="mt-8 space-y-4">

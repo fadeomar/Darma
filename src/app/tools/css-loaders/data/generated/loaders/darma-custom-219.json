@@ -31,13 +31,13 @@
     "color": "#0891b2",
     "secondaryColor": "#22d3ee",
     "size": 60,
-    "speed": 2,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-219\"></div>",
     "css": ".darma-loader-darma-custom-219 {\n  color: var(--loader-color, #0891b2);\nheight: 15px;\naspect-ratio: 4;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 90%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 25% 100%;\ndisplay: flex;\n}\n.darma-loader-darma-custom-219:before{\ncontent: \"\";\nflex: 1;\nbackground: inherit;\nanimation: darma-loader-darma-custom-219-l50 2s infinite;\n}\n@keyframes darma-loader-darma-custom-219-l50 {\n0% {transform: translate( 37.5%) rotate(0) }\n16.67%{transform: translate( 37.5%) rotate(90deg) }\n33.33%{transform: translate(-37.5%) rotate(90deg) }\n50% {transform: translate(-37.5%) rotate(180deg)}\n66.67%{transform: translate(-37.5%) rotate(270deg)}\n83.33%{transform: translate( 37.5%) rotate(270deg)}\n100% {transform: translate( 37.5%) rotate(360deg)}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom219Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-219\"></div>\n  );\n}\n"
+    "react": "export default function DarmaCustom219Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-219\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,

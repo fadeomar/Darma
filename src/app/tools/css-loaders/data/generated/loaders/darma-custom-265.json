@@ -33,13 +33,13 @@
     "color": "#ca8a04",
     "secondaryColor": "#fde047",
     "size": 84,
-    "speed": 0.8,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-265\"></div>",
     "css": ".darma-loader-darma-custom-265 {\n  color: var(--loader-color, #ca8a04);\n  height: 30px;\n  aspect-ratio: 6;\n  --c: #0000 64%,currentColor 66% 98%,#0000 101%;\n  background:\n    radial-gradient(35% 146% at 50% 159%,var(--c)) 0 0,\n    radial-gradient(35% 146% at 50% -59%,var(--c)) 25% 100%;\n  background-size: calc(100%/3) 50%;\n  background-repeat: repeat-x;\n  clip-path: inset(0 60% 0 0);\n  animation: darma-loader-darma-custom-265-l6 .8s infinite linear alternate;\n}\n@keyframes darma-loader-darma-custom-265-l6{\n  to {clip-path: inset(0 0 0 60%)}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom265Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-265\"></div>\n  );\n}\n"
+    "react": "export default function DarmaCustom265Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-265\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,

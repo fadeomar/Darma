@@ -28,6 +28,15 @@ export default function ToolWorkflowsPage() {
                 <Badge variant="outline">{count} tools</Badge>
                 <h2 className="mt-4 text-2xl font-black text-[var(--color-text)]">{workflow.title}</h2>
                 <p className="mt-3 text-sm leading-7 text-[var(--color-text-muted)]">{workflow.description}</p>
+                {workflow.steps?.length ? (
+                  <ol className="mt-4 grid gap-1.5 text-xs leading-5 text-[var(--color-text-muted)]">
+                    {workflow.steps.slice(0, 4).map((step, index) => (
+                      <li key={step}>
+                        <span className="font-bold text-[var(--color-text)]">{index + 1}.</span> {step}
+                      </li>
+                    ))}
+                  </ol>
+                ) : null}
               </Card>
             </Link>
           );

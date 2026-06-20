@@ -57,6 +57,7 @@ export default function AdminReviewPage() {
 
   const [loading, setLoading] = useState(true);
   const [actionBusyId, setActionBusyId] = useState<string | null>(null);
+  const [bulkBusy, setBulkBusy] = useState(false);
   const [previewed, setPreviewed] = useState<ElementDTO | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -153,6 +154,25 @@ export default function AdminReviewPage() {
       setError("Approve failed. Please try again.");
     } finally {
       setActionBusyId(null);
+    }
+  }
+
+  async function bulkApprove(payload: { ids: string[] } | { scope: "pending" }) {
+    setBulkBusy(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/admin/review-queue", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "approve", ...payload }),
+      });
+      if (!res.ok) throw new Error(`Bulk approve failed: ${res.status}`);
+      await Promise.all([load(), loadCounts()]);
+    } catch (e) {
+      console.error(e);
+      setError("Bulk approve failed. Please try again.");
+    } finally {
+      setBulkBusy(false);
     }
   }
 
@@ -264,6 +284,35 @@ export default function AdminReviewPage() {
           <div className="text-sm text-[var(--color-text-secondary)]">
             Showing <b>{items.length}</b> of <b>{total}</b>
           </div>
+
+          {status === "pending" && items.length > 0 ? (
+            <div className="flex flex-wrap items-center gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                disabled={loading || bulkBusy}
+                loading={bulkBusy}
+                leftIcon={!bulkBusy ? <CheckCircle2 className="h-4 w-4" /> : undefined}
+                onClick={() => bulkApprove({ ids: items.map((el) => el.id) })}
+              >
+                Approve page ({items.length})
+              </Button>
+              <Button
+                size="sm"
+                disabled={loading || bulkBusy}
+                loading={bulkBusy}
+                leftIcon={!bulkBusy ? <CheckCircle2 className="h-4 w-4" /> : undefined}
+                onClick={() => {
+                  const n = pendingCount ?? total;
+                  if (window.confirm(`Approve all ${n} pending projects? They will become visible on Explore.`)) {
+                    bulkApprove({ scope: "pending" });
+                  }
+                }}
+              >
+                Approve all pending{typeof pendingCount === "number" ? ` (${pendingCount})` : ""}
+              </Button>
+            </div>
+          ) : null}
 
           <div className="ml-auto flex items-center gap-2">
             <Button

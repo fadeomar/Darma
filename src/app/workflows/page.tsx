@@ -47,6 +47,15 @@ export default function WorkflowsPage() {
                 </div>
                 <h2 className="mt-4 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">{workflow.title}</h2>
                 <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">{workflow.description}</p>
+                {workflow.steps?.length ? (
+                  <ol className="mt-4 grid gap-1.5 text-xs leading-5 text-[var(--color-text-tertiary)]">
+                    {workflow.steps.slice(0, 4).map((step, index) => (
+                      <li key={step}>
+                        <span className="font-bold text-[var(--color-text-secondary)]">{index + 1}.</span> {step}
+                      </li>
+                    ))}
+                  </ol>
+                ) : null}
                 <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-primary)]">
                   Open workflow <ArrowRight className="h-4 w-4" aria-hidden />
                 </span>

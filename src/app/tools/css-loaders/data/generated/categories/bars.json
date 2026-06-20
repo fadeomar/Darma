@@ -68,7 +68,7 @@
       "color": "#0891b2",
       "secondaryColor": "#22d3ee",
       "size": 45,
-      "speed": 2,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -253,7 +253,7 @@
       "color": "#7c3aed",
       "secondaryColor": "#c084fc",
       "size": 45,
-      "speed": 4,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -328,7 +328,7 @@
       "color": "#7c3aed",
       "secondaryColor": "#c084fc",
       "size": 45,
-      "speed": 2,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -366,7 +366,7 @@
       "color": "#7c3aed",
       "secondaryColor": "#c084fc",
       "size": 49,
-      "speed": 0.75,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -440,7 +440,7 @@
       "color": "#e11d48",
       "secondaryColor": "#fb7185",
       "size": 49,
-      "speed": 1.5,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -478,7 +478,7 @@
       "color": "#9333ea",
       "secondaryColor": "#d8b4fe",
       "size": 49,
-      "speed": 1.5,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -654,70 +654,6 @@
     }
   },
   {
-    "id": "cssloaders-github-30",
-    "name": "CSSLoaders Pattern 30",
-    "category": "bars",
-    "tags": [
-      "cssloaders",
-      "bars",
-      "wave",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-30 cssloaders pattern 30 bars cssloaders bars wave loader html css react cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-cssloaders-github-30\"><i></i><i></i><i></i><i></i><i></i></span>",
-    "previewCss": ".darma-loader-cssloaders-github-30 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 4px;\n      height: 44px;\n    }\n    .darma-loader-cssloaders-github-30 i {\n      display: block;\n      width: 5px;\n      height: 44px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #f97316), var(--loader-secondary-color, #fed7aa));\n      transform-origin: center bottom;\n      animation: darma-loader-cssloaders-github-30-barPulse 1.05s ease-in-out infinite;\n    }\n    .darma-loader-cssloaders-github-30 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-cssloaders-github-30 i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-cssloaders-github-30 i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-cssloaders-github-30 i:nth-child(4) { animation-delay: 0.27s; }\n.darma-loader-cssloaders-github-30 i:nth-child(5) { animation-delay: 0.36s; }\n    @keyframes darma-loader-cssloaders-github-30-barPulse { 0%, 100% { opacity: .25; transform: scaleY(.5); } 45% { opacity: 1; transform: scaleY(1); } }\n",
-    "defaults": {
-      "color": "#f97316",
-      "secondaryColor": "#fed7aa",
-      "size": 50,
-      "speed": 1.05
-    }
-  },
-  {
-    "id": "cssloaders-github-38",
-    "name": "CSSLoaders Pattern 38",
-    "category": "bars",
-    "tags": [
-      "cssloaders",
-      "bars",
-      "wave",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-38 cssloaders pattern 38 bars cssloaders bars wave loader html css react cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-cssloaders-github-38\"><i></i><i></i><i></i><i></i><i></i></span>",
-    "previewCss": ".darma-loader-cssloaders-github-38 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 4px;\n      height: 44px;\n    }\n    .darma-loader-cssloaders-github-38 i {\n      display: block;\n      width: 7px;\n      height: 44px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #6366f1), var(--loader-secondary-color, #a5b4fc));\n      transform-origin: center bottom;\n      animation: darma-loader-cssloaders-github-38-barPulse 1.05s ease-in-out infinite;\n    }\n    .darma-loader-cssloaders-github-38 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-cssloaders-github-38 i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-cssloaders-github-38 i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-cssloaders-github-38 i:nth-child(4) { animation-delay: 0.27s; }\n.darma-loader-cssloaders-github-38 i:nth-child(5) { animation-delay: 0.36s; }\n    @keyframes darma-loader-cssloaders-github-38-barPulse { 0%, 100% { opacity: .25; transform: scaleY(.5); } 45% { opacity: 1; transform: scaleY(1); } }\n",
-    "defaults": {
-      "color": "#6366f1",
-      "secondaryColor": "#a5b4fc",
-      "size": 62,
-      "speed": 1.05
-    }
-  },
-  {
     "id": "darma-custom-137",
     "name": "Diagonal Step Bars",
     "category": "bars",
@@ -825,7 +761,7 @@
       "color": "#ea580c",
       "secondaryColor": "#fb923c",
       "size": 45,
-      "speed": 0.75,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -855,7 +791,7 @@
     "defaults": {
       "color": "#6366f1",
       "size": 48,
-      "speed": 0.75
+      "speed": 1
     }
   },
   {
@@ -927,7 +863,7 @@
       "color": "#0891b2",
       "secondaryColor": "#22d3ee",
       "size": 49,
-      "speed": 0.75,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -961,73 +897,7 @@
       "color": "#0ea5e9",
       "secondaryColor": "#bae6fd",
       "size": 52,
-      "speed": 0.85
-    }
-  },
-  {
-    "id": "loaders-css-15",
-    "name": "Line Scale 15",
-    "category": "bars",
-    "tags": [
-      "loaders-css",
-      "line",
-      "scale",
-      "bars",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-15 line scale 15 bars loaders-css line scale bars loader html css react cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-loaders-css-15\"><i></i><i></i><i></i><i></i><i></i></span>",
-    "previewCss": ".darma-loader-loaders-css-15 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 4px;\n      height: 36px;\n    }\n    .darma-loader-loaders-css-15 i {\n      display: block;\n      width: 6px;\n      height: 36px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #0ea5e9), var(--loader-secondary-color, #bae6fd));\n      transform-origin: center bottom;\n      animation: darma-loader-loaders-css-15-barPulse 1.05s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-15 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-15 i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-loaders-css-15 i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-loaders-css-15 i:nth-child(4) { animation-delay: 0.27s; }\n.darma-loader-loaders-css-15 i:nth-child(5) { animation-delay: 0.36s; }\n    @keyframes darma-loader-loaders-css-15-barPulse { 0%, 100% { transform: scaleY(.42); opacity: .45; } 50% { transform: scaleY(1); opacity: 1; } }\n",
-    "defaults": {
-      "color": "#0ea5e9",
-      "secondaryColor": "#bae6fd",
-      "size": 52,
-      "speed": 1.05
-    }
-  },
-  {
-    "id": "loaders-css-25",
-    "name": "Line Scale 25",
-    "category": "bars",
-    "tags": [
-      "loaders-css",
-      "line",
-      "scale",
-      "bars",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-25 line scale 25 bars loaders-css line scale bars loader html css react cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-loaders-css-25\"><i></i><i></i><i></i><i></i><i></i></span>",
-    "previewCss": ".darma-loader-loaders-css-25 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 4px;\n      height: 36px;\n    }\n    .darma-loader-loaders-css-25 i {\n      display: block;\n      width: 6px;\n      height: 36px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #0ea5e9), var(--loader-secondary-color, #bae6fd));\n      transform-origin: center bottom;\n      animation: darma-loader-loaders-css-25-barPulse 0.85s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-25 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-25 i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-loaders-css-25 i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-loaders-css-25 i:nth-child(4) { animation-delay: 0.27s; }\n.darma-loader-loaders-css-25 i:nth-child(5) { animation-delay: 0.36s; }\n    @keyframes darma-loader-loaders-css-25-barPulse { 0%, 100% { transform: scaleY(.42); opacity: .45; } 50% { transform: scaleY(1); opacity: 1; } }\n",
-    "defaults": {
-      "color": "#0ea5e9",
-      "secondaryColor": "#bae6fd",
-      "size": 52,
-      "speed": 0.85
+      "speed": 0.75
     }
   },
   {
@@ -1060,73 +930,7 @@
       "color": "#6366f1",
       "secondaryColor": "#a5b4fc",
       "size": 56,
-      "speed": 0.95
-    }
-  },
-  {
-    "id": "loaders-css-16",
-    "name": "Line Spin Fade 16",
-    "category": "bars",
-    "tags": [
-      "loaders-css",
-      "line",
-      "scale",
-      "bars",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-16 line spin fade 16 bars loaders-css line scale bars loader html css react cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-loaders-css-16\"><i></i><i></i><i></i><i></i><i></i></span>",
-    "previewCss": ".darma-loader-loaders-css-16 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 4px;\n      height: 40px;\n    }\n    .darma-loader-loaders-css-16 i {\n      display: block;\n      width: 6px;\n      height: 40px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #6366f1), var(--loader-secondary-color, #a5b4fc));\n      transform-origin: center bottom;\n      animation: darma-loader-loaders-css-16-barPulse 0.75s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-16 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-16 i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-loaders-css-16 i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-loaders-css-16 i:nth-child(4) { animation-delay: 0.27s; }\n.darma-loader-loaders-css-16 i:nth-child(5) { animation-delay: 0.36s; }\n    @keyframes darma-loader-loaders-css-16-barPulse { 0%, 100% { transform: translateY(0) scaleY(.55); opacity: .45; } 50% { transform: translateY(-7px) scaleY(1); opacity: 1; } }\n",
-    "defaults": {
-      "color": "#6366f1",
-      "secondaryColor": "#a5b4fc",
-      "size": 56,
-      "speed": 0.75
-    }
-  },
-  {
-    "id": "loaders-css-26",
-    "name": "Line Spin Fade 26",
-    "category": "bars",
-    "tags": [
-      "loaders-css",
-      "line",
-      "scale",
-      "bars",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-26 line spin fade 26 bars loaders-css line scale bars loader html css react cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-loaders-css-26\"><i></i><i></i><i></i><i></i><i></i></span>",
-    "previewCss": ".darma-loader-loaders-css-26 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 4px;\n      height: 40px;\n    }\n    .darma-loader-loaders-css-26 i {\n      display: block;\n      width: 6px;\n      height: 40px;\n      border-radius: 999px;\n      background: linear-gradient(180deg, var(--loader-color, #6366f1), var(--loader-secondary-color, #a5b4fc));\n      transform-origin: center bottom;\n      animation: darma-loader-loaders-css-26-barPulse 0.95s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-26 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-26 i:nth-child(2) { animation-delay: 0.09s; }\n.darma-loader-loaders-css-26 i:nth-child(3) { animation-delay: 0.18s; }\n.darma-loader-loaders-css-26 i:nth-child(4) { animation-delay: 0.27s; }\n.darma-loader-loaders-css-26 i:nth-child(5) { animation-delay: 0.36s; }\n    @keyframes darma-loader-loaders-css-26-barPulse { 0%, 100% { transform: translateY(0) scaleY(.55); opacity: .45; } 50% { transform: translateY(-7px) scaleY(1); opacity: 1; } }\n",
-    "defaults": {
-      "color": "#6366f1",
-      "secondaryColor": "#a5b4fc",
-      "size": 56,
-      "speed": 0.95
+      "speed": 0.83
     }
   },
   {
@@ -1158,7 +962,7 @@
       "color": "#8b5cf6",
       "secondaryColor": "#ddd6fe",
       "size": 56,
-      "speed": 0.75
+      "speed": 0.8
     }
   },
   {
@@ -1190,7 +994,7 @@
       "color": "#06b6d4",
       "secondaryColor": "#bae6fd",
       "size": 64,
-      "speed": 0.83
+      "speed": 0.9
     }
   },
   {
@@ -1222,7 +1026,7 @@
       "color": "#f59e0b",
       "secondaryColor": "#fde68a",
       "size": 56,
-      "speed": 0.91
+      "speed": 1
     }
   },
   {
@@ -1254,7 +1058,7 @@
       "color": "#22c55e",
       "secondaryColor": "#bbf7d0",
       "size": 64,
-      "speed": 0.99
+      "speed": 1.1
     }
   },
   {
@@ -1286,7 +1090,7 @@
       "color": "#0ea5e9",
       "secondaryColor": "#bae6fd",
       "size": 56,
-      "speed": 1.07
+      "speed": 1.2
     }
   },
   {
@@ -1319,198 +1123,13 @@
     },
     "searchText": "darma-custom-651 matrix columns bars rich matrix bars columns minimal single-element loader html-css customizable rich-batch-01 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-651\"></div>",
-    "previewCss": ".darma-loader-darma-custom-651 {color: var(--loader-color, #22c55e);\n  \n  width: 45px;\n  height: 40px;\n  background: linear-gradient(#0000 calc(1*100%/6),currentColor 0 calc(3*100%/6),#0000 0),\n            linear-gradient(#0000 calc(2*100%/6),currentColor 0 calc(4*100%/6),#0000 0),\n            linear-gradient(#0000 calc(3*100%/6),currentColor 0 calc(5*100%/6),#0000 0);\n  background-size: 10px 400%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-651-matrix 1s infinite linear;\n}\n\n@keyframes darma-loader-darma-custom-651-matrix {\n  0% {\n    background-position: 0% 100%, 50% 100%, 100% 100%\n  }\n\n  100% {\n    background-position: 0% 0%, 50% 0%, 100% 0%\n  }\n}\n",
+    "previewCss": ".darma-loader-darma-custom-651 {color: var(--loader-color, #22c55e);\n  --loader-secondary-color: var(--loader-secondary-color, #86efac);\n  --loader-bg: var(--loader-bg, #0f172a);\n  \n  width: 45px;\n  height: 40px;\n  background: linear-gradient(#0000 calc(1*100%/6),currentColor 0 calc(3*100%/6),#0000 0),\n            linear-gradient(#0000 calc(2*100%/6),currentColor 0 calc(4*100%/6),#0000 0),\n            linear-gradient(#0000 calc(3*100%/6),currentColor 0 calc(5*100%/6),#0000 0);\n  background-size: 10px 400%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-651-matrix 1s infinite linear;\n}\n\n@keyframes darma-loader-darma-custom-651-matrix {\n  0% {\n    background-position: 0% 100%, 50% 100%, 100% 100%\n  }\n\n  100% {\n    background-position: 0% 0%, 50% 0%, 100% 0%\n  }\n}\n",
     "defaults": {
       "color": "#22c55e",
       "secondaryColor": "#86efac",
       "size": 72,
       "speed": 1,
       "background": "#0f172a"
-    }
-  },
-  {
-    "id": "darma-custom-774",
-    "name": "Micro Bar 100",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-774 micro bar 100 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-774\"></div>",
-    "previewCss": ".darma-loader-darma-custom-774 {\n  color: var(--loader-color, #22c55e);\nheight: 15px;\naspect-ratio: 4;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 90%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 25% 100%;\ndisplay: flex;\n}\n.darma-loader-darma-custom-774:before{\ncontent: \"\";\nflex: 1;\nbackground: inherit;\nanimation: darma-loader-darma-custom-774-l50 2s infinite;\n}\n@keyframes darma-loader-darma-custom-774-l50 {\n0% {transform: translate( 37.5%) rotate(0) }\n16.67%{transform: translate( 37.5%) rotate(90deg) }\n33.33%{transform: translate(-37.5%) rotate(90deg) }\n50% {transform: translate(-37.5%) rotate(180deg)}\n66.67%{transform: translate(-37.5%) rotate(270deg)}\n83.33%{transform: translate( 37.5%) rotate(270deg)}\n100% {transform: translate( 37.5%) rotate(360deg)}\n}",
-    "defaults": {
-      "color": "#22c55e",
-      "secondaryColor": "#86efac",
-      "size": 56,
-      "speed": 2,
-      "background": "#ffffff"
-    }
-  },
-  {
-    "id": "darma-custom-745",
-    "name": "Micro Bar 71",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-745 micro bar 71 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-745\"></div>",
-    "previewCss": ".darma-loader-darma-custom-745 {\n  color: var(--loader-color, #f59e0b);\nheight: 15px;\naspect-ratio: 6;\ndisplay: flex;\n}\n.darma-loader-darma-custom-745:before,\n.darma-loader-darma-custom-745:after {\ncontent: \"\";\nflex: 1;\npadding-left: calc(100%/6);\nbackground: radial-gradient(closest-side at calc(100%/3) 50%,currentColor 90%,#0000) 0/75% 100% content-box;\nanimation: darma-loader-darma-custom-745-l20 2s infinite;\n}\n.darma-loader-darma-custom-745:after {\n--_s:-1;\n}\n@keyframes darma-loader-darma-custom-745-l20 {\n0% {transform:scale(var(--_s,1)) translate(0) rotate(0)}\n25% {transform:scale(var(--_s,1)) translate(-25%) rotate(0)}\n50% {transform:scale(var(--_s,1)) translate(-25%) rotate(1turn)}\n75%,100% {transform:scale(var(--_s,1)) translate(0) rotate(1turn)}\n}",
-    "defaults": {
-      "color": "#f59e0b",
-      "secondaryColor": "#fde68a",
-      "size": 56,
-      "speed": 2,
-      "background": "#ffffff"
-    }
-  },
-  {
-    "id": "darma-custom-752",
-    "name": "Micro Bar 78",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-752 micro bar 78 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-752\"></div>",
-    "previewCss": ".darma-loader-darma-custom-752 {\n  color: var(--loader-color, #14b8a6);\nheight: 15px;\naspect-ratio: 4;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 25% 100%;\ndisplay: grid;\n}\n.darma-loader-darma-custom-752:before,\n.darma-loader-darma-custom-752:after {\ncontent: \"\";\ngrid-area: 1/1;\nmargin: auto;\nheight: 100%;\naspect-ratio: 1;\nborder-radius: 50%;\nbackground: currentColor;\nclip-path: inset(0 0 49%);\ntransform-origin: -100% 50%;\nanimation: darma-loader-darma-custom-752-l27 .5s infinite alternate;\n}\n.darma-loader-darma-custom-752:after {\n--s:-1;\ntransform-origin: 200% 50%;\n}\n@keyframes darma-loader-darma-custom-752-l27 {\n0%,40% {transform:scaleY(var(--s,1)) rotate(0)}\n100% {transform:scaleY(var(--s,1)) rotate(calc(var(--s,1)*-90deg))}\n}",
-    "defaults": {
-      "color": "#14b8a6",
-      "secondaryColor": "#99f6e4",
-      "size": 56,
-      "speed": 0.5,
-      "background": "#ffffff"
-    }
-  },
-  {
-    "id": "darma-custom-756",
-    "name": "Micro Bar 82",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-756 micro bar 82 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-756\"></div>",
-    "previewCss": ".darma-loader-darma-custom-756 {\n  color: var(--loader-color, #f97316);\nheight: 15px;\naspect-ratio: 4;\ndisplay: grid;\nanimation: darma-loader-darma-custom-756-l31-0 1s infinite;\n}\n.darma-loader-darma-custom-756:before,\n.darma-loader-darma-custom-756:after {\ncontent: \"\";\ngrid-area: 1/1;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 25% 100%;\n}\n.darma-loader-darma-custom-756:after {\ntransform: rotate(0) translate(37.5%) rotate(0);\nanimation: inherit;\nanimation-name: darma-loader-darma-custom-756-l31-1;\n}\n@keyframes darma-loader-darma-custom-756-l31-0 {\n100% {transform:translate(37.5%)}\n}\n@keyframes darma-loader-darma-custom-756-l31-1 {\n100% {transform:rotate(-.5turn) translate(37.5%) rotate(.5turn)}\n}",
-    "defaults": {
-      "color": "#f97316",
-      "secondaryColor": "#fdba74",
-      "size": 56,
-      "speed": 1,
-      "background": "#ffffff"
-    }
-  },
-  {
-    "id": "darma-custom-757",
-    "name": "Micro Bar 83",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-757 micro bar 83 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-757\"></div>",
-    "previewCss": ".darma-loader-darma-custom-757 {\n  color: var(--loader-color, #ec4899);\nheight: 15px;\naspect-ratio: 5;\ndisplay: grid;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\n}\n.darma-loader-darma-custom-757:before,\n.darma-loader-darma-custom-757:after {\ncontent: \"\";\ngrid-area: 1/1;\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 20% 100%;\nanimation: darma-loader-darma-custom-757-l32 1s infinite;\n}\n.darma-loader-darma-custom-757:after {\nbackground:\nvar(--_g) calc(1*100%/3),\nvar(--_g) calc(2*100%/3);\nbackground-size: 20% 100%;\nanimation-direction: reverse;\n}\n@keyframes darma-loader-darma-custom-757-l32 {\n80%,100% {transform:rotate(.5turn)}\n}",
-    "defaults": {
-      "color": "#ec4899",
-      "secondaryColor": "#f9a8d4",
-      "size": 56,
-      "speed": 1,
-      "background": "#ffffff"
     }
   },
   {
@@ -1541,380 +1160,10 @@
     },
     "searchText": "darma-custom-758 micro bar 84 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-758\"></div>",
-    "previewCss": ".darma-loader-darma-custom-758 {\n  color: var(--loader-color, #22c55e);\nheight: 15px;\naspect-ratio: 5;\ndisplay: flex;\njustify-content: space-between;\n}\n.darma-loader-darma-custom-758:before,\n.darma-loader-darma-custom-758:after {\ncontent: \"\";\nwidth: calc(140%/3);\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: calc(300%/7) 100%;\ntransform-origin: calc(300%/14) 50%;\ntransform: translate(0) rotate(0);\nanimation: darma-loader-darma-custom-758-l33 1s infinite linear;\n}\n.darma-loader-darma-custom-758:after {\n--s:-1;\ntransform-origin: calc(100% - calc(300%/14)) 50%;\n}\n@keyframes darma-loader-darma-custom-758-l33 {\n100% {transform: translate(calc(var(--s,1)*(100% - calc(300%/7)))) rotate(calc(var(--s,1)_.5turn))}\n}",
+    "previewCss": ".darma-loader-darma-custom-758 {\n  color: var(--loader-color, #22c55e);\n  --loader-secondary-color: var(--loader-secondary-color, #86efac);\n  --loader-bg: var(--loader-bg, #ffffff);\nheight: 15px;\naspect-ratio: 5;\ndisplay: flex;\njustify-content: space-between;\n}\n.darma-loader-darma-custom-758:before,\n.darma-loader-darma-custom-758:after {\ncontent: \"\";\nwidth: calc(140%/3);\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: calc(300%/7) 100%;\ntransform-origin: calc(300%/14) 50%;\ntransform: translate(0) rotate(0);\nanimation: darma-loader-darma-custom-758-l33 1s infinite linear;\n}\n.darma-loader-darma-custom-758:after {\n--s:-1;\ntransform-origin: calc(100% - calc(300%/14)) 50%;\n}\n@keyframes darma-loader-darma-custom-758-l33 {\n100% {transform: translate(calc(var(--s,1)*(100% - calc(300%/7)))) rotate(calc(var(--s,1)_.5turn))}\n}",
     "defaults": {
       "color": "#22c55e",
       "secondaryColor": "#86efac",
-      "size": 56,
-      "speed": 1,
-      "background": "#ffffff"
-    }
-  },
-  {
-    "id": "darma-custom-759",
-    "name": "Micro Bar 85",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-759 micro bar 85 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-759\"></div>",
-    "previewCss": ".darma-loader-darma-custom-759 {\n  color: var(--loader-color, #8b5cf6);\nheight: 15px;\naspect-ratio: 4;\ndisplay: grid;\n}\n.darma-loader-darma-custom-759:before,\n.darma-loader-darma-custom-759:after {\ncontent: \"\";\ngrid-area: 1/1;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 25% 100%;\nanimation: darma-loader-darma-custom-759-l34 1s infinite;\ntransform: translate(var(--d,0)) rotate(0);\n}\n.darma-loader-darma-custom-759:after {\n--d: 37.5%;\nanimation-delay: .5s;\n}\n@keyframes darma-loader-darma-custom-759-l34 {\n50%,100% {transform: translate(var(--d,0)) rotate(.5turn)}\n}",
-    "defaults": {
-      "color": "#8b5cf6",
-      "secondaryColor": "#c4b5fd",
-      "size": 56,
-      "speed": 1,
-      "background": "#ffffff"
-    }
-  },
-  {
-    "id": "darma-custom-760",
-    "name": "Micro Bar 86",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-760 micro bar 86 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-760\"></div>",
-    "previewCss": ".darma-loader-darma-custom-760 {\n  color: var(--loader-color, #14b8a6);\nheight: 15px;\naspect-ratio: 5;\ndisplay: grid;\n}\n.darma-loader-darma-custom-760:before,\n.darma-loader-darma-custom-760:after {\ncontent: \"\";\ngrid-area: 1/1;\nheight: inherit;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 15px 100%;\nbackground-repeat: no-repeat;\nanimation: darma-loader-darma-custom-760-l35 1s infinite linear;\n}\n.darma-loader-darma-custom-760:after {\nmargin-left: auto;\n--s:-1;\n}\n@keyframes darma-loader-darma-custom-760-l35 {\n0% {transform:translateY(calc(var(--s,1)*0px));aspect-ratio: 2.3 }\n33% {transform:translateY(calc(var(--s,1)*8px));aspect-ratio: 2.3 }\n66% {transform:translateY(calc(var(--s,1)*8px));aspect-ratio: 3.7 }\n100% {transform:translateY(calc(var(--s,1)*0px));aspect-ratio: 3.7 }\n}",
-    "defaults": {
-      "color": "#14b8a6",
-      "secondaryColor": "#99f6e4",
-      "size": 56,
-      "speed": 1,
-      "background": "#ffffff"
-    }
-  },
-  {
-    "id": "darma-custom-761",
-    "name": "Micro Bar 87",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-761 micro bar 87 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-761\"></div>",
-    "previewCss": ".darma-loader-darma-custom-761 {\n  color: var(--loader-color, #f59e0b);\nheight: 15px;\naspect-ratio: 5;\ndisplay: grid;\nanimation: darma-loader-darma-custom-761-l36-0 2s infinite linear;\n}\n.darma-loader-darma-custom-761:before,\n.darma-loader-darma-custom-761:after {\ncontent: \"\";\ngrid-area: 1/1;\nheight: inherit;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 15px 100%;\nbackground-repeat: no-repeat;\nanimation: darma-loader-darma-custom-761-l36-1 1s infinite linear;\n}\n.darma-loader-darma-custom-761:after {\nmargin-left: auto;\n--s:-1;\n}\n@keyframes darma-loader-darma-custom-761-l36-0 {\n0%,49.99% {transform: scaleY( 1)}\n50%,100% {transform: scaleY(-1)}\n}\n@keyframes darma-loader-darma-custom-761-l36-1 {\n0% {transform:translate(0 ,calc(var(--s,1)*0px));aspect-ratio: 2.3}\n33% {transform:translate(0 ,calc(var(--s,1)*8px));aspect-ratio: 2.3}\n66% {transform:translate(calc(var(--s,1)*19px),calc(var(--s,1)*8px));aspect-ratio: 3.7}\n100% {transform:translate(calc(var(--s,1)*19px),calc(var(--s,1)*0px));aspect-ratio: 3.7}\n}",
-    "defaults": {
-      "color": "#f59e0b",
-      "secondaryColor": "#fde68a",
-      "size": 56,
-      "speed": 2,
-      "background": "#ffffff"
-    }
-  },
-  {
-    "id": "darma-custom-764",
-    "name": "Micro Bar 90",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-764 micro bar 90 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-764\"></div>",
-    "previewCss": ".darma-loader-darma-custom-764 {\n  color: var(--loader-color, #f97316);\nheight: 15px;\naspect-ratio: 5;\ndisplay: grid;\nanimation: darma-loader-darma-custom-764-l39-0 1s infinite linear;\n}\n.darma-loader-darma-custom-764:before,\n.darma-loader-darma-custom-764:after {\ncontent: \"\";\nwidth: calc(140%/3);\ngrid-area: 1/1;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: calc(300%/7) 100%;\nanimation: darma-loader-darma-custom-764-l39-1 1s infinite linear;\n}\n.darma-loader-darma-custom-764:after {\nmargin-left: auto;\n--s:-1;\n}\n@keyframes darma-loader-darma-custom-764-l39-0 {\n0%,30% {transform: rotate(0)}\n50%,100% {transform: rotate(.5turn)}\n}\n@keyframes darma-loader-darma-custom-764-l39-1 {\n30%,70% {transform:translate(calc(var(--s,1)*400%/14))}\n}",
-    "defaults": {
-      "color": "#f97316",
-      "secondaryColor": "#fdba74",
-      "size": 56,
-      "speed": 1,
-      "background": "#ffffff"
-    }
-  },
-  {
-    "id": "darma-custom-765",
-    "name": "Micro Bar 91",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-765 micro bar 91 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-765\"></div>",
-    "previewCss": ".darma-loader-darma-custom-765 {\n  color: var(--loader-color, #ec4899);\nheight: 15px;\naspect-ratio: 5;\n--_g:no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground: var(--_g),var(--_g),var(--_g),var(--_g);\nbackground-size: 20% 100%;\nanimation:\ndarma-loader-darma-custom-765-l40-1 .75s infinite alternate,\ndarma-loader-darma-custom-765-l40-2 1.5s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-765-l40-1 {\n0%,\n10% {background-position: 0 0,0 0,0 0,0 0}\n33% {background-position: 0 0,calc(100%/3) 0,calc(100%/3) 0,calc(100%/3) 0}\n66% {background-position: 0 0,calc(100%/3) 0,calc(2*100%/3) 0,calc(2*100%/3) 0}\n90%,\n100% {background-position: 0 0,calc(100%/3) 0,calc(2*100%/3) 0,100% 0}\n}\n@keyframes darma-loader-darma-custom-765-l40-2 {\n0%,49.99% {transform: scale( 1)}\n50%,100% {transform: scale(-1)}\n}",
-    "defaults": {
-      "color": "#ec4899",
-      "secondaryColor": "#f9a8d4",
-      "size": 56,
-      "speed": 1.5,
-      "background": "#ffffff"
-    }
-  },
-  {
-    "id": "darma-custom-766",
-    "name": "Micro Bar 92",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-766 micro bar 92 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-766\"></div>",
-    "previewCss": ".darma-loader-darma-custom-766 {\n  color: var(--loader-color, #22c55e);\nheight: 15px;\naspect-ratio: 5;\ndisplay: flex;\njustify-content: space-between;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 95%,#0000);\nbackground:\nvar(--_g) calc(1*100%/3) 0,\nvar(--_g) calc(2*100%/3) 0;\nbackground-size: 20% 100%;\n}\n.darma-loader-darma-custom-766:before,\n.darma-loader-darma-custom-766:after {\ncontent: \"\";\nheight: inherit;\naspect-ratio: 1;\nborder-radius: 50%;\nbackground: currentColor;\nanimation: darma-loader-darma-custom-766-l41 1s infinite;\n}\n.darma-loader-darma-custom-766:after {\n--s:-1,-1;\n}\n@keyframes darma-loader-darma-custom-766-l41 {\n0% {transform: scale(var(--s,1)) translate(0 ,0)}\n33% {transform: scale(var(--s,1)) translate(0 ,130%)}\n66% {transform: scale(var(--s,1)) translate(400%,130%)}\n100% {transform: scale(var(--s,1)) translate(400%,0)}\n}",
-    "defaults": {
-      "color": "#22c55e",
-      "secondaryColor": "#86efac",
-      "size": 56,
-      "speed": 1,
-      "background": "#ffffff"
-    }
-  },
-  {
-    "id": "darma-custom-767",
-    "name": "Micro Bar 93",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-767 micro bar 93 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-767\"></div>",
-    "previewCss": ".darma-loader-darma-custom-767 {\n  color: var(--loader-color, #8b5cf6);\nheight: 15px;\naspect-ratio: 5;\ndisplay: flex;\njustify-content: space-between;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 95%,#0000);\nbackground: var(--_g),var(--_g);\nbackground-size: 20% 100%;\nanimation: darma-loader-darma-custom-767-l42-0 1s infinite;\n}\n.darma-loader-darma-custom-767:before,\n.darma-loader-darma-custom-767:after {\ncontent: \"\";\nheight: inherit;\naspect-ratio: 1;\nborder-radius: 50%;\nbackground: currentColor;\nanimation: darma-loader-darma-custom-767-l42-1 1s infinite;\n}\n.darma-loader-darma-custom-767:after {\n--s:-1,-1;\n}\n@keyframes darma-loader-darma-custom-767-l42-0 {\n0%,\n60% {background-position: calc(1*100%/3) 0, calc(2*100%/3) 0}\n100% {background-position: calc(0*100%/3) 0, calc(3*100%/3) 0}\n}\n@keyframes darma-loader-darma-custom-767-l42-1 {\n0% {transform: scale(var(--s,1)) translate(0 ,0)}\n33% {transform: scale(var(--s,1)) translate(0 ,130%)}\n66% {transform: scale(var(--s,1)) translate(calc(400%/3),130%)}\n100% {transform: scale(var(--s,1)) translate(calc(400%/3),0)}\n}",
-    "defaults": {
-      "color": "#8b5cf6",
-      "secondaryColor": "#c4b5fd",
-      "size": 56,
-      "speed": 1,
-      "background": "#ffffff"
-    }
-  },
-  {
-    "id": "darma-custom-771",
-    "name": "Micro Bar 97",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-771 micro bar 97 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-771\"></div>",
-    "previewCss": ".darma-loader-darma-custom-771 {\n  color: var(--loader-color, #0ea5e9);\nheight: 15px;\naspect-ratio: 5;\nbackground: radial-gradient(closest-side at 37.5% 50%,currentColor 94%,#0000) 0/calc(80%/3) 100%;\nanimation: darma-loader-darma-custom-771-l47 .75s infinite;\n}\n@keyframes darma-loader-darma-custom-771-l47 {\n100% {background-position: 36.36%}\n}",
-    "defaults": {
-      "color": "#0ea5e9",
-      "secondaryColor": "#67e8f9",
-      "size": 56,
-      "speed": 0.75,
-      "background": "#ffffff"
-    }
-  },
-  {
-    "id": "darma-custom-772",
-    "name": "Micro Bar 98",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-772 micro bar 98 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-772\"></div>",
-    "previewCss": ".darma-loader-darma-custom-772 {\n  color: var(--loader-color, #f97316);\nheight: 15px;\naspect-ratio: 5;\n-webkit-mask: linear-gradient(90deg,#0000 ,currentColor 20% 80%,#0000);\nbackground: radial-gradient(closest-side at 37.5% 50%,currentColor 94%,#0000) 0/calc(80%/3) 100%;\nanimation: darma-loader-darma-custom-772-l48 .75s infinite linear;\n}\n@keyframes darma-loader-darma-custom-772-l48 {\n100% {background-position: 36.36%}\n}",
-    "defaults": {
-      "color": "#f97316",
-      "secondaryColor": "#fdba74",
-      "size": 56,
-      "speed": 0.75,
-      "background": "#ffffff"
-    }
-  },
-  {
-    "id": "darma-custom-773",
-    "name": "Micro Bar 99",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-773 micro bar 99 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-773\"></div>",
-    "previewCss": ".darma-loader-darma-custom-773 {\n  color: var(--loader-color, #ec4899);\nheight: 15px;\naspect-ratio: 4;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 90%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 25% 100%;\ndisplay: grid;\n}\n.darma-loader-darma-custom-773:before,\n.darma-loader-darma-custom-773:after {\ncontent: \"\";\nheight: inherit;\naspect-ratio: 1;\ngrid-area: 1/1;\nmargin: auto;\nborder-radius: 50%;\ntransform-origin: -100% 50%;\nbackground: currentColor;\nanimation: darma-loader-darma-custom-773-l49 1s infinite linear;\n}\n.darma-loader-darma-custom-773:after {\ntransform-origin: 200% 50%;\n--s:-1;\nanimation-delay: -.5s;\n}\n\n@keyframes darma-loader-darma-custom-773-l49 {\n58%,\n100% {transform: rotate(calc(var(--s,1)*1turn))}\n}",
-    "defaults": {
-      "color": "#ec4899",
-      "secondaryColor": "#f9a8d4",
       "size": 56,
       "speed": 1,
       "background": "#ffffff"
@@ -2213,7 +1462,7 @@
       "color": "#9333ea",
       "secondaryColor": "#d8b4fe",
       "size": 45,
-      "speed": 2,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -2363,7 +1612,7 @@
       "color": "#ca8a04",
       "secondaryColor": "#facc15",
       "size": 45,
-      "speed": 2,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -2475,7 +1724,7 @@
       "color": "#7c3aed",
       "secondaryColor": "#c084fc",
       "size": 49,
-      "speed": 2,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -2513,7 +1762,7 @@
       "color": "#0ea5e9",
       "secondaryColor": "#38bdf8",
       "size": 45,
-      "speed": 1.5,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -2686,7 +1935,7 @@
       "color": "#ef4444",
       "secondaryColor": "#fecaca",
       "size": 58,
-      "speed": 0.85,
+      "speed": 1.05,
       "background": "#ffffff"
     }
   },
@@ -2824,7 +2073,7 @@
       "color": "#0ea5e9",
       "secondaryColor": "#38bdf8",
       "size": 45,
-      "speed": 1.5,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -3045,12 +2294,12 @@
     },
     "searchText": "darma-custom-515 tile path 01 bars tile path 01 bars blocks minimal grid loader css-only single-element batch-07 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-515\"></div>",
-    "previewCss": ".darma-loader-darma-custom-515 {color: var(--loader-color, #7c3aed);\n   height: 40px;\n   aspect-ratio: 1.5;\n   --c:no-repeat linear-gradient(currentColor 0 0);\n   background:var(--c), var(--c);\n   background-size: 66% 50%;\n   animation: darma-loader-darma-custom-515-l1 1.5s infinite linear;\n}\n@keyframes darma-loader-darma-custom-515-l1  {\n  0% {background-position:0 0,0 100%}\n25% {background-position:100% 0,0 100%}\n47%, 53% {background-position:100% 0,100% 100%}\n75% {background-position:0 0,100% 100%}\n100%{background-position:0 0,0 100%}\n}\n",
+    "previewCss": ".darma-loader-darma-custom-515 {color: var(--loader-color, #7c3aed);\n  --loader-secondary-color: var(--loader-secondary-color, #c084fc);\n  --loader-bg: var(--loader-bg, #ffffff);\n   height: 40px;\n   aspect-ratio: 1.5;\n   --c:no-repeat linear-gradient(currentColor 0 0);\n   background:var(--c), var(--c);\n   background-size: 66% 50%;\n   animation: darma-loader-darma-custom-515-l1 1.5s infinite linear;\n}\n@keyframes darma-loader-darma-custom-515-l1  {\n  0% {background-position:0 0,0 100%}\n25% {background-position:100% 0,0 100%}\n47%, 53% {background-position:100% 0,100% 100%}\n75% {background-position:0 0,100% 100%}\n100%{background-position:0 0,0 100%}\n}\n",
     "defaults": {
       "color": "#7c3aed",
       "secondaryColor": "#c084fc",
       "size": 74,
-      "speed": 1.5,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -3085,12 +2334,12 @@
     },
     "searchText": "darma-custom-516 tile path 02 bars tile path 02 bars blocks minimal grid loader css-only single-element batch-07 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-516\"></div>",
-    "previewCss": ".darma-loader-darma-custom-516 {color: var(--loader-color, #f97316);\n   height: 60px;\n   aspect-ratio: 1;\n   --c:no-repeat linear-gradient(currentColor 0 0);\n   background: var(--c), var(--c), var(--c), var(--c);\n   background-size: 33.4% 33.4%;\n   animation: darma-loader-darma-custom-516-l2 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-516-l2  {\n  0% {background-position:0 0 ,50% 0 ,0 50% ,50% 50%}\n12.5% {background-position:50% 0 ,100% 0 ,0 50% ,50% 50%}\n25% {background-position:50% 0 ,100% 0 ,50% 50% ,100% 50%}\n37.5% {background-position:50% 0 ,100% 50%,50% 50% ,100% 100%}\n50% {background-position:50% 50%,100% 50%,50% 100%,100% 100%}\n62.5% {background-position:50% 50%,100% 50%,0 100%,50% 100%}\n75% {background-position:0 50%,50% 50%,0 100%,50% 100%}\n87.5% {background-position:0 0 ,50% 50%,0 50% ,50% 100%}\n100% {background-position:0 0 ,50% 0 ,0 50% ,50% 50%}\n}\n",
+    "previewCss": ".darma-loader-darma-custom-516 {color: var(--loader-color, #f97316);\n  --loader-secondary-color: var(--loader-secondary-color, #facc15);\n  --loader-bg: var(--loader-bg, #ffffff);\n   height: 60px;\n   aspect-ratio: 1;\n   --c:no-repeat linear-gradient(currentColor 0 0);\n   background: var(--c), var(--c), var(--c), var(--c);\n   background-size: 33.4% 33.4%;\n   animation: darma-loader-darma-custom-516-l2 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-516-l2  {\n  0% {background-position:0 0 ,50% 0 ,0 50% ,50% 50%}\n12.5% {background-position:50% 0 ,100% 0 ,0 50% ,50% 50%}\n25% {background-position:50% 0 ,100% 0 ,50% 50% ,100% 50%}\n37.5% {background-position:50% 0 ,100% 50%,50% 50% ,100% 100%}\n50% {background-position:50% 50%,100% 50%,50% 100%,100% 100%}\n62.5% {background-position:50% 50%,100% 50%,0 100%,50% 100%}\n75% {background-position:0 50%,50% 50%,0 100%,50% 100%}\n87.5% {background-position:0 0 ,50% 50%,0 50% ,50% 100%}\n100% {background-position:0 0 ,50% 0 ,0 50% ,50% 50%}\n}\n",
     "defaults": {
       "color": "#f97316",
       "secondaryColor": "#facc15",
       "size": 74,
-      "speed": 2,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -3125,12 +2374,12 @@
     },
     "searchText": "darma-custom-517 tile path 03 bars tile path 03 bars blocks minimal grid loader css-only single-element batch-07 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-517\"></div>",
-    "previewCss": ".darma-loader-darma-custom-517 {color: var(--loader-color, #0891b2);\n   height: 40px;\n   aspect-ratio: 1.5;\n   --c:no-repeat linear-gradient(currentColor 0 0);\n   background: var(--c), var(--c), var(--c), var(--c);\n   background-size: 33.4% 50%;\n   animation: darma-loader-darma-custom-517-l3 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-517-l3  {\n  0% {background-position:0 0,50% 0,0 100%,50% 100%}\n12.5% {background-position:0 0,100% 0,0 100%,50% 100%}\n25% {background-position:50% 0,100% 0,0 100%,50% 100%}\n37.5% {background-position:50% 0,100% 0,0 100%,100% 100%}\n50% {background-position:50% 0,100% 0,50% 100%,100% 100%}\n62.5% {background-position:0 0,100% 0,50% 100%,100% 100%}\n75% {background-position:0 0,50% 0,50% 100%,100% 100%}\n87.5% {background-position:0 0,50% 0,0 100%,100% 100%}\n100% {background-position:0 0,50% 0,0 100%,50% 100%}\n}\n",
+    "previewCss": ".darma-loader-darma-custom-517 {color: var(--loader-color, #0891b2);\n  --loader-secondary-color: var(--loader-secondary-color, #22d3ee);\n  --loader-bg: var(--loader-bg, #ffffff);\n   height: 40px;\n   aspect-ratio: 1.5;\n   --c:no-repeat linear-gradient(currentColor 0 0);\n   background: var(--c), var(--c), var(--c), var(--c);\n   background-size: 33.4% 50%;\n   animation: darma-loader-darma-custom-517-l3 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-517-l3  {\n  0% {background-position:0 0,50% 0,0 100%,50% 100%}\n12.5% {background-position:0 0,100% 0,0 100%,50% 100%}\n25% {background-position:50% 0,100% 0,0 100%,50% 100%}\n37.5% {background-position:50% 0,100% 0,0 100%,100% 100%}\n50% {background-position:50% 0,100% 0,50% 100%,100% 100%}\n62.5% {background-position:0 0,100% 0,50% 100%,100% 100%}\n75% {background-position:0 0,50% 0,50% 100%,100% 100%}\n87.5% {background-position:0 0,50% 0,0 100%,100% 100%}\n100% {background-position:0 0,50% 0,0 100%,50% 100%}\n}\n",
     "defaults": {
       "color": "#0891b2",
       "secondaryColor": "#22d3ee",
       "size": 74,
-      "speed": 2,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -3165,12 +2414,12 @@
     },
     "searchText": "darma-custom-518 tile path 04 bars tile path 04 bars blocks minimal grid loader css-only single-element batch-07 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-518\"></div>",
-    "previewCss": ".darma-loader-darma-custom-518 {color: var(--loader-color, #db2777);\n   height: 66px;\n   aspect-ratio: 1;\n   display: grid;\n}\n.darma-loader-darma-custom-518:before, .darma-loader-darma-custom-518:after  {\n  content: \"\";\n   --c:no-repeat linear-gradient(currentColor 0 0);\n   background: var(--c), var(--c);\n   background-size: 25% 50%;\n   animation: darma-loader-darma-custom-518-l4 1.5s infinite linear;\n}\n.darma-loader-darma-custom-518:after  {\n  transform: scale(-1);\n}\n@keyframes darma-loader-darma-custom-518-l4  {\n  0%, 10% {background-position:33.4% 100%,66.6% 100%}\n40% {background-position:33.4% 0,100% 100%}\n70% {background-position:0 100%,66.6% 0}\n100% {background-position:33.4% 100%,66.6% 100%}\n}\n",
+    "previewCss": ".darma-loader-darma-custom-518 {color: var(--loader-color, #db2777);\n  --loader-secondary-color: var(--loader-secondary-color, #f9a8d4);\n  --loader-bg: var(--loader-bg, #ffffff);\n   height: 66px;\n   aspect-ratio: 1;\n   display: grid;\n}\n.darma-loader-darma-custom-518:before, .darma-loader-darma-custom-518:after  {\n  content: \"\";\n   --c:no-repeat linear-gradient(currentColor 0 0);\n   background: var(--c), var(--c);\n   background-size: 25% 50%;\n   animation: darma-loader-darma-custom-518-l4 1.5s infinite linear;\n}\n.darma-loader-darma-custom-518:after  {\n  transform: scale(-1);\n}\n@keyframes darma-loader-darma-custom-518-l4  {\n  0%, 10% {background-position:33.4% 100%,66.6% 100%}\n40% {background-position:33.4% 0,100% 100%}\n70% {background-position:0 100%,66.6% 0}\n100% {background-position:33.4% 100%,66.6% 100%}\n}\n",
     "defaults": {
       "color": "#db2777",
       "secondaryColor": "#f9a8d4",
       "size": 74,
-      "speed": 1.5,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -3205,12 +2454,12 @@
     },
     "searchText": "darma-custom-519 tile path 05 bars tile path 05 bars blocks minimal grid loader css-only single-element batch-07 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-519\"></div>",
-    "previewCss": ".darma-loader-darma-custom-519 {color: var(--loader-color, #0f766e);\n   height: 66px;\n   aspect-ratio: 1;\n   display: grid;\n}\n.darma-loader-darma-custom-519:before, .darma-loader-darma-custom-519:after  {\n  content: \"\";\n   --c:no-repeat linear-gradient(currentColor 0 0);\n   background: var(--c), var(--c);\n   background-size: 25% 50%;\n   animation: darma-loader-darma-custom-519-l5 1.5s infinite linear;\n}\n.darma-loader-darma-custom-519:after  {\n  transform: scale(-1);\n}\n@keyframes darma-loader-darma-custom-519-l5  {\n  0%, 5% {background-position:33.4% 100%,66.6% 100%}\n25% {background-position:33.4% 100%,100% 0}\n50% {background-position:0 0,100% 0}\n75% {background-position:0 0,66.6% 100%}\n95%, 100% {background-position:33.4% 100%,66.6% 100%}\n}\n",
+    "previewCss": ".darma-loader-darma-custom-519 {color: var(--loader-color, #0f766e);\n  --loader-secondary-color: var(--loader-secondary-color, #5eead4);\n  --loader-bg: var(--loader-bg, #ffffff);\n   height: 66px;\n   aspect-ratio: 1;\n   display: grid;\n}\n.darma-loader-darma-custom-519:before, .darma-loader-darma-custom-519:after  {\n  content: \"\";\n   --c:no-repeat linear-gradient(currentColor 0 0);\n   background: var(--c), var(--c);\n   background-size: 25% 50%;\n   animation: darma-loader-darma-custom-519-l5 1.5s infinite linear;\n}\n.darma-loader-darma-custom-519:after  {\n  transform: scale(-1);\n}\n@keyframes darma-loader-darma-custom-519-l5  {\n  0%, 5% {background-position:33.4% 100%,66.6% 100%}\n25% {background-position:33.4% 100%,100% 0}\n50% {background-position:0 0,100% 0}\n75% {background-position:0 0,66.6% 100%}\n95%, 100% {background-position:33.4% 100%,66.6% 100%}\n}\n",
     "defaults": {
       "color": "#0f766e",
       "secondaryColor": "#5eead4",
       "size": 74,
-      "speed": 1.5,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -3245,12 +2494,12 @@
     },
     "searchText": "darma-custom-520 tile path 06 bars tile path 06 bars blocks minimal grid loader css-only single-element batch-07 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-520\"></div>",
-    "previewCss": ".darma-loader-darma-custom-520 {color: var(--loader-color, #4f46e5);\n   height: 40px;\n   aspect-ratio: 1.5;\n   --c:no-repeat linear-gradient(currentColor 0 0);\n   background: var(--c), var(--c), var(--c), var(--c);\n   background-size: 33.4% 50%;\n   animation: darma-loader-darma-custom-520-l6 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-520-l6  {\n  0% {background-position:0 0,50% 0,0 100%,50% 100%}\n12.5% {background-position:0 0,100% 0,0 100%,50% 100%}\n25% {background-position:0 0,100% 0,0 100%,50% 0}\n37.5% {background-position:0 0,100% 0,50% 100%,50% 0}\n50% {background-position:0 100%,100% 0,50% 100%,50% 0}\n62.5% {background-position:0 100%,100% 0,50% 100%,0 0}\n75% {background-position:0 100%,100% 100%,50% 100%,0 0}\n87.5% {background-position:0 100%,100% 100%,50% 0,0 0}\n100% {background-position:0 100%,50% 100%,50% 0,0 0}\n}\n",
+    "previewCss": ".darma-loader-darma-custom-520 {color: var(--loader-color, #4f46e5);\n  --loader-secondary-color: var(--loader-secondary-color, #a5b4fc);\n  --loader-bg: var(--loader-bg, #ffffff);\n   height: 40px;\n   aspect-ratio: 1.5;\n   --c:no-repeat linear-gradient(currentColor 0 0);\n   background: var(--c), var(--c), var(--c), var(--c);\n   background-size: 33.4% 50%;\n   animation: darma-loader-darma-custom-520-l6 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-520-l6  {\n  0% {background-position:0 0,50% 0,0 100%,50% 100%}\n12.5% {background-position:0 0,100% 0,0 100%,50% 100%}\n25% {background-position:0 0,100% 0,0 100%,50% 0}\n37.5% {background-position:0 0,100% 0,50% 100%,50% 0}\n50% {background-position:0 100%,100% 0,50% 100%,50% 0}\n62.5% {background-position:0 100%,100% 0,50% 100%,0 0}\n75% {background-position:0 100%,100% 100%,50% 100%,0 0}\n87.5% {background-position:0 100%,100% 100%,50% 0,0 0}\n100% {background-position:0 100%,50% 100%,50% 0,0 0}\n}\n",
     "defaults": {
       "color": "#4f46e5",
       "secondaryColor": "#a5b4fc",
       "size": 74,
-      "speed": 2,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -3285,12 +2534,12 @@
     },
     "searchText": "darma-custom-521 tile path 07 bars tile path 07 bars blocks minimal grid loader css-only single-element batch-07 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-521\"></div>",
-    "previewCss": ".darma-loader-darma-custom-521 {color: var(--loader-color, #ca8a04);\n   height: 60px;\n   aspect-ratio: 1;\n   --c:no-repeat linear-gradient(currentColor 0 0);\n   background: var(--c), var(--c), var(--c), var(--c);\n   background-size: 33.4% 33.4%;\n   animation: darma-loader-darma-custom-521-l7 1.5s infinite linear;\n}\n@keyframes darma-loader-darma-custom-521-l7  {\n  0%, 5% {background-position:0 0,50% 0,0 50%,50% 50%}\n25% {background-position:0 0,100% 0,0 100%,50% 50%}\n50% {background-position:50% 0,100% 0,0 100%,0 50%}\n75% {background-position:50% 0,100% 50%,0 100%,0 0}\n95%, 100% {background-position:50% 0,50% 50%,0 50%,0 0}\n}\n",
+    "previewCss": ".darma-loader-darma-custom-521 {color: var(--loader-color, #ca8a04);\n  --loader-secondary-color: var(--loader-secondary-color, #fde047);\n  --loader-bg: var(--loader-bg, #ffffff);\n   height: 60px;\n   aspect-ratio: 1;\n   --c:no-repeat linear-gradient(currentColor 0 0);\n   background: var(--c), var(--c), var(--c), var(--c);\n   background-size: 33.4% 33.4%;\n   animation: darma-loader-darma-custom-521-l7 1.5s infinite linear;\n}\n@keyframes darma-loader-darma-custom-521-l7  {\n  0%, 5% {background-position:0 0,50% 0,0 50%,50% 50%}\n25% {background-position:0 0,100% 0,0 100%,50% 50%}\n50% {background-position:50% 0,100% 0,0 100%,0 50%}\n75% {background-position:50% 0,100% 50%,0 100%,0 0}\n95%, 100% {background-position:50% 0,50% 50%,0 50%,0 0}\n}\n",
     "defaults": {
       "color": "#ca8a04",
       "secondaryColor": "#fde047",
       "size": 74,
-      "speed": 1.5,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -3325,12 +2574,12 @@
     },
     "searchText": "darma-custom-522 tile path 08 bars tile path 08 bars blocks minimal grid loader css-only single-element batch-07 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-522\"></div>",
-    "previewCss": ".darma-loader-darma-custom-522 {color: var(--loader-color, #9333ea);\n   height: 60px;\n   aspect-ratio: 2/3;\n   --c:no-repeat linear-gradient(currentColor 0 0);\n   background: var(--c), var(--c), var(--c), var(--c);\n   background-size: 50% 33.4%;\n   animation: darma-loader-darma-custom-522-l8 1.5s infinite linear;\n}\n@keyframes darma-loader-darma-custom-522-l8  {\n  0%, 5% {background-position:0 25%,100% 25%,0 75%,100% 75%}\n33% {background-position:0 50%,100% 0,0 100%,100% 50%}\n66% {background-position:0 50%,0 0,100% 100%,100% 50%}\n95%, 100% {background-position:0 75%,0 25%,100% 75%,100% 25%}\n}\n",
+    "previewCss": ".darma-loader-darma-custom-522 {color: var(--loader-color, #9333ea);\n  --loader-secondary-color: var(--loader-secondary-color, #f0abfc);\n  --loader-bg: var(--loader-bg, #ffffff);\n   height: 60px;\n   aspect-ratio: 2/3;\n   --c:no-repeat linear-gradient(currentColor 0 0);\n   background: var(--c), var(--c), var(--c), var(--c);\n   background-size: 50% 33.4%;\n   animation: darma-loader-darma-custom-522-l8 1.5s infinite linear;\n}\n@keyframes darma-loader-darma-custom-522-l8  {\n  0%, 5% {background-position:0 25%,100% 25%,0 75%,100% 75%}\n33% {background-position:0 50%,100% 0,0 100%,100% 50%}\n66% {background-position:0 50%,0 0,100% 100%,100% 50%}\n95%, 100% {background-position:0 75%,0 25%,100% 75%,100% 25%}\n}\n",
     "defaults": {
       "color": "#9333ea",
       "secondaryColor": "#f0abfc",
       "size": 74,
-      "speed": 1.5,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -3365,12 +2614,12 @@
     },
     "searchText": "darma-custom-523 tile path 09 bars tile path 09 bars blocks minimal grid loader css-only single-element batch-07 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-523\"></div>",
-    "previewCss": ".darma-loader-darma-custom-523 {color: var(--loader-color, #0284c7);\n   height: 40px;\n   aspect-ratio: 1.5;\n   --c: currentColor 96%,#0000;\n   background: radial-gradient(farthest-side at 100% 100%,var(--c)), radial-gradient(farthest-side at 0 100%,var(--c)), radial-gradient(farthest-side at 100% 0 ,var(--c)), radial-gradient(farthest-side at 0 0 ,var(--c));\n   background-size: 33.4% 50%;\n   background-repeat: no-repeat;\n   animation: darma-loader-darma-custom-523-l9 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-523-l9  {\n  0% {background-position:0 0,50% 0,0 100%,50% 100%}\n12.5% {background-position:0 0,100% 0,0 100%,50% 100%}\n25% {background-position:50% 0,100% 0,0 100%,50% 100%}\n37.5% {background-position:50% 0,100% 0,0 100%,100% 100%}\n50% {background-position:50% 0,100% 0,50% 100%,100% 100%}\n62.5% {background-position:0 0,100% 0,50% 100%,100% 100%}\n75% {background-position:0 0,50% 0,50% 100%,100% 100%}\n87.5% {background-position:0 0,50% 0,0 100%,100% 100%}\n100% {background-position:0 0,50% 0,0 100%,50% 100%}\n}\n",
+    "previewCss": ".darma-loader-darma-custom-523 {color: var(--loader-color, #0284c7);\n  --loader-secondary-color: var(--loader-secondary-color, #7dd3fc);\n  --loader-bg: var(--loader-bg, #ffffff);\n   height: 40px;\n   aspect-ratio: 1.5;\n   --c: currentColor 96%,#0000;\n   background: radial-gradient(farthest-side at 100% 100%,var(--c)), radial-gradient(farthest-side at 0 100%,var(--c)), radial-gradient(farthest-side at 100% 0 ,var(--c)), radial-gradient(farthest-side at 0 0 ,var(--c));\n   background-size: 33.4% 50%;\n   background-repeat: no-repeat;\n   animation: darma-loader-darma-custom-523-l9 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-523-l9  {\n  0% {background-position:0 0,50% 0,0 100%,50% 100%}\n12.5% {background-position:0 0,100% 0,0 100%,50% 100%}\n25% {background-position:50% 0,100% 0,0 100%,50% 100%}\n37.5% {background-position:50% 0,100% 0,0 100%,100% 100%}\n50% {background-position:50% 0,100% 0,50% 100%,100% 100%}\n62.5% {background-position:0 0,100% 0,50% 100%,100% 100%}\n75% {background-position:0 0,50% 0,50% 100%,100% 100%}\n87.5% {background-position:0 0,50% 0,0 100%,100% 100%}\n100% {background-position:0 0,50% 0,0 100%,50% 100%}\n}\n",
     "defaults": {
       "color": "#0284c7",
       "secondaryColor": "#7dd3fc",
       "size": 74,
-      "speed": 2,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -3405,7 +2654,7 @@
     },
     "searchText": "darma-custom-524 tile path 10 bars tile path 10 bars blocks minimal grid loader css-only single-element batch-07 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-524\"></div>",
-    "previewCss": ".darma-loader-darma-custom-524 {color: var(--loader-color, #dc2626);\n   height: 40px;\n   aspect-ratio: 1.5;\n   display: grid;\n}\n.darma-loader-darma-custom-524:before, .darma-loader-darma-custom-524:after  {\n  content: \"\";\n   background: currentColor;\n   border-radius: 80px 80px 0 0;\n   animation: darma-loader-darma-custom-524-l10 1s infinite alternate both;\n}\n.darma-loader-darma-custom-524:after  {\n  transform: scale(-1);\n   animation-delay: 0.2s;\n}\n@keyframes darma-loader-darma-custom-524-l10  {\n  0%, 10% {margin-inline:0 33%}\n50% {margin-inline:0 0}\n90%, 100%{margin-inline:33% 0}\n}\n",
+    "previewCss": ".darma-loader-darma-custom-524 {color: var(--loader-color, #dc2626);\n  --loader-secondary-color: var(--loader-secondary-color, #f97316);\n  --loader-bg: var(--loader-bg, #ffffff);\n   height: 40px;\n   aspect-ratio: 1.5;\n   display: grid;\n}\n.darma-loader-darma-custom-524:before, .darma-loader-darma-custom-524:after  {\n  content: \"\";\n   background: currentColor;\n   border-radius: 80px 80px 0 0;\n   animation: darma-loader-darma-custom-524-l10 1s infinite alternate both;\n}\n.darma-loader-darma-custom-524:after  {\n  transform: scale(-1);\n   animation-delay: 0.2s;\n}\n@keyframes darma-loader-darma-custom-524-l10  {\n  0%, 10% {margin-inline:0 33%}\n50% {margin-inline:0 0}\n90%, 100%{margin-inline:33% 0}\n}\n",
     "defaults": {
       "color": "#dc2626",
       "secondaryColor": "#f97316",
@@ -3524,7 +2773,7 @@
       "color": "#2563eb",
       "secondaryColor": "#60a5fa",
       "size": 45,
-      "speed": 4,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -3597,7 +2846,7 @@
       "color": "#0ea5e9",
       "secondaryColor": "#38bdf8",
       "size": 61,
-      "speed": 0.75,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -3664,7 +2913,7 @@
       "color": "#9333ea",
       "secondaryColor": "#d8b4fe",
       "size": 45,
-      "speed": 1.5,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -3702,7 +2951,7 @@
       "color": "#2563eb",
       "secondaryColor": "#60a5fa",
       "size": 49,
-      "speed": 0.75,
+      "speed": 1,
       "background": "#ffffff"
     }
   }

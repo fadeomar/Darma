@@ -27,12 +27,12 @@
     "color": "#f97316",
     "secondaryColor": "#fed7aa",
     "size": 50,
-    "speed": 0.9
+    "speed": 0.85
   },
   "code": {
     "html": "<span class=\"darma-loader-cssloaders-github-40\"></span>",
     "css": ".darma-loader-cssloaders-github-40 {\n  display: inline-block;\n  width: 80px;\n  height: 10px;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #f97316) 16%, transparent);\n  overflow: hidden;\n}\n.darma-loader-cssloaders-github-40::before {\n      content: \"\";\n      display: block;\n      width: 42%;\n      height: 100%;\n      border-radius: inherit;\n      background: linear-gradient(90deg, var(--loader-color, #f97316), var(--loader-secondary-color, #fed7aa));\n      animation: darma-loader-cssloaders-github-40-progressSlide 0.9s ease-in-out infinite;\n    }\n    @keyframes darma-loader-cssloaders-github-40-progressSlide { 0% { transform: translateX(-120%); } 100% { transform: translateX(260%); } }\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function CssloadersGithub40Loader() {\n  return (\n    <span className=\"darma-loader-cssloaders-github-40\"></span>\n  );\n}\n"
+    "react": "export default function CssloadersGithub40Loader() {\n  return (\n    <span className=\"darma-loader-cssloaders-github-40\"></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,

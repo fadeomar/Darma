@@ -25,12 +25,12 @@
   "defaults": {
     "color": "#6366f1",
     "size": 48,
-    "speed": 1.05
+    "speed": 1
   },
   "code": {
     "html": "<span class=\"darma-loader-heartbeat-pulse\"></span>",
     "css": ".darma-loader-heartbeat-pulse {\n  display: inline-block;\n  width: 50px;\n  height: 50px;\n  border-radius: 18px;\n  background: var(--loader-color, #6366f1);\n  transform: rotate(45deg);\n  animation: darma-loader-heartbeat-pulse-heartbeat 1.05s ease-in-out infinite;\n}\n@keyframes darma-loader-heartbeat-pulse-heartbeat {\n  0%, 100% { transform: rotate(45deg) scale(0.9); opacity: 0.7; }\n  30% { transform: rotate(45deg) scale(1.05); opacity: 1; }\n  45% { transform: rotate(45deg) scale(0.92); }\n  60% { transform: rotate(45deg) scale(1.08); }\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function HeartbeatPulseLoader() {\n  return (\n    <span className=\"darma-loader-heartbeat-pulse\"></span>\n  );\n}\n"
+    "react": "export default function HeartbeatPulseLoader() {\n  return (\n    <span className=\"darma-loader-heartbeat-pulse\"></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,

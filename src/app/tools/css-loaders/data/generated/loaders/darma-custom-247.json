@@ -33,13 +33,13 @@
     "color": "#f97316",
     "secondaryColor": "#facc15",
     "size": 84,
-    "speed": 0.8,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-247\"></div>",
     "css": ".darma-loader-darma-custom-247 {\n  color: var(--loader-color, #f97316);\n  display: inline-grid;\n}\n.darma-loader-darma-custom-247:before,\n.darma-loader-darma-custom-247:after {\n  content: \"\";\n  height: 27px;\n  aspect-ratio: 5;\n  --c: currentColor 90deg,#0000 0;\n  background:\n   conic-gradient(from 135deg at top   ,var(--c)),\n   conic-gradient(from -45deg at bottom,var(--c)) 12.5% 100%;\n  background-size: 20% 50%;\n  background-repeat: repeat-x;\n  -webkit-mask: repeating-linear-gradient(90deg,currentColor 0 15%,#0000 0 50%) 0 0/200%;\n  animation: darma-loader-darma-custom-247-l8 .8s infinite linear;\n}\n.darma-loader-darma-custom-247:after {\n  animation-delay: -.2s;\n  animation-direction: reverse;\n}\n@keyframes darma-loader-darma-custom-247-l8{\n  to {-webkit-mask-position:-100% 0}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom247Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-247\"></div>\n  );\n}\n"
+    "react": "export default function DarmaCustom247Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-247\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,

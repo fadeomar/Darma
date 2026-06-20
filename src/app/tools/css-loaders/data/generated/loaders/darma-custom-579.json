@@ -28,7 +28,7 @@
   },
   "searchText": "darma-custom-579 color geometry 06 creative color geometry 06 motion creative tiles loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-579\"></div>",
-  "previewCss": ".darma-loader-darma-custom-579 {color: var(--loader-color, #be123c);\n   width:30px;\n   aspect-ratio: 1;\n   background: var(--loader-color, #be123c);\n   display: grid;\n   transform-origin: top right;\n   animation: darma-loader-darma-custom-579-l6-0 1s infinite linear;\n}\n.darma-loader-darma-custom-579::before, .darma-loader-darma-custom-579::after  {\n  content: \"\";\n   grid-area: 1/1;\n   background: var(--loader-color, #be123c);\n   transform-origin: inherit;\n   animation: inherit;\n   animation-name: darma-loader-darma-custom-579-l6-1;\n}\n.darma-loader-darma-custom-579::after  {\n  background:var(--loader-color, #be123c);\n   --s:180deg;\n}\n@keyframes darma-loader-darma-custom-579-l6-0  {\n  70%, 100% {transform: rotate(360deg)}\n}\n@keyframes darma-loader-darma-custom-579-l6-1  {\n  30% {transform: rotate(var(--s,90deg))}\n70% {transform: rotate(0)}\n}\n",
+  "previewCss": ".darma-loader-darma-custom-579 {color: var(--loader-color, #be123c);\n  --loader-secondary-color: var(--loader-secondary-color, #fda4af);\n  --loader-bg: var(--loader-bg, #ffffff);\n   width:30px;\n   aspect-ratio: 1;\n   background: var(--loader-color, #be123c);\n   display: grid;\n   transform-origin: top right;\n   animation: darma-loader-darma-custom-579-l6-0 1s infinite linear;\n}\n.darma-loader-darma-custom-579::before, .darma-loader-darma-custom-579::after  {\n  content: \"\";\n   grid-area: 1/1;\n   background: var(--loader-color, #be123c);\n   transform-origin: inherit;\n   animation: inherit;\n   animation-name: darma-loader-darma-custom-579-l6-1;\n}\n.darma-loader-darma-custom-579::after  {\n  background:var(--loader-color, #be123c);\n   --s:180deg;\n}\n@keyframes darma-loader-darma-custom-579-l6-0  {\n  70%, 100% {transform: rotate(360deg)}\n}\n@keyframes darma-loader-darma-custom-579-l6-1  {\n  30% {transform: rotate(var(--s,90deg))}\n70% {transform: rotate(0)}\n}\n",
   "defaults": {
     "color": "#be123c",
     "secondaryColor": "#fda4af",
@@ -38,15 +38,15 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-579\"></div>",
-    "css": ".darma-loader-darma-custom-579 {color: var(--loader-color, #be123c);\n   width:30px;\n   aspect-ratio: 1;\n   background: var(--loader-color, #be123c);\n   display: grid;\n   transform-origin: top right;\n   animation: darma-loader-darma-custom-579-l6-0 1s infinite linear;\n}\n.darma-loader-darma-custom-579::before, .darma-loader-darma-custom-579::after  {\n  content: \"\";\n   grid-area: 1/1;\n   background: var(--loader-color, #be123c);\n   transform-origin: inherit;\n   animation: inherit;\n   animation-name: darma-loader-darma-custom-579-l6-1;\n}\n.darma-loader-darma-custom-579::after  {\n  background:var(--loader-color, #be123c);\n   --s:180deg;\n}\n@keyframes darma-loader-darma-custom-579-l6-0  {\n  70%, 100% {transform: rotate(360deg)}\n}\n@keyframes darma-loader-darma-custom-579-l6-1  {\n  30% {transform: rotate(var(--s,90deg))}\n70% {transform: rotate(0)}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom579Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-579\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-579 {color: var(--loader-color, #be123c);\n  --loader-secondary-color: var(--loader-secondary-color, #fda4af);\n  --loader-bg: var(--loader-bg, #ffffff);\n   width:30px;\n   aspect-ratio: 1;\n   background: var(--loader-color, #be123c);\n   display: grid;\n   transform-origin: top right;\n   animation: darma-loader-darma-custom-579-l6-0 1s infinite linear;\n}\n.darma-loader-darma-custom-579::before, .darma-loader-darma-custom-579::after  {\n  content: \"\";\n   grid-area: 1/1;\n   background: var(--loader-color, #be123c);\n   transform-origin: inherit;\n   animation: inherit;\n   animation-name: darma-loader-darma-custom-579-l6-1;\n}\n.darma-loader-darma-custom-579::after  {\n  background:var(--loader-color, #be123c);\n   --s:180deg;\n}\n@keyframes darma-loader-darma-custom-579-l6-0  {\n  70%, 100% {transform: rotate(360deg)}\n}\n@keyframes darma-loader-darma-custom-579-l6-1  {\n  30% {transform: rotate(var(--s,90deg))}\n70% {transform: rotate(0)}\n}\n",
+    "react": "export default function DarmaCustom579Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-579\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
-    "secondaryColor": false
+    "background": true,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

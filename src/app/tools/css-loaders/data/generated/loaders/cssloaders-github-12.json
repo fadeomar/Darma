@@ -33,7 +33,7 @@
   "code": {
     "html": "<span class=\"darma-loader-cssloaders-github-12\"></span>",
     "css": ".darma-loader-cssloaders-github-12 {\n  display: inline-block;\n  width: 46px;\n  height: 46px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color, #ec4899), var(--loader-secondary-color, #fbcfe8));\n  animation: darma-loader-cssloaders-github-12-squareFlip 0.85s cubic-bezier(.55,.08,.38,.97) infinite;\n}\n@keyframes darma-loader-cssloaders-github-12-squareFlip { 0% { transform: perspective(120px) rotateX(0) rotateY(0); } 50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); } 100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); } }\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function CssloadersGithub12Loader() {\n  return (\n    <span className=\"darma-loader-cssloaders-github-12\"></span>\n  );\n}\n"
+    "react": "export default function CssloadersGithub12Loader() {\n  return (\n    <span className=\"darma-loader-cssloaders-github-12\"></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,

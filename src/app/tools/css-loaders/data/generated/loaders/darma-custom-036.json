@@ -35,7 +35,7 @@
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-036\"></div>",
     "css": ".darma-loader-darma-custom-036 {\n  height: 60px;\n  aspect-ratio: 1;\n  position: relative;\n}\n.darma-loader-darma-custom-036::before,\n.darma-loader-darma-custom-036::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  border-radius: 50%;\n  transform-origin: bottom;\n}\n.darma-loader-darma-custom-036::after {\n  background:\n    radial-gradient(at 75% 15%, #fffb, #0000 35%),\n    radial-gradient(at 80% 40%, #0000, #0008),\n    radial-gradient(circle 5px, #fff 94%, #0000),\n    radial-gradient(circle 10px, #000 94%, #0000),\n    linear-gradient(var(--loader-color, #F93318) 0 0) top/100% calc(50% - 5px),\n    linear-gradient(#fff 0 0) bottom/100% calc(50% - 5px)\n    #000;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-036-l20 1s infinite cubic-bezier(0.5, 120, 0.5, -120);\n}\n.darma-loader-darma-custom-036::before {\n  background: #ddd;\n  filter: blur(8px);\n  transform: scaleY(0.4) translate(-13px, 0px);\n}\n@keyframes darma-loader-darma-custom-036-l20 {\n  30%, 70% { transform: rotate(0deg); }\n  49.99% { transform: rotate(0.2deg); }\n  50% { transform: rotate(-0.2deg); }\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom036Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-036\"></div>\n  );\n}\n"
+    "react": "export default function DarmaCustom036Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-036\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,

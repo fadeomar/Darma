@@ -30,7 +30,7 @@
   },
   "searchText": "darma-custom-441 dot orbit 02 spinners dot orbit 02 dots ring spinner outline spinners loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-441\"></div>",
-  "previewCss": ".darma-loader-darma-custom-441 {color: var(--loader-color, #2563eb);\n   width: 100px;\n   display: grid;\n   background: radial-gradient(farthest-side, currentColor 98%, #0000) center/30px 100% no-repeat;\n   --mask: radial-gradient(12px at left 15px top 50%, #0000 95%, currentColor), radial-gradient(12px at center, #0000 95%, currentColor), radial-gradient(12px at right 15px top 50%, #0000 95%, currentColor);\n   -webkit-mask: var(--mask);\n   mask: var(--mask);\n   -webkit-mask-composite: source-in;\n   mask-composite: intersect;\n   animation: darma-loader-darma-custom-441-l2 1s infinite alternate;\n}\n.darma-loader-darma-custom-441:before, .darma-loader-darma-custom-441:after  {\n  content: \"\";\n   grid-area: 1/1;\n   height: 30px;\n   aspect-ratio: 1;\n   background: currentColor;\n   border-radius: 50%;\n}\n.darma-loader-darma-custom-441:after  {\n  margin-left: auto;\n}\n@keyframes darma-loader-darma-custom-441-l2  {\n  to  {\n  width: 50px;\n}\n}\n",
+  "previewCss": ".darma-loader-darma-custom-441 {color: var(--loader-color, #2563eb);\n  --loader-secondary-color: var(--loader-secondary-color, #38bdf8);\n  --loader-bg: var(--loader-bg, #ffffff);\n   width: 100px;\n   display: grid;\n   background: radial-gradient(farthest-side, currentColor 98%, #0000) center/30px 100% no-repeat;\n   --mask: radial-gradient(12px at left 15px top 50%, #0000 95%, currentColor), radial-gradient(12px at center, #0000 95%, currentColor), radial-gradient(12px at right 15px top 50%, #0000 95%, currentColor);\n   -webkit-mask: var(--mask);\n   mask: var(--mask);\n   -webkit-mask-composite: source-in;\n   mask-composite: intersect;\n   animation: darma-loader-darma-custom-441-l2 1s infinite alternate;\n}\n.darma-loader-darma-custom-441:before, .darma-loader-darma-custom-441:after  {\n  content: \"\";\n   grid-area: 1/1;\n   height: 30px;\n   aspect-ratio: 1;\n   background: currentColor;\n   border-radius: 50%;\n}\n.darma-loader-darma-custom-441:after  {\n  margin-left: auto;\n}\n@keyframes darma-loader-darma-custom-441-l2  {\n  to  {\n  width: 50px;\n}\n}\n",
   "defaults": {
     "color": "#2563eb",
     "secondaryColor": "#38bdf8",
@@ -40,15 +40,15 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-441\"></div>",
-    "css": ".darma-loader-darma-custom-441 {color: var(--loader-color, #2563eb);\n   width: 100px;\n   display: grid;\n   background: radial-gradient(farthest-side, currentColor 98%, #0000) center/30px 100% no-repeat;\n   --mask: radial-gradient(12px at left 15px top 50%, #0000 95%, currentColor), radial-gradient(12px at center, #0000 95%, currentColor), radial-gradient(12px at right 15px top 50%, #0000 95%, currentColor);\n   -webkit-mask: var(--mask);\n   mask: var(--mask);\n   -webkit-mask-composite: source-in;\n   mask-composite: intersect;\n   animation: darma-loader-darma-custom-441-l2 1s infinite alternate;\n}\n.darma-loader-darma-custom-441:before, .darma-loader-darma-custom-441:after  {\n  content: \"\";\n   grid-area: 1/1;\n   height: 30px;\n   aspect-ratio: 1;\n   background: currentColor;\n   border-radius: 50%;\n}\n.darma-loader-darma-custom-441:after  {\n  margin-left: auto;\n}\n@keyframes darma-loader-darma-custom-441-l2  {\n  to  {\n  width: 50px;\n}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom441Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-441\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-441 {color: var(--loader-color, #2563eb);\n  --loader-secondary-color: var(--loader-secondary-color, #38bdf8);\n  --loader-bg: var(--loader-bg, #ffffff);\n   width: 100px;\n   display: grid;\n   background: radial-gradient(farthest-side, currentColor 98%, #0000) center/30px 100% no-repeat;\n   --mask: radial-gradient(12px at left 15px top 50%, #0000 95%, currentColor), radial-gradient(12px at center, #0000 95%, currentColor), radial-gradient(12px at right 15px top 50%, #0000 95%, currentColor);\n   -webkit-mask: var(--mask);\n   mask: var(--mask);\n   -webkit-mask-composite: source-in;\n   mask-composite: intersect;\n   animation: darma-loader-darma-custom-441-l2 1s infinite alternate;\n}\n.darma-loader-darma-custom-441:before, .darma-loader-darma-custom-441:after  {\n  content: \"\";\n   grid-area: 1/1;\n   height: 30px;\n   aspect-ratio: 1;\n   background: currentColor;\n   border-radius: 50%;\n}\n.darma-loader-darma-custom-441:after  {\n  margin-left: auto;\n}\n@keyframes darma-loader-darma-custom-441-l2  {\n  to  {\n  width: 50px;\n}\n}\n",
+    "react": "export default function DarmaCustom441Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-441\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
-    "secondaryColor": false
+    "background": true,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

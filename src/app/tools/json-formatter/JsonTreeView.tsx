@@ -3,6 +3,7 @@ import type { JsonValue } from "./utils";
 
 type JsonTreeViewProps = {
   value?: JsonValue;
+  expansion?: "auto" | "expanded" | "collapsed";
 };
 
 function valueType(value: JsonValue): string {
@@ -27,7 +28,17 @@ function PreviewValue({ value }: { value: JsonValue }) {
   return null;
 }
 
-function JsonNode({ label, value, depth = 0 }: { label?: string; value: JsonValue; depth?: number }) {
+function JsonNode({
+  label,
+  value,
+  depth = 0,
+  expansion = "auto",
+}: {
+  label?: string;
+  value: JsonValue;
+  depth?: number;
+  expansion?: "auto" | "expanded" | "collapsed";
+}) {
   const type = valueType(value);
   const isObjectLike = value !== null && typeof value === "object";
   const entries = Array.isArray(value)
@@ -50,8 +61,10 @@ function JsonNode({ label, value, depth = 0 }: { label?: string; value: JsonValu
     );
   }
 
+  const isOpen = expansion === "expanded" || (expansion === "auto" && depth < 2);
+
   return (
-    <details className="group" open={depth < 2}>
+    <details className="group" open={isOpen}>
       <summary
         className="flex cursor-pointer select-none items-center gap-2 rounded-[var(--radius-sm)] py-1 font-mono text-xs leading-5 text-slate-100 hover:bg-white/[0.06]"
         style={{ paddingLeft: depth * 14 }}
@@ -63,14 +76,14 @@ function JsonNode({ label, value, depth = 0 }: { label?: string; value: JsonValu
       </summary>
       <div className="pb-1">
         {entries.map(([key, child]) => (
-          <JsonNode key={`${depth}-${key}`} label={key} value={child} depth={depth + 1} />
+          <JsonNode key={`${depth}-${key}`} label={key} value={child} depth={depth + 1} expansion={expansion} />
         ))}
       </div>
     </details>
   );
 }
 
-export default function JsonTreeView({ value }: JsonTreeViewProps) {
+export default function JsonTreeView({ value, expansion = "auto" }: JsonTreeViewProps) {
   if (value === undefined) {
     return (
       <div className="flex min-h-[420px] items-center justify-center rounded-[calc(var(--radius-lg)-6px)] border border-dashed border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] p-6 text-center text-sm text-[var(--color-text-tertiary)]">
@@ -81,7 +94,7 @@ export default function JsonTreeView({ value }: JsonTreeViewProps) {
 
   return (
     <div className="max-h-[520px] overflow-auto rounded-[calc(var(--radius-lg)-6px)] border border-slate-700 bg-slate-950 p-3 shadow-inner">
-      <JsonNode value={value} />
+      <JsonNode value={value} expansion={expansion} />
     </div>
   );
 }

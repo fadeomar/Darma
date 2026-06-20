@@ -28,7 +28,7 @@
   },
   "searchText": "darma-custom-384 shimmer bar 01 progress shimmer bar 01 progress track linear loader css-only single-element batch-06 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-384\"></div>",
-  "previewCss": ".darma-loader-darma-custom-384 {color: var(--loader-color, #f97316);\n  width: 120px;\n  height: 20px;\n  transform: skewX(-45deg);\n  background:linear-gradient(var(--loader-color, #f97316) 0 0) left -30px top 0/30px 20px no-repeat var(--loader-secondary-color, #facc15);\n  animation: darma-loader-darma-custom-384-l3 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-384-l3 {100% {background-position: right -30px top 0}}\n",
+  "previewCss": ".darma-loader-darma-custom-384 {color: var(--loader-color, #f97316);\n  --loader-secondary-color: var(--loader-secondary-color, #facc15);\n  --loader-bg: var(--loader-bg, #ffffff);\n  width: 120px;\n  height: 20px;\n  transform: skewX(-45deg);\n  background:linear-gradient(var(--loader-color, #f97316) 0 0) left -30px top 0/30px 20px no-repeat var(--loader-secondary-color, #facc15);\n  animation: darma-loader-darma-custom-384-l3 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-384-l3 {100% {background-position: right -30px top 0}}\n",
   "defaults": {
     "color": "#f97316",
     "secondaryColor": "#facc15",
@@ -38,14 +38,14 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-384\"></div>",
-    "css": ".darma-loader-darma-custom-384 {color: var(--loader-color, #f97316);\n  width: 120px;\n  height: 20px;\n  transform: skewX(-45deg);\n  background:linear-gradient(var(--loader-color, #f97316) 0 0) left -30px top 0/30px 20px no-repeat var(--loader-secondary-color, #facc15);\n  animation: darma-loader-darma-custom-384-l3 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-384-l3 {100% {background-position: right -30px top 0}}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom384Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-384\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-384 {color: var(--loader-color, #f97316);\n  --loader-secondary-color: var(--loader-secondary-color, #facc15);\n  --loader-bg: var(--loader-bg, #ffffff);\n  width: 120px;\n  height: 20px;\n  transform: skewX(-45deg);\n  background:linear-gradient(var(--loader-color, #f97316) 0 0) left -30px top 0/30px 20px no-repeat var(--loader-secondary-color, #facc15);\n  animation: darma-loader-darma-custom-384-l3 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-384-l3 {100% {background-position: right -30px top 0}}\n",
+    "react": "export default function DarmaCustom384Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-384\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
+    "background": true,
     "secondaryColor": true
   },
   "source": {

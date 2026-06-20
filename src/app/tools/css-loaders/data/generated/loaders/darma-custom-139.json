@@ -37,7 +37,7 @@
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-139\"></div>",
     "css": ".darma-loader-darma-custom-139 {\n  color: var(--loader-color, #4f46e5);\nwidth: 49px;\naspect-ratio: 1;\n--c: conic-gradient(from -90deg,currentColor 90deg,#0000 0);\nbackground: var(--c), var(--c);\nbackground-size: 40% 40%;\nanimation: darma-loader-darma-custom-139-l19 1s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-139-l19 {\n0%,\n10% {background-position: 0 0,0 calc(100%/3)}\n50% {background-position: 0 0,calc(100%/3) calc(100%/3)}\n90%,\n100% {background-position: 0 0,calc(100%/3) 0}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom139Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-139\"></div>\n  );\n}\n"
+    "react": "export default function DarmaCustom139Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-139\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,

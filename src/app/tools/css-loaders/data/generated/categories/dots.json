@@ -29,106 +29,7 @@
       "color": "#f59e0b",
       "secondaryColor": "#fde68a",
       "size": 64,
-      "speed": 0.89
-    }
-  },
-  {
-    "id": "loaders-css-13",
-    "name": "Ball Beat 13",
-    "category": "dots",
-    "tags": [
-      "loaders-css",
-      "beat",
-      "ball",
-      "dots",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-13 ball beat 13 dots loaders-css beat ball dots loader html css react cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-loaders-css-13\"><i></i><i></i><i></i></span>",
-    "previewCss": ".darma-loader-loaders-css-13 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 7px;\n      min-width: 57px;\n      min-height: 24px;\n    }\n    .darma-loader-loaders-css-13 i {\n      display: block;\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: var(--loader-color, #f59e0b);\n      animation: darma-loader-loaders-css-13-dotPulse 0.73s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-13 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-13 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loaders-css-13 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loaders-css-13-dotPulse { 0%, 80%, 100% { opacity: .25; transform: scale(.7); } 40% { opacity: 1; transform: scale(1); } }\n",
-    "defaults": {
-      "color": "#f59e0b",
-      "secondaryColor": "#fde68a",
-      "size": 64,
-      "speed": 0.73
-    }
-  },
-  {
-    "id": "loaders-css-23",
-    "name": "Ball Beat 23",
-    "category": "dots",
-    "tags": [
-      "loaders-css",
-      "beat",
-      "ball",
-      "dots",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-23 ball beat 23 dots loaders-css beat ball dots loader html css react cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-loaders-css-23\"><i></i><i></i><i></i></span>",
-    "previewCss": ".darma-loader-loaders-css-23 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 7px;\n      min-width: 57px;\n      min-height: 24px;\n    }\n    .darma-loader-loaders-css-23 i {\n      display: block;\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: var(--loader-color, #f59e0b);\n      animation: darma-loader-loaders-css-23-dotPulse 0.89s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-23 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-23 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loaders-css-23 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loaders-css-23-dotPulse { 0%, 80%, 100% { opacity: .25; transform: scale(.7); } 40% { opacity: 1; transform: scale(1); } }\n",
-    "defaults": {
-      "color": "#f59e0b",
-      "secondaryColor": "#fde68a",
-      "size": 64,
-      "speed": 0.89
-    }
-  },
-  {
-    "id": "loaders-css-33",
-    "name": "Ball Beat 33",
-    "category": "dots",
-    "tags": [
-      "loaders-css",
-      "beat",
-      "ball",
-      "dots",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-33 ball beat 33 dots loaders-css beat ball dots loader html css react cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-loaders-css-33\"><i></i><i></i><i></i></span>",
-    "previewCss": ".darma-loader-loaders-css-33 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 7px;\n      min-width: 57px;\n      min-height: 24px;\n    }\n    .darma-loader-loaders-css-33 i {\n      display: block;\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: var(--loader-color, #f59e0b);\n      animation: darma-loader-loaders-css-33-dotPulse 0.73s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-33 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-33 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loaders-css-33 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loaders-css-33-dotPulse { 0%, 80%, 100% { opacity: .25; transform: scale(.7); } 40% { opacity: 1; transform: scale(1); } }\n",
-    "defaults": {
-      "color": "#f59e0b",
-      "secondaryColor": "#fde68a",
-      "size": 64,
-      "speed": 0.73
+      "speed": 0.99
     }
   },
   {
@@ -161,106 +62,7 @@
       "color": "#8b5cf6",
       "secondaryColor": "#ddd6fe",
       "size": 56,
-      "speed": 0.78
-    }
-  },
-  {
-    "id": "loaders-css-11",
-    "name": "Ball Grid Pulse 11",
-    "category": "dots",
-    "tags": [
-      "loaders-css",
-      "ball",
-      "pulse",
-      "dots",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-11 ball grid pulse 11 dots loaders-css ball pulse dots loader html css react cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-loaders-css-11\"><i></i><i></i><i></i><i></i><i></i></span>",
-    "previewCss": ".darma-loader-loaders-css-11 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      min-width: 95px;\n      min-height: 26px;\n    }\n    .darma-loader-loaders-css-11 i {\n      display: block;\n      width: 13px;\n      height: 13px;\n      border-radius: 50%;\n      background: var(--loader-color, #8b5cf6);\n      animation: darma-loader-loaders-css-11-dotPulse 0.7799999999999999s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-11 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-11 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loaders-css-11 i:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-loaders-css-11 i:nth-child(4) { animation-delay: 0.36s; }\n.darma-loader-loaders-css-11 i:nth-child(5) { animation-delay: 0.48s; }\n    @keyframes darma-loader-loaders-css-11-dotPulse { 0%, 80%, 100% { opacity: .25; transform: scale(.7); } 40% { opacity: 1; transform: scale(1); } }\n",
-    "defaults": {
-      "color": "#8b5cf6",
-      "secondaryColor": "#ddd6fe",
-      "size": 56,
-      "speed": 0.78
-    }
-  },
-  {
-    "id": "loaders-css-21",
-    "name": "Ball Grid Pulse 21",
-    "category": "dots",
-    "tags": [
-      "loaders-css",
-      "ball",
-      "pulse",
-      "dots",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-21 ball grid pulse 21 dots loaders-css ball pulse dots loader html css react cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-loaders-css-21\"><i></i><i></i><i></i></span>",
-    "previewCss": ".darma-loader-loaders-css-21 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      min-width: 51px;\n      min-height: 22px;\n    }\n    .darma-loader-loaders-css-21 i {\n      display: block;\n      width: 11px;\n      height: 11px;\n      border-radius: 50%;\n      background: var(--loader-color, #8b5cf6);\n      animation: darma-loader-loaders-css-21-dotPulse 0.7799999999999999s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-21 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-21 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loaders-css-21 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loaders-css-21-dotPulse { 0%, 80%, 100% { opacity: .25; transform: scale(.7); } 40% { opacity: 1; transform: scale(1); } }\n",
-    "defaults": {
-      "color": "#8b5cf6",
-      "secondaryColor": "#ddd6fe",
-      "size": 56,
-      "speed": 0.78
-    }
-  },
-  {
-    "id": "loaders-css-31",
-    "name": "Ball Grid Pulse 31",
-    "category": "dots",
-    "tags": [
-      "loaders-css",
-      "ball",
-      "pulse",
-      "dots",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-31 ball grid pulse 31 dots loaders-css ball pulse dots loader html css react cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-loaders-css-31\"><i></i><i></i><i></i><i></i></span>",
-    "previewCss": ".darma-loader-loaders-css-31 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      min-width: 76px;\n      min-height: 26px;\n    }\n    .darma-loader-loaders-css-31 i {\n      display: block;\n      width: 13px;\n      height: 13px;\n      border-radius: 50%;\n      background: var(--loader-color, #8b5cf6);\n      animation: darma-loader-loaders-css-31-dotPulse 0.7799999999999999s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-31 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-31 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loaders-css-31 i:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-loaders-css-31 i:nth-child(4) { animation-delay: 0.36s; }\n    @keyframes darma-loader-loaders-css-31-dotPulse { 0%, 80%, 100% { opacity: .25; transform: scale(.7); } 40% { opacity: 1; transform: scale(1); } }\n",
-    "defaults": {
-      "color": "#8b5cf6",
-      "secondaryColor": "#ddd6fe",
-      "size": 56,
-      "speed": 0.78
+      "speed": 0.83
     }
   },
   {
@@ -293,73 +95,7 @@
       "color": "#ec4899",
       "secondaryColor": "#fbcfe8",
       "size": 52,
-      "speed": 0.7
-    }
-  },
-  {
-    "id": "loaders-css-20",
-    "name": "Ball Pulse 20",
-    "category": "dots",
-    "tags": [
-      "loaders-css",
-      "ball",
-      "pulse",
-      "dots",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-20 ball pulse 20 dots loaders-css ball pulse dots loader html css react cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-loaders-css-20\"><i></i><i></i><i></i><i></i><i></i></span>",
-    "previewCss": ".darma-loader-loaders-css-20 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      min-width: 80px;\n      min-height: 20px;\n    }\n    .darma-loader-loaders-css-20 i {\n      display: block;\n      width: 10px;\n      height: 10px;\n      border-radius: 50%;\n      background: var(--loader-color, #ec4899);\n      animation: darma-loader-loaders-css-20-dotPulse 0.7s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-20 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-20 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loaders-css-20 i:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-loaders-css-20 i:nth-child(4) { animation-delay: 0.36s; }\n.darma-loader-loaders-css-20 i:nth-child(5) { animation-delay: 0.48s; }\n    @keyframes darma-loader-loaders-css-20-dotPulse { 0%, 80%, 100% { transform: translateY(0) scale(.75); opacity: .45; } 40% { transform: translateY(-8px) scale(1); opacity: 1; } }\n",
-    "defaults": {
-      "color": "#ec4899",
-      "secondaryColor": "#fbcfe8",
-      "size": 52,
-      "speed": 0.7
-    }
-  },
-  {
-    "id": "loaders-css-30",
-    "name": "Ball Pulse 30",
-    "category": "dots",
-    "tags": [
-      "loaders-css",
-      "ball",
-      "pulse",
-      "dots",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-30 ball pulse 30 dots loaders-css ball pulse dots loader html css react cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-loaders-css-30\"><i></i><i></i><i></i></span>",
-    "previewCss": ".darma-loader-loaders-css-30 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      min-width: 54px;\n      min-height: 24px;\n    }\n    .darma-loader-loaders-css-30 i {\n      display: block;\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: var(--loader-color, #ec4899);\n      animation: darma-loader-loaders-css-30-dotPulse 0.7s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-30 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-30 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loaders-css-30 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loaders-css-30-dotPulse { 0%, 80%, 100% { transform: translateY(0) scale(.75); opacity: .45; } 40% { transform: translateY(-8px) scale(1); opacity: 1; } }\n",
-    "defaults": {
-      "color": "#ec4899",
-      "secondaryColor": "#fbcfe8",
-      "size": 52,
-      "speed": 0.7
+      "speed": 0.75
     }
   },
   {
@@ -426,7 +162,7 @@
     "defaults": {
       "color": "#6366f1",
       "size": 48,
-      "speed": 0.75
+      "speed": 1
     }
   },
   {
@@ -731,7 +467,7 @@
       "color": "#2563eb",
       "secondaryColor": "#60a5fa",
       "size": 75,
-      "speed": 0.75,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -768,7 +504,7 @@
       "color": "#0ea5e9",
       "secondaryColor": "#38bdf8",
       "size": 75,
-      "speed": 0.75,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -910,12 +646,12 @@
     },
     "searchText": "darma-custom-708 dot pulse 34 dots css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-708\"></div>",
-    "previewCss": ".darma-loader-darma-custom-708 {\n  color: var(--loader-color, #f97316);\nwidth: 40px;\nheight: 26px;\n--c:no-repeat linear-gradient(currentColor 0 0);\nbackground:\nvar(--c) 0 100%,\nvar(--c) 50% 100%,\nvar(--c) 100% 100%;\nbackground-size:8px calc(100% - 4px);\nposition: relative;\n}\n.darma-loader-darma-custom-708:before {\ncontent: \"\";\nposition: absolute;\nwidth: 8px;\nheight: 8px;\nborder-radius: 50%;\nbackground: currentColor;\nleft: 0;\ntop: 0;\nanimation:\ndarma-loader-darma-custom-708-l3-1 1.5s linear infinite alternate,\ndarma-loader-darma-custom-708-l3-2 0.75s cubic-bezier(.45, 0, .55, 1) infinite;\n}\n@keyframes darma-loader-darma-custom-708-l3-1 {\n100% {left:calc(100% - 8px)}\n}\n@keyframes darma-loader-darma-custom-708-l3-2 {\n100% {top:-0.1px}\n}",
+    "previewCss": ".darma-loader-darma-custom-708 {\n  color: var(--loader-color, #f97316);\n  --loader-secondary-color: var(--loader-secondary-color, #fdba74);\n  --loader-bg: var(--loader-bg, #ffffff);\nwidth: 40px;\nheight: 26px;\n--c:no-repeat linear-gradient(currentColor 0 0);\nbackground:\nvar(--c) 0 100%,\nvar(--c) 50% 100%,\nvar(--c) 100% 100%;\nbackground-size:8px calc(100% - 4px);\nposition: relative;\n}\n.darma-loader-darma-custom-708:before {\ncontent: \"\";\nposition: absolute;\nwidth: 8px;\nheight: 8px;\nborder-radius: 50%;\nbackground: currentColor;\nleft: 0;\ntop: 0;\nanimation:\ndarma-loader-darma-custom-708-l3-1 1.5s linear infinite alternate,\ndarma-loader-darma-custom-708-l3-2 0.75s cubic-bezier(.45, 0, .55, 1) infinite;\n}\n@keyframes darma-loader-darma-custom-708-l3-1 {\n100% {left:calc(100% - 8px)}\n}\n@keyframes darma-loader-darma-custom-708-l3-2 {\n100% {top:-0.1px}\n}",
     "defaults": {
       "color": "#f97316",
       "secondaryColor": "#fdba74",
       "size": 40,
-      "speed": 1.5,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -947,12 +683,12 @@
     },
     "searchText": "darma-custom-710 dot pulse 36 dots css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-710\"></div>",
-    "previewCss": ".darma-loader-darma-custom-710 {\n  color: var(--loader-color, #22c55e);\nwidth: 40px;\nheight: 30px;\n--c:no-repeat linear-gradient(currentColor 0 0);\nbackground:\nvar(--c) 0 100%/8px 30px,\nvar(--c) 50% 100%/8px 20px,\nvar(--c) 100% 100%/8px 10px;\nposition: relative;\nclip-path: inset(-100% 0);\n}\n.darma-loader-darma-custom-710:before{\ncontent: \"\";\nposition: absolute;\nwidth: 8px;\nheight: 8px;\nborder-radius: 50%;\nbackground: currentColor;\nleft: -16px;\ntop: 0;\nanimation:\ndarma-loader-darma-custom-710-l5-1 2s linear infinite,\ndarma-loader-darma-custom-710-l5-2 0.5s cubic-bezier(.45, 0, .55, 1) infinite;\n}\n@keyframes darma-loader-darma-custom-710-l5-1 {\n0% {left:-16px;transform:translateY(-8px)}\n100% {left:calc(100% + 8px);transform:translateY(22px)}\n}\n@keyframes darma-loader-darma-custom-710-l5-2 {\n100% {top:-0.1px}\n}",
+    "previewCss": ".darma-loader-darma-custom-710 {\n  color: var(--loader-color, #22c55e);\n  --loader-secondary-color: var(--loader-secondary-color, #86efac);\n  --loader-bg: var(--loader-bg, #ffffff);\nwidth: 40px;\nheight: 30px;\n--c:no-repeat linear-gradient(currentColor 0 0);\nbackground:\nvar(--c) 0 100%/8px 30px,\nvar(--c) 50% 100%/8px 20px,\nvar(--c) 100% 100%/8px 10px;\nposition: relative;\nclip-path: inset(-100% 0);\n}\n.darma-loader-darma-custom-710:before{\ncontent: \"\";\nposition: absolute;\nwidth: 8px;\nheight: 8px;\nborder-radius: 50%;\nbackground: currentColor;\nleft: -16px;\ntop: 0;\nanimation:\ndarma-loader-darma-custom-710-l5-1 2s linear infinite,\ndarma-loader-darma-custom-710-l5-2 0.5s cubic-bezier(.45, 0, .55, 1) infinite;\n}\n@keyframes darma-loader-darma-custom-710-l5-1 {\n0% {left:-16px;transform:translateY(-8px)}\n100% {left:calc(100% + 8px);transform:translateY(22px)}\n}\n@keyframes darma-loader-darma-custom-710-l5-2 {\n100% {top:-0.1px}\n}",
     "defaults": {
       "color": "#22c55e",
       "secondaryColor": "#86efac",
       "size": 40,
-      "speed": 2,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -984,12 +720,12 @@
     },
     "searchText": "darma-custom-711 dot pulse 37 dots css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-711\"></div>",
-    "previewCss": ".darma-loader-darma-custom-711 {\n  color: var(--loader-color, #8b5cf6);\nwidth: 40px;\nheight: 20px;\n--c:no-repeat radial-gradient(farthest-side,currentColor 93%,#0000);\nbackground:\nvar(--c) 0 0,\nvar(--c) 50% 0;\nbackground-size: 8px 8px;\nposition: relative;\nclip-path: inset(-200% -100% 0 0);\nanimation: darma-loader-darma-custom-711-l6-0 1.5s linear infinite;\n}\n.darma-loader-darma-custom-711:before {\ncontent: \"\";\nposition: absolute;\nwidth: 8px;\nheight: 12px;\nbackground: currentColor;\nleft: -16px;\ntop: 0;\nanimation:\ndarma-loader-darma-custom-711-l6-1 1.5s linear infinite,\ndarma-loader-darma-custom-711-l6-2 0.5s cubic-bezier(.45, 0, .55, 1) infinite;\n}\n.darma-loader-darma-custom-711:after {\ncontent: \"\";\nposition: absolute;\ninset: 0 0 auto auto;\nwidth: 8px;\nheight: 8px;\nborder-radius: 50%;\nbackground: currentColor;\nanimation: darma-loader-darma-custom-711-l6-3 1.5s linear infinite;\n}\n@keyframes darma-loader-darma-custom-711-l6-0 {\n0%,30% {background-position: 0 0 ,50% 0 }\n33% {background-position: 0 100%,50% 0 }\n41%,63% {background-position: 0 0 ,50% 0 }\n66% {background-position: 0 0 ,50% 100%}\n74%,100%{background-position: 0 0 ,50% 0 }\n}\n@keyframes darma-loader-darma-custom-711-l6-1 {\n90% {transform:translateY(0)}\n95% {transform:translateY(15px)}\n100% {transform:translateY(15px);left:calc(100% - 8px)}\n}\n@keyframes darma-loader-darma-custom-711-l6-2 {\n100% {top:-0.1px}\n}\n@keyframes darma-loader-darma-custom-711-l6-3 {\n0%,80%,100% {transform:translate(0)}\n90% {transform:translate(26px)}\n}",
+    "previewCss": ".darma-loader-darma-custom-711 {\n  color: var(--loader-color, #8b5cf6);\n  --loader-secondary-color: var(--loader-secondary-color, #c4b5fd);\n  --loader-bg: var(--loader-bg, #ffffff);\nwidth: 40px;\nheight: 20px;\n--c:no-repeat radial-gradient(farthest-side,currentColor 93%,#0000);\nbackground:\nvar(--c) 0 0,\nvar(--c) 50% 0;\nbackground-size: 8px 8px;\nposition: relative;\nclip-path: inset(-200% -100% 0 0);\nanimation: darma-loader-darma-custom-711-l6-0 1.5s linear infinite;\n}\n.darma-loader-darma-custom-711:before {\ncontent: \"\";\nposition: absolute;\nwidth: 8px;\nheight: 12px;\nbackground: currentColor;\nleft: -16px;\ntop: 0;\nanimation:\ndarma-loader-darma-custom-711-l6-1 1.5s linear infinite,\ndarma-loader-darma-custom-711-l6-2 0.5s cubic-bezier(.45, 0, .55, 1) infinite;\n}\n.darma-loader-darma-custom-711:after {\ncontent: \"\";\nposition: absolute;\ninset: 0 0 auto auto;\nwidth: 8px;\nheight: 8px;\nborder-radius: 50%;\nbackground: currentColor;\nanimation: darma-loader-darma-custom-711-l6-3 1.5s linear infinite;\n}\n@keyframes darma-loader-darma-custom-711-l6-0 {\n0%,30% {background-position: 0 0 ,50% 0 }\n33% {background-position: 0 100%,50% 0 }\n41%,63% {background-position: 0 0 ,50% 0 }\n66% {background-position: 0 0 ,50% 100%}\n74%,100%{background-position: 0 0 ,50% 0 }\n}\n@keyframes darma-loader-darma-custom-711-l6-1 {\n90% {transform:translateY(0)}\n95% {transform:translateY(15px)}\n100% {transform:translateY(15px);left:calc(100% - 8px)}\n}\n@keyframes darma-loader-darma-custom-711-l6-2 {\n100% {top:-0.1px}\n}\n@keyframes darma-loader-darma-custom-711-l6-3 {\n0%,80%,100% {transform:translate(0)}\n90% {transform:translate(26px)}\n}",
     "defaults": {
       "color": "#8b5cf6",
       "secondaryColor": "#c4b5fd",
       "size": 48,
-      "speed": 1.5,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -1021,7 +757,7 @@
     },
     "searchText": "darma-custom-712 dot pulse 38 dots css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-712\"></div>",
-    "previewCss": ".darma-loader-darma-custom-712 {\n  color: var(--loader-color, #14b8a6);\nwidth: 40px;\naspect-ratio: 1;\n--c:no-repeat linear-gradient(currentColor 0 0);\nbackground:\nvar(--c) 0 0,\nvar(--c) 0 100%,\nvar(--c) 50% 0,  \n var(--c) 50% 100%,\nvar(--c) 100% 0,\nvar(--c) 100% 100%;\nbackground-size: 8px 50%;\nanimation: darma-loader-darma-custom-712-l7-0 1s infinite;\nposition: relative;\noverflow: hidden;\n}\n.darma-loader-darma-custom-712:before {\ncontent: \"\";\nposition: absolute;\nwidth: 8px;\nheight: 8px;\nborder-radius: 50%;\nbackground: currentColor;\ntop: calc(50% - 4px);\nleft: -8px;\nanimation: inherit;\nanimation-name: darma-loader-darma-custom-712-l7-1;\n}\n\n@keyframes darma-loader-darma-custom-712-l7-0 {\n16.67% {background-size:8px 30%, 8px 30%, 8px 50%, 8px 50%, 8px 50%, 8px 50%}\n33.33% {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n50% {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 30%}\n66.67% {background-size:8px 50%, 8px 50%, 8px 30%, 8px 30%, 8px 30%, 8px 30%}\n83.33% {background-size:8px 50%, 8px 50%, 8px 50%, 8px 50%, 8px 30%, 8px 30%}\n}\n\n@keyframes darma-loader-darma-custom-712-l7-1 {\n20% {left:0px}\n40% {left:calc(50% - 4px)}\n60% {left:calc(100% - 8px)}\n80%,\n100% {left:100%}\n}",
+    "previewCss": ".darma-loader-darma-custom-712 {\n  color: var(--loader-color, #14b8a6);\n  --loader-secondary-color: var(--loader-secondary-color, #99f6e4);\n  --loader-bg: var(--loader-bg, #ffffff);\nwidth: 40px;\naspect-ratio: 1;\n--c:no-repeat linear-gradient(currentColor 0 0);\nbackground:\nvar(--c) 0 0,\nvar(--c) 0 100%,\nvar(--c) 50% 0,  \n var(--c) 50% 100%,\nvar(--c) 100% 0,\nvar(--c) 100% 100%;\nbackground-size: 8px 50%;\nanimation: darma-loader-darma-custom-712-l7-0 1s infinite;\nposition: relative;\noverflow: hidden;\n}\n.darma-loader-darma-custom-712:before {\ncontent: \"\";\nposition: absolute;\nwidth: 8px;\nheight: 8px;\nborder-radius: 50%;\nbackground: currentColor;\ntop: calc(50% - 4px);\nleft: -8px;\nanimation: inherit;\nanimation-name: darma-loader-darma-custom-712-l7-1;\n}\n\n@keyframes darma-loader-darma-custom-712-l7-0 {\n16.67% {background-size:8px 30%, 8px 30%, 8px 50%, 8px 50%, 8px 50%, 8px 50%}\n33.33% {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n50% {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 30%}\n66.67% {background-size:8px 50%, 8px 50%, 8px 30%, 8px 30%, 8px 30%, 8px 30%}\n83.33% {background-size:8px 50%, 8px 50%, 8px 50%, 8px 50%, 8px 30%, 8px 30%}\n}\n\n@keyframes darma-loader-darma-custom-712-l7-1 {\n20% {left:0px}\n40% {left:calc(50% - 4px)}\n60% {left:calc(100% - 8px)}\n80%,\n100% {left:100%}\n}",
     "defaults": {
       "color": "#14b8a6",
       "secondaryColor": "#99f6e4",
@@ -1058,12 +794,12 @@
     },
     "searchText": "darma-custom-713 dot pulse 39 dots css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-713\"></div>",
-    "previewCss": ".darma-loader-darma-custom-713 {\n  color: var(--loader-color, #f59e0b);\nwidth: 40px;\naspect-ratio: 1;\n--c:no-repeat linear-gradient(currentColor 0 0);\nbackground:\nvar(--c) 0 0,\nvar(--c) 0 100%,\nvar(--c) 50% 0,  \n var(--c) 50% 100%,\nvar(--c) 100% 0,\nvar(--c) 100% 100%;\nbackground-size: 8px 50%;\nanimation: darma-loader-darma-custom-713-l8-0 2s infinite;\nposition: relative;\noverflow: hidden;\n}\n.darma-loader-darma-custom-713:before {\ncontent: \"\";\nposition: absolute;\nwidth: 8px;\nheight: 8px;\nborder-radius: 50%;\nbackground: currentColor;\ntop: calc(50% - 4px);\nleft: -8px;\nanimation: inherit;\nanimation-name: darma-loader-darma-custom-713-l8-1;\n}\n@keyframes darma-loader-darma-custom-713-l8-0 {\n16.67% {background-size:8px 30%, 8px 30%, 8px 50%, 8px 50%, 8px 50%, 8px 50%}\n33.33% {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n50% {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n66.67% {background-size:8px 50%, 8px 50%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n83.33% {background-size:8px 50%, 8px 50%, 8px 50%, 8px 50%, 8px 50%, 8px 50%}\n}\n@keyframes darma-loader-darma-custom-713-l8-1 {\n20% {left:0px}\n40%,100% {left:calc(50% - 4px)}\n}",
+    "previewCss": ".darma-loader-darma-custom-713 {\n  color: var(--loader-color, #f59e0b);\n  --loader-secondary-color: var(--loader-secondary-color, #fde68a);\n  --loader-bg: var(--loader-bg, #ffffff);\nwidth: 40px;\naspect-ratio: 1;\n--c:no-repeat linear-gradient(currentColor 0 0);\nbackground:\nvar(--c) 0 0,\nvar(--c) 0 100%,\nvar(--c) 50% 0,  \n var(--c) 50% 100%,\nvar(--c) 100% 0,\nvar(--c) 100% 100%;\nbackground-size: 8px 50%;\nanimation: darma-loader-darma-custom-713-l8-0 2s infinite;\nposition: relative;\noverflow: hidden;\n}\n.darma-loader-darma-custom-713:before {\ncontent: \"\";\nposition: absolute;\nwidth: 8px;\nheight: 8px;\nborder-radius: 50%;\nbackground: currentColor;\ntop: calc(50% - 4px);\nleft: -8px;\nanimation: inherit;\nanimation-name: darma-loader-darma-custom-713-l8-1;\n}\n@keyframes darma-loader-darma-custom-713-l8-0 {\n16.67% {background-size:8px 30%, 8px 30%, 8px 50%, 8px 50%, 8px 50%, 8px 50%}\n33.33% {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n50% {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n66.67% {background-size:8px 50%, 8px 50%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n83.33% {background-size:8px 50%, 8px 50%, 8px 50%, 8px 50%, 8px 50%, 8px 50%}\n}\n@keyframes darma-loader-darma-custom-713-l8-1 {\n20% {left:0px}\n40%,100% {left:calc(50% - 4px)}\n}",
     "defaults": {
       "color": "#f59e0b",
       "secondaryColor": "#fde68a",
       "size": 48,
-      "speed": 2,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -1095,12 +831,12 @@
     },
     "searchText": "darma-custom-714 dot pulse 40 dots css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-714\"></div>",
-    "previewCss": ".darma-loader-darma-custom-714 {\n  color: var(--loader-color, #6366f1);\nwidth: 40px;\nheight: 40px;\n--c:no-repeat linear-gradient(currentColor 0 0);\nbackground:\nvar(--c) 0 0,\nvar(--c) 0 100%,\nvar(--c) 50% 0,  \n var(--c) 50% 100%,\nvar(--c) 100% 0,\nvar(--c) 100% 100%;\nbackground-size: 8px 50%;\nanimation: darma-loader-darma-custom-714-l9-0 2s infinite;\nposition: relative;\noverflow: hidden;\n}\n.darma-loader-darma-custom-714:before {\ncontent: \"\";\nposition: absolute;\nwidth: 8px;\nheight: 8px;\nborder-radius: 50%;\nbackground: currentColor;\ntop: calc(50% - 4px);\nleft: -8px;\nanimation: inherit;\nanimation-name: darma-loader-darma-custom-714-l9-1;\n}\n@keyframes darma-loader-darma-custom-714-l9-0 {\n16.67% {background-size:8px 30%, 8px 30%, 8px 50%, 8px 50%, 8px 50%, 8px 50%}\n33.33% {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n50% {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n66.67% {background-size:8px 50%, 8px 50%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n83.33% {background-size:8px 50%, 8px 50%, 8px 50%, 8px 50%, 8px 50%, 8px 50%}\n}\n@keyframes darma-loader-darma-custom-714-l9-1 {\n20% {left:0px}\n40%,70% {left:calc(50% - 4px)}\n80%,85% {left:8px;top:calc(50% - 4px)}\n100% {left:8px;top:-8px}\n}",
+    "previewCss": ".darma-loader-darma-custom-714 {\n  color: var(--loader-color, #6366f1);\n  --loader-secondary-color: var(--loader-secondary-color, #a5b4fc);\n  --loader-bg: var(--loader-bg, #ffffff);\nwidth: 40px;\nheight: 40px;\n--c:no-repeat linear-gradient(currentColor 0 0);\nbackground:\nvar(--c) 0 0,\nvar(--c) 0 100%,\nvar(--c) 50% 0,  \n var(--c) 50% 100%,\nvar(--c) 100% 0,\nvar(--c) 100% 100%;\nbackground-size: 8px 50%;\nanimation: darma-loader-darma-custom-714-l9-0 2s infinite;\nposition: relative;\noverflow: hidden;\n}\n.darma-loader-darma-custom-714:before {\ncontent: \"\";\nposition: absolute;\nwidth: 8px;\nheight: 8px;\nborder-radius: 50%;\nbackground: currentColor;\ntop: calc(50% - 4px);\nleft: -8px;\nanimation: inherit;\nanimation-name: darma-loader-darma-custom-714-l9-1;\n}\n@keyframes darma-loader-darma-custom-714-l9-0 {\n16.67% {background-size:8px 30%, 8px 30%, 8px 50%, 8px 50%, 8px 50%, 8px 50%}\n33.33% {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n50% {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n66.67% {background-size:8px 50%, 8px 50%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n83.33% {background-size:8px 50%, 8px 50%, 8px 50%, 8px 50%, 8px 50%, 8px 50%}\n}\n@keyframes darma-loader-darma-custom-714-l9-1 {\n20% {left:0px}\n40%,70% {left:calc(50% - 4px)}\n80%,85% {left:8px;top:calc(50% - 4px)}\n100% {left:8px;top:-8px}\n}",
     "defaults": {
       "color": "#6366f1",
       "secondaryColor": "#a5b4fc",
       "size": 40,
-      "speed": 2,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -1132,12 +868,12 @@
     },
     "searchText": "darma-custom-748 dot pulse 74 dots css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-748\"></div>",
-    "previewCss": ".darma-loader-darma-custom-748 {\n  color: var(--loader-color, #f97316);\nwidth: 50px;\nheight: 28px;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) 50% 0,\nvar(--_g) 100% 0;\nbackground-size: 12px 12px;\nposition: relative;\nanimation: darma-loader-darma-custom-748-l23-0 1.5s linear infinite;\n}\n.darma-loader-darma-custom-748:before {\ncontent: \"\";\nposition: absolute;\nheight: 12px;\naspect-ratio: 1;\nborder-radius: 50%;\nbackground: currentColor;\nleft:0;\ntop:0;\nanimation:\ndarma-loader-darma-custom-748-l23-1 1.5s linear infinite,\ndarma-loader-darma-custom-748-l23-2 0.5s cubic-bezier(.45, 0, .55, 1) infinite;\n}\n@keyframes darma-loader-darma-custom-748-l23-0 {\n0%,31% {background-position: 50% 0 ,100% 0}\n33% {background-position: 50% 100%,100% 0}\n43%,64% {background-position: 50% 0 ,100% 0}\n66% {background-position: 50% 0 ,100% 100%}\n79% {background-position: 50% 0 ,100% 0}\n100% {transform:translateX(calc(-100%/3))}\n}\n@keyframes darma-loader-darma-custom-748-l23-1 {\n100% {left:calc(100% + 7px)}\n}\n@keyframes darma-loader-darma-custom-748-l23-2 {\n100% {top:-0.1px}\n}",
+    "previewCss": ".darma-loader-darma-custom-748 {\n  color: var(--loader-color, #f97316);\n  --loader-secondary-color: var(--loader-secondary-color, #fdba74);\n  --loader-bg: var(--loader-bg, #ffffff);\nwidth: 50px;\nheight: 28px;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) 50% 0,\nvar(--_g) 100% 0;\nbackground-size: 12px 12px;\nposition: relative;\nanimation: darma-loader-darma-custom-748-l23-0 1.5s linear infinite;\n}\n.darma-loader-darma-custom-748:before {\ncontent: \"\";\nposition: absolute;\nheight: 12px;\naspect-ratio: 1;\nborder-radius: 50%;\nbackground: currentColor;\nleft:0;\ntop:0;\nanimation:\ndarma-loader-darma-custom-748-l23-1 1.5s linear infinite,\ndarma-loader-darma-custom-748-l23-2 0.5s cubic-bezier(.45, 0, .55, 1) infinite;\n}\n@keyframes darma-loader-darma-custom-748-l23-0 {\n0%,31% {background-position: 50% 0 ,100% 0}\n33% {background-position: 50% 100%,100% 0}\n43%,64% {background-position: 50% 0 ,100% 0}\n66% {background-position: 50% 0 ,100% 100%}\n79% {background-position: 50% 0 ,100% 0}\n100% {transform:translateX(calc(-100%/3))}\n}\n@keyframes darma-loader-darma-custom-748-l23-1 {\n100% {left:calc(100% + 7px)}\n}\n@keyframes darma-loader-darma-custom-748-l23-2 {\n100% {top:-0.1px}\n}",
     "defaults": {
       "color": "#f97316",
       "secondaryColor": "#fdba74",
       "size": 50,
-      "speed": 1.5,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -1169,7 +905,7 @@
     },
     "searchText": "darma-custom-749 dot pulse 75 dots css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-749\"></div>",
-    "previewCss": ".darma-loader-darma-custom-749 {\n  color: var(--loader-color, #ec4899);\nwidth: 88px;\nheight: 12px;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) 25% 0,\nvar(--_g) 75% 0;\nbackground-size: 12px 12px;\nposition: relative;\nanimation: darma-loader-darma-custom-749-l24-0 1s linear infinite;\n}\n.darma-loader-darma-custom-749:before {\ncontent: \"\";\nposition: absolute;\nheight: 12px;\naspect-ratio: 1;\nborder-radius: 50%;\nbackground: currentColor;\ninset: 0;\nmargin: auto;\nanimation: darma-loader-darma-custom-749-l24-1 1s cubic-bezier(.45, 0, .55, 1) infinite;\n}\n@keyframes darma-loader-darma-custom-749-l24-0 {\n0%,24% {background-position: 25% 0,75% 0}\n40% {background-position: 25% 0,85% 0}\n50%,72% {background-position: 25% 0,75% 0}\n90% {background-position: 15% 0,75% 0}\n100% {background-position: 25% 0,75% 0}\n}\n@keyframes darma-loader-darma-custom-749-l24-1 {\n100% {transform:translate(0.1px)}\n}",
+    "previewCss": ".darma-loader-darma-custom-749 {\n  color: var(--loader-color, #ec4899);\n  --loader-secondary-color: var(--loader-secondary-color, #f9a8d4);\n  --loader-bg: var(--loader-bg, #ffffff);\nwidth: 88px;\nheight: 12px;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) 25% 0,\nvar(--_g) 75% 0;\nbackground-size: 12px 12px;\nposition: relative;\nanimation: darma-loader-darma-custom-749-l24-0 1s linear infinite;\n}\n.darma-loader-darma-custom-749:before {\ncontent: \"\";\nposition: absolute;\nheight: 12px;\naspect-ratio: 1;\nborder-radius: 50%;\nbackground: currentColor;\ninset: 0;\nmargin: auto;\nanimation: darma-loader-darma-custom-749-l24-1 1s cubic-bezier(.45, 0, .55, 1) infinite;\n}\n@keyframes darma-loader-darma-custom-749-l24-0 {\n0%,24% {background-position: 25% 0,75% 0}\n40% {background-position: 25% 0,85% 0}\n50%,72% {background-position: 25% 0,75% 0}\n90% {background-position: 15% 0,75% 0}\n100% {background-position: 25% 0,75% 0}\n}\n@keyframes darma-loader-darma-custom-749-l24-1 {\n100% {transform:translate(0.1px)}\n}",
     "defaults": {
       "color": "#ec4899",
       "secondaryColor": "#f9a8d4",
@@ -1206,7 +942,7 @@
     },
     "searchText": "darma-custom-750 dot pulse 76 dots css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-750\"></div>",
-    "previewCss": ".darma-loader-darma-custom-750 {\n  color: var(--loader-color, #22c55e);\nwidth: 50px;\nheight: 12px;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 12px 12px;\nposition: relative;\n}\n.darma-loader-darma-custom-750:before {\ncontent: \"\";\nposition: absolute;\nheight: 12px;\naspect-ratio: 1;\nborder-radius: 50%;\nbackground: currentColor;\ninset: 0;\nmargin: auto;\nanimation: darma-loader-darma-custom-750-l25-1 1s, darma-loader-darma-custom-750-l25-2 0.5s;\nanimation-timing-function: cubic-bezier(.45, 0, .55, 1);\nanimation-iteration-count: infinite;\n}\n@keyframes darma-loader-darma-custom-750-l25-1 {\n100% {transform:translate(0.12px)}\n}\n@keyframes darma-loader-darma-custom-750-l25-2 {\n100% {inset:-0.15px 0 0;}\n}",
+    "previewCss": ".darma-loader-darma-custom-750 {\n  color: var(--loader-color, #22c55e);\n  --loader-secondary-color: var(--loader-secondary-color, #86efac);\n  --loader-bg: var(--loader-bg, #ffffff);\nwidth: 50px;\nheight: 12px;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 12px 12px;\nposition: relative;\n}\n.darma-loader-darma-custom-750:before {\ncontent: \"\";\nposition: absolute;\nheight: 12px;\naspect-ratio: 1;\nborder-radius: 50%;\nbackground: currentColor;\ninset: 0;\nmargin: auto;\nanimation: darma-loader-darma-custom-750-l25-1 1s, darma-loader-darma-custom-750-l25-2 0.5s;\nanimation-timing-function: cubic-bezier(.45, 0, .55, 1);\nanimation-iteration-count: infinite;\n}\n@keyframes darma-loader-darma-custom-750-l25-1 {\n100% {transform:translate(0.12px)}\n}\n@keyframes darma-loader-darma-custom-750-l25-2 {\n100% {inset:-0.15px 0 0;}\n}",
     "defaults": {
       "color": "#22c55e",
       "secondaryColor": "#86efac",
@@ -1248,7 +984,7 @@
       "color": "#0891b2",
       "secondaryColor": "#22d3ee",
       "size": 60,
-      "speed": 2,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -1359,7 +1095,7 @@
       "color": "#059669",
       "secondaryColor": "#34d399",
       "size": 41,
-      "speed": 0.5,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -1470,7 +1206,7 @@
       "color": "#7c3aed",
       "secondaryColor": "#c084fc",
       "size": 75,
-      "speed": 2,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -1500,7 +1236,7 @@
     "defaults": {
       "color": "#6366f1",
       "size": 48,
-      "speed": 0.9
+      "speed": 1
     }
   },
   {
@@ -1716,7 +1452,7 @@
       "color": "#22c55e",
       "secondaryColor": "#bbf7d0",
       "size": 64,
-      "speed": 1.05
+      "speed": 1.1
     }
   },
   {
@@ -1748,7 +1484,7 @@
       "color": "#ec4899",
       "secondaryColor": "#fbcfe8",
       "size": 52,
-      "speed": 1.25
+      "speed": 1.2
     }
   },
   {
@@ -1780,7 +1516,7 @@
       "color": "#0ea5e9",
       "secondaryColor": "#bae6fd",
       "size": 56,
-      "speed": 0.85
+      "speed": 1.2
     }
   },
   {
@@ -1812,39 +1548,7 @@
       "color": "#6366f1",
       "secondaryColor": "#a5b4fc",
       "size": 60,
-      "speed": 0.85
-    }
-  },
-  {
-    "id": "loading-io-15",
-    "name": "Loading.io Adapted Loader 15",
-    "category": "dots",
-    "tags": [
-      "loading-io",
-      "dots",
-      "ellipsis",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loading-io-15 loading.io adapted loader 15 dots loading-io dots ellipsis loader html css react cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-loading-io-15\"><i></i><i></i><i></i></span>",
-    "previewCss": ".darma-loader-loading-io-15 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 8px;\n      min-width: 60px;\n      min-height: 24px;\n    }\n    .darma-loader-loading-io-15 i {\n      display: block;\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: var(--loader-color, #8b5cf6);\n      animation: darma-loader-loading-io-15-dotPulse 1.05s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-15 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-15 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loading-io-15 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loading-io-15-dotPulse { 0%, 80%, 100% { transform: translateY(0) scale(.75); opacity: .45; } 40% { transform: translateY(-8px) scale(1); opacity: 1; } }\n",
-    "defaults": {
-      "color": "#8b5cf6",
-      "secondaryColor": "#ddd6fe",
-      "size": 64,
-      "speed": 1.05
+      "speed": 0.8
     }
   },
   {
@@ -1876,39 +1580,7 @@
       "color": "#14b8a6",
       "secondaryColor": "#99f6e4",
       "size": 52,
-      "speed": 0.95
-    }
-  },
-  {
-    "id": "loading-io-21",
-    "name": "Loading.io Adapted Loader 21",
-    "category": "dots",
-    "tags": [
-      "loading-io",
-      "dots",
-      "ellipsis",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loading-io-21 loading.io adapted loader 21 dots loading-io dots ellipsis loader html css react cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-loading-io-21\"><i></i><i></i><i></i></span>",
-    "previewCss": ".darma-loader-loading-io-21 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      min-width: 48px;\n      min-height: 20px;\n    }\n    .darma-loader-loading-io-21 i {\n      display: block;\n      width: 10px;\n      height: 10px;\n      border-radius: 50%;\n      background: var(--loader-color, #06b6d4);\n      animation: darma-loader-loading-io-21-dotPulse 0.85s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-21 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-21 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loading-io-21 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loading-io-21-dotPulse { 0%, 80%, 100% { transform: translateY(0) scale(.75); opacity: .45; } 40% { transform: translateY(-8px) scale(1); opacity: 1; } }\n",
-    "defaults": {
-      "color": "#06b6d4",
-      "secondaryColor": "#bae6fd",
-      "size": 56,
-      "speed": 0.85
+      "speed": 0.9
     }
   },
   {
@@ -1940,39 +1612,7 @@
       "color": "#f97316",
       "secondaryColor": "#fed7aa",
       "size": 60,
-      "speed": 1.05
-    }
-  },
-  {
-    "id": "loading-io-27",
-    "name": "Loading.io Adapted Loader 27",
-    "category": "dots",
-    "tags": [
-      "loading-io",
-      "dots",
-      "ellipsis",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loading-io-27 loading.io adapted loader 27 dots loading-io dots ellipsis loader html css react cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-loading-io-27\"><i></i><i></i><i></i></span>",
-    "previewCss": ".darma-loader-loading-io-27 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 8px;\n      min-width: 60px;\n      min-height: 24px;\n    }\n    .darma-loader-loading-io-27 i {\n      display: block;\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: var(--loader-color, #f59e0b);\n      animation: darma-loader-loading-io-27-dotPulse 1.05s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-27 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-27 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loading-io-27 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loading-io-27-dotPulse { 0%, 80%, 100% { transform: translateY(0) scale(.75); opacity: .45; } 40% { transform: translateY(-8px) scale(1); opacity: 1; } }\n",
-    "defaults": {
-      "color": "#f59e0b",
-      "secondaryColor": "#fde68a",
-      "size": 64,
-      "speed": 1.05
+      "speed": 1
     }
   },
   {
@@ -2004,71 +1644,7 @@
       "color": "#ef4444",
       "secondaryColor": "#fecaca",
       "size": 52,
-      "speed": 1.15
-    }
-  },
-  {
-    "id": "loading-io-33",
-    "name": "Loading.io Adapted Loader 33",
-    "category": "dots",
-    "tags": [
-      "loading-io",
-      "dots",
-      "ellipsis",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loading-io-33 loading.io adapted loader 33 dots loading-io dots ellipsis loader html css react cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-loading-io-33\"><i></i><i></i><i></i></span>",
-    "previewCss": ".darma-loader-loading-io-33 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      min-width: 48px;\n      min-height: 20px;\n    }\n    .darma-loader-loading-io-33 i {\n      display: block;\n      width: 10px;\n      height: 10px;\n      border-radius: 50%;\n      background: var(--loader-color, #22c55e);\n      animation: darma-loader-loading-io-33-dotPulse 0.85s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-33 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-33 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loading-io-33 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loading-io-33-dotPulse { 0%, 80%, 100% { transform: translateY(0) scale(.75); opacity: .45; } 40% { transform: translateY(-8px) scale(1); opacity: 1; } }\n",
-    "defaults": {
-      "color": "#22c55e",
-      "secondaryColor": "#bbf7d0",
-      "size": 56,
-      "speed": 0.85
-    }
-  },
-  {
-    "id": "loading-io-34",
-    "name": "Loading.io Adapted Loader 34",
-    "category": "dots",
-    "tags": [
-      "loading-io",
-      "grid",
-      "dots",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loading-io-34 loading.io adapted loader 34 dots loading-io grid dots loader html css react cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-loading-io-34\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>",
-    "previewCss": ".darma-loader-loading-io-34 {\n      display: inline-grid;\n      grid-template-columns: repeat(3, 12px);\n      gap: 5px;\n    }\n    .darma-loader-loading-io-34 i {\n      width: 12px;\n      height: 12px;\n      border-radius: 4px;\n      background: var(--loader-color, #ec4899);\n      animation: darma-loader-loading-io-34-gridFlash 1.25s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-34 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-34 i:nth-child(2) { animation-delay: 0.08s; }\n.darma-loader-loading-io-34 i:nth-child(3) { animation-delay: 0.16s; }\n.darma-loader-loading-io-34 i:nth-child(4) { animation-delay: 0.08s; }\n.darma-loader-loading-io-34 i:nth-child(5) { animation-delay: 0.16s; }\n.darma-loader-loading-io-34 i:nth-child(6) { animation-delay: 0.24s; }\n.darma-loader-loading-io-34 i:nth-child(7) { animation-delay: 0.16s; }\n.darma-loader-loading-io-34 i:nth-child(8) { animation-delay: 0.24s; }\n.darma-loader-loading-io-34 i:nth-child(9) { animation-delay: 0.32s; }\n    @keyframes darma-loader-loading-io-34-gridFlash { 0%, 70%, 100% { opacity: .25; transform: scale(.75); } 35% { opacity: 1; transform: scale(1); } }\n",
-    "defaults": {
-      "color": "#ec4899",
-      "secondaryColor": "#fbcfe8",
-      "size": 60,
-      "speed": 1.25
+      "speed": 1.1
     }
   },
   {
@@ -2282,7 +1858,7 @@
     "defaults": {
       "color": "#6366f1",
       "size": 48,
-      "speed": 1.2
+      "speed": 1
     }
   },
   {
@@ -2355,7 +1931,7 @@
       "color": "#ca8a04",
       "secondaryColor": "#facc15",
       "size": 96,
-      "speed": 0.5,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -2392,7 +1968,7 @@
       "color": "#e11d48",
       "secondaryColor": "#fb7185",
       "size": 90,
-      "speed": 2,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -2575,7 +2151,7 @@
       "color": "#db2777",
       "secondaryColor": "#f472b6",
       "size": 75,
-      "speed": 1.5,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -2648,7 +2224,7 @@
       "color": "#ea580c",
       "secondaryColor": "#fb923c",
       "size": 60,
-      "speed": 0.5,
+      "speed": 1,
       "background": "#ffffff"
     }
   },
@@ -2752,7 +2328,7 @@
     "defaults": {
       "color": "#6366f1",
       "size": 48,
-      "speed": 1.05
+      "speed": 1
     }
   }
 ]

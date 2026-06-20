@@ -61,6 +61,7 @@ const JsonCodeEditor = forwardRef<JsonCodeEditorHandle, JsonCodeEditorProps>(
       <div
         role="group"
         aria-label={ariaLabel}
+        data-error-column={errorColumn ?? undefined}
         className={cn(
           "relative overflow-hidden rounded-[calc(var(--radius-lg)-6px)] border border-[var(--color-border-default)] bg-[#0f172a] shadow-inner",
           className,

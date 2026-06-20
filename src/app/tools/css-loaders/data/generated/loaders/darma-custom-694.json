@@ -26,25 +26,25 @@
   },
   "searchText": "darma-custom-694 geometric pattern 20 creative css-only single-element customizable batch-08 creative geometric pattern loader html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-694\"></div>",
-  "previewCss": ".darma-loader-darma-custom-694 {\n  color: var(--loader-color, #22c55e);\nwidth: 45px;\naspect-ratio: 1;\n--c: conic-gradient(from -90deg,currentColor 90deg,#0000 0);\nbackground: var(--c), var(--c);\nbackground-size: 40% 40%;\nanimation: darma-loader-darma-custom-694-l20 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-694-l20 {\n0%,\n20% {background-position: 0 0 ,0 calc(100%/3)}\n33% {background-position: 0 0 ,calc(100%/3) calc(100%/3)}\n66% {background-position: 0 calc(100%/3),calc(100%/3) 0 }\n80%,\n100% {background-position: 0 calc(100%/3),0 0 }\n}",
+  "previewCss": ".darma-loader-darma-custom-694 {\n  color: var(--loader-color, #22c55e);\n  --loader-secondary-color: var(--loader-secondary-color, #86efac);\n  --loader-bg: var(--loader-bg, #ffffff);\nwidth: 45px;\naspect-ratio: 1;\n--c: conic-gradient(from -90deg,currentColor 90deg,#0000 0);\nbackground: var(--c), var(--c);\nbackground-size: 40% 40%;\nanimation: darma-loader-darma-custom-694-l20 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-694-l20 {\n0%,\n20% {background-position: 0 0 ,0 calc(100%/3)}\n33% {background-position: 0 0 ,calc(100%/3) calc(100%/3)}\n66% {background-position: 0 calc(100%/3),calc(100%/3) 0 }\n80%,\n100% {background-position: 0 calc(100%/3),0 0 }\n}",
   "defaults": {
     "color": "#22c55e",
     "secondaryColor": "#86efac",
     "size": 45,
-    "speed": 1.5,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-694\"></div>",
-    "css": ".darma-loader-darma-custom-694 {\n  color: var(--loader-color, #22c55e);\nwidth: 45px;\naspect-ratio: 1;\n--c: conic-gradient(from -90deg,currentColor 90deg,#0000 0);\nbackground: var(--c), var(--c);\nbackground-size: 40% 40%;\nanimation: darma-loader-darma-custom-694-l20 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-694-l20 {\n0%,\n20% {background-position: 0 0 ,0 calc(100%/3)}\n33% {background-position: 0 0 ,calc(100%/3) calc(100%/3)}\n66% {background-position: 0 calc(100%/3),calc(100%/3) 0 }\n80%,\n100% {background-position: 0 calc(100%/3),0 0 }\n}",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom694Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-694\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-694 {\n  color: var(--loader-color, #22c55e);\n  --loader-secondary-color: var(--loader-secondary-color, #86efac);\n  --loader-bg: var(--loader-bg, #ffffff);\nwidth: 45px;\naspect-ratio: 1;\n--c: conic-gradient(from -90deg,currentColor 90deg,#0000 0);\nbackground: var(--c), var(--c);\nbackground-size: 40% 40%;\nanimation: darma-loader-darma-custom-694-l20 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-694-l20 {\n0%,\n20% {background-position: 0 0 ,0 calc(100%/3)}\n33% {background-position: 0 0 ,calc(100%/3) calc(100%/3)}\n66% {background-position: 0 calc(100%/3),calc(100%/3) 0 }\n80%,\n100% {background-position: 0 calc(100%/3),0 0 }\n}",
+    "react": "export default function DarmaCustom694Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-694\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
     "background": false,
-    "secondaryColor": false
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

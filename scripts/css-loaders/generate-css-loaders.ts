@@ -2,9 +2,12 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import type { LoaderDefinition, LoaderFormat, LoaderIndexItem, LoaderPreviewItem, LoaderSourceDefinition } from "../../src/app/tools/css-loaders/types";
+import { fingerprintLoader, findDuplicateGroups, formatDuplicateReport, getViolatingGroups, type FingerprintEntry } from "./fingerprint.ts";
 import { generateReactCode } from "./generate-react-code.ts";
 import { detectAvailableControls, scopeLoaderCode } from "./normalize-css.ts";
 import { fail, validateLoaderSource } from "./validate-loader.ts";
+
+const AUDIT_DUPLICATES = process.argv.includes("--audit-duplicates");
 
 const PROJECT_ROOT = path.resolve(fileURLToPath(new URL("../..", import.meta.url)));
 const CSS_LOADERS_DIR = path.join(PROJECT_ROOT, "src/app/tools/css-loaders");
@@ -195,8 +198,50 @@ function buildSourceStats(sourceFiles: SourceFile[]) {
   }, {});
 }
 
+function buildFingerprintEntries(sourceFiles: SourceFile[]): FingerprintEntry[] {
+  return sourceFiles.map((sourceFile) => ({
+    id: sourceFile.definition.id,
+    name: sourceFile.definition.name,
+    file: sourceFile.relativePath,
+    fingerprint: fingerprintLoader(sourceFile.definition),
+    allowDuplicateVisual: sourceFile.definition.allowDuplicateVisual === true,
+  }));
+}
+
+function reportDuplicates(sourceFiles: SourceFile[]) {
+  const groups = findDuplicateGroups(buildFingerprintEntries(sourceFiles));
+
+  if (!groups.length) {
+    console.log("[css-loaders] no duplicate visual fingerprints found.");
+    return { groups, violations: [] as typeof groups };
+  }
+
+  console.log(formatDuplicateReport(groups));
+  const violations = getViolatingGroups(groups);
+  console.log(
+    `[css-loaders] ${groups.length} duplicate fingerprint group(s); ${violations.length} unresolved (without allowDuplicateVisual).`,
+  );
+  return { groups, violations };
+}
+
 async function main() {
   const sourceFiles = await readSourceLoaders();
+
+  if (AUDIT_DUPLICATES) {
+    const { violations } = reportDuplicates(sourceFiles);
+    process.exitCode = violations.length ? 1 : 0;
+    return;
+  }
+
+  const { violations } = reportDuplicates(sourceFiles);
+  if (violations.length) {
+    fail(
+      `${violations.length} duplicate visual fingerprint group(s) detected. ` +
+        "Remove the duplicate source loaders, or mark intentional variants with " +
+        '"allowDuplicateVisual": true and a "duplicateReason". See the report above.',
+    );
+  }
+
   const definitions = sourceFiles.map((sourceFile) => createLoaderDefinition(sourceFile));
   const sortedDefinitions = definitions.sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name));
   const previewItems: LoaderPreviewItem[] = sortedDefinitions.map(({ code: _code, controls: _controls, source: _source, ...item }) => item);

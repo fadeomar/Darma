@@ -495,54 +495,6 @@
     "searchText": "cssloaders-github-22 cssloaders pattern 22 bars cssloaders bars wave loader html css react cssonly customizable"
   },
   {
-    "id": "cssloaders-github-30",
-    "name": "CSSLoaders Pattern 30",
-    "category": "bars",
-    "tags": [
-      "cssloaders",
-      "bars",
-      "wave",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-30 cssloaders pattern 30 bars cssloaders bars wave loader html css react cssonly customizable"
-  },
-  {
-    "id": "cssloaders-github-38",
-    "name": "CSSLoaders Pattern 38",
-    "category": "bars",
-    "tags": [
-      "cssloaders",
-      "bars",
-      "wave",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-38 cssloaders pattern 38 bars cssloaders bars wave loader html css react cssonly customizable"
-  },
-  {
     "id": "darma-custom-137",
     "name": "Diagonal Step Bars",
     "category": "bars",
@@ -730,56 +682,6 @@
     "searchText": "loaders-css-05 line scale 05 bars loaders-css line scale bars loader html css react popular cssonly customizable"
   },
   {
-    "id": "loaders-css-15",
-    "name": "Line Scale 15",
-    "category": "bars",
-    "tags": [
-      "loaders-css",
-      "line",
-      "scale",
-      "bars",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-15 line scale 15 bars loaders-css line scale bars loader html css react cssonly customizable"
-  },
-  {
-    "id": "loaders-css-25",
-    "name": "Line Scale 25",
-    "category": "bars",
-    "tags": [
-      "loaders-css",
-      "line",
-      "scale",
-      "bars",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-25 line scale 25 bars loaders-css line scale bars loader html css react cssonly customizable"
-  },
-  {
     "id": "loaders-css-06",
     "name": "Line Spin Fade 06",
     "category": "bars",
@@ -803,56 +705,6 @@
       "customizable": true
     },
     "searchText": "loaders-css-06 line spin fade 06 bars loaders-css line scale bars loader html css react popular cssonly customizable"
-  },
-  {
-    "id": "loaders-css-16",
-    "name": "Line Spin Fade 16",
-    "category": "bars",
-    "tags": [
-      "loaders-css",
-      "line",
-      "scale",
-      "bars",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-16 line spin fade 16 bars loaders-css line scale bars loader html css react cssonly customizable"
-  },
-  {
-    "id": "loaders-css-26",
-    "name": "Line Spin Fade 26",
-    "category": "bars",
-    "tags": [
-      "loaders-css",
-      "line",
-      "scale",
-      "bars",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-26 line spin fade 26 bars loaders-css line scale bars loader html css react cssonly customizable"
   },
   {
     "id": "loading-io-05",
@@ -1005,146 +857,6 @@
     "searchText": "darma-custom-651 matrix columns bars rich matrix bars columns minimal single-element loader html-css customizable rich-batch-01 html css react singleelement cssonly customizable"
   },
   {
-    "id": "darma-custom-774",
-    "name": "Micro Bar 100",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-774 micro bar 100 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-745",
-    "name": "Micro Bar 71",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-745 micro bar 71 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-752",
-    "name": "Micro Bar 78",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-752 micro bar 78 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-756",
-    "name": "Micro Bar 82",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-756 micro bar 82 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-757",
-    "name": "Micro Bar 83",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-757 micro bar 83 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable"
-  },
-  {
     "id": "darma-custom-758",
     "name": "Micro Bar 84",
     "category": "bars",
@@ -1171,286 +883,6 @@
       "customizable": true
     },
     "searchText": "darma-custom-758 micro bar 84 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-759",
-    "name": "Micro Bar 85",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-759 micro bar 85 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-760",
-    "name": "Micro Bar 86",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-760 micro bar 86 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-761",
-    "name": "Micro Bar 87",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-761 micro bar 87 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-764",
-    "name": "Micro Bar 90",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-764 micro bar 90 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-765",
-    "name": "Micro Bar 91",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-765 micro bar 91 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-766",
-    "name": "Micro Bar 92",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-766 micro bar 92 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-767",
-    "name": "Micro Bar 93",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-767 micro bar 93 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-771",
-    "name": "Micro Bar 97",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-771 micro bar 97 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-772",
-    "name": "Micro Bar 98",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-772 micro bar 98 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-773",
-    "name": "Micro Bar 99",
-    "category": "bars",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "bars",
-      "linear",
-      "micro",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-773 micro bar 99 bars css-only single-element customizable batch-08 bars linear micro loader html css react singleelement cssonly customizable"
   },
   {
     "id": "darma-custom-012",
@@ -5098,56 +4530,6 @@
     "searchText": "loaders-css-08 cube transition 08 creative loaders-css cube transition creative loader html css react popular cssonly customizable"
   },
   {
-    "id": "loaders-css-18",
-    "name": "Cube Transition 18",
-    "category": "creative",
-    "tags": [
-      "loaders-css",
-      "cube",
-      "transition",
-      "creative",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-18 cube transition 18 creative loaders-css cube transition creative loader html css react cssonly customizable"
-  },
-  {
-    "id": "loaders-css-28",
-    "name": "Cube Transition 28",
-    "category": "creative",
-    "tags": [
-      "loaders-css",
-      "cube",
-      "transition",
-      "creative",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-28 cube transition 28 creative loaders-css cube transition creative loader html css react cssonly customizable"
-  },
-  {
     "id": "darma-custom-002",
     "name": "Diagonal Corner Fold",
     "category": "creative",
@@ -5685,35 +5067,6 @@
       "customizable": true
     },
     "searchText": "darma-custom-180 exit path columns creative exit path columns creative motion css-only single-element batch-04 html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-286",
-    "name": "Fast Star Orbit",
-    "category": "creative",
-    "tags": [
-      "fast",
-      "star",
-      "orbit",
-      "gear",
-      "creative",
-      "loader",
-      "css-only",
-      "single-element",
-      "batch-05"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-286 fast star orbit creative fast star orbit gear creative loader css-only single-element batch-05 html css react singleelement cssonly customizable"
   },
   {
     "id": "darma-custom-652",
@@ -6510,62 +5863,6 @@
       "customizable": true
     },
     "searchText": "darma-custom-717 geometric pattern 43 creative css-only single-element customizable batch-08 creative geometric pattern loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-726",
-    "name": "Geometric Pattern 52",
-    "category": "creative",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "creative",
-      "geometric",
-      "pattern",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-726 geometric pattern 52 creative css-only single-element customizable batch-08 creative geometric pattern loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-740",
-    "name": "Geometric Pattern 66",
-    "category": "creative",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "creative",
-      "geometric",
-      "pattern",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-740 geometric pattern 66 creative css-only single-element customizable batch-08 creative geometric pattern loader html css react singleelement cssonly customizable"
   },
   {
     "id": "darma-custom-024",
@@ -8513,56 +7810,6 @@
     "searchText": "loaders-css-07 square spin 07 creative loaders-css square spin creative loader html css react popular singleelement cssonly customizable"
   },
   {
-    "id": "loaders-css-17",
-    "name": "Square Spin 17",
-    "category": "creative",
-    "tags": [
-      "loaders-css",
-      "square",
-      "spin",
-      "creative",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-17 square spin 17 creative loaders-css square spin creative loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "loaders-css-27",
-    "name": "Square Spin 27",
-    "category": "creative",
-    "tags": [
-      "loaders-css",
-      "square",
-      "spin",
-      "creative",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-27 square spin 27 creative loaders-css square spin creative loader html css react singleelement cssonly customizable"
-  },
-  {
     "id": "darma-custom-060",
     "name": "Stacked Isometric Cubes",
     "category": "creative",
@@ -9133,81 +8380,6 @@
     "searchText": "loaders-css-03 ball beat 03 dots loaders-css beat ball dots loader html css react popular cssonly customizable"
   },
   {
-    "id": "loaders-css-13",
-    "name": "Ball Beat 13",
-    "category": "dots",
-    "tags": [
-      "loaders-css",
-      "beat",
-      "ball",
-      "dots",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-13 ball beat 13 dots loaders-css beat ball dots loader html css react cssonly customizable"
-  },
-  {
-    "id": "loaders-css-23",
-    "name": "Ball Beat 23",
-    "category": "dots",
-    "tags": [
-      "loaders-css",
-      "beat",
-      "ball",
-      "dots",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-23 ball beat 23 dots loaders-css beat ball dots loader html css react cssonly customizable"
-  },
-  {
-    "id": "loaders-css-33",
-    "name": "Ball Beat 33",
-    "category": "dots",
-    "tags": [
-      "loaders-css",
-      "beat",
-      "ball",
-      "dots",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-33 ball beat 33 dots loaders-css beat ball dots loader html css react cssonly customizable"
-  },
-  {
     "id": "loaders-css-01",
     "name": "Ball Grid Pulse 01",
     "category": "dots",
@@ -9233,81 +8405,6 @@
     "searchText": "loaders-css-01 ball grid pulse 01 dots loaders-css ball pulse dots loader html css react popular cssonly customizable"
   },
   {
-    "id": "loaders-css-11",
-    "name": "Ball Grid Pulse 11",
-    "category": "dots",
-    "tags": [
-      "loaders-css",
-      "ball",
-      "pulse",
-      "dots",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-11 ball grid pulse 11 dots loaders-css ball pulse dots loader html css react cssonly customizable"
-  },
-  {
-    "id": "loaders-css-21",
-    "name": "Ball Grid Pulse 21",
-    "category": "dots",
-    "tags": [
-      "loaders-css",
-      "ball",
-      "pulse",
-      "dots",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-21 ball grid pulse 21 dots loaders-css ball pulse dots loader html css react cssonly customizable"
-  },
-  {
-    "id": "loaders-css-31",
-    "name": "Ball Grid Pulse 31",
-    "category": "dots",
-    "tags": [
-      "loaders-css",
-      "ball",
-      "pulse",
-      "dots",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-31 ball grid pulse 31 dots loaders-css ball pulse dots loader html css react cssonly customizable"
-  },
-  {
     "id": "loaders-css-10",
     "name": "Ball Pulse 10",
     "category": "dots",
@@ -9331,56 +8428,6 @@
       "customizable": true
     },
     "searchText": "loaders-css-10 ball pulse 10 dots loaders-css ball pulse dots loader html css react cssonly customizable"
-  },
-  {
-    "id": "loaders-css-20",
-    "name": "Ball Pulse 20",
-    "category": "dots",
-    "tags": [
-      "loaders-css",
-      "ball",
-      "pulse",
-      "dots",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-20 ball pulse 20 dots loaders-css ball pulse dots loader html css react cssonly customizable"
-  },
-  {
-    "id": "loaders-css-30",
-    "name": "Ball Pulse 30",
-    "category": "dots",
-    "tags": [
-      "loaders-css",
-      "ball",
-      "pulse",
-      "dots",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-30 ball pulse 30 dots loaders-css ball pulse dots loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-205",
@@ -10480,30 +9527,6 @@
     "searchText": "loading-io-10 loading.io adapted loader 10 dots loading-io grid dots loader html css react cssonly customizable"
   },
   {
-    "id": "loading-io-15",
-    "name": "Loading.io Adapted Loader 15",
-    "category": "dots",
-    "tags": [
-      "loading-io",
-      "dots",
-      "ellipsis",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loading-io-15 loading.io adapted loader 15 dots loading-io dots ellipsis loader html css react cssonly customizable"
-  },
-  {
     "id": "loading-io-16",
     "name": "Loading.io Adapted Loader 16",
     "category": "dots",
@@ -10526,30 +9549,6 @@
       "customizable": true
     },
     "searchText": "loading-io-16 loading.io adapted loader 16 dots loading-io grid dots loader html css react cssonly customizable"
-  },
-  {
-    "id": "loading-io-21",
-    "name": "Loading.io Adapted Loader 21",
-    "category": "dots",
-    "tags": [
-      "loading-io",
-      "dots",
-      "ellipsis",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loading-io-21 loading.io adapted loader 21 dots loading-io dots ellipsis loader html css react cssonly customizable"
   },
   {
     "id": "loading-io-22",
@@ -10576,30 +9575,6 @@
     "searchText": "loading-io-22 loading.io adapted loader 22 dots loading-io grid dots loader html css react cssonly customizable"
   },
   {
-    "id": "loading-io-27",
-    "name": "Loading.io Adapted Loader 27",
-    "category": "dots",
-    "tags": [
-      "loading-io",
-      "dots",
-      "ellipsis",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loading-io-27 loading.io adapted loader 27 dots loading-io dots ellipsis loader html css react cssonly customizable"
-  },
-  {
     "id": "loading-io-28",
     "name": "Loading.io Adapted Loader 28",
     "category": "dots",
@@ -10622,54 +9597,6 @@
       "customizable": true
     },
     "searchText": "loading-io-28 loading.io adapted loader 28 dots loading-io grid dots loader html css react cssonly customizable"
-  },
-  {
-    "id": "loading-io-33",
-    "name": "Loading.io Adapted Loader 33",
-    "category": "dots",
-    "tags": [
-      "loading-io",
-      "dots",
-      "ellipsis",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loading-io-33 loading.io adapted loader 33 dots loading-io dots ellipsis loader html css react cssonly customizable"
-  },
-  {
-    "id": "loading-io-34",
-    "name": "Loading.io Adapted Loader 34",
-    "category": "dots",
-    "tags": [
-      "loading-io",
-      "grid",
-      "dots",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loading-io-34 loading.io adapted loader 34 dots loading-io grid dots loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-202",
@@ -17463,34 +16390,6 @@
     "searchText": "darma-custom-697 pattern progress 23 progress css-only single-element customizable batch-08 progress striped pattern loader html css react singleelement cssonly customizable"
   },
   {
-    "id": "darma-custom-698",
-    "name": "Pattern Progress 24",
-    "category": "progress",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "progress",
-      "striped",
-      "pattern",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-698 pattern progress 24 progress css-only single-element customizable batch-08 progress striped pattern loader html css react singleelement cssonly customizable"
-  },
-  {
     "id": "darma-custom-699",
     "name": "Pattern Progress 25",
     "category": "progress",
@@ -17939,118 +16838,6 @@
     "searchText": "darma-custom-725 pattern progress 51 progress css-only single-element customizable batch-08 progress striped pattern loader html css react singleelement cssonly customizable"
   },
   {
-    "id": "darma-custom-727",
-    "name": "Pattern Progress 53",
-    "category": "progress",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "progress",
-      "striped",
-      "pattern",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-727 pattern progress 53 progress css-only single-element customizable batch-08 progress striped pattern loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-728",
-    "name": "Pattern Progress 54",
-    "category": "progress",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "progress",
-      "striped",
-      "pattern",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-728 pattern progress 54 progress css-only single-element customizable batch-08 progress striped pattern loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-729",
-    "name": "Pattern Progress 55",
-    "category": "progress",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "progress",
-      "striped",
-      "pattern",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-729 pattern progress 55 progress css-only single-element customizable batch-08 progress striped pattern loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-732",
-    "name": "Pattern Progress 58",
-    "category": "progress",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "progress",
-      "striped",
-      "pattern",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-732 pattern progress 58 progress css-only single-element customizable batch-08 progress striped pattern loader html css react singleelement cssonly customizable"
-  },
-  {
     "id": "darma-custom-736",
     "name": "Pattern Progress 62",
     "category": "progress",
@@ -18079,90 +16866,6 @@
     "searchText": "darma-custom-736 pattern progress 62 progress css-only single-element customizable batch-08 progress striped pattern loader html css react singleelement cssonly customizable"
   },
   {
-    "id": "darma-custom-737",
-    "name": "Pattern Progress 63",
-    "category": "progress",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "progress",
-      "striped",
-      "pattern",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-737 pattern progress 63 progress css-only single-element customizable batch-08 progress striped pattern loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-738",
-    "name": "Pattern Progress 64",
-    "category": "progress",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "progress",
-      "striped",
-      "pattern",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-738 pattern progress 64 progress css-only single-element customizable batch-08 progress striped pattern loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-739",
-    "name": "Pattern Progress 65",
-    "category": "progress",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "progress",
-      "striped",
-      "pattern",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-739 pattern progress 65 progress css-only single-element customizable batch-08 progress striped pattern loader html css react singleelement cssonly customizable"
-  },
-  {
     "id": "darma-custom-741",
     "name": "Pattern Progress 67",
     "category": "progress",
@@ -18189,34 +16892,6 @@
       "customizable": true
     },
     "searchText": "darma-custom-741 pattern progress 67 progress css-only single-element customizable batch-08 progress striped pattern loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-742",
-    "name": "Pattern Progress 68",
-    "category": "progress",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "progress",
-      "striped",
-      "pattern",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-742 pattern progress 68 progress css-only single-element customizable batch-08 progress striped pattern loader html css react singleelement cssonly customizable"
   },
   {
     "id": "darma-custom-754",
@@ -18301,62 +16976,6 @@
       "customizable": true
     },
     "searchText": "darma-custom-763 pattern progress 89 progress css-only single-element customizable batch-08 progress striped pattern loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-768",
-    "name": "Pattern Progress 94",
-    "category": "progress",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "progress",
-      "striped",
-      "pattern",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-768 pattern progress 94 progress css-only single-element customizable batch-08 progress striped pattern loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-769",
-    "name": "Pattern Progress 95",
-    "category": "progress",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "progress",
-      "striped",
-      "pattern",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-769 pattern progress 95 progress css-only single-element customizable batch-08 progress striped pattern loader html css react singleelement cssonly customizable"
   },
   {
     "id": "darma-custom-770",
@@ -19966,30 +18585,6 @@
     "searchText": "cssloaders-github-10 cssloaders pattern 10 pulse cssloaders pulse circle loader html css react popular singleelement cssonly customizable"
   },
   {
-    "id": "cssloaders-github-11",
-    "name": "CSSLoaders Pattern 11",
-    "category": "pulse",
-    "tags": [
-      "cssloaders",
-      "ring",
-      "pulse",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-11 cssloaders pattern 11 pulse cssloaders ring pulse loader html css react singleelement cssonly customizable"
-  },
-  {
     "id": "cssloaders-github-18",
     "name": "CSSLoaders Pattern 18",
     "category": "pulse",
@@ -20012,30 +18607,6 @@
       "customizable": true
     },
     "searchText": "cssloaders-github-18 cssloaders pattern 18 pulse cssloaders pulse circle loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "cssloaders-github-19",
-    "name": "CSSLoaders Pattern 19",
-    "category": "pulse",
-    "tags": [
-      "cssloaders",
-      "ring",
-      "pulse",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-19 cssloaders pattern 19 pulse cssloaders ring pulse loader html css react singleelement cssonly customizable"
   },
   {
     "id": "cssloaders-github-26",
@@ -20062,30 +18633,6 @@
     "searchText": "cssloaders-github-26 cssloaders pattern 26 pulse cssloaders pulse circle loader html css react singleelement cssonly customizable"
   },
   {
-    "id": "cssloaders-github-27",
-    "name": "CSSLoaders Pattern 27",
-    "category": "pulse",
-    "tags": [
-      "cssloaders",
-      "ring",
-      "pulse",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-27 cssloaders pattern 27 pulse cssloaders ring pulse loader html css react singleelement cssonly customizable"
-  },
-  {
     "id": "cssloaders-github-34",
     "name": "CSSLoaders Pattern 34",
     "category": "pulse",
@@ -20108,30 +18655,6 @@
       "customizable": true
     },
     "searchText": "cssloaders-github-34 cssloaders pattern 34 pulse cssloaders pulse circle loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "cssloaders-github-35",
-    "name": "CSSLoaders Pattern 35",
-    "category": "pulse",
-    "tags": [
-      "cssloaders",
-      "ring",
-      "pulse",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-35 cssloaders pattern 35 pulse cssloaders ring pulse loader html css react singleelement cssonly customizable"
   },
   {
     "id": "glow-pulse",
@@ -21459,81 +19982,6 @@
     "searchText": "loaders-css-02 ball clip rotate 02 spinners loaders-css clip rotate spinners loader html css react popular singleelement cssonly customizable"
   },
   {
-    "id": "loaders-css-12",
-    "name": "Ball Clip Rotate 12",
-    "category": "spinners",
-    "tags": [
-      "loaders-css",
-      "clip",
-      "rotate",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-12 ball clip rotate 12 spinners loaders-css clip rotate spinners loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "loaders-css-22",
-    "name": "Ball Clip Rotate 22",
-    "category": "spinners",
-    "tags": [
-      "loaders-css",
-      "clip",
-      "rotate",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-22 ball clip rotate 22 spinners loaders-css clip rotate spinners loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "loaders-css-32",
-    "name": "Ball Clip Rotate 32",
-    "category": "spinners",
-    "tags": [
-      "loaders-css",
-      "clip",
-      "rotate",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-32 ball clip rotate 32 spinners loaders-css clip rotate spinners loader html css react singleelement cssonly customizable"
-  },
-  {
     "id": "loaders-css-04",
     "name": "Ball Scale 04",
     "category": "spinners",
@@ -21559,81 +20007,6 @@
     "searchText": "loaders-css-04 ball scale 04 spinners loaders-css clip rotate spinners loader html css react popular singleelement cssonly customizable"
   },
   {
-    "id": "loaders-css-14",
-    "name": "Ball Scale 14",
-    "category": "spinners",
-    "tags": [
-      "loaders-css",
-      "clip",
-      "rotate",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-14 ball scale 14 spinners loaders-css clip rotate spinners loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "loaders-css-24",
-    "name": "Ball Scale 24",
-    "category": "spinners",
-    "tags": [
-      "loaders-css",
-      "clip",
-      "rotate",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-24 ball scale 24 spinners loaders-css clip rotate spinners loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "loaders-css-34",
-    "name": "Ball Scale 34",
-    "category": "spinners",
-    "tags": [
-      "loaders-css",
-      "clip",
-      "rotate",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-34 ball scale 34 spinners loaders-css clip rotate spinners loader html css react singleelement cssonly customizable"
-  },
-  {
     "id": "loaders-css-09",
     "name": "Ball Triangle Path 09",
     "category": "spinners",
@@ -21657,56 +20030,6 @@
       "customizable": true
     },
     "searchText": "loaders-css-09 ball triangle path 09 spinners loaders-css triangle path spinners loader html css react cssonly customizable"
-  },
-  {
-    "id": "loaders-css-19",
-    "name": "Ball Triangle Path 19",
-    "category": "spinners",
-    "tags": [
-      "loaders-css",
-      "triangle",
-      "path",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-19 ball triangle path 19 spinners loaders-css triangle path spinners loader html css react cssonly customizable"
-  },
-  {
-    "id": "loaders-css-29",
-    "name": "Ball Triangle Path 29",
-    "category": "spinners",
-    "tags": [
-      "loaders-css",
-      "triangle",
-      "path",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loaders-css-29 ball triangle path 29 spinners loaders-css triangle path spinners loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-019",
@@ -24152,31 +22475,6 @@
     "searchText": "loading-io-06 loading.io adapted loader 06 spinners loading-io orbit circle spinners loader html css react popular cssonly customizable"
   },
   {
-    "id": "loading-io-07",
-    "name": "Loading.io Adapted Loader 07",
-    "category": "spinners",
-    "tags": [
-      "loading-io",
-      "ring",
-      "spinner",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loading-io-07 loading.io adapted loader 07 spinners loading-io ring spinner spinners loader html css react popular singleelement cssonly customizable"
-  },
-  {
     "id": "loading-io-08",
     "name": "Loading.io Adapted Loader 08",
     "category": "spinners",
@@ -24225,31 +22523,6 @@
       "customizable": true
     },
     "searchText": "loading-io-12 loading.io adapted loader 12 spinners loading-io orbit circle spinners loader html css react cssonly customizable"
-  },
-  {
-    "id": "loading-io-13",
-    "name": "Loading.io Adapted Loader 13",
-    "category": "spinners",
-    "tags": [
-      "loading-io",
-      "ring",
-      "spinner",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loading-io-13 loading.io adapted loader 13 spinners loading-io ring spinner spinners loader html css react singleelement cssonly customizable"
   },
   {
     "id": "loading-io-14",
@@ -24302,31 +22575,6 @@
     "searchText": "loading-io-18 loading.io adapted loader 18 spinners loading-io orbit circle spinners loader html css react cssonly customizable"
   },
   {
-    "id": "loading-io-19",
-    "name": "Loading.io Adapted Loader 19",
-    "category": "spinners",
-    "tags": [
-      "loading-io",
-      "ring",
-      "spinner",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loading-io-19 loading.io adapted loader 19 spinners loading-io ring spinner spinners loader html css react singleelement cssonly customizable"
-  },
-  {
     "id": "loading-io-20",
     "name": "Loading.io Adapted Loader 20",
     "category": "spinners",
@@ -24377,31 +22625,6 @@
     "searchText": "loading-io-24 loading.io adapted loader 24 spinners loading-io orbit circle spinners loader html css react cssonly customizable"
   },
   {
-    "id": "loading-io-25",
-    "name": "Loading.io Adapted Loader 25",
-    "category": "spinners",
-    "tags": [
-      "loading-io",
-      "ring",
-      "spinner",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loading-io-25 loading.io adapted loader 25 spinners loading-io ring spinner spinners loader html css react singleelement cssonly customizable"
-  },
-  {
     "id": "loading-io-26",
     "name": "Loading.io Adapted Loader 26",
     "category": "spinners",
@@ -24450,56 +22673,6 @@
       "customizable": true
     },
     "searchText": "loading-io-30 loading.io adapted loader 30 spinners loading-io orbit circle spinners loader html css react cssonly customizable"
-  },
-  {
-    "id": "loading-io-31",
-    "name": "Loading.io Adapted Loader 31",
-    "category": "spinners",
-    "tags": [
-      "loading-io",
-      "ring",
-      "spinner",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loading-io-31 loading.io adapted loader 31 spinners loading-io ring spinner spinners loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "loading-io-32",
-    "name": "Loading.io Adapted Loader 32",
-    "category": "spinners",
-    "tags": [
-      "loading-io",
-      "dual-ring",
-      "spinner",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loading-io-32 loading.io adapted loader 32 spinners loading-io dual-ring spinner spinners loader html css react singleelement cssonly customizable"
   },
   {
     "id": "darma-custom-664",
@@ -25711,35 +23884,6 @@
     "searchText": "darma-custom-054 ring sweep fill spinners ring sweep circle clip-path progress batch-02 html css react popular singleelement cssonly customizable"
   },
   {
-    "id": "darma-custom-715",
-    "name": "Round Spinner 41",
-    "category": "spinners",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "spinner",
-      "round",
-      "micro",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-715 round spinner 41 spinners css-only single-element customizable batch-08 spinner round micro spinners loader html css react singleelement cssonly customizable"
-  },
-  {
     "id": "darma-custom-730",
     "name": "Round Spinner 56",
     "category": "spinners",
@@ -25767,180 +23911,6 @@
       "customizable": true
     },
     "searchText": "darma-custom-730 round spinner 56 spinners css-only single-element customizable batch-08 spinner round micro spinners loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-731",
-    "name": "Round Spinner 57",
-    "category": "spinners",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "spinner",
-      "round",
-      "micro",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-731 round spinner 57 spinners css-only single-element customizable batch-08 spinner round micro spinners loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-733",
-    "name": "Round Spinner 59",
-    "category": "spinners",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "spinner",
-      "round",
-      "micro",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-733 round spinner 59 spinners css-only single-element customizable batch-08 spinner round micro spinners loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-734",
-    "name": "Round Spinner 60",
-    "category": "spinners",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "spinner",
-      "round",
-      "micro",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-734 round spinner 60 spinners css-only single-element customizable batch-08 spinner round micro spinners loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-735",
-    "name": "Round Spinner 61",
-    "category": "spinners",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "spinner",
-      "round",
-      "micro",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-735 round spinner 61 spinners css-only single-element customizable batch-08 spinner round micro spinners loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-743",
-    "name": "Round Spinner 69",
-    "category": "spinners",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "spinner",
-      "round",
-      "micro",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-743 round spinner 69 spinners css-only single-element customizable batch-08 spinner round micro spinners loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-744",
-    "name": "Round Spinner 70",
-    "category": "spinners",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "spinner",
-      "round",
-      "micro",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-744 round spinner 70 spinners css-only single-element customizable batch-08 spinner round micro spinners loader html css react singleelement cssonly customizable"
   },
   {
     "id": "darma-custom-746",
@@ -25972,35 +23942,6 @@
     "searchText": "darma-custom-746 round spinner 72 spinners css-only single-element customizable batch-08 spinner round micro spinners loader html css react singleelement cssonly customizable"
   },
   {
-    "id": "darma-custom-747",
-    "name": "Round Spinner 73",
-    "category": "spinners",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "spinner",
-      "round",
-      "micro",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-747 round spinner 73 spinners css-only single-element customizable batch-08 spinner round micro spinners loader html css react singleelement cssonly customizable"
-  },
-  {
     "id": "darma-custom-751",
     "name": "Round Spinner 77",
     "category": "spinners",
@@ -26028,35 +23969,6 @@
       "customizable": true
     },
     "searchText": "darma-custom-751 round spinner 77 spinners css-only single-element customizable batch-08 spinner round micro spinners loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-753",
-    "name": "Round Spinner 79",
-    "category": "spinners",
-    "tags": [
-      "css-only",
-      "single-element",
-      "customizable",
-      "batch-08",
-      "spinner",
-      "round",
-      "micro",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-753 round spinner 79 spinners css-only single-element customizable batch-08 spinner round micro spinners loader html css react singleelement cssonly customizable"
   },
   {
     "id": "darma-custom-762",

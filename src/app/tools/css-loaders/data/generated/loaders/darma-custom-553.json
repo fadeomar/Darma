@@ -28,25 +28,25 @@
   },
   "searchText": "darma-custom-553 line trace 19 creative line trace 19 outline geometric creative loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-553\"></div>",
-  "previewCss": ".darma-loader-darma-custom-553 {color: var(--loader-color, #0891b2);\n   width: 30px;\n   aspect-ratio: 1;\n   display: grid;\n}\n.darma-loader-darma-custom-553, .darma-loader-darma-custom-553:before, .darma-loader-darma-custom-553:after  {\n  --c:no-repeat linear-gradient(var(--loader-color, #0891b2) 0 0);\n   background:var(--c), var(--c), var(--c), var(--c);\n   animation: darma-loader-darma-custom-553-l19-1 1.5s infinite, darma-loader-darma-custom-553-l19-2 1.5s infinite;\n}\n.darma-loader-darma-custom-553:before, .darma-loader-darma-custom-553:after  {\n  content: \"\";\n   grid-area: 1/1;\n   transform: translate(calc(50% - 2px),calc(2px - 50%)) rotate(90deg);\n   animation-delay: -.25s;\n}\n.darma-loader-darma-custom-553:after  {\n  transform: translate(calc(2px - 50%),calc(50% - 2px)) rotate(90deg);\n}\n@keyframes darma-loader-darma-custom-553-l19-1  {\n  0%, 10% {background-size: 0 4px,4px 0 }\n40%, 60% {background-size: 100% 4px,4px 100%}\n90%, 100% {background-size: 0 4px,4px 0 }\n}\n@keyframes darma-loader-darma-custom-553-l19-2  {\n  0%,49.9%{background-position: 0 0,0 0,100% 100%,100% 100%}\n50%,100%{background-position: 100% 0,0 100%,0 100%,100% 0}\n}\n",
+  "previewCss": ".darma-loader-darma-custom-553 {color: var(--loader-color, #0891b2);\n  --loader-secondary-color: var(--loader-secondary-color, #22d3ee);\n  --loader-bg: var(--loader-bg, #ffffff);\n   width: 30px;\n   aspect-ratio: 1;\n   display: grid;\n}\n.darma-loader-darma-custom-553, .darma-loader-darma-custom-553:before, .darma-loader-darma-custom-553:after  {\n  --c:no-repeat linear-gradient(var(--loader-color, #0891b2) 0 0);\n   background:var(--c), var(--c), var(--c), var(--c);\n   animation: darma-loader-darma-custom-553-l19-1 1.5s infinite, darma-loader-darma-custom-553-l19-2 1.5s infinite;\n}\n.darma-loader-darma-custom-553:before, .darma-loader-darma-custom-553:after  {\n  content: \"\";\n   grid-area: 1/1;\n   transform: translate(calc(50% - 2px),calc(2px - 50%)) rotate(90deg);\n   animation-delay: -.25s;\n}\n.darma-loader-darma-custom-553:after  {\n  transform: translate(calc(2px - 50%),calc(50% - 2px)) rotate(90deg);\n}\n@keyframes darma-loader-darma-custom-553-l19-1  {\n  0%, 10% {background-size: 0 4px,4px 0 }\n40%, 60% {background-size: 100% 4px,4px 100%}\n90%, 100% {background-size: 0 4px,4px 0 }\n}\n@keyframes darma-loader-darma-custom-553-l19-2  {\n  0%,49.9%{background-position: 0 0,0 0,100% 100%,100% 100%}\n50%,100%{background-position: 100% 0,0 100%,0 100%,100% 0}\n}\n",
   "defaults": {
     "color": "#0891b2",
     "secondaryColor": "#22d3ee",
     "size": 72,
-    "speed": 1.5,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-553\"></div>",
-    "css": ".darma-loader-darma-custom-553 {color: var(--loader-color, #0891b2);\n   width: 30px;\n   aspect-ratio: 1;\n   display: grid;\n}\n.darma-loader-darma-custom-553, .darma-loader-darma-custom-553:before, .darma-loader-darma-custom-553:after  {\n  --c:no-repeat linear-gradient(var(--loader-color, #0891b2) 0 0);\n   background:var(--c), var(--c), var(--c), var(--c);\n   animation: darma-loader-darma-custom-553-l19-1 1.5s infinite, darma-loader-darma-custom-553-l19-2 1.5s infinite;\n}\n.darma-loader-darma-custom-553:before, .darma-loader-darma-custom-553:after  {\n  content: \"\";\n   grid-area: 1/1;\n   transform: translate(calc(50% - 2px),calc(2px - 50%)) rotate(90deg);\n   animation-delay: -.25s;\n}\n.darma-loader-darma-custom-553:after  {\n  transform: translate(calc(2px - 50%),calc(50% - 2px)) rotate(90deg);\n}\n@keyframes darma-loader-darma-custom-553-l19-1  {\n  0%, 10% {background-size: 0 4px,4px 0 }\n40%, 60% {background-size: 100% 4px,4px 100%}\n90%, 100% {background-size: 0 4px,4px 0 }\n}\n@keyframes darma-loader-darma-custom-553-l19-2  {\n  0%,49.9%{background-position: 0 0,0 0,100% 100%,100% 100%}\n50%,100%{background-position: 100% 0,0 100%,0 100%,100% 0}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom553Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-553\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-553 {color: var(--loader-color, #0891b2);\n  --loader-secondary-color: var(--loader-secondary-color, #22d3ee);\n  --loader-bg: var(--loader-bg, #ffffff);\n   width: 30px;\n   aspect-ratio: 1;\n   display: grid;\n}\n.darma-loader-darma-custom-553, .darma-loader-darma-custom-553:before, .darma-loader-darma-custom-553:after  {\n  --c:no-repeat linear-gradient(var(--loader-color, #0891b2) 0 0);\n   background:var(--c), var(--c), var(--c), var(--c);\n   animation: darma-loader-darma-custom-553-l19-1 1.5s infinite, darma-loader-darma-custom-553-l19-2 1.5s infinite;\n}\n.darma-loader-darma-custom-553:before, .darma-loader-darma-custom-553:after  {\n  content: \"\";\n   grid-area: 1/1;\n   transform: translate(calc(50% - 2px),calc(2px - 50%)) rotate(90deg);\n   animation-delay: -.25s;\n}\n.darma-loader-darma-custom-553:after  {\n  transform: translate(calc(2px - 50%),calc(50% - 2px)) rotate(90deg);\n}\n@keyframes darma-loader-darma-custom-553-l19-1  {\n  0%, 10% {background-size: 0 4px,4px 0 }\n40%, 60% {background-size: 100% 4px,4px 100%}\n90%, 100% {background-size: 0 4px,4px 0 }\n}\n@keyframes darma-loader-darma-custom-553-l19-2  {\n  0%,49.9%{background-position: 0 0,0 0,100% 100%,100% 100%}\n50%,100%{background-position: 100% 0,0 100%,0 100%,100% 0}\n}\n",
+    "react": "export default function DarmaCustom553Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-553\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
-    "secondaryColor": false
+    "background": true,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

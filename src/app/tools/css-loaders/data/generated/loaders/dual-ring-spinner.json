@@ -30,7 +30,7 @@
   "code": {
     "html": "<span class=\"darma-loader-dual-ring-spinner\"></span>",
     "css": ".darma-loader-dual-ring-spinner {\n  position: relative;\n  display: inline-block;\n  width: 58px;\n  height: 58px;\n  border-radius: 50%;\n  color: var(--loader-color, #6366f1);\n}\n.darma-loader-dual-ring-spinner::before,\n.darma-loader-dual-ring-spinner::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  border-radius: 50%;\n  border: 4px solid transparent;\n  border-top-color: currentColor;\n  animation: darma-loader-dual-ring-spinner-spin 1s linear infinite;\n}\n.darma-loader-dual-ring-spinner::after {\n  inset: 10px;\n  border-top-color: color-mix(in srgb, var(--loader-color, #6366f1) 35%, transparent);\n  animation-direction: reverse;\n}\n@keyframes darma-loader-dual-ring-spinner-spin { to { transform: rotate(360deg); } }\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DualRingSpinnerLoader() {\n  return (\n    <span className=\"darma-loader-dual-ring-spinner\"></span>\n  );\n}\n"
+    "react": "export default function DualRingSpinnerLoader() {\n  return (\n    <span className=\"darma-loader-dual-ring-spinner\"></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,

@@ -37,7 +37,7 @@
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-175\"></div>",
     "css": ".darma-loader-darma-custom-175 {\n  color: var(--loader-color, #4f46e5);\nwidth: 15px;\naspect-ratio: 1;\nborder-radius: 50%;\nanimation: darma-loader-darma-custom-175-l5 1s infinite linear alternate;\n}\n@keyframes darma-loader-darma-custom-175-l5 {\n0% {box-shadow: 20px 0 currentColor, -20px 0 color-mix(in srgb, currentColor 13%, transparent);background: currentColor }\n33% {box-shadow: 20px 0 currentColor, -20px 0 color-mix(in srgb, currentColor 13%, transparent);background: color-mix(in srgb, currentColor 13%, transparent)}\n66% {box-shadow: 20px 0 color-mix(in srgb, currentColor 13%, transparent),-20px 0 currentColor; background: color-mix(in srgb, currentColor 13%, transparent)}\n100%{box-shadow: 20px 0 color-mix(in srgb, currentColor 13%, transparent),-20px 0 currentColor; background: currentColor }\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom175Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-175\"></div>\n  );\n}\n"
+    "react": "export default function DarmaCustom175Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-175\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,

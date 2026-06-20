@@ -37,7 +37,7 @@
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-178\"></div>",
     "css": ".darma-loader-darma-custom-178 {\n  color: var(--loader-color, #e11d48);\nwidth: 15px;\naspect-ratio: 1;\nposition: relative;\n}\n.darma-loader-darma-custom-178::before,\n.darma-loader-darma-custom-178::after {\ncontent: \"\";\nposition: absolute;\ninset: 0;\nborder-radius: 50%;\nbackground: currentColor;\n}\n.darma-loader-darma-custom-178::before {\nbox-shadow: -25px 0;\nanimation: darma-loader-darma-custom-178-l8-1 1s infinite linear;\n}\n.darma-loader-darma-custom-178::after {\ntransform: rotate(0deg) translateX(25px);\nanimation: darma-loader-darma-custom-178-l8-2 1s infinite linear;\n}\n\n@keyframes darma-loader-darma-custom-178-l8-1 {\n100%{transform: translateX(25px)}\n}\n@keyframes darma-loader-darma-custom-178-l8-2 {\n100%{transform: rotate(-180deg) translateX(25px)}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom178Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-178\"></div>\n  );\n}\n"
+    "react": "export default function DarmaCustom178Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-178\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,

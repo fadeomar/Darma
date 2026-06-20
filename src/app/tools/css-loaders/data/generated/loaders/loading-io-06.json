@@ -28,12 +28,12 @@
     "color": "#14b8a6",
     "secondaryColor": "#99f6e4",
     "size": 60,
-    "speed": 1.2
+    "speed": 0.9
   },
   "code": {
     "html": "<span class=\"darma-loader-loading-io-06\"><i></i><i></i></span>",
     "css": ".darma-loader-loading-io-06 {\n      position: relative;\n      display: inline-block;\n      width: 52px;\n      height: 52px;\n      border-radius: 50%;\n      border: 1px solid color-mix(in srgb, var(--loader-color, #14b8a6) 24%, transparent);\n    }\n    .darma-loader-loading-io-06 i {\n      position: absolute;\n      inset: -3px;\n      border-radius: 50%;\n      animation: darma-loader-loading-io-06-orbit 1.2s linear infinite;\n    }\n    .darma-loader-loading-io-06 i::before {\n      content: \"\";\n      position: absolute;\n      top: 0;\n      left: 50%;\n      width: 10px;\n      height: 10px;\n      margin-left: -5px;\n      border-radius: 50%;\n      background: var(--loader-color, #14b8a6);\n      box-shadow: 0 0 18px color-mix(in srgb, var(--loader-color, #14b8a6) 45%, transparent);\n    }\n    .darma-loader-loading-io-06 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-06 i:nth-child(2) { animation-delay: -0.60s; }\n    @keyframes darma-loader-loading-io-06-orbit { to { transform: rotate(360deg); } }\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function LoadingIo06Loader() {\n  return (\n    <span className=\"darma-loader-loading-io-06\"><i></i><i></i></span>\n  );\n}\n"
+    "react": "export default function LoadingIo06Loader() {\n  return (\n    <span className=\"darma-loader-loading-io-06\"><i></i><i></i></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,

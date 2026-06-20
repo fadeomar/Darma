@@ -29,25 +29,25 @@
   },
   "searchText": "darma-custom-423 line orbit 09 spinners line orbit 09 geometric spinner outline spinners loader css-only single-element batch-06 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-423\"></div>",
-  "previewCss": ".darma-loader-darma-custom-423 {color: var(--loader-color, #0f766e);\n  width: 60px;\n  height: 30px;\n  display: grid;\n  --c: #0000 calc(100% - 5px),currentColor calc(100% - 4px) 96%,#0000;\n  background:radial-gradient(farthest-side at bottom,var(--c)) 0 0,radial-gradient(farthest-side at top ,var(--c)) 100% 100%;\n  background-size: calc(50% + 2px) 50%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-423-l14 1.5s infinite linear;\n}.darma-loader-darma-custom-423:before,.darma-loader-darma-custom-423:after {content: \"\";\n  grid-area: 1/1;\n  background: inherit;\n  animation: inherit;\n  animation-duration: 2s;\n}.darma-loader-darma-custom-423:before {--s:-1;\n}@keyframes darma-loader-darma-custom-423-l14 {100% {transform: scale(calc(var(--s,1)*1turn))}}\n",
+  "previewCss": ".darma-loader-darma-custom-423 {color: var(--loader-color, #0f766e);\n  --loader-secondary-color: var(--loader-secondary-color, #5eead4);\n  --loader-bg: var(--loader-bg, #ffffff);\n  width: 60px;\n  height: 30px;\n  display: grid;\n  --c: #0000 calc(100% - 5px),currentColor calc(100% - 4px) 96%,#0000;\n  background:radial-gradient(farthest-side at bottom,var(--c)) 0 0,radial-gradient(farthest-side at top ,var(--c)) 100% 100%;\n  background-size: calc(50% + 2px) 50%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-423-l14 1.5s infinite linear;\n}.darma-loader-darma-custom-423:before,.darma-loader-darma-custom-423:after {content: \"\";\n  grid-area: 1/1;\n  background: inherit;\n  animation: inherit;\n  animation-duration: 2s;\n}.darma-loader-darma-custom-423:before {--s:-1;\n}@keyframes darma-loader-darma-custom-423-l14 {100% {transform: scale(calc(var(--s,1)*1turn))}}\n",
   "defaults": {
     "color": "#0f766e",
     "secondaryColor": "#5eead4",
     "size": 72,
-    "speed": 2,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-423\"></div>",
-    "css": ".darma-loader-darma-custom-423 {color: var(--loader-color, #0f766e);\n  width: 60px;\n  height: 30px;\n  display: grid;\n  --c: #0000 calc(100% - 5px),currentColor calc(100% - 4px) 96%,#0000;\n  background:radial-gradient(farthest-side at bottom,var(--c)) 0 0,radial-gradient(farthest-side at top ,var(--c)) 100% 100%;\n  background-size: calc(50% + 2px) 50%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-423-l14 1.5s infinite linear;\n}.darma-loader-darma-custom-423:before,.darma-loader-darma-custom-423:after {content: \"\";\n  grid-area: 1/1;\n  background: inherit;\n  animation: inherit;\n  animation-duration: 2s;\n}.darma-loader-darma-custom-423:before {--s:-1;\n}@keyframes darma-loader-darma-custom-423-l14 {100% {transform: scale(calc(var(--s,1)*1turn))}}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom423Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-423\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-423 {color: var(--loader-color, #0f766e);\n  --loader-secondary-color: var(--loader-secondary-color, #5eead4);\n  --loader-bg: var(--loader-bg, #ffffff);\n  width: 60px;\n  height: 30px;\n  display: grid;\n  --c: #0000 calc(100% - 5px),currentColor calc(100% - 4px) 96%,#0000;\n  background:radial-gradient(farthest-side at bottom,var(--c)) 0 0,radial-gradient(farthest-side at top ,var(--c)) 100% 100%;\n  background-size: calc(50% + 2px) 50%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-423-l14 1.5s infinite linear;\n}.darma-loader-darma-custom-423:before,.darma-loader-darma-custom-423:after {content: \"\";\n  grid-area: 1/1;\n  background: inherit;\n  animation: inherit;\n  animation-duration: 2s;\n}.darma-loader-darma-custom-423:before {--s:-1;\n}@keyframes darma-loader-darma-custom-423-l14 {100% {transform: scale(calc(var(--s,1)*1turn))}}\n",
+    "react": "export default function DarmaCustom423Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-423\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
-    "secondaryColor": false
+    "background": true,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

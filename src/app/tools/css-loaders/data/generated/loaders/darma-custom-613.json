@@ -29,7 +29,7 @@
   },
   "searchText": "darma-custom-613 gooey spinner 10 spinners gooey spinner 10 blur blob motion spinners loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-613\"></div>",
-  "previewCss": ".darma-loader-darma-custom-613 {color: var(--loader-color, #dc2626);\n   width: 82px;\n   aspect-ratio: 1;\n   padding: 10px;\n   box-sizing: border-box;\n   display: grid;\n   background: currentColor;\n   filter: blur(5px) contrast(10);\n   mix-blend-mode: darken;\n}\n.darma-loader-darma-custom-613:before, .darma-loader-darma-custom-613:after {\n  content: \"\";\n   grid-area: 1/1;\n   background: linear-gradient(currentColor 0 0) left, linear-gradient(currentColor 0 0) right;\n   background-size: 20px 40px;\n   background-origin: content-box;\n   background-repeat: no-repeat;\n}\n.darma-loader-darma-custom-613:after  {\n  height: 20px;\n   width: 20px;\n   margin: auto 0;\n   border-radius: 50%;\n   background: currentColor;\n   animation: darma-loader-darma-custom-613-l10 1s infinite;\n}\n@keyframes darma-loader-darma-custom-613-l10 {\n  90%,100% {transform: translate(300%)}\n}\n",
+  "previewCss": ".darma-loader-darma-custom-613 {color: var(--loader-color, #dc2626);\n  --loader-secondary-color: var(--loader-secondary-color, #f97316);\n  --loader-bg: var(--loader-bg, #ffffff);\n   width: 82px;\n   aspect-ratio: 1;\n   padding: 10px;\n   box-sizing: border-box;\n   display: grid;\n   background: currentColor;\n   filter: blur(5px) contrast(10);\n   mix-blend-mode: darken;\n}\n.darma-loader-darma-custom-613:before, .darma-loader-darma-custom-613:after {\n  content: \"\";\n   grid-area: 1/1;\n   background: linear-gradient(currentColor 0 0) left, linear-gradient(currentColor 0 0) right;\n   background-size: 20px 40px;\n   background-origin: content-box;\n   background-repeat: no-repeat;\n}\n.darma-loader-darma-custom-613:after  {\n  height: 20px;\n   width: 20px;\n   margin: auto 0;\n   border-radius: 50%;\n   background: currentColor;\n   animation: darma-loader-darma-custom-613-l10 1s infinite;\n}\n@keyframes darma-loader-darma-custom-613-l10 {\n  90%,100% {transform: translate(300%)}\n}\n",
   "defaults": {
     "color": "#dc2626",
     "secondaryColor": "#f97316",
@@ -39,15 +39,15 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-613\"></div>",
-    "css": ".darma-loader-darma-custom-613 {color: var(--loader-color, #dc2626);\n   width: 82px;\n   aspect-ratio: 1;\n   padding: 10px;\n   box-sizing: border-box;\n   display: grid;\n   background: currentColor;\n   filter: blur(5px) contrast(10);\n   mix-blend-mode: darken;\n}\n.darma-loader-darma-custom-613:before, .darma-loader-darma-custom-613:after {\n  content: \"\";\n   grid-area: 1/1;\n   background: linear-gradient(currentColor 0 0) left, linear-gradient(currentColor 0 0) right;\n   background-size: 20px 40px;\n   background-origin: content-box;\n   background-repeat: no-repeat;\n}\n.darma-loader-darma-custom-613:after  {\n  height: 20px;\n   width: 20px;\n   margin: auto 0;\n   border-radius: 50%;\n   background: currentColor;\n   animation: darma-loader-darma-custom-613-l10 1s infinite;\n}\n@keyframes darma-loader-darma-custom-613-l10 {\n  90%,100% {transform: translate(300%)}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom613Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-613\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-613 {color: var(--loader-color, #dc2626);\n  --loader-secondary-color: var(--loader-secondary-color, #f97316);\n  --loader-bg: var(--loader-bg, #ffffff);\n   width: 82px;\n   aspect-ratio: 1;\n   padding: 10px;\n   box-sizing: border-box;\n   display: grid;\n   background: currentColor;\n   filter: blur(5px) contrast(10);\n   mix-blend-mode: darken;\n}\n.darma-loader-darma-custom-613:before, .darma-loader-darma-custom-613:after {\n  content: \"\";\n   grid-area: 1/1;\n   background: linear-gradient(currentColor 0 0) left, linear-gradient(currentColor 0 0) right;\n   background-size: 20px 40px;\n   background-origin: content-box;\n   background-repeat: no-repeat;\n}\n.darma-loader-darma-custom-613:after  {\n  height: 20px;\n   width: 20px;\n   margin: auto 0;\n   border-radius: 50%;\n   background: currentColor;\n   animation: darma-loader-darma-custom-613-l10 1s infinite;\n}\n@keyframes darma-loader-darma-custom-613-l10 {\n  90%,100% {transform: translate(300%)}\n}\n",
+    "react": "export default function DarmaCustom613Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-613\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
-    "secondaryColor": false
+    "background": true,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

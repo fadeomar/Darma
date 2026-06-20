@@ -29,19 +29,31 @@ export type AudienceGroup = {
 export const AUDIENCE_GROUPS: AudienceGroup[] = [
   {
     id: "everyday",
-    title: "Everyday tools",
-    description: "Quick utilities anyone can use — convert, generate, count, and clean without an account or setup.",
+    title: "For everyday users",
+    description: "Quick utilities anyone can use to convert, generate, count, clean, and share without an account or setup.",
     match: (tool) => hasAudience(tool, "general"),
   },
   {
-    id: "design",
-    title: "Design & visual tools",
-    description: "Colors, gradients, shadows, and UI styles for posts, websites, and brand work.",
+    id: "students",
+    title: "For students",
+    description: "Helpful calculators, text tools, and study-friendly utilities for assignments, notes, and everyday school tasks.",
+    match: (tool) => hasAudience(tool, "student"),
+  },
+  {
+    id: "creators",
+    title: "For creators",
+    description: "Tools for captions, links, QR codes, images, metadata, and publishing assets.",
+    match: (tool) => hasAudience(tool, "creator"),
+  },
+  {
+    id: "designers",
+    title: "For designers",
+    description: "Colors, gradients, shadows, image prep, and UI styles for posts, websites, and brand work.",
     match: (tool) => hasAudience(tool, "designer"),
   },
   {
-    id: "developer",
-    title: "Developer tools",
+    id: "developers",
+    title: "For developers",
     description: "Format data, decode tokens, generate snippets, and prepare projects for launch.",
     match: (tool) => (tool.secondaryCategory ?? []).includes("devtools"),
   },
@@ -134,6 +146,13 @@ export const PRINCIPLES = [
   { title: "Copy-ready", text: "Outputs are clean, readable, and easy to reuse right away." },
   { title: "Browser-first", text: "Whenever possible, tools run directly in your browser." },
   { title: "Made for daily use", text: "Small tools, fast actions, and repeatable workflows." },
+];
+
+export const HELP_AREAS = [
+  { title: "Clean and prepare content", text: "Fix messy text, count words, make slugs, generate metadata, and prepare copy for publishing." },
+  { title: "Create shareable assets", text: "Generate QR codes, convert images, build palettes, and export ready-to-use visual tokens." },
+  { title: "Study and calculate faster", text: "Use practical calculators and converters for schoolwork, planning, and everyday problem solving." },
+  { title: "Debug developer data", text: "Format JSON, decode tokens, test regex, encode URLs, and inspect payloads locally." },
 ];
 
 export const PRIVACY_META: Record<ToolPrivacy, { label: string; description: string }> = {

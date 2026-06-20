@@ -64,6 +64,13 @@ export type LoaderSourceDefinition = {
     tailwind?: boolean;
     customizable?: boolean;
   };
+  /**
+   * Opt a loader out of the duplicate-visual fingerprint check. Use only for
+   * intentional variants whose structure is meaningfully different. Requires a
+   * non-empty `duplicateReason` explaining why the variant is intentional.
+   */
+  allowDuplicateVisual?: boolean;
+  duplicateReason?: string;
 };
 
 export type LoaderFlags = {

@@ -37,7 +37,7 @@
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-095\"></div>",
     "css": ".darma-loader-darma-custom-095 {\n  width: 40px;\n  aspect-ratio: 1;\n  display: flex;\n  transform-origin:50% 125%;\n  animation: darma-loader-darma-custom-095-l15-0 1.5s infinite linear;\n}\n.darma-loader-darma-custom-095:before,\n.darma-loader-darma-custom-095:after {\n  content: \"\";\n  flex: 1;\n  background: var(--loader-color, #ffa500);\n  animation: inherit;\n  transform-origin: bottom left;\n  animation-name: darma-loader-darma-custom-095-l15-1;\n}\n.darma-loader-darma-custom-095:before {\n  transform-origin: bottom right;\n  --s:-1;\n}\n@keyframes darma-loader-darma-custom-095-l15-0 {\n   0%,10%   {transform:translateY(0)     scaleY(1)}\n   49.99%   {transform:translateY(-75%)  scaleY(1)}\n   50%      {transform:translateY(-75%)  scaleY(-1)}\n   90%,100% {transform:translateY(-150%) scaleY(-1)}\n}\n@keyframes darma-loader-darma-custom-095-l15-1 {\n   10%,90% {transform: rotate(0deg)}\n   50%     {transform: rotate(calc(var(--s,1)*90deg))}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom095Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-095\"></div>\n  );\n}\n"
+    "react": "export default function DarmaCustom095Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-095\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,

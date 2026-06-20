@@ -12,6 +12,16 @@ export type PaletteSize = 3 | 5 | 7 | 9;
 export type PaletteUiMode = "light" | "dark";
 export type WcagRating = "Fail" | "AA" | "AAA";
 
+export type PalettePreset = {
+  id: string;
+  title: string;
+  description: string;
+  baseColor: string;
+  harmony: HarmonyMode;
+  size: PaletteSize;
+  uiMode: PaletteUiMode;
+};
+
 export type PaletteOptions = {
   harmony: HarmonyMode;
   size: PaletteSize;

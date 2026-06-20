@@ -29,25 +29,25 @@
   },
   "searchText": "darma-custom-503 radial cutout 09 spinners radial cutout 09 spinner mask geometric spinners loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-503\"></div>",
-  "previewCss": ".darma-loader-darma-custom-503 {color: var(--loader-color, #ca8a04);\n   width: 70px;\n   aspect-ratio: 1;\n   --c:var(--loader-color, #ca8a04) 98%,#0000;\n   background: radial-gradient(50% 70% at 50% 120%, var(--c)) top, radial-gradient(70% 50% at -20% 50%, var(--c)) right, radial-gradient(50% 70% at 50% -20%, var(--c)) bottom, radial-gradient(70% 50% at 120% 50%, var(--c)) left;\n   background-size: 100% 50.1%,50.1% 100%;\n   background-repeat: no-repeat;\n   -webkit-mask: radial-gradient(circle 5px,#0000 90%,currentColor);\n   animation: darma-loader-darma-custom-503-l9 1.5s infinite linear;\n}\n@keyframes darma-loader-darma-custom-503-l9  {\n  100%{transform: rotate(1turn)}\n}\n",
+  "previewCss": ".darma-loader-darma-custom-503 {color: var(--loader-color, #ca8a04);\n  --loader-secondary-color: var(--loader-secondary-color, #fde047);\n  --loader-bg: var(--loader-bg, #ffffff);\n   width: 70px;\n   aspect-ratio: 1;\n   --c:var(--loader-color, #ca8a04) 98%,#0000;\n   background: radial-gradient(50% 70% at 50% 120%, var(--c)) top, radial-gradient(70% 50% at -20% 50%, var(--c)) right, radial-gradient(50% 70% at 50% -20%, var(--c)) bottom, radial-gradient(70% 50% at 120% 50%, var(--c)) left;\n   background-size: 100% 50.1%,50.1% 100%;\n   background-repeat: no-repeat;\n   -webkit-mask: radial-gradient(circle 5px,#0000 90%,currentColor);\n   animation: darma-loader-darma-custom-503-l9 1.5s infinite linear;\n}\n@keyframes darma-loader-darma-custom-503-l9  {\n  100%{transform: rotate(1turn)}\n}\n",
   "defaults": {
     "color": "#ca8a04",
     "secondaryColor": "#fde047",
     "size": 72,
-    "speed": 1.5,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-503\"></div>",
-    "css": ".darma-loader-darma-custom-503 {color: var(--loader-color, #ca8a04);\n   width: 70px;\n   aspect-ratio: 1;\n   --c:var(--loader-color, #ca8a04) 98%,#0000;\n   background: radial-gradient(50% 70% at 50% 120%, var(--c)) top, radial-gradient(70% 50% at -20% 50%, var(--c)) right, radial-gradient(50% 70% at 50% -20%, var(--c)) bottom, radial-gradient(70% 50% at 120% 50%, var(--c)) left;\n   background-size: 100% 50.1%,50.1% 100%;\n   background-repeat: no-repeat;\n   -webkit-mask: radial-gradient(circle 5px,#0000 90%,currentColor);\n   animation: darma-loader-darma-custom-503-l9 1.5s infinite linear;\n}\n@keyframes darma-loader-darma-custom-503-l9  {\n  100%{transform: rotate(1turn)}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom503Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-503\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-503 {color: var(--loader-color, #ca8a04);\n  --loader-secondary-color: var(--loader-secondary-color, #fde047);\n  --loader-bg: var(--loader-bg, #ffffff);\n   width: 70px;\n   aspect-ratio: 1;\n   --c:var(--loader-color, #ca8a04) 98%,#0000;\n   background: radial-gradient(50% 70% at 50% 120%, var(--c)) top, radial-gradient(70% 50% at -20% 50%, var(--c)) right, radial-gradient(50% 70% at 50% -20%, var(--c)) bottom, radial-gradient(70% 50% at 120% 50%, var(--c)) left;\n   background-size: 100% 50.1%,50.1% 100%;\n   background-repeat: no-repeat;\n   -webkit-mask: radial-gradient(circle 5px,#0000 90%,currentColor);\n   animation: darma-loader-darma-custom-503-l9 1.5s infinite linear;\n}\n@keyframes darma-loader-darma-custom-503-l9  {\n  100%{transform: rotate(1turn)}\n}\n",
+    "react": "export default function DarmaCustom503Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-503\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
-    "secondaryColor": false
+    "background": true,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

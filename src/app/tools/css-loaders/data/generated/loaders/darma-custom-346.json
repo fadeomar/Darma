@@ -29,24 +29,24 @@
   },
   "searchText": "darma-custom-346 orbit coin 03 spinners orbit coin 03 wheel spinner duotone spinners loader css-only single-element batch-06 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-346\"></div>",
-  "previewCss": ".darma-loader-darma-custom-346 {color: var(--loader-color, #16a34a);\n  display: inline-grid;\n  width: 80px;\n  aspect-ratio: 1;\n}.darma-loader-darma-custom-346:before,.darma-loader-darma-custom-346:after {content:\"\";\n  grid-area: 1/1;\n  border-radius: 50%;\n  animation: darma-loader-darma-custom-346-l3-0 2s alternate infinite ease-in-out;\n}.darma-loader-darma-custom-346:before {margin: 25%;\n  background: repeating-conic-gradient(var(--loader-color, #16a34a) 0 60deg,var(--loader-secondary-color, #86efac) 0 120deg);\n  translate: 0 50%;\n  rotate: -150deg;\n}.darma-loader-darma-custom-346:after {padding: 10%;\n  margin: -10%;\n  background: repeating-conic-gradient(var(--loader-secondary-color, #86efac) 0 30deg,var(--loader-color, #16a34a) 0 60deg);\n  mask: conic-gradient(#0000 50%,currentColor 0) content-box exclude,linear-gradient(#0000 50%,currentColor 0);\n  rotate: -75deg;\n  animation-name: darma-loader-darma-custom-346-l3-1;\n}@keyframes darma-loader-darma-custom-346-l3-0 {to{rotate: 150deg}}@keyframes darma-loader-darma-custom-346-l3-1 {to{rotate: 75deg}}\n",
+  "previewCss": ".darma-loader-darma-custom-346 {color: var(--loader-color, #16a34a);\n  --loader-secondary-color: var(--loader-secondary-color, #86efac);\n  --loader-bg: var(--loader-bg, #ffffff);\n  display: inline-grid;\n  width: 80px;\n  aspect-ratio: 1;\n}.darma-loader-darma-custom-346:before,.darma-loader-darma-custom-346:after {content:\"\";\n  grid-area: 1/1;\n  border-radius: 50%;\n  animation: darma-loader-darma-custom-346-l3-0 2s alternate infinite ease-in-out;\n}.darma-loader-darma-custom-346:before {margin: 25%;\n  background: repeating-conic-gradient(var(--loader-color, #16a34a) 0 60deg,var(--loader-secondary-color, #86efac) 0 120deg);\n  translate: 0 50%;\n  rotate: -150deg;\n}.darma-loader-darma-custom-346:after {padding: 10%;\n  margin: -10%;\n  background: repeating-conic-gradient(var(--loader-secondary-color, #86efac) 0 30deg,var(--loader-color, #16a34a) 0 60deg);\n  mask: conic-gradient(#0000 50%,currentColor 0) content-box exclude,linear-gradient(#0000 50%,currentColor 0);\n  rotate: -75deg;\n  animation-name: darma-loader-darma-custom-346-l3-1;\n}@keyframes darma-loader-darma-custom-346-l3-0 {to{rotate: 150deg}}@keyframes darma-loader-darma-custom-346-l3-1 {to{rotate: 75deg}}\n",
   "defaults": {
     "color": "#16a34a",
     "secondaryColor": "#86efac",
     "size": 72,
-    "speed": 2,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-346\"></div>",
-    "css": ".darma-loader-darma-custom-346 {color: var(--loader-color, #16a34a);\n  display: inline-grid;\n  width: 80px;\n  aspect-ratio: 1;\n}.darma-loader-darma-custom-346:before,.darma-loader-darma-custom-346:after {content:\"\";\n  grid-area: 1/1;\n  border-radius: 50%;\n  animation: darma-loader-darma-custom-346-l3-0 2s alternate infinite ease-in-out;\n}.darma-loader-darma-custom-346:before {margin: 25%;\n  background: repeating-conic-gradient(var(--loader-color, #16a34a) 0 60deg,var(--loader-secondary-color, #86efac) 0 120deg);\n  translate: 0 50%;\n  rotate: -150deg;\n}.darma-loader-darma-custom-346:after {padding: 10%;\n  margin: -10%;\n  background: repeating-conic-gradient(var(--loader-secondary-color, #86efac) 0 30deg,var(--loader-color, #16a34a) 0 60deg);\n  mask: conic-gradient(#0000 50%,currentColor 0) content-box exclude,linear-gradient(#0000 50%,currentColor 0);\n  rotate: -75deg;\n  animation-name: darma-loader-darma-custom-346-l3-1;\n}@keyframes darma-loader-darma-custom-346-l3-0 {to{rotate: 150deg}}@keyframes darma-loader-darma-custom-346-l3-1 {to{rotate: 75deg}}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom346Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-346\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-346 {color: var(--loader-color, #16a34a);\n  --loader-secondary-color: var(--loader-secondary-color, #86efac);\n  --loader-bg: var(--loader-bg, #ffffff);\n  display: inline-grid;\n  width: 80px;\n  aspect-ratio: 1;\n}.darma-loader-darma-custom-346:before,.darma-loader-darma-custom-346:after {content:\"\";\n  grid-area: 1/1;\n  border-radius: 50%;\n  animation: darma-loader-darma-custom-346-l3-0 2s alternate infinite ease-in-out;\n}.darma-loader-darma-custom-346:before {margin: 25%;\n  background: repeating-conic-gradient(var(--loader-color, #16a34a) 0 60deg,var(--loader-secondary-color, #86efac) 0 120deg);\n  translate: 0 50%;\n  rotate: -150deg;\n}.darma-loader-darma-custom-346:after {padding: 10%;\n  margin: -10%;\n  background: repeating-conic-gradient(var(--loader-secondary-color, #86efac) 0 30deg,var(--loader-color, #16a34a) 0 60deg);\n  mask: conic-gradient(#0000 50%,currentColor 0) content-box exclude,linear-gradient(#0000 50%,currentColor 0);\n  rotate: -75deg;\n  animation-name: darma-loader-darma-custom-346-l3-1;\n}@keyframes darma-loader-darma-custom-346-l3-0 {to{rotate: 150deg}}@keyframes darma-loader-darma-custom-346-l3-1 {to{rotate: 75deg}}\n",
+    "react": "export default function DarmaCustom346Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-346\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
+    "background": true,
     "secondaryColor": true
   },
   "source": {

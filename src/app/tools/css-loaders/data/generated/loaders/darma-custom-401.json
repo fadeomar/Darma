@@ -28,7 +28,7 @@
   },
   "searchText": "darma-custom-401 pop icon 08 pulse pop icon 08 pulse shape motion loader css-only single-element batch-06 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-401\"></div>",
-  "previewCss": ".darma-loader-darma-custom-401 {color: var(--loader-color, #ca8a04);\n  display: inline-grid;\n  font-size: 50px;\n}.darma-loader-darma-custom-401:before,.darma-loader-darma-custom-401:after {content: \"💯\";\n  grid-area: 1/1;\n}.darma-loader-darma-custom-401:before {animation: darma-loader-darma-custom-401-l10 1s infinite;\n}@keyframes darma-loader-darma-custom-401-l10 {to {transform: scale(1.8);\n  opacity:0}}\n",
+  "previewCss": ".darma-loader-darma-custom-401 {color: var(--loader-color, #ca8a04);\n  --loader-secondary-color: var(--loader-secondary-color, #fde047);\n  --loader-bg: var(--loader-bg, #ffffff);\n  display: inline-grid;\n  font-size: 50px;\n}.darma-loader-darma-custom-401:before,.darma-loader-darma-custom-401:after {content: \"💯\";\n  grid-area: 1/1;\n}.darma-loader-darma-custom-401:before {animation: darma-loader-darma-custom-401-l10 1s infinite;\n}@keyframes darma-loader-darma-custom-401-l10 {to {transform: scale(1.8);\n  opacity:0}}\n",
   "defaults": {
     "color": "#ca8a04",
     "secondaryColor": "#fde047",
@@ -38,15 +38,15 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-401\"></div>",
-    "css": ".darma-loader-darma-custom-401 {color: var(--loader-color, #ca8a04);\n  display: inline-grid;\n  font-size: 50px;\n}.darma-loader-darma-custom-401:before,.darma-loader-darma-custom-401:after {content: \"💯\";\n  grid-area: 1/1;\n}.darma-loader-darma-custom-401:before {animation: darma-loader-darma-custom-401-l10 1s infinite;\n}@keyframes darma-loader-darma-custom-401-l10 {to {transform: scale(1.8);\n  opacity:0}}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom401Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-401\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-401 {color: var(--loader-color, #ca8a04);\n  --loader-secondary-color: var(--loader-secondary-color, #fde047);\n  --loader-bg: var(--loader-bg, #ffffff);\n  display: inline-grid;\n  font-size: 50px;\n}.darma-loader-darma-custom-401:before,.darma-loader-darma-custom-401:after {content: \"💯\";\n  grid-area: 1/1;\n}.darma-loader-darma-custom-401:before {animation: darma-loader-darma-custom-401-l10 1s infinite;\n}@keyframes darma-loader-darma-custom-401-l10 {to {transform: scale(1.8);\n  opacity:0}}\n",
+    "react": "export default function DarmaCustom401Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-401\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
-    "secondaryColor": false
+    "background": true,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

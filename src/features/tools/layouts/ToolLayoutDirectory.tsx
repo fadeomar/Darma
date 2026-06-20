@@ -181,6 +181,15 @@ function WorkflowCard({ workflow }: { workflow: (typeof toolWorkflows)[number] }
         </div>
         <h3 className="text-lg font-black leading-tight tracking-[-0.02em] text-[var(--color-text-primary)]">{workflow.title}</h3>
         <p className="mt-3 line-clamp-3 text-sm leading-6 text-[var(--color-text-secondary)]">{workflow.description}</p>
+        {workflow.steps?.length ? (
+          <ol className="mt-4 grid gap-1.5 text-xs leading-5 text-[var(--color-text-tertiary)]">
+            {workflow.steps.slice(0, 3).map((step, index) => (
+              <li key={step}>
+                <span className="font-bold text-[var(--color-text-secondary)]">{index + 1}.</span> {step}
+              </li>
+            ))}
+          </ol>
+        ) : null}
         <div className="mt-auto pt-5">
           <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{workflow.toolIds.length} linked tools -&gt;</span>
         </div>
@@ -384,8 +393,8 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
             <Badge variant="soft">Workflows</Badge>
             <h2 className="mt-2 text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Popular workflows</h2>
           </div>
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {toolWorkflows.slice(0, 3).map((workflow) => <WorkflowCard key={workflow.id} workflow={workflow} />)}
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {toolWorkflows.slice(0, 4).map((workflow) => <WorkflowCard key={workflow.id} workflow={workflow} />)}
           </div>
         </section>
       ) : null}

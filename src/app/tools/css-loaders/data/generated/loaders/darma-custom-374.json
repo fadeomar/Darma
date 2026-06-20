@@ -27,7 +27,7 @@
   },
   "searchText": "darma-custom-374 pulse outline 01 pulse pulse outline 01 shape steps loader css-only single-element batch-06 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-374\"></div>",
-  "previewCss": ".darma-loader-darma-custom-374 {color: var(--loader-color, #db2777);\n  width: 64px;\n  aspect-ratio: 1;\n  display: grid;\n}.darma-loader-darma-custom-374:before {content: \"\";\n  border: 8px solid var(--loader-color, #db2777);\n  box-sizing: content-box;\n  margin: auto;\n  aspect-ratio: 1;\n  animation: darma-loader-darma-custom-374-l1 infinite 1s steps(4,jump-none);\n}@keyframes darma-loader-darma-custom-374-l1 {0% {width: 0% }to {width: 75%}}\n",
+  "previewCss": ".darma-loader-darma-custom-374 {color: var(--loader-color, #db2777);\n  --loader-secondary-color: var(--loader-secondary-color, #f9a8d4);\n  --loader-bg: var(--loader-bg, #ffffff);\n  width: 64px;\n  aspect-ratio: 1;\n  display: grid;\n}.darma-loader-darma-custom-374:before {content: \"\";\n  border: 8px solid var(--loader-color, #db2777);\n  box-sizing: content-box;\n  margin: auto;\n  aspect-ratio: 1;\n  animation: darma-loader-darma-custom-374-l1 infinite 1s steps(4,jump-none);\n}@keyframes darma-loader-darma-custom-374-l1 {0% {width: 0% }to {width: 75%}}\n",
   "defaults": {
     "color": "#db2777",
     "secondaryColor": "#f9a8d4",
@@ -37,15 +37,15 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-374\"></div>",
-    "css": ".darma-loader-darma-custom-374 {color: var(--loader-color, #db2777);\n  width: 64px;\n  aspect-ratio: 1;\n  display: grid;\n}.darma-loader-darma-custom-374:before {content: \"\";\n  border: 8px solid var(--loader-color, #db2777);\n  box-sizing: content-box;\n  margin: auto;\n  aspect-ratio: 1;\n  animation: darma-loader-darma-custom-374-l1 infinite 1s steps(4,jump-none);\n}@keyframes darma-loader-darma-custom-374-l1 {0% {width: 0% }to {width: 75%}}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom374Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-374\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-374 {color: var(--loader-color, #db2777);\n  --loader-secondary-color: var(--loader-secondary-color, #f9a8d4);\n  --loader-bg: var(--loader-bg, #ffffff);\n  width: 64px;\n  aspect-ratio: 1;\n  display: grid;\n}.darma-loader-darma-custom-374:before {content: \"\";\n  border: 8px solid var(--loader-color, #db2777);\n  box-sizing: content-box;\n  margin: auto;\n  aspect-ratio: 1;\n  animation: darma-loader-darma-custom-374-l1 infinite 1s steps(4,jump-none);\n}@keyframes darma-loader-darma-custom-374-l1 {0% {width: 0% }to {width: 75%}}\n",
+    "react": "export default function DarmaCustom374Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-374\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
-    "secondaryColor": false
+    "background": true,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

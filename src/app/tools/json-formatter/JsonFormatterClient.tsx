@@ -28,6 +28,7 @@ import JsonTableView from "./JsonTableView";
 import JsonTreeView from "./JsonTreeView";
 import {
   analyzeJSON,
+  escapeJSONString,
   formatJSON,
   jsonToTableData,
   minifyJSON,
@@ -35,14 +36,16 @@ import {
   repairLooseJSON,
   SAMPLE_JSON,
   TABLE_SAMPLE_JSON,
+  unescapeJSONString,
   validateJSON,
   type IndentOption,
   type JsonValue,
   type ValidationResult,
 } from "./utils";
 
-type JsonAction = "format" | "minify" | "validate" | "fix" | "sort";
+type JsonAction = "format" | "minify" | "validate" | "fix" | "sort" | "escape" | "unescape";
 type JsonView = "text" | "tree" | "table" | "stats";
+type TreeExpansion = "auto" | "expanded" | "collapsed";
 
 type HistoryItem = {
   id: string;
@@ -187,6 +190,7 @@ export default function JsonFormatterClient() {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [historyEnabled, setHistoryEnabled] = useState(false);
   const [historyItems, setHistoryItems] = useState<HistoryItem[]>([]);
+  const [treeExpansion, setTreeExpansion] = useState<TreeExpansion>("auto");
 
   useEffect(() => {
     if (!input.trim()) {
@@ -281,7 +285,39 @@ export default function JsonFormatterClient() {
     });
   }
 
+  function handleStringResult(action: "escape" | "unescape") {
+    const result = action === "escape" ? escapeJSONString(input) : unescapeJSONString(input);
+    setValidation(result.validation);
+
+    if (!result.ok || result.output === undefined) {
+      setOutput("");
+      setNotice({
+        tone: "danger",
+        title: action === "escape" ? "Could not escape string" : "Could not unescape string",
+        message: validationMessage(result.validation) || "Check the input and try again.",
+      });
+      setActiveView("text");
+      return;
+    }
+
+    setOutput(result.output);
+    saveToHistory(result.output);
+    setActiveView("text");
+    setNotice({
+      tone: "success",
+      title: action === "escape" ? "String escaped" : "String unescaped",
+      message: action === "escape"
+        ? "The input was converted into a JSON-safe string literal."
+        : "The JSON string literal was converted back to plain text.",
+    });
+  }
+
   function runAction(action: JsonAction) {
+    if (action === "escape" || action === "unescape") {
+      handleStringResult(action);
+      return;
+    }
+
     if (action === "validate") {
       const result = validateJSON(input);
       setValidation(result);
@@ -450,6 +486,12 @@ export default function JsonFormatterClient() {
               <Button size="sm" variant="outline" onClick={() => runAction("sort")} leftIcon={<Database className="h-4 w-4" />}>
                 Sort keys
               </Button>
+              <Button size="sm" variant="ghost" onClick={() => runAction("escape")}>
+                Escape string
+              </Button>
+              <Button size="sm" variant="ghost" onClick={() => runAction("unescape")}>
+                Unescape string
+              </Button>
             </div>
 
             <div className="flex flex-wrap items-center gap-2">
@@ -532,7 +574,16 @@ export default function JsonFormatterClient() {
                 </div>
                 <p className="text-xs text-[var(--color-text-tertiary)]">Switch between text, tree, table, and stats views.</p>
               </div>
-              <OutputViewTabs value={activeView} onChange={setActiveView} />
+              <div className="flex flex-wrap items-center gap-2">
+                <OutputViewTabs value={activeView} onChange={setActiveView} />
+                {activeView === "tree" ? (
+                  <div className="flex flex-wrap items-center gap-1">
+                    <Button size="sm" variant="ghost" onClick={() => setTreeExpansion("expanded")}>Expand all</Button>
+                    <Button size="sm" variant="ghost" onClick={() => setTreeExpansion("collapsed")}>Collapse all</Button>
+                    <Button size="sm" variant="ghost" onClick={() => setTreeExpansion("auto")}>Auto</Button>
+                  </div>
+                ) : null}
+              </div>
             </div>
 
             {activeView === "text" ? (
@@ -544,7 +595,7 @@ export default function JsonFormatterClient() {
                 height={isFullscreen ? "68vh" : "520px"}
               />
             ) : null}
-            {activeView === "tree" ? <JsonTreeView value={parsedTarget as JsonValue | undefined} /> : null}
+            {activeView === "tree" ? <JsonTreeView value={parsedTarget as JsonValue | undefined} expansion={treeExpansion} /> : null}
             {activeView === "table" ? <JsonTableView table={tableData} /> : null}
             {activeView === "stats" ? <JsonStatsPanel stats={stats} /> : null}
 

@@ -29,7 +29,7 @@
   },
   "searchText": "darma-custom-524 tile path 10 bars tile path 10 bars blocks minimal grid loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-524\"></div>",
-  "previewCss": ".darma-loader-darma-custom-524 {color: var(--loader-color, #dc2626);\n   height: 40px;\n   aspect-ratio: 1.5;\n   display: grid;\n}\n.darma-loader-darma-custom-524:before, .darma-loader-darma-custom-524:after  {\n  content: \"\";\n   background: currentColor;\n   border-radius: 80px 80px 0 0;\n   animation: darma-loader-darma-custom-524-l10 1s infinite alternate both;\n}\n.darma-loader-darma-custom-524:after  {\n  transform: scale(-1);\n   animation-delay: 0.2s;\n}\n@keyframes darma-loader-darma-custom-524-l10  {\n  0%, 10% {margin-inline:0 33%}\n50% {margin-inline:0 0}\n90%, 100%{margin-inline:33% 0}\n}\n",
+  "previewCss": ".darma-loader-darma-custom-524 {color: var(--loader-color, #dc2626);\n  --loader-secondary-color: var(--loader-secondary-color, #f97316);\n  --loader-bg: var(--loader-bg, #ffffff);\n   height: 40px;\n   aspect-ratio: 1.5;\n   display: grid;\n}\n.darma-loader-darma-custom-524:before, .darma-loader-darma-custom-524:after  {\n  content: \"\";\n   background: currentColor;\n   border-radius: 80px 80px 0 0;\n   animation: darma-loader-darma-custom-524-l10 1s infinite alternate both;\n}\n.darma-loader-darma-custom-524:after  {\n  transform: scale(-1);\n   animation-delay: 0.2s;\n}\n@keyframes darma-loader-darma-custom-524-l10  {\n  0%, 10% {margin-inline:0 33%}\n50% {margin-inline:0 0}\n90%, 100%{margin-inline:33% 0}\n}\n",
   "defaults": {
     "color": "#dc2626",
     "secondaryColor": "#f97316",
@@ -39,15 +39,15 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-524\"></div>",
-    "css": ".darma-loader-darma-custom-524 {color: var(--loader-color, #dc2626);\n   height: 40px;\n   aspect-ratio: 1.5;\n   display: grid;\n}\n.darma-loader-darma-custom-524:before, .darma-loader-darma-custom-524:after  {\n  content: \"\";\n   background: currentColor;\n   border-radius: 80px 80px 0 0;\n   animation: darma-loader-darma-custom-524-l10 1s infinite alternate both;\n}\n.darma-loader-darma-custom-524:after  {\n  transform: scale(-1);\n   animation-delay: 0.2s;\n}\n@keyframes darma-loader-darma-custom-524-l10  {\n  0%, 10% {margin-inline:0 33%}\n50% {margin-inline:0 0}\n90%, 100%{margin-inline:33% 0}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom524Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-524\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-524 {color: var(--loader-color, #dc2626);\n  --loader-secondary-color: var(--loader-secondary-color, #f97316);\n  --loader-bg: var(--loader-bg, #ffffff);\n   height: 40px;\n   aspect-ratio: 1.5;\n   display: grid;\n}\n.darma-loader-darma-custom-524:before, .darma-loader-darma-custom-524:after  {\n  content: \"\";\n   background: currentColor;\n   border-radius: 80px 80px 0 0;\n   animation: darma-loader-darma-custom-524-l10 1s infinite alternate both;\n}\n.darma-loader-darma-custom-524:after  {\n  transform: scale(-1);\n   animation-delay: 0.2s;\n}\n@keyframes darma-loader-darma-custom-524-l10  {\n  0%, 10% {margin-inline:0 33%}\n50% {margin-inline:0 0}\n90%, 100%{margin-inline:33% 0}\n}\n",
+    "react": "export default function DarmaCustom524Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-524\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
-    "secondaryColor": false
+    "background": true,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

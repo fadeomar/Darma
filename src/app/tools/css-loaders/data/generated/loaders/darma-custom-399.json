@@ -28,7 +28,7 @@
   },
   "searchText": "darma-custom-399 pop icon 06 pulse pop icon 06 pulse shape motion loader css-only single-element batch-06 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-399\"></div>",
-  "previewCss": ".darma-loader-darma-custom-399 {color: var(--loader-color, #0f766e);\n  width: 52px;\n  height: 92px;\n  position: relative;\n}.darma-loader-darma-custom-399:before,.darma-loader-darma-custom-399:after {content: \"\";\n  position: absolute;\n  inset: 0;\n  background: var(--loader-color, #0f766e);\n  box-shadow: 0 0 0 50px;\n  clip-path: polygon(100% 0, 23% 46%, 46% 44%, 15% 69%, 38% 67%, 0 100%, 76% 57%, 53% 58%, 88% 33%, 60% 37%);\n  ;\n}.darma-loader-darma-custom-399:before {animation: darma-loader-darma-custom-399-l8 1s infinite;\n  transform: perspective(300px) translateZ(0px)}@keyframes darma-loader-darma-custom-399-l8 {to {transform: perspective(300px) translateZ(180px);\n  opacity:0}}\n",
+  "previewCss": ".darma-loader-darma-custom-399 {color: var(--loader-color, #0f766e);\n  --loader-secondary-color: var(--loader-secondary-color, #5eead4);\n  --loader-bg: var(--loader-bg, #ffffff);\n  width: 52px;\n  height: 92px;\n  position: relative;\n}.darma-loader-darma-custom-399:before,.darma-loader-darma-custom-399:after {content: \"\";\n  position: absolute;\n  inset: 0;\n  background: var(--loader-color, #0f766e);\n  box-shadow: 0 0 0 50px;\n  clip-path: polygon(100% 0, 23% 46%, 46% 44%, 15% 69%, 38% 67%, 0 100%, 76% 57%, 53% 58%, 88% 33%, 60% 37%);\n  ;\n}.darma-loader-darma-custom-399:before {animation: darma-loader-darma-custom-399-l8 1s infinite;\n  transform: perspective(300px) translateZ(0px)}@keyframes darma-loader-darma-custom-399-l8 {to {transform: perspective(300px) translateZ(180px);\n  opacity:0}}\n",
   "defaults": {
     "color": "#0f766e",
     "secondaryColor": "#5eead4",
@@ -38,15 +38,15 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-399\"></div>",
-    "css": ".darma-loader-darma-custom-399 {color: var(--loader-color, #0f766e);\n  width: 52px;\n  height: 92px;\n  position: relative;\n}.darma-loader-darma-custom-399:before,.darma-loader-darma-custom-399:after {content: \"\";\n  position: absolute;\n  inset: 0;\n  background: var(--loader-color, #0f766e);\n  box-shadow: 0 0 0 50px;\n  clip-path: polygon(100% 0, 23% 46%, 46% 44%, 15% 69%, 38% 67%, 0 100%, 76% 57%, 53% 58%, 88% 33%, 60% 37%);\n  ;\n}.darma-loader-darma-custom-399:before {animation: darma-loader-darma-custom-399-l8 1s infinite;\n  transform: perspective(300px) translateZ(0px)}@keyframes darma-loader-darma-custom-399-l8 {to {transform: perspective(300px) translateZ(180px);\n  opacity:0}}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom399Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-399\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-399 {color: var(--loader-color, #0f766e);\n  --loader-secondary-color: var(--loader-secondary-color, #5eead4);\n  --loader-bg: var(--loader-bg, #ffffff);\n  width: 52px;\n  height: 92px;\n  position: relative;\n}.darma-loader-darma-custom-399:before,.darma-loader-darma-custom-399:after {content: \"\";\n  position: absolute;\n  inset: 0;\n  background: var(--loader-color, #0f766e);\n  box-shadow: 0 0 0 50px;\n  clip-path: polygon(100% 0, 23% 46%, 46% 44%, 15% 69%, 38% 67%, 0 100%, 76% 57%, 53% 58%, 88% 33%, 60% 37%);\n  ;\n}.darma-loader-darma-custom-399:before {animation: darma-loader-darma-custom-399-l8 1s infinite;\n  transform: perspective(300px) translateZ(0px)}@keyframes darma-loader-darma-custom-399-l8 {to {transform: perspective(300px) translateZ(180px);\n  opacity:0}}\n",
+    "react": "export default function DarmaCustom399Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-399\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
-    "secondaryColor": false
+    "background": true,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

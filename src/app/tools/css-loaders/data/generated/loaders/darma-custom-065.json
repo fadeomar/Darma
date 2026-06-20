@@ -37,7 +37,7 @@
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-065\"></div>",
     "css": ".darma-loader-darma-custom-065 {\n  --s: 25px;\n  --g :5px;  \n  \n  width: calc(2*(1.353*var(--s) + var(--g)));\n  aspect-ratio: 1;\n  background:\n    linear-gradient(var(--loader-color, #ff1818) 0 0) left/50% 100% no-repeat,\n    conic-gradient(from -90deg at var(--s) calc(0.353*var(--s)),\n      #fff 135deg,var(--loader-secondary-color, #666) 0 270deg,#aaa 0); \n  background-blend-mode: multiply;\n  --_m:\n    linear-gradient(to bottom right,\n       #0000 calc(0.25*var(--s)),#000 0 calc(100% - calc(0.25*var(--s)) - 1.414*var(--g)),#0000 0),\n    conic-gradient(from -90deg at right var(--g) bottom var(--g),#000 90deg,#0000 0);\n  -webkit-mask: var(--_m);\n          mask: var(--_m);\n  background-size:   50% 50%;\n  -webkit-mask-size: 50% 50%;\n          mask-size: 50% 50%;\n  -webkit-mask-composite: source-in;\n          mask-composite: intersect;\n  animation: darma-loader-darma-custom-065-l9 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-065-l9 {\n  0%,12.5%    {background-position:0% 0%,0 0}\n  12.6%,37.5% {background-position:100% 0%,0 0}\n  37.6%,62.5% {background-position:100% 100%,0 0}\n  62.6%,87.5% {background-position:0% 100%,0 0}\n  87.6%,100%  {background-position:0% 0%,0 0}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom065Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-065\"></div>\n  );\n}\n"
+    "react": "export default function DarmaCustom065Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-065\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,

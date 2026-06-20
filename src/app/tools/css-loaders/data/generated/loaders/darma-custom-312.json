@@ -32,13 +32,13 @@
     "color": "#9333ea",
     "secondaryColor": "#f0abfc",
     "size": 64,
-    "speed": 0.5,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-312\"></div>",
     "css": ".darma-loader-darma-custom-312 {\n  color: var(--loader-color, #9333ea);\n  height: 54px;\n  aspect-ratio: 1;\n  border: 3px solid var(--loader-secondary-color, #f0abfc);\n  border-top: none;\n  position: relative;\n}\n.darma-loader-darma-custom-312:before {\n  content: \"\";\n  position: absolute;\n  width: 30%;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: var(--loader-color, #9333ea);\n  animation: \n    darma-loader-darma-custom-312-l5-0 .5s cubic-bezier(0,800,1,800) infinite -.25s,\n    darma-loader-darma-custom-312-l5-1 .5s linear infinite alternate;\n}\n@keyframes darma-loader-darma-custom-312-l5-0 {\n  0%,2% {bottom: 0%}\n  98%,to {bottom:.1%}\n}\n@keyframes darma-loader-darma-custom-312-l5-1 {\n  0%,8%  {left: 0%}\n  92%,to {left: 70%}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom312Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-312\"></div>\n  );\n}\n"
+    "react": "export default function DarmaCustom312Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-312\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,

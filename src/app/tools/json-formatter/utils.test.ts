@@ -1,8 +1,10 @@
 import { describe, expect, it } from "vitest";
 import {
+  escapeJSONString,
   formatJSON,
   getTopLevelCount,
   minifyJSON,
+  unescapeJSONString,
   validateJSON,
 } from "./utils";
 
@@ -127,6 +129,28 @@ describe("minifyJSON", () => {
 });
 
 // ─── getTopLevelCount ─────────────────────────────────────────────────────────
+
+describe("escapeJSONString", () => {
+  it("escapes plain text as a JSON string literal", () => {
+    const result = escapeJSONString('Line 1\n"quoted"');
+    expect(result.ok).toBe(true);
+    expect(result.output).toBe('"Line 1\\n\\"quoted\\""');
+  });
+});
+
+describe("unescapeJSONString", () => {
+  it("unescapes a JSON string literal into plain text", () => {
+    const result = unescapeJSONString('"Line 1\\n\\"quoted\\""');
+    expect(result.ok).toBe(true);
+    expect(result.output).toBe('Line 1\n"quoted"');
+  });
+
+  it("returns ok:false for non-string JSON values", () => {
+    const result = unescapeJSONString('{"a":1}');
+    expect(result.ok).toBe(false);
+    expect(result.validation.ok).toBe(false);
+  });
+});
 
 describe("getTopLevelCount", () => {
   it("counts keys in a top-level object", () => {

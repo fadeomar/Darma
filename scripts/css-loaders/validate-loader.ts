@@ -171,6 +171,22 @@ function validateLoaderSafety(definition: LoaderSourceDefinition, filename: stri
   }
 }
 
+function validateDuplicateOverride(definition: Record<string, unknown>, filename: string) {
+  if (definition.allowDuplicateVisual === undefined && definition.duplicateReason === undefined) return;
+
+  if (definition.allowDuplicateVisual !== undefined && typeof definition.allowDuplicateVisual !== "boolean") {
+    fail(`${filename}: allowDuplicateVisual must be boolean.`);
+  }
+
+  if (definition.duplicateReason !== undefined && typeof definition.duplicateReason !== "string") {
+    fail(`${filename}: duplicateReason must be a string.`);
+  }
+
+  if (definition.allowDuplicateVisual === true && !(definition.duplicateReason as string | undefined)?.trim()) {
+    fail(`${filename}: duplicateReason must be a non-empty string when allowDuplicateVisual is true.`);
+  }
+}
+
 export function validateLoaderSource(definition: unknown, filename: string): LoaderSourceDefinition {
   assertObject(definition, filename);
 
@@ -197,6 +213,7 @@ export function validateLoaderSource(definition: unknown, filename: string): Loa
   validateDefaults(definition.defaults, filename);
   validateBooleanObject(definition.flags, FLAG_KEYS, "flags", filename);
   validateSourceMeta(definition.source, filename);
+  validateDuplicateOverride(definition, filename);
 
   const uniqueTags = new Set((definition.tags as string[]).map((tag) => tag.trim().toLowerCase()));
   if (uniqueTags.size !== (definition.tags as string[]).length) {

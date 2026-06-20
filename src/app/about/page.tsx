@@ -8,6 +8,7 @@ import {
   AUDIENCE_GROUPS,
   AUDIENCE_LABELS,
   countByPrivacy,
+  HELP_AREAS,
   pickDaily,
   PRINCIPLES,
   PRIVACY_META,
@@ -99,6 +100,27 @@ export default function AboutPage() {
               ))}
             </dl>
           </Card>
+        </div>
+      </section>
+
+      {/* What Darma helps you do */}
+      <section className={sectionClass}>
+        <div className="mb-6 max-w-3xl">
+          <p className={eyebrowClass}>What Darma helps you do</p>
+          <h2 className="mt-2 text-3xl font-black tracking-[-0.035em] text-[var(--color-text-primary)]">
+            Finish everyday digital tasks without opening five apps.
+          </h2>
+          <p className="mt-3 text-base leading-7 text-[var(--color-text-secondary)]">
+            Darma combines simple tools and guided workflows for writing, studying, creating, designing, and debugging.
+          </p>
+        </div>
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {HELP_AREAS.map((area) => (
+            <Card key={area.title} padding="lg" className="h-full">
+              <h3 className="text-lg font-bold text-[var(--color-text-primary)]">{area.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">{area.text}</p>
+            </Card>
+          ))}
         </div>
       </section>
 

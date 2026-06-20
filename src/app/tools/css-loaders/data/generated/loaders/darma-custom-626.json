@@ -30,25 +30,25 @@
   },
   "searchText": "darma-custom-626 dot matrix 13 spinners dot matrix 13 dots spinner grid border spinners loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-626\"></div>",
-  "previewCss": ".darma-loader-darma-custom-626 {color: var(--loader-color, #0f766e);\n   width: 40px;\n   aspect-ratio: 1;\n   outline: 2px solid currentColor;\n   background: radial-gradient(farthest-side,currentColor 90%,#0000) 0 0/8px 8px no-repeat, conic-gradient(from 90deg at 10px 10px,#0000 90deg,currentColor 0), conic-gradient(from -90deg at 30px 30px,#0000 90deg,currentColor 0);\n   animation: darma-loader-darma-custom-626-l3 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-626-l3  {\n  0% {background-position:0 0 ;\n  clip-path:circle(15px at left 4px top 4px)}\n25% {background-position:100% 0 ;\n  clip-path:circle(15px at right 4px top 4px)}\n50% {background-position:100% 100%;\n  clip-path:circle(15px at right 4px bottom 4px)}\n75% {background-position:0 100%;\n  clip-path:circle(15px at left 4px bottom 4px)}\n100% {background-position:0 0 ;\n  clip-path:circle(15px at left 4px top 4px)}\n}\n",
+  "previewCss": ".darma-loader-darma-custom-626 {color: var(--loader-color, #0f766e);\n  --loader-secondary-color: var(--loader-secondary-color, #5eead4);\n  --loader-bg: var(--loader-bg, #ffffff);\n   width: 40px;\n   aspect-ratio: 1;\n   outline: 2px solid currentColor;\n   background: radial-gradient(farthest-side,currentColor 90%,#0000) 0 0/8px 8px no-repeat, conic-gradient(from 90deg at 10px 10px,#0000 90deg,currentColor 0), conic-gradient(from -90deg at 30px 30px,#0000 90deg,currentColor 0);\n   animation: darma-loader-darma-custom-626-l3 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-626-l3  {\n  0% {background-position:0 0 ;\n  clip-path:circle(15px at left 4px top 4px)}\n25% {background-position:100% 0 ;\n  clip-path:circle(15px at right 4px top 4px)}\n50% {background-position:100% 100%;\n  clip-path:circle(15px at right 4px bottom 4px)}\n75% {background-position:0 100%;\n  clip-path:circle(15px at left 4px bottom 4px)}\n100% {background-position:0 0 ;\n  clip-path:circle(15px at left 4px top 4px)}\n}\n",
   "defaults": {
     "color": "#0f766e",
     "secondaryColor": "#5eead4",
     "size": 72,
-    "speed": 1.5,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-626\"></div>",
-    "css": ".darma-loader-darma-custom-626 {color: var(--loader-color, #0f766e);\n   width: 40px;\n   aspect-ratio: 1;\n   outline: 2px solid currentColor;\n   background: radial-gradient(farthest-side,currentColor 90%,#0000) 0 0/8px 8px no-repeat, conic-gradient(from 90deg at 10px 10px,#0000 90deg,currentColor 0), conic-gradient(from -90deg at 30px 30px,#0000 90deg,currentColor 0);\n   animation: darma-loader-darma-custom-626-l3 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-626-l3  {\n  0% {background-position:0 0 ;\n  clip-path:circle(15px at left 4px top 4px)}\n25% {background-position:100% 0 ;\n  clip-path:circle(15px at right 4px top 4px)}\n50% {background-position:100% 100%;\n  clip-path:circle(15px at right 4px bottom 4px)}\n75% {background-position:0 100%;\n  clip-path:circle(15px at left 4px bottom 4px)}\n100% {background-position:0 0 ;\n  clip-path:circle(15px at left 4px top 4px)}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom626Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-626\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-626 {color: var(--loader-color, #0f766e);\n  --loader-secondary-color: var(--loader-secondary-color, #5eead4);\n  --loader-bg: var(--loader-bg, #ffffff);\n   width: 40px;\n   aspect-ratio: 1;\n   outline: 2px solid currentColor;\n   background: radial-gradient(farthest-side,currentColor 90%,#0000) 0 0/8px 8px no-repeat, conic-gradient(from 90deg at 10px 10px,#0000 90deg,currentColor 0), conic-gradient(from -90deg at 30px 30px,#0000 90deg,currentColor 0);\n   animation: darma-loader-darma-custom-626-l3 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-626-l3  {\n  0% {background-position:0 0 ;\n  clip-path:circle(15px at left 4px top 4px)}\n25% {background-position:100% 0 ;\n  clip-path:circle(15px at right 4px top 4px)}\n50% {background-position:100% 100%;\n  clip-path:circle(15px at right 4px bottom 4px)}\n75% {background-position:0 100%;\n  clip-path:circle(15px at left 4px bottom 4px)}\n100% {background-position:0 0 ;\n  clip-path:circle(15px at left 4px top 4px)}\n}\n",
+    "react": "export default function DarmaCustom626Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-626\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
-    "secondaryColor": false
+    "background": true,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

@@ -37,7 +37,7 @@
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-089\"></div>",
     "css": ".darma-loader-darma-custom-089 {\n  width: 40px;\n  height: 20px;\n  background: var(--loader-color, #ffa500);\n  position: relative;\n  animation: darma-loader-darma-custom-089-l9-0 1.5s infinite linear;\n}\n.darma-loader-darma-custom-089:before,\n.darma-loader-darma-custom-089:after {\n   content:\"\";\n   position: absolute;\n   background: inherit; \n   bottom: 100%;\n   width: 50%;\n   height: 100%;\n   animation: inherit;\n   animation-name: darma-loader-darma-custom-089-l9-1;\n}\n.darma-loader-darma-custom-089:before {\n  left: 0;\n  transform-origin: bottom left;\n  --s:-1;\n}\n.darma-loader-darma-custom-089:after {\n  right: 0;\n  transform-origin: bottom right;\n}\n@keyframes darma-loader-darma-custom-089-l9-0 {\n   0%,10%   {transform:translateY(0%)    scaleY(1)}\n   49.99%   {transform:translateY(-50%)  scaleY(1)}\n   50%      {transform:translateY(-50%)  scaleY(-1)}\n   90%,100% {transform:translateY(-100%) scaleY(-1)}\n}\n@keyframes darma-loader-darma-custom-089-l9-1 {\n   10%,90% {transform: rotate(0deg)}\n   50%     {transform: rotate(calc(var(--s,1)*180deg))}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom089Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-089\"></div>\n  );\n}\n"
+    "react": "export default function DarmaCustom089Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-089\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,

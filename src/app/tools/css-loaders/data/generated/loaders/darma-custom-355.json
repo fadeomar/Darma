@@ -28,25 +28,25 @@
   },
   "searchText": "darma-custom-355 flip tile 02 creative flip tile 02 3d fold creative loader css-only single-element batch-06 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-355\"></div>",
-  "previewCss": ".darma-loader-darma-custom-355 {color: var(--loader-color, #0284c7);\n  width: 40px;\n  aspect-ratio: 1;\n  animation:darma-loader-darma-custom-355-l2-1 2s infinite linear,darma-loader-darma-custom-355-l2-2 1s infinite steps(1) alternate;\n}@keyframes darma-loader-darma-custom-355-l2-1 {0% {transform: perspective(150px) rotateX( 0deg)}100% {transform: perspective(150px) rotateX(360deg)}}@keyframes darma-loader-darma-custom-355-l2-2 {0% {background:var(--loader-color, #0284c7)}50% {background:var(--loader-color, #0284c7)}}\n",
+  "previewCss": ".darma-loader-darma-custom-355 {color: var(--loader-color, #0284c7);\n  --loader-secondary-color: var(--loader-secondary-color, #7dd3fc);\n  --loader-bg: var(--loader-bg, #ffffff);\n  width: 40px;\n  aspect-ratio: 1;\n  animation:darma-loader-darma-custom-355-l2-1 2s infinite linear,darma-loader-darma-custom-355-l2-2 1s infinite steps(1) alternate;\n}@keyframes darma-loader-darma-custom-355-l2-1 {0% {transform: perspective(150px) rotateX( 0deg)}100% {transform: perspective(150px) rotateX(360deg)}}@keyframes darma-loader-darma-custom-355-l2-2 {0% {background:var(--loader-color, #0284c7)}50% {background:var(--loader-color, #0284c7)}}\n",
   "defaults": {
     "color": "#0284c7",
     "secondaryColor": "#7dd3fc",
     "size": 72,
-    "speed": 2,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-355\"></div>",
-    "css": ".darma-loader-darma-custom-355 {color: var(--loader-color, #0284c7);\n  width: 40px;\n  aspect-ratio: 1;\n  animation:darma-loader-darma-custom-355-l2-1 2s infinite linear,darma-loader-darma-custom-355-l2-2 1s infinite steps(1) alternate;\n}@keyframes darma-loader-darma-custom-355-l2-1 {0% {transform: perspective(150px) rotateX( 0deg)}100% {transform: perspective(150px) rotateX(360deg)}}@keyframes darma-loader-darma-custom-355-l2-2 {0% {background:var(--loader-color, #0284c7)}50% {background:var(--loader-color, #0284c7)}}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom355Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-355\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-355 {color: var(--loader-color, #0284c7);\n  --loader-secondary-color: var(--loader-secondary-color, #7dd3fc);\n  --loader-bg: var(--loader-bg, #ffffff);\n  width: 40px;\n  aspect-ratio: 1;\n  animation:darma-loader-darma-custom-355-l2-1 2s infinite linear,darma-loader-darma-custom-355-l2-2 1s infinite steps(1) alternate;\n}@keyframes darma-loader-darma-custom-355-l2-1 {0% {transform: perspective(150px) rotateX( 0deg)}100% {transform: perspective(150px) rotateX(360deg)}}@keyframes darma-loader-darma-custom-355-l2-2 {0% {background:var(--loader-color, #0284c7)}50% {background:var(--loader-color, #0284c7)}}\n",
+    "react": "export default function DarmaCustom355Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-355\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
-    "secondaryColor": false
+    "background": true,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

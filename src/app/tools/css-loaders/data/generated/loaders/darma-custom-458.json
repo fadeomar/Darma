@@ -28,25 +28,25 @@
   },
   "searchText": "darma-custom-458 shape morph 08 creative shape morph 08 outline geometric creative loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-458\"></div>",
-  "previewCss": ".darma-loader-darma-custom-458 {color: var(--loader-color, #e11d48);\n   width: 75px;\n   aspect-ratio: 1;\n   display: grid;\n}\n.darma-loader-darma-custom-458:before, .darma-loader-darma-custom-458:after  {\n  content: \"\";\n   grid-area: 1/1;\n   width: 35px;\n   aspect-ratio: 1;\n   box-shadow: 0 0 0 3px currentColor inset;\n   filter: drop-shadow(40px 40px 0 currentColor);\n   animation: darma-loader-darma-custom-458-l8 2s infinite alternate;\n}\n.darma-loader-darma-custom-458:after  {\n  margin: 0 0 0 auto;\n   filter: drop-shadow(-40px 40px 0 currentColor);\n   animation-delay: -1s;\n}\n@keyframes darma-loader-darma-custom-458-l8  {\n  0%,10% {border-radius:0}\n30%,40% {border-radius:50% 0}\n60%,70% {border-radius:50%}\n90%,100% {border-radius:0 50%}\n}\n",
+  "previewCss": ".darma-loader-darma-custom-458 {color: var(--loader-color, #e11d48);\n  --loader-secondary-color: var(--loader-secondary-color, #fb7185);\n  --loader-bg: var(--loader-bg, #ffffff);\n   width: 75px;\n   aspect-ratio: 1;\n   display: grid;\n}\n.darma-loader-darma-custom-458:before, .darma-loader-darma-custom-458:after  {\n  content: \"\";\n   grid-area: 1/1;\n   width: 35px;\n   aspect-ratio: 1;\n   box-shadow: 0 0 0 3px currentColor inset;\n   filter: drop-shadow(40px 40px 0 currentColor);\n   animation: darma-loader-darma-custom-458-l8 2s infinite alternate;\n}\n.darma-loader-darma-custom-458:after  {\n  margin: 0 0 0 auto;\n   filter: drop-shadow(-40px 40px 0 currentColor);\n   animation-delay: -1s;\n}\n@keyframes darma-loader-darma-custom-458-l8  {\n  0%,10% {border-radius:0}\n30%,40% {border-radius:50% 0}\n60%,70% {border-radius:50%}\n90%,100% {border-radius:0 50%}\n}\n",
   "defaults": {
     "color": "#e11d48",
     "secondaryColor": "#fb7185",
     "size": 72,
-    "speed": 2,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-458\"></div>",
-    "css": ".darma-loader-darma-custom-458 {color: var(--loader-color, #e11d48);\n   width: 75px;\n   aspect-ratio: 1;\n   display: grid;\n}\n.darma-loader-darma-custom-458:before, .darma-loader-darma-custom-458:after  {\n  content: \"\";\n   grid-area: 1/1;\n   width: 35px;\n   aspect-ratio: 1;\n   box-shadow: 0 0 0 3px currentColor inset;\n   filter: drop-shadow(40px 40px 0 currentColor);\n   animation: darma-loader-darma-custom-458-l8 2s infinite alternate;\n}\n.darma-loader-darma-custom-458:after  {\n  margin: 0 0 0 auto;\n   filter: drop-shadow(-40px 40px 0 currentColor);\n   animation-delay: -1s;\n}\n@keyframes darma-loader-darma-custom-458-l8  {\n  0%,10% {border-radius:0}\n30%,40% {border-radius:50% 0}\n60%,70% {border-radius:50%}\n90%,100% {border-radius:0 50%}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom458Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-458\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-458 {color: var(--loader-color, #e11d48);\n  --loader-secondary-color: var(--loader-secondary-color, #fb7185);\n  --loader-bg: var(--loader-bg, #ffffff);\n   width: 75px;\n   aspect-ratio: 1;\n   display: grid;\n}\n.darma-loader-darma-custom-458:before, .darma-loader-darma-custom-458:after  {\n  content: \"\";\n   grid-area: 1/1;\n   width: 35px;\n   aspect-ratio: 1;\n   box-shadow: 0 0 0 3px currentColor inset;\n   filter: drop-shadow(40px 40px 0 currentColor);\n   animation: darma-loader-darma-custom-458-l8 2s infinite alternate;\n}\n.darma-loader-darma-custom-458:after  {\n  margin: 0 0 0 auto;\n   filter: drop-shadow(-40px 40px 0 currentColor);\n   animation-delay: -1s;\n}\n@keyframes darma-loader-darma-custom-458-l8  {\n  0%,10% {border-radius:0}\n30%,40% {border-radius:50% 0}\n60%,70% {border-radius:50%}\n90%,100% {border-radius:0 50%}\n}\n",
+    "react": "export default function DarmaCustom458Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-458\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
-    "secondaryColor": false
+    "background": true,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

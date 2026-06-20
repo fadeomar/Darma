@@ -56,3 +56,9 @@ Use this checklist before merging any new or upgraded tool.
 - [ ] Try copy/download/export actions.
 - [ ] Try reset/randomize actions when available.
 - [ ] Check light and dark mode if the page supports both.
+
+## Tools platform personalization
+
+- [ ] Favorite and unfavorite a tool from `/tools`, reload, and confirm the state persists.
+- [ ] Open two tool pages, return to `/tools`, and confirm Recently used appears with updated counts.
+- [ ] Paste text in Text Cleaner Pro, switch to Format, set custom prefix/suffix text, and confirm single actions and pipelines use those values.

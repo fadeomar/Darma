@@ -29,25 +29,25 @@
   },
   "searchText": "darma-custom-404 arcade motion 01 fun arcade motion 01 game character fun pixel loader css-only single-element batch-06 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-404\"></div>",
-  "previewCss": ".darma-loader-darma-custom-404 {color: var(--loader-color, #e11d48);\n  width: 50px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background:radial-gradient(farthest-side,currentColor 98%,#0000) 55% 20%/8px 8px no-repeat,#ffcc00;\n  box-shadow: 2px -6px 12px 0px inset color-mix(in srgb, currentColor 70%, transparent);\n  animation: darma-loader-darma-custom-404-l4 .5s infinite steps(5) alternate;\n}@keyframes darma-loader-darma-custom-404-l4{0% {clip-path: polygon(50% 50%,100% 0,100% 0,0 0,0 100%,100% 100%,100% 100%)}100% {clip-path: polygon(50% 50%,100% 65%,100% 0,0 0,0 100%,100% 100%,100% 35%)}}\n",
+  "previewCss": ".darma-loader-darma-custom-404 {color: var(--loader-color, #e11d48);\n  --loader-secondary-color: var(--loader-secondary-color, #fb7185);\n  --loader-bg: var(--loader-bg, #ffffff);\n  width: 50px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background:radial-gradient(farthest-side,currentColor 98%,#0000) 55% 20%/8px 8px no-repeat,#ffcc00;\n  box-shadow: 2px -6px 12px 0px inset color-mix(in srgb, currentColor 70%, transparent);\n  animation: darma-loader-darma-custom-404-l4 .5s infinite steps(5) alternate;\n}@keyframes darma-loader-darma-custom-404-l4{0% {clip-path: polygon(50% 50%,100% 0,100% 0,0 0,0 100%,100% 100%,100% 100%)}100% {clip-path: polygon(50% 50%,100% 65%,100% 0,0 0,0 100%,100% 100%,100% 35%)}}\n",
   "defaults": {
     "color": "#e11d48",
     "secondaryColor": "#fb7185",
     "size": 64,
-    "speed": 0.5,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-404\"></div>",
-    "css": ".darma-loader-darma-custom-404 {color: var(--loader-color, #e11d48);\n  width: 50px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background:radial-gradient(farthest-side,currentColor 98%,#0000) 55% 20%/8px 8px no-repeat,#ffcc00;\n  box-shadow: 2px -6px 12px 0px inset color-mix(in srgb, currentColor 70%, transparent);\n  animation: darma-loader-darma-custom-404-l4 .5s infinite steps(5) alternate;\n}@keyframes darma-loader-darma-custom-404-l4{0% {clip-path: polygon(50% 50%,100% 0,100% 0,0 0,0 100%,100% 100%,100% 100%)}100% {clip-path: polygon(50% 50%,100% 65%,100% 0,0 0,0 100%,100% 100%,100% 35%)}}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom404Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-404\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-404 {color: var(--loader-color, #e11d48);\n  --loader-secondary-color: var(--loader-secondary-color, #fb7185);\n  --loader-bg: var(--loader-bg, #ffffff);\n  width: 50px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background:radial-gradient(farthest-side,currentColor 98%,#0000) 55% 20%/8px 8px no-repeat,#ffcc00;\n  box-shadow: 2px -6px 12px 0px inset color-mix(in srgb, currentColor 70%, transparent);\n  animation: darma-loader-darma-custom-404-l4 .5s infinite steps(5) alternate;\n}@keyframes darma-loader-darma-custom-404-l4{0% {clip-path: polygon(50% 50%,100% 0,100% 0,0 0,0 100%,100% 100%,100% 100%)}100% {clip-path: polygon(50% 50%,100% 65%,100% 0,0 0,0 100%,100% 100%,100% 35%)}}\n",
+    "react": "export default function DarmaCustom404Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-404\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
-    "secondaryColor": false
+    "background": true,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

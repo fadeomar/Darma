@@ -28,13 +28,13 @@
     "color": "#f59e0b",
     "secondaryColor": "#fde68a",
     "size": 54,
-    "speed": 1.05,
+    "speed": 1.15,
     "background": "#ffffff"
   },
   "code": {
     "html": "<span class=\"darma-loader-uiverse-card-line-shimmer\"></span>",
     "css": ".darma-loader-uiverse-card-line-shimmer {\n  display: inline-block;\n  width: 104px;\n  height: 14px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, color-mix(in srgb, var(--loader-color, #f59e0b) 12%, transparent), color-mix(in srgb, var(--loader-color, #f59e0b) 35%, transparent), color-mix(in srgb, var(--loader-color, #f59e0b) 12%, transparent));\n  background-size: 220% 100%;\n  animation: darma-loader-uiverse-card-line-shimmer-skeletonShimmer 1.05s linear infinite;\n}\n@keyframes darma-loader-uiverse-card-line-shimmer-skeletonShimmer { to { background-position: -220% 0; } }\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function UiverseCardLineShimmerLoader() {\n  return (\n    <span className=\"darma-loader-uiverse-card-line-shimmer\"></span>\n  );\n}\n"
+    "react": "export default function UiverseCardLineShimmerLoader() {\n  return (\n    <span className=\"darma-loader-uiverse-card-line-shimmer\"></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,

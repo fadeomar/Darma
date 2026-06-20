@@ -32,7 +32,7 @@
   "code": {
     "html": "<span class=\"darma-loader-tailwind-pulse\"></span>",
     "css": ".darma-loader-tailwind-pulse {\n  display: inline-block;\n  width: 48px;\n  height: 48px;\n  border-radius: 999px;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-tailwind-pulse-tw-pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;\n}\n@keyframes darma-loader-tailwind-pulse-tw-pulse {\n  50% { opacity: .5; }\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function TailwindPulseLoader() {\n  return (\n    <span className=\"darma-loader-tailwind-pulse\"></span>\n  );\n}\n",
+    "react": "export default function TailwindPulseLoader() {\n  return (\n    <span className=\"darma-loader-tailwind-pulse\"></span>\n  );\n}\n",
     "tailwind": "<span className=\"inline-block h-12 w-12 animate-pulse rounded-full bg-indigo-500\" />"
   },
   "controls": {

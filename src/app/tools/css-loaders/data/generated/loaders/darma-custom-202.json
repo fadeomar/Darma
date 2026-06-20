@@ -37,7 +37,7 @@
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-202\"></div>",
     "css": ".darma-loader-darma-custom-202 {\n  color: var(--loader-color, #e11d48);\nheight: 15px;\naspect-ratio: 5;\ndisplay: grid;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\n}\n.darma-loader-darma-custom-202:before,\n.darma-loader-darma-custom-202:after {\ncontent: \"\";\ngrid-area: 1/1;\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 20% 100%;\nanimation: darma-loader-darma-custom-202-l32 1s infinite;\n}\n.darma-loader-darma-custom-202:after {\nbackground:\nvar(--_g) calc(1*100%/3),\nvar(--_g) calc(2*100%/3);\nbackground-size: 20% 100%;\nanimation-direction: reverse;\n}\n@keyframes darma-loader-darma-custom-202-l32 {\n80%,100% {transform:rotate(.5turn)}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom202Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-202\"></div>\n  );\n}\n"
+    "react": "export default function DarmaCustom202Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-202\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,

@@ -24,12 +24,12 @@
   "defaults": {
     "color": "#6366f1",
     "size": 48,
-    "speed": 0.95
+    "speed": 1
   },
   "code": {
     "html": "<span class=\"darma-loader-button-dots\"><i></i><i></i><i></i></span>",
     "css": ".darma-loader-button-dots {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n  border-radius: 999px;\n  background: var(--loader-color, #6366f1);\n  padding: 12px 18px;\n  color: #fff;\n}\n.darma-loader-button-dots i {\n  width: 7px;\n  height: 7px;\n  border-radius: 50%;\n  background: currentColor;\n  animation: darma-loader-button-dots-blink 0.95s ease-in-out infinite;\n}\n.darma-loader-button-dots i:nth-child(2) { animation-delay: 0.15s; }\n.darma-loader-button-dots i:nth-child(3) { animation-delay: 0.3s; }\n@keyframes darma-loader-button-dots-blink {\n  0%, 100% { opacity: 0.28; transform: scale(0.8); }\n  50% { opacity: 1; transform: scale(1); }\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function ButtonDotsLoader() {\n  return (\n    <span className=\"darma-loader-button-dots\"><i></i><i></i><i></i></span>\n  );\n}\n"
+    "react": "export default function ButtonDotsLoader() {\n  return (\n    <span className=\"darma-loader-button-dots\"><i></i><i></i><i></i></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,

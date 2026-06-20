@@ -29,7 +29,7 @@
   "code": {
     "html": "<span class=\"darma-loader-stacked-bars\"><b></b><b></b><b></b></span>",
     "css": ".darma-loader-stacked-bars {\n  display: grid;\n  gap: 7px;\n  width: 84px;\n  color: var(--loader-color, #6366f1);\n}\n.darma-loader-stacked-bars b {\n  display: block;\n  height: 10px;\n  border-radius: 999px;\n  background: currentColor;\n  animation: darma-loader-stacked-bars-stack 1s ease-in-out infinite;\n}\n.darma-loader-stacked-bars b:nth-child(2) { animation-delay: 0.16s; }\n.darma-loader-stacked-bars b:nth-child(3) { animation-delay: 0.32s; }\n@keyframes darma-loader-stacked-bars-stack {\n  0%, 100% { transform: scaleX(0.38); opacity: 0.38; }\n  50% { transform: scaleX(1); opacity: 1; }\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function StackedBarsLoader() {\n  return (\n    <span className=\"darma-loader-stacked-bars\"><b></b><b></b><b></b></span>\n  );\n}\n"
+    "react": "export default function StackedBarsLoader() {\n  return (\n    <span className=\"darma-loader-stacked-bars\"><b></b><b></b><b></b></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,

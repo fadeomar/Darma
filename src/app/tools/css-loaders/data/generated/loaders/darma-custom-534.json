@@ -29,25 +29,25 @@
   },
   "searchText": "darma-custom-534 eye blink 10 fun eye blink 10 eyes face fun minimal loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-534\"></div>",
-  "previewCss": ".darma-loader-darma-custom-534 {color: var(--loader-color, #f97316);\n   display: inline-flex;\n   gap: 10px;\n}\n.darma-loader-darma-custom-534:before, .darma-loader-darma-custom-534:after  {\n  content: \"\";\n   height: 20px;\n   aspect-ratio: 1;\n   border-radius: 50%;\n   background: radial-gradient(farthest-side,currentColor 95%,#0000) 50%/8px 8px no-repeat currentColor;\n   aspect-ratio: 1;\n   animation: darma-loader-darma-custom-534-l10 1.5s infinite alternate;\n}\n.darma-loader-darma-custom-534:after  {\n  --s:-1;\n}\n@keyframes darma-loader-darma-custom-534-l10  {\n  0% ,20% {transform:scaleX(var(--s,1)) rotate(0deg) ;\n  clip-path:inset(0)}\n60%,100%{transform:scaleX(var(--s,1)) rotate(30deg);\n  clip-path:inset(40% 0 0)}\n}\n",
+  "previewCss": ".darma-loader-darma-custom-534 {color: var(--loader-color, #f97316);\n  --loader-secondary-color: var(--loader-secondary-color, #facc15);\n  --loader-bg: var(--loader-bg, #ffffff);\n   display: inline-flex;\n   gap: 10px;\n}\n.darma-loader-darma-custom-534:before, .darma-loader-darma-custom-534:after  {\n  content: \"\";\n   height: 20px;\n   aspect-ratio: 1;\n   border-radius: 50%;\n   background: radial-gradient(farthest-side,currentColor 95%,#0000) 50%/8px 8px no-repeat currentColor;\n   aspect-ratio: 1;\n   animation: darma-loader-darma-custom-534-l10 1.5s infinite alternate;\n}\n.darma-loader-darma-custom-534:after  {\n  --s:-1;\n}\n@keyframes darma-loader-darma-custom-534-l10  {\n  0% ,20% {transform:scaleX(var(--s,1)) rotate(0deg) ;\n  clip-path:inset(0)}\n60%,100%{transform:scaleX(var(--s,1)) rotate(30deg);\n  clip-path:inset(40% 0 0)}\n}\n",
   "defaults": {
     "color": "#f97316",
     "secondaryColor": "#facc15",
     "size": 64,
-    "speed": 1.5,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-534\"></div>",
-    "css": ".darma-loader-darma-custom-534 {color: var(--loader-color, #f97316);\n   display: inline-flex;\n   gap: 10px;\n}\n.darma-loader-darma-custom-534:before, .darma-loader-darma-custom-534:after  {\n  content: \"\";\n   height: 20px;\n   aspect-ratio: 1;\n   border-radius: 50%;\n   background: radial-gradient(farthest-side,currentColor 95%,#0000) 50%/8px 8px no-repeat currentColor;\n   aspect-ratio: 1;\n   animation: darma-loader-darma-custom-534-l10 1.5s infinite alternate;\n}\n.darma-loader-darma-custom-534:after  {\n  --s:-1;\n}\n@keyframes darma-loader-darma-custom-534-l10  {\n  0% ,20% {transform:scaleX(var(--s,1)) rotate(0deg) ;\n  clip-path:inset(0)}\n60%,100%{transform:scaleX(var(--s,1)) rotate(30deg);\n  clip-path:inset(40% 0 0)}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom534Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-534\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-534 {color: var(--loader-color, #f97316);\n  --loader-secondary-color: var(--loader-secondary-color, #facc15);\n  --loader-bg: var(--loader-bg, #ffffff);\n   display: inline-flex;\n   gap: 10px;\n}\n.darma-loader-darma-custom-534:before, .darma-loader-darma-custom-534:after  {\n  content: \"\";\n   height: 20px;\n   aspect-ratio: 1;\n   border-radius: 50%;\n   background: radial-gradient(farthest-side,currentColor 95%,#0000) 50%/8px 8px no-repeat currentColor;\n   aspect-ratio: 1;\n   animation: darma-loader-darma-custom-534-l10 1.5s infinite alternate;\n}\n.darma-loader-darma-custom-534:after  {\n  --s:-1;\n}\n@keyframes darma-loader-darma-custom-534-l10  {\n  0% ,20% {transform:scaleX(var(--s,1)) rotate(0deg) ;\n  clip-path:inset(0)}\n60%,100%{transform:scaleX(var(--s,1)) rotate(30deg);\n  clip-path:inset(40% 0 0)}\n}\n",
+    "react": "export default function DarmaCustom534Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-534\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
-    "secondaryColor": false
+    "background": true,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

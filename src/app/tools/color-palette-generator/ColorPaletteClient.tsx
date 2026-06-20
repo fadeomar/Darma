@@ -14,19 +14,21 @@ import {
   ToolControlPanel,
   type CodeOutputTab,
 } from "@/features/tools/components";
-import { HARMONY_OPTIONS, STARTER_COLORS } from "./presets";
+import { HARMONY_OPTIONS, PALETTE_PRESETS, STARTER_COLORS } from "./presets";
 import {
   exportHexList,
+  exportGradientSuggestion,
   exportPaletteCssVariables,
   exportPaletteJson,
   exportPaletteTailwindObject,
   generatePalette,
+  getAccessibilityStatus,
   getContrastPairs,
   getReadableTextColor,
   normalizeHex,
   randomHexColor,
 } from "./palette";
-import type { HarmonyMode, PaletteColor, PaletteSize, PaletteUiMode } from "./types";
+import type { HarmonyMode, PaletteColor, PalettePreset, PaletteSize, PaletteUiMode } from "./types";
 
 export default function ColorPaletteClient() {
   const [baseColor, setBaseColor] = useState("#2563EB");
@@ -49,6 +51,7 @@ export default function ColorPaletteClient() {
       { id: "css", label: "CSS variables", language: "css", filename: "darma-palette.css", code: exportPaletteCssVariables(colors) },
       { id: "tailwind", label: "Tailwind", language: "txt", filename: "darma-palette-tailwind.txt", code: exportPaletteTailwindObject(colors) },
       { id: "json", label: "JSON tokens", language: "json", filename: "darma-palette.json", code: exportPaletteJson(colors) },
+      { id: "gradient", label: "Gradient", language: "css", filename: "darma-palette-gradient.css", code: `.hero-gradient {\n  background: ${exportGradientSuggestion(colors)};\n}` },
       { id: "hex", label: "HEX list", language: "txt", filename: "darma-palette.txt", code: exportHexList(colors) },
     ],
     [colors],
@@ -95,6 +98,14 @@ export default function ColorPaletteClient() {
 
   function applyStarterColor(color: string) {
     setBaseColor(color);
+    setLockedColors({});
+  }
+
+  function applyPreset(preset: PalettePreset) {
+    setBaseColor(preset.baseColor);
+    setHarmony(preset.harmony);
+    setSize(preset.size);
+    setUiMode(preset.uiMode);
     setLockedColors({});
   }
 
@@ -164,9 +175,17 @@ export default function ColorPaletteClient() {
                   <p className="mt-1 text-xs font-semibold opacity-85">{color.hsl}</p>
                   <p className="text-xs font-semibold opacity-85">{color.rgb}</p>
                 </div>
-                <CopyButton text={color.hex} size="sm" variant="secondary" className="bg-white/85 text-[var(--color-text-primary)] hover:bg-white">
-                  Copy HEX
-                </CopyButton>
+                <div className="flex flex-wrap gap-1.5">
+                  <CopyButton text={color.hex} size="sm" variant="secondary" className="bg-white/85 text-[var(--color-text-primary)] hover:bg-white">
+                    HEX
+                  </CopyButton>
+                  <CopyButton text={color.rgb} size="sm" variant="secondary" className="bg-white/85 text-[var(--color-text-primary)] hover:bg-white">
+                    RGB
+                  </CopyButton>
+                  <CopyButton text={color.hsl} size="sm" variant="secondary" className="bg-white/85 text-[var(--color-text-primary)] hover:bg-white">
+                    HSL
+                  </CopyButton>
+                </div>
               </div>
             </div>
           );
@@ -251,18 +270,42 @@ export default function ColorPaletteClient() {
     </ToolControlPanel>
   );
 
-  const codeSlot = (
-    <CodeOutputPanel
-      title="Export palette"
-      description="Copy as CSS variables, Tailwind tokens, JSON, or a plain HEX list."
-      tabs={tabs}
-      defaultTab="css"
-      onDownload={handleDownload}
-    />
-  );
-
   const presetsSlot = (
-    <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-strong)] shadow-[var(--shadow-sm)]">
+    <div className="space-y-5">
+      <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-strong)] shadow-[var(--shadow-sm)]">
+        <div className="border-b border-[var(--color-border-subtle)] px-5 py-4">
+          <h3 className="text-sm font-bold text-[var(--color-text-primary)]">Designer presets</h3>
+          <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">
+            Start with a practical palette direction, then fine-tune color, harmony, and size.
+          </p>
+        </div>
+        <div className="grid gap-3 p-5 md:grid-cols-2 xl:grid-cols-5">
+          {PALETTE_PRESETS.map((preset) => (
+            <button
+              key={preset.id}
+              type="button"
+              onClick={() => applyPreset(preset)}
+              className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-4 text-left transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-raised)] focus:outline-none focus:shadow-[var(--focus-ring)]"
+            >
+              <span className="flex items-center gap-2">
+                <span className="h-4 w-4 rounded-full border border-black/10" style={{ backgroundColor: preset.baseColor }} aria-hidden />
+                <span className="text-sm font-black text-[var(--color-text-primary)]">{preset.title}</span>
+              </span>
+              <span className="mt-2 block text-xs leading-5 text-[var(--color-text-secondary)]">{preset.description}</span>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <CodeOutputPanel
+        title="Export palette"
+        description="Copy CSS variables, Tailwind-style tokens, JSON, a gradient, or a plain HEX list."
+        tabs={tabs}
+        defaultTab="css"
+        onDownload={handleDownload}
+      />
+
+      <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-strong)] shadow-[var(--shadow-sm)]">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--color-border-subtle)] px-5 py-4">
         <div>
           <h3 className="text-sm font-bold text-[var(--color-text-primary)]">Accessibility checks</h3>
@@ -287,6 +330,7 @@ export default function ColorPaletteClient() {
                 </Badge>
               </div>
               <p className="mt-3 text-2xl font-black">{pair.ratio}:1</p>
+              <p className="mt-1 text-sm font-bold opacity-90">{getAccessibilityStatus(pair.rating)}</p>
               <p className="mt-1 font-mono text-xs opacity-85">
                 {pair.foreground} on {pair.background}
               </p>
@@ -318,14 +362,14 @@ export default function ColorPaletteClient() {
           </div>
         </div>
       </div>
-    </section>
+      </section>
+    </div>
   );
 
   return (
     <ToolLayoutVisualGenerator
       previewSlot={previewSlot}
       controlsSlot={controlsSlot}
-      codeSlot={codeSlot}
       presetsSlot={presetsSlot}
     />
   );

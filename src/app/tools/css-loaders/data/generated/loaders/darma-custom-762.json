@@ -27,25 +27,25 @@
   },
   "searchText": "darma-custom-762 round spinner 88 spinners css-only single-element customizable batch-08 spinner round micro spinners loader html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-762\"></div>",
-  "previewCss": ".darma-loader-darma-custom-762 {\n  color: var(--loader-color, #6366f1);\ncolor: currentColor;\nwidth: 6px;\naspect-ratio: 1;\nborder-radius: 50%;\nanimation:\ndarma-loader-darma-custom-762-l37-1 .75s infinite linear alternate,\ndarma-loader-darma-custom-762-l37-2 1.5s infinite linear;\n}\n@keyframes darma-loader-darma-custom-762-l37-1 {\n0%,\n20% {box-shadow:30px 0 0 3px, 10px 0 0 3px, -10px 0 0 3px,-30px 0 0 3px}\n60%,\n100% {box-shadow:12px 0 0 3px, 14px 0 0 6px, -14px 0 0 6px,-12px 0 0 3px}\n}\n\n@keyframes darma-loader-darma-custom-762-l37-2 {\n0%,25% {transform: rotate(0)}\n50%,100% {transform: rotate(.5turn)}\n}",
+  "previewCss": ".darma-loader-darma-custom-762 {\n  color: var(--loader-color, #6366f1);\n  --loader-secondary-color: var(--loader-secondary-color, #a5b4fc);\n  --loader-bg: var(--loader-bg, #ffffff);\ncolor: currentColor;\nwidth: 6px;\naspect-ratio: 1;\nborder-radius: 50%;\nanimation:\ndarma-loader-darma-custom-762-l37-1 .75s infinite linear alternate,\ndarma-loader-darma-custom-762-l37-2 1.5s infinite linear;\n}\n@keyframes darma-loader-darma-custom-762-l37-1 {\n0%,\n20% {box-shadow:30px 0 0 3px, 10px 0 0 3px, -10px 0 0 3px,-30px 0 0 3px}\n60%,\n100% {box-shadow:12px 0 0 3px, 14px 0 0 6px, -14px 0 0 6px,-12px 0 0 3px}\n}\n\n@keyframes darma-loader-darma-custom-762-l37-2 {\n0%,25% {transform: rotate(0)}\n50%,100% {transform: rotate(.5turn)}\n}",
   "defaults": {
     "color": "#6366f1",
     "secondaryColor": "#a5b4fc",
     "size": 48,
-    "speed": 1.5,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-762\"></div>",
-    "css": ".darma-loader-darma-custom-762 {\n  color: var(--loader-color, #6366f1);\ncolor: currentColor;\nwidth: 6px;\naspect-ratio: 1;\nborder-radius: 50%;\nanimation:\ndarma-loader-darma-custom-762-l37-1 .75s infinite linear alternate,\ndarma-loader-darma-custom-762-l37-2 1.5s infinite linear;\n}\n@keyframes darma-loader-darma-custom-762-l37-1 {\n0%,\n20% {box-shadow:30px 0 0 3px, 10px 0 0 3px, -10px 0 0 3px,-30px 0 0 3px}\n60%,\n100% {box-shadow:12px 0 0 3px, 14px 0 0 6px, -14px 0 0 6px,-12px 0 0 3px}\n}\n\n@keyframes darma-loader-darma-custom-762-l37-2 {\n0%,25% {transform: rotate(0)}\n50%,100% {transform: rotate(.5turn)}\n}",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom762Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-762\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-762 {\n  color: var(--loader-color, #6366f1);\n  --loader-secondary-color: var(--loader-secondary-color, #a5b4fc);\n  --loader-bg: var(--loader-bg, #ffffff);\ncolor: currentColor;\nwidth: 6px;\naspect-ratio: 1;\nborder-radius: 50%;\nanimation:\ndarma-loader-darma-custom-762-l37-1 .75s infinite linear alternate,\ndarma-loader-darma-custom-762-l37-2 1.5s infinite linear;\n}\n@keyframes darma-loader-darma-custom-762-l37-1 {\n0%,\n20% {box-shadow:30px 0 0 3px, 10px 0 0 3px, -10px 0 0 3px,-30px 0 0 3px}\n60%,\n100% {box-shadow:12px 0 0 3px, 14px 0 0 6px, -14px 0 0 6px,-12px 0 0 3px}\n}\n\n@keyframes darma-loader-darma-custom-762-l37-2 {\n0%,25% {transform: rotate(0)}\n50%,100% {transform: rotate(.5turn)}\n}",
+    "react": "export default function DarmaCustom762Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-762\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
     "background": false,
-    "secondaryColor": false
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

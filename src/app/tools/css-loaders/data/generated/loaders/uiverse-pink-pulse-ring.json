@@ -33,7 +33,7 @@
   "code": {
     "html": "<span class=\"darma-loader-uiverse-pink-pulse-ring\"></span>",
     "css": ".darma-loader-uiverse-pink-pulse-ring {\n  display: inline-block;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color, #22c55e);\n  animation: darma-loader-uiverse-pink-pulse-ring-ringPulse 1.15s ease-out infinite;\n}\n@keyframes darma-loader-uiverse-pink-pulse-ring-ringPulse { 0% { transform: scale(.45); opacity: 1; } 100% { transform: scale(1.15); opacity: 0; } }\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function UiversePinkPulseRingLoader() {\n  return (\n    <span className=\"darma-loader-uiverse-pink-pulse-ring\"></span>\n  );\n}\n"
+    "react": "export default function UiversePinkPulseRingLoader() {\n  return (\n    <span className=\"darma-loader-uiverse-pink-pulse-ring\"></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,

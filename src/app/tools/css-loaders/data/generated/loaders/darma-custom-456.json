@@ -33,13 +33,13 @@
     "color": "#6d28d9",
     "secondaryColor": "#f0abfc",
     "size": 72,
-    "speed": 1.5,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-456\"></div>",
     "css": ".darma-loader-darma-custom-456, .darma-loader-darma-custom-456:before, .darma-loader-darma-custom-456:after {\n  width: 35px;\n   aspect-ratio: 1;\n   box-shadow: 0 0 0 3px inset currentColor;\n   position: relative;\n   animation: darma-loader-darma-custom-456-l6 1.5s infinite 0.5s;\n}\n.darma-loader-darma-custom-456:before, .darma-loader-darma-custom-456:after {\n  content: \"\";\n   position: absolute;\n   left: calc(100% + 5px);\n   animation-delay: 1s;\n}\n.darma-loader-darma-custom-456:after {\n  left: -40px;\n   animation-delay: 0s;\n}\n@keyframes darma-loader-darma-custom-456-l6  {\n  0%,55%,100% {border-radius:0 }\n20%,30% {border-radius:50%}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom456Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-456\"></div>\n  );\n}\n"
+    "react": "export default function DarmaCustom456Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-456\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": false,

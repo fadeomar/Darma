@@ -29,7 +29,7 @@
   },
   "searchText": "darma-custom-413 arcade motion 10 fun arcade motion 10 game character fun pixel loader css-only single-element batch-06 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-413\"></div>",
-  "previewCss": ".darma-loader-darma-custom-413 {\n  width: 50px;\n  aspect-ratio: 1;\n  color: var(--loader-color, #ca8a04);\n  border: 2px solid;\n  box-sizing: border-box;\n  --c: radial-gradient(farthest-side,#0000 calc(100% - 3px),currentColor calc(100% - 2px) 98%,#0000);\n  background: var(--c),var(--c);\n  background-size: 23px 23px;\n  background-position: 0 0,12px 12px;\n  animation: darma-loader-darma-custom-413-l4 1s infinite;\n}@keyframes darma-loader-darma-custom-413-l4{100% {background-position: -23px 0px,12px 35px}}\n",
+  "previewCss": ".darma-loader-darma-custom-413 {--loader-bg: var(--loader-bg, #ffffff);\n  --loader-secondary-color: var(--loader-secondary-color, #fde047);\n  width: 50px;\n  aspect-ratio: 1;\n  color: var(--loader-color, #ca8a04);\n  border: 2px solid;\n  box-sizing: border-box;\n  --c: radial-gradient(farthest-side,#0000 calc(100% - 3px),currentColor calc(100% - 2px) 98%,#0000);\n  background: var(--c),var(--c);\n  background-size: 23px 23px;\n  background-position: 0 0,12px 12px;\n  animation: darma-loader-darma-custom-413-l4 1s infinite;\n}@keyframes darma-loader-darma-custom-413-l4{100% {background-position: -23px 0px,12px 35px}}\n",
   "defaults": {
     "color": "#ca8a04",
     "secondaryColor": "#fde047",
@@ -39,15 +39,15 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-413\"></div>",
-    "css": ".darma-loader-darma-custom-413 {\n  width: 50px;\n  aspect-ratio: 1;\n  color: var(--loader-color, #ca8a04);\n  border: 2px solid;\n  box-sizing: border-box;\n  --c: radial-gradient(farthest-side,#0000 calc(100% - 3px),currentColor calc(100% - 2px) 98%,#0000);\n  background: var(--c),var(--c);\n  background-size: 23px 23px;\n  background-position: 0 0,12px 12px;\n  animation: darma-loader-darma-custom-413-l4 1s infinite;\n}@keyframes darma-loader-darma-custom-413-l4{100% {background-position: -23px 0px,12px 35px}}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom413Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-413\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-413 {--loader-bg: var(--loader-bg, #ffffff);\n  --loader-secondary-color: var(--loader-secondary-color, #fde047);\n  width: 50px;\n  aspect-ratio: 1;\n  color: var(--loader-color, #ca8a04);\n  border: 2px solid;\n  box-sizing: border-box;\n  --c: radial-gradient(farthest-side,#0000 calc(100% - 3px),currentColor calc(100% - 2px) 98%,#0000);\n  background: var(--c),var(--c);\n  background-size: 23px 23px;\n  background-position: 0 0,12px 12px;\n  animation: darma-loader-darma-custom-413-l4 1s infinite;\n}@keyframes darma-loader-darma-custom-413-l4{100% {background-position: -23px 0px,12px 35px}}\n",
+    "react": "export default function DarmaCustom413Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-413\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
-    "secondaryColor": false
+    "background": true,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

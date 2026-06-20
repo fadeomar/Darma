@@ -29,7 +29,7 @@
   "code": {
     "html": "<span class=\"darma-loader-confetti-dots\"><i></i><i></i><i></i><i></i><i></i></span>",
     "css": ".darma-loader-confetti-dots {\n  position: relative;\n  display: inline-block;\n  width: 70px;\n  height: 54px;\n  color: var(--loader-color, #6366f1);\n}\n.darma-loader-confetti-dots i {\n  position: absolute;\n  width: 10px;\n  height: 10px;\n  border-radius: 3px;\n  background: currentColor;\n  animation: darma-loader-confetti-dots-confetti 1s ease-in-out infinite;\n}\n.darma-loader-confetti-dots i:nth-child(1) { left: 4px; top: 34px; }\n.darma-loader-confetti-dots i:nth-child(2) { left: 18px; top: 14px; animation-delay: .1s; }\n.darma-loader-confetti-dots i:nth-child(3) { left: 34px; top: 30px; animation-delay: .2s; }\n.darma-loader-confetti-dots i:nth-child(4) { left: 49px; top: 10px; animation-delay: .3s; }\n.darma-loader-confetti-dots i:nth-child(5) { left: 60px; top: 36px; animation-delay: .4s; }\n@keyframes darma-loader-confetti-dots-confetti {\n  0%, 100% { transform: translateY(0) rotate(0deg); opacity: .35; }\n  50% { transform: translateY(-12px) rotate(90deg); opacity: 1; }\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function ConfettiDotsLoader() {\n  return (\n    <span className=\"darma-loader-confetti-dots\"><i></i><i></i><i></i><i></i><i></i></span>\n  );\n}\n"
+    "react": "export default function ConfettiDotsLoader() {\n  return (\n    <span className=\"darma-loader-confetti-dots\"><i></i><i></i><i></i><i></i><i></i></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,

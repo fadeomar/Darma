@@ -29,24 +29,24 @@
   },
   "searchText": "darma-custom-514 duo block 10 creative duo block 10 duotone motion creative tiles loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-514\"></div>",
-  "previewCss": ".darma-loader-darma-custom-514 {color: var(--loader-color, #16a34a);\n   width: 32px;\n   height: 16px;\n   display: flex;\n}\n.darma-loader-darma-custom-514:before, .darma-loader-darma-custom-514:after  {\n  content: \"\";\n   flex: 1;\n   background: var(--loader-color, #16a34a);\n   transform-origin: top right;\n   animation: darma-loader-darma-custom-514-l10-1 2s infinite;\n}\n.darma-loader-darma-custom-514:after  {\n  background: var(--loader-secondary-color, #86efac);\n   transform-origin: top left;\n   animation-delay: .25s;\n}\n@keyframes darma-loader-darma-custom-514-l10-1  {\n  0%,5% {transform: rotate(0)}\n20%,30% {transform: rotate(90deg)}\n45%,55% {transform: rotate(180deg)}\n70%,80% {transform: rotate(270deg)}\n95%,100% {transform: rotate(360deg)}\n}\n",
+  "previewCss": ".darma-loader-darma-custom-514 {color: var(--loader-color, #16a34a);\n  --loader-secondary-color: var(--loader-secondary-color, #86efac);\n  --loader-bg: var(--loader-bg, #ffffff);\n   width: 32px;\n   height: 16px;\n   display: flex;\n}\n.darma-loader-darma-custom-514:before, .darma-loader-darma-custom-514:after  {\n  content: \"\";\n   flex: 1;\n   background: var(--loader-color, #16a34a);\n   transform-origin: top right;\n   animation: darma-loader-darma-custom-514-l10-1 2s infinite;\n}\n.darma-loader-darma-custom-514:after  {\n  background: var(--loader-secondary-color, #86efac);\n   transform-origin: top left;\n   animation-delay: .25s;\n}\n@keyframes darma-loader-darma-custom-514-l10-1  {\n  0%,5% {transform: rotate(0)}\n20%,30% {transform: rotate(90deg)}\n45%,55% {transform: rotate(180deg)}\n70%,80% {transform: rotate(270deg)}\n95%,100% {transform: rotate(360deg)}\n}\n",
   "defaults": {
     "color": "#16a34a",
     "secondaryColor": "#86efac",
     "size": 72,
-    "speed": 2,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-514\"></div>",
-    "css": ".darma-loader-darma-custom-514 {color: var(--loader-color, #16a34a);\n   width: 32px;\n   height: 16px;\n   display: flex;\n}\n.darma-loader-darma-custom-514:before, .darma-loader-darma-custom-514:after  {\n  content: \"\";\n   flex: 1;\n   background: var(--loader-color, #16a34a);\n   transform-origin: top right;\n   animation: darma-loader-darma-custom-514-l10-1 2s infinite;\n}\n.darma-loader-darma-custom-514:after  {\n  background: var(--loader-secondary-color, #86efac);\n   transform-origin: top left;\n   animation-delay: .25s;\n}\n@keyframes darma-loader-darma-custom-514-l10-1  {\n  0%,5% {transform: rotate(0)}\n20%,30% {transform: rotate(90deg)}\n45%,55% {transform: rotate(180deg)}\n70%,80% {transform: rotate(270deg)}\n95%,100% {transform: rotate(360deg)}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom514Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-514\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-514 {color: var(--loader-color, #16a34a);\n  --loader-secondary-color: var(--loader-secondary-color, #86efac);\n  --loader-bg: var(--loader-bg, #ffffff);\n   width: 32px;\n   height: 16px;\n   display: flex;\n}\n.darma-loader-darma-custom-514:before, .darma-loader-darma-custom-514:after  {\n  content: \"\";\n   flex: 1;\n   background: var(--loader-color, #16a34a);\n   transform-origin: top right;\n   animation: darma-loader-darma-custom-514-l10-1 2s infinite;\n}\n.darma-loader-darma-custom-514:after  {\n  background: var(--loader-secondary-color, #86efac);\n   transform-origin: top left;\n   animation-delay: .25s;\n}\n@keyframes darma-loader-darma-custom-514-l10-1  {\n  0%,5% {transform: rotate(0)}\n20%,30% {transform: rotate(90deg)}\n45%,55% {transform: rotate(180deg)}\n70%,80% {transform: rotate(270deg)}\n95%,100% {transform: rotate(360deg)}\n}\n",
+    "react": "export default function DarmaCustom514Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-514\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
+    "background": true,
     "secondaryColor": true
   },
   "source": {

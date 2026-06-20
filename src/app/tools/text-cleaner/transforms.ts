@@ -1,90 +1,56 @@
-// ─── Pure transform functions ─────────────────────────────────────────────────
+import type { TextActionGroup, TransformContext, TransformDef, TransformFn } from "./types";
 
-export type TransformFn = (text: string) => string;
+export type { TextActionGroup, TransformContext, TransformDef, TransformFn } from "./types";
 
-// ── Case ──────────────────────────────────────────────────────────────────────
+export const DEFAULT_PREFIX_TEXT = "> ";
+export const DEFAULT_SUFFIX_TEXT = ".";
 
-export const toUpperCase: TransformFn = (t) => t.toUpperCase();
-export const toLowerCase: TransformFn = (t) => t.toLowerCase();
+export const toUpperCase: TransformFn = (text) => text.toUpperCase();
+export const toLowerCase: TransformFn = (text) => text.toLowerCase();
 
-export const toTitleCase: TransformFn = (t) =>
-  t.replace(/\w\S*/g, (w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase());
+export const toTitleCase: TransformFn = (text) =>
+  text.replace(/\w\S*/g, (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
 
-export const toSentenceCase: TransformFn = (t) =>
-  t
-    .toLowerCase()
-    .replace(/(^\s*\w|[.!?]\s+\w)/g, (c) => c.toUpperCase());
+export const toSentenceCase: TransformFn = (text) =>
+  text.toLowerCase().replace(/(^\s*\w|[.!?]\s+\w)/g, (match) => match.toUpperCase());
 
-export const capitalizeEachWord: TransformFn = (t) =>
-  t.replace(/\b\w/g, (c) => c.toUpperCase());
-
-export const toInverseCase: TransformFn = (t) =>
-  t
-    .split("")
-    .map((c) => (c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase()))
-    .join("");
-
-// Split text into words by whitespace and non-alphanumeric boundaries
-function splitWords(t: string): string[] {
-  return t
-    .replace(/([a-z])([A-Z])/g, "$1 $2") // split camelCase / PascalCase
-    .replace(/[^a-zA-Z0-9\u0600-\u06FF\s]/g, " ") // non-word → space (preserve Arabic)
+function splitWords(text: string): string[] {
+  return text
+    .replace(/([a-z])([A-Z])/g, "$1 $2")
+    .replace(/[^a-zA-Z0-9\u0600-\u06FF\s]/g, " ")
     .split(/\s+/)
     .filter(Boolean);
 }
 
-export const toCamelCase: TransformFn = (t) =>
-  splitWords(t)
-    .map((w, i) =>
-      i === 0
-        ? w.toLowerCase()
-        : w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()
+export const toCamelCase: TransformFn = (text) =>
+  splitWords(text)
+    .map((word, index) =>
+      index === 0 ? word.toLowerCase() : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(),
     )
     .join("");
 
-export const toPascalCase: TransformFn = (t) =>
-  splitWords(t)
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+export const toPascalCase: TransformFn = (text) =>
+  splitWords(text)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
     .join("");
 
-export const toSnakeCase: TransformFn = (t) =>
-  splitWords(t).map((w) => w.toLowerCase()).join("_");
+export const toSnakeCase: TransformFn = (text) => splitWords(text).map((word) => word.toLowerCase()).join("_");
+export const toKebabCase: TransformFn = (text) => splitWords(text).map((word) => word.toLowerCase()).join("-");
 
-export const toKebabCase: TransformFn = (t) =>
-  splitWords(t).map((w) => w.toLowerCase()).join("-");
-
-// ── Clean ─────────────────────────────────────────────────────────────────────
-
-export const trimText: TransformFn = (t) => t.trim();
-
-export const removeExtraSpaces: TransformFn = (t) =>
-  // Collapse runs of horizontal whitespace to a single space per line
-  t
+export const trimText: TransformFn = (text) => text.trim();
+export const trimEachLine: TransformFn = (text) => text.split("\n").map((line) => line.trim()).join("\n");
+export const normalizeLineBreaks: TransformFn = (text) => text.replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+export const removeExtraSpaces: TransformFn = (text) =>
+  text
     .split("\n")
     .map((line) => line.replace(/[ \t]+/g, " ").trim())
     .join("\n");
+export const removeEmptyLines: TransformFn = (text) => text.split("\n").filter((line) => line.trim() !== "").join("\n");
+export const collapseBlankLines: TransformFn = (text) => text.replace(/\n{3,}/g, "\n\n");
 
-export const removeEmptyLines: TransformFn = (t) =>
-  t
-    .split("\n")
-    .filter((l) => l.trim() !== "")
-    .join("\n");
-
-export const trimEachLine: TransformFn = (t) =>
-  t
-    .split("\n")
-    .map((l) => l.trim())
-    .join("\n");
-
-export const normalizeLineBreaks: TransformFn = (t) =>
-  t.replace(/\r\n/g, "\n").replace(/\r/g, "\n");
-
-export const collapseBlankLines: TransformFn = (t) =>
-  t.replace(/\n{3,}/g, "\n\n");
-
-export const removeDuplicateLines: TransformFn = (t) => {
+export const removeDuplicateLines: TransformFn = (text) => {
   const seen = new Set<string>();
-  return t
+  return text
     .split("\n")
     .filter((line) => {
       const key = line.trim();
@@ -95,54 +61,134 @@ export const removeDuplicateLines: TransformFn = (t) => {
     .join("\n");
 };
 
-export const sortLinesAZ: TransformFn = (t) =>
-  t
-    .split("\n")
-    .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }))
-    .join("\n");
+export const sortLinesAZ: TransformFn = (text) =>
+  text.split("\n").sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" })).join("\n");
 
-export const sortLinesZA: TransformFn = (t) =>
-  t
-    .split("\n")
-    .sort((a, b) => b.localeCompare(a, undefined, { sensitivity: "base" }))
-    .join("\n");
+export const sortLinesZA: TransformFn = (text) =>
+  text.split("\n").sort((a, b) => b.localeCompare(a, undefined, { sensitivity: "base" })).join("\n");
 
-// ─── Transform registry ───────────────────────────────────────────────────────
+export const removeTashkeel: TransformFn = (text) => text.replace(/[\u064B-\u065F\u0670]/g, "");
+export const removeTatweel: TransformFn = (text) => text.replace(/\u0640/g, "");
+export const normalizeArabicAlef: TransformFn = (text) => text.replace(/[إأآٱ]/g, "ا");
+export const normalizeArabicYaa: TransformFn = (text) => text.replace(/ى/g, "ي");
+export const normalizeArabicPunctuationSpacing: TransformFn = (text) =>
+  text
+    .replace(/\s+([،؛؟])/g, "$1")
+    .replace(/([،؛؟])(?=\S)/g, "$1 ")
+    .replace(/[ \t]+/g, " ");
 
-export type TransformDef = {
-  id: string;
-  label: string;
-  title: string;
-  fn: TransformFn;
-  mono?: boolean; // render label in monospace
-};
+export const cleanCopiedArabicPdfText: TransformFn = (text) =>
+  [
+    normalizeLineBreaks,
+    trimEachLine,
+    removeExtraSpaces,
+    removeTashkeel,
+    removeTatweel,
+    normalizeArabicAlef,
+    normalizeArabicYaa,
+    normalizeArabicPunctuationSpacing,
+    collapseBlankLines,
+    removeEmptyLines,
+  ].reduce((value, transform) => transform(value), text);
 
-export const CASE_TRANSFORMS: TransformDef[] = [
-  { id: "uppercase",    label: "UPPERCASE",       title: "Convert to UPPERCASE",          fn: toUpperCase },
-  { id: "lowercase",    label: "lowercase",       title: "Convert to lowercase",           fn: toLowerCase },
-  { id: "title",        label: "Title Case",       title: "Capitalize each word",          fn: toTitleCase },
-  { id: "sentence",     label: "Sentence case",    title: "Capitalize first of each sentence", fn: toSentenceCase },
-  { id: "each",         label: "Each Word",        title: "Capitalize start of every word", fn: capitalizeEachWord },
-  { id: "inverse",      label: "iNVERSE",          title: "Flip case of every character",  fn: toInverseCase },
-  { id: "camel",        label: "camelCase",        title: "Convert to camelCase",          fn: toCamelCase,  mono: true },
-  { id: "pascal",       label: "PascalCase",       title: "Convert to PascalCase",         fn: toPascalCase, mono: true },
-  { id: "snake",        label: "snake_case",       title: "Convert to snake_case",         fn: toSnakeCase,  mono: true },
-  { id: "kebab",        label: "kebab-case",       title: "Convert to kebab-case",         fn: toKebabCase,  mono: true },
-];
+function extractMatches(text: string, pattern: RegExp) {
+  return Array.from(text.matchAll(pattern), (match) => match[0]).join("\n");
+}
+
+export const extractUrls: TransformFn = (text) =>
+  extractMatches(text, /\bhttps?:\/\/[^\s<>"')\]]+/gi).replace(/[.,;:!?]+$/gm, "");
+export const extractEmails: TransformFn = (text) =>
+  extractMatches(text, /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi);
+export const extractUrlsAndEmails: TransformFn = (text) =>
+  [extractUrls(text), extractEmails(text)].filter(Boolean).join("\n");
+export const extractPhoneNumbers: TransformFn = (text) =>
+  extractMatches(text, /(?<!\w)(?:\+?\d[\d\s().-]{6,}\d)(?!\w)/g);
+export const extractHashtags: TransformFn = (text) => extractMatches(text, /#[\p{L}\p{N}_-]+/gu);
+export const extractMentions: TransformFn = (text) => extractMatches(text, /@[\p{L}\p{N}_-]+/gu);
+export const extractNumbers: TransformFn = (text) => extractMatches(text, /-?\d+(?:[.,]\d+)?/g);
+
+export const numberLines: TransformFn = (text) =>
+  text.split("\n").map((line, index) => `${index + 1}. ${line}`).join("\n");
+export const addBulletPoints: TransformFn = (text) => text.split("\n").map((line) => `- ${line}`).join("\n");
+export const convertLinesToCommaList: TransformFn = (text) =>
+  text.split("\n").map((line) => line.trim()).filter(Boolean).join(", ");
+export const convertCommaListToLines: TransformFn = (text) =>
+  text.split(",").map((item) => item.trim()).filter(Boolean).join("\n");
+export const addPrefixToEachLine: TransformFn = (text, context) =>
+  text.split("\n").map((line) => `${context?.prefixText ?? DEFAULT_PREFIX_TEXT}${line}`).join("\n");
+export const addSuffixToEachLine: TransformFn = (text, context) =>
+  text.split("\n").map((line) => `${line}${context?.suffixText ?? DEFAULT_SUFFIX_TEXT}`).join("\n");
+export const wrapEachLineInQuotes: TransformFn = (text) =>
+  text.split("\n").map((line) => `"${line.replace(/"/g, '\\"')}"`).join("\n");
 
 export const CLEAN_TRANSFORMS: TransformDef[] = [
-  { id: "trim",         label: "Trim",             title: "Remove leading & trailing whitespace", fn: trimText },
-  { id: "extraspaces",  label: "Remove extra spaces", title: "Collapse multiple spaces to one",  fn: removeExtraSpaces },
-  { id: "emptylines",   label: "Remove empty lines", title: "Delete all blank lines",           fn: removeEmptyLines },
-  { id: "trimlines",    label: "Trim each line",    title: "Trim whitespace on every line",     fn: trimEachLine },
-  { id: "normalize",    label: "Normalize breaks",  title: "Normalize \\r\\n and \\r to \\n",   fn: normalizeLineBreaks },
-  { id: "collapse",     label: "Collapse blank lines", title: "Reduce multiple blank lines to one", fn: collapseBlankLines },
-  { id: "dedupe",       label: "Remove duplicates", title: "Keep only unique lines",            fn: removeDuplicateLines },
-  { id: "sortaz",       label: "Sort A → Z",        title: "Sort lines alphabetically",        fn: sortLinesAZ },
-  { id: "sortza",       label: "Sort Z → A",        title: "Sort lines reverse alphabetically", fn: sortLinesZA },
+  { id: "trim", group: "clean", label: "Trim text", title: "Remove leading and trailing whitespace", fn: trimText },
+  { id: "trim-lines", group: "clean", label: "Trim each line", title: "Trim whitespace on every line", fn: trimEachLine },
+  { id: "extra-spaces", group: "clean", label: "Remove extra spaces", title: "Collapse repeated spaces", fn: removeExtraSpaces },
+  { id: "empty-lines", group: "clean", label: "Remove empty lines", title: "Delete blank lines", fn: removeEmptyLines },
+  { id: "collapse-blank-lines", group: "clean", label: "Collapse blank lines", title: "Reduce 3 or more line breaks to 2", fn: collapseBlankLines },
+  { id: "dedupe-lines", group: "clean", label: "Remove duplicate lines", title: "Keep the first occurrence of each line", fn: removeDuplicateLines },
+  { id: "sort-az", group: "clean", label: "Sort A-Z", title: "Sort lines alphabetically", fn: sortLinesAZ },
+  { id: "sort-za", group: "clean", label: "Sort Z-A", title: "Sort lines reverse alphabetically", fn: sortLinesZA },
 ];
 
-// ─── Stats ────────────────────────────────────────────────────────────────────
+export const ARABIC_TRANSFORMS: TransformDef[] = [
+  { id: "remove-tashkeel", group: "arabic", label: "Remove tashkeel", title: "Remove Arabic diacritics", fn: removeTashkeel },
+  { id: "remove-tatweel", group: "arabic", label: "Remove tatweel", title: "Remove Arabic elongation marks", fn: removeTatweel },
+  { id: "normalize-arabic-alef", group: "arabic", label: "Normalize Arabic alef", title: "Normalize alef variants to ا", fn: normalizeArabicAlef },
+  { id: "normalize-arabic-yaa", group: "arabic", label: "Normalize Arabic yaa", title: "Normalize ى to ي", fn: normalizeArabicYaa },
+  { id: "arabic-punctuation-spacing", group: "arabic", label: "Arabic punctuation spacing", title: "Normalize spacing around Arabic punctuation", fn: normalizeArabicPunctuationSpacing },
+  { id: "clean-arabic-pdf", group: "arabic", label: "Clean copied Arabic PDF text", title: "Run a practical Arabic PDF cleanup chain", fn: cleanCopiedArabicPdfText },
+];
+
+export const EXTRACT_TRANSFORMS: TransformDef[] = [
+  { id: "extract-urls", group: "extract", label: "Extract URLs", title: "Extract web links", fn: extractUrls },
+  { id: "extract-emails", group: "extract", label: "Extract emails", title: "Extract email addresses", fn: extractEmails },
+  { id: "extract-urls-emails", group: "extract", label: "Extract URLs and emails", title: "Extract links and email addresses", fn: extractUrlsAndEmails },
+  { id: "extract-phone-numbers", group: "extract", label: "Extract phone numbers", title: "Extract likely phone numbers", fn: extractPhoneNumbers },
+  { id: "extract-hashtags", group: "extract", label: "Extract hashtags", title: "Extract hashtags", fn: extractHashtags },
+  { id: "extract-mentions", group: "extract", label: "Extract mentions", title: "Extract social mentions", fn: extractMentions },
+  { id: "extract-numbers", group: "extract", label: "Extract numbers", title: "Extract numbers", fn: extractNumbers },
+];
+
+export const FORMAT_TRANSFORMS: TransformDef[] = [
+  { id: "number-lines", group: "format", label: "Number lines", title: "Add line numbers", fn: numberLines },
+  { id: "bullet-points", group: "format", label: "Add bullet points", title: "Prefix each line with a bullet", fn: addBulletPoints },
+  { id: "lines-to-comma-list", group: "format", label: "Lines to comma list", title: "Join lines with commas", fn: convertLinesToCommaList },
+  { id: "comma-list-to-lines", group: "format", label: "Comma list to lines", title: "Split comma-separated values into lines", fn: convertCommaListToLines },
+  { id: "prefix-lines", group: "format", label: "Add prefix to each line", title: "Prefix each line with custom text", fn: addPrefixToEachLine },
+  { id: "suffix-lines", group: "format", label: "Add suffix to each line", title: "Add custom text to the end of each line", fn: addSuffixToEachLine },
+  { id: "quote-lines", group: "format", label: "Wrap each line in quotes", title: "Wrap each line in double quotes", fn: wrapEachLineInQuotes },
+];
+
+export const CASE_TRANSFORMS: TransformDef[] = [
+  { id: "uppercase", group: "case", label: "UPPERCASE", title: "Convert to uppercase", fn: toUpperCase },
+  { id: "lowercase", group: "case", label: "lowercase", title: "Convert to lowercase", fn: toLowerCase },
+  { id: "title-case", group: "case", label: "Title Case", title: "Capitalize each word", fn: toTitleCase },
+  { id: "sentence-case", group: "case", label: "Sentence case", title: "Capitalize sentences", fn: toSentenceCase },
+  { id: "camel-case", group: "case", label: "camelCase", title: "Convert to camelCase", fn: toCamelCase, mono: true },
+  { id: "pascal-case", group: "case", label: "PascalCase", title: "Convert to PascalCase", fn: toPascalCase, mono: true },
+  { id: "snake-case", group: "case", label: "snake_case", title: "Convert to snake_case", fn: toSnakeCase, mono: true },
+  { id: "kebab-case", group: "case", label: "kebab-case", title: "Convert to kebab-case", fn: toKebabCase, mono: true },
+];
+
+export const TEXT_ACTION_GROUPS: Array<{ id: TextActionGroup; label: string; transforms: TransformDef[] }> = [
+  { id: "clean", label: "Clean", transforms: CLEAN_TRANSFORMS },
+  { id: "arabic", label: "Arabic", transforms: ARABIC_TRANSFORMS },
+  { id: "extract", label: "Extract", transforms: EXTRACT_TRANSFORMS },
+  { id: "format", label: "Format", transforms: FORMAT_TRANSFORMS },
+  { id: "case", label: "Case", transforms: CASE_TRANSFORMS },
+];
+
+export const ALL_TRANSFORMS = TEXT_ACTION_GROUPS.flatMap((group) => group.transforms);
+
+export function getTransformById(id: string) {
+  return ALL_TRANSFORMS.find((transform) => transform.id === id) ?? null;
+}
+
+export function runPipeline(text: string, actionIds: string[], context?: TransformContext) {
+  return actionIds.reduce((value, actionId) => getTransformById(actionId)?.fn(value, context) ?? value, text);
+}
 
 export type TextStats = {
   characters: number;
@@ -157,9 +203,8 @@ export function computeStats(text: string): TextStats {
   const trimmed = text.trim();
   const words = trimmed ? trimmed.split(/\s+/).filter(Boolean).length : 0;
   const lines = text ? text.split("\n").length : 0;
-  const paragraphs = trimmed
-    ? trimmed.split(/\n\s*\n/).filter((s) => s.trim()).length
-    : 0;
+  const paragraphs = trimmed ? trimmed.split(/\n\s*\n/).filter((value) => value.trim()).length : 0;
+
   return {
     characters: text.length,
     charactersNoSpaces: text.replace(/\s/g, "").length,
@@ -170,22 +215,20 @@ export function computeStats(text: string): TextStats {
   };
 }
 
-export function formatReadingTime(sec: number): string {
-  if (sec < 60) return `${sec}s read`;
-  return `${Math.ceil(sec / 60)} min read`;
+export function formatReadingTime(seconds: number): string {
+  if (seconds < 60) return `${seconds}s read`;
+  return `${Math.ceil(seconds / 60)} min read`;
 }
 
-// ─── Sample text ──────────────────────────────────────────────────────────────
+export const SAMPLE_TEXT = `  Darma launch notes
 
-export const SAMPLE_TEXT = `  hello world — this is some MESSY text.
+Visit https://darma.tools and email hello@example.com for access.
+Visit https://darma.tools and email hello@example.com for access.
 
-it has   extra   spaces between words.
-And inconsistent Capitalization throughout.
+  This text   has extra     spaces.
+  This text   has extra     spaces.
 
-Some lines are duplicated below.
-Some lines are duplicated below.
+النَّصُّ العَرَبِيُّ يحتاج إلى تنظيف،وتنسيق ؟
 
-  Leading spaces on this line.
-  And this one too.
-
-great for: developers, writers, content editors, and anyone cleaning up pasted text.`;
+#design #tools @darma
+`;

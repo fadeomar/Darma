@@ -33,13 +33,13 @@
     "color": "#0f766e",
     "secondaryColor": "#5eead4",
     "size": 72,
-    "speed": 4,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-299\"></div>",
     "css": ".darma-loader-darma-custom-299 {\n  width: fit-content;\n  font-size: 34px;\n  font-family: monospace;\n  font-weight: bold;\n  text-transform: uppercase;\n  color: #0000;\n  -webkit-text-stroke: 1px var(--loader-color, #0f766e);\n  background: linear-gradient(90deg,#0000 33%,var(--loader-color, #0f766e) 0 67%,#0000 0) 100%/300% 100% no-repeat text;\n  animation: darma-loader-darma-custom-299-l12 4s steps(14) infinite;\n}\n.darma-loader-darma-custom-299:before {\n  content: \"Loading\";\n}\n@keyframes darma-loader-darma-custom-299-l12 {\n  to {background-position: 0}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom299Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-299\"></div>\n  );\n}\n"
+    "react": "export default function DarmaCustom299Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-299\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,

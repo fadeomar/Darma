@@ -57,7 +57,7 @@
     "defaults": {
       "color": "#6366f1",
       "size": 48,
-      "speed": 0.75
+      "speed": 1
     }
   },
   {
@@ -90,7 +90,7 @@
       "color": "#0ea5e9",
       "secondaryColor": "#bae6fd",
       "size": 52,
-      "speed": 0.85
+      "speed": 0.75
     }
   },
   {
@@ -123,7 +123,7 @@
       "color": "#6366f1",
       "secondaryColor": "#a5b4fc",
       "size": 56,
-      "speed": 0.95
+      "speed": 0.83
     }
   },
   {
@@ -155,7 +155,7 @@
       "color": "#8b5cf6",
       "secondaryColor": "#ddd6fe",
       "size": 56,
-      "speed": 0.75
+      "speed": 0.8
     }
   },
   {
@@ -247,7 +247,7 @@
     "defaults": {
       "color": "#6366f1",
       "size": 48,
-      "speed": 0.95
+      "speed": 1
     }
   },
   {
@@ -279,7 +279,7 @@
       "color": "#0ea5e9",
       "secondaryColor": "#bae6fd",
       "size": 62,
-      "speed": 0.72,
+      "speed": 1.15,
       "background": "#ffffff"
     }
   },
@@ -310,7 +310,7 @@
     "defaults": {
       "color": "#6366f1",
       "size": 48,
-      "speed": 0.7
+      "speed": 1
     }
   },
   {
@@ -378,7 +378,7 @@
       "color": "#6366f1",
       "secondaryColor": "#8b5cf6",
       "size": 48,
-      "speed": 1.2
+      "speed": 1
     }
   },
   {
@@ -444,7 +444,7 @@
       "color": "#f97316",
       "secondaryColor": "#fed7aa",
       "size": 64,
-      "speed": 0.9
+      "speed": 0.99
     }
   },
   {
@@ -617,7 +617,7 @@
       "color": "#f59e0b",
       "secondaryColor": "#fde68a",
       "size": 54,
-      "speed": 1.1,
+      "speed": 0.95,
       "background": "#ffffff"
     }
   },
@@ -651,7 +651,7 @@
       "color": "#06b6d4",
       "secondaryColor": "#bae6fd",
       "size": 60,
-      "speed": 1
+      "speed": 0.91
     }
   },
   {
@@ -753,7 +753,7 @@
       "color": "#f59e0b",
       "secondaryColor": "#fde68a",
       "size": 64,
-      "speed": 0.89
+      "speed": 0.99
     }
   },
   {
@@ -786,7 +786,7 @@
       "color": "#8b5cf6",
       "secondaryColor": "#ddd6fe",
       "size": 56,
-      "speed": 0.78
+      "speed": 0.83
     }
   },
   {
@@ -816,7 +816,7 @@
     "defaults": {
       "color": "#6366f1",
       "size": 48,
-      "speed": 0.75
+      "speed": 1
     }
   },
   {
@@ -880,7 +880,7 @@
       "color": "#22c55e",
       "secondaryColor": "#bbf7d0",
       "size": 64,
-      "speed": 1.05
+      "speed": 1.1
     }
   },
   {
@@ -912,7 +912,7 @@
       "color": "#ec4899",
       "secondaryColor": "#fbcfe8",
       "size": 52,
-      "speed": 1.25
+      "speed": 1.2
     }
   },
   {
@@ -941,7 +941,7 @@
     "defaults": {
       "color": "#6366f1",
       "size": 48,
-      "speed": 1.05
+      "speed": 1
     }
   },
   {
@@ -971,7 +971,7 @@
     "defaults": {
       "color": "#6366f1",
       "size": 48,
-      "speed": 1.15
+      "speed": 1
     }
   },
   {
@@ -1280,7 +1280,7 @@
       "color": "#22c55e",
       "secondaryColor": "#bbf7d0",
       "size": 54,
-      "speed": 0.97
+      "speed": 0.95
     }
   },
   {
@@ -1312,7 +1312,7 @@
       "color": "#6366f1",
       "secondaryColor": "#a5b4fc",
       "size": 62,
-      "speed": 0.9
+      "speed": 0.85
     }
   },
   {
@@ -1344,7 +1344,7 @@
       "color": "#06b6d4",
       "secondaryColor": "#bae6fd",
       "size": 66,
-      "speed": 0.97
+      "speed": 0.95
     }
   },
   {
@@ -1444,7 +1444,7 @@
     "defaults": {
       "color": "#6366f1",
       "size": 48,
-      "speed": 1.25
+      "speed": 1
     }
   },
   {
@@ -1720,7 +1720,7 @@
       "color": "#ec4899",
       "secondaryColor": "#fbcfe8",
       "size": 58,
-      "speed": 1.14
+      "speed": 1.05
     }
   },
   {
@@ -1752,7 +1752,7 @@
       "color": "#8b5cf6",
       "secondaryColor": "#ddd6fe",
       "size": 62,
-      "speed": 1.45
+      "speed": 1.15
     }
   },
   {
@@ -1784,7 +1784,7 @@
       "color": "#f97316",
       "secondaryColor": "#fed7aa",
       "size": 50,
-      "speed": 1.14
+      "speed": 1.05
     }
   },
   {
@@ -1848,7 +1848,7 @@
     "defaults": {
       "color": "#6366f1",
       "size": 48,
-      "speed": 1.25
+      "speed": 1
     }
   },
   {
@@ -1948,7 +1948,7 @@
       "color": "#06b6d4",
       "secondaryColor": "#bae6fd",
       "size": 50,
-      "speed": 1.1,
+      "speed": 0.95,
       "background": "#ffffff"
     }
   },
@@ -2007,7 +2007,7 @@
     "defaults": {
       "color": "#6366f1",
       "size": 48,
-      "speed": 1.1
+      "speed": 1
     }
   },
   {
@@ -2040,7 +2040,7 @@
       "color": "#14b8a6",
       "secondaryColor": "#99f6e4",
       "size": 60,
-      "speed": 0.93
+      "speed": 0.91
     }
   },
   {
@@ -2073,7 +2073,7 @@
       "color": "#ef4444",
       "secondaryColor": "#fecaca",
       "size": 68,
-      "speed": 1.11
+      "speed": 1.07
     }
   },
   {
@@ -2103,7 +2103,7 @@
     "defaults": {
       "color": "#6366f1",
       "size": 48,
-      "speed": 0.85
+      "speed": 1
     }
   },
   {
@@ -2170,7 +2170,7 @@
       "color": "#0ea5e9",
       "secondaryColor": "#bae6fd",
       "size": 58,
-      "speed": 1.06
+      "speed": 1.15
     }
   },
   {
@@ -2270,7 +2270,7 @@
       "color": "#06b6d4",
       "secondaryColor": "#bae6fd",
       "size": 56,
-      "speed": 0.73
+      "speed": 0.9
     }
   },
   {
@@ -2303,7 +2303,7 @@
       "color": "#f97316",
       "secondaryColor": "#fed7aa",
       "size": 60,
-      "speed": 1.13
+      "speed": 1
     }
   },
   {
@@ -2336,40 +2336,7 @@
       "color": "#14b8a6",
       "secondaryColor": "#99f6e4",
       "size": 60,
-      "speed": 1.2
-    }
-  },
-  {
-    "id": "loading-io-07",
-    "name": "Loading.io Adapted Loader 07",
-    "category": "spinners",
-    "tags": [
-      "loading-io",
-      "ring",
-      "spinner",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loading-io-07 loading.io adapted loader 07 spinners loading-io ring spinner spinners loader html css react popular singleelement cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-loading-io-07\"></span>",
-    "previewCss": ".darma-loader-loading-io-07 {\n  display: inline-block;\n  width: 49px;\n  height: 49px;\n  border-radius: 50%;\n  border: 4px solid color-mix(in srgb, var(--loader-color, #f59e0b) 18%, transparent);\n  border-right-color: var(--loader-color, #f59e0b);\n  animation: darma-loader-loading-io-07-spin 0.81s linear infinite;\n}\n@keyframes darma-loader-loading-io-07-spin { to { transform: rotate(360deg); } }\n",
-    "defaults": {
-      "color": "#f59e0b",
-      "secondaryColor": "#fde68a",
-      "size": 64,
-      "speed": 0.81
+      "speed": 0.9
     }
   },
   {
@@ -2402,7 +2369,7 @@
       "color": "#ef4444",
       "secondaryColor": "#fecaca",
       "size": 52,
-      "speed": 0.85
+      "speed": 1.1
     }
   },
   {

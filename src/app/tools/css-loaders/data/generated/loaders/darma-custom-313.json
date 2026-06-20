@@ -33,13 +33,13 @@
     "color": "#ca8a04",
     "secondaryColor": "#fde047",
     "size": 64,
-    "speed": 0.5,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-313\"></div>",
     "css": ".darma-loader-darma-custom-313 {\n  color: var(--loader-color, #ca8a04);\n  height: 54px;\n  aspect-ratio: 1;\n  position: relative;\n  border: 3px solid #0000;\n}\n.darma-loader-darma-custom-313:before {\n  content: \"\";\n  position: absolute;\n  inset: auto 35% 0;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: var(--loader-color, #ca8a04);\n  animation: darma-loader-darma-custom-313-l6-0 .5s cubic-bezier(0,800,1,800) infinite;\n}\n.darma-loader-darma-custom-313:after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  outline: 3px solid var(--loader-secondary-color, #fde047);\n  animation: darma-loader-darma-custom-313-l6-1 .5s linear infinite;\n}\n@keyframes darma-loader-darma-custom-313-l6-0 {\n  0%,2% {bottom: 0%}\n  98%,to {bottom:.1%}\n}\n@keyframes darma-loader-darma-custom-313-l6-1 {\n  0%,30% {rotate:  0deg}\n  70%,to {rotate: 90deg}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom313Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-313\"></div>\n  );\n}\n"
+    "react": "export default function DarmaCustom313Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-313\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,

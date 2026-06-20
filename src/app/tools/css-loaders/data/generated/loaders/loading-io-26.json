@@ -28,12 +28,12 @@
     "color": "#14b8a6",
     "secondaryColor": "#99f6e4",
     "size": 60,
-    "speed": 1.13
+    "speed": 0.9
   },
   "code": {
     "html": "<span class=\"darma-loader-loading-io-26\"></span>",
     "css": ".darma-loader-loading-io-26 {\n  display: inline-block;\n  width: 51px;\n  height: 51px;\n  border-radius: 50%;\n  border: 5px solid color-mix(in srgb, var(--loader-secondary-color, #99f6e4) 35%, transparent);\n  border-top-color: var(--loader-color, #14b8a6);\n  border-right-color: var(--loader-color, #14b8a6);\n  animation: darma-loader-loading-io-26-spin 1.13s cubic-bezier(.55,.15,.45,.85) infinite;\n}\n.darma-loader-loading-io-26::after {\n  content: \"\";\n  display: block;\n  width: calc(100% - 16px);\n  height: calc(100% - 16px);\n  margin: 4px;\n  border-radius: 50%;\n  border: 4px solid transparent;\n  border-bottom-color: var(--loader-secondary-color, #99f6e4);\n  animation: darma-loader-loading-io-26-spin 0.79s linear infinite reverse;\n}\n@keyframes darma-loader-loading-io-26-spin { to { transform: rotate(360deg); } }\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function LoadingIo26Loader() {\n  return (\n    <span className=\"darma-loader-loading-io-26\"></span>\n  );\n}\n"
+    "react": "export default function LoadingIo26Loader() {\n  return (\n    <span className=\"darma-loader-loading-io-26\"></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,

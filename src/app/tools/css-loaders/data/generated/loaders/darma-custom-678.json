@@ -26,7 +26,7 @@
   },
   "searchText": "darma-custom-678 pattern progress 04 progress css-only single-element customizable batch-08 progress striped pattern loader html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-678\"></div>",
-  "previewCss": ".darma-loader-darma-custom-678 {\n  color: var(--loader-color, #22c55e);\nwidth: 45px;\naspect-ratio: 1;\n--c: no-repeat linear-gradient(currentColor calc(50% - 10px),#0000 0 calc(50% + 10px),currentColor 0);\nbackground:\nvar(--c) 0% 100%,\nvar(--c) 50% 100%,\nvar(--c) 100% 100%;\nbackground-size: 20% calc(200% + 20px);\nanimation:darma-loader-darma-custom-678-l4 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-678-l4 {\n33% {background-position: 0% 50%,50% 100%,100% 100%}\n50% {background-position: 0% 0%,50% 50%,100% 100%}\n66% {background-position: 0% 0%,50% 0%,100% 50%}\n100% {background-position: 0% 0%,50% 0%,100% 0%}\n}",
+  "previewCss": ".darma-loader-darma-custom-678 {\n  color: var(--loader-color, #22c55e);\n  --loader-secondary-color: var(--loader-secondary-color, #86efac);\n  --loader-bg: var(--loader-bg, #ffffff);\nwidth: 45px;\naspect-ratio: 1;\n--c: no-repeat linear-gradient(currentColor calc(50% - 10px),#0000 0 calc(50% + 10px),currentColor 0);\nbackground:\nvar(--c) 0% 100%,\nvar(--c) 50% 100%,\nvar(--c) 100% 100%;\nbackground-size: 20% calc(200% + 20px);\nanimation:darma-loader-darma-custom-678-l4 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-678-l4 {\n33% {background-position: 0% 50%,50% 100%,100% 100%}\n50% {background-position: 0% 0%,50% 50%,100% 100%}\n66% {background-position: 0% 0%,50% 0%,100% 50%}\n100% {background-position: 0% 0%,50% 0%,100% 0%}\n}",
   "defaults": {
     "color": "#22c55e",
     "secondaryColor": "#86efac",
@@ -36,15 +36,15 @@
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-678\"></div>",
-    "css": ".darma-loader-darma-custom-678 {\n  color: var(--loader-color, #22c55e);\nwidth: 45px;\naspect-ratio: 1;\n--c: no-repeat linear-gradient(currentColor calc(50% - 10px),#0000 0 calc(50% + 10px),currentColor 0);\nbackground:\nvar(--c) 0% 100%,\nvar(--c) 50% 100%,\nvar(--c) 100% 100%;\nbackground-size: 20% calc(200% + 20px);\nanimation:darma-loader-darma-custom-678-l4 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-678-l4 {\n33% {background-position: 0% 50%,50% 100%,100% 100%}\n50% {background-position: 0% 0%,50% 50%,100% 100%}\n66% {background-position: 0% 0%,50% 0%,100% 50%}\n100% {background-position: 0% 0%,50% 0%,100% 0%}\n}",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom678Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-678\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-678 {\n  color: var(--loader-color, #22c55e);\n  --loader-secondary-color: var(--loader-secondary-color, #86efac);\n  --loader-bg: var(--loader-bg, #ffffff);\nwidth: 45px;\naspect-ratio: 1;\n--c: no-repeat linear-gradient(currentColor calc(50% - 10px),#0000 0 calc(50% + 10px),currentColor 0);\nbackground:\nvar(--c) 0% 100%,\nvar(--c) 50% 100%,\nvar(--c) 100% 100%;\nbackground-size: 20% calc(200% + 20px);\nanimation:darma-loader-darma-custom-678-l4 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-678-l4 {\n33% {background-position: 0% 50%,50% 100%,100% 100%}\n50% {background-position: 0% 0%,50% 50%,100% 100%}\n66% {background-position: 0% 0%,50% 0%,100% 50%}\n100% {background-position: 0% 0%,50% 0%,100% 0%}\n}",
+    "react": "export default function DarmaCustom678Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-678\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
     "background": false,
-    "secondaryColor": false
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

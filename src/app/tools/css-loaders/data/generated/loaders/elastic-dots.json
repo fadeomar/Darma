@@ -24,12 +24,12 @@
   "defaults": {
     "color": "#6366f1",
     "size": 48,
-    "speed": 0.9
+    "speed": 1
   },
   "code": {
     "html": "<span class=\"darma-loader-elastic-dots\"><b></b><b></b><b></b></span>",
     "css": ".darma-loader-elastic-dots {\n  display: inline-flex;\n  gap: 7px;\n  color: var(--loader-color, #6366f1);\n}\n.darma-loader-elastic-dots b {\n  width: 11px;\n  height: 11px;\n  border-radius: 999px;\n  background: currentColor;\n  transform-origin: center;\n  animation: darma-loader-elastic-dots-elastic 0.9s ease-in-out infinite;\n}\n.darma-loader-elastic-dots b:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-elastic-dots b:nth-child(3) { animation-delay: 0.24s; }\n@keyframes darma-loader-elastic-dots-elastic {\n  0%, 100% { transform: scaleY(1); opacity: 0.45; }\n  45% { transform: scaleY(2.1); opacity: 1; }\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function ElasticDotsLoader() {\n  return (\n    <span className=\"darma-loader-elastic-dots\"><b></b><b></b><b></b></span>\n  );\n}\n"
+    "react": "export default function ElasticDotsLoader() {\n  return (\n    <span className=\"darma-loader-elastic-dots\"><b></b><b></b><b></b></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,

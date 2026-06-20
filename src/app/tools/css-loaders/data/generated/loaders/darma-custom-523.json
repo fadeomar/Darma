@@ -29,25 +29,25 @@
   },
   "searchText": "darma-custom-523 tile path 09 bars tile path 09 bars blocks minimal grid loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-523\"></div>",
-  "previewCss": ".darma-loader-darma-custom-523 {color: var(--loader-color, #0284c7);\n   height: 40px;\n   aspect-ratio: 1.5;\n   --c: currentColor 96%,#0000;\n   background: radial-gradient(farthest-side at 100% 100%,var(--c)), radial-gradient(farthest-side at 0 100%,var(--c)), radial-gradient(farthest-side at 100% 0 ,var(--c)), radial-gradient(farthest-side at 0 0 ,var(--c));\n   background-size: 33.4% 50%;\n   background-repeat: no-repeat;\n   animation: darma-loader-darma-custom-523-l9 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-523-l9  {\n  0% {background-position:0 0,50% 0,0 100%,50% 100%}\n12.5% {background-position:0 0,100% 0,0 100%,50% 100%}\n25% {background-position:50% 0,100% 0,0 100%,50% 100%}\n37.5% {background-position:50% 0,100% 0,0 100%,100% 100%}\n50% {background-position:50% 0,100% 0,50% 100%,100% 100%}\n62.5% {background-position:0 0,100% 0,50% 100%,100% 100%}\n75% {background-position:0 0,50% 0,50% 100%,100% 100%}\n87.5% {background-position:0 0,50% 0,0 100%,100% 100%}\n100% {background-position:0 0,50% 0,0 100%,50% 100%}\n}\n",
+  "previewCss": ".darma-loader-darma-custom-523 {color: var(--loader-color, #0284c7);\n  --loader-secondary-color: var(--loader-secondary-color, #7dd3fc);\n  --loader-bg: var(--loader-bg, #ffffff);\n   height: 40px;\n   aspect-ratio: 1.5;\n   --c: currentColor 96%,#0000;\n   background: radial-gradient(farthest-side at 100% 100%,var(--c)), radial-gradient(farthest-side at 0 100%,var(--c)), radial-gradient(farthest-side at 100% 0 ,var(--c)), radial-gradient(farthest-side at 0 0 ,var(--c));\n   background-size: 33.4% 50%;\n   background-repeat: no-repeat;\n   animation: darma-loader-darma-custom-523-l9 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-523-l9  {\n  0% {background-position:0 0,50% 0,0 100%,50% 100%}\n12.5% {background-position:0 0,100% 0,0 100%,50% 100%}\n25% {background-position:50% 0,100% 0,0 100%,50% 100%}\n37.5% {background-position:50% 0,100% 0,0 100%,100% 100%}\n50% {background-position:50% 0,100% 0,50% 100%,100% 100%}\n62.5% {background-position:0 0,100% 0,50% 100%,100% 100%}\n75% {background-position:0 0,50% 0,50% 100%,100% 100%}\n87.5% {background-position:0 0,50% 0,0 100%,100% 100%}\n100% {background-position:0 0,50% 0,0 100%,50% 100%}\n}\n",
   "defaults": {
     "color": "#0284c7",
     "secondaryColor": "#7dd3fc",
     "size": 74,
-    "speed": 2,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-523\"></div>",
-    "css": ".darma-loader-darma-custom-523 {color: var(--loader-color, #0284c7);\n   height: 40px;\n   aspect-ratio: 1.5;\n   --c: currentColor 96%,#0000;\n   background: radial-gradient(farthest-side at 100% 100%,var(--c)), radial-gradient(farthest-side at 0 100%,var(--c)), radial-gradient(farthest-side at 100% 0 ,var(--c)), radial-gradient(farthest-side at 0 0 ,var(--c));\n   background-size: 33.4% 50%;\n   background-repeat: no-repeat;\n   animation: darma-loader-darma-custom-523-l9 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-523-l9  {\n  0% {background-position:0 0,50% 0,0 100%,50% 100%}\n12.5% {background-position:0 0,100% 0,0 100%,50% 100%}\n25% {background-position:50% 0,100% 0,0 100%,50% 100%}\n37.5% {background-position:50% 0,100% 0,0 100%,100% 100%}\n50% {background-position:50% 0,100% 0,50% 100%,100% 100%}\n62.5% {background-position:0 0,100% 0,50% 100%,100% 100%}\n75% {background-position:0 0,50% 0,50% 100%,100% 100%}\n87.5% {background-position:0 0,50% 0,0 100%,100% 100%}\n100% {background-position:0 0,50% 0,0 100%,50% 100%}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom523Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-523\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-523 {color: var(--loader-color, #0284c7);\n  --loader-secondary-color: var(--loader-secondary-color, #7dd3fc);\n  --loader-bg: var(--loader-bg, #ffffff);\n   height: 40px;\n   aspect-ratio: 1.5;\n   --c: currentColor 96%,#0000;\n   background: radial-gradient(farthest-side at 100% 100%,var(--c)), radial-gradient(farthest-side at 0 100%,var(--c)), radial-gradient(farthest-side at 100% 0 ,var(--c)), radial-gradient(farthest-side at 0 0 ,var(--c));\n   background-size: 33.4% 50%;\n   background-repeat: no-repeat;\n   animation: darma-loader-darma-custom-523-l9 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-523-l9  {\n  0% {background-position:0 0,50% 0,0 100%,50% 100%}\n12.5% {background-position:0 0,100% 0,0 100%,50% 100%}\n25% {background-position:50% 0,100% 0,0 100%,50% 100%}\n37.5% {background-position:50% 0,100% 0,0 100%,100% 100%}\n50% {background-position:50% 0,100% 0,50% 100%,100% 100%}\n62.5% {background-position:0 0,100% 0,50% 100%,100% 100%}\n75% {background-position:0 0,50% 0,50% 100%,100% 100%}\n87.5% {background-position:0 0,50% 0,0 100%,100% 100%}\n100% {background-position:0 0,50% 0,0 100%,50% 100%}\n}\n",
+    "react": "export default function DarmaCustom523Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-523\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
-    "secondaryColor": false
+    "background": true,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

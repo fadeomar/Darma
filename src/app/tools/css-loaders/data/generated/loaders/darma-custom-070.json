@@ -31,13 +31,13 @@
     "color": "#574951",
     "secondaryColor": "#83988e",
     "size": 90,
-    "speed": 10,
+    "speed": 6,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-070\"></div>",
     "css": ".darma-loader-darma-custom-070 {\n  display: inline-grid;\n  width: 90px;\n  aspect-ratio: 1;\n  clip-path: polygon(100% 50%,85.36% 85.36%,50% 100%,14.64% 85.36%,0% 50%,14.64% 14.64%,50% 0%,85.36% 14.64%);\n  background: var(--loader-color, #574951);\n  animation: darma-loader-darma-custom-070-l2 6s infinite linear;\n}\n.darma-loader-darma-custom-070:before,\n.darma-loader-darma-custom-070:after {\n  content:\"\";\n  grid-area: 1/1;\n  background: var(--loader-secondary-color, #83988e);\n  clip-path: polygon(100% 50%,81.17% 89.09%,38.87% 98.75%,4.95% 71.69%,4.95% 28.31%,38.87% 1.25%,81.17% 10.91%);\n  margin: 10%;\n  animation: inherit;\n  animation-duration: 10s;\n}\n.darma-loader-darma-custom-070:after {\n  background: #BCDEA5;\n  clip-path: polygon(100% 50%,75% 93.3%,25% 93.3%,0% 50%,25% 6.7%,75% 6.7%);\n  margin: 20%;\n  animation-duration: 3s;\n  animation-direction: reverse;\n}\n@keyframes darma-loader-darma-custom-070-l2 {to{rotate: 1turn}}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom070Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-070\"></div>\n  );\n}\n"
+    "react": "export default function DarmaCustom070Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-070\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,

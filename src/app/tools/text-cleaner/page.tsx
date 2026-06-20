@@ -1,32 +1,34 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
-import { getToolRegistry } from "@/features/tools";
-import ToolPageShell from "@/features/tools/ui/ToolPageShell";
-import ToolContentCard from "@/features/tools/ui/ToolContentCard";
 import SurfaceCard from "@/components/ui/SurfaceCard";
+import { NextToolSuggestions } from "@/features/tools/components/NextToolSuggestions";
+import { getToolRegistry } from "@/features/tools";
+import ToolContentCard from "@/features/tools/ui/ToolContentCard";
+import ToolPageShell from "@/features/tools/ui/ToolPageShell";
 
 export const metadata: Metadata = {
-  title: "Text Cleaner & Case Converter | Darma Tools",
+  title: "Text Cleaner Pro | Darma Tools",
   description:
-    "Clean, format, and transform text instantly in your browser. Remove extra spaces, fix line endings, deduplicate lines, sort, and convert between UPPERCASE, lowercase, camelCase, snake_case, and more.",
+    "Clean, normalize, extract, format, and transform text instantly in your browser with presets, Arabic cleanup, and multi-step pipelines.",
   keywords: [
     "text cleaner",
+    "text cleaner pro",
     "case converter",
     "remove extra spaces",
     "text formatter",
-    "camelCase converter",
+    "arabic text cleanup",
+    "extract urls",
+    "extract emails",
     "snake_case converter",
     "kebab-case converter",
     "remove duplicate lines",
     "sort lines",
-    "text transform",
     "online text tool",
-    "string utilities",
   ],
   openGraph: {
-    title: "Text Cleaner & Case Converter — Fix Any Text Instantly",
+    title: "Text Cleaner Pro - Fix Any Text Instantly",
     description:
-      "Paste messy text and clean it up in one click. Remove whitespace, normalize line endings, deduplicate, sort lines, and convert case — all in your browser, nothing uploaded.",
+      "Paste messy text and clean it up with presets, extraction tools, Arabic normalization, and ordered pipelines - all in your browser, nothing uploaded.",
   },
 };
 
@@ -45,10 +47,9 @@ export default function TextCleanerPage() {
       tool={tool}
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Paste any text and clean it up instantly — collapse spaces, fix
-          capitalisation, sort lines, remove duplicates, and convert between
-          ten case formats. Transforms chain together, so you can apply several
-          in sequence. Everything runs locally; nothing leaves your browser.
+          Paste any text and clean it up instantly - collapse spaces, normalize
+          Arabic text, extract links and emails, format lists, convert case, and
+          run multi-step pipelines. Everything runs locally; nothing leaves your browser.
         </p>
       }
       sidebar={
@@ -63,15 +64,13 @@ export default function TextCleanerPage() {
                 "lowercase",
                 "Title Case",
                 "Sentence case",
-                "Each Word",
-                "iNVERSE",
                 "camelCase",
                 "PascalCase",
                 "snake_case",
                 "kebab-case",
-              ].map((f) => (
-                <li key={f} className="font-mono text-xs">
-                  {f}
+              ].map((format) => (
+                <li key={format} className="font-mono text-xs">
+                  {format}
                 </li>
               ))}
             </ul>
@@ -85,11 +84,10 @@ export default function TextCleanerPage() {
               <li>Trim whitespace</li>
               <li>Remove extra spaces</li>
               <li>Remove empty lines</li>
-              <li>Trim each line</li>
-              <li>Normalize line breaks</li>
-              <li>Collapse blank lines</li>
               <li>Remove duplicate lines</li>
-              <li>Sort A → Z / Z → A</li>
+              <li>Sort A-Z / Z-A</li>
+              <li>Extract URLs, emails, phones, hashtags, mentions, and numbers</li>
+              <li>Normalize Arabic alef, yaa, tashkeel, tatweel, and punctuation</li>
             </ul>
           </SurfaceCard>
 
@@ -98,22 +96,21 @@ export default function TextCleanerPage() {
               How it works
             </h2>
             <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
-              Each transform you click applies to the current{" "}
-              <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-                output
-              </strong>{" "}
-              (or input if there is no output yet). Results chain — apply as many
-              transforms as you like in sequence.
+              Run a single action for quick cleanup, or add multiple actions to
+              a selected pipeline and run them in order. Use output as input when
+              you want to continue refining a result.
             </p>
           </SurfaceCard>
+
+          <NextToolSuggestions toolIds={["slug-generator", "meta-tag-generator", "word-counter"]} />
         </div>
       }
     >
       <ToolContentCard
-        title="Text cleaner & case converter"
-        description="Paste your text on the left, apply transforms, and copy or download the result on the right."
+        title="Text Cleaner Pro"
+        description="Paste your text on the left, run presets or actions, and copy or download the result on the right."
       >
-        <TextCleanerClient />
+        <TextCleanerClient tool={{ id: tool.id, title: tool.title }} />
       </ToolContentCard>
 
       <ToolContentCard title="About this tool">

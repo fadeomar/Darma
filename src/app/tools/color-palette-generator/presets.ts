@@ -1,4 +1,4 @@
-import type { HarmonyMode, PaletteSize } from "./types";
+import type { HarmonyMode, PalettePreset, PaletteSize } from "./types";
 
 export const HARMONY_OPTIONS: Array<{ value: HarmonyMode; label: string; description: string }> = [
   { value: "monochromatic", label: "Monochromatic", description: "One hue with varied saturation and lightness." },
@@ -19,3 +19,51 @@ export const PALETTE_SIZE_OPTIONS: Array<{ value: PaletteSize; label: string }> 
 ];
 
 export const STARTER_COLORS = ["#2563EB", "#7C3AED", "#059669", "#EA580C", "#DB2777", "#0F172A", "#0891B2", "#CA8A04"];
+
+export const PALETTE_PRESETS: PalettePreset[] = [
+  {
+    id: "website",
+    title: "Website palette",
+    description: "Balanced colors for landing pages, dashboards, and content sites.",
+    baseColor: "#2563EB",
+    harmony: "analogous",
+    size: 7,
+    uiMode: "light",
+  },
+  {
+    id: "social-media",
+    title: "Social media palette",
+    description: "Energetic tones for posts, thumbnails, and creator graphics.",
+    baseColor: "#DB2777",
+    harmony: "triadic",
+    size: 5,
+    uiMode: "light",
+  },
+  {
+    id: "brand",
+    title: "Brand palette",
+    description: "A flexible identity palette with primary, accent, and support colors.",
+    baseColor: "#7C3AED",
+    harmony: "split-complementary",
+    size: 7,
+    uiMode: "light",
+  },
+  {
+    id: "dark-ui",
+    title: "Dark UI palette",
+    description: "Deep surfaces and readable accents for dark interfaces.",
+    baseColor: "#0F172A",
+    harmony: "tints",
+    size: 7,
+    uiMode: "dark",
+  },
+  {
+    id: "light-ui",
+    title: "Light UI palette",
+    description: "Soft surfaces, borders, and action colors for clean light UIs.",
+    baseColor: "#0891B2",
+    harmony: "tints",
+    size: 7,
+    uiMode: "light",
+  },
+];

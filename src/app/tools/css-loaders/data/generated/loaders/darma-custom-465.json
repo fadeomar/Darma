@@ -28,24 +28,24 @@
   },
   "searchText": "darma-custom-465 weather icon 05 fun weather icon 05 fun scene illustration loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-465\"></div>",
-  "previewCss": ".darma-loader-darma-custom-465 {color: var(--loader-color, #0f766e);\n   width: 80px;\n   height: 40px;\n   border-radius: 100px 100px 0 0;\n   position: relative;\n   overflow: hidden;\n}\n.darma-loader-darma-custom-465:before  {\n  content: \"\";\n   position: absolute;\n   inset: 0 0 -100%;\n   background: radial-gradient(farthest-side,var(--loader-color, #0f766e) 80%,#0000) left 70% top 20%/15px 15px, radial-gradient(farthest-side,var(--loader-secondary-color, #5eead4) 92%,#0000) left 65% bottom 19%/12px 12px, radial-gradient(farthest-side,var(--loader-secondary-color, #5eead4) 92%,#0000) left 70% bottom 20%/15px 15px, linear-gradient(#9eddfe 50%,var(--loader-secondary-color, #5eead4) 0);\n   background-repeat: no-repeat;\n   animation: darma-loader-darma-custom-465-l5 2s infinite;\n}\n@keyframes darma-loader-darma-custom-465-l5  {\n  0%,20% {transform: rotate(0)}\n40%,60% {transform: rotate(.5turn)}\n80%,100% {transform: rotate(1turn)}\n}\n",
+  "previewCss": ".darma-loader-darma-custom-465 {color: var(--loader-color, #0f766e);\n  --loader-secondary-color: var(--loader-secondary-color, #5eead4);\n  --loader-bg: var(--loader-bg, #ffffff);\n   width: 80px;\n   height: 40px;\n   border-radius: 100px 100px 0 0;\n   position: relative;\n   overflow: hidden;\n}\n.darma-loader-darma-custom-465:before  {\n  content: \"\";\n   position: absolute;\n   inset: 0 0 -100%;\n   background: radial-gradient(farthest-side,var(--loader-color, #0f766e) 80%,#0000) left 70% top 20%/15px 15px, radial-gradient(farthest-side,var(--loader-secondary-color, #5eead4) 92%,#0000) left 65% bottom 19%/12px 12px, radial-gradient(farthest-side,var(--loader-secondary-color, #5eead4) 92%,#0000) left 70% bottom 20%/15px 15px, linear-gradient(#9eddfe 50%,var(--loader-secondary-color, #5eead4) 0);\n   background-repeat: no-repeat;\n   animation: darma-loader-darma-custom-465-l5 2s infinite;\n}\n@keyframes darma-loader-darma-custom-465-l5  {\n  0%,20% {transform: rotate(0)}\n40%,60% {transform: rotate(.5turn)}\n80%,100% {transform: rotate(1turn)}\n}\n",
   "defaults": {
     "color": "#0f766e",
     "secondaryColor": "#5eead4",
     "size": 64,
-    "speed": 2,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-465\"></div>",
-    "css": ".darma-loader-darma-custom-465 {color: var(--loader-color, #0f766e);\n   width: 80px;\n   height: 40px;\n   border-radius: 100px 100px 0 0;\n   position: relative;\n   overflow: hidden;\n}\n.darma-loader-darma-custom-465:before  {\n  content: \"\";\n   position: absolute;\n   inset: 0 0 -100%;\n   background: radial-gradient(farthest-side,var(--loader-color, #0f766e) 80%,#0000) left 70% top 20%/15px 15px, radial-gradient(farthest-side,var(--loader-secondary-color, #5eead4) 92%,#0000) left 65% bottom 19%/12px 12px, radial-gradient(farthest-side,var(--loader-secondary-color, #5eead4) 92%,#0000) left 70% bottom 20%/15px 15px, linear-gradient(#9eddfe 50%,var(--loader-secondary-color, #5eead4) 0);\n   background-repeat: no-repeat;\n   animation: darma-loader-darma-custom-465-l5 2s infinite;\n}\n@keyframes darma-loader-darma-custom-465-l5  {\n  0%,20% {transform: rotate(0)}\n40%,60% {transform: rotate(.5turn)}\n80%,100% {transform: rotate(1turn)}\n}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom465Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-465\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-465 {color: var(--loader-color, #0f766e);\n  --loader-secondary-color: var(--loader-secondary-color, #5eead4);\n  --loader-bg: var(--loader-bg, #ffffff);\n   width: 80px;\n   height: 40px;\n   border-radius: 100px 100px 0 0;\n   position: relative;\n   overflow: hidden;\n}\n.darma-loader-darma-custom-465:before  {\n  content: \"\";\n   position: absolute;\n   inset: 0 0 -100%;\n   background: radial-gradient(farthest-side,var(--loader-color, #0f766e) 80%,#0000) left 70% top 20%/15px 15px, radial-gradient(farthest-side,var(--loader-secondary-color, #5eead4) 92%,#0000) left 65% bottom 19%/12px 12px, radial-gradient(farthest-side,var(--loader-secondary-color, #5eead4) 92%,#0000) left 70% bottom 20%/15px 15px, linear-gradient(#9eddfe 50%,var(--loader-secondary-color, #5eead4) 0);\n   background-repeat: no-repeat;\n   animation: darma-loader-darma-custom-465-l5 2s infinite;\n}\n@keyframes darma-loader-darma-custom-465-l5  {\n  0%,20% {transform: rotate(0)}\n40%,60% {transform: rotate(.5turn)}\n80%,100% {transform: rotate(1turn)}\n}\n",
+    "react": "export default function DarmaCustom465Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-465\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
+    "background": true,
     "secondaryColor": true
   },
   "source": {

@@ -161,6 +161,35 @@ export function minifyJSON(input: string, sortKeys = false): ProcessResult {
   return { ok: true, output, parsed: value, validation: { ok: true } };
 }
 
+export function escapeJSONString(input: string): ProcessResult {
+  const output = JSON.stringify(input);
+  return {
+    ok: true,
+    output,
+    parsed: output as JsonValue,
+    validation: { ok: true },
+  };
+}
+
+export function unescapeJSONString(input: string): ProcessResult {
+  const parsed = parseJSON(input);
+  if (!parsed.ok || typeof parsed.parsed !== "string") {
+    return {
+      ok: false,
+      validation: parsed.ok
+        ? { ok: false, error: "Input must be a valid JSON string value.", raw: input }
+        : parsed.validation,
+    };
+  }
+
+  return {
+    ok: true,
+    output: parsed.parsed,
+    parsed: parsed.parsed,
+    validation: { ok: true },
+  };
+}
+
 // ─── Repair helpers ───────────────────────────────────────────────────────────
 
 function stripComments(input: string): { value: string; changed: boolean } {

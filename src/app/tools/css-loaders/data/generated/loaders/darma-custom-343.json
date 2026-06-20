@@ -30,25 +30,25 @@
   },
   "searchText": "darma-custom-343 neon halo 12 spinners neon halo 12 glow ring spinner blur spinners loader css-only single-element batch-06 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-343\"></div>",
-  "previewCss": ".darma-loader-darma-custom-343 {color: var(--loader-color, #0284c7);\n  --s: -100px;\n  height: 70px;\n  aspect-ratio: 1;\n  position: relative;\n  clip-path: polygon(evenodd,var(--s) var(--s),calc(100% - var(--s)) var(--s),calc(100% - var(--s)) calc(100% - var(--s)),var(--s) calc(100% - var(--s)),var(--s) var(--s),100% 50%,85.36% 85.36%,50% 100%,14.64% 85.36%,0% 50%,14.64% 14.64%,50% 0%,85.36% 14.64%,100% 50%,74.75% 25.25%,50% 15%,25.25% 25.25%,15% 50%,25.25% 74.75%,50% 85%,74.75% 74.75%,85% 50%,74.75% 25.25%,100% 50%);\n}.darma-loader-darma-custom-343:before {content: \"\";\n  position: absolute;\n  inset: 0 35% 70%;\n  border-radius: 50%;\n  background: currentColor;\n  filter: blur(15px);\n  transform-origin: 50% 165%;\n  animation: darma-loader-darma-custom-343-l12 1.5s linear infinite;\n}@keyframes darma-loader-darma-custom-343-l12 {to {rotate: 1turn}}\n",
+  "previewCss": ".darma-loader-darma-custom-343 {color: var(--loader-color, #0284c7);\n  --loader-secondary-color: var(--loader-secondary-color, #7dd3fc);\n  --loader-bg: var(--loader-bg, #ffffff);\n  --s: -100px;\n  height: 70px;\n  aspect-ratio: 1;\n  position: relative;\n  clip-path: polygon(evenodd,var(--s) var(--s),calc(100% - var(--s)) var(--s),calc(100% - var(--s)) calc(100% - var(--s)),var(--s) calc(100% - var(--s)),var(--s) var(--s),100% 50%,85.36% 85.36%,50% 100%,14.64% 85.36%,0% 50%,14.64% 14.64%,50% 0%,85.36% 14.64%,100% 50%,74.75% 25.25%,50% 15%,25.25% 25.25%,15% 50%,25.25% 74.75%,50% 85%,74.75% 74.75%,85% 50%,74.75% 25.25%,100% 50%);\n}.darma-loader-darma-custom-343:before {content: \"\";\n  position: absolute;\n  inset: 0 35% 70%;\n  border-radius: 50%;\n  background: currentColor;\n  filter: blur(15px);\n  transform-origin: 50% 165%;\n  animation: darma-loader-darma-custom-343-l12 1.5s linear infinite;\n}@keyframes darma-loader-darma-custom-343-l12 {to {rotate: 1turn}}\n",
   "defaults": {
     "color": "#0284c7",
     "secondaryColor": "#7dd3fc",
     "size": 72,
-    "speed": 1.5,
+    "speed": 1,
     "background": "#ffffff"
   },
   "code": {
     "html": "<div class=\"darma-loader-darma-custom-343\"></div>",
-    "css": ".darma-loader-darma-custom-343 {color: var(--loader-color, #0284c7);\n  --s: -100px;\n  height: 70px;\n  aspect-ratio: 1;\n  position: relative;\n  clip-path: polygon(evenodd,var(--s) var(--s),calc(100% - var(--s)) var(--s),calc(100% - var(--s)) calc(100% - var(--s)),var(--s) calc(100% - var(--s)),var(--s) var(--s),100% 50%,85.36% 85.36%,50% 100%,14.64% 85.36%,0% 50%,14.64% 14.64%,50% 0%,85.36% 14.64%,100% 50%,74.75% 25.25%,50% 15%,25.25% 25.25%,15% 50%,25.25% 74.75%,50% 85%,74.75% 74.75%,85% 50%,74.75% 25.25%,100% 50%);\n}.darma-loader-darma-custom-343:before {content: \"\";\n  position: absolute;\n  inset: 0 35% 70%;\n  border-radius: 50%;\n  background: currentColor;\n  filter: blur(15px);\n  transform-origin: 50% 165%;\n  animation: darma-loader-darma-custom-343-l12 1.5s linear infinite;\n}@keyframes darma-loader-darma-custom-343-l12 {to {rotate: 1turn}}\n",
-    "react": "import type { CSSProperties } from \"react\";\n\nexport default function DarmaCustom343Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-343\"></div>\n  );\n}\n"
+    "css": ".darma-loader-darma-custom-343 {color: var(--loader-color, #0284c7);\n  --loader-secondary-color: var(--loader-secondary-color, #7dd3fc);\n  --loader-bg: var(--loader-bg, #ffffff);\n  --s: -100px;\n  height: 70px;\n  aspect-ratio: 1;\n  position: relative;\n  clip-path: polygon(evenodd,var(--s) var(--s),calc(100% - var(--s)) var(--s),calc(100% - var(--s)) calc(100% - var(--s)),var(--s) calc(100% - var(--s)),var(--s) var(--s),100% 50%,85.36% 85.36%,50% 100%,14.64% 85.36%,0% 50%,14.64% 14.64%,50% 0%,85.36% 14.64%,100% 50%,74.75% 25.25%,50% 15%,25.25% 25.25%,15% 50%,25.25% 74.75%,50% 85%,74.75% 74.75%,85% 50%,74.75% 25.25%,100% 50%);\n}.darma-loader-darma-custom-343:before {content: \"\";\n  position: absolute;\n  inset: 0 35% 70%;\n  border-radius: 50%;\n  background: currentColor;\n  filter: blur(15px);\n  transform-origin: 50% 165%;\n  animation: darma-loader-darma-custom-343-l12 1.5s linear infinite;\n}@keyframes darma-loader-darma-custom-343-l12 {to {rotate: 1turn}}\n",
+    "react": "export default function DarmaCustom343Loader() {\n  return (\n    <div className=\"darma-loader-darma-custom-343\"></div>\n  );\n}\n"
   },
   "controls": {
     "color": true,
     "size": true,
     "speed": true,
-    "background": false,
-    "secondaryColor": false
+    "background": true,
+    "secondaryColor": true
   },
   "source": {
     "name": "Darma custom loaders",

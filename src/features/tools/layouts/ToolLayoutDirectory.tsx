@@ -17,7 +17,11 @@ import {
 } from "react-icons/fa6";
 import ToolCardLink from "@/components/analytics/ToolCardLink";
 import { Badge, Button, Card, EmptyState, Input, Select } from "@/components/ui";
+import { FavoriteToolButton } from "@/features/tools/components/FavoriteToolButton";
+import { RecentToolsRail } from "@/features/tools/components/RecentToolsRail";
 import type { ToolAudience, ToolDefinition } from "@/features/tools";
+import { useFavoriteTools } from "@/features/tools/hooks/useFavoriteTools";
+import { toolWorkflows } from "@/features/tools/workflows";
 import { cn } from "@/lib/cn";
 
 const ICONS: Record<string, IconType> = {
@@ -38,6 +42,7 @@ const audienceLabels: Record<string, string> = {
   creator: "Creator",
   general: "General",
   student: "Student",
+  business: "Business",
 };
 
 type ToolSort = "featured" | "recent" | "az" | "category";
@@ -73,10 +78,14 @@ function searchableText(tool: ToolDefinition) {
   return [
     tool.title,
     tool.description,
+    tool.shortDescription ?? "",
     ...(tool.tags ?? []),
     ...(tool.audiences ?? []),
     ...(tool.mainCategory ?? []),
     ...(tool.secondaryCategory ?? []),
+    ...(tool.useCases ?? []),
+    ...(tool.benefits ?? []),
+    ...(tool.examples ?? []),
     tool.layoutType ?? "",
     tool.toolCategory ?? "",
     tool.privacy ?? "",
@@ -115,40 +124,73 @@ function ToolCard({ tool, compact = false }: { tool: ToolDefinition; compact?: b
   const category = tool.secondaryCategory?.[0] ?? tool.mainCategory?.[0];
 
   return (
-    <ToolCardLink href={tool.href} toolName={tool.title}>
-      <Card as="article" variant="interactive" padding={compact ? "md" : "lg"} className="flex h-full flex-col">
-        <div className="mb-4 flex items-start justify-between gap-3">
+    <Card as="article" variant="interactive" padding={compact ? "md" : "lg"} className="flex h-full flex-col">
+      <div className="mb-4 flex items-start justify-between gap-3">
+        <ToolCardLink href={tool.href} toolName={tool.title}>
           <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary)] sm:h-11 sm:w-11">
             <Icon className="text-lg" aria-hidden />
           </span>
-          <div className="flex flex-wrap justify-end gap-2">
-            <Badge variant="soft">{layoutLabel(tool.layoutType)}</Badge>
-            {privacy && !compact ? <Badge variant="accent">{privacy}</Badge> : null}
-            {!compact && tool.featured ? <Badge variant="warning">Featured</Badge> : null}
+        </ToolCardLink>
+        <div className="flex flex-wrap justify-end gap-2">
+          <FavoriteToolButton toolId={tool.id} toolTitle={tool.title} showLabel={false} />
+          <Badge variant="soft">{layoutLabel(tool.layoutType)}</Badge>
+          {privacy && !compact ? <Badge variant="accent">{privacy}</Badge> : null}
+          {!compact && tool.featured ? <Badge variant="warning">Featured</Badge> : null}
+        </div>
+      </div>
+
+      <ToolCardLink href={tool.href} toolName={tool.title}>
+        <div className="flex h-full flex-col">
+          <h3 className="text-lg font-black leading-tight tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-xl">{tool.title}</h3>
+          <p className="mt-3 line-clamp-3 text-sm leading-6 text-[var(--color-text-secondary)]">{tool.shortDescription ?? tool.description}</p>
+
+          {!compact && tool.useCases?.length ? (
+            <ul className="mt-4 grid gap-1.5 text-xs leading-5 text-[var(--color-text-tertiary)]">
+              {tool.useCases.slice(0, 2).map((useCase) => (
+                <li key={useCase}>{useCase}</li>
+              ))}
+            </ul>
+          ) : null}
+
+          <div className="mt-4 flex flex-wrap gap-2">
+            {category ? <Badge variant="outline">{formatCategory(category)}</Badge> : null}
+            {primaryTags.map((tag) => (
+              <Badge key={tag} variant="outline">#{tag}</Badge>
+            ))}
+          </div>
+
+          <div className="mt-auto pt-5">
+            <span className="inline-flex font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+              Open tool -&gt;
+            </span>
           </div>
         </div>
+      </ToolCardLink>
+    </Card>
+  );
+}
 
-        <h3 className="text-lg font-black leading-tight tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-xl">{tool.title}</h3>
-        <p className="mt-3 line-clamp-3 text-sm leading-6 text-[var(--color-text-secondary)]">{tool.description}</p>
-
-        <div className="mt-4 flex flex-wrap gap-2">
-          {category ? <Badge variant="outline">{formatCategory(category)}</Badge> : null}
-          {primaryTags.map((tag) => (
-            <Badge key={tag} variant="outline">#{tag}</Badge>
+function WorkflowCard({ workflow }: { workflow: (typeof toolWorkflows)[number] }) {
+  return (
+    <Link href={`/tools/workflows/${workflow.id}`} className="block h-full rounded-[var(--radius-lg)] focus:outline-none focus:shadow-[var(--focus-ring)]">
+      <Card as="article" variant="interactive" padding="md" className="flex h-full flex-col">
+        <div className="mb-4 flex flex-wrap gap-2">
+          {(workflow.audience ?? []).slice(0, 2).map((audience) => (
+            <Badge key={audience} variant="soft">{audience}</Badge>
           ))}
         </div>
-
+        <h3 className="text-lg font-black leading-tight tracking-[-0.02em] text-[var(--color-text-primary)]">{workflow.title}</h3>
+        <p className="mt-3 line-clamp-3 text-sm leading-6 text-[var(--color-text-secondary)]">{workflow.description}</p>
         <div className="mt-auto pt-5">
-          <span className="inline-flex font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
-            Open tool →
-          </span>
+          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{workflow.toolIds.length} linked tools -&gt;</span>
         </div>
       </Card>
-    </ToolCardLink>
+    </Link>
   );
 }
 
 export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
+  const { favoriteToolIds } = useFavoriteTools();
   const [query, setQuery] = useState("");
   const [audience, setAudience] = useState("all");
   const [toolType, setToolType] = useState<ToolTypeFilter>("all");
@@ -164,6 +206,36 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
     [tools],
   );
 
+  const topDailyTools = useMemo(
+    () => [...tools].sort((a, b) => (b.dailyUseScore ?? 0) - (a.dailyUseScore ?? 0) || a.title.localeCompare(b.title)).slice(0, 6),
+    [tools],
+  );
+
+  const favoriteTools = useMemo(() => {
+    const byId = new Map(tools.map((tool) => [tool.id, tool]));
+    return favoriteToolIds.map((id) => byId.get(id)).filter((tool): tool is ToolDefinition => Boolean(tool));
+  }, [favoriteToolIds, tools]);
+
+  const audienceSections = useMemo(() => {
+    const sections: Array<{ key: ToolAudience; title: string }> = [
+      { key: "general", title: "Everyday users" },
+      { key: "student", title: "Students" },
+      { key: "creator", title: "Creators" },
+      { key: "designer", title: "Designers" },
+      { key: "developer", title: "Developers" },
+    ];
+
+    return sections
+      .map((section) => ({
+        ...section,
+        tools: sortTools(
+          tools.filter((tool) => (tool.audiences ?? []).includes(section.key)),
+          "featured",
+        ).slice(0, 3),
+      }))
+      .filter((section) => section.tools.length > 0);
+  }, [tools]);
+
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     const matches = tools.filter((tool) => {
@@ -178,6 +250,7 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
   }, [audience, category, query, sort, toolType, tools]);
 
   const hasFilters = query.trim().length > 0 || audience !== "all" || toolType !== "all" || category !== "all" || sort !== "featured";
+  const showDashboardSections = !query.trim() && audience === "all" && toolType === "all" && category === "all";
 
   const clearFilters = () => {
     setQuery("");
@@ -200,10 +273,10 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
               </Link>
             </div>
             <h1 className="mt-4 max-w-4xl text-4xl font-black leading-[var(--leading-tight)] tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-5xl lg:text-6xl">
-              Free browser tools for real front-end work
+              Fast browser tools for text, images, code, design, and everyday tasks.
             </h1>
             <p className="mt-4 max-w-3xl text-base leading-7 text-[var(--color-text-secondary)] sm:text-lg">
-              Darma tools are focused one-page utilities for styling, code previews, UI experiments, SEO, and quick content generation without signup friction.
+              No signup. Local-first. Copy-ready results.
             </p>
           </div>
 
@@ -288,7 +361,36 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
         </div>
       </section>
 
-      {featured.length > 0 && !query.trim() ? (
+      {showDashboardSections ? <RecentToolsRail tools={tools} /> : null}
+
+      {showDashboardSections && favoriteTools.length > 0 ? (
+        <section className="mt-8">
+          <div className="mb-4 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <Badge variant="soft">Favorites</Badge>
+              <h2 className="mt-2 text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Favorite tools</h2>
+            </div>
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Saved locally</p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {favoriteTools.slice(0, 6).map((tool) => <ToolCard key={tool.id} tool={tool} compact />)}
+          </div>
+        </section>
+      ) : null}
+
+      {showDashboardSections && toolWorkflows.length > 0 ? (
+        <section className="mt-8">
+          <div className="mb-4">
+            <Badge variant="soft">Workflows</Badge>
+            <h2 className="mt-2 text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Popular workflows</h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {toolWorkflows.slice(0, 3).map((workflow) => <WorkflowCard key={workflow.id} workflow={workflow} />)}
+          </div>
+        </section>
+      ) : null}
+
+      {featured.length > 0 && showDashboardSections ? (
         <section className="mt-8">
           <div className="mb-4 flex items-end justify-between gap-4">
             <div>
@@ -301,6 +403,42 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
           </div>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {featured.map((tool) => <ToolCard key={tool.id} tool={tool} />)}
+          </div>
+        </section>
+      ) : null}
+
+      {showDashboardSections && topDailyTools.length > 0 ? (
+        <section className="mt-8">
+          <div className="mb-4">
+            <Badge variant="soft">Daily-use</Badge>
+            <h2 className="mt-2 text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Useful every day</h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {topDailyTools.map((tool) => <ToolCard key={tool.id} tool={tool} compact />)}
+          </div>
+        </section>
+      ) : null}
+
+      {showDashboardSections && audienceSections.length > 0 ? (
+        <section className="mt-8">
+          <div className="mb-4">
+            <Badge variant="outline">By audience</Badge>
+            <h2 className="mt-2 text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Pick tools by task</h2>
+          </div>
+          <div className="grid gap-4 xl:grid-cols-2">
+            {audienceSections.map((section) => (
+              <div key={section.key} className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-card)]">
+                <h3 className="text-lg font-black text-[var(--color-text-primary)]">{section.title}</h3>
+                <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                  {section.tools.map((tool) => (
+                    <Link key={tool.id} href={tool.href} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 transition hover:border-[var(--color-border-strong)] focus:outline-none focus:shadow-[var(--focus-ring)]">
+                      <span className="block text-sm font-black text-[var(--color-text-primary)]">{tool.title}</span>
+                      <span className="mt-1 line-clamp-2 block text-xs leading-5 text-[var(--color-text-secondary)]">{tool.shortDescription ?? tool.description}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </section>
       ) : null}

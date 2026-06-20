@@ -14,12 +14,20 @@ export type ToolAudience =
   | "designer"
   | "student"
   | "creator"
-  | "general";
+  | "general"
+  | "business";
+
+export type ToolDifficulty = "easy" | "medium" | "advanced";
+export type ToolPowerLevel = "light" | "standard" | "pro";
 
 export type ToolDefinition = {
   id: ToolId;
   title: string;
   description: string;
+  shortDescription?: string;
+  useCases?: string[];
+  benefits?: string[];
+  examples?: string[];
   href: string;
   tags: string[];
   mainCategory: string[];
@@ -32,6 +40,9 @@ export type ToolDefinition = {
   createdAt?: Date;
   updatedAt?: Date;
   audiences?: ToolAudience[];
+  difficulty?: ToolDifficulty;
+  dailyUseScore?: number;
+  toolPowerLevel?: ToolPowerLevel;
   featured?: boolean;
   pinned?: number;
   toolCategory?: string;

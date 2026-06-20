@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { type ReactNode } from "react";
 import { Badge } from "@/components/ui";
+import { FavoriteToolButton } from "@/features/tools/components/FavoriteToolButton";
 import { RelatedToolsGrid } from "@/features/tools/components/RelatedToolsGrid";
 import { RecentToolTracker } from "@/features/tools/components/RecentToolTracker";
 import type { ToolDefinition } from "@/features/tools/domain/tool";
@@ -13,6 +14,7 @@ const audienceLabels: Record<string, string> = {
   student: "Student",
   creator: "Creator",
   general: "General",
+  business: "Business",
 };
 
 const maxWidthClass = {
@@ -97,6 +99,7 @@ export function ToolPage({
               {eyebrow ? <Badge variant="soft">{eyebrow}</Badge> : null}
               {privacy ? <Badge variant="accent">{privacy}</Badge> : null}
               {primaryCategory ? <Badge variant="outline">{formatCategory(primaryCategory)}</Badge> : null}
+              {tool ? <FavoriteToolButton toolId={tool.id} toolTitle={tool.title} /> : null}
             </div>
 
             {pageTitle ? (

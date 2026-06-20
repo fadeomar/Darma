@@ -1,20 +1,33 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, History } from "lucide-react";
-import { Badge, Card } from "@/components/ui";
-import { readRecentTools, type RecentTool } from "@/features/tools/recentTools";
+import { ArrowRight, History, Trash2 } from "lucide-react";
+import { Badge, Button, Card } from "@/components/ui";
+import { clearRecentTools, readRecentTools, type RecentTool } from "@/features/tools/recentTools";
 
 const sectionClass = "mx-auto max-w-[var(--container-wide)] px-4 py-8 sm:px-6 lg:px-8";
 const eyebrowClass = "font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]";
+const RECENTS_EVENT = "darma:recent-tools-change";
 
 export function ContinuePanel() {
   // null = not yet read (SSR / before hydration); [] = read, nothing stored.
   const [tools, setTools] = useState<RecentTool[] | null>(null);
 
   useEffect(() => {
-    setTools(readRecentTools());
+    const sync = () => setTools(readRecentTools());
+    sync();
+    // Stay in sync when history changes here or in another tab.
+    window.addEventListener(RECENTS_EVENT, sync);
+    window.addEventListener("storage", sync);
+    return () => {
+      window.removeEventListener(RECENTS_EVENT, sync);
+      window.removeEventListener("storage", sync);
+    };
+  }, []);
+
+  const handleClear = useCallback(() => {
+    clearRecentTools();
   }, []);
 
   // Render nothing for first-time visitors so the page never shows a dead
@@ -36,6 +49,14 @@ export function ContinuePanel() {
             Saved only on this browser — no account needed.
           </p>
         </div>
+        <Button
+          size="sm"
+          variant="ghost"
+          onClick={handleClear}
+          leftIcon={<Trash2 className="h-4 w-4" aria-hidden />}
+        >
+          Clear history
+        </Button>
       </div>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         {recent.map((tool) => (

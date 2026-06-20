@@ -16,6 +16,10 @@ import {
   SNIPPETS,
 } from "./aboutContent";
 import { ContinuePanel } from "./ContinuePanel";
+import { FavoritesPanel } from "./FavoritesPanel";
+
+const SUGGEST_TOOL_URL =
+  "https://github.com/fadeomar/Darma/issues/new?labels=tool-suggestion&title=Tool%20suggestion%3A%20";
 
 // Regenerate at most hourly so "Darma Today" stays current without per-request cost.
 export const revalidate = 3600;
@@ -44,6 +48,15 @@ export default function AboutPage() {
 
   const privacyCounts = countByPrivacy(publicTools);
   const presentPrivacy = PRIVACY_ORDER.filter((level) => (privacyCounts.get(level) ?? 0) > 0);
+
+  // Minimal, serializable list so the client favorites island can resolve any
+  // favorited id back to a tool.
+  const favoritePanelTools = publicTools.map((tool) => ({
+    id: tool.id,
+    title: tool.title,
+    href: tool.href,
+    description: tool.shortDescription ?? tool.description,
+  }));
 
   return (
     <main className="pb-16">
@@ -137,6 +150,9 @@ export default function AboutPage() {
 
       {/* Continue where you left off — client island, hidden until there's history */}
       <ContinuePanel />
+
+      {/* Your favorites — client island, hidden until the user stars a tool */}
+      <FavoritesPanel tools={favoritePanelTools} />
 
       {/* Built for everyone — audience-derived groups */}
       <section className={sectionClass}>
@@ -254,6 +270,31 @@ export default function AboutPage() {
                 <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">{PRIVACY_META[level].description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Suggest a tool */}
+      <section className={sectionClass}>
+        <div className="rounded-[var(--radius-xl)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-6 shadow-[var(--shadow-card)] sm:p-8">
+          <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-2xl">
+              <p className={eyebrowClass}>Help shape Darma</p>
+              <h2 className="mt-2 text-3xl font-black tracking-[-0.035em] text-[var(--color-text-primary)]">
+                Missing a tool you&apos;d use daily?
+              </h2>
+              <p className="mt-3 text-base leading-7 text-[var(--color-text-secondary)]">
+                Darma grows from real needs. Tell us what would save you time — for studying, writing, designing, or building — and it may become the next tool.
+              </p>
+            </div>
+            <a
+              href={SUGGEST_TOOL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${primaryLinkClass} shrink-0`}
+            >
+              Suggest a tool
+            </a>
           </div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState, type ChangeEvent, type Dispatch, type ReactNode, type SetStateAction } from "react";
-import { CheckCircle2, Copy, Download, FileArchive, ImageIcon, Loader2, MonitorSmartphone, Sparkles, UploadCloud } from "lucide-react";
+import { useEffect, useMemo, useState, type ChangeEvent, type Dispatch, type DragEvent, type ReactNode, type SetStateAction } from "react";
+import { CheckCircle2, ChevronDown, Copy, Download, FileArchive, ImageIcon, Loader2, MonitorSmartphone, Sparkles, UploadCloud } from "lucide-react";
 import { Button, Input, Select, Textarea } from "@/components/ui";
 import { CodeOutputPanel, ColorField, CompactField, ControlSection, SegmentedControl, SliderNumberField, WarningPanel, type WarningMessage } from "@/features/tools/components";
 import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
@@ -68,6 +68,28 @@ function MiniLabel({ children }: { children: ReactNode }) {
   return <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{children}</span>;
 }
 
+function Disclosure({ title, description, children }: { title: string; description?: string; children: ReactNode }) {
+  return (
+    <details className="group border-t border-[var(--color-border-subtle)] pt-3">
+      <summary className="flex cursor-pointer list-none items-start justify-between gap-3 rounded-[var(--radius-sm)] py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-soft)] [&::-webkit-details-marker]:hidden">
+        <span>
+          <span className="block font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{title}</span>
+          {description ? <span className="mt-1 block text-[11px] leading-4 text-[var(--color-text-tertiary)]">{description}</span> : null}
+        </span>
+        <ChevronDown className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-text-tertiary)] transition group-open:rotate-180" />
+      </summary>
+      <div className="mt-3 space-y-3">{children}</div>
+    </details>
+  );
+}
+
+function effectiveFrameRadius(device: MockupDevice, showChrome: boolean) {
+  if (!showChrome || device === "card") return 0;
+  if (device === "phone") return 44;
+  if (device === "tablet") return 30;
+  return 22;
+}
+
 function mapWarnings(warnings: MockupWarning[]): WarningMessage[] {
   return warnings.map((warning) => ({
     id: warning.id,
@@ -113,20 +135,20 @@ function UploadBox({ label, hint, accept, onChange, previewUrl }: { label: strin
 
 function QuickPresets({ setInput }: { setInput: Dispatch<SetStateAction<MockupInput>> }) {
   return (
-    <ControlSection title="Quick mockup presets" description="Start from a real use case, then tune the frame, copy, and export pack.">
-      <div className="grid gap-2">
+    <ControlSection title="Quick presets" description="Apply a practical starting point, then fine-tune it.">
+      <div className="grid grid-cols-2 gap-2">
         {QUICK_PRESETS.map((preset) => (
           <button
             key={preset.id}
             type="button"
+            title={preset.description}
             onClick={() => setInput((current) => ({ ...current, ...preset.patch }))}
-            className="group rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 text-left transition hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)]"
+            className="group rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-2.5 text-left transition hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)]"
           >
-            <span className="flex items-center gap-2 text-sm font-bold text-[var(--color-text-primary)]">
-              <Sparkles className="h-4 w-4 text-[var(--color-primary)]" />
+            <span className="flex items-start gap-1.5 text-xs font-bold leading-4 text-[var(--color-text-primary)]">
+              <Sparkles className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--color-primary)]" />
               {preset.title}
             </span>
-            <span className="mt-1 block text-xs leading-5 text-[var(--color-text-secondary)]">{preset.description}</span>
           </button>
         ))}
       </div>
@@ -146,22 +168,9 @@ function SourceControls({ input, setInput, setStatusMessage }: { input: MockupIn
     setStatusMessage(`Loaded ${file.name} (${image.width}×${image.height}).`);
   }
 
-  async function handleBackground(file: File) {
-    if (file.size > MAX_UPLOAD_BYTES) {
-      setStatusMessage("Background image is too large. Try an image below 12 MB.");
-      return;
-    }
-    const dataUrl = await fileToDataUrl(file);
-    updateInput(setInput, { backgroundImageDataUrl: dataUrl, backgroundMode: "image" });
-    setStatusMessage(`Loaded background image: ${file.name}.`);
-  }
-
   return (
-    <ControlSection title="Source images" description="Upload an app screenshot and optionally a background image. Everything stays local in the browser.">
-      <FieldGroup>
-        <UploadBox label="Upload screenshot" hint="PNG, JPG, or WebP up to 12 MB" accept="image/png,image/jpeg,image/webp" onChange={handleScreenshot} previewUrl={input.screenshotDataUrl} />
-        <UploadBox label="Optional background" hint="Use as full-canvas backdrop" accept="image/png,image/jpeg,image/webp" onChange={handleBackground} previewUrl={input.backgroundImageDataUrl} />
-      </FieldGroup>
+    <ControlSection title="Upload screenshot" description="PNG, JPG, or WebP up to 12 MB. The image stays in your browser.">
+      <UploadBox label={input.screenshotDataUrl ? "Replace screenshot" : "Choose screenshot"} hint="Click to choose a local image" accept="image/png,image/jpeg,image/webp" onChange={handleScreenshot} previewUrl={input.screenshotDataUrl} />
       {input.screenshotName ? (
         <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 text-xs leading-5 text-[var(--color-text-secondary)]">
           <strong className="text-[var(--color-text-primary)]">{input.screenshotName}</strong> · {input.screenshotWidth}×{input.screenshotHeight}
@@ -172,16 +181,19 @@ function SourceControls({ input, setInput, setStatusMessage }: { input: MockupIn
 }
 
 function DeviceControls({ input, setInput }: { input: MockupInput; setInput: Dispatch<SetStateAction<MockupInput>> }) {
+  const radiusMin = effectiveFrameRadius(input.device, input.showDeviceChrome);
+
   return (
     <ControlSection title="Device frame" description="Choose the presentation frame and how the screenshot fits inside it.">
       <SegmentedControl<MockupDevice>
         ariaLabel="Device frame"
-        fullWidth
+        layout="grid"
         size="md"
         value={input.device}
-        onChange={(device) => updateInput(setInput, { device })}
-        options={DEVICE_OPTIONS.map((option) => ({ value: option.value, label: option.label }))}
+        onChange={(device) => updateInput(setInput, { device, frameRadius: Math.max(input.frameRadius, effectiveFrameRadius(device, input.showDeviceChrome)) })}
+        options={DEVICE_OPTIONS.map((option) => ({ value: option.value, label: option.value === "card" ? "Card" : option.label }))}
       />
+      <p className="text-[11px] leading-4 text-[var(--color-text-tertiary)]">{DEVICE_OPTIONS.find((option) => option.value === input.device)?.description}</p>
       <FieldGroup>
         <CompactField label="Orientation">
           <Select value={input.orientation} onChange={(event) => updateInput(setInput, { orientation: event.target.value as MockupOrientation })}>
@@ -204,17 +216,20 @@ function DeviceControls({ input, setInput }: { input: MockupInput; setInput: Dis
           </Select>
         </CompactField>
       </FieldGroup>
-      <FieldGroup>
-        <SliderNumberField label="Device scale" min={35} max={115} value={input.deviceScale} unit="%" onChange={(deviceScale) => updateInput(setInput, { deviceScale })} />
-        <SliderNumberField label="Rotation" min={-12} max={12} value={input.rotate} unit="°" onChange={(rotate) => updateInput(setInput, { rotate })} />
-        <SliderNumberField label="Frame radius" min={0} max={72} value={input.frameRadius} unit="px" onChange={(frameRadius) => updateInput(setInput, { frameRadius })} />
-        <SliderNumberField label="Canvas padding" min={32} max={180} value={input.padding} unit="px" onChange={(padding) => updateInput(setInput, { padding })} />
-      </FieldGroup>
+      <Disclosure title="Frame adjustments" description="Scale, rotation, radius, padding, and rendering details.">
+        <FieldGroup>
+          <SliderNumberField label="Device scale" min={35} max={115} value={input.deviceScale} unit="%" onChange={(deviceScale) => updateInput(setInput, { deviceScale })} />
+          <SliderNumberField label="Rotation" min={-12} max={12} value={input.rotate} unit="°" onChange={(rotate) => updateInput(setInput, { rotate })} />
+          <SliderNumberField label="Frame radius" min={radiusMin} max={72} value={Math.max(input.frameRadius, radiusMin)} unit="px" onChange={(frameRadius) => updateInput(setInput, { frameRadius })} />
+          <SliderNumberField label="Canvas padding" min={32} max={180} value={input.padding} unit="px" onChange={(padding) => updateInput(setInput, { padding })} />
+        </FieldGroup>
       <div className="grid gap-2 text-xs text-[var(--color-text-secondary)]">
-        <label className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
-          <input type="checkbox" checked={input.showDeviceChrome} onChange={(event) => updateInput(setInput, { showDeviceChrome: event.target.checked })} />
-          Show device/browser chrome
-        </label>
+        {input.device !== "card" ? (
+          <label className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
+            <input type="checkbox" checked={input.showDeviceChrome} onChange={(event) => updateInput(setInput, { showDeviceChrome: event.target.checked, frameRadius: Math.max(input.frameRadius, effectiveFrameRadius(input.device, event.target.checked)) })} />
+            Show device/browser chrome
+          </label>
+        ) : <p className="rounded-[var(--radius-md)] bg-[var(--color-surface-subtle)] p-3">Card mode intentionally has no device chrome.</p>}
         <label className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
           <input type="checkbox" checked={input.showReflection} onChange={(event) => updateInput(setInput, { showReflection: event.target.checked })} />
           Add subtle glass reflection
@@ -224,13 +239,27 @@ function DeviceControls({ input, setInput }: { input: MockupInput; setInput: Dis
           Show export safe-area guide
         </label>
       </div>
+      <p className="text-[11px] leading-4 text-[var(--color-text-tertiary)]">
+        {radiusMin ? `This frame uses a ${radiusMin}px minimum radius while chrome is shown.` : "This frame supports the full radius range from square to rounded."}
+      </p>
+      </Disclosure>
     </ControlSection>
   );
 }
 
-function DesignControls({ input, setInput }: { input: MockupInput; setInput: Dispatch<SetStateAction<MockupInput>> }) {
+function DesignControls({ input, setInput, setStatusMessage }: { input: MockupInput; setInput: Dispatch<SetStateAction<MockupInput>>; setStatusMessage: (message: string) => void }) {
+  async function handleBackground(file: File) {
+    if (file.size > MAX_UPLOAD_BYTES) {
+      setStatusMessage("Background image is too large. Try an image below 12 MB.");
+      return;
+    }
+    const dataUrl = await fileToDataUrl(file);
+    updateInput(setInput, { backgroundImageDataUrl: dataUrl, backgroundMode: "image" });
+    setStatusMessage(`Loaded background image: ${file.name}.`);
+  }
+
   return (
-    <ControlSection title="Design and copy" description="Tune the background, colors, marketing copy, and export naming.">
+    <Disclosure title="Appearance and copy" description="Background, colors, marketing text, and optional details.">
       <SegmentedControl<MockupBackgroundMode>
         ariaLabel="Background mode"
         fullWidth
@@ -239,12 +268,14 @@ function DesignControls({ input, setInput }: { input: MockupInput; setInput: Dis
         onChange={(backgroundMode) => updateInput(setInput, { backgroundMode })}
         options={BACKGROUND_OPTIONS.map((option) => ({ value: option.value, label: option.label }))}
       />
-      <FieldGroup>
-        <ColorField label="Background" value={input.backgroundColor} onChange={(backgroundColor) => updateInput(setInput, { backgroundColor })} />
-        <ColorField label="Foreground" value={input.foregroundColor} onChange={(foregroundColor) => updateInput(setInput, { foregroundColor })} />
-        <ColorField label="Muted text" value={input.mutedColor} onChange={(mutedColor) => updateInput(setInput, { mutedColor })} />
-        <ColorField label="Accent" value={input.accentColor} onChange={(accentColor) => updateInput(setInput, { accentColor })} />
-      </FieldGroup>
+      {input.backgroundMode === "solid" ? (
+        <CompactField hint="Used only by Solid background mode.">
+          <ColorField label="Background color" value={input.backgroundColor} onChange={(backgroundColor) => updateInput(setInput, { backgroundColor })} />
+        </CompactField>
+      ) : null}
+      {input.backgroundMode === "image" ? (
+        <UploadBox label={input.backgroundImageDataUrl ? "Replace background image" : "Upload background image"} hint={input.backgroundImageDataUrl ? "This image fills the canvas." : "Image mode needs a local PNG, JPG, or WebP."} accept="image/png,image/jpeg,image/webp" onChange={handleBackground} previewUrl={input.backgroundImageDataUrl} />
+      ) : null}
       {input.backgroundMode === "gradient" || input.backgroundMode === "mesh" ? (
         <FieldGroup>
           <ColorField label="Gradient from" value={input.gradientFrom} onChange={(gradientFrom) => updateInput(setInput, { gradientFrom })} />
@@ -252,22 +283,37 @@ function DesignControls({ input, setInput }: { input: MockupInput; setInput: Dis
           <SliderNumberField label="Gradient angle" min={0} max={360} value={input.gradientAngle} unit="°" onChange={(gradientAngle) => updateInput(setInput, { gradientAngle })} />
         </FieldGroup>
       ) : null}
-      <CompactField label="Title">
-        <Input value={input.title} onChange={(event) => updateInput(setInput, { title: event.target.value })} />
+      <CompactField hint="Used by badges, mesh highlights, and the safe-area guide.">
+        <ColorField label="Accent color" value={input.accentColor} onChange={(accentColor) => updateInput(setInput, { accentColor })} />
       </CompactField>
-      <CompactField label="Subtitle">
-        <Textarea minRows={3} value={input.subtitle} onChange={(event) => updateInput(setInput, { subtitle: event.target.value })} />
-      </CompactField>
+      {input.showText || input.showFooter || input.backgroundMode === "mesh" ? (
+        <FieldGroup>
+          <CompactField hint={input.backgroundMode === "mesh" ? "Used by overlay text and a subtle mesh highlight." : "Used by overlay text and footer."}>
+            <ColorField label="Foreground" value={input.foregroundColor} onChange={(foregroundColor) => updateInput(setInput, { foregroundColor })} />
+          </CompactField>
+          {input.showText ? (
+            <CompactField hint="Used by the subtitle text.">
+              <ColorField label="Muted text" value={input.mutedColor} onChange={(mutedColor) => updateInput(setInput, { mutedColor })} />
+            </CompactField>
+          ) : null}
+        </FieldGroup>
+      ) : null}
+      {input.showText ? (
+        <>
+          <CompactField label="Title"><Input value={input.title} onChange={(event) => updateInput(setInput, { title: event.target.value })} /></CompactField>
+          <CompactField label="Subtitle"><Textarea minRows={3} value={input.subtitle} onChange={(event) => updateInput(setInput, { subtitle: event.target.value })} /></CompactField>
+        </>
+      ) : null}
       <FieldGroup>
-        <CompactField label="Badge">
+        {input.showText && input.showBadge ? <CompactField label="Badge">
           <Input value={input.badge} onChange={(event) => updateInput(setInput, { badge: event.target.value })} />
-        </CompactField>
-        <CompactField label="Footer">
+        </CompactField> : null}
+        {input.showFooter ? <CompactField label="Footer">
           <Input value={input.footer} onChange={(event) => updateInput(setInput, { footer: event.target.value })} />
-        </CompactField>
-        <CompactField label="Browser URL">
+        </CompactField> : null}
+        {input.device === "browser" && input.showDeviceChrome ? <CompactField label="Browser URL" hint="Visible only in Browser frame chrome.">
           <Input value={input.browserUrl} onChange={(event) => updateInput(setInput, { browserUrl: event.target.value })} />
-        </CompactField>
+        </CompactField> : null}
         <CompactField label="File prefix">
           <Input value={input.filePrefix} onChange={(event) => updateInput(setInput, { filePrefix: event.target.value })} />
         </CompactField>
@@ -277,16 +323,16 @@ function DesignControls({ input, setInput }: { input: MockupInput; setInput: Dis
           <input type="checkbox" checked={input.showText} onChange={(event) => updateInput(setInput, { showText: event.target.checked })} />
           Text overlay
         </label>
-        <label className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
+        {input.showText ? <label className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
           <input type="checkbox" checked={input.showBadge} onChange={(event) => updateInput(setInput, { showBadge: event.target.checked })} />
           Badge
-        </label>
+        </label> : null}
         <label className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
           <input type="checkbox" checked={input.showFooter} onChange={(event) => updateInput(setInput, { showFooter: event.target.checked })} />
           Footer
         </label>
       </div>
-    </ControlSection>
+    </Disclosure>
   );
 }
 
@@ -301,14 +347,17 @@ function ExportControls({ input, setInput }: { input: MockupInput; setInput: Dis
       </CompactField>
       <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
         <p className="text-xs leading-5 text-[var(--color-text-secondary)]">{pack.description}</p>
-        <div className="mt-3 grid gap-2">
+        <details className="mt-2">
+          <summary className="cursor-pointer text-xs font-bold text-[var(--color-text-primary)]">{pack.sizes.length} export sizes</summary>
+          <div className="mt-2 grid gap-2">
           {pack.sizes.map((size) => (
             <div key={size.id} className="flex items-center justify-between gap-3 rounded-[var(--radius-sm)] bg-[var(--color-surface-subtle)] px-3 py-2 text-xs">
               <span className="font-bold text-[var(--color-text-primary)]">{size.label}</span>
               <span className="font-mono text-[var(--color-text-tertiary)]">{size.width}×{size.height}</span>
             </div>
           ))}
-        </div>
+          </div>
+        </details>
       </div>
     </ControlSection>
   );
@@ -427,21 +476,62 @@ function GeneratedFilesPanel({ assets, checks, onDownload }: { assets: Generated
 }
 
 function PackageChecker({ onResult }: { onResult: (results: PackageCheckResult[]) => void }) {
-  async function handleFiles(event: ChangeEvent<HTMLInputElement>) {
-    const files = event.target.files;
-    if (!files) return;
+  const [dragging, setDragging] = useState(false);
+  const [checkedCount, setCheckedCount] = useState(0);
+  const [localResults, setLocalResults] = useState<PackageCheckResult[]>([]);
+  const warningCount = localResults.filter((result) => result.level === "warning").length;
+  const errorCount = localResults.filter((result) => result.level === "error").length;
+  const issueCount = warningCount + errorCount;
+
+  async function checkFiles(files: FileList | File[]) {
     const results = await validateExistingPackage(files);
+    setCheckedCount(files.length);
+    setLocalResults(results);
     onResult(results);
   }
 
+  async function handleFiles(event: ChangeEvent<HTMLInputElement>) {
+    const files = event.target.files;
+    if (!files) return;
+    await checkFiles(files);
+    event.target.value = "";
+  }
+
+  async function handleDrop(event: DragEvent<HTMLLabelElement>) {
+    event.preventDefault();
+    setDragging(false);
+    if (event.dataTransfer.files.length) await checkFiles(event.dataTransfer.files);
+  }
+
   return (
-    <ControlSection title="Local package checker" description="Drop existing mockup exports to check file types, file sizes, and URL-friendly names.">
-      <label className="flex cursor-pointer items-center justify-center gap-2 rounded-[var(--radius-md)] border border-dashed border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-4 text-sm font-bold text-[var(--color-text-primary)] transition hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)]">
+    <Disclosure title="Local package checker" description="Inspect existing image exports without uploading them.">
+      <label
+        onDragEnter={(event) => { event.preventDefault(); setDragging(true); }}
+        onDragOver={(event) => event.preventDefault()}
+        onDragLeave={() => setDragging(false)}
+        onDrop={handleDrop}
+        className={cn("flex cursor-pointer items-center justify-center gap-2 rounded-[var(--radius-md)] border border-dashed bg-[var(--color-surface-base)] p-4 text-center text-sm font-bold text-[var(--color-text-primary)] transition hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)]", dragging ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]" : "border-[var(--color-border-default)]")}
+      >
         <ImageIcon className="h-4 w-4 text-[var(--color-primary)]" />
-        Check image files
+        Drop images here or choose files
         <input type="file" multiple accept="image/png,image/jpeg,image/webp" className="sr-only" onChange={handleFiles} />
       </label>
-    </ControlSection>
+      {checkedCount ? (
+        <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3" aria-live="polite">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <span className="text-xs font-bold text-[var(--color-text-primary)]">{checkedCount} {checkedCount === 1 ? "file" : "files"} checked</span>
+            <span className={cn("text-[11px] font-bold", localResults.some((result) => result.level === "error") ? "text-[var(--color-danger-text)]" : localResults.some((result) => result.level === "warning") ? "text-[var(--color-warning-text)]" : "text-[var(--color-success-text)]")}>
+              {errorCount ? `${errorCount} ${errorCount === 1 ? "error" : "errors"}, ${warningCount} ${warningCount === 1 ? "warning" : "warnings"}` : warningCount ? `${warningCount} ${warningCount === 1 ? "warning" : "warnings"} found` : "Package looks ready"}
+            </span>
+          </div>
+          {issueCount ? (
+            <ul className="mt-2 space-y-1 text-[11px] leading-4 text-[var(--color-text-tertiary)]">
+              {localResults.filter((result) => result.level !== "pass").slice(0, 2).map((result) => <li key={result.id}>{result.title}: {result.message}</li>)}
+            </ul>
+          ) : <p className="mt-1 text-[11px] text-[var(--color-text-tertiary)]">Image types, sizes, and filenames passed the local checks.</p>}
+        </div>
+      ) : <p className="text-[11px] leading-4 text-[var(--color-text-tertiary)]">No package checked yet. Choose or drop one or more PNG, JPG, or WebP files.</p>}
+    </Disclosure>
   );
 }
 
@@ -514,11 +604,11 @@ export default function AppScreenshotMockupClient() {
 
   const controls = (
     <div className="space-y-4 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-card)]">
-      <QuickPresets setInput={setInput} />
       <SourceControls input={input} setInput={setInput} setStatusMessage={setStatusMessage} />
+      <QuickPresets setInput={setInput} />
       <DeviceControls input={input} setInput={setInput} />
-      <DesignControls input={input} setInput={setInput} />
       <ExportControls input={input} setInput={setInput} />
+      <DesignControls input={input} setInput={setInput} setStatusMessage={setStatusMessage} />
       <PackageChecker onResult={setCheckerResults} />
     </div>
   );
@@ -548,6 +638,7 @@ export default function AppScreenshotMockupClient() {
 
   return (
     <ToolLayoutVisualGenerator
+      actionsPlacement="under-preview"
       previewSlot={<PreviewPanel previewUrl={previewUrl} input={input} status={status} />}
       controlsSlot={controls}
       actionsSlot={actions}

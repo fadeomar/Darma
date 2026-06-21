@@ -1,0 +1,51 @@
+{
+  "id": "uiverse-orbital-status-dots",
+  "name": "Orbital Status Dots",
+  "category": "dots",
+  "tags": [
+    "uiverse",
+    "orbital",
+    "dots",
+    "status",
+    "text",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-orbital-status-dots orbital status dots dots uiverse orbital dots status text loader html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-orbital-status-dots\">\n  <span class=\"darma-loader-uiverse-orbital-status-dots__shadow\"></span>\n  <span class=\"darma-loader-uiverse-orbital-status-dots__shadow\"></span>\n  <span class=\"darma-loader-uiverse-orbital-status-dots__shadow\"></span>\n  <span class=\"darma-loader-uiverse-orbital-status-dots__dot\"></span>\n  <span class=\"darma-loader-uiverse-orbital-status-dots__text\">&nbsp;&nbsp;&nbsp;loading...</span>\n</div>",
+  "previewCss": ".darma-loader-uiverse-orbital-status-dots {\n  align-items: center;\n  border: 16px solid rgba(119, 119, 119, 0.05);\n  border-radius: 50%;\n  box-shadow:\n    0 0 5px #f1f1f1,\n    0 0 5px #d1d1d1 inset;\n  display: flex;\n  height: 100px;\n  justify-content: center;\n  width: 100px;\n}\n\n.darma-loader-uiverse-orbital-status-dots > .darma-loader-uiverse-orbital-status-dots__text {\ncolor: #888;\nfont-size: 10px;\nfont-weight: 200;\nopacity: 0;\ntransition: all 200ms;\n}\n\n.darma-loader-uiverse-orbital-status-dots:hover > .darma-loader-uiverse-orbital-status-dots__text {\nfont-weight: 400;\nopacity: 1;\n}\n\n.darma-loader-uiverse-orbital-status-dots__dot,\n.darma-loader-uiverse-orbital-status-dots__shadow {\nbackground-color: #ccc;\nborder-radius: 50%;\nheight: 16px;\nmargin: 40px;\nposition: absolute;\nwidth: 16px;\n}\n\n.darma-loader-uiverse-orbital-status-dots__shadow:nth-child(1) {\nanimation: darma-loader-uiverse-orbital-status-dots-orbit 1s infinite 0.02s;\n}\n\n.darma-loader-uiverse-orbital-status-dots__shadow:nth-child(2) {\nanimation: darma-loader-uiverse-orbital-status-dots-orbit 1s infinite 0.04s;\n}\n\n.darma-loader-uiverse-orbital-status-dots__shadow:nth-child(3) {\nanimation: darma-loader-uiverse-orbital-status-dots-orbit 1s infinite 0.06s;\n}\n\n.darma-loader-uiverse-orbital-status-dots__dot {\nanimation: darma-loader-uiverse-orbital-status-dots-orbit 1s infinite;\nbackground-color: #bbb;\nborder-radius: 50%;\nheight: 18px;\nposition: absolute;\nwidth: 18px;\n}\n\n@keyframes darma-loader-uiverse-orbital-status-dots-orbit {\nfrom {\ntransform: rotate(0deg) translateX(42px) rotate(0deg);\n}\nto {\ntransform: rotate(360deg) translateX(42px) rotate(-360deg);\n}\n}",
+  "defaults": {
+    "size": 88,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-orbital-status-dots\">\n  <span class=\"darma-loader-uiverse-orbital-status-dots__shadow\"></span>\n  <span class=\"darma-loader-uiverse-orbital-status-dots__shadow\"></span>\n  <span class=\"darma-loader-uiverse-orbital-status-dots__shadow\"></span>\n  <span class=\"darma-loader-uiverse-orbital-status-dots__dot\"></span>\n  <span class=\"darma-loader-uiverse-orbital-status-dots__text\">&nbsp;&nbsp;&nbsp;loading...</span>\n</div>",
+    "css": ".darma-loader-uiverse-orbital-status-dots {\n  align-items: center;\n  border: 16px solid rgba(119, 119, 119, 0.05);\n  border-radius: 50%;\n  box-shadow:\n    0 0 5px #f1f1f1,\n    0 0 5px #d1d1d1 inset;\n  display: flex;\n  height: 100px;\n  justify-content: center;\n  width: 100px;\n}\n\n.darma-loader-uiverse-orbital-status-dots > .darma-loader-uiverse-orbital-status-dots__text {\ncolor: #888;\nfont-size: 10px;\nfont-weight: 200;\nopacity: 0;\ntransition: all 200ms;\n}\n\n.darma-loader-uiverse-orbital-status-dots:hover > .darma-loader-uiverse-orbital-status-dots__text {\nfont-weight: 400;\nopacity: 1;\n}\n\n.darma-loader-uiverse-orbital-status-dots__dot,\n.darma-loader-uiverse-orbital-status-dots__shadow {\nbackground-color: #ccc;\nborder-radius: 50%;\nheight: 16px;\nmargin: 40px;\nposition: absolute;\nwidth: 16px;\n}\n\n.darma-loader-uiverse-orbital-status-dots__shadow:nth-child(1) {\nanimation: darma-loader-uiverse-orbital-status-dots-orbit 1s infinite 0.02s;\n}\n\n.darma-loader-uiverse-orbital-status-dots__shadow:nth-child(2) {\nanimation: darma-loader-uiverse-orbital-status-dots-orbit 1s infinite 0.04s;\n}\n\n.darma-loader-uiverse-orbital-status-dots__shadow:nth-child(3) {\nanimation: darma-loader-uiverse-orbital-status-dots-orbit 1s infinite 0.06s;\n}\n\n.darma-loader-uiverse-orbital-status-dots__dot {\nanimation: darma-loader-uiverse-orbital-status-dots-orbit 1s infinite;\nbackground-color: #bbb;\nborder-radius: 50%;\nheight: 18px;\nposition: absolute;\nwidth: 18px;\n}\n\n@keyframes darma-loader-uiverse-orbital-status-dots-orbit {\nfrom {\ntransform: rotate(0deg) translateX(42px) rotate(0deg);\n}\nto {\ntransform: rotate(360deg) translateX(42px) rotate(-360deg);\n}\n}",
+    "react": "export default function UiverseOrbitalStatusDotsLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-orbital-status-dots\">\n  <span className=\"darma-loader-uiverse-orbital-status-dots__shadow\"></span>\n  <span className=\"darma-loader-uiverse-orbital-status-dots__shadow\"></span>\n  <span className=\"darma-loader-uiverse-orbital-status-dots__shadow\"></span>\n  <span className=\"darma-loader-uiverse-orbital-status-dots__dot\"></span>\n  <span className=\"darma-loader-uiverse-orbital-status-dots__text\">&nbsp;&nbsp;&nbsp;loading...</span>\n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": false,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Uiverse selected loaders batch 3",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  }
+}

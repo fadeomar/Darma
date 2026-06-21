@@ -1,0 +1,51 @@
+{
+  "id": "uiverse-shooting-star-trio",
+  "name": "Shooting Star Trio",
+  "category": "fun",
+  "tags": [
+    "uiverse",
+    "stars",
+    "shooting",
+    "sparkle",
+    "fun",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-shooting-star-trio shooting star trio fun uiverse stars shooting sparkle fun loader html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-shooting-star-trio\">\n  <svg\n    xmlns=\"http://www.w3.org/2000/svg\"\n    width=\"32\"\n    height=\"32\"\n    class=\"darma-loader-uiverse-shooting-star-trio__star darma-loader-uiverse-shooting-star-trio__star1\"\n    viewBox=\"0 0 256 256\"\n  >\n    <path\n      d=\"M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z\"\n    ></path>\n  </svg>\n  <svg\n    xmlns=\"http://www.w3.org/2000/svg\"\n    width=\"32\"\n    height=\"32\"\n    class=\"darma-loader-uiverse-shooting-star-trio__star darma-loader-uiverse-shooting-star-trio__star2\"\n    viewBox=\"0 0 256 256\"\n  >\n    <path\n      d=\"M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z\"\n    ></path>\n  </svg>\n  <svg\n    xmlns=\"http://www.w3.org/2000/svg\"\n    width=\"32\"\n    height=\"32\"\n    class=\"darma-loader-uiverse-shooting-star-trio__star darma-loader-uiverse-shooting-star-trio__star3\"\n    viewBox=\"0 0 256 256\"\n  >\n    <path\n      d=\"M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z\"\n    ></path>\n  </svg>\n</div>",
+  "previewCss": ".darma-loader-uiverse-shooting-star-trio {\n  user-select: none;\n}\n\n.darma-loader-uiverse-shooting-star-trio__star {\nopacity: 0;\nfill: #f2f3f4;\nanimation: darma-loader-uiverse-shooting-star-trio-loader 2s infinite alternate;\n}\n\n.darma-loader-uiverse-shooting-star-trio__star2 {\nheight: 20px;\nmargin-left: -10px;\nanimation-delay: 0.25s;\n}\n\n.darma-loader-uiverse-shooting-star-trio__star3 {\nheight: 16px;\nmargin-left: -15px;\nanimation-delay: 0.5s;\n}\n\n@keyframes darma-loader-uiverse-shooting-star-trio-loader {\n0% {\nopacity: 0;\ntransform: translateY(0) translateX(50px) rotate(0deg);\n}\n10% {\nopacity: 0;\ntransform: translateY(0) translateX(50px) rotate(0deg);\n}\n100% {\nopacity: 1;\ntransform: translateY(-20px) translateX(0) rotate(360deg);\n}\n}",
+  "defaults": {
+    "size": 128,
+    "speed": 1,
+    "background": "#111827"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-shooting-star-trio\">\n  <svg\n    xmlns=\"http://www.w3.org/2000/svg\"\n    width=\"32\"\n    height=\"32\"\n    class=\"darma-loader-uiverse-shooting-star-trio__star darma-loader-uiverse-shooting-star-trio__star1\"\n    viewBox=\"0 0 256 256\"\n  >\n    <path\n      d=\"M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z\"\n    ></path>\n  </svg>\n  <svg\n    xmlns=\"http://www.w3.org/2000/svg\"\n    width=\"32\"\n    height=\"32\"\n    class=\"darma-loader-uiverse-shooting-star-trio__star darma-loader-uiverse-shooting-star-trio__star2\"\n    viewBox=\"0 0 256 256\"\n  >\n    <path\n      d=\"M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z\"\n    ></path>\n  </svg>\n  <svg\n    xmlns=\"http://www.w3.org/2000/svg\"\n    width=\"32\"\n    height=\"32\"\n    class=\"darma-loader-uiverse-shooting-star-trio__star darma-loader-uiverse-shooting-star-trio__star3\"\n    viewBox=\"0 0 256 256\"\n  >\n    <path\n      d=\"M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z\"\n    ></path>\n  </svg>\n</div>",
+    "css": ".darma-loader-uiverse-shooting-star-trio {\n  user-select: none;\n}\n\n.darma-loader-uiverse-shooting-star-trio__star {\nopacity: 0;\nfill: #f2f3f4;\nanimation: darma-loader-uiverse-shooting-star-trio-loader 2s infinite alternate;\n}\n\n.darma-loader-uiverse-shooting-star-trio__star2 {\nheight: 20px;\nmargin-left: -10px;\nanimation-delay: 0.25s;\n}\n\n.darma-loader-uiverse-shooting-star-trio__star3 {\nheight: 16px;\nmargin-left: -15px;\nanimation-delay: 0.5s;\n}\n\n@keyframes darma-loader-uiverse-shooting-star-trio-loader {\n0% {\nopacity: 0;\ntransform: translateY(0) translateX(50px) rotate(0deg);\n}\n10% {\nopacity: 0;\ntransform: translateY(0) translateX(50px) rotate(0deg);\n}\n100% {\nopacity: 1;\ntransform: translateY(-20px) translateX(0) rotate(360deg);\n}\n}",
+    "react": "export default function UiverseShootingStarTrioLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-shooting-star-trio\">\n  <svg\n    xmlns=\"http://www.w3.org/2000/svg\"\n    width=\"32\"\n    height=\"32\"\n    className=\"darma-loader-uiverse-shooting-star-trio__star darma-loader-uiverse-shooting-star-trio__star1\"\n    viewBox=\"0 0 256 256\"\n  >\n    <path\n      d=\"M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z\"\n    ></path>\n  </svg>\n  <svg\n    xmlns=\"http://www.w3.org/2000/svg\"\n    width=\"32\"\n    height=\"32\"\n    className=\"darma-loader-uiverse-shooting-star-trio__star darma-loader-uiverse-shooting-star-trio__star2\"\n    viewBox=\"0 0 256 256\"\n  >\n    <path\n      d=\"M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z\"\n    ></path>\n  </svg>\n  <svg\n    xmlns=\"http://www.w3.org/2000/svg\"\n    width=\"32\"\n    height=\"32\"\n    className=\"darma-loader-uiverse-shooting-star-trio__star darma-loader-uiverse-shooting-star-trio__star3\"\n    viewBox=\"0 0 256 256\"\n  >\n    <path\n      d=\"M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z\"\n    ></path>\n  </svg>\n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": false,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Uiverse selected loaders batch 3",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  }
+}

@@ -36,9 +36,34 @@ body {
 
 .darma-code-output-pre::selection,
 .darma-code-output-pre *::selection {
-  background: var(--color-primary);
-  color: var(--color-primary-text);
+  background: rgba(249, 115, 22, 0.45);
+  color: #ffffff;
   text-shadow: none;
+}
+
+.darma-code-output-pre {
+  color-scheme: dark;
+}
+
+.favicon-code-panel ::selection {
+  background: rgba(249, 115, 22, 0.55);
+  color: #ffffff;
+}
+
+.favicon-code-panel ::-moz-selection {
+  background: rgba(249, 115, 22, 0.55);
+  color: #ffffff;
+}
+
+.favicon-code-pre,
+.favicon-code-pre * {
+  color-scheme: dark;
+}
+
+.favicon-code-pre::selection,
+.favicon-code-pre *::selection {
+  background: rgba(249, 115, 22, 0.6);
+  color: #ffffff;
 }
 
 :where(a, button, input, textarea, select, summary):focus-visible {

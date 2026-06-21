@@ -1,0 +1,52 @@
+{
+  "id": "uiverse-aqua-ripple-tiles",
+  "name": "Aqua Ripple Tiles",
+  "category": "pulse",
+  "tags": [
+    "uiverse",
+    "aqua",
+    "tiles",
+    "ripple",
+    "grid",
+    "pulse",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-aqua-ripple-tiles aqua ripple tiles pulse uiverse aqua tiles ripple grid pulse loader html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-aqua-ripple-tiles\">\n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-0\"></div>\n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-1\"></div>\n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-2\"></div>\n\n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-1\"></div>\n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-2\"></div>\n  \n  \n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-2\"></div>\n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-3\"></div>\n  \n  \n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-3\"></div>\n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-4\"></div>\n  \n  \n</div>",
+  "previewCss": ".darma-loader-uiverse-aqua-ripple-tiles {\n  --cell-size: 52px;\n  --cell-spacing: 1px;\n  --cells: 3;\n  --total-size: calc(var(--cells) * (var(--cell-size) + 2 * var(--cell-spacing)));\n  display: flex;\n  flex-wrap: wrap;\n  width: var(--total-size);\n  height: var(--total-size);\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell {\nflex: 0 0 var(--cell-size);\nmargin: var(--cell-spacing);\nbackground-color: transparent;\nbox-sizing: border-box;\nborder-radius: 4px;\nanimation: 1.5s darma-loader-uiverse-aqua-ripple-tiles-ripple ease infinite;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell.darma-loader-uiverse-aqua-ripple-tiles__d-1 {\nanimation-delay: 100ms;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell.darma-loader-uiverse-aqua-ripple-tiles__d-2 {\nanimation-delay: 200ms;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell.darma-loader-uiverse-aqua-ripple-tiles__d-3 {\nanimation-delay: 300ms;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell.darma-loader-uiverse-aqua-ripple-tiles__d-4 {\nanimation-delay: 400ms;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(1) {\n--cell-color: #00FF87;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(2) {\n--cell-color: #0CFD95;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(3) {\n--cell-color: #17FBA2;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(4) {\n--cell-color: #23F9B2;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(5) {\n--cell-color: #30F7C3;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(6) {\n--cell-color: #3DF5D4;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(7) {\n--cell-color: #45F4DE;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(8) {\n--cell-color: #53F1F0;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(9) {\n--cell-color: #60EFFF;\n}\n\n/*Animation*/\n@keyframes darma-loader-uiverse-aqua-ripple-tiles-ripple {\n0% {\nbackground-color: transparent;\n}\n\n30% {\nbackground-color: var(--cell-color);\n}\n\n60% {\nbackground-color: transparent;\n}\n\n100% {\nbackground-color: transparent;\n}\n}",
+  "defaults": {
+    "size": 120,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-aqua-ripple-tiles\">\n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-0\"></div>\n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-1\"></div>\n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-2\"></div>\n\n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-1\"></div>\n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-2\"></div>\n  \n  \n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-2\"></div>\n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-3\"></div>\n  \n  \n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-3\"></div>\n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-4\"></div>\n  \n  \n</div>",
+    "css": ".darma-loader-uiverse-aqua-ripple-tiles {\n  --cell-size: 52px;\n  --cell-spacing: 1px;\n  --cells: 3;\n  --total-size: calc(var(--cells) * (var(--cell-size) + 2 * var(--cell-spacing)));\n  display: flex;\n  flex-wrap: wrap;\n  width: var(--total-size);\n  height: var(--total-size);\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell {\nflex: 0 0 var(--cell-size);\nmargin: var(--cell-spacing);\nbackground-color: transparent;\nbox-sizing: border-box;\nborder-radius: 4px;\nanimation: 1.5s darma-loader-uiverse-aqua-ripple-tiles-ripple ease infinite;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell.darma-loader-uiverse-aqua-ripple-tiles__d-1 {\nanimation-delay: 100ms;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell.darma-loader-uiverse-aqua-ripple-tiles__d-2 {\nanimation-delay: 200ms;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell.darma-loader-uiverse-aqua-ripple-tiles__d-3 {\nanimation-delay: 300ms;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell.darma-loader-uiverse-aqua-ripple-tiles__d-4 {\nanimation-delay: 400ms;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(1) {\n--cell-color: #00FF87;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(2) {\n--cell-color: #0CFD95;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(3) {\n--cell-color: #17FBA2;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(4) {\n--cell-color: #23F9B2;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(5) {\n--cell-color: #30F7C3;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(6) {\n--cell-color: #3DF5D4;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(7) {\n--cell-color: #45F4DE;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(8) {\n--cell-color: #53F1F0;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(9) {\n--cell-color: #60EFFF;\n}\n\n/*Animation*/\n@keyframes darma-loader-uiverse-aqua-ripple-tiles-ripple {\n0% {\nbackground-color: transparent;\n}\n\n30% {\nbackground-color: var(--cell-color);\n}\n\n60% {\nbackground-color: transparent;\n}\n\n100% {\nbackground-color: transparent;\n}\n}",
+    "react": "export default function UiverseAquaRippleTilesLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-aqua-ripple-tiles\">\n  <div className=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-0\"></div>\n  <div className=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-1\"></div>\n  <div className=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-2\"></div>\n\n  <div className=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-1\"></div>\n  <div className=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-2\"></div>\n  \n  \n  <div className=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-2\"></div>\n  <div className=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-3\"></div>\n  \n  \n  <div className=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-3\"></div>\n  <div className=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-4\"></div>\n  \n  \n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": false,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Uiverse selected loaders batch 2",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  }
+}

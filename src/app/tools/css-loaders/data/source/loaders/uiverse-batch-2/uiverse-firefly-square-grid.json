@@ -1,0 +1,38 @@
+{
+  "id": "uiverse-firefly-square-grid",
+  "name": "Firefly Square Grid",
+  "category": "dots",
+  "tags": [
+    "uiverse",
+    "grid",
+    "squares",
+    "firefly",
+    "pulse",
+    "loader"
+  ],
+  "html": "<div class=\"loader\">\n  <div class=\"square sq1\"></div>\n  <div class=\"square sq2\"></div>\n  <div class=\"square sq3\"></div>\n  <div class=\"square sq4\"></div>\n  <div class=\"square sq5\"></div>\n  <div class=\"square sq6\"></div>\n  <div class=\"square sq7\"></div>\n  <div class=\"square sq8\"></div>\n  <div class=\"square sq9\"></div>\n</div>",
+  "css": "@keyframes loader_5191 {\n  from {\n    opacity: 0;\n  }\n\nto {\nopacity: 1;\n}\n}\n\n.square {\nbackground: #ddd;\nwidth: 10px;\nheight: 10px;\nposition: absolute;\ntop: 50%;\nleft: 50%;\nmargin-top: -5px;\nmargin-left: -5px;\n}\n\n.sq1 {\nmargin-top: -25px;\nmargin-left: -25px;\nanimation: loader_5191 675ms ease-in-out 0s infinite alternate;\n}\n\n.sq2 {\nmargin-top: -25px;\nanimation: loader_5191 675ms ease-in-out 75ms infinite alternate;\n}\n\n.sq3 {\nmargin-top: -25px;\nmargin-left: 15px;\nanimation: loader_5191 675ms ease-in-out 150ms infinite;\n}\n\n.sq4 {\nmargin-left: -25px;\nanimation: loader_5191 675ms ease-in-out 225ms infinite;\n}\n\n.sq5 {\nanimation: loader_5191 675ms ease-in-out 300ms infinite;\n}\n\n.sq6 {\nmargin-left: 15px;\nanimation: loader_5191 675ms ease-in-out 375ms infinite;\n}\n\n.sq7 {\nmargin-top: 15px;\nmargin-left: -25px;\nanimation: loader_5191 675ms ease-in-out 450ms infinite;\n}\n\n.sq8 {\nmargin-top: 15px;\nanimation: loader_5191 675ms ease-in-out 525ms infinite;\n}\n\n.sq9 {\nmargin-top: 15px;\nmargin-left: 15px;\nanimation: loader_5191 675ms ease-in-out 600ms infinite;\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 2",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 88,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

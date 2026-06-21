@@ -1,5 +1,38 @@
 [
   {
+    "id": "uiverse-aqua-pill-fill",
+    "name": "Aqua Pill Fill",
+    "category": "progress",
+    "tags": [
+      "uiverse",
+      "pill",
+      "fill",
+      "aqua",
+      "progress",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-aqua-pill-fill aqua pill fill progress uiverse pill fill aqua progress loader html css react singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-aqua-pill-fill\"></div>",
+    "previewCss": ".darma-loader-uiverse-aqua-pill-fill {\n  /* color of choise */\n  --clr: #05A8AA;\n  /* loading time of choice */\n  --load-time: 2s;\n  outline: 5px solid var(--clr);\n  outline-offset: 5px;\n  position: relative;\n  overflow: hidden;\n  border-radius: 5rem;\n  /* width: 10rem; */\n  /* height: 2rem; */\n  padding: 1rem 5rem;\n  /* use either padding or width + height*/\n  /* I prefer the padding one */\n  /* rotate: -90deg; */\n  /* rotate if you want/need vertical loader */\n}\n\n.darma-loader-uiverse-aqua-pill-fill::after {\ncontent: '';\nposition: absolute;\ntop: 0;\nleft: 0;\nwidth: 100%;\nheight: 100%;\nbackground-color: var(--clr);\nz-index: 2;\nanimation: darma-loader-uiverse-aqua-pill-fill-loading var(--load-time) ease-in-out infinite;\n}\n\n@keyframes darma-loader-uiverse-aqua-pill-fill-loading {\n0% {\nwidth: 0%;\n}\n\n100% {\nwidth: 100%;\n}\n}",
+    "defaults": {
+      "size": 160,
+      "speed": 1,
+      "background": "transparent"
+    }
+  },
+  {
     "id": "darma-custom-226",
     "name": "Arrow Rail",
     "category": "progress",
@@ -109,6 +142,39 @@
     }
   },
   {
+    "id": "uiverse-candy-stripe-progress",
+    "name": "Candy Stripe Progress",
+    "category": "progress",
+    "tags": [
+      "uiverse",
+      "candy",
+      "stripe",
+      "progress",
+      "bar",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-candy-stripe-progress candy stripe progress progress uiverse candy stripe progress bar loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-candy-stripe-progress\">\n  <div class=\"darma-loader-uiverse-candy-stripe-progress__loading-text\">\n    Loading<span class=\"darma-loader-uiverse-candy-stripe-progress__dot\">.</span><span class=\"darma-loader-uiverse-candy-stripe-progress__dot\">.</span><span class=\"darma-loader-uiverse-candy-stripe-progress__dot\">.</span>\n  </div>\n  <div class=\"darma-loader-uiverse-candy-stripe-progress__loading-bar-background\">\n    <div class=\"darma-loader-uiverse-candy-stripe-progress__loading-bar\">\n      <div class=\"darma-loader-uiverse-candy-stripe-progress__white-bars-container\">\n        <div class=\"darma-loader-uiverse-candy-stripe-progress__white-bar\"></div>\n        <div class=\"darma-loader-uiverse-candy-stripe-progress__white-bar\"></div>\n        <div class=\"darma-loader-uiverse-candy-stripe-progress__white-bar\"></div>\n        <div class=\"darma-loader-uiverse-candy-stripe-progress__white-bar\"></div>\n        <div class=\"darma-loader-uiverse-candy-stripe-progress__white-bar\"></div>\n        <div class=\"darma-loader-uiverse-candy-stripe-progress__white-bar\"></div>\n        <div class=\"darma-loader-uiverse-candy-stripe-progress__white-bar\"></div>\n        <div class=\"darma-loader-uiverse-candy-stripe-progress__white-bar\"></div>\n        <div class=\"darma-loader-uiverse-candy-stripe-progress__white-bar\"></div>\n        <div class=\"darma-loader-uiverse-candy-stripe-progress__white-bar\"></div>\n      </div>\n    </div>\n  </div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-candy-stripe-progress {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: column;\n  gap: 5px;\n}\n\n.darma-loader-uiverse-candy-stripe-progress__loading-text {\ncolor: white;\nfont-size: 14pt;\nfont-weight: 600;\nmargin-left: 10px;\n}\n\n.darma-loader-uiverse-candy-stripe-progress__dot {\nmargin-left: 3px;\nanimation: darma-loader-uiverse-candy-stripe-progress-blink 1.5s infinite;\n}\n.darma-loader-uiverse-candy-stripe-progress__dot:nth-child(2) {\nanimation-delay: 0.3s;\n}\n\n.darma-loader-uiverse-candy-stripe-progress__dot:nth-child(3) {\nanimation-delay: 0.6s;\n}\n\n.darma-loader-uiverse-candy-stripe-progress__loading-bar-background {\n--height: 30px;\ndisplay: flex;\nalign-items: center;\nbox-sizing: border-box;\npadding: 5px;\nwidth: 200px;\nheight: var(--height);\nbackground-color: #212121 /*change this*/;\nbox-shadow: #0c0c0c -2px 2px 4px 0px inset;\nborder-radius: calc(var(--height) / 2);\n}\n\n.darma-loader-uiverse-candy-stripe-progress__loading-bar {\nposition: relative;\ndisplay: flex;\njustify-content: center;\nflex-direction: column;\n--height: 20px;\nwidth: 0%;\nheight: var(--height);\noverflow: hidden;\nbackground: rgb(222, 74, 15);\nbackground: linear-gradient(\n0deg,\nrgba(222, 74, 15, 1) 0%,\nrgba(249, 199, 79, 1) 100%\n);\nborder-radius: calc(var(--height) / 2);\nanimation: darma-loader-uiverse-candy-stripe-progress-loading 4s ease-out infinite;\n}\n\n.darma-loader-uiverse-candy-stripe-progress__white-bars-container {\nposition: absolute;\ndisplay: flex;\nalign-items: center;\ngap: 18px;\n}\n\n.darma-loader-uiverse-candy-stripe-progress__white-bar {\nbackground: rgb(255, 255, 255);\nbackground: linear-gradient(\n-45deg,\nrgba(255, 255, 255, 1) 0%,\nrgba(255, 255, 255, 0) 70%\n);\nwidth: 10px;\nheight: 45px;\nopacity: 0.3;\nrotate: 45deg;\n}\n\n@keyframes darma-loader-uiverse-candy-stripe-progress-loading {\n0% {\nwidth: 0;\n}\n80% {\nwidth: 100%;\n}\n100% {\nwidth: 100%;\n}\n}\n\n@keyframes darma-loader-uiverse-candy-stripe-progress-blink {\n0%,\n100% {\nopacity: 0;\n}\n50% {\nopacity: 1;\n}\n}",
+    "defaults": {
+      "size": 160,
+      "speed": 1,
+      "background": "#111827"
+    }
+  },
+  {
     "id": "darma-custom-224",
     "name": "Capsule Conveyor",
     "category": "progress",
@@ -145,6 +211,39 @@
       "size": 84,
       "speed": 1,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "uiverse-checkpoint-progress",
+    "name": "Checkpoint Progress",
+    "category": "progress",
+    "tags": [
+      "uiverse",
+      "checkpoints",
+      "progress",
+      "success",
+      "bar",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-checkpoint-progress checkpoint progress progress uiverse checkpoints progress success bar loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-checkpoint-progress\">\n  <div class=\"darma-loader-uiverse-checkpoint-progress__bar\"></div>\n  <div class=\"darma-loader-uiverse-checkpoint-progress__check-bar-container\">\n    <div></div>\n    <div class=\"darma-loader-uiverse-checkpoint-progress__check\">\n      <svg\n        stroke=\"white\"\n        stroke-width=\"2\"\n        viewBox=\"0 0 24 24\"\n        fill=\"none\"\n        xmlns=\"http://www.w3.org/2000/svg\"\n      >\n        <path\n          d=\"m4.5 12.75 6 6 9-13.5\"\n          stroke-linejoin=\"round\"\n          stroke-linecap=\"round\"\n        ></path>\n      </svg>\n    </div>\n    <div class=\"darma-loader-uiverse-checkpoint-progress__check\">\n      <svg\n        stroke=\"white\"\n        stroke-width=\"2\"\n        viewBox=\"0 0 24 24\"\n        fill=\"none\"\n        xmlns=\"http://www.w3.org/2000/svg\"\n      >\n        <path\n          d=\"m4.5 12.75 6 6 9-13.5\"\n          stroke-linejoin=\"round\"\n          stroke-linecap=\"round\"\n        ></path>\n      </svg>\n    </div>\n    <div class=\"darma-loader-uiverse-checkpoint-progress__check\">\n      <svg\n        stroke=\"white\"\n        stroke-width=\"2\"\n        viewBox=\"0 0 24 24\"\n        fill=\"none\"\n        xmlns=\"http://www.w3.org/2000/svg\"\n      >\n        <path\n          d=\"m4.5 12.75 6 6 9-13.5\"\n          stroke-linejoin=\"round\"\n          stroke-linecap=\"round\"\n        ></path>\n      </svg>\n    </div>\n  </div>\n</div>",
+    "previewCss": "@keyframes darma-loader-uiverse-checkpoint-progress-loadingBar {\n  0% {\n    width: 0%;\n    animation-timing-function: ease-out;\n  }\n  30% {\n    width: 33%;\n    animation-timing-function: ease-out;\n  }\n  60% {\n    width: 66%;\n    animation-timing-function: ease-out;\n  }\n  90% {\n    width: 100%;\n    animation-timing-function: ease-out;\n  }\n  100% {\n    width: 100%;\n    animation-timing-function: ease-out;\n  }\n}\n\n@keyframes darma-loader-uiverse-checkpoint-progress-checkScale1 {\n0% {\ntransform: scale(0.75);\nbackground-color: #535353;\n}\n28% {\ntransform: scale(0.75);\nbackground-color: #535353;\n}\n29% {\ntransform: scale(1);\nbackground-color: rgb(0, 205, 0);\n}\n100% {\ntransform: scale(1);\nbackground-color: rgb(0, 205, 0);\n}\n}\n\n@keyframes darma-loader-uiverse-checkpoint-progress-checkScale2 {\n0% {\ntransform: scale(0.75);\nbackground-color: #535353;\n}\n58% {\ntransform: scale(0.75);\nbackground-color: #535353;\n}\n59% {\ntransform: scale(1);\nbackground-color: rgb(0, 205, 0);\n}\n100% {\ntransform: scale(1);\nbackground-color: rgb(0, 205, 0);\n}\n}\n\n@keyframes darma-loader-uiverse-checkpoint-progress-checkScale3 {\n0% {\ntransform: scale(0.75);\nbackground-color: #535353;\n}\n88% {\ntransform: scale(0.75);\nbackground-color: #535353;\n}\n89% {\ntransform: scale(1);\nbackground-color: rgb(0, 205, 0);\n}\n100% {\ntransform: scale(1);\nbackground-color: rgb(0, 205, 0);\n}\n}\n\n.darma-loader-uiverse-checkpoint-progress {\nposition: relative;\nbackground-color: #535353;\nborder-radius: 1em;\nheight: 1em;\nwidth: 330px;\n}\n\n.darma-loader-uiverse-checkpoint-progress__bar {\nposition: relative;\nbackground-color: rgb(0, 205, 0);\nwidth: 40px;\nheight: 100%;\nborder-radius: 1em;\nanimation: darma-loader-uiverse-checkpoint-progress-loadingBar 6s linear infinite;\n}\n\n.darma-loader-uiverse-checkpoint-progress__check-bar-container {\nposition: absolute;\nleft: 0px;\ntop: -4px;\nz-index: 69;\ndisplay: flex;\nwidth: 100%;\njustify-content: space-between;\nheight: 0.5em;\n}\n\n.darma-loader-uiverse-checkpoint-progress__check {\nborder-radius: 1em;\nheight: 1.5em;\nwidth: 1.5em;\npadding: 3px;\nbackground-color: #535353;\ntransform: scale(0.75);\n}\n\n.darma-loader-uiverse-checkpoint-progress__check-bar-container .darma-loader-uiverse-checkpoint-progress__check:nth-of-type(2) {\nanimation: darma-loader-uiverse-checkpoint-progress-checkScale1 6s linear infinite;\n}\n.darma-loader-uiverse-checkpoint-progress__check-bar-container .darma-loader-uiverse-checkpoint-progress__check:nth-of-type(3) {\nanimation: darma-loader-uiverse-checkpoint-progress-checkScale2 6s linear infinite;\n}\n.darma-loader-uiverse-checkpoint-progress__check-bar-container .darma-loader-uiverse-checkpoint-progress__check:nth-of-type(4) {\nanimation: darma-loader-uiverse-checkpoint-progress-checkScale3 6s linear infinite;\ntransform-origin: right;\n}",
+    "defaults": {
+      "size": 160,
+      "speed": 1,
+      "background": "transparent"
     }
   },
   {
@@ -2047,6 +2146,39 @@
     }
   },
   {
+    "id": "uiverse-liquid-aurora-progress",
+    "name": "Liquid Aurora Progress",
+    "category": "progress",
+    "tags": [
+      "uiverse",
+      "liquid",
+      "aurora",
+      "progress",
+      "gradient",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-liquid-aurora-progress liquid aurora progress progress uiverse liquid aurora progress gradient loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-liquid-aurora-progress__liquid-loader\">\n  <div class=\"darma-loader-uiverse-liquid-aurora-progress__loading-text\">\n    Loading<span class=\"darma-loader-uiverse-liquid-aurora-progress__dot\">.</span><span class=\"darma-loader-uiverse-liquid-aurora-progress__dot\">.</span\n    ><span class=\"darma-loader-uiverse-liquid-aurora-progress__dot\">.</span>\n  </div>\n\n  <div class=\"darma-loader-uiverse-liquid-aurora-progress__track\">\n    <div class=\"darma-loader-uiverse-liquid-aurora-progress__liquid-fill\"></div>\n  </div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-liquid-aurora-progress__liquid-loader {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 5px;\n  padding: 20px;\n  font-family: system-ui, sans-serif;\n}\n\n.darma-loader-uiverse-liquid-aurora-progress__track {\nposition: relative;\nwidth: 180px;\nheight: 32px;\nbackground: linear-gradient(135deg, #2a2a2a, #1a1a1a);\nborder-radius: 16px;\noverflow: hidden;\nbox-shadow:\ninset 0 2px 4px rgba(0, 0, 0, 0.6),\n0 1px 3px rgba(255, 255, 255, 0.1);\n}\n\n.darma-loader-uiverse-liquid-aurora-progress__liquid-fill {\nposition: absolute;\ntop: 2px;\nleft: 2px;\nheight: calc(100% - 4px);\nbackground: linear-gradient(90deg, #4f46e5, #7c3aed, #ec4899, #f59e0b);\nborder-radius: 14px;\nanimation:\ndarma-loader-uiverse-liquid-aurora-progress-fillProgress 4s ease-out infinite,\ndarma-loader-uiverse-liquid-aurora-progress-colorShift 3s linear infinite;\nbox-shadow:\n0 0 12px rgba(124, 58, 237, 0.4),\ninset 0 1px 2px rgba(255, 255, 255, 0.2);\n}\n\n.darma-loader-uiverse-liquid-aurora-progress__loading-text {\ncolor: white;\nfont-size: 18px;\nfont-weight: 600;\nletter-spacing: 1px;\nanimation: darma-loader-uiverse-liquid-aurora-progress-textGlow 1s ease-in-out infinite;\n}\n\n.darma-loader-uiverse-liquid-aurora-progress__dot {\nmargin-left: 3px;\nanimation: darma-loader-uiverse-liquid-aurora-progress-blink 1.5s infinite;\n}\n.darma-loader-uiverse-liquid-aurora-progress__dot:nth-of-type(1) {\nanimation-delay: 0s;\n}\n.darma-loader-uiverse-liquid-aurora-progress__dot:nth-of-type(2) {\nanimation-delay: 0.3s;\n}\n.darma-loader-uiverse-liquid-aurora-progress__dot:nth-of-type(3) {\nanimation-delay: 0.6s;\n}\n\n@keyframes darma-loader-uiverse-liquid-aurora-progress-fillProgress {\n0% {\nwidth: 4px;\n}\n25% {\nwidth: 25%;\n}\n50% {\nwidth: 50%;\n}\n75% {\nwidth: 75%;\n}\n100% {\nwidth: calc(100% - 4px);\n}\n}\n\n@keyframes darma-loader-uiverse-liquid-aurora-progress-colorShift {\n0% {\nfilter: hue-rotate(0deg) brightness(1);\n}\n33% {\nfilter: hue-rotate(120deg) brightness(1.1);\n}\n66% {\nfilter: hue-rotate(240deg) brightness(0.9);\n}\n100% {\nfilter: hue-rotate(360deg) brightness(1);\n}\n}\n\n@keyframes darma-loader-uiverse-liquid-aurora-progress-textGlow {\n0%,\n100% {\nopacity: 0.7;\ntext-shadow: 0 0 8px rgba(139, 92, 246, 0.3);\n}\n50% {\nopacity: 1;\ntext-shadow: 0 0 16px rgba(139, 92, 246, 0.6);\n}\n}\n\n@keyframes darma-loader-uiverse-liquid-aurora-progress-blink {\n0%,\n50% {\nopacity: 1;\n}\n51%,\n100% {\nopacity: 0;\n}\n}",
+    "defaults": {
+      "size": 160,
+      "speed": 1,
+      "background": "#111827"
+    }
+  },
+  {
     "id": "darma-custom-018",
     "name": "Masked Quadrant Sweep",
     "category": "progress",
@@ -2544,6 +2676,40 @@
     }
   },
   {
+    "id": "uiverse-neon-capsule-sweep",
+    "name": "Neon Capsule Sweep",
+    "category": "progress",
+    "tags": [
+      "uiverse",
+      "neon",
+      "capsule",
+      "sweep",
+      "progress",
+      "glow",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-neon-capsule-sweep neon capsule sweep progress uiverse neon capsule sweep progress glow loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-neon-capsule-sweep\"></div>\n/* HTML: <div class=\"darma-loader-uiverse-neon-capsule-sweep\"></div> */",
+    "previewCss": ".darma-loader-uiverse-neon-capsule-sweep {\n  width: 120px;\n  height: 22px;\n  border-radius: 40px;\n  color: #10ffa4;\n  border: 2px solid;\n  position: relative;\n  overflow: hidden;\n}\n.darma-loader-uiverse-neon-capsule-sweep::before {\n  content: \"\";\n  position: absolute;\n  margin: 2px;\n  width: 14px;\n  top: 0;\n  bottom: 0;\n  left: -20px;\n  border-radius: inherit;\n  background: currentColor;\n  box-shadow: -10px 0 12px 3px currentColor;\n  clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 95%, -30px 50%);\n  animation: darma-loader-uiverse-neon-capsule-sweep-l14 1s infinite linear;\n}\n@keyframes darma-loader-uiverse-neon-capsule-sweep-l14 {\n  100% {\n    left: calc(100% + 20px);\n  }\n}",
+    "defaults": {
+      "size": 160,
+      "speed": 1,
+      "background": "transparent"
+    }
+  },
+  {
     "id": "darma-custom-042",
     "name": "Outline Pill Fill",
     "category": "progress",
@@ -2575,6 +2741,39 @@
       "size": 120,
       "speed": 2,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "uiverse-particle-progress-rail",
+    "name": "Particle Progress Rail",
+    "category": "progress",
+    "tags": [
+      "uiverse",
+      "particles",
+      "progress",
+      "rail",
+      "glow",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-particle-progress-rail particle progress rail progress uiverse particles progress rail glow loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-particle-progress-rail\">\n<div class=\"darma-loader-uiverse-particle-progress-rail__progress-container\">\n  <div class=\"darma-loader-uiverse-particle-progress-rail__progress-bar\"></div>\n  <div class=\"darma-loader-uiverse-particle-progress-rail__progress-text\">40%</div>\n  <div class=\"darma-loader-uiverse-particle-progress-rail__particles\">\n    <div class=\"darma-loader-uiverse-particle-progress-rail__particle\"></div>\n    <div class=\"darma-loader-uiverse-particle-progress-rail__particle\"></div>\n    <div class=\"darma-loader-uiverse-particle-progress-rail__particle\"></div>\n    <div class=\"darma-loader-uiverse-particle-progress-rail__particle\"></div>\n    <div class=\"darma-loader-uiverse-particle-progress-rail__particle\"></div>\n  </div>\n</div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-particle-progress-rail {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-particle-progress-rail__progress-container {\n  position: relative;\n  width: 220px;\n  max-width: 220px;\n  height: 20px;\n  background: radial-gradient(circle, #1b2735, #090a0f);\n  border-radius: 30px;\n  overflow: hidden;\n  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);\n  box-sizing: border-box;\n  border: 1px solid #313131;\n}\n\n.darma-loader-uiverse-particle-progress-rail__progress-bar {\nposition: absolute;\ntop: 0;\nleft: 0;\nheight: 100%;\nwidth: 40%;\nbackground: linear-gradient(90deg, #00f260, #0575e6);\nborder-radius: 30px;\nanimation: darma-loader-uiverse-particle-progress-rail-grow 3s ease-in-out forwards;\nbox-shadow:\n0 0 15px #00f260,\n0 0 30px #0575e6;\n}\n\n.darma-loader-uiverse-particle-progress-rail__progress-bar::before {\ncontent: \"\";\nposition: absolute;\ntop: 50%;\nleft: 50%;\ntransform: translate(-50%, -50%);\nwidth: 200%;\nheight: 200%;\nbackground: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent);\nopacity: 0.5;\nanimation: darma-loader-uiverse-particle-progress-rail-ripple 3s infinite;\n}\n\n.darma-loader-uiverse-particle-progress-rail__progress-text {\nposition: absolute;\ntop: 50%;\nleft: 50%;\ntransform: translate(-50%, -50%);\nfont-size: 10px;\nfont-weight: bold;\nletter-spacing: 1px;\ncolor: #fff;\ntext-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);\nz-index: 2;\n}\n\n.darma-loader-uiverse-particle-progress-rail__particles {\nposition: absolute;\nwidth: 100%;\nheight: 100%;\noverflow: hidden;\n}\n\n.darma-loader-uiverse-particle-progress-rail__particle {\nposition: absolute;\nwidth: 4px;\nheight: 4px;\nbackground: #fff;\nborder-radius: 50%;\nopacity: 0.6;\nanimation: darma-loader-uiverse-particle-progress-rail-float 5s infinite ease-in-out;\n}\n\n@keyframes darma-loader-uiverse-particle-progress-rail-grow {\n0% {\nwidth: 0;\n}\n100% {\nwidth: 40%;\n}\n}\n\n@keyframes darma-loader-uiverse-particle-progress-rail-ripple {\n0% {\ntransform: translate(-50%, -50%) scale(0.5);\nopacity: 0.7;\n}\n100% {\ntransform: translate(-50%, -50%) scale(1.5);\nopacity: 0;\n}\n}\n\n@keyframes darma-loader-uiverse-particle-progress-rail-float {\n0% {\ntransform: translateY(0) translateX(0);\n}\n50% {\ntransform: translateY(-20px) translateX(10px);\n}\n100% {\ntransform: translateY(0) translateX(0);\n}\n}\n.darma-loader-uiverse-particle-progress-rail__particle:nth-child(1) {\ntop: 10%;\nleft: 20%;\nanimation-delay: 0s;\n}\n.darma-loader-uiverse-particle-progress-rail__particle:nth-child(2) {\ntop: 30%;\nleft: 70%;\nanimation-delay: 1s;\n}\n.darma-loader-uiverse-particle-progress-rail__particle:nth-child(3) {\ntop: 50%;\nleft: 50%;\nanimation-delay: 2s;\n}\n.darma-loader-uiverse-particle-progress-rail__particle:nth-child(4) {\ntop: 80%;\nleft: 40%;\nanimation-delay: 1.5s;\n}\n.darma-loader-uiverse-particle-progress-rail__particle:nth-child(5) {\ntop: 90%;\nleft: 60%;\nanimation-delay: 2.5s;\n}",
+    "defaults": {
+      "size": 160,
+      "speed": 1,
+      "background": "transparent"
     }
   },
   {
@@ -4169,6 +4368,72 @@
     }
   },
   {
+    "id": "uiverse-redirect-progress-card",
+    "name": "Redirect Progress Card",
+    "category": "progress",
+    "tags": [
+      "uiverse",
+      "redirect",
+      "card",
+      "progress",
+      "text",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-redirect-progress-card redirect progress card progress uiverse redirect card progress text loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-redirect-progress-card\">\n  <label>Redirecting...</label>\n  <div class=\"darma-loader-uiverse-redirect-progress-card__loading\"></div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-redirect-progress-card {\n  width: 240px;\n  height: 130px;\n  border-radius: 10px;\n  background: #fff;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-evenly;\n  padding: 30px;\n  box-shadow: 2px 2px 10px -5px lightgrey;\n}\n.darma-loader-uiverse-redirect-progress-card__loading {\n  width: 100%;\n  height: 10px;\n  background: lightgrey;\n  border-radius: 10px;\n  position: relative;\n}\n.darma-loader-uiverse-redirect-progress-card__loading::after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 50%;\n  height: 10px;\n  background: #002;\n  border-radius: 10px;\n  z-index: 1;\n  animation: darma-loader-uiverse-redirect-progress-card-loading 0.6s alternate infinite;\n}\n.darma-loader-uiverse-redirect-progress-card label {\n  color: #002;\n  font-size: 18px;\n  animation: darma-loader-uiverse-redirect-progress-card-bit 0.6s alternate infinite;\n}\n\n@keyframes darma-loader-uiverse-redirect-progress-card-bit {\nfrom {\nopacity: 0.3;\n}\nto {\nopacity: 1;\n}\n}\n\n@keyframes darma-loader-uiverse-redirect-progress-card-loading {\n0% {\nleft: 25%;\n}\n100% {\nleft: 50%;\n}\n0% {\nleft: 0%;\n}\n}",
+    "defaults": {
+      "size": 160,
+      "speed": 1,
+      "background": "#111827"
+    }
+  },
+  {
+    "id": "uiverse-retro-monitor-progress",
+    "name": "Retro Monitor Progress",
+    "category": "progress",
+    "tags": [
+      "uiverse",
+      "retro",
+      "monitor",
+      "screen",
+      "progress",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-retro-monitor-progress retro monitor progress progress uiverse retro monitor screen progress loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-retro-monitor-progress\">\n  <div class=\"darma-loader-uiverse-retro-monitor-progress__box\">\n    <div class=\"darma-loader-uiverse-retro-monitor-progress__top-side\"></div>\n    <div class=\"darma-loader-uiverse-retro-monitor-progress__bottom-side\"></div>\n\n    <div class=\"darma-loader-uiverse-retro-monitor-progress__screen\">\n      <div class=\"darma-loader-uiverse-retro-monitor-progress__lightray-limit\">\n        <div class=\"darma-loader-uiverse-retro-monitor-progress__lightray\"></div>\n      </div>\n\n      <div class=\"darma-loader-uiverse-retro-monitor-progress__box\">\n        <div class=\"darma-loader-uiverse-retro-monitor-progress__progress\"></div>\n      </div>\n    </div>\n\n  </div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-retro-monitor-progress .darma-loader-uiverse-retro-monitor-progress__box {\nbackground-color: rgb(84, 84, 84);\nwidth: 220px;\nheight: 220px;\npadding: 20px;\nborder-radius: 20px;\nborder: 5px solid gray;\nposition: relative;\noverflow: hidden;\nbox-shadow: 3px 4px 5px rgb(193, 193, 193);\n}\n\n.darma-loader-uiverse-retro-monitor-progress .darma-loader-uiverse-retro-monitor-progress__box .darma-loader-uiverse-retro-monitor-progress__screen {\nposition: absolute;\ntop: 50%;\nleft: 50%;\ntransform: translate(-50%, -50%);\nbackground-color: black;\nwidth: calc(100% - 40px);\nheight: calc(100% - 40px);\nborder-radius: 10px;\npadding: 10px;\noverflow: hidden;\n}\n\n.darma-loader-uiverse-retro-monitor-progress__screen .darma-loader-uiverse-retro-monitor-progress__lightray-limit {\nposition: absolute;\ntop: 50%;\nleft: 50%;\ntransform: translate(-50%, -50%);\nwidth: calc(100% - 20px);\nheight: calc(100% - 20px);\noverflow: hidden;\nborder-radius: 10px;\n}\n\n.darma-loader-uiverse-retro-monitor-progress__screen .darma-loader-uiverse-retro-monitor-progress__lightray {\nposition: absolute;\nleft: 0;\ntop: 0;\ntransform: translate(-50%, -50%);\nwidth: 250%;\nheight: 250%;\nbackground-image: radial-gradient(#ffffffa1, transparent, transparent);\nborder-radius: 10px 10px 0 0;\n}\n\n.darma-loader-uiverse-retro-monitor-progress__screen .darma-loader-uiverse-retro-monitor-progress__box {\nposition: absolute;\nleft: 50%;\ntop: 50%;\ntransform: translate(-50%, -50%);\nwidth: 70%;\npadding: 5px;\nborder: 5px solid #fff;\n}\n\n.darma-loader-uiverse-retro-monitor-progress__screen .darma-loader-uiverse-retro-monitor-progress__box .darma-loader-uiverse-retro-monitor-progress__progress {\nwidth: 0;\nheight: 5px;\nbackground-color: #fff;\nanimation: darma-loader-uiverse-retro-monitor-progress-progress 5s infinite;\n}\n\n.darma-loader-uiverse-retro-monitor-progress__top-side {\nposition: absolute;\nwidth: 100%;\nheight: 100%;\ntop: -55px;\nleft: 50%;\ntransform: translate(-50%, -50%) rotate(45deg);\nbox-shadow: 10px 10px 10px #1f1f1f8a;\nbackground-color: #1f1f1f8a;\n}\n\n.darma-loader-uiverse-retro-monitor-progress__bottom-side {\nposition: absolute;\nwidth: 100%;\nheight: 100%;\ntop: calc(100% + 60px);\nleft: 50%;\ntransform: translate(-50%, -50%) rotate(45deg);\nbox-shadow: -10px -10px 10px #a5a5a5;\nbackground-color: #a5a5a5;\n}\n\n@keyframes darma-loader-uiverse-retro-monitor-progress-progress {\nfrom {\nwidth: 0;\n}\nto {\nwidth: 100%;\n}\n}",
+    "defaults": {
+      "size": 160,
+      "speed": 1,
+      "background": "#111827"
+    }
+  },
+  {
     "id": "darma-custom-022",
     "name": "Rounded Dot Track",
     "category": "progress",
@@ -4997,6 +5262,39 @@
       "size": 120,
       "speed": 1,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "uiverse-soft-progress-breath",
+    "name": "Soft Progress Breath",
+    "category": "progress",
+    "tags": [
+      "uiverse",
+      "soft",
+      "progress",
+      "breath",
+      "bar",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-soft-progress-breath soft progress breath progress uiverse soft progress breath bar loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-soft-progress-breath\">\n<div class=\"darma-loader-uiverse-soft-progress-breath__progress-loader\">\n  <div class=\"darma-loader-uiverse-soft-progress-breath__progress\"></div>\n</div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-soft-progress-breath {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-soft-progress-breath__progress-loader {\n  position: relative;\n  width: 150px;\n  background: rgba(236, 236, 238, 0.253);\n  height: 10px;\n  border-radius: 7px;\n  overflow: hidden;\n}\n\n.darma-loader-uiverse-soft-progress-breath__progress {\nwidth: 1px;\nheight: 10px;\nborder-radius: 7px;\nbackground: rgb(255, 255, 255);\ntransition: 0.5s;\nanimation: darma-loader-uiverse-soft-progress-breath-loading_44 5s cubic-bezier(0.4, 1.01, 1, 1) infinite;\n}\n\n@keyframes darma-loader-uiverse-soft-progress-breath-loading_44 {\n0% {\nwidth: 0%;\n}\n\n50% {\nwidth: 100%;\n}\n\n100% {\nwidth: 0%;\n}\n}",
+    "defaults": {
+      "size": 160,
+      "speed": 1,
+      "background": "transparent"
     }
   },
   {

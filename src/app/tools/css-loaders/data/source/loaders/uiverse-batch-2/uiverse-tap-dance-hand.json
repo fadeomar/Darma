@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-tap-dance-hand",
+  "name": "Tap Dance Hand",
+  "category": "fun",
+  "tags": [
+    "uiverse",
+    "hand",
+    "tap",
+    "gesture",
+    "fun",
+    "css",
+    "loader"
+  ],
+  "html": "<div class=\"loader\">\n<div class=\"tap-hand\">\n\t<div class=\"tap-finger\"></div>\n\t<div class=\"tap-finger\"></div>\n\t<div class=\"tap-finger\"></div>\n\t<div class=\"tap-finger\"></div>\n\t<div class=\"tap-palm\"></div>\t\t\n\t<div class=\"tap-thumb\"></div>\n</div>\n</div>",
+  "css": ".loader {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.tap-hand {\n  --skin-color: #E4C560;\n  --tap-speed: 0.6s;\n  --tap-stagger: 0.1s;\n  position: relative;\n  width: 80px;\n  height: 60px;\n  margin-left: 80px;\n}\n\n.tap-hand:before {\ncontent: '';\ndisplay: block;\nwidth: 180%;\nheight: 75%;\nposition: absolute;\ntop: 70%;\nright: 20%;\nbackground-color: black;\nborder-radius: 40px 10px;\nfilter: blur(10px);\nopacity: 0.3;\n}\n\n.tap-palm {\ndisplay: block;\nwidth: 100%;\nheight: 100%;\nposition: absolute;\ntop: 0;\nleft: 0;\nbackground-color: var(--skin-color);\nborder-radius: 10px 40px;\n}\n\n.tap-thumb {\nposition: absolute;\nwidth: 120%;\nheight: 38px;\nbackground-color: var(--skin-color);\nbottom: -18%;\nright: 1%;\ntransform-origin: calc(100% - 20px) 20px;\ntransform: rotate(-20deg);\nborder-radius: 30px 20px 20px 10px;\nborder-bottom: 2px solid rgba(0, 0, 0, 0.1);\nborder-left: 2px solid rgba(0, 0, 0, 0.1);\n}\n\n.tap-thumb:after {\nwidth: 20%;\nheight: 60%;\ncontent: '';\nbackground-color: rgba(255, 255, 255, 0.3);\nposition: absolute;\nbottom: -8%;\nleft: 5px;\nborder-radius: 60% 10% 10% 30%;\nborder-right: 2px solid rgba(0, 0, 0, 0.05);\n}\n\n.tap-finger {\nposition: absolute;\nwidth: 80%;\nheight: 35px;\nbackground-color: var(--skin-color);\nbottom: 32%;\nright: 64%;\ntransform-origin: 100% 20px;\nanimation-duration: calc(var(--tap-speed) * 2);\nanimation-timing-function: ease-in-out;\nanimation-iteration-count: infinite;\ntransform: rotate(10deg);\n}\n\n.tap-finger:before {\ncontent: '';\nposition: absolute;\nwidth: 140%;\nheight: 30px;\nbackground-color: var(--skin-color);\nbottom: 8%;\nright: 65%;\ntransform-origin: calc(100% - 20px) 20px;\ntransform: rotate(-60deg);\nborder-radius: 20px;\n}\n\n.tap-finger:nth-child(1) {\nanimation-delay: 0;\nfilter: brightness(70%);\nanimation-name: tap-upper-1;\n}\n\n.tap-finger:nth-child(2) {\nanimation-delay: var(--tap-stagger);\nfilter: brightness(80%);\nanimation-name: tap-upper-2;\n}\n\n.tap-finger:nth-child(3) {\nanimation-delay: calc(var(--tap-stagger) * 2);\nfilter: brightness(90%);\nanimation-name: tap-upper-3;\n}\n\n.tap-finger:nth-child(4) {\nanimation-delay: calc(var(--tap-stagger) * 3);\nfilter: brightness(100%);\nanimation-name: tap-upper-4;\n}\n\n@keyframes tap-upper-1 {\n0%, 50%, 100% {\ntransform: rotate(10deg) scale(0.4);\n}\n\n40% {\ntransform: rotate(50deg) scale(0.4);\n}\n}\n\n@keyframes tap-upper-2 {\n0%, 50%, 100% {\ntransform: rotate(10deg) scale(0.6);\n}\n\n40% {\ntransform: rotate(50deg) scale(0.6);\n}\n}\n\n@keyframes tap-upper-3 {\n0%, 50%, 100% {\ntransform: rotate(10deg) scale(0.8);\n}\n\n40% {\ntransform: rotate(50deg) scale(0.8);\n}\n}\n\n@keyframes tap-upper-4 {\n0%, 50%, 100% {\ntransform: rotate(10deg) scale(1);\n}\n\n40% {\ntransform: rotate(50deg) scale(1);\n}\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 2",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 128,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

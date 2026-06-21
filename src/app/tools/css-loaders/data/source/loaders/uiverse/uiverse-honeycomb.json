@@ -1,0 +1,38 @@
+{
+  "id": "uiverse-honeycomb",
+  "name": "Honeycomb Loader",
+  "category": "dots",
+  "tags": [
+    "uiverse",
+    "honeycomb",
+    "hexagon",
+    "dots",
+    "grid",
+    "loader"
+  ],
+  "html": "<div class=\"honeycomb\"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>",
+  "css": "@keyframes honeycomb {\n  0%, 20%, 80%, 100% { opacity: 0; transform: scale(0); }\n  30%, 70% { opacity: 1; transform: scale(1); }\n}\n.honeycomb {\n  height: 24px;\n  position: relative;\n  width: 24px;\n}\n.honeycomb div {\n  animation: honeycomb 2.1s infinite backwards;\n  background: var(--loader-color, #f3f3f3);\n  height: 12px;\n  margin-top: 6px;\n  position: absolute;\n  width: 24px;\n}\n.honeycomb div:after, .honeycomb div:before {\n  content: '';\n  border-left: 12px solid transparent;\n  border-right: 12px solid transparent;\n  position: absolute;\n  left: 0;\n  right: 0;\n}\n.honeycomb div:after { top: -6px; border-bottom: 6px solid var(--loader-color, #f3f3f3); }\n.honeycomb div:before { bottom: -6px; border-top: 6px solid var(--loader-color, #f3f3f3); }\n.honeycomb div:nth-child(1) { animation-delay: 0s; left: -28px; top: 0; }\n.honeycomb div:nth-child(2) { animation-delay: 0.1s; left: -14px; top: 22px; }\n.honeycomb div:nth-child(3) { animation-delay: 0.2s; left: 14px; top: 22px; }\n.honeycomb div:nth-child(4) { animation-delay: 0.3s; left: 28px; top: 0; }\n.honeycomb div:nth-child(5) { animation-delay: 0.4s; left: 14px; top: -22px; }\n.honeycomb div:nth-child(6) { animation-delay: 0.5s; left: -14px; top: -22px; }\n.honeycomb div:nth-child(7) { animation-delay: 0.6s; left: 0; top: 0; }",
+  "source": {
+    "name": "Uiverse selected loaders",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#f59e0b",
+    "size": 72,
+    "speed": 2.1
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "id": "uiverse-liquid-aurora-progress",
+  "name": "Liquid Aurora Progress",
+  "category": "progress",
+  "tags": [
+    "uiverse",
+    "liquid",
+    "aurora",
+    "progress",
+    "gradient",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-liquid-aurora-progress liquid aurora progress progress uiverse liquid aurora progress gradient loader html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-liquid-aurora-progress__liquid-loader\">\n  <div class=\"darma-loader-uiverse-liquid-aurora-progress__loading-text\">\n    Loading<span class=\"darma-loader-uiverse-liquid-aurora-progress__dot\">.</span><span class=\"darma-loader-uiverse-liquid-aurora-progress__dot\">.</span\n    ><span class=\"darma-loader-uiverse-liquid-aurora-progress__dot\">.</span>\n  </div>\n\n  <div class=\"darma-loader-uiverse-liquid-aurora-progress__track\">\n    <div class=\"darma-loader-uiverse-liquid-aurora-progress__liquid-fill\"></div>\n  </div>\n</div>",
+  "previewCss": ".darma-loader-uiverse-liquid-aurora-progress__liquid-loader {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 5px;\n  padding: 20px;\n  font-family: system-ui, sans-serif;\n}\n\n.darma-loader-uiverse-liquid-aurora-progress__track {\nposition: relative;\nwidth: 180px;\nheight: 32px;\nbackground: linear-gradient(135deg, #2a2a2a, #1a1a1a);\nborder-radius: 16px;\noverflow: hidden;\nbox-shadow:\ninset 0 2px 4px rgba(0, 0, 0, 0.6),\n0 1px 3px rgba(255, 255, 255, 0.1);\n}\n\n.darma-loader-uiverse-liquid-aurora-progress__liquid-fill {\nposition: absolute;\ntop: 2px;\nleft: 2px;\nheight: calc(100% - 4px);\nbackground: linear-gradient(90deg, #4f46e5, #7c3aed, #ec4899, #f59e0b);\nborder-radius: 14px;\nanimation:\ndarma-loader-uiverse-liquid-aurora-progress-fillProgress 4s ease-out infinite,\ndarma-loader-uiverse-liquid-aurora-progress-colorShift 3s linear infinite;\nbox-shadow:\n0 0 12px rgba(124, 58, 237, 0.4),\ninset 0 1px 2px rgba(255, 255, 255, 0.2);\n}\n\n.darma-loader-uiverse-liquid-aurora-progress__loading-text {\ncolor: white;\nfont-size: 18px;\nfont-weight: 600;\nletter-spacing: 1px;\nanimation: darma-loader-uiverse-liquid-aurora-progress-textGlow 1s ease-in-out infinite;\n}\n\n.darma-loader-uiverse-liquid-aurora-progress__dot {\nmargin-left: 3px;\nanimation: darma-loader-uiverse-liquid-aurora-progress-blink 1.5s infinite;\n}\n.darma-loader-uiverse-liquid-aurora-progress__dot:nth-of-type(1) {\nanimation-delay: 0s;\n}\n.darma-loader-uiverse-liquid-aurora-progress__dot:nth-of-type(2) {\nanimation-delay: 0.3s;\n}\n.darma-loader-uiverse-liquid-aurora-progress__dot:nth-of-type(3) {\nanimation-delay: 0.6s;\n}\n\n@keyframes darma-loader-uiverse-liquid-aurora-progress-fillProgress {\n0% {\nwidth: 4px;\n}\n25% {\nwidth: 25%;\n}\n50% {\nwidth: 50%;\n}\n75% {\nwidth: 75%;\n}\n100% {\nwidth: calc(100% - 4px);\n}\n}\n\n@keyframes darma-loader-uiverse-liquid-aurora-progress-colorShift {\n0% {\nfilter: hue-rotate(0deg) brightness(1);\n}\n33% {\nfilter: hue-rotate(120deg) brightness(1.1);\n}\n66% {\nfilter: hue-rotate(240deg) brightness(0.9);\n}\n100% {\nfilter: hue-rotate(360deg) brightness(1);\n}\n}\n\n@keyframes darma-loader-uiverse-liquid-aurora-progress-textGlow {\n0%,\n100% {\nopacity: 0.7;\ntext-shadow: 0 0 8px rgba(139, 92, 246, 0.3);\n}\n50% {\nopacity: 1;\ntext-shadow: 0 0 16px rgba(139, 92, 246, 0.6);\n}\n}\n\n@keyframes darma-loader-uiverse-liquid-aurora-progress-blink {\n0%,\n50% {\nopacity: 1;\n}\n51%,\n100% {\nopacity: 0;\n}\n}",
+  "defaults": {
+    "size": 160,
+    "speed": 1,
+    "background": "#111827"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-liquid-aurora-progress__liquid-loader\">\n  <div class=\"darma-loader-uiverse-liquid-aurora-progress__loading-text\">\n    Loading<span class=\"darma-loader-uiverse-liquid-aurora-progress__dot\">.</span><span class=\"darma-loader-uiverse-liquid-aurora-progress__dot\">.</span\n    ><span class=\"darma-loader-uiverse-liquid-aurora-progress__dot\">.</span>\n  </div>\n\n  <div class=\"darma-loader-uiverse-liquid-aurora-progress__track\">\n    <div class=\"darma-loader-uiverse-liquid-aurora-progress__liquid-fill\"></div>\n  </div>\n</div>",
+    "css": ".darma-loader-uiverse-liquid-aurora-progress__liquid-loader {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 5px;\n  padding: 20px;\n  font-family: system-ui, sans-serif;\n}\n\n.darma-loader-uiverse-liquid-aurora-progress__track {\nposition: relative;\nwidth: 180px;\nheight: 32px;\nbackground: linear-gradient(135deg, #2a2a2a, #1a1a1a);\nborder-radius: 16px;\noverflow: hidden;\nbox-shadow:\ninset 0 2px 4px rgba(0, 0, 0, 0.6),\n0 1px 3px rgba(255, 255, 255, 0.1);\n}\n\n.darma-loader-uiverse-liquid-aurora-progress__liquid-fill {\nposition: absolute;\ntop: 2px;\nleft: 2px;\nheight: calc(100% - 4px);\nbackground: linear-gradient(90deg, #4f46e5, #7c3aed, #ec4899, #f59e0b);\nborder-radius: 14px;\nanimation:\ndarma-loader-uiverse-liquid-aurora-progress-fillProgress 4s ease-out infinite,\ndarma-loader-uiverse-liquid-aurora-progress-colorShift 3s linear infinite;\nbox-shadow:\n0 0 12px rgba(124, 58, 237, 0.4),\ninset 0 1px 2px rgba(255, 255, 255, 0.2);\n}\n\n.darma-loader-uiverse-liquid-aurora-progress__loading-text {\ncolor: white;\nfont-size: 18px;\nfont-weight: 600;\nletter-spacing: 1px;\nanimation: darma-loader-uiverse-liquid-aurora-progress-textGlow 1s ease-in-out infinite;\n}\n\n.darma-loader-uiverse-liquid-aurora-progress__dot {\nmargin-left: 3px;\nanimation: darma-loader-uiverse-liquid-aurora-progress-blink 1.5s infinite;\n}\n.darma-loader-uiverse-liquid-aurora-progress__dot:nth-of-type(1) {\nanimation-delay: 0s;\n}\n.darma-loader-uiverse-liquid-aurora-progress__dot:nth-of-type(2) {\nanimation-delay: 0.3s;\n}\n.darma-loader-uiverse-liquid-aurora-progress__dot:nth-of-type(3) {\nanimation-delay: 0.6s;\n}\n\n@keyframes darma-loader-uiverse-liquid-aurora-progress-fillProgress {\n0% {\nwidth: 4px;\n}\n25% {\nwidth: 25%;\n}\n50% {\nwidth: 50%;\n}\n75% {\nwidth: 75%;\n}\n100% {\nwidth: calc(100% - 4px);\n}\n}\n\n@keyframes darma-loader-uiverse-liquid-aurora-progress-colorShift {\n0% {\nfilter: hue-rotate(0deg) brightness(1);\n}\n33% {\nfilter: hue-rotate(120deg) brightness(1.1);\n}\n66% {\nfilter: hue-rotate(240deg) brightness(0.9);\n}\n100% {\nfilter: hue-rotate(360deg) brightness(1);\n}\n}\n\n@keyframes darma-loader-uiverse-liquid-aurora-progress-textGlow {\n0%,\n100% {\nopacity: 0.7;\ntext-shadow: 0 0 8px rgba(139, 92, 246, 0.3);\n}\n50% {\nopacity: 1;\ntext-shadow: 0 0 16px rgba(139, 92, 246, 0.6);\n}\n}\n\n@keyframes darma-loader-uiverse-liquid-aurora-progress-blink {\n0%,\n50% {\nopacity: 1;\n}\n51%,\n100% {\nopacity: 0;\n}\n}",
+    "react": "export default function UiverseLiquidAuroraProgressLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-liquid-aurora-progress__liquid-loader\">\n  <div className=\"darma-loader-uiverse-liquid-aurora-progress__loading-text\">\n    Loading<span className=\"darma-loader-uiverse-liquid-aurora-progress__dot\">.</span><span className=\"darma-loader-uiverse-liquid-aurora-progress__dot\">.</span\n    ><span className=\"darma-loader-uiverse-liquid-aurora-progress__dot\">.</span>\n  </div>\n\n  <div className=\"darma-loader-uiverse-liquid-aurora-progress__track\">\n    <div className=\"darma-loader-uiverse-liquid-aurora-progress__liquid-fill\"></div>\n  </div>\n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": false,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Uiverse selected loaders batch 2",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  }
+}

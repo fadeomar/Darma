@@ -1,0 +1,38 @@
+{
+  "id": "uiverse-magnetic-field-pulse",
+  "name": "Magnetic Field Pulse",
+  "category": "creative",
+  "tags": [
+    "uiverse",
+    "magnet",
+    "field",
+    "pulse",
+    "creative",
+    "loader"
+  ],
+  "html": "<div class=\"loader\">\n  <div class=\"magnetism\"></div>\n</div>",
+  "css": ".loader {\n  position: relative;\n  background-color: red;\n  height: 40px;\n  width: 10px;\n  border-radius: 6px 0px 0px 6px;\n  animation: rotate 5s infinite;\n}\n.magnetism {\n  position: absolute;\n  color: rgb(0, 151, 252);\n  bottom: 0;\n  width: 80px;\n  left: 0%;\n  height: 40px;\n  border: solid 2px currentColor;\n  border-color: currentColor transparent transparent transparent;\n  border-radius: 50%;\n  transform: rotate(90deg);\n  animation: go 0.5s ease-in-out infinite;\n}\n\n.loader::before {\ncontent: \"\";\nleft: 10px;\nposition: absolute;\nbackground: rgb(255, 0, 0);\nbackground: linear-gradient(\n90deg,\nrgba(255, 0, 0, 1) 0%,\nrgba(255, 0, 0, 1) 50%,\nrgba(158, 158, 158, 1) 50%,\nrgba(184, 184, 184, 1) 100%\n);\nheight: 10px;\nwidth: 20px;\n}\n.loader::after {\ncontent: \"\";\nleft: 10px;\nposition: absolute;\nbottom: 0;\nbackground: rgb(255, 0, 0);\nbackground: linear-gradient(\n90deg,\nrgba(255, 0, 0, 1) 0%,\nrgba(255, 0, 0, 1) 50%,\nrgba(158, 158, 158, 1) 50%,\nrgba(184, 184, 184, 1) 100%\n);\nheight: 10px;\nwidth: 20px;\n}\n\n@keyframes rotate {\n0% {\ntransform: rotate(-30deg);\n}\n50% {\ntransform: rotate(30deg);\n}\n100% {\ntransform: rotate(-30deg);\n}\n}\n\n@keyframes go {\n0% {\nleft: 0%;\nwidth: 30px;\nopacity: 1;\n}\n50% {\nleft: 100%;\nwidth: 60px;\nopacity: 0.5;\n}\n100% {\nwidth: 90px;\nleft: 200%;\nopacity: 0;\n}\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 3",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 140,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "id": "uiverse-box-maze-morph",
+  "name": "Box Maze Morph",
+  "category": "creative",
+  "tags": [
+    "uiverse",
+    "box",
+    "maze",
+    "morph",
+    "geometry",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-box-maze-morph box maze morph creative uiverse box maze morph geometry loader html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-box-maze-morph\">\n  <div class=\"darma-loader-uiverse-box-maze-morph__box1\"></div>\n  <div class=\"darma-loader-uiverse-box-maze-morph__box2\"></div>\n  <div class=\"darma-loader-uiverse-box-maze-morph__box3\"></div>\n</div>",
+  "previewCss": ".darma-loader-uiverse-box-maze-morph {\n  width: 112px;\n  height: 112px;\n}\n\n.darma-loader-uiverse-box-maze-morph__box1,\n.darma-loader-uiverse-box-maze-morph__box2,\n.darma-loader-uiverse-box-maze-morph__box3 {\nborder: 16px solid #f5f5f5;\nbox-sizing: border-box;\nposition: absolute;\ndisplay: block;\n}\n\n.darma-loader-uiverse-box-maze-morph__box1 {\nwidth: 112px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 0px;\nanimation: darma-loader-uiverse-box-maze-morph-abox1 4s 1s forwards ease-in-out infinite;\n}\n\n.darma-loader-uiverse-box-maze-morph__box2 {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 0px;\nanimation: darma-loader-uiverse-box-maze-morph-abox2 4s 1s forwards ease-in-out infinite;\n}\n\n.darma-loader-uiverse-box-maze-morph__box3 {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 64px;\nanimation: darma-loader-uiverse-box-maze-morph-abox3 4s 1s forwards ease-in-out infinite;\n}\n\n@keyframes darma-loader-uiverse-box-maze-morph-abox1 {\n0% {\nwidth: 112px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 0px;\n}\n\n12.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 0px;\n}\n\n25% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 0px;\n}\n\n37.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 0px;\n}\n\n50% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 0px;\n}\n\n62.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 0px;\n}\n\n75% {\nwidth: 48px;\nheight: 112px;\nmargin-top: 0px;\nmargin-left: 0px;\n}\n\n87.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 0px;\n}\n\n100% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 0px;\n}\n}\n\n@keyframes darma-loader-uiverse-box-maze-morph-abox2 {\n0% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 0px;\n}\n\n12.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 0px;\n}\n\n25% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 0px;\n}\n\n37.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 0px;\n}\n\n50% {\nwidth: 112px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 0px;\n}\n\n62.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 64px;\n}\n\n75% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 64px;\n}\n\n87.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 64px;\n}\n\n100% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 64px;\n}\n}\n\n@keyframes darma-loader-uiverse-box-maze-morph-abox3 {\n0% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 64px;\n}\n\n12.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 64px;\n}\n\n25% {\nwidth: 48px;\nheight: 112px;\nmargin-top: 0px;\nmargin-left: 64px;\n}\n\n37.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 64px;\n}\n\n50% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 64px;\n}\n\n62.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 64px;\n}\n\n75% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 64px;\n}\n\n87.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 64px;\n}\n\n100% {\nwidth: 112px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 0px;\n}\n}",
+  "defaults": {
+    "size": 140,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-box-maze-morph\">\n  <div class=\"darma-loader-uiverse-box-maze-morph__box1\"></div>\n  <div class=\"darma-loader-uiverse-box-maze-morph__box2\"></div>\n  <div class=\"darma-loader-uiverse-box-maze-morph__box3\"></div>\n</div>",
+    "css": ".darma-loader-uiverse-box-maze-morph {\n  width: 112px;\n  height: 112px;\n}\n\n.darma-loader-uiverse-box-maze-morph__box1,\n.darma-loader-uiverse-box-maze-morph__box2,\n.darma-loader-uiverse-box-maze-morph__box3 {\nborder: 16px solid #f5f5f5;\nbox-sizing: border-box;\nposition: absolute;\ndisplay: block;\n}\n\n.darma-loader-uiverse-box-maze-morph__box1 {\nwidth: 112px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 0px;\nanimation: darma-loader-uiverse-box-maze-morph-abox1 4s 1s forwards ease-in-out infinite;\n}\n\n.darma-loader-uiverse-box-maze-morph__box2 {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 0px;\nanimation: darma-loader-uiverse-box-maze-morph-abox2 4s 1s forwards ease-in-out infinite;\n}\n\n.darma-loader-uiverse-box-maze-morph__box3 {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 64px;\nanimation: darma-loader-uiverse-box-maze-morph-abox3 4s 1s forwards ease-in-out infinite;\n}\n\n@keyframes darma-loader-uiverse-box-maze-morph-abox1 {\n0% {\nwidth: 112px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 0px;\n}\n\n12.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 0px;\n}\n\n25% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 0px;\n}\n\n37.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 0px;\n}\n\n50% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 0px;\n}\n\n62.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 0px;\n}\n\n75% {\nwidth: 48px;\nheight: 112px;\nmargin-top: 0px;\nmargin-left: 0px;\n}\n\n87.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 0px;\n}\n\n100% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 0px;\n}\n}\n\n@keyframes darma-loader-uiverse-box-maze-morph-abox2 {\n0% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 0px;\n}\n\n12.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 0px;\n}\n\n25% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 0px;\n}\n\n37.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 0px;\n}\n\n50% {\nwidth: 112px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 0px;\n}\n\n62.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 64px;\n}\n\n75% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 64px;\n}\n\n87.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 64px;\n}\n\n100% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 64px;\n}\n}\n\n@keyframes darma-loader-uiverse-box-maze-morph-abox3 {\n0% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 64px;\n}\n\n12.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 64px;\n}\n\n25% {\nwidth: 48px;\nheight: 112px;\nmargin-top: 0px;\nmargin-left: 64px;\n}\n\n37.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 64px;\n}\n\n50% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 64px;\n}\n\n62.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 64px;\n}\n\n75% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 64px;\n}\n\n87.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 64px;\n}\n\n100% {\nwidth: 112px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 0px;\n}\n}",
+    "react": "export default function UiverseBoxMazeMorphLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-box-maze-morph\">\n  <div className=\"darma-loader-uiverse-box-maze-morph__box1\"></div>\n  <div className=\"darma-loader-uiverse-box-maze-morph__box2\"></div>\n  <div className=\"darma-loader-uiverse-box-maze-morph__box3\"></div>\n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": false,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Uiverse selected loaders batch 2",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "uiverse-gooey-wave-pool",
+  "name": "Gooey Wave Pool",
+  "category": "creative",
+  "tags": [
+    "uiverse",
+    "gooey",
+    "wave",
+    "pool",
+    "blob",
+    "loader"
+  ],
+  "html": "<svg style=\"position: absolute; width: 0; height: 0;\">\n  <filter id=\"uiverse-gooey-wave-pool-goo\">\n  <feGaussianBlur in=\"SourceGraphic\" stdDeviation=\"12\"></feGaussianBlur>\n  <feColorMatrix values=\"0 0 0 0 0 \n            0 0 0 0 0 \n            0 0 0 0 0 \n            0 0 0 48 -7\"></feColorMatrix>\n</filter>\n</svg>\n\n<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 12em;\n  height: 3em;\n  position: relative;\n  overflow: hidden;\n  border-bottom: 8px solid #000;\n  filter: url(#uiverse-gooey-wave-pool-goo);\n}\n\n.loader::before {\ncontent: '';\nwidth: 22em;\nheight: 18em;\nbackground: #f00;\nposition: absolute;\nborder-radius: 50%;\nleft: -2em;\nbottom: -18em;\nanimation: wee1 2s linear infinite;\n}\n\n.loader::after {\ncontent: '';\nwidth: 16em;\nheight: 12em;\nbackground: #0ff;\nposition: absolute;\nborder-radius: 50%;\nleft: -4em;\nbottom: -12em;\nanimation: wee2 2s linear infinite 0.75s;\n}\n\n@keyframes wee1 {\n0% {\ntransform: translateX(-10em) rotate(0deg);\n}\n\n100% {\ntransform: translateX(7em) rotate(180deg);\n}\n}\n\n@keyframes wee2 {\n0% {\ntransform: translateX(-8em) rotate(0deg);\n}\n\n100% {\ntransform: translateX(8em) rotate(180deg);\n}\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 3",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 140,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

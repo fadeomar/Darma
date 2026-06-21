@@ -1,0 +1,52 @@
+{
+  "id": "uiverse-bouncing-steps",
+  "name": "Bouncing Steps Loader",
+  "category": "fun",
+  "tags": [
+    "uiverse",
+    "bounce",
+    "steps",
+    "ball",
+    "stairs",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-bouncing-steps bouncing steps loader fun uiverse bounce steps ball stairs loader html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-bouncing-steps\"></div>",
+  "previewCss": ".darma-loader-uiverse-bouncing-steps {\n  position: relative;\n  width: 120px;\n  height: 170px;\n  margin: 0 auto;\n}\n\n.darma-loader-uiverse-bouncing-steps:before {\n  content: \"\";\n  position: absolute;\n  bottom: 30px;\n  left: 50px;\n  height: 30px;\n  width: 30px;\n  border-radius: 50%;\n  background: var(--loader-color, #2a9d8f);\n  animation: darma-loader-uiverse-bouncing-steps-loading-bounce 0.5s ease-in-out infinite alternate;\n}\n\n.darma-loader-uiverse-bouncing-steps:after {\n  content: \"\";\n  position: absolute;\n  right: 0;\n  top: 0;\n  height: 7px;\n  width: 45px;\n  border-radius: 4px;\n  box-shadow: 0 5px 0 var(--loader-secondary-color, #f2f2f2), -35px 50px 0 var(--loader-secondary-color, #f2f2f2), -70px 95px 0 var(--loader-secondary-color, #f2f2f2);\n  animation: darma-loader-uiverse-bouncing-steps-loading-step 1s ease-in-out infinite;\n}\n\n@keyframes darma-loader-uiverse-bouncing-steps-loading-bounce {\n  0% { transform: scale(1, 0.7); }\n  40% { transform: scale(0.8, 1.2); }\n  60% { transform: scale(1, 1); }\n  100% { bottom: 140px; }\n}\n\n@keyframes darma-loader-uiverse-bouncing-steps-loading-step {\n  0% {\n    box-shadow: 0 10px 0 transparent, 0 10px 0 var(--loader-secondary-color, #f2f2f2), -35px 50px 0 var(--loader-secondary-color, #f2f2f2), -70px 90px 0 var(--loader-secondary-color, #f2f2f2);\n  }\n  100% {\n    box-shadow: 0 10px 0 var(--loader-secondary-color, #f2f2f2), -35px 50px 0 var(--loader-secondary-color, #f2f2f2), -70px 90px 0 var(--loader-secondary-color, #f2f2f2), -70px 90px 0 transparent;\n  }\n}",
+  "defaults": {
+    "color": "#2a9d8f",
+    "secondaryColor": "#f2f2f2",
+    "size": 112,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-bouncing-steps\"></div>",
+    "css": ".darma-loader-uiverse-bouncing-steps {\n  position: relative;\n  width: 120px;\n  height: 170px;\n  margin: 0 auto;\n}\n\n.darma-loader-uiverse-bouncing-steps:before {\n  content: \"\";\n  position: absolute;\n  bottom: 30px;\n  left: 50px;\n  height: 30px;\n  width: 30px;\n  border-radius: 50%;\n  background: var(--loader-color, #2a9d8f);\n  animation: darma-loader-uiverse-bouncing-steps-loading-bounce 0.5s ease-in-out infinite alternate;\n}\n\n.darma-loader-uiverse-bouncing-steps:after {\n  content: \"\";\n  position: absolute;\n  right: 0;\n  top: 0;\n  height: 7px;\n  width: 45px;\n  border-radius: 4px;\n  box-shadow: 0 5px 0 var(--loader-secondary-color, #f2f2f2), -35px 50px 0 var(--loader-secondary-color, #f2f2f2), -70px 95px 0 var(--loader-secondary-color, #f2f2f2);\n  animation: darma-loader-uiverse-bouncing-steps-loading-step 1s ease-in-out infinite;\n}\n\n@keyframes darma-loader-uiverse-bouncing-steps-loading-bounce {\n  0% { transform: scale(1, 0.7); }\n  40% { transform: scale(0.8, 1.2); }\n  60% { transform: scale(1, 1); }\n  100% { bottom: 140px; }\n}\n\n@keyframes darma-loader-uiverse-bouncing-steps-loading-step {\n  0% {\n    box-shadow: 0 10px 0 transparent, 0 10px 0 var(--loader-secondary-color, #f2f2f2), -35px 50px 0 var(--loader-secondary-color, #f2f2f2), -70px 90px 0 var(--loader-secondary-color, #f2f2f2);\n  }\n  100% {\n    box-shadow: 0 10px 0 var(--loader-secondary-color, #f2f2f2), -35px 50px 0 var(--loader-secondary-color, #f2f2f2), -70px 90px 0 var(--loader-secondary-color, #f2f2f2), -70px 90px 0 transparent;\n  }\n}",
+    "react": "export default function UiverseBouncingStepsLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-bouncing-steps\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Uiverse selected loaders",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "id": "uiverse-morphing-panels",
+  "name": "Morphing Panels Loader",
+  "category": "creative",
+  "tags": [
+    "uiverse",
+    "morphing",
+    "panels",
+    "cards",
+    "shape",
+    "creative",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-morphing-panels morphing panels loader creative uiverse morphing panels cards shape creative loader html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-morphing-panels\"><div class=\"darma-loader-uiverse-morphing-panels__panel\"></div><div class=\"darma-loader-uiverse-morphing-panels__panel\"></div><div class=\"darma-loader-uiverse-morphing-panels__panel\"></div></div>",
+  "previewCss": ".darma-loader-uiverse-morphing-panels {\n  position: relative;\n  width: 170px;\n  height: 135px;\n}\n.darma-loader-uiverse-morphing-panels__panel {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: 10;\n  width: 160px;\n  height: 100px;\n  margin-left: -80px;\n  margin-top: -50px;\n  border-radius: 5px;\n  background: var(--loader-color, #1e3f57);\n  animation: darma-loader-uiverse-morphing-panels-dot1_ 3s cubic-bezier(0.55,0.3,0.24,0.99) infinite;\n}\n.darma-loader-uiverse-morphing-panels__panel:nth-child(2) {\n  z-index: 11;\n  width: 150px;\n  height: 90px;\n  margin-top: -45px;\n  margin-left: -75px;\n  border-radius: 3px;\n  background: var(--loader-secondary-color, #3c517d);\n  animation-name: darma-loader-uiverse-morphing-panels-dot2_;\n}\n.darma-loader-uiverse-morphing-panels__panel:nth-child(3) {\n  z-index: 12;\n  width: 40px;\n  height: 20px;\n  margin-top: 50px;\n  margin-left: -20px;\n  border-radius: 0 0 5px 5px;\n  background: #6bb2cd;\n  animation-name: darma-loader-uiverse-morphing-panels-dot3_;\n}\n@keyframes darma-loader-uiverse-morphing-panels-dot1_ {\n  3%,97% { width: 160px; height: 100px; margin-top: -50px; margin-left: -80px; }\n  30%,36% { width: 80px; height: 120px; margin-top: -60px; margin-left: -40px; }\n  63%,69% { width: 40px; height: 80px; margin-top: -40px; margin-left: -20px; }\n}\n@keyframes darma-loader-uiverse-morphing-panels-dot2_ {\n  3%,97% { height: 90px; width: 150px; margin-left: -75px; margin-top: -45px; }\n  30%,36% { width: 70px; height: 96px; margin-left: -35px; margin-top: -48px; }\n  63%,69% { width: 32px; height: 60px; margin-left: -16px; margin-top: -30px; }\n}\n@keyframes darma-loader-uiverse-morphing-panels-dot3_ {\n  3%,97% { height: 20px; width: 40px; margin-left: -20px; margin-top: 50px; }\n  30%,36% { width: 8px; height: 8px; margin-left: -5px; margin-top: 49px; border-radius: 8px; }\n  63%,69% { width: 16px; height: 4px; margin-left: -8px; margin-top: -37px; border-radius: 10px; }\n}",
+  "defaults": {
+    "color": "#1e3f57",
+    "secondaryColor": "#3c517d",
+    "size": 112,
+    "speed": 3
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-morphing-panels\"><div class=\"darma-loader-uiverse-morphing-panels__panel\"></div><div class=\"darma-loader-uiverse-morphing-panels__panel\"></div><div class=\"darma-loader-uiverse-morphing-panels__panel\"></div></div>",
+    "css": ".darma-loader-uiverse-morphing-panels {\n  position: relative;\n  width: 170px;\n  height: 135px;\n}\n.darma-loader-uiverse-morphing-panels__panel {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: 10;\n  width: 160px;\n  height: 100px;\n  margin-left: -80px;\n  margin-top: -50px;\n  border-radius: 5px;\n  background: var(--loader-color, #1e3f57);\n  animation: darma-loader-uiverse-morphing-panels-dot1_ 3s cubic-bezier(0.55,0.3,0.24,0.99) infinite;\n}\n.darma-loader-uiverse-morphing-panels__panel:nth-child(2) {\n  z-index: 11;\n  width: 150px;\n  height: 90px;\n  margin-top: -45px;\n  margin-left: -75px;\n  border-radius: 3px;\n  background: var(--loader-secondary-color, #3c517d);\n  animation-name: darma-loader-uiverse-morphing-panels-dot2_;\n}\n.darma-loader-uiverse-morphing-panels__panel:nth-child(3) {\n  z-index: 12;\n  width: 40px;\n  height: 20px;\n  margin-top: 50px;\n  margin-left: -20px;\n  border-radius: 0 0 5px 5px;\n  background: #6bb2cd;\n  animation-name: darma-loader-uiverse-morphing-panels-dot3_;\n}\n@keyframes darma-loader-uiverse-morphing-panels-dot1_ {\n  3%,97% { width: 160px; height: 100px; margin-top: -50px; margin-left: -80px; }\n  30%,36% { width: 80px; height: 120px; margin-top: -60px; margin-left: -40px; }\n  63%,69% { width: 40px; height: 80px; margin-top: -40px; margin-left: -20px; }\n}\n@keyframes darma-loader-uiverse-morphing-panels-dot2_ {\n  3%,97% { height: 90px; width: 150px; margin-left: -75px; margin-top: -45px; }\n  30%,36% { width: 70px; height: 96px; margin-left: -35px; margin-top: -48px; }\n  63%,69% { width: 32px; height: 60px; margin-left: -16px; margin-top: -30px; }\n}\n@keyframes darma-loader-uiverse-morphing-panels-dot3_ {\n  3%,97% { height: 20px; width: 40px; margin-left: -20px; margin-top: 50px; }\n  30%,36% { width: 8px; height: 8px; margin-left: -5px; margin-top: 49px; border-radius: 8px; }\n  63%,69% { width: 16px; height: 4px; margin-left: -8px; margin-top: -37px; border-radius: 10px; }\n}",
+    "react": "export default function UiverseMorphingPanelsLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-morphing-panels\"><div className=\"darma-loader-uiverse-morphing-panels__panel\"></div><div className=\"darma-loader-uiverse-morphing-panels__panel\"></div><div className=\"darma-loader-uiverse-morphing-panels__panel\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Uiverse selected loaders",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  }
+}

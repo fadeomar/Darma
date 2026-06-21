@@ -1,0 +1,38 @@
+{
+  "id": "uiverse-loading-word-carousel",
+  "name": "Loading Word Carousel",
+  "category": "creative",
+  "tags": [
+    "uiverse",
+    "words",
+    "carousel",
+    "text",
+    "loading",
+    "loader"
+  ],
+  "html": "<div class=\"card\">\n  <div class=\"loader\">\n    <p>loading</p>\n    <div class=\"words\">\n      <span class=\"word\">buttons</span>\n      <span class=\"word\">forms</span>\n      <span class=\"word\">switches</span>\n      <span class=\"word\">cards</span>\n      <span class=\"word\">buttons</span>\n    </div>\n  </div>\n</div>",
+  "css": ".card {\n  /* color used to softly clip top and bottom of the .words container */\n  --bg-color: #111;\n  background-color: var(--bg-color);\n  padding: 1rem 2rem;\n  border-radius: 1.25rem;\n}\n.loader {\n  color: rgb(124, 124, 124);\n  font-family: \"Poppins\", sans-serif;\n  font-weight: 500;\n  font-size: 25px;\n  -webkit-box-sizing: content-box;\n  box-sizing: content-box;\n  height: 40px;\n  padding: 10px 10px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  border-radius: 8px;\n}\n\n.words {\noverflow: hidden;\nposition: relative;\n}\n.words::after {\ncontent: \"\";\nposition: absolute;\ninset: 0;\nbackground: linear-gradient(\nvar(--bg-color) 10%,\ntransparent 30%,\ntransparent 70%,\nvar(--bg-color) 90%\n);\nz-index: 20;\n}\n\n.word {\ndisplay: block;\nheight: 100%;\npadding-left: 6px;\ncolor: #956afa;\nanimation: spin_4991 4s infinite;\n}\n\n@keyframes spin_4991 {\n10% {\n-webkit-transform: translateY(-102%);\ntransform: translateY(-102%);\n}\n\n25% {\n-webkit-transform: translateY(-100%);\ntransform: translateY(-100%);\n}\n\n35% {\n-webkit-transform: translateY(-202%);\ntransform: translateY(-202%);\n}\n\n50% {\n-webkit-transform: translateY(-200%);\ntransform: translateY(-200%);\n}\n\n60% {\n-webkit-transform: translateY(-302%);\ntransform: translateY(-302%);\n}\n\n75% {\n-webkit-transform: translateY(-300%);\ntransform: translateY(-300%);\n}\n\n85% {\n-webkit-transform: translateY(-402%);\ntransform: translateY(-402%);\n}\n\n100% {\n-webkit-transform: translateY(-400%);\ntransform: translateY(-400%);\n}\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 2",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 140,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

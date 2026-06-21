@@ -1,0 +1,51 @@
+{
+  "id": "uiverse-plasma-orbit-core",
+  "name": "Plasma Orbit Core",
+  "category": "creative",
+  "tags": [
+    "uiverse",
+    "plasma",
+    "orbit",
+    "core",
+    "rings",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-plasma-orbit-core plasma orbit core creative uiverse plasma orbit core rings loader html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-plasma-orbit-core__container\">\n  <div class=\"darma-loader-uiverse-plasma-orbit-core__sphere-core\"></div>\n  <div class=\"darma-loader-uiverse-plasma-orbit-core__ring darma-loader-uiverse-plasma-orbit-core__ring-1\"></div>\n  <div class=\"darma-loader-uiverse-plasma-orbit-core__ring darma-loader-uiverse-plasma-orbit-core__ring-2\"></div>\n  <div class=\"darma-loader-uiverse-plasma-orbit-core__ring darma-loader-uiverse-plasma-orbit-core__ring-3\"></div>\n</div>",
+  "previewCss": ".darma-loader-uiverse-plasma-orbit-core__container {\n  position: relative;\n  width: 150px;\n  height: 150px;\n  perspective: 800px;\n  transform-style: preserve-3d;\n}\n\n.darma-loader-uiverse-plasma-orbit-core__sphere-core {\nposition: absolute;\nwidth: 60px;\nheight: 60px;\ntop: 50%;\nleft: 50%;\ntransform: translate(-50%, -50%);\nbackground: radial-gradient(circle at 40% 40%, #00eaff, #0066ff);\nborder-radius: 50%;\nbox-shadow: 0 0 25px rgba(0, 234, 255, 0.5);\nanimation: darma-loader-uiverse-plasma-orbit-core-pulse 2s cubic-bezier(0.5, 0, 0.5, 1) infinite;\n}\n\n.darma-loader-uiverse-plasma-orbit-core__ring {\nposition: absolute;\nwidth: 100%;\nheight: 100%;\nborder: 2px solid rgba(0, 234, 255, 0.7);\nborder-radius: 50%;\nbox-shadow: 0 0 15px rgba(0, 234, 255, 0.3);\ntransform-style: preserve-3d;\n}\n\n.darma-loader-uiverse-plasma-orbit-core__ring-1 {\nanimation: darma-loader-uiverse-plasma-orbit-core-rotateX 2.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;\n}\n\n.darma-loader-uiverse-plasma-orbit-core__ring-2 {\nanimation: darma-loader-uiverse-plasma-orbit-core-rotateY 2s cubic-bezier(0.55, 0, 0.45, 1) infinite;\nwidth: 120px;\nheight: 120px;\ntop: 15px;\nleft: 15px;\nborder-color: rgba(0, 234, 255, 0.5);\n}\n\n.darma-loader-uiverse-plasma-orbit-core__ring-3 {\nanimation: darma-loader-uiverse-plasma-orbit-core-rotateXY 3s cubic-bezier(0.7, 0, 0.3, 1) infinite;\nwidth: 90px;\nheight: 90px;\ntop: 30px;\nleft: 30px;\nborder-color: rgba(0, 234, 255, 0.3);\n}\n\n@keyframes darma-loader-uiverse-plasma-orbit-core-rotateX {\n0% {\ntransform: rotateX(0deg);\n}\n50% {\ntransform: rotateX(180deg);\n}\n100% {\ntransform: rotateX(360deg);\n}\n}\n\n@keyframes darma-loader-uiverse-plasma-orbit-core-rotateY {\n0% {\ntransform: rotateY(0deg);\n}\n50% {\ntransform: rotateY(180deg);\n}\n100% {\ntransform: rotateY(360deg);\n}\n}\n\n@keyframes darma-loader-uiverse-plasma-orbit-core-rotateXY {\n0% {\ntransform: rotateX(0deg) rotateY(0deg);\n}\n50% {\ntransform: rotateX(90deg) rotateY(180deg);\n}\n100% {\ntransform: rotateX(360deg) rotateY(360deg);\n}\n}\n\n@keyframes darma-loader-uiverse-plasma-orbit-core-pulse {\n0%,\n100% {\ntransform: translate(-50%, -50%) scale(1);\nbox-shadow: 0 0 25px rgba(0, 234, 255, 0.5);\n}\n50% {\ntransform: translate(-50%, -50%) scale(1.1);\nbox-shadow: 0 0 35px rgba(0, 234, 255, 0.7);\n}\n}\n\n.darma-loader-uiverse-plasma-orbit-core__container:hover .darma-loader-uiverse-plasma-orbit-core__sphere-core {\nbackground: radial-gradient(circle at 40% 40%, #ff66ff, #6600ff);\nbox-shadow: 0 0 35px rgba(255, 102, 255, 0.7);\n}\n\n.darma-loader-uiverse-plasma-orbit-core__container:hover .darma-loader-uiverse-plasma-orbit-core__ring {\nborder-color: rgba(255, 102, 255, 0.7);\nbox-shadow: 0 0 20px rgba(255, 102, 255, 0.5);\n}",
+  "defaults": {
+    "size": 140,
+    "speed": 1,
+    "background": "#111827"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-plasma-orbit-core__container\">\n  <div class=\"darma-loader-uiverse-plasma-orbit-core__sphere-core\"></div>\n  <div class=\"darma-loader-uiverse-plasma-orbit-core__ring darma-loader-uiverse-plasma-orbit-core__ring-1\"></div>\n  <div class=\"darma-loader-uiverse-plasma-orbit-core__ring darma-loader-uiverse-plasma-orbit-core__ring-2\"></div>\n  <div class=\"darma-loader-uiverse-plasma-orbit-core__ring darma-loader-uiverse-plasma-orbit-core__ring-3\"></div>\n</div>",
+    "css": ".darma-loader-uiverse-plasma-orbit-core__container {\n  position: relative;\n  width: 150px;\n  height: 150px;\n  perspective: 800px;\n  transform-style: preserve-3d;\n}\n\n.darma-loader-uiverse-plasma-orbit-core__sphere-core {\nposition: absolute;\nwidth: 60px;\nheight: 60px;\ntop: 50%;\nleft: 50%;\ntransform: translate(-50%, -50%);\nbackground: radial-gradient(circle at 40% 40%, #00eaff, #0066ff);\nborder-radius: 50%;\nbox-shadow: 0 0 25px rgba(0, 234, 255, 0.5);\nanimation: darma-loader-uiverse-plasma-orbit-core-pulse 2s cubic-bezier(0.5, 0, 0.5, 1) infinite;\n}\n\n.darma-loader-uiverse-plasma-orbit-core__ring {\nposition: absolute;\nwidth: 100%;\nheight: 100%;\nborder: 2px solid rgba(0, 234, 255, 0.7);\nborder-radius: 50%;\nbox-shadow: 0 0 15px rgba(0, 234, 255, 0.3);\ntransform-style: preserve-3d;\n}\n\n.darma-loader-uiverse-plasma-orbit-core__ring-1 {\nanimation: darma-loader-uiverse-plasma-orbit-core-rotateX 2.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;\n}\n\n.darma-loader-uiverse-plasma-orbit-core__ring-2 {\nanimation: darma-loader-uiverse-plasma-orbit-core-rotateY 2s cubic-bezier(0.55, 0, 0.45, 1) infinite;\nwidth: 120px;\nheight: 120px;\ntop: 15px;\nleft: 15px;\nborder-color: rgba(0, 234, 255, 0.5);\n}\n\n.darma-loader-uiverse-plasma-orbit-core__ring-3 {\nanimation: darma-loader-uiverse-plasma-orbit-core-rotateXY 3s cubic-bezier(0.7, 0, 0.3, 1) infinite;\nwidth: 90px;\nheight: 90px;\ntop: 30px;\nleft: 30px;\nborder-color: rgba(0, 234, 255, 0.3);\n}\n\n@keyframes darma-loader-uiverse-plasma-orbit-core-rotateX {\n0% {\ntransform: rotateX(0deg);\n}\n50% {\ntransform: rotateX(180deg);\n}\n100% {\ntransform: rotateX(360deg);\n}\n}\n\n@keyframes darma-loader-uiverse-plasma-orbit-core-rotateY {\n0% {\ntransform: rotateY(0deg);\n}\n50% {\ntransform: rotateY(180deg);\n}\n100% {\ntransform: rotateY(360deg);\n}\n}\n\n@keyframes darma-loader-uiverse-plasma-orbit-core-rotateXY {\n0% {\ntransform: rotateX(0deg) rotateY(0deg);\n}\n50% {\ntransform: rotateX(90deg) rotateY(180deg);\n}\n100% {\ntransform: rotateX(360deg) rotateY(360deg);\n}\n}\n\n@keyframes darma-loader-uiverse-plasma-orbit-core-pulse {\n0%,\n100% {\ntransform: translate(-50%, -50%) scale(1);\nbox-shadow: 0 0 25px rgba(0, 234, 255, 0.5);\n}\n50% {\ntransform: translate(-50%, -50%) scale(1.1);\nbox-shadow: 0 0 35px rgba(0, 234, 255, 0.7);\n}\n}\n\n.darma-loader-uiverse-plasma-orbit-core__container:hover .darma-loader-uiverse-plasma-orbit-core__sphere-core {\nbackground: radial-gradient(circle at 40% 40%, #ff66ff, #6600ff);\nbox-shadow: 0 0 35px rgba(255, 102, 255, 0.7);\n}\n\n.darma-loader-uiverse-plasma-orbit-core__container:hover .darma-loader-uiverse-plasma-orbit-core__ring {\nborder-color: rgba(255, 102, 255, 0.7);\nbox-shadow: 0 0 20px rgba(255, 102, 255, 0.5);\n}",
+    "react": "export default function UiversePlasmaOrbitCoreLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-plasma-orbit-core__container\">\n  <div className=\"darma-loader-uiverse-plasma-orbit-core__sphere-core\"></div>\n  <div className=\"darma-loader-uiverse-plasma-orbit-core__ring darma-loader-uiverse-plasma-orbit-core__ring-1\"></div>\n  <div className=\"darma-loader-uiverse-plasma-orbit-core__ring darma-loader-uiverse-plasma-orbit-core__ring-2\"></div>\n  <div className=\"darma-loader-uiverse-plasma-orbit-core__ring darma-loader-uiverse-plasma-orbit-core__ring-3\"></div>\n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": false,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Uiverse selected loaders batch 3",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  }
+}

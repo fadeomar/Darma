@@ -1,0 +1,43 @@
+{
+  "id": "uiverse-isometric-dots",
+  "name": "Isometric Dot Ring",
+  "category": "creative",
+  "tags": [
+    "uiverse",
+    "isometric",
+    "dots",
+    "ring",
+    "3d",
+    "creative",
+    "loader"
+  ],
+  "html": "<div class=\"pl\"><div class=\"pl__dot\"></div><div class=\"pl__dot\"></div><div class=\"pl__dot\"></div><div class=\"pl__dot\"></div><div class=\"pl__dot\"></div><div class=\"pl__dot\"></div><div class=\"pl__dot\"></div><div class=\"pl__dot\"></div><div class=\"pl__dot\"></div><div class=\"pl__dot\"></div><div class=\"pl__dot\"></div><div class=\"pl__dot\"></div><div class=\"pl__text\">Loading…</div></div>",
+  "css": ".pl {\n  --bg: var(--loader-bg, #1f2937);\n  --primary1: var(--loader-color, #7c3aed);\n  --primary2: var(--loader-secondary-color, #a78bfa);\n  --fg-t: color-mix(in srgb, var(--loader-color, #7c3aed) 40%, white);\n  --trans-dur: 0.3s;\n  box-shadow: 2em 0 2em color-mix(in srgb, #000000 20%, transparent) inset, -2em 0 2em rgba(255, 255, 255, 0.1) inset;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: relative;\n  letter-spacing: 0.1em;\n  text-transform: uppercase;\n  transform: rotateX(30deg) rotateZ(45deg);\n  width: 14em;\n  height: 14em;\n  color: white;\n}\n.pl, .pl__dot { border-radius: 50%; }\n.pl__dot {\n  animation-name: shadow724;\n  box-shadow: 0.1em 0.1em 0 0.1em black, 0.3em 0 0.3em rgba(0, 0, 0, 0.5);\n  top: calc(50% - 0.75em);\n  left: calc(50% - 0.75em);\n  width: 1.5em;\n  height: 1.5em;\n}\n.pl__dot, .pl__dot:before, .pl__dot:after {\n  animation-duration: 2s;\n  animation-iteration-count: infinite;\n  position: absolute;\n}\n.pl__dot:before, .pl__dot:after {\n  content: \"\";\n  display: block;\n  left: 0;\n  width: inherit;\n  transition: background-color var(--trans-dur);\n}\n.pl__dot:before {\n  animation-name: pushInOut1724;\n  background-color: var(--bg);\n  border-radius: inherit;\n  box-shadow: 0.05em 0 0.1em rgba(255, 255, 255, 0.2) inset;\n  height: inherit;\n  z-index: 1;\n}\n.pl__dot:after {\n  animation-name: pushInOut2724;\n  background-color: var(--primary1);\n  border-radius: 0.75em;\n  box-shadow: 0.1em 0.3em 0.2em rgba(255, 255, 255, 0.4) inset, 0 -0.4em 0.2em #2e3138 inset, 0 -1em 0.25em rgba(0, 0, 0, 0.3) inset;\n  bottom: 0;\n  clip-path: polygon(0 75%, 100% 75%, 100% 100%, 0 100%);\n  height: 3em;\n  transform: rotate(-45deg);\n  transform-origin: 50% 2.25em;\n}\n.pl__dot:nth-child(1) { transform: rotate(0deg) translateX(5em) rotate(0deg); z-index: 5; }\n.pl__dot:nth-child(2) { transform: rotate(-30deg) translateX(5em) rotate(30deg); z-index: 4; }\n.pl__dot:nth-child(3) { transform: rotate(-60deg) translateX(5em) rotate(60deg); z-index: 3; }\n.pl__dot:nth-child(4) { transform: rotate(-90deg) translateX(5em) rotate(90deg); z-index: 2; }\n.pl__dot:nth-child(5) { transform: rotate(-120deg) translateX(5em) rotate(120deg); z-index: 1; }\n.pl__dot:nth-child(6) { transform: rotate(-150deg) translateX(5em) rotate(150deg); z-index: 1; }\n.pl__dot:nth-child(7) { transform: rotate(-180deg) translateX(5em) rotate(180deg); z-index: 2; }\n.pl__dot:nth-child(8) { transform: rotate(-210deg) translateX(5em) rotate(210deg); z-index: 3; }\n.pl__dot:nth-child(9) { transform: rotate(-240deg) translateX(5em) rotate(240deg); z-index: 4; }\n.pl__dot:nth-child(10) { transform: rotate(-270deg) translateX(5em) rotate(270deg); z-index: 5; }\n.pl__dot:nth-child(11) { transform: rotate(-300deg) translateX(5em) rotate(300deg); z-index: 6; }\n.pl__dot:nth-child(12) { transform: rotate(-330deg) translateX(5em) rotate(330deg); z-index: 6; }\n.pl__dot:nth-child(1), .pl__dot:nth-child(1):before, .pl__dot:nth-child(1):after { animation-delay: 0s; }\n.pl__dot:nth-child(2), .pl__dot:nth-child(2):before, .pl__dot:nth-child(2):after { animation-delay: -0.1666666667s; }\n.pl__dot:nth-child(3), .pl__dot:nth-child(3):before, .pl__dot:nth-child(3):after { animation-delay: -0.3333333333s; }\n.pl__dot:nth-child(4), .pl__dot:nth-child(4):before, .pl__dot:nth-child(4):after { animation-delay: -0.5s; }\n.pl__dot:nth-child(5), .pl__dot:nth-child(5):before, .pl__dot:nth-child(5):after { animation-delay: -0.6666666667s; }\n.pl__dot:nth-child(6), .pl__dot:nth-child(6):before, .pl__dot:nth-child(6):after { animation-delay: -0.8333333333s; }\n.pl__dot:nth-child(7), .pl__dot:nth-child(7):before, .pl__dot:nth-child(7):after { animation-delay: -1s; }\n.pl__dot:nth-child(8), .pl__dot:nth-child(8):before, .pl__dot:nth-child(8):after { animation-delay: -1.1666666667s; }\n.pl__dot:nth-child(9), .pl__dot:nth-child(9):before, .pl__dot:nth-child(9):after { animation-delay: -1.3333333333s; }\n.pl__dot:nth-child(10), .pl__dot:nth-child(10):before, .pl__dot:nth-child(10):after { animation-delay: -1.5s; }\n.pl__dot:nth-child(11), .pl__dot:nth-child(11):before, .pl__dot:nth-child(11):after { animation-delay: -1.6666666667s; }\n.pl__dot:nth-child(12), .pl__dot:nth-child(12):before, .pl__dot:nth-child(12):after { animation-delay: -1.8333333333s; }\n.pl__text { font-size: 0.75em; max-width: 5rem; position: relative; text-shadow: 0 0 0.1em var(--fg-t); transform: rotateZ(-45deg); }\n@keyframes shadow724 {\n  from { animation-timing-function: ease-in; box-shadow: 0.1em 0.1em 0 0.1em black, 0.3em 0 0.3em rgba(0, 0, 0, 0.3); }\n  25% { animation-timing-function: ease-out; box-shadow: 0.1em 0.1em 0 0.1em black, 0.8em 0 0.8em rgba(0, 0, 0, 0.5); }\n  50%, to { box-shadow: 0.1em 0.1em 0 0.1em black, 0.3em 0 0.3em rgba(0, 0, 0, 0.3); }\n}\n@keyframes pushInOut1724 {\n  from { animation-timing-function: ease-in; background-color: var(--bg); transform: translate(0, 0); }\n  25% { animation-timing-function: ease-out; background-color: var(--primary2); transform: translate(-71%, -71%); }\n  50%, to { background-color: var(--bg); transform: translate(0, 0); }\n}\n@keyframes pushInOut2724 {\n  from { animation-timing-function: ease-in; background-color: var(--bg); clip-path: polygon(0 75%, 100% 75%, 100% 100%, 0 100%); }\n  25% { animation-timing-function: ease-out; background-color: var(--primary1); clip-path: polygon(0 25%, 100% 25%, 100% 100%, 0 100%); }\n  50%, to { background-color: var(--bg); clip-path: polygon(0 75%, 100% 75%, 100% 100%, 0 100%); }\n}",
+  "source": {
+    "name": "Uiverse selected loaders",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "color": "#7c3aed",
+    "secondaryColor": "#a78bfa",
+    "size": 138,
+    "speed": 2.0,
+    "background": "#1f2937"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

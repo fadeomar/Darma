@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-neon-capsule-sweep",
+  "name": "Neon Capsule Sweep",
+  "category": "progress",
+  "tags": [
+    "uiverse",
+    "neon",
+    "capsule",
+    "sweep",
+    "progress",
+    "glow",
+    "loader"
+  ],
+  "html": "<div class=\"loader\"></div>\n/* HTML: <div class=\"loader\"></div> */",
+  "css": ".loader {\n  width: 120px;\n  height: 22px;\n  border-radius: 40px;\n  color: #10ffa4;\n  border: 2px solid;\n  position: relative;\n  overflow: hidden;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  margin: 2px;\n  width: 14px;\n  top: 0;\n  bottom: 0;\n  left: -20px;\n  border-radius: inherit;\n  background: currentColor;\n  box-shadow: -10px 0 12px 3px currentColor;\n  clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 95%, -30px 50%);\n  animation: l14 1s infinite linear;\n}\n@keyframes l14 {\n  100% {\n    left: calc(100% + 20px);\n  }\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 3",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 160,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

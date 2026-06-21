@@ -1,0 +1,38 @@
+{
+  "id": "uiverse-jumping-soft-cube",
+  "name": "Jumping Soft Cube",
+  "category": "fun",
+  "tags": [
+    "uiverse",
+    "cube",
+    "jump",
+    "shadow",
+    "bounce",
+    "loader"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 48px;\n  height: 48px;\n  margin: auto;\n  position: relative;\n}\n\n.loader:before {\ncontent: '';\nwidth: 48px;\nheight: 5px;\nbackground: #f0808050;\nposition: absolute;\ntop: 60px;\nleft: 0;\nborder-radius: 50%;\nanimation: shadow324 0.5s linear infinite;\n}\n\n.loader:after {\ncontent: '';\nwidth: 100%;\nheight: 100%;\nbackground: #f08080;\nposition: absolute;\ntop: 0;\nleft: 0;\nborder-radius: 4px;\nanimation: jump7456 0.5s linear infinite;\n}\n\n@keyframes jump7456 {\n15% {\nborder-bottom-right-radius: 3px;\n}\n\n25% {\ntransform: translateY(9px) rotate(22.5deg);\n}\n\n50% {\ntransform: translateY(18px) scale(1, .9) rotate(45deg);\nborder-bottom-right-radius: 40px;\n}\n\n75% {\ntransform: translateY(9px) rotate(67.5deg);\n}\n\n100% {\ntransform: translateY(0) rotate(90deg);\n}\n}\n\n@keyframes shadow324 {\n\n0%,\n100% {\ntransform: scale(1, 1);\n}\n\n50% {\ntransform: scale(1.2, 1);\n}\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 2",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 128,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

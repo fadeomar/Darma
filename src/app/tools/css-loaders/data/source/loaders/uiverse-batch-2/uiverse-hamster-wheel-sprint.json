@@ -1,0 +1,38 @@
+{
+  "id": "uiverse-hamster-wheel-sprint",
+  "name": "Hamster Wheel Sprint",
+  "category": "fun",
+  "tags": [
+    "uiverse",
+    "hamster",
+    "wheel",
+    "animal",
+    "fun",
+    "loader"
+  ],
+  "html": "<div class=\"loader\">\n<div aria-label=\"Orange and tan hamster running in a metal wheel\" role=\"img\" class=\"wheel-and-hamster\">\n\t<div class=\"wheel\"></div>\n\t<div class=\"hamster\">\n\t\t<div class=\"hamster__body\">\n\t\t\t<div class=\"hamster__head\">\n\t\t\t\t<div class=\"hamster__ear\"></div>\n\t\t\t\t<div class=\"hamster__eye\"></div>\n\t\t\t\t<div class=\"hamster__nose\"></div>\n\t\t\t</div>\n\t\t\t<div class=\"hamster__limb hamster__limb--fr\"></div>\n\t\t\t<div class=\"hamster__limb hamster__limb--fl\"></div>\n\t\t\t<div class=\"hamster__limb hamster__limb--br\"></div>\n\t\t\t<div class=\"hamster__limb hamster__limb--bl\"></div>\n\t\t\t<div class=\"hamster__tail\"></div>\n\t\t</div>\n\t</div>\n\t<div class=\"spoke\"></div>\n</div>\n</div>",
+  "css": ".loader {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.wheel-and-hamster {\n  --dur: 1s;\n  position: relative;\n  width: 12em;\n  height: 12em;\n  font-size: 14px;\n}\n\n.wheel,\n.hamster,\n.hamster div,\n.spoke {\nposition: absolute;\n}\n\n.wheel,\n.spoke {\nborder-radius: 50%;\ntop: 0;\nleft: 0;\nwidth: 100%;\nheight: 100%;\n}\n\n.wheel {\nbackground: radial-gradient(100% 100% at center,hsla(0,0%,60%,0) 47.8%,hsl(0,0%,60%) 48%);\nz-index: 2;\n}\n\n.hamster {\nanimation: hamster var(--dur) ease-in-out infinite;\ntop: 50%;\nleft: calc(50% - 3.5em);\nwidth: 7em;\nheight: 3.75em;\ntransform: rotate(4deg) translate(-0.8em,1.85em);\ntransform-origin: 50% 0;\nz-index: 1;\n}\n\n.hamster__head {\nanimation: hamsterHead var(--dur) ease-in-out infinite;\nbackground: hsl(30,90%,55%);\nborder-radius: 70% 30% 0 100% / 40% 25% 25% 60%;\nbox-shadow: 0 -0.25em 0 hsl(30,90%,80%) inset,\n0.75em -1.55em 0 hsl(30,90%,90%) inset;\ntop: 0;\nleft: -2em;\nwidth: 2.75em;\nheight: 2.5em;\ntransform-origin: 100% 50%;\n}\n\n.hamster__ear {\nanimation: hamsterEar var(--dur) ease-in-out infinite;\nbackground: hsl(0,90%,85%);\nborder-radius: 50%;\nbox-shadow: -0.25em 0 hsl(30,90%,55%) inset;\ntop: -0.25em;\nright: -0.25em;\nwidth: 0.75em;\nheight: 0.75em;\ntransform-origin: 50% 75%;\n}\n\n.hamster__eye {\nanimation: hamsterEye var(--dur) linear infinite;\nbackground-color: hsl(0,0%,0%);\nborder-radius: 50%;\ntop: 0.375em;\nleft: 1.25em;\nwidth: 0.5em;\nheight: 0.5em;\n}\n\n.hamster__nose {\nbackground: hsl(0,90%,75%);\nborder-radius: 35% 65% 85% 15% / 70% 50% 50% 30%;\ntop: 0.75em;\nleft: 0;\nwidth: 0.2em;\nheight: 0.25em;\n}\n\n.hamster__body {\nanimation: hamsterBody var(--dur) ease-in-out infinite;\nbackground: hsl(30,90%,90%);\nborder-radius: 50% 30% 50% 30% / 15% 60% 40% 40%;\nbox-shadow: 0.1em 0.75em 0 hsl(30,90%,55%) inset,\n0.15em -0.5em 0 hsl(30,90%,80%) inset;\ntop: 0.25em;\nleft: 2em;\nwidth: 4.5em;\nheight: 3em;\ntransform-origin: 17% 50%;\ntransform-style: preserve-3d;\n}\n\n.hamster__limb--fr,\n.hamster__limb--fl {\nclip-path: polygon(0 0,100% 0,70% 80%,60% 100%,0% 100%,40% 80%);\ntop: 2em;\nleft: 0.5em;\nwidth: 1em;\nheight: 1.5em;\ntransform-origin: 50% 0;\n}\n\n.hamster__limb--fr {\nanimation: hamsterFRLimb var(--dur) linear infinite;\nbackground: linear-gradient(hsl(30,90%,80%) 80%,hsl(0,90%,75%) 80%);\ntransform: rotate(15deg) translateZ(-1px);\n}\n\n.hamster__limb--fl {\nanimation: hamsterFLLimb var(--dur) linear infinite;\nbackground: linear-gradient(hsl(30,90%,90%) 80%,hsl(0,90%,85%) 80%);\ntransform: rotate(15deg);\n}\n\n.hamster__limb--br,\n.hamster__limb--bl {\nborder-radius: 0.75em 0.75em 0 0;\nclip-path: polygon(0 0,100% 0,100% 30%,70% 90%,70% 100%,30% 100%,40% 90%,0% 30%);\ntop: 1em;\nleft: 2.8em;\nwidth: 1.5em;\nheight: 2.5em;\ntransform-origin: 50% 30%;\n}\n\n.hamster__limb--br {\nanimation: hamsterBRLimb var(--dur) linear infinite;\nbackground: linear-gradient(hsl(30,90%,80%) 90%,hsl(0,90%,75%) 90%);\ntransform: rotate(-25deg) translateZ(-1px);\n}\n\n.hamster__limb--bl {\nanimation: hamsterBLLimb var(--dur) linear infinite;\nbackground: linear-gradient(hsl(30,90%,90%) 90%,hsl(0,90%,85%) 90%);\ntransform: rotate(-25deg);\n}\n\n.hamster__tail {\nanimation: hamsterTail var(--dur) linear infinite;\nbackground: hsl(0,90%,85%);\nborder-radius: 0.25em 50% 50% 0.25em;\nbox-shadow: 0 -0.2em 0 hsl(0,90%,75%) inset;\ntop: 1.5em;\nright: -0.5em;\nwidth: 1em;\nheight: 0.5em;\ntransform: rotate(30deg) translateZ(-1px);\ntransform-origin: 0.25em 0.25em;\n}\n\n.spoke {\nanimation: spoke var(--dur) linear infinite;\nbackground: radial-gradient(100% 100% at center,hsl(0,0%,60%) 4.8%,hsla(0,0%,60%,0) 5%),\nlinear-gradient(hsla(0,0%,55%,0) 46.9%,hsl(0,0%,65%) 47% 52.9%,hsla(0,0%,65%,0) 53%) 50% 50% / 99% 99% no-repeat;\n}\n\n/* Animations */\n@keyframes hamster {\nfrom, to {\ntransform: rotate(4deg) translate(-0.8em,1.85em);\n}\n\n50% {\ntransform: rotate(0) translate(-0.8em,1.85em);\n}\n}\n\n@keyframes hamsterHead {\nfrom, 25%, 50%, 75%, to {\ntransform: rotate(0);\n}\n\n12.5%, 37.5%, 62.5%, 87.5% {\ntransform: rotate(8deg);\n}\n}\n\n@keyframes hamsterEye {\nfrom, 90%, to {\ntransform: scaleY(1);\n}\n\n95% {\ntransform: scaleY(0);\n}\n}\n\n@keyframes hamsterEar {\nfrom, 25%, 50%, 75%, to {\ntransform: rotate(0);\n}\n\n12.5%, 37.5%, 62.5%, 87.5% {\ntransform: rotate(12deg);\n}\n}\n\n@keyframes hamsterBody {\nfrom, 25%, 50%, 75%, to {\ntransform: rotate(0);\n}\n\n12.5%, 37.5%, 62.5%, 87.5% {\ntransform: rotate(-2deg);\n}\n}\n\n@keyframes hamsterFRLimb {\nfrom, 25%, 50%, 75%, to {\ntransform: rotate(50deg) translateZ(-1px);\n}\n\n12.5%, 37.5%, 62.5%, 87.5% {\ntransform: rotate(-30deg) translateZ(-1px);\n}\n}\n\n@keyframes hamsterFLLimb {\nfrom, 25%, 50%, 75%, to {\ntransform: rotate(-30deg);\n}\n\n12.5%, 37.5%, 62.5%, 87.5% {\ntransform: rotate(50deg);\n}\n}\n\n@keyframes hamsterBRLimb {\nfrom, 25%, 50%, 75%, to {\ntransform: rotate(-60deg) translateZ(-1px);\n}\n\n12.5%, 37.5%, 62.5%, 87.5% {\ntransform: rotate(20deg) translateZ(-1px);\n}\n}\n\n@keyframes hamsterBLLimb {\nfrom, 25%, 50%, 75%, to {\ntransform: rotate(20deg);\n}\n\n12.5%, 37.5%, 62.5%, 87.5% {\ntransform: rotate(-60deg);\n}\n}\n\n@keyframes hamsterTail {\nfrom, 25%, 50%, 75%, to {\ntransform: rotate(30deg) translateZ(-1px);\n}\n\n12.5%, 37.5%, 62.5%, 87.5% {\ntransform: rotate(10deg) translateZ(-1px);\n}\n}\n\n@keyframes spoke {\nfrom {\ntransform: rotate(0);\n}\n\nto {\ntransform: rotate(-1turn);\n}\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 2",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 128,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "id": "uiverse-search-signal-bars",
+  "name": "Search Signal Bars",
+  "category": "bars",
+  "tags": [
+    "uiverse",
+    "search",
+    "signal",
+    "bars",
+    "magnifier",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-search-signal-bars search signal bars bars uiverse search signal bars magnifier loader html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-search-signal-bars\">\n  <div class=\"darma-loader-uiverse-search-signal-bars__MiniContainer\">\n    <div class=\"darma-loader-uiverse-search-signal-bars__barContainer\">\n      <span class=\"darma-loader-uiverse-search-signal-bars__bar\"></span>\n      <span class=\"darma-loader-uiverse-search-signal-bars__bar darma-loader-uiverse-search-signal-bars__bar2\"></span>\n    </div>\n    <svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      fill=\"none\"\n      viewBox=\"0 0 101 114\"\n      class=\"darma-loader-uiverse-search-signal-bars__svgIcon\"\n    >\n      <circle\n        stroke-width=\"7\"\n        stroke=\"black\"\n        transform=\"rotate(36.0692 46.1726 46.1727)\"\n        r=\"29.5497\"\n        cy=\"46.1727\"\n        cx=\"46.1726\"\n      ></circle>\n      <line\n        stroke-width=\"7\"\n        stroke=\"black\"\n        y2=\"111.784\"\n        x2=\"97.7088\"\n        y1=\"67.7837\"\n        x1=\"61.7089\"\n      ></line>\n    </svg>\n  </div>\n</div>",
+  "previewCss": ".darma-loader-uiverse-search-signal-bars {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.darma-loader-uiverse-search-signal-bars__MiniContainer {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n  width: 130px;\n  height: fit-content;\n}\n.darma-loader-uiverse-search-signal-bars__barContainer {\n  width: 100%;\n  height: fit-content;\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  justify-content: center;\n  gap: 10px;\n  background-position: left;\n}\n.darma-loader-uiverse-search-signal-bars__bar {\n  width: 100%;\n  height: 8px;\n  background: linear-gradient(\n    to right,\n    rgb(161, 94, 255),\n    rgb(217, 190, 255),\n    rgb(161, 94, 255)\n  );\n  background-size: 200% 100%;\n  border-radius: 10px;\n  animation: darma-loader-uiverse-darma-loader-uiverse-search-signal-bars-search-signal-bars-bar ease-in-out 3s infinite alternate-reverse;\n}\n@keyframes darma-loader-uiverse-search-signal-bars-bar {\n  0% {\n    background-position: left;\n  }\n  100% {\n    background-position: right;\n  }\n}\n.darma-loader-uiverse-search-signal-bars__bar2 {\n  width: 50%;\n}\n.darma-loader-uiverse-search-signal-bars__svgIcon {\n  position: absolute;\n  left: -25px;\n  margin-top: 18px;\n  z-index: 2;\n  width: 70%;\n  animation: darma-loader-uiverse-search-signal-bars-search ease-in-out 3s infinite alternate-reverse;\n}\n@keyframes darma-loader-uiverse-search-signal-bars-search {\n  0% {\n    transform: translateX(0%) rotate(70deg);\n  }\n\n100% {\ntransform: translateX(100px) rotate(10deg);\n}\n}\n.darma-loader-uiverse-search-signal-bars__svgIcon circle,\nline {\nstroke: rgb(162, 55, 255);\n}\n.darma-loader-uiverse-search-signal-bars__svgIcon circle {\nfill: rgba(98, 65, 142, 0.238);\n}",
+  "defaults": {
+    "size": 120,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-search-signal-bars\">\n  <div class=\"darma-loader-uiverse-search-signal-bars__MiniContainer\">\n    <div class=\"darma-loader-uiverse-search-signal-bars__barContainer\">\n      <span class=\"darma-loader-uiverse-search-signal-bars__bar\"></span>\n      <span class=\"darma-loader-uiverse-search-signal-bars__bar darma-loader-uiverse-search-signal-bars__bar2\"></span>\n    </div>\n    <svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      fill=\"none\"\n      viewBox=\"0 0 101 114\"\n      class=\"darma-loader-uiverse-search-signal-bars__svgIcon\"\n    >\n      <circle\n        stroke-width=\"7\"\n        stroke=\"black\"\n        transform=\"rotate(36.0692 46.1726 46.1727)\"\n        r=\"29.5497\"\n        cy=\"46.1727\"\n        cx=\"46.1726\"\n      ></circle>\n      <line\n        stroke-width=\"7\"\n        stroke=\"black\"\n        y2=\"111.784\"\n        x2=\"97.7088\"\n        y1=\"67.7837\"\n        x1=\"61.7089\"\n      ></line>\n    </svg>\n  </div>\n</div>",
+    "css": ".darma-loader-uiverse-search-signal-bars {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.darma-loader-uiverse-search-signal-bars__MiniContainer {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n  width: 130px;\n  height: fit-content;\n}\n.darma-loader-uiverse-search-signal-bars__barContainer {\n  width: 100%;\n  height: fit-content;\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  justify-content: center;\n  gap: 10px;\n  background-position: left;\n}\n.darma-loader-uiverse-search-signal-bars__bar {\n  width: 100%;\n  height: 8px;\n  background: linear-gradient(\n    to right,\n    rgb(161, 94, 255),\n    rgb(217, 190, 255),\n    rgb(161, 94, 255)\n  );\n  background-size: 200% 100%;\n  border-radius: 10px;\n  animation: darma-loader-uiverse-darma-loader-uiverse-search-signal-bars-search-signal-bars-bar ease-in-out 3s infinite alternate-reverse;\n}\n@keyframes darma-loader-uiverse-search-signal-bars-bar {\n  0% {\n    background-position: left;\n  }\n  100% {\n    background-position: right;\n  }\n}\n.darma-loader-uiverse-search-signal-bars__bar2 {\n  width: 50%;\n}\n.darma-loader-uiverse-search-signal-bars__svgIcon {\n  position: absolute;\n  left: -25px;\n  margin-top: 18px;\n  z-index: 2;\n  width: 70%;\n  animation: darma-loader-uiverse-search-signal-bars-search ease-in-out 3s infinite alternate-reverse;\n}\n@keyframes darma-loader-uiverse-search-signal-bars-search {\n  0% {\n    transform: translateX(0%) rotate(70deg);\n  }\n\n100% {\ntransform: translateX(100px) rotate(10deg);\n}\n}\n.darma-loader-uiverse-search-signal-bars__svgIcon circle,\nline {\nstroke: rgb(162, 55, 255);\n}\n.darma-loader-uiverse-search-signal-bars__svgIcon circle {\nfill: rgba(98, 65, 142, 0.238);\n}",
+    "react": "export default function UiverseSearchSignalBarsLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-search-signal-bars\">\n  <div className=\"darma-loader-uiverse-search-signal-bars__MiniContainer\">\n    <div className=\"darma-loader-uiverse-search-signal-bars__barContainer\">\n      <span className=\"darma-loader-uiverse-search-signal-bars__bar\"></span>\n      <span className=\"darma-loader-uiverse-search-signal-bars__bar darma-loader-uiverse-search-signal-bars__bar2\"></span>\n    </div>\n    <svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      fill=\"none\"\n      viewBox=\"0 0 101 114\"\n      className=\"darma-loader-uiverse-search-signal-bars__svgIcon\"\n    >\n      <circle\n        stroke-width=\"7\"\n        stroke=\"black\"\n        transform=\"rotate(36.0692 46.1726 46.1727)\"\n        r=\"29.5497\"\n        cy=\"46.1727\"\n        cx=\"46.1726\"\n      ></circle>\n      <line\n        stroke-width=\"7\"\n        stroke=\"black\"\n        y2=\"111.784\"\n        x2=\"97.7088\"\n        y1=\"67.7837\"\n        x1=\"61.7089\"\n      ></line>\n    </svg>\n  </div>\n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": false,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Uiverse selected loaders batch 3",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  }
+}

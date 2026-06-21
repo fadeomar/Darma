@@ -123,25 +123,66 @@ function readUint32(view: DataView, offset: number) {
   return view.getUint32(offset, true);
 }
 
-export async function listZipFileNames(file: File): Promise<string[]> {
+export type ReadZipEntry = {
+  name: string;
+  compressionMethod: number;
+  compressedSize: number;
+  uncompressedSize: number;
+  text?: string;
+};
+
+function isTextZipEntryName(name: string): boolean {
+  const lower = name.toLowerCase();
+  return (
+    lower.endsWith(".json") ||
+    lower.endsWith(".webmanifest") ||
+    lower.endsWith(".xml") ||
+    lower.endsWith(".html") ||
+    lower.endsWith(".htm") ||
+    lower.endsWith(".txt") ||
+    lower.endsWith(".md")
+  );
+}
+
+export async function readZipEntries(file: File): Promise<ReadZipEntry[]> {
   const bytes = new Uint8Array(await file.arrayBuffer());
   const view = new DataView(bytes.buffer);
-  const names: string[] = [];
+  const entries: ReadZipEntry[] = [];
   let offset = 0;
   const decoder = new TextDecoder();
 
   while (offset + 30 <= bytes.length) {
     const signature = readUint32(view, offset);
     if (signature !== 0x04034b50) break;
+
+    const compressionMethod = readUint16(view, offset + 8);
     const compressedSize = readUint32(view, offset + 18);
+    const uncompressedSize = readUint32(view, offset + 22);
     const nameLength = readUint16(view, offset + 26);
     const extraLength = readUint16(view, offset + 28);
     const nameStart = offset + 30;
     const nameEnd = nameStart + nameLength;
     if (nameEnd > bytes.length) break;
-    names.push(decoder.decode(bytes.slice(nameStart, nameEnd)));
-    offset = nameEnd + extraLength + compressedSize;
+
+    const name = decoder.decode(bytes.slice(nameStart, nameEnd));
+    const dataStart = nameEnd + extraLength;
+    const dataEnd = dataStart + compressedSize;
+    if (dataEnd > bytes.length) break;
+
+    const entry: ReadZipEntry = { name, compressionMethod, compressedSize, uncompressedSize };
+
+    if (!name.endsWith("/") && compressionMethod === 0 && isTextZipEntryName(name) && compressedSize <= 512 * 1024) {
+      entry.text = decoder.decode(bytes.slice(dataStart, dataEnd));
+    }
+
+    entries.push(entry);
+    offset = dataEnd;
   }
 
-  return names;
+  return entries;
+}
+
+export async function listZipFileNames(file: File): Promise<string[]> {
+  const entries = await readZipEntries(file);
+  return entries.map((entry) => entry.name);
 }

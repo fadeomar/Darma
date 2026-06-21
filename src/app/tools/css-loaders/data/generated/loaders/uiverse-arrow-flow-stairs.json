@@ -1,0 +1,51 @@
+{
+  "id": "uiverse-arrow-flow-stairs",
+  "name": "Arrow Flow Stairs",
+  "category": "minimal",
+  "tags": [
+    "uiverse",
+    "arrow",
+    "flow",
+    "stairs",
+    "minimal",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-arrow-flow-stairs arrow flow stairs minimal uiverse arrow flow stairs minimal loader html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-arrow-flow-stairs\">\n<div class=\"darma-loader-uiverse-arrow-flow-stairs__arrow\">\n    <span></span>\n    <span></span>\n    <span></span>\n</div>\n</div>",
+  "previewCss": ".darma-loader-uiverse-arrow-flow-stairs {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-arrow-flow-stairs__arrow {\n  transform: rotate(90deg);\n  cursor: pointer;\n}\n\n.darma-loader-uiverse-arrow-flow-stairs__arrow span {\ndisplay: block;\nwidth: 15px;\nheight: 15px;\nborder-bottom: 5px solid red;\nborder-right: 5px solid red;\ntransform: rotate(45deg);\nmargin: -15px;\nanimation: darma-loader-uiverse-arrow-flow-stairs-animate28797 2s infinite;\n}\n\n.darma-loader-uiverse-arrow-flow-stairs__arrow span:nth-child(2) {\nanimation-delay: -0.2s;\n}\n\n.darma-loader-uiverse-arrow-flow-stairs__arrow span:nth-child(3) {\nanimation-delay: -0.4s;\n}\n\n@keyframes darma-loader-uiverse-arrow-flow-stairs-animate28797 {\n0% {\nopacity: 0;\ntransform: rotate(45deg) translate(-20px, -20px);\n}\n\n50% {\nopacity: 1;\n}\n\n100% {\nopacity: 0;\ntransform: rotate(45deg) translate(20px, 20px);\n}\n}",
+  "defaults": {
+    "size": 88,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-arrow-flow-stairs\">\n<div class=\"darma-loader-uiverse-arrow-flow-stairs__arrow\">\n    <span></span>\n    <span></span>\n    <span></span>\n</div>\n</div>",
+    "css": ".darma-loader-uiverse-arrow-flow-stairs {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-arrow-flow-stairs__arrow {\n  transform: rotate(90deg);\n  cursor: pointer;\n}\n\n.darma-loader-uiverse-arrow-flow-stairs__arrow span {\ndisplay: block;\nwidth: 15px;\nheight: 15px;\nborder-bottom: 5px solid red;\nborder-right: 5px solid red;\ntransform: rotate(45deg);\nmargin: -15px;\nanimation: darma-loader-uiverse-arrow-flow-stairs-animate28797 2s infinite;\n}\n\n.darma-loader-uiverse-arrow-flow-stairs__arrow span:nth-child(2) {\nanimation-delay: -0.2s;\n}\n\n.darma-loader-uiverse-arrow-flow-stairs__arrow span:nth-child(3) {\nanimation-delay: -0.4s;\n}\n\n@keyframes darma-loader-uiverse-arrow-flow-stairs-animate28797 {\n0% {\nopacity: 0;\ntransform: rotate(45deg) translate(-20px, -20px);\n}\n\n50% {\nopacity: 1;\n}\n\n100% {\nopacity: 0;\ntransform: rotate(45deg) translate(20px, 20px);\n}\n}",
+    "react": "export default function UiverseArrowFlowStairsLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-arrow-flow-stairs\">\n<div className=\"darma-loader-uiverse-arrow-flow-stairs__arrow\">\n    <span></span>\n    <span></span>\n    <span></span>\n</div>\n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": false,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Uiverse selected loaders batch 3",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "id": "uiverse-terminal-typing-panel",
+  "name": "Terminal Typing Panel",
+  "category": "creative",
+  "tags": [
+    "uiverse",
+    "terminal",
+    "typing",
+    "cursor",
+    "developer",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-terminal-typing-panel terminal typing panel creative uiverse terminal typing cursor developer loader html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-terminal-typing-panel\">\n<div class=\"darma-loader-uiverse-terminal-typing-panel__terminal-loader\">\n  <div class=\"darma-loader-uiverse-terminal-typing-panel__terminal-header\">\n    <div class=\"darma-loader-uiverse-terminal-typing-panel__terminal-title\">Status</div>\n    <div class=\"darma-loader-uiverse-terminal-typing-panel__terminal-controls\">\n      <div class=\"darma-loader-uiverse-terminal-typing-panel__control darma-loader-uiverse-terminal-typing-panel__close\"></div>\n      <div class=\"darma-loader-uiverse-terminal-typing-panel__control darma-loader-uiverse-terminal-typing-panel__minimize\"></div>\n      <div class=\"darma-loader-uiverse-terminal-typing-panel__control darma-loader-uiverse-terminal-typing-panel__maximize\"></div>\n    </div>\n  </div>\n  <div class=\"darma-loader-uiverse-terminal-typing-panel__text\">Loading...</div>\n</div>\n</div>",
+  "previewCss": ".darma-loader-uiverse-terminal-typing-panel {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n@keyframes darma-loader-uiverse-terminal-typing-panel-blinkCursor {\n  50% {\n    border-right-color: transparent;\n  }\n}\n\n@keyframes darma-loader-uiverse-terminal-typing-panel-typeAndDelete {\n0%,\n10% {\nwidth: 0;\n}\n45%,\n55% {\nwidth: 6.2em;\n} /* adjust width based on content */\n90%,\n100% {\nwidth: 0;\n}\n}\n\n.darma-loader-uiverse-terminal-typing-panel__terminal-loader {\nborder: 0.1em solid #333;\nbackground-color: #1a1a1a;\ncolor: #0f0;\nfont-family: \"Courier New\", Courier, monospace;\nfont-size: 1em;\npadding: 1.5em 1em;\nwidth: 12em;\nbox-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\nborder-radius: 4px;\nposition: relative;\noverflow: hidden;\nbox-sizing: border-box;\n}\n\n.darma-loader-uiverse-terminal-typing-panel__terminal-header {\nposition: absolute;\ntop: 0;\nleft: 0;\nright: 0;\nheight: 1.5em;\nbackground-color: #333;\nborder-top-left-radius: 4px;\nborder-top-right-radius: 4px;\npadding: 0 0.4em;\nbox-sizing: border-box;\n}\n\n.darma-loader-uiverse-terminal-typing-panel__terminal-controls {\nfloat: right;\n}\n\n.darma-loader-uiverse-terminal-typing-panel__control {\ndisplay: inline-block;\nwidth: 0.6em;\nheight: 0.6em;\nmargin-left: 0.4em;\nborder-radius: 50%;\nbackground-color: #777;\n}\n\n.darma-loader-uiverse-terminal-typing-panel__control.darma-loader-uiverse-terminal-typing-panel__close {\nbackground-color: #e33;\n}\n\n.darma-loader-uiverse-terminal-typing-panel__control.darma-loader-uiverse-terminal-typing-panel__minimize {\nbackground-color: #ee0;\n}\n\n.darma-loader-uiverse-terminal-typing-panel__control.darma-loader-uiverse-terminal-typing-panel__maximize {\nbackground-color: #0b0;\n}\n\n.darma-loader-uiverse-terminal-typing-panel__terminal-title {\nfloat: left;\nline-height: 1.5em;\ncolor: #eee;\n}\n\n.darma-loader-uiverse-terminal-typing-panel__text {\ndisplay: inline-block;\nwhite-space: nowrap;\noverflow: hidden;\nborder-right: 0.2em solid green; /* Cursor */\nanimation:\ndarma-loader-uiverse-terminal-typing-panel-typeAndDelete 4s steps(11) infinite,\ndarma-loader-uiverse-terminal-typing-panel-blinkCursor 0.5s step-end infinite alternate;\nmargin-top: 1.5em;\n}",
+  "defaults": {
+    "size": 140,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-terminal-typing-panel\">\n<div class=\"darma-loader-uiverse-terminal-typing-panel__terminal-loader\">\n  <div class=\"darma-loader-uiverse-terminal-typing-panel__terminal-header\">\n    <div class=\"darma-loader-uiverse-terminal-typing-panel__terminal-title\">Status</div>\n    <div class=\"darma-loader-uiverse-terminal-typing-panel__terminal-controls\">\n      <div class=\"darma-loader-uiverse-terminal-typing-panel__control darma-loader-uiverse-terminal-typing-panel__close\"></div>\n      <div class=\"darma-loader-uiverse-terminal-typing-panel__control darma-loader-uiverse-terminal-typing-panel__minimize\"></div>\n      <div class=\"darma-loader-uiverse-terminal-typing-panel__control darma-loader-uiverse-terminal-typing-panel__maximize\"></div>\n    </div>\n  </div>\n  <div class=\"darma-loader-uiverse-terminal-typing-panel__text\">Loading...</div>\n</div>\n</div>",
+    "css": ".darma-loader-uiverse-terminal-typing-panel {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n@keyframes darma-loader-uiverse-terminal-typing-panel-blinkCursor {\n  50% {\n    border-right-color: transparent;\n  }\n}\n\n@keyframes darma-loader-uiverse-terminal-typing-panel-typeAndDelete {\n0%,\n10% {\nwidth: 0;\n}\n45%,\n55% {\nwidth: 6.2em;\n} /* adjust width based on content */\n90%,\n100% {\nwidth: 0;\n}\n}\n\n.darma-loader-uiverse-terminal-typing-panel__terminal-loader {\nborder: 0.1em solid #333;\nbackground-color: #1a1a1a;\ncolor: #0f0;\nfont-family: \"Courier New\", Courier, monospace;\nfont-size: 1em;\npadding: 1.5em 1em;\nwidth: 12em;\nbox-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);\nborder-radius: 4px;\nposition: relative;\noverflow: hidden;\nbox-sizing: border-box;\n}\n\n.darma-loader-uiverse-terminal-typing-panel__terminal-header {\nposition: absolute;\ntop: 0;\nleft: 0;\nright: 0;\nheight: 1.5em;\nbackground-color: #333;\nborder-top-left-radius: 4px;\nborder-top-right-radius: 4px;\npadding: 0 0.4em;\nbox-sizing: border-box;\n}\n\n.darma-loader-uiverse-terminal-typing-panel__terminal-controls {\nfloat: right;\n}\n\n.darma-loader-uiverse-terminal-typing-panel__control {\ndisplay: inline-block;\nwidth: 0.6em;\nheight: 0.6em;\nmargin-left: 0.4em;\nborder-radius: 50%;\nbackground-color: #777;\n}\n\n.darma-loader-uiverse-terminal-typing-panel__control.darma-loader-uiverse-terminal-typing-panel__close {\nbackground-color: #e33;\n}\n\n.darma-loader-uiverse-terminal-typing-panel__control.darma-loader-uiverse-terminal-typing-panel__minimize {\nbackground-color: #ee0;\n}\n\n.darma-loader-uiverse-terminal-typing-panel__control.darma-loader-uiverse-terminal-typing-panel__maximize {\nbackground-color: #0b0;\n}\n\n.darma-loader-uiverse-terminal-typing-panel__terminal-title {\nfloat: left;\nline-height: 1.5em;\ncolor: #eee;\n}\n\n.darma-loader-uiverse-terminal-typing-panel__text {\ndisplay: inline-block;\nwhite-space: nowrap;\noverflow: hidden;\nborder-right: 0.2em solid green; /* Cursor */\nanimation:\ndarma-loader-uiverse-terminal-typing-panel-typeAndDelete 4s steps(11) infinite,\ndarma-loader-uiverse-terminal-typing-panel-blinkCursor 0.5s step-end infinite alternate;\nmargin-top: 1.5em;\n}",
+    "react": "export default function UiverseTerminalTypingPanelLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-terminal-typing-panel\">\n<div className=\"darma-loader-uiverse-terminal-typing-panel__terminal-loader\">\n  <div className=\"darma-loader-uiverse-terminal-typing-panel__terminal-header\">\n    <div className=\"darma-loader-uiverse-terminal-typing-panel__terminal-title\">Status</div>\n    <div className=\"darma-loader-uiverse-terminal-typing-panel__terminal-controls\">\n      <div className=\"darma-loader-uiverse-terminal-typing-panel__control darma-loader-uiverse-terminal-typing-panel__close\"></div>\n      <div className=\"darma-loader-uiverse-terminal-typing-panel__control darma-loader-uiverse-terminal-typing-panel__minimize\"></div>\n      <div className=\"darma-loader-uiverse-terminal-typing-panel__control darma-loader-uiverse-terminal-typing-panel__maximize\"></div>\n    </div>\n  </div>\n  <div className=\"darma-loader-uiverse-terminal-typing-panel__text\">Loading...</div>\n</div>\n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": false,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Uiverse selected loaders batch 2",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  }
+}

@@ -1,4 +1,4 @@
-import type { FaviconInput, SourceImageMeta } from "./types";
+import type { FaviconInput, SourceFitMode, SourceImageMeta } from "./types";
 
 const SVG_EVENT_HANDLER_PATTERN = /\son[a-z]+\s*=/i;
 const SCRIPT_TAG_PATTERN = /<\s*script[\s>]/i;
@@ -92,7 +92,7 @@ function drawCheckerboard(ctx: CanvasRenderingContext2D, size: number) {
   }
 }
 
-function fitImage(image: HTMLImageElement, target: { x: number; y: number; width: number; height: number }, mode: FaviconInput["cropMode"]) {
+function fitImage(image: HTMLImageElement, target: { x: number; y: number; width: number; height: number }, mode: SourceFitMode) {
   const sourceWidth = image.naturalWidth || image.width || 1;
   const sourceHeight = image.naturalHeight || image.height || 1;
   const imageRatio = sourceWidth / sourceHeight;
@@ -100,6 +100,10 @@ function fitImage(image: HTMLImageElement, target: { x: number; y: number; width
 
   let drawWidth = target.width;
   let drawHeight = target.height;
+
+  if (mode === "fill") {
+    return { ...target };
+  }
 
   if (mode === "contain") {
     if (imageRatio > targetRatio) {
@@ -121,6 +125,26 @@ function fitImage(image: HTMLImageElement, target: { x: number; y: number; width
   };
 }
 
+function getSourceTransform(input: FaviconInput) {
+  return input.sourceTransform ?? { zoom: 100, offsetX: 0, offsetY: 0, rotation: 0, fitMode: input.cropMode ?? "contain" };
+}
+
+function drawTransformedImage(ctx: CanvasRenderingContext2D, image: HTMLImageElement, contentBox: { x: number; y: number; width: number; height: number }, input: FaviconInput) {
+  const transform = getSourceTransform(input);
+  const rect = fitImage(image, contentBox, transform.fitMode ?? input.cropMode);
+  const outputScale = (input.scale / 100) * (transform.zoom / 100);
+  const drawWidth = rect.width * outputScale;
+  const drawHeight = rect.height * outputScale;
+  const centerX = rect.x + rect.width / 2 + (contentBox.width * transform.offsetX) / 100;
+  const centerY = rect.y + rect.height / 2 + (contentBox.height * transform.offsetY) / 100;
+
+  ctx.save();
+  ctx.translate(centerX, centerY);
+  ctx.rotate((transform.rotation * Math.PI) / 180);
+  ctx.drawImage(image, -drawWidth / 2, -drawHeight / 2, drawWidth, drawHeight);
+  ctx.restore();
+}
+
 function fitTextFontSize(ctx: CanvasRenderingContext2D, text: string, input: FaviconInput, maxWidth: number, maxHeight: number) {
   let size = maxHeight * 0.78 * (input.scale / 100);
   const fontWeight = input.fontWeight || 800;
@@ -133,6 +157,51 @@ function fitTextFontSize(ctx: CanvasRenderingContext2D, text: string, input: Fav
   }
 
   return Math.max(8, size);
+}
+
+export async function trimTransparentImageDataUrl(dataUrl: string, alphaThreshold = 8): Promise<string | null> {
+  const image = await loadImageFromDataUrl(dataUrl);
+  const width = image.naturalWidth || image.width;
+  const height = image.naturalHeight || image.height;
+  if (!width || !height) return null;
+
+  const canvas = document.createElement("canvas");
+  canvas.width = width;
+  canvas.height = height;
+  const ctx = canvas.getContext("2d", { willReadFrequently: true });
+  if (!ctx) return null;
+
+  ctx.drawImage(image, 0, 0);
+  const { data } = ctx.getImageData(0, 0, width, height);
+  let minX = width;
+  let minY = height;
+  let maxX = -1;
+  let maxY = -1;
+
+  for (let y = 0; y < height; y += 1) {
+    for (let x = 0; x < width; x += 1) {
+      const alpha = data[(y * width + x) * 4 + 3];
+      if (alpha > alphaThreshold) {
+        if (x < minX) minX = x;
+        if (y < minY) minY = y;
+        if (x > maxX) maxX = x;
+        if (y > maxY) maxY = y;
+      }
+    }
+  }
+
+  if (maxX < minX || maxY < minY) return null;
+  if (minX === 0 && minY === 0 && maxX === width - 1 && maxY === height - 1) return null;
+
+  const cropWidth = maxX - minX + 1;
+  const cropHeight = maxY - minY + 1;
+  const output = document.createElement("canvas");
+  output.width = cropWidth;
+  output.height = cropHeight;
+  const outCtx = output.getContext("2d");
+  if (!outCtx) return null;
+  outCtx.drawImage(canvas, minX, minY, cropWidth, cropHeight, 0, 0, cropWidth, cropHeight);
+  return output.toDataURL("image/png");
 }
 
 export async function renderIconPng(input: FaviconInput, size: number, options?: { checkerboard?: boolean; maskablePadding?: boolean; monochrome?: boolean }): Promise<Blob> {
@@ -170,27 +239,23 @@ export async function renderIconPng(input: FaviconInput, size: number, options?:
 
   if (input.sourceMode === "image" && input.imageDataUrl) {
     const image = await loadImageFromDataUrl(input.imageDataUrl);
-    const rect = fitImage(image, contentBox, input.cropMode);
-    const centeredScale = input.scale / 100;
-    const scaled = {
-      width: rect.width * centeredScale,
-      height: rect.height * centeredScale,
-    };
-    ctx.drawImage(image, rect.x + (rect.width - scaled.width) / 2, rect.y + (rect.height - scaled.height) / 2, scaled.width, scaled.height);
+    drawTransformedImage(ctx, image, contentBox, input);
   } else if (input.sourceMode === "svg" && isSafeSvgMarkup(input.svgText)) {
     const image = await loadImageFromDataUrl(svgToDataUrl(input.svgText));
-    const rect = fitImage(image, contentBox, input.cropMode);
-    const centeredScale = input.scale / 100;
-    const scaled = { width: rect.width * centeredScale, height: rect.height * centeredScale };
-    ctx.drawImage(image, rect.x + (rect.width - scaled.width) / 2, rect.y + (rect.height - scaled.height) / 2, scaled.width, scaled.height);
+    drawTransformedImage(ctx, image, contentBox, input);
   } else {
     const value = input.sourceMode === "emoji" ? input.emoji || "✨" : input.text || "D";
+    const transform = getSourceTransform(input);
     ctx.fillStyle = options?.monochrome ? "#ffffff" : normalizeHexColor(input.foregroundColor, "#ffffff");
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    const fontSize = fitTextFontSize(ctx, value, input, contentBox.width, contentBox.height);
+    const fontSize = fitTextFontSize(ctx, value, input, contentBox.width, contentBox.height) * (transform.zoom / 100);
     ctx.font = `${input.fontWeight || 800} ${fontSize}px ${input.fontFamily}`;
-    ctx.fillText(value, size / 2, size / 2 + fontSize * 0.025);
+    ctx.save();
+    ctx.translate(size / 2 + (contentBox.width * transform.offsetX) / 100, size / 2 + (contentBox.height * transform.offsetY) / 100);
+    ctx.rotate((transform.rotation * Math.PI) / 180);
+    ctx.fillText(value, 0, fontSize * 0.025);
+    ctx.restore();
   }
 
   ctx.restore();

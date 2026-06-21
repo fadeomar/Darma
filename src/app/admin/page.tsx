@@ -86,25 +86,48 @@ function StatCard({
 }
 
 export default async function AdminDashboardPage() {
-  const [usersCount, elementsCount, pendingCount, deletedCount, recent] =
-    await Promise.all([
-      prisma.user.count(),
-      prisma.element.count(),
-      prisma.element.count({ where: { reviewed: false, deleted: false } }),
-      prisma.element.count({ where: { deleted: true } }),
-      prisma.element.findMany({
-        take: 6,
-        orderBy: { updatedAt: "desc" },
-        select: {
-          id: true,
-          title: true,
-          slug: true,
-          updatedAt: true,
-          reviewed: true,
-          deleted: true,
-        },
-      }),
-    ]);
+  const [
+    usersCount,
+    elementsCount,
+    publishedCount,
+    pendingCount,
+    deletedCount,
+    missingCategoryCount,
+    missingShortDescriptionCount,
+    missingTagsCount,
+    recent,
+  ] = await Promise.all([
+    prisma.user.count(),
+    prisma.element.count(),
+    prisma.element.count({ where: { reviewed: true, deleted: false } }),
+    prisma.element.count({ where: { reviewed: false, deleted: false } }),
+    prisma.element.count({ where: { deleted: true } }),
+    // Content-health checks (live, non-deleted items only)
+    prisma.element.count({
+      where: { deleted: false, mainCategory: { isEmpty: true } },
+    }),
+    prisma.element.count({
+      where: {
+        deleted: false,
+        OR: [{ shortDescription: null }, { shortDescription: "" }],
+      },
+    }),
+    prisma.element.count({
+      where: { deleted: false, tags: { isEmpty: true } },
+    }),
+    prisma.element.findMany({
+      take: 6,
+      orderBy: { updatedAt: "desc" },
+      select: {
+        id: true,
+        title: true,
+        slug: true,
+        updatedAt: true,
+        reviewed: true,
+        deleted: true,
+      },
+    }),
+  ]);
 
   const visitorsToday = "—";
 
@@ -112,6 +135,11 @@ export default async function AdminDashboardPage() {
     .list()
     .filter((t) => t.visibility === "public")
     .sort((a, b) => a.title.localeCompare(b.title));
+
+  // The Elements module is the dashboard's main focus; other internal modules
+  // are kept secondary so the dashboard centers on Explore content.
+  const primaryModule = MODULES.find((m) => m.slug === "elements") ?? null;
+  const secondaryModules = MODULES.filter((m) => m.slug !== "elements");
 
   return (
     <div className="space-y-8">
@@ -127,11 +155,14 @@ export default async function AdminDashboardPage() {
           </div>
 
           <div className="flex flex-wrap items-center gap-2">
+            <Link href="/admin/review" className={linkButtonSecondary}>
+              Review Queue
+            </Link>
             <Link href="/admin/elements" className={linkButtonSecondary}>
               Manage Elements
             </Link>
-            <Link href="/admin/review" className={linkButtonPrimary}>
-              Open Review Queue
+            <Link href="/admin/elements?new=1" className={linkButtonPrimary}>
+              + Add Explore element
             </Link>
           </div>
         </div>
@@ -149,16 +180,16 @@ export default async function AdminDashboardPage() {
 
         <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
           <StatCard
-            label="Users"
-            value={usersCount}
-            href="/admin"
-            hint="Total registered"
-          />
-          <StatCard
-            label="Elements"
+            label="Total elements"
             value={elementsCount}
             href="/admin/elements"
-            hint="Total items"
+            hint="All Explore items"
+          />
+          <StatCard
+            label="Published"
+            value={publishedCount}
+            href="/admin/review?status=approved"
+            hint="Reviewed & live in Explore"
           />
           <StatCard
             label="Pending review"
@@ -175,49 +206,90 @@ export default async function AdminDashboardPage() {
         </div>
 
         <div className="mt-3 text-xs leading-5 text-[var(--color-text-tertiary)]">
-          Visitors today: <strong>{visitorsToday}</strong> because tracking is not enabled yet.
+          {usersCount} admin {usersCount === 1 ? "account" : "accounts"} ·
+          Visitors today: <strong>{visitorsToday}</strong> (tracking not enabled yet).
         </div>
       </section>
 
       <section>
         <div className="mb-3 flex items-center justify-between gap-3">
           <h2 className="text-sm font-semibold text-[var(--color-text-primary)]">
-            Project modules
+            Content health
           </h2>
           <div className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
-            Status board
+            Live items
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-3 lg:grid-cols-3">
-          {MODULES.map((module) => (
-            <Card key={module.slug} padding="sm">
-              <div className="flex items-start justify-between gap-3">
-                <div className="min-w-0">
-                  <div className="truncate text-base font-semibold text-[var(--color-text-primary)]">
-                    {module.name}
-                  </div>
-                  <div className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">
-                    {module.description}
-                  </div>
-                </div>
-                <div className="shrink-0">{statusBadge(module.status)}</div>
-              </div>
-
-              <div className="mt-4 flex flex-wrap items-center gap-2">
-                {module.slug === "elements" ? (
-                  <Link href="/admin/elements" className={linkButtonSecondary}>
-                    Open manager
-                  </Link>
-                ) : (
-                  <div className="text-xs text-[var(--color-text-tertiary)]">
-                    No admin view yet
-                  </div>
-                )}
-              </div>
-            </Card>
-          ))}
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
+          <StatCard
+            label="Missing category"
+            value={missingCategoryCount}
+            href="/admin/elements"
+            hint="No main category set"
+          />
+          <StatCard
+            label="Missing short description"
+            value={missingShortDescriptionCount}
+            href="/admin/elements"
+            hint="Empty card summary"
+          />
+          <StatCard
+            label="Missing tags"
+            value={missingTagsCount}
+            href="/admin/elements"
+            hint="No tags for discovery"
+          />
         </div>
+
+        <div className="mt-3 text-xs leading-5 text-[var(--color-text-tertiary)]">
+          These counts highlight Explore items that need cleanup before they look
+          their best. Excludes deleted items.
+        </div>
+      </section>
+
+      <section>
+        <div className="mb-3 flex items-center justify-between gap-3">
+          <h2 className="text-sm font-semibold text-[var(--color-text-primary)]">
+            Primary workspace
+          </h2>
+          <div className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+            Explore / Elements
+          </div>
+        </div>
+
+        {primaryModule ? (
+          <Card padding="sm">
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <div className="min-w-0">
+                <div className="flex items-center gap-2">
+                  <div className="truncate text-base font-semibold text-[var(--color-text-primary)]">
+                    {primaryModule.name}
+                  </div>
+                  {statusBadge(primaryModule.status)}
+                </div>
+                <div className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">
+                  {primaryModule.description}
+                </div>
+              </div>
+              <div className="flex flex-wrap items-center gap-2">
+                <Link href="/admin/elements" className={linkButtonSecondary}>
+                  Open manager
+                </Link>
+                <Link href="/admin/elements?new=1" className={linkButtonPrimary}>
+                  Add element
+                </Link>
+              </div>
+            </div>
+          </Card>
+        ) : null}
+
+        {secondaryModules.length > 0 ? (
+          <div className="mt-2 text-xs leading-5 text-[var(--color-text-tertiary)]">
+            Other internal modules (no admin view yet):{" "}
+            {secondaryModules.map((m) => m.name).join(", ")}.
+          </div>
+        ) : null}
       </section>
 
       <section>

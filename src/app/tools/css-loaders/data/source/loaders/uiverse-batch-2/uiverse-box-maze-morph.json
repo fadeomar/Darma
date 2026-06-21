@@ -1,0 +1,38 @@
+{
+  "id": "uiverse-box-maze-morph",
+  "name": "Box Maze Morph",
+  "category": "creative",
+  "tags": [
+    "uiverse",
+    "box",
+    "maze",
+    "morph",
+    "geometry",
+    "loader"
+  ],
+  "html": "<div class=\"loader\">\n  <div class=\"box1\"></div>\n  <div class=\"box2\"></div>\n  <div class=\"box3\"></div>\n</div>",
+  "css": ".loader {\n  width: 112px;\n  height: 112px;\n}\n\n.box1,\n.box2,\n.box3 {\nborder: 16px solid #f5f5f5;\nbox-sizing: border-box;\nposition: absolute;\ndisplay: block;\n}\n\n.box1 {\nwidth: 112px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 0px;\nanimation: abox1 4s 1s forwards ease-in-out infinite;\n}\n\n.box2 {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 0px;\nanimation: abox2 4s 1s forwards ease-in-out infinite;\n}\n\n.box3 {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 64px;\nanimation: abox3 4s 1s forwards ease-in-out infinite;\n}\n\n@keyframes abox1 {\n0% {\nwidth: 112px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 0px;\n}\n\n12.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 0px;\n}\n\n25% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 0px;\n}\n\n37.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 0px;\n}\n\n50% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 0px;\n}\n\n62.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 0px;\n}\n\n75% {\nwidth: 48px;\nheight: 112px;\nmargin-top: 0px;\nmargin-left: 0px;\n}\n\n87.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 0px;\n}\n\n100% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 0px;\n}\n}\n\n@keyframes abox2 {\n0% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 0px;\n}\n\n12.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 0px;\n}\n\n25% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 0px;\n}\n\n37.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 0px;\n}\n\n50% {\nwidth: 112px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 0px;\n}\n\n62.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 64px;\n}\n\n75% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 64px;\n}\n\n87.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 64px;\n}\n\n100% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 64px;\n}\n}\n\n@keyframes abox3 {\n0% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 64px;\n}\n\n12.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 0px;\nmargin-left: 64px;\n}\n\n25% {\nwidth: 48px;\nheight: 112px;\nmargin-top: 0px;\nmargin-left: 64px;\n}\n\n37.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 64px;\n}\n\n50% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 64px;\n}\n\n62.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 64px;\n}\n\n75% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 64px;\n}\n\n87.5% {\nwidth: 48px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 64px;\n}\n\n100% {\nwidth: 112px;\nheight: 48px;\nmargin-top: 64px;\nmargin-left: 0px;\n}\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 2",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 140,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

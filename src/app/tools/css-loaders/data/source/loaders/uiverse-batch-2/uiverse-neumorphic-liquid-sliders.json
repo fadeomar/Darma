@@ -1,0 +1,38 @@
+{
+  "id": "uiverse-neumorphic-liquid-sliders",
+  "name": "Neumorphic Liquid Sliders",
+  "category": "bars",
+  "tags": [
+    "uiverse",
+    "sliders",
+    "neumorphic",
+    "liquid",
+    "bars",
+    "loader"
+  ],
+  "html": "<section class=\"loader\">\n\n    <div class=\"slider\" style=\"--i:0\">\n    </div>\n    <div class=\"slider\" style=\"--i:1\">\n    </div>\n    <div class=\"slider\" style=\"--i:2\">\n    </div>\n    <div class=\"slider\" style=\"--i:3\">\n    </div>\n    <div class=\"slider\" style=\"--i:4\">\n    </div>\n\n  </section>",
+  "css": ".loader {\ndisplay: flex;\nalign-items: center;\njustify-content: center;\nflex-direction: row;\n}\n\n.slider {\noverflow: hidden;\nbackground-color: white;\nmargin: 0 15px;\nheight: 80px;\nwidth: 20px;\nborder-radius: 30px;\nbox-shadow: 15px 15px 20px rgba(0, 0, 0, 0.1), -15px -15px 30px #fff,\ninset -5px -5px 10px rgba(0, 0, 255, 0.1),\ninset 5px 5px 10px rgba(0, 0, 0, 0.1);\nposition: relative;\n}\n\n.slider::before {\ncontent: \"\";\nposition: absolute;\ntop: 0;\nleft: 0;\nheight: 20px;\nwidth: 20px;\nborder-radius: 100%;\nbox-shadow: inset 0px 0px 0px rgba(0, 0, 0, 0.3), 0px 420px 0 400px #2697f3,\ninset 0px 0px 0px rgba(0, 0, 0, 0.1);\nanimation: animate_2 2.5s ease-in-out infinite;\nanimation-delay: calc(-0.5s * var(--i));\n}\n\n@keyframes animate_2 {\n0% {\ntransform: translateY(250px);\nfilter: hue-rotate(0deg);\n}\n\n50% {\ntransform: translateY(0);\n}\n\n100% {\ntransform: translateY(250px);\nfilter: hue-rotate(180deg);\n}\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 2",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 120,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

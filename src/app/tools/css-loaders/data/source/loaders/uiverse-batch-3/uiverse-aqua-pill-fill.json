@@ -1,0 +1,38 @@
+{
+  "id": "uiverse-aqua-pill-fill",
+  "name": "Aqua Pill Fill",
+  "category": "progress",
+  "tags": [
+    "uiverse",
+    "pill",
+    "fill",
+    "aqua",
+    "progress",
+    "loader"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  /* color of choise */\n  --clr: #05A8AA;\n  /* loading time of choice */\n  --load-time: 2s;\n  outline: 5px solid var(--clr);\n  outline-offset: 5px;\n  position: relative;\n  overflow: hidden;\n  border-radius: 5rem;\n  /* width: 10rem; */\n  /* height: 2rem; */\n  padding: 1rem 5rem;\n  /* use either padding or width + height*/\n  /* I prefer the padding one */\n  /* rotate: -90deg; */\n  /* rotate if you want/need vertical loader */\n}\n\n.loader::after {\ncontent: '';\nposition: absolute;\ntop: 0;\nleft: 0;\nwidth: 100%;\nheight: 100%;\nbackground-color: var(--clr);\nz-index: 2;\nanimation: loading var(--load-time) ease-in-out infinite;\n}\n\n@keyframes loading {\n0% {\nwidth: 0%;\n}\n\n100% {\nwidth: 100%;\n}\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 3",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 160,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

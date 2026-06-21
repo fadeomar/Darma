@@ -15,6 +15,7 @@ export type SegmentedControlProps<T extends string> = {
   size?: "sm" | "md";
   className?: string;
   fullWidth?: boolean;
+  layout?: "wrap" | "grid";
 };
 
 const sizeClass = {
@@ -30,14 +31,16 @@ export function SegmentedControl<T extends string>({
   size = "sm",
   className,
   fullWidth = false,
+  layout = "wrap",
 }: SegmentedControlProps<T>) {
   return (
     <div
       role="radiogroup"
       aria-label={ariaLabel}
       className={cn(
-        "inline-flex flex-wrap gap-1 rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-control-track)] p-1 shadow-[var(--shadow-xs)]",
-        fullWidth && "flex w-full [&>button]:flex-1",
+        "gap-1 border border-[var(--color-border-default)] bg-[var(--color-control-track)] p-1 shadow-[var(--shadow-xs)]",
+        layout === "grid" ? "grid w-full grid-cols-3 rounded-[var(--radius-md)]" : "inline-flex flex-wrap rounded-[var(--radius-full)]",
+        fullWidth && layout === "wrap" && "flex w-full [&>button]:flex-1",
         className,
       )}
     >
@@ -52,7 +55,7 @@ export function SegmentedControl<T extends string>({
             disabled={option.disabled}
             onClick={() => onChange(option.value)}
             className={cn(
-              "rounded-[var(--radius-full)] font-mono font-bold uppercase leading-none tracking-[0.06em] transition duration-[var(--duration-fast)]",
+              "min-w-0 whitespace-nowrap break-keep rounded-[var(--radius-full)] font-mono font-bold uppercase leading-none tracking-[0.06em] transition duration-[var(--duration-fast)]",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-soft)] disabled:cursor-not-allowed disabled:opacity-45",
               sizeClass[size],
               active

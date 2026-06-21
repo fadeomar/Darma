@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-traffic-light-sequence",
+  "name": "Traffic Light Sequence",
+  "category": "fun",
+  "tags": [
+    "uiverse",
+    "traffic",
+    "lights",
+    "sequence",
+    "status",
+    "fun",
+    "loader"
+  ],
+  "html": "<div class=\"loader-container\">\n  <div class=\"traffic-light\">\n    <div class=\"light-row\">\n      <div class=\"light red-light\"></div>\n    </div>\n\n    <div class=\"light-row\">\n      <div class=\"light yellow-light\"></div>\n    </div>\n\n    <div class=\"light-row\">\n      <div class=\"light green-light\"></div>\n    </div>\n\n  </div>\n\n  <div class=\"loading-status\"></div>\n</div>",
+  "css": ".loader-container {\n  position: relative;\n  z-index: 1;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 1rem;\n}\n\n.traffic-light {\nbackground: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 40%, #1e1e1e 100%);\nborder: 1px solid rgba(255, 255, 255, 0.08);\nborder-radius: 28px;\npadding: 24px;\nbox-shadow:\n0 40px 80px rgba(0, 0, 0, 0.5),\n0 20px 40px rgba(0, 0, 0, 0.3),\n0 8px 16px rgba(0, 0, 0, 0.2),\ninset 0 2px 0 rgba(255, 255, 255, 0.05),\ninset 0 -2px 20px rgba(0, 0, 0, 0.8);\nbackdrop-filter: blur(20px) saturate(180%);\nposition: relative;\nwidth: 100px;\n}\n\n.light-row {\nmargin: 18px 0;\ndisplay: flex;\nalign-items: center;\njustify-content: center;\nposition: relative;\n}\n\n.light-row:first-child {\nmargin-top: 0;\n}\n\n.light-row:last-child {\nmargin-bottom: 0;\n}\n\n.light {\nwidth: 40px;\nheight: 40px;\nborder-radius: 50%;\nposition: relative;\noverflow: hidden;\nborder: 2px solid rgba(255, 255, 255, 0.06);\ntransition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n.light::before {\ncontent: \"\";\nposition: absolute;\ntop: 16px;\nleft: 20px;\nwidth: 28px;\nheight: 24px;\nbackground: linear-gradient(\n135deg,\nrgba(255, 255, 255, 0.15) 0%,\ntransparent 60%\n);\nborder-radius: 50%;\nfilter: blur(6px);\nopacity: 0.4;\n}\n\n.light::after {\ncontent: \"\";\nposition: absolute;\ninset: 0;\nborder-radius: 50%;\nbackground: radial-gradient(\ncircle at 35% 35%,\nrgba(255, 255, 255, 0.08) 0%,\ntransparent 65%\n);\n}\n\n.red-light {\nbackground: radial-gradient(circle at center, #2d1515 0%, #1a0808 80%),\nlinear-gradient(135deg, #331212, #1a0606);\nbox-shadow:\ninset 0 6px 12px rgba(0, 0, 0, 0.4),\ninset 0 -3px 6px rgba(255, 255, 255, 0.02);\nanimation: redSequence 4s ease-in-out infinite;\n}\n\n@keyframes redSequence {\n0% {\nbackground: radial-gradient(circle at center, #ff4444 0%, #cc1111 80%),\nlinear-gradient(135deg, #ff5555, #dd2222);\nborder-color: rgba(255, 68, 68, 0.25);\nbox-shadow:\n0 0 40px rgba(255, 68, 68, 0.6),\n0 0 80px rgba(255, 68, 68, 0.3),\n0 0 120px rgba(255, 68, 68, 0.15),\ninset 0 3px 6px rgba(255, 255, 255, 0.15),\ninset 0 -3px 6px rgba(0, 0, 0, 0.4);\ntransform: scale(1.05);\n}\n\n25%,\n75%,\n100% {\nbackground: radial-gradient(circle at center, #2d1515 0%, #1a0808 80%),\nlinear-gradient(135deg, #331212, #1a0606);\nborder-color: rgba(255, 255, 255, 0.06);\nbox-shadow:\ninset 0 6px 12px rgba(0, 0, 0, 0.4),\ninset 0 -3px 6px rgba(255, 255, 255, 0.02);\ntransform: scale(1);\n}\n}\n\n.yellow-light {\nbackground: radial-gradient(circle at center, #2d2d15 0%, #1a1a08 80%),\nlinear-gradient(135deg, #333312, #1a1a06);\nbox-shadow:\ninset 0 6px 12px rgba(0, 0, 0, 0.4),\ninset 0 -3px 6px rgba(255, 255, 255, 0.02);\nanimation: yellowSequence 4s ease-in-out infinite;\n}\n\n@keyframes yellowSequence {\n0%,\n50%,\n100% {\nbackground: radial-gradient(circle at center, #2d2d15 0%, #1a1a08 80%),\nlinear-gradient(135deg, #333312, #1a1a06);\nborder-color: rgba(255, 255, 255, 0.06);\nbox-shadow:\ninset 0 6px 12px rgba(0, 0, 0, 0.4),\ninset 0 -3px 6px rgba(255, 255, 255, 0.02);\ntransform: scale(1);\n}\n\n25% {\nbackground: radial-gradient(circle at center, #ffdd44 0%, #cc9900 80%),\nlinear-gradient(135deg, #ffee55, #ddaa22);\nborder-color: rgba(255, 221, 68, 0.25);\nbox-shadow:\n0 0 40px rgba(255, 221, 68, 0.6),\n0 0 80px rgba(255, 221, 68, 0.3),\n0 0 120px rgba(255, 221, 68, 0.15),\ninset 0 3px 6px rgba(255, 255, 255, 0.15),\ninset 0 -3px 6px rgba(0, 0, 0, 0.4);\ntransform: scale(1.05);\n}\n}\n\n.green-light {\nbackground: radial-gradient(circle at center, #152d15 0%, #081a08 80%),\nlinear-gradient(135deg, #123312, #061a06);\nbox-shadow:\ninset 0 6px 12px rgba(0, 0, 0, 0.4),\ninset 0 -3px 6px rgba(255, 255, 255, 0.02);\nanimation: greenSequence 4s ease-in-out infinite;\n}\n\n@keyframes greenSequence {\n0%,\n25%,\n75% {\nbackground: radial-gradient(circle at center, #152d15 0%, #081a08 80%),\nlinear-gradient(135deg, #123312, #061a06);\nborder-color: rgba(255, 255, 255, 0.06);\nbox-shadow:\ninset 0 6px 12px rgba(0, 0, 0, 0.4),\ninset 0 -3px 6px rgba(255, 255, 255, 0.02);\ntransform: scale(1);\n}\n\n50%,\n100% {\nbackground: radial-gradient(circle at center, #44ff44 0%, #11cc11 80%),\nlinear-gradient(135deg, #55ff55, #22dd22);\nborder-color: rgba(68, 255, 68, 0.25);\nbox-shadow:\n0 0 40px rgba(68, 255, 68, 0.6),\n0 0 80px rgba(68, 255, 68, 0.3),\n0 0 120px rgba(68, 255, 68, 0.15),\ninset 0 3px 6px rgba(255, 255, 255, 0.15),\ninset 0 -3px 6px rgba(0, 0, 0, 0.4);\ntransform: scale(1.05);\n}\n}\n\n.loading-status {\nfont-size: 12px;\ncolor: rgba(255, 255, 255, 0.5);\nfont-weight: 500;\nletter-spacing: 0.5px;\nanimation: statusUpdate 4s ease-in-out infinite;\n}\n\n.loading-status::before {\ncontent: \"Initializing red signal...\";\nanimation: textUpdate 4s ease-in-out infinite;\n}\n\n@keyframes textUpdate {\n0%,\n24% {\ncontent: \"Initializing red signal...\";\n}\n25%,\n49% {\ncontent: \"Preparing yellow transition...\";\n}\n50%,\n74% {\ncontent: \"Activating green protocol...\";\n}\n75%,\n100% {\ncontent: \"Completing traffic sequence...\";\n}\n}\n\n@keyframes statusUpdate {\n0%,\n100% {\nopacity: 1;\n}\n12.5%,\n37.5%,\n62.5%,\n87.5% {\nopacity: 0.5;\n}\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 2",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 128,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

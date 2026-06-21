@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-cloud-gear-wagon",
+  "name": "Cloud Gear Wagon",
+  "category": "fun",
+  "tags": [
+    "uiverse",
+    "cloud",
+    "gear",
+    "vehicle",
+    "wheels",
+    "fun",
+    "loader"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 175px;\n  height: 80px;\n  display: block;\n  margin: auto;\n  background-image: radial-gradient(circle 25px at 25px 25px, #FFF 100%, transparent 0), radial-gradient(circle 50px at 50px 50px, #FFF 100%, transparent 0), radial-gradient(circle 25px at 25px 25px, #FFF 100%, transparent 0), linear-gradient(#FFF 50px, transparent 0);\n  background-size: 50px 50px, 100px 76px, 50px 50px, 120px 40px;\n  background-position: 0px 30px, 37px 0px, 122px 30px, 25px 40px;\n  background-repeat: no-repeat;\n  position: relative;\n  box-sizing: border-box;\n}\n\n.loader::before {\ncontent: '';\nleft: 60px;\nbottom: 18px;\nposition: absolute;\nwidth: 36px;\nheight: 36px;\nborder-radius: 50%;\nbackground-color: #FF3D00;\nbackground-image: radial-gradient(circle 8px at 18px 18px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 18px 0px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 0px 18px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 36px 18px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 18px 36px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 30px 5px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 30px 5px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 30px 30px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 5px 30px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 5px 5px, #FFF 100%, transparent 0);\nbackground-repeat: no-repeat;\nbox-sizing: border-box;\nanimation: rotationBack 3s linear infinite;\n}\n\n.loader::after {\ncontent: '';\nleft: 94px;\nbottom: 15px;\nposition: absolute;\nwidth: 24px;\nheight: 24px;\nborder-radius: 50%;\nbackground-color: #FF3D00;\nbackground-image: radial-gradient(circle 5px at 12px 12px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 12px 0px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 0px 12px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 24px 12px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 12px 24px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 20px 3px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 20px 3px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 20px 20px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 3px 20px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 3px 3px, #FFF 100%, transparent 0);\nbackground-repeat: no-repeat;\nbox-sizing: border-box;\nanimation: rotationBack 4s linear infinite reverse;\n}\n\n@keyframes rotationBack {\n0% {\ntransform: rotate(0deg);\n}\n\n100% {\ntransform: rotate(-360deg);\n}\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 3",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 128,
+    "speed": 1,
+    "background": "#111827"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

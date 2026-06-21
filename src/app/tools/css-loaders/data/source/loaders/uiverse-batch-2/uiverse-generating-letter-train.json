@@ -1,0 +1,38 @@
+{
+  "id": "uiverse-generating-letter-train",
+  "name": "Generating Letter Train",
+  "category": "creative",
+  "tags": [
+    "uiverse",
+    "letters",
+    "generating",
+    "text",
+    "train",
+    "loader"
+  ],
+  "html": "<div class=\"loader-wrapper\">\n  <span class=\"loader-letter\">G</span>\n  <span class=\"loader-letter\">e</span>\n  <span class=\"loader-letter\">n</span>\n  <span class=\"loader-letter\">e</span>\n  <span class=\"loader-letter\">r</span>\n  <span class=\"loader-letter\">a</span>\n  <span class=\"loader-letter\">t</span>\n  <span class=\"loader-letter\">i</span>\n  <span class=\"loader-letter\">n</span>\n  <span class=\"loader-letter\">g</span>\n\n  <div class=\"loader\"></div>\n</div>",
+  "css": ".loader-wrapper {\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 120px;\n  width: auto;\n  margin: 2rem;\n\nfont-family: \"Poppins\", sans-serif;\nfont-size: 1.6em;\nfont-weight: 600;\nuser-select: none;\ncolor: #fff;\n\nscale: 2;\n}\n\n.loader {\nposition: absolute;\ntop: 0;\nleft: 0;\nheight: 100%;\nwidth: 100%;\nz-index: 1;\n\nbackground-color: transparent;\nmask: repeating-linear-gradient(\n90deg,\ntransparent 0,\ntransparent 6px,\nblack 7px,\nblack 8px\n);\n}\n\n.loader::after {\ncontent: \"\";\nposition: absolute;\ntop: 0;\nleft: 0;\nwidth: 100%;\nheight: 100%;\n\nbackground-image: radial-gradient(circle at 50% 50%, #ff0 0%, transparent 50%),\nradial-gradient(circle at 45% 45%, #f00 0%, transparent 45%),\nradial-gradient(circle at 55% 55%, #0ff 0%, transparent 45%),\nradial-gradient(circle at 45% 55%, #0f0 0%, transparent 45%),\nradial-gradient(circle at 55% 45%, #00f 0%, transparent 45%);\nmask: radial-gradient(\ncircle at 50% 50%,\ntransparent 0%,\ntransparent 10%,\nblack 25%\n);\nanimation:\ntransform-animation 2s infinite alternate,\nopacity-animation 4s infinite;\nanimation-timing-function: cubic-bezier(0.6, 0.8, 0.5, 1);\n}\n\n@keyframes transform-animation {\n0% {\ntransform: translate(-55%);\n}\n100% {\ntransform: translate(55%);\n}\n}\n\n@keyframes opacity-animation {\n0%,\n100% {\nopacity: 0;\n}\n15% {\nopacity: 1;\n}\n65% {\nopacity: 0;\n}\n}\n\n.loader-letter {\ndisplay: inline-block;\nopacity: 0;\nanimation: loader-letter-anim 4s infinite linear;\nz-index: 2;\n}\n\n.loader-letter:nth-child(1) {\nanimation-delay: 0.1s;\n}\n.loader-letter:nth-child(2) {\nanimation-delay: 0.205s;\n}\n.loader-letter:nth-child(3) {\nanimation-delay: 0.31s;\n}\n.loader-letter:nth-child(4) {\nanimation-delay: 0.415s;\n}\n.loader-letter:nth-child(5) {\nanimation-delay: 0.521s;\n}\n.loader-letter:nth-child(6) {\nanimation-delay: 0.626s;\n}\n.loader-letter:nth-child(7) {\nanimation-delay: 0.731s;\n}\n.loader-letter:nth-child(8) {\nanimation-delay: 0.837s;\n}\n.loader-letter:nth-child(9) {\nanimation-delay: 0.942s;\n}\n.loader-letter:nth-child(10) {\nanimation-delay: 1.047s;\n}\n\n@keyframes loader-letter-anim {\n0% {\nopacity: 0;\n}\n5% {\nopacity: 1;\ntext-shadow: 0 0 4px #fff;\ntransform: scale(1.1) translateY(-2px);\n}\n20% {\nopacity: 0.2;\n}\n100% {\nopacity: 0;\n}\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 2",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 140,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

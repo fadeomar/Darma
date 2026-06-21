@@ -18,11 +18,11 @@ export class ElementWriteService {
       const base = slugify(input.title || "element");
       const slug = await this.makeUniqueSlug(tx, base);
 
-      // pass slug into create input
+      // pass the server-generated slug alongside the validated create input
       return this.repo.create(tx, {
         ...input,
         slug,
-      } as ElementCreateInput);
+      });
     });
   }
 

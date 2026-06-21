@@ -1,0 +1,52 @@
+{
+  "id": "uiverse-bars-ball",
+  "name": "Bars And Ball Loader",
+  "category": "bars",
+  "tags": [
+    "uiverse",
+    "bars",
+    "ball",
+    "chart",
+    "bounce",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-bars-ball bars and ball loader bars uiverse bars ball chart bounce loader html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-bars-ball\"><div class=\"darma-loader-uiverse-bars-ball___bar\"></div><div class=\"darma-loader-uiverse-bars-ball___bar\"></div><div class=\"darma-loader-uiverse-bars-ball___bar\"></div><div class=\"darma-loader-uiverse-bars-ball___bar\"></div><div class=\"darma-loader-uiverse-bars-ball___bar\"></div><div class=\"darma-loader-uiverse-bars-ball___ball\"></div></div>",
+  "previewCss": ".darma-loader-uiverse-bars-ball { position: relative; width: 75px; height: 100px; }\n.darma-loader-uiverse-bars-ball___bar { position: absolute; bottom: 0; width: 10px; height: 50%; background: var(--loader-secondary-color, #000000); transform-origin: center bottom; box-shadow: 1px 1px 0 color-mix(in srgb, var(--loader-secondary-color, #000000) 20%, transparent); }\n.darma-loader-uiverse-bars-ball___bar:nth-child(1) { left: 0px; transform: scale(1, 0.2); animation: darma-loader-uiverse-bars-ball-barUp1 4s infinite; }\n.darma-loader-uiverse-bars-ball___bar:nth-child(2) { left: 15px; transform: scale(1, 0.4); animation: darma-loader-uiverse-bars-ball-barUp2 4s infinite; }\n.darma-loader-uiverse-bars-ball___bar:nth-child(3) { left: 30px; transform: scale(1, 0.6); animation: darma-loader-uiverse-bars-ball-barUp3 4s infinite; }\n.darma-loader-uiverse-bars-ball___bar:nth-child(4) { left: 45px; transform: scale(1, 0.8); animation: darma-loader-uiverse-bars-ball-barUp4 4s infinite; }\n.darma-loader-uiverse-bars-ball___bar:nth-child(5) { left: 60px; transform: scale(1, 1); animation: darma-loader-uiverse-bars-ball-barUp5 4s infinite; }\n.darma-loader-uiverse-bars-ball___ball { position: absolute; bottom: 10px; left: 0; width: 10px; height: 10px; background: var(--loader-color, #2c8fff); border-radius: 50%; animation: darma-loader-uiverse-bars-ball-ball624 4s infinite; }\n@keyframes darma-loader-uiverse-bars-ball-ball624 {\n  0% { transform: translate(0, 0); } 5% { transform: translate(8px, -14px); } 10% { transform: translate(15px, -10px); } 17% { transform: translate(23px, -24px); } 20% { transform: translate(30px, -20px); } 27% { transform: translate(38px, -34px); } 30% { transform: translate(45px, -30px); } 37% { transform: translate(53px, -44px); } 40% { transform: translate(60px, -40px); } 50% { transform: translate(60px, 0); } 57% { transform: translate(53px, -14px); } 60% { transform: translate(45px, -10px); } 67% { transform: translate(37px, -24px); } 70% { transform: translate(30px, -20px); } 77% { transform: translate(22px, -34px); } 80% { transform: translate(15px, -30px); } 87% { transform: translate(7px, -44px); } 90% { transform: translate(0, -40px); } 100% { transform: translate(0, 0); }\n}\n@keyframes darma-loader-uiverse-bars-ball-barUp1 { 0%, 40% { transform: scale(1, 0.2); } 50%, 90% { transform: scale(1, 1); } 100% { transform: scale(1, 0.2); } }\n@keyframes darma-loader-uiverse-bars-ball-barUp2 { 0%, 40% { transform: scale(1, 0.4); } 50%, 90% { transform: scale(1, 0.8); } 100% { transform: scale(1, 0.4); } }\n@keyframes darma-loader-uiverse-bars-ball-barUp3 { 0%, 100% { transform: scale(1, 0.6); } }\n@keyframes darma-loader-uiverse-bars-ball-barUp4 { 0%, 40% { transform: scale(1, 0.8); } 50%, 90% { transform: scale(1, 0.4); } 100% { transform: scale(1, 0.8); } }\n@keyframes darma-loader-uiverse-bars-ball-barUp5 { 0%, 40% { transform: scale(1, 1); } 50%, 90% { transform: scale(1, 0.2); } 100% { transform: scale(1, 1); } }",
+  "defaults": {
+    "color": "#2c8fff",
+    "secondaryColor": "#000000",
+    "size": 84,
+    "speed": 4
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-bars-ball\"><div class=\"darma-loader-uiverse-bars-ball___bar\"></div><div class=\"darma-loader-uiverse-bars-ball___bar\"></div><div class=\"darma-loader-uiverse-bars-ball___bar\"></div><div class=\"darma-loader-uiverse-bars-ball___bar\"></div><div class=\"darma-loader-uiverse-bars-ball___bar\"></div><div class=\"darma-loader-uiverse-bars-ball___ball\"></div></div>",
+    "css": ".darma-loader-uiverse-bars-ball { position: relative; width: 75px; height: 100px; }\n.darma-loader-uiverse-bars-ball___bar { position: absolute; bottom: 0; width: 10px; height: 50%; background: var(--loader-secondary-color, #000000); transform-origin: center bottom; box-shadow: 1px 1px 0 color-mix(in srgb, var(--loader-secondary-color, #000000) 20%, transparent); }\n.darma-loader-uiverse-bars-ball___bar:nth-child(1) { left: 0px; transform: scale(1, 0.2); animation: darma-loader-uiverse-bars-ball-barUp1 4s infinite; }\n.darma-loader-uiverse-bars-ball___bar:nth-child(2) { left: 15px; transform: scale(1, 0.4); animation: darma-loader-uiverse-bars-ball-barUp2 4s infinite; }\n.darma-loader-uiverse-bars-ball___bar:nth-child(3) { left: 30px; transform: scale(1, 0.6); animation: darma-loader-uiverse-bars-ball-barUp3 4s infinite; }\n.darma-loader-uiverse-bars-ball___bar:nth-child(4) { left: 45px; transform: scale(1, 0.8); animation: darma-loader-uiverse-bars-ball-barUp4 4s infinite; }\n.darma-loader-uiverse-bars-ball___bar:nth-child(5) { left: 60px; transform: scale(1, 1); animation: darma-loader-uiverse-bars-ball-barUp5 4s infinite; }\n.darma-loader-uiverse-bars-ball___ball { position: absolute; bottom: 10px; left: 0; width: 10px; height: 10px; background: var(--loader-color, #2c8fff); border-radius: 50%; animation: darma-loader-uiverse-bars-ball-ball624 4s infinite; }\n@keyframes darma-loader-uiverse-bars-ball-ball624 {\n  0% { transform: translate(0, 0); } 5% { transform: translate(8px, -14px); } 10% { transform: translate(15px, -10px); } 17% { transform: translate(23px, -24px); } 20% { transform: translate(30px, -20px); } 27% { transform: translate(38px, -34px); } 30% { transform: translate(45px, -30px); } 37% { transform: translate(53px, -44px); } 40% { transform: translate(60px, -40px); } 50% { transform: translate(60px, 0); } 57% { transform: translate(53px, -14px); } 60% { transform: translate(45px, -10px); } 67% { transform: translate(37px, -24px); } 70% { transform: translate(30px, -20px); } 77% { transform: translate(22px, -34px); } 80% { transform: translate(15px, -30px); } 87% { transform: translate(7px, -44px); } 90% { transform: translate(0, -40px); } 100% { transform: translate(0, 0); }\n}\n@keyframes darma-loader-uiverse-bars-ball-barUp1 { 0%, 40% { transform: scale(1, 0.2); } 50%, 90% { transform: scale(1, 1); } 100% { transform: scale(1, 0.2); } }\n@keyframes darma-loader-uiverse-bars-ball-barUp2 { 0%, 40% { transform: scale(1, 0.4); } 50%, 90% { transform: scale(1, 0.8); } 100% { transform: scale(1, 0.4); } }\n@keyframes darma-loader-uiverse-bars-ball-barUp3 { 0%, 100% { transform: scale(1, 0.6); } }\n@keyframes darma-loader-uiverse-bars-ball-barUp4 { 0%, 40% { transform: scale(1, 0.8); } 50%, 90% { transform: scale(1, 0.4); } 100% { transform: scale(1, 0.8); } }\n@keyframes darma-loader-uiverse-bars-ball-barUp5 { 0%, 40% { transform: scale(1, 1); } 50%, 90% { transform: scale(1, 0.2); } 100% { transform: scale(1, 1); } }",
+    "react": "export default function UiverseBarsBallLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-bars-ball\"><div className=\"darma-loader-uiverse-bars-ball___bar\"></div><div className=\"darma-loader-uiverse-bars-ball___bar\"></div><div className=\"darma-loader-uiverse-bars-ball___bar\"></div><div className=\"darma-loader-uiverse-bars-ball___bar\"></div><div className=\"darma-loader-uiverse-bars-ball___bar\"></div><div className=\"darma-loader-uiverse-bars-ball___ball\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Uiverse selected loaders",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  }
+}

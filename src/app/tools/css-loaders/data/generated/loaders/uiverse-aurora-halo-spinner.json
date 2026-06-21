@@ -1,0 +1,52 @@
+{
+  "id": "uiverse-aurora-halo-spinner",
+  "name": "Aurora Halo Spinner",
+  "category": "spinners",
+  "tags": [
+    "uiverse",
+    "aurora",
+    "halo",
+    "gradient",
+    "spinner",
+    "glow",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-aurora-halo-spinner aurora halo spinner spinners uiverse aurora halo gradient spinner glow loader html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-aurora-halo-spinner\">\n<div class=\"darma-loader-uiverse-aurora-halo-spinner__container\">\n  <span></span>\n  <span></span>\n  <span></span>\n  <span></span>\n</div>\n</div>",
+  "previewCss": ".darma-loader-uiverse-aurora-halo-spinner {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container {\n  position: relative;\n  width: 96px;\n  height: 96px;\n  border-radius: 50%;\n  animation: darma-loader-uiverse-aurora-halo-spinner-rotate_3922 1.2s linear infinite;\n  background-color: #9b59b6;\n  background-image: linear-gradient(#9b59b6, #84cdfa, #5ad1cd);\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container span {\nposition: absolute;\nborder-radius: 50%;\nheight: 100%;\nwidth: 100%;\nbackground-color: #9b59b6;\nbackground-image: linear-gradient(#9b59b6, #84cdfa, #5ad1cd);\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container span:nth-of-type(1) {\nfilter: blur(5px);\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container span:nth-of-type(2) {\nfilter: blur(10px);\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container span:nth-of-type(3) {\nfilter: blur(25px);\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container span:nth-of-type(4) {\nfilter: blur(50px);\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container::after {\ncontent: \"\";\nposition: absolute;\ntop: 10px;\nleft: 10px;\nright: 10px;\nbottom: 10px;\nbackground-color: #fff;\nborder: solid 5px #ffffff;\nborder-radius: 50%;\n}\n\n@keyframes darma-loader-uiverse-aurora-halo-spinner-rotate_3922 {\nfrom {\n  transform: rotate(0deg);\n}\n\nto {\n  transform: rotate(360deg);\n}\n}",
+  "defaults": {
+    "size": 96,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-aurora-halo-spinner\">\n<div class=\"darma-loader-uiverse-aurora-halo-spinner__container\">\n  <span></span>\n  <span></span>\n  <span></span>\n  <span></span>\n</div>\n</div>",
+    "css": ".darma-loader-uiverse-aurora-halo-spinner {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container {\n  position: relative;\n  width: 96px;\n  height: 96px;\n  border-radius: 50%;\n  animation: darma-loader-uiverse-aurora-halo-spinner-rotate_3922 1.2s linear infinite;\n  background-color: #9b59b6;\n  background-image: linear-gradient(#9b59b6, #84cdfa, #5ad1cd);\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container span {\nposition: absolute;\nborder-radius: 50%;\nheight: 100%;\nwidth: 100%;\nbackground-color: #9b59b6;\nbackground-image: linear-gradient(#9b59b6, #84cdfa, #5ad1cd);\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container span:nth-of-type(1) {\nfilter: blur(5px);\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container span:nth-of-type(2) {\nfilter: blur(10px);\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container span:nth-of-type(3) {\nfilter: blur(25px);\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container span:nth-of-type(4) {\nfilter: blur(50px);\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container::after {\ncontent: \"\";\nposition: absolute;\ntop: 10px;\nleft: 10px;\nright: 10px;\nbottom: 10px;\nbackground-color: #fff;\nborder: solid 5px #ffffff;\nborder-radius: 50%;\n}\n\n@keyframes darma-loader-uiverse-aurora-halo-spinner-rotate_3922 {\nfrom {\n  transform: rotate(0deg);\n}\n\nto {\n  transform: rotate(360deg);\n}\n}",
+    "react": "export default function UiverseAuroraHaloSpinnerLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-aurora-halo-spinner\">\n<div className=\"darma-loader-uiverse-aurora-halo-spinner__container\">\n  <span></span>\n  <span></span>\n  <span></span>\n  <span></span>\n</div>\n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": false,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Uiverse selected loaders batch 2",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  }
+}

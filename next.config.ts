@@ -1,6 +1,13 @@
 import type { NextConfig } from "next";
+import path from "node:path";
 
 const nextConfig: NextConfig = {
+  // Pin the Turbopack workspace root to this project directory. Without this,
+  // Next 16 can mis-infer the root and crash with a Turbopack panic
+  // ("couldn't find next/package.json from .../src/app").
+  turbopack: {
+    root: path.resolve(process.cwd()),
+  },
   images: {
     remotePatterns: [
       {

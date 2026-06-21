@@ -1,0 +1,38 @@
+{
+  "id": "uiverse-ecg-stroke-loader",
+  "name": "ECG Stroke Loader",
+  "category": "creative",
+  "tags": [
+    "uiverse",
+    "ecg",
+    "heartbeat",
+    "stroke",
+    "medical",
+    "loader"
+  ],
+  "html": "<div class=\"loader\">\n<div class=\"loading\">\n  <svg height=\"48px\" width=\"64px\">\n      <polyline id=\"uiverse-ecg-stroke-loader-back\" points=\"0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24\"></polyline>\n    <polyline id=\"uiverse-ecg-stroke-loader-front\" points=\"0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24\"></polyline>\n  </svg>\n</div>\n</div>",
+  "css": ".loader {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.loading svg polyline {\n  fill: none;\n  stroke-width: 3;\n  stroke-linecap: round;\n  stroke-linejoin: round;\n}\n\n.loading svg polyline#uiverse-ecg-stroke-loader-back {\nfill: none;\nstroke: gray;\n}\n\n.loading svg polyline#uiverse-ecg-stroke-loader-front {\nfill: none;\nstroke: red;\nstroke-dasharray: 48, 144;\nstroke-dashoffset: 192;\nanimation: dash_682 1.4s linear infinite;\n}\n\n@keyframes dash_682 {\n72.5% {\nopacity: 0;\n}\n\nto {\nstroke-dashoffset: 0;\n}\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 3",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 140,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

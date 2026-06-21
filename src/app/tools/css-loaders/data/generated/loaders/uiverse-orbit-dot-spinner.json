@@ -1,0 +1,51 @@
+{
+  "id": "uiverse-orbit-dot-spinner",
+  "name": "Orbit Dot Spinner",
+  "category": "spinners",
+  "tags": [
+    "uiverse",
+    "dots",
+    "orbit",
+    "spinner",
+    "minimal",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-orbit-dot-spinner orbit dot spinner spinners uiverse dots orbit spinner minimal loader html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-orbit-dot-spinner\">\n<div class=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner\">\n    <div class=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot\"></div>\n    <div class=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot\"></div>\n    <div class=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot\"></div>\n    <div class=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot\"></div>\n    <div class=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot\"></div>\n    <div class=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot\"></div>\n    <div class=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot\"></div>\n    <div class=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot\"></div>\n</div>\n</div>",
+  "previewCss": ".darma-loader-uiverse-orbit-dot-spinner {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner {\n  --uib-size: 2.8rem;\n  --uib-speed: .9s;\n  --uib-color: #183153;\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  height: var(--uib-size);\n  width: var(--uib-size);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot {\nposition: absolute;\ntop: 0;\nleft: 0;\ndisplay: flex;\nalign-items: center;\njustify-content: flex-start;\nheight: 100%;\nwidth: 100%;\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot::before {\ncontent: '';\nheight: 20%;\nwidth: 20%;\nborder-radius: 50%;\nbackground-color: var(--uib-color);\ntransform: scale(0);\nopacity: 0.5;\nanimation: darma-loader-uiverse-orbit-dot-spinner-pulse0112 calc(var(--uib-speed) * 1.111) ease-in-out infinite;\nbox-shadow: 0 0 20px rgba(18, 31, 53, 0.3);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(2) {\ntransform: rotate(45deg);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(2)::before {\nanimation-delay: calc(var(--uib-speed) * -0.875);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(3) {\ntransform: rotate(90deg);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(3)::before {\nanimation-delay: calc(var(--uib-speed) * -0.75);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(4) {\ntransform: rotate(135deg);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(4)::before {\nanimation-delay: calc(var(--uib-speed) * -0.625);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(5) {\ntransform: rotate(180deg);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(5)::before {\nanimation-delay: calc(var(--uib-speed) * -0.5);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(6) {\ntransform: rotate(225deg);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(6)::before {\nanimation-delay: calc(var(--uib-speed) * -0.375);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(7) {\ntransform: rotate(270deg);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(7)::before {\nanimation-delay: calc(var(--uib-speed) * -0.25);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(8) {\ntransform: rotate(315deg);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(8)::before {\nanimation-delay: calc(var(--uib-speed) * -0.125);\n}\n\n@keyframes darma-loader-uiverse-orbit-dot-spinner-pulse0112 {\n0%,\n100% {\ntransform: scale(0);\nopacity: 0.5;\n}\n\n50% {\ntransform: scale(1);\nopacity: 1;\n}\n}",
+  "defaults": {
+    "size": 96,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-orbit-dot-spinner\">\n<div class=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner\">\n    <div class=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot\"></div>\n    <div class=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot\"></div>\n    <div class=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot\"></div>\n    <div class=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot\"></div>\n    <div class=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot\"></div>\n    <div class=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot\"></div>\n    <div class=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot\"></div>\n    <div class=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot\"></div>\n</div>\n</div>",
+    "css": ".darma-loader-uiverse-orbit-dot-spinner {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner {\n  --uib-size: 2.8rem;\n  --uib-speed: .9s;\n  --uib-color: #183153;\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  height: var(--uib-size);\n  width: var(--uib-size);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot {\nposition: absolute;\ntop: 0;\nleft: 0;\ndisplay: flex;\nalign-items: center;\njustify-content: flex-start;\nheight: 100%;\nwidth: 100%;\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot::before {\ncontent: '';\nheight: 20%;\nwidth: 20%;\nborder-radius: 50%;\nbackground-color: var(--uib-color);\ntransform: scale(0);\nopacity: 0.5;\nanimation: darma-loader-uiverse-orbit-dot-spinner-pulse0112 calc(var(--uib-speed) * 1.111) ease-in-out infinite;\nbox-shadow: 0 0 20px rgba(18, 31, 53, 0.3);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(2) {\ntransform: rotate(45deg);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(2)::before {\nanimation-delay: calc(var(--uib-speed) * -0.875);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(3) {\ntransform: rotate(90deg);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(3)::before {\nanimation-delay: calc(var(--uib-speed) * -0.75);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(4) {\ntransform: rotate(135deg);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(4)::before {\nanimation-delay: calc(var(--uib-speed) * -0.625);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(5) {\ntransform: rotate(180deg);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(5)::before {\nanimation-delay: calc(var(--uib-speed) * -0.5);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(6) {\ntransform: rotate(225deg);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(6)::before {\nanimation-delay: calc(var(--uib-speed) * -0.375);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(7) {\ntransform: rotate(270deg);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(7)::before {\nanimation-delay: calc(var(--uib-speed) * -0.25);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(8) {\ntransform: rotate(315deg);\n}\n\n.darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot:nth-child(8)::before {\nanimation-delay: calc(var(--uib-speed) * -0.125);\n}\n\n@keyframes darma-loader-uiverse-orbit-dot-spinner-pulse0112 {\n0%,\n100% {\ntransform: scale(0);\nopacity: 0.5;\n}\n\n50% {\ntransform: scale(1);\nopacity: 1;\n}\n}",
+    "react": "export default function UiverseOrbitDotSpinnerLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-orbit-dot-spinner\">\n<div className=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner\">\n    <div className=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot\"></div>\n    <div className=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot\"></div>\n    <div className=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot\"></div>\n    <div className=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot\"></div>\n    <div className=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot\"></div>\n    <div className=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot\"></div>\n    <div className=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot\"></div>\n    <div className=\"darma-loader-uiverse-orbit-dot-spinner__dot-spinner__dot\"></div>\n</div>\n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": false,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Uiverse selected loaders batch 2",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  }
+}

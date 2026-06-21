@@ -1,0 +1,38 @@
+{
+  "id": "uiverse-golden-bubble-train",
+  "name": "Golden Bubble Train",
+  "category": "dots",
+  "tags": [
+    "uiverse",
+    "golden",
+    "bubble",
+    "train",
+    "dots",
+    "loader"
+  ],
+  "html": "<div class=\"loader\">\n\t<div></div>\n\t<div></div>\n\t<div></div>\n\t<div></div>\n\t<div></div>\n</div>",
+  "css": ".loader {\n  height: 30px;\n  display: inline-block;\n}\n\n.loader > div {\nwidth: 10px;\nheight: 10px;\nborder-radius: 100%;\nbox-shadow: 0 0 10px orange;\nbackground: #FFECBA;\nfloat: left;\nmargin: 5px;\ntransform: scale(2);\n}\n\n.loader > div:nth-child(1) {\nanimation: anm-BL-53-move1 1s infinite linear;\n}\n\n.loader > div:nth-child(2) {\nanimation: anm-BL-53-move2 1s infinite linear;\nanimation-delay: 0.2s;\n}\n\n.loader > div:nth-child(3) {\nanimation: anm-BL-53-move3 1s infinite linear;\nanimation-delay: 0.3s;\n}\n\n.loader > div:nth-child(4) {\nanimation: anm-BL-53-move4 1s infinite linear;\nanimation-delay: 0.4s;\n}\n\n.loader > div:nth-child(5) {\nanimation: anm-BL-53-move5 1s infinite linear;\nanimation-delay: 0.5s;\n}\n\n@keyframes anm-BL-53-move1 {\n50% {\nbackground: #FFBB00;\ntransform: scale(1);\n}\n}\n\n@keyframes anm-BL-53-move2 {\n50% {\nbackground: #FFBB00;\ntransform: scale(1);\n}\n}\n\n@keyframes anm-BL-53-move3 {\n50% {\nbackground: #FFBB00;\ntransform: scale(1);\n}\n}\n\n@keyframes anm-BL-53-move4 {\n50% {\nbackground: #FFBB00;\ntransform: scale(1);\n}\n}\n\n@keyframes anm-BL-53-move5 {\n50% {\nbackground: #FFBB00;\ntransform: scale(1);\n}\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 3",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 88,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

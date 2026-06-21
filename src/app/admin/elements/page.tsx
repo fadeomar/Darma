@@ -2,6 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import categoriesData from "@/data/category.json";
 import type { ElementDTO } from "@/features/elements/dto/element.dto";
 import ElementList from "../ElementList";
@@ -18,22 +19,6 @@ type PaginatedApiResponse<T> = {
   pageSize: number;
 };
 
-// temporary: until you also DTO-ify your create/update payloads
-type CreateElementPayload = {
-  id?: string;
-  title: string;
-  description: string;
-  shortDescription?: string | null;
-  html: string;
-  css: string;
-  js?: string | null;
-  tags: string[];
-  mainCategory: string[];
-  secondaryCategory: string[];
-  reviewed?: boolean;
-  deleted?: boolean;
-  slug?: string | null;
-};
 function optionsToValues(
   value:
     | MultiValue<DropdownOption>
@@ -49,6 +34,7 @@ function optionsToValues(
 }
 
 export default function ElementsPage() {
+  const searchParams = useSearchParams();
   const [elements, setElements] = useState<ElementDTO[]>([]);
   const [previewedElement, setPreviewedElement] = useState<ElementDTO | null>(
     null,
@@ -86,6 +72,17 @@ export default function ElementsPage() {
 
   const itemsPerPage = 6;
   const categories = (categoriesData as any).categories ?? [];
+
+  // Deep-link support from other admin pages:
+  //   /admin/elements?new=1        -> open a blank create form
+  //   /admin/elements?edit=<id>    -> open the edit form for that element
+  // (the Review Queue "Edit" button uses the latter)
+  const newParam = searchParams.get("new");
+  const editParam = searchParams.get("edit");
+
+  useEffect(() => {
+    if (newParam) setShowCreateForm(true);
+  }, [newParam]);
 
   useEffect(() => {
     let cancelled = false;
@@ -256,24 +253,34 @@ export default function ElementsPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const payload: CreateElementPayload = {
-      id: formData.id || undefined,
+    const isUpdate = Boolean(formData.id);
+
+    // Fields shared by create + update. These match the Zod write schemas
+    // exactly (no `id`, no `deleted`). `js` is sent as a string because the
+    // strict schemas only accept string for `js` (null is rejected).
+    const base = {
       title: formData.title || "",
-      description: (formData.description as any) || "",
-      shortDescription: (formData.shortDescription as any) ?? null,
+      description: (formData.description as string) || "",
+      shortDescription: (formData.shortDescription as string) || null,
       html: formData.html || "",
       css: formData.css || "",
-      js: (formData.js as any) ?? null,
+      js: (formData.js as string) || "",
       tags: formData.tags || [],
       mainCategory: formData.mainCategory || [],
       secondaryCategory: formData.secondaryCategory || [],
       reviewed: !!formData.reviewed,
-      deleted: !!formData.deleted,
-      slug: formData.slug ? (slugify(formData.slug) ?? "") : "",
     };
 
-    const url = formData.id ? `/api/elements/${formData.id}` : "/api/elements";
-    const method = formData.id ? "PUT" : "POST";
+    // On create the slug is generated server-side, so we do NOT send it.
+    // On update we only send a non-empty slug (the update schema requires
+    // slug.min(1); an empty slug would fail validation).
+    const trimmedSlug = formData.slug ? (slugify(formData.slug) ?? "") : "";
+    const payload = isUpdate
+      ? { ...base, ...(trimmedSlug ? { slug: trimmedSlug } : {}) }
+      : base;
+
+    const url = isUpdate ? `/api/elements/${formData.id}` : "/api/elements";
+    const method = isUpdate ? "PUT" : "POST";
 
     try {
       const response = await fetch(url, {
@@ -332,6 +339,34 @@ export default function ElementsPage() {
 
     setShowCreateForm(true);
   };
+
+  // Fetch + open the edit form when arriving via /admin/elements?edit=<id>
+  // (used by the Review Queue "Edit" shortcut). Uses the admin endpoint so it
+  // also works for pending/unreviewed and soft-deleted items.
+  useEffect(() => {
+    if (!editParam) return;
+
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch(`/api/admin/elements/${editParam}`, {
+          cache: "no-store",
+        });
+        if (!res.ok) {
+          console.error("Failed to load element for edit:", res.status);
+          return;
+        }
+        const element = (await res.json()) as ElementDTO;
+        if (!cancelled) handleEdit(element);
+      } catch (e) {
+        console.error("Failed to load element for edit:", e);
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [editParam]);
 
   const handleDeleteClick = (id: string) => {
     setElementToDelete(id);

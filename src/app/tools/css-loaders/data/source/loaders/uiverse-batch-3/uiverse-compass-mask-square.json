@@ -1,0 +1,38 @@
+{
+  "id": "uiverse-compass-mask-square",
+  "name": "Compass Mask Square",
+  "category": "minimal",
+  "tags": [
+    "uiverse",
+    "compass",
+    "mask",
+    "square",
+    "minimal",
+    "loader"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 160px;\n  height: 160px;\n  color: #0000F4;\n  background: conic-gradient(from  165deg at top   ,#0000, currentColor 1deg 30deg,#0000 31deg) top,\n    conic-gradient(from   75deg at left  ,#0000, currentColor 1deg 30deg,#0000 31deg) left,\n    conic-gradient(from  -15deg at bottom,#0000, currentColor 1deg 30deg,#0000 31deg) bottom, \n    conic-gradient(from -105deg at right ,#0000, currentColor 1deg 30deg,#0000 31deg) right;\n  background-size: 100% 50%,50% 100%;\n  -webkit-mask: radial-gradient(circle 10px,#0000 90%,#000);\n  background-repeat: no-repeat;\n  animation: sh1 1.5s infinite linear;\n}\n\n@keyframes sh1 {\n\n100% {\ntransform: rotate(1turn)\n}\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 3",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 88,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

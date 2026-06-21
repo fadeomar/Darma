@@ -1,0 +1,38 @@
+{
+  "id": "uiverse-candy-gradient-word",
+  "name": "Candy Gradient Word",
+  "category": "minimal",
+  "tags": [
+    "uiverse",
+    "text",
+    "gradient",
+    "word",
+    "minimal",
+    "loader"
+  ],
+  "html": "<div class=\"loader\">\n  Loading\n</div>",
+  "css": ".loader {\n  font-size: 2rem;\n  font-family: sans-serif;\n  font-variant: small-caps;\n  font-weight: 900;\n  background: conic-gradient(\n    #dff2ae 0 25%,\n    #ff904f 25% 50%,\n    #feefe7 50% 75%,\n    #ffde2b 75%\n  );\n  background-size: 200% 200%;\n  animation: animateBackground 4.5s ease-in-out infinite;\n  color: transparent;\n  background-clip: text;\n  -webkit-background-clip: text;\n}\n\n@keyframes animateBackground {\n25% {\nbackground-position: 0 100%;\n}\n\n50% {\nbackground-position: 100% 100%;\n}\n\n75% {\nbackground-position: 100% 0%;\n}\n\n100% {\nbackground-position: 0 0;\n}\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 3",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 88,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "uiverse-purple-pulse-batons",
+  "name": "Purple Pulse Batons",
+  "category": "dots",
+  "tags": [
+    "uiverse",
+    "pulse",
+    "batons",
+    "dots",
+    "purple",
+    "loader"
+  ],
+  "html": "<div class=\"loader-container\">\n  <div class=\"loader-dot\"></div>\n  <div class=\"loader-dot\"></div>\n  <div class=\"loader-dot\"></div>\n  <div class=\"loader-dot\"></div>\n</div>\n\n/* mini loader component */",
+  "css": ".loader-container {\ndisplay: flex;\nalign-items: center;\njustify-content: center;\nwidth: 3.75em; /* 60px */\n}\n\n.loader-dot {\nheight: 0.8125em; /* 13px */\nwidth: 1.25em; /* 20px */\nmargin-right: 0.625em; /* 10px */\nborder-radius: 0.625em; /* 10px */\nbackground-color: #721a8f;\nanimation: loaderpulse 1.5s infinite ease-in-out;\n}\n\n.loader-dot:last-child {\nmargin-right: 0;\n}\n\n.loader-dot:nth-child(1) {\nanimation-delay: -0.1875s; /* -0.3s */\n}\n\n.loader-dot:nth-child(2) {\nanimation-delay: -0.0625s; /* -0.1s */\n}\n\n.loader-dot:nth-child(3) {\nanimation-delay: 0.0625s; /* 0.1s */\n}\n\n@keyframes loaderpulse {\n0% {\ntransform: scale(0.8);\nbackground-color: #d7b3fc;\nbox-shadow: 0 0 0 0 rgb(196 178 252 / 70%);\n}\n\n50% {\ntransform: scale(1.2);\nbackground-color: #70198e;\nbox-shadow: 0 0 0 0.625em rgba(178, 212, 252, 0); /* 10px */\n}\n\n100% {\ntransform: scale(0.8);\nbackground-color: #d7b3fc;\nbox-shadow: 0 0 0 0 rgb(196 178 252 / 70%);\n}\n}\n/* mini loader component end */",
+  "source": {
+    "name": "Uiverse selected loaders batch 3",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 88,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

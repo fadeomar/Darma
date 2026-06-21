@@ -1,0 +1,38 @@
+{
+  "id": "uiverse-rolling-rock-steps",
+  "name": "Rolling Rock Steps",
+  "category": "minimal",
+  "tags": [
+    "uiverse",
+    "rolling",
+    "rock",
+    "steps",
+    "minimal",
+    "loader"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  position: relative;\n  font-size: 16px;\n  width: 5.5em;\n  height: 5.5em;\n}\n\n.loader:before {\ncontent: '';\nposition: absolute;\ntransform: translate(-50%, -50%) rotate(45deg);\nheight: 100%;\nwidth: 4px;\nbackground: #fff;\nleft: 50%;\ntop: 50%;\n}\n\n.loader:after {\ncontent: '';\nposition: absolute;\nleft: 0.2em;\nbottom: 0.18em;\nwidth: 1em;\nheight: 1em;\nbackground-color: orange;\nborder-radius: 15%;\nanimation: rollingRock 2.5s cubic-bezier(.79, 0, .47, .97) infinite;\n}\n\n@keyframes rollingRock {\n0% {\ntransform: translate(0, -1em) rotate(-45deg)\n}\n\n5% {\ntransform: translate(0, -1em) rotate(-50deg)\n}\n\n20% {\ntransform: translate(1em, -2em) rotate(47deg)\n}\n\n25% {\ntransform: translate(1em, -2em) rotate(45deg)\n}\n\n30% {\ntransform: translate(1em, -2em) rotate(40deg)\n}\n\n45% {\ntransform: translate(2em, -3em) rotate(137deg)\n}\n\n50% {\ntransform: translate(2em, -3em) rotate(135deg)\n}\n\n55% {\ntransform: translate(2em, -3em) rotate(130deg)\n}\n\n70% {\ntransform: translate(3em, -4em) rotate(217deg)\n}\n\n75% {\ntransform: translate(3em, -4em) rotate(220deg)\n}\n\n100% {\ntransform: translate(0, -1em) rotate(-225deg)\n}\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 2",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 88,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-loading-cube-wave",
+  "name": "Loading Cube Wave",
+  "category": "creative",
+  "tags": [
+    "uiverse",
+    "loading",
+    "cubes",
+    "text",
+    "3d",
+    "creative",
+    "loader"
+  ],
+  "html": "<div class=\"loader\">\n<div class=\"wrapper-grid\">\n  <div class=\"cube\">\n    <div class=\"face face-front\">L</div>\n    <div class=\"face face-back\"></div>\n    <div class=\"face face-right\"></div>\n    <div class=\"face face-left\"></div>\n    <div class=\"face face-top\"></div>\n    <div class=\"face face-bottom\"></div>\n  </div>\n\n  <div class=\"cube\">\n    <div class=\"face face-front\">O</div>\n    <div class=\"face face-back\"></div>\n    <div class=\"face face-right\"></div>\n    <div class=\"face face-left\"></div>\n    <div class=\"face face-top\"></div>\n    <div class=\"face face-bottom\"></div>\n  </div>\n\n  <div class=\"cube\">\n    <div class=\"face face-front\">A</div>\n    <div class=\"face face-back\"></div>\n    <div class=\"face face-right\"></div>\n    <div class=\"face face-left\"></div>\n    <div class=\"face face-top\"></div>\n    <div class=\"face face-bottom\"></div>\n  </div>\n\n  <div class=\"cube\">\n    <div class=\"face face-front\">D</div>\n    <div class=\"face face-back\"></div>\n    <div class=\"face face-right\"></div>\n    <div class=\"face face-left\"></div>\n    <div class=\"face face-top\"></div>\n    <div class=\"face face-bottom\"></div>\n  </div>\n\n  <div class=\"cube\">\n    <div class=\"face face-front\">I</div>\n    <div class=\"face face-back\"></div>\n    <div class=\"face face-right\"></div>\n    <div class=\"face face-left\"></div>\n    <div class=\"face face-top\"></div>\n    <div class=\"face face-bottom\"></div>\n  </div>\n\n  <div class=\"cube\">\n    <div class=\"face face-front\">N</div>\n    <div class=\"face face-back\"></div>\n    <div class=\"face face-right\"></div>\n    <div class=\"face face-left\"></div>\n    <div class=\"face face-top\"></div>\n    <div class=\"face face-bottom\"></div>\n  </div>\n\n  <div class=\"cube\">\n    <div class=\"face face-front\">G</div>\n    <div class=\"face face-back\"></div>\n    <div class=\"face face-right\"></div>\n    <div class=\"face face-left\"></div>\n    <div class=\"face face-top\"></div>\n    <div class=\"face face-bottom\"></div>\n  </div>\n</div>\n</div>",
+  "css": ".loader {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.wrapper-grid {\n  --animation-duration: 2.1s;\n  --cube-color: #0000;\n  --highlight-color: #00cc44;\n  --cube-width: 48px;\n  --cube-height: 48px;\n  --font-size: 1.8em;\n\nposition: relative;\ninset: 0;\n\ndisplay: grid;\ngrid-template-columns: repeat(7, var(--cube-width));\ngrid-template-rows: auto;\ngrid-gap: 0;\n\nwidth: calc(7 * var(--cube-width));\nheight: var(--cube-height);\nperspective: 350px;\n\nfont-family: \"Poppins\", sans-serif;\nfont-size: var(--font-size);\nfont-weight: 800;\ncolor: transparent;\n}\n\n.cube {\nposition: relative;\ntransform-style: preserve-3d;\n}\n\n.face {\nposition: absolute;\ndisplay: flex;\nalign-items: center;\njustify-content: center;\nwidth: var(--cube-width);\nheight: var(--cube-height);\nbackground-color: var(--cube-color);\n}\n.face-left,\n.face-right,\n.face-back,\n.face-front {\nbox-shadow:\ninset 0 0 2px 1px #0001,\ninset 0 0 12px 1px #fff1;\n}\n.face-front {\ntransform: rotateY(0deg) translateZ(calc(var(--cube-width) / 2));\n}\n.face-back {\ntransform: rotateY(180deg) translateZ(calc(var(--cube-width) / 2));\nopacity: 0.6;\n}\n.face-left {\ntransform: rotateY(-90deg) translateZ(calc(var(--cube-width) / 2));\nopacity: 0.6;\n}\n.face-right {\ntransform: rotateY(90deg) translateZ(calc(var(--cube-width) / 2));\nopacity: 0.6;\n}\n.face-top {\nheight: var(--cube-width);\ntransform: rotateX(90deg) translateZ(calc(var(--cube-width) / 2));\nopacity: 0.8;\n}\n.face-bottom {\nheight: var(--cube-width);\ntransform: rotateX(-90deg)\ntranslateZ(calc(var(--cube-height) - var(--cube-width) * 0.5));\nopacity: 0.8;\n}\n\n.cube:nth-child(1) {\nz-index: 0;\nanimation-delay: 0s;\n}\n.cube:nth-child(2) {\nz-index: 1;\nanimation-delay: 0.2s;\n}\n.cube:nth-child(3) {\nz-index: 2;\nanimation-delay: 0.4s;\n}\n.cube:nth-child(4) {\nz-index: 3;\nanimation-delay: 0.6s;\n}\n.cube:nth-child(5) {\nz-index: 2;\nanimation-delay: 0.8s;\n}\n.cube:nth-child(6) {\nz-index: 1;\nanimation-delay: 1s;\n}\n.cube:nth-child(7) {\nz-index: 0;\nanimation-delay: 1.2s;\n}\n\n.cube {\nanimation: translate-z var(--animation-duration) ease-in-out infinite;\n}\n.cube .face {\nanimation:\nface-color var(--animation-duration) ease-in-out infinite,\n/* face-glow var(--animation-duration) ease-in-out infinite, */ edge-glow\nvar(--animation-duration) ease-in-out infinite;\nanimation-delay: inherit;\n}\n.cube .face.face-front {\nanimation:\nface-color var(--animation-duration) ease-in-out infinite,\nface-glow var(--animation-duration) ease-in-out infinite,\nedge-glow var(--animation-duration) ease-in-out infinite;\nanimation-delay: inherit;\n}\n\n@keyframes translate-z {\n0%,\n40%,\n100% {\ntransform: translateZ(-2px);\n}\n30% {\ntransform: translateZ(16px) translateY(-1px);\n}\n}\n@keyframes face-color {\n0%,\n50%,\n100% {\nbackground-color: var(--cube-color);\n}\n10% {\nbackground-color: var(--highlight-color);\n}\n}\n@keyframes face-glow {\n0%,\n50%,\n100% {\ncolor: #fff0;\nfilter: none;\n}\n30% {\ncolor: #fff;\nfilter: drop-shadow(0 14px 10px var(--highlight-color));\n}\n}\n@keyframes edge-glow {\n0%,\n40%,\n100% {\nbox-shadow:\ninset 0 0 2px 1px #0001,\ninset 0 0 12px 1px #fff1;\n}\n30% {\nbox-shadow: 0 0 2px 0px var(--highlight-color);\n}\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 2",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 140,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

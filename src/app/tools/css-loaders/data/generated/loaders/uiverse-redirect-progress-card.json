@@ -1,0 +1,51 @@
+{
+  "id": "uiverse-redirect-progress-card",
+  "name": "Redirect Progress Card",
+  "category": "progress",
+  "tags": [
+    "uiverse",
+    "redirect",
+    "card",
+    "progress",
+    "text",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-redirect-progress-card redirect progress card progress uiverse redirect card progress text loader html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-redirect-progress-card\">\n  <label>Redirecting...</label>\n  <div class=\"darma-loader-uiverse-redirect-progress-card__loading\"></div>\n</div>",
+  "previewCss": ".darma-loader-uiverse-redirect-progress-card {\n  width: 240px;\n  height: 130px;\n  border-radius: 10px;\n  background: #fff;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-evenly;\n  padding: 30px;\n  box-shadow: 2px 2px 10px -5px lightgrey;\n}\n.darma-loader-uiverse-redirect-progress-card__loading {\n  width: 100%;\n  height: 10px;\n  background: lightgrey;\n  border-radius: 10px;\n  position: relative;\n}\n.darma-loader-uiverse-redirect-progress-card__loading::after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 50%;\n  height: 10px;\n  background: #002;\n  border-radius: 10px;\n  z-index: 1;\n  animation: darma-loader-uiverse-redirect-progress-card-loading 0.6s alternate infinite;\n}\n.darma-loader-uiverse-redirect-progress-card label {\n  color: #002;\n  font-size: 18px;\n  animation: darma-loader-uiverse-redirect-progress-card-bit 0.6s alternate infinite;\n}\n\n@keyframes darma-loader-uiverse-redirect-progress-card-bit {\nfrom {\nopacity: 0.3;\n}\nto {\nopacity: 1;\n}\n}\n\n@keyframes darma-loader-uiverse-redirect-progress-card-loading {\n0% {\nleft: 25%;\n}\n100% {\nleft: 50%;\n}\n0% {\nleft: 0%;\n}\n}",
+  "defaults": {
+    "size": 160,
+    "speed": 1,
+    "background": "#111827"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-redirect-progress-card\">\n  <label>Redirecting...</label>\n  <div class=\"darma-loader-uiverse-redirect-progress-card__loading\"></div>\n</div>",
+    "css": ".darma-loader-uiverse-redirect-progress-card {\n  width: 240px;\n  height: 130px;\n  border-radius: 10px;\n  background: #fff;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-evenly;\n  padding: 30px;\n  box-shadow: 2px 2px 10px -5px lightgrey;\n}\n.darma-loader-uiverse-redirect-progress-card__loading {\n  width: 100%;\n  height: 10px;\n  background: lightgrey;\n  border-radius: 10px;\n  position: relative;\n}\n.darma-loader-uiverse-redirect-progress-card__loading::after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 50%;\n  height: 10px;\n  background: #002;\n  border-radius: 10px;\n  z-index: 1;\n  animation: darma-loader-uiverse-redirect-progress-card-loading 0.6s alternate infinite;\n}\n.darma-loader-uiverse-redirect-progress-card label {\n  color: #002;\n  font-size: 18px;\n  animation: darma-loader-uiverse-redirect-progress-card-bit 0.6s alternate infinite;\n}\n\n@keyframes darma-loader-uiverse-redirect-progress-card-bit {\nfrom {\nopacity: 0.3;\n}\nto {\nopacity: 1;\n}\n}\n\n@keyframes darma-loader-uiverse-redirect-progress-card-loading {\n0% {\nleft: 25%;\n}\n100% {\nleft: 50%;\n}\n0% {\nleft: 0%;\n}\n}",
+    "react": "export default function UiverseRedirectProgressCardLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-redirect-progress-card\">\n  <label>Redirecting...</label>\n  <div className=\"darma-loader-uiverse-redirect-progress-card__loading\"></div>\n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": false,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Uiverse selected loaders batch 3",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  }
+}

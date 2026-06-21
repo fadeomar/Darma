@@ -124,7 +124,8 @@ function getAspect(device: MockupDevice, orientation: MockupInput["orientation"]
   return orientation === "landscape" ? 1 / aspect : aspect;
 }
 
-function getFrameRadius(device: MockupDevice, base: number) {
+function getFrameRadius(device: MockupDevice, base: number, showChrome: boolean) {
+  if (!showChrome || device === "card") return base;
   if (device === "phone") return Math.max(base, 44);
   if (device === "tablet") return Math.max(base, 30);
   if (device === "laptop" || device === "desktop" || device === "browser") return Math.max(base, 22);
@@ -187,7 +188,7 @@ function calculateFrame(input: MockupInput, width: number, height: number) {
 
 function drawDeviceChrome(ctx: CanvasRenderingContext2D, input: MockupInput, frame: { x: number; y: number; width: number; height: number }) {
   if (!input.showDeviceChrome || input.device === "card") return;
-  const radius = getFrameRadius(input.device, input.frameRadius);
+  const radius = getFrameRadius(input.device, input.frameRadius, input.showDeviceChrome);
   const chrome = getChromeSizes(input.device, frame.width);
 
   if (input.device === "phone" || input.device === "tablet") {
@@ -242,7 +243,7 @@ function getScreenRect(input: MockupInput, frame: { x: number; y: number; width:
   const chrome = getChromeSizes(input.device, frame.width);
   const inset = chrome.bezel;
   if (input.device === "phone" || input.device === "tablet") {
-    return { x: frame.x + inset, y: frame.y + chrome.top, width: frame.width - inset * 2, height: frame.height - chrome.top - chrome.bottom, radius: Math.max(16, getFrameRadius(input.device, input.frameRadius) - inset) };
+    return { x: frame.x + inset, y: frame.y + chrome.top, width: frame.width - inset * 2, height: frame.height - chrome.top - chrome.bottom, radius: Math.max(16, getFrameRadius(input.device, input.frameRadius, input.showDeviceChrome) - inset) };
   }
   return { x: frame.x + inset, y: frame.y + chrome.top + inset, width: frame.width - inset * 2, height: frame.height - chrome.top - chrome.bottom - inset * 1.5, radius: Math.max(8, input.frameRadius * 0.55) };
 }
@@ -348,7 +349,7 @@ export async function renderMockupPng(input: MockupInput, width = input.canvasWi
   ctx.translate(-(frame.x + frame.width / 2), -(frame.y + frame.height / 2));
 
   setShadow(ctx, input.shadow, width);
-  const radius = getFrameRadius(input.device, input.frameRadius);
+  const radius = getFrameRadius(input.device, input.frameRadius, input.showDeviceChrome);
   const frameColor = input.device === "card" ? "rgba(255,255,255,0.95)" : "#0b1220";
   ctx.fillStyle = frameColor;
   roundedRect(ctx, frame.x, frame.y, frame.width, frame.height, radius);

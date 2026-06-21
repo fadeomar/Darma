@@ -1,0 +1,38 @@
+{
+  "id": "uiverse-countdown-spin-dial",
+  "name": "Countdown Spin Dial",
+  "category": "creative",
+  "tags": [
+    "uiverse",
+    "count",
+    "dial",
+    "numbers",
+    "spinner",
+    "loader"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  position: relative;\n  width: 100px;\n  height: 100px;\n  border-radius: 50%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background: radial-gradient(circle, #03dac6, #6200ea);\n  border: 8px solid transparent;\n  border-top-color: #03dac6;\n  border-bottom-color: #6200ea;\n  animation: spin 2s linear infinite;\n}\n\n.loader::before {\ncontent: \"1\";\nposition: absolute;\nfont-size: 24px;\nfont-weight: bold;\ncolor: white;\nanimation: count 10s linear infinite;\n}\n\n@keyframes spin {\n0% {\ntransform: rotate(0deg);\n}\n100% {\ntransform: rotate(360deg);\n}\n}\n\n@keyframes count {\n0% {\ncontent: \"1\";\n}\n1% {\ncontent: \"2\";\n}\n2% {\ncontent: \"3\";\n}\n3% {\ncontent: \"4\";\n}\n4% {\ncontent: \"5\";\n}\n5% {\ncontent: \"6\";\n}\n6% {\ncontent: \"7\";\n}\n7% {\ncontent: \"8\";\n}\n8% {\ncontent: \"9\";\n}\n9% {\ncontent: \"10\";\n}\n10% {\ncontent: \"11\";\n}\n11% {\ncontent: \"12\";\n}\n12% {\ncontent: \"13\";\n}\n13% {\ncontent: \"14\";\n}\n14% {\ncontent: \"15\";\n}\n15% {\ncontent: \"16\";\n}\n16% {\ncontent: \"17\";\n}\n17% {\ncontent: \"18\";\n}\n18% {\ncontent: \"19\";\n}\n19% {\ncontent: \"20\";\n}\n20% {\ncontent: \"21\";\n}\n21% {\ncontent: \"22\";\n}\n22% {\ncontent: \"23\";\n}\n23% {\ncontent: \"24\";\n}\n24% {\ncontent: \"25\";\n}\n25% {\ncontent: \"26\";\n}\n26% {\ncontent: \"27\";\n}\n27% {\ncontent: \"28\";\n}\n28% {\ncontent: \"29\";\n}\n29% {\ncontent: \"30\";\n}\n30% {\ncontent: \"31\";\n}\n31% {\ncontent: \"32\";\n}\n32% {\ncontent: \"33\";\n}\n33% {\ncontent: \"34\";\n}\n34% {\ncontent: \"35\";\n}\n35% {\ncontent: \"36\";\n}\n36% {\ncontent: \"37\";\n}\n37% {\ncontent: \"38\";\n}\n38% {\ncontent: \"39\";\n}\n39% {\ncontent: \"40\";\n}\n40% {\ncontent: \"41\";\n}\n41% {\ncontent: \"42\";\n}\n42% {\ncontent: \"43\";\n}\n43% {\ncontent: \"44\";\n}\n44% {\ncontent: \"45\";\n}\n45% {\ncontent: \"46\";\n}\n46% {\ncontent: \"47\";\n}\n47% {\ncontent: \"48\";\n}\n48% {\ncontent: \"49\";\n}\n49% {\ncontent: \"50\";\n}\n50% {\ncontent: \"51\";\n}\n51% {\ncontent: \"52\";\n}\n52% {\ncontent: \"53\";\n}\n53% {\ncontent: \"54\";\n}\n54% {\ncontent: \"55\";\n}\n55% {\ncontent: \"56\";\n}\n56% {\ncontent: \"57\";\n}\n57% {\ncontent: \"58\";\n}\n58% {\ncontent: \"59\";\n}\n59% {\ncontent: \"60\";\n}\n60% {\ncontent: \"61\";\n}\n61% {\ncontent: \"62\";\n}\n62% {\ncontent: \"63\";\n}\n63% {\ncontent: \"64\";\n}\n64% {\ncontent: \"65\";\n}\n65% {\ncontent: \"66\";\n}\n66% {\ncontent: \"67\";\n}\n67% {\ncontent: \"68\";\n}\n68% {\ncontent: \"69\";\n}\n69% {\ncontent: \"70\";\n}\n70% {\ncontent: \"71\";\n}\n71% {\ncontent: \"72\";\n}\n72% {\ncontent: \"73\";\n}\n73% {\ncontent: \"74\";\n}\n74% {\ncontent: \"75\";\n}\n75% {\ncontent: \"76\";\n}\n76% {\ncontent: \"77\";\n}\n77% {\ncontent: \"78\";\n}\n78% {\ncontent: \"79\";\n}\n79% {\ncontent: \"80\";\n}\n80% {\ncontent: \"81\";\n}\n81% {\ncontent: \"82\";\n}\n82% {\ncontent: \"83\";\n}\n83% {\ncontent: \"84\";\n}\n84% {\ncontent: \"85\";\n}\n85% {\ncontent: \"86\";\n}\n86% {\ncontent: \"87\";\n}\n87% {\ncontent: \"88\";\n}\n88% {\ncontent: \"89\";\n}\n89% {\ncontent: \"90\";\n}\n90% {\ncontent: \"91\";\n}\n91% {\ncontent: \"92\";\n}\n92% {\ncontent: \"93\";\n}\n93% {\ncontent: \"94\";\n}\n94% {\ncontent: \"95\";\n}\n95% {\ncontent: \"96\";\n}\n96% {\ncontent: \"97\";\n}\n97% {\ncontent: \"98\";\n}\n98% {\ncontent: \"99\";\n}\n99% {\ncontent: \"100\";\n}\n100% {\ncontent: \"1\";\n}\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 3",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 140,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

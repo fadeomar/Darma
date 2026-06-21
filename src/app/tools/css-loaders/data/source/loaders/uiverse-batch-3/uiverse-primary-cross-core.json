@@ -1,0 +1,38 @@
+{
+  "id": "uiverse-primary-cross-core",
+  "name": "Primary Cross Core",
+  "category": "creative",
+  "tags": [
+    "uiverse",
+    "primary",
+    "cross",
+    "core",
+    "motion",
+    "loader"
+  ],
+  "html": "<div class=\"loader\">\n<div class=\"loading\">\n  <div class=\"loading-wide\">\n    <div class=\"l1 color\"></div>\n    <div class=\"l2 color\"></div>\n    <div class=\"e1 color animation-effect-light\"></div>\n    <div class=\"e2 color animation-effect-light-d\"></div>\n    <div class=\"e3 animation-effect-rot\">X</div>\n    <div class=\"e4 color animation-effect-light\"></div>\n    <div class=\"e5 color animation-effect-light-d\"></div>\n    <div class=\"e6 animation-effect-scale\">*</div>\n    <div class=\"e7 color\"></div>\n    <div class=\"e8 color\"></div>\n  </div>\n</div>\n</div>",
+  "css": ".loader {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.loading {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.loading-wide {\nwidth: 150px;\nheight: 150px;\ndisplay: flex;\njustify-content: center;\nalign-items: center;\nposition: relative;\n}\n\n.color {\nbackground-color: #4285f4; /* Google Blue */\n}\n\n.l1 {\nwidth: 15px;\nheight: 65px;\nposition: absolute;\nanimation: move-h 1.2s infinite cubic-bezier(0.65, 0.05, 0.36, 1);\nbackground-color: #f4b400; /* Google Yellow */\n}\n\n.l2 {\nwidth: 15px;\nheight: 60px;\nposition: absolute;\ntransform: rotate(90deg);\nanimation: move-v 1.2s infinite cubic-bezier(0.65, 0.05, 0.36, 1);\nbackground-color: #db4437; /* Google Red */\n}\n\n@keyframes move-h {\n0% {\ntop: 0;\nopacity: 0;\n}\n25% {\nopacity: 1;\n}\n50% {\ntop: 30%;\nopacity: 1;\n}\n75% {\nopacity: 1;\n}\n100% {\ntop: 100%;\nopacity: 0;\n}\n}\n\n@keyframes move-v {\n0% {\nleft: 0;\nopacity: 0;\n}\n25% {\nopacity: 1;\n}\n50% {\nleft: 45%;\nopacity: 1;\n}\n75% {\nopacity: 1;\n}\n100% {\nleft: 100%;\nopacity: 0;\n}\n}\n\n.animation-effect-light {\nanimation: effect 0.2s 0.1s infinite linear;\n}\n.animation-effect-light-d {\nanimation: effect 0.3s 0.2s infinite linear;\n}\n.animation-effect-rot {\nanimation: rot 0.8s infinite cubic-bezier(0.65, 0.05, 0.36, 1);\n}\n.animation-effect-scale {\nanimation: scale 0.8s infinite cubic-bezier(0.65, 0.05, 0.36, 1);\n}\n\n@keyframes effect {\n0% {\nopacity: 0;\n}\n50% {\nopacity: 1;\n}\n100% {\nopacity: 0;\n}\n}\n\n@keyframes rot {\n0% {\ntransform: rotate(0deg);\n}\n50% {\ntransform: rotate(180deg);\n}\n100% {\ntransform: rotate(360deg);\n}\n}\n\n@keyframes scale {\n0% {\nscale: 1;\n}\n50% {\nscale: 1.9;\n}\n100% {\nscale: 1;\n}\n}\n\n.e1 {\nwidth: 1px;\nheight: 40px;\nopacity: 0.3;\nposition: absolute;\ntop: 0;\nleft: 8%;\nbackground-color: #0f9d58; /* Google Green */\n}\n\n.e2 {\nwidth: 60px;\nheight: 1px;\nopacity: 0.8;\nposition: absolute;\ntop: 8%;\nleft: 0;\nbackground-color: #4285f4; /* Google Blue */\n}\n\n.e3 {\nposition: absolute;\ntop: 10%;\nleft: 12%;\nfont-family: \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;\nfont-weight: 900;\nfont-size: 18px;\ncolor: #4285f4; /* Google Blue */\n}\n\n.e4 {\nwidth: 1px;\nheight: 40px;\nopacity: 0.3;\nposition: absolute;\ntop: 90%;\nright: 10%;\nbackground-color: #db4437; /* Google Red */\n}\n\n.e5 {\nwidth: 40px;\nheight: 1px;\nopacity: 0.3;\nposition: absolute;\ntop: 100%;\nright: 0;\nbackground-color: #f4b400; /* Google Yellow */\n}\n\n.e6 {\nposition: absolute;\ntop: 100%;\nright: 0;\nfont-family: \"Segoe UI\", Tahoma, Geneva, Verdana, sans-serif;\nfont-size: 32px;\ncolor: #0f9d58; /* Google Green */\n}\n\n.e7 {\nwidth: 1px;\nheight: 20px;\nposition: absolute;\nbottom: 0;\nleft: 0;\ntransform: rotate(45deg);\nanimation: height 1s infinite cubic-bezier(0.65, 0.05, 0.36, 1);\nbackground-color: #f4b400; /* Google Yellow */\n}\n\n@keyframes height {\n0% {\nbottom: 0%;\nleft: 0%;\nheight: 0px;\n}\n25% {\nheight: 90px;\n}\n50% {\nbottom: 100%;\nleft: 100%;\nheight: 90px;\n}\n75% {\nheight: 0px;\n}\n100% {\nbottom: 0%;\nleft: 0%;\nheight: 0px;\n}\n}\n\n.e8 {\nwidth: 20px;\nheight: 1px;\nposition: absolute;\nbottom: 50%;\nleft: 0;\nanimation: width 1.5s infinite cubic-bezier(0.65, 0.05, 0.36, 1);\nbackground-color: #0f9d58; /* Google Green */\n}\n\n@keyframes width {\n0% {\nleft: 0%;\nwidth: 0px;\n}\n50% {\nleft: 100%;\nwidth: 90px;\n}\n100% {\nleft: 0%;\nwidth: 0px;\n}\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 3",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 140,
+    "speed": 1,
+    "background": "#111827"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

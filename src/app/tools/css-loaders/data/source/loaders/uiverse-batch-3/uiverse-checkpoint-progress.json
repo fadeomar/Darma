@@ -1,0 +1,38 @@
+{
+  "id": "uiverse-checkpoint-progress",
+  "name": "Checkpoint Progress",
+  "category": "progress",
+  "tags": [
+    "uiverse",
+    "checkpoints",
+    "progress",
+    "success",
+    "bar",
+    "loader"
+  ],
+  "html": "<div class=\"loader\">\n  <div class=\"bar\"></div>\n  <div class=\"check-bar-container\">\n    <div></div>\n    <div class=\"check\">\n      <svg\n        stroke=\"white\"\n        stroke-width=\"2\"\n        viewBox=\"0 0 24 24\"\n        fill=\"none\"\n        xmlns=\"http://www.w3.org/2000/svg\"\n      >\n        <path\n          d=\"m4.5 12.75 6 6 9-13.5\"\n          stroke-linejoin=\"round\"\n          stroke-linecap=\"round\"\n        ></path>\n      </svg>\n    </div>\n    <div class=\"check\">\n      <svg\n        stroke=\"white\"\n        stroke-width=\"2\"\n        viewBox=\"0 0 24 24\"\n        fill=\"none\"\n        xmlns=\"http://www.w3.org/2000/svg\"\n      >\n        <path\n          d=\"m4.5 12.75 6 6 9-13.5\"\n          stroke-linejoin=\"round\"\n          stroke-linecap=\"round\"\n        ></path>\n      </svg>\n    </div>\n    <div class=\"check\">\n      <svg\n        stroke=\"white\"\n        stroke-width=\"2\"\n        viewBox=\"0 0 24 24\"\n        fill=\"none\"\n        xmlns=\"http://www.w3.org/2000/svg\"\n      >\n        <path\n          d=\"m4.5 12.75 6 6 9-13.5\"\n          stroke-linejoin=\"round\"\n          stroke-linecap=\"round\"\n        ></path>\n      </svg>\n    </div>\n  </div>\n</div>",
+  "css": "@keyframes loadingBar {\n  0% {\n    width: 0%;\n    animation-timing-function: ease-out;\n  }\n  30% {\n    width: 33%;\n    animation-timing-function: ease-out;\n  }\n  60% {\n    width: 66%;\n    animation-timing-function: ease-out;\n  }\n  90% {\n    width: 100%;\n    animation-timing-function: ease-out;\n  }\n  100% {\n    width: 100%;\n    animation-timing-function: ease-out;\n  }\n}\n\n@keyframes checkScale1 {\n0% {\ntransform: scale(0.75);\nbackground-color: #535353;\n}\n28% {\ntransform: scale(0.75);\nbackground-color: #535353;\n}\n29% {\ntransform: scale(1);\nbackground-color: rgb(0, 205, 0);\n}\n100% {\ntransform: scale(1);\nbackground-color: rgb(0, 205, 0);\n}\n}\n\n@keyframes checkScale2 {\n0% {\ntransform: scale(0.75);\nbackground-color: #535353;\n}\n58% {\ntransform: scale(0.75);\nbackground-color: #535353;\n}\n59% {\ntransform: scale(1);\nbackground-color: rgb(0, 205, 0);\n}\n100% {\ntransform: scale(1);\nbackground-color: rgb(0, 205, 0);\n}\n}\n\n@keyframes checkScale3 {\n0% {\ntransform: scale(0.75);\nbackground-color: #535353;\n}\n88% {\ntransform: scale(0.75);\nbackground-color: #535353;\n}\n89% {\ntransform: scale(1);\nbackground-color: rgb(0, 205, 0);\n}\n100% {\ntransform: scale(1);\nbackground-color: rgb(0, 205, 0);\n}\n}\n\n.loader {\nposition: relative;\nbackground-color: #535353;\nborder-radius: 1em;\nheight: 1em;\nwidth: 330px;\n}\n\n.bar {\nposition: relative;\nbackground-color: rgb(0, 205, 0);\nwidth: 40px;\nheight: 100%;\nborder-radius: 1em;\nanimation: loadingBar 6s linear infinite;\n}\n\n.check-bar-container {\nposition: absolute;\nleft: 0px;\ntop: -4px;\nz-index: 69;\ndisplay: flex;\nwidth: 100%;\njustify-content: space-between;\nheight: 0.5em;\n}\n\n.check {\nborder-radius: 1em;\nheight: 1.5em;\nwidth: 1.5em;\npadding: 3px;\nbackground-color: #535353;\ntransform: scale(0.75);\n}\n\n.check-bar-container .check:nth-of-type(2) {\nanimation: checkScale1 6s linear infinite;\n}\n.check-bar-container .check:nth-of-type(3) {\nanimation: checkScale2 6s linear infinite;\n}\n.check-bar-container .check:nth-of-type(4) {\nanimation: checkScale3 6s linear infinite;\ntransform-origin: right;\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 3",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 160,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

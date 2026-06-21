@@ -1,0 +1,52 @@
+{
+  "id": "uiverse-crystal-bloom",
+  "name": "Crystal Bloom",
+  "category": "creative",
+  "tags": [
+    "uiverse",
+    "crystal",
+    "bloom",
+    "3d",
+    "gradient",
+    "creative",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-crystal-bloom crystal bloom creative uiverse crystal bloom 3d gradient creative loader html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-crystal-bloom__container\">\n  <div class=\"darma-loader-uiverse-crystal-bloom\">\n    <div class=\"darma-loader-uiverse-crystal-bloom__crystal\"></div>\n    <div class=\"darma-loader-uiverse-crystal-bloom__crystal\"></div>\n    <div class=\"darma-loader-uiverse-crystal-bloom__crystal\"></div>\n    <div class=\"darma-loader-uiverse-crystal-bloom__crystal\"></div>\n    <div class=\"darma-loader-uiverse-crystal-bloom__crystal\"></div>\n    <div class=\"darma-loader-uiverse-crystal-bloom__crystal\"></div>\n  </div>\n</div>",
+  "previewCss": ".darma-loader-uiverse-crystal-bloom__container {\ndisplay: flex;\nalign-items: center;\njustify-content: center;\n}\n\n.darma-loader-uiverse-crystal-bloom {\nposition: relative;\nwidth: 200px;\nheight: 200px;\nperspective: 800px;\n}\n\n.darma-loader-uiverse-crystal-bloom__crystal {\nposition: absolute;\ntop: 50%;\nleft: 50%;\nwidth: 60px;\nheight: 60px;\nopacity: 0;\ntransform-origin: bottom center;\ntransform: translate(-50%, -50%) rotateX(45deg) rotateZ(0deg);\nanimation: darma-loader-uiverse-crystal-bloom-spin 4s linear infinite, darma-loader-uiverse-crystal-bloom-emerge 2s ease-in-out infinite alternate,\ndarma-loader-uiverse-crystal-bloom-fadeIn 0.3s ease-out forwards;\nborder-radius: 10px;\nvisibility: hidden;\n}\n\n@keyframes darma-loader-uiverse-crystal-bloom-spin {\nfrom {\ntransform: translate(-50%, -50%) rotateX(45deg) rotateZ(0deg);\n}\nto {\ntransform: translate(-50%, -50%) rotateX(45deg) rotateZ(360deg);\n}\n}\n\n@keyframes darma-loader-uiverse-crystal-bloom-emerge {\n0%,\n100% {\ntransform: translate(-50%, -50%) scale(0.5);\nopacity: 0;\n}\n50% {\ntransform: translate(-50%, -50%) scale(1);\nopacity: 1;\n}\n}\n\n@keyframes darma-loader-uiverse-crystal-bloom-fadeIn {\nto {\nvisibility: visible;\nopacity: 0.8;\n}\n}\n\n.darma-loader-uiverse-crystal-bloom__crystal:nth-child(1) {\nbackground: linear-gradient(45deg, #003366, #336699);\nanimation-delay: 0s;\n}\n\n.darma-loader-uiverse-crystal-bloom__crystal:nth-child(2) {\nbackground: linear-gradient(45deg, #003399, #3366cc);\nanimation-delay: 0.3s;\n}\n\n.darma-loader-uiverse-crystal-bloom__crystal:nth-child(3) {\nbackground: linear-gradient(45deg, #0066cc, #3399ff);\nanimation-delay: 0.6s;\n}\n\n.darma-loader-uiverse-crystal-bloom__crystal:nth-child(4) {\nbackground: linear-gradient(45deg, #0099ff, #66ccff);\nanimation-delay: 0.9s;\n}\n\n.darma-loader-uiverse-crystal-bloom__crystal:nth-child(5) {\nbackground: linear-gradient(45deg, #33ccff, #99ccff);\nanimation-delay: 1.2s;\n}\n\n.darma-loader-uiverse-crystal-bloom__crystal:nth-child(6) {\nbackground: linear-gradient(45deg, #66ffff, #ccffff);\nanimation-delay: 1.5s;\n}",
+  "defaults": {
+    "size": 140,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-crystal-bloom__container\">\n  <div class=\"darma-loader-uiverse-crystal-bloom\">\n    <div class=\"darma-loader-uiverse-crystal-bloom__crystal\"></div>\n    <div class=\"darma-loader-uiverse-crystal-bloom__crystal\"></div>\n    <div class=\"darma-loader-uiverse-crystal-bloom__crystal\"></div>\n    <div class=\"darma-loader-uiverse-crystal-bloom__crystal\"></div>\n    <div class=\"darma-loader-uiverse-crystal-bloom__crystal\"></div>\n    <div class=\"darma-loader-uiverse-crystal-bloom__crystal\"></div>\n  </div>\n</div>",
+    "css": ".darma-loader-uiverse-crystal-bloom__container {\ndisplay: flex;\nalign-items: center;\njustify-content: center;\n}\n\n.darma-loader-uiverse-crystal-bloom {\nposition: relative;\nwidth: 200px;\nheight: 200px;\nperspective: 800px;\n}\n\n.darma-loader-uiverse-crystal-bloom__crystal {\nposition: absolute;\ntop: 50%;\nleft: 50%;\nwidth: 60px;\nheight: 60px;\nopacity: 0;\ntransform-origin: bottom center;\ntransform: translate(-50%, -50%) rotateX(45deg) rotateZ(0deg);\nanimation: darma-loader-uiverse-crystal-bloom-spin 4s linear infinite, darma-loader-uiverse-crystal-bloom-emerge 2s ease-in-out infinite alternate,\ndarma-loader-uiverse-crystal-bloom-fadeIn 0.3s ease-out forwards;\nborder-radius: 10px;\nvisibility: hidden;\n}\n\n@keyframes darma-loader-uiverse-crystal-bloom-spin {\nfrom {\ntransform: translate(-50%, -50%) rotateX(45deg) rotateZ(0deg);\n}\nto {\ntransform: translate(-50%, -50%) rotateX(45deg) rotateZ(360deg);\n}\n}\n\n@keyframes darma-loader-uiverse-crystal-bloom-emerge {\n0%,\n100% {\ntransform: translate(-50%, -50%) scale(0.5);\nopacity: 0;\n}\n50% {\ntransform: translate(-50%, -50%) scale(1);\nopacity: 1;\n}\n}\n\n@keyframes darma-loader-uiverse-crystal-bloom-fadeIn {\nto {\nvisibility: visible;\nopacity: 0.8;\n}\n}\n\n.darma-loader-uiverse-crystal-bloom__crystal:nth-child(1) {\nbackground: linear-gradient(45deg, #003366, #336699);\nanimation-delay: 0s;\n}\n\n.darma-loader-uiverse-crystal-bloom__crystal:nth-child(2) {\nbackground: linear-gradient(45deg, #003399, #3366cc);\nanimation-delay: 0.3s;\n}\n\n.darma-loader-uiverse-crystal-bloom__crystal:nth-child(3) {\nbackground: linear-gradient(45deg, #0066cc, #3399ff);\nanimation-delay: 0.6s;\n}\n\n.darma-loader-uiverse-crystal-bloom__crystal:nth-child(4) {\nbackground: linear-gradient(45deg, #0099ff, #66ccff);\nanimation-delay: 0.9s;\n}\n\n.darma-loader-uiverse-crystal-bloom__crystal:nth-child(5) {\nbackground: linear-gradient(45deg, #33ccff, #99ccff);\nanimation-delay: 1.2s;\n}\n\n.darma-loader-uiverse-crystal-bloom__crystal:nth-child(6) {\nbackground: linear-gradient(45deg, #66ffff, #ccffff);\nanimation-delay: 1.5s;\n}",
+    "react": "export default function UiverseCrystalBloomLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-crystal-bloom__container\">\n  <div className=\"darma-loader-uiverse-crystal-bloom\">\n    <div className=\"darma-loader-uiverse-crystal-bloom__crystal\"></div>\n    <div className=\"darma-loader-uiverse-crystal-bloom__crystal\"></div>\n    <div className=\"darma-loader-uiverse-crystal-bloom__crystal\"></div>\n    <div className=\"darma-loader-uiverse-crystal-bloom__crystal\"></div>\n    <div className=\"darma-loader-uiverse-crystal-bloom__crystal\"></div>\n    <div className=\"darma-loader-uiverse-crystal-bloom__crystal\"></div>\n  </div>\n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": false,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Uiverse selected loaders batch 2",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  }
+}

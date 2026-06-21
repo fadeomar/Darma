@@ -1,0 +1,51 @@
+{
+  "id": "uiverse-rotating-3d-cube",
+  "name": "Rotating 3D Cube",
+  "category": "creative",
+  "tags": [
+    "uiverse",
+    "cube",
+    "3d",
+    "spinner",
+    "creative",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-rotating-3d-cube rotating 3d cube creative uiverse cube 3d spinner creative loader html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-rotating-3d-cube__spinner\"><div></div><div></div><div></div><div></div><div></div><div></div></div>",
+  "previewCss": ".darma-loader-uiverse-rotating-3d-cube__spinner {\n  width: 44px;\n  height: 44px;\n  animation: darma-loader-uiverse-rotating-3d-cube-spinner-y0fdc1 2s infinite ease;\n  transform-style: preserve-3d;\n}\n.darma-loader-uiverse-rotating-3d-cube__spinner > div {\n  background-color: color-mix(in srgb, var(--loader-color, #004dff) 20%, transparent);\n  height: 100%;\n  position: absolute;\n  width: 100%;\n  border: 2px solid var(--loader-color, #004dff);\n}\n.darma-loader-uiverse-rotating-3d-cube__spinner div:nth-of-type(1) { transform: translateZ(-22px) rotateY(180deg); }\n.darma-loader-uiverse-rotating-3d-cube__spinner div:nth-of-type(2) { transform: rotateY(-270deg) translateX(50%); transform-origin: top right; }\n.darma-loader-uiverse-rotating-3d-cube__spinner div:nth-of-type(3) { transform: rotateY(270deg) translateX(-50%); transform-origin: center left; }\n.darma-loader-uiverse-rotating-3d-cube__spinner div:nth-of-type(4) { transform: rotateX(90deg) translateY(-50%); transform-origin: top center; }\n.darma-loader-uiverse-rotating-3d-cube__spinner div:nth-of-type(5) { transform: rotateX(-90deg) translateY(50%); transform-origin: bottom center; }\n.darma-loader-uiverse-rotating-3d-cube__spinner div:nth-of-type(6) { transform: translateZ(22px); }\n@keyframes darma-loader-uiverse-rotating-3d-cube-spinner-y0fdc1 {\n  0% { transform: rotate(45deg) rotateX(-25deg) rotateY(25deg); }\n  50% { transform: rotate(45deg) rotateX(-385deg) rotateY(25deg); }\n  100% { transform: rotate(45deg) rotateX(-385deg) rotateY(385deg); }\n}",
+  "defaults": {
+    "color": "#004dff",
+    "size": 64,
+    "speed": 2
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-rotating-3d-cube__spinner\"><div></div><div></div><div></div><div></div><div></div><div></div></div>",
+    "css": ".darma-loader-uiverse-rotating-3d-cube__spinner {\n  width: 44px;\n  height: 44px;\n  animation: darma-loader-uiverse-rotating-3d-cube-spinner-y0fdc1 2s infinite ease;\n  transform-style: preserve-3d;\n}\n.darma-loader-uiverse-rotating-3d-cube__spinner > div {\n  background-color: color-mix(in srgb, var(--loader-color, #004dff) 20%, transparent);\n  height: 100%;\n  position: absolute;\n  width: 100%;\n  border: 2px solid var(--loader-color, #004dff);\n}\n.darma-loader-uiverse-rotating-3d-cube__spinner div:nth-of-type(1) { transform: translateZ(-22px) rotateY(180deg); }\n.darma-loader-uiverse-rotating-3d-cube__spinner div:nth-of-type(2) { transform: rotateY(-270deg) translateX(50%); transform-origin: top right; }\n.darma-loader-uiverse-rotating-3d-cube__spinner div:nth-of-type(3) { transform: rotateY(270deg) translateX(-50%); transform-origin: center left; }\n.darma-loader-uiverse-rotating-3d-cube__spinner div:nth-of-type(4) { transform: rotateX(90deg) translateY(-50%); transform-origin: top center; }\n.darma-loader-uiverse-rotating-3d-cube__spinner div:nth-of-type(5) { transform: rotateX(-90deg) translateY(50%); transform-origin: bottom center; }\n.darma-loader-uiverse-rotating-3d-cube__spinner div:nth-of-type(6) { transform: translateZ(22px); }\n@keyframes darma-loader-uiverse-rotating-3d-cube-spinner-y0fdc1 {\n  0% { transform: rotate(45deg) rotateX(-25deg) rotateY(25deg); }\n  50% { transform: rotate(45deg) rotateX(-385deg) rotateY(25deg); }\n  100% { transform: rotate(45deg) rotateX(-385deg) rotateY(385deg); }\n}",
+    "react": "export default function UiverseRotating3dCubeLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-rotating-3d-cube__spinner\"><div></div><div></div><div></div><div></div><div></div><div></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Uiverse selected loaders",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  }
+}

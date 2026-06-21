@@ -67,14 +67,14 @@ export function CodeOutputPanel({
             items={tabs.map((tab) => ({ value: tab.id, label: tab.label }))}
             value={currentTab?.id ?? activeTab}
             onChange={setActiveTab}
-            className="border-[var(--color-code-border)] bg-[rgba(244,241,234,0.06)] [&_button:not([aria-selected='true'])]:text-slate-400 [&_button:not([aria-selected='true'])]:hover:text-slate-200"
+            className="border-[var(--color-code-border)] bg-[rgba(244,241,234,0.06)] [&_button]:focus-visible:ring-2 [&_button]:focus-visible:ring-orange-500 [&_button]:focus-visible:ring-offset-2 [&_button]:focus-visible:ring-offset-slate-950 [&_button:not([aria-selected='true'])]:text-slate-300 [&_button:not([aria-selected='true'])]:hover:bg-white/10 [&_button:not([aria-selected='true'])]:hover:text-white [&_button[aria-selected='true']]:bg-white [&_button[aria-selected='true']]:text-slate-950"
           />
         </div>
       ) : null}
 
       <div className="p-3.5 sm:p-4">
         {currentTab && hasCode ? (
-          <pre className="darma-code-output-pre min-h-[22rem] max-h-[32rem] overflow-auto whitespace-pre-wrap rounded-[var(--radius-md)] border border-[var(--color-code-border)] bg-[var(--color-code-bg)] p-4 font-mono text-xs leading-6 text-[var(--color-code-text)] shadow-[inset_0_1px_0_rgba(244,241,234,0.04)]">
+          <pre className="darma-code-output-pre favicon-code-pre min-h-[22rem] max-h-[32rem] overflow-auto whitespace-pre-wrap rounded-[var(--radius-md)] border border-[var(--color-code-border)] bg-[var(--color-code-bg)] p-4 font-mono text-xs leading-6 text-[var(--color-code-text)] shadow-[inset_0_1px_0_rgba(244,241,234,0.04)]">
             <code data-language={currentTab.language}>{currentTab.code}</code>
           </pre>
         ) : (

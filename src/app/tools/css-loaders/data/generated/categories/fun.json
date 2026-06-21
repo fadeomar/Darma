@@ -630,6 +630,40 @@
     }
   },
   {
+    "id": "uiverse-bouncing-steps",
+    "name": "Bouncing Steps Loader",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "bounce",
+      "steps",
+      "ball",
+      "stairs",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-bouncing-steps bouncing steps loader fun uiverse bounce steps ball stairs loader html css react singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-bouncing-steps\"></div>",
+    "previewCss": ".darma-loader-uiverse-bouncing-steps {\n  position: relative;\n  width: 120px;\n  height: 170px;\n  margin: 0 auto;\n}\n\n.darma-loader-uiverse-bouncing-steps:before {\n  content: \"\";\n  position: absolute;\n  bottom: 30px;\n  left: 50px;\n  height: 30px;\n  width: 30px;\n  border-radius: 50%;\n  background: var(--loader-color, #2a9d8f);\n  animation: darma-loader-uiverse-bouncing-steps-loading-bounce 0.5s ease-in-out infinite alternate;\n}\n\n.darma-loader-uiverse-bouncing-steps:after {\n  content: \"\";\n  position: absolute;\n  right: 0;\n  top: 0;\n  height: 7px;\n  width: 45px;\n  border-radius: 4px;\n  box-shadow: 0 5px 0 var(--loader-secondary-color, #f2f2f2), -35px 50px 0 var(--loader-secondary-color, #f2f2f2), -70px 95px 0 var(--loader-secondary-color, #f2f2f2);\n  animation: darma-loader-uiverse-bouncing-steps-loading-step 1s ease-in-out infinite;\n}\n\n@keyframes darma-loader-uiverse-bouncing-steps-loading-bounce {\n  0% { transform: scale(1, 0.7); }\n  40% { transform: scale(0.8, 1.2); }\n  60% { transform: scale(1, 1); }\n  100% { bottom: 140px; }\n}\n\n@keyframes darma-loader-uiverse-bouncing-steps-loading-step {\n  0% {\n    box-shadow: 0 10px 0 transparent, 0 10px 0 var(--loader-secondary-color, #f2f2f2), -35px 50px 0 var(--loader-secondary-color, #f2f2f2), -70px 90px 0 var(--loader-secondary-color, #f2f2f2);\n  }\n  100% {\n    box-shadow: 0 10px 0 var(--loader-secondary-color, #f2f2f2), -35px 50px 0 var(--loader-secondary-color, #f2f2f2), -70px 90px 0 var(--loader-secondary-color, #f2f2f2), -70px 90px 0 transparent;\n  }\n}",
+    "defaults": {
+      "color": "#2a9d8f",
+      "secondaryColor": "#f2f2f2",
+      "size": 112,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-custom-312",
     "name": "Box Bounce",
     "category": "fun",
@@ -779,6 +813,74 @@
     }
   },
   {
+    "id": "uiverse-capybara-road-runner",
+    "name": "Capybara Road Runner",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "capybara",
+      "animal",
+      "road",
+      "run",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-capybara-road-runner capybara road runner fun uiverse capybara animal road run fun loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-capybara-road-runner__capybaraloader\">\n  <div class=\"darma-loader-uiverse-capybara-road-runner__capybara\">\n    <div class=\"darma-loader-uiverse-capybara-road-runner__capyhead\">\n      <div class=\"darma-loader-uiverse-capybara-road-runner__capyear\">\n        <div class=\"darma-loader-uiverse-capybara-road-runner__capyear2\"></div>\n      </div>\n      <div class=\"darma-loader-uiverse-capybara-road-runner__capyear\"></div>\n      <div class=\"darma-loader-uiverse-capybara-road-runner__capymouth\">\n        <div class=\"darma-loader-uiverse-capybara-road-runner__capylips\"></div>\n        <div class=\"darma-loader-uiverse-capybara-road-runner__capylips\"></div>\n      </div>\n      <div class=\"darma-loader-uiverse-capybara-road-runner__capyeye\"></div>\n      <div class=\"darma-loader-uiverse-capybara-road-runner__capyeye\"></div>\n    </div>\n    <div class=\"darma-loader-uiverse-capybara-road-runner__capyleg\"></div>\n    <div class=\"darma-loader-uiverse-capybara-road-runner__capyleg2\"></div>\n    <div class=\"darma-loader-uiverse-capybara-road-runner__capyleg2\"></div>\n    <div class=\"darma-loader-uiverse-capybara-road-runner__capy\"></div>\n  </div>\n  <div class=\"darma-loader-uiverse-capybara-road-runner\">\n    <div class=\"darma-loader-uiverse-capybara-road-runner__line\"></div>\n  </div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-capybara-road-runner__capybaraloader {\n  width: 14em;\n  height: 10em;\n  position: relative;\n  z-index: 1;\n  --color: rgb(204, 125, 45);\n  --color2: rgb(83, 56, 28);\n  transform: scale(0.75);\n}\n.darma-loader-uiverse-capybara-road-runner__capybara {\n  width: 100%;\n  height: 7.5em;\n  position: relative;\n  z-index: 1;\n}\n.darma-loader-uiverse-capybara-road-runner {\n  width: 100%;\n  height: 2.5em;\n  position: relative;\n  z-index: 1;\n  overflow: hidden;\n}\n.darma-loader-uiverse-capybara-road-runner__capy {\n  width: 85%;\n  height: 100%;\n  background: linear-gradient(var(--color), 90%, var(--color2));\n  border-radius: 45%;\n  position: relative;\n  z-index: 1;\n  animation: darma-loader-uiverse-capybara-road-runner-movebody 1s linear infinite;\n}\n.darma-loader-uiverse-capybara-road-runner__capyhead {\n  width: 7.5em;\n  height: 7em;\n  bottom: 0em;\n  right: 0em;\n  position: absolute;\n  background-color: var(--color);\n  z-index: 3;\n  border-radius: 3.5em;\n  box-shadow: -1em 0em var(--color2);\n  animation: darma-loader-uiverse-capybara-road-runner-movebody 1s linear infinite;\n}\n.darma-loader-uiverse-capybara-road-runner__capyear {\n  width: 2em;\n  height: 2em;\n  background: linear-gradient(-45deg, var(--color), 90%, var(--color2));\n  top: 0em;\n  left: 0em;\n  border-radius: 100%;\n  position: absolute;\n  overflow: hidden;\n  z-index: 3;\n}\n.darma-loader-uiverse-capybara-road-runner__capyear:nth-child(2) {\n  left: 5em;\n  background: linear-gradient(25deg, var(--color), 90%, var(--color2));\n}\n.darma-loader-uiverse-capybara-road-runner__capyear2 {\n  width: 100%;\n  height: 1em;\n  background-color: var(--color2);\n  bottom: 0em;\n  left: 0.5em;\n  border-radius: 100%;\n  position: absolute;\n  transform: rotate(-45deg);\n}\n.darma-loader-uiverse-capybara-road-runner__capymouth {\n  width: 3.5em;\n  height: 2em;\n  background-color: var(--color2);\n  position: absolute;\n  bottom: 0em;\n  left: 2.5em;\n  border-radius: 50%;\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  padding: 0.5em;\n}\n.darma-loader-uiverse-capybara-road-runner__capylips {\n  width: 0.25em;\n  height: 0.75em;\n  border-radius: 100%;\n  transform: rotate(-45deg);\n  background-color: var(--color);\n}\n.darma-loader-uiverse-capybara-road-runner__capylips:nth-child(2) {\n  transform: rotate(45deg);\n}\n.darma-loader-uiverse-capybara-road-runner__capyeye {\n  width: 2em;\n  height: 0.5em;\n  background-color: var(--color2);\n  position: absolute;\n  bottom: 3.5em;\n  left: 1.5em;\n  border-radius: 5em;\n  transform: rotate(45deg);\n}\n.darma-loader-uiverse-capybara-road-runner__capyeye:nth-child(4) {\n  transform: rotate(-45deg);\n  left: 5.5em;\n  width: 1.75em;\n}\n.darma-loader-uiverse-capybara-road-runner__capyleg {\n  width: 6em;\n  height: 5em;\n  bottom: 0em;\n  left: 0em;\n  position: absolute;\n  background: linear-gradient(var(--color), 95%, var(--color2));\n  z-index: 2;\n  border-radius: 2em;\n  animation: darma-loader-uiverse-capybara-road-runner-movebody 1s linear infinite;\n}\n.darma-loader-uiverse-capybara-road-runner__capyleg2 {\n  width: 1.75em;\n  height: 3em;\n  bottom: 0em;\n  left: 3.25em;\n  position: absolute;\n  background: linear-gradient(var(--color), 80%, var(--color2));\n  z-index: 2;\n  border-radius: 0.75em;\n  box-shadow: inset 0em -0.5em var(--color2);\n  animation: darma-loader-uiverse-capybara-road-runner-moveleg 1s linear infinite;\n}\n.darma-loader-uiverse-capybara-road-runner__capyleg2:nth-child(3) {\n  width: 1.25em;\n  left: 0.5em;\n  height: 2em;\n  animation: darma-loader-uiverse-capybara-road-runner-moveleg2 1s linear infinite 0.075s;\n}\n\n@keyframes darma-loader-uiverse-capybara-road-runner-moveleg {\n0% {\ntransform: rotate(-45deg) translateX(-5%);\n}\n50% {\ntransform: rotate(45deg) translateX(5%);\n}\n100% {\ntransform: rotate(-45deg) translateX(-5%);\n}\n}\n\n@keyframes darma-loader-uiverse-capybara-road-runner-moveleg2 {\n0% {\ntransform: rotate(45deg);\n}\n50% {\ntransform: rotate(-45deg);\n}\n100% {\ntransform: rotate(45deg);\n}\n}\n\n@keyframes darma-loader-uiverse-capybara-road-runner-movebody {\n0% {\ntransform: translateX(0%);\n}\n50% {\ntransform: translateX(2%);\n}\n100% {\ntransform: translateX(0%);\n}\n}\n\n.darma-loader-uiverse-capybara-road-runner__line {\nwidth: 50em;\nheight: 0.5em;\nborder-top: 0.5em dashed var(--color2);\nanimation: darma-loader-uiverse-capybara-road-runner-moveline 10s linear infinite;\n}\n\n@keyframes darma-loader-uiverse-capybara-road-runner-moveline {\n0% {\ntransform: translateX(0%);\nopacity: 0%;\n}\n5% {\nopacity: 100%;\n}\n95% {\nopacity: 100%;\n}\n100% {\nopacity: 0%;\ntransform: translateX(-70%);\n}\n}",
+    "defaults": {
+      "size": 128,
+      "speed": 1,
+      "background": "transparent"
+    }
+  },
+  {
+    "id": "uiverse-cloud-gear-wagon",
+    "name": "Cloud Gear Wagon",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "cloud",
+      "gear",
+      "vehicle",
+      "wheels",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-cloud-gear-wagon cloud gear wagon fun uiverse cloud gear vehicle wheels fun loader html css react singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-cloud-gear-wagon\"></div>",
+    "previewCss": ".darma-loader-uiverse-cloud-gear-wagon {\n  width: 175px;\n  height: 80px;\n  display: block;\n  margin: auto;\n  background-image: radial-gradient(circle 25px at 25px 25px, #FFF 100%, transparent 0), radial-gradient(circle 50px at 50px 50px, #FFF 100%, transparent 0), radial-gradient(circle 25px at 25px 25px, #FFF 100%, transparent 0), linear-gradient(#FFF 50px, transparent 0);\n  background-size: 50px 50px, 100px 76px, 50px 50px, 120px 40px;\n  background-position: 0px 30px, 37px 0px, 122px 30px, 25px 40px;\n  background-repeat: no-repeat;\n  position: relative;\n  box-sizing: border-box;\n}\n\n.darma-loader-uiverse-cloud-gear-wagon::before {\ncontent: '';\nleft: 60px;\nbottom: 18px;\nposition: absolute;\nwidth: 36px;\nheight: 36px;\nborder-radius: 50%;\nbackground-color: #FF3D00;\nbackground-image: radial-gradient(circle 8px at 18px 18px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 18px 0px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 0px 18px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 36px 18px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 18px 36px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 30px 5px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 30px 5px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 30px 30px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 5px 30px, #FFF 100%, transparent 0), radial-gradient(circle 4px at 5px 5px, #FFF 100%, transparent 0);\nbackground-repeat: no-repeat;\nbox-sizing: border-box;\nanimation: darma-loader-uiverse-cloud-gear-wagon-rotationBack 3s linear infinite;\n}\n\n.darma-loader-uiverse-cloud-gear-wagon::after {\ncontent: '';\nleft: 94px;\nbottom: 15px;\nposition: absolute;\nwidth: 24px;\nheight: 24px;\nborder-radius: 50%;\nbackground-color: #FF3D00;\nbackground-image: radial-gradient(circle 5px at 12px 12px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 12px 0px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 0px 12px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 24px 12px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 12px 24px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 20px 3px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 20px 3px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 20px 20px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 3px 20px, #FFF 100%, transparent 0), radial-gradient(circle 2.5px at 3px 3px, #FFF 100%, transparent 0);\nbackground-repeat: no-repeat;\nbox-sizing: border-box;\nanimation: darma-loader-uiverse-cloud-gear-wagon-rotationBack 4s linear infinite reverse;\n}\n\n@keyframes darma-loader-uiverse-cloud-gear-wagon-rotationBack {\n0% {\ntransform: rotate(0deg);\n}\n\n100% {\ntransform: rotate(-360deg);\n}\n}",
+    "defaults": {
+      "size": 128,
+      "speed": 1,
+      "background": "#111827"
+    }
+  },
+  {
     "id": "darma-custom-672",
     "name": "Coffee Progress",
     "category": "fun",
@@ -845,6 +947,40 @@
       "color": "#6366f1",
       "size": 48,
       "speed": 1
+    }
+  },
+  {
+    "id": "uiverse-delivery-truck",
+    "name": "Delivery Truck Loader",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "truck",
+      "delivery",
+      "road",
+      "svg",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-delivery-truck delivery truck loader fun uiverse truck delivery road svg fun loader html css react popular cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-delivery-truck\">\n  <div class=\"darma-loader-uiverse-delivery-truck__truckWrapper\">\n    <div class=\"darma-loader-uiverse-delivery-truck__truckBody\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 198 93\" class=\"darma-loader-uiverse-delivery-truck__trucksvg\" aria-hidden=\"true\">\n        <path stroke-width=\"3\" stroke=\"#282828\" fill=\"#F83D3D\" d=\"M135 22.5H177.264C178.295 22.5 179.22 23.133 179.594 24.0939L192.33 56.8443C192.442 57.1332 192.5 57.4404 192.5 57.7504V89C192.5 90.3807 191.381 91.5 190 91.5H135C133.619 91.5 132.5 90.3807 132.5 89V25C132.5 23.6193 133.619 22.5 135 22.5Z\"></path>\n        <path stroke-width=\"3\" stroke=\"#282828\" fill=\"#7D7C7C\" d=\"M146 33.5H181.741C182.779 33.5 183.709 34.1415 184.078 35.112L190.538 52.112C191.16 53.748 189.951 55.5 188.201 55.5H146C144.619 55.5 143.5 54.3807 143.5 53V36C143.5 34.6193 144.619 33.5 146 33.5Z\"></path>\n        <path stroke-width=\"2\" stroke=\"#282828\" fill=\"#282828\" d=\"M150 65C150 65.39 149.763 65.8656 149.127 66.2893C148.499 66.7083 147.573 67 146.5 67C145.427 67 144.501 66.7083 143.873 66.2893C143.237 65.8656 143 65.39 143 65C143 64.61 143.237 64.1344 143.873 63.7107C144.501 63.2917 145.427 63 146.5 63C147.573 63 148.499 63.2917 149.127 63.7107C149.763 64.1344 150 64.61 150 65Z\"></path>\n        <rect stroke-width=\"2\" stroke=\"#282828\" fill=\"#FFFCAB\" rx=\"1\" height=\"7\" width=\"5\" y=\"63\" x=\"187\"></rect>\n        <rect stroke-width=\"2\" stroke=\"#282828\" fill=\"#282828\" rx=\"1\" height=\"11\" width=\"4\" y=\"81\" x=\"193\"></rect>\n        <rect stroke-width=\"3\" stroke=\"#282828\" fill=\"#DFDFDF\" rx=\"2.5\" height=\"90\" width=\"121\" y=\"1.5\" x=\"6.5\"></rect>\n        <rect stroke-width=\"2\" stroke=\"#282828\" fill=\"#DFDFDF\" rx=\"2\" height=\"4\" width=\"6\" y=\"84\" x=\"1\"></rect>\n      </svg>\n    </div>\n    <div class=\"darma-loader-uiverse-delivery-truck__truckTires\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 30 30\" class=\"darma-loader-uiverse-delivery-truck__tiresvg\" aria-hidden=\"true\"><circle stroke-width=\"3\" stroke=\"#282828\" fill=\"#282828\" r=\"13.5\" cy=\"15\" cx=\"15\"></circle><circle fill=\"#DFDFDF\" r=\"7\" cy=\"15\" cx=\"15\"></circle></svg>\n      <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 30 30\" class=\"darma-loader-uiverse-delivery-truck__tiresvg\" aria-hidden=\"true\"><circle stroke-width=\"3\" stroke=\"#282828\" fill=\"#282828\" r=\"13.5\" cy=\"15\" cx=\"15\"></circle><circle fill=\"#DFDFDF\" r=\"7\" cy=\"15\" cx=\"15\"></circle></svg>\n    </div>\n    <div class=\"darma-loader-uiverse-delivery-truck__road\"></div>\n    <svg viewBox=\"0 0 453.459 453.459\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"#000000\" class=\"darma-loader-uiverse-delivery-truck__lampPost\" aria-hidden=\"true\">\n      <path d=\"M252.882,0c-37.781,0-68.686,29.953-70.245,67.358h-6.917v8.954c-26.109,2.163-45.463,10.011-45.463,19.366h9.993c-1.65,5.146-2.507,10.54-2.507,16.017c0,28.956,23.558,52.514,52.514,52.514c28.956,0,52.514-23.558,52.514-52.514c0-5.478-0.856-10.872-2.506-16.017h9.992c0-9.354-19.352-17.204-45.463-19.366v-8.954h-6.149C200.189,38.779,223.924,16,252.882,16c29.952,0,54.32,24.368,54.32,54.32c0,28.774-11.078,37.009-25.105,47.437c-17.444,12.968-37.216,27.667-37.216,78.884v113.914h-0.797c-5.068,0-9.174,4.108-9.174,9.177c0,2.844,1.293,5.383,3.321,7.066c-3.432,27.933-26.851,95.744-8.226,115.459v11.202h45.75v-11.202c18.625-19.715-4.794-87.527-8.227-115.459c2.029-1.683,3.322-4.223,3.322-7.066c0-5.068-4.107-9.177-9.176-9.177h-0.795V196.641c0-43.174,14.942-54.283,30.762-66.043c14.793-10.997,31.559-23.461,31.559-60.277C323.202,31.545,291.656,0,252.882,0zM232.77,111.694c0,23.442-19.071,42.514-42.514,42.514c-23.442,0-42.514-19.072-42.514-42.514c0-5.531,1.078-10.957,3.141-16.017h78.747C231.693,100.736,232.77,106.162,232.77,111.694z\"></path>\n    </svg>\n  </div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-delivery-truck {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.darma-loader-uiverse-delivery-truck__truckWrapper {\n  width: 200px;\n  height: 100px;\n  display: flex;\n  flex-direction: column;\n  position: relative;\n  align-items: center;\n  justify-content: flex-end;\n  overflow: hidden;\n}\n\n.darma-loader-uiverse-delivery-truck__truckBody {\n  width: 130px;\n  height: fit-content;\n  margin-bottom: 6px;\n  animation: darma-loader-uiverse-delivery-truck-truckMotion 1s linear infinite;\n}\n\n@keyframes darma-loader-uiverse-delivery-truck-truckMotion {\n  0%, 100% { transform: translateY(0px); }\n  50% { transform: translateY(3px); }\n}\n\n.darma-loader-uiverse-delivery-truck__truckTires {\n  width: 130px;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 10px 0 15px;\n  position: absolute;\n  bottom: 0;\n}\n\n.darma-loader-uiverse-delivery-truck__truckTires svg { width: 24px; }\n\n.darma-loader-uiverse-delivery-truck__road {\n  width: 100%;\n  height: 1.5px;\n  background-color: #282828;\n  position: relative;\n  bottom: 0;\n  align-self: flex-end;\n  border-radius: 3px;\n}\n\n.darma-loader-uiverse-delivery-truck__road::before {\n  content: \"\";\n  position: absolute;\n  width: 20px;\n  height: 100%;\n  background-color: #282828;\n  right: -50%;\n  border-radius: 3px;\n  animation: darma-loader-uiverse-delivery-truck-roadAnimation 1.4s linear infinite;\n  border-left: 10px solid var(--loader-bg, #ffffff);\n}\n\n.darma-loader-uiverse-delivery-truck__road::after {\n  content: \"\";\n  position: absolute;\n  width: 10px;\n  height: 100%;\n  background-color: #282828;\n  right: -65%;\n  border-radius: 3px;\n  animation: darma-loader-uiverse-delivery-truck-roadAnimation 1.4s linear infinite;\n  border-left: 4px solid var(--loader-bg, #ffffff);\n}\n\n.darma-loader-uiverse-delivery-truck__lampPost {\n  position: absolute;\n  bottom: 0;\n  right: -90%;\n  height: 90px;\n  animation: darma-loader-uiverse-delivery-truck-roadAnimation 1.4s linear infinite;\n}\n\n@keyframes darma-loader-uiverse-delivery-truck-roadAnimation {\n  0% { transform: translateX(0px); }\n  100% { transform: translateX(-350px); }\n}",
+    "defaults": {
+      "size": 120,
+      "speed": 1.4,
+      "background": "#ffffff"
     }
   },
   {
@@ -920,6 +1056,39 @@
       "size": 90,
       "speed": 1,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "uiverse-domino-cascade",
+    "name": "Domino Cascade",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "domino",
+      "cascade",
+      "fall",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-domino-cascade domino cascade fun uiverse domino cascade fall fun loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-domino-cascade\">\n<div class=\"darma-loader-uiverse-domino-cascade__spinner\">\n  <span></span>\n  <span></span>\n  <span></span>\n  <span></span>\n  <span></span>\n  <span></span>\n  <span></span>\n  <span></span>\n</div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-domino-cascade {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-domino-cascade__spinner {\n  position: relative;\n  width: 60px;\n  height: 60px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border-radius: 50%;\n  margin-left: 0;\n}\n\n.darma-loader-uiverse-domino-cascade__spinner span {\nposition: absolute;\ntop: 50%;\nleft: var(--left);\nwidth: 35px;\nheight: 7px;\nbackground: #ffff;\nanimation: darma-loader-uiverse-domino-cascade-dominos 1s ease infinite;\nbox-shadow: 2px 2px 3px 0px black;\n}\n\n.darma-loader-uiverse-domino-cascade__spinner span:nth-child(1) {\n--left: 80px;\nanimation-delay: 0.125s;\n}\n\n.darma-loader-uiverse-domino-cascade__spinner span:nth-child(2) {\n--left: 70px;\nanimation-delay: 0.3s;\n}\n\n.darma-loader-uiverse-domino-cascade__spinner span:nth-child(3) {\nleft: 60px;\nanimation-delay: 0.425s;\n}\n\n.darma-loader-uiverse-domino-cascade__spinner span:nth-child(4) {\nanimation-delay: 0.54s;\nleft: 50px;\n}\n\n.darma-loader-uiverse-domino-cascade__spinner span:nth-child(5) {\nanimation-delay: 0.665s;\nleft: 40px;\n}\n\n.darma-loader-uiverse-domino-cascade__spinner span:nth-child(6) {\nanimation-delay: 0.79s;\nleft: 30px;\n}\n\n.darma-loader-uiverse-domino-cascade__spinner span:nth-child(7) {\nanimation-delay: 0.915s;\nleft: 20px;\n}\n\n.darma-loader-uiverse-domino-cascade__spinner span:nth-child(8) {\nleft: 10px;\n}\n\n@keyframes darma-loader-uiverse-domino-cascade-dominos {\n50% {\nopacity: 0.7;\n}\n\n75% {\n-webkit-transform: rotate(90deg);\ntransform: rotate(90deg);\n}\n\n80% {\nopacity: 1;\n}\n}",
+    "defaults": {
+      "size": 128,
+      "speed": 1,
+      "background": "transparent"
     }
   },
   {
@@ -1501,6 +1670,73 @@
     }
   },
   {
+    "id": "uiverse-gooey-triad-dance",
+    "name": "Gooey Triad Dance",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "gooey",
+      "dots",
+      "triad",
+      "filter",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-gooey-triad-dance gooey triad dance fun uiverse gooey dots triad filter fun loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-gooey-triad-dance\">\n<div class=\"darma-loader-uiverse-gooey-triad-dance__container\">\n  <div class=\"darma-loader-uiverse-gooey-triad-dance__dot darma-loader-uiverse-gooey-triad-dance__dot-1\"></div>\n  <div class=\"darma-loader-uiverse-gooey-triad-dance__dot darma-loader-uiverse-gooey-triad-dance__dot-2\"></div>\n  <div class=\"darma-loader-uiverse-gooey-triad-dance__dot darma-loader-uiverse-gooey-triad-dance__dot-3\"></div>\n</div>\n\n<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\">\n  <defs>\n    <filter id=\"uiverse-gooey-triad-dance-goo\">\n      <feGaussianBlur\n        result=\"blur\"\n        stdDeviation=\"10\"\n        in=\"SourceGraphic\"\n      ></feGaussianBlur>\n      <feColorMatrix\n        values=\"1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7\"\n        mode=\"matrix\"\n        in=\"blur\"\n      ></feColorMatrix>\n    </filter>\n  </defs>\n</svg>\n</div>",
+    "previewCss": ".darma-loader-uiverse-gooey-triad-dance {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-gooey-triad-dance__container {\n  width: 200px;\n  height: 200px;\n  position: relative;\n  margin: auto;\n  filter: url(\"#uiverse-gooey-triad-dance-goo\");\n  animation: darma-loader-uiverse-gooey-triad-dance-rotate-move 2s ease-in-out infinite;\n}\n\n.darma-loader-uiverse-gooey-triad-dance__dot {\nwidth: 70px;\nheight: 70px;\nborder-radius: 50%;\nbackground-color: #000;\nposition: absolute;\ntop: 0;\nbottom: 0;\nleft: 0;\nright: 0;\nmargin: auto;\n}\n\n.darma-loader-uiverse-gooey-triad-dance__dot-3 {\nbackground-color: #ff1717;\nanimation: darma-loader-uiverse-gooey-triad-dance-dot-3-move 2s ease infinite, darma-loader-uiverse-gooey-triad-dance-index 6s ease infinite;\n}\n\n.darma-loader-uiverse-gooey-triad-dance__dot-2 {\nbackground-color: #0051ff;\nanimation: darma-loader-uiverse-gooey-triad-dance-dot-2-move 2s ease infinite, darma-loader-uiverse-gooey-triad-dance-index 6s -4s ease infinite;\n}\n\n.darma-loader-uiverse-gooey-triad-dance__dot-1 {\nbackground-color: #ffc400;\nanimation: darma-loader-uiverse-gooey-triad-dance-dot-1-move 2s ease infinite, darma-loader-uiverse-gooey-triad-dance-index 6s -2s ease infinite;\n}\n\n@keyframes darma-loader-uiverse-gooey-triad-dance-dot-3-move {\n20% {\ntransform: scale(1);\n}\n45% {\ntransform: translateY(-18px) scale(0.45);\n}\n60% {\ntransform: translateY(-90px) scale(0.45);\n}\n80% {\ntransform: translateY(-90px) scale(0.45);\n}\n100% {\ntransform: translateY(0px) scale(1);\n}\n}\n\n@keyframes darma-loader-uiverse-gooey-triad-dance-dot-2-move {\n20% {\ntransform: scale(1);\n}\n45% {\ntransform: translate(-16px, 12px) scale(0.45);\n}\n60% {\ntransform: translate(-80px, 60px) scale(0.45);\n}\n80% {\ntransform: translate(-80px, 60px) scale(0.45);\n}\n100% {\ntransform: translateY(0px) scale(1);\n}\n}\n\n@keyframes darma-loader-uiverse-gooey-triad-dance-dot-1-move {\n20% {\ntransform: scale(1);\n}\n45% {\ntransform: translate(16px, 12px) scale(0.45);\n}\n60% {\ntransform: translate(80px, 60px) scale(0.45);\n}\n80% {\ntransform: translate(80px, 60px) scale(0.45);\n}\n100% {\ntransform: translateY(0px) scale(1);\n}\n}\n\n@keyframes darma-loader-uiverse-gooey-triad-dance-rotate-move {\n55% {\ntransform: translate(-50%, -50%) rotate(0deg);\n}\n80% {\ntransform: translate(-50%, -50%) rotate(360deg);\n}\n100% {\ntransform: translate(-50%, -50%) rotate(360deg);\n}\n}\n\n@keyframes darma-loader-uiverse-gooey-triad-dance-index {\n0%,\n100% {\nz-index: 3;\n}\n33.3% {\nz-index: 2;\n}\n66.6% {\nz-index: 1;\n}\n}",
+    "defaults": {
+      "size": 128,
+      "speed": 1,
+      "background": "transparent"
+    }
+  },
+  {
+    "id": "uiverse-hamster-wheel-sprint",
+    "name": "Hamster Wheel Sprint",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "hamster",
+      "wheel",
+      "animal",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-hamster-wheel-sprint hamster wheel sprint fun uiverse hamster wheel animal fun loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-hamster-wheel-sprint\">\n<div aria-label=\"Orange and tan hamster running in a metal wheel\" role=\"img\" class=\"darma-loader-uiverse-hamster-wheel-sprint__wheel-and-hamster\">\n\t<div class=\"darma-loader-uiverse-hamster-wheel-sprint__wheel\"></div>\n\t<div class=\"darma-loader-uiverse-hamster-wheel-sprint__hamster\">\n\t\t<div class=\"darma-loader-uiverse-hamster-wheel-sprint__hamster__body\">\n\t\t\t<div class=\"darma-loader-uiverse-hamster-wheel-sprint__hamster__head\">\n\t\t\t\t<div class=\"darma-loader-uiverse-hamster-wheel-sprint__hamster__ear\"></div>\n\t\t\t\t<div class=\"darma-loader-uiverse-hamster-wheel-sprint__hamster__eye\"></div>\n\t\t\t\t<div class=\"darma-loader-uiverse-hamster-wheel-sprint__hamster__nose\"></div>\n\t\t\t</div>\n\t\t\t<div class=\"darma-loader-uiverse-hamster-wheel-sprint__hamster__limb darma-loader-uiverse-hamster-wheel-sprint__hamster__limb--fr\"></div>\n\t\t\t<div class=\"darma-loader-uiverse-hamster-wheel-sprint__hamster__limb darma-loader-uiverse-hamster-wheel-sprint__hamster__limb--fl\"></div>\n\t\t\t<div class=\"darma-loader-uiverse-hamster-wheel-sprint__hamster__limb darma-loader-uiverse-hamster-wheel-sprint__hamster__limb--br\"></div>\n\t\t\t<div class=\"darma-loader-uiverse-hamster-wheel-sprint__hamster__limb darma-loader-uiverse-hamster-wheel-sprint__hamster__limb--bl\"></div>\n\t\t\t<div class=\"darma-loader-uiverse-hamster-wheel-sprint__hamster__tail\"></div>\n\t\t</div>\n\t</div>\n\t<div class=\"darma-loader-uiverse-hamster-wheel-sprint__spoke\"></div>\n</div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-hamster-wheel-sprint {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-hamster-wheel-sprint__wheel-and-hamster {\n  --dur: 1s;\n  position: relative;\n  width: 12em;\n  height: 12em;\n  font-size: 14px;\n}\n\n.darma-loader-uiverse-hamster-wheel-sprint__wheel,\n.darma-loader-uiverse-hamster-wheel-sprint__hamster,\n.darma-loader-uiverse-hamster-wheel-sprint__hamster div,\n.darma-loader-uiverse-hamster-wheel-sprint__spoke {\nposition: absolute;\n}\n\n.darma-loader-uiverse-hamster-wheel-sprint__wheel,\n.darma-loader-uiverse-hamster-wheel-sprint__spoke {\nborder-radius: 50%;\ntop: 0;\nleft: 0;\nwidth: 100%;\nheight: 100%;\n}\n\n.darma-loader-uiverse-hamster-wheel-sprint__wheel {\nbackground: radial-gradient(100% 100% at center,hsla(0,0%,60%,0) 47.8%,hsl(0,0%,60%) 48%);\nz-index: 2;\n}\n\n.darma-loader-uiverse-hamster-wheel-sprint__hamster {\nanimation: darma-loader-uiverse-hamster-wheel-sprint-hamster var(--dur) ease-in-out infinite;\ntop: 50%;\nleft: calc(50% - 3.5em);\nwidth: 7em;\nheight: 3.75em;\ntransform: rotate(4deg) translate(-0.8em,1.85em);\ntransform-origin: 50% 0;\nz-index: 1;\n}\n\n.darma-loader-uiverse-hamster-wheel-sprint__hamster__head {\nanimation: darma-loader-uiverse-hamster-wheel-sprint-hamsterHead var(--dur) ease-in-out infinite;\nbackground: hsl(30,90%,55%);\nborder-radius: 70% 30% 0 100% / 40% 25% 25% 60%;\nbox-shadow: 0 -0.25em 0 hsl(30,90%,80%) inset,\n0.75em -1.55em 0 hsl(30,90%,90%) inset;\ntop: 0;\nleft: -2em;\nwidth: 2.75em;\nheight: 2.5em;\ntransform-origin: 100% 50%;\n}\n\n.darma-loader-uiverse-hamster-wheel-sprint__hamster__ear {\nanimation: darma-loader-uiverse-hamster-wheel-sprint-hamsterEar var(--dur) ease-in-out infinite;\nbackground: hsl(0,90%,85%);\nborder-radius: 50%;\nbox-shadow: -0.25em 0 hsl(30,90%,55%) inset;\ntop: -0.25em;\nright: -0.25em;\nwidth: 0.75em;\nheight: 0.75em;\ntransform-origin: 50% 75%;\n}\n\n.darma-loader-uiverse-hamster-wheel-sprint__hamster__eye {\nanimation: darma-loader-uiverse-hamster-wheel-sprint-hamsterEye var(--dur) linear infinite;\nbackground-color: hsl(0,0%,0%);\nborder-radius: 50%;\ntop: 0.375em;\nleft: 1.25em;\nwidth: 0.5em;\nheight: 0.5em;\n}\n\n.darma-loader-uiverse-hamster-wheel-sprint__hamster__nose {\nbackground: hsl(0,90%,75%);\nborder-radius: 35% 65% 85% 15% / 70% 50% 50% 30%;\ntop: 0.75em;\nleft: 0;\nwidth: 0.2em;\nheight: 0.25em;\n}\n\n.darma-loader-uiverse-hamster-wheel-sprint__hamster__body {\nanimation: darma-loader-uiverse-hamster-wheel-sprint-hamsterBody var(--dur) ease-in-out infinite;\nbackground: hsl(30,90%,90%);\nborder-radius: 50% 30% 50% 30% / 15% 60% 40% 40%;\nbox-shadow: 0.1em 0.75em 0 hsl(30,90%,55%) inset,\n0.15em -0.5em 0 hsl(30,90%,80%) inset;\ntop: 0.25em;\nleft: 2em;\nwidth: 4.5em;\nheight: 3em;\ntransform-origin: 17% 50%;\ntransform-style: preserve-3d;\n}\n\n.darma-loader-uiverse-hamster-wheel-sprint__hamster__limb--fr,\n.darma-loader-uiverse-hamster-wheel-sprint__hamster__limb--fl {\nclip-path: polygon(0 0,100% 0,70% 80%,60% 100%,0% 100%,40% 80%);\ntop: 2em;\nleft: 0.5em;\nwidth: 1em;\nheight: 1.5em;\ntransform-origin: 50% 0;\n}\n\n.darma-loader-uiverse-hamster-wheel-sprint__hamster__limb--fr {\nanimation: darma-loader-uiverse-hamster-wheel-sprint-hamsterFRLimb var(--dur) linear infinite;\nbackground: linear-gradient(hsl(30,90%,80%) 80%,hsl(0,90%,75%) 80%);\ntransform: rotate(15deg) translateZ(-1px);\n}\n\n.darma-loader-uiverse-hamster-wheel-sprint__hamster__limb--fl {\nanimation: darma-loader-uiverse-hamster-wheel-sprint-hamsterFLLimb var(--dur) linear infinite;\nbackground: linear-gradient(hsl(30,90%,90%) 80%,hsl(0,90%,85%) 80%);\ntransform: rotate(15deg);\n}\n\n.darma-loader-uiverse-hamster-wheel-sprint__hamster__limb--br,\n.darma-loader-uiverse-hamster-wheel-sprint__hamster__limb--bl {\nborder-radius: 0.75em 0.75em 0 0;\nclip-path: polygon(0 0,100% 0,100% 30%,70% 90%,70% 100%,30% 100%,40% 90%,0% 30%);\ntop: 1em;\nleft: 2.8em;\nwidth: 1.5em;\nheight: 2.5em;\ntransform-origin: 50% 30%;\n}\n\n.darma-loader-uiverse-hamster-wheel-sprint__hamster__limb--br {\nanimation: darma-loader-uiverse-hamster-wheel-sprint-hamsterBRLimb var(--dur) linear infinite;\nbackground: linear-gradient(hsl(30,90%,80%) 90%,hsl(0,90%,75%) 90%);\ntransform: rotate(-25deg) translateZ(-1px);\n}\n\n.darma-loader-uiverse-hamster-wheel-sprint__hamster__limb--bl {\nanimation: darma-loader-uiverse-hamster-wheel-sprint-hamsterBLLimb var(--dur) linear infinite;\nbackground: linear-gradient(hsl(30,90%,90%) 90%,hsl(0,90%,85%) 90%);\ntransform: rotate(-25deg);\n}\n\n.darma-loader-uiverse-hamster-wheel-sprint__hamster__tail {\nanimation: darma-loader-uiverse-hamster-wheel-sprint-hamsterTail var(--dur) linear infinite;\nbackground: hsl(0,90%,85%);\nborder-radius: 0.25em 50% 50% 0.25em;\nbox-shadow: 0 -0.2em 0 hsl(0,90%,75%) inset;\ntop: 1.5em;\nright: -0.5em;\nwidth: 1em;\nheight: 0.5em;\ntransform: rotate(30deg) translateZ(-1px);\ntransform-origin: 0.25em 0.25em;\n}\n\n.darma-loader-uiverse-hamster-wheel-sprint__spoke {\nanimation: darma-loader-uiverse-hamster-wheel-sprint-spoke var(--dur) linear infinite;\nbackground: radial-gradient(100% 100% at center,hsl(0,0%,60%) 4.8%,hsla(0,0%,60%,0) 5%),\nlinear-gradient(hsla(0,0%,55%,0) 46.9%,hsl(0,0%,65%) 47% 52.9%,hsla(0,0%,65%,0) 53%) 50% 50% / 99% 99% no-repeat;\n}\n\n/* Animations */\n@keyframes darma-loader-uiverse-hamster-wheel-sprint-hamster {\nfrom, to {\ntransform: rotate(4deg) translate(-0.8em,1.85em);\n}\n\n50% {\ntransform: rotate(0) translate(-0.8em,1.85em);\n}\n}\n\n@keyframes darma-loader-uiverse-hamster-wheel-sprint-hamsterHead {\nfrom, 25%, 50%, 75%, to {\ntransform: rotate(0);\n}\n\n12.5%, 37.5%, 62.5%, 87.5% {\ntransform: rotate(8deg);\n}\n}\n\n@keyframes darma-loader-uiverse-hamster-wheel-sprint-hamsterEye {\nfrom, 90%, to {\ntransform: scaleY(1);\n}\n\n95% {\ntransform: scaleY(0);\n}\n}\n\n@keyframes darma-loader-uiverse-hamster-wheel-sprint-hamsterEar {\nfrom, 25%, 50%, 75%, to {\ntransform: rotate(0);\n}\n\n12.5%, 37.5%, 62.5%, 87.5% {\ntransform: rotate(12deg);\n}\n}\n\n@keyframes darma-loader-uiverse-hamster-wheel-sprint-hamsterBody {\nfrom, 25%, 50%, 75%, to {\ntransform: rotate(0);\n}\n\n12.5%, 37.5%, 62.5%, 87.5% {\ntransform: rotate(-2deg);\n}\n}\n\n@keyframes darma-loader-uiverse-hamster-wheel-sprint-hamsterFRLimb {\nfrom, 25%, 50%, 75%, to {\ntransform: rotate(50deg) translateZ(-1px);\n}\n\n12.5%, 37.5%, 62.5%, 87.5% {\ntransform: rotate(-30deg) translateZ(-1px);\n}\n}\n\n@keyframes darma-loader-uiverse-hamster-wheel-sprint-hamsterFLLimb {\nfrom, 25%, 50%, 75%, to {\ntransform: rotate(-30deg);\n}\n\n12.5%, 37.5%, 62.5%, 87.5% {\ntransform: rotate(50deg);\n}\n}\n\n@keyframes darma-loader-uiverse-hamster-wheel-sprint-hamsterBRLimb {\nfrom, 25%, 50%, 75%, to {\ntransform: rotate(-60deg) translateZ(-1px);\n}\n\n12.5%, 37.5%, 62.5%, 87.5% {\ntransform: rotate(20deg) translateZ(-1px);\n}\n}\n\n@keyframes darma-loader-uiverse-hamster-wheel-sprint-hamsterBLLimb {\nfrom, 25%, 50%, 75%, to {\ntransform: rotate(20deg);\n}\n\n12.5%, 37.5%, 62.5%, 87.5% {\ntransform: rotate(-60deg);\n}\n}\n\n@keyframes darma-loader-uiverse-hamster-wheel-sprint-hamsterTail {\nfrom, 25%, 50%, 75%, to {\ntransform: rotate(30deg) translateZ(-1px);\n}\n\n12.5%, 37.5%, 62.5%, 87.5% {\ntransform: rotate(10deg) translateZ(-1px);\n}\n}\n\n@keyframes darma-loader-uiverse-hamster-wheel-sprint-spoke {\nfrom {\ntransform: rotate(0);\n}\n\nto {\ntransform: rotate(-1turn);\n}\n}",
+    "defaults": {
+      "size": 128,
+      "speed": 1,
+      "background": "transparent"
+    }
+  },
+  {
     "id": "darma-custom-028",
     "name": "Hanging Pendulum Ball",
     "category": "fun",
@@ -1683,6 +1919,39 @@
     }
   },
   {
+    "id": "uiverse-jumping-soft-cube",
+    "name": "Jumping Soft Cube",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "cube",
+      "jump",
+      "shadow",
+      "bounce",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-jumping-soft-cube jumping soft cube fun uiverse cube jump shadow bounce loader html css react singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-jumping-soft-cube\"></div>",
+    "previewCss": ".darma-loader-uiverse-jumping-soft-cube {\n  width: 48px;\n  height: 48px;\n  margin: auto;\n  position: relative;\n}\n\n.darma-loader-uiverse-jumping-soft-cube:before {\ncontent: '';\nwidth: 48px;\nheight: 5px;\nbackground: #f0808050;\nposition: absolute;\ntop: 60px;\nleft: 0;\nborder-radius: 50%;\nanimation: darma-loader-uiverse-jumping-soft-cube-shadow324 0.5s linear infinite;\n}\n\n.darma-loader-uiverse-jumping-soft-cube:after {\ncontent: '';\nwidth: 100%;\nheight: 100%;\nbackground: #f08080;\nposition: absolute;\ntop: 0;\nleft: 0;\nborder-radius: 4px;\nanimation: darma-loader-uiverse-jumping-soft-cube-jump7456 0.5s linear infinite;\n}\n\n@keyframes darma-loader-uiverse-jumping-soft-cube-jump7456 {\n15% {\nborder-bottom-right-radius: 3px;\n}\n\n25% {\ntransform: translateY(9px) rotate(22.5deg);\n}\n\n50% {\ntransform: translateY(18px) scale(1, .9) rotate(45deg);\nborder-bottom-right-radius: 40px;\n}\n\n75% {\ntransform: translateY(9px) rotate(67.5deg);\n}\n\n100% {\ntransform: translateY(0) rotate(90deg);\n}\n}\n\n@keyframes darma-loader-uiverse-jumping-soft-cube-shadow324 {\n\n0%,\n100% {\ntransform: scale(1, 1);\n}\n\n50% {\ntransform: scale(1.2, 1);\n}\n}",
+    "defaults": {
+      "size": 128,
+      "speed": 1,
+      "background": "transparent"
+    }
+  },
+  {
     "id": "darma-custom-668",
     "name": "Jumping Tile",
     "category": "fun",
@@ -1801,6 +2070,40 @@
     }
   },
   {
+    "id": "uiverse-matrix-rain-digits",
+    "name": "Matrix Rain Digits",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "matrix",
+      "digits",
+      "binary",
+      "ai",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-matrix-rain-digits matrix rain digits fun uiverse matrix digits binary ai fun loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-matrix-rain-digits\">\n<div class=\"darma-loader-uiverse-matrix-rain-digits__ai-matrix-loader\">\n  <div class=\"darma-loader-uiverse-matrix-rain-digits__digit\">0</div>\n  <div class=\"darma-loader-uiverse-matrix-rain-digits__digit\">1</div>\n  <div class=\"darma-loader-uiverse-matrix-rain-digits__digit\">0</div>\n  <div class=\"darma-loader-uiverse-matrix-rain-digits__digit\">1</div>\n  <div class=\"darma-loader-uiverse-matrix-rain-digits__digit\">1</div>\n  <div class=\"darma-loader-uiverse-matrix-rain-digits__digit\">0</div>\n  <div class=\"darma-loader-uiverse-matrix-rain-digits__digit\">0</div>\n  <div class=\"darma-loader-uiverse-matrix-rain-digits__digit\">1</div>\n  <div class=\"darma-loader-uiverse-matrix-rain-digits__glow\"></div>\n</div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-matrix-rain-digits {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-matrix-rain-digits__ai-matrix-loader {\nwidth: 120px;\nheight: 160px;\nmargin: 30px auto;\nposition: relative;\nperspective: 800px;\ndisplay: grid;\ngrid-template-columns: repeat(3, 1fr);\ngap: 5px;\n}\n\n.darma-loader-uiverse-matrix-rain-digits__digit {\ncolor: #00ff88;\nfont-family: monospace;\nfont-size: 18px;\ntext-align: center;\ntext-shadow: 0 0 5px #00ff88;\nanimation:\ndarma-loader-uiverse-matrix-rain-digits-matrix-fall 2s infinite,\ndarma-loader-uiverse-matrix-rain-digits-matrix-flicker 0.5s infinite;\nopacity: 0;\n}\n\n.darma-loader-uiverse-matrix-rain-digits__digit:nth-child(1) {\nanimation-delay: 0.1s;\n}\n.darma-loader-uiverse-matrix-rain-digits__digit:nth-child(2) {\nanimation-delay: 0.3s;\n}\n.darma-loader-uiverse-matrix-rain-digits__digit:nth-child(3) {\nanimation-delay: 0.5s;\n}\n.darma-loader-uiverse-matrix-rain-digits__digit:nth-child(4) {\nanimation-delay: 0.7s;\n}\n.darma-loader-uiverse-matrix-rain-digits__digit:nth-child(5) {\nanimation-delay: 0.9s;\n}\n.darma-loader-uiverse-matrix-rain-digits__digit:nth-child(6) {\nanimation-delay: 1.1s;\n}\n.darma-loader-uiverse-matrix-rain-digits__digit:nth-child(7) {\nanimation-delay: 1.3s;\n}\n.darma-loader-uiverse-matrix-rain-digits__digit:nth-child(8) {\nanimation-delay: 1.5s;\n}\n\n.darma-loader-uiverse-matrix-rain-digits__glow {\nposition: absolute;\ntop: 0;\nleft: 0;\nright: 0;\nbottom: 0;\nbackground: radial-gradient(\ncircle,\nrgba(0, 255, 136, 0.1) 0%,\ntransparent 70%\n);\nanimation: darma-loader-uiverse-matrix-rain-digits-matrix-pulse 2s infinite;\n}\n\n@keyframes darma-loader-uiverse-matrix-rain-digits-matrix-fall {\n0% {\ntransform: translateY(-50px) rotateX(90deg);\nopacity: 0;\n}\n20%,\n80% {\ntransform: translateY(0) rotateX(0deg);\nopacity: 0.8;\n}\n100% {\ntransform: translateY(50px) rotateX(-90deg);\nopacity: 0;\n}\n}\n\n@keyframes darma-loader-uiverse-matrix-rain-digits-matrix-flicker {\n0%,\n19%,\n21%,\n100% {\nopacity: 0.8;\n}\n20% {\nopacity: 0.2;\n}\n}\n\n@keyframes darma-loader-uiverse-matrix-rain-digits-matrix-pulse {\n0%,\n100% {\nopacity: 0.3;\n}\n50% {\nopacity: 0.7;\n}\n}",
+    "defaults": {
+      "size": 128,
+      "speed": 1,
+      "background": "transparent"
+    }
+  },
+  {
     "id": "darma-custom-027",
     "name": "Micro Jitter Ball",
     "category": "fun",
@@ -1870,6 +2173,40 @@
       "size": 90,
       "speed": 1,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "uiverse-newton-swing",
+    "name": "Newton Swing",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "newton",
+      "cradle",
+      "swing",
+      "physics",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-newton-swing newton swing fun uiverse newton cradle swing physics fun loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-newton-swing\">\n<div class=\"darma-loader-uiverse-newton-swing__newtons-cradle\">\n<div class=\"darma-loader-uiverse-newton-swing__newtons-cradle__dot\"></div>\n<div class=\"darma-loader-uiverse-newton-swing__newtons-cradle__dot\"></div>\n<div class=\"darma-loader-uiverse-newton-swing__newtons-cradle__dot\"></div>\n<div class=\"darma-loader-uiverse-newton-swing__newtons-cradle__dot\"></div>\n</div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-newton-swing {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-newton-swing__newtons-cradle {\n --uib-size: 50px;\n --uib-speed: 1.2s;\n --uib-color: #474554;\n position: relative;\n display: flex;\n align-items: center;\n justify-content: center;\n width: var(--uib-size);\n height: var(--uib-size);\n}\n\n.darma-loader-uiverse-newton-swing__newtons-cradle__dot {\nposition: relative;\ndisplay: flex;\nalign-items: center;\nheight: 100%;\nwidth: 25%;\ntransform-origin: center top;\n}\n\n.darma-loader-uiverse-newton-swing__newtons-cradle__dot::after {\ncontent: '';\ndisplay: block;\nwidth: 100%;\nheight: 25%;\nborder-radius: 50%;\nbackground-color: var(--uib-color);\n}\n\n.darma-loader-uiverse-newton-swing__newtons-cradle__dot:first-child {\nanimation: darma-loader-uiverse-newton-swing-swing var(--uib-speed) linear infinite;\n}\n\n.darma-loader-uiverse-newton-swing__newtons-cradle__dot:last-child {\nanimation: darma-loader-uiverse-newton-swing-swing2 var(--uib-speed) linear infinite;\n}\n\n@keyframes darma-loader-uiverse-newton-swing-swing {\n0% {\ntransform: rotate(0deg);\nanimation-timing-function: ease-out;\n}\n\n25% {\ntransform: rotate(70deg);\nanimation-timing-function: ease-in;\n}\n\n50% {\ntransform: rotate(0deg);\nanimation-timing-function: linear;\n}\n}\n\n@keyframes darma-loader-uiverse-newton-swing-swing2 {\n0% {\ntransform: rotate(0deg);\nanimation-timing-function: linear;\n}\n\n50% {\ntransform: rotate(0deg);\nanimation-timing-function: ease-out;\n}\n\n75% {\ntransform: rotate(-70deg);\nanimation-timing-function: ease-in;\n}\n}",
+    "defaults": {
+      "size": 128,
+      "speed": 1,
+      "background": "transparent"
     }
   },
   {
@@ -2024,6 +2361,40 @@
     }
   },
   {
+    "id": "uiverse-panda-blink-face",
+    "name": "Panda Blink Face",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "panda",
+      "animal",
+      "blink",
+      "cute",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-panda-blink-face panda blink face fun uiverse panda animal blink cute fun loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-panda-blink-face\">\n<div class=\"darma-loader-uiverse-panda-blink-face__panda-container\">\n  <div class=\"darma-loader-uiverse-panda-blink-face__ear darma-loader-uiverse-panda-blink-face__ear-left\"></div>\n  <div class=\"darma-loader-uiverse-panda-blink-face__ear darma-loader-uiverse-panda-blink-face__ear-right\"></div>\n  <div class=\"darma-loader-uiverse-panda-blink-face__panda-head\">\n    <div class=\"darma-loader-uiverse-panda-blink-face__eye-patch darma-loader-uiverse-panda-blink-face__eye-patch-left\"></div>\n    <div class=\"darma-loader-uiverse-panda-blink-face__eye-patch darma-loader-uiverse-panda-blink-face__eye-patch-right\"></div>\n    <div class=\"darma-loader-uiverse-panda-blink-face__eye darma-loader-uiverse-panda-blink-face__eye-left\">\n      <div class=\"darma-loader-uiverse-panda-blink-face__eyelid\"></div>\n      <div class=\"darma-loader-uiverse-panda-blink-face__pupil\"></div>\n    </div>\n    <div class=\"darma-loader-uiverse-panda-blink-face__eye darma-loader-uiverse-panda-blink-face__eye-right\">\n      <div class=\"darma-loader-uiverse-panda-blink-face__eyelid\"></div>\n      <div class=\"darma-loader-uiverse-panda-blink-face__pupil\"></div>\n    </div>\n    <div class=\"darma-loader-uiverse-panda-blink-face__nose\"></div>\n    <div class=\"darma-loader-uiverse-panda-blink-face__mouth\"></div>\n  </div>\n</div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-panda-blink-face {\n  width: 170px;\n  height: 160px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-panda-blink-face__panda-container {\n  position: relative;\n  width: 300px;\n  height: 280px;\n}\n\n.darma-loader-uiverse-panda-blink-face__panda-head {\nposition: absolute;\nwidth: 200px;\nheight: 180px;\nbackground: white;\nborder: 4px solid #222;\nborder-radius: 50%;\ntop: 50px;\nleft: 50px;\nz-index: 4;\nbox-shadow:\n0 5px 15px rgba(0, 0, 0, 0.1),\ninset 0 -8px 25px rgba(0, 0, 0, 0.08);\n}\n\n.darma-loader-uiverse-panda-blink-face__ear {\nposition: absolute;\nwidth: 70px;\nheight: 70px;\nbackground: #222;\nborder: 4px solid #222;\nborder-radius: 50%;\nz-index: 3;\nbox-shadow: inset 0 -8px 15px rgba(0, 0, 0, 0.3);\n}\n\n.darma-loader-uiverse-panda-blink-face__ear-left {\ntop: 30px;\nleft: 40px;\ntransform: rotate(-15deg);\n}\n\n.darma-loader-uiverse-panda-blink-face__ear-right {\ntop: 30px;\nleft: 190px;\ntransform: rotate(15deg);\n}\n\n.darma-loader-uiverse-panda-blink-face__eye-patch {\nposition: absolute;\nwidth: 60px;\nheight: 70px;\nbackground: #222;\nborder-radius: 50%;\nz-index: 5;\nbox-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.4);\n}\n\n.darma-loader-uiverse-panda-blink-face__eye-patch-left {\ntop: 60px;\nleft: 30px;\n}\n\n.darma-loader-uiverse-panda-blink-face__eye-patch-right {\ntop: 60px;\nleft: 110px;\n}\n\n.darma-loader-uiverse-panda-blink-face__eye {\nposition: absolute;\nwidth: 25px;\nheight: 30px;\nbackground: white;\nborder-radius: 60%;\nz-index: 6;\noverflow: hidden;\n}\n\n.darma-loader-uiverse-panda-blink-face__eye-left {\ntop: 75px;\nleft: 45px;\n}\n\n.darma-loader-uiverse-panda-blink-face__eye-right {\ntop: 75px;\nleft: 125px;\n}\n\n.darma-loader-uiverse-panda-blink-face__eyelid {\nposition: absolute;\nwidth: 100%;\nheight: 100%;\nbackground: #222;\nborder-radius: 80%;\nz-index: 7;\ntransform-origin: top;\nanimation: darma-loader-uiverse-panda-blink-face-blink 4s ease-in-out infinite;\n}\n\n.darma-loader-uiverse-panda-blink-face__pupil {\nposition: absolute;\nwidth: 12px;\nheight: 12px;\nbackground: #000;\nborder-radius: 50%;\nz-index: 6;\ntop: 9px;\nleft: 6px;\n}\n\n.darma-loader-uiverse-panda-blink-face__nose {\nposition: absolute;\nwidth: 30px;\nheight: 25px;\nbackground: #222;\nborder-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;\ntop: 110px;\nleft: 85px;\nz-index: 8;\nbox-shadow: inset 0 -3px 8px rgba(0, 0, 0, 0.4);\n}\n\n.darma-loader-uiverse-panda-blink-face__mouth {\nposition: absolute;\nwidth: 40px;\nheight: 20px;\nborder-bottom: 3px solid #222;\nborder-radius: 0 0 50% 50%;\ntop: 135px;\nleft: 80px;\nz-index: 7;\ntransform-origin: center;\nanimation: darma-loader-uiverse-panda-blink-face-smile 4s ease-in-out infinite;\n}\n\n@keyframes darma-loader-uiverse-panda-blink-face-blink {\n0%,\n30% {\ntransform: scaleY(1);\n}\n35%,\n65% {\ntransform: scaleY(0);\n}\n70%,\n100% {\ntransform: scaleY(1);\n}\n}\n\n@keyframes darma-loader-uiverse-panda-blink-face-smile {\n0%,\n30% {\nwidth: 40px;\nleft: 80px;\n}\n35%,\n65% {\nwidth: 60px;\nleft: 70px;\n}\n70%,\n100% {\nwidth: 40px;\nleft: 80px;\n}\n}\n\n.darma-loader-uiverse-panda-blink-face__panda-container {\n  transform: scale(0.55);\n  transform-origin: center;\n}",
+    "defaults": {
+      "size": 128,
+      "speed": 1,
+      "background": "transparent"
+    }
+  },
+  {
     "id": "darma-custom-075",
     "name": "Pendulum Pentagon Rail",
     "category": "fun",
@@ -2137,6 +2508,74 @@
       "size": 96,
       "speed": 1,
       "background": "#111827"
+    }
+  },
+  {
+    "id": "uiverse-pizza-slice-orbit",
+    "name": "Pizza Slice Orbit",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "pizza",
+      "food",
+      "slices",
+      "svg",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-pizza-slice-orbit pizza slice orbit fun uiverse pizza food slices svg fun loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-pizza-slice-orbit\">\n<div class=\"darma-loader-uiverse-pizza-slice-orbit__main\">\n  <svg\n    width=\"168\"\n    height=\"158\"\n    viewBox=\"0 0 168 158\"\n    fill=\"none\"\n    xmlns=\"http://www.w3.org/2000/svg\"\n  >\n    <g id=\"uiverse-pizza-slice-orbit-pizza\">\n      <rect width=\"168\" height=\"158\" fill=\"none\"></rect>\n      <g id=\"uiverse-pizza-slice-orbit-slice6\">\n        <g id=\"uiverse-pizza-slice-orbit-slice\">\n          <mask id=\"uiverse-pizza-slice-orbit-path-1-inside-1_7_2\" fill=\"white\">\n            <path\n              d=\"M110 34.8997C118.513 39.4198 125.582 45.921 130.497 53.75C135.412 61.579 138 70.4598 138 79.5L82 79.5L110 34.8997Z\"\n            ></path>\n          </mask>\n          <path\n            d=\"M110 34.8997C118.513 39.4198 125.582 45.921 130.497 53.75C135.412 61.579 138 70.4598 138 79.5L82 79.5L110 34.8997Z\"\n            fill=\"#FDDBA9\"\n            stroke=\"#EE9758\"\n            stroke-width=\"2\"\n            mask=\"url(#uiverse-pizza-slice-orbit-path-1-inside-1_7_2)\"\n          ></path>\n        </g>\n        <g id=\"uiverse-pizza-slice-orbit-pepperoni\">\n          <circle cx=\"114\" cy=\"63\" r=\"6\" fill=\"#F12424\"></circle>\n          <circle cx=\"114\" cy=\"63\" r=\"6\" fill=\"#F12424\"></circle>\n        </g>\n        <g id=\"uiverse-pizza-slice-orbit-mushroom\">\n          <path\n            d=\"M96.3127 75.3748C93.8388 74.3499 93.5395 72.1249 96.4349 66.9246C100.861 64.107 105.48 66.5248 103.603 67.4062C101.726 68.2876 101.517 69.215 101.78 69.3984C101.78 69.3984 105.126 71.2856 104.991 72.8193C104.856 74.353 103.753 74.1725 103.409 74.5483C103.066 74.9242 99.9579 71.3905 99.9579 71.3905C96.0194 74.1256 98.7867 76.3997 96.3127 75.3748Z\"\n            fill=\"#E3DDDD\"\n          ></path>\n          <path\n            d=\"M99.9579 71.3905C96.0194 74.1256 98.7867 76.3997 96.3127 75.3748C93.8388 74.3499 93.5395 72.1249 96.4349 66.9246C100.861 64.107 105.48 66.5248 103.603 67.4062C101.726 68.2876 101.517 69.215 101.78 69.3984M99.9579 71.3905C99.9579 71.3905 103.066 74.9242 103.409 74.5483C103.753 74.1725 104.856 74.353 104.991 72.8193C105.126 71.2856 101.78 69.3984 101.78 69.3984M99.9579 71.3905L101.78 69.3984\"\n            stroke=\"black\"\n          ></path>\n        </g>\n        <path\n          id=\"uiverse-pizza-slice-orbit-onion\"\n          d=\"M129.841 65.2587C127.54 64.2211 127.021 63.5697 127.016 62.3249C127.666 61.9214 128.094 61.8629 129.071 62.3249C130.14 62.8474 130.783 63.5952 131.961 65.2587C131.313 66.9451 130.895 67.8704 129.392 69.2403C131.161 70.4193 131.537 72.3751 131.961 72.3837C132.384 72.3923 129.231 76.9243 129.071 77.9719C127.662 78.0881 127.229 77.8597 127.016 76.994C126.863 74.9998 127.829 74.044 129.841 72.3837C128.109 71.4403 127.329 70.8249 127.016 69.2403C126.968 67.7728 127.329 66.9206 129.841 65.2587Z\"\n          fill=\"#FFFBFB\"\n          stroke=\"black\"\n        ></path>\n        <path\n          id=\"uiverse-pizza-slice-orbit-pepper\"\n          d=\"M121.34 55.4341C123.716 54.3509 124.645 54.4077 125.824 55.2995C125.811 56.107 125.607 56.4894 124.578 56.9337C123.436 57.4079 122.34 57.3806 120.055 57.1194C118.855 55.39 118.235 54.3915 117.853 52.2096C115.667 52.7671 113.592 51.6583 113.327 51.9889C113.062 52.3195 110.695 46.5489 109.803 45.6669C110.547 44.4628 111.025 44.2833 111.972 44.7368C113.948 46.0515 114.265 47.5081 114.612 50.3036C116.554 49.6053 117.608 49.4283 119.294 50.32C120.708 51.3389 121.295 52.2392 121.34 55.4341Z\"\n          fill=\"#1EAA07\"\n          stroke=\"#FDDBA9\"\n        ></path>\n      </g>\n      <g id=\"uiverse-pizza-slice-orbit-slice5\">\n        <g id=\"uiverse-pizza-slice-orbit-slice_2\">\n          <mask id=\"uiverse-pizza-slice-orbit-path-7-inside-2_7_2\" fill=\"white\">\n            <path\n              d=\"M54 34.8997C62.5131 30.3796 72.1699 28 82 28C91.8301 28 101.487 30.3796 110 34.8997L82 79.5L54 34.8997Z\"\n            ></path>\n          </mask>\n          <path\n            d=\"M54 34.8997C62.5131 30.3796 72.1699 28 82 28C91.8301 28 101.487 30.3796 110 34.8997L82 79.5L54 34.8997Z\"\n            fill=\"#FDDBA9\"\n            stroke=\"#EE9758\"\n            stroke-width=\"2\"\n            mask=\"url(#uiverse-pizza-slice-orbit-path-7-inside-2_7_2)\"\n          ></path>\n        </g>\n        <g id=\"uiverse-pizza-slice-orbit-pepperoni_2\">\n          <circle cx=\"82\" cy=\"56\" r=\"6\" fill=\"#F12424\"></circle>\n          <circle cx=\"82\" cy=\"56\" r=\"6\" fill=\"#F12424\"></circle>\n        </g>\n        <g id=\"uiverse-pizza-slice-orbit-mushroom_2\">\n          <path\n            d=\"M91.3127 43.3748C88.8388 42.3499 88.5395 40.1249 91.4349 34.9246C95.8614 32.107 100.48 34.5248 98.603 35.4062C96.7261 36.2876 96.5167 37.215 96.7805 37.3984C96.7805 37.3984 100.126 39.2856 99.9914 40.8193C99.8563 42.353 98.7534 42.1725 98.4095 42.5483C98.0656 42.9242 94.9579 39.3905 94.9579 39.3905C91.0194 42.1256 93.7867 44.3997 91.3127 43.3748Z\"\n            fill=\"#E3DDDD\"\n          ></path>\n          <path\n            d=\"M94.9579 39.3905C91.0194 42.1256 93.7867 44.3997 91.3127 43.3748C88.8388 42.3499 88.5395 40.1249 91.4349 34.9246C95.8614 32.107 100.48 34.5248 98.603 35.4062C96.7261 36.2876 96.5167 37.215 96.7805 37.3984M94.9579 39.3905C94.9579 39.3905 98.0656 42.9242 98.4095 42.5483C98.7534 42.1725 99.8563 42.353 99.9914 40.8193C100.126 39.2856 96.7805 37.3984 96.7805 37.3984M94.9579 39.3905L96.7805 37.3984\"\n            stroke=\"black\"\n          ></path>\n        </g>\n        <path\n          id=\"uiverse-pizza-slice-orbit-pepper_2\"\n          d=\"M92.1727 48.6661C93.9594 46.7623 94.8409 46.462 96.27 46.8398C96.5642 47.5919 96.5204 48.0231 95.7373 48.8247C94.8608 49.6968 93.8366 50.0874 91.6233 50.713C89.857 49.5684 88.9042 48.8801 87.7226 47.0063C85.9121 48.3518 83.5712 48.1136 83.4516 48.52C83.3319 48.9264 78.9513 44.4862 77.7915 44.0087C78.0235 42.6121 78.3975 42.2646 79.4458 42.3247C81.7725 42.7912 82.6182 44.0187 84.0009 46.473C85.5319 45.0901 86.4399 44.5264 88.3386 44.7112C90.034 45.1171 90.918 45.7276 92.1727 48.6661Z\"\n          fill=\"#1EAA07\"\n          stroke=\"#FDDBA9\"\n        ></path>\n        <path\n          id=\"uiverse-pizza-slice-orbit-onion_2\"\n          d=\"M70.8415 37.2587C68.5397 36.2211 68.0212 35.5697 68.0156 34.3249C68.6658 33.9214 69.0936 33.8629 70.0708 34.3249C71.1402 34.8474 71.783 35.5952 72.9609 37.2587C72.3132 38.9451 71.8954 39.8704 70.3919 41.2403C72.1607 42.4193 72.5374 44.3751 72.9609 44.3837C73.3844 44.3923 70.2313 48.9243 70.0708 49.9719C68.6618 50.0881 68.2293 49.8597 68.0156 48.994C67.8631 46.9998 68.8294 46.044 70.8415 44.3837C69.109 43.4403 68.3292 42.8249 68.0156 41.2403C67.9682 39.7728 68.3287 38.9206 70.8415 37.2587Z\"\n          fill=\"#FFFBFB\"\n          stroke=\"black\"\n        ></path>\n      </g>\n      <g id=\"uiverse-pizza-slice-orbit-slice1\">\n        <g id=\"uiverse-pizza-slice-orbit-slice_3\">\n          <mask id=\"uiverse-pizza-slice-orbit-path-13-inside-3_7_2\" fill=\"white\">\n            <path\n              d=\"M138 79.5C138 88.5401 135.412 97.421 130.497 105.25C125.582 113.079 118.513 119.58 110 124.1L82 79.5H138Z\"\n            ></path>\n          </mask>\n          <path\n            d=\"M138 79.5C138 88.5401 135.412 97.421 130.497 105.25C125.582 113.079 118.513 119.58 110 124.1L82 79.5H138Z\"\n            fill=\"#FDDBA9\"\n            stroke=\"#EE9758\"\n            stroke-width=\"2\"\n            mask=\"url(#uiverse-pizza-slice-orbit-path-13-inside-3_7_2)\"\n          ></path>\n        </g>\n        <g id=\"uiverse-pizza-slice-orbit-pepperoni_3\">\n          <circle cx=\"119\" cy=\"99\" r=\"6\" fill=\"#F12424\"></circle>\n          <circle cx=\"119\" cy=\"99\" r=\"6\" fill=\"#F12424\"></circle>\n        </g>\n        <path\n          id=\"uiverse-pizza-slice-orbit-pepper_3\"\n          d=\"M110.227 89.6851C111.587 87.456 112.388 86.9817 113.864 87.0589C114.306 87.7349 114.352 88.166 113.749 89.1109C113.07 90.1438 112.147 90.7358 110.109 91.8011C108.145 91.0423 107.072 90.5634 105.532 88.9712C104.035 90.6587 101.695 90.9046 101.661 91.3269C101.627 91.7492 96.4305 88.2994 95.1975 88.0694C95.1387 86.6549 95.4337 86.2382 96.4722 86.0825C98.8451 86.063 99.9241 87.0914 101.78 89.2108C102.995 87.5439 103.769 86.8063 105.665 86.5986C107.408 86.6489 108.398 87.0656 110.227 89.6851Z\"\n          fill=\"#1EAA07\"\n          stroke=\"#FDDBA9\"\n        ></path>\n        <path\n          id=\"uiverse-pizza-slice-orbit-onion_3\"\n          d=\"M108.882 106.032C106.425 106.612 105.617 106.411 104.854 105.427C105.124 104.711 105.427 104.404 106.484 104.175C107.65 103.938 108.615 104.139 110.563 104.741C111.077 106.473 111.309 107.461 110.951 109.463C113.072 109.321 114.563 110.642 114.904 110.391C115.245 110.14 115.505 115.655 116.016 116.583C114.97 117.534 114.488 117.616 113.791 117.06C112.455 115.571 112.639 114.225 113.223 111.682C111.274 111.99 110.281 111.977 109.067 110.911C108.135 109.776 107.902 108.881 108.882 106.032Z\"\n          fill=\"#FFFBFB\"\n          stroke=\"black\"\n        ></path>\n      </g>\n      <g id=\"uiverse-pizza-slice-orbit-slice2\">\n        <g id=\"uiverse-pizza-slice-orbit-slice_4\">\n          <mask id=\"uiverse-pizza-slice-orbit-path-17-inside-4_7_2\" fill=\"white\">\n            <path\n              d=\"M110 124.1C101.487 128.62 91.8301 131 82 131C72.1699 131 62.5131 128.62 54 124.1L82 79.5L110 124.1Z\"\n            ></path>\n          </mask>\n          <path\n            d=\"M110 124.1C101.487 128.62 91.8301 131 82 131C72.1699 131 62.5131 128.62 54 124.1L82 79.5L110 124.1Z\"\n            fill=\"#FDDBA9\"\n            stroke=\"#EE9758\"\n            stroke-width=\"2\"\n            mask=\"url(#uiverse-pizza-slice-orbit-path-17-inside-4_7_2)\"\n          ></path>\n        </g>\n        <g id=\"uiverse-pizza-slice-orbit-pepperoni_4\">\n          <circle cx=\"78\" cy=\"103\" r=\"6\" fill=\"#F12424\"></circle>\n          <circle cx=\"78\" cy=\"103\" r=\"6\" fill=\"#F12424\"></circle>\n        </g>\n        <g id=\"uiverse-pizza-slice-orbit-mushroom_3\">\n          <path\n            d=\"M86.3127 117.375C83.8388 116.35 83.5395 114.125 86.4349 108.925C90.8614 106.107 95.48 108.525 93.603 109.406C91.7261 110.288 91.5167 111.215 91.7805 111.398C91.7805 111.398 95.1264 113.286 94.9914 114.819C94.8563 116.353 93.7534 116.172 93.4095 116.548C93.0656 116.924 89.9579 113.391 89.9579 113.391C86.0194 116.126 88.7867 118.4 86.3127 117.375Z\"\n            fill=\"#E3DDDD\"\n          ></path>\n          <path\n            d=\"M89.9579 113.391C86.0194 116.126 88.7867 118.4 86.3127 117.375C83.8388 116.35 83.5395 114.125 86.4349 108.925C90.8614 106.107 95.48 108.525 93.603 109.406C91.7261 110.288 91.5167 111.215 91.7805 111.398M89.9579 113.391C89.9579 113.391 93.0656 116.924 93.4095 116.548C93.7534 116.172 94.8563 116.353 94.9914 114.819C95.1264 113.286 91.7805 111.398 91.7805 111.398M89.9579 113.391L91.7805 111.398\"\n            stroke=\"black\"\n          ></path>\n        </g>\n        <path\n          id=\"uiverse-pizza-slice-orbit-pepper_4\"\n          d=\"M78.1727 124.666C79.9594 122.762 80.8409 122.462 82.27 122.84C82.5642 123.592 82.5204 124.023 81.7373 124.825C80.8608 125.697 79.8366 126.087 77.6233 126.713C75.857 125.568 74.9042 124.88 73.7226 123.006C71.9121 124.352 69.5712 124.114 69.4516 124.52C69.3319 124.926 64.9513 120.486 63.7915 120.009C64.0235 118.612 64.3975 118.265 65.4458 118.325C67.7725 118.791 68.6182 120.019 70.0009 122.473C71.5319 121.09 72.4399 120.526 74.3386 120.711C76.034 121.117 76.918 121.728 78.1727 124.666Z\"\n          fill=\"#1EAA07\"\n          stroke=\"#FDDBA9\"\n        ></path>\n        <path\n          id=\"uiverse-pizza-slice-orbit-onion_4\"\n          d=\"M84.2386 90.8992C81.7811 91.4786 80.9731 91.2779 80.2103 90.2943C80.4801 89.5782 80.7837 89.2712 81.8401 89.0422C83.0065 88.805 83.9717 89.0064 85.9193 89.608C86.4331 91.3399 86.6654 92.3282 86.3078 94.3305C88.4286 94.1878 89.9189 95.5092 90.26 95.258C90.6011 95.0069 90.8618 100.522 91.3727 101.45C90.3261 102.401 89.844 102.483 89.1471 101.927C87.8112 100.438 87.9952 99.0916 88.5793 96.5492C86.6308 96.8566 85.6375 96.8437 84.4234 95.7782C83.4917 94.6433 83.2584 93.7479 84.2386 90.8992Z\"\n          fill=\"#FFFBFB\"\n          stroke=\"black\"\n        ></path>\n      </g>\n      <g id=\"uiverse-pizza-slice-orbit-slice4\">\n        <g id=\"uiverse-pizza-slice-orbit-slice_5\">\n          <mask id=\"uiverse-pizza-slice-orbit-path-23-inside-5_7_2\" fill=\"white\">\n            <path\n              d=\"M26 79.5C26 70.4599 28.5876 61.579 33.5026 53.75C38.4176 45.921 45.4869 39.4198 54 34.8997L82 79.5L26 79.5Z\"\n            ></path>\n          </mask>\n          <path\n            d=\"M26 79.5C26 70.4599 28.5876 61.579 33.5026 53.75C38.4176 45.921 45.4869 39.4198 54 34.8997L82 79.5L26 79.5Z\"\n            fill=\"#FDDBA9\"\n            stroke=\"#EE9758\"\n            stroke-width=\"2\"\n            mask=\"url(#uiverse-pizza-slice-orbit-path-23-inside-5_7_2)\"\n          ></path>\n        </g>\n        <g id=\"uiverse-pizza-slice-orbit-pepperoni_5\">\n          <circle cx=\"64\" cy=\"70\" r=\"6\" fill=\"#F12424\"></circle>\n          <circle cx=\"64\" cy=\"70\" r=\"6\" fill=\"#F12424\"></circle>\n        </g>\n        <g id=\"uiverse-pizza-slice-orbit-mushroom_4\">\n          <path\n            d=\"M43.3127 61.3748C40.8388 60.3499 40.5395 58.1249 43.4349 52.9246C47.8614 50.107 52.48 52.5248 50.603 53.4062C48.7261 54.2876 48.5167 55.215 48.7805 55.3984C48.7805 55.3984 52.1264 57.2856 51.9914 58.8193C51.8563 60.353 50.7534 60.1725 50.4095 60.5483C50.0656 60.9242 46.9579 57.3905 46.9579 57.3905C43.0194 60.1256 45.7867 62.3997 43.3127 61.3748Z\"\n            fill=\"#E3DDDD\"\n          ></path>\n          <path\n            d=\"M46.9579 57.3905C43.0194 60.1256 45.7867 62.3997 43.3127 61.3748C40.8388 60.3499 40.5395 58.1249 43.4349 52.9246C47.8614 50.107 52.48 52.5248 50.603 53.4062C48.7261 54.2876 48.5167 55.215 48.7805 55.3984M46.9579 57.3905C46.9579 57.3905 50.0656 60.9242 50.4095 60.5483C50.7534 60.1725 51.8563 60.353 51.9914 58.8193C52.1264 57.2856 48.7805 55.3984 48.7805 55.3984M46.9579 57.3905L48.7805 55.3984\"\n            stroke=\"black\"\n          ></path>\n        </g>\n        <path\n          id=\"uiverse-pizza-slice-orbit-pepper_5\"\n          d=\"M57.8415 50.8697C55.5397 49.6375 55.0212 48.864 55.0156 47.3859C55.6658 46.9067 56.0936 46.8372 57.0708 47.3859C58.1402 48.0063 58.783 48.8943 59.9609 50.8697C59.3132 52.8724 58.8954 53.9711 57.3919 55.5979C59.1607 56.9979 59.5374 59.3204 59.9609 59.3306C60.3844 59.3409 57.2313 64.7227 57.0708 65.9666C55.6618 66.1046 55.2293 65.8334 55.0156 64.8053C54.8631 62.4372 55.8294 61.3022 57.8415 59.3306C56.109 58.2104 55.3292 57.4796 55.0156 55.5979C54.9682 53.8552 55.3287 52.8432 57.8415 50.8697Z\"\n          fill=\"#1EAA07\"\n          stroke=\"#FDDBA9\"\n        ></path>\n        <path\n          id=\"uiverse-pizza-slice-orbit-onion_5\"\n          d=\"M34.5084 66.9457C32.7549 68.7623 31.9667 69.0306 30.7931 68.6159C30.6326 67.8677 30.7219 67.4452 31.4866 66.6812C32.3393 65.8508 33.2601 65.4981 35.2235 64.9506C36.5925 66.1293 37.3225 66.8349 38.1047 68.7124C39.8113 67.4452 41.7796 67.7506 41.9306 67.3548C42.0816 66.959 45.2839 71.4564 46.2158 71.9611C45.8497 73.3266 45.4888 73.6567 44.6017 73.5657C42.673 73.0364 42.0994 71.8042 41.2154 69.3499C39.7428 70.6625 38.9003 71.1888 37.3029 70.9494C35.9054 70.4988 35.2248 69.8719 34.5084 66.9457Z\"\n          fill=\"#FFFBFB\"\n          stroke=\"black\"\n        ></path>\n      </g>\n      <g id=\"uiverse-pizza-slice-orbit-slice3\">\n        <g id=\"uiverse-pizza-slice-orbit-slice_6\">\n          <mask id=\"uiverse-pizza-slice-orbit-path-29-inside-6_7_2\" fill=\"white\">\n            <path\n              d=\"M54 124.1C45.4869 119.58 38.4176 113.079 33.5026 105.25C28.5876 97.421 26 88.5401 26 79.5L82 79.5L54 124.1Z\"\n            ></path>\n          </mask>\n          <path\n            d=\"M54 124.1C45.4869 119.58 38.4176 113.079 33.5026 105.25C28.5876 97.421 26 88.5401 26 79.5L82 79.5L54 124.1Z\"\n            fill=\"#FDDBA9\"\n            stroke=\"#EE9758\"\n            stroke-width=\"2\"\n            mask=\"url(#uiverse-pizza-slice-orbit-path-29-inside-6_7_2)\"\n          ></path>\n        </g>\n        <g id=\"uiverse-pizza-slice-orbit-pepperoni_6\">\n          <circle cx=\"42\" cy=\"99\" r=\"6\" fill=\"#F12424\"></circle>\n          <circle cx=\"42\" cy=\"99\" r=\"6\" fill=\"#F12424\"></circle>\n        </g>\n        <g id=\"uiverse-pizza-slice-orbit-mushroom_5\">\n          <path\n            d=\"M57.3127 93.3748C54.8388 92.3499 54.5395 90.1249 57.4349 84.9246C61.8614 82.107 66.48 84.5248 64.603 85.4062C62.7261 86.2876 62.5167 87.215 62.7805 87.3984C62.7805 87.3984 66.1264 89.2856 65.9914 90.8193C65.8563 92.353 64.7534 92.1725 64.4095 92.5483C64.0656 92.9242 60.9579 89.3905 60.9579 89.3905C57.0194 92.1256 59.7867 94.3997 57.3127 93.3748Z\"\n            fill=\"#E3DDDD\"\n          ></path>\n          <path\n            d=\"M60.9579 89.3905C57.0194 92.1256 59.7867 94.3997 57.3127 93.3748C54.8388 92.3499 54.5395 90.1249 57.4349 84.9246C61.8614 82.107 66.48 84.5248 64.603 85.4062C62.7261 86.2876 62.5167 87.215 62.7805 87.3984M60.9579 89.3905C60.9579 89.3905 64.0656 92.9242 64.4095 92.5483C64.7534 92.1725 65.8563 92.353 65.9914 90.8193C66.1264 89.2856 62.7805 87.3984 62.7805 87.3984M60.9579 89.3905L62.7805 87.3984\"\n            stroke=\"black\"\n          ></path>\n        </g>\n        <path\n          id=\"uiverse-pizza-slice-orbit-pepper_6\"\n          d=\"M45.1727 88.6661C46.9594 86.7623 47.8409 86.462 49.27 86.8398C49.5642 87.5919 49.5204 88.0231 48.7373 88.8247C47.8608 89.6968 46.8366 90.0874 44.6233 90.713C42.857 89.5684 41.9042 88.8801 40.7226 87.0063C38.9121 88.3518 36.5712 88.1136 36.4516 88.52C36.3319 88.9264 31.9513 84.4862 30.7915 84.0087C31.0235 82.6121 31.3975 82.2646 32.4458 82.3247C34.7725 82.7912 35.6182 84.0187 37.0009 86.473C38.5319 85.0901 39.4399 84.5264 41.3386 84.7112C43.034 85.1171 43.918 85.7276 45.1727 88.6661Z\"\n          fill=\"#1EAA07\"\n          stroke=\"#FDDBA9\"\n        ></path>\n        <path\n          id=\"uiverse-pizza-slice-orbit-onion_6\"\n          d=\"M53.4224 96.617C50.9625 96.0481 50.3269 95.5103 50.0787 94.2906C50.6377 93.7681 51.0459 93.6272 52.0944 93.8898C53.2452 94.1938 54.0214 94.8018 55.5011 96.2038C55.1947 97.9841 54.9652 98.9731 53.7578 100.61C55.7225 101.421 56.4733 103.266 56.8904 103.192C57.3074 103.118 55.0986 108.178 55.1454 109.236C53.7861 109.625 53.3173 109.486 52.9389 108.678C52.4005 106.752 53.1619 105.626 54.8116 103.605C52.9285 103.018 52.0437 102.566 51.4271 101.073C51.0944 99.6431 51.2818 98.737 53.4224 96.617Z\"\n          fill=\"#FFFBFB\"\n          stroke=\"black\"\n        ></path>\n      </g>\n    </g>\n  </svg>\n</div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-pizza-slice-orbit {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-pizza-slice-orbit__main {\ndisplay: flex;\njustify-content: center;\nalign-items: center;\nscale: 1.6;\n}\n\n#uiverse-pizza-slice-orbit-pizza {\nbackground-color: transparent;\ntransform-origin: center center;\nanimation: darma-loader-uiverse-pizza-slice-orbit-rotate 45s linear infinite;\n-webkit-animation: darma-loader-uiverse-pizza-slice-orbit-rotate 45s linear infinite;\n}\n\n#uiverse-pizza-slice-orbit-slice1 {\nanimation: darma-loader-uiverse-pizza-slice-orbit-slice1 4s ease-in-out infinite;\n-webkit-animation: darma-loader-uiverse-pizza-slice-orbit-slice1 4s ease-in-out infinite;\n}\n\n#uiverse-pizza-slice-orbit-slice2 {\nanimation: darma-loader-uiverse-pizza-slice-orbit-slice2 4s ease-in-out infinite;\nanimation-delay: 1s;\n-webkit-animation: darma-loader-uiverse-pizza-slice-orbit-slice2 4s ease-in-out infinite;\n}\n\n#uiverse-pizza-slice-orbit-slice3 {\nanimation: darma-loader-uiverse-pizza-slice-orbit-slice3 4s ease-in-out infinite;\nanimation-delay: 2s;\n-webkit-animation: darma-loader-uiverse-pizza-slice-orbit-slice3 4s ease-in-out infinite;\n}\n\n#uiverse-pizza-slice-orbit-slice4 {\nanimation: darma-loader-uiverse-pizza-slice-orbit-slice4 4s ease-in-out infinite;\nanimation-delay: 3s;\n-webkit-animation: darma-loader-uiverse-pizza-slice-orbit-slice4 4s ease-in-out infinite;\n}\n\n#uiverse-pizza-slice-orbit-slice5 {\nanimation: darma-loader-uiverse-pizza-slice-orbit-slice5 4s ease-in-out infinite;\nanimation-delay: 4s;\n-webkit-animation: darma-loader-uiverse-pizza-slice-orbit-slice5 4s ease-in-out infinite;\n}\n\n#uiverse-pizza-slice-orbit-slice6 {\nanimation: darma-loader-uiverse-pizza-slice-orbit-slice6 4s ease-in-out infinite;\nanimation-delay: 5s;\n-webkit-animation: darma-loader-uiverse-pizza-slice-orbit-slice6 4s ease-in-out infinite;\n}\n\n@keyframes darma-loader-uiverse-pizza-slice-orbit-rotate {\n0% {\ntransform: rotate(0deg);\n}\n100% {\ntransform: rotate(360deg);\n-webkit-transform: rotate(360deg);\n-moz-transform: rotate(360deg);\n-ms-transform: rotate(360deg);\n-o-transform: rotate(360deg);\n}\n}\n\n@keyframes darma-loader-uiverse-pizza-slice-orbit-slice1 {\n0%,\n100% {\ntransform: translate(0, 0);\n-webkit-transform: translate(0, 0);\n-moz-transform: translate(0, 0);\n-ms-transform: translate(0, 0);\n-o-transform: translate(0, 0);\n}\n50% {\ntransform: translate(5%, 5%);\n-webkit-transform: translate(5%, 5%);\n-moz-transform: translate(5%, 5%);\n-ms-transform: translate(5%, 5%);\n-o-transform: translate(5%, 5%);\n}\n}\n\n@keyframes darma-loader-uiverse-pizza-slice-orbit-slice2 {\n0%,\n100% {\ntransform: translate(0, 0);\n-webkit-transform: translate(0, 0);\n-moz-transform: translate(0, 0);\n-ms-transform: translate(0, 0);\n-o-transform: translate(0, 0);\n}\n50% {\ntransform: translate(0%, 7%);\n-webkit-transform: translate(0%, 7%);\n-moz-transform: translate(0%, 7%);\n-ms-transform: translate(0%, 7%);\n-o-transform: translate(0%, 7%);\n}\n}\n\n@keyframes darma-loader-uiverse-pizza-slice-orbit-slice3 {\n0%,\n100% {\ntransform: translate(0, 0);\n-webkit-transform: translate(0, 0);\n-moz-transform: translate(0, 0);\n-ms-transform: translate(0, 0);\n-o-transform: translate(0, 0);\n}\n50% {\ntransform: translate(-5%, 5%);\n-webkit-transform: translate(-5%, 5%);\n-moz-transform: translate(-5%, 5%);\n-ms-transform: translate(-5%, 5%);\n-o-transform: translate(-5%, 5%);\n}\n}\n\n@keyframes darma-loader-uiverse-pizza-slice-orbit-slice4 {\n0%,\n100% {\ntransform: translate(0, 0);\n-webkit-transform: translate(0, 0);\n-moz-transform: translate(0, 0);\n-ms-transform: translate(0, 0);\n-o-transform: translate(0, 0);\n}\n50% {\ntransform: translate(-5%, 0%);\n-webkit-transform: translate(-5%, 0%);\n-moz-transform: translate(-5%, 0%);\n-ms-transform: translate(-5%, 0%);\n-o-transform: translate(-5%, 0%);\n}\n}\n\n@keyframes darma-loader-uiverse-pizza-slice-orbit-slice5 {\n0%,\n100% {\ntransform: translate(0, 0);\n-webkit-transform: translate(0, 0);\n-moz-transform: translate(0, 0);\n-ms-transform: translate(0, 0);\n-o-transform: translate(0, 0);\n}\n50% {\ntransform: translate(0%, -3%);\n-webkit-transform: translate(0%, -3%);\n-moz-transform: translate(0%, -3%);\n-ms-transform: translate(0%, -3%);\n-o-transform: translate(0%, -3%);\n}\n}\n\n@keyframes darma-loader-uiverse-pizza-slice-orbit-slice6 {\n0%,\n100% {\ntransform: translate(0, 0);\n-webkit-transform: translate(0, 0);\n-moz-transform: translate(0, 0);\n-ms-transform: translate(0, 0);\n-o-transform: translate(0, 0);\n}\n50% {\ntransform: translate(5%, 0%);\n-webkit-transform: translate(5%, 0%);\n-moz-transform: translate(5%, 0%);\n-ms-transform: translate(5%, 0%);\n-o-transform: translate(5%, 0%);\n}\n}",
+    "defaults": {
+      "size": 128,
+      "speed": 1,
+      "background": "#111827"
+    }
+  },
+  {
+    "id": "uiverse-pong-bar-rally",
+    "name": "Pong Bar Rally",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "pong",
+      "bars",
+      "ball",
+      "game",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-pong-bar-rally pong bar rally fun uiverse pong bars ball game fun loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-pong-bar-rally\">\n<div class=\"darma-loader-uiverse-pong-bar-rally__loading\">\n  <div class=\"darma-loader-uiverse-pong-bar-rally__loading-box\">\n    <div class=\"darma-loader-uiverse-pong-bar-rally__WH darma-loader-uiverse-pong-bar-rally__color darma-loader-uiverse-pong-bar-rally__l1\"></div>\n    <div class=\"darma-loader-uiverse-pong-bar-rally__ball darma-loader-uiverse-pong-bar-rally__color\"></div>\n    <div class=\"darma-loader-uiverse-pong-bar-rally__WH darma-loader-uiverse-pong-bar-rally__color darma-loader-uiverse-pong-bar-rally__l2\"></div>\n  </div>\n</div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-pong-bar-rally {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-pong-bar-rally__loading {\n  width: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.darma-loader-uiverse-pong-bar-rally__loading-box {\n  width: 250px;\n  height: 100px;\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-pong-bar-rally__color {\nbackground-color: #3395ff;\n}\n.darma-loader-uiverse-pong-bar-rally__WH {\nwidth: 10px;\nheight: 70px;\nposition: absolute;\n}\n\n.darma-loader-uiverse-pong-bar-rally__l1 {\nleft: 0;\nanimation: darma-loader-uiverse-pong-bar-rally-l1 4s infinite linear;\n}\n.darma-loader-uiverse-pong-bar-rally__l2 {\nright: 0;\nanimation: darma-loader-uiverse-pong-bar-rally-l2 4s infinite linear;\n}\n.darma-loader-uiverse-pong-bar-rally__ball {\nwidth: 15px;\nheight: 15px;\nborder-radius: 50%;\nposition: absolute;\nanimation: darma-loader-uiverse-pong-bar-rally-ball 4s infinite linear;\n}\n\n@keyframes darma-loader-uiverse-pong-bar-rally-l1 {\n0% {\ntop: 0%;\n}\n10% {\ntop: -20%;\n}\n20% {\ntop: 0%;\n}\n30% {\ntop: 40%;\n}\n40% {\ntop: 0%;\n}\n50% {\ntop: 30%;\n}\n60% {\ntop: 40%;\n}\n70% {\ntop: 60%;\n}\n80% {\ntop: -10%;\n}\n90% {\ntop: 10%;\n}\n100% {\ntop: 0%;\n}\n}\n@keyframes darma-loader-uiverse-pong-bar-rally-l2 {\n0% {\nbottom: 0%;\n}\n10% {\nbottom: -20%;\n}\n20% {\nbottom: 40%;\n}\n30% {\nbottom: 60%;\n}\n40% {\nbottom: 20%;\n}\n50% {\nbottom: 30%;\n}\n60% {\nbottom: 40%;\n}\n70% {\nbottom: 60%;\n}\n80% {\nbottom: -10%;\n}\n90% {\nbottom: 10%;\n}\n100% {\nbottom: 0%;\n}\n}\n@keyframes darma-loader-uiverse-pong-bar-rally-ball {\n0% {\ntop: 80%;\nleft: 96%;\n}\n10% {\ntop: 10%;\nleft: 3%;\n}\n20% {\ntop: 10%;\nleft: 90%;\n}\n30% {\ntop: 60%;\nleft: 3%;\n}\n40% {\ntop: 10%;\nleft: 90%;\n}\n50% {\ntop: 50%;\nleft: 3%;\n}\n60% {\ntop: 10%;\nleft: 90%;\n}\n70% {\ntop: 93%;\nleft: 3%;\n}\n80% {\ntop: 83%;\nleft: 90%;\n}\n90% {\ntop: 10%;\nleft: 3%;\n}\n100% {\ntop: 80%;\nleft: 90%;\n}\n}",
+    "defaults": {
+      "size": 128,
+      "speed": 1,
+      "background": "transparent"
     }
   },
   {
@@ -2362,6 +2801,73 @@
       "size": 80,
       "speed": 1,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "uiverse-seesaw-marble",
+    "name": "Seesaw Marble",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "seesaw",
+      "marble",
+      "balance",
+      "ball",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-seesaw-marble seesaw marble fun uiverse seesaw marble balance ball fun loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-seesaw-marble\">\n<div class=\"darma-loader-uiverse-seesaw-marble__bar\">\n    <div class=\"darma-loader-uiverse-seesaw-marble__ball\"></div>\n</div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-seesaw-marble {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-seesaw-marble__ball {\n  position: relative;\n  bottom: 50px;\n  left: calc(100% - 20px);\n  width: 50px;\n  height: 50px;\n  background: #fff;\n  border-radius: 50%;\n  animation: darma-loader-uiverse-seesaw-marble-ball-move8234 3s ease-in-out 1s infinite alternate;\n}\n\n.darma-loader-uiverse-seesaw-marble__ball::after {\nposition: absolute;\ncontent: '';\ntop: 25px;\nright: 5px;\nwidth: 5px;\nheight: 5px;\nbackground: #000;\nborder-radius: 50%;\n}\n\n.darma-loader-uiverse-seesaw-marble__bar {\nwidth: 200px;\nheight: 12.5px;\nbackground: #FFDAAF;\nborder-radius: 30px;\ntransform: rotate(-15deg);\nanimation: darma-loader-uiverse-seesaw-marble-up-down6123 3s ease-in-out 1s infinite alternate;\n}\n\n@keyframes darma-loader-uiverse-seesaw-marble-up-down6123 {\nfrom {\ntransform: rotate(-15deg);\n}\n\nto {\ntransform: rotate(15deg);\n}\n}\n\n@keyframes darma-loader-uiverse-seesaw-marble-ball-move8234 {\nfrom {\nleft: calc(100% - 40px);\ntransform: rotate(360deg);\n}\n\nto {\nleft: calc(0% - 20px);\ntransform: rotate(0deg);\n}\n}",
+    "defaults": {
+      "size": 128,
+      "speed": 1,
+      "background": "transparent"
+    }
+  },
+  {
+    "id": "uiverse-shooting-star-trio",
+    "name": "Shooting Star Trio",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "stars",
+      "shooting",
+      "sparkle",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-shooting-star-trio shooting star trio fun uiverse stars shooting sparkle fun loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-shooting-star-trio\">\n  <svg\n    xmlns=\"http://www.w3.org/2000/svg\"\n    width=\"32\"\n    height=\"32\"\n    class=\"darma-loader-uiverse-shooting-star-trio__star darma-loader-uiverse-shooting-star-trio__star1\"\n    viewBox=\"0 0 256 256\"\n  >\n    <path\n      d=\"M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z\"\n    ></path>\n  </svg>\n  <svg\n    xmlns=\"http://www.w3.org/2000/svg\"\n    width=\"32\"\n    height=\"32\"\n    class=\"darma-loader-uiverse-shooting-star-trio__star darma-loader-uiverse-shooting-star-trio__star2\"\n    viewBox=\"0 0 256 256\"\n  >\n    <path\n      d=\"M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z\"\n    ></path>\n  </svg>\n  <svg\n    xmlns=\"http://www.w3.org/2000/svg\"\n    width=\"32\"\n    height=\"32\"\n    class=\"darma-loader-uiverse-shooting-star-trio__star darma-loader-uiverse-shooting-star-trio__star3\"\n    viewBox=\"0 0 256 256\"\n  >\n    <path\n      d=\"M234.5,114.38l-45.1,39.36,13.51,58.6a16,16,0,0,1-23.84,17.34l-51.11-31-51,31a16,16,0,0,1-23.84-17.34L66.61,153.8,21.5,114.38a16,16,0,0,1,9.11-28.06l59.46-5.15,23.21-55.36a15.95,15.95,0,0,1,29.44,0h0L166,81.17l59.44,5.15a16,16,0,0,1,9.11,28.06Z\"\n    ></path>\n  </svg>\n</div>",
+    "previewCss": ".darma-loader-uiverse-shooting-star-trio {\n  user-select: none;\n}\n\n.darma-loader-uiverse-shooting-star-trio__star {\nopacity: 0;\nfill: #f2f3f4;\nanimation: darma-loader-uiverse-shooting-star-trio-loader 2s infinite alternate;\n}\n\n.darma-loader-uiverse-shooting-star-trio__star2 {\nheight: 20px;\nmargin-left: -10px;\nanimation-delay: 0.25s;\n}\n\n.darma-loader-uiverse-shooting-star-trio__star3 {\nheight: 16px;\nmargin-left: -15px;\nanimation-delay: 0.5s;\n}\n\n@keyframes darma-loader-uiverse-shooting-star-trio-loader {\n0% {\nopacity: 0;\ntransform: translateY(0) translateX(50px) rotate(0deg);\n}\n10% {\nopacity: 0;\ntransform: translateY(0) translateX(50px) rotate(0deg);\n}\n100% {\nopacity: 1;\ntransform: translateY(-20px) translateX(0) rotate(360deg);\n}\n}",
+    "defaults": {
+      "size": 128,
+      "speed": 1,
+      "background": "#111827"
     }
   },
   {
@@ -2929,6 +3435,40 @@
     }
   },
   {
+    "id": "uiverse-tap-dance-hand",
+    "name": "Tap Dance Hand",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "hand",
+      "tap",
+      "gesture",
+      "fun",
+      "css",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-tap-dance-hand tap dance hand fun uiverse hand tap gesture fun css loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-tap-dance-hand\">\n<div class=\"darma-loader-uiverse-tap-dance-hand__tap-hand\">\n\t<div class=\"darma-loader-uiverse-tap-dance-hand__tap-finger\"></div>\n\t<div class=\"darma-loader-uiverse-tap-dance-hand__tap-finger\"></div>\n\t<div class=\"darma-loader-uiverse-tap-dance-hand__tap-finger\"></div>\n\t<div class=\"darma-loader-uiverse-tap-dance-hand__tap-finger\"></div>\n\t<div class=\"darma-loader-uiverse-tap-dance-hand__tap-palm\"></div>\t\t\n\t<div class=\"darma-loader-uiverse-tap-dance-hand__tap-thumb\"></div>\n</div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-tap-dance-hand {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-tap-dance-hand__tap-hand {\n  --skin-color: #E4C560;\n  --tap-speed: 0.6s;\n  --tap-stagger: 0.1s;\n  position: relative;\n  width: 80px;\n  height: 60px;\n  margin-left: 80px;\n}\n\n.darma-loader-uiverse-tap-dance-hand__tap-hand:before {\ncontent: '';\ndisplay: block;\nwidth: 180%;\nheight: 75%;\nposition: absolute;\ntop: 70%;\nright: 20%;\nbackground-color: black;\nborder-radius: 40px 10px;\nfilter: blur(10px);\nopacity: 0.3;\n}\n\n.darma-loader-uiverse-tap-dance-hand__tap-palm {\ndisplay: block;\nwidth: 100%;\nheight: 100%;\nposition: absolute;\ntop: 0;\nleft: 0;\nbackground-color: var(--skin-color);\nborder-radius: 10px 40px;\n}\n\n.darma-loader-uiverse-tap-dance-hand__tap-thumb {\nposition: absolute;\nwidth: 120%;\nheight: 38px;\nbackground-color: var(--skin-color);\nbottom: -18%;\nright: 1%;\ntransform-origin: calc(100% - 20px) 20px;\ntransform: rotate(-20deg);\nborder-radius: 30px 20px 20px 10px;\nborder-bottom: 2px solid rgba(0, 0, 0, 0.1);\nborder-left: 2px solid rgba(0, 0, 0, 0.1);\n}\n\n.darma-loader-uiverse-tap-dance-hand__tap-thumb:after {\nwidth: 20%;\nheight: 60%;\ncontent: '';\nbackground-color: rgba(255, 255, 255, 0.3);\nposition: absolute;\nbottom: -8%;\nleft: 5px;\nborder-radius: 60% 10% 10% 30%;\nborder-right: 2px solid rgba(0, 0, 0, 0.05);\n}\n\n.darma-loader-uiverse-tap-dance-hand__tap-finger {\nposition: absolute;\nwidth: 80%;\nheight: 35px;\nbackground-color: var(--skin-color);\nbottom: 32%;\nright: 64%;\ntransform-origin: 100% 20px;\nanimation-duration: calc(var(--tap-speed) * 2);\nanimation-timing-function: ease-in-out;\nanimation-iteration-count: infinite;\ntransform: rotate(10deg);\n}\n\n.darma-loader-uiverse-tap-dance-hand__tap-finger:before {\ncontent: '';\nposition: absolute;\nwidth: 140%;\nheight: 30px;\nbackground-color: var(--skin-color);\nbottom: 8%;\nright: 65%;\ntransform-origin: calc(100% - 20px) 20px;\ntransform: rotate(-60deg);\nborder-radius: 20px;\n}\n\n.darma-loader-uiverse-tap-dance-hand__tap-finger:nth-child(1) {\nanimation-delay: 0;\nfilter: brightness(70%);\nanimation-name: darma-loader-uiverse-tap-dance-hand-tap-upper-1;\n}\n\n.darma-loader-uiverse-tap-dance-hand__tap-finger:nth-child(2) {\nanimation-delay: var(--tap-stagger);\nfilter: brightness(80%);\nanimation-name: darma-loader-uiverse-tap-dance-hand-tap-upper-2;\n}\n\n.darma-loader-uiverse-tap-dance-hand__tap-finger:nth-child(3) {\nanimation-delay: calc(var(--tap-stagger) * 2);\nfilter: brightness(90%);\nanimation-name: darma-loader-uiverse-tap-dance-hand-tap-upper-3;\n}\n\n.darma-loader-uiverse-tap-dance-hand__tap-finger:nth-child(4) {\nanimation-delay: calc(var(--tap-stagger) * 3);\nfilter: brightness(100%);\nanimation-name: darma-loader-uiverse-tap-dance-hand-tap-upper-4;\n}\n\n@keyframes darma-loader-uiverse-tap-dance-hand-tap-upper-1 {\n0%, 50%, 100% {\ntransform: rotate(10deg) scale(0.4);\n}\n\n40% {\ntransform: rotate(50deg) scale(0.4);\n}\n}\n\n@keyframes darma-loader-uiverse-tap-dance-hand-tap-upper-2 {\n0%, 50%, 100% {\ntransform: rotate(10deg) scale(0.6);\n}\n\n40% {\ntransform: rotate(50deg) scale(0.6);\n}\n}\n\n@keyframes darma-loader-uiverse-tap-dance-hand-tap-upper-3 {\n0%, 50%, 100% {\ntransform: rotate(10deg) scale(0.8);\n}\n\n40% {\ntransform: rotate(50deg) scale(0.8);\n}\n}\n\n@keyframes darma-loader-uiverse-tap-dance-hand-tap-upper-4 {\n0%, 50%, 100% {\ntransform: rotate(10deg) scale(1);\n}\n\n40% {\ntransform: rotate(50deg) scale(1);\n}\n}",
+    "defaults": {
+      "size": 128,
+      "speed": 1,
+      "background": "transparent"
+    }
+  },
+  {
     "id": "darma-custom-658",
     "name": "Tapping Hand",
     "category": "fun",
@@ -3003,6 +3543,40 @@
     }
   },
   {
+    "id": "uiverse-traffic-light-sequence",
+    "name": "Traffic Light Sequence",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "traffic",
+      "lights",
+      "sequence",
+      "status",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-traffic-light-sequence traffic light sequence fun uiverse traffic lights sequence status fun loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-traffic-light-sequence__container\">\n  <div class=\"darma-loader-uiverse-traffic-light-sequence__traffic-light\">\n    <div class=\"darma-loader-uiverse-traffic-light-sequence__light-row\">\n      <div class=\"darma-loader-uiverse-traffic-light-sequence__light darma-loader-uiverse-traffic-light-sequence__red-light\"></div>\n    </div>\n\n    <div class=\"darma-loader-uiverse-traffic-light-sequence__light-row\">\n      <div class=\"darma-loader-uiverse-traffic-light-sequence__light darma-loader-uiverse-traffic-light-sequence__yellow-light\"></div>\n    </div>\n\n    <div class=\"darma-loader-uiverse-traffic-light-sequence__light-row\">\n      <div class=\"darma-loader-uiverse-traffic-light-sequence__light darma-loader-uiverse-traffic-light-sequence__green-light\"></div>\n    </div>\n\n  </div>\n\n  <div class=\"darma-loader-uiverse-traffic-light-sequence__loading-status\"></div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-traffic-light-sequence__container {\n  position: relative;\n  z-index: 1;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 1rem;\n}\n\n.darma-loader-uiverse-traffic-light-sequence__traffic-light {\nbackground: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 40%, #1e1e1e 100%);\nborder: 1px solid rgba(255, 255, 255, 0.08);\nborder-radius: 28px;\npadding: 24px;\nbox-shadow:\n0 40px 80px rgba(0, 0, 0, 0.5),\n0 20px 40px rgba(0, 0, 0, 0.3),\n0 8px 16px rgba(0, 0, 0, 0.2),\ninset 0 2px 0 rgba(255, 255, 255, 0.05),\ninset 0 -2px 20px rgba(0, 0, 0, 0.8);\nbackdrop-filter: blur(20px) saturate(180%);\nposition: relative;\nwidth: 100px;\n}\n\n.darma-loader-uiverse-traffic-light-sequence__light-row {\nmargin: 18px 0;\ndisplay: flex;\nalign-items: center;\njustify-content: center;\nposition: relative;\n}\n\n.darma-loader-uiverse-traffic-light-sequence__light-row:first-child {\nmargin-top: 0;\n}\n\n.darma-loader-uiverse-traffic-light-sequence__light-row:last-child {\nmargin-bottom: 0;\n}\n\n.darma-loader-uiverse-traffic-light-sequence__light {\nwidth: 40px;\nheight: 40px;\nborder-radius: 50%;\nposition: relative;\noverflow: hidden;\nborder: 2px solid rgba(255, 255, 255, 0.06);\ntransition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n.darma-loader-uiverse-traffic-light-sequence__light::before {\ncontent: \"\";\nposition: absolute;\ntop: 16px;\nleft: 20px;\nwidth: 28px;\nheight: 24px;\nbackground: linear-gradient(\n135deg,\nrgba(255, 255, 255, 0.15) 0%,\ntransparent 60%\n);\nborder-radius: 50%;\nfilter: blur(6px);\nopacity: 0.4;\n}\n\n.darma-loader-uiverse-traffic-light-sequence__light::after {\ncontent: \"\";\nposition: absolute;\ninset: 0;\nborder-radius: 50%;\nbackground: radial-gradient(\ncircle at 35% 35%,\nrgba(255, 255, 255, 0.08) 0%,\ntransparent 65%\n);\n}\n\n.darma-loader-uiverse-traffic-light-sequence__red-light {\nbackground: radial-gradient(circle at center, #2d1515 0%, #1a0808 80%),\nlinear-gradient(135deg, #331212, #1a0606);\nbox-shadow:\ninset 0 6px 12px rgba(0, 0, 0, 0.4),\ninset 0 -3px 6px rgba(255, 255, 255, 0.02);\nanimation: darma-loader-uiverse-traffic-light-sequence-redSequence 4s ease-in-out infinite;\n}\n\n@keyframes darma-loader-uiverse-traffic-light-sequence-redSequence {\n0% {\nbackground: radial-gradient(circle at center, #ff4444 0%, #cc1111 80%),\nlinear-gradient(135deg, #ff5555, #dd2222);\nborder-color: rgba(255, 68, 68, 0.25);\nbox-shadow:\n0 0 40px rgba(255, 68, 68, 0.6),\n0 0 80px rgba(255, 68, 68, 0.3),\n0 0 120px rgba(255, 68, 68, 0.15),\ninset 0 3px 6px rgba(255, 255, 255, 0.15),\ninset 0 -3px 6px rgba(0, 0, 0, 0.4);\ntransform: scale(1.05);\n}\n\n25%,\n75%,\n100% {\nbackground: radial-gradient(circle at center, #2d1515 0%, #1a0808 80%),\nlinear-gradient(135deg, #331212, #1a0606);\nborder-color: rgba(255, 255, 255, 0.06);\nbox-shadow:\ninset 0 6px 12px rgba(0, 0, 0, 0.4),\ninset 0 -3px 6px rgba(255, 255, 255, 0.02);\ntransform: scale(1);\n}\n}\n\n.darma-loader-uiverse-traffic-light-sequence__yellow-light {\nbackground: radial-gradient(circle at center, #2d2d15 0%, #1a1a08 80%),\nlinear-gradient(135deg, #333312, #1a1a06);\nbox-shadow:\ninset 0 6px 12px rgba(0, 0, 0, 0.4),\ninset 0 -3px 6px rgba(255, 255, 255, 0.02);\nanimation: darma-loader-uiverse-traffic-light-sequence-yellowSequence 4s ease-in-out infinite;\n}\n\n@keyframes darma-loader-uiverse-traffic-light-sequence-yellowSequence {\n0%,\n50%,\n100% {\nbackground: radial-gradient(circle at center, #2d2d15 0%, #1a1a08 80%),\nlinear-gradient(135deg, #333312, #1a1a06);\nborder-color: rgba(255, 255, 255, 0.06);\nbox-shadow:\ninset 0 6px 12px rgba(0, 0, 0, 0.4),\ninset 0 -3px 6px rgba(255, 255, 255, 0.02);\ntransform: scale(1);\n}\n\n25% {\nbackground: radial-gradient(circle at center, #ffdd44 0%, #cc9900 80%),\nlinear-gradient(135deg, #ffee55, #ddaa22);\nborder-color: rgba(255, 221, 68, 0.25);\nbox-shadow:\n0 0 40px rgba(255, 221, 68, 0.6),\n0 0 80px rgba(255, 221, 68, 0.3),\n0 0 120px rgba(255, 221, 68, 0.15),\ninset 0 3px 6px rgba(255, 255, 255, 0.15),\ninset 0 -3px 6px rgba(0, 0, 0, 0.4);\ntransform: scale(1.05);\n}\n}\n\n.darma-loader-uiverse-traffic-light-sequence__green-light {\nbackground: radial-gradient(circle at center, #152d15 0%, #081a08 80%),\nlinear-gradient(135deg, #123312, #061a06);\nbox-shadow:\ninset 0 6px 12px rgba(0, 0, 0, 0.4),\ninset 0 -3px 6px rgba(255, 255, 255, 0.02);\nanimation: darma-loader-uiverse-traffic-light-sequence-greenSequence 4s ease-in-out infinite;\n}\n\n@keyframes darma-loader-uiverse-traffic-light-sequence-greenSequence {\n0%,\n25%,\n75% {\nbackground: radial-gradient(circle at center, #152d15 0%, #081a08 80%),\nlinear-gradient(135deg, #123312, #061a06);\nborder-color: rgba(255, 255, 255, 0.06);\nbox-shadow:\ninset 0 6px 12px rgba(0, 0, 0, 0.4),\ninset 0 -3px 6px rgba(255, 255, 255, 0.02);\ntransform: scale(1);\n}\n\n50%,\n100% {\nbackground: radial-gradient(circle at center, #44ff44 0%, #11cc11 80%),\nlinear-gradient(135deg, #55ff55, #22dd22);\nborder-color: rgba(68, 255, 68, 0.25);\nbox-shadow:\n0 0 40px rgba(68, 255, 68, 0.6),\n0 0 80px rgba(68, 255, 68, 0.3),\n0 0 120px rgba(68, 255, 68, 0.15),\ninset 0 3px 6px rgba(255, 255, 255, 0.15),\ninset 0 -3px 6px rgba(0, 0, 0, 0.4);\ntransform: scale(1.05);\n}\n}\n\n.darma-loader-uiverse-traffic-light-sequence__loading-status {\nfont-size: 12px;\ncolor: rgba(255, 255, 255, 0.5);\nfont-weight: 500;\nletter-spacing: 0.5px;\nanimation: darma-loader-uiverse-traffic-light-sequence-statusUpdate 4s ease-in-out infinite;\n}\n\n.darma-loader-uiverse-traffic-light-sequence__loading-status::before {\ncontent: \"Initializing red signal...\";\nanimation: darma-loader-uiverse-traffic-light-sequence-textUpdate 4s ease-in-out infinite;\n}\n\n@keyframes darma-loader-uiverse-traffic-light-sequence-textUpdate {\n0%,\n24% {\ncontent: \"Initializing red signal...\";\n}\n25%,\n49% {\ncontent: \"Preparing yellow transition...\";\n}\n50%,\n74% {\ncontent: \"Activating green protocol...\";\n}\n75%,\n100% {\ncontent: \"Completing traffic sequence...\";\n}\n}\n\n@keyframes darma-loader-uiverse-traffic-light-sequence-statusUpdate {\n0%,\n100% {\nopacity: 1;\n}\n12.5%,\n37.5%,\n62.5%,\n87.5% {\nopacity: 0.5;\n}\n}",
+    "defaults": {
+      "size": 128,
+      "speed": 1,
+      "background": "transparent"
+    }
+  },
+  {
     "id": "darma-custom-315",
     "name": "Twin Ping Box",
     "category": "fun",
@@ -3043,6 +3617,40 @@
     }
   },
   {
+    "id": "uiverse-typewriter",
+    "name": "Typewriter Loader",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "typewriter",
+      "keyboard",
+      "paper",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-typewriter typewriter loader fun uiverse typewriter keyboard paper fun loader html css react popular cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-typewriter__typewriter\"><div class=\"darma-loader-uiverse-typewriter__slide\"><i></i></div><div class=\"darma-loader-uiverse-typewriter__paper\"></div><div class=\"darma-loader-uiverse-typewriter__keyboard\"></div></div>",
+    "previewCss": ".darma-loader-uiverse-typewriter__typewriter {\n  --blue: var(--loader-color, #5C86FF);\n  --blue-dark: var(--loader-secondary-color, #275EFE);\n  --key: #fff;\n  --paper: #EEF0FD;\n  --text: #D3D4EC;\n  --tool: #FBC56C;\n  --duration: 3s;\n  position: relative;\n  animation: darma-loader-uiverse-typewriter-bounce05 var(--duration) linear infinite;\n}\n.darma-loader-uiverse-typewriter__typewriter .darma-loader-uiverse-typewriter__slide {\n  width: 92px;\n  height: 20px;\n  border-radius: 3px;\n  margin-left: 14px;\n  transform: translateX(14px);\n  background: linear-gradient(var(--blue), var(--blue-dark));\n  animation: darma-loader-uiverse-typewriter-slide05 var(--duration) ease infinite;\n}\n.darma-loader-uiverse-typewriter__typewriter .darma-loader-uiverse-typewriter__slide:before, .darma-loader-uiverse-typewriter__typewriter .darma-loader-uiverse-typewriter__slide:after, .darma-loader-uiverse-typewriter__typewriter .darma-loader-uiverse-typewriter__slide i:before {\n  content: \"\";\n  position: absolute;\n  background: var(--tool);\n}\n.darma-loader-uiverse-typewriter__typewriter .darma-loader-uiverse-typewriter__slide:before { width: 2px; height: 8px; top: 6px; left: 100%; }\n.darma-loader-uiverse-typewriter__typewriter .darma-loader-uiverse-typewriter__slide:after { left: 94px; top: 3px; height: 14px; width: 6px; border-radius: 3px; }\n.darma-loader-uiverse-typewriter__typewriter .darma-loader-uiverse-typewriter__slide i { display: block; position: absolute; right: 100%; width: 6px; height: 4px; top: 4px; background: var(--tool); }\n.darma-loader-uiverse-typewriter__typewriter .darma-loader-uiverse-typewriter__slide i:before { right: 100%; top: -2px; width: 4px; border-radius: 2px; height: 14px; }\n.darma-loader-uiverse-typewriter__typewriter .darma-loader-uiverse-typewriter__paper {\n  position: absolute;\n  left: 24px;\n  top: -26px;\n  width: 40px;\n  height: 46px;\n  border-radius: 5px;\n  background: var(--paper);\n  transform: translateY(46px);\n  animation: darma-loader-uiverse-typewriter-paper05 var(--duration) linear infinite;\n}\n.darma-loader-uiverse-typewriter__typewriter .darma-loader-uiverse-typewriter__paper:before {\n  content: \"\";\n  position: absolute;\n  left: 6px;\n  right: 6px;\n  top: 7px;\n  border-radius: 2px;\n  height: 4px;\n  transform: scaleY(0.8);\n  background: var(--text);\n  box-shadow: 0 12px 0 var(--text), 0 24px 0 var(--text), 0 36px 0 var(--text);\n}\n.darma-loader-uiverse-typewriter__typewriter .darma-loader-uiverse-typewriter__keyboard { width: 120px; height: 56px; margin-top: -10px; z-index: 1; position: relative; }\n.darma-loader-uiverse-typewriter__typewriter .darma-loader-uiverse-typewriter__keyboard:before, .darma-loader-uiverse-typewriter__typewriter .darma-loader-uiverse-typewriter__keyboard:after { content: \"\"; position: absolute; }\n.darma-loader-uiverse-typewriter__typewriter .darma-loader-uiverse-typewriter__keyboard:before {\n  top: 0; left: 0; right: 0; bottom: 0;\n  border-radius: 7px;\n  background: linear-gradient(135deg, var(--blue), var(--blue-dark));\n  transform: perspective(10px) rotateX(2deg);\n  transform-origin: 50% 100%;\n}\n.darma-loader-uiverse-typewriter__typewriter .darma-loader-uiverse-typewriter__keyboard:after {\n  left: 2px;\n  top: 25px;\n  width: 11px;\n  height: 4px;\n  border-radius: 2px;\n  box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key);\n  animation: darma-loader-uiverse-typewriter-keyboard05 var(--duration) linear infinite;\n}\n@keyframes darma-loader-uiverse-typewriter-bounce05 { 85%, 92%, 100% { transform: translateY(0); } 89% { transform: translateY(-4px); } 95% { transform: translateY(2px); } }\n@keyframes darma-loader-uiverse-typewriter-slide05 { 5% { transform: translateX(14px); } 15%, 30% { transform: translateX(6px); } 40%, 55% { transform: translateX(0); } 65%, 70% { transform: translateX(-4px); } 80%, 89% { transform: translateX(-12px); } 100% { transform: translateX(14px); } }\n@keyframes darma-loader-uiverse-typewriter-paper05 { 5% { transform: translateY(46px); } 20%, 30% { transform: translateY(34px); } 40%, 55% { transform: translateY(22px); } 65%, 70% { transform: translateY(10px); } 80%, 85% { transform: translateY(0); } 92%, 100% { transform: translateY(46px); } }\n@keyframes darma-loader-uiverse-typewriter-keyboard05 {\n  5%, 12%, 21%, 30%, 39%, 48%, 57%, 66%, 75%, 84% { box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key); }\n  9% { box-shadow: 15px 2px 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key); }\n  18% { box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 2px 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key); }\n  27% { box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 12px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key); }\n  36% { box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 12px 0 var(--key), 60px 12px 0 var(--key), 68px 12px 0 var(--key), 83px 10px 0 var(--key); }\n  45% { box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 2px 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key); }\n  54% { box-shadow: 15px 0 0 var(--key), 30px 2px 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key); }\n  63% { box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 12px 0 var(--key); }\n  72% { box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 2px 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 10px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key); }\n  81% { box-shadow: 15px 0 0 var(--key), 30px 0 0 var(--key), 45px 0 0 var(--key), 60px 0 0 var(--key), 75px 0 0 var(--key), 90px 0 0 var(--key), 22px 10px 0 var(--key), 37px 12px 0 var(--key), 52px 10px 0 var(--key), 60px 10px 0 var(--key), 68px 10px 0 var(--key), 83px 10px 0 var(--key); }\n}",
+    "defaults": {
+      "color": "#5C86FF",
+      "secondaryColor": "#275EFE",
+      "size": 110,
+      "speed": 3
+    }
+  },
+  {
     "id": "darma-custom-031",
     "name": "Vertical Pendulum Rod",
     "category": "fun",
@@ -3075,6 +3683,39 @@
       "size": 80,
       "speed": 2,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "uiverse-walking-mascot",
+    "name": "Walking Mascot Loader",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "walking",
+      "mascot",
+      "character",
+      "svg",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-walking-mascot walking mascot loader fun uiverse walking mascot character svg fun loader html css react popular cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-walking-mascot\">\n  <svg\n    class=\"darma-loader-uiverse-walking-mascot__legl\"\n    version=\"1.1\"\n    xmlns=\"http://www.w3.org/2000/svg\"\n    width=\"20.69332\"\n    height=\"68.19944\"\n    viewBox=\"0,0,20.69332,68.19944\"\n  >\n    <g transform=\"translate(-201.44063,-235.75466)\">\n      <g stroke-miterlimit=\"10\">\n        <path d=\"\" fill=\"#ffffff\" stroke=\"none\" stroke-width=\"0.5\"></path>\n        <path\n          d=\"\"\n          fill-opacity=\"0.26667\"\n          fill=\"#97affd\"\n          stroke-opacity=\"0.48627\"\n          stroke=\"#ffffff\"\n          stroke-width=\"0\"\n        ></path>\n        <path\n          d=\"M218.11971,301.20087c-2.20708,1.73229 -4.41416,0 -4.41416,0l-1.43017,-1.1437c-1.42954,-1.40829 -3.04351,-2.54728 -4.56954,-3.87927c-0.95183,-0.8308 -2.29837,-1.49883 -2.7652,-2.55433c-0.42378,-0.95815 0.14432,-2.02654 0.29355,-3.03399c0.41251,-2.78499 1.82164,-5.43386 2.41472,-8.22683c1.25895,-4.44509 2.73863,-8.98683 3.15318,-13.54796c0.22615,-2.4883 -0.21672,-5.0155 -0.00278,-7.50605c0.30636,-3.56649 1.24602,-7.10406 1.59992,-10.6738c0.29105,-2.93579 -0.00785,-5.9806 -0.00785,-8.93046c0,0 0,-2.44982 3.12129,-2.44982c3.12129,0 3.12129,2.44982 3.12129,2.44982c0,3.06839 0.28868,6.22201 -0.00786,9.27779c-0.34637,3.56935 -1.30115,7.10906 -1.59992,10.6738c-0.2103,2.50918 0.22586,5.05326 -0.00278,7.56284c-0.43159,4.7371 -1.94029,9.46317 -3.24651,14.07835c-0.47439,2.23403 -1.29927,4.31705 -2.05805,6.47156c-0.18628,0.52896 -0.1402,1.0974 -0.327,1.62624c-0.09463,0.26791 -0.64731,0.47816 -0.50641,0.73323c0.19122,0.34617 0.86423,0.3445 1.2346,0.58502c1.88637,1.22503 3.50777,2.79494 5.03,4.28305l0.96971,0.73991c0,0 2.20708,1.73229 0,3.46457z\"\n          fill=\"none\"\n          stroke=\"#191e2e\"\n          stroke-width=\"7\"\n        ></path>\n      </g>\n    </g>\n  </svg>\n\n  <svg\n    class=\"darma-loader-uiverse-walking-mascot__legr\"\n    version=\"1.1\"\n    xmlns=\"http://www.w3.org/2000/svg\"\n    width=\"41.02537\"\n    height=\"64.85502\"\n    viewBox=\"0,0,41.02537,64.85502\"\n  >\n    <g transform=\"translate(-241.54137,-218.44347)\">\n      <g stroke-miterlimit=\"10\">\n        <path\n          d=\"M279.06674,279.42662c-2.27967,1.98991 -6.08116,0.58804 -6.08116,0.58804l-2.47264,-0.92915c-2.58799,-1.18826 -5.31176,-2.08831 -7.99917,-3.18902c-1.67622,-0.68654 -3.82471,-1.16116 -4.93147,-2.13229c-1.00468,-0.88156 -0.69132,-2.00318 -0.92827,-3.00935c-0.65501,-2.78142 0.12275,-5.56236 -0.287,-8.37565c-0.2181,-4.51941 -0.17458,-9.16283 -1.60696,-13.68334c-0.78143,-2.46614 -2.50162,-4.88125 -3.30086,-7.34796c-1.14452,-3.53236 -1.40387,-7.12078 -2.48433,-10.66266c-0.88858,-2.91287 -2.63779,-5.85389 -3.93351,-8.74177c0,0 -1.07608,-2.39835 3.22395,-2.81415c4.30003,-0.41581 2.41605,1.98254 2.41605,1.98254c1.34779,3.00392 3.13072,6.05282 4.06444,9.0839c1.09065,3.54049 1.33011,7.13302 2.48433,10.66266c0.81245,2.48448 2.5308,4.917 3.31813,7.40431c1.48619,4.69506 1.48366,9.52281 1.71137,14.21503c0.32776,2.25028 0.10631,4.39942 0.00736,6.60975c-0.02429,0.54266 0.28888,1.09302 0.26382,1.63563c-0.01269,0.27488 -0.68173,0.55435 -0.37558,0.78529c0.41549,0.31342 1.34191,0.22213 1.95781,0.40826c3.13684,0.94799 6.06014,2.26892 8.81088,3.52298l1.66093,0.59519c0,0 6.76155,1.40187 4.48187,3.39177z\"\n          fill=\"none\"\n          stroke=\"#000000\"\n          stroke-width=\"7\"\n        ></path>\n        <path d=\"\" fill=\"#ffffff\" stroke=\"none\" stroke-width=\"0.5\"></path>\n        <path\n          d=\"\"\n          fill-opacity=\"0.26667\"\n          fill=\"#97affd\"\n          stroke-opacity=\"0.48627\"\n          stroke=\"#ffffff\"\n          stroke-width=\"0\"\n        ></path>\n      </g>\n    </g>\n  </svg>\n\n  <div class=\"darma-loader-uiverse-walking-mascot__bod\">\n    <svg\n      version=\"1.1\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      width=\"144.10576\"\n      height=\"144.91623\"\n      viewBox=\"0,0,144.10576,144.91623\"\n    >\n      <g transform=\"translate(-164.41679,-112.94712)\">\n        <g stroke-miterlimit=\"10\">\n          <path\n            d=\"M166.9168,184.02633c0,-36.49454 35.0206,-66.07921 72.05288,-66.07921c37.03228,0 67.05288,29.58467 67.05288,66.07921c0,6.94489 -1.08716,13.63956 -3.10292,19.92772c-2.71464,8.46831 -7.1134,16.19939 -12.809,22.81158c-2.31017,2.68194 -7.54471,12.91599 -7.54471,12.91599c0,0 -5.46714,-1.18309 -8.44434,0.6266c-3.86867,2.35159 -10.95356,10.86714 -10.95356,10.86714c0,0 -6.96906,-3.20396 -9.87477,-2.58085c-2.64748,0.56773 -6.72538,5.77072 -6.72538,5.77072c0,0 -5.5023,-4.25969 -7.5982,-4.25969c-3.08622,0 -9.09924,3.48259 -9.09924,3.48259c0,0 -6.0782,-5.11244 -9.00348,-5.91884c-4.26461,-1.17561 -12.23343,0.75049 -12.23343,0.75049c0,0 -5.18164,-8.26065 -7.60688,-9.90388c-3.50443,-2.37445 -8.8271,-3.95414 -8.8271,-3.95414c0,0 -5.33472,-8.81718 -7.27019,-11.40895c-4.81099,-6.44239 -13.46422,-9.83437 -15.65729,-17.76175c-1.53558,-5.55073 -2.35527,-21.36472 -2.35527,-21.36472z\"\n            fill=\"#191e2e\"\n            stroke=\"#000000\"\n            stroke-width=\"5\"\n            stroke-linecap=\"butt\"\n          ></path>\n          <path\n            d=\"M167.94713,180c0,-37.03228 35.0206,-67.05288 72.05288,-67.05288c37.03228,0 67.05288,30.0206 67.05288,67.05288c0,7.04722 -1.08716,13.84053 -3.10292,20.22135c-2.71464,8.59309 -7.1134,16.43809 -12.809,23.14771c-2.31017,2.72146 -7.54471,13.1063 -7.54471,13.1063c0,0 -5.46714,-1.20052 -8.44434,0.63584c-3.86867,2.38624 -10.95356,11.02726 -10.95356,11.02726c0,0 -6.96906,-3.25117 -9.87477,-2.61888c-2.64748,0.5761 -6.72538,5.85575 -6.72538,5.85575c0,0 -5.5023,-4.32246 -7.5982,-4.32246c-3.08622,0 -9.09924,3.5339 -9.09924,3.5339c0,0 -6.0782,-5.18777 -9.00348,-6.00605c-4.26461,-1.19293 -12.23343,0.76155 -12.23343,0.76155c0,0 -5.18164,-8.38236 -7.60688,-10.04981c-3.50443,-2.40943 -8.8271,-4.0124 -8.8271,-4.0124c0,0 -5.33472,-8.9471 -7.27019,-11.57706c-4.81099,-6.53732 -13.46422,-9.97928 -15.65729,-18.02347c-1.53558,-5.63252 -2.35527,-21.67953 -2.35527,-21.67953z\"\n            fill=\"#191e2e\"\n            stroke=\"none\"\n            stroke-width=\"0\"\n            stroke-linecap=\"butt\"\n          ></path>\n          <path\n            d=\"\"\n            fill=\"#ffffff\"\n            stroke=\"none\"\n            stroke-width=\"0.5\"\n            stroke-linecap=\"butt\"\n          ></path>\n          <path\n            d=\"\"\n            fill-opacity=\"0.26667\"\n            fill=\"#97affd\"\n            stroke-opacity=\"0.48627\"\n            stroke=\"#ffffff\"\n            stroke-width=\"0\"\n            stroke-linecap=\"butt\"\n          ></path>\n          <path\n            d=\"M216.22445,188.06994c0,0 1.02834,11.73245 -3.62335,21.11235c-4.65169,9.3799 -13.06183,10.03776 -13.06183,10.03776c0,0 7.0703,-3.03121 10.89231,-10.7381c4.34839,-8.76831 5.79288,-20.41201 5.79288,-20.41201z\"\n            fill=\"none\"\n            stroke=\"#2f3a50\"\n            stroke-width=\"3\"\n            stroke-linecap=\"round\"\n          ></path>\n        </g>\n      </g>\n    </svg>\n\n    <svg\n      class=\"darma-loader-uiverse-walking-mascot__head\"\n      version=\"1.1\"\n      xmlns=\"http://www.w3.org/2000/svg\"\n      width=\"115.68559\"\n      height=\"88.29441\"\n      viewBox=\"0,0,115.68559,88.29441\"\n    >\n      <g transform=\"translate(-191.87889,-75.62023)\">\n        <g stroke-miterlimit=\"10\">\n          <path\n            d=\"\"\n            fill=\"#ffffff\"\n            stroke=\"none\"\n            stroke-width=\"0.5\"\n            stroke-linecap=\"butt\"\n          ></path>\n          <path\n            d=\"M195.12889,128.77752c0,-26.96048 21.33334,-48.81626 47.64934,-48.81626c26.316,0 47.64935,21.85578 47.64935,48.81626c0,0.60102 -9.22352,20.49284 -9.22352,20.49284l-7.75885,0.35623l-7.59417,6.15039l-8.64295,-1.74822l-11.70703,6.06119l-6.38599,-4.79382l-6.45999,2.36133l-7.01451,-7.38888l-8.11916,1.29382l-6.19237,-6.07265l-7.6263,-1.37795l-4.19835,-7.87062l-4.24236,-4.16907c0,0 -0.13314,-2.0999 -0.13314,-3.29458z\"\n            fill=\"none\"\n            stroke=\"#2f3a50\"\n            stroke-width=\"6\"\n            stroke-linecap=\"butt\"\n          ></path>\n          <path\n            d=\"M195.31785,124.43649c0,-26.96048 21.33334,-48.81626 47.64934,-48.81626c26.316,0 47.64935,21.85578 47.64935,48.81626c0,1.03481 -0.08666,2.8866 -0.08666,2.8866c0,0 16.8538,15.99287 16.21847,17.23929c-0.66726,1.30905 -23.05667,-4.14265 -23.05667,-4.14265l-2.29866,4.5096l-7.75885,0.35623l-7.59417,6.15039l-8.64295,-1.74822l-11.70703,6.06119l-6.38599,-4.79382l-6.45999,2.36133l-7.01451,-7.38888l-8.11916,1.29382l-6.19237,-6.07265l-7.6263,-1.37795l-4.19835,-7.87062l-4.24236,-4.16907c0,0 -0.13314,-2.0999 -0.13314,-3.29458z\"\n            fill=\"#191e2e\"\n            stroke-opacity=\"0.48627\"\n            stroke=\"#ffffff\"\n            stroke-width=\"0\"\n            stroke-linecap=\"butt\"\n          ></path>\n          <path\n            d=\"M271.10348,122.46768l10.06374,-3.28166l24.06547,24.28424\"\n            fill=\"none\"\n            stroke=\"#2f3a50\"\n            stroke-width=\"6\"\n            stroke-linecap=\"round\"\n          ></path>\n          <path\n            d=\"M306.56448,144.85764l-41.62024,-8.16845l2.44004,-7.87698\"\n            fill=\"none\"\n            stroke=\"#000000\"\n            stroke-width=\"3.5\"\n            stroke-linecap=\"round\"\n          ></path>\n          <path\n            d=\"M276.02738,115.72434c-0.66448,-4.64715 2.56411,-8.95308 7.21127,-9.61756c4.64715,-0.66448 8.95309,2.56411 9.61757,7.21126c0.46467,3.24972 -1.94776,8.02206 -5.96624,9.09336c-2.11289,-1.73012 -5.08673,-5.03426 -5.08673,-5.03426c0,0 -4.12095,1.16329 -4.60481,1.54229c-0.16433,-0.04891 -0.62732,-0.38126 -0.72803,-0.61269c-0.30602,-0.70328 -0.36302,-2.02286 -0.44303,-2.58239z\"\n            fill=\"#ffffff\"\n            stroke=\"none\"\n            stroke-width=\"0.5\"\n            stroke-linecap=\"butt\"\n          ></path>\n          <path\n            d=\"M242.49281,125.6424c0,-4.69442 3.80558,-8.5 8.5,-8.5c4.69442,0 8.5,3.80558 8.5,8.5c0,4.69442 -3.80558,8.5 -8.5,8.5c-4.69442,0 -8.5,-3.80558 -8.5,-8.5z\"\n            fill=\"#ffffff\"\n            stroke=\"none\"\n            stroke-width=\"0.5\"\n            stroke-linecap=\"butt\"\n          ></path>\n          <path\n            d=\"\"\n            fill-opacity=\"0.26667\"\n            fill=\"#97affd\"\n            stroke-opacity=\"0.48627\"\n            stroke=\"#ffffff\"\n            stroke-width=\"0\"\n            stroke-linecap=\"butt\"\n          ></path>\n        </g>\n      </g>\n    </svg>\n  </div>\n\n  <svg\n    class=\"darma-loader-uiverse-walking-mascot__gnd\"\n    version=\"1.1\"\n    xmlns=\"http://www.w3.org/2000/svg\"\n    width=\"475\"\n    height=\"530\"\n    viewBox=\"0,0,163.40011,85.20095\"\n  >\n    <g transform=\"translate(-176.25,-207.64957)\">\n      <g\n        stroke=\"#000000\"\n        stroke-width=\"2.5\"\n        stroke-linecap=\"round\"\n        stroke-miterlimit=\"10\"\n      >\n        <path\n          d=\"M295.5,273.1829c0,0 -57.38915,6.69521 -76.94095,-9.01465c-13.65063,-10.50609 15.70098,-20.69467 -2.5451,-19.94465c-30.31027,2.05753 -38.51396,-26.84135 -38.51396,-26.84135c0,0 6.50084,13.30023 18.93224,19.17888c9.53286,4.50796 26.23632,-1.02541 32.09529,4.95137c3.62417,3.69704 2.8012,6.33005 0.66517,8.49452c-3.79415,3.84467 -11.7312,6.21103 -6.24682,10.43645c22.01082,16.95812 72.55412,12.73944 72.55412,12.73944z\"\n          fill=\"#000000\"\n        ></path>\n        <path\n          d=\"M338.92138,217.76285c0,0 -17.49626,12.55408 -45.36424,10.00353c-8.39872,-0.76867 -17.29557,-6.23066 -17.29557,-6.23066c0,0 3.06461,-2.23972 15.41857,0.72484c26.30467,6.31228 47.24124,-4.49771 47.24124,-4.49771z\"\n          fill=\"#000000\"\n        ></path>\n        <path\n          d=\"M209.14443,223.00182l1.34223,15.4356l-10.0667,-15.4356\"\n          fill=\"none\"\n        ></path>\n        <path\n          d=\"M198.20391,230.41806l12.95386,7.34824l6.71113,-12.08004\"\n          fill=\"none\"\n        ></path>\n        <path d=\"M211.19621,238.53825l8.5262,-6.09014\" fill=\"none\"></path>\n        <path\n          d=\"M317.57068,215.80173l5.27812,6.49615l0.40601,-13.39831\"\n          fill=\"none\"\n        ></path>\n        <path d=\"M323.66082,222.70389l6.09014,-9.33822\" fill=\"none\"></path>\n      </g>\n    </g>\n  </svg>\n</div>\n",
+    "previewCss": ".darma-loader-uiverse-walking-mascot {\n  scale: 0.75;\n  position: relative;\n  width: 200px;\n  height: 200px;\n  translate: 10px -20px;\n}\n.darma-loader-uiverse-walking-mascot svg {\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n.darma-loader-uiverse-walking-mascot__head {\n  translate: 27px -30px;\n  z-index: 3;\n  animation: darma-loader-uiverse-walking-mascot-bob 1s infinite ease-in;\n}\n.darma-loader-uiverse-walking-mascot__bod {\n  translate: 0px 30px;\n  z-index: 3;\n  animation: darma-loader-uiverse-walking-mascot-bob 1s infinite ease-in-out;\n}\n.darma-loader-uiverse-walking-mascot__legr {\n  translate: 75px 135px;\n  z-index: 0;\n  animation: darma-loader-uiverse-walking-mascot-rstep 1s infinite ease-in;\n  animation-delay: 0.45s;\n}\n.darma-loader-uiverse-walking-mascot__legl {\n  translate: 30px 155px;\n  z-index: 3;\n  animation: darma-loader-uiverse-walking-mascot-lstep 1s infinite ease-in;\n}\n@keyframes darma-loader-uiverse-walking-mascot-bob {\n  0%, 5%, 100% { transform: translateY(0) rotate(3deg); }\n  25%, 70% { transform: translateY(5px) rotate(0deg); }\n  50% { transform: translateY(0px) rotate(-3deg); }\n}\n@keyframes darma-loader-uiverse-walking-mascot-lstep {\n  0%, 100% { transform: translateY(0) rotate(-5deg); }\n  33% { transform: translateY(-15px) translate(32px) rotate(35deg); }\n  66% { transform: translateY(0) translate(25px) rotate(-25deg); }\n}\n@keyframes darma-loader-uiverse-walking-mascot-rstep {\n  0%, 100% { transform: translateY(0) translate(0px) rotate(-5deg); }\n  33% { transform: translateY(-10px) translate(30px) rotate(35deg); }\n  66% { transform: translateY(0) translate(20px) rotate(-25deg); }\n}\n.darma-loader-uiverse-walking-mascot__gnd {\n  translate: -140px 0;\n  rotate: 10deg;\n  z-index: -1;\n  filter: blur(0.5px) drop-shadow(1px 3px 5px #000000);\n  opacity: 0.25;\n  animation: darma-loader-uiverse-walking-mascot-scroll 5s infinite linear;\n}\n@keyframes darma-loader-uiverse-walking-mascot-scroll {\n  0% { transform: translateY(25px) translate(50px); opacity: 0; }\n  33%, 66% { opacity: 0.25; }\n  to { transform: translateY(-50px) translate(-100px); opacity: 0; }\n}",
+    "defaults": {
+      "size": 160,
+      "speed": 1
     }
   },
   {

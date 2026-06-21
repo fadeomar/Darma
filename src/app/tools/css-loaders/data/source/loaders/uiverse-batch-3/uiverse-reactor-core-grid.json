@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-reactor-core-grid",
+  "name": "Reactor Core Grid",
+  "category": "creative",
+  "tags": [
+    "uiverse",
+    "reactor",
+    "core",
+    "grid",
+    "sci-fi",
+    "creative",
+    "loader"
+  ],
+  "html": "<div class=\"loader\">\n  <div class=\"grid-background\"></div>\n  <div class=\"ring outer\">\n    <div class=\"item item-1\"><span class=\"symbol\">∫</span></div>\n    <div class=\"item item-2\"><span class=\"symbol\">∑</span></div>\n    <div class=\"item item-3\"><span class=\"symbol\">∂</span></div>\n  </div>\n  <div class=\"ring middle\">\n    <div class=\"item item-1\"><span class=\"symbol\">π</span></div>\n    <div class=\"item item-2\"><span class=\"symbol\">e</span></div>\n  </div>\n  <div class=\"ring inner\">\n    <div class=\"item item-1\"><span class=\"symbol\">∞</span></div>\n    <div class=\"item item-2\"><span class=\"symbol\">√</span></div>\n  </div>\n  <div class=\"core\"></div>\n</div>",
+  "css": ".loader * {\n  box-sizing: border-box;\n}\n\n.loader {\nposition: relative;\nwidth: 150px;\nheight: 150px;\ndisplay: flex;\njustify-content: center;\nalign-items: center;\noverflow: hidden;\nborder-radius: 50%;\nbox-shadow:\n0 0 0 1px rgba(255, 255, 255, 0.1),\n0 0 20px rgba(0, 0, 0, 1);\n}\n\n.ring {\nposition: absolute;\nborder-radius: 50%;\nbox-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);\ndisplay: flex;\njustify-content: center;\nalign-items: center;\nbackdrop-filter: blur(2px);\ntransform-style: preserve-3d;\n}\n\n.ring::before {\ncontent: \"\";\nposition: absolute;\ninset: 0;\nborder-radius: 50%;\nborder: 1px solid rgba(255, 255, 255, 0.1);\nz-index: 1;\n}\n\n.outer {\nwidth: 140px;\nheight: 140px;\nz-index: 10;\nanimation: spin 12s linear infinite;\n}\n\n.outer::after {\ncontent: \"\";\nposition: absolute;\ninset: 0;\nborder-radius: 50%;\nborder: 1px solid transparent;\nborder-top-color: rgba(34, 211, 238, 0.8);\nborder-right-color: rgba(34, 211, 238, 0.2);\nbox-shadow: 0 0 15px rgba(34, 211, 238, 0.4);\nz-index: 2;\npointer-events: none;\n}\n\n.middle {\nwidth: 100px;\nheight: 100px;\nz-index: 20;\nanimation: spin 8s linear infinite reverse;\n}\n\n.middle::after {\ncontent: \"\";\nposition: absolute;\ninset: 0;\nborder-radius: 50%;\nborder: 1px solid transparent;\nborder-left-color: rgba(168, 85, 247, 0.8);\nborder-bottom-color: rgba(168, 85, 247, 0.2);\nbox-shadow: 0 0 15px rgba(168, 85, 247, 0.4);\nz-index: 2;\npointer-events: none;\n}\n\n.inner {\nwidth: 60px;\nheight: 60px;\nz-index: 30;\nanimation: spin 4s linear infinite;\nbackground: radial-gradient(\ncircle,\nrgba(255, 255, 255, 0.05) 0%,\ntransparent 60%\n);\n}\n\n.inner::before {\nborder: 1px dashed rgba(255, 255, 255, 0.3);\n}\n\n.item {\nposition: absolute;\ntop: 50%;\nleft: 50%;\ntransform-origin: 0 0;\nz-index: 5;\n}\n\n.symbol {\ndisplay: block;\ncolor: #fff;\nfont-size: 1.2rem;\nfont-weight: 400;\ntext-shadow: 0 0 8px rgba(255, 255, 255, 0.5);\n}\n\n.outer .item-1 {\ntransform: rotate(0deg) translate(0, -70px);\n}\n\n.outer .item-2 {\ntransform: rotate(120deg) translate(0, -70px);\n}\n\n.outer .item-3 {\ntransform: rotate(240deg) translate(0, -70px);\n}\n\n.middle .item-1 {\ntransform: rotate(0deg) translate(0, -50px);\n}\n\n.middle .item-2 {\ntransform: rotate(180deg) translate(0, -50px);\n}\n\n.inner .item-1 {\ntransform: rotate(90deg) translate(0, -30px);\n}\n\n.inner .item-2 {\ntransform: rotate(270deg) translate(0, -30px);\n}\n\n@keyframes spin-reverse-0 {\nfrom {\ntransform: rotate(0deg);\n}\n\nto {\ntransform: rotate(-360deg);\n}\n}\n\n@keyframes spin-reverse-120 {\nfrom {\ntransform: rotate(-120deg);\n}\n\nto {\ntransform: rotate(-480deg);\n}\n}\n\n@keyframes spin-reverse-240 {\nfrom {\ntransform: rotate(-240deg);\n}\n\nto {\ntransform: rotate(-600deg);\n}\n}\n\n.outer .item-1 .symbol {\nanimation: spin-reverse-0 12s linear infinite;\n}\n\n.outer .item-2 .symbol {\nanimation: spin-reverse-120 12s linear infinite;\n}\n\n.outer .item-3 .symbol {\nanimation: spin-reverse-240 12s linear infinite;\n}\n\n@keyframes spin-forward-0 {\nfrom {\ntransform: rotate(0deg);\n}\n\nto {\ntransform: rotate(360deg);\n}\n}\n\n@keyframes spin-forward-180 {\nfrom {\ntransform: rotate(-180deg);\n}\n\nto {\ntransform: rotate(180deg);\n}\n}\n\n.middle .item-1 .symbol {\nanimation: spin-forward-0 8s linear infinite;\n}\n\n.middle .item-2 .symbol {\nanimation: spin-forward-180 8s linear infinite;\n}\n\n@keyframes spin-reverse-90 {\nfrom {\ntransform: rotate(-90deg);\n}\n\nto {\ntransform: rotate(-450deg);\n}\n}\n\n@keyframes spin-reverse-270 {\nfrom {\ntransform: rotate(-270deg);\n}\n\nto {\ntransform: rotate(-630deg);\n}\n}\n\n.inner .item-1 .symbol {\nanimation: spin-reverse-90 4s linear infinite;\n}\n\n.inner .item-2 .symbol {\nanimation: spin-reverse-270 4s linear infinite;\n}\n\n.core {\nposition: absolute;\nwidth: 8px;\nheight: 8px;\nbackground: #fff;\nborder-radius: 50%;\nbox-shadow:\n0 0 5px #fff,\n0 0 15px #22d3ee,\n0 0 30px #a855f7;\nz-index: 10;\nanimation: heartbeat-core 4s ease-in-out infinite;\n}\n@keyframes spin {\nto {\ntransform: rotate(360deg);\n}\n}\n\n@keyframes heartbeat-core {\n0% {\ntransform: scale(1);\nopacity: 0.8;\n}\n\n5% {\ntransform: scale(1.1);\nopacity: 0.9;\n}\n\n10% {\ntransform: scale(1);\nopacity: 0.8;\n}\n\n15% {\ntransform: scale(1.4);\nopacity: 1;\nbox-shadow:\n0 0 10px #fff,\n0 0 25px #22d3ee;\n}\n\n20% {\ntransform: scale(1);\nopacity: 0.8;\n}\n\n25% {\ntransform: scale(1);\nopacity: 0.8;\n}\n\n30% {\ntransform: scale(1.1);\nopacity: 0.9;\n}\n\n35% {\ntransform: scale(1);\nopacity: 0.8;\n}\n\n40% {\ntransform: scale(1.4);\nopacity: 1;\nbox-shadow:\n0 0 10px #fff,\n0 0 25px #22d3ee;\n}\n\n45% {\ntransform: scale(1);\nopacity: 0.8;\n}\n\n50% {\ntransform: scale(1);\nopacity: 0.8;\n}\n\n55% {\ntransform: scale(1.1);\nopacity: 0.9;\n}\n\n60% {\ntransform: scale(1);\nopacity: 0.8;\n}\n\n65% {\ntransform: scale(1.4);\nopacity: 1;\nbox-shadow:\n0 0 10px #fff,\n0 0 25px #22d3ee;\n}\n\n70% {\ntransform: scale(1);\nopacity: 0.8;\n}\n\n75% {\ntransform: scale(1);\nopacity: 0.8;\n}\n\n80% {\ntransform: scale(0.9);\nopacity: 0.6;\n}\n\n82% {\ntransform: scale(1.3);\nopacity: 0.9;\n}\n\n84% {\ntransform: scale(0.9);\nopacity: 0.6;\n}\n\n86% {\ntransform: scale(1.7);\nopacity: 1;\nbox-shadow:\n0 0 15px #fff,\n0 0 40px #a855f7;\n}\n\n90% {\ntransform: scale(1);\nopacity: 0.8;\n}\n\n100% {\ntransform: scale(1);\nopacity: 0.8;\n}\n}\n\n@keyframes grid-move {\n0% {\nbackground-position:\ncenter center,\n0 0,\n0 0;\n}\n\n100% {\nbackground-position:\ncenter center,\n0 30px,\n0 30px;\n}\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 3",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 140,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

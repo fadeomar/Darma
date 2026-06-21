@@ -1,5 +1,5 @@
-import { createBrowserConfigXml, createManifest, joinPath, manifestToJson } from "./manifest";
-import { createInstallReadme, createHtmlHeadSnippet, createNextJsSnippet, createValidatorGuide } from "./snippets";
+import { createBrowserConfigXml, createManifest, manifestToJson } from "./manifest";
+import { createInstallReadme, createHtmlHeadSnippet, createManifestSnippet, createNextJsSnippet, createProjectInstallSnippet, createValidatorGuide } from "./snippets";
 import { renderIconPng } from "./canvas";
 import { createIcoFromPngs } from "./ico";
 import { APPLE_ICON_SIZES, ICO_SIZES, PWA_ICON_SIZES } from "./presets";
@@ -30,36 +30,6 @@ function textAsset(filename: string, text: string, kind: GeneratedAsset["kind"],
 
 function assetKey(asset: GeneratedAsset) {
   return asset.filename;
-}
-
-function createPwaManifestJson(input: FaviconInput): string {
-  const icons = PWA_ICON_SIZES.map((size) => ({
-    src: joinPath("/icons/", `icon-${size}x${size}.png`),
-    sizes: `${size}x${size}`,
-    type: "image/png",
-    purpose: "any",
-  }));
-
-  if (input.includeMaskable) {
-    icons.push(
-      { src: joinPath("/icons/", "maskable-icon-192x192.png"), sizes: "192x192", type: "image/png", purpose: "maskable" },
-      { src: joinPath("/icons/", "maskable-icon-512x512.png"), sizes: "512x512", type: "image/png", purpose: "maskable" },
-    );
-  }
-
-  if (input.includeMonochrome) {
-    icons.push({ src: joinPath("/icons/", "monochrome-icon-512x512.png"), sizes: "512x512", type: "image/png", purpose: "monochrome" });
-  }
-
-  return `${JSON.stringify({
-    name: input.siteName.trim() || "My App",
-    short_name: input.shortName.trim() || "App",
-    icons,
-    theme_color: input.themeColor,
-    background_color: input.manifestBackgroundColor,
-    display: input.display,
-    orientation: input.orientation,
-  }, null, 2)}\n`;
 }
 
 
@@ -94,6 +64,7 @@ async function coreAssets(input: FaviconInput): Promise<GeneratedAsset[]> {
     textAsset("site.webmanifest", manifestToJson(createManifest(input)), "manifest", "application/manifest+json"),
     textAsset("html-head-snippet.txt", createHtmlHeadSnippet(input), "snippet"),
     textAsset("nextjs-app-router-snippet.txt", createNextJsSnippet(input), "snippet"),
+    textAsset(`${input.projectProfile}-install-snippet.txt`, createProjectInstallSnippet(input), "snippet"),
     textAsset("README.md", createInstallReadme(input), "readme", "text/markdown"),
   ];
 }
@@ -118,6 +89,7 @@ async function nextJsAssets(input: FaviconInput): Promise<GeneratedAsset[]> {
       : []),
     textAsset("public/site.webmanifest", publicManifest, "manifest", "application/manifest+json"),
     textAsset("instructions-nextjs.md", createNextJsSnippet(input), "readme", "text/markdown"),
+    textAsset(`${input.projectProfile}-install-snippet.txt`, createProjectInstallSnippet(input), "snippet"),
     textAsset("html-head-snippet.txt", createHtmlHeadSnippet({ ...input, pathPrefix: "/" }), "snippet"),
     textAsset("README.md", createInstallReadme(input), "readme", "text/markdown"),
   ];
@@ -134,8 +106,9 @@ async function pwaAssets(input: FaviconInput): Promise<GeneratedAsset[]> {
     ...maskable,
     ...(input.includeMonochrome ? [await pngAsset(input, "icons/monochrome-icon-512x512.png", 512, { monochrome: true })] : []),
     await pngAsset(input, "apple-touch-icon.png", 180),
-    textAsset("manifest.webmanifest", createPwaManifestJson(input), "manifest", "application/manifest+json"),
+    textAsset("manifest.webmanifest", createManifestSnippet(input), "manifest", "application/manifest+json"),
     textAsset("html-head-snippet.txt", createHtmlHeadSnippet({ ...input, pathPrefix: "/" }), "snippet"),
+    textAsset(`${input.projectProfile}-install-snippet.txt`, createProjectInstallSnippet(input), "snippet"),
     textAsset("README.md", createInstallReadme(input), "readme", "text/markdown"),
   ];
 }

@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import type { ElementDTO } from "@/features/elements/dto/element.dto";
 import PreviewCard from "@/components/TestCard";
 import { Badge, Button, Card, InlineError } from "@/components/ui";
-import { CheckCircle2, RotateCcw, Trash2 } from "lucide-react";
+import { CheckCircle2, Pencil, RotateCcw, Trash2 } from "lucide-react";
 
 type ApiResponse = {
   items: ElementDTO[];
@@ -403,7 +403,7 @@ export default function AdminReviewPage() {
                       {element.deleted ? <Badge variant="danger">Deleted</Badge> : null}
                     </div>
 
-                    <div className="mt-3">
+                    <div className="mt-3 flex flex-wrap gap-2">
                       <Button
                         type="button"
                         variant="outline"
@@ -411,6 +411,17 @@ export default function AdminReviewPage() {
                         onClick={() => setPreviewed(element)}
                       >
                         Preview
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="soft"
+                        size="sm"
+                        leftIcon={<Pencil className="h-4 w-4" />}
+                        onClick={() =>
+                          router.push(`/admin/elements?edit=${element.id}`)
+                        }
+                      >
+                        Edit
                       </Button>
                     </div>
                   </div>

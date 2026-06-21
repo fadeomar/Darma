@@ -1,5 +1,39 @@
 [
   {
+    "id": "uiverse-aqua-ripple-tiles",
+    "name": "Aqua Ripple Tiles",
+    "category": "pulse",
+    "tags": [
+      "uiverse",
+      "aqua",
+      "tiles",
+      "ripple",
+      "grid",
+      "pulse",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-aqua-ripple-tiles aqua ripple tiles pulse uiverse aqua tiles ripple grid pulse loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-aqua-ripple-tiles\">\n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-0\"></div>\n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-1\"></div>\n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-2\"></div>\n\n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-1\"></div>\n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-2\"></div>\n  \n  \n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-2\"></div>\n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-3\"></div>\n  \n  \n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-3\"></div>\n  <div class=\"darma-loader-uiverse-aqua-ripple-tiles__cell darma-loader-uiverse-aqua-ripple-tiles__d-4\"></div>\n  \n  \n</div>",
+    "previewCss": ".darma-loader-uiverse-aqua-ripple-tiles {\n  --cell-size: 52px;\n  --cell-spacing: 1px;\n  --cells: 3;\n  --total-size: calc(var(--cells) * (var(--cell-size) + 2 * var(--cell-spacing)));\n  display: flex;\n  flex-wrap: wrap;\n  width: var(--total-size);\n  height: var(--total-size);\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell {\nflex: 0 0 var(--cell-size);\nmargin: var(--cell-spacing);\nbackground-color: transparent;\nbox-sizing: border-box;\nborder-radius: 4px;\nanimation: 1.5s darma-loader-uiverse-aqua-ripple-tiles-ripple ease infinite;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell.darma-loader-uiverse-aqua-ripple-tiles__d-1 {\nanimation-delay: 100ms;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell.darma-loader-uiverse-aqua-ripple-tiles__d-2 {\nanimation-delay: 200ms;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell.darma-loader-uiverse-aqua-ripple-tiles__d-3 {\nanimation-delay: 300ms;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell.darma-loader-uiverse-aqua-ripple-tiles__d-4 {\nanimation-delay: 400ms;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(1) {\n--cell-color: #00FF87;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(2) {\n--cell-color: #0CFD95;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(3) {\n--cell-color: #17FBA2;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(4) {\n--cell-color: #23F9B2;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(5) {\n--cell-color: #30F7C3;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(6) {\n--cell-color: #3DF5D4;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(7) {\n--cell-color: #45F4DE;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(8) {\n--cell-color: #53F1F0;\n}\n\n.darma-loader-uiverse-aqua-ripple-tiles__cell:nth-child(9) {\n--cell-color: #60EFFF;\n}\n\n/*Animation*/\n@keyframes darma-loader-uiverse-aqua-ripple-tiles-ripple {\n0% {\nbackground-color: transparent;\n}\n\n30% {\nbackground-color: var(--cell-color);\n}\n\n60% {\nbackground-color: transparent;\n}\n\n100% {\nbackground-color: transparent;\n}\n}",
+    "defaults": {
+      "size": 120,
+      "speed": 1,
+      "background": "transparent"
+    }
+  },
+  {
     "id": "darma-custom-659",
     "name": "Blink Grid",
     "category": "pulse",
@@ -775,6 +809,39 @@
       "size": 72,
       "speed": 1,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "uiverse-orb-fill-quartet",
+    "name": "Orb Fill Quartet",
+    "category": "pulse",
+    "tags": [
+      "uiverse",
+      "circle",
+      "fill",
+      "quartet",
+      "pulse",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-orb-fill-quartet orb fill quartet pulse uiverse circle fill quartet pulse loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-orb-fill-quartet\">\n  <div class=\"darma-loader-uiverse-orb-fill-quartet__circle darma-loader-uiverse-orb-fill-quartet__circle-1\"></div>\n  <div class=\"darma-loader-uiverse-orb-fill-quartet__circle darma-loader-uiverse-orb-fill-quartet__circle-2\"></div>\n  <div class=\"darma-loader-uiverse-orb-fill-quartet__circle darma-loader-uiverse-orb-fill-quartet__circle-3\"></div>\n  <div class=\"darma-loader-uiverse-orb-fill-quartet__circle darma-loader-uiverse-orb-fill-quartet__circle-4\"></div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-orb-fill-quartet {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100%;\n}\n\n.darma-loader-uiverse-orb-fill-quartet__circle {\nposition: relative;\nwidth: 40px;\nheight: 40px;\nborder-radius: 50%;\nmargin: 10px;\nbox-shadow: inset 0 0 0 2px #fff;\ntransform-origin: center;\nanimation: darma-loader-uiverse-orb-fill-quartet-fill 1.5s ease-in-out infinite;\n}\n\n.darma-loader-uiverse-orb-fill-quartet__circle-1 {\nanimation-delay: 0s;\n}\n\n.darma-loader-uiverse-orb-fill-quartet__circle-2 {\nanimation-delay: -0.4s;\n}\n\n.darma-loader-uiverse-orb-fill-quartet__circle-3 {\nanimation-delay: -0.8s;\n}\n\n.darma-loader-uiverse-orb-fill-quartet__circle-4 {\nanimation-delay: -1.2s;\n}\n\n@keyframes darma-loader-uiverse-orb-fill-quartet-fill {\n0% {\ntransform: scale(1);\n}\n\n50% {\nbox-shadow: inset 0 0 0 2px #fff, inset 0 0 0 6px #1c1c1e;\ntransform: scale(1.5);\n}\n\n100% {\nbox-shadow: inset 0 0 0 2px #fff, inset 0 0 0 6px #fff;\ntransform: scale(1);\n}\n}",
+    "defaults": {
+      "size": 120,
+      "speed": 1,
+      "background": "transparent"
     }
   },
   {
@@ -1786,6 +1853,39 @@
       "size": 50,
       "speed": 2,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "uiverse-splash-square-trio",
+    "name": "Splash Square Trio",
+    "category": "pulse",
+    "tags": [
+      "uiverse",
+      "splash",
+      "squares",
+      "trio",
+      "pulse",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-splash-square-trio splash square trio pulse uiverse splash squares trio pulse loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-splash-square-trio\">\n  <div class=\"darma-loader-uiverse-splash-square-trio__square\"></div>\n  <div class=\"darma-loader-uiverse-splash-square-trio__square\"></div>\n  <div class=\"darma-loader-uiverse-splash-square-trio__square\"></div>\n</div>\n/* Container for loader */",
+    "previewCss": ".darma-loader-uiverse-splash-square-trio {\n  display: flex;\n  gap: 8px;\n  justify-content: center;\n  align-items: center;\n  height: 60px;\n}\n\n/* Individual squares */\n.darma-loader-uiverse-splash-square-trio__square {\nwidth: 22px;\nheight: 22px;\nbackground-color: rgb(0, 247, 255);\nborder-radius: 4px;\nbox-shadow: 0 0 12px rgba(4, 136, 252, 0.8);\nanimation: darma-loader-uiverse-darma-loader-uiverse-splash-square-trio-splash-square-trio-scaleBounce 1.2s infinite ease-in-out;\nposition: relative;\n}\n\n/* Splash effect */\n.darma-loader-uiverse-splash-square-trio__square::after {\ncontent: \"\";\nposition: absolute;\nwidth: 100%;\nheight: 100%;\nbackground-color: rgba(0, 247, 255, 0.5);\nborder-radius: 50%;\nopacity: 0;\ntransform: scale(1);\nanimation: darma-loader-uiverse-splash-square-trio-splash 1.2s infinite ease-in-out;\n}\n\n/* Animations for each square */\n.darma-loader-uiverse-splash-square-trio__square:nth-child(1) {\nanimation-delay: -0.4s;\n}\n.darma-loader-uiverse-splash-square-trio__square:nth-child(2) {\nanimation-delay: -0.2s;\n}\n.darma-loader-uiverse-splash-square-trio__square:nth-child(3) {\nanimation-delay: 0s;\n}\n\n@keyframes darma-loader-uiverse-splash-square-trio-scaleBounce {\n0%,\n80%,\n100% {\ntransform: scale(0.5);\nopacity: 0.6;\n}\n40% {\ntransform: scale(1.2);\nopacity: 1;\n}\n}\n\n@keyframes darma-loader-uiverse-splash-square-trio-splash {\n0% {\nopacity: 0.6;\ntransform: scale(1);\n}\n50% {\nopacity: 0;\ntransform: scale(2);\n}\n100% {\nopacity: 0;\ntransform: scale(2.5);\n}\n}",
+    "defaults": {
+      "size": 120,
+      "speed": 1,
+      "background": "transparent"
     }
   }
 ]

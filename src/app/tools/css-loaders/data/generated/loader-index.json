@@ -136,6 +136,59 @@
     "searchText": "darma-custom-154 aurora equalizer 30 bars aurora equalizer 30 bar bars css-only single-element batch-04 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-bars-ball",
+    "name": "Bars And Ball Loader",
+    "category": "bars",
+    "tags": [
+      "uiverse",
+      "bars",
+      "ball",
+      "chart",
+      "bounce",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-bars-ball bars and ball loader bars uiverse bars ball chart bounce loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-blue-tide-equalizer",
+    "name": "Blue Tide Equalizer",
+    "category": "bars",
+    "tags": [
+      "uiverse",
+      "blue",
+      "tide",
+      "equalizer",
+      "bars",
+      "wave",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-blue-tide-equalizer blue tide equalizer bars uiverse blue tide equalizer bars wave loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-136",
     "name": "Column Bounce Swap",
     "category": "bars",
@@ -995,6 +1048,32 @@
     "searchText": "darma-custom-164 mirrored stripes 39 bars mirrored stripes 39 bar equalizer bars css-only single-element batch-04 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-neumorphic-liquid-sliders",
+    "name": "Neumorphic Liquid Sliders",
+    "category": "bars",
+    "tags": [
+      "uiverse",
+      "sliders",
+      "neumorphic",
+      "liquid",
+      "bars",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-neumorphic-liquid-sliders neumorphic liquid sliders bars uiverse sliders neumorphic liquid bars loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-148",
     "name": "Offset Stripe Tracks",
     "category": "bars",
@@ -1222,6 +1301,32 @@
       "customizable": true
     },
     "searchText": "darma-custom-155 rising meter 31 bars rising meter 31 bar equalizer bars css-only single-element batch-04 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-search-signal-bars",
+    "name": "Search Signal Bars",
+    "category": "bars",
+    "tags": [
+      "uiverse",
+      "search",
+      "signal",
+      "bars",
+      "magnifier",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-search-signal-bars search signal bars bars uiverse search signal bars magnifier loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-132",
@@ -2187,6 +2292,32 @@
     "searchText": "wave-bars wave bars bars bars wave loading vertical html css react popular cssonly customizable"
   },
   {
+    "id": "uiverse-waveform-pill",
+    "name": "Waveform Pill",
+    "category": "bars",
+    "tags": [
+      "uiverse",
+      "waveform",
+      "pill",
+      "equalizer",
+      "bars",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-waveform-pill waveform pill bars uiverse waveform pill equalizer bars loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-153",
     "name": "Wide Barcode Wave",
     "category": "bars",
@@ -2514,6 +2645,59 @@
       "customizable": true
     },
     "searchText": "darma-custom-102 arrow gate flip creative arrow gate flip geometric creative css-only single-element batch-03 html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-banter-box-shuffle",
+    "name": "Banter Box Shuffle",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "boxes",
+      "shuffle",
+      "grid",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-banter-box-shuffle banter box shuffle creative uiverse boxes shuffle grid creative loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-bicycle-blueprint",
+    "name": "Bicycle Blueprint",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "bicycle",
+      "line-art",
+      "blueprint",
+      "svg",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-bicycle-blueprint bicycle blueprint creative uiverse bicycle line-art blueprint svg creative loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-320",
@@ -2933,6 +3117,32 @@
     "searchText": "darma-custom-207 bouncing bar dot 14 creative bouncing bar dot 14 creative motion css-only single-element batch-04 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-box-maze-morph",
+    "name": "Box Maze Morph",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "box",
+      "maze",
+      "morph",
+      "geometry",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-box-maze-morph box maze morph creative uiverse box maze morph geometry loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-014",
     "name": "Box Shadow Step Orbit",
     "category": "creative",
@@ -2956,6 +3166,33 @@
       "customizable": true
     },
     "searchText": "darma-custom-014 box shadow step orbit creative shadow steps orbit squares batch-01 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-boxing-label-loader",
+    "name": "Boxing Label Loader",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "label",
+      "box",
+      "text",
+      "motion",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-boxing-label-loader boxing label loader creative uiverse label box text motion creative loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-090",
@@ -2984,6 +3221,33 @@
       "customizable": true
     },
     "searchText": "darma-custom-090 butterfly triangle flip creative butterfly triangle flip geometric creative css-only single-element batch-03 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-celestial-orbit-system",
+    "name": "Celestial Orbit System",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "solar",
+      "orbit",
+      "planet",
+      "moon",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-celestial-orbit-system celestial orbit system creative uiverse solar orbit planet moon creative loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-179",
@@ -4299,6 +4563,32 @@
     "searchText": "darma-custom-082 corner triangle flip creative corner triangle flip geometric creative css-only single-element batch-03 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-countdown-spin-dial",
+    "name": "Countdown Spin Dial",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "count",
+      "dial",
+      "numbers",
+      "spinner",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-countdown-spin-dial countdown spin dial creative uiverse count dial numbers spinner loader html css react singleelement cssonly customizable"
+  },
+  {
     "id": "darma-custom-278",
     "name": "Counter Gear Wheel",
     "category": "creative",
@@ -4378,6 +4668,33 @@
       "customizable": true
     },
     "searchText": "darma-custom-096 cross corner expand creative cross corner expand geometric creative css-only single-element batch-03 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-crystal-bloom",
+    "name": "Crystal Bloom",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "crystal",
+      "bloom",
+      "3d",
+      "gradient",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-crystal-bloom crystal bloom creative uiverse crystal bloom 3d gradient creative loader html css react cssonly customizable"
   },
   {
     "id": "cssloaders-github-04",
@@ -4528,6 +4845,59 @@
       "customizable": true
     },
     "searchText": "loaders-css-08 cube transition 08 creative loaders-css cube transition creative loader html css react popular cssonly customizable"
+  },
+  {
+    "id": "uiverse-cyber-target-rings",
+    "name": "Cyber Target Rings",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "cyber",
+      "target",
+      "rings",
+      "hud",
+      "svg",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-cyber-target-rings cyber target rings creative uiverse cyber target rings hud svg loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-dash-outline-icon",
+    "name": "Dash Outline Icon",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "dash",
+      "outline",
+      "svg",
+      "icon",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-dash-outline-icon dash outline icon creative uiverse dash outline svg icon loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-002",
@@ -5008,6 +5378,32 @@
       "customizable": true
     },
     "searchText": "darma-custom-514 duo block 10 creative duo block 10 duotone motion creative tiles loader css-only single-element batch-07 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-ecg-stroke-loader",
+    "name": "ECG Stroke Loader",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "ecg",
+      "heartbeat",
+      "stroke",
+      "medical",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-ecg-stroke-loader ecg stroke loader creative uiverse ecg heartbeat stroke medical loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-642",
@@ -5700,6 +6096,33 @@
     "searchText": "darma-custom-373 flip tile 20 creative flip tile 20 3d fold creative loader css-only single-element batch-06 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-flipbook-chapters",
+    "name": "Flipbook Chapters",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "book",
+      "pages",
+      "flip",
+      "reading",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-flipbook-chapters flipbook chapters creative uiverse book pages flip reading creative loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-092",
     "name": "Folding Conic Square",
     "category": "creative",
@@ -5751,6 +6174,58 @@
       "customizable": true
     },
     "searchText": "darma-custom-003 four panel gradient flip creative square panels flip gradient batch-01 html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-gearbox-sync",
+    "name": "Gearbox Sync",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "gears",
+      "mechanical",
+      "sync",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-gearbox-sync gearbox sync creative uiverse gears mechanical sync creative loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-generating-letter-train",
+    "name": "Generating Letter Train",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "letters",
+      "generating",
+      "text",
+      "train",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-generating-letter-train generating letter train creative uiverse letters generating text train loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-693",
@@ -5922,6 +6397,58 @@
     "searchText": "darma-custom-657 golden prism creative rich svg prism particles geometric illustrated creative loader html-css customizable rich-batch-01 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-gooey-hourglass-drops",
+    "name": "Gooey Hourglass Drops",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "gooey",
+      "hourglass",
+      "drops",
+      "filter",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-gooey-hourglass-drops gooey hourglass drops creative uiverse gooey hourglass drops filter loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-gooey-wave-pool",
+    "name": "Gooey Wave Pool",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "gooey",
+      "wave",
+      "pool",
+      "blob",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-gooey-wave-pool gooey wave pool creative uiverse gooey wave pool blob loader html css react cssonly customizable"
+  },
+  {
     "id": "uiverse-gradient-flip",
     "name": "Gradient Flip Tile",
     "category": "creative",
@@ -6000,6 +6527,33 @@
     "searchText": "darma-custom-108 hinge tile fold creative hinge tile fold geometric creative css-only single-element batch-03 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-hourglass-sand",
+    "name": "Hourglass Sand Loader",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "hourglass",
+      "sand",
+      "time",
+      "3d",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-hourglass-sand hourglass sand loader creative uiverse hourglass sand time 3d creative loader html css react popular cssonly customizable"
+  },
+  {
     "id": "darma-custom-086",
     "name": "Hourglass Split",
     "category": "creative",
@@ -6025,6 +6579,59 @@
       "customizable": true
     },
     "searchText": "darma-custom-086 hourglass split creative hourglass split geometric creative css-only single-element batch-03 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-inner-box-orbit",
+    "name": "Inner Box Orbit",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "box",
+      "orbit",
+      "nested",
+      "geometry",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-inner-box-orbit inner box orbit creative uiverse box orbit nested geometry loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-isometric-dots",
+    "name": "Isometric Dot Ring",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "isometric",
+      "dots",
+      "ring",
+      "3d",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-isometric-dots isometric dot ring creative uiverse isometric dots ring 3d creative loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-065",
@@ -6686,6 +7293,138 @@
     "searchText": "darma-custom-554 line trace 20 creative line trace 20 outline geometric creative loader css-only single-element batch-07 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-liquid-metal-core",
+    "name": "Liquid Metal Core",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "liquid",
+      "metal",
+      "orb",
+      "core",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-liquid-metal-core liquid metal core creative uiverse liquid metal orb core loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-liquid-planet-sphere",
+    "name": "Liquid Planet Sphere",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "liquid",
+      "planet",
+      "sphere",
+      "waves",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-liquid-planet-sphere liquid planet sphere creative uiverse liquid planet sphere waves creative loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-loading-cube-wave",
+    "name": "Loading Cube Wave",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "loading",
+      "cubes",
+      "text",
+      "3d",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-loading-cube-wave loading cube wave creative uiverse loading cubes text 3d creative loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-loading-word-carousel",
+    "name": "Loading Word Carousel",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "words",
+      "carousel",
+      "text",
+      "loading",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-loading-word-carousel loading word carousel creative uiverse words carousel text loading loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-magnetic-field-pulse",
+    "name": "Magnetic Field Pulse",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "magnet",
+      "field",
+      "pulse",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-magnetic-field-pulse magnetic field pulse creative uiverse magnet field pulse creative loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-139",
     "name": "Matrix Blink Grid",
     "category": "creative",
@@ -6857,6 +7596,33 @@
     "searchText": "darma-custom-239 mirrored corner tiles creative mirrored corner tiles geometric creative loader css-only single-element batch-05 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-morphing-panels",
+    "name": "Morphing Panels Loader",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "morphing",
+      "panels",
+      "cards",
+      "shape",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-morphing-panels morphing panels loader creative uiverse morphing panels cards shape creative loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-287",
     "name": "Morphing Star Orbit",
     "category": "creative",
@@ -6940,6 +7706,59 @@
       "customizable": true
     },
     "searchText": "uiverse-neon-orbit neon orbit loader creative uiverse neon orbit creative loader html css react popular cssonly customizable"
+  },
+  {
+    "id": "uiverse-neon-triangle-matrix",
+    "name": "Neon Triangle Matrix",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "triangles",
+      "matrix",
+      "neon",
+      "grid",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-neon-triangle-matrix neon triangle matrix creative uiverse triangles matrix neon grid loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-neural-ripple-logo",
+    "name": "Neural Ripple Logo",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "neural",
+      "ripple",
+      "logo",
+      "rings",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-neural-ripple-logo neural ripple logo creative uiverse neural ripple logo rings creative loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-276",
@@ -7116,6 +7935,85 @@
     "searchText": "darma-custom-666 pencil orbit creative rich svg pencil orbit illustrated uiverse creative loader html-css customizable rich-batch-01 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-plasma-orbit-core",
+    "name": "Plasma Orbit Core",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "plasma",
+      "orbit",
+      "core",
+      "rings",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-plasma-orbit-core plasma orbit core creative uiverse plasma orbit core rings loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-primary-cross-core",
+    "name": "Primary Cross Core",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "primary",
+      "cross",
+      "core",
+      "motion",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-primary-cross-core primary cross core creative uiverse primary cross core motion loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-prism-pyramid",
+    "name": "Prism Pyramid",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "pyramid",
+      "prism",
+      "3d",
+      "gradient",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-prism-pyramid prism pyramid creative uiverse pyramid prism 3d gradient creative loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-006",
     "name": "Quadrant Tile Bloom",
     "category": "creative",
@@ -7139,6 +8037,87 @@
       "customizable": true
     },
     "searchText": "darma-custom-006 quadrant tile bloom creative circle quadrant tiles bloom batch-01 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-quantum-core",
+    "name": "Quantum Core",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "quantum",
+      "core",
+      "particles",
+      "energy",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-quantum-core quantum core creative uiverse quantum core particles energy creative loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-radar-sweep",
+    "name": "Radar Sweep",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "radar",
+      "sweep",
+      "scan",
+      "glow",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-radar-sweep radar sweep creative uiverse radar sweep scan glow creative loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-reactor-core-grid",
+    "name": "Reactor Core Grid",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "reactor",
+      "core",
+      "grid",
+      "sci-fi",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-reactor-core-grid reactor core grid creative uiverse reactor core grid sci-fi creative loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-282",
@@ -7229,6 +8208,32 @@
     "searchText": "darma-custom-188 rolling token bar creative rolling token bar creative motion css-only single-element batch-04 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-rotating-3d-cube",
+    "name": "Rotating 3D Cube",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "cube",
+      "3d",
+      "spinner",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-rotating-3d-cube rotating 3d cube creative uiverse cube 3d spinner creative loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-087",
     "name": "Rotating Corner Frame",
     "category": "creative",
@@ -7312,6 +8317,33 @@
       "customizable": true
     },
     "searchText": "darma-custom-198 rounded meter race 13 creative rounded meter race 13 creative motion css-only single-element batch-04 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-ruby-chevron-shine",
+    "name": "Ruby Chevron Shine",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "ruby",
+      "chevron",
+      "shine",
+      "logo",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-ruby-chevron-shine ruby chevron shine creative uiverse ruby chevron shine logo creative loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-451",
@@ -7921,6 +8953,32 @@
       "customizable": true
     },
     "searchText": "darma-custom-104 stretching block pair creative stretching block pair geometric creative css-only single-element batch-03 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-terminal-typing-panel",
+    "name": "Terminal Typing Panel",
+    "category": "creative",
+    "tags": [
+      "uiverse",
+      "terminal",
+      "typing",
+      "cursor",
+      "developer",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-terminal-typing-panel terminal typing panel creative uiverse terminal typing cursor developer loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-062",
@@ -9292,6 +10350,32 @@
     "searchText": "elastic-dots elastic dots dots dots elastic stretch playful html css react cssonly customizable"
   },
   {
+    "id": "uiverse-ember-bounce-row",
+    "name": "Ember Bounce Row",
+    "category": "dots",
+    "tags": [
+      "uiverse",
+      "ember",
+      "bounce",
+      "row",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-ember-bounce-row ember bounce row dots uiverse ember bounce row dots loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-211",
     "name": "Expanding Dot Cross",
     "category": "dots",
@@ -9348,6 +10432,32 @@
     "searchText": "darma-custom-177 faded signal dots dots faded signal dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-firefly-square-grid",
+    "name": "Firefly Square Grid",
+    "category": "dots",
+    "tags": [
+      "uiverse",
+      "grid",
+      "squares",
+      "firefly",
+      "pulse",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-firefly-square-grid firefly square grid dots uiverse grid squares firefly pulse loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-184",
     "name": "Flip Orbit Dots",
     "category": "dots",
@@ -9402,6 +10512,58 @@
       "customizable": true
     },
     "searchText": "darma-custom-214 four dot flip dots four dot flip dots loader css-only single-element batch-04 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-golden-bubble-train",
+    "name": "Golden Bubble Train",
+    "category": "dots",
+    "tags": [
+      "uiverse",
+      "golden",
+      "bubble",
+      "train",
+      "dots",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-golden-bubble-train golden bubble train dots uiverse golden bubble train dots loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-honeycomb",
+    "name": "Honeycomb Loader",
+    "category": "dots",
+    "tags": [
+      "uiverse",
+      "honeycomb",
+      "hexagon",
+      "dots",
+      "grid",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-honeycomb honeycomb loader dots uiverse honeycomb hexagon dots grid loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-173",
@@ -9789,6 +10951,32 @@
     "searchText": "darma-custom-183 orbit pair dots dots orbit pair dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-orbital-status-dots",
+    "name": "Orbital Status Dots",
+    "category": "dots",
+    "tags": [
+      "uiverse",
+      "orbital",
+      "dots",
+      "status",
+      "text",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-orbital-status-dots orbital status dots dots uiverse orbital dots status text loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-191",
     "name": "Pac Dot Sweep",
     "category": "dots",
@@ -9873,6 +11061,32 @@
     "searchText": "darma-custom-189 pill dot wave dots pill dot wave dots loader css-only single-element batch-04 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-purple-pulse-batons",
+    "name": "Purple Pulse Batons",
+    "category": "dots",
+    "tags": [
+      "uiverse",
+      "pulse",
+      "batons",
+      "dots",
+      "purple",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-purple-pulse-batons purple pulse batons dots uiverse pulse batons dots purple loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-171",
     "name": "Reveal Dots",
     "category": "dots",
@@ -9926,6 +11140,32 @@
       "customizable": true
     },
     "searchText": "darma-custom-213 rotating dot pair dots rotating dot pair dots loader css-only single-element batch-04 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-shadow-hopper-dots",
+    "name": "Shadow Hopper Dots",
+    "category": "dots",
+    "tags": [
+      "uiverse",
+      "dots",
+      "bounce",
+      "shadow",
+      "minimal",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-shadow-hopper-dots shadow hopper dots dots uiverse dots bounce shadow minimal loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-181",
@@ -10602,6 +11842,32 @@
     "searchText": "darma-custom-667 bouncing basketball fun rich basketball bounce sports 3d multi-element fun loader html-css customizable rich-batch-01 html css react cssonly customizable"
   },
   {
+    "id": "uiverse-bouncing-steps",
+    "name": "Bouncing Steps Loader",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "bounce",
+      "steps",
+      "ball",
+      "stairs",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-bouncing-steps bouncing steps loader fun uiverse bounce steps ball stairs loader html css react singleelement cssonly customizable"
+  },
+  {
     "id": "darma-custom-312",
     "name": "Box Bounce",
     "category": "fun",
@@ -10715,6 +11981,60 @@
     "searchText": "darma-custom-100 capsule folding flip fun capsule folding flip playful motion css-only single-element batch-03 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-capybara-road-runner",
+    "name": "Capybara Road Runner",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "capybara",
+      "animal",
+      "road",
+      "run",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-capybara-road-runner capybara road runner fun uiverse capybara animal road run fun loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-cloud-gear-wagon",
+    "name": "Cloud Gear Wagon",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "cloud",
+      "gear",
+      "vehicle",
+      "wheels",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-cloud-gear-wagon cloud gear wagon fun uiverse cloud gear vehicle wheels fun loader html css react singleelement cssonly customizable"
+  },
+  {
     "id": "darma-custom-672",
     "name": "Coffee Progress",
     "category": "fun",
@@ -10766,6 +12086,33 @@
       "customizable": true
     },
     "searchText": "confetti-dots confetti dots fun fun confetti dots celebration html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-delivery-truck",
+    "name": "Delivery Truck Loader",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "truck",
+      "delivery",
+      "road",
+      "svg",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-delivery-truck delivery truck loader fun uiverse truck delivery road svg fun loader html css react popular cssonly customizable"
   },
   {
     "id": "darma-custom-316",
@@ -10823,6 +12170,32 @@
       "customizable": true
     },
     "searchText": "darma-custom-078 diamond wings bounce fun diamond wings bounce playful motion css-only single-element batch-03 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-domino-cascade",
+    "name": "Domino Cascade",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "domino",
+      "cascade",
+      "fall",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-domino-cascade domino cascade fun uiverse domino cascade fall fun loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-076",
@@ -11270,6 +12643,59 @@
     "searchText": "darma-custom-072 gear wobble spinner fun gear wobble spinner playful motion css-only single-element batch-03 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-gooey-triad-dance",
+    "name": "Gooey Triad Dance",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "gooey",
+      "dots",
+      "triad",
+      "filter",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-gooey-triad-dance gooey triad dance fun uiverse gooey dots triad filter fun loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-hamster-wheel-sprint",
+    "name": "Hamster Wheel Sprint",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "hamster",
+      "wheel",
+      "animal",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-hamster-wheel-sprint hamster wheel sprint fun uiverse hamster wheel animal fun loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-028",
     "name": "Hanging Pendulum Ball",
     "category": "fun",
@@ -11407,6 +12833,32 @@
     "searchText": "darma-custom-077 hexagon wings bounce fun hexagon wings bounce playful motion css-only single-element batch-03 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-jumping-soft-cube",
+    "name": "Jumping Soft Cube",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "cube",
+      "jump",
+      "shadow",
+      "bounce",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-jumping-soft-cube jumping soft cube fun uiverse cube jump shadow bounce loader html css react singleelement cssonly customizable"
+  },
+  {
     "id": "darma-custom-668",
     "name": "Jumping Tile",
     "category": "fun",
@@ -11498,6 +12950,33 @@
     "searchText": "darma-custom-193 matrix pop grid 74 fun matrix pop grid 74 fun playful motion css-only single-element batch-04 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-matrix-rain-digits",
+    "name": "Matrix Rain Digits",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "matrix",
+      "digits",
+      "binary",
+      "ai",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-matrix-rain-digits matrix rain digits fun uiverse matrix digits binary ai fun loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-027",
     "name": "Micro Jitter Ball",
     "category": "fun",
@@ -11550,6 +13029,33 @@
       "customizable": true
     },
     "searchText": "darma-custom-079 mixed wings bounce fun mixed wings bounce playful motion css-only single-element batch-03 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-newton-swing",
+    "name": "Newton Swing",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "newton",
+      "cradle",
+      "swing",
+      "physics",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-newton-swing newton swing fun uiverse newton cradle swing physics fun loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-073",
@@ -11667,6 +13173,33 @@
     "searchText": "darma-custom-094 pacman quarter orbit fun pacman quarter orbit playful motion css-only single-element batch-03 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-panda-blink-face",
+    "name": "Panda Blink Face",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "panda",
+      "animal",
+      "blink",
+      "cute",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-panda-blink-face panda blink face fun uiverse panda animal blink cute fun loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-075",
     "name": "Pendulum Pentagon Rail",
     "category": "fun",
@@ -11754,6 +13287,60 @@
       "customizable": true
     },
     "searchText": "darma-custom-655 pixel ghost fun rich pixel ghost game illustrated multi-element fun loader html-css customizable rich-batch-01 html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-pizza-slice-orbit",
+    "name": "Pizza Slice Orbit",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "pizza",
+      "food",
+      "slices",
+      "svg",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-pizza-slice-orbit pizza slice orbit fun uiverse pizza food slices svg fun loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-pong-bar-rally",
+    "name": "Pong Bar Rally",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "pong",
+      "bars",
+      "ball",
+      "game",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-pong-bar-rally pong bar rally fun uiverse pong bars ball game fun loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-032",
@@ -11925,6 +13512,59 @@
       "customizable": true
     },
     "searchText": "darma-custom-029 seesaw dot bar fun seesaw dots bar tilt single-element batch-02 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-seesaw-marble",
+    "name": "Seesaw Marble",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "seesaw",
+      "marble",
+      "balance",
+      "ball",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-seesaw-marble seesaw marble fun uiverse seesaw marble balance ball fun loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-shooting-star-trio",
+    "name": "Shooting Star Trio",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "stars",
+      "shooting",
+      "sparkle",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-shooting-star-trio shooting star trio fun uiverse stars shooting sparkle fun loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-487",
@@ -12356,6 +13996,33 @@
     "searchText": "darma-custom-654 sun cloud scene fun rich scene weather sun cloud multi-element fun loader html-css customizable rich-batch-01 html css react cssonly customizable"
   },
   {
+    "id": "uiverse-tap-dance-hand",
+    "name": "Tap Dance Hand",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "hand",
+      "tap",
+      "gesture",
+      "fun",
+      "css",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-tap-dance-hand tap dance hand fun uiverse hand tap gesture fun css loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-658",
     "name": "Tapping Hand",
     "category": "fun",
@@ -12412,6 +14079,33 @@
     "searchText": "darma-custom-033 tilted track ball fun tilted track ball slope batch-02 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-traffic-light-sequence",
+    "name": "Traffic Light Sequence",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "traffic",
+      "lights",
+      "sequence",
+      "status",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-traffic-light-sequence traffic light sequence fun uiverse traffic lights sequence status fun loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-315",
     "name": "Twin Ping Box",
     "category": "fun",
@@ -12443,6 +14137,32 @@
     "searchText": "darma-custom-315 twin ping box fun twin ping box bounce ball fun motion loader css-only single-element batch-05 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-typewriter",
+    "name": "Typewriter Loader",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "typewriter",
+      "keyboard",
+      "paper",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-typewriter typewriter loader fun uiverse typewriter keyboard paper fun loader html css react popular cssonly customizable"
+  },
+  {
     "id": "darma-custom-031",
     "name": "Vertical Pendulum Rod",
     "category": "fun",
@@ -12467,6 +14187,33 @@
       "customizable": true
     },
     "searchText": "darma-custom-031 vertical pendulum rod fun vertical pendulum rod swing single-element batch-02 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-walking-mascot",
+    "name": "Walking Mascot Loader",
+    "category": "fun",
+    "tags": [
+      "uiverse",
+      "walking",
+      "mascot",
+      "character",
+      "svg",
+      "fun",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-walking-mascot walking mascot loader fun uiverse walking mascot character svg fun loader html css react popular cssonly customizable"
   },
   {
     "id": "darma-custom-461",
@@ -12949,6 +14696,163 @@
     "searchText": "darma-custom-476 weather icon 16 fun weather icon 16 fun scene illustration loader css-only single-element batch-07 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-angle-bracket-reveal",
+    "name": "Angle Bracket Reveal",
+    "category": "minimal",
+    "tags": [
+      "uiverse",
+      "code",
+      "angle",
+      "text",
+      "reveal",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-angle-bracket-reveal angle bracket reveal minimal uiverse code angle text reveal loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-arrow-flow-stairs",
+    "name": "Arrow Flow Stairs",
+    "category": "minimal",
+    "tags": [
+      "uiverse",
+      "arrow",
+      "flow",
+      "stairs",
+      "minimal",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-arrow-flow-stairs arrow flow stairs minimal uiverse arrow flow stairs minimal loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-candy-gradient-word",
+    "name": "Candy Gradient Word",
+    "category": "minimal",
+    "tags": [
+      "uiverse",
+      "text",
+      "gradient",
+      "word",
+      "minimal",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-candy-gradient-word candy gradient word minimal uiverse text gradient word minimal loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-citrus-mask-orb",
+    "name": "Citrus Mask Orb",
+    "category": "minimal",
+    "tags": [
+      "uiverse",
+      "mask",
+      "orb",
+      "orange",
+      "minimal",
+      "css",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-citrus-mask-orb citrus mask orb minimal uiverse mask orb orange minimal css loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-compass-mask-square",
+    "name": "Compass Mask Square",
+    "category": "minimal",
+    "tags": [
+      "uiverse",
+      "compass",
+      "mask",
+      "square",
+      "minimal",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-compass-mask-square compass mask square minimal uiverse compass mask square minimal loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-corner-path-square",
+    "name": "Corner Path Square",
+    "category": "minimal",
+    "tags": [
+      "uiverse",
+      "corner",
+      "path",
+      "square",
+      "minimal",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-corner-path-square corner path square minimal uiverse corner path square minimal loader html css react singleelement cssonly customizable"
+  },
+  {
     "id": "darma-custom-661",
     "name": "Generating Ring",
     "category": "minimal",
@@ -13159,6 +15063,32 @@
       "customizable": true
     },
     "searchText": "darma-custom-705 minimal loader 31 minimal css-only single-element customizable batch-08 minimal loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-rolling-rock-steps",
+    "name": "Rolling Rock Steps",
+    "category": "minimal",
+    "tags": [
+      "uiverse",
+      "rolling",
+      "rock",
+      "steps",
+      "minimal",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-rolling-rock-steps rolling rock steps minimal uiverse rolling rock steps minimal loader html css react singleelement cssonly customizable"
   },
   {
     "id": "darma-custom-671",
@@ -13842,6 +15772,32 @@
     "searchText": "darma-custom-011 vanishing color stack minimal square stack vanish minimal batch-01 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-aqua-pill-fill",
+    "name": "Aqua Pill Fill",
+    "category": "progress",
+    "tags": [
+      "uiverse",
+      "pill",
+      "fill",
+      "aqua",
+      "progress",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-aqua-pill-fill aqua pill fill progress uiverse pill fill aqua progress loader html css react singleelement cssonly customizable"
+  },
+  {
     "id": "darma-custom-226",
     "name": "Arrow Rail",
     "category": "progress",
@@ -13924,6 +15880,32 @@
     "searchText": "darma-custom-023 bordered slider fill progress linear bordered slider pill fill batch-02 html css react popular singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-candy-stripe-progress",
+    "name": "Candy Stripe Progress",
+    "category": "progress",
+    "tags": [
+      "uiverse",
+      "candy",
+      "stripe",
+      "progress",
+      "bar",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-candy-stripe-progress candy stripe progress progress uiverse candy stripe progress bar loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-224",
     "name": "Capsule Conveyor",
     "category": "progress",
@@ -13952,6 +15934,32 @@
       "customizable": true
     },
     "searchText": "darma-custom-224 capsule conveyor progress capsule conveyor progress bar track linear loader css-only single-element batch-05 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-checkpoint-progress",
+    "name": "Checkpoint Progress",
+    "category": "progress",
+    "tags": [
+      "uiverse",
+      "checkpoints",
+      "progress",
+      "success",
+      "bar",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-checkpoint-progress checkpoint progress progress uiverse checkpoints progress success bar loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-242",
@@ -15397,6 +17405,32 @@
     "searchText": "linear-progress linear progress progress progress bar upload linear html css react popular cssonly customizable singleelement"
   },
   {
+    "id": "uiverse-liquid-aurora-progress",
+    "name": "Liquid Aurora Progress",
+    "category": "progress",
+    "tags": [
+      "uiverse",
+      "liquid",
+      "aurora",
+      "progress",
+      "gradient",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-liquid-aurora-progress liquid aurora progress progress uiverse liquid aurora progress gradient loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-018",
     "name": "Masked Quadrant Sweep",
     "category": "progress",
@@ -15777,6 +17811,33 @@
     "searchText": "darma-custom-268 mirrored wave mask progress mirrored wave mask progress track loader css-only single-element batch-05 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-neon-capsule-sweep",
+    "name": "Neon Capsule Sweep",
+    "category": "progress",
+    "tags": [
+      "uiverse",
+      "neon",
+      "capsule",
+      "sweep",
+      "progress",
+      "glow",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-neon-capsule-sweep neon capsule sweep progress uiverse neon capsule sweep progress glow loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-042",
     "name": "Outline Pill Fill",
     "category": "progress",
@@ -15800,6 +17861,32 @@
       "customizable": true
     },
     "searchText": "darma-custom-042 outline pill fill progress outline pill fill progress batch-02 html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-particle-progress-rail",
+    "name": "Particle Progress Rail",
+    "category": "progress",
+    "tags": [
+      "uiverse",
+      "particles",
+      "progress",
+      "rail",
+      "glow",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-particle-progress-rail particle progress rail progress uiverse particles progress rail glow loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-675",
@@ -17006,6 +19093,58 @@
     "searchText": "darma-custom-770 pattern progress 96 progress css-only single-element customizable batch-08 progress striped pattern loader html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-redirect-progress-card",
+    "name": "Redirect Progress Card",
+    "category": "progress",
+    "tags": [
+      "uiverse",
+      "redirect",
+      "card",
+      "progress",
+      "text",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-redirect-progress-card redirect progress card progress uiverse redirect card progress text loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-retro-monitor-progress",
+    "name": "Retro Monitor Progress",
+    "category": "progress",
+    "tags": [
+      "uiverse",
+      "retro",
+      "monitor",
+      "screen",
+      "progress",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-retro-monitor-progress retro monitor progress progress uiverse retro monitor screen progress loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-022",
     "name": "Rounded Dot Track",
     "category": "progress",
@@ -17637,6 +19776,32 @@
       "customizable": true
     },
     "searchText": "darma-custom-021 sliding block track progress linear track sliding block single-element batch-02 html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-soft-progress-breath",
+    "name": "Soft Progress Breath",
+    "category": "progress",
+    "tags": [
+      "uiverse",
+      "soft",
+      "progress",
+      "breath",
+      "bar",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-soft-progress-breath soft progress breath progress uiverse soft progress breath bar loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-233",
@@ -18429,6 +20594,33 @@
     "searchText": "darma-custom-227 zigzag micro rail progress zigzag micro rail progress bar track linear loader css-only single-element batch-05 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-aqua-ripple-tiles",
+    "name": "Aqua Ripple Tiles",
+    "category": "pulse",
+    "tags": [
+      "uiverse",
+      "aqua",
+      "tiles",
+      "ripple",
+      "grid",
+      "pulse",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-aqua-ripple-tiles aqua ripple tiles pulse uiverse aqua tiles ripple grid pulse loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-659",
     "name": "Blink Grid",
     "category": "pulse",
@@ -19017,6 +21209,32 @@
       "customizable": true
     },
     "searchText": "darma-custom-573 mask reveal 10 pulse mask reveal 10 pulse shape loader css-only single-element batch-07 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-orb-fill-quartet",
+    "name": "Orb Fill Quartet",
+    "category": "pulse",
+    "tags": [
+      "uiverse",
+      "circle",
+      "fill",
+      "quartet",
+      "pulse",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-orb-fill-quartet orb fill quartet pulse uiverse circle fill quartet pulse loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-005",
@@ -19789,6 +22007,32 @@
     "searchText": "darma-custom-015 rounded quadrant bloom pulse circle quadrant bloom rounded batch-01 html css react popular singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-splash-square-trio",
+    "name": "Splash Square Trio",
+    "category": "pulse",
+    "tags": [
+      "uiverse",
+      "splash",
+      "squares",
+      "trio",
+      "pulse",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-splash-square-trio splash square trio pulse uiverse splash squares trio pulse loader html css react cssonly customizable"
+  },
+  {
     "id": "uiverse-card-line-shimmer",
     "name": "Card Line Shimmer",
     "category": "skeleton",
@@ -19955,6 +22199,33 @@
       "singleElement": true
     },
     "searchText": "arc-spinner arc spinner spinners spinner arc minimal single element html css react cssonly customizable singleelement"
+  },
+  {
+    "id": "uiverse-aurora-halo-spinner",
+    "name": "Aurora Halo Spinner",
+    "category": "spinners",
+    "tags": [
+      "uiverse",
+      "aurora",
+      "halo",
+      "gradient",
+      "spinner",
+      "glow",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-aurora-halo-spinner aurora halo spinner spinners uiverse aurora halo gradient spinner glow loader html css react cssonly customizable"
   },
   {
     "id": "loaders-css-02",
@@ -21382,6 +23653,32 @@
       "customizable": true
     },
     "searchText": "darma-custom-084 expanding corner arcs spinners expanding corner arcs spinner rotation css-only single-element batch-03 html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-four-orb-carousel",
+    "name": "Four Orb Carousel",
+    "category": "spinners",
+    "tags": [
+      "uiverse",
+      "orbs",
+      "carousel",
+      "bounce",
+      "spinner",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-four-orb-carousel four orb carousel spinners uiverse orbs carousel bounce spinner loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-071",
@@ -23090,6 +25387,32 @@
     "searchText": "darma-custom-343 neon halo 12 spinners neon halo 12 glow ring spinner blur spinners loader css-only single-element batch-06 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-neon-loading-ring",
+    "name": "Neon Loading Ring",
+    "category": "spinners",
+    "tags": [
+      "uiverse",
+      "neon",
+      "ring",
+      "text",
+      "spinner",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-neon-loading-ring neon loading ring spinners uiverse neon ring text spinner loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-650",
     "name": "Neumorphic Vortex",
     "category": "spinners",
@@ -23457,6 +25780,58 @@
       "customizable": true
     },
     "searchText": "darma-custom-353 orbit coin 10 spinners orbit coin 10 wheel spinner duotone spinners loader css-only single-element batch-06 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-orbit-dot-spinner",
+    "name": "Orbit Dot Spinner",
+    "category": "spinners",
+    "tags": [
+      "uiverse",
+      "dots",
+      "orbit",
+      "spinner",
+      "minimal",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-orbit-dot-spinner orbit dot spinner spinners uiverse dots orbit spinner minimal loader html css react cssonly customizable"
+  },
+  {
+    "id": "uiverse-orbital-ring-gauge",
+    "name": "Orbital Ring Gauge",
+    "category": "spinners",
+    "tags": [
+      "uiverse",
+      "rings",
+      "orbital",
+      "gauge",
+      "spinner",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-orbital-ring-gauge orbital ring gauge spinners uiverse rings orbital gauge spinner loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-070",
@@ -23884,6 +26259,32 @@
     "searchText": "darma-custom-054 ring sweep fill spinners ring sweep circle clip-path progress batch-02 html css react popular singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-ripple-beacon-rings",
+    "name": "Ripple Beacon Rings",
+    "category": "spinners",
+    "tags": [
+      "uiverse",
+      "ripple",
+      "beacon",
+      "rings",
+      "pulse",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-ripple-beacon-rings ripple beacon rings spinners uiverse ripple beacon rings pulse loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-730",
     "name": "Round Spinner 56",
     "category": "spinners",
@@ -24056,6 +26457,32 @@
     "searchText": "darma-custom-116 striped circle travel spinners striped circle travel spinner rotation css-only single-element batch-03 html css react singleelement cssonly customizable"
   },
   {
+    "id": "uiverse-three-body-orbit",
+    "name": "Three Body Orbit",
+    "category": "spinners",
+    "tags": [
+      "uiverse",
+      "three-body",
+      "orbit",
+      "dots",
+      "spinner",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-three-body-orbit three body orbit spinners uiverse three-body orbit dots spinner loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-009",
     "name": "Triangular Conic Spinner",
     "category": "spinners",
@@ -24107,6 +26534,33 @@
       "customizable": true
     },
     "searchText": "darma-custom-105 triple conic burst spinners triple conic burst spinner rotation css-only single-element batch-03 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "uiverse-wormhole-ring-gauge",
+    "name": "Wormhole Ring Gauge",
+    "category": "spinners",
+    "tags": [
+      "uiverse",
+      "worm",
+      "ring",
+      "gauge",
+      "svg",
+      "spinner",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-wormhole-ring-gauge wormhole ring gauge spinners uiverse worm ring gauge svg spinner loader html css react cssonly customizable"
   },
   {
     "id": "tailwind-pulse",

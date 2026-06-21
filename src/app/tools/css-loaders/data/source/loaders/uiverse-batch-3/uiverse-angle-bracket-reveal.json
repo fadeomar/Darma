@@ -1,0 +1,38 @@
+{
+  "id": "uiverse-angle-bracket-reveal",
+  "name": "Angle Bracket Reveal",
+  "category": "minimal",
+  "tags": [
+    "uiverse",
+    "code",
+    "angle",
+    "text",
+    "reveal",
+    "loader"
+  ],
+  "html": "<div class=\"loader\">\n  <span>&lt;</span>\n  <span>LOADING</span>\n  <span>/&gt;</span>\n</div>",
+  "css": ".loader {\n  font-size: 2em;\n  font-weight: 900;\n}\n.loader > * {\n  color: black;\n}\n.loader span {\n  display: inline-flex;\n}\n.loader span:nth-child(2) {\n  letter-spacing: -1em;\n  overflow: hidden;\n  animation: reveal 1500ms cubic-bezier(0.645, 0.045, 0.355, 1) infinite\n    alternate;\n}\n@keyframes reveal {\n  0%,\n  100% {\n    opacity: 0.5;\n    letter-spacing: -1em;\n  }\n  50% {\n    opacity: 1;\n    letter-spacing: 0em;\n  }\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 3",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 88,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

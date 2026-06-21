@@ -1,4 +1,4 @@
-import type { ExportPackId, FaviconInput, IconShape, ManifestDisplayMode, ManifestOrientation } from "./types";
+import type { ExportPackId, FaviconInput, IconShape, ManifestDisplayMode, ManifestOrientation, ProjectProfileId } from "./types";
 
 export const DEFAULT_FAVICON_INPUT: FaviconInput = {
   sourceMode: "text",
@@ -18,6 +18,7 @@ export const DEFAULT_FAVICON_INPUT: FaviconInput = {
   borderRadius: 22,
   shape: "rounded",
   cropMode: "contain",
+  sourceTransform: { zoom: 100, offsetX: 0, offsetY: 0, rotation: 0, fitMode: "contain" },
   fontFamily: "Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif",
   fontWeight: 800,
   pathPrefix: "/",
@@ -28,6 +29,7 @@ export const DEFAULT_FAVICON_INPUT: FaviconInput = {
   display: "standalone",
   orientation: "any",
   exportPack: "complete",
+  projectProfile: "plain-html",
   includeMaskable: true,
   includeMonochrome: false,
 };
@@ -76,6 +78,27 @@ export const EXPORT_PACKS: Array<{ id: ExportPackId; title: string; description:
   { id: "complete", title: "Complete Studio", description: "Everything from modern, PWA, legacy, validator notes, and install docs." },
 ];
 
+export const PROJECT_PROFILES: Array<{
+  id: ProjectProfileId;
+  title: string;
+  shortLabel: string;
+  description: string;
+  recommendedPack: ExportPackId;
+  targetFolder: string;
+}> = [
+  { id: "plain-html", title: "Plain HTML", shortLabel: "HTML", description: "Copy files to a public web root and paste link tags in the document head.", recommendedPack: "modern", targetFolder: "/" },
+  { id: "next-app", title: "Next.js App Router", shortLabel: "Next App", description: "Use app/favicon.ico, app/icon.png, app/apple-icon.png, and a public manifest.", recommendedPack: "nextjs", targetFolder: "src/app + public" },
+  { id: "next-pages", title: "Next.js Pages Router", shortLabel: "Next Pages", description: "Place files in public and add links through next/head or _document.", recommendedPack: "modern", targetFolder: "public" },
+  { id: "vite-react", title: "React / Vite", shortLabel: "Vite", description: "Place files in public and link them from index.html.", recommendedPack: "modern", targetFolder: "public" },
+  { id: "astro", title: "Astro", shortLabel: "Astro", description: "Place assets in public and add links in the base layout/head component.", recommendedPack: "modern", targetFolder: "public" },
+  { id: "nuxt", title: "Nuxt", shortLabel: "Nuxt", description: "Place assets in public and register head links through app.vue, useHead, or nuxt config.", recommendedPack: "modern", targetFolder: "public" },
+  { id: "sveltekit", title: "SvelteKit", shortLabel: "SvelteKit", description: "Place assets in static and reference them from app.html.", recommendedPack: "modern", targetFolder: "static" },
+  { id: "wordpress", title: "WordPress", shortLabel: "WP", description: "Use the Customizer/Site Icon when possible, or add safe theme header links.", recommendedPack: "legacy", targetFolder: "theme or media library" },
+  { id: "pwa-complete", title: "PWA complete", shortLabel: "PWA", description: "Generate a manifest-first install package with 192, 512, and maskable icons.", recommendedPack: "pwa", targetFolder: "public/icons" },
+  { id: "legacy-full", title: "Legacy full support", shortLabel: "Legacy", description: "Add Apple fallback sizes, browserconfig, Microsoft tile, and classic favicon files.", recommendedPack: "legacy", targetFolder: "/" },
+];
+
+
 export const MODERN_WEB_SIZES = [16, 32, 48, 180, 192, 512] as const;
 export const PWA_ICON_SIZES = [48, 72, 96, 128, 144, 152, 192, 384, 512] as const;
 export const APPLE_ICON_SIZES = [152, 167, 180] as const;
@@ -88,30 +111,30 @@ export const FAVICON_QUICK_PRESETS: Array<{ id: string; title: string; descripti
     id: "website-launch",
     title: "Website launch",
     description: "Lean modern favicon package for a normal marketing or content website.",
-    patch: { exportPack: "modern", includeMaskable: true, includeMonochrome: false, display: "browser", orientation: "any", pathPrefix: "/" },
+    patch: { exportPack: "modern", projectProfile: "plain-html", includeMaskable: true, includeMonochrome: false, display: "browser", orientation: "any", pathPrefix: "/" },
   },
   {
     id: "nextjs-app",
     title: "Next.js app",
     description: "Routes files into app and public paths for App Router projects.",
-    patch: { exportPack: "nextjs", includeMaskable: true, includeMonochrome: false, display: "standalone", orientation: "any", pathPrefix: "/" },
+    patch: { exportPack: "nextjs", projectProfile: "next-app", includeMaskable: true, includeMonochrome: false, display: "standalone", orientation: "any", pathPrefix: "/" },
   },
   {
     id: "installable-pwa",
     title: "Installable PWA",
     description: "Full install prompt coverage with maskable icons and manifest-first output.",
-    patch: { exportPack: "pwa", includeMaskable: true, includeMonochrome: true, display: "standalone", orientation: "any", pathPrefix: "/icons/" },
+    patch: { exportPack: "pwa", projectProfile: "pwa-complete", includeMaskable: true, includeMonochrome: true, display: "standalone", orientation: "any", pathPrefix: "/icons/" },
   },
   {
     id: "ios-heavy",
     title: "iOS shortcuts",
     description: "Legacy Apple sizes plus favicon fallbacks for home-screen shortcuts.",
-    patch: { exportPack: "legacy", includeMaskable: false, includeMonochrome: false, display: "browser", orientation: "any", pathPrefix: "/" },
+    patch: { exportPack: "legacy", projectProfile: "legacy-full", includeMaskable: false, includeMonochrome: false, display: "browser", orientation: "any", pathPrefix: "/" },
   },
   {
     id: "brand-kit",
     title: "Complete brand kit",
     description: "Everything enabled for audits, handoff, QA, and broad platform coverage.",
-    patch: { exportPack: "complete", includeMaskable: true, includeMonochrome: true, display: "standalone", orientation: "any", pathPrefix: "/" },
+    patch: { exportPack: "complete", projectProfile: "plain-html", includeMaskable: true, includeMonochrome: true, display: "standalone", orientation: "any", pathPrefix: "/" },
   },
 ];

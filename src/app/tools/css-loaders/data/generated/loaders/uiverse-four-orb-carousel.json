@@ -1,0 +1,51 @@
+{
+  "id": "uiverse-four-orb-carousel",
+  "name": "Four Orb Carousel",
+  "category": "spinners",
+  "tags": [
+    "uiverse",
+    "orbs",
+    "carousel",
+    "bounce",
+    "spinner",
+    "loader"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-four-orb-carousel four orb carousel spinners uiverse orbs carousel bounce spinner loader html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-four-orb-carousel\">\n  <li class=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n  <li class=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n  <li class=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n  <li class=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n  <li class=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n  <li class=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n  <li class=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n  <li class=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n  <li class=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n</div>",
+  "previewCss": ".darma-loader-uiverse-four-orb-carousel {\n  display: flex;\n  width: 120px;\n  height: 120px;\n  position: relative;\n  gap: 20px;\n  justify-content: space-evenly;\n  animation: darma-loader-uiverse-four-orb-carousel-rotate 3s linear infinite;\n  color: white;\n}\n\n.darma-loader-uiverse-four-orb-carousel__loading {\n}\n\n.darma-loader-uiverse-four-orb-carousel__orb {\nwidth: 25px;\nheight: 25px;\nbackground-color: rgb(255, 255, 255);\nborder-radius: 50%;\nposition: absolute;\n}\n\n.darma-loader-uiverse-four-orb-carousel__orb:nth-child(1) {\ntop: 20px;\nleft: 20px;\nanimation: darma-loader-uiverse-four-orb-carousel-bounce2 1.5s ease 1s infinite;\n}\n\n.darma-loader-uiverse-four-orb-carousel__orb:nth-child(2) {\ntop: 20px;\nright: 20px;\nanimation: darma-loader-uiverse-four-orb-carousel-bounce2 1.5s ease 1s infinite;\n}\n\n.darma-loader-uiverse-four-orb-carousel__orb:nth-child(3) {\nbottom: 20px;\nleft: 20px;\nanimation: darma-loader-uiverse-four-orb-carousel-bounce2 1.5s ease 1s infinite;\n}\n\n.darma-loader-uiverse-four-orb-carousel__orb:nth-child(4) {\nbottom: 20px;\nright: 20px;\nanimation: darma-loader-uiverse-four-orb-carousel-bounce2 1.5s ease 1s infinite;\n}\n\n.darma-loader-uiverse-four-orb-carousel__orb:nth-child(5) {\ntop: 20px;\nanimation: darma-loader-uiverse-four-orb-carousel-bounce2 1.5s ease 1s infinite;\n}\n\n.darma-loader-uiverse-four-orb-carousel__orb:nth-child(6) {\nbottom: 20px;\nanimation: darma-loader-uiverse-four-orb-carousel-bounce2 1.5s ease 1s infinite;\n}\n\n.darma-loader-uiverse-four-orb-carousel__orb:nth-child(7) {\nleft: 20px;\ntop: -12.5px;\nanimation: darma-loader-uiverse-four-orb-carousel-bounce2 1.5s ease 1s infinite;\n}\n\n.darma-loader-uiverse-four-orb-carousel__orb:nth-child(8) {\nright: 20px;\ntop: -12.5px;\nanimation: darma-loader-uiverse-four-orb-carousel-bounce2 1.5s ease 1s infinite;\n}\n\n.darma-loader-uiverse-four-orb-carousel__orb:nth-child(9) {\ntop: -12.5px;\nanimation: darma-loader-uiverse-four-orb-carousel-bounce 1.5s ease 1.5s infinite;\n}\n\n@keyframes darma-loader-uiverse-four-orb-carousel-rotate {\n0% {\ntransform: rotate(0);\n}\n\n25% {\ntransform: rotate(90deg);\n}\n\n50% {\ntransform: rotate(180deg);\n}\n\n100% {\ntransform: rotate(360deg);\n}\n}\n\n@keyframes darma-loader-uiverse-four-orb-carousel-bounce {\n0% {\ntransform: scale(1);\n}\n\n50% {\ntransform: scale(0.5);\n}\n}\n\n@keyframes darma-loader-uiverse-four-orb-carousel-bounce2 {\n0% {\ntransform: scale(1);\n}\n\n50% {\ntransform: scale(0.5);\n}\n}",
+  "defaults": {
+    "size": 96,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-four-orb-carousel\">\n  <li class=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n  <li class=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n  <li class=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n  <li class=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n  <li class=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n  <li class=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n  <li class=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n  <li class=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n  <li class=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n</div>",
+    "css": ".darma-loader-uiverse-four-orb-carousel {\n  display: flex;\n  width: 120px;\n  height: 120px;\n  position: relative;\n  gap: 20px;\n  justify-content: space-evenly;\n  animation: darma-loader-uiverse-four-orb-carousel-rotate 3s linear infinite;\n  color: white;\n}\n\n.darma-loader-uiverse-four-orb-carousel__loading {\n}\n\n.darma-loader-uiverse-four-orb-carousel__orb {\nwidth: 25px;\nheight: 25px;\nbackground-color: rgb(255, 255, 255);\nborder-radius: 50%;\nposition: absolute;\n}\n\n.darma-loader-uiverse-four-orb-carousel__orb:nth-child(1) {\ntop: 20px;\nleft: 20px;\nanimation: darma-loader-uiverse-four-orb-carousel-bounce2 1.5s ease 1s infinite;\n}\n\n.darma-loader-uiverse-four-orb-carousel__orb:nth-child(2) {\ntop: 20px;\nright: 20px;\nanimation: darma-loader-uiverse-four-orb-carousel-bounce2 1.5s ease 1s infinite;\n}\n\n.darma-loader-uiverse-four-orb-carousel__orb:nth-child(3) {\nbottom: 20px;\nleft: 20px;\nanimation: darma-loader-uiverse-four-orb-carousel-bounce2 1.5s ease 1s infinite;\n}\n\n.darma-loader-uiverse-four-orb-carousel__orb:nth-child(4) {\nbottom: 20px;\nright: 20px;\nanimation: darma-loader-uiverse-four-orb-carousel-bounce2 1.5s ease 1s infinite;\n}\n\n.darma-loader-uiverse-four-orb-carousel__orb:nth-child(5) {\ntop: 20px;\nanimation: darma-loader-uiverse-four-orb-carousel-bounce2 1.5s ease 1s infinite;\n}\n\n.darma-loader-uiverse-four-orb-carousel__orb:nth-child(6) {\nbottom: 20px;\nanimation: darma-loader-uiverse-four-orb-carousel-bounce2 1.5s ease 1s infinite;\n}\n\n.darma-loader-uiverse-four-orb-carousel__orb:nth-child(7) {\nleft: 20px;\ntop: -12.5px;\nanimation: darma-loader-uiverse-four-orb-carousel-bounce2 1.5s ease 1s infinite;\n}\n\n.darma-loader-uiverse-four-orb-carousel__orb:nth-child(8) {\nright: 20px;\ntop: -12.5px;\nanimation: darma-loader-uiverse-four-orb-carousel-bounce2 1.5s ease 1s infinite;\n}\n\n.darma-loader-uiverse-four-orb-carousel__orb:nth-child(9) {\ntop: -12.5px;\nanimation: darma-loader-uiverse-four-orb-carousel-bounce 1.5s ease 1.5s infinite;\n}\n\n@keyframes darma-loader-uiverse-four-orb-carousel-rotate {\n0% {\ntransform: rotate(0);\n}\n\n25% {\ntransform: rotate(90deg);\n}\n\n50% {\ntransform: rotate(180deg);\n}\n\n100% {\ntransform: rotate(360deg);\n}\n}\n\n@keyframes darma-loader-uiverse-four-orb-carousel-bounce {\n0% {\ntransform: scale(1);\n}\n\n50% {\ntransform: scale(0.5);\n}\n}\n\n@keyframes darma-loader-uiverse-four-orb-carousel-bounce2 {\n0% {\ntransform: scale(1);\n}\n\n50% {\ntransform: scale(0.5);\n}\n}",
+    "react": "export default function UiverseFourOrbCarouselLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-four-orb-carousel\">\n  <li className=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n  <li className=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n  <li className=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n  <li className=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n  <li className=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n  <li className=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n  <li className=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n  <li className=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n  <li className=\"darma-loader-uiverse-four-orb-carousel__orb\"></li>\n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": false,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Uiverse selected loaders batch 3",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  }
+}

@@ -181,6 +181,74 @@
     }
   },
   {
+    "id": "uiverse-bars-ball",
+    "name": "Bars And Ball Loader",
+    "category": "bars",
+    "tags": [
+      "uiverse",
+      "bars",
+      "ball",
+      "chart",
+      "bounce",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-bars-ball bars and ball loader bars uiverse bars ball chart bounce loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-bars-ball\"><div class=\"darma-loader-uiverse-bars-ball___bar\"></div><div class=\"darma-loader-uiverse-bars-ball___bar\"></div><div class=\"darma-loader-uiverse-bars-ball___bar\"></div><div class=\"darma-loader-uiverse-bars-ball___bar\"></div><div class=\"darma-loader-uiverse-bars-ball___bar\"></div><div class=\"darma-loader-uiverse-bars-ball___ball\"></div></div>",
+    "previewCss": ".darma-loader-uiverse-bars-ball { position: relative; width: 75px; height: 100px; }\n.darma-loader-uiverse-bars-ball___bar { position: absolute; bottom: 0; width: 10px; height: 50%; background: var(--loader-secondary-color, #000000); transform-origin: center bottom; box-shadow: 1px 1px 0 color-mix(in srgb, var(--loader-secondary-color, #000000) 20%, transparent); }\n.darma-loader-uiverse-bars-ball___bar:nth-child(1) { left: 0px; transform: scale(1, 0.2); animation: darma-loader-uiverse-bars-ball-barUp1 4s infinite; }\n.darma-loader-uiverse-bars-ball___bar:nth-child(2) { left: 15px; transform: scale(1, 0.4); animation: darma-loader-uiverse-bars-ball-barUp2 4s infinite; }\n.darma-loader-uiverse-bars-ball___bar:nth-child(3) { left: 30px; transform: scale(1, 0.6); animation: darma-loader-uiverse-bars-ball-barUp3 4s infinite; }\n.darma-loader-uiverse-bars-ball___bar:nth-child(4) { left: 45px; transform: scale(1, 0.8); animation: darma-loader-uiverse-bars-ball-barUp4 4s infinite; }\n.darma-loader-uiverse-bars-ball___bar:nth-child(5) { left: 60px; transform: scale(1, 1); animation: darma-loader-uiverse-bars-ball-barUp5 4s infinite; }\n.darma-loader-uiverse-bars-ball___ball { position: absolute; bottom: 10px; left: 0; width: 10px; height: 10px; background: var(--loader-color, #2c8fff); border-radius: 50%; animation: darma-loader-uiverse-bars-ball-ball624 4s infinite; }\n@keyframes darma-loader-uiverse-bars-ball-ball624 {\n  0% { transform: translate(0, 0); } 5% { transform: translate(8px, -14px); } 10% { transform: translate(15px, -10px); } 17% { transform: translate(23px, -24px); } 20% { transform: translate(30px, -20px); } 27% { transform: translate(38px, -34px); } 30% { transform: translate(45px, -30px); } 37% { transform: translate(53px, -44px); } 40% { transform: translate(60px, -40px); } 50% { transform: translate(60px, 0); } 57% { transform: translate(53px, -14px); } 60% { transform: translate(45px, -10px); } 67% { transform: translate(37px, -24px); } 70% { transform: translate(30px, -20px); } 77% { transform: translate(22px, -34px); } 80% { transform: translate(15px, -30px); } 87% { transform: translate(7px, -44px); } 90% { transform: translate(0, -40px); } 100% { transform: translate(0, 0); }\n}\n@keyframes darma-loader-uiverse-bars-ball-barUp1 { 0%, 40% { transform: scale(1, 0.2); } 50%, 90% { transform: scale(1, 1); } 100% { transform: scale(1, 0.2); } }\n@keyframes darma-loader-uiverse-bars-ball-barUp2 { 0%, 40% { transform: scale(1, 0.4); } 50%, 90% { transform: scale(1, 0.8); } 100% { transform: scale(1, 0.4); } }\n@keyframes darma-loader-uiverse-bars-ball-barUp3 { 0%, 100% { transform: scale(1, 0.6); } }\n@keyframes darma-loader-uiverse-bars-ball-barUp4 { 0%, 40% { transform: scale(1, 0.8); } 50%, 90% { transform: scale(1, 0.4); } 100% { transform: scale(1, 0.8); } }\n@keyframes darma-loader-uiverse-bars-ball-barUp5 { 0%, 40% { transform: scale(1, 1); } 50%, 90% { transform: scale(1, 0.2); } 100% { transform: scale(1, 1); } }",
+    "defaults": {
+      "color": "#2c8fff",
+      "secondaryColor": "#000000",
+      "size": 84,
+      "speed": 4
+    }
+  },
+  {
+    "id": "uiverse-blue-tide-equalizer",
+    "name": "Blue Tide Equalizer",
+    "category": "bars",
+    "tags": [
+      "uiverse",
+      "blue",
+      "tide",
+      "equalizer",
+      "bars",
+      "wave",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-blue-tide-equalizer blue tide equalizer bars uiverse blue tide equalizer bars wave loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-blue-tide-equalizer\">\n<div class=\"darma-loader-uiverse-blue-tide-equalizer__loading-wave\">\n  <div class=\"darma-loader-uiverse-blue-tide-equalizer__loading-bar\"></div>\n  <div class=\"darma-loader-uiverse-blue-tide-equalizer__loading-bar\"></div>\n  <div class=\"darma-loader-uiverse-blue-tide-equalizer__loading-bar\"></div>\n  <div class=\"darma-loader-uiverse-blue-tide-equalizer__loading-bar\"></div>\n</div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-blue-tide-equalizer {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-blue-tide-equalizer__loading-wave {\n  width: 300px;\n  height: 100px;\n  display: flex;\n  justify-content: center;\n  align-items: flex-end;\n}\n\n.darma-loader-uiverse-blue-tide-equalizer__loading-bar {\nwidth: 20px;\nheight: 10px;\nmargin: 0 5px;\nbackground-color: #3498db;\nborder-radius: 5px;\nanimation: darma-loader-uiverse-blue-tide-equalizer-loading-wave-animation 1s ease-in-out infinite;\n}\n\n.darma-loader-uiverse-blue-tide-equalizer__loading-bar:nth-child(2) {\nanimation-delay: 0.1s;\n}\n\n.darma-loader-uiverse-blue-tide-equalizer__loading-bar:nth-child(3) {\nanimation-delay: 0.2s;\n}\n\n.darma-loader-uiverse-blue-tide-equalizer__loading-bar:nth-child(4) {\nanimation-delay: 0.3s;\n}\n\n@keyframes darma-loader-uiverse-blue-tide-equalizer-loading-wave-animation {\n0% {\nheight: 10px;\n}\n\n50% {\nheight: 50px;\n}\n\n100% {\nheight: 10px;\n}\n}",
+    "defaults": {
+      "size": 120,
+      "speed": 1,
+      "background": "transparent"
+    }
+  },
+  {
     "id": "darma-custom-136",
     "name": "Column Bounce Swap",
     "category": "bars",
@@ -1316,6 +1384,39 @@
     }
   },
   {
+    "id": "uiverse-neumorphic-liquid-sliders",
+    "name": "Neumorphic Liquid Sliders",
+    "category": "bars",
+    "tags": [
+      "uiverse",
+      "sliders",
+      "neumorphic",
+      "liquid",
+      "bars",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-neumorphic-liquid-sliders neumorphic liquid sliders bars uiverse sliders neumorphic liquid bars loader html css react cssonly customizable",
+    "previewHtml": "<section class=\"darma-loader-uiverse-neumorphic-liquid-sliders\">\n\n    <div class=\"darma-loader-uiverse-neumorphic-liquid-sliders__slider\" style=\"--i:0\">\n    </div>\n    <div class=\"darma-loader-uiverse-neumorphic-liquid-sliders__slider\" style=\"--i:1\">\n    </div>\n    <div class=\"darma-loader-uiverse-neumorphic-liquid-sliders__slider\" style=\"--i:2\">\n    </div>\n    <div class=\"darma-loader-uiverse-neumorphic-liquid-sliders__slider\" style=\"--i:3\">\n    </div>\n    <div class=\"darma-loader-uiverse-neumorphic-liquid-sliders__slider\" style=\"--i:4\">\n    </div>\n\n  </section>",
+    "previewCss": ".darma-loader-uiverse-neumorphic-liquid-sliders {\ndisplay: flex;\nalign-items: center;\njustify-content: center;\nflex-direction: row;\n}\n\n.darma-loader-uiverse-neumorphic-liquid-sliders__slider {\noverflow: hidden;\nbackground-color: white;\nmargin: 0 15px;\nheight: 80px;\nwidth: 20px;\nborder-radius: 30px;\nbox-shadow: 15px 15px 20px rgba(0, 0, 0, 0.1), -15px -15px 30px #fff,\ninset -5px -5px 10px rgba(0, 0, 255, 0.1),\ninset 5px 5px 10px rgba(0, 0, 0, 0.1);\nposition: relative;\n}\n\n.darma-loader-uiverse-neumorphic-liquid-sliders__slider::before {\ncontent: \"\";\nposition: absolute;\ntop: 0;\nleft: 0;\nheight: 20px;\nwidth: 20px;\nborder-radius: 100%;\nbox-shadow: inset 0px 0px 0px rgba(0, 0, 0, 0.3), 0px 420px 0 400px #2697f3,\ninset 0px 0px 0px rgba(0, 0, 0, 0.1);\nanimation: darma-loader-uiverse-neumorphic-liquid-sliders-animate_2 2.5s ease-in-out infinite;\nanimation-delay: calc(-0.5s * var(--i));\n}\n\n@keyframes darma-loader-uiverse-neumorphic-liquid-sliders-animate_2 {\n0% {\ntransform: translateY(250px);\nfilter: hue-rotate(0deg);\n}\n\n50% {\ntransform: translateY(0);\n}\n\n100% {\ntransform: translateY(250px);\nfilter: hue-rotate(180deg);\n}\n}",
+    "defaults": {
+      "size": 120,
+      "speed": 1,
+      "background": "transparent"
+    }
+  },
+  {
     "id": "darma-custom-148",
     "name": "Offset Stripe Tracks",
     "category": "bars",
@@ -1614,6 +1715,39 @@
       "size": 45,
       "speed": 1,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "uiverse-search-signal-bars",
+    "name": "Search Signal Bars",
+    "category": "bars",
+    "tags": [
+      "uiverse",
+      "search",
+      "signal",
+      "bars",
+      "magnifier",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-search-signal-bars search signal bars bars uiverse search signal bars magnifier loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-search-signal-bars\">\n  <div class=\"darma-loader-uiverse-search-signal-bars__MiniContainer\">\n    <div class=\"darma-loader-uiverse-search-signal-bars__barContainer\">\n      <span class=\"darma-loader-uiverse-search-signal-bars__bar\"></span>\n      <span class=\"darma-loader-uiverse-search-signal-bars__bar darma-loader-uiverse-search-signal-bars__bar2\"></span>\n    </div>\n    <svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      fill=\"none\"\n      viewBox=\"0 0 101 114\"\n      class=\"darma-loader-uiverse-search-signal-bars__svgIcon\"\n    >\n      <circle\n        stroke-width=\"7\"\n        stroke=\"black\"\n        transform=\"rotate(36.0692 46.1726 46.1727)\"\n        r=\"29.5497\"\n        cy=\"46.1727\"\n        cx=\"46.1726\"\n      ></circle>\n      <line\n        stroke-width=\"7\"\n        stroke=\"black\"\n        y2=\"111.784\"\n        x2=\"97.7088\"\n        y1=\"67.7837\"\n        x1=\"61.7089\"\n      ></line>\n    </svg>\n  </div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-search-signal-bars {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.darma-loader-uiverse-search-signal-bars__MiniContainer {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n  width: 130px;\n  height: fit-content;\n}\n.darma-loader-uiverse-search-signal-bars__barContainer {\n  width: 100%;\n  height: fit-content;\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  justify-content: center;\n  gap: 10px;\n  background-position: left;\n}\n.darma-loader-uiverse-search-signal-bars__bar {\n  width: 100%;\n  height: 8px;\n  background: linear-gradient(\n    to right,\n    rgb(161, 94, 255),\n    rgb(217, 190, 255),\n    rgb(161, 94, 255)\n  );\n  background-size: 200% 100%;\n  border-radius: 10px;\n  animation: darma-loader-uiverse-darma-loader-uiverse-search-signal-bars-search-signal-bars-bar ease-in-out 3s infinite alternate-reverse;\n}\n@keyframes darma-loader-uiverse-search-signal-bars-bar {\n  0% {\n    background-position: left;\n  }\n  100% {\n    background-position: right;\n  }\n}\n.darma-loader-uiverse-search-signal-bars__bar2 {\n  width: 50%;\n}\n.darma-loader-uiverse-search-signal-bars__svgIcon {\n  position: absolute;\n  left: -25px;\n  margin-top: 18px;\n  z-index: 2;\n  width: 70%;\n  animation: darma-loader-uiverse-search-signal-bars-search ease-in-out 3s infinite alternate-reverse;\n}\n@keyframes darma-loader-uiverse-search-signal-bars-search {\n  0% {\n    transform: translateX(0%) rotate(70deg);\n  }\n\n100% {\ntransform: translateX(100px) rotate(10deg);\n}\n}\n.darma-loader-uiverse-search-signal-bars__svgIcon circle,\nline {\nstroke: rgb(162, 55, 255);\n}\n.darma-loader-uiverse-search-signal-bars__svgIcon circle {\nfill: rgba(98, 65, 142, 0.238);\n}",
+    "defaults": {
+      "size": 120,
+      "speed": 1,
+      "background": "transparent"
     }
   },
   {
@@ -2877,6 +3011,39 @@
       "color": "#6366f1",
       "size": 48,
       "speed": 1
+    }
+  },
+  {
+    "id": "uiverse-waveform-pill",
+    "name": "Waveform Pill",
+    "category": "bars",
+    "tags": [
+      "uiverse",
+      "waveform",
+      "pill",
+      "equalizer",
+      "bars",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-waveform-pill waveform pill bars uiverse waveform pill equalizer bars loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-waveform-pill\">\n<ul class=\"darma-loader-uiverse-waveform-pill__wave-menu\">\n  <li></li>\n  <li></li>\n  <li></li>\n  <li></li>\n  <li></li>\n  <li></li>\n  <li></li>\n  <li></li>\n  <li></li>\n  <li></li>\n</ul>\n</div>",
+    "previewCss": ".darma-loader-uiverse-waveform-pill {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-waveform-pill__wave-menu {\n  border: 4px solid #545FE5;\n  border-radius: 50px;\n  width: 200px;\n  height: 45px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 0;\n  margin: 0;\n  cursor: pointer;\n  transition: ease 0.2s;\n  position: relative;\n  background: #fff;\n}\n\n.darma-loader-uiverse-waveform-pill__wave-menu li {\nlist-style: none;\nheight: 30px;\nwidth: 4px;\nborder-radius: 10px;\nbackground: #545FE5;\nmargin: 0 6px;\npadding: 0;\nanimation-name: darma-loader-uiverse-waveform-pill-wave1;\nanimation-duration: 0.3s;\nanimation-iteration-count: infinite;\nanimation-direction: alternate;\ntransition: ease 0.2s;\n}\n\n.darma-loader-uiverse-waveform-pill__wave-menu:hover > li {\nbackground: #fff;\n}\n\n.darma-loader-uiverse-waveform-pill__wave-menu:hover {\nbackground: #545FE5;\n}\n\n.darma-loader-uiverse-waveform-pill__wave-menu li:nth-child(2) {\nanimation-name: darma-loader-uiverse-waveform-pill-wave2;\nanimation-delay: 0.2s;\n}\n\n.darma-loader-uiverse-waveform-pill__wave-menu li:nth-child(3) {\nanimation-name: darma-loader-uiverse-waveform-pill-wave3;\nanimation-delay: 0.23s;\nanimation-duration: 0.4s;\n}\n\n.darma-loader-uiverse-waveform-pill__wave-menu li:nth-child(4) {\nanimation-name: darma-loader-uiverse-waveform-pill-wave4;\nanimation-delay: 0.1s;\nanimation-duration: 0.3s;\n}\n\n.darma-loader-uiverse-waveform-pill__wave-menu li:nth-child(5) {\nanimation-delay: 0.5s;\n}\n\n.darma-loader-uiverse-waveform-pill__wave-menu li:nth-child(6) {\nanimation-name: darma-loader-uiverse-waveform-pill-wave2;\nanimation-duration: 0.5s;\n}\n\n.darma-loader-uiverse-waveform-pill__wave-menu li:nth-child(8) {\nanimation-name: darma-loader-uiverse-waveform-pill-wave4;\nanimation-delay: 0.4s;\nanimation-duration: 0.25s;\n}\n\n.darma-loader-uiverse-waveform-pill__wave-menu li:nth-child(9) {\nanimation-name: darma-loader-uiverse-waveform-pill-wave3;\nanimation-delay: 0.15s;\n}\n\n@keyframes darma-loader-uiverse-waveform-pill-wave1 {\nfrom {\ntransform: scaleY(1);\n}\n\nto {\ntransform: scaleY(0.5);\n}\n}\n\n@keyframes darma-loader-uiverse-waveform-pill-wave2 {\nfrom {\ntransform: scaleY(0.3);\n}\n\nto {\ntransform: scaleY(0.6);\n}\n}\n\n@keyframes darma-loader-uiverse-waveform-pill-wave3 {\nfrom {\ntransform: scaleY(0.6);\n}\n\nto {\ntransform: scaleY(0.8);\n}\n}\n\n@keyframes darma-loader-uiverse-waveform-pill-wave4 {\nfrom {\ntransform: scaleY(0.2);\n}\n\nto {\ntransform: scaleY(0.5);\n}\n}",
+    "defaults": {
+      "size": 120,
+      "speed": 1,
+      "background": "transparent"
     }
   },
   {

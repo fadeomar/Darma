@@ -1,5 +1,204 @@
 [
   {
+    "id": "uiverse-angle-bracket-reveal",
+    "name": "Angle Bracket Reveal",
+    "category": "minimal",
+    "tags": [
+      "uiverse",
+      "code",
+      "angle",
+      "text",
+      "reveal",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-angle-bracket-reveal angle bracket reveal minimal uiverse code angle text reveal loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-angle-bracket-reveal\">\n  <span>&lt;</span>\n  <span>LOADING</span>\n  <span>/&gt;</span>\n</div>",
+    "previewCss": ".darma-loader-uiverse-angle-bracket-reveal {\n  font-size: 2em;\n  font-weight: 900;\n}\n.darma-loader-uiverse-angle-bracket-reveal > * {\n  color: black;\n}\n.darma-loader-uiverse-angle-bracket-reveal span {\n  display: inline-flex;\n}\n.darma-loader-uiverse-angle-bracket-reveal span:nth-child(2) {\n  letter-spacing: -1em;\n  overflow: hidden;\n  animation: darma-loader-uiverse-angle-bracket-reveal-reveal 1500ms cubic-bezier(0.645, 0.045, 0.355, 1) infinite\n    alternate;\n}\n@keyframes darma-loader-uiverse-angle-bracket-reveal-reveal {\n  0%,\n  100% {\n    opacity: 0.5;\n    letter-spacing: -1em;\n  }\n  50% {\n    opacity: 1;\n    letter-spacing: 0em;\n  }\n}",
+    "defaults": {
+      "size": 88,
+      "speed": 1,
+      "background": "transparent"
+    }
+  },
+  {
+    "id": "uiverse-arrow-flow-stairs",
+    "name": "Arrow Flow Stairs",
+    "category": "minimal",
+    "tags": [
+      "uiverse",
+      "arrow",
+      "flow",
+      "stairs",
+      "minimal",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-arrow-flow-stairs arrow flow stairs minimal uiverse arrow flow stairs minimal loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-arrow-flow-stairs\">\n<div class=\"darma-loader-uiverse-arrow-flow-stairs__arrow\">\n    <span></span>\n    <span></span>\n    <span></span>\n</div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-arrow-flow-stairs {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-arrow-flow-stairs__arrow {\n  transform: rotate(90deg);\n  cursor: pointer;\n}\n\n.darma-loader-uiverse-arrow-flow-stairs__arrow span {\ndisplay: block;\nwidth: 15px;\nheight: 15px;\nborder-bottom: 5px solid red;\nborder-right: 5px solid red;\ntransform: rotate(45deg);\nmargin: -15px;\nanimation: darma-loader-uiverse-arrow-flow-stairs-animate28797 2s infinite;\n}\n\n.darma-loader-uiverse-arrow-flow-stairs__arrow span:nth-child(2) {\nanimation-delay: -0.2s;\n}\n\n.darma-loader-uiverse-arrow-flow-stairs__arrow span:nth-child(3) {\nanimation-delay: -0.4s;\n}\n\n@keyframes darma-loader-uiverse-arrow-flow-stairs-animate28797 {\n0% {\nopacity: 0;\ntransform: rotate(45deg) translate(-20px, -20px);\n}\n\n50% {\nopacity: 1;\n}\n\n100% {\nopacity: 0;\ntransform: rotate(45deg) translate(20px, 20px);\n}\n}",
+    "defaults": {
+      "size": 88,
+      "speed": 1,
+      "background": "transparent"
+    }
+  },
+  {
+    "id": "uiverse-candy-gradient-word",
+    "name": "Candy Gradient Word",
+    "category": "minimal",
+    "tags": [
+      "uiverse",
+      "text",
+      "gradient",
+      "word",
+      "minimal",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-candy-gradient-word candy gradient word minimal uiverse text gradient word minimal loader html css react singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-candy-gradient-word\">\n  Loading\n</div>",
+    "previewCss": ".darma-loader-uiverse-candy-gradient-word {\n  font-size: 2rem;\n  font-family: sans-serif;\n  font-variant: small-caps;\n  font-weight: 900;\n  background: conic-gradient(\n    #dff2ae 0 25%,\n    #ff904f 25% 50%,\n    #feefe7 50% 75%,\n    #ffde2b 75%\n  );\n  background-size: 200% 200%;\n  animation: darma-loader-uiverse-candy-gradient-word-animateBackground 4.5s ease-in-out infinite;\n  color: transparent;\n  background-clip: text;\n  -webkit-background-clip: text;\n}\n\n@keyframes darma-loader-uiverse-candy-gradient-word-animateBackground {\n25% {\nbackground-position: 0 100%;\n}\n\n50% {\nbackground-position: 100% 100%;\n}\n\n75% {\nbackground-position: 100% 0%;\n}\n\n100% {\nbackground-position: 0 0;\n}\n}",
+    "defaults": {
+      "size": 88,
+      "speed": 1,
+      "background": "transparent"
+    }
+  },
+  {
+    "id": "uiverse-citrus-mask-orb",
+    "name": "Citrus Mask Orb",
+    "category": "minimal",
+    "tags": [
+      "uiverse",
+      "mask",
+      "orb",
+      "orange",
+      "minimal",
+      "css",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-citrus-mask-orb citrus mask orb minimal uiverse mask orb orange minimal css loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-citrus-mask-orb\">\n<div class=\"darma-loader-uiverse-citrus-mask-orb__custom-loader\"></div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-citrus-mask-orb {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-citrus-mask-orb__custom-loader {\n  width: 70px;\n  height: 70px;\n  background: #ffa600;\n  border-radius: 50px;\n  -webkit-mask: radial-gradient(circle 31px at 50% calc(100% + 13px),#000 95%,#0000) top 4px left 50%,\n    radial-gradient(circle 31px,#000 95%,#0000) center,\n    radial-gradient(circle 31px at 50% -13px,#000 95%,#0000) bottom 4px left 50%,\n    linear-gradient(#000 0 0);\n  -webkit-mask-composite: xor;\n  mask-composite: exclude;\n  -webkit-mask-repeat: no-repeat;\n  animation: darma-loader-uiverse-citrus-mask-orb-cu10 1.5s infinite;\n}\n\n@keyframes darma-loader-uiverse-citrus-mask-orb-cu10 {\n0% {\n-webkit-mask-size: 0 18px,0 18px,0 18px,auto\n}\n\n16.67% {\n-webkit-mask-size: 100% 18px,0 18px,0 18px,auto\n}\n\n33.33% {\n-webkit-mask-size: 100% 18px,100% 18px,0 18px,auto\n}\n\n50% {\n-webkit-mask-size: 100% 18px,100% 18px,100% 18px,auto\n}\n\n66.67% {\n-webkit-mask-size: 0 18px,100% 18px,100% 18px,auto\n}\n\n83.33% {\n-webkit-mask-size: 0 18px,0 18px,100% 18px,auto\n}\n\n100% {\n-webkit-mask-size: 0 18px,0 18px,0 18px,auto\n}\n}",
+    "defaults": {
+      "size": 88,
+      "speed": 1,
+      "background": "transparent"
+    }
+  },
+  {
+    "id": "uiverse-compass-mask-square",
+    "name": "Compass Mask Square",
+    "category": "minimal",
+    "tags": [
+      "uiverse",
+      "compass",
+      "mask",
+      "square",
+      "minimal",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-compass-mask-square compass mask square minimal uiverse compass mask square minimal loader html css react singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-compass-mask-square\"></div>",
+    "previewCss": ".darma-loader-uiverse-compass-mask-square {\n  width: 160px;\n  height: 160px;\n  color: #0000F4;\n  background: conic-gradient(from  165deg at top   ,#0000, currentColor 1deg 30deg,#0000 31deg) top,\n    conic-gradient(from   75deg at left  ,#0000, currentColor 1deg 30deg,#0000 31deg) left,\n    conic-gradient(from  -15deg at bottom,#0000, currentColor 1deg 30deg,#0000 31deg) bottom, \n    conic-gradient(from -105deg at right ,#0000, currentColor 1deg 30deg,#0000 31deg) right;\n  background-size: 100% 50%,50% 100%;\n  -webkit-mask: radial-gradient(circle 10px,#0000 90%,#000);\n  background-repeat: no-repeat;\n  animation: darma-loader-uiverse-compass-mask-square-sh1 1.5s infinite linear;\n}\n\n@keyframes darma-loader-uiverse-compass-mask-square-sh1 {\n\n100% {\ntransform: rotate(1turn)\n}\n}",
+    "defaults": {
+      "size": 88,
+      "speed": 1,
+      "background": "transparent"
+    }
+  },
+  {
+    "id": "uiverse-corner-path-square",
+    "name": "Corner Path Square",
+    "category": "minimal",
+    "tags": [
+      "uiverse",
+      "corner",
+      "path",
+      "square",
+      "minimal",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-corner-path-square corner path square minimal uiverse corner path square minimal loader html css react singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-corner-path-square\"></div>",
+    "previewCss": ".darma-loader-uiverse-corner-path-square {\n  width: 50px;\n  aspect-ratio: 1;\n  display: grid;\n}\n.darma-loader-uiverse-corner-path-square:before,\n.darma-loader-uiverse-corner-path-square:after {\n  content: \"\";\n  grid-area: 1/1;\n  margin: 0 0 15px 15px;\n  --c: #0000 calc(100% / 3), #046d8b 0 calc(2 * 100% / 3), #0000 0;\n  --c1: linear-gradient(90deg, var(--c));\n  --c2: linear-gradient(0deg, var(--c));\n  background: var(--c1), var(--c2), var(--c1), var(--c2);\n  background-size:\n    300% 4px,\n    4px 300%;\n  background-repeat: no-repeat;\n  animation: darma-loader-uiverse-corner-path-square-l12 1s infinite linear;\n}\n.darma-loader-uiverse-corner-path-square:after {\n  margin: 15px 15px 0 0;\n  transform: scale(-1, -1);\n}\n@keyframes darma-loader-uiverse-corner-path-square-l12 {\n  0% {\n    background-position:\n      50% 0,\n      100% 100%,\n      0 100%,\n      0 0;\n  }\n  25% {\n    background-position:\n      0 0,\n      100% 50%,\n      0 100%,\n      0 0;\n  }\n  50% {\n    background-position:\n      0 0,\n      100% 0,\n      50% 100%,\n      0 0;\n  }\n  75% {\n    background-position:\n      0 0,\n      100% 0,\n      100% 100%,\n      0 50%;\n  }\n  75.01% {\n    background-position:\n      100% 0,\n      100% 0,\n      100% 100%,\n      0 50%;\n  }\n  100% {\n    background-position:\n      50% 0,\n      100% 0,\n      100% 100%,\n      0 100%;\n  }\n}",
+    "defaults": {
+      "size": 88,
+      "speed": 1,
+      "background": "transparent"
+    }
+  },
+  {
     "id": "darma-custom-661",
     "name": "Generating Ring",
     "category": "minimal",
@@ -277,6 +476,39 @@
       "size": 48,
       "speed": 1,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "uiverse-rolling-rock-steps",
+    "name": "Rolling Rock Steps",
+    "category": "minimal",
+    "tags": [
+      "uiverse",
+      "rolling",
+      "rock",
+      "steps",
+      "minimal",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-rolling-rock-steps rolling rock steps minimal uiverse rolling rock steps minimal loader html css react singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-rolling-rock-steps\"></div>",
+    "previewCss": ".darma-loader-uiverse-rolling-rock-steps {\n  position: relative;\n  font-size: 16px;\n  width: 5.5em;\n  height: 5.5em;\n}\n\n.darma-loader-uiverse-rolling-rock-steps:before {\ncontent: '';\nposition: absolute;\ntransform: translate(-50%, -50%) rotate(45deg);\nheight: 100%;\nwidth: 4px;\nbackground: #fff;\nleft: 50%;\ntop: 50%;\n}\n\n.darma-loader-uiverse-rolling-rock-steps:after {\ncontent: '';\nposition: absolute;\nleft: 0.2em;\nbottom: 0.18em;\nwidth: 1em;\nheight: 1em;\nbackground-color: orange;\nborder-radius: 15%;\nanimation: darma-loader-uiverse-rolling-rock-steps-rollingRock 2.5s cubic-bezier(.79, 0, .47, .97) infinite;\n}\n\n@keyframes darma-loader-uiverse-rolling-rock-steps-rollingRock {\n0% {\ntransform: translate(0, -1em) rotate(-45deg)\n}\n\n5% {\ntransform: translate(0, -1em) rotate(-50deg)\n}\n\n20% {\ntransform: translate(1em, -2em) rotate(47deg)\n}\n\n25% {\ntransform: translate(1em, -2em) rotate(45deg)\n}\n\n30% {\ntransform: translate(1em, -2em) rotate(40deg)\n}\n\n45% {\ntransform: translate(2em, -3em) rotate(137deg)\n}\n\n50% {\ntransform: translate(2em, -3em) rotate(135deg)\n}\n\n55% {\ntransform: translate(2em, -3em) rotate(130deg)\n}\n\n70% {\ntransform: translate(3em, -4em) rotate(217deg)\n}\n\n75% {\ntransform: translate(3em, -4em) rotate(220deg)\n}\n\n100% {\ntransform: translate(0, -1em) rotate(-225deg)\n}\n}",
+    "defaults": {
+      "size": 88,
+      "speed": 1,
+      "background": "transparent"
     }
   },
   {

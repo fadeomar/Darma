@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-capybara-road-runner",
+  "name": "Capybara Road Runner",
+  "category": "fun",
+  "tags": [
+    "uiverse",
+    "capybara",
+    "animal",
+    "road",
+    "run",
+    "fun",
+    "loader"
+  ],
+  "html": "<div class=\"capybaraloader\">\n  <div class=\"capybara\">\n    <div class=\"capyhead\">\n      <div class=\"capyear\">\n        <div class=\"capyear2\"></div>\n      </div>\n      <div class=\"capyear\"></div>\n      <div class=\"capymouth\">\n        <div class=\"capylips\"></div>\n        <div class=\"capylips\"></div>\n      </div>\n      <div class=\"capyeye\"></div>\n      <div class=\"capyeye\"></div>\n    </div>\n    <div class=\"capyleg\"></div>\n    <div class=\"capyleg2\"></div>\n    <div class=\"capyleg2\"></div>\n    <div class=\"capy\"></div>\n  </div>\n  <div class=\"loader\">\n    <div class=\"loaderline\"></div>\n  </div>\n</div>",
+  "css": ".capybaraloader {\n  width: 14em;\n  height: 10em;\n  position: relative;\n  z-index: 1;\n  --color: rgb(204, 125, 45);\n  --color2: rgb(83, 56, 28);\n  transform: scale(0.75);\n}\n.capybara {\n  width: 100%;\n  height: 7.5em;\n  position: relative;\n  z-index: 1;\n}\n.loader {\n  width: 100%;\n  height: 2.5em;\n  position: relative;\n  z-index: 1;\n  overflow: hidden;\n}\n.capy {\n  width: 85%;\n  height: 100%;\n  background: linear-gradient(var(--color), 90%, var(--color2));\n  border-radius: 45%;\n  position: relative;\n  z-index: 1;\n  animation: movebody 1s linear infinite;\n}\n.capyhead {\n  width: 7.5em;\n  height: 7em;\n  bottom: 0em;\n  right: 0em;\n  position: absolute;\n  background-color: var(--color);\n  z-index: 3;\n  border-radius: 3.5em;\n  box-shadow: -1em 0em var(--color2);\n  animation: movebody 1s linear infinite;\n}\n.capyear {\n  width: 2em;\n  height: 2em;\n  background: linear-gradient(-45deg, var(--color), 90%, var(--color2));\n  top: 0em;\n  left: 0em;\n  border-radius: 100%;\n  position: absolute;\n  overflow: hidden;\n  z-index: 3;\n}\n.capyear:nth-child(2) {\n  left: 5em;\n  background: linear-gradient(25deg, var(--color), 90%, var(--color2));\n}\n.capyear2 {\n  width: 100%;\n  height: 1em;\n  background-color: var(--color2);\n  bottom: 0em;\n  left: 0.5em;\n  border-radius: 100%;\n  position: absolute;\n  transform: rotate(-45deg);\n}\n.capymouth {\n  width: 3.5em;\n  height: 2em;\n  background-color: var(--color2);\n  position: absolute;\n  bottom: 0em;\n  left: 2.5em;\n  border-radius: 50%;\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  padding: 0.5em;\n}\n.capylips {\n  width: 0.25em;\n  height: 0.75em;\n  border-radius: 100%;\n  transform: rotate(-45deg);\n  background-color: var(--color);\n}\n.capylips:nth-child(2) {\n  transform: rotate(45deg);\n}\n.capyeye {\n  width: 2em;\n  height: 0.5em;\n  background-color: var(--color2);\n  position: absolute;\n  bottom: 3.5em;\n  left: 1.5em;\n  border-radius: 5em;\n  transform: rotate(45deg);\n}\n.capyeye:nth-child(4) {\n  transform: rotate(-45deg);\n  left: 5.5em;\n  width: 1.75em;\n}\n.capyleg {\n  width: 6em;\n  height: 5em;\n  bottom: 0em;\n  left: 0em;\n  position: absolute;\n  background: linear-gradient(var(--color), 95%, var(--color2));\n  z-index: 2;\n  border-radius: 2em;\n  animation: movebody 1s linear infinite;\n}\n.capyleg2 {\n  width: 1.75em;\n  height: 3em;\n  bottom: 0em;\n  left: 3.25em;\n  position: absolute;\n  background: linear-gradient(var(--color), 80%, var(--color2));\n  z-index: 2;\n  border-radius: 0.75em;\n  box-shadow: inset 0em -0.5em var(--color2);\n  animation: moveleg 1s linear infinite;\n}\n.capyleg2:nth-child(3) {\n  width: 1.25em;\n  left: 0.5em;\n  height: 2em;\n  animation: moveleg2 1s linear infinite 0.075s;\n}\n\n@keyframes moveleg {\n0% {\ntransform: rotate(-45deg) translateX(-5%);\n}\n50% {\ntransform: rotate(45deg) translateX(5%);\n}\n100% {\ntransform: rotate(-45deg) translateX(-5%);\n}\n}\n\n@keyframes moveleg2 {\n0% {\ntransform: rotate(45deg);\n}\n50% {\ntransform: rotate(-45deg);\n}\n100% {\ntransform: rotate(45deg);\n}\n}\n\n@keyframes movebody {\n0% {\ntransform: translateX(0%);\n}\n50% {\ntransform: translateX(2%);\n}\n100% {\ntransform: translateX(0%);\n}\n}\n\n.loaderline {\nwidth: 50em;\nheight: 0.5em;\nborder-top: 0.5em dashed var(--color2);\nanimation: moveline 10s linear infinite;\n}\n\n@keyframes moveline {\n0% {\ntransform: translateX(0%);\nopacity: 0%;\n}\n5% {\nopacity: 100%;\n}\n95% {\nopacity: 100%;\n}\n100% {\nopacity: 0%;\ntransform: translateX(-70%);\n}\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 2",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 128,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

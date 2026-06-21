@@ -1,0 +1,38 @@
+{
+  "id": "uiverse-ripple-beacon-rings",
+  "name": "Ripple Beacon Rings",
+  "category": "spinners",
+  "tags": [
+    "uiverse",
+    "ripple",
+    "beacon",
+    "rings",
+    "pulse",
+    "loader"
+  ],
+  "html": "<div class=\"loader\">\n    <div></div>\n\n    <div></div>\n\n</div>",
+  "css": ".loader {\n  position: relative;\n  width: 64px;\n  height: 64px;\n}\n\n.loader div {\nposition: absolute;\nborder: 4px solid #454ade;\nborder-radius: 50%;\nanimation: loader8435 1s ease-out infinite;\n}\n\n.loader div:nth-child(2) {\nanimation-delay: -0.5s;\n}\n\n@keyframes loader8435 {\n0% {\ntop: 32px;\nleft: 32px;\nwidth: 0;\nheight: 0;\nopacity: 1;\n}\n\n100% {\ntop: 0;\nleft: 0;\nwidth: 64px;\nheight: 64px;\nopacity: 0;\n}\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 3",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 96,
+    "speed": 1,
+    "background": "transparent"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

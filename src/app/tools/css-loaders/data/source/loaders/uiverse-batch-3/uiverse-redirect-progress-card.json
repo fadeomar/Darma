@@ -1,0 +1,38 @@
+{
+  "id": "uiverse-redirect-progress-card",
+  "name": "Redirect Progress Card",
+  "category": "progress",
+  "tags": [
+    "uiverse",
+    "redirect",
+    "card",
+    "progress",
+    "text",
+    "loader"
+  ],
+  "html": "<div class=\"loader\">\n  <label>Redirecting...</label>\n  <div class=\"loading\"></div>\n</div>",
+  "css": ".loader {\n  width: 240px;\n  height: 130px;\n  border-radius: 10px;\n  background: #fff;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-evenly;\n  padding: 30px;\n  box-shadow: 2px 2px 10px -5px lightgrey;\n}\n.loading {\n  width: 100%;\n  height: 10px;\n  background: lightgrey;\n  border-radius: 10px;\n  position: relative;\n}\n.loading::after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 50%;\n  height: 10px;\n  background: #002;\n  border-radius: 10px;\n  z-index: 1;\n  animation: loading 0.6s alternate infinite;\n}\n.loader label {\n  color: #002;\n  font-size: 18px;\n  animation: bit 0.6s alternate infinite;\n}\n\n@keyframes bit {\nfrom {\nopacity: 0.3;\n}\nto {\nopacity: 1;\n}\n}\n\n@keyframes loading {\n0% {\nleft: 25%;\n}\n100% {\nleft: 50%;\n}\n0% {\nleft: 0%;\n}\n}",
+  "source": {
+    "name": "Uiverse selected loaders batch 3",
+    "author": "Uiverse community / user-provided snippets",
+    "license": "MIT / per-component open-source license",
+    "url": "https://uiverse.io/ui/loading-ui"
+  },
+  "controls": {
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "defaults": {
+    "size": 160,
+    "speed": 1,
+    "background": "#111827"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

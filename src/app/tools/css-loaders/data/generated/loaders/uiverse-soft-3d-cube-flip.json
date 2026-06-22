@@ -1,0 +1,51 @@
+{
+  "id": "uiverse-soft-3d-cube-flip",
+  "name": "Soft 3D Cube Flip",
+  "category": "spinners",
+  "tags": [
+    "cube",
+    "3d",
+    "flip",
+    "soft",
+    "uiverse",
+    "batch-5"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-soft-3d-cube-flip soft 3d cube flip spinners cube 3d flip soft uiverse batch-5 html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-soft-3d-cube-flip darma-loader-uiverse-soft-3d-cube-flip__loading\"><div class=\"darma-loader-uiverse-soft-3d-cube-flip__side darma-loader-uiverse-soft-3d-cube-flip__front\"></div><div class=\"darma-loader-uiverse-soft-3d-cube-flip__side darma-loader-uiverse-soft-3d-cube-flip__back\"></div><div class=\"darma-loader-uiverse-soft-3d-cube-flip__side darma-loader-uiverse-soft-3d-cube-flip__top\"></div><div class=\"darma-loader-uiverse-soft-3d-cube-flip__side darma-loader-uiverse-soft-3d-cube-flip__bottom\"></div><div class=\"darma-loader-uiverse-soft-3d-cube-flip__side darma-loader-uiverse-soft-3d-cube-flip__left\"></div><div class=\"darma-loader-uiverse-soft-3d-cube-flip__side darma-loader-uiverse-soft-3d-cube-flip__right\"></div></div>\n",
+  "previewCss": ".darma-loader-uiverse-soft-3d-cube-flip__loading {\n  width: 100px;\n  height: 100px;\n  background: var(--loader-color, #ffffff);\n  border-radius: 12px;\n  position: relative;\n  transform-style: preserve-3d;\n  animation: darma-loader-uiverse-soft-3d-cube-flip-softCubeFlip 2s linear infinite;\n}\n.darma-loader-uiverse-soft-3d-cube-flip__side { background: var(--loader-color, #ffffff); border-radius: 12px; }\n.darma-loader-uiverse-soft-3d-cube-flip__front, .darma-loader-uiverse-soft-3d-cube-flip__back { width: 100px; height: 100px; position: absolute; inset: 0; }\n.darma-loader-uiverse-soft-3d-cube-flip__back { transform: translateZ(-10px); }\n.darma-loader-uiverse-soft-3d-cube-flip__left, .darma-loader-uiverse-soft-3d-cube-flip__right { width: 10px; height: calc(100% - 12px); top: 6px; position: absolute; background: var(--loader-secondary-color, #efefef); }\n.darma-loader-uiverse-soft-3d-cube-flip__left { left: 0; transform-origin: 0; transform: rotateY(90deg); }\n.darma-loader-uiverse-soft-3d-cube-flip__right { right: 0; transform-origin: 100%; transform: rotateY(-90deg); }\n.darma-loader-uiverse-soft-3d-cube-flip__top, .darma-loader-uiverse-soft-3d-cube-flip__bottom { width: calc(100% - 12px); height: 10px; position: absolute; left: 6px; background: var(--loader-secondary-color, #efefef); }\n.darma-loader-uiverse-soft-3d-cube-flip__top { top: -10px; transform-origin: 0 100%; transform: rotateX(90deg); }\n.darma-loader-uiverse-soft-3d-cube-flip__bottom { bottom: -10px; transform-origin: 0 0; transform: rotateX(-90deg); }\n@keyframes darma-loader-uiverse-soft-3d-cube-flip-softCubeFlip {\n  0% { transform: rotate(0); }\n  50% { transform: rotateY(180deg); }\n  100% { transform: rotateY(180deg) rotateX(-180deg); }\n}\n",
+  "defaults": {
+    "size": 100,
+    "speed": 2,
+    "color": "#ffffff",
+    "secondaryColor": "#efefef"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-soft-3d-cube-flip darma-loader-uiverse-soft-3d-cube-flip__loading\"><div class=\"darma-loader-uiverse-soft-3d-cube-flip__side darma-loader-uiverse-soft-3d-cube-flip__front\"></div><div class=\"darma-loader-uiverse-soft-3d-cube-flip__side darma-loader-uiverse-soft-3d-cube-flip__back\"></div><div class=\"darma-loader-uiverse-soft-3d-cube-flip__side darma-loader-uiverse-soft-3d-cube-flip__top\"></div><div class=\"darma-loader-uiverse-soft-3d-cube-flip__side darma-loader-uiverse-soft-3d-cube-flip__bottom\"></div><div class=\"darma-loader-uiverse-soft-3d-cube-flip__side darma-loader-uiverse-soft-3d-cube-flip__left\"></div><div class=\"darma-loader-uiverse-soft-3d-cube-flip__side darma-loader-uiverse-soft-3d-cube-flip__right\"></div></div>\n",
+    "css": ".darma-loader-uiverse-soft-3d-cube-flip__loading {\n  width: 100px;\n  height: 100px;\n  background: var(--loader-color, #ffffff);\n  border-radius: 12px;\n  position: relative;\n  transform-style: preserve-3d;\n  animation: darma-loader-uiverse-soft-3d-cube-flip-softCubeFlip 2s linear infinite;\n}\n.darma-loader-uiverse-soft-3d-cube-flip__side { background: var(--loader-color, #ffffff); border-radius: 12px; }\n.darma-loader-uiverse-soft-3d-cube-flip__front, .darma-loader-uiverse-soft-3d-cube-flip__back { width: 100px; height: 100px; position: absolute; inset: 0; }\n.darma-loader-uiverse-soft-3d-cube-flip__back { transform: translateZ(-10px); }\n.darma-loader-uiverse-soft-3d-cube-flip__left, .darma-loader-uiverse-soft-3d-cube-flip__right { width: 10px; height: calc(100% - 12px); top: 6px; position: absolute; background: var(--loader-secondary-color, #efefef); }\n.darma-loader-uiverse-soft-3d-cube-flip__left { left: 0; transform-origin: 0; transform: rotateY(90deg); }\n.darma-loader-uiverse-soft-3d-cube-flip__right { right: 0; transform-origin: 100%; transform: rotateY(-90deg); }\n.darma-loader-uiverse-soft-3d-cube-flip__top, .darma-loader-uiverse-soft-3d-cube-flip__bottom { width: calc(100% - 12px); height: 10px; position: absolute; left: 6px; background: var(--loader-secondary-color, #efefef); }\n.darma-loader-uiverse-soft-3d-cube-flip__top { top: -10px; transform-origin: 0 100%; transform: rotateX(90deg); }\n.darma-loader-uiverse-soft-3d-cube-flip__bottom { bottom: -10px; transform-origin: 0 0; transform: rotateX(-90deg); }\n@keyframes darma-loader-uiverse-soft-3d-cube-flip-softCubeFlip {\n  0% { transform: rotate(0); }\n  50% { transform: rotateY(180deg); }\n  100% { transform: rotateY(180deg) rotateX(-180deg); }\n}\n",
+    "react": "export default function UiverseSoft3dCubeFlipLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-soft-3d-cube-flip darma-loader-uiverse-soft-3d-cube-flip__loading\"><div className=\"darma-loader-uiverse-soft-3d-cube-flip__side darma-loader-uiverse-soft-3d-cube-flip__front\"></div><div className=\"darma-loader-uiverse-soft-3d-cube-flip__side darma-loader-uiverse-soft-3d-cube-flip__back\"></div><div className=\"darma-loader-uiverse-soft-3d-cube-flip__side darma-loader-uiverse-soft-3d-cube-flip__top\"></div><div className=\"darma-loader-uiverse-soft-3d-cube-flip__side darma-loader-uiverse-soft-3d-cube-flip__bottom\"></div><div className=\"darma-loader-uiverse-soft-3d-cube-flip__side darma-loader-uiverse-soft-3d-cube-flip__left\"></div><div className=\"darma-loader-uiverse-soft-3d-cube-flip__side darma-loader-uiverse-soft-3d-cube-flip__right\"></div></div>\n\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

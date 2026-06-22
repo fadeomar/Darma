@@ -1,5 +1,36 @@
 [
   {
+    "id": "darma-research-aurora-card-skeleton",
+    "name": "Aurora Card Skeleton",
+    "category": "skeleton",
+    "tags": [
+      "skeleton",
+      "card",
+      "aurora",
+      "shimmer",
+      "dashboard"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-research-aurora-card-skeleton aurora card skeleton skeleton skeleton card aurora shimmer dashboard html css react popular customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-research-aurora-card-skeleton\" aria-label=\"Loading card\"><div class=\"darma-loader-darma-research-aurora-card-skeleton__media\"></div><div class=\"darma-loader-darma-research-aurora-card-skeleton__row darma-loader-darma-research-aurora-card-skeleton__row-lg\"></div><div class=\"darma-loader-darma-research-aurora-card-skeleton__row\"></div><div class=\"darma-loader-darma-research-aurora-card-skeleton__row darma-loader-darma-research-aurora-card-skeleton__row-sm\"></div></div>",
+    "previewCss": ".darma-loader-darma-research-aurora-card-skeleton { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #22c55e); --accent-2: var(--loader-secondary-color, #38bdf8); width: calc(var(--loader-size, 72px) * 2.55); min-width: 160px; padding: 14px; border-radius: 22px; background: linear-gradient(145deg, #121827, #0b1020); box-shadow: inset 0 1px #fff2, 0 18px 40px #02061766; overflow: hidden; position: relative; }\n.darma-loader-darma-research-aurora-card-skeleton::before { content: \"\"; position: absolute; inset: -45%; background: conic-gradient(from 0deg, transparent, var(--accent), var(--accent-2), transparent 45%); animation: darma-loader-darma-research-aurora-card-skeleton-aurora-sweep calc(var(--speed) * 4) linear infinite; opacity: .35; }\n.darma-loader-darma-research-aurora-card-skeleton__media, .darma-loader-darma-research-aurora-card-skeleton__row { position: relative; overflow: hidden; background: #293145; border-radius: 14px; z-index: 1; }\n.darma-loader-darma-research-aurora-card-skeleton__media { height: calc(var(--loader-size, 72px) * .82); margin-bottom: 14px; }\n.darma-loader-darma-research-aurora-card-skeleton__row { height: 11px; margin-top: 10px; width: 100%; }\n.darma-loader-darma-research-aurora-card-skeleton__row-lg { width: 82%; }\n.darma-loader-darma-research-aurora-card-skeleton__row-sm { width: 55%; }\n.darma-loader-darma-research-aurora-card-skeleton__media::after, .darma-loader-darma-research-aurora-card-skeleton__row::after { content: \"\"; position: absolute; inset: 0; translate: -120% 0; background: linear-gradient(90deg, transparent, #ffffff40, transparent); animation: darma-loader-darma-research-aurora-card-skeleton-aurora-line calc(var(--speed) * 1.45) ease-in-out infinite; }\n.darma-loader-darma-research-aurora-card-skeleton__row:nth-of-type(3)::after { animation-delay: .15s; }\n.darma-loader-darma-research-aurora-card-skeleton__row:nth-of-type(4)::after { animation-delay: .3s; }\n@keyframes darma-loader-darma-research-aurora-card-skeleton-aurora-line { to { translate: 120% 0; } }\n@keyframes darma-loader-darma-research-aurora-card-skeleton-aurora-sweep { to { rotate: 360deg; } }",
+    "defaults": {
+      "color": "#22c55e",
+      "secondaryColor": "#38bdf8",
+      "size": 72,
+      "speed": 1
+    }
+  },
+  {
     "id": "uiverse-card-line-shimmer",
     "name": "Card Line Shimmer",
     "category": "skeleton",
@@ -64,6 +95,40 @@
       "size": 50,
       "speed": 0.95,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "uiverse-dashboard-skeleton-card",
+    "name": "Dashboard Skeleton Card",
+    "category": "skeleton",
+    "tags": [
+      "skeleton",
+      "card",
+      "placeholder",
+      "pulse",
+      "uiverse",
+      "batch-5"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-dashboard-skeleton-card dashboard skeleton card skeleton skeleton card placeholder pulse uiverse batch-5 html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-dashboard-skeleton-card\">\n  <div class=\"darma-loader-uiverse-dashboard-skeleton-card__thumbnail\"></div>\n  <div class=\"darma-loader-uiverse-dashboard-skeleton-card__rows\">\n    <span></span><span></span><span></span><span></span>\n  </div>\n</div>\n",
+    "previewCss": ".darma-loader-uiverse-dashboard-skeleton-card {\n  width: 224px;\n  height: 256px;\n  border-radius: 18px;\n  padding: 16px;\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  background: var(--loader-color, #d4d4d4);\n}\n.darma-loader-uiverse-dashboard-skeleton-card__thumbnail,\n.darma-loader-uiverse-dashboard-skeleton-card__rows span {\n  background: linear-gradient(90deg, rgba(115,115,115,.22), color-mix(in srgb, var(--loader-secondary-color, #ffffff) 35%, transparent), rgba(115,115,115,.22));\n  background-size: 300% 100%;\n  animation: darma-loader-uiverse-dashboard-skeleton-card-skeletonSweep 1.2s ease-in-out infinite;\n  border-radius: 10px;\n}\n.darma-loader-uiverse-dashboard-skeleton-card__thumbnail { width: 100%; height: 128px; }\n.darma-loader-uiverse-dashboard-skeleton-card__rows { display: flex; flex-direction: column; gap: 10px; }\n.darma-loader-uiverse-dashboard-skeleton-card__rows span { height: 14px; width: 100%; }\n.darma-loader-uiverse-dashboard-skeleton-card__rows span:nth-child(2) { width: 80%; }\n.darma-loader-uiverse-dashboard-skeleton-card__rows span:nth-child(4) { width: 50%; }\n@keyframes darma-loader-uiverse-dashboard-skeleton-card-skeletonSweep { to { background-position: -300% 0; } }\n",
+    "defaults": {
+      "size": 224,
+      "speed": 1.2,
+      "color": "#d4d4d4",
+      "secondaryColor": "#ffffff"
     }
   },
   {

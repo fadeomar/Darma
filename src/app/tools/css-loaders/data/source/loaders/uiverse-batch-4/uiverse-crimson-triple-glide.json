@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-crimson-triple-glide",
+  "name": "Crimson Triple Glide",
+  "category": "bars",
+  "tags": [
+    "bars",
+    "glide",
+    "red",
+    "minimal",
+    "uiverse"
+  ],
+  "html": "<div class=\"loader mover\"></div>",
+  "css": ".loader { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.mover {\n  background: rgba(248, 25, 25, 0.979);\n  height: 10px;\n  width: 80px;\n  border-radius: 10px;\n  position: relative;\n  animation: mover5 2s ease-in-out infinite;\n}\n\n.mover::before,\n.mover::after {\ncontent: '';\nposition: absolute;\nheight: 10px;\nborder-radius: 10px;\nleft: 20px;\nanimation: mover5 2s ease-in-out infinite;\n}\n\n.mover::before {\nbackground: rgb(201, 1, 1);\ntop: 20px;\nwidth: 50px;\n}\n\n.mover::after {\nbackground: rgb(255, 116, 106);\ntop: -20px;\nwidth: 60px;\n}\n\n@keyframes mover5 {\n0% {\ntransform: translateX(30px) scale(1);\n}\n\n50% {\ntransform: translateX(-30px) scale(1.1);\n}\n\n100% {\ntransform: translateX(30px) scale(1);\n}\n}",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 72,
+    "speed": 2,
+    "color": "#f81919",
+    "secondaryColor": "#ff746a"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

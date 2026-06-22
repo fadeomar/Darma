@@ -1,0 +1,48 @@
+{
+  "id": "darma-research-pixel-dungeon-runner",
+  "name": "Pixel Dungeon Runner",
+  "category": "fun",
+  "tags": [
+    "pixel",
+    "runner",
+    "game",
+    "retro",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": true,
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-research-pixel-dungeon-runner pixel dungeon runner fun pixel runner game retro fun html css react popular customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-research-pixel-dungeon-runner\" aria-label=\"Loading game\"><span class=\"darma-loader-darma-research-pixel-dungeon-runner__runner\"></span><span class=\"darma-loader-darma-research-pixel-dungeon-runner__coin darma-loader-darma-research-pixel-dungeon-runner__coin-a\"></span><span class=\"darma-loader-darma-research-pixel-dungeon-runner__coin darma-loader-darma-research-pixel-dungeon-runner__coin-b\"></span><span class=\"darma-loader-darma-research-pixel-dungeon-runner__floor\"></span></div>",
+  "previewCss": ".darma-loader-darma-research-pixel-dungeon-runner { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #f97316); --accent-2: var(--loader-secondary-color, #22c55e); width: calc(var(--loader-size, 82px) * 2.8); height: var(--loader-size, 82px); min-width: 160px; position: relative; overflow: hidden; background: linear-gradient(#18122b 0 68%, #2f1942 68%); border-radius: 16px; image-rendering: pixelated; box-shadow: inset 0 0 0 3px #ffffff18; }\n.darma-loader-darma-research-pixel-dungeon-runner__runner { position: absolute; left: 26px; bottom: 22px; width: 22px; height: 28px; background: var(--accent); box-shadow: 0 6px 0 var(--accent-2), 7px -6px 0 #fff, 14px 0 0 var(--accent), 0 20px 0 #111827, 14px 20px 0 #111827; animation: darma-loader-darma-research-pixel-dungeon-runner-runner-hop calc(var(--speed) * .55) steps(2) infinite; }\n.darma-loader-darma-research-pixel-dungeon-runner__coin { position: absolute; width: 12px; height: 12px; border-radius: 50%; background: #facc15; box-shadow: inset 3px 0 var(--loader-color, #f97316); bottom: 45px; right: -20px; animation: darma-loader-darma-research-pixel-dungeon-runner-coin-run calc(var(--speed) * 2.2) linear infinite; }\n.darma-loader-darma-research-pixel-dungeon-runner__coin-b { animation-delay: calc(var(--speed) * -1.05); bottom: 34px; }\n.darma-loader-darma-research-pixel-dungeon-runner__floor { position: absolute; left: 0; right: 0; bottom: 14px; height: 5px; background: repeating-linear-gradient(90deg, #a855f7 0 18px, transparent 18px 28px); animation: darma-loader-darma-research-pixel-dungeon-runner-floor-move calc(var(--speed) * .7) linear infinite; }\n@keyframes darma-loader-darma-research-pixel-dungeon-runner-runner-hop { 50% { transform: translateY(-7px); } }\n@keyframes darma-loader-darma-research-pixel-dungeon-runner-coin-run { to { transform: translateX(calc(var(--loader-size, 82px) * -3.2)) rotateY(540deg); } }\n@keyframes darma-loader-darma-research-pixel-dungeon-runner-floor-move { to { background-position: -56px 0; } }",
+  "defaults": {
+    "color": "#f97316",
+    "secondaryColor": "#22c55e",
+    "size": 82,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-research-pixel-dungeon-runner\" aria-label=\"Loading game\"><span class=\"darma-loader-darma-research-pixel-dungeon-runner__runner\"></span><span class=\"darma-loader-darma-research-pixel-dungeon-runner__coin darma-loader-darma-research-pixel-dungeon-runner__coin-a\"></span><span class=\"darma-loader-darma-research-pixel-dungeon-runner__coin darma-loader-darma-research-pixel-dungeon-runner__coin-b\"></span><span class=\"darma-loader-darma-research-pixel-dungeon-runner__floor\"></span></div>",
+    "css": ".darma-loader-darma-research-pixel-dungeon-runner { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #f97316); --accent-2: var(--loader-secondary-color, #22c55e); width: calc(var(--loader-size, 82px) * 2.8); height: var(--loader-size, 82px); min-width: 160px; position: relative; overflow: hidden; background: linear-gradient(#18122b 0 68%, #2f1942 68%); border-radius: 16px; image-rendering: pixelated; box-shadow: inset 0 0 0 3px #ffffff18; }\n.darma-loader-darma-research-pixel-dungeon-runner__runner { position: absolute; left: 26px; bottom: 22px; width: 22px; height: 28px; background: var(--accent); box-shadow: 0 6px 0 var(--accent-2), 7px -6px 0 #fff, 14px 0 0 var(--accent), 0 20px 0 #111827, 14px 20px 0 #111827; animation: darma-loader-darma-research-pixel-dungeon-runner-runner-hop calc(var(--speed) * .55) steps(2) infinite; }\n.darma-loader-darma-research-pixel-dungeon-runner__coin { position: absolute; width: 12px; height: 12px; border-radius: 50%; background: #facc15; box-shadow: inset 3px 0 var(--loader-color, #f97316); bottom: 45px; right: -20px; animation: darma-loader-darma-research-pixel-dungeon-runner-coin-run calc(var(--speed) * 2.2) linear infinite; }\n.darma-loader-darma-research-pixel-dungeon-runner__coin-b { animation-delay: calc(var(--speed) * -1.05); bottom: 34px; }\n.darma-loader-darma-research-pixel-dungeon-runner__floor { position: absolute; left: 0; right: 0; bottom: 14px; height: 5px; background: repeating-linear-gradient(90deg, #a855f7 0 18px, transparent 18px 28px); animation: darma-loader-darma-research-pixel-dungeon-runner-floor-move calc(var(--speed) * .7) linear infinite; }\n@keyframes darma-loader-darma-research-pixel-dungeon-runner-runner-hop { 50% { transform: translateY(-7px); } }\n@keyframes darma-loader-darma-research-pixel-dungeon-runner-coin-run { to { transform: translateX(calc(var(--loader-size, 82px) * -3.2)) rotateY(540deg); } }\n@keyframes darma-loader-darma-research-pixel-dungeon-runner-floor-move { to { background-position: -56px 0; } }",
+    "react": "export default function DarmaResearchPixelDungeonRunnerLoader() {\n  return (\n    <div className=\"darma-loader-darma-research-pixel-dungeon-runner\" aria-label=\"Loading game\"><span className=\"darma-loader-darma-research-pixel-dungeon-runner__runner\"></span><span className=\"darma-loader-darma-research-pixel-dungeon-runner__coin darma-loader-darma-research-pixel-dungeon-runner__coin-a\"></span><span className=\"darma-loader-darma-research-pixel-dungeon-runner__coin darma-loader-darma-research-pixel-dungeon-runner__coin-b\"></span><span className=\"darma-loader-darma-research-pixel-dungeon-runner__floor\"></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 6",
+    "author": "Darma / ChatGPT",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

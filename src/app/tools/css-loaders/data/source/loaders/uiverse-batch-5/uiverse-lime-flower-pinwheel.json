@@ -1,0 +1,40 @@
+{
+  "id": "uiverse-lime-flower-pinwheel",
+  "name": "Lime Flower Pinwheel",
+  "category": "minimal",
+  "tags": [
+    "flower",
+    "pinwheel",
+    "single",
+    "retro",
+    "uiverse",
+    "batch-5"
+  ],
+  "html": "<div class=\"loader\"><span class=\"flower-loader\">Loading…</span></div>\n",
+  "css": ".loader { width: 70px; height: 70px; display: grid; place-items: center; }\n.flower-loader {\n  overflow: hidden;\n  position: relative;\n  text-indent: -9999px;\n  display: inline-block;\n  width: 16px;\n  height: 16px;\n  background: #ee9966;\n  border-radius: 100%;\n  box-shadow: white 0 0 15px 0, #448855 -12px -12px 0 4px, #448855 12px -12px 0 4px, #448855 12px 12px 0 4px, #448855 -12px 12px 0 4px;\n  animation: flowerPinwheel 5s infinite ease-in-out;\n  transform-origin: 50% 50%;\n}\n@keyframes flowerPinwheel {\n  0% { transform: rotate(0deg); box-shadow: white 0 0 15px 0, #448855 -12px -12px 0 4px, #448855 12px -12px 0 4px, #448855 12px 12px 0 4px, #448855 -12px 12px 0 4px; }\n  50% { transform: rotate(1080deg); box-shadow: white 0 0 15px 0, #448855 12px 12px 0 4px, #448855 -12px 12px 0 4px, #448855 -12px -12px 0 4px, #448855 12px -12px 0 4px; }\n}\n",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 70,
+    "speed": 5,
+    "color": "#448855",
+    "secondaryColor": "#ee9966"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

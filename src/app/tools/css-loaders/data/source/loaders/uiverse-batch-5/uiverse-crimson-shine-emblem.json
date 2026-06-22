@@ -1,0 +1,40 @@
+{
+  "id": "uiverse-crimson-shine-emblem",
+  "name": "Crimson Shine Emblem",
+  "category": "creative",
+  "tags": [
+    "shine",
+    "emblem",
+    "scan",
+    "crimson",
+    "uiverse",
+    "batch-5"
+  ],
+  "html": "<div class=\"loader\"><div class=\"pattern-1\"><div class=\"pattern-1-shade\"></div></div><div class=\"pattern-2\"></div></div>\n",
+  "css": ".loader { position: relative; width: 160px; height: 160px; }\n.pattern-1 {\n  position: absolute;\n  background-color: #ff4c5a;\n  width: 160px;\n  height: 160px;\n  clip-path: polygon(0 10%, 70% 90%, 40% 90%, 0 45%);\n  overflow: hidden;\n}\n.pattern-2 {\n  position: absolute;\n  background-color: #ff4c5a;\n  width: 176px;\n  height: 152px;\n  clip-path: polygon(100% 10%, 100% 45%, 83% 65%, 55% 65%);\n}\n.pattern-1-shade {\n  position: absolute;\n  opacity: .75;\n  background-color: white;\n  width: 18px;\n  height: 160px;\n  animation: crimsonShine 1.1s infinite;\n}\n@keyframes crimsonShine { from { transform: translateX(-22px); } to { transform: translateX(130px); } }\n",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 160,
+    "speed": 1.1,
+    "color": "#ff4c5a",
+    "secondaryColor": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

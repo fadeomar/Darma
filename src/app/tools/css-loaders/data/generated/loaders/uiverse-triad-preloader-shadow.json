@@ -1,0 +1,50 @@
+{
+  "id": "uiverse-triad-preloader-shadow",
+  "name": "Triad Preloader Shadow",
+  "category": "creative",
+  "tags": [
+    "triad",
+    "shadow",
+    "preloader",
+    "shape",
+    "uiverse"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-triad-preloader-shadow triad preloader shadow creative triad shadow preloader shape uiverse html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-triad-preloader-shadow darma-loader-uiverse-triad-preloader-shadow__container\">\n  <div class=\"darma-loader-uiverse-triad-preloader-shadow__preloader\">\n    <span></span>\n    <span></span>\n    <span></span>\n  </div>\n  <div class=\"darma-loader-uiverse-triad-preloader-shadow__shadow\"></div>\n</div>",
+  "previewCss": ".darma-loader-uiverse-triad-preloader-shadow { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.darma-loader-uiverse-triad-preloader-shadow__container {\n  position: relative;\n}\n\n.darma-loader-uiverse-triad-preloader-shadow__container .darma-loader-uiverse-triad-preloader-shadow__preloader {\nanimation: darma-loader-uiverse-triad-preloader-darma-loader-uiverse-triad-preloader-shadow-shadow-rotate 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;\n}\n\n@keyframes darma-loader-uiverse-triad-preloader-shadow-rotate {\n50% {\ntransform: rotate(360deg);\n}\n\n100% {\ntransform: rotate(720deg);\n}\n}\n\n.darma-loader-uiverse-triad-preloader-shadow__preloader span {\n--c: var(--loader-color, #f23f3f);\nposition: absolute;\ndisplay: block;\nheight: 64px;\nwidth: 64px;\nbackground: var(--c);\nborder: 1px solid var(--c);\nborder-radius: 100%;\n}\n\n.darma-loader-uiverse-triad-preloader-shadow__preloader span:nth-child(1) {\ntransform: translate(-28px, -28px);\nanimation: darma-loader-uiverse-triad-preloader-darma-loader-uiverse-triad-preloader-shadow-shadow-shape_1 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;\n}\n\n@keyframes darma-loader-uiverse-triad-preloader-shadow-shape_1 {\n60% {\ntransform: scale(0.4);\n}\n}\n\n.darma-loader-uiverse-triad-preloader-shadow__preloader span:nth-child(2) {\ntransform: translate(28px, -28px);\nanimation: darma-loader-uiverse-triad-preloader-darma-loader-uiverse-triad-preloader-shadow-shadow-shape_2 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;\n}\n\n@keyframes darma-loader-uiverse-triad-preloader-shadow-shape_2 {\n40% {\ntransform: scale(0.4);\n}\n}\n\n.darma-loader-uiverse-triad-preloader-shadow__preloader span:nth-child(3) {\nposition: relative;\nborder-radius: 0px;\ntransform: scale(0.98) rotate(-45deg);\nanimation: darma-loader-uiverse-triad-preloader-darma-loader-uiverse-triad-preloader-shadow-shadow-shape_3 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;\n}\n\n@keyframes darma-loader-uiverse-triad-preloader-shadow-shape_3 {\n50% {\nborder-radius: 100%;\ntransform: scale(0.5) rotate(-45deg);\n}\n\n100% {\ntransform: scale(0.98) rotate(-45deg);\n}\n}\n\n.darma-loader-uiverse-triad-preloader-shadow__shadow {\nposition: relative;\ntop: 30px;\nleft: 50%;\ntransform: translateX(-50%);\ndisplay: block;\nheight: 16px;\nwidth: 64px;\nborder-radius: 50%;\nbackground-color: #d9d9d9;\nborder: 1px solid #d9d9d9;\nanimation: darma-loader-uiverse-triad-preloader-shadow-shadow 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;\n}\n\n@keyframes darma-loader-uiverse-triad-preloader-shadow-shadow {\n50% {\ntransform: translateX(-50%) scale(0.5);\nborder-color: #f2f2f2;\n}\n}",
+  "defaults": {
+    "size": 96,
+    "speed": 2.3,
+    "color": "#f23f3f",
+    "secondaryColor": "#ffd166"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-triad-preloader-shadow darma-loader-uiverse-triad-preloader-shadow__container\">\n  <div class=\"darma-loader-uiverse-triad-preloader-shadow__preloader\">\n    <span></span>\n    <span></span>\n    <span></span>\n  </div>\n  <div class=\"darma-loader-uiverse-triad-preloader-shadow__shadow\"></div>\n</div>",
+    "css": ".darma-loader-uiverse-triad-preloader-shadow { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.darma-loader-uiverse-triad-preloader-shadow__container {\n  position: relative;\n}\n\n.darma-loader-uiverse-triad-preloader-shadow__container .darma-loader-uiverse-triad-preloader-shadow__preloader {\nanimation: darma-loader-uiverse-triad-preloader-darma-loader-uiverse-triad-preloader-shadow-shadow-rotate 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;\n}\n\n@keyframes darma-loader-uiverse-triad-preloader-shadow-rotate {\n50% {\ntransform: rotate(360deg);\n}\n\n100% {\ntransform: rotate(720deg);\n}\n}\n\n.darma-loader-uiverse-triad-preloader-shadow__preloader span {\n--c: var(--loader-color, #f23f3f);\nposition: absolute;\ndisplay: block;\nheight: 64px;\nwidth: 64px;\nbackground: var(--c);\nborder: 1px solid var(--c);\nborder-radius: 100%;\n}\n\n.darma-loader-uiverse-triad-preloader-shadow__preloader span:nth-child(1) {\ntransform: translate(-28px, -28px);\nanimation: darma-loader-uiverse-triad-preloader-darma-loader-uiverse-triad-preloader-shadow-shadow-shape_1 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;\n}\n\n@keyframes darma-loader-uiverse-triad-preloader-shadow-shape_1 {\n60% {\ntransform: scale(0.4);\n}\n}\n\n.darma-loader-uiverse-triad-preloader-shadow__preloader span:nth-child(2) {\ntransform: translate(28px, -28px);\nanimation: darma-loader-uiverse-triad-preloader-darma-loader-uiverse-triad-preloader-shadow-shadow-shape_2 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;\n}\n\n@keyframes darma-loader-uiverse-triad-preloader-shadow-shape_2 {\n40% {\ntransform: scale(0.4);\n}\n}\n\n.darma-loader-uiverse-triad-preloader-shadow__preloader span:nth-child(3) {\nposition: relative;\nborder-radius: 0px;\ntransform: scale(0.98) rotate(-45deg);\nanimation: darma-loader-uiverse-triad-preloader-darma-loader-uiverse-triad-preloader-shadow-shadow-shape_3 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;\n}\n\n@keyframes darma-loader-uiverse-triad-preloader-shadow-shape_3 {\n50% {\nborder-radius: 100%;\ntransform: scale(0.5) rotate(-45deg);\n}\n\n100% {\ntransform: scale(0.98) rotate(-45deg);\n}\n}\n\n.darma-loader-uiverse-triad-preloader-shadow__shadow {\nposition: relative;\ntop: 30px;\nleft: 50%;\ntransform: translateX(-50%);\ndisplay: block;\nheight: 16px;\nwidth: 64px;\nborder-radius: 50%;\nbackground-color: #d9d9d9;\nborder: 1px solid #d9d9d9;\nanimation: darma-loader-uiverse-triad-preloader-shadow-shadow 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;\n}\n\n@keyframes darma-loader-uiverse-triad-preloader-shadow-shadow {\n50% {\ntransform: translateX(-50%) scale(0.5);\nborder-color: #f2f2f2;\n}\n}",
+    "react": "export default function UiverseTriadPreloaderShadowLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-triad-preloader-shadow darma-loader-uiverse-triad-preloader-shadow__container\">\n  <div className=\"darma-loader-uiverse-triad-preloader-shadow__preloader\">\n    <span></span>\n    <span></span>\n    <span></span>\n  </div>\n  <div className=\"darma-loader-uiverse-triad-preloader-shadow__shadow\"></div>\n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

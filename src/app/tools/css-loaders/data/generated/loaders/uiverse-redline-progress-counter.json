@@ -1,0 +1,50 @@
+{
+  "id": "uiverse-redline-progress-counter",
+  "name": "Redline Progress Counter",
+  "category": "progress",
+  "tags": [
+    "progress",
+    "counter",
+    "bar",
+    "red",
+    "uiverse"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-redline-progress-counter redline progress counter progress progress counter bar red uiverse html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-redline-progress-counter\"></div>",
+  "previewCss": ".darma-loader-uiverse-redline-progress-counter {\n  display: block;\n  position: relative;\n  height: 32px;\n  width: 200px;\n  background: #fff;\n  border: 2px solid #fff;\n  color: var(--loader-color, #df3c3c);\n  overflow: hidden;\n}\n\n.darma-loader-uiverse-redline-progress-counter::before {\ncontent: '';\nbackground: var(--loader-color, #df3c3c);\nposition: absolute;\nleft: 0;\ntop: 0;\nwidth: 0;\nheight: 100%;\nanimation: darma-loader-uiverse-redline-progress-counter-loading_302 10s linear infinite;\n}\n\n.darma-loader-uiverse-redline-progress-counter:after {\ncontent: '';\nposition: absolute;\nleft: 0;\ntop: 0;\nwidth: 100%;\nheight: 100%;\ntext-align: center;\nfont-size: 18px;\nline-height: 32px;\ncolor: var(--loader-secondary-color, #00ffff);\nmix-blend-mode: difference;\nanimation: darma-loader-uiverse-redline-progress-counter-percentage_302 10s linear infinite;\n}\n\n@keyframes darma-loader-uiverse-redline-progress-counter-loading_302 {\n0% {\nwidth: 0\n}\n\n100% {\nwidth: 100%\n}\n}\n\n@keyframes darma-loader-uiverse-redline-progress-counter-percentage_302 {\n0% {\ncontent: \"0%\"\n}\n\n5% {\ncontent: \"5%\"\n}\n\n10% {\ncontent: \"10%\"\n}\n\n20% {\ncontent: \"20%\"\n}\n\n30% {\ncontent: \"30%\"\n}\n\n40% {\ncontent: \"40%\"\n}\n\n50% {\ncontent: \"50%\"\n}\n\n60% {\ncontent: \"60%\"\n}\n\n70% {\ncontent: \"70%\"\n}\n\n80% {\ncontent: \"80%\"\n}\n\n90% {\ncontent: \"90%\"\n}\n\n95% {\ncontent: \"95%\"\n}\n\n96% {\ncontent: \"96%\"\n}\n\n97% {\ncontent: \"97%\"\n}\n\n98% {\ncontent: \"98%\"\n}\n\n99% {\ncontent: \"99%\"\n}\n\n100% {\ncontent: \"100%\"\n}\n}",
+  "defaults": {
+    "size": 116,
+    "speed": 10,
+    "color": "#df3c3c",
+    "secondaryColor": "#00ffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-redline-progress-counter\"></div>",
+    "css": ".darma-loader-uiverse-redline-progress-counter {\n  display: block;\n  position: relative;\n  height: 32px;\n  width: 200px;\n  background: #fff;\n  border: 2px solid #fff;\n  color: var(--loader-color, #df3c3c);\n  overflow: hidden;\n}\n\n.darma-loader-uiverse-redline-progress-counter::before {\ncontent: '';\nbackground: var(--loader-color, #df3c3c);\nposition: absolute;\nleft: 0;\ntop: 0;\nwidth: 0;\nheight: 100%;\nanimation: darma-loader-uiverse-redline-progress-counter-loading_302 10s linear infinite;\n}\n\n.darma-loader-uiverse-redline-progress-counter:after {\ncontent: '';\nposition: absolute;\nleft: 0;\ntop: 0;\nwidth: 100%;\nheight: 100%;\ntext-align: center;\nfont-size: 18px;\nline-height: 32px;\ncolor: var(--loader-secondary-color, #00ffff);\nmix-blend-mode: difference;\nanimation: darma-loader-uiverse-redline-progress-counter-percentage_302 10s linear infinite;\n}\n\n@keyframes darma-loader-uiverse-redline-progress-counter-loading_302 {\n0% {\nwidth: 0\n}\n\n100% {\nwidth: 100%\n}\n}\n\n@keyframes darma-loader-uiverse-redline-progress-counter-percentage_302 {\n0% {\ncontent: \"0%\"\n}\n\n5% {\ncontent: \"5%\"\n}\n\n10% {\ncontent: \"10%\"\n}\n\n20% {\ncontent: \"20%\"\n}\n\n30% {\ncontent: \"30%\"\n}\n\n40% {\ncontent: \"40%\"\n}\n\n50% {\ncontent: \"50%\"\n}\n\n60% {\ncontent: \"60%\"\n}\n\n70% {\ncontent: \"70%\"\n}\n\n80% {\ncontent: \"80%\"\n}\n\n90% {\ncontent: \"90%\"\n}\n\n95% {\ncontent: \"95%\"\n}\n\n96% {\ncontent: \"96%\"\n}\n\n97% {\ncontent: \"97%\"\n}\n\n98% {\ncontent: \"98%\"\n}\n\n99% {\ncontent: \"99%\"\n}\n\n100% {\ncontent: \"100%\"\n}\n}",
+    "react": "export default function UiverseRedlineProgressCounterLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-redline-progress-counter\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

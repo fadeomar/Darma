@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-blue-cube-swarm",
+  "name": "Blue Cube Swarm",
+  "category": "creative",
+  "tags": [
+    "cube",
+    "3d",
+    "swarm",
+    "float",
+    "uiverse"
+  ],
+  "html": "<div class=\"loader v3-cube-loader\">\n  <div style=\"--i:0;\" class=\"v3-cube\"></div>\n  <div style=\"--i:1;\" class=\"v3-cube\"></div>\n  <div style=\"--i:2;\" class=\"v3-cube\"></div>\n  <div style=\"--i:3;\" class=\"v3-cube\"></div>\n  <div style=\"--i:4;\" class=\"v3-cube\"></div>\n  <div style=\"--i:5;\" class=\"v3-cube\"></div>\n  <div style=\"--i:6;\" class=\"v3-cube\"></div>\n  <div style=\"--i:7;\" class=\"v3-cube\"></div>\n  <div style=\"--i:8;\" class=\"v3-cube\"></div>\n  <div style=\"--i:9;\" class=\"v3-cube\"></div>\n</div>",
+  "css": ".loader { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.v3-cube-loader {\nposition: relative;\nwidth: 160px;\nheight: 160px;\nperspective: 1200px;\ndisplay: flex;\njustify-content: center;\nalign-items: center;\ntransform-style: preserve-3d;\nbackground: transparent;\n}\n\n.v3-cube {\nposition: absolute;\nwidth: 28px;\nheight: 28px;\nbackground: linear-gradient(135deg, #007cf0, #00dfd8);\nborder-radius: 6px;\ntransform-style: preserve-3d;\nanimation: cube-float-3d 3.5s ease-in-out infinite;\nanimation-delay: calc(var(--i) * 0.2s);\nopacity: 0.85;\nbox-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);\n}\n\n@keyframes cube-float-3d {\n0% {\ntransform: translate3d(\ncalc((var(--i) - 5) * 14px),\ncalc((var(--i) - 5) * 9px),\n0\n)\nrotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);\n}\n\n50% {\ntransform: translate3d(\ncalc((var(--i) - 5) * 14px),\ncalc((var(--i) - 5) * 9px),\n50px\n)\nrotateX(180deg) rotateY(180deg) rotateZ(90deg) scale(1.25);\n}\n\n100% {\ntransform: translate3d(\ncalc((var(--i) - 5) * 14px),\ncalc((var(--i) - 5) * 9px),\n0\n)\nrotateX(360deg) rotateY(360deg) rotateZ(180deg) scale(1);\n}\n}",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 120,
+    "speed": 3.5,
+    "color": "#007cf0",
+    "secondaryColor": "#00dfd8"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -227,6 +227,72 @@
     }
   },
   {
+    "id": "uiverse-comet-ring-beacon",
+    "name": "Comet Ring Beacon",
+    "category": "spinners",
+    "tags": [
+      "comet",
+      "ring",
+      "beacon",
+      "glow",
+      "uiverse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-comet-ring-beacon comet ring beacon spinners comet ring beacon glow uiverse html css react singleelement cssonly customizable",
+    "previewHtml": "<div aria-live=\"assertive\" role=\"alert\" class=\"darma-loader-uiverse-comet-ring-beacon\"></div>",
+    "previewCss": ".darma-loader-uiverse-comet-ring-beacon {\n--hue: 210;\n--size: 100px;\n--border: 10px;\n--speed: 1s;\n--blur: var(--border);\n}\n\n.darma-loader-uiverse-comet-ring-beacon {\nwidth: var(--border);\naspect-ratio: 1;\nbackground: white;\nborder-radius: 50%;\nposition: relative;\n--y: calc((var(--size) * -0.5) + (var(--border) * 0.5));\ntransform: rotate(0deg) translateY(var(--y));\nanimation: darma-loader-uiverse-comet-ring-beacon-spin var(--speed) infinite linear;\n}\n\n.darma-loader-uiverse-comet-ring-beacon::before {\ncontent: \"\";\nposition: absolute;\ninset: calc(var(--border) * -0.5);\nborder-radius: 50%;\nbackground: white;\nfilter: blur(var(--blur));\nz-index: -1;\n}\n\n.darma-loader-uiverse-comet-ring-beacon::after {\ncontent: \"\";\nwidth: var(--size);\naspect-ratio: 1;\nposition: absolute;\ntop: 0%;\nleft: 50%;\ntranslate: -50% 0;\nbackground: conic-gradient(\nwhite,\nhsl(var(--hue), 100%, 70%),\nhsl(var(--hue), 100%, 10%),\ntransparent 65%\n);\nborder-radius: 50%;\nmask: radial-gradient(\ntransparent calc(((var(--size) * 0.5) - var(--border)) - 1px),\nwhite calc((var(--size) * 0.5) - var(--border))\n);\n}\n\n@keyframes darma-loader-uiverse-comet-ring-beacon-spin {\nto {\ntransform: rotate(-360deg) translateY(var(--y));\n}\n}",
+    "defaults": {
+      "size": 86,
+      "speed": 1,
+      "color": "#ffffff",
+      "secondaryColor": "#60a5fa"
+    }
+  },
+  {
+    "id": "uiverse-compass-pinwheel",
+    "name": "Compass Pinwheel",
+    "category": "spinners",
+    "tags": [
+      "compass",
+      "dots",
+      "pinwheel",
+      "minimal",
+      "uiverse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-compass-pinwheel compass pinwheel spinners compass dots pinwheel minimal uiverse html css react singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-compass-pinwheel darma-loader-uiverse-compass-pinwheel__traffic-loader\"></div>",
+    "previewCss": ".darma-loader-uiverse-compass-pinwheel { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.darma-loader-uiverse-compass-pinwheel__traffic-loader {\n  width: 50px;\n  height: 50px;\n  --c: radial-gradient(farthest-side, #fff 92%, #0000);\n  background: var(--c) 50% 0, var(--c) 50% 100%, var(--c) 100% 50%,\n    var(--c) 0 50%;\n  background-size: 10px 10px;\n  background-repeat: no-repeat;\n  animation: darma-loader-uiverse-compass-pinwheel-s8 1s infinite;\n  position: relative;\n}\n\n.darma-loader-uiverse-compass-pinwheel__traffic-loader::before {\ncontent: \"\";\nposition: absolute;\ninset: 0;\nmargin: 3px;\nbackground: repeating-conic-gradient(#0000 0 35deg, #fff 0 90deg);\n-webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 3px), #000 0);\nborder-radius: 50%;\n}\n\n@keyframes darma-loader-uiverse-compass-pinwheel-s8 {\n100% {\ntransform: rotate(0.5turn);\n}\n}",
+    "defaults": {
+      "size": 56,
+      "speed": 1,
+      "color": "#ffffff",
+      "secondaryColor": "#94a3b8"
+    }
+  },
+  {
     "id": "darma-custom-663",
     "name": "Compass Ring",
     "category": "spinners",
@@ -296,6 +362,69 @@
     }
   },
   {
+    "id": "uiverse-constellation-spinner",
+    "name": "Constellation Spinner",
+    "category": "spinners",
+    "tags": [
+      "constellation",
+      "dots",
+      "spinner",
+      "blue",
+      "uiverse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-constellation-spinner constellation spinner spinners constellation dots spinner blue uiverse html css react singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-constellation-spinner darma-loader-uiverse-constellation-spinner__spinner\"></div>",
+    "previewCss": ".darma-loader-uiverse-constellation-spinner { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.darma-loader-uiverse-constellation-spinner__spinner {\n --R: 28px;\n --g1: var(--loader-color, #004dff) 96%, #0000;\n --g2: var(--loader-secondary-color, #d6d6fc) 96%, #0000;\n width: calc(2*var(--R));\n height: calc(2*var(--R));\n border-radius: 50%;\n display: grid;\n -webkit-mask: linear-gradient(#000 0 0);\n animation: darma-loader-uiverse-constellation-spinner-spinner-maxc6n 2s infinite linear;\n}\n\n.darma-loader-uiverse-constellation-spinner__spinner::before,\n.darma-loader-uiverse-constellation-spinner__spinner::after {\ncontent: \"\";\ngrid-area: 1/1;\nwidth: 50%;\nbackground: radial-gradient(farthest-side,var(--g1)) calc(var(--R) + 0.866*var(--R) - var(--R)) calc(var(--R) - 0.5*var(--R) - var(--R)),\nradial-gradient(farthest-side,var(--g1)) calc(var(--R) + 0.866*var(--R) - var(--R)) calc(var(--R) - 0.5*var(--R) - var(--R)),\nradial-gradient(farthest-side,var(--g2)) calc(var(--R) + 0.5*var(--R) - var(--R)) calc(var(--R) - 0.866*var(--R) - var(--R)),\nradial-gradient(farthest-side,var(--g1)) 0 calc(-1*var(--R)),\nradial-gradient(farthest-side,var(--g2)) calc(var(--R) - 0.5*var(--R) - var(--R)) calc(var(--R) - 0.866*var(--R) - var(--R)),\nradial-gradient(farthest-side,var(--g1)) calc(var(--R) - 0.866*var(--R) - var(--R)) calc(var(--R) - 0.5*var(--R) - var(--R)),\nradial-gradient(farthest-side,var(--g2)) calc(-1*var(--R)) 0,\nradial-gradient(farthest-side,var(--g1)) calc(var(--R) - 0.866*var(--R) - var(--R)) calc(var(--R) + 0.5*var(--R) - var(--R));\nbackground-size: calc(2*var(--R)) calc(2*var(--R));\nbackground-repeat: no-repeat;\n}\n\n.darma-loader-uiverse-constellation-spinner__spinner::after {\ntransform: rotate(180deg);\ntransform-origin: right;\n}\n\n@keyframes darma-loader-uiverse-constellation-spinner-spinner-maxc6n {\n100% {\ntransform: rotate(-1turn);\n}\n}",
+    "defaults": {
+      "size": 68,
+      "speed": 2,
+      "color": "#004dff",
+      "secondaryColor": "#d6d6fc"
+    }
+  },
+  {
+    "id": "darma-research-constellation-trace-spinner",
+    "name": "Constellation Trace Spinner",
+    "category": "spinners",
+    "tags": [
+      "constellation",
+      "stars",
+      "trace",
+      "spinner",
+      "space"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-research-constellation-trace-spinner constellation trace spinner spinners constellation stars trace spinner space html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-research-constellation-trace-spinner\" aria-label=\"Loading constellation\"><span></span><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-research-constellation-trace-spinner { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #60a5fa); --accent-2: var(--loader-secondary-color, #c084fc); width: var(--loader-size, 88px); height: var(--loader-size, 88px); position: relative; border-radius: 50%; animation: darma-loader-darma-research-constellation-trace-spinner-constellation-rotate calc(var(--speed) * 4) linear infinite; }\n.darma-loader-darma-research-constellation-trace-spinner::before { content: \"\"; position: absolute; inset: 10%; border-radius: 50%; border: 1px dashed color-mix(in srgb, var(--accent-2) 55%, transparent); }\n.darma-loader-darma-research-constellation-trace-spinner::after { content: \"\"; position: absolute; inset: 20%; border-radius: 50%; background: conic-gradient(from 20deg, transparent 0 60%, var(--accent) 75%, transparent 90%); mask: radial-gradient(farthest-side, transparent 62%, #000 64% 72%, transparent 74%); }\n.darma-loader-darma-research-constellation-trace-spinner span { position: absolute; width: 10%; aspect-ratio: 1; border-radius: 50%; background: #fff; box-shadow: 0 0 12px 3px var(--accent); }\n.darma-loader-darma-research-constellation-trace-spinner span:nth-child(1){ left:45%; top:0; } .darma-loader-darma-research-constellation-trace-spinner span:nth-child(2){ right:5%; top:28%; background:var(--accent-2); } .darma-loader-darma-research-constellation-trace-spinner span:nth-child(3){ right:18%; bottom:8%; } .darma-loader-darma-research-constellation-trace-spinner span:nth-child(4){ left:14%; bottom:14%; background:var(--accent-2); } .darma-loader-darma-research-constellation-trace-spinner span:nth-child(5){ left:0; top:36%; }\n@keyframes darma-loader-darma-research-constellation-trace-spinner-constellation-rotate { to { rotate: 360deg; } }",
+    "defaults": {
+      "color": "#60a5fa",
+      "secondaryColor": "#c084fc",
+      "size": 88,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-custom-670",
     "name": "Corner Dot Spinner",
     "category": "spinners",
@@ -332,6 +461,39 @@
       "size": 72,
       "speed": 1,
       "background": "#f8fafc"
+    }
+  },
+  {
+    "id": "uiverse-crimson-halo-ring",
+    "name": "Crimson Halo Ring",
+    "category": "spinners",
+    "tags": [
+      "ring",
+      "red",
+      "glow",
+      "halo",
+      "uiverse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-crimson-halo-ring crimson halo ring spinners ring red glow halo uiverse html css react singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-crimson-halo-ring\"></div>",
+    "previewCss": "/*View in dark mode for good effects*/\n.darma-loader-uiverse-crimson-halo-ring {\n  border: 4px solid red;\n  width: 100px;\n  height: 100px;\n  border-radius: 50%;\n  border-right-color: transparent;\n  animation: darma-loader-uiverse-crimson-halo-ring-rot 1s linear infinite;\n  box-shadow: 0px 0px 20px red inset;\n}\n\n@keyframes darma-loader-uiverse-crimson-halo-ring-rot {\n100% {\ntransform: rotate(360deg);\n}\n}",
+    "defaults": {
+      "size": 72,
+      "speed": 1,
+      "color": "#ff0000",
+      "secondaryColor": "#111111"
     }
   },
   {
@@ -2455,6 +2617,40 @@
     }
   },
   {
+    "id": "uiverse-indigo-dot-rotor",
+    "name": "Indigo Dot Rotor",
+    "category": "spinners",
+    "tags": [
+      "dots",
+      "rotor",
+      "indigo",
+      "radial",
+      "uiverse",
+      "batch-5"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-indigo-dot-rotor indigo dot rotor spinners dots rotor indigo radial uiverse batch-5 html css react singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-indigo-dot-rotor darma-loader-uiverse-indigo-dot-rotor__spinner\"></div>\n",
+    "previewCss": ".darma-loader-uiverse-indigo-dot-rotor__spinner {\n  --R: 28px;\n  --g1: var(--loader-color, #004dff) 96%, transparent;\n  --g2: var(--loader-secondary-color, #d6d6fc) 96%, transparent;\n  width: calc(2 * var(--R));\n  height: calc(2 * var(--R));\n  border-radius: 50%;\n  display: grid;\n  -webkit-mask: linear-gradient(#000 0 0);\n  animation: darma-loader-uiverse-indigo-dot-rotor-indigoRotor 2s infinite linear;\n}\n.darma-loader-uiverse-indigo-dot-rotor__spinner::before,\n.darma-loader-uiverse-indigo-dot-rotor__spinner::after {\n  content: \"\";\n  grid-area: 1 / 1;\n  width: 50%;\n  background:\n    radial-gradient(farthest-side, var(--g1)) calc(var(--R) + .866 * var(--R) - var(--R)) calc(var(--R) - .5 * var(--R) - var(--R)),\n    radial-gradient(farthest-side, var(--g2)) calc(var(--R) + .5 * var(--R) - var(--R)) calc(var(--R) - .866 * var(--R) - var(--R)),\n    radial-gradient(farthest-side, var(--g1)) 0 calc(-1 * var(--R)),\n    radial-gradient(farthest-side, var(--g2)) calc(-1 * var(--R)) 0;\n  background-size: calc(2 * var(--R)) calc(2 * var(--R));\n  background-repeat: no-repeat;\n}\n.darma-loader-uiverse-indigo-dot-rotor__spinner::after { transform: rotate(180deg); transform-origin: right; }\n@keyframes darma-loader-uiverse-indigo-dot-rotor-indigoRotor { to { transform: rotate(-1turn); } }\n",
+    "defaults": {
+      "size": 56,
+      "speed": 2,
+      "color": "#004dff",
+      "secondaryColor": "#d6d6fc"
+    }
+  },
+  {
     "id": "darma-custom-415",
     "name": "Line Orbit 01",
     "category": "spinners",
@@ -3618,6 +3814,36 @@
     }
   },
   {
+    "id": "darma-research-lunar-phase-dial",
+    "name": "Lunar Phase Dial",
+    "category": "spinners",
+    "tags": [
+      "moon",
+      "dial",
+      "phase",
+      "spinner",
+      "minimal"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-research-lunar-phase-dial lunar phase dial spinners moon dial phase spinner minimal html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-research-lunar-phase-dial\" aria-label=\"Loading moon phases\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-research-lunar-phase-dial { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #e2e8f0); --accent-2: var(--loader-secondary-color, #818cf8); width: var(--loader-size, 86px); height: var(--loader-size, 86px); position: relative; border-radius: 50%; animation: darma-loader-darma-research-lunar-phase-dial-lunar-rotate calc(var(--speed) * 3.5) linear infinite; }\n.darma-loader-darma-research-lunar-phase-dial::before { content: \"\"; position: absolute; inset: 18%; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff, var(--accent) 45%, #111827 46%); box-shadow: 0 0 26px color-mix(in srgb, var(--accent) 55%, transparent); }\n.darma-loader-darma-research-lunar-phase-dial span { position: absolute; left: 50%; top: 50%; width: 17%; height: 17%; margin: -8.5% 0 0 -8.5%; border-radius: 50%; background: linear-gradient(90deg, var(--accent-2) 50%, #111827 50%); transform: rotate(calc(var(--i) * 60deg)) translate(calc(var(--loader-size, 86px) * .43)); animation: darma-loader-darma-research-lunar-phase-dial-lunar-blink calc(var(--speed) * 1.5) ease-in-out infinite; }\n.darma-loader-darma-research-lunar-phase-dial span:nth-child(1){ --i:0; } .darma-loader-darma-research-lunar-phase-dial span:nth-child(2){ --i:1; animation-delay:.12s; } .darma-loader-darma-research-lunar-phase-dial span:nth-child(3){ --i:2; animation-delay:.24s; } .darma-loader-darma-research-lunar-phase-dial span:nth-child(4){ --i:3; animation-delay:.36s; } .darma-loader-darma-research-lunar-phase-dial span:nth-child(5){ --i:4; animation-delay:.48s; } .darma-loader-darma-research-lunar-phase-dial span:nth-child(6){ --i:5; animation-delay:.6s; }\n@keyframes darma-loader-darma-research-lunar-phase-dial-lunar-rotate { to { rotate: 360deg; } }\n@keyframes darma-loader-darma-research-lunar-phase-dial-lunar-blink { 0%,100% { opacity:.35; scale:.72; } 50% { opacity:1; scale:1; } }",
+    "defaults": {
+      "color": "#e2e8f0",
+      "secondaryColor": "#818cf8",
+      "size": 86,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-custom-664",
     "name": "Neon Glow Ring",
     "category": "spinners",
@@ -4763,6 +4989,73 @@
     }
   },
   {
+    "id": "uiverse-porcelain-orbit-dial",
+    "name": "Porcelain Orbit Dial",
+    "category": "spinners",
+    "tags": [
+      "neumorphic",
+      "orbit",
+      "dial",
+      "orb",
+      "uiverse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-porcelain-orbit-dial porcelain orbit dial spinners neumorphic orbit dial orb uiverse html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-porcelain-orbit-dial\">\n  <div class=\"darma-loader-uiverse-porcelain-orbit-dial__track\"></div>\n  <div class=\"darma-loader-uiverse-porcelain-orbit-dial__inner-track\"></div>\n  <div class=\"darma-loader-uiverse-porcelain-orbit-dial__orb\"></div>\n</div>",
+    "previewCss": "/* Container for the loader */\n.darma-loader-uiverse-porcelain-orbit-dial {\n  position: relative;\n  width: 10em;\n  height: 10em;\n}\n/* Track elements */\n.darma-loader-uiverse-porcelain-orbit-dial__track, .darma-loader-uiverse-porcelain-orbit-dial__inner-track {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  border-radius: 50%;\n  box-shadow: inset -0.1em -0.1em 0.2em #d1d1d1, inset 0.1em 0.1em 0.2em #ffffff;\n}\n\n.darma-loader-uiverse-porcelain-orbit-dial__inner-track {\nwidth: 80%;\nheight: 80%;\ntop: 10%;\nleft: 10%;\nborder: 2em solid var(--loader-secondary-color, #f0f0f0);\n}\n/* Orb element */\n.darma-loader-uiverse-porcelain-orbit-dial__orb {\nposition: absolute;\nwidth: 1.5em;\nheight: 1.5em;\ntop: 50%;\nleft: 50%;\nbackground-color: var(--loader-color, #c0cfda);\nborder-radius: 50%;\nanimation: darma-loader-uiverse-porcelain-orbit-dial-spin 1.5s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);\nbackground: radial-gradient(circle at 30% 30%, #ffffff, #ccc);\nbox-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), inset 0 -2px 4px rgba(255, 255, 255, 0.2), inset 0 2px 4px rgba(0, 0, 0, 0.2);\n}\n\n/* Animations */\n@keyframes darma-loader-uiverse-porcelain-orbit-dial-spin {\n0% {\ntransform: translate(-50%, -50%) rotate(90deg) translate(3em) rotate(-90deg);\n}\n\n100% {\ntransform: translate(-50%, -50%) rotate(450deg) translate(3em) rotate(-450deg);\n}\n}",
+    "defaults": {
+      "size": 82,
+      "speed": 1.5,
+      "color": "#c0cfda",
+      "secondaryColor": "#f0f0f0"
+    }
+  },
+  {
+    "id": "uiverse-propeller-tick-spinner",
+    "name": "Propeller Tick Spinner",
+    "category": "spinners",
+    "tags": [
+      "ticks",
+      "propeller",
+      "radial",
+      "spinner",
+      "uiverse",
+      "batch-5"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-propeller-tick-spinner propeller tick spinner spinners ticks propeller radial spinner uiverse batch-5 html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-propeller-tick-spinner darma-loader-uiverse-propeller-tick-spinner__spinner\">\n  <div style=\"--delay:.1;--rotation:36;--translation:150;\"></div><div style=\"--delay:.2;--rotation:72;--translation:150;\"></div><div style=\"--delay:.3;--rotation:108;--translation:150;\"></div><div style=\"--delay:.4;--rotation:144;--translation:150;\"></div><div style=\"--delay:.5;--rotation:180;--translation:150;\"></div><div style=\"--delay:.6;--rotation:216;--translation:150;\"></div><div style=\"--delay:.7;--rotation:252;--translation:150;\"></div><div style=\"--delay:.8;--rotation:288;--translation:150;\"></div><div style=\"--delay:.9;--rotation:324;--translation:150;\"></div><div style=\"--delay:1;--rotation:360;--translation:150;\"></div>\n</div>\n",
+    "previewCss": ".darma-loader-uiverse-propeller-tick-spinner__spinner { position: relative; width: 34px; height: 34px; }\n.darma-loader-uiverse-propeller-tick-spinner__spinner div {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  width: 4px;\n  height: 18px;\n  border-radius: 4px;\n  background: var(--loader-color, #000000);\n  transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));\n  animation: darma-loader-uiverse-propeller-tick-spinner-propellerTick 1s calc(var(--delay) * 1s) infinite ease;\n  transform-origin: 50% 0;\n}\n@keyframes darma-loader-uiverse-propeller-tick-spinner-propellerTick { 0%, 100% { opacity: .15; } 50% { opacity: 1; } }\n",
+    "defaults": {
+      "size": 34,
+      "speed": 1,
+      "color": "#000000",
+      "secondaryColor": "#777777"
+    }
+  },
+  {
     "id": "darma-custom-669",
     "name": "Radial Bar Spinner",
     "category": "spinners",
@@ -5202,6 +5495,72 @@
     }
   },
   {
+    "id": "uiverse-radial-dash-clock",
+    "name": "Radial Dash Clock",
+    "category": "spinners",
+    "tags": [
+      "svg",
+      "clock",
+      "dash",
+      "radial",
+      "uiverse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-radial-dash-clock radial dash clock spinners svg clock dash radial uiverse html css react singleelement cssonly customizable",
+    "previewHtml": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 48 48\" class=\"darma-loader-uiverse-radial-dash-clock\">\n  <g\n    stroke-linejoin=\"round\"\n    stroke-linecap=\"round\"\n    fill-rule=\"evenodd\"\n    fill=\"none\"\n    stroke-width=\"1\"\n    stroke=\"none\"\n  >\n    <line y2=\"6\" x2=\"24\" y1=\"2\" x1=\"24\"></line>\n    <line\n      transform=\"translate(34, 6.679) rotate(30) translate(-34, -6.679)\"\n      y2=\"8.679\"\n      x2=\"34\"\n      y1=\"4.679\"\n      x1=\"34\"\n    ></line>\n    <line\n      transform=\"translate(41.321, 14) rotate(60) translate(-41.321, -14)\"\n      y2=\"16\"\n      x2=\"41.321\"\n      y1=\"12\"\n      x1=\"41.321\"\n    ></line>\n    <line\n      transform=\"translate(44, 24) rotate(90) translate(-44, -24)\"\n      y2=\"26\"\n      x2=\"44\"\n      y1=\"22\"\n      x1=\"44\"\n    ></line>\n    <line\n      transform=\"translate(41.321, 34) rotate(120) translate(-41.321, -34)\"\n      y2=\"36\"\n      x2=\"41.321\"\n      y1=\"32\"\n      x1=\"41.321\"\n    ></line>\n    <line\n      transform=\"translate(34, 41.321) rotate(150) translate(-34, -41.321)\"\n      y2=\"43.321\"\n      x2=\"34\"\n      y1=\"39.321\"\n      x1=\"34\"\n    ></line>\n    <line\n      transform=\"translate(24, 44) rotate(180) translate(-24, -44)\"\n      y2=\"46\"\n      x2=\"24\"\n      y1=\"42\"\n      x1=\"24\"\n    ></line>\n    <line\n      transform=\"translate(14, 41.321) rotate(210) translate(-14, -41.321)\"\n      y2=\"43.321\"\n      x2=\"14\"\n      y1=\"39.321\"\n      x1=\"14\"\n    ></line>\n    <line\n      transform=\"translate(6.679, 34) rotate(240) translate(-6.679, -34)\"\n      y2=\"36\"\n      x2=\"6.679\"\n      y1=\"32\"\n      x1=\"6.679\"\n    ></line>\n    <line\n      transform=\"translate(4, 24) rotate(270) translate(-4, -24)\"\n      y2=\"26\"\n      x2=\"4\"\n      y1=\"22\"\n      x1=\"4\"\n    ></line>\n    <line\n      transform=\"translate(6.679, 14) rotate(300) translate(-6.679, -14)\"\n      y2=\"16\"\n      x2=\"6.679\"\n      y1=\"12\"\n      x1=\"6.679\"\n    ></line>\n    <line\n      transform=\"translate(14, 6.679) rotate(330) translate(-14, -6.679)\"\n      y2=\"8.679\"\n      x2=\"14\"\n      y1=\"4.679\"\n      x1=\"14\"\n    ></line>\n  </g>\n</svg>",
+    "previewCss": ".darma-loader-uiverse-radial-dash-clock {\n  width: 48px;\n  height: 48px;\n  transform: rotate(0deg);\n  animation: darma-loader-uiverse-radial-dash-clock-spin 2.4s linear infinite;\n}\n\n.darma-loader-uiverse-radial-dash-clock line {\nstroke: var(--loader-color, #ffffff); /* White color for better visibility */\nstroke-width: 4;\nstroke-linecap: round;\nopacity: 0.8;\nstroke-dasharray: 10;\nstroke-dashoffset: 10;\nanimation: darma-loader-uiverse-radial-dash-clock-dash 2.4s ease-in-out infinite;\n}\n\n@keyframes darma-loader-uiverse-radial-dash-clock-dash {\n0% {\nstroke-dashoffset: 10;\nopacity: 0.8;\n}\n50% {\nstroke-dashoffset: 0;\nopacity: 0.4;\n}\n100% {\nstroke-dashoffset: 10;\nopacity: 0.8;\n}\n}\n\n@keyframes darma-loader-uiverse-radial-dash-clock-spin {\n0% {\ntransform: rotate(0deg);\n}\n100% {\ntransform: rotate(360deg);\n}\n}",
+    "defaults": {
+      "size": 60,
+      "speed": 2.4,
+      "color": "#ffffff",
+      "secondaryColor": "#94a3b8"
+    }
+  },
+  {
+    "id": "uiverse-radial-tick-spinner",
+    "name": "Radial Tick Spinner",
+    "category": "spinners",
+    "tags": [
+      "ticks",
+      "radial",
+      "spinner",
+      "minimal",
+      "uiverse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-radial-tick-spinner radial tick spinner spinners ticks radial spinner minimal uiverse html css react singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-radial-tick-spinner darma-loader-uiverse-radial-tick-spinner__spinner\">\n  <div></div>\n  <div></div>\n  <div></div>\n  <div></div>\n  <div></div>\n  <div></div>\n  <div></div>\n  <div></div>\n  <div></div>\n  <div></div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-radial-tick-spinner { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.darma-loader-uiverse-radial-tick-spinner__spinner {\n  position: relative;\n  width: 9px;\n  height: 9px;\n}\n\n.darma-loader-uiverse-radial-tick-spinner__spinner div {\nposition: absolute;\nwidth: 50%;\nheight: 150%;\nbackground: var(--loader-color, #000000);\ntransform: rotate(calc(var(--rotation) * 1deg))\ntranslate(0, calc(var(--translation) * 1%));\nanimation: darma-loader-uiverse-radial-tick-spinner-spinner-fzua35 1s calc(var(--delay) * 1s) infinite ease;\n}\n\n.darma-loader-uiverse-radial-tick-spinner__spinner div:nth-child(1) {\n--delay: 0.1;\n--rotation: 36;\n--translation: 150;\n}\n\n.darma-loader-uiverse-radial-tick-spinner__spinner div:nth-child(2) {\n--delay: 0.2;\n--rotation: 72;\n--translation: 150;\n}\n\n.darma-loader-uiverse-radial-tick-spinner__spinner div:nth-child(3) {\n--delay: 0.3;\n--rotation: 108;\n--translation: 150;\n}\n\n.darma-loader-uiverse-radial-tick-spinner__spinner div:nth-child(4) {\n--delay: 0.4;\n--rotation: 144;\n--translation: 150;\n}\n\n.darma-loader-uiverse-radial-tick-spinner__spinner div:nth-child(5) {\n--delay: 0.5;\n--rotation: 180;\n--translation: 150;\n}\n\n.darma-loader-uiverse-radial-tick-spinner__spinner div:nth-child(6) {\n--delay: 0.6;\n--rotation: 216;\n--translation: 150;\n}\n\n.darma-loader-uiverse-radial-tick-spinner__spinner div:nth-child(7) {\n--delay: 0.7;\n--rotation: 252;\n--translation: 150;\n}\n\n.darma-loader-uiverse-radial-tick-spinner__spinner div:nth-child(8) {\n--delay: 0.8;\n--rotation: 288;\n--translation: 150;\n}\n\n.darma-loader-uiverse-radial-tick-spinner__spinner div:nth-child(9) {\n--delay: 0.9;\n--rotation: 324;\n--translation: 150;\n}\n\n.darma-loader-uiverse-radial-tick-spinner__spinner div:nth-child(10) {\n--delay: 1;\n--rotation: 360;\n--translation: 150;\n}\n\n@keyframes darma-loader-uiverse-radial-tick-spinner-spinner-fzua35 {\n0%,\n10%,\n20%,\n30%,\n50%,\n60%,\n70%,\n80%,\n90%,\n100% {\ntransform: rotate(calc(var(--rotation) * 1deg))\ntranslate(0, calc(var(--translation) * 1%));\n}\n\n50% {\ntransform: rotate(calc(var(--rotation) * 1deg))\ntranslate(0, calc(var(--translation) * 1.5%));\n}\n}",
+    "defaults": {
+      "size": 52,
+      "speed": 1,
+      "color": "#000000",
+      "secondaryColor": "#ffffff"
+    }
+  },
+  {
     "id": "darma-custom-649",
     "name": "Rainbow Halo Spinner",
     "category": "spinners",
@@ -5462,6 +5821,141 @@
     }
   },
   {
+    "id": "uiverse-ruby-compass-sweep",
+    "name": "Ruby Compass Sweep",
+    "category": "spinners",
+    "tags": [
+      "triangle",
+      "ruby",
+      "sweep",
+      "spinner",
+      "uiverse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-ruby-compass-sweep ruby compass sweep spinners triangle ruby sweep spinner uiverse html css react singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-ruby-compass-sweep\"></div>",
+    "previewCss": ".darma-loader-uiverse-ruby-compass-sweep {\n  position: relative;\n  border: 24px solid;\n  border-color: red  transparent red transparent;\n  animation: darma-loader-uiverse-ruby-compass-sweep-rotate_000 2s linear infinite;\n}\n\n.darma-loader-uiverse-ruby-compass-sweep:before,\n.darma-loader-uiverse-ruby-compass-sweep:after {\ncontent: \"\";\ndisplay: block;\nborder: 24px solid transparent;\nborder-left-color: red;\nposition: absolute;\nleft: -24px;\ntop: -24px;\nanimation: darma-loader-uiverse-ruby-compass-sweep-prix 1s infinite ease-in;\ntransform-origin: 0% 100%;\n}\n\n.darma-loader-uiverse-ruby-compass-sweep:before {\nborder-color: transparent red transparent transparent;\ntransform-origin: 100% 0%;\nanimation-delay: 0.5s;\n}\n\n@keyframes darma-loader-uiverse-ruby-compass-sweep-rotate_000 {\n100% {\ntransform: rotate(360deg)\n}\n}\n\n@keyframes darma-loader-uiverse-ruby-compass-sweep-prix {\n20% , 80% {\ntransform: rotate(0)\n}\n\n50% {\ntransform: rotate(-90deg)\n}\n}",
+    "defaults": {
+      "size": 62,
+      "speed": 2,
+      "color": "#ff0000",
+      "secondaryColor": "#ffffff"
+    }
+  },
+  {
+    "id": "uiverse-ruby-pinwheel-prism",
+    "name": "Ruby Pinwheel Prism",
+    "category": "spinners",
+    "tags": [
+      "pinwheel",
+      "prism",
+      "triangle",
+      "ruby",
+      "uiverse",
+      "batch-5"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-ruby-pinwheel-prism ruby pinwheel prism spinners pinwheel prism triangle ruby uiverse batch-5 html css react singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-ruby-pinwheel-prism\"></div>\n",
+    "previewCss": ".darma-loader-uiverse-ruby-pinwheel-prism {\n  position: relative;\n  width: 0;\n  height: 0;\n  border: 24px solid;\n  border-color: var(--loader-color, #ff3b3b) transparent var(--loader-color, #ff3b3b) transparent;\n  animation: darma-loader-uiverse-ruby-pinwheel-prism-rubyPinwheelSpin 2s linear infinite;\n}\n.darma-loader-uiverse-ruby-pinwheel-prism::before,\n.darma-loader-uiverse-ruby-pinwheel-prism::after {\n  content: \"\";\n  display: block;\n  border: 24px solid transparent;\n  border-left-color: var(--loader-color, #ff3b3b);\n  position: absolute;\n  left: -24px;\n  top: -24px;\n  animation: darma-loader-uiverse-ruby-pinwheel-prism-rubyPinwheelFold 1s infinite ease-in;\n  transform-origin: 0% 100%;\n}\n.darma-loader-uiverse-ruby-pinwheel-prism::before {\n  border-color: transparent var(--loader-color, #ff3b3b) transparent transparent;\n  transform-origin: 100% 0%;\n  animation-delay: 0.5s;\n}\n@keyframes darma-loader-uiverse-ruby-pinwheel-prism-rubyPinwheelSpin { to { transform: rotate(360deg); } }\n@keyframes darma-loader-uiverse-ruby-pinwheel-prism-rubyPinwheelFold { 20%, 80% { transform: rotate(0); } 50% { transform: rotate(-90deg); } }\n",
+    "defaults": {
+      "size": 48,
+      "speed": 2,
+      "color": "#ff3b3b",
+      "secondaryColor": "#ff9b9b"
+    }
+  },
+  {
+    "id": "uiverse-soft-3d-cube-flip",
+    "name": "Soft 3D Cube Flip",
+    "category": "spinners",
+    "tags": [
+      "cube",
+      "3d",
+      "flip",
+      "soft",
+      "uiverse",
+      "batch-5"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-soft-3d-cube-flip soft 3d cube flip spinners cube 3d flip soft uiverse batch-5 html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-soft-3d-cube-flip darma-loader-uiverse-soft-3d-cube-flip__loading\"><div class=\"darma-loader-uiverse-soft-3d-cube-flip__side darma-loader-uiverse-soft-3d-cube-flip__front\"></div><div class=\"darma-loader-uiverse-soft-3d-cube-flip__side darma-loader-uiverse-soft-3d-cube-flip__back\"></div><div class=\"darma-loader-uiverse-soft-3d-cube-flip__side darma-loader-uiverse-soft-3d-cube-flip__top\"></div><div class=\"darma-loader-uiverse-soft-3d-cube-flip__side darma-loader-uiverse-soft-3d-cube-flip__bottom\"></div><div class=\"darma-loader-uiverse-soft-3d-cube-flip__side darma-loader-uiverse-soft-3d-cube-flip__left\"></div><div class=\"darma-loader-uiverse-soft-3d-cube-flip__side darma-loader-uiverse-soft-3d-cube-flip__right\"></div></div>\n",
+    "previewCss": ".darma-loader-uiverse-soft-3d-cube-flip__loading {\n  width: 100px;\n  height: 100px;\n  background: var(--loader-color, #ffffff);\n  border-radius: 12px;\n  position: relative;\n  transform-style: preserve-3d;\n  animation: darma-loader-uiverse-soft-3d-cube-flip-softCubeFlip 2s linear infinite;\n}\n.darma-loader-uiverse-soft-3d-cube-flip__side { background: var(--loader-color, #ffffff); border-radius: 12px; }\n.darma-loader-uiverse-soft-3d-cube-flip__front, .darma-loader-uiverse-soft-3d-cube-flip__back { width: 100px; height: 100px; position: absolute; inset: 0; }\n.darma-loader-uiverse-soft-3d-cube-flip__back { transform: translateZ(-10px); }\n.darma-loader-uiverse-soft-3d-cube-flip__left, .darma-loader-uiverse-soft-3d-cube-flip__right { width: 10px; height: calc(100% - 12px); top: 6px; position: absolute; background: var(--loader-secondary-color, #efefef); }\n.darma-loader-uiverse-soft-3d-cube-flip__left { left: 0; transform-origin: 0; transform: rotateY(90deg); }\n.darma-loader-uiverse-soft-3d-cube-flip__right { right: 0; transform-origin: 100%; transform: rotateY(-90deg); }\n.darma-loader-uiverse-soft-3d-cube-flip__top, .darma-loader-uiverse-soft-3d-cube-flip__bottom { width: calc(100% - 12px); height: 10px; position: absolute; left: 6px; background: var(--loader-secondary-color, #efefef); }\n.darma-loader-uiverse-soft-3d-cube-flip__top { top: -10px; transform-origin: 0 100%; transform: rotateX(90deg); }\n.darma-loader-uiverse-soft-3d-cube-flip__bottom { bottom: -10px; transform-origin: 0 0; transform: rotateX(-90deg); }\n@keyframes darma-loader-uiverse-soft-3d-cube-flip-softCubeFlip {\n  0% { transform: rotate(0); }\n  50% { transform: rotateY(180deg); }\n  100% { transform: rotateY(180deg) rotateX(-180deg); }\n}\n",
+    "defaults": {
+      "size": 100,
+      "speed": 2,
+      "color": "#ffffff",
+      "secondaryColor": "#efefef"
+    }
+  },
+  {
+    "id": "uiverse-solar-loading-dial",
+    "name": "Solar Loading Dial",
+    "category": "spinners",
+    "tags": [
+      "dial",
+      "solar",
+      "text",
+      "ring",
+      "uiverse",
+      "batch-5"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-solar-loading-dial solar loading dial spinners dial solar text ring uiverse batch-5 html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-solar-loading-dial darma-loader-uiverse-solar-loading-dial__loading-bar\">Loading<span></span></div>\n",
+    "previewCss": ".darma-loader-uiverse-solar-loading-dial__loading-bar {\n  position: relative;\n  width: 110px;\n  height: 110px;\n  background: transparent;\n  border: 3px solid var(--loader-secondary-color, #3c3c3c);\n  border-radius: 50%;\n  text-align: center;\n  line-height: 111px;\n  font-family: sans-serif;\n  font-size: 15px;\n  color: var(--loader-color, #fff000);\n  letter-spacing: 3px;\n  text-transform: uppercase;\n  text-shadow: 0 0 20px var(--loader-color, #fff000);\n  box-shadow: 0 0 20px rgba(0,0,0,.5);\n}\n.darma-loader-uiverse-solar-loading-dial__loading-bar::before {\n  content: \"\";\n  position: absolute;\n  top: -3px;\n  left: -3px;\n  width: 100%;\n  height: 100%;\n  border: 3px solid transparent;\n  border-top: 5px solid var(--loader-color, #fff000);\n  border-right: 5px solid var(--loader-color, #fff000);\n  border-radius: 50%;\n  animation: darma-loader-uiverse-solar-loading-dial-solarDial 2s linear infinite;\n}\n.darma-loader-uiverse-solar-loading-dial__loading-bar span {\n  position: absolute;\n  top: calc(50% - 2px);\n  left: 50%;\n  width: 50%;\n  height: 4px;\n  background: transparent;\n  transform-origin: left;\n  animation: darma-loader-uiverse-solar-loading-dial-solarHand 2s linear infinite;\n}\n.darma-loader-uiverse-solar-loading-dial__loading-bar span::before {\n  content: \"\";\n  position: absolute;\n  width: 14px;\n  height: 14px;\n  border-radius: 50%;\n  background: var(--loader-color, #fff000);\n  top: -5px;\n  right: -7px;\n  box-shadow: 0 0 20px var(--loader-color, #fff000);\n}\n@keyframes darma-loader-uiverse-solar-loading-dial-solarDial { to { transform: rotate(360deg); } }\n@keyframes darma-loader-uiverse-solar-loading-dial-solarHand { from { transform: rotate(45deg); } to { transform: rotate(405deg); } }\n",
+    "defaults": {
+      "size": 110,
+      "speed": 2,
+      "color": "#fff000",
+      "secondaryColor": "#3c3c3c"
+    }
+  },
+  {
     "id": "darma-custom-115",
     "name": "Striped Circle Split",
     "category": "spinners",
@@ -5637,6 +6131,40 @@
       "size": 40,
       "speed": 2,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "uiverse-wild-orbit-rings",
+    "name": "Wild Orbit Rings",
+    "category": "spinners",
+    "tags": [
+      "orbit",
+      "rings",
+      "chaos",
+      "circle",
+      "uiverse",
+      "batch-5"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-wild-orbit-rings wild orbit rings spinners orbit rings chaos circle uiverse batch-5 html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-wild-orbit-rings\">\n  <div class=\"darma-loader-uiverse-wild-orbit-rings__circle darma-loader-uiverse-wild-orbit-rings__c1\"></div>\n  <div class=\"darma-loader-uiverse-wild-orbit-rings__circle darma-loader-uiverse-wild-orbit-rings__c2\"></div>\n  <div class=\"darma-loader-uiverse-wild-orbit-rings__circle darma-loader-uiverse-wild-orbit-rings__c3\"></div>\n  <div class=\"darma-loader-uiverse-wild-orbit-rings__circle darma-loader-uiverse-wild-orbit-rings__c4\"></div>\n</div>\n",
+    "previewCss": ".darma-loader-uiverse-wild-orbit-rings {\n  width: 180px;\n  height: 180px;\n  position: relative;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.darma-loader-uiverse-wild-orbit-rings__circle {\n  width: 150px;\n  height: 150px;\n  border-radius: 52% 48% 58% 42%;\n  border: 9px solid;\n  position: absolute;\n  box-sizing: border-box;\n}\n.darma-loader-uiverse-wild-orbit-rings__c1 { animation: darma-loader-uiverse-wild-orbit-rings-wildRingTurn 2.2s linear infinite; border-color: #ff9f1c; }\n.darma-loader-uiverse-wild-orbit-rings__c2 { animation: darma-loader-uiverse-wild-orbit-rings-wildRingTurn 3s linear infinite reverse; border-color: var(--loader-color, #ff365e); }\n.darma-loader-uiverse-wild-orbit-rings__c3 { animation: darma-loader-uiverse-wild-orbit-rings-wildRingTurn 2s linear infinite; border-color: #ffffff; opacity: .5; }\n.darma-loader-uiverse-wild-orbit-rings__c4 { animation: darma-loader-uiverse-wild-orbit-rings-wildRingTurn 1s linear infinite reverse; border-color: var(--loader-secondary-color, #7dd3fc); opacity: .8; }\n@keyframes darma-loader-uiverse-wild-orbit-rings-wildRingTurn { to { transform: rotate(360deg); } }\n",
+    "defaults": {
+      "size": 150,
+      "speed": 2,
+      "color": "#ff365e",
+      "secondaryColor": "#7dd3fc"
     }
   },
   {

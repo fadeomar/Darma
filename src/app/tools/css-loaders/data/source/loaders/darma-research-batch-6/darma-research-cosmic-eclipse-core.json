@@ -1,0 +1,36 @@
+{
+  "id": "darma-research-cosmic-eclipse-core",
+  "name": "Cosmic Eclipse Core",
+  "category": "pulse",
+  "tags": [
+    "eclipse",
+    "pulse",
+    "cosmic",
+    "glow",
+    "orb"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading eclipse\"><span class=\"moon\"></span></div>",
+  "css": ".loader { --speed: var(--loader-speed); --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); border-radius: 50%; position: relative; background: radial-gradient(circle at 45% 45%, var(--accent) 0 28%, color-mix(in srgb, var(--accent-2) 75%, #000) 56%, #020617 70%); box-shadow: 0 0 calc(var(--loader-size) * .45) color-mix(in srgb, var(--accent) 55%, transparent); overflow: hidden; animation: eclipse-pulse calc(var(--speed) * 2) ease-in-out infinite; }\n.loader::before { content: \"\"; position: absolute; inset: -30%; border-radius: 50%; background: repeating-conic-gradient(from 0deg, #fff3 0 5deg, transparent 5deg 18deg); animation: eclipse-rays calc(var(--speed) * 5) linear infinite; }\n.moon { position: absolute; width: 70%; height: 70%; border-radius: 50%; background: #020617; top: 12%; left: -12%; box-shadow: inset -10px 0 18px #ffffff12; animation: eclipse-moon calc(var(--speed) * 2.8) ease-in-out infinite; }\n@keyframes eclipse-moon { 0%,100% { transform: translateX(-8%); } 50% { transform: translateX(82%); } }\n@keyframes eclipse-pulse { 50% { transform: scale(1.06); } }\n@keyframes eclipse-rays { to { rotate: 360deg; } }",
+  "defaults": {
+    "color": "#f59e0b",
+    "secondaryColor": "#ef4444",
+    "size": 92,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "popular": true,
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 6",
+    "author": "Darma / ChatGPT",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

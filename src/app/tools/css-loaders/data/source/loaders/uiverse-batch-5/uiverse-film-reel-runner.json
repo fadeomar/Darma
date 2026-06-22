@@ -1,0 +1,40 @@
+{
+  "id": "uiverse-film-reel-runner",
+  "name": "Film Reel Runner",
+  "category": "creative",
+  "tags": [
+    "film",
+    "reel",
+    "cinema",
+    "roll",
+    "uiverse",
+    "batch-5"
+  ],
+  "html": "<div class=\"loader\"></div>\n",
+  "css": ".loader {\n  width: 175px;\n  height: 80px;\n  display: block;\n  background-image: radial-gradient(circle 25px at 25px 25px, #ffffff 100%, transparent 0), radial-gradient(circle 50px at 50px 50px, #ffffff 100%, transparent 0), radial-gradient(circle 25px at 25px 25px, #ffffff 100%, transparent 0), linear-gradient(#ffffff 50px, transparent 0);\n  background-size: 50px 50px, 100px 76px, 50px 50px, 120px 40px;\n  background-position: 0 30px, 37px 0, 122px 30px, 25px 40px;\n  background-repeat: no-repeat;\n  position: relative;\n  box-sizing: border-box;\n}\n.loader::before,\n.loader::after {\n  content: \"\";\n  position: absolute;\n  border-radius: 50%;\n  background-color: #ff3d00;\n  background-repeat: no-repeat;\n  box-sizing: border-box;\n}\n.loader::before {\n  left: 60px; bottom: 18px; width: 36px; height: 36px;\n  background-image: radial-gradient(circle 8px at 18px 18px, #ffffff 100%, transparent 0), radial-gradient(circle 4px at 18px 0, #ffffff 100%, transparent 0), radial-gradient(circle 4px at 0 18px, #ffffff 100%, transparent 0), radial-gradient(circle 4px at 36px 18px, #ffffff 100%, transparent 0), radial-gradient(circle 4px at 18px 36px, #ffffff 100%, transparent 0);\n  animation: reelSpin 3s linear infinite;\n}\n.loader::after {\n  left: 94px; bottom: 15px; width: 24px; height: 24px;\n  background-image: radial-gradient(circle 5px at 12px 12px, #ffffff 100%, transparent 0), radial-gradient(circle 3px at 12px 0, #ffffff 100%, transparent 0), radial-gradient(circle 3px at 0 12px, #ffffff 100%, transparent 0), radial-gradient(circle 3px at 24px 12px, #ffffff 100%, transparent 0), radial-gradient(circle 3px at 12px 24px, #ffffff 100%, transparent 0);\n  animation: reelSpin 4s linear infinite reverse;\n}\n@keyframes reelSpin { to { transform: rotate(360deg); } }\n",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 175,
+    "speed": 3,
+    "color": "#ff3d00",
+    "secondaryColor": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

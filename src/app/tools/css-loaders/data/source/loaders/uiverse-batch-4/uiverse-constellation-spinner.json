@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-constellation-spinner",
+  "name": "Constellation Spinner",
+  "category": "spinners",
+  "tags": [
+    "constellation",
+    "dots",
+    "spinner",
+    "blue",
+    "uiverse"
+  ],
+  "html": "<div class=\"loader spinner\"></div>",
+  "css": ".loader { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.spinner {\n --R: 28px;\n --g1: #004dff 96%, #0000;\n --g2: #d6d6fc 96%, #0000;\n width: calc(2*var(--R));\n height: calc(2*var(--R));\n border-radius: 50%;\n display: grid;\n -webkit-mask: linear-gradient(#000 0 0);\n animation: spinner-maxc6n 2s infinite linear;\n}\n\n.spinner::before,\n.spinner::after {\ncontent: \"\";\ngrid-area: 1/1;\nwidth: 50%;\nbackground: radial-gradient(farthest-side,var(--g1)) calc(var(--R) + 0.866*var(--R) - var(--R)) calc(var(--R) - 0.5*var(--R) - var(--R)),\nradial-gradient(farthest-side,var(--g1)) calc(var(--R) + 0.866*var(--R) - var(--R)) calc(var(--R) - 0.5*var(--R) - var(--R)),\nradial-gradient(farthest-side,var(--g2)) calc(var(--R) + 0.5*var(--R) - var(--R)) calc(var(--R) - 0.866*var(--R) - var(--R)),\nradial-gradient(farthest-side,var(--g1)) 0 calc(-1*var(--R)),\nradial-gradient(farthest-side,var(--g2)) calc(var(--R) - 0.5*var(--R) - var(--R)) calc(var(--R) - 0.866*var(--R) - var(--R)),\nradial-gradient(farthest-side,var(--g1)) calc(var(--R) - 0.866*var(--R) - var(--R)) calc(var(--R) - 0.5*var(--R) - var(--R)),\nradial-gradient(farthest-side,var(--g2)) calc(-1*var(--R)) 0,\nradial-gradient(farthest-side,var(--g1)) calc(var(--R) - 0.866*var(--R) - var(--R)) calc(var(--R) + 0.5*var(--R) - var(--R));\nbackground-size: calc(2*var(--R)) calc(2*var(--R));\nbackground-repeat: no-repeat;\n}\n\n.spinner::after {\ntransform: rotate(180deg);\ntransform-origin: right;\n}\n\n@keyframes spinner-maxc6n {\n100% {\ntransform: rotate(-1turn);\n}\n}",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 68,
+    "speed": 2,
+    "color": "#004dff",
+    "secondaryColor": "#d6d6fc"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

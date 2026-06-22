@@ -1,0 +1,35 @@
+{
+  "id": "darma-research-blob-family-bounce",
+  "name": "Blob Family Bounce",
+  "category": "dots",
+  "tags": [
+    "blob",
+    "dots",
+    "bounce",
+    "cute",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading blobs\"><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --speed: var(--loader-speed); --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: calc(var(--loader-size) * 1.35); height: calc(var(--loader-size) * .65); display: flex; align-items: end; justify-content: center; gap: 7%; }\n.loader span { width: 19%; aspect-ratio: 1; border-radius: 58% 42% 55% 45% / 45% 55% 45% 55%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: inset 0 -8px #0002, 0 8px 18px color-mix(in srgb, var(--accent) 40%, transparent); animation: blob-bounce calc(var(--speed) * 1.15) cubic-bezier(.5,0,.2,1) infinite; }\n.loader span:nth-child(2) { animation-delay: .1s; width: 23%; } .loader span:nth-child(3) { animation-delay: .2s; } .loader span:nth-child(4) { animation-delay: .3s; width: 15%; }\n@keyframes blob-bounce { 0%,100% { transform: translateY(0) scale(1.15,.85); } 45% { transform: translateY(-26px) scale(.82,1.18) rotate(12deg); border-radius: 42% 58% 45% 55% / 55% 45% 55% 45%; } 70% { transform: translateY(4px) scale(1.22,.78); } }",
+  "defaults": {
+    "color": "#fb7185",
+    "secondaryColor": "#8b5cf6",
+    "size": 84,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 6",
+    "author": "Darma / ChatGPT",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

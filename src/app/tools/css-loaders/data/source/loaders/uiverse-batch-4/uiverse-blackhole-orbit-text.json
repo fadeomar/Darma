@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-blackhole-orbit-text",
+  "name": "Blackhole Orbit Text",
+  "category": "creative",
+  "tags": [
+    "blackhole",
+    "space",
+    "orbit",
+    "text",
+    "uiverse"
+  ],
+  "html": "<div class=\"loader\">\n  <div class=\"blackhole\">\n    <div class=\"blackhole-circle\"></div>\n    <div class=\"blackhole-disc\"></div>\n  </div>\n\n  <div class=\"curve\">\n    <svg viewBox=\"0 0 500 500\">\n      <path id=\"blackhole-orbit-path\" d=\"M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97\"></path>\n      <text width=\"500\">\n        <textPath href=\"#blackhole-orbit-path\">loading...</textPath>\n      </text>\n    </svg>\n  </div>\n</div>",
+  "css": ".loader {\n  display: flex;\n  width: 8rem;\n  height: 8rem;\n  justify-content: center;\n  align-items: center;\n  position: relative;\n  flex-direction: column;\n}\n\n.curve {\nwidth: 150%;\nheight: 150%;\nposition: absolute;\nanimation: rotate 8s linear infinite;\nfill: transparent;\n}\n\n.curve text {\nletter-spacing: 20px;\ntext-transform: uppercase;\nfont: 1.5em \"Fira Sans\", sans-serif;\nfill: white;\nfilter: drop-shadow(0 2px 8px black);\n}\n\n.blackhole {\nz-index: 0;\ndisplay: flex;\nposition: absolute;\nwidth: 8rem;\nheight: 8rem;\nalign-items: center;\njustify-content: center;\n}\n\n.blackhole-circle {\nz-index: 0;\ndisplay: flex;\nwidth: 100%;\nheight: 100%;\nborder-radius: 50%;\nbackground: radial-gradient(circle at center, black 25%, white 35%, white 100%);\nbox-shadow: 0px 0px 2rem #c2babb;\nalign-items: center;\njustify-content: center;\n}\n\n.blackhole-circle::after {\nz-index: 0;\nposition: absolute;\ncontent: \"\";\ndisplay: flex;\nwidth: 100%;\nheight: 100%;\nborder-radius: 50%;\nborder: 4px solid white;\nbackground: radial-gradient(circle at center, black 35%, white 60%, white 100%);\nbox-shadow: 0px 0px 4rem #c2babb;\nalign-items: center;\njustify-content: center;\nfilter: blur(4px);\nanimation: pulseAnimation linear infinite 2s alternate-reverse;\n}\n\n.blackhole-circle::before {\nz-index: 1;\ncontent: \"\";\ndisplay: flex;\nwidth: 4rem;\nheight: 4rem;\nborder: 2px solid #ffffff;\nbox-shadow: 3px 3px 10px #c2babb, inset 0 0 1rem #ffffff;\nborder-radius: 50%;\ntop: 5rem;\nfilter: blur(0.5px);\nanimation: rotate linear infinite 3s;\n}\n\n.blackhole-disc {\nposition: absolute;\nz-index: 0;\ndisplay: flex;\nwidth: 5rem;\nheight: 10rem;\nborder-radius: 50%;\nbackground: radial-gradient(circle at center, #ffffff 80%, #353535 90%, white 100%);\nfilter: blur(1rem) brightness(130%);\nborder: 1rem solid white;\nbox-shadow: 0px 0px 3rem #d7c4be;\ntransform: rotate3d(1, 1, 1, 220deg);\nanimation: pulseAnimation2 linear infinite 2s alternate-reverse;\njustify-content: center;\nalign-items: center;\n}\n\n.blackhole-disc::before {\ncontent: \"\";\nposition: absolute;\nz-index: 0;\ndisplay: flex;\nwidth: 5rem;\nheight: 10rem;\nborder-radius: 50%;\nbackground: radial-gradient(circle at center, #ffffff 80%, #353535 90%, white 100%);\nfilter: blur(2rem);\nborder: 1rem solid white;\nbox-shadow: 0px 0px 4rem #d7c4be;\nanimation: pulseAnimation linear infinite 2s alternate-reverse;\n}\n\n@keyframes rotate {\n0% {\ntransform: rotate(0deg);\n}\n\n100% {\ntransform: rotate(360deg);\n}\n}\n\n@keyframes pulseAnimation {\n0% {\nbox-shadow: 0px 0px 3rem #c2babb;\ntransform: scale(1);\n}\n\n100% {\nbox-shadow: 0px 0px 4rem #c2babb;\ntransform: scale(1.04);\n}\n}\n\n@keyframes pulseAnimation2 {\n0% {\nbox-shadow: 0px 0px 3rem #c2babb;\ntransform: rotate3d(1, 1, 1, 220deg) scale(1);\n}\n\n100% {\nbox-shadow: 0px 0px 4rem #c2babb;\ntransform: rotate3d(1, 1, 1, 220deg) scale(.95);\n}\n}",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 104,
+    "speed": 2,
+    "color": "#ffffff",
+    "secondaryColor": "#c2babb"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "uiverse-eclipse-eye-shutter",
+  "name": "Eclipse Eye Shutter",
+  "category": "fun",
+  "tags": [
+    "eye",
+    "eclipse",
+    "shade",
+    "blink",
+    "uiverse"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-eclipse-eye-shutter eclipse eye shutter fun eye eclipse shade blink uiverse html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-eclipse-eye-shutter\"></div>",
+  "previewCss": ".darma-loader-uiverse-eclipse-eye-shutter {\n  position: relative;\n  width: 78px;\n  height: 78px;\n  border-radius: 50%;\n  background: #fff;\n  border: 8px solid #131a1d;\n  overflow: hidden;\n  box-sizing: border-box;\n}\n\n.darma-loader-uiverse-eclipse-eye-shutter::after {\ncontent: '';\nposition: absolute;\nleft: 0;\ntop: -50%;\nwidth: 100%;\nheight: 100%;\nbackground: var(--loader-color, #263238);\nz-index: 5;\nborder-bottom: 8px solid #131a1d;\nbox-sizing: border-box;\nanimation: darma-loader-uiverse-eclipse-eye-shutter-eyeShade 3s infinite;\n}\n\n.darma-loader-uiverse-eclipse-eye-shutter::before {\ncontent: '';\nposition: absolute;\nleft: 20px;\nbottom: 15px;\nwidth: 32px;\nz-index: 2;\nheight: 32px;\nbackground: #111;\nborder-radius: 50%;\nanimation: darma-loader-uiverse-eclipse-eye-shutter-eyeMove 3s infinite;\n}\n\n@keyframes darma-loader-uiverse-eclipse-eye-shutter-eyeShade {\n0% {\ntransform: translateY(0)\n}\n\n20% {\ntransform: translateY(5px)\n}\n\n40% , 50% {\ntransform: translateY(-5px)\n}\n\n60% {\ntransform: translateY( -8px)\n}\n\n75% {\ntransform: translateY( 5px)\n}\n\n100% {\ntransform: translateY(10px)\n}\n}\n\n@keyframes darma-loader-uiverse-eclipse-eye-shutter-eyeMove {\n0% {\ntransform: translate(0 , 0)\n}\n\n20% {\ntransform: translate(0px , 5px)\n}\n\n40% , 50% {\ntransform: translate(0px , -5px)\n}\n\n60% {\ntransform: translate(-10px , -5px)\n}\n\n75% {\ntransform: translate(-20px , 5px)\n}\n\n100% {\ntransform: translate(0 , 10px)\n}\n}",
+  "defaults": {
+    "size": 78,
+    "speed": 3,
+    "color": "#263238",
+    "secondaryColor": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-eclipse-eye-shutter\"></div>",
+    "css": ".darma-loader-uiverse-eclipse-eye-shutter {\n  position: relative;\n  width: 78px;\n  height: 78px;\n  border-radius: 50%;\n  background: #fff;\n  border: 8px solid #131a1d;\n  overflow: hidden;\n  box-sizing: border-box;\n}\n\n.darma-loader-uiverse-eclipse-eye-shutter::after {\ncontent: '';\nposition: absolute;\nleft: 0;\ntop: -50%;\nwidth: 100%;\nheight: 100%;\nbackground: var(--loader-color, #263238);\nz-index: 5;\nborder-bottom: 8px solid #131a1d;\nbox-sizing: border-box;\nanimation: darma-loader-uiverse-eclipse-eye-shutter-eyeShade 3s infinite;\n}\n\n.darma-loader-uiverse-eclipse-eye-shutter::before {\ncontent: '';\nposition: absolute;\nleft: 20px;\nbottom: 15px;\nwidth: 32px;\nz-index: 2;\nheight: 32px;\nbackground: #111;\nborder-radius: 50%;\nanimation: darma-loader-uiverse-eclipse-eye-shutter-eyeMove 3s infinite;\n}\n\n@keyframes darma-loader-uiverse-eclipse-eye-shutter-eyeShade {\n0% {\ntransform: translateY(0)\n}\n\n20% {\ntransform: translateY(5px)\n}\n\n40% , 50% {\ntransform: translateY(-5px)\n}\n\n60% {\ntransform: translateY( -8px)\n}\n\n75% {\ntransform: translateY( 5px)\n}\n\n100% {\ntransform: translateY(10px)\n}\n}\n\n@keyframes darma-loader-uiverse-eclipse-eye-shutter-eyeMove {\n0% {\ntransform: translate(0 , 0)\n}\n\n20% {\ntransform: translate(0px , 5px)\n}\n\n40% , 50% {\ntransform: translate(0px , -5px)\n}\n\n60% {\ntransform: translate(-10px , -5px)\n}\n\n75% {\ntransform: translate(-20px , 5px)\n}\n\n100% {\ntransform: translate(0 , 10px)\n}\n}",
+    "react": "export default function UiverseEclipseEyeShutterLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-eclipse-eye-shutter\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

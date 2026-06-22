@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-heartbeat-medallion",
+  "name": "Heartbeat Medallion",
+  "category": "fun",
+  "tags": [
+    "heart",
+    "medical",
+    "pulse",
+    "ecg",
+    "uiverse"
+  ],
+  "html": "<div class=\"loader heartbeatloader\">\n            <svg class=\"svgdraw\" width=\"100%\" height=\"100%\" viewBox=\"0 0 150 400\" xmlns=\"http://www.w3.org/2000/svg\">\n                <path class=\"path\" d=\"M 0 200 l 40 0 l 5 -40 l 5 40 l 10 0 l 5 15 l 10 -140 l 10 220 l 5 -95 l 10 0 l 5 20 l 5 -20 l 30 0\" fill=\"transparent\" stroke-width=\"4\" stroke=\"black\"></path>\n            </svg>\n            <div class=\"innercircle\"></div>\n            <div class=\"outercircle\"></div>\n        </div>",
+  "css": ".loader { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n/* heart beat */\n.heartbeatloader {\n  position: relative;\n  width: 72px;\n  height: 72px;\n  z-index: 0;\n  margin: auto;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n}\n\n.svgdraw {\ntop: 30%;\nleft: 26%;\nposition: absolute;\nwidth: 50%;\nheight: 50%;\ncolor: #fff;\ntransform: scale(1.4);\nz-index: 3;\n}\n\n.path {\nstroke: rgba(255, 255, 255, 0.95);\nstroke-width: 4;\nstroke-dasharray: 1000px;\nstroke-dashoffset: 1000px;\nanimation: draw 1.5s infinite forwards normal linear;\nanimation-delay: 0.1s;\nposition: relative;\n}\n\n@keyframes draw {\nto {\nstroke-dashoffset: 0;\n}\n}\n\n.innercircle {\nposition: absolute;\ntop: 17%;\nleft: 100.5%;\ntransform: translate(-50%, -50%) scale(1.2);\nwidth: 160%;\nheight: auto;\nz-index: 1;\nopacity: 0.97;\nanimation: innerbeat 1.5s infinite linear forwards;\n}\n\n.innercircle:before,\n.innercircle:after {\nposition: absolute;\ncontent: \"\";\nleft: 25%;\ntop: 0;\nwidth: 25%;\nheight: auto;\npadding-bottom: 40%;\nbackground: rgb(225, 95, 95);\nborder-radius: 50px 50px 0 0;\ntransform: rotate(-45deg);\ntransform-origin: 0 100%;\n}\n\n.innercircle:after {\nleft: 0;\ntransform: rotate(45deg);\ntransform-origin: 100% 100%;\n}\n\n@keyframes innerbeat {\n0% {\ntransform: translate(-50%, -50%) scale(1.2);\n}\n\n10% {\ntransform: translate(-50%, -50%) scale(1.2);\n}\n\n50% {\ntransform: translate(-50%, -50%) scale(1.3);\n}\n\n60% {\ntransform: translate(-50%, -50%) scale(1.25);\n}\n\n75% {\ntransform: translate(-50%, -50%) scale(1.3);\n}\n}\n\n.outercircle {\nwidth: 100%;\nheight: 100%;\nborder-radius: 50%;\nbackground-color: rgba(238, 92, 92, 0.9);\nbox-shadow: 0 0 30px 0px #fff;\nposition: absolute;\nz-index: -1;\nopacity: 0.7;\ntop: 0;\nleft: 0;\ntransform: scale(1.2);\nanimation: outerbeat 1.5s infinite linear forwards;\n}\n\n@keyframes outerbeat {\n0% {\ntransform: scale(1.2);\n}\n\n10% {\ntransform: scale(1.2);\n}\n\n50% {\ntransform: scale(1.3);\n}\n\n60% {\ntransform: scale(1.25);\n}\n\n75% {\ntransform: scale(1.3);\n}\n}",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 92,
+    "speed": 1.5,
+    "color": "#e15f5f",
+    "secondaryColor": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

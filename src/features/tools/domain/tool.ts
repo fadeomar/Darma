@@ -8,6 +8,7 @@ export type ToolLayoutType =
   | "visual-generator"
   | "fullscreen-studio"
   | "single-utility"
+  | "interactive-challenge"
   | "directory";
 export type ToolAudience =
   | "developer"

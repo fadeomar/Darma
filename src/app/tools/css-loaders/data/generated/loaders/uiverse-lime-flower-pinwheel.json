@@ -1,0 +1,51 @@
+{
+  "id": "uiverse-lime-flower-pinwheel",
+  "name": "Lime Flower Pinwheel",
+  "category": "minimal",
+  "tags": [
+    "flower",
+    "pinwheel",
+    "single",
+    "retro",
+    "uiverse",
+    "batch-5"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-lime-flower-pinwheel lime flower pinwheel minimal flower pinwheel single retro uiverse batch-5 html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-lime-flower-pinwheel\"><span class=\"darma-loader-uiverse-lime-flower-pinwheel__flower-loader\">Loading…</span></div>\n",
+  "previewCss": ".darma-loader-uiverse-lime-flower-pinwheel { width: 70px; height: 70px; display: grid; place-items: center; }\n.darma-loader-uiverse-lime-flower-pinwheel__flower-loader {\n  overflow: hidden;\n  position: relative;\n  text-indent: -9999px;\n  display: inline-block;\n  width: 16px;\n  height: 16px;\n  background: var(--loader-secondary-color, #ee9966);\n  border-radius: 100%;\n  box-shadow: white 0 0 15px 0, var(--loader-color, #448855) -12px -12px 0 4px, var(--loader-color, #448855) 12px -12px 0 4px, var(--loader-color, #448855) 12px 12px 0 4px, var(--loader-color, #448855) -12px 12px 0 4px;\n  animation: darma-loader-uiverse-lime-flower-pinwheel-flowerPinwheel 5s infinite ease-in-out;\n  transform-origin: 50% 50%;\n}\n@keyframes darma-loader-uiverse-lime-flower-pinwheel-flowerPinwheel {\n  0% { transform: rotate(0deg); box-shadow: white 0 0 15px 0, var(--loader-color, #448855) -12px -12px 0 4px, var(--loader-color, #448855) 12px -12px 0 4px, var(--loader-color, #448855) 12px 12px 0 4px, var(--loader-color, #448855) -12px 12px 0 4px; }\n  50% { transform: rotate(1080deg); box-shadow: white 0 0 15px 0, var(--loader-color, #448855) 12px 12px 0 4px, var(--loader-color, #448855) -12px 12px 0 4px, var(--loader-color, #448855) -12px -12px 0 4px, var(--loader-color, #448855) 12px -12px 0 4px; }\n}\n",
+  "defaults": {
+    "size": 70,
+    "speed": 5,
+    "color": "#448855",
+    "secondaryColor": "#ee9966"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-lime-flower-pinwheel\"><span class=\"darma-loader-uiverse-lime-flower-pinwheel__flower-loader\">Loading…</span></div>\n",
+    "css": ".darma-loader-uiverse-lime-flower-pinwheel { width: 70px; height: 70px; display: grid; place-items: center; }\n.darma-loader-uiverse-lime-flower-pinwheel__flower-loader {\n  overflow: hidden;\n  position: relative;\n  text-indent: -9999px;\n  display: inline-block;\n  width: 16px;\n  height: 16px;\n  background: var(--loader-secondary-color, #ee9966);\n  border-radius: 100%;\n  box-shadow: white 0 0 15px 0, var(--loader-color, #448855) -12px -12px 0 4px, var(--loader-color, #448855) 12px -12px 0 4px, var(--loader-color, #448855) 12px 12px 0 4px, var(--loader-color, #448855) -12px 12px 0 4px;\n  animation: darma-loader-uiverse-lime-flower-pinwheel-flowerPinwheel 5s infinite ease-in-out;\n  transform-origin: 50% 50%;\n}\n@keyframes darma-loader-uiverse-lime-flower-pinwheel-flowerPinwheel {\n  0% { transform: rotate(0deg); box-shadow: white 0 0 15px 0, var(--loader-color, #448855) -12px -12px 0 4px, var(--loader-color, #448855) 12px -12px 0 4px, var(--loader-color, #448855) 12px 12px 0 4px, var(--loader-color, #448855) -12px 12px 0 4px; }\n  50% { transform: rotate(1080deg); box-shadow: white 0 0 15px 0, var(--loader-color, #448855) 12px 12px 0 4px, var(--loader-color, #448855) -12px 12px 0 4px, var(--loader-color, #448855) -12px -12px 0 4px, var(--loader-color, #448855) 12px -12px 0 4px; }\n}\n",
+    "react": "export default function UiverseLimeFlowerPinwheelLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-lime-flower-pinwheel\"><span className=\"darma-loader-uiverse-lime-flower-pinwheel__flower-loader\">Loading…</span></div>\n\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

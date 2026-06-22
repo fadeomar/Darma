@@ -1,0 +1,40 @@
+{
+  "id": "uiverse-cyber-percent-bar",
+  "name": "Cyber Percent Bar",
+  "category": "progress",
+  "tags": [
+    "percentage",
+    "bar",
+    "cyber",
+    "progress",
+    "uiverse",
+    "batch-5"
+  ],
+  "html": "<div class=\"loader\"></div>\n",
+  "css": ".loader {\n  display: block;\n  position: relative;\n  height: 32px;\n  width: 200px;\n  background: #ffffff;\n  border: 2px solid #ffffff;\n  color: #df3c3c;\n  overflow: hidden;\n}\n.loader::before {\n  content: \"\";\n  background: #df3c3c;\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 0;\n  height: 100%;\n  animation: cyberFill 10s linear infinite;\n}\n.loader::after {\n  content: \"Loading\";\n  position: absolute;\n  inset: 0;\n  text-align: center;\n  font-size: 18px;\n  line-height: 32px;\n  color: rgb(0,255,255);\n  mix-blend-mode: difference;\n  animation: cyberText 10s linear infinite;\n}\n@keyframes cyberFill { to { width: 100%; } }\n@keyframes cyberText {\n  0% { content: \"0%\"; } 25% { content: \"25%\"; } 50% { content: \"50%\"; } 75% { content: \"75%\"; } 100% { content: \"100%\"; }\n}\n",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 200,
+    "speed": 10,
+    "color": "#df3c3c",
+    "secondaryColor": "#00ffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

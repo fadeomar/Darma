@@ -1,0 +1,51 @@
+{
+  "id": "uiverse-solar-loading-dial",
+  "name": "Solar Loading Dial",
+  "category": "spinners",
+  "tags": [
+    "dial",
+    "solar",
+    "text",
+    "ring",
+    "uiverse",
+    "batch-5"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-solar-loading-dial solar loading dial spinners dial solar text ring uiverse batch-5 html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-solar-loading-dial darma-loader-uiverse-solar-loading-dial__loading-bar\">Loading<span></span></div>\n",
+  "previewCss": ".darma-loader-uiverse-solar-loading-dial__loading-bar {\n  position: relative;\n  width: 110px;\n  height: 110px;\n  background: transparent;\n  border: 3px solid var(--loader-secondary-color, #3c3c3c);\n  border-radius: 50%;\n  text-align: center;\n  line-height: 111px;\n  font-family: sans-serif;\n  font-size: 15px;\n  color: var(--loader-color, #fff000);\n  letter-spacing: 3px;\n  text-transform: uppercase;\n  text-shadow: 0 0 20px var(--loader-color, #fff000);\n  box-shadow: 0 0 20px rgba(0,0,0,.5);\n}\n.darma-loader-uiverse-solar-loading-dial__loading-bar::before {\n  content: \"\";\n  position: absolute;\n  top: -3px;\n  left: -3px;\n  width: 100%;\n  height: 100%;\n  border: 3px solid transparent;\n  border-top: 5px solid var(--loader-color, #fff000);\n  border-right: 5px solid var(--loader-color, #fff000);\n  border-radius: 50%;\n  animation: darma-loader-uiverse-solar-loading-dial-solarDial 2s linear infinite;\n}\n.darma-loader-uiverse-solar-loading-dial__loading-bar span {\n  position: absolute;\n  top: calc(50% - 2px);\n  left: 50%;\n  width: 50%;\n  height: 4px;\n  background: transparent;\n  transform-origin: left;\n  animation: darma-loader-uiverse-solar-loading-dial-solarHand 2s linear infinite;\n}\n.darma-loader-uiverse-solar-loading-dial__loading-bar span::before {\n  content: \"\";\n  position: absolute;\n  width: 14px;\n  height: 14px;\n  border-radius: 50%;\n  background: var(--loader-color, #fff000);\n  top: -5px;\n  right: -7px;\n  box-shadow: 0 0 20px var(--loader-color, #fff000);\n}\n@keyframes darma-loader-uiverse-solar-loading-dial-solarDial { to { transform: rotate(360deg); } }\n@keyframes darma-loader-uiverse-solar-loading-dial-solarHand { from { transform: rotate(45deg); } to { transform: rotate(405deg); } }\n",
+  "defaults": {
+    "size": 110,
+    "speed": 2,
+    "color": "#fff000",
+    "secondaryColor": "#3c3c3c"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-solar-loading-dial darma-loader-uiverse-solar-loading-dial__loading-bar\">Loading<span></span></div>\n",
+    "css": ".darma-loader-uiverse-solar-loading-dial__loading-bar {\n  position: relative;\n  width: 110px;\n  height: 110px;\n  background: transparent;\n  border: 3px solid var(--loader-secondary-color, #3c3c3c);\n  border-radius: 50%;\n  text-align: center;\n  line-height: 111px;\n  font-family: sans-serif;\n  font-size: 15px;\n  color: var(--loader-color, #fff000);\n  letter-spacing: 3px;\n  text-transform: uppercase;\n  text-shadow: 0 0 20px var(--loader-color, #fff000);\n  box-shadow: 0 0 20px rgba(0,0,0,.5);\n}\n.darma-loader-uiverse-solar-loading-dial__loading-bar::before {\n  content: \"\";\n  position: absolute;\n  top: -3px;\n  left: -3px;\n  width: 100%;\n  height: 100%;\n  border: 3px solid transparent;\n  border-top: 5px solid var(--loader-color, #fff000);\n  border-right: 5px solid var(--loader-color, #fff000);\n  border-radius: 50%;\n  animation: darma-loader-uiverse-solar-loading-dial-solarDial 2s linear infinite;\n}\n.darma-loader-uiverse-solar-loading-dial__loading-bar span {\n  position: absolute;\n  top: calc(50% - 2px);\n  left: 50%;\n  width: 50%;\n  height: 4px;\n  background: transparent;\n  transform-origin: left;\n  animation: darma-loader-uiverse-solar-loading-dial-solarHand 2s linear infinite;\n}\n.darma-loader-uiverse-solar-loading-dial__loading-bar span::before {\n  content: \"\";\n  position: absolute;\n  width: 14px;\n  height: 14px;\n  border-radius: 50%;\n  background: var(--loader-color, #fff000);\n  top: -5px;\n  right: -7px;\n  box-shadow: 0 0 20px var(--loader-color, #fff000);\n}\n@keyframes darma-loader-uiverse-solar-loading-dial-solarDial { to { transform: rotate(360deg); } }\n@keyframes darma-loader-uiverse-solar-loading-dial-solarHand { from { transform: rotate(45deg); } to { transform: rotate(405deg); } }\n",
+    "react": "export default function UiverseSolarLoadingDialLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-solar-loading-dial darma-loader-uiverse-solar-loading-dial__loading-bar\">Loading<span></span></div>\n\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

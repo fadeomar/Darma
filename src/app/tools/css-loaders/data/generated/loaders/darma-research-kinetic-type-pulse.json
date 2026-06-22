@@ -1,0 +1,47 @@
+{
+  "id": "darma-research-kinetic-type-pulse",
+  "name": "Kinetic Type Pulse",
+  "category": "minimal",
+  "tags": [
+    "text",
+    "type",
+    "pulse",
+    "typography",
+    "minimal"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-research-kinetic-type-pulse kinetic type pulse minimal text type pulse typography minimal html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-research-kinetic-type-pulse\" aria-label=\"Loading text\"><span>L</span><span>O</span><span>A</span><span>D</span></div>",
+  "previewCss": ".darma-loader-darma-research-kinetic-type-pulse { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #14b8a6); --accent-2: var(--loader-secondary-color, #f97316); display: inline-flex; gap: .22em; font: 900 calc(var(--loader-size, 96px) * .28)/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: .08em; perspective: 600px; }\n.darma-loader-darma-research-kinetic-type-pulse span { color: var(--accent); text-shadow: 0 0 16px color-mix(in srgb, var(--accent) 60%, transparent); animation: darma-loader-darma-research-kinetic-type-pulse-kinetic-letter calc(var(--speed) * 1.4) cubic-bezier(.6,-.3,.3,1.3) infinite; transform-origin: 50% 80%; }\n.darma-loader-darma-research-kinetic-type-pulse span:nth-child(2) { animation-delay: .12s; color: var(--accent-2); } .darma-loader-darma-research-kinetic-type-pulse span:nth-child(3) { animation-delay: .24s; } .darma-loader-darma-research-kinetic-type-pulse span:nth-child(4) { animation-delay: .36s; color: var(--accent-2); }\n@keyframes darma-loader-darma-research-kinetic-type-pulse-kinetic-letter { 0%,100% { transform: translateY(0) rotateX(0) scale(1); opacity:.55; } 45% { transform: translateY(-18px) rotateX(55deg) scale(1.18); opacity:1; } }",
+  "defaults": {
+    "color": "#14b8a6",
+    "secondaryColor": "#f97316",
+    "size": 96,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-research-kinetic-type-pulse\" aria-label=\"Loading text\"><span>L</span><span>O</span><span>A</span><span>D</span></div>",
+    "css": ".darma-loader-darma-research-kinetic-type-pulse { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #14b8a6); --accent-2: var(--loader-secondary-color, #f97316); display: inline-flex; gap: .22em; font: 900 calc(var(--loader-size, 96px) * .28)/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: .08em; perspective: 600px; }\n.darma-loader-darma-research-kinetic-type-pulse span { color: var(--accent); text-shadow: 0 0 16px color-mix(in srgb, var(--accent) 60%, transparent); animation: darma-loader-darma-research-kinetic-type-pulse-kinetic-letter calc(var(--speed) * 1.4) cubic-bezier(.6,-.3,.3,1.3) infinite; transform-origin: 50% 80%; }\n.darma-loader-darma-research-kinetic-type-pulse span:nth-child(2) { animation-delay: .12s; color: var(--accent-2); } .darma-loader-darma-research-kinetic-type-pulse span:nth-child(3) { animation-delay: .24s; } .darma-loader-darma-research-kinetic-type-pulse span:nth-child(4) { animation-delay: .36s; color: var(--accent-2); }\n@keyframes darma-loader-darma-research-kinetic-type-pulse-kinetic-letter { 0%,100% { transform: translateY(0) rotateX(0) scale(1); opacity:.55; } 45% { transform: translateY(-18px) rotateX(55deg) scale(1.18); opacity:1; } }",
+    "react": "export default function DarmaResearchKineticTypePulseLoader() {\n  return (\n    <div className=\"darma-loader-darma-research-kinetic-type-pulse\" aria-label=\"Loading text\"><span>L</span><span>O</span><span>A</span><span>D</span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 6",
+    "author": "Darma / ChatGPT",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

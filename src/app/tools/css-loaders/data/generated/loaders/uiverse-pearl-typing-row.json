@@ -1,0 +1,50 @@
+{
+  "id": "uiverse-pearl-typing-row",
+  "name": "Pearl Typing Row",
+  "category": "dots",
+  "tags": [
+    "typing",
+    "pearls",
+    "dots",
+    "text",
+    "uiverse"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-pearl-typing-row pearl typing row dots typing pearls dots text uiverse html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-pearl-typing-row darma-loader-uiverse-pearl-typing-row__wrapper\">\n  <div class=\"darma-loader-uiverse-pearl-typing-row__circle-loader\">\n    <div class=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n    <div class=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n    <div class=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n    <div class=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n    <div class=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n    <div class=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n  </div>\n  <div class=\"darma-loader-uiverse-pearl-typing-row__loading-text\">Loading...</div>\n</div>",
+  "previewCss": ".darma-loader-uiverse-pearl-typing-row { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.darma-loader-uiverse-pearl-typing-row__wrapper {\n  position: relative;\n  width: 220px;\n  height: 110px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle-loader {\ndisplay: flex;\ngap: 15px;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle {\nwidth: 24px;\nheight: 24px;\nborder-radius: 50%;\nbackground: radial-gradient(circle at 30% 30%, #f5f5f5, var(--loader-color, #d5d5d5));\nposition: relative;\nbox-shadow:\n6px 6px 12px rgba(0, 0, 0, 0.15),\n-6px -6px 12px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 80%, transparent),\ninset 2px 2px 4px rgba(0, 0, 0, 0.1),\ninset -2px -2px 4px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 90%, transparent);\nanimation: darma-loader-uiverse-pearl-typing-row-circleRotate 2s ease-in-out infinite;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(1) {\nanimation-delay: 0s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(2) {\nanimation-delay: 0.2s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(3) {\nanimation-delay: 0.3s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(4) {\nanimation-delay: 0.4s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(5) {\nanimation-delay: 0.5s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(6) {\nanimation-delay: 0.6s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(7) {\nanimation-delay: 0.7s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle::before {\ncontent: \"\";\nposition: absolute;\ntop: 8px;\nleft: 8px;\nwidth: 15px;\nheight: 15px;\nbackground: radial-gradient(circle, color-mix(in srgb, var(--loader-secondary-color, #ffffff) 80%, transparent), transparent);\nborder-radius: 50%;\n}\n\n@keyframes darma-loader-uiverse-pearl-typing-row-circleRotate {\n0% {\ntransform: scale(1) rotateZ(0deg);\nbox-shadow:\n6px 6px 12px rgba(0, 0, 0, 0.15),\n-6px -6px 12px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 80%, transparent),\ninset 2px 2px 4px rgba(0, 0, 0, 0.1),\ninset -2px -2px 4px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 90%, transparent);\n}\n\n50% {\ntransform: scale(1.2) rotateZ(180deg);\nbox-shadow:\n8px 8px 16px rgba(0, 0, 0, 0.2),\n-8px -8px 16px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 90%, transparent),\ninset 3px 3px 6px rgba(0, 0, 0, 0.15),\ninset -3px -3px 6px var(--loader-secondary-color, #ffffff);\n}\n\n100% {\ntransform: scale(1) rotateZ(360deg);\nbox-shadow:\n6px 6px 12px rgba(0, 0, 0, 0.15),\n-6px -6px 12px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 80%, transparent),\ninset 2px 2px 4px rgba(0, 0, 0, 0.1),\ninset -2px -2px 4px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 90%, transparent);\n}\n}\n\n.darma-loader-uiverse-pearl-typing-row__loading-text {\nposition: absolute;\nbottom: 30px;\nleft: 50%;\ntransform: translateX(-50%);\nfont-size: 24px;\nfont-weight: 300;\ncolor: #444;\nletter-spacing: 1px;\nanimation: darma-loader-uiverse-pearl-typing-row-fadeBlink 1.5s infinite;\n}\n\n@keyframes darma-loader-uiverse-pearl-typing-row-fadeBlink {\n0%,\n100% {\nopacity: 1;\ntransform: translateX(-50%) translateY(0);\n}\n\n50% {\nopacity: 0.4;\ntransform: translateX(-50%) translateY(-3px);\n}\n}",
+  "defaults": {
+    "size": 94,
+    "speed": 1.5,
+    "color": "#d5d5d5",
+    "secondaryColor": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-pearl-typing-row darma-loader-uiverse-pearl-typing-row__wrapper\">\n  <div class=\"darma-loader-uiverse-pearl-typing-row__circle-loader\">\n    <div class=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n    <div class=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n    <div class=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n    <div class=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n    <div class=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n    <div class=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n  </div>\n  <div class=\"darma-loader-uiverse-pearl-typing-row__loading-text\">Loading...</div>\n</div>",
+    "css": ".darma-loader-uiverse-pearl-typing-row { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.darma-loader-uiverse-pearl-typing-row__wrapper {\n  position: relative;\n  width: 220px;\n  height: 110px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle-loader {\ndisplay: flex;\ngap: 15px;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle {\nwidth: 24px;\nheight: 24px;\nborder-radius: 50%;\nbackground: radial-gradient(circle at 30% 30%, #f5f5f5, var(--loader-color, #d5d5d5));\nposition: relative;\nbox-shadow:\n6px 6px 12px rgba(0, 0, 0, 0.15),\n-6px -6px 12px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 80%, transparent),\ninset 2px 2px 4px rgba(0, 0, 0, 0.1),\ninset -2px -2px 4px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 90%, transparent);\nanimation: darma-loader-uiverse-pearl-typing-row-circleRotate 2s ease-in-out infinite;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(1) {\nanimation-delay: 0s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(2) {\nanimation-delay: 0.2s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(3) {\nanimation-delay: 0.3s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(4) {\nanimation-delay: 0.4s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(5) {\nanimation-delay: 0.5s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(6) {\nanimation-delay: 0.6s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(7) {\nanimation-delay: 0.7s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle::before {\ncontent: \"\";\nposition: absolute;\ntop: 8px;\nleft: 8px;\nwidth: 15px;\nheight: 15px;\nbackground: radial-gradient(circle, color-mix(in srgb, var(--loader-secondary-color, #ffffff) 80%, transparent), transparent);\nborder-radius: 50%;\n}\n\n@keyframes darma-loader-uiverse-pearl-typing-row-circleRotate {\n0% {\ntransform: scale(1) rotateZ(0deg);\nbox-shadow:\n6px 6px 12px rgba(0, 0, 0, 0.15),\n-6px -6px 12px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 80%, transparent),\ninset 2px 2px 4px rgba(0, 0, 0, 0.1),\ninset -2px -2px 4px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 90%, transparent);\n}\n\n50% {\ntransform: scale(1.2) rotateZ(180deg);\nbox-shadow:\n8px 8px 16px rgba(0, 0, 0, 0.2),\n-8px -8px 16px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 90%, transparent),\ninset 3px 3px 6px rgba(0, 0, 0, 0.15),\ninset -3px -3px 6px var(--loader-secondary-color, #ffffff);\n}\n\n100% {\ntransform: scale(1) rotateZ(360deg);\nbox-shadow:\n6px 6px 12px rgba(0, 0, 0, 0.15),\n-6px -6px 12px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 80%, transparent),\ninset 2px 2px 4px rgba(0, 0, 0, 0.1),\ninset -2px -2px 4px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 90%, transparent);\n}\n}\n\n.darma-loader-uiverse-pearl-typing-row__loading-text {\nposition: absolute;\nbottom: 30px;\nleft: 50%;\ntransform: translateX(-50%);\nfont-size: 24px;\nfont-weight: 300;\ncolor: #444;\nletter-spacing: 1px;\nanimation: darma-loader-uiverse-pearl-typing-row-fadeBlink 1.5s infinite;\n}\n\n@keyframes darma-loader-uiverse-pearl-typing-row-fadeBlink {\n0%,\n100% {\nopacity: 1;\ntransform: translateX(-50%) translateY(0);\n}\n\n50% {\nopacity: 0.4;\ntransform: translateX(-50%) translateY(-3px);\n}\n}",
+    "react": "export default function UiversePearlTypingRowLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-pearl-typing-row darma-loader-uiverse-pearl-typing-row__wrapper\">\n  <div className=\"darma-loader-uiverse-pearl-typing-row__circle-loader\">\n    <div className=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n    <div className=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n    <div className=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n    <div className=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n    <div className=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n    <div className=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n  </div>\n  <div className=\"darma-loader-uiverse-pearl-typing-row__loading-text\">Loading...</div>\n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

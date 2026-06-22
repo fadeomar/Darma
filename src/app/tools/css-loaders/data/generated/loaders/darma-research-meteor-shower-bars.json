@@ -1,0 +1,47 @@
+{
+  "id": "darma-research-meteor-shower-bars",
+  "name": "Meteor Shower Bars",
+  "category": "bars",
+  "tags": [
+    "bars",
+    "meteor",
+    "equalizer",
+    "shower",
+    "glow"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-research-meteor-shower-bars meteor shower bars bars bars meteor equalizer shower glow html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-research-meteor-shower-bars\" aria-label=\"Loading bars\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-research-meteor-shower-bars { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #38bdf8); --accent-2: var(--loader-secondary-color, #6366f1); width: calc(var(--loader-size, 86px) * 1.4); height: var(--loader-size, 86px); display: flex; align-items: flex-end; justify-content: center; gap: 7%; transform: skewX(-8deg); }\n.darma-loader-darma-research-meteor-shower-bars span { width: 9%; height: 30%; border-radius: 999px 999px 4px 4px; background: linear-gradient(180deg, #fff, var(--accent), var(--accent-2)); box-shadow: 0 0 14px var(--accent); animation: darma-loader-darma-research-meteor-shower-bars-meteor-bar calc(var(--speed) * 1.05) ease-in-out infinite; }\n.darma-loader-darma-research-meteor-shower-bars span:nth-child(2) { animation-delay: .1s; } .darma-loader-darma-research-meteor-shower-bars span:nth-child(3) { animation-delay: .2s; } .darma-loader-darma-research-meteor-shower-bars span:nth-child(4) { animation-delay: .3s; } .darma-loader-darma-research-meteor-shower-bars span:nth-child(5) { animation-delay: .4s; } .darma-loader-darma-research-meteor-shower-bars span:nth-child(6) { animation-delay: .5s; }\n@keyframes darma-loader-darma-research-meteor-shower-bars-meteor-bar { 0%,100% { height: 24%; filter: brightness(.7); } 45% { height: 96%; filter: brightness(1.3); transform: translateY(-7px); } }",
+  "defaults": {
+    "color": "#38bdf8",
+    "secondaryColor": "#6366f1",
+    "size": 86,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-research-meteor-shower-bars\" aria-label=\"Loading bars\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-research-meteor-shower-bars { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #38bdf8); --accent-2: var(--loader-secondary-color, #6366f1); width: calc(var(--loader-size, 86px) * 1.4); height: var(--loader-size, 86px); display: flex; align-items: flex-end; justify-content: center; gap: 7%; transform: skewX(-8deg); }\n.darma-loader-darma-research-meteor-shower-bars span { width: 9%; height: 30%; border-radius: 999px 999px 4px 4px; background: linear-gradient(180deg, #fff, var(--accent), var(--accent-2)); box-shadow: 0 0 14px var(--accent); animation: darma-loader-darma-research-meteor-shower-bars-meteor-bar calc(var(--speed) * 1.05) ease-in-out infinite; }\n.darma-loader-darma-research-meteor-shower-bars span:nth-child(2) { animation-delay: .1s; } .darma-loader-darma-research-meteor-shower-bars span:nth-child(3) { animation-delay: .2s; } .darma-loader-darma-research-meteor-shower-bars span:nth-child(4) { animation-delay: .3s; } .darma-loader-darma-research-meteor-shower-bars span:nth-child(5) { animation-delay: .4s; } .darma-loader-darma-research-meteor-shower-bars span:nth-child(6) { animation-delay: .5s; }\n@keyframes darma-loader-darma-research-meteor-shower-bars-meteor-bar { 0%,100% { height: 24%; filter: brightness(.7); } 45% { height: 96%; filter: brightness(1.3); transform: translateY(-7px); } }",
+    "react": "export default function DarmaResearchMeteorShowerBarsLoader() {\n  return (\n    <div className=\"darma-loader-darma-research-meteor-shower-bars\" aria-label=\"Loading bars\"><span></span><span></span><span></span><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 6",
+    "author": "Darma / ChatGPT",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

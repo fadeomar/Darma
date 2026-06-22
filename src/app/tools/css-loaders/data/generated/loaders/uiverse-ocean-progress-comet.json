@@ -1,0 +1,51 @@
+{
+  "id": "uiverse-ocean-progress-comet",
+  "name": "Ocean Progress Comet",
+  "category": "progress",
+  "tags": [
+    "progress",
+    "bar",
+    "ocean",
+    "comet",
+    "uiverse",
+    "batch-5"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-ocean-progress-comet ocean progress comet progress progress bar ocean comet uiverse batch-5 html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-ocean-progress-comet darma-loader-uiverse-ocean-progress-comet__progress\"><div class=\"darma-loader-uiverse-ocean-progress-comet__inner\"></div></div>\n",
+  "previewCss": ".darma-loader-uiverse-ocean-progress-comet__progress {\n  background-color: #ffffff;\n  width: 220px;\n  height: 20px;\n  border-radius: 100px;\n  overflow: hidden;\n  backface-visibility: hidden;\n}\n.darma-loader-uiverse-ocean-progress-comet__inner {\n  background-image: linear-gradient(to left, var(--loader-color, #00cdac), #00c2c9, #00b4e3, #00a2f1, #008cef, #0088eb, #0085e6, #0081e2, #0090de, #009bd2, #00a3c1, var(--loader-secondary-color, #02aab0));\n  height: 100%;\n  transform-origin: left;\n  animation: darma-loader-uiverse-ocean-progress-comet-oceanProgress 2s infinite;\n}\n@keyframes darma-loader-uiverse-ocean-progress-comet-oceanProgress {\n  0% { transform: scaleX(.1) translateX(-10%); }\n  100% { transform: scaleX(.8) translateX(150%); }\n}\n",
+  "defaults": {
+    "size": 220,
+    "speed": 2,
+    "color": "#00cdac",
+    "secondaryColor": "#02aab0"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-ocean-progress-comet darma-loader-uiverse-ocean-progress-comet__progress\"><div class=\"darma-loader-uiverse-ocean-progress-comet__inner\"></div></div>\n",
+    "css": ".darma-loader-uiverse-ocean-progress-comet__progress {\n  background-color: #ffffff;\n  width: 220px;\n  height: 20px;\n  border-radius: 100px;\n  overflow: hidden;\n  backface-visibility: hidden;\n}\n.darma-loader-uiverse-ocean-progress-comet__inner {\n  background-image: linear-gradient(to left, var(--loader-color, #00cdac), #00c2c9, #00b4e3, #00a2f1, #008cef, #0088eb, #0085e6, #0081e2, #0090de, #009bd2, #00a3c1, var(--loader-secondary-color, #02aab0));\n  height: 100%;\n  transform-origin: left;\n  animation: darma-loader-uiverse-ocean-progress-comet-oceanProgress 2s infinite;\n}\n@keyframes darma-loader-uiverse-ocean-progress-comet-oceanProgress {\n  0% { transform: scaleX(.1) translateX(-10%); }\n  100% { transform: scaleX(.8) translateX(150%); }\n}\n",
+    "react": "export default function UiverseOceanProgressCometLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-ocean-progress-comet darma-loader-uiverse-ocean-progress-comet__progress\"><div className=\"darma-loader-uiverse-ocean-progress-comet__inner\"></div></div>\n\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

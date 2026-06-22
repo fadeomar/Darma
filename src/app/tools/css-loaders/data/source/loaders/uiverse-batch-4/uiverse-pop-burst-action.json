@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-pop-burst-action",
+  "name": "Pop Burst Action",
+  "category": "fun",
+  "tags": [
+    "comic",
+    "burst",
+    "action",
+    "pop",
+    "uiverse"
+  ],
+  "html": "<div class=\"loader container\">\n  <div class=\"action-rays\"></div>\n  <div class=\"pop-burst\">\n    <div class=\"word\"></div>\n  </div>\n\n  <div class=\"stage\">\n    <div class=\"cube\">\n      <div class=\"face f-1\">\n        <span class=\"panel-num\">01</span>\n        <span class=\"panel-label\">Start</span>\n      </div>\n      <div class=\"face f-2\">\n        <span class=\"panel-num\">02</span>\n        <span class=\"panel-label\">Action</span>\n      </div>\n      <div class=\"face f-3\">\n        <span class=\"panel-num\">03</span>\n        <span class=\"panel-label\">Zoom</span>\n      </div>\n      <div class=\"face f-4\">\n        <span class=\"panel-num\">04</span>\n        <span class=\"panel-label\">Wait</span>\n      </div>\n      <div class=\"face f-5\">\n        <span class=\"panel-num\">05</span>\n        <span class=\"panel-label\">Boom</span>\n      </div>\n      <div class=\"face f-6\">\n        <span class=\"panel-num\">06</span>\n        <span class=\"panel-label\">Loading</span>\n      </div>\n    </div>\n    <div class=\"shadow-floor\"></div>\n  </div>\n</div>",
+  "css": ".loader { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.container {\n  --bg: #ff4500;\n  --ink: #000000;\n  --paper: #ffffff;\n  --accent-1: #00d2ff;\n  --accent-2: #ff00ff;\n  --accent-3: #ffef00;\n  --size: 110px;\n  --half: 55px;\n  --smooth-snap: cubic-bezier(0.85, 0, 0.15, 1);\n\nmargin: 0;\nheight: 100%;\nwidth: 100%;\ndisplay: flex;\nalign-items: center;\njustify-content: center;\n/* background: var(--bg); */\noverflow: hidden;\nperspective: 1500px;\n}\n\n.action-rays {\nposition: absolute;\nwidth: 300vmax;\nheight: 300vmax;\n/* background: repeating-conic-gradient(\nfrom 0deg,\nrgba(0,0,0,0.15) 0deg 10deg,\ntransparent 10deg 20deg\n); */\n/* animation: raySpin 20s linear infinite; */\nz-index: -1;\n}\n\n@keyframes raySpin {\nto {\ntransform: rotate(360deg);\n}\n}\n\n.container::after {\ncontent: \"\";\nposition: absolute;\ninset: 0;\nbackground-image: radial-gradient(var(--ink) 1px, transparent 1px);\nbackground-size: 15px 15px;\nopacity: 0.1;\npointer-events: none;\n}\n\n.stage {\nposition: relative;\nwidth: var(--size);\nheight: var(--size);\ntransform-style: preserve-3d;\nanimation: stageJump 4s var(--smooth-snap) infinite;\n}\n\n@keyframes stageJump {\n0%,\n100% {\ntransform: scale(1) rotateX(-20deg) rotateY(0deg);\n}\n50% {\ntransform: scale(1.3) rotateX(160deg) rotateY(180deg);\n}\n}\n\n.cube {\nposition: absolute;\ninset: 0;\ntransform-style: preserve-3d;\nanimation: autoRotate 8s linear infinite;\n}\n\n@keyframes autoRotate {\nto {\ntransform: rotateY(360deg) rotateZ(360deg);\n}\n}\n\n.face {\nposition: absolute;\nwidth: 100%;\nheight: 100%;\nbackground: var(--paper);\nborder: 5px solid var(--ink);\nbox-sizing: border-box;\ndisplay: flex;\nflex-direction: column;\nalign-items: center;\njustify-content: center;\nbackface-visibility: visible;\noverflow: hidden;\nbox-shadow: 12px 12px 0 var(--ink);\n}\n\n.f-1 {\ntransform: rotateY(0deg) translateZ(var(--half));\nbackground: var(--accent-1);\n}\n.f-2 {\ntransform: rotateY(180deg) translateZ(var(--half));\nbackground: var(--accent-2);\n}\n.f-3 {\ntransform: rotateY(90deg) translateZ(var(--half));\nbackground: var(--accent-3);\n}\n.f-4 {\ntransform: rotateY(-90deg) translateZ(var(--half));\nbackground: var(--paper);\n}\n.f-5 {\ntransform: rotateX(90deg) translateZ(var(--half));\nbackground: #ff5252;\n}\n.f-6 {\ntransform: rotateX(-90deg) translateZ(var(--half));\nbackground: #00e676;\n}\n\n.face::before {\ncontent: \"\";\nposition: absolute;\nwidth: 150%;\nheight: 20px;\nbackground: var(--ink);\ntransform: rotate(-45deg) translateY(-40px);\nopacity: 0.2;\n}\n\n.panel-num {\nfont-family: \"Arial Black\", sans-serif;\nfont-size: 40px;\ncolor: var(--ink);\nline-height: 1;\nmargin: 0;\ntransform: skew(-10deg);\nz-index: 2;\n}\n\n.panel-label {\nfont-family: \"Arial Black\", sans-serif;\nfont-size: 12px;\nbackground: var(--ink);\ncolor: #fff;\npadding: 2px 8px;\nmargin-top: 5px;\ntext-transform: uppercase;\nz-index: 2;\n}\n\n.pop-burst {\nposition: absolute;\nwidth: 100%;\nheight: 100%;\npointer-events: none;\ndisplay: flex;\nalign-items: center;\njustify-content: center;\nz-index: 10;\n}\n\n.word {\nposition: absolute;\nfont-family: \"Arial Black\", sans-serif;\nfont-size: 60px;\ncolor: var(--paper);\n-webkit-text-stroke: 3px var(--ink);\ntext-shadow: 8px 8px 0 var(--accent-2);\nopacity: 0;\nanimation: comicFlash 4s var(--smooth-snap) infinite;\n}\n\n@keyframes comicFlash {\n0%,\n48%,\n52%,\n100% {\nopacity: 0;\ntransform: scale(0.5) rotate(-20deg);\n}\n50% {\nopacity: 1;\ntransform: scale(1.4) rotate(5deg);\n}\n}\n\n.shadow-floor {\nposition: absolute;\nbottom: -100px;\nwidth: 150px;\nheight: 40px;\nbackground: rgba(0, 0, 0, 0.3);\nborder-radius: 50%;\nfilter: blur(10px);\nanimation: shadowPulse 4s var(--smooth-snap) infinite;\n}\n\n@keyframes shadowPulse {\n0%,\n100% {\ntransform: scale(1);\nopacity: 0.5;\n}\n50% {\ntransform: scale(0.4);\nopacity: 0.1;\n}\n}",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 120,
+    "speed": 1.6,
+    "color": "#f97316",
+    "secondaryColor": "#fde047"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

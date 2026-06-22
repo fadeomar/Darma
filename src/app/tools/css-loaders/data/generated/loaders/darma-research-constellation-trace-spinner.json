@@ -1,0 +1,47 @@
+{
+  "id": "darma-research-constellation-trace-spinner",
+  "name": "Constellation Trace Spinner",
+  "category": "spinners",
+  "tags": [
+    "constellation",
+    "stars",
+    "trace",
+    "spinner",
+    "space"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-research-constellation-trace-spinner constellation trace spinner spinners constellation stars trace spinner space html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-research-constellation-trace-spinner\" aria-label=\"Loading constellation\"><span></span><span></span><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-research-constellation-trace-spinner { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #60a5fa); --accent-2: var(--loader-secondary-color, #c084fc); width: var(--loader-size, 88px); height: var(--loader-size, 88px); position: relative; border-radius: 50%; animation: darma-loader-darma-research-constellation-trace-spinner-constellation-rotate calc(var(--speed) * 4) linear infinite; }\n.darma-loader-darma-research-constellation-trace-spinner::before { content: \"\"; position: absolute; inset: 10%; border-radius: 50%; border: 1px dashed color-mix(in srgb, var(--accent-2) 55%, transparent); }\n.darma-loader-darma-research-constellation-trace-spinner::after { content: \"\"; position: absolute; inset: 20%; border-radius: 50%; background: conic-gradient(from 20deg, transparent 0 60%, var(--accent) 75%, transparent 90%); mask: radial-gradient(farthest-side, transparent 62%, #000 64% 72%, transparent 74%); }\n.darma-loader-darma-research-constellation-trace-spinner span { position: absolute; width: 10%; aspect-ratio: 1; border-radius: 50%; background: #fff; box-shadow: 0 0 12px 3px var(--accent); }\n.darma-loader-darma-research-constellation-trace-spinner span:nth-child(1){ left:45%; top:0; } .darma-loader-darma-research-constellation-trace-spinner span:nth-child(2){ right:5%; top:28%; background:var(--accent-2); } .darma-loader-darma-research-constellation-trace-spinner span:nth-child(3){ right:18%; bottom:8%; } .darma-loader-darma-research-constellation-trace-spinner span:nth-child(4){ left:14%; bottom:14%; background:var(--accent-2); } .darma-loader-darma-research-constellation-trace-spinner span:nth-child(5){ left:0; top:36%; }\n@keyframes darma-loader-darma-research-constellation-trace-spinner-constellation-rotate { to { rotate: 360deg; } }",
+  "defaults": {
+    "color": "#60a5fa",
+    "secondaryColor": "#c084fc",
+    "size": 88,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-research-constellation-trace-spinner\" aria-label=\"Loading constellation\"><span></span><span></span><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-research-constellation-trace-spinner { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #60a5fa); --accent-2: var(--loader-secondary-color, #c084fc); width: var(--loader-size, 88px); height: var(--loader-size, 88px); position: relative; border-radius: 50%; animation: darma-loader-darma-research-constellation-trace-spinner-constellation-rotate calc(var(--speed) * 4) linear infinite; }\n.darma-loader-darma-research-constellation-trace-spinner::before { content: \"\"; position: absolute; inset: 10%; border-radius: 50%; border: 1px dashed color-mix(in srgb, var(--accent-2) 55%, transparent); }\n.darma-loader-darma-research-constellation-trace-spinner::after { content: \"\"; position: absolute; inset: 20%; border-radius: 50%; background: conic-gradient(from 20deg, transparent 0 60%, var(--accent) 75%, transparent 90%); mask: radial-gradient(farthest-side, transparent 62%, #000 64% 72%, transparent 74%); }\n.darma-loader-darma-research-constellation-trace-spinner span { position: absolute; width: 10%; aspect-ratio: 1; border-radius: 50%; background: #fff; box-shadow: 0 0 12px 3px var(--accent); }\n.darma-loader-darma-research-constellation-trace-spinner span:nth-child(1){ left:45%; top:0; } .darma-loader-darma-research-constellation-trace-spinner span:nth-child(2){ right:5%; top:28%; background:var(--accent-2); } .darma-loader-darma-research-constellation-trace-spinner span:nth-child(3){ right:18%; bottom:8%; } .darma-loader-darma-research-constellation-trace-spinner span:nth-child(4){ left:14%; bottom:14%; background:var(--accent-2); } .darma-loader-darma-research-constellation-trace-spinner span:nth-child(5){ left:0; top:36%; }\n@keyframes darma-loader-darma-research-constellation-trace-spinner-constellation-rotate { to { rotate: 360deg; } }",
+    "react": "export default function DarmaResearchConstellationTraceSpinnerLoader() {\n  return (\n    <div className=\"darma-loader-darma-research-constellation-trace-spinner\" aria-label=\"Loading constellation\"><span></span><span></span><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 6",
+    "author": "Darma / ChatGPT",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

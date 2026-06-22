@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-storybook-page-flip",
+  "name": "Storybook Page Flip",
+  "category": "fun",
+  "tags": [
+    "book",
+    "page",
+    "education",
+    "flip",
+    "uiverse"
+  ],
+  "html": "<div class=\"loader\">\n  <div class=\"book-wrapper\">\n    <svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      fill=\"white\"\n      viewBox=\"0 0 126 75\"\n      class=\"book\"\n    >\n      <rect\n        stroke-width=\"5\"\n        stroke=\"#e05452\"\n        rx=\"7.5\"\n        height=\"70\"\n        width=\"121\"\n        y=\"2.5\"\n        x=\"2.5\"\n      ></rect>\n      <line\n        stroke-width=\"5\"\n        stroke=\"#e05452\"\n        y2=\"75\"\n        x2=\"63.5\"\n        x1=\"63.5\"\n      ></line>\n      <path\n        stroke-linecap=\"round\"\n        stroke-width=\"4\"\n        stroke=\"#c18949\"\n        d=\"M25 20H50\"\n      ></path>\n      <path\n        stroke-linecap=\"round\"\n        stroke-width=\"4\"\n        stroke=\"#c18949\"\n        d=\"M101 20H76\"\n      ></path>\n      <path\n        stroke-linecap=\"round\"\n        stroke-width=\"4\"\n        stroke=\"#c18949\"\n        d=\"M16 30L50 30\"\n      ></path>\n      <path\n        stroke-linecap=\"round\"\n        stroke-width=\"4\"\n        stroke=\"#c18949\"\n        d=\"M110 30L76 30\"\n      ></path>\n    </svg>\n\n    <svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      fill=\"#ffffff74\"\n      viewBox=\"0 0 65 75\"\n      class=\"book-page\"\n    >\n      <path\n        stroke-linecap=\"round\"\n        stroke-width=\"4\"\n        stroke=\"#c18949\"\n        d=\"M40 20H15\"\n      ></path>\n      <path\n        stroke-linecap=\"round\"\n        stroke-width=\"4\"\n        stroke=\"#c18949\"\n        d=\"M49 30L15 30\"\n      ></path>\n      <path\n        stroke-width=\"5\"\n        stroke=\"#e05452\"\n        d=\"M2.5 2.5H55C59.1421 2.5 62.5 5.85786 62.5 10V65C62.5 69.1421 59.1421 72.5 55 72.5H2.5V2.5Z\"\n      ></path>\n    </svg>\n\n  </div>\n</div>",
+  "css": ".loader {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.book-wrapper {\n  width: 150px;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  position: relative;\n}\n.book {\n  width: 100%;\n  height: auto;\n  filter: drop-shadow(10px 10px 5px rgba(0, 0, 0, 0.137));\n}\n.book-wrapper .book-page {\n  width: 50%;\n  height: auto;\n  position: absolute;\n  animation: paging 0.15s linear infinite;\n  transform-origin: left;\n}\n@keyframes paging {\n  0% {\n    transform: rotateY(0deg) skewY(0deg);\n  }\n  50% {\n    transform: rotateY(90deg) skewY(-20deg);\n  }\n  100% {\n    transform: rotateY(180deg) skewY(0deg);\n  }\n}",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 104,
+    "speed": 2,
+    "color": "#e05452",
+    "secondaryColor": "#c18949"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

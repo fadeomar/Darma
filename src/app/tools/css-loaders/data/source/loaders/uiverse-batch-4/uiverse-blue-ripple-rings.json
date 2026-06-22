@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-blue-ripple-rings",
+  "name": "Blue Ripple Rings",
+  "category": "pulse",
+  "tags": [
+    "ripple",
+    "rings",
+    "pulse",
+    "blue",
+    "uiverse"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  position: relative;\n  width: 8em;\n  height: 8em;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.loader::before,\n.loader::after {\nposition: absolute;\nbox-sizing: border-box;\ncontent: \"\";\nheight: 8em;\nwidth: 8em;\nborder: 1em solid #0060fa;\nborder-radius: 50%;\nanimation: loader_79178 2s linear infinite;\n}\n\n.loader::after {\nopacity: 0;\nanimation-delay: 1s;\n}\n\n@keyframes loader_79178 {\n0% {\nborder: 1em solid #0060fa;\ntransform: scale(0);\nopacity: 1;\n}\n\n100% {\nborder: 0 solid #0060fa;\ntransform: scale(1);\nopacity: 0;\n}\n}",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 72,
+    "speed": 2,
+    "color": "#0060fa",
+    "secondaryColor": "#93c5fd"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "uiverse-speed-gauge-needle",
+  "name": "Speed Gauge Needle",
+  "category": "fun",
+  "tags": [
+    "gauge",
+    "needle",
+    "meter",
+    "speed",
+    "uiverse"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-speed-gauge-needle speed gauge needle fun gauge needle meter speed uiverse html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-speed-gauge-needle\"></div>",
+  "previewCss": ".darma-loader-uiverse-speed-gauge-needle {\n  width: 96px;\n  height: 48px;\n  display: inline-block;\n  position: relative;\n  background: var(--loader-secondary-color, #5e5e5e);\n  border-radius: 48px 48px 0 0;\n  box-sizing: border-box;\n  overflow: hidden;\n}\n\n.darma-loader-uiverse-speed-gauge-needle::after {\ncontent: '';\nbox-sizing: border-box;\nposition: absolute;\nwidth: 24px;\nheight: 12px;\nborder-radius: 24px 24px 0 0;\nbackground: yellow;\nleft: 50%;\ntransform: translateX(-50%);\nbottom: 0;\n}\n\n.darma-loader-uiverse-speed-gauge-needle::before {\ncontent: '';\nposition: absolute;\nwidth: 4px;\nheight: 32px;\nleft: 0;\nright: 0;\nmargin: auto;\nbottom: 0;\nbackground: yellow;\ntransform-origin: 50% 100%;\nbox-sizing: border-box;\nanimation: darma-loader-uiverse-speed-gauge-needle-animloader 2s linear infinite alternate;\n}\n\n@keyframes darma-loader-uiverse-speed-gauge-needle-animloader {\n0% {\ntransform: rotate(-70deg);\n}\n\n10% {\ntransform: rotate(-40deg);\n}\n\n20%, 45%, 35% {\ntransform: rotate(-10deg);\n}\n\n40%, 30% {\ntransform: rotate(-30deg);\n}\n\n50%, 60% {\ntransform: rotate(20deg);\n}\n\n55%, 65%, 75% {\ntransform: rotate(40deg);\n}\n\n70% {\ntransform: rotate(45deg);\n}\n\n85%, 90% {\ntransform: rotate(50deg);\n}\n\n95% {\ntransform: rotate(75deg);\n}\n\n100%, 93% {\ntransform: rotate(70deg);\n}\n}",
+  "defaults": {
+    "size": 88,
+    "speed": 2,
+    "color": "#ffff00",
+    "secondaryColor": "#5e5e5e"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-speed-gauge-needle\"></div>",
+    "css": ".darma-loader-uiverse-speed-gauge-needle {\n  width: 96px;\n  height: 48px;\n  display: inline-block;\n  position: relative;\n  background: var(--loader-secondary-color, #5e5e5e);\n  border-radius: 48px 48px 0 0;\n  box-sizing: border-box;\n  overflow: hidden;\n}\n\n.darma-loader-uiverse-speed-gauge-needle::after {\ncontent: '';\nbox-sizing: border-box;\nposition: absolute;\nwidth: 24px;\nheight: 12px;\nborder-radius: 24px 24px 0 0;\nbackground: yellow;\nleft: 50%;\ntransform: translateX(-50%);\nbottom: 0;\n}\n\n.darma-loader-uiverse-speed-gauge-needle::before {\ncontent: '';\nposition: absolute;\nwidth: 4px;\nheight: 32px;\nleft: 0;\nright: 0;\nmargin: auto;\nbottom: 0;\nbackground: yellow;\ntransform-origin: 50% 100%;\nbox-sizing: border-box;\nanimation: darma-loader-uiverse-speed-gauge-needle-animloader 2s linear infinite alternate;\n}\n\n@keyframes darma-loader-uiverse-speed-gauge-needle-animloader {\n0% {\ntransform: rotate(-70deg);\n}\n\n10% {\ntransform: rotate(-40deg);\n}\n\n20%, 45%, 35% {\ntransform: rotate(-10deg);\n}\n\n40%, 30% {\ntransform: rotate(-30deg);\n}\n\n50%, 60% {\ntransform: rotate(20deg);\n}\n\n55%, 65%, 75% {\ntransform: rotate(40deg);\n}\n\n70% {\ntransform: rotate(45deg);\n}\n\n85%, 90% {\ntransform: rotate(50deg);\n}\n\n95% {\ntransform: rotate(75deg);\n}\n\n100%, 93% {\ntransform: rotate(70deg);\n}\n}",
+    "react": "export default function UiverseSpeedGaugeNeedleLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-speed-gauge-needle\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": false,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

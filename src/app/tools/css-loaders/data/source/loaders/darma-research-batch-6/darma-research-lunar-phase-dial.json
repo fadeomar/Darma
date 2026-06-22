@@ -1,0 +1,35 @@
+{
+  "id": "darma-research-lunar-phase-dial",
+  "name": "Lunar Phase Dial",
+  "category": "spinners",
+  "tags": [
+    "moon",
+    "dial",
+    "phase",
+    "spinner",
+    "minimal"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading moon phases\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --speed: var(--loader-speed); --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; border-radius: 50%; animation: lunar-rotate calc(var(--speed) * 3.5) linear infinite; }\n.loader::before { content: \"\"; position: absolute; inset: 18%; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff, var(--accent) 45%, #111827 46%); box-shadow: 0 0 26px color-mix(in srgb, var(--accent) 55%, transparent); }\n.loader span { position: absolute; left: 50%; top: 50%; width: 17%; height: 17%; margin: -8.5% 0 0 -8.5%; border-radius: 50%; background: linear-gradient(90deg, var(--accent-2) 50%, #111827 50%); transform: rotate(calc(var(--i) * 60deg)) translate(calc(var(--loader-size) * .43)); animation: lunar-blink calc(var(--speed) * 1.5) ease-in-out infinite; }\n.loader span:nth-child(1){ --i:0; } .loader span:nth-child(2){ --i:1; animation-delay:.12s; } .loader span:nth-child(3){ --i:2; animation-delay:.24s; } .loader span:nth-child(4){ --i:3; animation-delay:.36s; } .loader span:nth-child(5){ --i:4; animation-delay:.48s; } .loader span:nth-child(6){ --i:5; animation-delay:.6s; }\n@keyframes lunar-rotate { to { rotate: 360deg; } }\n@keyframes lunar-blink { 0%,100% { opacity:.35; scale:.72; } 50% { opacity:1; scale:1; } }",
+  "defaults": {
+    "color": "#e2e8f0",
+    "secondaryColor": "#818cf8",
+    "size": 86,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 6",
+    "author": "Darma / ChatGPT",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "id": "uiverse-storybook-page-bouncer",
+  "name": "Storybook Page Bouncer",
+  "category": "fun",
+  "tags": [
+    "book",
+    "page",
+    "reading",
+    "flip",
+    "uiverse",
+    "batch-5"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-storybook-page-bouncer storybook page bouncer fun book page reading flip uiverse batch-5 html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-storybook-page-bouncer\">\n  <div class=\"darma-loader-uiverse-storybook-page-bouncer__book-wrapper\">\n    <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"white\" viewBox=\"0 0 126 75\" class=\"darma-loader-uiverse-storybook-page-bouncer__book\">\n      <rect stroke-width=\"5\" stroke=\"#e05452\" rx=\"7.5\" height=\"70\" width=\"121\" y=\"2.5\" x=\"2.5\"></rect>\n      <line stroke-width=\"5\" stroke=\"#e05452\" y2=\"75\" x2=\"63.5\" x1=\"63.5\"></line>\n      <path stroke-linecap=\"round\" stroke-width=\"4\" stroke=\"#c18949\" d=\"M25 20H50\"></path>\n      <path stroke-linecap=\"round\" stroke-width=\"4\" stroke=\"#c18949\" d=\"M101 20H76\"></path>\n      <path stroke-linecap=\"round\" stroke-width=\"4\" stroke=\"#c18949\" d=\"M16 30L50 30\"></path>\n      <path stroke-linecap=\"round\" stroke-width=\"4\" stroke=\"#c18949\" d=\"M110 30L76 30\"></path>\n    </svg>\n    <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"#ffffff74\" viewBox=\"0 0 65 75\" class=\"darma-loader-uiverse-storybook-page-bouncer__book-page\">\n      <path stroke-linecap=\"round\" stroke-width=\"4\" stroke=\"#c18949\" d=\"M40 20H15\"></path>\n      <path stroke-linecap=\"round\" stroke-width=\"4\" stroke=\"#c18949\" d=\"M49 30L15 30\"></path>\n      <path stroke-width=\"5\" stroke=\"#e05452\" d=\"M2.5 2.5H55C59.1421 2.5 62.5 5.85786 62.5 10V65C62.5 69.1421 59.1421 72.5 55 72.5H2.5V2.5Z\"></path>\n    </svg>\n  </div>\n</div>\n",
+  "previewCss": ".darma-loader-uiverse-storybook-page-bouncer { display: flex; align-items: center; justify-content: center; }\n.darma-loader-uiverse-storybook-page-bouncer__book-wrapper {\n  width: 150px;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  position: relative;\n}\n.darma-loader-uiverse-storybook-page-bouncer__book { width: 100%; height: auto; filter: drop-shadow(10px 10px 5px rgba(0,0,0,.14)); }\n.darma-loader-uiverse-storybook-page-bouncer__book-page {\n  width: 50%;\n  height: auto;\n  position: absolute;\n  animation: darma-loader-uiverse-storybook-page-bouncer-paging .18s linear infinite;\n  transform-origin: left;\n}\n@keyframes darma-loader-uiverse-storybook-page-bouncer-paging {\n  0% { transform: rotateY(0deg) skewY(0deg); }\n  50% { transform: rotateY(90deg) skewY(-20deg); }\n  100% { transform: rotateY(180deg) skewY(0deg); }\n}\n",
+  "defaults": {
+    "size": 150,
+    "speed": 0.18,
+    "color": "#e05452",
+    "secondaryColor": "#c18949"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-storybook-page-bouncer\">\n  <div class=\"darma-loader-uiverse-storybook-page-bouncer__book-wrapper\">\n    <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"white\" viewBox=\"0 0 126 75\" class=\"darma-loader-uiverse-storybook-page-bouncer__book\">\n      <rect stroke-width=\"5\" stroke=\"#e05452\" rx=\"7.5\" height=\"70\" width=\"121\" y=\"2.5\" x=\"2.5\"></rect>\n      <line stroke-width=\"5\" stroke=\"#e05452\" y2=\"75\" x2=\"63.5\" x1=\"63.5\"></line>\n      <path stroke-linecap=\"round\" stroke-width=\"4\" stroke=\"#c18949\" d=\"M25 20H50\"></path>\n      <path stroke-linecap=\"round\" stroke-width=\"4\" stroke=\"#c18949\" d=\"M101 20H76\"></path>\n      <path stroke-linecap=\"round\" stroke-width=\"4\" stroke=\"#c18949\" d=\"M16 30L50 30\"></path>\n      <path stroke-linecap=\"round\" stroke-width=\"4\" stroke=\"#c18949\" d=\"M110 30L76 30\"></path>\n    </svg>\n    <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"#ffffff74\" viewBox=\"0 0 65 75\" class=\"darma-loader-uiverse-storybook-page-bouncer__book-page\">\n      <path stroke-linecap=\"round\" stroke-width=\"4\" stroke=\"#c18949\" d=\"M40 20H15\"></path>\n      <path stroke-linecap=\"round\" stroke-width=\"4\" stroke=\"#c18949\" d=\"M49 30L15 30\"></path>\n      <path stroke-width=\"5\" stroke=\"#e05452\" d=\"M2.5 2.5H55C59.1421 2.5 62.5 5.85786 62.5 10V65C62.5 69.1421 59.1421 72.5 55 72.5H2.5V2.5Z\"></path>\n    </svg>\n  </div>\n</div>\n",
+    "css": ".darma-loader-uiverse-storybook-page-bouncer { display: flex; align-items: center; justify-content: center; }\n.darma-loader-uiverse-storybook-page-bouncer__book-wrapper {\n  width: 150px;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  position: relative;\n}\n.darma-loader-uiverse-storybook-page-bouncer__book { width: 100%; height: auto; filter: drop-shadow(10px 10px 5px rgba(0,0,0,.14)); }\n.darma-loader-uiverse-storybook-page-bouncer__book-page {\n  width: 50%;\n  height: auto;\n  position: absolute;\n  animation: darma-loader-uiverse-storybook-page-bouncer-paging .18s linear infinite;\n  transform-origin: left;\n}\n@keyframes darma-loader-uiverse-storybook-page-bouncer-paging {\n  0% { transform: rotateY(0deg) skewY(0deg); }\n  50% { transform: rotateY(90deg) skewY(-20deg); }\n  100% { transform: rotateY(180deg) skewY(0deg); }\n}\n",
+    "react": "export default function UiverseStorybookPageBouncerLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-storybook-page-bouncer\">\n  <div className=\"darma-loader-uiverse-storybook-page-bouncer__book-wrapper\">\n    <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"white\" viewBox=\"0 0 126 75\" className=\"darma-loader-uiverse-storybook-page-bouncer__book\">\n      <rect stroke-width=\"5\" stroke=\"#e05452\" rx=\"7.5\" height=\"70\" width=\"121\" y=\"2.5\" x=\"2.5\"></rect>\n      <line stroke-width=\"5\" stroke=\"#e05452\" y2=\"75\" x2=\"63.5\" x1=\"63.5\"></line>\n      <path stroke-linecap=\"round\" stroke-width=\"4\" stroke=\"#c18949\" d=\"M25 20H50\"></path>\n      <path stroke-linecap=\"round\" stroke-width=\"4\" stroke=\"#c18949\" d=\"M101 20H76\"></path>\n      <path stroke-linecap=\"round\" stroke-width=\"4\" stroke=\"#c18949\" d=\"M16 30L50 30\"></path>\n      <path stroke-linecap=\"round\" stroke-width=\"4\" stroke=\"#c18949\" d=\"M110 30L76 30\"></path>\n    </svg>\n    <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"#ffffff74\" viewBox=\"0 0 65 75\" className=\"darma-loader-uiverse-storybook-page-bouncer__book-page\">\n      <path stroke-linecap=\"round\" stroke-width=\"4\" stroke=\"#c18949\" d=\"M40 20H15\"></path>\n      <path stroke-linecap=\"round\" stroke-width=\"4\" stroke=\"#c18949\" d=\"M49 30L15 30\"></path>\n      <path stroke-width=\"5\" stroke=\"#e05452\" d=\"M2.5 2.5H55C59.1421 2.5 62.5 5.85786 62.5 10V65C62.5 69.1421 59.1421 72.5 55 72.5H2.5V2.5Z\"></path>\n    </svg>\n  </div>\n</div>\n\n  );\n}\n"
+  },
+  "controls": {
+    "color": false,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "uiverse-isometric-layer-tile",
+  "name": "Isometric Layer Tile",
+  "category": "minimal",
+  "tags": [
+    "isometric",
+    "layers",
+    "tile",
+    "square",
+    "uiverse",
+    "batch-5"
+  ],
+  "html": "<span class=\"loader\"></span>\n",
+  "css": ".loader {\n  position: relative;\n  width: 60px;\n  height: 60px;\n  background: #a19dad;\n  transform: rotateX(65deg) rotate(45deg);\n  color: #ffffff;\n  animation: layerStack 1s linear infinite alternate;\n}\n.loader::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  background: rgba(255,255,255,.7);\n  animation: layerTravel 1s linear infinite alternate;\n}\n@keyframes layerStack { 0% { box-shadow: 0 0 0 0; } 90%,100% { box-shadow: 20px 20px 0 -4px; } }\n@keyframes layerTravel { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(-25px,-25px) scale(1); } }\n",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 60,
+    "speed": 1,
+    "color": "#a19dad",
+    "secondaryColor": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

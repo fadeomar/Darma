@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-aurora-jump-pearls",
+  "name": "Aurora Jump Pearls",
+  "category": "dots",
+  "tags": [
+    "dots",
+    "glow",
+    "jump",
+    "aurora",
+    "uiverse"
+  ],
+  "html": "<div class=\"loader\">\n  <div class=\"loader__circle\"></div>\n  <div class=\"loader__circle\"></div>\n  <div class=\"loader__circle\"></div>\n  <div class=\"loader__circle\"></div>\n  <div class=\"loader__circle\"></div>\n</div>",
+  "css": ".loader {\n  position: relative;\n  display: flex;\n  gap: 0.3em;\n}\n\n.loader::before {\ncontent: \"\";\nposition: absolute;\nleft: 0;\ntop: 0;\nwidth: 100%;\nheight: 2em;\nfilter: blur(45px);\nbackground-color: #e299ff;\nbackground-image: radial-gradient(at 52% 57%, hsla(11,83%,72%,1) 0px, transparent 50%),\nradial-gradient(at 37% 57%, hsla(175,78%,66%,1) 0px, transparent 50%);\n}\n\n.loader__circle {\n--size-loader: 0.6em;\nwidth: var(--size-loader);\nheight: var(--size-loader);\nborder-radius: 50%;\nanimation: loaderCircleJumping 2s infinite;\nbackground-color: #b499ff;\n}\n\n.loader__circle:nth-child(2n) {\nanimation-delay: 300ms;\nbackground-color: #e499ff;\n}\n\n.loader__circle:nth-child(3n) {\nanimation-delay: 600ms;\n}\n\n@keyframes loaderCircleJumping {\n0%, 100% {\ntransform: translateY(0px);\n}\n\n25% {\ntransform: translateY(-15px) scale(0.5);\n}\n\n50% {\ntransform: translateY(0px);\n}\n\n75% {\ntransform: translateY(5px) scale(0.9);\n}\n}",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 68,
+    "speed": 2,
+    "color": "#b499ff",
+    "secondaryColor": "#e299ff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

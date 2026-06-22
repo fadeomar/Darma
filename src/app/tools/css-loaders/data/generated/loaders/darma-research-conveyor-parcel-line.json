@@ -1,0 +1,47 @@
+{
+  "id": "darma-research-conveyor-parcel-line",
+  "name": "Conveyor Parcel Line",
+  "category": "fun",
+  "tags": [
+    "parcel",
+    "conveyor",
+    "shipping",
+    "fun",
+    "progress"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-research-conveyor-parcel-line conveyor parcel line fun parcel conveyor shipping fun progress html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-research-conveyor-parcel-line\" aria-label=\"Loading parcels\"><span class=\"darma-loader-darma-research-conveyor-parcel-line__belt\"></span><span class=\"darma-loader-darma-research-conveyor-parcel-line__box darma-loader-darma-research-conveyor-parcel-line__box-a\"></span><span class=\"darma-loader-darma-research-conveyor-parcel-line__box darma-loader-darma-research-conveyor-parcel-line__box-b\"></span><span class=\"darma-loader-darma-research-conveyor-parcel-line__box darma-loader-darma-research-conveyor-parcel-line__box-c\"></span></div>",
+  "previewCss": ".darma-loader-darma-research-conveyor-parcel-line { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #f97316); --accent-2: var(--loader-secondary-color, #eab308); width: calc(var(--loader-size, 76px) * 2.8); height: var(--loader-size, 76px); min-width: 170px; position: relative; overflow: hidden; }\n.darma-loader-darma-research-conveyor-parcel-line__belt { position: absolute; left: 0; right: 0; bottom: 18%; height: 18%; border-radius: 999px; background: repeating-linear-gradient(90deg, #1f2937 0 20px, #334155 20px 40px); animation: darma-loader-darma-research-conveyor-parcel-line-belt-run calc(var(--speed) * .7) linear infinite; box-shadow: inset 0 5px #ffffff18; }\n.darma-loader-darma-research-conveyor-parcel-line__box { position: absolute; bottom: 36%; width: 22%; aspect-ratio: 1.05; border-radius: 8px 8px 4px 4px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: inset 0 -8px #0002, 0 10px 18px #02061744; animation: darma-loader-darma-research-conveyor-parcel-line-box-run calc(var(--speed) * 3.2) linear infinite; }\n.darma-loader-darma-research-conveyor-parcel-line__box::before { content: \"\"; position: absolute; inset: 0 43%; background: #fff6; }\n.darma-loader-darma-research-conveyor-parcel-line__box-a { left: -28%; } .darma-loader-darma-research-conveyor-parcel-line__box-b { left: -28%; animation-delay: calc(var(--speed) * -1.05); } .darma-loader-darma-research-conveyor-parcel-line__box-c { left: -28%; animation-delay: calc(var(--speed) * -2.1); }\n@keyframes darma-loader-darma-research-conveyor-parcel-line-box-run { 0% { transform: translateX(0) rotate(-6deg); } 50% { transform: translateX(calc(var(--loader-size, 76px) * 1.55)) rotate(4deg); } 100% { transform: translateX(calc(var(--loader-size, 76px) * 3.4)) rotate(-6deg); } }\n@keyframes darma-loader-darma-research-conveyor-parcel-line-belt-run { to { background-position: -40px 0; } }",
+  "defaults": {
+    "color": "#f97316",
+    "secondaryColor": "#eab308",
+    "size": 76,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-research-conveyor-parcel-line\" aria-label=\"Loading parcels\"><span class=\"darma-loader-darma-research-conveyor-parcel-line__belt\"></span><span class=\"darma-loader-darma-research-conveyor-parcel-line__box darma-loader-darma-research-conveyor-parcel-line__box-a\"></span><span class=\"darma-loader-darma-research-conveyor-parcel-line__box darma-loader-darma-research-conveyor-parcel-line__box-b\"></span><span class=\"darma-loader-darma-research-conveyor-parcel-line__box darma-loader-darma-research-conveyor-parcel-line__box-c\"></span></div>",
+    "css": ".darma-loader-darma-research-conveyor-parcel-line { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #f97316); --accent-2: var(--loader-secondary-color, #eab308); width: calc(var(--loader-size, 76px) * 2.8); height: var(--loader-size, 76px); min-width: 170px; position: relative; overflow: hidden; }\n.darma-loader-darma-research-conveyor-parcel-line__belt { position: absolute; left: 0; right: 0; bottom: 18%; height: 18%; border-radius: 999px; background: repeating-linear-gradient(90deg, #1f2937 0 20px, #334155 20px 40px); animation: darma-loader-darma-research-conveyor-parcel-line-belt-run calc(var(--speed) * .7) linear infinite; box-shadow: inset 0 5px #ffffff18; }\n.darma-loader-darma-research-conveyor-parcel-line__box { position: absolute; bottom: 36%; width: 22%; aspect-ratio: 1.05; border-radius: 8px 8px 4px 4px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: inset 0 -8px #0002, 0 10px 18px #02061744; animation: darma-loader-darma-research-conveyor-parcel-line-box-run calc(var(--speed) * 3.2) linear infinite; }\n.darma-loader-darma-research-conveyor-parcel-line__box::before { content: \"\"; position: absolute; inset: 0 43%; background: #fff6; }\n.darma-loader-darma-research-conveyor-parcel-line__box-a { left: -28%; } .darma-loader-darma-research-conveyor-parcel-line__box-b { left: -28%; animation-delay: calc(var(--speed) * -1.05); } .darma-loader-darma-research-conveyor-parcel-line__box-c { left: -28%; animation-delay: calc(var(--speed) * -2.1); }\n@keyframes darma-loader-darma-research-conveyor-parcel-line-box-run { 0% { transform: translateX(0) rotate(-6deg); } 50% { transform: translateX(calc(var(--loader-size, 76px) * 1.55)) rotate(4deg); } 100% { transform: translateX(calc(var(--loader-size, 76px) * 3.4)) rotate(-6deg); } }\n@keyframes darma-loader-darma-research-conveyor-parcel-line-belt-run { to { background-position: -40px 0; } }",
+    "react": "export default function DarmaResearchConveyorParcelLineLoader() {\n  return (\n    <div className=\"darma-loader-darma-research-conveyor-parcel-line\" aria-label=\"Loading parcels\"><span className=\"darma-loader-darma-research-conveyor-parcel-line__belt\"></span><span className=\"darma-loader-darma-research-conveyor-parcel-line__box darma-loader-darma-research-conveyor-parcel-line__box-a\"></span><span className=\"darma-loader-darma-research-conveyor-parcel-line__box darma-loader-darma-research-conveyor-parcel-line__box-b\"></span><span className=\"darma-loader-darma-research-conveyor-parcel-line__box darma-loader-darma-research-conveyor-parcel-line__box-c\"></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 6",
+    "author": "Darma / ChatGPT",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "id": "uiverse-propeller-tick-spinner",
+  "name": "Propeller Tick Spinner",
+  "category": "spinners",
+  "tags": [
+    "ticks",
+    "propeller",
+    "radial",
+    "spinner",
+    "uiverse",
+    "batch-5"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-propeller-tick-spinner propeller tick spinner spinners ticks propeller radial spinner uiverse batch-5 html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-propeller-tick-spinner darma-loader-uiverse-propeller-tick-spinner__spinner\">\n  <div style=\"--delay:.1;--rotation:36;--translation:150;\"></div><div style=\"--delay:.2;--rotation:72;--translation:150;\"></div><div style=\"--delay:.3;--rotation:108;--translation:150;\"></div><div style=\"--delay:.4;--rotation:144;--translation:150;\"></div><div style=\"--delay:.5;--rotation:180;--translation:150;\"></div><div style=\"--delay:.6;--rotation:216;--translation:150;\"></div><div style=\"--delay:.7;--rotation:252;--translation:150;\"></div><div style=\"--delay:.8;--rotation:288;--translation:150;\"></div><div style=\"--delay:.9;--rotation:324;--translation:150;\"></div><div style=\"--delay:1;--rotation:360;--translation:150;\"></div>\n</div>\n",
+  "previewCss": ".darma-loader-uiverse-propeller-tick-spinner__spinner { position: relative; width: 34px; height: 34px; }\n.darma-loader-uiverse-propeller-tick-spinner__spinner div {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  width: 4px;\n  height: 18px;\n  border-radius: 4px;\n  background: var(--loader-color, #000000);\n  transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));\n  animation: darma-loader-uiverse-propeller-tick-spinner-propellerTick 1s calc(var(--delay) * 1s) infinite ease;\n  transform-origin: 50% 0;\n}\n@keyframes darma-loader-uiverse-propeller-tick-spinner-propellerTick { 0%, 100% { opacity: .15; } 50% { opacity: 1; } }\n",
+  "defaults": {
+    "size": 34,
+    "speed": 1,
+    "color": "#000000",
+    "secondaryColor": "#777777"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-propeller-tick-spinner darma-loader-uiverse-propeller-tick-spinner__spinner\">\n  <div style=\"--delay:.1;--rotation:36;--translation:150;\"></div><div style=\"--delay:.2;--rotation:72;--translation:150;\"></div><div style=\"--delay:.3;--rotation:108;--translation:150;\"></div><div style=\"--delay:.4;--rotation:144;--translation:150;\"></div><div style=\"--delay:.5;--rotation:180;--translation:150;\"></div><div style=\"--delay:.6;--rotation:216;--translation:150;\"></div><div style=\"--delay:.7;--rotation:252;--translation:150;\"></div><div style=\"--delay:.8;--rotation:288;--translation:150;\"></div><div style=\"--delay:.9;--rotation:324;--translation:150;\"></div><div style=\"--delay:1;--rotation:360;--translation:150;\"></div>\n</div>\n",
+    "css": ".darma-loader-uiverse-propeller-tick-spinner__spinner { position: relative; width: 34px; height: 34px; }\n.darma-loader-uiverse-propeller-tick-spinner__spinner div {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  width: 4px;\n  height: 18px;\n  border-radius: 4px;\n  background: var(--loader-color, #000000);\n  transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));\n  animation: darma-loader-uiverse-propeller-tick-spinner-propellerTick 1s calc(var(--delay) * 1s) infinite ease;\n  transform-origin: 50% 0;\n}\n@keyframes darma-loader-uiverse-propeller-tick-spinner-propellerTick { 0%, 100% { opacity: .15; } 50% { opacity: 1; } }\n",
+    "react": "export default function UiversePropellerTickSpinnerLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-propeller-tick-spinner darma-loader-uiverse-propeller-tick-spinner__spinner\">\n  <div style=\"--delay:.1;--rotation:36;--translation:150;\"></div><div style=\"--delay:.2;--rotation:72;--translation:150;\"></div><div style=\"--delay:.3;--rotation:108;--translation:150;\"></div><div style=\"--delay:.4;--rotation:144;--translation:150;\"></div><div style=\"--delay:.5;--rotation:180;--translation:150;\"></div><div style=\"--delay:.6;--rotation:216;--translation:150;\"></div><div style=\"--delay:.7;--rotation:252;--translation:150;\"></div><div style=\"--delay:.8;--rotation:288;--translation:150;\"></div><div style=\"--delay:.9;--rotation:324;--translation:150;\"></div><div style=\"--delay:1;--rotation:360;--translation:150;\"></div>\n</div>\n\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-neon-ring-word",
+  "name": "Neon Ring Word",
+  "category": "creative",
+  "tags": [
+    "neon",
+    "word",
+    "ring",
+    "loading",
+    "uiverse"
+  ],
+  "html": "<div class=\"loader loading-bar\">Loading</div>",
+  "css": ".loader { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.loading-bar {\n  position: relative;\n  width: 110px;\n  height: 110px;\n  background: transparent;\n  border: 2px solid #3c3c3c;\n  border-radius: 50%;\n  text-align: center;\n  line-height: 111px;\n  font-family: sans-serif;\n  font-size: 15px;\n  color: #fff000;\n  letter-spacing: 3px;\n  text-transform: uppercase;\n  text-shadow: 0 0 20px #fff000;\n  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);\n}\n\n.loading-bar:before {\ncontent: \"\";\nposition: absolute;\ntop: -3px;\nleft: -3px;\nwidth: 100%;\nheight: 100%;\nborder: 3px solid transparent;\nborder-top: 5px solid #fff000;\nborder-right: 5px solid #fff000;\nborder-radius: 50%;\nanimation: animateC 2s linear infinite;\n}\n\n@keyframes animateC {\n0% {\ntransform: rotate(0deg);\n}\n\n100% {\ntransform: rotate(360deg);\n}\n}\n\n@keyframes animate {\n0% {\ntransform: rotate(45deg);\n}\n\n100% {\ntransform: rotate(405deg);\n}\n}",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 82,
+    "speed": 2,
+    "color": "#fff000",
+    "secondaryColor": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

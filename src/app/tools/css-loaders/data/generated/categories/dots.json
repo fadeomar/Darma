@@ -1,5 +1,38 @@
 [
   {
+    "id": "uiverse-aurora-jump-pearls",
+    "name": "Aurora Jump Pearls",
+    "category": "dots",
+    "tags": [
+      "dots",
+      "glow",
+      "jump",
+      "aurora",
+      "uiverse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-aurora-jump-pearls aurora jump pearls dots dots glow jump aurora uiverse html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-aurora-jump-pearls\">\n  <div class=\"darma-loader-uiverse-aurora-jump-pearls___circle\"></div>\n  <div class=\"darma-loader-uiverse-aurora-jump-pearls___circle\"></div>\n  <div class=\"darma-loader-uiverse-aurora-jump-pearls___circle\"></div>\n  <div class=\"darma-loader-uiverse-aurora-jump-pearls___circle\"></div>\n  <div class=\"darma-loader-uiverse-aurora-jump-pearls___circle\"></div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-aurora-jump-pearls {\n  position: relative;\n  display: flex;\n  gap: 0.3em;\n}\n\n.darma-loader-uiverse-aurora-jump-pearls::before {\ncontent: \"\";\nposition: absolute;\nleft: 0;\ntop: 0;\nwidth: 100%;\nheight: 2em;\nfilter: blur(45px);\nbackground-color: var(--loader-secondary-color, #e299ff);\nbackground-image: radial-gradient(at 52% 57%, hsla(11,83%,72%,1) 0px, transparent 50%),\nradial-gradient(at 37% 57%, hsla(175,78%,66%,1) 0px, transparent 50%);\n}\n\n.darma-loader-uiverse-aurora-jump-pearls___circle {\n--size-loader: 0.6em;\nwidth: var(--size-loader);\nheight: var(--size-loader);\nborder-radius: 50%;\nanimation: darma-loader-uiverse-aurora-jump-pearls-loaderCircleJumping 2s infinite;\nbackground-color: var(--loader-color, #b499ff);\n}\n\n.darma-loader-uiverse-aurora-jump-pearls___circle:nth-child(2n) {\nanimation-delay: 300ms;\nbackground-color: #e499ff;\n}\n\n.darma-loader-uiverse-aurora-jump-pearls___circle:nth-child(3n) {\nanimation-delay: 600ms;\n}\n\n@keyframes darma-loader-uiverse-aurora-jump-pearls-loaderCircleJumping {\n0%, 100% {\ntransform: translateY(0px);\n}\n\n25% {\ntransform: translateY(-15px) scale(0.5);\n}\n\n50% {\ntransform: translateY(0px);\n}\n\n75% {\ntransform: translateY(5px) scale(0.9);\n}\n}",
+    "defaults": {
+      "size": 68,
+      "speed": 2,
+      "color": "#b499ff",
+      "secondaryColor": "#e299ff"
+    }
+  },
+  {
     "id": "loaders-css-03",
     "name": "Ball Beat 03",
     "category": "dots",
@@ -99,6 +132,36 @@
     }
   },
   {
+    "id": "darma-research-blob-family-bounce",
+    "name": "Blob Family Bounce",
+    "category": "dots",
+    "tags": [
+      "blob",
+      "dots",
+      "bounce",
+      "cute",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-research-blob-family-bounce blob family bounce dots blob dots bounce cute fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-research-blob-family-bounce\" aria-label=\"Loading blobs\"><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-research-blob-family-bounce { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #fb7185); --accent-2: var(--loader-secondary-color, #8b5cf6); width: calc(var(--loader-size, 84px) * 1.35); height: calc(var(--loader-size, 84px) * .65); display: flex; align-items: end; justify-content: center; gap: 7%; }\n.darma-loader-darma-research-blob-family-bounce span { width: 19%; aspect-ratio: 1; border-radius: 58% 42% 55% 45% / 45% 55% 45% 55%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: inset 0 -8px #0002, 0 8px 18px color-mix(in srgb, var(--accent) 40%, transparent); animation: darma-loader-darma-research-blob-family-bounce-blob-bounce calc(var(--speed) * 1.15) cubic-bezier(.5,0,.2,1) infinite; }\n.darma-loader-darma-research-blob-family-bounce span:nth-child(2) { animation-delay: .1s; width: 23%; } .darma-loader-darma-research-blob-family-bounce span:nth-child(3) { animation-delay: .2s; } .darma-loader-darma-research-blob-family-bounce span:nth-child(4) { animation-delay: .3s; width: 15%; }\n@keyframes darma-loader-darma-research-blob-family-bounce-blob-bounce { 0%,100% { transform: translateY(0) scale(1.15,.85); } 45% { transform: translateY(-26px) scale(.82,1.18) rotate(12deg); border-radius: 42% 58% 45% 55% / 55% 45% 55% 45%; } 70% { transform: translateY(4px) scale(1.22,.78); } }",
+    "defaults": {
+      "color": "#fb7185",
+      "secondaryColor": "#8b5cf6",
+      "size": 84,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-custom-205",
     "name": "Bounce Hop Dots",
     "category": "dots",
@@ -133,6 +196,105 @@
       "size": 75,
       "speed": 1,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "uiverse-bouncing-ball-chain",
+    "name": "Bouncing Ball Chain",
+    "category": "dots",
+    "tags": [
+      "balls",
+      "chain",
+      "bounce",
+      "orbit",
+      "uiverse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-bouncing-ball-chain bouncing ball chain dots balls chain bounce orbit uiverse html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-bouncing-ball-chain\">\n  <span style=\"--delay:1\" class=\"darma-loader-uiverse-bouncing-ball-chain__ball\"></span>\n  <span style=\"--delay:2\" class=\"darma-loader-uiverse-bouncing-ball-chain__ball\"></span>\n  <span style=\"--delay:3\" class=\"darma-loader-uiverse-bouncing-ball-chain__ball\"></span>\n  <span style=\"--delay:4\" class=\"darma-loader-uiverse-bouncing-ball-chain__ball\"></span>\n  <span style=\"--delay:5\" class=\"darma-loader-uiverse-bouncing-ball-chain__ball\"></span>\n  <span style=\"--delay:6\" class=\"darma-loader-uiverse-bouncing-ball-chain__ball\"></span>\n  <span style=\"--delay:7\" class=\"darma-loader-uiverse-bouncing-ball-chain__ball\"></span>\n  <span style=\"--delay:8\" class=\"darma-loader-uiverse-bouncing-ball-chain__ball\"></span>\n</div>",
+    "previewCss": ".darma-loader-uiverse-bouncing-ball-chain {\n  width: 220px;\n  height: 220px;\n  border-radius: 50%;\n  position: relative;\n  border: solid 5px transparent;\n  box-shadow: 5px 5px 5px rgb(12, 12, 12), inset 5px 5px 5px rgb(24, 23, 23),\n    inset -1px -1px 10px rgba(153, 148, 148, 0.432),\n    -1px -1px 10px rgba(206, 198, 198, 0.281);\n}\n\n.darma-loader-uiverse-bouncing-ball-chain::before {\ncontent: \"\";\ndisplay: inline-block;\nposition: absolute;\nwidth: 180px;\nheight: 180px;\nborder-radius: 50%;\ntop: 50%;\nleft: 50%;\ntransform: translate(-50%, -50%);\nbox-shadow: 5px 5px 20px black, -2px -2px 40px black;\nbackground: repeating-conic-gradient(\nrgb(61, 59, 59) 0%,\nrgba(248, 248, 246, 0.534) 15%,\nrgb(54, 52, 52) 33.33%\n);\n}\n\n.darma-loader-uiverse-bouncing-ball-chain__ball {\nwidth: 15px;\nheight: 15px;\ndisplay: inline-block;\nbackground: radial-gradient(\ncircle at 5px 5px,\nrgb(255, 255, 255) 1%,\nrgb(5, 5, 5) 50%\n);\nborder-radius: 50%;\nposition: relative;\ntransform: translate(-50%, -50%) translateX(97.5px);\nanimation: darma-loader-uiverse-bouncing-ball-chain-rotate 5s calc(var(--delay) * 0.2s) infinite linear;\n}\n\n@keyframes darma-loader-uiverse-bouncing-ball-chain-rotate {\n0% {\ntransform: translate(-50%, -50%) rotate(0deg) translateX(97.5px);\n}\n\n100% {\ntransform: translate(-50%, -50%) rotate(360deg) translateX(97.5px);\n}\n}",
+    "defaults": {
+      "size": 88,
+      "speed": 1.5,
+      "color": "#60a5fa",
+      "secondaryColor": "#facc15"
+    }
+  },
+  {
+    "id": "uiverse-bubblegum-trio",
+    "name": "Bubblegum Trio",
+    "category": "dots",
+    "tags": [
+      "bubble",
+      "trio",
+      "gradient",
+      "soft",
+      "uiverse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-bubblegum-trio bubblegum trio dots bubble trio gradient soft uiverse html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-bubblegum-trio\">\n  <div class=\"darma-loader-uiverse-bubblegum-trio__bubble\"></div>\n  <div class=\"darma-loader-uiverse-bubblegum-trio__bubble\"></div>\n  <div class=\"darma-loader-uiverse-bubblegum-trio__bubble\"></div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-bubblegum-trio {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100%;\n}\n\n.darma-loader-uiverse-bubblegum-trio__bubble {\nwidth: 20px;\nheight: 20px;\nborder-radius: 50%;\nbackground-image: linear-gradient(to right, var(--loader-color, #ff6b81), var(--loader-secondary-color, #ff9a44));\nmargin: 0 5px;\nanimation: darma-loader-uiverse-bubblegum-trio-bubbleAnimation 1.5s ease-in-out infinite;\n}\n\n@keyframes darma-loader-uiverse-bubblegum-trio-bubbleAnimation {\n0%,\n100% {\ntransform: scale(1);\nopacity: 1;\n}\n50% {\ntransform: scale(2);\nopacity: 0.5;\n}\n}",
+    "defaults": {
+      "size": 58,
+      "speed": 1.5,
+      "color": "#ff6b81",
+      "secondaryColor": "#ff9a44"
+    }
+  },
+  {
+    "id": "uiverse-candy-pulse-beads",
+    "name": "Candy Pulse Beads",
+    "category": "dots",
+    "tags": [
+      "dots",
+      "gradient",
+      "pulse",
+      "beads",
+      "uiverse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-candy-pulse-beads candy pulse beads dots dots gradient pulse beads uiverse html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-candy-pulse-beads\">\n    <div class=\"darma-loader-uiverse-candy-pulse-beads__circle\"></div>\n    <div class=\"darma-loader-uiverse-candy-pulse-beads__circle\"></div>\n    <div class=\"darma-loader-uiverse-candy-pulse-beads__circle\"></div>\n    <div class=\"darma-loader-uiverse-candy-pulse-beads__circle\"></div>\n    <div class=\"darma-loader-uiverse-candy-pulse-beads__circle\"></div>\n  </div>",
+    "previewCss": ".darma-loader-uiverse-candy-pulse-beads {\n  flex-direction: row;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.darma-loader-uiverse-candy-pulse-beads__circle {\nwidth: 20px;\nheight: 20px;\nbackground-color: var(--loader-color, #8bc6ec);\nbackground-image: linear-gradient(135deg, var(--loader-color, #8bc6ec) 0%, var(--loader-secondary-color, #9599e2) 100%);\nborder-radius: 50%;\nmargin-right: 1rem;\nanimation: darma-loader-uiverse-candy-pulse-beads-pulse 1.2s ease-in-out infinite;\n}\n\n.darma-loader-uiverse-candy-pulse-beads__circle:nth-child(2) {\nanimation-delay: 0.2s;\nbackground-color: #4158D0;\nbackground-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);\n}\n\n.darma-loader-uiverse-candy-pulse-beads__circle:nth-child(3) {\nanimation-delay: 0.4s;\nbackground-color: #0093E9;\nbackground-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);\n}\n\n.darma-loader-uiverse-candy-pulse-beads__circle:nth-child(4) {\nanimation-delay: 0.6s;\nbackground-color: #8EC5FC;\nbackground-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);\n}\n\n.darma-loader-uiverse-candy-pulse-beads__circle:nth-child(5) {\nanimation-delay: 0.8s;\nbackground-color: #00DBDE;\nbackground-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);\n}\n\n@keyframes darma-loader-uiverse-candy-pulse-beads-pulse {\n0% {\ntransform: scale(0.8);\nopacity: 0.7;\n}\n\n50% {\ntransform: scale(1);\nopacity: 1;\n}\n\n100% {\ntransform: scale(0.8);\nopacity: 0.7;\n}\n}",
+    "defaults": {
+      "size": 76,
+      "speed": 1.2,
+      "color": "#8bc6ec",
+      "secondaryColor": "#9599e2"
     }
   },
   {
@@ -432,6 +594,37 @@
       "size": 40,
       "speed": 1,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-research-dna-helix-dots",
+    "name": "DNA Helix Dots",
+    "category": "dots",
+    "tags": [
+      "dna",
+      "helix",
+      "dots",
+      "science",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-research-dna-helix-dots dna helix dots dots dna helix dots science creative html css react popular customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-research-dna-helix-dots\" aria-label=\"Loading helix\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-research-dna-helix-dots { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #22c55e); --accent-2: var(--loader-secondary-color, #60a5fa); width: calc(var(--loader-size, 88px) * .72); height: calc(var(--loader-size, 88px) * 1.28); position: relative; }\n.darma-loader-darma-research-dna-helix-dots::before { content: \"\"; position: absolute; left: 48%; top: 6%; bottom: 6%; width: 2px; background: linear-gradient(var(--accent), var(--accent-2)); opacity: .25; }\n.darma-loader-darma-research-dna-helix-dots span { position: absolute; left: 50%; top: calc(var(--i) * 12.5%); width: 17%; aspect-ratio: 1; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); animation: darma-loader-darma-research-dna-helix-dots-dna-dot calc(var(--speed) * 1.7) ease-in-out infinite; animation-delay: calc(var(--i) * -.12s); }\n.darma-loader-darma-research-dna-helix-dots span:nth-child(1){ --i:0; --angle:0deg; } .darma-loader-darma-research-dna-helix-dots span:nth-child(2){ --i:1; --angle:45deg; background:var(--accent-2); } .darma-loader-darma-research-dna-helix-dots span:nth-child(3){ --i:2; --angle:90deg; } .darma-loader-darma-research-dna-helix-dots span:nth-child(4){ --i:3; --angle:135deg; background:var(--accent-2); } .darma-loader-darma-research-dna-helix-dots span:nth-child(5){ --i:4; --angle:180deg; } .darma-loader-darma-research-dna-helix-dots span:nth-child(6){ --i:5; --angle:225deg; background:var(--accent-2); } .darma-loader-darma-research-dna-helix-dots span:nth-child(7){ --i:6; --angle:270deg; } .darma-loader-darma-research-dna-helix-dots span:nth-child(8){ --i:7; --angle:315deg; background:var(--accent-2); }\n@keyframes darma-loader-darma-research-dna-helix-dots-dna-dot { 0%,100% { transform: translateX(-30px) scale(.75); opacity:.5; } 50% { transform: translateX(30px) scale(1.12); opacity:1; } }",
+    "defaults": {
+      "color": "#22c55e",
+      "secondaryColor": "#60a5fa",
+      "size": 88,
+      "speed": 1
     }
   },
   {
@@ -1380,6 +1573,39 @@
     }
   },
   {
+    "id": "uiverse-five-dot-launch",
+    "name": "Five Dot Launch",
+    "category": "dots",
+    "tags": [
+      "dots",
+      "jump",
+      "launch",
+      "cyan",
+      "uiverse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-five-dot-launch five dot launch dots dots jump launch cyan uiverse html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-five-dot-launch\">\n  <div class=\"darma-loader-uiverse-five-dot-launch__dot\"></div>\n  <div class=\"darma-loader-uiverse-five-dot-launch__dot\"></div>\n  <div class=\"darma-loader-uiverse-five-dot-launch__dot\"></div>\n  <div class=\"darma-loader-uiverse-five-dot-launch__dot\"></div>\n  <div class=\"darma-loader-uiverse-five-dot-launch__dot\"></div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-five-dot-launch {\n  display: flex;\n}\n\n.darma-loader-uiverse-five-dot-launch .darma-loader-uiverse-five-dot-launch__dot {\nheight: 20px;\nwidth: 20px;\nborder-radius: 50%;\nborder: 2px solid #e8e8e8;\nbackground: var(--loader-color, #16b0c1);\nanimation: darma-loader-uiverse-five-dot-launch-jump 0.8s ease-in-out infinite alternate;\n}\n\n@keyframes darma-loader-uiverse-five-dot-launch-jump {\n100% {\nbackground: var(--loader-secondary-color, #661e92);\ntransform: translateY(-3rem) scale(1.9);\n}\n}\n\n.darma-loader-uiverse-five-dot-launch .darma-loader-uiverse-five-dot-launch__dot:nth-child(1) {\nanimation-delay: 0.1s;\n}\n\n.darma-loader-uiverse-five-dot-launch .darma-loader-uiverse-five-dot-launch__dot:nth-child(2) {\nanimation-delay: 0.2s;\n}\n\n.darma-loader-uiverse-five-dot-launch .darma-loader-uiverse-five-dot-launch__dot:nth-child(3) {\nanimation-delay: 0.3s;\n}\n\n.darma-loader-uiverse-five-dot-launch .darma-loader-uiverse-five-dot-launch__dot:nth-child(4) {\nanimation-delay: 0.4s;\n}\n\n.darma-loader-uiverse-five-dot-launch .darma-loader-uiverse-five-dot-launch__dot:nth-child(5) {\nanimation-delay: 0.5s;\n}\n\n<div class=\"fire\">\n  <div class=\"fire-left\">\n    <div class=\"main-fire\"></div>\n    <div class=\"particle-fire\"></div>\n  </div>\n  <div class=\"fire-center\">\n    <div class=\"main-fire\"></div>\n    <div class=\"particle-fire\"></div>\n  </div>\n  <div class=\"fire-right\">\n    <div class=\"main-fire\"></div>\n    <div class=\"particle-fire\"></div>\n  </div>\n  <div class=\"fire-bottom\">\n    <div class=\"main-fire\"></div>\n  </div>\n</div>\n@keyframes darma-loader-uiverse-five-dot-launch-scaleUpDown {\n  0%, 100% {\n    transform: scaleY(1) scaleX(1);\n  }\n\n50%, 90% {\ntransform: scaleY(1.1);\n}\n\n75% {\ntransform: scaleY(0.95);\n}\n\n80% {\ntransform: scaleX(0.95);\n}\n}\n\n@keyframes darma-loader-uiverse-five-dot-launch-shake {\n0%, 100% {\ntransform: skewX(0) scale(1);\n}\n\n50% {\ntransform: skewX(5deg) scale(0.9);\n}\n}\n\n@keyframes darma-loader-uiverse-five-dot-launch-particleUp {\n0% {\nopacity: 0;\n}\n\n20% {\nopacity: 1;\n}\n\n80% {\nopacity: 1;\n}\n\n100% {\nopacity: 0;\ntop: -100%;\ntransform: scale(0.5);\n}\n}\n\n@keyframes darma-loader-uiverse-five-dot-launch-glow {\n0%, 100% {\nbackground-color: #ef5a00;\n}\n\n50% {\nbackground-color: #ff7800;\n}\n}\n\n.darma-loader-uiverse-five-dot-launch__fire {\nposition: absolute;\ntop: calc(50% - 50px);\nleft: calc(50% - 50px);\nwidth: 100px;\nheight: 100px;\nbackground-color: transparent;\nmargin-left: auto;\nmargin-right: auto;\n}\n\n.darma-loader-uiverse-five-dot-launch__fire-center {\nposition: absolute;\nheight: 100%;\nwidth: 100%;\nanimation: darma-loader-uiverse-five-dot-launch-scaleUpDown 3s ease-out;\nanimation-iteration-count: infinite;\nanimation-fill-mode: both;\n}\n\n.darma-loader-uiverse-five-dot-launch__fire-center .darma-loader-uiverse-five-dot-launch__main-fire {\nposition: absolute;\nwidth: 100%;\nheight: 100%;\nbackground-image: radial-gradient(farthest-corner at 10px 0, #d43300 0%, #ef5a00 95%);\ntransform: scaleX(0.8) rotate(45deg);\nborder-radius: 0 40% 60% 40%;\nfilter: drop-shadow(0 0 10px #d43322);\n}\n\n.darma-loader-uiverse-five-dot-launch__fire-center .darma-loader-uiverse-five-dot-launch__particle-fire {\nposition: absolute;\ntop: 60%;\nleft: 45%;\nwidth: 10px;\nheight: 10px;\nbackground-color: #ef5a00;\nborder-radius: 50%;\nfilter: drop-shadow(0 0 10px #d43322);\nanimation: darma-loader-uiverse-five-dot-launch-particleUp 2s ease-out 0;\nanimation-iteration-count: infinite;\nanimation-fill-mode: both;\n}\n\n.darma-loader-uiverse-five-dot-launch__fire-right {\nheight: 100%;\nwidth: 100%;\nposition: absolute;\nanimation: darma-loader-uiverse-five-dot-launch-shake 2s ease-out 0;\nanimation-iteration-count: infinite;\nanimation-fill-mode: both;\n}\n\n.darma-loader-uiverse-five-dot-launch__fire-right .darma-loader-uiverse-five-dot-launch__main-fire {\nposition: absolute;\ntop: 15%;\nright: -25%;\nwidth: 80%;\nheight: 80%;\nbackground-color: #ef5a00;\ntransform: scaleX(0.8) rotate(45deg);\nborder-radius: 0 40% 60% 40%;\nfilter: drop-shadow(0 0 10px #d43322);\n}\n\n.darma-loader-uiverse-five-dot-launch__fire-right .darma-loader-uiverse-five-dot-launch__particle-fire {\nposition: absolute;\ntop: 45%;\nleft: 50%;\nwidth: 15px;\nheight: 15px;\nbackground-color: #ef5a00;\ntransform: scaleX(0.8) rotate(45deg);\nborder-radius: 50%;\nfilter: drop-shadow(0 0 10px #d43322);\nanimation: darma-loader-uiverse-five-dot-launch-particleUp 2s ease-out 0;\nanimation-iteration-count: infinite;\nanimation-fill-mode: both;\n}\n\n.darma-loader-uiverse-five-dot-launch__fire-left {\nposition: absolute;\nheight: 100%;\nwidth: 100%;\nanimation: darma-loader-uiverse-five-dot-launch-shake 3s ease-out 0;\nanimation-iteration-count: infinite;\nanimation-fill-mode: both;\n}\n\n.darma-loader-uiverse-five-dot-launch__fire-left .darma-loader-uiverse-five-dot-launch__main-fire {\nposition: absolute;\ntop: 15%;\nleft: -20%;\nwidth: 80%;\nheight: 80%;\nbackground-color: #ef5a00;\ntransform: scaleX(0.8) rotate(45deg);\nborder-radius: 0 40% 60% 40%;\nfilter: drop-shadow(0 0 10px #d43322);\n}\n\n.darma-loader-uiverse-five-dot-launch__fire-left .darma-loader-uiverse-five-dot-launch__particle-fire {\nposition: absolute;\ntop: 10%;\nleft: 20%;\nwidth: 10%;\nheight: 10%;\nbackground-color: #ef5a00;\nborder-radius: 50%;\nfilter: drop-shadow(0 0 10px #d43322);\nanimation: darma-loader-uiverse-five-dot-launch-particleUp 3s infinite ease-out 0;\nanimation-fill-mode: both;\n}\n\n.darma-loader-uiverse-five-dot-launch__fire-bottom .darma-loader-uiverse-five-dot-launch__main-fire {\nposition: absolute;\ntop: 30%;\nleft: 20%;\nwidth: 75%;\nheight: 75%;\nbackground-color: #ff7800;\ntransform: scaleX(0.8) rotate(45deg);\nborder-radius: 0 40% 100% 40%;\nfilter: blur(10px);\nanimation: darma-loader-uiverse-five-dot-launch-glow 2s ease-out 0;\nanimation-iteration-count: infinite;\nanimation-fill-mode: both;\n}",
+    "defaults": {
+      "size": 72,
+      "speed": 0.8,
+      "color": "#16b0c1",
+      "secondaryColor": "#661e92"
+    }
+  },
+  {
     "id": "darma-custom-184",
     "name": "Flip Orbit Dots",
     "category": "dots",
@@ -1484,6 +1710,39 @@
       "size": 88,
       "speed": 1,
       "background": "transparent"
+    }
+  },
+  {
+    "id": "uiverse-gooey-split-drops",
+    "name": "Gooey Split Drops",
+    "category": "dots",
+    "tags": [
+      "gooey",
+      "drops",
+      "split",
+      "gradient",
+      "uiverse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-gooey-split-drops gooey split drops dots gooey drops split gradient uiverse html css react singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-gooey-split-drops\"><svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\"><defs><filter id=\"gooey-split-drops-filter\"><feGaussianBlur in=\"SourceGraphic\" stdDeviation=\"6\" result=\"blur\"></feGaussianBlur><feColorMatrix in=\"blur\" mode=\"matrix\" values=\"1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7\" result=\"goo\"></feColorMatrix><feBlend in=\"SourceGraphic\" in2=\"goo\"></feBlend></filter></defs></svg></div>",
+    "previewCss": ".darma-loader-uiverse-gooey-split-drops {\n  position: relative;\n  width: 1.5em;\n  aspect-ratio: 1/2;\n  filter: url(#gooey-split-drops-filter);\n}\n\n.darma-loader-uiverse-gooey-split-drops svg defs {\ndisplay: none\n}\n\n.darma-loader-uiverse-gooey-split-drops:before, .darma-loader-uiverse-gooey-split-drops:after {\ncontent: '';\nposition: absolute;\ninset: 0;\nmargin: auto;\nwidth: 100%;\naspect-ratio: 1/1;\nanimation: 1.5s ease-out infinite darma-loader-uiverse-gooey-split-drops-loader;\nborder-radius: 50%;\n}\n\n.darma-loader-uiverse-gooey-split-drops:before {\nbackground: linear-gradient(rgb(255, 206, 58), var(--loader-color, #42b549))\n}\n\n.darma-loader-uiverse-gooey-split-drops:after {\nanimation-delay: 0.75s;\nbackground: linear-gradient(to top, var(--loader-secondary-color, #72dfe7), var(--loader-color, #42b549))\n}\n\n@keyframes darma-loader-uiverse-gooey-split-drops-loader {\n0%, 50%, 100% {\ntransform: translateY(0)\n}\n\n25% {\ntransform: translateY(70%)\n}\n\n75% {\ntransform: translateY(-70%)\n}\n}",
+    "defaults": {
+      "size": 62,
+      "speed": 1.5,
+      "color": "#42b549",
+      "secondaryColor": "#72dfe7"
     }
   },
   {
@@ -1777,6 +2036,37 @@
       "secondaryColor": "#fecaca",
       "size": 52,
       "speed": 1.1
+    }
+  },
+  {
+    "id": "darma-research-magnet-comet-dots",
+    "name": "Magnet Comet Dots",
+    "category": "dots",
+    "tags": [
+      "dots",
+      "comet",
+      "magnet",
+      "trail",
+      "minimal"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true,
+      "singleElement": false
+    },
+    "searchText": "darma-research-magnet-comet-dots magnet comet dots dots dots comet magnet trail minimal html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-research-magnet-comet-dots\" aria-label=\"Loading dots\"><span></span><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-research-magnet-comet-dots { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #6366f1); width: calc(var(--loader-size, 78px) * 1.35); height: calc(var(--loader-size, 78px) * .52); display: flex; align-items: center; justify-content: space-between; gap: 7px; filter: drop-shadow(0 0 10px color-mix(in srgb, var(--accent) 45%, transparent)); }\n.darma-loader-darma-research-magnet-comet-dots span { width: 14%; aspect-ratio: 1; border-radius: 50%; background: var(--accent-2); animation: darma-loader-darma-research-magnet-comet-dots-comet-pull calc(var(--speed) * 1.2) ease-in-out infinite; }\n.darma-loader-darma-research-magnet-comet-dots span:nth-child(1) { animation-delay: -.4s; } .darma-loader-darma-research-magnet-comet-dots span:nth-child(2) { animation-delay: -.3s; } .darma-loader-darma-research-magnet-comet-dots span:nth-child(3) { animation-delay: -.2s; } .darma-loader-darma-research-magnet-comet-dots span:nth-child(4) { animation-delay: -.1s; }\n.darma-loader-darma-research-magnet-comet-dots span:nth-child(5) { background: var(--accent); box-shadow: 0 0 18px var(--accent); }\n@keyframes darma-loader-darma-research-magnet-comet-dots-comet-pull { 0%,100% { transform: translateY(0) scale(.75); opacity: .45; } 45% { transform: translateY(-16px) scale(1.15); opacity: 1; } 70% { transform: translateY(7px) scale(.85); } }",
+    "defaults": {
+      "color": "#f59e0b",
+      "secondaryColor": "#6366f1",
+      "size": 78,
+      "speed": 1
     }
   },
   {
@@ -2098,6 +2388,39 @@
       "size": 96,
       "speed": 1,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "uiverse-pearl-typing-row",
+    "name": "Pearl Typing Row",
+    "category": "dots",
+    "tags": [
+      "typing",
+      "pearls",
+      "dots",
+      "text",
+      "uiverse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-pearl-typing-row pearl typing row dots typing pearls dots text uiverse html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-pearl-typing-row darma-loader-uiverse-pearl-typing-row__wrapper\">\n  <div class=\"darma-loader-uiverse-pearl-typing-row__circle-loader\">\n    <div class=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n    <div class=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n    <div class=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n    <div class=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n    <div class=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n    <div class=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n  </div>\n  <div class=\"darma-loader-uiverse-pearl-typing-row__loading-text\">Loading...</div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-pearl-typing-row { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.darma-loader-uiverse-pearl-typing-row__wrapper {\n  position: relative;\n  width: 220px;\n  height: 110px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle-loader {\ndisplay: flex;\ngap: 15px;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle {\nwidth: 24px;\nheight: 24px;\nborder-radius: 50%;\nbackground: radial-gradient(circle at 30% 30%, #f5f5f5, var(--loader-color, #d5d5d5));\nposition: relative;\nbox-shadow:\n6px 6px 12px rgba(0, 0, 0, 0.15),\n-6px -6px 12px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 80%, transparent),\ninset 2px 2px 4px rgba(0, 0, 0, 0.1),\ninset -2px -2px 4px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 90%, transparent);\nanimation: darma-loader-uiverse-pearl-typing-row-circleRotate 2s ease-in-out infinite;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(1) {\nanimation-delay: 0s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(2) {\nanimation-delay: 0.2s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(3) {\nanimation-delay: 0.3s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(4) {\nanimation-delay: 0.4s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(5) {\nanimation-delay: 0.5s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(6) {\nanimation-delay: 0.6s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(7) {\nanimation-delay: 0.7s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle::before {\ncontent: \"\";\nposition: absolute;\ntop: 8px;\nleft: 8px;\nwidth: 15px;\nheight: 15px;\nbackground: radial-gradient(circle, color-mix(in srgb, var(--loader-secondary-color, #ffffff) 80%, transparent), transparent);\nborder-radius: 50%;\n}\n\n@keyframes darma-loader-uiverse-pearl-typing-row-circleRotate {\n0% {\ntransform: scale(1) rotateZ(0deg);\nbox-shadow:\n6px 6px 12px rgba(0, 0, 0, 0.15),\n-6px -6px 12px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 80%, transparent),\ninset 2px 2px 4px rgba(0, 0, 0, 0.1),\ninset -2px -2px 4px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 90%, transparent);\n}\n\n50% {\ntransform: scale(1.2) rotateZ(180deg);\nbox-shadow:\n8px 8px 16px rgba(0, 0, 0, 0.2),\n-8px -8px 16px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 90%, transparent),\ninset 3px 3px 6px rgba(0, 0, 0, 0.15),\ninset -3px -3px 6px var(--loader-secondary-color, #ffffff);\n}\n\n100% {\ntransform: scale(1) rotateZ(360deg);\nbox-shadow:\n6px 6px 12px rgba(0, 0, 0, 0.15),\n-6px -6px 12px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 80%, transparent),\ninset 2px 2px 4px rgba(0, 0, 0, 0.1),\ninset -2px -2px 4px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 90%, transparent);\n}\n}\n\n.darma-loader-uiverse-pearl-typing-row__loading-text {\nposition: absolute;\nbottom: 30px;\nleft: 50%;\ntransform: translateX(-50%);\nfont-size: 24px;\nfont-weight: 300;\ncolor: #444;\nletter-spacing: 1px;\nanimation: darma-loader-uiverse-pearl-typing-row-fadeBlink 1.5s infinite;\n}\n\n@keyframes darma-loader-uiverse-pearl-typing-row-fadeBlink {\n0%,\n100% {\nopacity: 1;\ntransform: translateX(-50%) translateY(0);\n}\n\n50% {\nopacity: 0.4;\ntransform: translateX(-50%) translateY(-3px);\n}\n}",
+    "defaults": {
+      "size": 94,
+      "speed": 1.5,
+      "color": "#d5d5d5",
+      "secondaryColor": "#ffffff"
     }
   },
   {

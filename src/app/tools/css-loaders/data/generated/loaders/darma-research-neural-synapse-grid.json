@@ -1,0 +1,48 @@
+{
+  "id": "darma-research-neural-synapse-grid",
+  "name": "Neural Synapse Grid",
+  "category": "creative",
+  "tags": [
+    "neural",
+    "grid",
+    "ai",
+    "dots",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": true,
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-research-neural-synapse-grid neural synapse grid creative neural grid ai dots creative html css react popular customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-research-neural-synapse-grid\" aria-label=\"Loading neural grid\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-research-neural-synapse-grid { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #22d3ee); --accent-2: var(--loader-secondary-color, #a855f7); width: var(--loader-size, 88px); height: var(--loader-size, 88px); display: grid; grid-template-columns: repeat(3, 1fr); gap: 14%; position: relative; }\n.darma-loader-darma-research-neural-synapse-grid::before, .darma-loader-darma-research-neural-synapse-grid::after { content: \"\"; position: absolute; inset: 14%; background: linear-gradient(90deg, transparent 47%, color-mix(in srgb, var(--accent) 70%, transparent) 48% 52%, transparent 53%), linear-gradient(0deg, transparent 47%, color-mix(in srgb, var(--accent-2) 70%, transparent) 48% 52%, transparent 53%); opacity: .45; animation: darma-loader-darma-research-neural-synapse-grid-synapse-lines calc(var(--speed) * 1.6) ease-in-out infinite; }\n.darma-loader-darma-research-neural-synapse-grid::after { rotate: 45deg; opacity: .25; }\n.darma-loader-darma-research-neural-synapse-grid span { border-radius: 50%; background: radial-gradient(circle, #fff 0 16%, var(--accent) 18% 58%, var(--accent-2)); box-shadow: 0 0 12px var(--accent); animation: darma-loader-darma-research-neural-synapse-grid-synapse-node calc(var(--speed) * 1.35) ease-in-out infinite; }\n.darma-loader-darma-research-neural-synapse-grid span:nth-child(2), .darma-loader-darma-research-neural-synapse-grid span:nth-child(4), .darma-loader-darma-research-neural-synapse-grid span:nth-child(6), .darma-loader-darma-research-neural-synapse-grid span:nth-child(8) { animation-delay: calc(var(--speed) * -.35); }\n.darma-loader-darma-research-neural-synapse-grid span:nth-child(5) { animation-delay: calc(var(--speed) * -.7); }\n@keyframes darma-loader-darma-research-neural-synapse-grid-synapse-node { 0%,100% { transform: scale(.58); filter: brightness(.8); } 50% { transform: scale(1.05); filter: brightness(1.35); } }\n@keyframes darma-loader-darma-research-neural-synapse-grid-synapse-lines { 50% { opacity: .9; filter: drop-shadow(0 0 8px var(--accent)); } }",
+  "defaults": {
+    "color": "#22d3ee",
+    "secondaryColor": "#a855f7",
+    "size": 88,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-research-neural-synapse-grid\" aria-label=\"Loading neural grid\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-research-neural-synapse-grid { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #22d3ee); --accent-2: var(--loader-secondary-color, #a855f7); width: var(--loader-size, 88px); height: var(--loader-size, 88px); display: grid; grid-template-columns: repeat(3, 1fr); gap: 14%; position: relative; }\n.darma-loader-darma-research-neural-synapse-grid::before, .darma-loader-darma-research-neural-synapse-grid::after { content: \"\"; position: absolute; inset: 14%; background: linear-gradient(90deg, transparent 47%, color-mix(in srgb, var(--accent) 70%, transparent) 48% 52%, transparent 53%), linear-gradient(0deg, transparent 47%, color-mix(in srgb, var(--accent-2) 70%, transparent) 48% 52%, transparent 53%); opacity: .45; animation: darma-loader-darma-research-neural-synapse-grid-synapse-lines calc(var(--speed) * 1.6) ease-in-out infinite; }\n.darma-loader-darma-research-neural-synapse-grid::after { rotate: 45deg; opacity: .25; }\n.darma-loader-darma-research-neural-synapse-grid span { border-radius: 50%; background: radial-gradient(circle, #fff 0 16%, var(--accent) 18% 58%, var(--accent-2)); box-shadow: 0 0 12px var(--accent); animation: darma-loader-darma-research-neural-synapse-grid-synapse-node calc(var(--speed) * 1.35) ease-in-out infinite; }\n.darma-loader-darma-research-neural-synapse-grid span:nth-child(2), .darma-loader-darma-research-neural-synapse-grid span:nth-child(4), .darma-loader-darma-research-neural-synapse-grid span:nth-child(6), .darma-loader-darma-research-neural-synapse-grid span:nth-child(8) { animation-delay: calc(var(--speed) * -.35); }\n.darma-loader-darma-research-neural-synapse-grid span:nth-child(5) { animation-delay: calc(var(--speed) * -.7); }\n@keyframes darma-loader-darma-research-neural-synapse-grid-synapse-node { 0%,100% { transform: scale(.58); filter: brightness(.8); } 50% { transform: scale(1.05); filter: brightness(1.35); } }\n@keyframes darma-loader-darma-research-neural-synapse-grid-synapse-lines { 50% { opacity: .9; filter: drop-shadow(0 0 8px var(--accent)); } }",
+    "react": "export default function DarmaResearchNeuralSynapseGridLoader() {\n  return (\n    <div className=\"darma-loader-darma-research-neural-synapse-grid\" aria-label=\"Loading neural grid\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 6",
+    "author": "Darma / ChatGPT",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

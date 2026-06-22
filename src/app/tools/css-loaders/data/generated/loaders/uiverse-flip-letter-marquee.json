@@ -1,0 +1,51 @@
+{
+  "id": "uiverse-flip-letter-marquee",
+  "name": "Flip Letter Marquee",
+  "category": "fun",
+  "tags": [
+    "letters",
+    "marquee",
+    "flip",
+    "text",
+    "uiverse",
+    "batch-5"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-flip-letter-marquee flip letter marquee fun letters marquee flip text uiverse batch-5 html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-flip-letter-marquee\"><span>L</span><span>O</span><span>A</span><span>D</span><span>I</span><span>N</span><span>G</span></div>\n",
+  "previewCss": ".darma-loader-uiverse-flip-letter-marquee {\n  perspective: 700px;\n  background: var(--loader-color, #ef4444);\n  padding: 12px 22px;\n  border-radius: 10px;\n  display: inline-flex;\n  gap: 1px;\n}\n.darma-loader-uiverse-flip-letter-marquee > span {\n  font-size: 42px;\n  line-height: 1;\n  font-family: \"Franklin Gothic Medium\", Arial, sans-serif;\n  display: inline-block;\n  animation: darma-loader-uiverse-flip-letter-marquee-letterFlip 2.6s infinite linear;\n  transform-origin: 0 70%;\n  transform-style: preserve-3d;\n  color: #111111;\n}\n.darma-loader-uiverse-flip-letter-marquee > span:nth-child(even) { color: var(--loader-secondary-color, #ffffff); }\n.darma-loader-uiverse-flip-letter-marquee > span:nth-child(2) { animation-delay: .3s; }\n.darma-loader-uiverse-flip-letter-marquee > span:nth-child(3) { animation-delay: .6s; }\n.darma-loader-uiverse-flip-letter-marquee > span:nth-child(4) { animation-delay: .9s; }\n.darma-loader-uiverse-flip-letter-marquee > span:nth-child(5) { animation-delay: 1.2s; }\n.darma-loader-uiverse-flip-letter-marquee > span:nth-child(6) { animation-delay: 1.5s; }\n.darma-loader-uiverse-flip-letter-marquee > span:nth-child(7) { animation-delay: 1.8s; }\n@keyframes darma-loader-uiverse-flip-letter-marquee-letterFlip { 35%,100% { transform: rotateZ(360deg); } }\n",
+  "defaults": {
+    "size": 42,
+    "speed": 2.6,
+    "color": "#ef4444",
+    "secondaryColor": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-flip-letter-marquee\"><span>L</span><span>O</span><span>A</span><span>D</span><span>I</span><span>N</span><span>G</span></div>\n",
+    "css": ".darma-loader-uiverse-flip-letter-marquee {\n  perspective: 700px;\n  background: var(--loader-color, #ef4444);\n  padding: 12px 22px;\n  border-radius: 10px;\n  display: inline-flex;\n  gap: 1px;\n}\n.darma-loader-uiverse-flip-letter-marquee > span {\n  font-size: 42px;\n  line-height: 1;\n  font-family: \"Franklin Gothic Medium\", Arial, sans-serif;\n  display: inline-block;\n  animation: darma-loader-uiverse-flip-letter-marquee-letterFlip 2.6s infinite linear;\n  transform-origin: 0 70%;\n  transform-style: preserve-3d;\n  color: #111111;\n}\n.darma-loader-uiverse-flip-letter-marquee > span:nth-child(even) { color: var(--loader-secondary-color, #ffffff); }\n.darma-loader-uiverse-flip-letter-marquee > span:nth-child(2) { animation-delay: .3s; }\n.darma-loader-uiverse-flip-letter-marquee > span:nth-child(3) { animation-delay: .6s; }\n.darma-loader-uiverse-flip-letter-marquee > span:nth-child(4) { animation-delay: .9s; }\n.darma-loader-uiverse-flip-letter-marquee > span:nth-child(5) { animation-delay: 1.2s; }\n.darma-loader-uiverse-flip-letter-marquee > span:nth-child(6) { animation-delay: 1.5s; }\n.darma-loader-uiverse-flip-letter-marquee > span:nth-child(7) { animation-delay: 1.8s; }\n@keyframes darma-loader-uiverse-flip-letter-marquee-letterFlip { 35%,100% { transform: rotateZ(360deg); } }\n",
+    "react": "export default function UiverseFlipLetterMarqueeLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-flip-letter-marquee\"><span>L</span><span>O</span><span>A</span><span>D</span><span>I</span><span>N</span><span>G</span></div>\n\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

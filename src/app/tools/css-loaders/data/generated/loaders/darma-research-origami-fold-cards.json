@@ -1,0 +1,48 @@
+{
+  "id": "darma-research-origami-fold-cards",
+  "name": "Origami Fold Cards",
+  "category": "creative",
+  "tags": [
+    "origami",
+    "cards",
+    "fold",
+    "3d",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": true,
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-research-origami-fold-cards origami fold cards creative origami cards fold 3d creative html css react popular customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-research-origami-fold-cards\" aria-label=\"Loading folded cards\"><span></span><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-research-origami-fold-cards { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #f472b6); --accent-2: var(--loader-secondary-color, #38bdf8); width: var(--loader-size, 88px); height: var(--loader-size, 88px); position: relative; perspective: 520px; transform-style: preserve-3d; }\n.darma-loader-darma-research-origami-fold-cards span { position: absolute; inset: 18%; border-radius: 12px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); transform-origin: 0 100%; box-shadow: 0 12px 30px #02061755; animation: darma-loader-darma-research-origami-fold-cards-fold-card calc(var(--speed) * 1.8) ease-in-out infinite; opacity: .9; }\n.darma-loader-darma-research-origami-fold-cards span:nth-child(2) { animation-delay: calc(var(--speed) * -.32); filter: hue-rotate(30deg); }\n.darma-loader-darma-research-origami-fold-cards span:nth-child(3) { animation-delay: calc(var(--speed) * -.64); filter: hue-rotate(60deg); }\n.darma-loader-darma-research-origami-fold-cards span:nth-child(4) { animation-delay: calc(var(--speed) * -.96); filter: hue-rotate(90deg); }\n@keyframes darma-loader-darma-research-origami-fold-cards-fold-card { 0%,100% { transform: rotateZ(0deg) rotateY(0deg) translateZ(0); } 25% { transform: rotateZ(10deg) rotateY(-70deg) translateZ(16px); } 50% { transform: rotateZ(90deg) rotateY(0deg) translateZ(28px); } 75% { transform: rotateZ(180deg) rotateY(70deg) translateZ(16px); } }",
+  "defaults": {
+    "color": "#f472b6",
+    "secondaryColor": "#38bdf8",
+    "size": 88,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-research-origami-fold-cards\" aria-label=\"Loading folded cards\"><span></span><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-research-origami-fold-cards { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #f472b6); --accent-2: var(--loader-secondary-color, #38bdf8); width: var(--loader-size, 88px); height: var(--loader-size, 88px); position: relative; perspective: 520px; transform-style: preserve-3d; }\n.darma-loader-darma-research-origami-fold-cards span { position: absolute; inset: 18%; border-radius: 12px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); transform-origin: 0 100%; box-shadow: 0 12px 30px #02061755; animation: darma-loader-darma-research-origami-fold-cards-fold-card calc(var(--speed) * 1.8) ease-in-out infinite; opacity: .9; }\n.darma-loader-darma-research-origami-fold-cards span:nth-child(2) { animation-delay: calc(var(--speed) * -.32); filter: hue-rotate(30deg); }\n.darma-loader-darma-research-origami-fold-cards span:nth-child(3) { animation-delay: calc(var(--speed) * -.64); filter: hue-rotate(60deg); }\n.darma-loader-darma-research-origami-fold-cards span:nth-child(4) { animation-delay: calc(var(--speed) * -.96); filter: hue-rotate(90deg); }\n@keyframes darma-loader-darma-research-origami-fold-cards-fold-card { 0%,100% { transform: rotateZ(0deg) rotateY(0deg) translateZ(0); } 25% { transform: rotateZ(10deg) rotateY(-70deg) translateZ(16px); } 50% { transform: rotateZ(90deg) rotateY(0deg) translateZ(28px); } 75% { transform: rotateZ(180deg) rotateY(70deg) translateZ(16px); } }",
+    "react": "export default function DarmaResearchOrigamiFoldCardsLoader() {\n  return (\n    <div className=\"darma-loader-darma-research-origami-fold-cards\" aria-label=\"Loading folded cards\"><span></span><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 6",
+    "author": "Darma / ChatGPT",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

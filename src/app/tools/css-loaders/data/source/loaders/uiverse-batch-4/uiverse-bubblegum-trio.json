@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-bubblegum-trio",
+  "name": "Bubblegum Trio",
+  "category": "dots",
+  "tags": [
+    "bubble",
+    "trio",
+    "gradient",
+    "soft",
+    "uiverse"
+  ],
+  "html": "<div class=\"loader\">\n  <div class=\"bubble\"></div>\n  <div class=\"bubble\"></div>\n  <div class=\"bubble\"></div>\n</div>",
+  "css": ".loader {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100%;\n}\n\n.bubble {\nwidth: 20px;\nheight: 20px;\nborder-radius: 50%;\nbackground-image: linear-gradient(to right, #ff6b81, #ff9a44);\nmargin: 0 5px;\nanimation: bubbleAnimation 1.5s ease-in-out infinite;\n}\n\n@keyframes bubbleAnimation {\n0%,\n100% {\ntransform: scale(1);\nopacity: 1;\n}\n50% {\ntransform: scale(2);\nopacity: 0.5;\n}\n}",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 58,
+    "speed": 1.5,
+    "color": "#ff6b81",
+    "secondaryColor": "#ff9a44"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

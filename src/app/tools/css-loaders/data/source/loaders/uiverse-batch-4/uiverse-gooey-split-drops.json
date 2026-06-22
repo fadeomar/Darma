@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-gooey-split-drops",
+  "name": "Gooey Split Drops",
+  "category": "dots",
+  "tags": [
+    "gooey",
+    "drops",
+    "split",
+    "gradient",
+    "uiverse"
+  ],
+  "html": "<div class=\"loader\"><svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\"><defs><filter id=\"gooey-split-drops-filter\"><feGaussianBlur in=\"SourceGraphic\" stdDeviation=\"6\" result=\"blur\"></feGaussianBlur><feColorMatrix in=\"blur\" mode=\"matrix\" values=\"1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7\" result=\"goo\"></feColorMatrix><feBlend in=\"SourceGraphic\" in2=\"goo\"></feBlend></filter></defs></svg></div>",
+  "css": ".loader {\n  position: relative;\n  width: 1.5em;\n  aspect-ratio: 1/2;\n  filter: url(#gooey-split-drops-filter);\n}\n\n.loader svg defs {\ndisplay: none\n}\n\n.loader:before, .loader:after {\ncontent: '';\nposition: absolute;\ninset: 0;\nmargin: auto;\nwidth: 100%;\naspect-ratio: 1/1;\nanimation: 1.5s ease-out infinite loader;\nborder-radius: 50%;\n}\n\n.loader:before {\nbackground: linear-gradient(rgb(255, 206, 58), rgb(66, 181, 73))\n}\n\n.loader:after {\nanimation-delay: 0.75s;\nbackground: linear-gradient(to top, rgb(114, 223, 231), rgb(66, 181, 73))\n}\n\n@keyframes loader {\n0%, 50%, 100% {\ntransform: translateY(0)\n}\n\n25% {\ntransform: translateY(70%)\n}\n\n75% {\ntransform: translateY(-70%)\n}\n}",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 62,
+    "speed": 1.5,
+    "color": "#42b549",
+    "secondaryColor": "#72dfe7"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

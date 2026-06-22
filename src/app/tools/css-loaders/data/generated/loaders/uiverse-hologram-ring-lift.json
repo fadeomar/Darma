@@ -1,0 +1,51 @@
+{
+  "id": "uiverse-hologram-ring-lift",
+  "name": "Hologram Ring Lift",
+  "category": "creative",
+  "tags": [
+    "rings",
+    "hologram",
+    "3d",
+    "lift",
+    "uiverse",
+    "batch-5"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-hologram-ring-lift hologram ring lift creative rings hologram 3d lift uiverse batch-5 html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-hologram-ring-lift\">\n  <div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:1;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:2;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:3;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:4;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:5;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:6;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:7;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:8;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:9;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:10;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:11;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:12;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:13;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:14;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:15;\"></div>\n</div>\n",
+  "previewCss": ".darma-loader-uiverse-hologram-ring-lift {\n  position: relative;\n  width: 180px;\n  height: 150px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  perspective: 800px;\n}\n.darma-loader-uiverse-hologram-ring-lift__item {\n  position: absolute;\n  background-color: transparent;\n  width: calc(var(--i) * 7px);\n  aspect-ratio: 1;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color, #00c8ff);\n  transform-style: preserve-3d;\n  transform: rotateX(70deg) translateZ(25px);\n  animation: darma-loader-uiverse-hologram-ring-lift-holoLift 3s ease-in-out calc(var(--i) * .08s) infinite;\n  box-shadow: 0 0 15px var(--loader-secondary-color, #7cdcff), inset 0 0 15px var(--loader-secondary-color, #7cdcff);\n}\n@keyframes darma-loader-uiverse-hologram-ring-lift-holoLift {\n  0%, 100% { transform: rotateX(70deg) translateZ(25px) translateY(0); filter: hue-rotate(0deg); }\n  50% { transform: rotateX(70deg) translateZ(25px) translateY(-80px); filter: hue-rotate(180deg); }\n}\n",
+  "defaults": {
+    "size": 150,
+    "speed": 3,
+    "color": "#00c8ff",
+    "secondaryColor": "#7cdcff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-hologram-ring-lift\">\n  <div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:1;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:2;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:3;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:4;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:5;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:6;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:7;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:8;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:9;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:10;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:11;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:12;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:13;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:14;\"></div><div class=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:15;\"></div>\n</div>\n",
+    "css": ".darma-loader-uiverse-hologram-ring-lift {\n  position: relative;\n  width: 180px;\n  height: 150px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  perspective: 800px;\n}\n.darma-loader-uiverse-hologram-ring-lift__item {\n  position: absolute;\n  background-color: transparent;\n  width: calc(var(--i) * 7px);\n  aspect-ratio: 1;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color, #00c8ff);\n  transform-style: preserve-3d;\n  transform: rotateX(70deg) translateZ(25px);\n  animation: darma-loader-uiverse-hologram-ring-lift-holoLift 3s ease-in-out calc(var(--i) * .08s) infinite;\n  box-shadow: 0 0 15px var(--loader-secondary-color, #7cdcff), inset 0 0 15px var(--loader-secondary-color, #7cdcff);\n}\n@keyframes darma-loader-uiverse-hologram-ring-lift-holoLift {\n  0%, 100% { transform: rotateX(70deg) translateZ(25px) translateY(0); filter: hue-rotate(0deg); }\n  50% { transform: rotateX(70deg) translateZ(25px) translateY(-80px); filter: hue-rotate(180deg); }\n}\n",
+    "react": "export default function UiverseHologramRingLiftLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-hologram-ring-lift\">\n  <div className=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:1;\"></div><div className=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:2;\"></div><div className=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:3;\"></div><div className=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:4;\"></div><div className=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:5;\"></div><div className=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:6;\"></div><div className=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:7;\"></div><div className=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:8;\"></div><div className=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:9;\"></div><div className=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:10;\"></div><div className=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:11;\"></div><div className=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:12;\"></div><div className=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:13;\"></div><div className=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:14;\"></div><div className=\"darma-loader-uiverse-hologram-ring-lift__item\" style=\"--i:15;\"></div>\n</div>\n\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

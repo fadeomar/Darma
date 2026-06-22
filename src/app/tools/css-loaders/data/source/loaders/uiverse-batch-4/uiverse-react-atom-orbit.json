@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-react-atom-orbit",
+  "name": "React Atom Orbit",
+  "category": "creative",
+  "tags": [
+    "react",
+    "atom",
+    "orbit",
+    "electron",
+    "uiverse"
+  ],
+  "html": "<div class=\"loader\">\n  <div class=\"react-star\">\n    <div class=\"nucleus\"></div>\n    <div class=\"electron electron1\"></div>\n    <div class=\"electron electron2\"></div>\n    <div class=\"electron electron3\"></div>\n  </div>\n</div>",
+  "css": ".loader {\n  height: 20rem;\n  width: 20rem;\n  background-color: #212121;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.react-star {\nposition: relative;\nwidth: 15rem;\ndisplay: flex;\njustify-content: center;\nalign-items: center;\nheight: 15rem;\nanimation: rotate 3s infinite;\n}\n\n.nucleus {\nposition: absolute;\n\ntransform: translate(-50%, -50%);\nborder-radius: 50%;\nbackground: linear-gradient(#0738e8, cyan);\nheight: 2rem;\nwidth: 2rem;\nanimation: rotate 1s linear infinite;\n}\n\n.electron {\nposition: absolute;\nwidth: 15rem;\nheight: 6rem;\nborder-radius: 50%;\nborder: 0.3rem solid #00ffff;\nanimation: revolve 1s linear infinite;\n}\n\n.electron1::before,\n.electron2::before,\n.electron3::before {\ncontent: \"\";\nposition: absolute;\ntop: 60%;\nleft: 100%;\ntransform: translate(-50%, -50%);\nwidth: 1rem;\nheight: 1rem;\nbackground-color: cyan;\nborder-radius: 50%;\nanimation: moveElectron 1s infinite;\n}\n.electron2 {\ntransform: rotate(60deg);\nanimation-delay: -0.66s;\n}\n.electron2::before {\nanimation-delay: -0.66s;\n}\n\n.electron3 {\ntransform: rotate(-60deg);\n}\n\n@keyframes rotate {\nfrom {\ntransform: rotate(0deg);\n}\nto {\ntransform: rotate(360deg) scale3d(1.1, 1.1, 0);\n}\n}\n\n@keyframes revolve {\n0% {\nborder-color: #00ffff9c;\nborder-right: transparent;\n}\n25% {\nborder-color: #00ffff9c;\nborder-bottom-color: transparent;\n}\n50% {\nborder-color: #00ffff9c;\nborder-left-color: transparent;\n}\n75% {\nborder-color: #00ffff9c;\nborder-top-color: transparent;\n}\n100% {\nborder-color: #00ffff9c;\nborder-right-color: transparent;\n}\n}\n\n@keyframes moveElectron {\n0% {\ntop: 60%;\nleft: 100%;\n}\n25% {\ntop: 100%;\nleft: 60%;\n}\n50% {\ntop: 60%;\nleft: 0%;\n}\n75% {\ntop: 0%;\nleft: 60%;\n}\n100% {\ntop: 60%;\nleft: 100%;\n}\n}",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 86,
+    "speed": 1.8,
+    "color": "#61dafb",
+    "secondaryColor": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

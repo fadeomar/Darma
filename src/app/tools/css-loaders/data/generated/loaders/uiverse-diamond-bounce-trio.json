@@ -1,0 +1,49 @@
+{
+  "id": "uiverse-diamond-bounce-trio",
+  "name": "Diamond Bounce Trio",
+  "category": "creative",
+  "tags": [
+    "diamonds",
+    "bounce",
+    "geometric",
+    "uiverse"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-diamond-bounce-trio diamond bounce trio creative diamonds bounce geometric uiverse html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-diamond-bounce-trio darma-loader-uiverse-diamond-bounce-trio__loading\">\n  <div class=\"darma-loader-uiverse-diamond-bounce-trio__diamond\"></div>\n  <div class=\"darma-loader-uiverse-diamond-bounce-trio__diamond darma-loader-uiverse-diamond-bounce-trio__middle\"></div>\n  <div class=\"darma-loader-uiverse-diamond-bounce-trio__diamond\"></div>\n</div>",
+  "previewCss": ".darma-loader-uiverse-diamond-bounce-trio { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.darma-loader-uiverse-diamond-bounce-trio__loading {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.darma-loader-uiverse-diamond-bounce-trio__diamond {\nwidth: 50px;\nheight: 50px;\nbackground-color: orange;\nclip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);\nmargin: 5px;\nopacity: 0;\nanimation: darma-loader-uiverse-diamond-bounce-trio-fade-in-out 1.5s ease-in-out infinite;\n}\n\n.darma-loader-uiverse-diamond-bounce-trio__diamond.darma-loader-uiverse-diamond-bounce-trio__middle {\ntransform: rotateY(180deg);\n}\n\n@keyframes darma-loader-uiverse-diamond-bounce-trio-fade-in-out {\n0%,\n100% {\nopacity: 0;\n}\n50% {\nopacity: 1;\n}\n}\n\n.darma-loader-uiverse-diamond-bounce-trio__diamond {\nbackground: linear-gradient(45deg, #ffba00, #ff6c00);\n}\n\n.darma-loader-uiverse-diamond-bounce-trio__diamond:nth-child(1) {\nanimation-delay: 0s;\n}\n\n.darma-loader-uiverse-diamond-bounce-trio__diamond.darma-loader-uiverse-diamond-bounce-trio__middle {\nanimation-delay: 0.5s;\n}\n\n.darma-loader-uiverse-diamond-bounce-trio__diamond:nth-child(3) {\nanimation-delay: 1s;\n}",
+  "defaults": {
+    "size": 72,
+    "speed": 1.4,
+    "color": "#8b5cf6",
+    "secondaryColor": "#c084fc"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-diamond-bounce-trio darma-loader-uiverse-diamond-bounce-trio__loading\">\n  <div class=\"darma-loader-uiverse-diamond-bounce-trio__diamond\"></div>\n  <div class=\"darma-loader-uiverse-diamond-bounce-trio__diamond darma-loader-uiverse-diamond-bounce-trio__middle\"></div>\n  <div class=\"darma-loader-uiverse-diamond-bounce-trio__diamond\"></div>\n</div>",
+    "css": ".darma-loader-uiverse-diamond-bounce-trio { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.darma-loader-uiverse-diamond-bounce-trio__loading {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.darma-loader-uiverse-diamond-bounce-trio__diamond {\nwidth: 50px;\nheight: 50px;\nbackground-color: orange;\nclip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);\nmargin: 5px;\nopacity: 0;\nanimation: darma-loader-uiverse-diamond-bounce-trio-fade-in-out 1.5s ease-in-out infinite;\n}\n\n.darma-loader-uiverse-diamond-bounce-trio__diamond.darma-loader-uiverse-diamond-bounce-trio__middle {\ntransform: rotateY(180deg);\n}\n\n@keyframes darma-loader-uiverse-diamond-bounce-trio-fade-in-out {\n0%,\n100% {\nopacity: 0;\n}\n50% {\nopacity: 1;\n}\n}\n\n.darma-loader-uiverse-diamond-bounce-trio__diamond {\nbackground: linear-gradient(45deg, #ffba00, #ff6c00);\n}\n\n.darma-loader-uiverse-diamond-bounce-trio__diamond:nth-child(1) {\nanimation-delay: 0s;\n}\n\n.darma-loader-uiverse-diamond-bounce-trio__diamond.darma-loader-uiverse-diamond-bounce-trio__middle {\nanimation-delay: 0.5s;\n}\n\n.darma-loader-uiverse-diamond-bounce-trio__diamond:nth-child(3) {\nanimation-delay: 1s;\n}",
+    "react": "export default function UiverseDiamondBounceTrioLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-diamond-bounce-trio darma-loader-uiverse-diamond-bounce-trio__loading\">\n  <div className=\"darma-loader-uiverse-diamond-bounce-trio__diamond\"></div>\n  <div className=\"darma-loader-uiverse-diamond-bounce-trio__diamond darma-loader-uiverse-diamond-bounce-trio__middle\"></div>\n  <div className=\"darma-loader-uiverse-diamond-bounce-trio__diamond\"></div>\n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": false,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

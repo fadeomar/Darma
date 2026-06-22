@@ -1,0 +1,36 @@
+{
+  "id": "darma-research-origami-fold-cards",
+  "name": "Origami Fold Cards",
+  "category": "creative",
+  "tags": [
+    "origami",
+    "cards",
+    "fold",
+    "3d",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading folded cards\"><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --speed: var(--loader-speed); --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; perspective: 520px; transform-style: preserve-3d; }\n.loader span { position: absolute; inset: 18%; border-radius: 12px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); transform-origin: 0 100%; box-shadow: 0 12px 30px #02061755; animation: fold-card calc(var(--speed) * 1.8) ease-in-out infinite; opacity: .9; }\n.loader span:nth-child(2) { animation-delay: calc(var(--speed) * -.32); filter: hue-rotate(30deg); }\n.loader span:nth-child(3) { animation-delay: calc(var(--speed) * -.64); filter: hue-rotate(60deg); }\n.loader span:nth-child(4) { animation-delay: calc(var(--speed) * -.96); filter: hue-rotate(90deg); }\n@keyframes fold-card { 0%,100% { transform: rotateZ(0deg) rotateY(0deg) translateZ(0); } 25% { transform: rotateZ(10deg) rotateY(-70deg) translateZ(16px); } 50% { transform: rotateZ(90deg) rotateY(0deg) translateZ(28px); } 75% { transform: rotateZ(180deg) rotateY(70deg) translateZ(16px); } }",
+  "defaults": {
+    "color": "#f472b6",
+    "secondaryColor": "#38bdf8",
+    "size": 88,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "popular": true,
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 6",
+    "author": "Darma / ChatGPT",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

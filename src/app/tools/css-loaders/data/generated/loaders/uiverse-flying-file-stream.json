@@ -1,0 +1,50 @@
+{
+  "id": "uiverse-flying-file-stream",
+  "name": "Flying File Stream",
+  "category": "creative",
+  "tags": [
+    "files",
+    "documents",
+    "stream",
+    "upload",
+    "uiverse"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-flying-file-stream flying file stream creative files documents stream upload uiverse html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-flying-file-stream darma-loader-uiverse-flying-file-stream__con\">\n  <div style=\"--i: 0;\" class=\"darma-loader-uiverse-flying-file-stream__pfile\"></div>\n  <div style=\"--i: 1;\" class=\"darma-loader-uiverse-flying-file-stream__pfile\"></div>\n  <div class=\"darma-loader-uiverse-flying-file-stream__pfile\" style=\"--i: 2;\"></div>\n  <div class=\"darma-loader-uiverse-flying-file-stream__pfile\" style=\"--i: 3;\"></div>\n  <div class=\"darma-loader-uiverse-flying-file-stream__pfile\" style=\"--i: 4;\"></div>\n  <div class=\"darma-loader-uiverse-flying-file-stream__pfile\" style=\"--i: 5;\"></div>\n</div>",
+  "previewCss": ".darma-loader-uiverse-flying-file-stream { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.darma-loader-uiverse-flying-file-stream__con {\n  position: relative;\n  width: 160px;\n  height: 100px;\n  overflow: hidden;\n}\n\n.darma-loader-uiverse-flying-file-stream__pfile {\nposition: absolute;\nbottom: 25px;\nwidth: 40px;\nheight: 50px;\nbackground: linear-gradient(90deg, var(--loader-color, #b324db), var(--loader-secondary-color, #ac8dcb));\nborder-radius: 4px;\ntransform-origin: center;\nanimation: darma-loader-uiverse-flying-file-stream-flyRight 3s ease-in-out infinite;\nopacity: 0;\n}\n\n.darma-loader-uiverse-flying-file-stream__pfile::before {\ncontent: \"\";\nposition: absolute;\ntop: 6px;\nleft: 6px;\nwidth: 28px;\nheight: 4px;\nbackground-color: #ffffff;\nborder-radius: 2px;\n}\n\n.darma-loader-uiverse-flying-file-stream__pfile::after {\ncontent: \"\";\nposition: absolute;\ntop: 13px;\nleft: 6px;\nwidth: 18px;\nheight: 4px;\nbackground-color: #ffffff;\nborder-radius: 2px;\n}\n\n@keyframes darma-loader-uiverse-flying-file-stream-flyRight {\n0% {\nleft: -10%;\ntransform: scale(0);\nopacity: 0;\n}\n50% {\nleft: 45%;\ntransform: scale(1.2);\nopacity: 1;\n}\n100% {\nleft: 100%;\ntransform: scale(0);\nopacity: 0;\n}\n}\n\n.darma-loader-uiverse-flying-file-stream__pfile {\nanimation-delay: calc(var(--i) * 0.6s);\n}",
+  "defaults": {
+    "size": 98,
+    "speed": 3,
+    "color": "#b324db",
+    "secondaryColor": "#ac8dcb"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-flying-file-stream darma-loader-uiverse-flying-file-stream__con\">\n  <div style=\"--i: 0;\" class=\"darma-loader-uiverse-flying-file-stream__pfile\"></div>\n  <div style=\"--i: 1;\" class=\"darma-loader-uiverse-flying-file-stream__pfile\"></div>\n  <div class=\"darma-loader-uiverse-flying-file-stream__pfile\" style=\"--i: 2;\"></div>\n  <div class=\"darma-loader-uiverse-flying-file-stream__pfile\" style=\"--i: 3;\"></div>\n  <div class=\"darma-loader-uiverse-flying-file-stream__pfile\" style=\"--i: 4;\"></div>\n  <div class=\"darma-loader-uiverse-flying-file-stream__pfile\" style=\"--i: 5;\"></div>\n</div>",
+    "css": ".darma-loader-uiverse-flying-file-stream { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.darma-loader-uiverse-flying-file-stream__con {\n  position: relative;\n  width: 160px;\n  height: 100px;\n  overflow: hidden;\n}\n\n.darma-loader-uiverse-flying-file-stream__pfile {\nposition: absolute;\nbottom: 25px;\nwidth: 40px;\nheight: 50px;\nbackground: linear-gradient(90deg, var(--loader-color, #b324db), var(--loader-secondary-color, #ac8dcb));\nborder-radius: 4px;\ntransform-origin: center;\nanimation: darma-loader-uiverse-flying-file-stream-flyRight 3s ease-in-out infinite;\nopacity: 0;\n}\n\n.darma-loader-uiverse-flying-file-stream__pfile::before {\ncontent: \"\";\nposition: absolute;\ntop: 6px;\nleft: 6px;\nwidth: 28px;\nheight: 4px;\nbackground-color: #ffffff;\nborder-radius: 2px;\n}\n\n.darma-loader-uiverse-flying-file-stream__pfile::after {\ncontent: \"\";\nposition: absolute;\ntop: 13px;\nleft: 6px;\nwidth: 18px;\nheight: 4px;\nbackground-color: #ffffff;\nborder-radius: 2px;\n}\n\n@keyframes darma-loader-uiverse-flying-file-stream-flyRight {\n0% {\nleft: -10%;\ntransform: scale(0);\nopacity: 0;\n}\n50% {\nleft: 45%;\ntransform: scale(1.2);\nopacity: 1;\n}\n100% {\nleft: 100%;\ntransform: scale(0);\nopacity: 0;\n}\n}\n\n.darma-loader-uiverse-flying-file-stream__pfile {\nanimation-delay: calc(var(--i) * 0.6s);\n}",
+    "react": "export default function UiverseFlyingFileStreamLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-flying-file-stream darma-loader-uiverse-flying-file-stream__con\">\n  <div style=\"--i: 0;\" className=\"darma-loader-uiverse-flying-file-stream__pfile\"></div>\n  <div style=\"--i: 1;\" className=\"darma-loader-uiverse-flying-file-stream__pfile\"></div>\n  <div className=\"darma-loader-uiverse-flying-file-stream__pfile\" style=\"--i: 2;\"></div>\n  <div className=\"darma-loader-uiverse-flying-file-stream__pfile\" style=\"--i: 3;\"></div>\n  <div className=\"darma-loader-uiverse-flying-file-stream__pfile\" style=\"--i: 4;\"></div>\n  <div className=\"darma-loader-uiverse-flying-file-stream__pfile\" style=\"--i: 5;\"></div>\n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

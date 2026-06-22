@@ -1,0 +1,50 @@
+{
+  "id": "uiverse-purple-helix-rails",
+  "name": "Purple Helix Rails",
+  "category": "creative",
+  "tags": [
+    "helix",
+    "rails",
+    "3d",
+    "purple",
+    "uiverse"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-purple-helix-rails purple helix rails creative helix rails 3d purple uiverse html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-purple-helix-rails\">\n  <span style=\"--i:1\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:2\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:3\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:4\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:5\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:6\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:7\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:8\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:9\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:10\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:11\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:12\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:13\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:14\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:15\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n</div>",
+  "previewCss": ".darma-loader-uiverse-purple-helix-rails {\n  transform: rotateX(70deg) scale(.72);\n}\n\n.darma-loader-uiverse-purple-helix-rails .darma-loader-uiverse-purple-helix-rails__element {\ndisplay: block;\nborder-left: 5px solid var(--loader-color, #782fff);\nborder-right: 5px solid var(--loader-color, #782fff);\nborder-top: dotted 2px var(--loader-secondary-color, #5c0572);\nwidth: 10rem;\nheight: 1rem;\nmargin-top: 0.5rem;\nperspective: 1000px;\nanimation: darma-loader-uiverse-purple-helix-rails-rotate 5s infinite linear;\nanimation-delay: calc(var(--i) * 0.2s);\n}\n\n@keyframes darma-loader-uiverse-purple-helix-rails-rotate {\n100% {\ntransform: rotateY(360deg);\n}\n}",
+  "defaults": {
+    "size": 108,
+    "speed": 5,
+    "color": "#782fff",
+    "secondaryColor": "#5c0572"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-purple-helix-rails\">\n  <span style=\"--i:1\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:2\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:3\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:4\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:5\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:6\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:7\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:8\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:9\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:10\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:11\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:12\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:13\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:14\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:15\" class=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n</div>",
+    "css": ".darma-loader-uiverse-purple-helix-rails {\n  transform: rotateX(70deg) scale(.72);\n}\n\n.darma-loader-uiverse-purple-helix-rails .darma-loader-uiverse-purple-helix-rails__element {\ndisplay: block;\nborder-left: 5px solid var(--loader-color, #782fff);\nborder-right: 5px solid var(--loader-color, #782fff);\nborder-top: dotted 2px var(--loader-secondary-color, #5c0572);\nwidth: 10rem;\nheight: 1rem;\nmargin-top: 0.5rem;\nperspective: 1000px;\nanimation: darma-loader-uiverse-purple-helix-rails-rotate 5s infinite linear;\nanimation-delay: calc(var(--i) * 0.2s);\n}\n\n@keyframes darma-loader-uiverse-purple-helix-rails-rotate {\n100% {\ntransform: rotateY(360deg);\n}\n}",
+    "react": "export default function UiversePurpleHelixRailsLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-purple-helix-rails\">\n  <span style=\"--i:1\" className=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:2\" className=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:3\" className=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:4\" className=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:5\" className=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:6\" className=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:7\" className=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:8\" className=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:9\" className=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:10\" className=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:11\" className=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:12\" className=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:13\" className=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:14\" className=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n  <span style=\"--i:15\" className=\"darma-loader-uiverse-purple-helix-rails__element\"></span>\n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-circuit-signal-path",
+  "name": "Circuit Signal Path",
+  "category": "creative",
+  "tags": [
+    "circuit",
+    "svg",
+    "signal",
+    "tech",
+    "uiverse"
+  ],
+  "html": "<svg class=\"loader circuit\" viewBox=\"0 0 80 60\" width=\"80\" height=\"60\">\n  <path\n    d=\"M8,30 H22 V12 H58 V30 H72 M58,30 V48 H22 V30\"\n    fill=\"none\"\n    stroke=\"#2DD4BF\"\n    stroke-width=\"1.5\"\n    stroke-linecap=\"round\"\n    stroke-linejoin=\"round\"\n    opacity=\"0.18\"\n  ></path>\n\n<path\nclass=\"trace\"\nd=\"M8,30 H22 V12 H58 V30 H72 M58,30 V48 H22 V30\"\nfill=\"none\"\nstroke=\"#2DD4BF\"\nstroke-width=\"1.5\"\nstroke-linecap=\"round\"\nstroke-linejoin=\"round\"\n\n> </path>\n\n  <circle r=\"3.5\" fill=\"#FFD93D\">\n    <animateMotion dur=\"3s\" repeatCount=\"indefinite\">\n      <mpath href=\"#guide\"></mpath>\n    </animateMotion>\n  </circle>\n\n<path\nid=\"guide\"\nd=\"M8,30 H22 V12 H58 V30 H72 M58,30 V48 H22 V30\"\nfill=\"none\"\n\n> </path>\n\n<circle cx=\"22\" cy=\"12\" r=\"2.5\" fill=\"#2DD4BF\" opacity=\"0.55\"></circle>\n<circle cx=\"58\" cy=\"12\" r=\"2.5\" fill=\"#2DD4BF\" opacity=\"0.55\"></circle>\n<circle cx=\"22\" cy=\"48\" r=\"2.5\" fill=\"#2DD4BF\" opacity=\"0.55\"></circle>\n<circle cx=\"58\" cy=\"48\" r=\"2.5\" fill=\"#2DD4BF\" opacity=\"0.55\"></circle>\n</svg>",
+  "css": ".loader { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.trace {\nstroke-dasharray: 175;\nstroke-dashoffset: 175;\nanimation: circuitDraw 3s linear infinite;\n}\n\n/* Stroke \"eats\" itself forward continuously */\n@keyframes circuitDraw {\nto {\nstroke-dashoffset: -175;\n}\n}",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 80,
+    "speed": 1.5,
+    "color": "#22c55e",
+    "secondaryColor": "#93c5fd"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "uiverse-heartbeat-medallion",
+  "name": "Heartbeat Medallion",
+  "category": "fun",
+  "tags": [
+    "heart",
+    "medical",
+    "pulse",
+    "ecg",
+    "uiverse"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-heartbeat-medallion heartbeat medallion fun heart medical pulse ecg uiverse html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-heartbeat-medallion darma-loader-uiverse-heartbeat-medallion__heartbeatloader\">\n            <svg class=\"darma-loader-uiverse-heartbeat-medallion__svgdraw\" width=\"100%\" height=\"100%\" viewBox=\"0 0 150 400\" xmlns=\"http://www.w3.org/2000/svg\">\n                <path class=\"darma-loader-uiverse-heartbeat-medallion__path\" d=\"M 0 200 l 40 0 l 5 -40 l 5 40 l 10 0 l 5 15 l 10 -140 l 10 220 l 5 -95 l 10 0 l 5 20 l 5 -20 l 30 0\" fill=\"transparent\" stroke-width=\"4\" stroke=\"black\"></path>\n            </svg>\n            <div class=\"darma-loader-uiverse-heartbeat-medallion__innercircle\"></div>\n            <div class=\"darma-loader-uiverse-heartbeat-medallion__outercircle\"></div>\n        </div>",
+  "previewCss": ".darma-loader-uiverse-heartbeat-medallion { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n/* heart beat */\n.darma-loader-uiverse-heartbeat-medallion__heartbeatloader {\n  position: relative;\n  width: 72px;\n  height: 72px;\n  z-index: 0;\n  margin: auto;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n}\n\n.darma-loader-uiverse-heartbeat-medallion__svgdraw {\ntop: 30%;\nleft: 26%;\nposition: absolute;\nwidth: 50%;\nheight: 50%;\ncolor: #fff;\ntransform: scale(1.4);\nz-index: 3;\n}\n\n.darma-loader-uiverse-heartbeat-medallion__path {\nstroke: color-mix(in srgb, var(--loader-secondary-color, #ffffff) 95%, transparent);\nstroke-width: 4;\nstroke-dasharray: 1000px;\nstroke-dashoffset: 1000px;\nanimation: darma-loader-uiverse-heartbeat-medallion-draw 1.5s infinite forwards normal linear;\nanimation-delay: 0.1s;\nposition: relative;\n}\n\n@keyframes darma-loader-uiverse-heartbeat-medallion-draw {\nto {\nstroke-dashoffset: 0;\n}\n}\n\n.darma-loader-uiverse-heartbeat-medallion__innercircle {\nposition: absolute;\ntop: 17%;\nleft: 100.5%;\ntransform: translate(-50%, -50%) scale(1.2);\nwidth: 160%;\nheight: auto;\nz-index: 1;\nopacity: 0.97;\nanimation: darma-loader-uiverse-heartbeat-medallion-innerbeat 1.5s infinite linear forwards;\n}\n\n.darma-loader-uiverse-heartbeat-medallion__innercircle:before,\n.darma-loader-uiverse-heartbeat-medallion__innercircle:after {\nposition: absolute;\ncontent: \"\";\nleft: 25%;\ntop: 0;\nwidth: 25%;\nheight: auto;\npadding-bottom: 40%;\nbackground: var(--loader-color, #e15f5f);\nborder-radius: 50px 50px 0 0;\ntransform: rotate(-45deg);\ntransform-origin: 0 100%;\n}\n\n.darma-loader-uiverse-heartbeat-medallion__innercircle:after {\nleft: 0;\ntransform: rotate(45deg);\ntransform-origin: 100% 100%;\n}\n\n@keyframes darma-loader-uiverse-heartbeat-medallion-innerbeat {\n0% {\ntransform: translate(-50%, -50%) scale(1.2);\n}\n\n10% {\ntransform: translate(-50%, -50%) scale(1.2);\n}\n\n50% {\ntransform: translate(-50%, -50%) scale(1.3);\n}\n\n60% {\ntransform: translate(-50%, -50%) scale(1.25);\n}\n\n75% {\ntransform: translate(-50%, -50%) scale(1.3);\n}\n}\n\n.darma-loader-uiverse-heartbeat-medallion__outercircle {\nwidth: 100%;\nheight: 100%;\nborder-radius: 50%;\nbackground-color: rgba(238, 92, 92, 0.9);\nbox-shadow: 0 0 30px 0px #fff;\nposition: absolute;\nz-index: -1;\nopacity: 0.7;\ntop: 0;\nleft: 0;\ntransform: scale(1.2);\nanimation: darma-loader-uiverse-heartbeat-medallion-outerbeat 1.5s infinite linear forwards;\n}\n\n@keyframes darma-loader-uiverse-heartbeat-medallion-outerbeat {\n0% {\ntransform: scale(1.2);\n}\n\n10% {\ntransform: scale(1.2);\n}\n\n50% {\ntransform: scale(1.3);\n}\n\n60% {\ntransform: scale(1.25);\n}\n\n75% {\ntransform: scale(1.3);\n}\n}",
+  "defaults": {
+    "size": 92,
+    "speed": 1.5,
+    "color": "#e15f5f",
+    "secondaryColor": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-heartbeat-medallion darma-loader-uiverse-heartbeat-medallion__heartbeatloader\">\n            <svg class=\"darma-loader-uiverse-heartbeat-medallion__svgdraw\" width=\"100%\" height=\"100%\" viewBox=\"0 0 150 400\" xmlns=\"http://www.w3.org/2000/svg\">\n                <path class=\"darma-loader-uiverse-heartbeat-medallion__path\" d=\"M 0 200 l 40 0 l 5 -40 l 5 40 l 10 0 l 5 15 l 10 -140 l 10 220 l 5 -95 l 10 0 l 5 20 l 5 -20 l 30 0\" fill=\"transparent\" stroke-width=\"4\" stroke=\"black\"></path>\n            </svg>\n            <div class=\"darma-loader-uiverse-heartbeat-medallion__innercircle\"></div>\n            <div class=\"darma-loader-uiverse-heartbeat-medallion__outercircle\"></div>\n        </div>",
+    "css": ".darma-loader-uiverse-heartbeat-medallion { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n/* heart beat */\n.darma-loader-uiverse-heartbeat-medallion__heartbeatloader {\n  position: relative;\n  width: 72px;\n  height: 72px;\n  z-index: 0;\n  margin: auto;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n}\n\n.darma-loader-uiverse-heartbeat-medallion__svgdraw {\ntop: 30%;\nleft: 26%;\nposition: absolute;\nwidth: 50%;\nheight: 50%;\ncolor: #fff;\ntransform: scale(1.4);\nz-index: 3;\n}\n\n.darma-loader-uiverse-heartbeat-medallion__path {\nstroke: color-mix(in srgb, var(--loader-secondary-color, #ffffff) 95%, transparent);\nstroke-width: 4;\nstroke-dasharray: 1000px;\nstroke-dashoffset: 1000px;\nanimation: darma-loader-uiverse-heartbeat-medallion-draw 1.5s infinite forwards normal linear;\nanimation-delay: 0.1s;\nposition: relative;\n}\n\n@keyframes darma-loader-uiverse-heartbeat-medallion-draw {\nto {\nstroke-dashoffset: 0;\n}\n}\n\n.darma-loader-uiverse-heartbeat-medallion__innercircle {\nposition: absolute;\ntop: 17%;\nleft: 100.5%;\ntransform: translate(-50%, -50%) scale(1.2);\nwidth: 160%;\nheight: auto;\nz-index: 1;\nopacity: 0.97;\nanimation: darma-loader-uiverse-heartbeat-medallion-innerbeat 1.5s infinite linear forwards;\n}\n\n.darma-loader-uiverse-heartbeat-medallion__innercircle:before,\n.darma-loader-uiverse-heartbeat-medallion__innercircle:after {\nposition: absolute;\ncontent: \"\";\nleft: 25%;\ntop: 0;\nwidth: 25%;\nheight: auto;\npadding-bottom: 40%;\nbackground: var(--loader-color, #e15f5f);\nborder-radius: 50px 50px 0 0;\ntransform: rotate(-45deg);\ntransform-origin: 0 100%;\n}\n\n.darma-loader-uiverse-heartbeat-medallion__innercircle:after {\nleft: 0;\ntransform: rotate(45deg);\ntransform-origin: 100% 100%;\n}\n\n@keyframes darma-loader-uiverse-heartbeat-medallion-innerbeat {\n0% {\ntransform: translate(-50%, -50%) scale(1.2);\n}\n\n10% {\ntransform: translate(-50%, -50%) scale(1.2);\n}\n\n50% {\ntransform: translate(-50%, -50%) scale(1.3);\n}\n\n60% {\ntransform: translate(-50%, -50%) scale(1.25);\n}\n\n75% {\ntransform: translate(-50%, -50%) scale(1.3);\n}\n}\n\n.darma-loader-uiverse-heartbeat-medallion__outercircle {\nwidth: 100%;\nheight: 100%;\nborder-radius: 50%;\nbackground-color: rgba(238, 92, 92, 0.9);\nbox-shadow: 0 0 30px 0px #fff;\nposition: absolute;\nz-index: -1;\nopacity: 0.7;\ntop: 0;\nleft: 0;\ntransform: scale(1.2);\nanimation: darma-loader-uiverse-heartbeat-medallion-outerbeat 1.5s infinite linear forwards;\n}\n\n@keyframes darma-loader-uiverse-heartbeat-medallion-outerbeat {\n0% {\ntransform: scale(1.2);\n}\n\n10% {\ntransform: scale(1.2);\n}\n\n50% {\ntransform: scale(1.3);\n}\n\n60% {\ntransform: scale(1.25);\n}\n\n75% {\ntransform: scale(1.3);\n}\n}",
+    "react": "export default function UiverseHeartbeatMedallionLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-heartbeat-medallion darma-loader-uiverse-heartbeat-medallion__heartbeatloader\">\n            <svg className=\"darma-loader-uiverse-heartbeat-medallion__svgdraw\" width=\"100%\" height=\"100%\" viewBox=\"0 0 150 400\" xmlns=\"http://www.w3.org/2000/svg\">\n                <path className=\"darma-loader-uiverse-heartbeat-medallion__path\" d=\"M 0 200 l 40 0 l 5 -40 l 5 40 l 10 0 l 5 15 l 10 -140 l 10 220 l 5 -95 l 10 0 l 5 20 l 5 -20 l 30 0\" fill=\"transparent\" stroke-width=\"4\" stroke=\"black\"></path>\n            </svg>\n            <div className=\"darma-loader-uiverse-heartbeat-medallion__innercircle\"></div>\n            <div className=\"darma-loader-uiverse-heartbeat-medallion__outercircle\"></div>\n        </div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

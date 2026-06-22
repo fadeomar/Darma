@@ -1,0 +1,50 @@
+{
+  "id": "uiverse-white-tower-bounce",
+  "name": "White Tower Bounce",
+  "category": "bars",
+  "tags": [
+    "bars",
+    "bounce",
+    "tower",
+    "equalizer",
+    "uiverse"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-white-tower-bounce white tower bounce bars bars bounce tower equalizer uiverse html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-white-tower-bounce darma-loader-uiverse-white-tower-bounce__lines-loader\">\n  <div class=\"darma-loader-uiverse-white-tower-bounce__line\"></div>\n  <div class=\"darma-loader-uiverse-white-tower-bounce__line\"></div>\n  <div class=\"darma-loader-uiverse-white-tower-bounce__line\"></div>\n  <div class=\"darma-loader-uiverse-white-tower-bounce__line\"></div>\n  <div class=\"darma-loader-uiverse-white-tower-bounce__line\"></div>\n</div>",
+  "previewCss": ".darma-loader-uiverse-white-tower-bounce { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.darma-loader-uiverse-white-tower-bounce__lines-loader {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n\n.darma-loader-uiverse-white-tower-bounce__line {\nwidth: 8px;\nheight: 58px;\nbackground-color: var(--loader-color, #ffffff);\nanimation: darma-loader-uiverse-white-tower-bounce-bounce 1.5s infinite ease-in-out;\nbox-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Box shadow added */\n}\n\n/* Create staggered bouncing effect */\n.darma-loader-uiverse-white-tower-bounce__line:nth-child(2) {\nanimation-delay: 0.3s;\n}\n\n.darma-loader-uiverse-white-tower-bounce__line:nth-child(3) {\nanimation-delay: 0.6s;\n}\n\n.darma-loader-uiverse-white-tower-bounce__line:nth-child(5) {\nanimation-delay: 1.2s;\n}\n\n/* Bounce Keyframes */\n@keyframes darma-loader-uiverse-white-tower-bounce-bounce {\n0%,\n20%,\n50%,\n80%,\n100% {\ntransform: translateY(0);\n}\n40% {\ntransform: translateY(-30px);\n}\n60% {\ntransform: translateY(-15px);\n}\n}",
+  "defaults": {
+    "size": 78,
+    "speed": 1.5,
+    "color": "#ffffff",
+    "secondaryColor": "#94a3b8"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-white-tower-bounce darma-loader-uiverse-white-tower-bounce__lines-loader\">\n  <div class=\"darma-loader-uiverse-white-tower-bounce__line\"></div>\n  <div class=\"darma-loader-uiverse-white-tower-bounce__line\"></div>\n  <div class=\"darma-loader-uiverse-white-tower-bounce__line\"></div>\n  <div class=\"darma-loader-uiverse-white-tower-bounce__line\"></div>\n  <div class=\"darma-loader-uiverse-white-tower-bounce__line\"></div>\n</div>",
+    "css": ".darma-loader-uiverse-white-tower-bounce { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.darma-loader-uiverse-white-tower-bounce__lines-loader {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n\n.darma-loader-uiverse-white-tower-bounce__line {\nwidth: 8px;\nheight: 58px;\nbackground-color: var(--loader-color, #ffffff);\nanimation: darma-loader-uiverse-white-tower-bounce-bounce 1.5s infinite ease-in-out;\nbox-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Box shadow added */\n}\n\n/* Create staggered bouncing effect */\n.darma-loader-uiverse-white-tower-bounce__line:nth-child(2) {\nanimation-delay: 0.3s;\n}\n\n.darma-loader-uiverse-white-tower-bounce__line:nth-child(3) {\nanimation-delay: 0.6s;\n}\n\n.darma-loader-uiverse-white-tower-bounce__line:nth-child(5) {\nanimation-delay: 1.2s;\n}\n\n/* Bounce Keyframes */\n@keyframes darma-loader-uiverse-white-tower-bounce-bounce {\n0%,\n20%,\n50%,\n80%,\n100% {\ntransform: translateY(0);\n}\n40% {\ntransform: translateY(-30px);\n}\n60% {\ntransform: translateY(-15px);\n}\n}",
+    "react": "export default function UiverseWhiteTowerBounceLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-white-tower-bounce darma-loader-uiverse-white-tower-bounce__lines-loader\">\n  <div className=\"darma-loader-uiverse-white-tower-bounce__line\"></div>\n  <div className=\"darma-loader-uiverse-white-tower-bounce__line\"></div>\n  <div className=\"darma-loader-uiverse-white-tower-bounce__line\"></div>\n  <div className=\"darma-loader-uiverse-white-tower-bounce__line\"></div>\n  <div className=\"darma-loader-uiverse-white-tower-bounce__line\"></div>\n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

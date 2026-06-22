@@ -1,0 +1,40 @@
+{
+  "id": "uiverse-chromatic-text-glow",
+  "name": "Chromatic Text Glow",
+  "category": "minimal",
+  "tags": [
+    "text",
+    "gradient",
+    "hue",
+    "word",
+    "uiverse",
+    "batch-5"
+  ],
+  "html": "<div class=\"loader\">loading...</div>\n",
+  "css": "@keyframes chromaticHue {\n  0%, 100% { filter: hue-rotate(0deg); }\n  50% { filter: hue-rotate(360deg); }\n}\n.loader {\n  font-size: 30px;\n  line-height: 1;\n  background: linear-gradient(to right, #2d60ec, #3ccfda);\n  -webkit-text-fill-color: transparent;\n  -webkit-background-clip: text;\n  background-clip: text;\n  animation: chromaticHue 9s linear infinite;\n  font-weight: 800;\n}\n",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 30,
+    "speed": 9,
+    "color": "#2d60ec",
+    "secondaryColor": "#3ccfda"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

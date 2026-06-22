@@ -1,0 +1,50 @@
+{
+  "id": "uiverse-notification-pulse-bell",
+  "name": "Notification Pulse Bell",
+  "category": "fun",
+  "tags": [
+    "bell",
+    "notification",
+    "pulse",
+    "status",
+    "uiverse"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-notification-pulse-bell notification pulse bell fun bell notification pulse status uiverse html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-notification-pulse-bell\">\n  <svg\n    viewBox=\"0 0 24 24\"\n    fill=\"none\"\n    height=\"24\"\n    width=\"24\"\n    xmlns=\"http://www.w3.org/2000/svg\"\n    aria-hidden=\"true\"\n    class=\"darma-loader-uiverse-notification-pulse-bell__bell-icon\"\n  >\n    <path\n      d=\"M12 5.365V3m0 2.365a5.338 5.338 0 0 1 5.133 5.368v1.8c0 2.386 1.867 2.982 1.867 4.175 0 .593 0 1.292-.538 1.292H5.538C5 18 5 17.301 5 16.708c0-1.193 1.867-1.789 1.867-4.175v-1.8A5.338 5.338 0 0 1 12 5.365ZM8.733 18c.094.852.306 1.54.944 2.112a3.48 3.48 0 0 0 4.646 0c.638-.572 1.236-1.26 1.33-2.112h-6.92Z\"\n      stroke-width=\"2\"\n      stroke-linejoin=\"round\"\n      stroke-linecap=\"round\"\n      stroke=\"currentColor\"\n    ></path>\n  </svg>\n  <div class=\"darma-loader-uiverse-notification-pulse-bell__point\"></div>\n</div>",
+  "previewCss": ".darma-loader-uiverse-notification-pulse-bell {\n  width: fit-content;\n  height: fit-content;\n  background-color: var(--loader-secondary-color, #3a3a3a);\n  border-radius: 7px;\n  padding: 10px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n  cursor: pointer;\n  transition: 0.2s;\n}\n\n.darma-loader-uiverse-notification-pulse-bell:hover {\nbackground-color: rgb(26, 26, 26);\n}\n\n.darma-loader-uiverse-notification-pulse-bell:hover svg {\ncolor: white;\n}\n\n.darma-loader-uiverse-notification-pulse-bell svg {\ncolor: rgba(255, 255, 255, 0.651);\ntransform: scale(1.2);\ntransition: 0.2s;\n}\n\n.darma-loader-uiverse-notification-pulse-bell__point {\nposition: absolute;\nbottom: 5px;\nleft: 5px;\nwidth: 6px;\nheight: 6px;\nbackground-color: var(--loader-color, #00ff00);\nborder-radius: 25px;\ndisplay: flex;\nalign-items: center;\njustify-content: center;\n}\n\n.darma-loader-uiverse-notification-pulse-bell__point::before {\ncontent: \"\";\nposition: absolute;\nwidth: 1px;\nheight: 1px;\nbackground-color: var(--loader-color, #00ff00);\nborder-radius: 25px;\nanimation: darma-loader-uiverse-notification-pulse-bell-loop 1s 0s infinite;\n}\n\n@keyframes darma-loader-uiverse-notification-pulse-bell-loop {\n0% {\nbackground-color: var(--loader-color, #00ff00);\nwidth: 1px;\nheight: 1px;\n}\n100% {\nbackground-color: transparent;\nwidth: 30px;\nheight: 30px;\n}\n}",
+  "defaults": {
+    "size": 58,
+    "speed": 1,
+    "color": "#00ff00",
+    "secondaryColor": "#3a3a3a"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-notification-pulse-bell\">\n  <svg\n    viewBox=\"0 0 24 24\"\n    fill=\"none\"\n    height=\"24\"\n    width=\"24\"\n    xmlns=\"http://www.w3.org/2000/svg\"\n    aria-hidden=\"true\"\n    class=\"darma-loader-uiverse-notification-pulse-bell__bell-icon\"\n  >\n    <path\n      d=\"M12 5.365V3m0 2.365a5.338 5.338 0 0 1 5.133 5.368v1.8c0 2.386 1.867 2.982 1.867 4.175 0 .593 0 1.292-.538 1.292H5.538C5 18 5 17.301 5 16.708c0-1.193 1.867-1.789 1.867-4.175v-1.8A5.338 5.338 0 0 1 12 5.365ZM8.733 18c.094.852.306 1.54.944 2.112a3.48 3.48 0 0 0 4.646 0c.638-.572 1.236-1.26 1.33-2.112h-6.92Z\"\n      stroke-width=\"2\"\n      stroke-linejoin=\"round\"\n      stroke-linecap=\"round\"\n      stroke=\"currentColor\"\n    ></path>\n  </svg>\n  <div class=\"darma-loader-uiverse-notification-pulse-bell__point\"></div>\n</div>",
+    "css": ".darma-loader-uiverse-notification-pulse-bell {\n  width: fit-content;\n  height: fit-content;\n  background-color: var(--loader-secondary-color, #3a3a3a);\n  border-radius: 7px;\n  padding: 10px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n  cursor: pointer;\n  transition: 0.2s;\n}\n\n.darma-loader-uiverse-notification-pulse-bell:hover {\nbackground-color: rgb(26, 26, 26);\n}\n\n.darma-loader-uiverse-notification-pulse-bell:hover svg {\ncolor: white;\n}\n\n.darma-loader-uiverse-notification-pulse-bell svg {\ncolor: rgba(255, 255, 255, 0.651);\ntransform: scale(1.2);\ntransition: 0.2s;\n}\n\n.darma-loader-uiverse-notification-pulse-bell__point {\nposition: absolute;\nbottom: 5px;\nleft: 5px;\nwidth: 6px;\nheight: 6px;\nbackground-color: var(--loader-color, #00ff00);\nborder-radius: 25px;\ndisplay: flex;\nalign-items: center;\njustify-content: center;\n}\n\n.darma-loader-uiverse-notification-pulse-bell__point::before {\ncontent: \"\";\nposition: absolute;\nwidth: 1px;\nheight: 1px;\nbackground-color: var(--loader-color, #00ff00);\nborder-radius: 25px;\nanimation: darma-loader-uiverse-notification-pulse-bell-loop 1s 0s infinite;\n}\n\n@keyframes darma-loader-uiverse-notification-pulse-bell-loop {\n0% {\nbackground-color: var(--loader-color, #00ff00);\nwidth: 1px;\nheight: 1px;\n}\n100% {\nbackground-color: transparent;\nwidth: 30px;\nheight: 30px;\n}\n}",
+    "react": "export default function UiverseNotificationPulseBellLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-notification-pulse-bell\">\n  <svg\n    viewBox=\"0 0 24 24\"\n    fill=\"none\"\n    height=\"24\"\n    width=\"24\"\n    xmlns=\"http://www.w3.org/2000/svg\"\n    aria-hidden=\"true\"\n    className=\"darma-loader-uiverse-notification-pulse-bell__bell-icon\"\n  >\n    <path\n      d=\"M12 5.365V3m0 2.365a5.338 5.338 0 0 1 5.133 5.368v1.8c0 2.386 1.867 2.982 1.867 4.175 0 .593 0 1.292-.538 1.292H5.538C5 18 5 17.301 5 16.708c0-1.193 1.867-1.789 1.867-4.175v-1.8A5.338 5.338 0 0 1 12 5.365ZM8.733 18c.094.852.306 1.54.944 2.112a3.48 3.48 0 0 0 4.646 0c.638-.572 1.236-1.26 1.33-2.112h-6.92Z\"\n      stroke-width=\"2\"\n      stroke-linejoin=\"round\"\n      stroke-linecap=\"round\"\n      stroke=\"currentColor\"\n    ></path>\n  </svg>\n  <div className=\"darma-loader-uiverse-notification-pulse-bell__point\"></div>\n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

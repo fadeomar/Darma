@@ -1,0 +1,47 @@
+{
+  "id": "darma-research-lunar-phase-dial",
+  "name": "Lunar Phase Dial",
+  "category": "spinners",
+  "tags": [
+    "moon",
+    "dial",
+    "phase",
+    "spinner",
+    "minimal"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-research-lunar-phase-dial lunar phase dial spinners moon dial phase spinner minimal html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-research-lunar-phase-dial\" aria-label=\"Loading moon phases\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-research-lunar-phase-dial { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #e2e8f0); --accent-2: var(--loader-secondary-color, #818cf8); width: var(--loader-size, 86px); height: var(--loader-size, 86px); position: relative; border-radius: 50%; animation: darma-loader-darma-research-lunar-phase-dial-lunar-rotate calc(var(--speed) * 3.5) linear infinite; }\n.darma-loader-darma-research-lunar-phase-dial::before { content: \"\"; position: absolute; inset: 18%; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff, var(--accent) 45%, #111827 46%); box-shadow: 0 0 26px color-mix(in srgb, var(--accent) 55%, transparent); }\n.darma-loader-darma-research-lunar-phase-dial span { position: absolute; left: 50%; top: 50%; width: 17%; height: 17%; margin: -8.5% 0 0 -8.5%; border-radius: 50%; background: linear-gradient(90deg, var(--accent-2) 50%, #111827 50%); transform: rotate(calc(var(--i) * 60deg)) translate(calc(var(--loader-size, 86px) * .43)); animation: darma-loader-darma-research-lunar-phase-dial-lunar-blink calc(var(--speed) * 1.5) ease-in-out infinite; }\n.darma-loader-darma-research-lunar-phase-dial span:nth-child(1){ --i:0; } .darma-loader-darma-research-lunar-phase-dial span:nth-child(2){ --i:1; animation-delay:.12s; } .darma-loader-darma-research-lunar-phase-dial span:nth-child(3){ --i:2; animation-delay:.24s; } .darma-loader-darma-research-lunar-phase-dial span:nth-child(4){ --i:3; animation-delay:.36s; } .darma-loader-darma-research-lunar-phase-dial span:nth-child(5){ --i:4; animation-delay:.48s; } .darma-loader-darma-research-lunar-phase-dial span:nth-child(6){ --i:5; animation-delay:.6s; }\n@keyframes darma-loader-darma-research-lunar-phase-dial-lunar-rotate { to { rotate: 360deg; } }\n@keyframes darma-loader-darma-research-lunar-phase-dial-lunar-blink { 0%,100% { opacity:.35; scale:.72; } 50% { opacity:1; scale:1; } }",
+  "defaults": {
+    "color": "#e2e8f0",
+    "secondaryColor": "#818cf8",
+    "size": 86,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-research-lunar-phase-dial\" aria-label=\"Loading moon phases\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-research-lunar-phase-dial { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #e2e8f0); --accent-2: var(--loader-secondary-color, #818cf8); width: var(--loader-size, 86px); height: var(--loader-size, 86px); position: relative; border-radius: 50%; animation: darma-loader-darma-research-lunar-phase-dial-lunar-rotate calc(var(--speed) * 3.5) linear infinite; }\n.darma-loader-darma-research-lunar-phase-dial::before { content: \"\"; position: absolute; inset: 18%; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff, var(--accent) 45%, #111827 46%); box-shadow: 0 0 26px color-mix(in srgb, var(--accent) 55%, transparent); }\n.darma-loader-darma-research-lunar-phase-dial span { position: absolute; left: 50%; top: 50%; width: 17%; height: 17%; margin: -8.5% 0 0 -8.5%; border-radius: 50%; background: linear-gradient(90deg, var(--accent-2) 50%, #111827 50%); transform: rotate(calc(var(--i) * 60deg)) translate(calc(var(--loader-size, 86px) * .43)); animation: darma-loader-darma-research-lunar-phase-dial-lunar-blink calc(var(--speed) * 1.5) ease-in-out infinite; }\n.darma-loader-darma-research-lunar-phase-dial span:nth-child(1){ --i:0; } .darma-loader-darma-research-lunar-phase-dial span:nth-child(2){ --i:1; animation-delay:.12s; } .darma-loader-darma-research-lunar-phase-dial span:nth-child(3){ --i:2; animation-delay:.24s; } .darma-loader-darma-research-lunar-phase-dial span:nth-child(4){ --i:3; animation-delay:.36s; } .darma-loader-darma-research-lunar-phase-dial span:nth-child(5){ --i:4; animation-delay:.48s; } .darma-loader-darma-research-lunar-phase-dial span:nth-child(6){ --i:5; animation-delay:.6s; }\n@keyframes darma-loader-darma-research-lunar-phase-dial-lunar-rotate { to { rotate: 360deg; } }\n@keyframes darma-loader-darma-research-lunar-phase-dial-lunar-blink { 0%,100% { opacity:.35; scale:.72; } 50% { opacity:1; scale:1; } }",
+    "react": "export default function DarmaResearchLunarPhaseDialLoader() {\n  return (\n    <div className=\"darma-loader-darma-research-lunar-phase-dial\" aria-label=\"Loading moon phases\"><span></span><span></span><span></span><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 6",
+    "author": "Darma / ChatGPT",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

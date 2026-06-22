@@ -1,0 +1,40 @@
+{
+  "id": "uiverse-flip-letter-marquee",
+  "name": "Flip Letter Marquee",
+  "category": "fun",
+  "tags": [
+    "letters",
+    "marquee",
+    "flip",
+    "text",
+    "uiverse",
+    "batch-5"
+  ],
+  "html": "<div class=\"loader\"><span>L</span><span>O</span><span>A</span><span>D</span><span>I</span><span>N</span><span>G</span></div>\n",
+  "css": ".loader {\n  perspective: 700px;\n  background: #ef4444;\n  padding: 12px 22px;\n  border-radius: 10px;\n  display: inline-flex;\n  gap: 1px;\n}\n.loader > span {\n  font-size: 42px;\n  line-height: 1;\n  font-family: \"Franklin Gothic Medium\", Arial, sans-serif;\n  display: inline-block;\n  animation: letterFlip 2.6s infinite linear;\n  transform-origin: 0 70%;\n  transform-style: preserve-3d;\n  color: #111111;\n}\n.loader > span:nth-child(even) { color: #ffffff; }\n.loader > span:nth-child(2) { animation-delay: .3s; }\n.loader > span:nth-child(3) { animation-delay: .6s; }\n.loader > span:nth-child(4) { animation-delay: .9s; }\n.loader > span:nth-child(5) { animation-delay: 1.2s; }\n.loader > span:nth-child(6) { animation-delay: 1.5s; }\n.loader > span:nth-child(7) { animation-delay: 1.8s; }\n@keyframes letterFlip { 35%,100% { transform: rotateZ(360deg); } }\n",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 42,
+    "speed": 2.6,
+    "color": "#ef4444",
+    "secondaryColor": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

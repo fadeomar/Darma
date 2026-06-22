@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-spiral-vortex-rings",
+  "name": "Spiral Vortex Rings",
+  "category": "creative",
+  "tags": [
+    "spiral",
+    "rings",
+    "vortex",
+    "3d",
+    "uiverse"
+  ],
+  "html": "<section class=\"container-espiral\">\n  <aside style=\"--r: 1\" class=\"loader\">\n    <span style=\"--i: 1\" class=\"circulo\"></span>\n    <span style=\"--i: 2\" class=\"circulo\"></span>\n    <span style=\"--i: 3\" class=\"circulo\"></span>\n    <span style=\"--i: 4\" class=\"circulo\"></span>\n    <span style=\"--i: 5\" class=\"circulo\"></span>\n    <span style=\"--i: 6\" class=\"circulo\"></span>\n    <span style=\"--i: 7\" class=\"circulo\"></span>\n    <span style=\"--i: 8\" class=\"circulo\"></span>\n    <span style=\"--i: 9\" class=\"circulo\"></span>\n    <span style=\"--i: 10\" class=\"circulo\"></span>\n    <span style=\"--i: 11\" class=\"circulo\"></span>\n    <span style=\"--i: 12\" class=\"circulo\"></span>\n    <span style=\"--i: 13\" class=\"circulo\"></span>\n    <span style=\"--i: 14\" class=\"circulo\"></span>\n    <span style=\"--i: 15\" class=\"circulo\"></span>\n    <span style=\"--i: 16\" class=\"circulo\"></span>\n    <span style=\"--i: 17\" class=\"circulo\"></span>\n    <span style=\"--i: 18\" class=\"circulo\"></span>\n    <span style=\"--i: 19\" class=\"circulo\"></span>\n    <span style=\"--i: 20\" class=\"circulo\"></span>\n  </aside>\n  <aside style=\"--r: 2\" class=\"loader\">\n    <span style=\"--i: 1\" class=\"circulo\"></span>\n    <span style=\"--i: 2\" class=\"circulo\"></span>\n    <span style=\"--i: 3\" class=\"circulo\"></span>\n    <span style=\"--i: 4\" class=\"circulo\"></span>\n    <span style=\"--i: 5\" class=\"circulo\"></span>\n    <span style=\"--i: 6\" class=\"circulo\"></span>\n    <span style=\"--i: 7\" class=\"circulo\"></span>\n    <span style=\"--i: 8\" class=\"circulo\"></span>\n    <span style=\"--i: 9\" class=\"circulo\"></span>\n    <span style=\"--i: 10\" class=\"circulo\"></span>\n    <span style=\"--i: 11\" class=\"circulo\"></span>\n    <span style=\"--i: 12\" class=\"circulo\"></span>\n    <span style=\"--i: 13\" class=\"circulo\"></span>\n    <span style=\"--i: 14\" class=\"circulo\"></span>\n    <span style=\"--i: 15\" class=\"circulo\"></span>\n    <span style=\"--i: 16\" class=\"circulo\"></span>\n    <span style=\"--i: 17\" class=\"circulo\"></span>\n    <span style=\"--i: 18\" class=\"circulo\"></span>\n    <span style=\"--i: 19\" class=\"circulo\"></span>\n    <span style=\"--i: 20\" class=\"circulo\"></span>\n  </aside>\n  <aside style=\"--r: 3\" class=\"loader\">\n    <span style=\"--i: 1\" class=\"circulo\"></span>\n    <span style=\"--i: 2\" class=\"circulo\"></span>\n    <span style=\"--i: 3\" class=\"circulo\"></span>\n    <span style=\"--i: 4\" class=\"circulo\"></span>\n    <span style=\"--i: 5\" class=\"circulo\"></span>\n    <span style=\"--i: 6\" class=\"circulo\"></span>\n    <span style=\"--i: 7\" class=\"circulo\"></span>\n    <span style=\"--i: 8\" class=\"circulo\"></span>\n    <span style=\"--i: 9\" class=\"circulo\"></span>\n    <span style=\"--i: 10\" class=\"circulo\"></span>\n    <span style=\"--i: 11\" class=\"circulo\"></span>\n    <span style=\"--i: 12\" class=\"circulo\"></span>\n    <span style=\"--i: 13\" class=\"circulo\"></span>\n    <span style=\"--i: 14\" class=\"circulo\"></span>\n    <span style=\"--i: 15\" class=\"circulo\"></span>\n    <span style=\"--i: 16\" class=\"circulo\"></span>\n    <span style=\"--i: 17\" class=\"circulo\"></span>\n    <span style=\"--i: 18\" class=\"circulo\"></span>\n    <span style=\"--i: 19\" class=\"circulo\"></span>\n    <span style=\"--i: 20\" class=\"circulo\"></span>\n  </aside>\n  <aside style=\"--r: 4\" class=\"loader\">\n    <span style=\"--i: 1\" class=\"circulo\"></span>\n    <span style=\"--i: 2\" class=\"circulo\"></span>\n    <span style=\"--i: 3\" class=\"circulo\"></span>\n    <span style=\"--i: 4\" class=\"circulo\"></span>\n    <span style=\"--i: 5\" class=\"circulo\"></span>\n    <span style=\"--i: 6\" class=\"circulo\"></span>\n    <span style=\"--i: 7\" class=\"circulo\"></span>\n    <span style=\"--i: 8\" class=\"circulo\"></span>\n    <span style=\"--i: 9\" class=\"circulo\"></span>\n    <span style=\"--i: 10\" class=\"circulo\"></span>\n    <span style=\"--i: 11\" class=\"circulo\"></span>\n    <span style=\"--i: 12\" class=\"circulo\"></span>\n    <span style=\"--i: 13\" class=\"circulo\"></span>\n    <span style=\"--i: 14\" class=\"circulo\"></span>\n    <span style=\"--i: 15\" class=\"circulo\"></span>\n    <span style=\"--i: 16\" class=\"circulo\"></span>\n    <span style=\"--i: 17\" class=\"circulo\"></span>\n    <span style=\"--i: 18\" class=\"circulo\"></span>\n    <span style=\"--i: 19\" class=\"circulo\"></span>\n    <span style=\"--i: 20\" class=\"circulo\"></span>\n  </aside>\n</section>",
+  "css": ".container-espiral {\n  position: relative;\n  width: 160px;\n  height: 160px;\n  z-index: 50;\n  display: grid;\n  place-content: center;\n  overflow: hidden;\n}\n\n.loader {\nposition: absolute;\nleft: 50%;\ntop: 50%;\ntransform: rotate(calc(var(--r) * 45deg));\n}\n\n.circulo {\n--color: #0f0;\ntop: 0;\nwidth: 78px;\nheight: 2px;\nleft: -78px;\nposition: absolute;\ntransform-origin: right;\ntransform: rotate(calc(var(--i) * 18deg));\n}\n\n.circulo::before {\ncontent: \"\";\nposition: absolute;\ntop: -50%;\nwidth: 9px;\nheight: 9px;\nbackground-color: var(--color);\nborder-radius: 50%;\nbox-shadow:\n  0 0 8px var(--color),\n  0 0 16px var(--color),\n  0 0 28px var(--color),\n  0 0 44px var(--color);\nanimation: animate 5s linear infinite;\nanimation-delay: calc(var(--i) * -0.5s);\n}\n\n@keyframes animate {\n0% {\ntransform: translateX(78px) scale(1);\nopacity: 0;\n}\n10% {\nopacity: 1;\n}\n80% {\nopacity: 1;\n}\n100% {\ntransform: translateX(0px) scale(0);\nopacity: 1;\n}\n}",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 122,
+    "speed": 2.5,
+    "color": "#67e8f9",
+    "secondaryColor": "#7c3aed"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

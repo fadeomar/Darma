@@ -99,6 +99,40 @@
     }
   },
   {
+    "id": "uiverse-chromatic-text-glow",
+    "name": "Chromatic Text Glow",
+    "category": "minimal",
+    "tags": [
+      "text",
+      "gradient",
+      "hue",
+      "word",
+      "uiverse",
+      "batch-5"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-chromatic-text-glow chromatic text glow minimal text gradient hue word uiverse batch-5 html css react singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-chromatic-text-glow\">loading...</div>\n",
+    "previewCss": "@keyframes darma-loader-uiverse-chromatic-text-glow-chromaticHue {\n  0%, 100% { filter: hue-rotate(0deg); }\n  50% { filter: hue-rotate(360deg); }\n}\n.darma-loader-uiverse-chromatic-text-glow {\n  font-size: 30px;\n  line-height: 1;\n  background: linear-gradient(to right, var(--loader-color, #2d60ec), var(--loader-secondary-color, #3ccfda));\n  -webkit-text-fill-color: transparent;\n  -webkit-background-clip: text;\n  background-clip: text;\n  animation: darma-loader-uiverse-chromatic-text-glow-chromaticHue 9s linear infinite;\n  font-weight: 800;\n}\n",
+    "defaults": {
+      "size": 30,
+      "speed": 9,
+      "color": "#2d60ec",
+      "secondaryColor": "#3ccfda"
+    }
+  },
+  {
     "id": "uiverse-citrus-mask-orb",
     "name": "Citrus Mask Orb",
     "category": "minimal",
@@ -273,6 +307,104 @@
       "size": 25,
       "speed": 1,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "uiverse-isometric-layer-tile",
+    "name": "Isometric Layer Tile",
+    "category": "minimal",
+    "tags": [
+      "isometric",
+      "layers",
+      "tile",
+      "square",
+      "uiverse",
+      "batch-5"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-isometric-layer-tile isometric layer tile minimal isometric layers tile square uiverse batch-5 html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-uiverse-isometric-layer-tile\"></span>\n",
+    "previewCss": ".darma-loader-uiverse-isometric-layer-tile {\n  position: relative;\n  width: 60px;\n  height: 60px;\n  background: var(--loader-color, #a19dad);\n  transform: rotateX(65deg) rotate(45deg);\n  color: var(--loader-secondary-color, #ffffff);\n  animation: darma-loader-uiverse-isometric-layer-tile-layerStack 1s linear infinite alternate;\n}\n.darma-loader-uiverse-isometric-layer-tile::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  background: color-mix(in srgb, var(--loader-secondary-color, #ffffff) 70%, transparent);\n  animation: darma-loader-uiverse-isometric-layer-tile-layerTravel 1s linear infinite alternate;\n}\n@keyframes darma-loader-uiverse-isometric-layer-tile-layerStack { 0% { box-shadow: 0 0 0 0; } 90%,100% { box-shadow: 20px 20px 0 -4px; } }\n@keyframes darma-loader-uiverse-isometric-layer-tile-layerTravel { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(-25px,-25px) scale(1); } }\n",
+    "defaults": {
+      "size": 60,
+      "speed": 1,
+      "color": "#a19dad",
+      "secondaryColor": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-research-kinetic-type-pulse",
+    "name": "Kinetic Type Pulse",
+    "category": "minimal",
+    "tags": [
+      "text",
+      "type",
+      "pulse",
+      "typography",
+      "minimal"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-research-kinetic-type-pulse kinetic type pulse minimal text type pulse typography minimal html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-research-kinetic-type-pulse\" aria-label=\"Loading text\"><span>L</span><span>O</span><span>A</span><span>D</span></div>",
+    "previewCss": ".darma-loader-darma-research-kinetic-type-pulse { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #14b8a6); --accent-2: var(--loader-secondary-color, #f97316); display: inline-flex; gap: .22em; font: 900 calc(var(--loader-size, 96px) * .28)/1 ui-sans-serif, system-ui, sans-serif; letter-spacing: .08em; perspective: 600px; }\n.darma-loader-darma-research-kinetic-type-pulse span { color: var(--accent); text-shadow: 0 0 16px color-mix(in srgb, var(--accent) 60%, transparent); animation: darma-loader-darma-research-kinetic-type-pulse-kinetic-letter calc(var(--speed) * 1.4) cubic-bezier(.6,-.3,.3,1.3) infinite; transform-origin: 50% 80%; }\n.darma-loader-darma-research-kinetic-type-pulse span:nth-child(2) { animation-delay: .12s; color: var(--accent-2); } .darma-loader-darma-research-kinetic-type-pulse span:nth-child(3) { animation-delay: .24s; } .darma-loader-darma-research-kinetic-type-pulse span:nth-child(4) { animation-delay: .36s; color: var(--accent-2); }\n@keyframes darma-loader-darma-research-kinetic-type-pulse-kinetic-letter { 0%,100% { transform: translateY(0) rotateX(0) scale(1); opacity:.55; } 45% { transform: translateY(-18px) rotateX(55deg) scale(1.18); opacity:1; } }",
+    "defaults": {
+      "color": "#14b8a6",
+      "secondaryColor": "#f97316",
+      "size": 96,
+      "speed": 1
+    }
+  },
+  {
+    "id": "uiverse-lime-flower-pinwheel",
+    "name": "Lime Flower Pinwheel",
+    "category": "minimal",
+    "tags": [
+      "flower",
+      "pinwheel",
+      "single",
+      "retro",
+      "uiverse",
+      "batch-5"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-lime-flower-pinwheel lime flower pinwheel minimal flower pinwheel single retro uiverse batch-5 html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-lime-flower-pinwheel\"><span class=\"darma-loader-uiverse-lime-flower-pinwheel__flower-loader\">Loading…</span></div>\n",
+    "previewCss": ".darma-loader-uiverse-lime-flower-pinwheel { width: 70px; height: 70px; display: grid; place-items: center; }\n.darma-loader-uiverse-lime-flower-pinwheel__flower-loader {\n  overflow: hidden;\n  position: relative;\n  text-indent: -9999px;\n  display: inline-block;\n  width: 16px;\n  height: 16px;\n  background: var(--loader-secondary-color, #ee9966);\n  border-radius: 100%;\n  box-shadow: white 0 0 15px 0, var(--loader-color, #448855) -12px -12px 0 4px, var(--loader-color, #448855) 12px -12px 0 4px, var(--loader-color, #448855) 12px 12px 0 4px, var(--loader-color, #448855) -12px 12px 0 4px;\n  animation: darma-loader-uiverse-lime-flower-pinwheel-flowerPinwheel 5s infinite ease-in-out;\n  transform-origin: 50% 50%;\n}\n@keyframes darma-loader-uiverse-lime-flower-pinwheel-flowerPinwheel {\n  0% { transform: rotate(0deg); box-shadow: white 0 0 15px 0, var(--loader-color, #448855) -12px -12px 0 4px, var(--loader-color, #448855) 12px -12px 0 4px, var(--loader-color, #448855) 12px 12px 0 4px, var(--loader-color, #448855) -12px 12px 0 4px; }\n  50% { transform: rotate(1080deg); box-shadow: white 0 0 15px 0, var(--loader-color, #448855) 12px 12px 0 4px, var(--loader-color, #448855) -12px 12px 0 4px, var(--loader-color, #448855) -12px -12px 0 4px, var(--loader-color, #448855) 12px -12px 0 4px; }\n}\n",
+    "defaults": {
+      "size": 70,
+      "speed": 5,
+      "color": "#448855",
+      "secondaryColor": "#ee9966"
     }
   },
   {
@@ -509,6 +641,36 @@
       "size": 88,
       "speed": 1,
       "background": "transparent"
+    }
+  },
+  {
+    "id": "darma-research-terminal-cursor-wave",
+    "name": "Terminal Cursor Wave",
+    "category": "minimal",
+    "tags": [
+      "terminal",
+      "cursor",
+      "text",
+      "minimal",
+      "developer"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-research-terminal-cursor-wave terminal cursor wave minimal terminal cursor text minimal developer html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-research-terminal-cursor-wave\" aria-label=\"Loading terminal\"><span class=\"darma-loader-darma-research-terminal-cursor-wave__prompt\">darma</span><span class=\"darma-loader-darma-research-terminal-cursor-wave__dots\"><i></i><i></i><i></i></span><span class=\"darma-loader-darma-research-terminal-cursor-wave__cursor\"></span></div>",
+    "previewCss": ".darma-loader-darma-research-terminal-cursor-wave { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #22c55e); --accent-2: var(--loader-secondary-color, #38bdf8); display: inline-flex; align-items: center; gap: 8px; padding: 12px 14px; border-radius: 12px; background: #020617; color: var(--accent); font: 700 14px/1 ui-monospace, SFMono-Regular, Menlo, monospace; box-shadow: inset 0 0 0 1px #ffffff18, 0 12px 30px #02061755; }\n.darma-loader-darma-research-terminal-cursor-wave__prompt::before { content: \"$ \"; color: var(--accent-2); }\n.darma-loader-darma-research-terminal-cursor-wave__dots { display: inline-flex; gap: 4px; }\n.darma-loader-darma-research-terminal-cursor-wave__dots i { width: 5px; height: 5px; border-radius: 50%; background: currentColor; animation: darma-loader-darma-research-darma-loader-darma-research-terminal-cursor-wave-terminal-cursor-wave-terminal-dot calc(var(--speed) * 1) ease-in-out infinite; }\n.darma-loader-darma-research-terminal-cursor-wave__dots i:nth-child(2) { animation-delay: .12s; } .darma-loader-darma-research-terminal-cursor-wave__dots i:nth-child(3) { animation-delay: .24s; }\n.darma-loader-darma-research-terminal-cursor-wave__cursor { width: 9px; height: 18px; background: var(--accent-2); animation: darma-loader-darma-research-terminal-cursor-wave-terminal-cursor calc(var(--speed) * .8) steps(2,end) infinite; }\n@keyframes darma-loader-darma-research-terminal-cursor-wave-terminal-dot { 50% { transform: translateY(-6px); color: var(--accent-2); } }\n@keyframes darma-loader-darma-research-terminal-cursor-wave-terminal-cursor { 50% { opacity: 0; } }",
+    "defaults": {
+      "color": "#22c55e",
+      "secondaryColor": "#38bdf8",
+      "size": 74,
+      "speed": 1
     }
   },
   {
@@ -1397,6 +1559,39 @@
       "size": 50,
       "speed": 2,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "uiverse-virtual-card-twinkles",
+    "name": "Virtual Card Twinkles",
+    "category": "minimal",
+    "tags": [
+      "card",
+      "payment",
+      "twinkle",
+      "svg",
+      "uiverse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-virtual-card-twinkles virtual card twinkles minimal card payment twinkle svg uiverse html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-virtual-card-twinkles darma-loader-uiverse-virtual-card-twinkles__virtual-card\">\n  <svg\n    xmlns=\"http://www.w3.org/2000/svg\"\n    fill=\"none\"\n    viewBox=\"0 0 111 84\"\n    height=\"84\"\n    width=\"111\"\n  >\n    <rect\n      stroke-dasharray=\"4 4\"\n      stroke-width=\"2\"\n      stroke=\"black\"\n      fill=\"white\"\n      transform=\"matrix(-1.31134e-07 1 1 1.31134e-07 -1.31134e-07 40.7759)\"\n      rx=\"3.40064\"\n      height=\"65.6552\"\n      width=\"41.2241\"\n      y=\"1\"\n      x=\"1\"\n    ></rect>\n    <rect\n      fill=\"black\"\n      transform=\"rotate(-180 65.7758 58.6293)\"\n      height=\"10.3362\"\n      width=\"63.8966\"\n      y=\"58.6293\"\n      x=\"65.7758\"\n    ></rect>\n    <path\n      class=\"darma-loader-uiverse-virtual-card-twinkles__plus-one\"\n      stroke-width=\"2\"\n      stroke=\"black\"\n      d=\"M70.8334 15L70.8334 19.6954M70.8334 19.6954H66.1379M70.8334 19.6954H75.5288M70.8334 19.6954V24.3909\"\n    ></path>\n    <path\n      class=\"darma-loader-uiverse-virtual-card-twinkles__plus-two\"\n      stroke-width=\"2\"\n      stroke=\"black\"\n      d=\"M93.955 39L93.955 45.8171M93.955 45.8171H87.1379M93.955 45.8171H100.772M93.955 45.8171V52.6341\"\n    ></path>\n    <path\n      class=\"darma-loader-uiverse-virtual-card-twinkles__plus-three\"\n      stroke-width=\"2\"\n      stroke=\"black\"\n      d=\"M99.9622 0L99.9622 10.8242M99.9622 10.8242H89.1379M99.9622 10.8242H110.786M99.9622 10.8242V21.6484\"\n    ></path>\n    <path\n      class=\"darma-loader-uiverse-virtual-card-twinkles__plus-four\"\n      stroke-width=\"2\"\n      stroke=\"black\"\n      d=\"M87.4913 22L87.4913 26.3535M87.4913 26.3535H83.1379M87.4913 26.3535H91.8448M87.4913 26.3535V30.7069\"\n    ></path>\n    <path\n      class=\"darma-loader-uiverse-virtual-card-twinkles__plus-five\"\n      stroke-width=\"2\"\n      stroke=\"black\"\n      d=\"M77.8447 1V3.70685M77.8447 3.70685H75.1379M77.8447 3.70685H80.5516M77.8447 3.70685V6.4137\"\n    ></path>\n    <path\n      class=\"darma-loader-uiverse-virtual-card-twinkles__plus\"\n      stroke-width=\"2\"\n      stroke=\"black\"\n      d=\"M76.8447 40V42.7068M76.8447 42.7068H74.1379M76.8447 42.7068H79.5516M76.8447 42.7068V45.4137\"\n    ></path>\n  </svg>\n</div>",
+    "previewCss": ".darma-loader-uiverse-virtual-card-twinkles { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.darma-loader-uiverse-virtual-card-twinkles__virtual-card,\n.darma-loader-uiverse-virtual-card-twinkles__virtual-card {\n  margin: 0 50px;\n}\n\n.darma-loader-uiverse-virtual-card-twinkles__plus {\nanimation: darma-loader-uiverse-virtual-card-twinkles-plus 2s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;\n}\n\n.darma-loader-uiverse-virtual-card-twinkles__plus-one {\nanimation: darma-loader-uiverse-virtual-card-twinkles-plus 2.5s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;\n}\n\n.darma-loader-uiverse-virtual-card-twinkles__plus-two {\nanimation: darma-loader-uiverse-virtual-card-twinkles-plus 3s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;\n}\n\n.darma-loader-uiverse-virtual-card-twinkles__plus-three {\nanimation: darma-loader-uiverse-virtual-card-twinkles-plus 3.5s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;\n}\n\n.darma-loader-uiverse-virtual-card-twinkles__plus-four {\nanimation: darma-loader-uiverse-virtual-card-twinkles-plus 4s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;\n}\n\n.darma-loader-uiverse-virtual-card-twinkles__plus-five {\nanimation: darma-loader-uiverse-virtual-card-twinkles-plus 4.5s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;\n}\n\n@keyframes darma-loader-uiverse-virtual-card-twinkles-plus {\n0% {\nopacity: 1;\n}\n\n50% {\nopacity: 0;\n}\n\n100% {\nopacity: 1;\n}\n}",
+    "defaults": {
+      "size": 84,
+      "speed": 2,
+      "color": "#000000",
+      "secondaryColor": "#ffffff"
     }
   }
 ]

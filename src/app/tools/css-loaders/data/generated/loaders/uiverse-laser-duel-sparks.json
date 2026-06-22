@@ -1,0 +1,51 @@
+{
+  "id": "uiverse-laser-duel-sparks",
+  "name": "Laser Duel Sparks",
+  "category": "fun",
+  "tags": [
+    "laser",
+    "duel",
+    "sparks",
+    "sci-fi",
+    "uiverse",
+    "batch-5"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-laser-duel-sparks laser duel sparks fun laser duel sparks sci-fi uiverse batch-5 html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-laser-duel-sparks\">\n  <div class=\"darma-loader-uiverse-laser-duel-sparks__blade darma-loader-uiverse-laser-duel-sparks__left\"></div>\n  <div class=\"darma-loader-uiverse-laser-duel-sparks__blade darma-loader-uiverse-laser-duel-sparks__right\"></div>\n  <span class=\"darma-loader-uiverse-laser-duel-sparks__spark darma-loader-uiverse-laser-duel-sparks__s1\"></span><span class=\"darma-loader-uiverse-laser-duel-sparks__spark darma-loader-uiverse-laser-duel-sparks__s2\"></span><span class=\"darma-loader-uiverse-laser-duel-sparks__spark darma-loader-uiverse-laser-duel-sparks__s3\"></span><span class=\"darma-loader-uiverse-laser-duel-sparks__spark darma-loader-uiverse-laser-duel-sparks__s4\"></span>\n</div>\n",
+  "previewCss": ".darma-loader-uiverse-laser-duel-sparks { position: relative; width: 150px; height: 80px; }\n.darma-loader-uiverse-laser-duel-sparks__blade {\n  position: absolute;\n  bottom: 16px;\n  width: 8px;\n  height: 62px;\n  border-radius: 6px;\n  background: #666666;\n  transform-origin: bottom center;\n}\n.darma-loader-uiverse-laser-duel-sparks__blade::before {\n  content: \"\";\n  position: absolute;\n  left: 2px;\n  bottom: 12px;\n  width: 4px;\n  height: 0;\n  border-radius: 999px;\n  filter: blur(.3px);\n  animation: darma-loader-uiverse-laser-duel-sparks-laserGrow 1.6s ease-in-out infinite;\n}\n.darma-loader-uiverse-laser-duel-sparks__left { left: 28px; transform: rotate(62deg); }\n.darma-loader-uiverse-laser-duel-sparks__right { right: 28px; transform: rotate(-62deg); }\n.darma-loader-uiverse-laser-duel-sparks__left::before { background: var(--loader-color, #22c55e); box-shadow: 0 0 12px var(--loader-color, #22c55e), 0 0 30px var(--loader-color, #22c55e); }\n.darma-loader-uiverse-laser-duel-sparks__right::before { background: var(--loader-secondary-color, #ef4444); box-shadow: 0 0 12px var(--loader-secondary-color, #ef4444), 0 0 30px var(--loader-secondary-color, #ef4444); }\n.darma-loader-uiverse-laser-duel-sparks__spark { position: absolute; left: 50%; top: 38px; width: 6px; height: 6px; border-radius: 50%; background: #ffffff; box-shadow: 0 0 14px #ffffff; opacity: 0; animation: darma-loader-uiverse-laser-duel-sparks-duelSpark 1.6s infinite; }\n.darma-loader-uiverse-laser-duel-sparks__s2 { animation-delay: .15s; }\n.darma-loader-uiverse-laser-duel-sparks__s3 { animation-delay: .3s; }\n.darma-loader-uiverse-laser-duel-sparks__s4 { animation-delay: .45s; }\n@keyframes darma-loader-uiverse-laser-duel-sparks-laserGrow { 0%,15% { height: 0; } 35%,75% { height: 72px; } 100% { height: 0; } }\n@keyframes darma-loader-uiverse-laser-duel-sparks-duelSpark { 0%, 42%, 100% { transform: translate(0,0) scale(.2); opacity: 0; } 48% { opacity: 1; } 60% { transform: translate(calc((var(--x, 1)) * 28px), -24px) scale(1); opacity: 0; } }\n.darma-loader-uiverse-laser-duel-sparks__s1 { --x: -1; } .darma-loader-uiverse-laser-duel-sparks__s2 { --x: 1; } .darma-loader-uiverse-laser-duel-sparks__s3 { --x: -.5; } .darma-loader-uiverse-laser-duel-sparks__s4 { --x: .5; }\n",
+  "defaults": {
+    "size": 150,
+    "speed": 1.6,
+    "color": "#22c55e",
+    "secondaryColor": "#ef4444"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-laser-duel-sparks\">\n  <div class=\"darma-loader-uiverse-laser-duel-sparks__blade darma-loader-uiverse-laser-duel-sparks__left\"></div>\n  <div class=\"darma-loader-uiverse-laser-duel-sparks__blade darma-loader-uiverse-laser-duel-sparks__right\"></div>\n  <span class=\"darma-loader-uiverse-laser-duel-sparks__spark darma-loader-uiverse-laser-duel-sparks__s1\"></span><span class=\"darma-loader-uiverse-laser-duel-sparks__spark darma-loader-uiverse-laser-duel-sparks__s2\"></span><span class=\"darma-loader-uiverse-laser-duel-sparks__spark darma-loader-uiverse-laser-duel-sparks__s3\"></span><span class=\"darma-loader-uiverse-laser-duel-sparks__spark darma-loader-uiverse-laser-duel-sparks__s4\"></span>\n</div>\n",
+    "css": ".darma-loader-uiverse-laser-duel-sparks { position: relative; width: 150px; height: 80px; }\n.darma-loader-uiverse-laser-duel-sparks__blade {\n  position: absolute;\n  bottom: 16px;\n  width: 8px;\n  height: 62px;\n  border-radius: 6px;\n  background: #666666;\n  transform-origin: bottom center;\n}\n.darma-loader-uiverse-laser-duel-sparks__blade::before {\n  content: \"\";\n  position: absolute;\n  left: 2px;\n  bottom: 12px;\n  width: 4px;\n  height: 0;\n  border-radius: 999px;\n  filter: blur(.3px);\n  animation: darma-loader-uiverse-laser-duel-sparks-laserGrow 1.6s ease-in-out infinite;\n}\n.darma-loader-uiverse-laser-duel-sparks__left { left: 28px; transform: rotate(62deg); }\n.darma-loader-uiverse-laser-duel-sparks__right { right: 28px; transform: rotate(-62deg); }\n.darma-loader-uiverse-laser-duel-sparks__left::before { background: var(--loader-color, #22c55e); box-shadow: 0 0 12px var(--loader-color, #22c55e), 0 0 30px var(--loader-color, #22c55e); }\n.darma-loader-uiverse-laser-duel-sparks__right::before { background: var(--loader-secondary-color, #ef4444); box-shadow: 0 0 12px var(--loader-secondary-color, #ef4444), 0 0 30px var(--loader-secondary-color, #ef4444); }\n.darma-loader-uiverse-laser-duel-sparks__spark { position: absolute; left: 50%; top: 38px; width: 6px; height: 6px; border-radius: 50%; background: #ffffff; box-shadow: 0 0 14px #ffffff; opacity: 0; animation: darma-loader-uiverse-laser-duel-sparks-duelSpark 1.6s infinite; }\n.darma-loader-uiverse-laser-duel-sparks__s2 { animation-delay: .15s; }\n.darma-loader-uiverse-laser-duel-sparks__s3 { animation-delay: .3s; }\n.darma-loader-uiverse-laser-duel-sparks__s4 { animation-delay: .45s; }\n@keyframes darma-loader-uiverse-laser-duel-sparks-laserGrow { 0%,15% { height: 0; } 35%,75% { height: 72px; } 100% { height: 0; } }\n@keyframes darma-loader-uiverse-laser-duel-sparks-duelSpark { 0%, 42%, 100% { transform: translate(0,0) scale(.2); opacity: 0; } 48% { opacity: 1; } 60% { transform: translate(calc((var(--x, 1)) * 28px), -24px) scale(1); opacity: 0; } }\n.darma-loader-uiverse-laser-duel-sparks__s1 { --x: -1; } .darma-loader-uiverse-laser-duel-sparks__s2 { --x: 1; } .darma-loader-uiverse-laser-duel-sparks__s3 { --x: -.5; } .darma-loader-uiverse-laser-duel-sparks__s4 { --x: .5; }\n",
+    "react": "export default function UiverseLaserDuelSparksLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-laser-duel-sparks\">\n  <div className=\"darma-loader-uiverse-laser-duel-sparks__blade darma-loader-uiverse-laser-duel-sparks__left\"></div>\n  <div className=\"darma-loader-uiverse-laser-duel-sparks__blade darma-loader-uiverse-laser-duel-sparks__right\"></div>\n  <span className=\"darma-loader-uiverse-laser-duel-sparks__spark darma-loader-uiverse-laser-duel-sparks__s1\"></span><span className=\"darma-loader-uiverse-laser-duel-sparks__spark darma-loader-uiverse-laser-duel-sparks__s2\"></span><span className=\"darma-loader-uiverse-laser-duel-sparks__spark darma-loader-uiverse-laser-duel-sparks__s3\"></span><span className=\"darma-loader-uiverse-laser-duel-sparks__spark darma-loader-uiverse-laser-duel-sparks__s4\"></span>\n</div>\n\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

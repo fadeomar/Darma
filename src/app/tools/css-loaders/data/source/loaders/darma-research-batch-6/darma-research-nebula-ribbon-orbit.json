@@ -1,0 +1,36 @@
+{
+  "id": "darma-research-nebula-ribbon-orbit",
+  "name": "Nebula Ribbon Orbit",
+  "category": "creative",
+  "tags": [
+    "orbit",
+    "nebula",
+    "ribbon",
+    "glow",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span class=\"core\"></span><span class=\"ribbon ribbon-a\"></span><span class=\"ribbon ribbon-b\"></span><span class=\"spark spark-a\"></span><span class=\"spark spark-b\"></span></div>",
+  "css": ".loader { --size: var(--loader-size); --speed: var(--loader-speed); --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--size); height: var(--size); position: relative; display: grid; place-items: center; isolation: isolate; }\n.core { width: 38%; height: 38%; border-radius: 50%; background: radial-gradient(circle at 35% 25%, #ffffff 0 7%, var(--accent) 18%, var(--accent-2) 58%, #070816 100%); box-shadow: 0 0 calc(var(--size) * .25) color-mix(in srgb, var(--accent) 70%, transparent), inset 0 0 calc(var(--size) * .12) #fff8; animation: nebula-core calc(var(--speed) * 2.2) ease-in-out infinite; }\n.ribbon { position: absolute; width: 84%; height: 34%; border-radius: 999px; border: calc(var(--size) * .035) solid transparent; border-top-color: var(--accent); border-bottom-color: color-mix(in srgb, var(--accent-2) 80%, transparent); filter: drop-shadow(0 0 10px var(--accent)); transform: rotateX(66deg); animation: nebula-spin calc(var(--speed) * 1.7) linear infinite; }\n.ribbon-b { width: 76%; height: 48%; transform: rotateX(66deg) rotateZ(70deg); animation-duration: calc(var(--speed) * 2.3); animation-direction: reverse; opacity: .75; }\n.spark { position: absolute; width: 9%; height: 9%; border-radius: 50%; background: #fff; box-shadow: 0 0 14px 3px var(--accent-2); transform-origin: 0 calc(var(--size) * .34); animation: nebula-spark calc(var(--speed) * 1.7) linear infinite; }\n.spark-a { top: 17%; left: 50%; }\n.spark-b { top: 49%; left: 82%; animation-delay: calc(var(--speed) * -.85); }\n@keyframes nebula-spin { to { rotate: 360deg; } }\n@keyframes nebula-spark { to { transform: rotate(360deg); } }\n@keyframes nebula-core { 0%,100% { transform: scale(.88); } 50% { transform: scale(1.08); } }",
+  "defaults": {
+    "color": "#8b5cf6",
+    "secondaryColor": "#22d3ee",
+    "size": 96,
+    "speed": 1.1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "popular": true,
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 6",
+    "author": "Darma / ChatGPT",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

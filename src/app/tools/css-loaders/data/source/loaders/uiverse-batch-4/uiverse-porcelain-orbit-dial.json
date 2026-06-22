@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-porcelain-orbit-dial",
+  "name": "Porcelain Orbit Dial",
+  "category": "spinners",
+  "tags": [
+    "neumorphic",
+    "orbit",
+    "dial",
+    "orb",
+    "uiverse"
+  ],
+  "html": "<div class=\"loader\">\n  <div class=\"track\"></div>\n  <div class=\"inner-track\"></div>\n  <div class=\"orb\"></div>\n</div>",
+  "css": "/* Container for the loader */\n.loader {\n  position: relative;\n  width: 10em;\n  height: 10em;\n}\n/* Track elements */\n.track, .inner-track {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  border-radius: 50%;\n  box-shadow: inset -0.1em -0.1em 0.2em #d1d1d1, inset 0.1em 0.1em 0.2em #ffffff;\n}\n\n.inner-track {\nwidth: 80%;\nheight: 80%;\ntop: 10%;\nleft: 10%;\nborder: 2em solid #f0f0f0;\n}\n/* Orb element */\n.orb {\nposition: absolute;\nwidth: 1.5em;\nheight: 1.5em;\ntop: 50%;\nleft: 50%;\nbackground-color: #c0cfda;\nborder-radius: 50%;\nanimation: spin 1.5s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);\nbackground: radial-gradient(circle at 30% 30%, #ffffff, #ccc);\nbox-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), inset 0 -2px 4px rgba(255, 255, 255, 0.2), inset 0 2px 4px rgba(0, 0, 0, 0.2);\n}\n\n/* Animations */\n@keyframes spin {\n0% {\ntransform: translate(-50%, -50%) rotate(90deg) translate(3em) rotate(-90deg);\n}\n\n100% {\ntransform: translate(-50%, -50%) rotate(450deg) translate(3em) rotate(-450deg);\n}\n}",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 82,
+    "speed": 1.5,
+    "color": "#c0cfda",
+    "secondaryColor": "#f0f0f0"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

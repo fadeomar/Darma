@@ -1,0 +1,48 @@
+{
+  "id": "darma-research-magnet-comet-dots",
+  "name": "Magnet Comet Dots",
+  "category": "dots",
+  "tags": [
+    "dots",
+    "comet",
+    "magnet",
+    "trail",
+    "minimal"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true,
+    "singleElement": false
+  },
+  "searchText": "darma-research-magnet-comet-dots magnet comet dots dots dots comet magnet trail minimal html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-research-magnet-comet-dots\" aria-label=\"Loading dots\"><span></span><span></span><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-research-magnet-comet-dots { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #6366f1); width: calc(var(--loader-size, 78px) * 1.35); height: calc(var(--loader-size, 78px) * .52); display: flex; align-items: center; justify-content: space-between; gap: 7px; filter: drop-shadow(0 0 10px color-mix(in srgb, var(--accent) 45%, transparent)); }\n.darma-loader-darma-research-magnet-comet-dots span { width: 14%; aspect-ratio: 1; border-radius: 50%; background: var(--accent-2); animation: darma-loader-darma-research-magnet-comet-dots-comet-pull calc(var(--speed) * 1.2) ease-in-out infinite; }\n.darma-loader-darma-research-magnet-comet-dots span:nth-child(1) { animation-delay: -.4s; } .darma-loader-darma-research-magnet-comet-dots span:nth-child(2) { animation-delay: -.3s; } .darma-loader-darma-research-magnet-comet-dots span:nth-child(3) { animation-delay: -.2s; } .darma-loader-darma-research-magnet-comet-dots span:nth-child(4) { animation-delay: -.1s; }\n.darma-loader-darma-research-magnet-comet-dots span:nth-child(5) { background: var(--accent); box-shadow: 0 0 18px var(--accent); }\n@keyframes darma-loader-darma-research-magnet-comet-dots-comet-pull { 0%,100% { transform: translateY(0) scale(.75); opacity: .45; } 45% { transform: translateY(-16px) scale(1.15); opacity: 1; } 70% { transform: translateY(7px) scale(.85); } }",
+  "defaults": {
+    "color": "#f59e0b",
+    "secondaryColor": "#6366f1",
+    "size": 78,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-research-magnet-comet-dots\" aria-label=\"Loading dots\"><span></span><span></span><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-research-magnet-comet-dots { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #6366f1); width: calc(var(--loader-size, 78px) * 1.35); height: calc(var(--loader-size, 78px) * .52); display: flex; align-items: center; justify-content: space-between; gap: 7px; filter: drop-shadow(0 0 10px color-mix(in srgb, var(--accent) 45%, transparent)); }\n.darma-loader-darma-research-magnet-comet-dots span { width: 14%; aspect-ratio: 1; border-radius: 50%; background: var(--accent-2); animation: darma-loader-darma-research-magnet-comet-dots-comet-pull calc(var(--speed) * 1.2) ease-in-out infinite; }\n.darma-loader-darma-research-magnet-comet-dots span:nth-child(1) { animation-delay: -.4s; } .darma-loader-darma-research-magnet-comet-dots span:nth-child(2) { animation-delay: -.3s; } .darma-loader-darma-research-magnet-comet-dots span:nth-child(3) { animation-delay: -.2s; } .darma-loader-darma-research-magnet-comet-dots span:nth-child(4) { animation-delay: -.1s; }\n.darma-loader-darma-research-magnet-comet-dots span:nth-child(5) { background: var(--accent); box-shadow: 0 0 18px var(--accent); }\n@keyframes darma-loader-darma-research-magnet-comet-dots-comet-pull { 0%,100% { transform: translateY(0) scale(.75); opacity: .45; } 45% { transform: translateY(-16px) scale(1.15); opacity: 1; } 70% { transform: translateY(7px) scale(.85); } }",
+    "react": "export default function DarmaResearchMagnetCometDotsLoader() {\n  return (\n    <div className=\"darma-loader-darma-research-magnet-comet-dots\" aria-label=\"Loading dots\"><span></span><span></span><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 6",
+    "author": "Darma / ChatGPT",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

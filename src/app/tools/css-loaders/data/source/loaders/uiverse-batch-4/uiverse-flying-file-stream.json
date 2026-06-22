@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-flying-file-stream",
+  "name": "Flying File Stream",
+  "category": "creative",
+  "tags": [
+    "files",
+    "documents",
+    "stream",
+    "upload",
+    "uiverse"
+  ],
+  "html": "<div class=\"loader loader-con\">\n  <div style=\"--i: 0;\" class=\"pfile\"></div>\n  <div style=\"--i: 1;\" class=\"pfile\"></div>\n  <div class=\"pfile\" style=\"--i: 2;\"></div>\n  <div class=\"pfile\" style=\"--i: 3;\"></div>\n  <div class=\"pfile\" style=\"--i: 4;\"></div>\n  <div class=\"pfile\" style=\"--i: 5;\"></div>\n</div>",
+  "css": ".loader { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.loader-con {\n  position: relative;\n  width: 160px;\n  height: 100px;\n  overflow: hidden;\n}\n\n.pfile {\nposition: absolute;\nbottom: 25px;\nwidth: 40px;\nheight: 50px;\nbackground: linear-gradient(90deg, #b324db, #ac8dcb);\nborder-radius: 4px;\ntransform-origin: center;\nanimation: flyRight 3s ease-in-out infinite;\nopacity: 0;\n}\n\n.pfile::before {\ncontent: \"\";\nposition: absolute;\ntop: 6px;\nleft: 6px;\nwidth: 28px;\nheight: 4px;\nbackground-color: #ffffff;\nborder-radius: 2px;\n}\n\n.pfile::after {\ncontent: \"\";\nposition: absolute;\ntop: 13px;\nleft: 6px;\nwidth: 18px;\nheight: 4px;\nbackground-color: #ffffff;\nborder-radius: 2px;\n}\n\n@keyframes flyRight {\n0% {\nleft: -10%;\ntransform: scale(0);\nopacity: 0;\n}\n50% {\nleft: 45%;\ntransform: scale(1.2);\nopacity: 1;\n}\n100% {\nleft: 100%;\ntransform: scale(0);\nopacity: 0;\n}\n}\n\n.pfile {\nanimation-delay: calc(var(--i) * 0.6s);\n}",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 98,
+    "speed": 3,
+    "color": "#b324db",
+    "secondaryColor": "#ac8dcb"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "uiverse-molten-blob-core",
+  "name": "Molten Blob Core",
+  "category": "creative",
+  "tags": [
+    "liquid",
+    "blob",
+    "glow",
+    "core",
+    "uiverse"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-molten-blob-core molten blob core creative liquid blob glow core uiverse html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-molten-blob-core\">\n  <div class=\"darma-loader-uiverse-molten-blob-core__inner\">\n    <div class=\"darma-loader-uiverse-molten-blob-core__blob darma-loader-uiverse-molten-blob-core__b1\"></div>\n    <div class=\"darma-loader-uiverse-molten-blob-core__blob darma-loader-uiverse-molten-blob-core__b2\"></div>\n    <div class=\"darma-loader-uiverse-molten-blob-core__blob darma-loader-uiverse-molten-blob-core__b3\"></div>\n    <div class=\"darma-loader-uiverse-molten-blob-core__blob darma-loader-uiverse-molten-blob-core__b4\"></div>\n    <div class=\"darma-loader-uiverse-molten-blob-core__blob darma-loader-uiverse-molten-blob-core__b5\"></div>\n  </div>\n</div>",
+  "previewCss": ".darma-loader-uiverse-molten-blob-core {\n  --c1: var(--loader-color, #ffbf48);\n  --c2: var(--loader-secondary-color, #be4a1d);\n  --t: 2s;\n  --size: 1;\n  position: relative;\n  width: 100px;\n  height: 100px;\n  border-radius: 50%;\n  transform: scale(var(--size));\n  box-shadow:\n    0 0 25px 0 #ffbf4780,\n    0 20px 50px 0 #bf4a1d80;\n  animation: darma-loader-uiverse-molten-blob-core-colorize calc(var(--t) * 3) ease-in-out infinite;\n  overflow: hidden;\n}\n\n.darma-loader-uiverse-molten-blob-core::before {\ncontent: \"\";\nposition: absolute;\ninset: 0;\nborder-radius: 50%;\nborder-top: 1px solid var(--c1);\nborder-bottom: 1px solid var(--c2);\nbackground: linear-gradient(180deg, #ffbf4740, #bf4a1d80);\nbox-shadow:\ninset 0 10px 10px 0 #ffbf4780,\ninset 0 -10px 10px 0 #bf4a1d80;\n}\n\n.darma-loader-uiverse-molten-blob-core__inner {\nposition: absolute;\ninset: 0;\nborder-radius: 50%;\noverflow: hidden;\nfilter: blur(0.2px) contrast(1.45);\n}\n\n.darma-loader-uiverse-molten-blob-core__blob {\nposition: absolute;\nborder-radius: 42%;\nbackground: linear-gradient(180deg, var(--c1) 30%, var(--c2) 70%);\n}\n\n.darma-loader-uiverse-molten-blob-core__b1 {\nwidth: 44px;\nheight: 44px;\ntop: 12px;\nleft: 28px;\ntransform-origin: 50% 130%;\nanimation: darma-loader-uiverse-molten-blob-core-spin var(--t) linear infinite reverse;\n}\n\n.darma-loader-uiverse-molten-blob-core__b2 {\nwidth: 40px;\nheight: 40px;\ntop: 18px;\nleft: 30px;\ntransform-origin: 50% -30%;\nanimation: darma-loader-uiverse-molten-blob-core-spin var(--t) linear infinite;\nanimation-delay: calc(var(--t) / -3);\n}\n\n.darma-loader-uiverse-molten-blob-core__b3 {\nwidth: 30px;\nheight: 30px;\ntop: 28px;\nleft: 35px;\ntransform-origin: -30% -10%;\nanimation: darma-loader-uiverse-molten-blob-core-spin var(--t) linear infinite reverse;\n}\n\n.darma-loader-uiverse-molten-blob-core__b4 {\nwidth: 28px;\nheight: 28px;\ntop: 30px;\nleft: 36px;\ntransform-origin: -30% -10%;\nanimation: darma-loader-uiverse-molten-blob-core-spin var(--t) linear infinite reverse;\nanimation-delay: calc(var(--t) / -2);\n}\n\n.darma-loader-uiverse-molten-blob-core__b5 {\nwidth: 30px;\nheight: 30px;\ntop: 28px;\nleft: 35px;\ntransform-origin: 130% -10%;\nanimation: darma-loader-uiverse-molten-blob-core-spin var(--t) linear infinite;\n}\n\n.darma-loader-uiverse-molten-blob-core__b6 {\nwidth: 28px;\nheight: 28px;\ntop: 30px;\nleft: 36px;\ntransform-origin: 130% -10%;\nanimation: darma-loader-uiverse-molten-blob-core-spin var(--t) linear infinite;\nanimation-delay: calc(var(--t) / -1.5);\n}\n\n@keyframes darma-loader-uiverse-molten-blob-core-spin {\nto {\ntransform: rotate(360deg);\n}\n}\n\n@keyframes darma-loader-uiverse-molten-blob-core-colorize {\n0% {\nfilter: hue-rotate(0deg);\n}\n20% {\nfilter: hue-rotate(-30deg);\n}\n40% {\nfilter: hue-rotate(-60deg);\n}\n60% {\nfilter: hue-rotate(-90deg);\n}\n80% {\nfilter: hue-rotate(-45deg);\n}\n100% {\nfilter: hue-rotate(0deg);\n}\n}",
+  "defaults": {
+    "size": 90,
+    "speed": 2,
+    "color": "#ffbf48",
+    "secondaryColor": "#be4a1d"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-molten-blob-core\">\n  <div class=\"darma-loader-uiverse-molten-blob-core__inner\">\n    <div class=\"darma-loader-uiverse-molten-blob-core__blob darma-loader-uiverse-molten-blob-core__b1\"></div>\n    <div class=\"darma-loader-uiverse-molten-blob-core__blob darma-loader-uiverse-molten-blob-core__b2\"></div>\n    <div class=\"darma-loader-uiverse-molten-blob-core__blob darma-loader-uiverse-molten-blob-core__b3\"></div>\n    <div class=\"darma-loader-uiverse-molten-blob-core__blob darma-loader-uiverse-molten-blob-core__b4\"></div>\n    <div class=\"darma-loader-uiverse-molten-blob-core__blob darma-loader-uiverse-molten-blob-core__b5\"></div>\n  </div>\n</div>",
+    "css": ".darma-loader-uiverse-molten-blob-core {\n  --c1: var(--loader-color, #ffbf48);\n  --c2: var(--loader-secondary-color, #be4a1d);\n  --t: 2s;\n  --size: 1;\n  position: relative;\n  width: 100px;\n  height: 100px;\n  border-radius: 50%;\n  transform: scale(var(--size));\n  box-shadow:\n    0 0 25px 0 #ffbf4780,\n    0 20px 50px 0 #bf4a1d80;\n  animation: darma-loader-uiverse-molten-blob-core-colorize calc(var(--t) * 3) ease-in-out infinite;\n  overflow: hidden;\n}\n\n.darma-loader-uiverse-molten-blob-core::before {\ncontent: \"\";\nposition: absolute;\ninset: 0;\nborder-radius: 50%;\nborder-top: 1px solid var(--c1);\nborder-bottom: 1px solid var(--c2);\nbackground: linear-gradient(180deg, #ffbf4740, #bf4a1d80);\nbox-shadow:\ninset 0 10px 10px 0 #ffbf4780,\ninset 0 -10px 10px 0 #bf4a1d80;\n}\n\n.darma-loader-uiverse-molten-blob-core__inner {\nposition: absolute;\ninset: 0;\nborder-radius: 50%;\noverflow: hidden;\nfilter: blur(0.2px) contrast(1.45);\n}\n\n.darma-loader-uiverse-molten-blob-core__blob {\nposition: absolute;\nborder-radius: 42%;\nbackground: linear-gradient(180deg, var(--c1) 30%, var(--c2) 70%);\n}\n\n.darma-loader-uiverse-molten-blob-core__b1 {\nwidth: 44px;\nheight: 44px;\ntop: 12px;\nleft: 28px;\ntransform-origin: 50% 130%;\nanimation: darma-loader-uiverse-molten-blob-core-spin var(--t) linear infinite reverse;\n}\n\n.darma-loader-uiverse-molten-blob-core__b2 {\nwidth: 40px;\nheight: 40px;\ntop: 18px;\nleft: 30px;\ntransform-origin: 50% -30%;\nanimation: darma-loader-uiverse-molten-blob-core-spin var(--t) linear infinite;\nanimation-delay: calc(var(--t) / -3);\n}\n\n.darma-loader-uiverse-molten-blob-core__b3 {\nwidth: 30px;\nheight: 30px;\ntop: 28px;\nleft: 35px;\ntransform-origin: -30% -10%;\nanimation: darma-loader-uiverse-molten-blob-core-spin var(--t) linear infinite reverse;\n}\n\n.darma-loader-uiverse-molten-blob-core__b4 {\nwidth: 28px;\nheight: 28px;\ntop: 30px;\nleft: 36px;\ntransform-origin: -30% -10%;\nanimation: darma-loader-uiverse-molten-blob-core-spin var(--t) linear infinite reverse;\nanimation-delay: calc(var(--t) / -2);\n}\n\n.darma-loader-uiverse-molten-blob-core__b5 {\nwidth: 30px;\nheight: 30px;\ntop: 28px;\nleft: 35px;\ntransform-origin: 130% -10%;\nanimation: darma-loader-uiverse-molten-blob-core-spin var(--t) linear infinite;\n}\n\n.darma-loader-uiverse-molten-blob-core__b6 {\nwidth: 28px;\nheight: 28px;\ntop: 30px;\nleft: 36px;\ntransform-origin: 130% -10%;\nanimation: darma-loader-uiverse-molten-blob-core-spin var(--t) linear infinite;\nanimation-delay: calc(var(--t) / -1.5);\n}\n\n@keyframes darma-loader-uiverse-molten-blob-core-spin {\nto {\ntransform: rotate(360deg);\n}\n}\n\n@keyframes darma-loader-uiverse-molten-blob-core-colorize {\n0% {\nfilter: hue-rotate(0deg);\n}\n20% {\nfilter: hue-rotate(-30deg);\n}\n40% {\nfilter: hue-rotate(-60deg);\n}\n60% {\nfilter: hue-rotate(-90deg);\n}\n80% {\nfilter: hue-rotate(-45deg);\n}\n100% {\nfilter: hue-rotate(0deg);\n}\n}",
+    "react": "export default function UiverseMoltenBlobCoreLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-molten-blob-core\">\n  <div className=\"darma-loader-uiverse-molten-blob-core__inner\">\n    <div className=\"darma-loader-uiverse-molten-blob-core__blob darma-loader-uiverse-molten-blob-core__b1\"></div>\n    <div className=\"darma-loader-uiverse-molten-blob-core__blob darma-loader-uiverse-molten-blob-core__b2\"></div>\n    <div className=\"darma-loader-uiverse-molten-blob-core__blob darma-loader-uiverse-molten-blob-core__b3\"></div>\n    <div className=\"darma-loader-uiverse-molten-blob-core__blob darma-loader-uiverse-molten-blob-core__b4\"></div>\n    <div className=\"darma-loader-uiverse-molten-blob-core__blob darma-loader-uiverse-molten-blob-core__b5\"></div>\n  </div>\n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

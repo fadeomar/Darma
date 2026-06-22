@@ -1,0 +1,51 @@
+{
+  "id": "uiverse-film-reel-runner",
+  "name": "Film Reel Runner",
+  "category": "creative",
+  "tags": [
+    "film",
+    "reel",
+    "cinema",
+    "roll",
+    "uiverse",
+    "batch-5"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-film-reel-runner film reel runner creative film reel cinema roll uiverse batch-5 html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-film-reel-runner\"></div>\n",
+  "previewCss": ".darma-loader-uiverse-film-reel-runner {\n  width: 175px;\n  height: 80px;\n  display: block;\n  background-image: radial-gradient(circle 25px at 25px 25px, var(--loader-secondary-color, #ffffff) 100%, transparent 0), radial-gradient(circle 50px at 50px 50px, var(--loader-secondary-color, #ffffff) 100%, transparent 0), radial-gradient(circle 25px at 25px 25px, var(--loader-secondary-color, #ffffff) 100%, transparent 0), linear-gradient(var(--loader-secondary-color, #ffffff) 50px, transparent 0);\n  background-size: 50px 50px, 100px 76px, 50px 50px, 120px 40px;\n  background-position: 0 30px, 37px 0, 122px 30px, 25px 40px;\n  background-repeat: no-repeat;\n  position: relative;\n  box-sizing: border-box;\n}\n.darma-loader-uiverse-film-reel-runner::before,\n.darma-loader-uiverse-film-reel-runner::after {\n  content: \"\";\n  position: absolute;\n  border-radius: 50%;\n  background-color: var(--loader-color, #ff3d00);\n  background-repeat: no-repeat;\n  box-sizing: border-box;\n}\n.darma-loader-uiverse-film-reel-runner::before {\n  left: 60px; bottom: 18px; width: 36px; height: 36px;\n  background-image: radial-gradient(circle 8px at 18px 18px, var(--loader-secondary-color, #ffffff) 100%, transparent 0), radial-gradient(circle 4px at 18px 0, var(--loader-secondary-color, #ffffff) 100%, transparent 0), radial-gradient(circle 4px at 0 18px, var(--loader-secondary-color, #ffffff) 100%, transparent 0), radial-gradient(circle 4px at 36px 18px, var(--loader-secondary-color, #ffffff) 100%, transparent 0), radial-gradient(circle 4px at 18px 36px, var(--loader-secondary-color, #ffffff) 100%, transparent 0);\n  animation: darma-loader-uiverse-film-reel-runner-reelSpin 3s linear infinite;\n}\n.darma-loader-uiverse-film-reel-runner::after {\n  left: 94px; bottom: 15px; width: 24px; height: 24px;\n  background-image: radial-gradient(circle 5px at 12px 12px, var(--loader-secondary-color, #ffffff) 100%, transparent 0), radial-gradient(circle 3px at 12px 0, var(--loader-secondary-color, #ffffff) 100%, transparent 0), radial-gradient(circle 3px at 0 12px, var(--loader-secondary-color, #ffffff) 100%, transparent 0), radial-gradient(circle 3px at 24px 12px, var(--loader-secondary-color, #ffffff) 100%, transparent 0), radial-gradient(circle 3px at 12px 24px, var(--loader-secondary-color, #ffffff) 100%, transparent 0);\n  animation: darma-loader-uiverse-film-reel-runner-reelSpin 4s linear infinite reverse;\n}\n@keyframes darma-loader-uiverse-film-reel-runner-reelSpin { to { transform: rotate(360deg); } }\n",
+  "defaults": {
+    "size": 175,
+    "speed": 3,
+    "color": "#ff3d00",
+    "secondaryColor": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-film-reel-runner\"></div>\n",
+    "css": ".darma-loader-uiverse-film-reel-runner {\n  width: 175px;\n  height: 80px;\n  display: block;\n  background-image: radial-gradient(circle 25px at 25px 25px, var(--loader-secondary-color, #ffffff) 100%, transparent 0), radial-gradient(circle 50px at 50px 50px, var(--loader-secondary-color, #ffffff) 100%, transparent 0), radial-gradient(circle 25px at 25px 25px, var(--loader-secondary-color, #ffffff) 100%, transparent 0), linear-gradient(var(--loader-secondary-color, #ffffff) 50px, transparent 0);\n  background-size: 50px 50px, 100px 76px, 50px 50px, 120px 40px;\n  background-position: 0 30px, 37px 0, 122px 30px, 25px 40px;\n  background-repeat: no-repeat;\n  position: relative;\n  box-sizing: border-box;\n}\n.darma-loader-uiverse-film-reel-runner::before,\n.darma-loader-uiverse-film-reel-runner::after {\n  content: \"\";\n  position: absolute;\n  border-radius: 50%;\n  background-color: var(--loader-color, #ff3d00);\n  background-repeat: no-repeat;\n  box-sizing: border-box;\n}\n.darma-loader-uiverse-film-reel-runner::before {\n  left: 60px; bottom: 18px; width: 36px; height: 36px;\n  background-image: radial-gradient(circle 8px at 18px 18px, var(--loader-secondary-color, #ffffff) 100%, transparent 0), radial-gradient(circle 4px at 18px 0, var(--loader-secondary-color, #ffffff) 100%, transparent 0), radial-gradient(circle 4px at 0 18px, var(--loader-secondary-color, #ffffff) 100%, transparent 0), radial-gradient(circle 4px at 36px 18px, var(--loader-secondary-color, #ffffff) 100%, transparent 0), radial-gradient(circle 4px at 18px 36px, var(--loader-secondary-color, #ffffff) 100%, transparent 0);\n  animation: darma-loader-uiverse-film-reel-runner-reelSpin 3s linear infinite;\n}\n.darma-loader-uiverse-film-reel-runner::after {\n  left: 94px; bottom: 15px; width: 24px; height: 24px;\n  background-image: radial-gradient(circle 5px at 12px 12px, var(--loader-secondary-color, #ffffff) 100%, transparent 0), radial-gradient(circle 3px at 12px 0, var(--loader-secondary-color, #ffffff) 100%, transparent 0), radial-gradient(circle 3px at 0 12px, var(--loader-secondary-color, #ffffff) 100%, transparent 0), radial-gradient(circle 3px at 24px 12px, var(--loader-secondary-color, #ffffff) 100%, transparent 0), radial-gradient(circle 3px at 12px 24px, var(--loader-secondary-color, #ffffff) 100%, transparent 0);\n  animation: darma-loader-uiverse-film-reel-runner-reelSpin 4s linear infinite reverse;\n}\n@keyframes darma-loader-uiverse-film-reel-runner-reelSpin { to { transform: rotate(360deg); } }\n",
+    "react": "export default function UiverseFilmReelRunnerLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-film-reel-runner\"></div>\n\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

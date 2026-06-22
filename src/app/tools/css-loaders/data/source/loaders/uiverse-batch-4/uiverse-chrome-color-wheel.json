@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-chrome-color-wheel",
+  "name": "Chrome Color Wheel",
+  "category": "creative",
+  "tags": [
+    "chrome",
+    "color",
+    "wheel",
+    "brand",
+    "uiverse"
+  ],
+  "html": "<aside class=\"loader loader-chrome\">\n  <div class=\"circle-blue-center\"></div>\n  <div class=\"yellow-right\"></div>\n  <div class=\"green-left\"></div>\n</aside>",
+  "css": ".loader { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.loader-chrome {\n  --red: #dd5144;\n  --blue: #4285f4;\n  --yellow: #ffcd46;\n  --white: #e9e9e9;\n  --green: #1da462;\n  position: relative;\n  width: 136px;\n  height: 136px;\n  background-color: var(--red);\n  border-radius: 50%;\n  overflow: hidden;\n  animation: animacion 5s linear infinite;\n}\n\n.circle-blue-center {\nwidth: 72px;\nheight: 72px;\nbackground-color: var(--blue);\nposition: relative;\nborder-radius: inherit;\nborder: 8px solid var(--white);\nz-index: 3;\n}\n\n.yellow-right {\nposition: absolute;\nbackground-color: var(--yellow);\nwidth: 100%;\nheight: 100%;\ntop: 38%;\nleft: 54%;\ntransform: skewX(-30deg);\nz-index: 2;\n}\n\n.yellow-right::before {\ncontent: \"\";\ndisplay: block;\nwidth: 100%;\nheight: 100%;\nposition: absolute;\ntop: -20px;\nleft: 20%;\nbackground-color: inherit;\ntransform: skewX(50deg);\nz-index: 2;\n}\n\n.green-left {\nposition: absolute;\nleft: -84px;\ntop: 38px;\nbackground-color: var(--green);\nwidth: 100%;\nheight: 100%;\ntransform: skewX(35deg);\nz-index: 1;\n}\n\n.green-left::before {\ncontent: \"\";\ndisplay: block;\nwidth: 100%;\nposition: absolute;\nheight: 100%;\nz-index: 1;\ntop: 52px;\nleft: 38px;\nbackground-color: inherit;\ntransform: skewX(0deg);\n}\n\n@keyframes animacion {\n0% {\ntransform: scale(0.9) rotate(0deg);\nopacity: 0.65;\n}\n\n35%,\n75% {\ntransform: scale(1) rotate(720deg);\nopacity: 1;\n}\n\n100% {\ntransform: scale(0.9) rotate(1080deg);\nopacity: 0.65;\n}\n}",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 90,
+    "speed": 1.2,
+    "color": "#4285f4",
+    "secondaryColor": "#fbbc05"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

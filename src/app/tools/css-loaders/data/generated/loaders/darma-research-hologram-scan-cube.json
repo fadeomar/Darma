@@ -1,0 +1,48 @@
+{
+  "id": "darma-research-hologram-scan-cube",
+  "name": "Hologram Scan Cube",
+  "category": "creative",
+  "tags": [
+    "cube",
+    "hologram",
+    "scan",
+    "3d",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": true,
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-research-hologram-scan-cube hologram scan cube creative cube hologram scan 3d creative html css react popular customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-research-hologram-scan-cube\" aria-label=\"Loading hologram\"><span class=\"darma-loader-darma-research-hologram-scan-cube__cube\"><i></i><i></i><i></i></span><span class=\"darma-loader-darma-research-hologram-scan-cube__scan\"></span></div>",
+  "previewCss": ".darma-loader-darma-research-hologram-scan-cube { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #22d3ee); --accent-2: var(--loader-secondary-color, #a3e635); width: var(--loader-size, 88px); height: var(--loader-size, 88px); display: grid; place-items: center; position: relative; perspective: 550px; }\n.darma-loader-darma-research-hologram-scan-cube__cube { width: 44%; height: 44%; position: relative; transform-style: preserve-3d; animation: darma-loader-darma-research-hologram-scan-cube-holo-turn calc(var(--speed) * 3) linear infinite; }\n.darma-loader-darma-research-hologram-scan-cube__cube i, .darma-loader-darma-research-hologram-scan-cube__cube::before, .darma-loader-darma-research-hologram-scan-cube__cube::after { content: \"\"; position: absolute; inset: 0; border: 2px solid var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); box-shadow: inset 0 0 18px color-mix(in srgb, var(--accent-2) 45%, transparent), 0 0 16px var(--accent); }\n.darma-loader-darma-research-hologram-scan-cube__cube::before { transform: rotateY(90deg) translateZ(calc(var(--loader-size, 88px) * .22)); } .darma-loader-darma-research-hologram-scan-cube__cube::after { transform: rotateX(90deg) translateZ(calc(var(--loader-size, 88px) * .22)); }\n.darma-loader-darma-research-hologram-scan-cube__cube i:nth-child(1) { transform: translateZ(calc(var(--loader-size, 88px) * .22)); } .darma-loader-darma-research-hologram-scan-cube__cube i:nth-child(2) { transform: translateZ(calc(var(--loader-size, 88px) * -.22)); } .darma-loader-darma-research-hologram-scan-cube__cube i:nth-child(3) { transform: rotateY(90deg) translateZ(calc(var(--loader-size, 88px) * -.22)); }\n.darma-loader-darma-research-hologram-scan-cube__scan { position: absolute; width: 74%; height: 5%; border-radius: 999px; background: var(--accent-2); box-shadow: 0 0 18px 4px var(--accent-2); animation: darma-loader-darma-research-hologram-scan-cube-holo-scan calc(var(--speed) * 1.6) ease-in-out infinite; }\n@keyframes darma-loader-darma-research-hologram-scan-cube-holo-turn { to { transform: rotateX(360deg) rotateY(360deg); } }\n@keyframes darma-loader-darma-research-hologram-scan-cube-holo-scan { 0%,100% { transform: translateY(calc(var(--loader-size, 88px) * -.36)); opacity: .25; } 50% { transform: translateY(calc(var(--loader-size, 88px) * .36)); opacity: 1; } }",
+  "defaults": {
+    "color": "#22d3ee",
+    "secondaryColor": "#a3e635",
+    "size": 88,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-research-hologram-scan-cube\" aria-label=\"Loading hologram\"><span class=\"darma-loader-darma-research-hologram-scan-cube__cube\"><i></i><i></i><i></i></span><span class=\"darma-loader-darma-research-hologram-scan-cube__scan\"></span></div>",
+    "css": ".darma-loader-darma-research-hologram-scan-cube { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #22d3ee); --accent-2: var(--loader-secondary-color, #a3e635); width: var(--loader-size, 88px); height: var(--loader-size, 88px); display: grid; place-items: center; position: relative; perspective: 550px; }\n.darma-loader-darma-research-hologram-scan-cube__cube { width: 44%; height: 44%; position: relative; transform-style: preserve-3d; animation: darma-loader-darma-research-hologram-scan-cube-holo-turn calc(var(--speed) * 3) linear infinite; }\n.darma-loader-darma-research-hologram-scan-cube__cube i, .darma-loader-darma-research-hologram-scan-cube__cube::before, .darma-loader-darma-research-hologram-scan-cube__cube::after { content: \"\"; position: absolute; inset: 0; border: 2px solid var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); box-shadow: inset 0 0 18px color-mix(in srgb, var(--accent-2) 45%, transparent), 0 0 16px var(--accent); }\n.darma-loader-darma-research-hologram-scan-cube__cube::before { transform: rotateY(90deg) translateZ(calc(var(--loader-size, 88px) * .22)); } .darma-loader-darma-research-hologram-scan-cube__cube::after { transform: rotateX(90deg) translateZ(calc(var(--loader-size, 88px) * .22)); }\n.darma-loader-darma-research-hologram-scan-cube__cube i:nth-child(1) { transform: translateZ(calc(var(--loader-size, 88px) * .22)); } .darma-loader-darma-research-hologram-scan-cube__cube i:nth-child(2) { transform: translateZ(calc(var(--loader-size, 88px) * -.22)); } .darma-loader-darma-research-hologram-scan-cube__cube i:nth-child(3) { transform: rotateY(90deg) translateZ(calc(var(--loader-size, 88px) * -.22)); }\n.darma-loader-darma-research-hologram-scan-cube__scan { position: absolute; width: 74%; height: 5%; border-radius: 999px; background: var(--accent-2); box-shadow: 0 0 18px 4px var(--accent-2); animation: darma-loader-darma-research-hologram-scan-cube-holo-scan calc(var(--speed) * 1.6) ease-in-out infinite; }\n@keyframes darma-loader-darma-research-hologram-scan-cube-holo-turn { to { transform: rotateX(360deg) rotateY(360deg); } }\n@keyframes darma-loader-darma-research-hologram-scan-cube-holo-scan { 0%,100% { transform: translateY(calc(var(--loader-size, 88px) * -.36)); opacity: .25; } 50% { transform: translateY(calc(var(--loader-size, 88px) * .36)); opacity: 1; } }",
+    "react": "export default function DarmaResearchHologramScanCubeLoader() {\n  return (\n    <div className=\"darma-loader-darma-research-hologram-scan-cube\" aria-label=\"Loading hologram\"><span className=\"darma-loader-darma-research-hologram-scan-cube__cube\"><i></i><i></i><i></i></span><span className=\"darma-loader-darma-research-hologram-scan-cube__scan\"></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 6",
+    "author": "Darma / ChatGPT",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

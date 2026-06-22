@@ -1,0 +1,40 @@
+{
+  "id": "uiverse-neon-card-carousel",
+  "name": "Neon Card Carousel",
+  "category": "creative",
+  "tags": [
+    "cards",
+    "carousel",
+    "3d",
+    "neon",
+    "uiverse",
+    "batch-5"
+  ],
+  "html": "<div class=\"loader\">\n  <div class=\"carousel\" style=\"--quantity: 10;\">\n    <div class=\"card\" style=\"--index: 0;--color-card: 142, 249, 252;\"><div class=\"img\"></div></div>\n    <div class=\"card\" style=\"--index: 1;--color-card: 142, 252, 204;\"><div class=\"img\"></div></div>\n    <div class=\"card\" style=\"--index: 2;--color-card: 142, 252, 157;\"><div class=\"img\"></div></div>\n    <div class=\"card\" style=\"--index: 3;--color-card: 215, 252, 142;\"><div class=\"img\"></div></div>\n    <div class=\"card\" style=\"--index: 4;--color-card: 252, 252, 142;\"><div class=\"img\"></div></div>\n    <div class=\"card\" style=\"--index: 5;--color-card: 252, 208, 142;\"><div class=\"img\"></div></div>\n    <div class=\"card\" style=\"--index: 6;--color-card: 252, 142, 142;\"><div class=\"img\"></div></div>\n    <div class=\"card\" style=\"--index: 7;--color-card: 252, 142, 239;\"><div class=\"img\"></div></div>\n    <div class=\"card\" style=\"--index: 8;--color-card: 204, 142, 252;\"><div class=\"img\"></div></div>\n    <div class=\"card\" style=\"--index: 9;--color-card: 142, 202, 252;\"><div class=\"img\"></div></div>\n  </div>\n</div>\n",
+  "css": ".loader {\n  width: 240px;\n  height: 190px;\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  overflow: hidden;\n}\n.carousel {\n  --w: 48px;\n  --h: 72px;\n  --translateZ: 135px;\n  --rotateX: -15deg;\n  --perspective: 850px;\n  position: absolute;\n  width: var(--w);\n  height: var(--h);\n  transform-style: preserve-3d;\n  transform: perspective(var(--perspective));\n  animation: neonCarouselSpin 16s linear infinite;\n}\n@keyframes neonCarouselSpin {\n  from { transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(0); }\n  to { transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(1turn); }\n}\n.card {\n  position: absolute;\n  border: 2px solid rgba(var(--color-card));\n  border-radius: 12px;\n  overflow: hidden;\n  inset: 0;\n  transform: rotateY(calc((360deg / var(--quantity)) * var(--index))) translateZ(var(--translateZ));\n  box-shadow: 0 0 12px rgba(var(--color-card), .65);\n}\n.img {\n  width: 100%;\n  height: 100%;\n  background: radial-gradient(circle, rgba(var(--color-card), .25) 0%, rgba(var(--color-card), .75) 80%, rgba(var(--color-card), .95) 100%);\n}\n",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 120,
+    "speed": 16,
+    "color": "#8ef9fc",
+    "secondaryColor": "#fc8eef"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

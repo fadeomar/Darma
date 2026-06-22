@@ -1,0 +1,36 @@
+{
+  "id": "darma-research-neural-synapse-grid",
+  "name": "Neural Synapse Grid",
+  "category": "creative",
+  "tags": [
+    "neural",
+    "grid",
+    "ai",
+    "dots",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading neural grid\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --speed: var(--loader-speed); --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); display: grid; grid-template-columns: repeat(3, 1fr); gap: 14%; position: relative; }\n.loader::before, .loader::after { content: \"\"; position: absolute; inset: 14%; background: linear-gradient(90deg, transparent 47%, color-mix(in srgb, var(--accent) 70%, transparent) 48% 52%, transparent 53%), linear-gradient(0deg, transparent 47%, color-mix(in srgb, var(--accent-2) 70%, transparent) 48% 52%, transparent 53%); opacity: .45; animation: synapse-lines calc(var(--speed) * 1.6) ease-in-out infinite; }\n.loader::after { rotate: 45deg; opacity: .25; }\n.loader span { border-radius: 50%; background: radial-gradient(circle, #fff 0 16%, var(--accent) 18% 58%, var(--accent-2)); box-shadow: 0 0 12px var(--accent); animation: synapse-node calc(var(--speed) * 1.35) ease-in-out infinite; }\n.loader span:nth-child(2), .loader span:nth-child(4), .loader span:nth-child(6), .loader span:nth-child(8) { animation-delay: calc(var(--speed) * -.35); }\n.loader span:nth-child(5) { animation-delay: calc(var(--speed) * -.7); }\n@keyframes synapse-node { 0%,100% { transform: scale(.58); filter: brightness(.8); } 50% { transform: scale(1.05); filter: brightness(1.35); } }\n@keyframes synapse-lines { 50% { opacity: .9; filter: drop-shadow(0 0 8px var(--accent)); } }",
+  "defaults": {
+    "color": "#22d3ee",
+    "secondaryColor": "#a855f7",
+    "size": 88,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "popular": true,
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 6",
+    "author": "Darma / ChatGPT",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

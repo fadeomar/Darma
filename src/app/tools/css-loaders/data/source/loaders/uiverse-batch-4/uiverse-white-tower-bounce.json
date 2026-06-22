@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-white-tower-bounce",
+  "name": "White Tower Bounce",
+  "category": "bars",
+  "tags": [
+    "bars",
+    "bounce",
+    "tower",
+    "equalizer",
+    "uiverse"
+  ],
+  "html": "<div class=\"loader lines-loader\">\n  <div class=\"line\"></div>\n  <div class=\"line\"></div>\n  <div class=\"line\"></div>\n  <div class=\"line\"></div>\n  <div class=\"line\"></div>\n</div>",
+  "css": ".loader { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.lines-loader {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n\n.line {\nwidth: 8px;\nheight: 58px;\nbackground-color: #ffffff;\nanimation: bounce 1.5s infinite ease-in-out;\nbox-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Box shadow added */\n}\n\n/* Create staggered bouncing effect */\n.line:nth-child(2) {\nanimation-delay: 0.3s;\n}\n\n.line:nth-child(3) {\nanimation-delay: 0.6s;\n}\n\n.line:nth-child(5) {\nanimation-delay: 1.2s;\n}\n\n/* Bounce Keyframes */\n@keyframes bounce {\n0%,\n20%,\n50%,\n80%,\n100% {\ntransform: translateY(0);\n}\n40% {\ntransform: translateY(-30px);\n}\n60% {\ntransform: translateY(-15px);\n}\n}",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 78,
+    "speed": 1.5,
+    "color": "#ffffff",
+    "secondaryColor": "#94a3b8"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

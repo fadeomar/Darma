@@ -1,0 +1,36 @@
+{
+  "id": "darma-research-magnet-comet-dots",
+  "name": "Magnet Comet Dots",
+  "category": "dots",
+  "tags": [
+    "dots",
+    "comet",
+    "magnet",
+    "trail",
+    "minimal"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading dots\"><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --speed: var(--loader-speed); --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: calc(var(--loader-size) * 1.35); height: calc(var(--loader-size) * .52); display: flex; align-items: center; justify-content: space-between; gap: 7px; filter: drop-shadow(0 0 10px color-mix(in srgb, var(--accent) 45%, transparent)); }\n.loader span { width: 14%; aspect-ratio: 1; border-radius: 50%; background: var(--accent-2); animation: comet-pull calc(var(--speed) * 1.2) ease-in-out infinite; }\n.loader span:nth-child(1) { animation-delay: -.4s; } .loader span:nth-child(2) { animation-delay: -.3s; } .loader span:nth-child(3) { animation-delay: -.2s; } .loader span:nth-child(4) { animation-delay: -.1s; }\n.loader span:nth-child(5) { background: var(--accent); box-shadow: 0 0 18px var(--accent); }\n@keyframes comet-pull { 0%,100% { transform: translateY(0) scale(.75); opacity: .45; } 45% { transform: translateY(-16px) scale(1.15); opacity: 1; } 70% { transform: translateY(7px) scale(.85); } }",
+  "defaults": {
+    "color": "#f59e0b",
+    "secondaryColor": "#6366f1",
+    "size": 78,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true,
+    "singleElement": false
+  },
+  "source": {
+    "name": "Darma Research Batch 6",
+    "author": "Darma / ChatGPT",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

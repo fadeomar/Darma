@@ -1329,6 +1329,40 @@
     }
   },
   {
+    "id": "uiverse-cyber-percent-bar",
+    "name": "Cyber Percent Bar",
+    "category": "progress",
+    "tags": [
+      "percentage",
+      "bar",
+      "cyber",
+      "progress",
+      "uiverse",
+      "batch-5"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-cyber-percent-bar cyber percent bar progress percentage bar cyber progress uiverse batch-5 html css react singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-cyber-percent-bar\"></div>\n",
+    "previewCss": ".darma-loader-uiverse-cyber-percent-bar {\n  display: block;\n  position: relative;\n  height: 32px;\n  width: 200px;\n  background: #ffffff;\n  border: 2px solid #ffffff;\n  color: var(--loader-color, #df3c3c);\n  overflow: hidden;\n}\n.darma-loader-uiverse-cyber-percent-bar::before {\n  content: \"\";\n  background: var(--loader-color, #df3c3c);\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 0;\n  height: 100%;\n  animation: darma-loader-uiverse-cyber-percent-bar-cyberFill 10s linear infinite;\n}\n.darma-loader-uiverse-cyber-percent-bar::after {\n  content: \"Loading\";\n  position: absolute;\n  inset: 0;\n  text-align: center;\n  font-size: 18px;\n  line-height: 32px;\n  color: var(--loader-secondary-color, #00ffff);\n  mix-blend-mode: difference;\n  animation: darma-loader-uiverse-cyber-percent-bar-cyberText 10s linear infinite;\n}\n@keyframes darma-loader-uiverse-cyber-percent-bar-cyberFill { to { width: 100%; } }\n@keyframes darma-loader-uiverse-cyber-percent-bar-cyberText {\n  0% { content: \"0%\"; } 25% { content: \"25%\"; } 50% { content: \"50%\"; } 75% { content: \"75%\"; } 100% { content: \"100%\"; }\n}\n",
+    "defaults": {
+      "size": 200,
+      "speed": 10,
+      "color": "#df3c3c",
+      "secondaryColor": "#00ffff"
+    }
+  },
+  {
     "id": "darma-custom-222",
     "name": "Diagonal Stripe Rail",
     "category": "progress",
@@ -2179,6 +2213,36 @@
     }
   },
   {
+    "id": "darma-research-liquid-tab-switcher",
+    "name": "Liquid Tab Switcher",
+    "category": "progress",
+    "tags": [
+      "tabs",
+      "liquid",
+      "progress",
+      "pill",
+      "ui"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-research-liquid-tab-switcher liquid tab switcher progress tabs liquid progress pill ui html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-research-liquid-tab-switcher\" aria-label=\"Loading tabs\"><span></span><span></span><span></span><b></b></div>",
+    "previewCss": ".darma-loader-darma-research-liquid-tab-switcher { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #06b6d4); --accent-2: var(--loader-secondary-color, #a855f7); width: calc(var(--loader-size, 70px) * 2.5); height: calc(var(--loader-size, 70px) * .52); min-width: 150px; padding: 5px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; border-radius: 999px; background: #0f172a; position: relative; overflow: hidden; box-shadow: inset 0 0 0 1px #fff2; }\n.darma-loader-darma-research-liquid-tab-switcher span { border-radius: inherit; background: #ffffff12; z-index: 1; }\n.darma-loader-darma-research-liquid-tab-switcher b { position: absolute; top: 5px; bottom: 5px; left: 5px; width: calc((100% - 20px) / 3); border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); box-shadow: 0 0 18px var(--accent); animation: darma-loader-darma-research-liquid-tab-switcher-tab-slide calc(var(--speed) * 1.8) cubic-bezier(.65,0,.35,1) infinite; }\n@keyframes darma-loader-darma-research-liquid-tab-switcher-tab-slide { 0%,22% { transform: translateX(0); } 34%,56% { transform: translateX(calc(100% + 5px)); } 68%,90% { transform: translateX(calc(200% + 10px)); } 100% { transform: translateX(0); } }",
+    "defaults": {
+      "color": "#06b6d4",
+      "secondaryColor": "#a855f7",
+      "size": 70,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-custom-018",
     "name": "Masked Quadrant Sweep",
     "category": "progress",
@@ -2707,6 +2771,73 @@
       "size": 160,
       "speed": 1,
       "background": "transparent"
+    }
+  },
+  {
+    "id": "uiverse-ocean-progress-comet",
+    "name": "Ocean Progress Comet",
+    "category": "progress",
+    "tags": [
+      "progress",
+      "bar",
+      "ocean",
+      "comet",
+      "uiverse",
+      "batch-5"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-ocean-progress-comet ocean progress comet progress progress bar ocean comet uiverse batch-5 html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-ocean-progress-comet darma-loader-uiverse-ocean-progress-comet__progress\"><div class=\"darma-loader-uiverse-ocean-progress-comet__inner\"></div></div>\n",
+    "previewCss": ".darma-loader-uiverse-ocean-progress-comet__progress {\n  background-color: #ffffff;\n  width: 220px;\n  height: 20px;\n  border-radius: 100px;\n  overflow: hidden;\n  backface-visibility: hidden;\n}\n.darma-loader-uiverse-ocean-progress-comet__inner {\n  background-image: linear-gradient(to left, var(--loader-color, #00cdac), #00c2c9, #00b4e3, #00a2f1, #008cef, #0088eb, #0085e6, #0081e2, #0090de, #009bd2, #00a3c1, var(--loader-secondary-color, #02aab0));\n  height: 100%;\n  transform-origin: left;\n  animation: darma-loader-uiverse-ocean-progress-comet-oceanProgress 2s infinite;\n}\n@keyframes darma-loader-uiverse-ocean-progress-comet-oceanProgress {\n  0% { transform: scaleX(.1) translateX(-10%); }\n  100% { transform: scaleX(.8) translateX(150%); }\n}\n",
+    "defaults": {
+      "size": 220,
+      "speed": 2,
+      "color": "#00cdac",
+      "secondaryColor": "#02aab0"
+    }
+  },
+  {
+    "id": "uiverse-orange-shuttle-rail",
+    "name": "Orange Shuttle Rail",
+    "category": "progress",
+    "tags": [
+      "rail",
+      "orange",
+      "slide",
+      "balls",
+      "uiverse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-orange-shuttle-rail orange shuttle rail progress rail orange slide balls uiverse html css react singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-orange-shuttle-rail\"></div>",
+    "previewCss": ".darma-loader-uiverse-orange-shuttle-rail {\n  width: 100px;\n  height: 46px;\n  position: relative;\n  border-bottom: 5px solid #FFF;\n  border-top: 5px solid #FFF;\n  box-sizing: border-box;\n}\n\n.darma-loader-uiverse-orange-shuttle-rail:before , .darma-loader-uiverse-orange-shuttle-rail:after {\ncontent: \"\";\nposition: absolute;\nleft: 0;\ntop: -20px;\nwidth: 32px;\nheight: 32px;\nborder-radius: 50%;\nbackground: orange;\nborder: 5px solid #FFF;\nbox-sizing: border-box;\nanimation: darma-loader-uiverse-orange-shuttle-rail-slide_391 1s infinite ease-in-out alternate;\n}\n\n.darma-loader-uiverse-orange-shuttle-rail:after {\ntop: 20px;\nanimation-direction: alternate-reverse;\n}\n\n@keyframes darma-loader-uiverse-orange-shuttle-rail-slide_391 {\n0% , 20% {\ntransform: translateX(70px)\n}\n\n80% , 100% {\ntransform: translateX(-1px)\n}\n}",
+    "defaults": {
+      "size": 74,
+      "speed": 1,
+      "color": "#ffa500",
+      "secondaryColor": "#ffffff"
     }
   },
   {
@@ -4368,6 +4499,71 @@
     }
   },
   {
+    "id": "darma-research-prism-marquee-loader",
+    "name": "Prism Marquee Loader",
+    "category": "progress",
+    "tags": [
+      "progress",
+      "marquee",
+      "prism",
+      "text",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-research-prism-marquee-loader prism marquee loader progress progress marquee prism text creative html css react popular customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-research-prism-marquee-loader\" aria-label=\"Loading progress\"><span class=\"darma-loader-darma-research-prism-marquee-loader__label\">LOADING</span><span class=\"darma-loader-darma-research-prism-marquee-loader__track\"><span class=\"darma-loader-darma-research-prism-marquee-loader__fill\"></span></span></div>",
+    "previewCss": ".darma-loader-darma-research-prism-marquee-loader { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #ec4899); --accent-2: var(--loader-secondary-color, #22d3ee); width: calc(var(--loader-size, 72px) * 2.7); min-width: 170px; display: grid; gap: 10px; font: 800 13px/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .35em; color: transparent; }\n.darma-loader-darma-research-prism-marquee-loader__label { background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent)); background-size: 240% 100%; -webkit-background-clip: text; background-clip: text; animation: darma-loader-darma-research-prism-marquee-loader-prism-text calc(var(--speed) * 2.4) linear infinite; }\n.darma-loader-darma-research-prism-marquee-loader__track { height: 14px; border-radius: 999px; overflow: hidden; background: #111827; box-shadow: inset 0 0 0 1px #ffffff1f; position: relative; }\n.darma-loader-darma-research-prism-marquee-loader__fill { position: absolute; inset: 2px auto 2px 2px; width: 42%; border-radius: inherit; background: repeating-linear-gradient(115deg, var(--accent) 0 12px, var(--accent-2) 12px 24px, #fff 24px 28px); box-shadow: 0 0 18px var(--accent); animation: darma-loader-darma-research-prism-marquee-loader-prism-fill calc(var(--speed) * 1.5) cubic-bezier(.7,0,.25,1) infinite; }\n@keyframes darma-loader-darma-research-prism-marquee-loader-prism-fill { 0% { translate: -105% 0; width: 38%; } 45% { width: 70%; } 100% { translate: 250% 0; width: 38%; } }\n@keyframes darma-loader-darma-research-prism-marquee-loader-prism-text { to { background-position: 240% 0; } }",
+    "defaults": {
+      "color": "#ec4899",
+      "secondaryColor": "#22d3ee",
+      "size": 72,
+      "speed": 1
+    }
+  },
+  {
+    "id": "uiverse-redirect-meter-card",
+    "name": "Redirect Meter Card",
+    "category": "progress",
+    "tags": [
+      "redirect",
+      "card",
+      "progress",
+      "bar",
+      "uiverse",
+      "batch-5"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-redirect-meter-card redirect meter card progress redirect card progress bar uiverse batch-5 html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-redirect-meter-card\">\n  <div class=\"darma-loader-uiverse-redirect-meter-card__label\">Redirecting...</div>\n  <div class=\"darma-loader-uiverse-redirect-meter-card__loading\"></div>\n</div>\n",
+    "previewCss": ".darma-loader-uiverse-redirect-meter-card {\n  width: 260px;\n  height: 135px;\n  border-radius: 14px;\n  background: #ffffff;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-evenly;\n  padding: 24px;\n  box-shadow: 2px 2px 18px -8px #94a3b8;\n}\n.darma-loader-uiverse-redirect-meter-card__loading { width: 100%; height: 10px; background: var(--loader-secondary-color, #d9d9d9); border-radius: 10px; position: relative; overflow: hidden; }\n.darma-loader-uiverse-redirect-meter-card__loading::after { content: \"\"; position: absolute; top: 0; left: 0; width: 50%; height: 10px; background: var(--loader-color, #000022); border-radius: 10px; animation: darma-loader-uiverse-redirect-meter-card-redirectBar .7s alternate infinite; }\n.darma-loader-uiverse-redirect-meter-card__label { color: var(--loader-color, #000022); font-size: 18px; font-weight: 700; animation: darma-loader-uiverse-redirect-meter-card-redirectBlink .7s alternate infinite; }\n@keyframes darma-loader-uiverse-redirect-meter-card-redirectBlink { from { opacity: .35; } to { opacity: 1; } }\n@keyframes darma-loader-uiverse-redirect-meter-card-redirectBar { from { left: 0%; } to { left: 50%; } }\n",
+    "defaults": {
+      "size": 260,
+      "speed": 0.7,
+      "color": "#000022",
+      "secondaryColor": "#d9d9d9"
+    }
+  },
+  {
     "id": "uiverse-redirect-progress-card",
     "name": "Redirect Progress Card",
     "category": "progress",
@@ -4398,6 +4594,39 @@
       "size": 160,
       "speed": 1,
       "background": "#111827"
+    }
+  },
+  {
+    "id": "uiverse-redline-progress-counter",
+    "name": "Redline Progress Counter",
+    "category": "progress",
+    "tags": [
+      "progress",
+      "counter",
+      "bar",
+      "red",
+      "uiverse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-redline-progress-counter redline progress counter progress progress counter bar red uiverse html css react singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-redline-progress-counter\"></div>",
+    "previewCss": ".darma-loader-uiverse-redline-progress-counter {\n  display: block;\n  position: relative;\n  height: 32px;\n  width: 200px;\n  background: #fff;\n  border: 2px solid #fff;\n  color: var(--loader-color, #df3c3c);\n  overflow: hidden;\n}\n\n.darma-loader-uiverse-redline-progress-counter::before {\ncontent: '';\nbackground: var(--loader-color, #df3c3c);\nposition: absolute;\nleft: 0;\ntop: 0;\nwidth: 0;\nheight: 100%;\nanimation: darma-loader-uiverse-redline-progress-counter-loading_302 10s linear infinite;\n}\n\n.darma-loader-uiverse-redline-progress-counter:after {\ncontent: '';\nposition: absolute;\nleft: 0;\ntop: 0;\nwidth: 100%;\nheight: 100%;\ntext-align: center;\nfont-size: 18px;\nline-height: 32px;\ncolor: var(--loader-secondary-color, #00ffff);\nmix-blend-mode: difference;\nanimation: darma-loader-uiverse-redline-progress-counter-percentage_302 10s linear infinite;\n}\n\n@keyframes darma-loader-uiverse-redline-progress-counter-loading_302 {\n0% {\nwidth: 0\n}\n\n100% {\nwidth: 100%\n}\n}\n\n@keyframes darma-loader-uiverse-redline-progress-counter-percentage_302 {\n0% {\ncontent: \"0%\"\n}\n\n5% {\ncontent: \"5%\"\n}\n\n10% {\ncontent: \"10%\"\n}\n\n20% {\ncontent: \"20%\"\n}\n\n30% {\ncontent: \"30%\"\n}\n\n40% {\ncontent: \"40%\"\n}\n\n50% {\ncontent: \"50%\"\n}\n\n60% {\ncontent: \"60%\"\n}\n\n70% {\ncontent: \"70%\"\n}\n\n80% {\ncontent: \"80%\"\n}\n\n90% {\ncontent: \"90%\"\n}\n\n95% {\ncontent: \"95%\"\n}\n\n96% {\ncontent: \"96%\"\n}\n\n97% {\ncontent: \"97%\"\n}\n\n98% {\ncontent: \"98%\"\n}\n\n99% {\ncontent: \"99%\"\n}\n\n100% {\ncontent: \"100%\"\n}\n}",
+    "defaults": {
+      "size": 116,
+      "speed": 10,
+      "color": "#df3c3c",
+      "secondaryColor": "#00ffff"
     }
   },
   {
@@ -5399,6 +5628,36 @@
       "size": 120,
       "speed": 2,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-research-sunrise-arch-progress",
+    "name": "Sunrise Arch Progress",
+    "category": "progress",
+    "tags": [
+      "sunrise",
+      "arch",
+      "progress",
+      "warm",
+      "minimal"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-research-sunrise-arch-progress sunrise arch progress progress sunrise arch progress warm minimal html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-research-sunrise-arch-progress\" aria-label=\"Loading sunrise\"><span class=\"darma-loader-darma-research-sunrise-arch-progress__sun\"></span><span class=\"darma-loader-darma-research-sunrise-arch-progress__line\"></span></div>",
+    "previewCss": ".darma-loader-darma-research-sunrise-arch-progress { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #f97316); --accent-2: var(--loader-secondary-color, #facc15); width: calc(var(--loader-size, 80px) * 1.8); height: var(--loader-size, 80px); position: relative; overflow: hidden; }\n.darma-loader-darma-research-sunrise-arch-progress::before { content: \"\"; position: absolute; left: 8%; right: 8%; bottom: 18%; height: 70%; border-radius: 999px 999px 0 0; border: 5px solid transparent; border-top-color: var(--accent); border-left-color: color-mix(in srgb, var(--accent) 35%, transparent); border-right-color: color-mix(in srgb, var(--accent-2) 35%, transparent); }\n.darma-loader-darma-research-sunrise-arch-progress__sun { position: absolute; width: 22%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #fff 0 8%, var(--accent) 40%, var(--accent-2)); left: 39%; bottom: 18%; box-shadow: 0 0 22px var(--accent); transform-origin: 50% calc(var(--loader-size, 80px) * .55); animation: darma-loader-darma-research-sunrise-arch-progress-sunrise-arc calc(var(--speed) * 2.4) ease-in-out infinite; }\n.darma-loader-darma-research-sunrise-arch-progress__line { position: absolute; left: 10%; right: 10%; bottom: 18%; height: 5px; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }\n@keyframes darma-loader-darma-research-sunrise-arch-progress-sunrise-arc { 0% { transform: rotate(-78deg); opacity:.4; } 50% { transform: rotate(0deg); opacity:1; } 100% { transform: rotate(78deg); opacity:.4; } }",
+    "defaults": {
+      "color": "#f97316",
+      "secondaryColor": "#facc15",
+      "size": 80,
+      "speed": 1
     }
   },
   {

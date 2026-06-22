@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-aqua-sonar-lifts",
+  "name": "Aqua Sonar Lifts",
+  "category": "creative",
+  "tags": [
+    "rings",
+    "sonar",
+    "aqua",
+    "depth",
+    "uiverse"
+  ],
+  "html": "<div class=\"loader container\">\n      <div class=\"item\" style=\"--i:0;\"></div>\n      <div class=\"item\" style=\"--i:1;\"></div>\n      <div class=\"item\" style=\"--i:2;\"></div>\n      <div class=\"item\" style=\"--i:3;\"></div>\n      <div class=\"item\" style=\"--i:4;\"></div>\n      <div class=\"item\" style=\"--i:5;\"></div>\n      <div class=\"item\" style=\"--i:6;\"></div>\n      <div class=\"item\" style=\"--i:7;\"></div>\n      <div class=\"item\" style=\"--i:8;\"></div>\n      <div class=\"item\" style=\"--i:9;\"></div>\n      <div class=\"item\" style=\"--i:10;\"></div>\n      <div class=\"item\" style=\"--i:11;\"></div>\n      <div class=\"item\" style=\"--i:12;\"></div>\n      <div class=\"item\" style=\"--i:13;\"></div>\n      <div class=\"item\" style=\"--i:14;\"></div>\n      <div class=\"item\" style=\"--i:15;\"></div>\n      <div class=\"item\" style=\"--i:16;\"></div>\n      <div class=\"item\" style=\"--i:17;\"></div>\n      <div class=\"item\" style=\"--i:18;\"></div>\n      <div class=\"item\" style=\"--i:19;\"></div>\n      <div class=\"item\" style=\"--i:20;\"></div>\n    </div>",
+  "css": ".loader { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.container {\n  position: relative;\n  width: 160px;\n  height: 160px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.item {\nposition: absolute;\nbackground-color: transparent;\nwidth: calc(var(--i) * 5px);\naspect-ratio: 1;\nborder-radius: 50%;\nborder: .9vmin solid rgb(0, 200, 255);\ntransform-style: preserve-3d;\ntransform: rotateX(70deg) translateZ(50px);\nanimation: my-move 3s ease-in-out calc(var(--i) * 0.08s) infinite;\nbox-shadow: 0px 0px 15px rgb(124, 124, 124),\ninset 0px 0px 15px rgb(124, 124, 124);\n}\n\n@keyframes my-move {\n0%,\n100% {\ntransform: rotateX(70deg) translateZ(50px) translateY(0px);\nfilter: hue-rotate(0deg);\n}\n\n50% {\ntransform: rotateX(70deg) translateZ(50px) translateY(-90px);\nfilter: hue-rotate(180deg);\n}\n}",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 130,
+    "speed": 3,
+    "color": "#00c8ff",
+    "secondaryColor": "#7dd3fc"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

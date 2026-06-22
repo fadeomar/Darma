@@ -1,0 +1,40 @@
+{
+  "id": "uiverse-ruby-pinwheel-prism",
+  "name": "Ruby Pinwheel Prism",
+  "category": "spinners",
+  "tags": [
+    "pinwheel",
+    "prism",
+    "triangle",
+    "ruby",
+    "uiverse",
+    "batch-5"
+  ],
+  "html": "<div class=\"loader\"></div>\n",
+  "css": ".loader {\n  position: relative;\n  width: 0;\n  height: 0;\n  border: 24px solid;\n  border-color: #ff3b3b transparent #ff3b3b transparent;\n  animation: rubyPinwheelSpin 2s linear infinite;\n}\n.loader::before,\n.loader::after {\n  content: \"\";\n  display: block;\n  border: 24px solid transparent;\n  border-left-color: #ff3b3b;\n  position: absolute;\n  left: -24px;\n  top: -24px;\n  animation: rubyPinwheelFold 1s infinite ease-in;\n  transform-origin: 0% 100%;\n}\n.loader::before {\n  border-color: transparent #ff3b3b transparent transparent;\n  transform-origin: 100% 0%;\n  animation-delay: 0.5s;\n}\n@keyframes rubyPinwheelSpin { to { transform: rotate(360deg); } }\n@keyframes rubyPinwheelFold { 20%, 80% { transform: rotate(0); } 50% { transform: rotate(-90deg); } }\n",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 48,
+    "speed": 2,
+    "color": "#ff3b3b",
+    "secondaryColor": "#ff9b9b"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

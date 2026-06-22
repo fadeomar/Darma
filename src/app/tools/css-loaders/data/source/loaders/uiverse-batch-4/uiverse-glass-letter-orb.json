@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-glass-letter-orb",
+  "name": "Glass Letter Orb",
+  "category": "creative",
+  "tags": [
+    "glass",
+    "letters",
+    "loading",
+    "orb",
+    "uiverse"
+  ],
+  "html": "<div class=\"loader-wrapper\">\n  <span class=\"loader-letter\">L</span>\n  <span class=\"loader-letter\">o</span>\n  <span class=\"loader-letter\">a</span>\n  <span class=\"loader-letter\">d</span>\n  <span class=\"loader-letter\">i</span>\n  <span class=\"loader-letter\">n</span>\n  <span class=\"loader-letter\">g</span>\n\n  <div class=\"loader-bg-1\"></div>\n  <div class=\"loader-bg-2\"></div>\n\n  <div class=\"loader\"></div>\n</div>",
+  "css": ".loader-wrapper {\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 180px;\n  aspect-ratio: 1 / 1;\n  font-family: \"Jura\", sans-serif;\n  font-size: 1.6em;\n  font-weight: 700;\n  border-radius: 50%;\n  background-color: #0005;\n  user-select: none;\n}\n\n.loader {\nposition: absolute;\ntop: 0;\nleft: 0;\nwidth: 100%;\naspect-ratio: 1 / 1;\nborder-radius: inherit;\nz-index: 1;\n\nbackground-color: #c4d0cc22;\nbackdrop-filter: blur(40px);\n-webkit-backdrop-filter: blur(40px);\nbox-shadow:\n0 0 10px 0 #fffa inset,\n0 0 12px 4px #238bbb73 inset,\n8px 0 8px 0px #fff inset,\n-8px 0 16px 2px #000 inset,\n0 0 20px 2px #0006,\n0 0 24px 4px #000000d8,\n0 12px 200px 0px #2effdc9d;\nanimation: rotate-anim 4s linear infinite;\n-webkit-animation: rotate-anim 4s linear infinite;\n}\n\n@keyframes rotate-anim {\n0% {\ntransform: rotate(0deg);\n}\n100% {\ntransform: rotate(360deg);\n}\n}\n@-webkit-keyframes rotate-anim {\n0% {\n-webkit-transform: rotate(0deg);\n}\n100% {\n-webkit-transform: rotate(360deg);\n}\n}\n\n.loader-bg-1,\n.loader-bg-2 {\nposition: absolute;\ntop: 0;\nleft: 0;\nwidth: 100%;\nheight: 100%;\nborder-radius: inherit;\nopacity: 0.5;\nbackground-color: #482892a1;\nfilter: blur(40px);\n-webkit-filter: blur(40px);\nz-index: 0;\nanimation: bg-transform 4s linear infinite;\n-webkit-animation: bg-transform 4s linear infinite;\n}\n.loader-bg-2 {\nbackground-color: #0c8653;\nanimation: bg-transform 6s linear infinite reverse;\n-webkit-animation: bg-transform 6s linear infinite reverse;\n}\n\n@keyframes bg-transform {\n0%,\n100% {\ntransform: translate(-80%, 0%);\nclip-path: circle(50% at 130% 50%);\n}\n25% {\ntransform: translate(0%, -80%);\nclip-path: circle(50% at 50% 130%);\n}\n50% {\ntransform: translate(80%, 0%);\nclip-path: circle(50% at -30% 50%);\n}\n75% {\ntransform: translate(0%, 80%);\nclip-path: circle(50% at 50% -30%);\n}\n}\n@-webkit-keyframes bg-transform {\n0%,\n100% {\n-webkit-transform: translate(-80%, 0%);\nclip-path: circle(50% at 130% 50%);\n}\n25% {\n-webkit-transform: translate(0%, -80%);\nclip-path: circle(50% at 50% 130%);\n}\n50% {\n-webkit-transform: translate(80%, 0%);\nclip-path: circle(50% at -30% 50%);\n}\n75% {\n-webkit-transform: translate(0%, 80%);\nclip-path: circle(50% at 50% -30%);\n}\n}\n\n.loader-letter {\ndisplay: inline-block;\nopacity: 0.7;\ntransform: translateY(0);\nanimation: loader-letter-anim 1.8s infinite ease;\n-webkit-animation: loader-letter-anim 1.8s infinite ease;\nz-index: 2;\n\ncolor: #0004;\ntext-shadow: 0 -1px 0 #eeffdd;\nfilter: drop-shadow(0 6px 3px #000);\n}\n\n.loader-letter:nth-child(1) {\nanimation-delay: 0s;\n-webkit-animation-delay: 0s;\n}\n.loader-letter:nth-child(2) {\nanimation-delay: 0.1s;\n-webkit-animation-delay: 0.1s;\n}\n.loader-letter:nth-child(3) {\nanimation-delay: 0.2s;\n-webkit-animation-delay: 0.2s;\n}\n.loader-letter:nth-child(4) {\nanimation-delay: 0.3s;\n-webkit-animation-delay: 0.3s;\n}\n.loader-letter:nth-child(5) {\nanimation-delay: 0.4s;\n-webkit-animation-delay: 0.4s;\n}\n.loader-letter:nth-child(6) {\nanimation-delay: 0.5s;\n-webkit-animation-delay: 0.5s;\n}\n.loader-letter:nth-child(7) {\nanimation-delay: 0.6s;\n-webkit-animation-delay: 0.6s;\n}\n.loader-letter:nth-child(8) {\nanimation-delay: 0.7s;\n-webkit-animation-delay: 0.7s;\n}\n.loader-letter:nth-child(9) {\nanimation-delay: 0.8s;\n-webkit-animation-delay: 0.8s;\n}\n.loader-letter:nth-child(10) {\nanimation-delay: 0.9s;\n-webkit-animation-delay: 0.9s;\n}\n\n@keyframes loader-letter-anim {\n0%,\n100% {\nopacity: 0.5;\ntransform: none;\n}\n30% {\nopacity: 0.5;\ntransform: translateX(-3px) rotate(-1deg);\n}\n40% {\nopacity: 0.9;\ntransform: translateX(2px) rotate(3deg) scale(1.06);\n}\n}\n@-webkit-keyframes loader-letter-anim {\n0%,\n100% {\nopacity: 0.5;\ntransform: none;\n}\n30% {\nopacity: 0.5;\ntransform: translateX(-3px) rotate(-1deg);\n}\n40% {\nopacity: 0.9;\ntransform: translateX(2px) rotate(3deg) scale(1.06);\n}\n}",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 114,
+    "speed": 1.8,
+    "color": "#2effdc",
+    "secondaryColor": "#482892"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

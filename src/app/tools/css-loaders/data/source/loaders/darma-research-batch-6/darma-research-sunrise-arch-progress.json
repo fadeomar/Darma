@@ -1,0 +1,35 @@
+{
+  "id": "darma-research-sunrise-arch-progress",
+  "name": "Sunrise Arch Progress",
+  "category": "progress",
+  "tags": [
+    "sunrise",
+    "arch",
+    "progress",
+    "warm",
+    "minimal"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading sunrise\"><span class=\"sun\"></span><span class=\"line\"></span></div>",
+  "css": ".loader { --speed: var(--loader-speed); --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: calc(var(--loader-size) * 1.8); height: var(--loader-size); position: relative; overflow: hidden; }\n.loader::before { content: \"\"; position: absolute; left: 8%; right: 8%; bottom: 18%; height: 70%; border-radius: 999px 999px 0 0; border: 5px solid transparent; border-top-color: var(--accent); border-left-color: color-mix(in srgb, var(--accent) 35%, transparent); border-right-color: color-mix(in srgb, var(--accent-2) 35%, transparent); }\n.sun { position: absolute; width: 22%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #fff 0 8%, var(--accent) 40%, var(--accent-2)); left: 39%; bottom: 18%; box-shadow: 0 0 22px var(--accent); transform-origin: 50% calc(var(--loader-size) * .55); animation: sunrise-arc calc(var(--speed) * 2.4) ease-in-out infinite; }\n.line { position: absolute; left: 10%; right: 10%; bottom: 18%; height: 5px; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }\n@keyframes sunrise-arc { 0% { transform: rotate(-78deg); opacity:.4; } 50% { transform: rotate(0deg); opacity:1; } 100% { transform: rotate(78deg); opacity:.4; } }",
+  "defaults": {
+    "color": "#f97316",
+    "secondaryColor": "#facc15",
+    "size": 80,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 6",
+    "author": "Darma / ChatGPT",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

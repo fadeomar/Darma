@@ -1,0 +1,36 @@
+{
+  "id": "darma-research-dna-helix-dots",
+  "name": "DNA Helix Dots",
+  "category": "dots",
+  "tags": [
+    "dna",
+    "helix",
+    "dots",
+    "science",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading helix\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --speed: var(--loader-speed); --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: calc(var(--loader-size) * .72); height: calc(var(--loader-size) * 1.28); position: relative; }\n.loader::before { content: \"\"; position: absolute; left: 48%; top: 6%; bottom: 6%; width: 2px; background: linear-gradient(var(--accent), var(--accent-2)); opacity: .25; }\n.loader span { position: absolute; left: 50%; top: calc(var(--i) * 12.5%); width: 17%; aspect-ratio: 1; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); animation: dna-dot calc(var(--speed) * 1.7) ease-in-out infinite; animation-delay: calc(var(--i) * -.12s); }\n.loader span:nth-child(1){ --i:0; --angle:0deg; } .loader span:nth-child(2){ --i:1; --angle:45deg; background:var(--accent-2); } .loader span:nth-child(3){ --i:2; --angle:90deg; } .loader span:nth-child(4){ --i:3; --angle:135deg; background:var(--accent-2); } .loader span:nth-child(5){ --i:4; --angle:180deg; } .loader span:nth-child(6){ --i:5; --angle:225deg; background:var(--accent-2); } .loader span:nth-child(7){ --i:6; --angle:270deg; } .loader span:nth-child(8){ --i:7; --angle:315deg; background:var(--accent-2); }\n@keyframes dna-dot { 0%,100% { transform: translateX(-30px) scale(.75); opacity:.5; } 50% { transform: translateX(30px) scale(1.12); opacity:1; } }",
+  "defaults": {
+    "color": "#22c55e",
+    "secondaryColor": "#60a5fa",
+    "size": 88,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "popular": true,
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 6",
+    "author": "Darma / ChatGPT",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

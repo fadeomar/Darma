@@ -1,0 +1,51 @@
+{
+  "id": "uiverse-pendulum-clock-ball",
+  "name": "Pendulum Clock Ball",
+  "category": "fun",
+  "tags": [
+    "clock",
+    "pendulum",
+    "swing",
+    "ball",
+    "uiverse",
+    "batch-5"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-pendulum-clock-ball pendulum clock ball fun clock pendulum swing ball uiverse batch-5 html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-pendulum-clock-ball\">\n  <div class=\"darma-loader-uiverse-pendulum-clock-ball__clock\"><span></span><span></span></div>\n  <div class=\"darma-loader-uiverse-pendulum-clock-ball__stage\"></div>\n  <div class=\"darma-loader-uiverse-pendulum-clock-ball__hold\"><div class=\"darma-loader-uiverse-pendulum-clock-ball__ball\"></div></div>\n</div>\n",
+  "previewCss": ".darma-loader-uiverse-pendulum-clock-ball {\n  position: relative;\n  width: 120px;\n  height: 170px;\n  background: #ffffff;\n  padding-top: 22px;\n  border-radius: 25px;\n  box-shadow: 5px 5px 0 #666666;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.darma-loader-uiverse-pendulum-clock-ball__clock {\n  width: 74px;\n  height: 74px;\n  border: 6px solid var(--loader-color, #111111);\n  border-radius: 50%;\n  position: relative;\n  background: #f6f6f6;\n  box-shadow: inset 0 0 0 4px #ffffff;\n}\n.darma-loader-uiverse-pendulum-clock-ball__clock::before { content: \"\"; position: absolute; inset: 33px; background: #111; border-radius: 50%; }\n.darma-loader-uiverse-pendulum-clock-ball__clock span { position: absolute; left: 35px; top: 14px; width: 4px; height: 25px; background: #111; transform-origin: 50% 100%; animation: darma-loader-uiverse-pendulum-clock-ball-clockHand 6s linear infinite; }\n.darma-loader-uiverse-pendulum-clock-ball__clock span:nth-child(2) { height: 20px; top: 20px; animation-duration: 1.5s; }\n.darma-loader-uiverse-pendulum-clock-ball__stage { width: 72px; height: 7px; margin-top: 10px; background: var(--loader-color, #111111); border-radius: 15px; box-shadow: 2px 2px 0 #666666; }\n.darma-loader-uiverse-pendulum-clock-ball__hold { width: 3px; height: 56px; background: var(--loader-secondary-color, #32cd32); transform-origin: top center; animation: darma-loader-uiverse-pendulum-clock-ball-dangle 1.3s ease-in-out infinite; box-shadow: 4px 4px 0 #666666; }\n.darma-loader-uiverse-pendulum-clock-ball__ball { width: 38px; height: 38px; border-radius: 50%; background: #171717; transform: translate(-17px, 48px); box-shadow: 1px 1px 0 #666666; }\n@keyframes darma-loader-uiverse-pendulum-clock-ball-dangle { 0%,100% { transform: rotate(42deg); } 50% { transform: rotate(-42deg); } }\n@keyframes darma-loader-uiverse-pendulum-clock-ball-clockHand { to { transform: rotate(360deg); } }\n",
+  "defaults": {
+    "size": 120,
+    "speed": 1.3,
+    "color": "#111111",
+    "secondaryColor": "#32cd32"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-pendulum-clock-ball\">\n  <div class=\"darma-loader-uiverse-pendulum-clock-ball__clock\"><span></span><span></span></div>\n  <div class=\"darma-loader-uiverse-pendulum-clock-ball__stage\"></div>\n  <div class=\"darma-loader-uiverse-pendulum-clock-ball__hold\"><div class=\"darma-loader-uiverse-pendulum-clock-ball__ball\"></div></div>\n</div>\n",
+    "css": ".darma-loader-uiverse-pendulum-clock-ball {\n  position: relative;\n  width: 120px;\n  height: 170px;\n  background: #ffffff;\n  padding-top: 22px;\n  border-radius: 25px;\n  box-shadow: 5px 5px 0 #666666;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.darma-loader-uiverse-pendulum-clock-ball__clock {\n  width: 74px;\n  height: 74px;\n  border: 6px solid var(--loader-color, #111111);\n  border-radius: 50%;\n  position: relative;\n  background: #f6f6f6;\n  box-shadow: inset 0 0 0 4px #ffffff;\n}\n.darma-loader-uiverse-pendulum-clock-ball__clock::before { content: \"\"; position: absolute; inset: 33px; background: #111; border-radius: 50%; }\n.darma-loader-uiverse-pendulum-clock-ball__clock span { position: absolute; left: 35px; top: 14px; width: 4px; height: 25px; background: #111; transform-origin: 50% 100%; animation: darma-loader-uiverse-pendulum-clock-ball-clockHand 6s linear infinite; }\n.darma-loader-uiverse-pendulum-clock-ball__clock span:nth-child(2) { height: 20px; top: 20px; animation-duration: 1.5s; }\n.darma-loader-uiverse-pendulum-clock-ball__stage { width: 72px; height: 7px; margin-top: 10px; background: var(--loader-color, #111111); border-radius: 15px; box-shadow: 2px 2px 0 #666666; }\n.darma-loader-uiverse-pendulum-clock-ball__hold { width: 3px; height: 56px; background: var(--loader-secondary-color, #32cd32); transform-origin: top center; animation: darma-loader-uiverse-pendulum-clock-ball-dangle 1.3s ease-in-out infinite; box-shadow: 4px 4px 0 #666666; }\n.darma-loader-uiverse-pendulum-clock-ball__ball { width: 38px; height: 38px; border-radius: 50%; background: #171717; transform: translate(-17px, 48px); box-shadow: 1px 1px 0 #666666; }\n@keyframes darma-loader-uiverse-pendulum-clock-ball-dangle { 0%,100% { transform: rotate(42deg); } 50% { transform: rotate(-42deg); } }\n@keyframes darma-loader-uiverse-pendulum-clock-ball-clockHand { to { transform: rotate(360deg); } }\n",
+    "react": "export default function UiversePendulumClockBallLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-pendulum-clock-ball\">\n  <div className=\"darma-loader-uiverse-pendulum-clock-ball__clock\"><span></span><span></span></div>\n  <div className=\"darma-loader-uiverse-pendulum-clock-ball__stage\"></div>\n  <div className=\"darma-loader-uiverse-pendulum-clock-ball__hold\"><div className=\"darma-loader-uiverse-pendulum-clock-ball__ball\"></div></div>\n</div>\n\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

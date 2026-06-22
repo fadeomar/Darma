@@ -1,0 +1,50 @@
+{
+  "id": "uiverse-porcelain-orbit-dial",
+  "name": "Porcelain Orbit Dial",
+  "category": "spinners",
+  "tags": [
+    "neumorphic",
+    "orbit",
+    "dial",
+    "orb",
+    "uiverse"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-porcelain-orbit-dial porcelain orbit dial spinners neumorphic orbit dial orb uiverse html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-porcelain-orbit-dial\">\n  <div class=\"darma-loader-uiverse-porcelain-orbit-dial__track\"></div>\n  <div class=\"darma-loader-uiverse-porcelain-orbit-dial__inner-track\"></div>\n  <div class=\"darma-loader-uiverse-porcelain-orbit-dial__orb\"></div>\n</div>",
+  "previewCss": "/* Container for the loader */\n.darma-loader-uiverse-porcelain-orbit-dial {\n  position: relative;\n  width: 10em;\n  height: 10em;\n}\n/* Track elements */\n.darma-loader-uiverse-porcelain-orbit-dial__track, .darma-loader-uiverse-porcelain-orbit-dial__inner-track {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  border-radius: 50%;\n  box-shadow: inset -0.1em -0.1em 0.2em #d1d1d1, inset 0.1em 0.1em 0.2em #ffffff;\n}\n\n.darma-loader-uiverse-porcelain-orbit-dial__inner-track {\nwidth: 80%;\nheight: 80%;\ntop: 10%;\nleft: 10%;\nborder: 2em solid var(--loader-secondary-color, #f0f0f0);\n}\n/* Orb element */\n.darma-loader-uiverse-porcelain-orbit-dial__orb {\nposition: absolute;\nwidth: 1.5em;\nheight: 1.5em;\ntop: 50%;\nleft: 50%;\nbackground-color: var(--loader-color, #c0cfda);\nborder-radius: 50%;\nanimation: darma-loader-uiverse-porcelain-orbit-dial-spin 1.5s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);\nbackground: radial-gradient(circle at 30% 30%, #ffffff, #ccc);\nbox-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), inset 0 -2px 4px rgba(255, 255, 255, 0.2), inset 0 2px 4px rgba(0, 0, 0, 0.2);\n}\n\n/* Animations */\n@keyframes darma-loader-uiverse-porcelain-orbit-dial-spin {\n0% {\ntransform: translate(-50%, -50%) rotate(90deg) translate(3em) rotate(-90deg);\n}\n\n100% {\ntransform: translate(-50%, -50%) rotate(450deg) translate(3em) rotate(-450deg);\n}\n}",
+  "defaults": {
+    "size": 82,
+    "speed": 1.5,
+    "color": "#c0cfda",
+    "secondaryColor": "#f0f0f0"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-porcelain-orbit-dial\">\n  <div class=\"darma-loader-uiverse-porcelain-orbit-dial__track\"></div>\n  <div class=\"darma-loader-uiverse-porcelain-orbit-dial__inner-track\"></div>\n  <div class=\"darma-loader-uiverse-porcelain-orbit-dial__orb\"></div>\n</div>",
+    "css": "/* Container for the loader */\n.darma-loader-uiverse-porcelain-orbit-dial {\n  position: relative;\n  width: 10em;\n  height: 10em;\n}\n/* Track elements */\n.darma-loader-uiverse-porcelain-orbit-dial__track, .darma-loader-uiverse-porcelain-orbit-dial__inner-track {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  border-radius: 50%;\n  box-shadow: inset -0.1em -0.1em 0.2em #d1d1d1, inset 0.1em 0.1em 0.2em #ffffff;\n}\n\n.darma-loader-uiverse-porcelain-orbit-dial__inner-track {\nwidth: 80%;\nheight: 80%;\ntop: 10%;\nleft: 10%;\nborder: 2em solid var(--loader-secondary-color, #f0f0f0);\n}\n/* Orb element */\n.darma-loader-uiverse-porcelain-orbit-dial__orb {\nposition: absolute;\nwidth: 1.5em;\nheight: 1.5em;\ntop: 50%;\nleft: 50%;\nbackground-color: var(--loader-color, #c0cfda);\nborder-radius: 50%;\nanimation: darma-loader-uiverse-porcelain-orbit-dial-spin 1.5s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);\nbackground: radial-gradient(circle at 30% 30%, #ffffff, #ccc);\nbox-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), inset 0 -2px 4px rgba(255, 255, 255, 0.2), inset 0 2px 4px rgba(0, 0, 0, 0.2);\n}\n\n/* Animations */\n@keyframes darma-loader-uiverse-porcelain-orbit-dial-spin {\n0% {\ntransform: translate(-50%, -50%) rotate(90deg) translate(3em) rotate(-90deg);\n}\n\n100% {\ntransform: translate(-50%, -50%) rotate(450deg) translate(3em) rotate(-450deg);\n}\n}",
+    "react": "export default function UiversePorcelainOrbitDialLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-porcelain-orbit-dial\">\n  <div className=\"darma-loader-uiverse-porcelain-orbit-dial__track\"></div>\n  <div className=\"darma-loader-uiverse-porcelain-orbit-dial__inner-track\"></div>\n  <div className=\"darma-loader-uiverse-porcelain-orbit-dial__orb\"></div>\n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

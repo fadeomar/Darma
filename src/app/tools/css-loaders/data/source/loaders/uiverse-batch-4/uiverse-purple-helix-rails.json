@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-purple-helix-rails",
+  "name": "Purple Helix Rails",
+  "category": "creative",
+  "tags": [
+    "helix",
+    "rails",
+    "3d",
+    "purple",
+    "uiverse"
+  ],
+  "html": "<div class=\"loader\">\n  <span style=\"--i:1\" class=\"element\"></span>\n  <span style=\"--i:2\" class=\"element\"></span>\n  <span style=\"--i:3\" class=\"element\"></span>\n  <span style=\"--i:4\" class=\"element\"></span>\n  <span style=\"--i:5\" class=\"element\"></span>\n  <span style=\"--i:6\" class=\"element\"></span>\n  <span style=\"--i:7\" class=\"element\"></span>\n  <span style=\"--i:8\" class=\"element\"></span>\n  <span style=\"--i:9\" class=\"element\"></span>\n  <span style=\"--i:10\" class=\"element\"></span>\n  <span style=\"--i:11\" class=\"element\"></span>\n  <span style=\"--i:12\" class=\"element\"></span>\n  <span style=\"--i:13\" class=\"element\"></span>\n  <span style=\"--i:14\" class=\"element\"></span>\n  <span style=\"--i:15\" class=\"element\"></span>\n</div>",
+  "css": ".loader {\n  transform: rotateX(70deg) scale(.72);\n}\n\n.loader .element {\ndisplay: block;\nborder-left: 5px solid rgb(120, 47, 255);\nborder-right: 5px solid rgb(120, 47, 255);\nborder-top: dotted 2px rgb(92, 5, 114);\nwidth: 10rem;\nheight: 1rem;\nmargin-top: 0.5rem;\nperspective: 1000px;\nanimation: rotate 5s infinite linear;\nanimation-delay: calc(var(--i) * 0.2s);\n}\n\n@keyframes rotate {\n100% {\ntransform: rotateY(360deg);\n}\n}",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 108,
+    "speed": 5,
+    "color": "#782fff",
+    "secondaryColor": "#5c0572"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

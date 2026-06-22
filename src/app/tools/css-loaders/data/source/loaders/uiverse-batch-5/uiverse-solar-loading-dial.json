@@ -1,0 +1,40 @@
+{
+  "id": "uiverse-solar-loading-dial",
+  "name": "Solar Loading Dial",
+  "category": "spinners",
+  "tags": [
+    "dial",
+    "solar",
+    "text",
+    "ring",
+    "uiverse",
+    "batch-5"
+  ],
+  "html": "<div class=\"loader loading-bar\">Loading<span></span></div>\n",
+  "css": ".loading-bar {\n  position: relative;\n  width: 110px;\n  height: 110px;\n  background: transparent;\n  border: 3px solid #3c3c3c;\n  border-radius: 50%;\n  text-align: center;\n  line-height: 111px;\n  font-family: sans-serif;\n  font-size: 15px;\n  color: #fff000;\n  letter-spacing: 3px;\n  text-transform: uppercase;\n  text-shadow: 0 0 20px #fff000;\n  box-shadow: 0 0 20px rgba(0,0,0,.5);\n}\n.loading-bar::before {\n  content: \"\";\n  position: absolute;\n  top: -3px;\n  left: -3px;\n  width: 100%;\n  height: 100%;\n  border: 3px solid transparent;\n  border-top: 5px solid #fff000;\n  border-right: 5px solid #fff000;\n  border-radius: 50%;\n  animation: solarDial 2s linear infinite;\n}\n.loading-bar span {\n  position: absolute;\n  top: calc(50% - 2px);\n  left: 50%;\n  width: 50%;\n  height: 4px;\n  background: transparent;\n  transform-origin: left;\n  animation: solarHand 2s linear infinite;\n}\n.loading-bar span::before {\n  content: \"\";\n  position: absolute;\n  width: 14px;\n  height: 14px;\n  border-radius: 50%;\n  background: #fff000;\n  top: -5px;\n  right: -7px;\n  box-shadow: 0 0 20px #fff000;\n}\n@keyframes solarDial { to { transform: rotate(360deg); } }\n@keyframes solarHand { from { transform: rotate(45deg); } to { transform: rotate(405deg); } }\n",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 110,
+    "speed": 2,
+    "color": "#fff000",
+    "secondaryColor": "#3c3c3c"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

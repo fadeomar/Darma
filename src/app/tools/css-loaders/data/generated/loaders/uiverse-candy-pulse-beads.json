@@ -1,0 +1,50 @@
+{
+  "id": "uiverse-candy-pulse-beads",
+  "name": "Candy Pulse Beads",
+  "category": "dots",
+  "tags": [
+    "dots",
+    "gradient",
+    "pulse",
+    "beads",
+    "uiverse"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-candy-pulse-beads candy pulse beads dots dots gradient pulse beads uiverse html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-candy-pulse-beads\">\n    <div class=\"darma-loader-uiverse-candy-pulse-beads__circle\"></div>\n    <div class=\"darma-loader-uiverse-candy-pulse-beads__circle\"></div>\n    <div class=\"darma-loader-uiverse-candy-pulse-beads__circle\"></div>\n    <div class=\"darma-loader-uiverse-candy-pulse-beads__circle\"></div>\n    <div class=\"darma-loader-uiverse-candy-pulse-beads__circle\"></div>\n  </div>",
+  "previewCss": ".darma-loader-uiverse-candy-pulse-beads {\n  flex-direction: row;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.darma-loader-uiverse-candy-pulse-beads__circle {\nwidth: 20px;\nheight: 20px;\nbackground-color: var(--loader-color, #8bc6ec);\nbackground-image: linear-gradient(135deg, var(--loader-color, #8bc6ec) 0%, var(--loader-secondary-color, #9599e2) 100%);\nborder-radius: 50%;\nmargin-right: 1rem;\nanimation: darma-loader-uiverse-candy-pulse-beads-pulse 1.2s ease-in-out infinite;\n}\n\n.darma-loader-uiverse-candy-pulse-beads__circle:nth-child(2) {\nanimation-delay: 0.2s;\nbackground-color: #4158D0;\nbackground-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);\n}\n\n.darma-loader-uiverse-candy-pulse-beads__circle:nth-child(3) {\nanimation-delay: 0.4s;\nbackground-color: #0093E9;\nbackground-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);\n}\n\n.darma-loader-uiverse-candy-pulse-beads__circle:nth-child(4) {\nanimation-delay: 0.6s;\nbackground-color: #8EC5FC;\nbackground-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);\n}\n\n.darma-loader-uiverse-candy-pulse-beads__circle:nth-child(5) {\nanimation-delay: 0.8s;\nbackground-color: #00DBDE;\nbackground-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);\n}\n\n@keyframes darma-loader-uiverse-candy-pulse-beads-pulse {\n0% {\ntransform: scale(0.8);\nopacity: 0.7;\n}\n\n50% {\ntransform: scale(1);\nopacity: 1;\n}\n\n100% {\ntransform: scale(0.8);\nopacity: 0.7;\n}\n}",
+  "defaults": {
+    "size": 76,
+    "speed": 1.2,
+    "color": "#8bc6ec",
+    "secondaryColor": "#9599e2"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-candy-pulse-beads\">\n    <div class=\"darma-loader-uiverse-candy-pulse-beads__circle\"></div>\n    <div class=\"darma-loader-uiverse-candy-pulse-beads__circle\"></div>\n    <div class=\"darma-loader-uiverse-candy-pulse-beads__circle\"></div>\n    <div class=\"darma-loader-uiverse-candy-pulse-beads__circle\"></div>\n    <div class=\"darma-loader-uiverse-candy-pulse-beads__circle\"></div>\n  </div>",
+    "css": ".darma-loader-uiverse-candy-pulse-beads {\n  flex-direction: row;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.darma-loader-uiverse-candy-pulse-beads__circle {\nwidth: 20px;\nheight: 20px;\nbackground-color: var(--loader-color, #8bc6ec);\nbackground-image: linear-gradient(135deg, var(--loader-color, #8bc6ec) 0%, var(--loader-secondary-color, #9599e2) 100%);\nborder-radius: 50%;\nmargin-right: 1rem;\nanimation: darma-loader-uiverse-candy-pulse-beads-pulse 1.2s ease-in-out infinite;\n}\n\n.darma-loader-uiverse-candy-pulse-beads__circle:nth-child(2) {\nanimation-delay: 0.2s;\nbackground-color: #4158D0;\nbackground-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);\n}\n\n.darma-loader-uiverse-candy-pulse-beads__circle:nth-child(3) {\nanimation-delay: 0.4s;\nbackground-color: #0093E9;\nbackground-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);\n}\n\n.darma-loader-uiverse-candy-pulse-beads__circle:nth-child(4) {\nanimation-delay: 0.6s;\nbackground-color: #8EC5FC;\nbackground-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);\n}\n\n.darma-loader-uiverse-candy-pulse-beads__circle:nth-child(5) {\nanimation-delay: 0.8s;\nbackground-color: #00DBDE;\nbackground-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);\n}\n\n@keyframes darma-loader-uiverse-candy-pulse-beads-pulse {\n0% {\ntransform: scale(0.8);\nopacity: 0.7;\n}\n\n50% {\ntransform: scale(1);\nopacity: 1;\n}\n\n100% {\ntransform: scale(0.8);\nopacity: 0.7;\n}\n}",
+    "react": "export default function UiverseCandyPulseBeadsLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-candy-pulse-beads\">\n    <div className=\"darma-loader-uiverse-candy-pulse-beads__circle\"></div>\n    <div className=\"darma-loader-uiverse-candy-pulse-beads__circle\"></div>\n    <div className=\"darma-loader-uiverse-candy-pulse-beads__circle\"></div>\n    <div className=\"darma-loader-uiverse-candy-pulse-beads__circle\"></div>\n    <div className=\"darma-loader-uiverse-candy-pulse-beads__circle\"></div>\n  </div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

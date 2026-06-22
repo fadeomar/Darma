@@ -1,0 +1,51 @@
+{
+  "id": "uiverse-dashboard-skeleton-card",
+  "name": "Dashboard Skeleton Card",
+  "category": "skeleton",
+  "tags": [
+    "skeleton",
+    "card",
+    "placeholder",
+    "pulse",
+    "uiverse",
+    "batch-5"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-dashboard-skeleton-card dashboard skeleton card skeleton skeleton card placeholder pulse uiverse batch-5 html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-dashboard-skeleton-card\">\n  <div class=\"darma-loader-uiverse-dashboard-skeleton-card__thumbnail\"></div>\n  <div class=\"darma-loader-uiverse-dashboard-skeleton-card__rows\">\n    <span></span><span></span><span></span><span></span>\n  </div>\n</div>\n",
+  "previewCss": ".darma-loader-uiverse-dashboard-skeleton-card {\n  width: 224px;\n  height: 256px;\n  border-radius: 18px;\n  padding: 16px;\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  background: var(--loader-color, #d4d4d4);\n}\n.darma-loader-uiverse-dashboard-skeleton-card__thumbnail,\n.darma-loader-uiverse-dashboard-skeleton-card__rows span {\n  background: linear-gradient(90deg, rgba(115,115,115,.22), color-mix(in srgb, var(--loader-secondary-color, #ffffff) 35%, transparent), rgba(115,115,115,.22));\n  background-size: 300% 100%;\n  animation: darma-loader-uiverse-dashboard-skeleton-card-skeletonSweep 1.2s ease-in-out infinite;\n  border-radius: 10px;\n}\n.darma-loader-uiverse-dashboard-skeleton-card__thumbnail { width: 100%; height: 128px; }\n.darma-loader-uiverse-dashboard-skeleton-card__rows { display: flex; flex-direction: column; gap: 10px; }\n.darma-loader-uiverse-dashboard-skeleton-card__rows span { height: 14px; width: 100%; }\n.darma-loader-uiverse-dashboard-skeleton-card__rows span:nth-child(2) { width: 80%; }\n.darma-loader-uiverse-dashboard-skeleton-card__rows span:nth-child(4) { width: 50%; }\n@keyframes darma-loader-uiverse-dashboard-skeleton-card-skeletonSweep { to { background-position: -300% 0; } }\n",
+  "defaults": {
+    "size": 224,
+    "speed": 1.2,
+    "color": "#d4d4d4",
+    "secondaryColor": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-dashboard-skeleton-card\">\n  <div class=\"darma-loader-uiverse-dashboard-skeleton-card__thumbnail\"></div>\n  <div class=\"darma-loader-uiverse-dashboard-skeleton-card__rows\">\n    <span></span><span></span><span></span><span></span>\n  </div>\n</div>\n",
+    "css": ".darma-loader-uiverse-dashboard-skeleton-card {\n  width: 224px;\n  height: 256px;\n  border-radius: 18px;\n  padding: 16px;\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  background: var(--loader-color, #d4d4d4);\n}\n.darma-loader-uiverse-dashboard-skeleton-card__thumbnail,\n.darma-loader-uiverse-dashboard-skeleton-card__rows span {\n  background: linear-gradient(90deg, rgba(115,115,115,.22), color-mix(in srgb, var(--loader-secondary-color, #ffffff) 35%, transparent), rgba(115,115,115,.22));\n  background-size: 300% 100%;\n  animation: darma-loader-uiverse-dashboard-skeleton-card-skeletonSweep 1.2s ease-in-out infinite;\n  border-radius: 10px;\n}\n.darma-loader-uiverse-dashboard-skeleton-card__thumbnail { width: 100%; height: 128px; }\n.darma-loader-uiverse-dashboard-skeleton-card__rows { display: flex; flex-direction: column; gap: 10px; }\n.darma-loader-uiverse-dashboard-skeleton-card__rows span { height: 14px; width: 100%; }\n.darma-loader-uiverse-dashboard-skeleton-card__rows span:nth-child(2) { width: 80%; }\n.darma-loader-uiverse-dashboard-skeleton-card__rows span:nth-child(4) { width: 50%; }\n@keyframes darma-loader-uiverse-dashboard-skeleton-card-skeletonSweep { to { background-position: -300% 0; } }\n",
+    "react": "export default function UiverseDashboardSkeletonCardLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-dashboard-skeleton-card\">\n  <div className=\"darma-loader-uiverse-dashboard-skeleton-card__thumbnail\"></div>\n  <div className=\"darma-loader-uiverse-dashboard-skeleton-card__rows\">\n    <span></span><span></span><span></span><span></span>\n  </div>\n</div>\n\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "uiverse-neon-ring-word",
+  "name": "Neon Ring Word",
+  "category": "creative",
+  "tags": [
+    "neon",
+    "word",
+    "ring",
+    "loading",
+    "uiverse"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-neon-ring-word neon ring word creative neon word ring loading uiverse html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-neon-ring-word darma-loader-uiverse-neon-ring-word__loading-bar\">Loading</div>",
+  "previewCss": ".darma-loader-uiverse-neon-ring-word { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.darma-loader-uiverse-neon-ring-word__loading-bar {\n  position: relative;\n  width: 110px;\n  height: 110px;\n  background: transparent;\n  border: 2px solid #3c3c3c;\n  border-radius: 50%;\n  text-align: center;\n  line-height: 111px;\n  font-family: sans-serif;\n  font-size: 15px;\n  color: var(--loader-color, #fff000);\n  letter-spacing: 3px;\n  text-transform: uppercase;\n  text-shadow: 0 0 20px var(--loader-color, #fff000);\n  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);\n}\n\n.darma-loader-uiverse-neon-ring-word__loading-bar:before {\ncontent: \"\";\nposition: absolute;\ntop: -3px;\nleft: -3px;\nwidth: 100%;\nheight: 100%;\nborder: 3px solid transparent;\nborder-top: 5px solid var(--loader-color, #fff000);\nborder-right: 5px solid var(--loader-color, #fff000);\nborder-radius: 50%;\nanimation: darma-loader-uiverse-neon-ring-word-animateC 2s linear infinite;\n}\n\n@keyframes darma-loader-uiverse-neon-ring-word-animateC {\n0% {\ntransform: rotate(0deg);\n}\n\n100% {\ntransform: rotate(360deg);\n}\n}\n\n@keyframes darma-loader-uiverse-neon-ring-word-animate {\n0% {\ntransform: rotate(45deg);\n}\n\n100% {\ntransform: rotate(405deg);\n}\n}",
+  "defaults": {
+    "size": 82,
+    "speed": 2,
+    "color": "#fff000",
+    "secondaryColor": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-neon-ring-word darma-loader-uiverse-neon-ring-word__loading-bar\">Loading</div>",
+    "css": ".darma-loader-uiverse-neon-ring-word { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.darma-loader-uiverse-neon-ring-word__loading-bar {\n  position: relative;\n  width: 110px;\n  height: 110px;\n  background: transparent;\n  border: 2px solid #3c3c3c;\n  border-radius: 50%;\n  text-align: center;\n  line-height: 111px;\n  font-family: sans-serif;\n  font-size: 15px;\n  color: var(--loader-color, #fff000);\n  letter-spacing: 3px;\n  text-transform: uppercase;\n  text-shadow: 0 0 20px var(--loader-color, #fff000);\n  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);\n}\n\n.darma-loader-uiverse-neon-ring-word__loading-bar:before {\ncontent: \"\";\nposition: absolute;\ntop: -3px;\nleft: -3px;\nwidth: 100%;\nheight: 100%;\nborder: 3px solid transparent;\nborder-top: 5px solid var(--loader-color, #fff000);\nborder-right: 5px solid var(--loader-color, #fff000);\nborder-radius: 50%;\nanimation: darma-loader-uiverse-neon-ring-word-animateC 2s linear infinite;\n}\n\n@keyframes darma-loader-uiverse-neon-ring-word-animateC {\n0% {\ntransform: rotate(0deg);\n}\n\n100% {\ntransform: rotate(360deg);\n}\n}\n\n@keyframes darma-loader-uiverse-neon-ring-word-animate {\n0% {\ntransform: rotate(45deg);\n}\n\n100% {\ntransform: rotate(405deg);\n}\n}",
+    "react": "export default function UiverseNeonRingWordLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-neon-ring-word darma-loader-uiverse-neon-ring-word__loading-bar\">Loading</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "uiverse-indigo-dot-rotor",
+  "name": "Indigo Dot Rotor",
+  "category": "spinners",
+  "tags": [
+    "dots",
+    "rotor",
+    "indigo",
+    "radial",
+    "uiverse",
+    "batch-5"
+  ],
+  "html": "<div class=\"loader spinner\"></div>\n",
+  "css": ".spinner {\n  --R: 28px;\n  --g1: #004dff 96%, transparent;\n  --g2: #d6d6fc 96%, transparent;\n  width: calc(2 * var(--R));\n  height: calc(2 * var(--R));\n  border-radius: 50%;\n  display: grid;\n  -webkit-mask: linear-gradient(#000 0 0);\n  animation: indigoRotor 2s infinite linear;\n}\n.spinner::before,\n.spinner::after {\n  content: \"\";\n  grid-area: 1 / 1;\n  width: 50%;\n  background:\n    radial-gradient(farthest-side, var(--g1)) calc(var(--R) + .866 * var(--R) - var(--R)) calc(var(--R) - .5 * var(--R) - var(--R)),\n    radial-gradient(farthest-side, var(--g2)) calc(var(--R) + .5 * var(--R) - var(--R)) calc(var(--R) - .866 * var(--R) - var(--R)),\n    radial-gradient(farthest-side, var(--g1)) 0 calc(-1 * var(--R)),\n    radial-gradient(farthest-side, var(--g2)) calc(-1 * var(--R)) 0;\n  background-size: calc(2 * var(--R)) calc(2 * var(--R));\n  background-repeat: no-repeat;\n}\n.spinner::after { transform: rotate(180deg); transform-origin: right; }\n@keyframes indigoRotor { to { transform: rotate(-1turn); } }\n",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 56,
+    "speed": 2,
+    "color": "#004dff",
+    "secondaryColor": "#d6d6fc"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

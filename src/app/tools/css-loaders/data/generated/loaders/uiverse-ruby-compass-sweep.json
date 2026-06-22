@@ -1,0 +1,50 @@
+{
+  "id": "uiverse-ruby-compass-sweep",
+  "name": "Ruby Compass Sweep",
+  "category": "spinners",
+  "tags": [
+    "triangle",
+    "ruby",
+    "sweep",
+    "spinner",
+    "uiverse"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-ruby-compass-sweep ruby compass sweep spinners triangle ruby sweep spinner uiverse html css react singleelement cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-ruby-compass-sweep\"></div>",
+  "previewCss": ".darma-loader-uiverse-ruby-compass-sweep {\n  position: relative;\n  border: 24px solid;\n  border-color: red  transparent red transparent;\n  animation: darma-loader-uiverse-ruby-compass-sweep-rotate_000 2s linear infinite;\n}\n\n.darma-loader-uiverse-ruby-compass-sweep:before,\n.darma-loader-uiverse-ruby-compass-sweep:after {\ncontent: \"\";\ndisplay: block;\nborder: 24px solid transparent;\nborder-left-color: red;\nposition: absolute;\nleft: -24px;\ntop: -24px;\nanimation: darma-loader-uiverse-ruby-compass-sweep-prix 1s infinite ease-in;\ntransform-origin: 0% 100%;\n}\n\n.darma-loader-uiverse-ruby-compass-sweep:before {\nborder-color: transparent red transparent transparent;\ntransform-origin: 100% 0%;\nanimation-delay: 0.5s;\n}\n\n@keyframes darma-loader-uiverse-ruby-compass-sweep-rotate_000 {\n100% {\ntransform: rotate(360deg)\n}\n}\n\n@keyframes darma-loader-uiverse-ruby-compass-sweep-prix {\n20% , 80% {\ntransform: rotate(0)\n}\n\n50% {\ntransform: rotate(-90deg)\n}\n}",
+  "defaults": {
+    "size": 62,
+    "speed": 2,
+    "color": "#ff0000",
+    "secondaryColor": "#ffffff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-ruby-compass-sweep\"></div>",
+    "css": ".darma-loader-uiverse-ruby-compass-sweep {\n  position: relative;\n  border: 24px solid;\n  border-color: red  transparent red transparent;\n  animation: darma-loader-uiverse-ruby-compass-sweep-rotate_000 2s linear infinite;\n}\n\n.darma-loader-uiverse-ruby-compass-sweep:before,\n.darma-loader-uiverse-ruby-compass-sweep:after {\ncontent: \"\";\ndisplay: block;\nborder: 24px solid transparent;\nborder-left-color: red;\nposition: absolute;\nleft: -24px;\ntop: -24px;\nanimation: darma-loader-uiverse-ruby-compass-sweep-prix 1s infinite ease-in;\ntransform-origin: 0% 100%;\n}\n\n.darma-loader-uiverse-ruby-compass-sweep:before {\nborder-color: transparent red transparent transparent;\ntransform-origin: 100% 0%;\nanimation-delay: 0.5s;\n}\n\n@keyframes darma-loader-uiverse-ruby-compass-sweep-rotate_000 {\n100% {\ntransform: rotate(360deg)\n}\n}\n\n@keyframes darma-loader-uiverse-ruby-compass-sweep-prix {\n20% , 80% {\ntransform: rotate(0)\n}\n\n50% {\ntransform: rotate(-90deg)\n}\n}",
+    "react": "export default function UiverseRubyCompassSweepLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-ruby-compass-sweep\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": false,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "uiverse-aurora-jump-pearls",
+  "name": "Aurora Jump Pearls",
+  "category": "dots",
+  "tags": [
+    "dots",
+    "glow",
+    "jump",
+    "aurora",
+    "uiverse"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-aurora-jump-pearls aurora jump pearls dots dots glow jump aurora uiverse html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-aurora-jump-pearls\">\n  <div class=\"darma-loader-uiverse-aurora-jump-pearls___circle\"></div>\n  <div class=\"darma-loader-uiverse-aurora-jump-pearls___circle\"></div>\n  <div class=\"darma-loader-uiverse-aurora-jump-pearls___circle\"></div>\n  <div class=\"darma-loader-uiverse-aurora-jump-pearls___circle\"></div>\n  <div class=\"darma-loader-uiverse-aurora-jump-pearls___circle\"></div>\n</div>",
+  "previewCss": ".darma-loader-uiverse-aurora-jump-pearls {\n  position: relative;\n  display: flex;\n  gap: 0.3em;\n}\n\n.darma-loader-uiverse-aurora-jump-pearls::before {\ncontent: \"\";\nposition: absolute;\nleft: 0;\ntop: 0;\nwidth: 100%;\nheight: 2em;\nfilter: blur(45px);\nbackground-color: var(--loader-secondary-color, #e299ff);\nbackground-image: radial-gradient(at 52% 57%, hsla(11,83%,72%,1) 0px, transparent 50%),\nradial-gradient(at 37% 57%, hsla(175,78%,66%,1) 0px, transparent 50%);\n}\n\n.darma-loader-uiverse-aurora-jump-pearls___circle {\n--size-loader: 0.6em;\nwidth: var(--size-loader);\nheight: var(--size-loader);\nborder-radius: 50%;\nanimation: darma-loader-uiverse-aurora-jump-pearls-loaderCircleJumping 2s infinite;\nbackground-color: var(--loader-color, #b499ff);\n}\n\n.darma-loader-uiverse-aurora-jump-pearls___circle:nth-child(2n) {\nanimation-delay: 300ms;\nbackground-color: #e499ff;\n}\n\n.darma-loader-uiverse-aurora-jump-pearls___circle:nth-child(3n) {\nanimation-delay: 600ms;\n}\n\n@keyframes darma-loader-uiverse-aurora-jump-pearls-loaderCircleJumping {\n0%, 100% {\ntransform: translateY(0px);\n}\n\n25% {\ntransform: translateY(-15px) scale(0.5);\n}\n\n50% {\ntransform: translateY(0px);\n}\n\n75% {\ntransform: translateY(5px) scale(0.9);\n}\n}",
+  "defaults": {
+    "size": 68,
+    "speed": 2,
+    "color": "#b499ff",
+    "secondaryColor": "#e299ff"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-aurora-jump-pearls\">\n  <div class=\"darma-loader-uiverse-aurora-jump-pearls___circle\"></div>\n  <div class=\"darma-loader-uiverse-aurora-jump-pearls___circle\"></div>\n  <div class=\"darma-loader-uiverse-aurora-jump-pearls___circle\"></div>\n  <div class=\"darma-loader-uiverse-aurora-jump-pearls___circle\"></div>\n  <div class=\"darma-loader-uiverse-aurora-jump-pearls___circle\"></div>\n</div>",
+    "css": ".darma-loader-uiverse-aurora-jump-pearls {\n  position: relative;\n  display: flex;\n  gap: 0.3em;\n}\n\n.darma-loader-uiverse-aurora-jump-pearls::before {\ncontent: \"\";\nposition: absolute;\nleft: 0;\ntop: 0;\nwidth: 100%;\nheight: 2em;\nfilter: blur(45px);\nbackground-color: var(--loader-secondary-color, #e299ff);\nbackground-image: radial-gradient(at 52% 57%, hsla(11,83%,72%,1) 0px, transparent 50%),\nradial-gradient(at 37% 57%, hsla(175,78%,66%,1) 0px, transparent 50%);\n}\n\n.darma-loader-uiverse-aurora-jump-pearls___circle {\n--size-loader: 0.6em;\nwidth: var(--size-loader);\nheight: var(--size-loader);\nborder-radius: 50%;\nanimation: darma-loader-uiverse-aurora-jump-pearls-loaderCircleJumping 2s infinite;\nbackground-color: var(--loader-color, #b499ff);\n}\n\n.darma-loader-uiverse-aurora-jump-pearls___circle:nth-child(2n) {\nanimation-delay: 300ms;\nbackground-color: #e499ff;\n}\n\n.darma-loader-uiverse-aurora-jump-pearls___circle:nth-child(3n) {\nanimation-delay: 600ms;\n}\n\n@keyframes darma-loader-uiverse-aurora-jump-pearls-loaderCircleJumping {\n0%, 100% {\ntransform: translateY(0px);\n}\n\n25% {\ntransform: translateY(-15px) scale(0.5);\n}\n\n50% {\ntransform: translateY(0px);\n}\n\n75% {\ntransform: translateY(5px) scale(0.9);\n}\n}",
+    "react": "export default function UiverseAuroraJumpPearlsLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-aurora-jump-pearls\">\n  <div className=\"darma-loader-uiverse-aurora-jump-pearls___circle\"></div>\n  <div className=\"darma-loader-uiverse-aurora-jump-pearls___circle\"></div>\n  <div className=\"darma-loader-uiverse-aurora-jump-pearls___circle\"></div>\n  <div className=\"darma-loader-uiverse-aurora-jump-pearls___circle\"></div>\n  <div className=\"darma-loader-uiverse-aurora-jump-pearls___circle\"></div>\n</div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

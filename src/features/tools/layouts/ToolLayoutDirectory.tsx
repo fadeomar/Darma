@@ -54,6 +54,7 @@ const toolTypeLabels: Record<ToolTypeFilter, string> = {
   "text-workbench": "Text workbenches",
   "single-utility": "Utilities",
   "fullscreen-studio": "Fullscreen studios",
+  "interactive-challenge": "Interactive challenges",
   directory: "Directories",
 };
 
@@ -62,6 +63,7 @@ function layoutLabel(layoutType?: ToolDefinition["layoutType"]) {
   if (layoutType === "visual-generator") return "Visual";
   if (layoutType === "fullscreen-studio") return "Studio";
   if (layoutType === "single-utility") return "Utility";
+  if (layoutType === "interactive-challenge") return "Challenge";
   if (layoutType === "directory") return "Directory";
   return "Tool";
 }
@@ -170,6 +172,116 @@ function ToolCard({ tool, compact = false }: { tool: ToolDefinition; compact?: b
   );
 }
 
+function challengeSpotlightLabel(tool: ToolDefinition) {
+  if (tool.id === "mouse-scroll-test") return "Wheel sprint";
+  if (tool.id === "click-speed-test") return "CPS rush";
+  if (tool.id === "spacebar-counter") return "Key rhythm";
+  if (tool.id === "reaction-time-test") return "Reflex rounds";
+  return "Quick challenge";
+}
+
+function ChallengeSpotlight({
+  tools,
+  onExplore,
+}: {
+  tools: ToolDefinition[];
+  onExplore: () => void;
+}) {
+  if (!tools.length) return null;
+
+  const leadTool = tools[0];
+
+  return (
+    <section className="relative mt-8 overflow-hidden rounded-[2rem] border border-[var(--color-primary-border)] bg-[radial-gradient(circle_at_top_left,var(--color-primary-soft),transparent_34%),radial-gradient(circle_at_bottom_right,var(--color-accent-soft),transparent_32%),linear-gradient(135deg,var(--color-surface-overlay),var(--color-surface-raised))] p-5 shadow-[0_22px_70px_rgba(91,61,31,0.13)] sm:p-6 lg:p-7">
+      <div className="pointer-events-none absolute inset-0 opacity-55 [background-image:linear-gradient(rgba(119,83,45,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(119,83,45,0.07)_1px,transparent_1px)] [background-size:42px_42px]" />
+      <div className="pointer-events-none absolute left-1/2 top-0 h-44 w-44 -translate-x-1/2 rounded-full bg-[var(--color-primary-soft)] blur-3xl" />
+      <div className="relative grid gap-5 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-stretch">
+        <div className="flex min-w-0 flex-col justify-between">
+          <div>
+            <div className="flex flex-wrap items-center gap-2">
+              <Badge variant="warning">Fun Tools</Badge>
+              <Badge variant="accent">Interactive challenges</Badge>
+              <Badge variant="outline">{tools.length} live</Badge>
+            </div>
+            <h2 className="mt-3 max-w-3xl text-3xl font-black leading-[var(--leading-tight)] tracking-[-0.045em] text-[var(--color-text-primary)] sm:text-4xl">
+              A soft arcade shelf inside the tools directory.
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)] sm:text-base">
+              Scroll, click, press, and react inside browser-only challenges with focused arena chrome, live status pills, progress rails, local personal bests, and copyable result highlights.
+            </p>
+          </div>
+
+          <div className="mt-5 flex flex-wrap gap-2">
+            <Link
+              href="/tools/fun"
+              className="inline-flex min-h-10 items-center rounded-[var(--radius-md)] bg-[var(--color-primary)] px-4 text-sm font-black text-[var(--color-primary-text)] shadow-[var(--shadow-xs)] transition hover:bg-[var(--color-primary-hover)] focus:outline-none focus:shadow-[var(--focus-ring)]"
+            >
+              Open fun hub
+            </Link>
+            <button
+              type="button"
+              onClick={onExplore}
+              className="inline-flex min-h-10 items-center rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-4 text-sm font-black text-[var(--color-text-primary)] shadow-[var(--shadow-xs)] transition hover:border-[var(--color-primary-border)] focus:outline-none focus:shadow-[var(--focus-ring)]"
+            >
+              Filter challenges
+            </button>
+          </div>
+        </div>
+
+        <div className="rounded-[var(--radius-xl)] border border-white/55 bg-white/65 p-3 shadow-[var(--shadow-card)] backdrop-blur dark:border-white/10 dark:bg-white/10">
+          <div className="rounded-[var(--radius-lg)] border border-[var(--color-primary-border)] bg-[radial-gradient(circle_at_0%_0%,var(--color-primary-soft),transparent_38%),var(--color-surface-base)] p-4">
+            <div className="flex items-center justify-between gap-3">
+              <Badge variant="warning">Featured</Badge>
+              <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">No signup</span>
+            </div>
+            <h3 className="mt-3 text-2xl font-black tracking-[-0.04em] text-[var(--color-text-primary)]">{leadTool.title}</h3>
+            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">
+              {challengeSpotlightLabel(leadTool)} with live metrics, local history, and instant retry energy.
+            </p>
+            <Link
+              href={leadTool.href}
+              className="mt-4 inline-flex min-h-10 w-full items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] px-4 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-primary)] transition hover:bg-[var(--color-primary)] hover:text-[var(--color-primary-text)] focus:outline-none focus:shadow-[var(--focus-ring)]"
+            >
+              Play featured →
+            </Link>
+          </div>
+          <div className="mt-3 grid grid-cols-3 gap-2">
+            <div className="rounded-[var(--radius-md)] bg-[var(--color-surface-base)]/80 p-3 text-center">
+              <p className="text-2xl font-black text-[var(--color-text-primary)]">{tools.length}</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Tools</p>
+            </div>
+            <div className="rounded-[var(--radius-md)] bg-[var(--color-surface-base)]/80 p-3 text-center">
+              <p className="text-2xl font-black text-[var(--color-text-primary)]">4</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Modes</p>
+            </div>
+            <div className="rounded-[var(--radius-md)] bg-[var(--color-surface-base)]/80 p-3 text-center">
+              <p className="text-2xl font-black text-[var(--color-text-primary)]">0</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Signup</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+        {tools.slice(0, 4).map((tool) => (
+          <Link
+            key={tool.id}
+            href={tool.href}
+            className="group rounded-[var(--radius-lg)] border border-white/55 bg-white/62 p-4 shadow-[var(--shadow-xs)] backdrop-blur transition hover:-translate-y-0.5 hover:border-[var(--color-primary-border)] hover:bg-white/75 hover:shadow-[var(--shadow-card)] focus:outline-none focus:shadow-[var(--focus-ring)] dark:border-white/10 dark:bg-white/10 motion-reduce:hover:translate-y-0"
+          >
+            <div className="flex items-center justify-between gap-3">
+              <Badge variant="outline">{layoutLabel(tool.layoutType)}</Badge>
+              <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-primary)]">Play →</span>
+            </div>
+            <h3 className="mt-3 text-base font-black tracking-[-0.02em] text-[var(--color-text-primary)]">{tool.title}</h3>
+            <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">{challengeSpotlightLabel(tool)}</p>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function WorkflowCard({ workflow }: { workflow: (typeof toolWorkflows)[number] }) {
   return (
     <Link href={`/tools/workflows/${workflow.id}`} className="block h-full rounded-[var(--radius-lg)] focus:outline-none focus:shadow-[var(--focus-ring)]">
@@ -212,6 +324,11 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
 
   const featured = useMemo(
     () => sortTools(tools.filter((tool) => tool.featured), "featured").slice(0, 6),
+    [tools],
+  );
+
+  const challengeTools = useMemo(
+    () => sortTools(tools.filter((tool) => tool.layoutType === "interactive-challenge"), "featured"),
     [tools],
   );
 
@@ -261,6 +378,14 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
   const hasFilters = query.trim().length > 0 || audience !== "all" || toolType !== "all" || category !== "all" || sort !== "featured";
   const showDashboardSections = !query.trim() && audience === "all" && toolType === "all" && category === "all";
 
+  const exploreChallenges = () => {
+    setQuery("");
+    setAudience("all");
+    setToolType("interactive-challenge");
+    setCategory("all");
+    setSort("featured");
+  };
+
   const clearFilters = () => {
     setQuery("");
     setAudience("all");
@@ -291,7 +416,7 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
 
           <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/70 p-4">
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Catalog status</p>
-            <div className="mt-3 grid grid-cols-2 gap-3 text-sm">
+            <div className="mt-3 grid grid-cols-3 gap-3 text-sm">
               <div>
                 <p className="text-2xl font-black text-[var(--color-text-primary)]">{tools.length}</p>
                 <p className="text-xs text-[var(--color-text-tertiary)]">Tools</p>
@@ -299,6 +424,10 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
               <div>
                 <p className="text-2xl font-black text-[var(--color-text-primary)]">{featured.length}</p>
                 <p className="text-xs text-[var(--color-text-tertiary)]">Featured</p>
+              </div>
+              <div>
+                <p className="text-2xl font-black text-[var(--color-text-primary)]">{challengeTools.length}</p>
+                <p className="text-xs text-[var(--color-text-tertiary)]">Challenges</p>
               </div>
             </div>
           </div>
@@ -337,6 +466,27 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
               ))}
             </div>
 
+            <div className="flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={exploreChallenges}
+                className={cn(
+                  "rounded-[var(--radius-full)] border px-3.5 py-2 font-mono text-[10px] font-bold uppercase tracking-[0.08em] transition focus:outline-none focus:shadow-[var(--focus-ring)]",
+                  toolType === "interactive-challenge"
+                    ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+                    : "border-[var(--color-primary-border)] bg-[var(--color-surface-base)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]",
+                )}
+              >
+                Fun challenges
+              </button>
+              <Link
+                href="/tools/fun"
+                className="rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-control-bg)] px-3.5 py-2 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)] transition hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] focus:outline-none focus:shadow-[var(--focus-ring)]"
+              >
+                Fun hub →
+              </Link>
+            </div>
+
             <div className="grid gap-3 md:grid-cols-[1fr_1fr_1fr_auto] md:items-end">
               <label className="grid gap-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
                 Tool type
@@ -369,6 +519,10 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
           </div>
         </div>
       </section>
+
+      {showDashboardSections ? (
+        <ChallengeSpotlight tools={challengeTools} onExplore={exploreChallenges} />
+      ) : null}
 
       {showDashboardSections ? <RecentToolsRail tools={tools} /> : null}
 

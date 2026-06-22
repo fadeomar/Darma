@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-compass-pinwheel",
+  "name": "Compass Pinwheel",
+  "category": "spinners",
+  "tags": [
+    "compass",
+    "dots",
+    "pinwheel",
+    "minimal",
+    "uiverse"
+  ],
+  "html": "<div class=\"loader traffic-loader\"></div>",
+  "css": ".loader { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.traffic-loader {\n  width: 50px;\n  height: 50px;\n  --c: radial-gradient(farthest-side, #fff 92%, #0000);\n  background: var(--c) 50% 0, var(--c) 50% 100%, var(--c) 100% 50%,\n    var(--c) 0 50%;\n  background-size: 10px 10px;\n  background-repeat: no-repeat;\n  animation: s8 1s infinite;\n  position: relative;\n}\n\n.traffic-loader::before {\ncontent: \"\";\nposition: absolute;\ninset: 0;\nmargin: 3px;\nbackground: repeating-conic-gradient(#0000 0 35deg, #fff 0 90deg);\n-webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 3px), #000 0);\nborder-radius: 50%;\n}\n\n@keyframes s8 {\n100% {\ntransform: rotate(0.5turn);\n}\n}",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 56,
+    "speed": 1,
+    "color": "#ffffff",
+    "secondaryColor": "#94a3b8"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

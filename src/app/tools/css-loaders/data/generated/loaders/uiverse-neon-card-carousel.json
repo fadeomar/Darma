@@ -1,0 +1,51 @@
+{
+  "id": "uiverse-neon-card-carousel",
+  "name": "Neon Card Carousel",
+  "category": "creative",
+  "tags": [
+    "cards",
+    "carousel",
+    "3d",
+    "neon",
+    "uiverse",
+    "batch-5"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-neon-card-carousel neon card carousel creative cards carousel 3d neon uiverse batch-5 html css react cssonly customizable",
+  "previewHtml": "<div class=\"darma-loader-uiverse-neon-card-carousel\">\n  <div class=\"darma-loader-uiverse-neon-card-carousel__carousel\" style=\"--quantity: 10;\">\n    <div class=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 0;--color-card: 142, 249, 252;\"><div class=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div class=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 1;--color-card: 142, 252, 204;\"><div class=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div class=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 2;--color-card: 142, 252, 157;\"><div class=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div class=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 3;--color-card: 215, 252, 142;\"><div class=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div class=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 4;--color-card: 252, 252, 142;\"><div class=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div class=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 5;--color-card: 252, 208, 142;\"><div class=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div class=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 6;--color-card: 252, 142, 142;\"><div class=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div class=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 7;--color-card: 252, 142, 239;\"><div class=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div class=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 8;--color-card: 204, 142, 252;\"><div class=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div class=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 9;--color-card: 142, 202, 252;\"><div class=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n  </div>\n</div>\n",
+  "previewCss": ".darma-loader-uiverse-neon-card-carousel {\n  width: 240px;\n  height: 190px;\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  overflow: hidden;\n}\n.darma-loader-uiverse-neon-card-carousel__carousel {\n  --w: 48px;\n  --h: 72px;\n  --translateZ: 135px;\n  --rotateX: -15deg;\n  --perspective: 850px;\n  position: absolute;\n  width: var(--w);\n  height: var(--h);\n  transform-style: preserve-3d;\n  transform: perspective(var(--perspective));\n  animation: darma-loader-uiverse-neon-card-carousel-neonCarouselSpin 16s linear infinite;\n}\n@keyframes darma-loader-uiverse-neon-card-carousel-neonCarouselSpin {\n  from { transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(0); }\n  to { transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(1turn); }\n}\n.darma-loader-uiverse-neon-card-carousel__card {\n  position: absolute;\n  border: 2px solid rgba(var(--color-card));\n  border-radius: 12px;\n  overflow: hidden;\n  inset: 0;\n  transform: rotateY(calc((360deg / var(--quantity)) * var(--index))) translateZ(var(--translateZ));\n  box-shadow: 0 0 12px rgba(var(--color-card), .65);\n}\n.darma-loader-uiverse-neon-card-carousel__img {\n  width: 100%;\n  height: 100%;\n  background: radial-gradient(circle, rgba(var(--color-card), .25) 0%, rgba(var(--color-card), .75) 80%, rgba(var(--color-card), .95) 100%);\n}\n",
+  "defaults": {
+    "size": 120,
+    "speed": 16,
+    "color": "#8ef9fc",
+    "secondaryColor": "#fc8eef"
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-uiverse-neon-card-carousel\">\n  <div class=\"darma-loader-uiverse-neon-card-carousel__carousel\" style=\"--quantity: 10;\">\n    <div class=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 0;--color-card: 142, 249, 252;\"><div class=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div class=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 1;--color-card: 142, 252, 204;\"><div class=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div class=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 2;--color-card: 142, 252, 157;\"><div class=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div class=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 3;--color-card: 215, 252, 142;\"><div class=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div class=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 4;--color-card: 252, 252, 142;\"><div class=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div class=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 5;--color-card: 252, 208, 142;\"><div class=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div class=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 6;--color-card: 252, 142, 142;\"><div class=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div class=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 7;--color-card: 252, 142, 239;\"><div class=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div class=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 8;--color-card: 204, 142, 252;\"><div class=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div class=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 9;--color-card: 142, 202, 252;\"><div class=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n  </div>\n</div>\n",
+    "css": ".darma-loader-uiverse-neon-card-carousel {\n  width: 240px;\n  height: 190px;\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  overflow: hidden;\n}\n.darma-loader-uiverse-neon-card-carousel__carousel {\n  --w: 48px;\n  --h: 72px;\n  --translateZ: 135px;\n  --rotateX: -15deg;\n  --perspective: 850px;\n  position: absolute;\n  width: var(--w);\n  height: var(--h);\n  transform-style: preserve-3d;\n  transform: perspective(var(--perspective));\n  animation: darma-loader-uiverse-neon-card-carousel-neonCarouselSpin 16s linear infinite;\n}\n@keyframes darma-loader-uiverse-neon-card-carousel-neonCarouselSpin {\n  from { transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(0); }\n  to { transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(1turn); }\n}\n.darma-loader-uiverse-neon-card-carousel__card {\n  position: absolute;\n  border: 2px solid rgba(var(--color-card));\n  border-radius: 12px;\n  overflow: hidden;\n  inset: 0;\n  transform: rotateY(calc((360deg / var(--quantity)) * var(--index))) translateZ(var(--translateZ));\n  box-shadow: 0 0 12px rgba(var(--color-card), .65);\n}\n.darma-loader-uiverse-neon-card-carousel__img {\n  width: 100%;\n  height: 100%;\n  background: radial-gradient(circle, rgba(var(--color-card), .25) 0%, rgba(var(--color-card), .75) 80%, rgba(var(--color-card), .95) 100%);\n}\n",
+    "react": "export default function UiverseNeonCardCarouselLoader() {\n  return (\n    <div className=\"darma-loader-uiverse-neon-card-carousel\">\n  <div className=\"darma-loader-uiverse-neon-card-carousel__carousel\" style=\"--quantity: 10;\">\n    <div className=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 0;--color-card: 142, 249, 252;\"><div className=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div className=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 1;--color-card: 142, 252, 204;\"><div className=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div className=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 2;--color-card: 142, 252, 157;\"><div className=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div className=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 3;--color-card: 215, 252, 142;\"><div className=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div className=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 4;--color-card: 252, 252, 142;\"><div className=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div className=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 5;--color-card: 252, 208, 142;\"><div className=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div className=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 6;--color-card: 252, 142, 142;\"><div className=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div className=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 7;--color-card: 252, 142, 239;\"><div className=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div className=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 8;--color-card: 204, 142, 252;\"><div className=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n    <div className=\"darma-loader-uiverse-neon-card-carousel__card\" style=\"--index: 9;--color-card: 142, 202, 252;\"><div className=\"darma-loader-uiverse-neon-card-carousel__img\"></div></div>\n  </div>\n</div>\n\n  );\n}\n"
+  },
+  "controls": {
+    "color": false,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

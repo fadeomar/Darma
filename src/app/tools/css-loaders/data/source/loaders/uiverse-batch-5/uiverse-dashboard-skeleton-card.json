@@ -1,0 +1,40 @@
+{
+  "id": "uiverse-dashboard-skeleton-card",
+  "name": "Dashboard Skeleton Card",
+  "category": "skeleton",
+  "tags": [
+    "skeleton",
+    "card",
+    "placeholder",
+    "pulse",
+    "uiverse",
+    "batch-5"
+  ],
+  "html": "<div class=\"loader\">\n  <div class=\"thumbnail\"></div>\n  <div class=\"rows\">\n    <span></span><span></span><span></span><span></span>\n  </div>\n</div>\n",
+  "css": ".loader {\n  width: 224px;\n  height: 256px;\n  border-radius: 18px;\n  padding: 16px;\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n  background: #d4d4d4;\n}\n.thumbnail,\n.rows span {\n  background: linear-gradient(90deg, rgba(115,115,115,.22), rgba(255,255,255,.35), rgba(115,115,115,.22));\n  background-size: 300% 100%;\n  animation: skeletonSweep 1.2s ease-in-out infinite;\n  border-radius: 10px;\n}\n.thumbnail { width: 100%; height: 128px; }\n.rows { display: flex; flex-direction: column; gap: 10px; }\n.rows span { height: 14px; width: 100%; }\n.rows span:nth-child(2) { width: 80%; }\n.rows span:nth-child(4) { width: 50%; }\n@keyframes skeletonSweep { to { background-position: -300% 0; } }\n",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 224,
+    "speed": 1.2,
+    "color": "#d4d4d4",
+    "secondaryColor": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

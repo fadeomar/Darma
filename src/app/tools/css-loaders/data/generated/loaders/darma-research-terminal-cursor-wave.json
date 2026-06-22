@@ -1,0 +1,47 @@
+{
+  "id": "darma-research-terminal-cursor-wave",
+  "name": "Terminal Cursor Wave",
+  "category": "minimal",
+  "tags": [
+    "terminal",
+    "cursor",
+    "text",
+    "minimal",
+    "developer"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-research-terminal-cursor-wave terminal cursor wave minimal terminal cursor text minimal developer html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-research-terminal-cursor-wave\" aria-label=\"Loading terminal\"><span class=\"darma-loader-darma-research-terminal-cursor-wave__prompt\">darma</span><span class=\"darma-loader-darma-research-terminal-cursor-wave__dots\"><i></i><i></i><i></i></span><span class=\"darma-loader-darma-research-terminal-cursor-wave__cursor\"></span></div>",
+  "previewCss": ".darma-loader-darma-research-terminal-cursor-wave { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #22c55e); --accent-2: var(--loader-secondary-color, #38bdf8); display: inline-flex; align-items: center; gap: 8px; padding: 12px 14px; border-radius: 12px; background: #020617; color: var(--accent); font: 700 14px/1 ui-monospace, SFMono-Regular, Menlo, monospace; box-shadow: inset 0 0 0 1px #ffffff18, 0 12px 30px #02061755; }\n.darma-loader-darma-research-terminal-cursor-wave__prompt::before { content: \"$ \"; color: var(--accent-2); }\n.darma-loader-darma-research-terminal-cursor-wave__dots { display: inline-flex; gap: 4px; }\n.darma-loader-darma-research-terminal-cursor-wave__dots i { width: 5px; height: 5px; border-radius: 50%; background: currentColor; animation: darma-loader-darma-research-darma-loader-darma-research-terminal-cursor-wave-terminal-cursor-wave-terminal-dot calc(var(--speed) * 1) ease-in-out infinite; }\n.darma-loader-darma-research-terminal-cursor-wave__dots i:nth-child(2) { animation-delay: .12s; } .darma-loader-darma-research-terminal-cursor-wave__dots i:nth-child(3) { animation-delay: .24s; }\n.darma-loader-darma-research-terminal-cursor-wave__cursor { width: 9px; height: 18px; background: var(--accent-2); animation: darma-loader-darma-research-terminal-cursor-wave-terminal-cursor calc(var(--speed) * .8) steps(2,end) infinite; }\n@keyframes darma-loader-darma-research-terminal-cursor-wave-terminal-dot { 50% { transform: translateY(-6px); color: var(--accent-2); } }\n@keyframes darma-loader-darma-research-terminal-cursor-wave-terminal-cursor { 50% { opacity: 0; } }",
+  "defaults": {
+    "color": "#22c55e",
+    "secondaryColor": "#38bdf8",
+    "size": 74,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-research-terminal-cursor-wave\" aria-label=\"Loading terminal\"><span class=\"darma-loader-darma-research-terminal-cursor-wave__prompt\">darma</span><span class=\"darma-loader-darma-research-terminal-cursor-wave__dots\"><i></i><i></i><i></i></span><span class=\"darma-loader-darma-research-terminal-cursor-wave__cursor\"></span></div>",
+    "css": ".darma-loader-darma-research-terminal-cursor-wave { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #22c55e); --accent-2: var(--loader-secondary-color, #38bdf8); display: inline-flex; align-items: center; gap: 8px; padding: 12px 14px; border-radius: 12px; background: #020617; color: var(--accent); font: 700 14px/1 ui-monospace, SFMono-Regular, Menlo, monospace; box-shadow: inset 0 0 0 1px #ffffff18, 0 12px 30px #02061755; }\n.darma-loader-darma-research-terminal-cursor-wave__prompt::before { content: \"$ \"; color: var(--accent-2); }\n.darma-loader-darma-research-terminal-cursor-wave__dots { display: inline-flex; gap: 4px; }\n.darma-loader-darma-research-terminal-cursor-wave__dots i { width: 5px; height: 5px; border-radius: 50%; background: currentColor; animation: darma-loader-darma-research-darma-loader-darma-research-terminal-cursor-wave-terminal-cursor-wave-terminal-dot calc(var(--speed) * 1) ease-in-out infinite; }\n.darma-loader-darma-research-terminal-cursor-wave__dots i:nth-child(2) { animation-delay: .12s; } .darma-loader-darma-research-terminal-cursor-wave__dots i:nth-child(3) { animation-delay: .24s; }\n.darma-loader-darma-research-terminal-cursor-wave__cursor { width: 9px; height: 18px; background: var(--accent-2); animation: darma-loader-darma-research-terminal-cursor-wave-terminal-cursor calc(var(--speed) * .8) steps(2,end) infinite; }\n@keyframes darma-loader-darma-research-terminal-cursor-wave-terminal-dot { 50% { transform: translateY(-6px); color: var(--accent-2); } }\n@keyframes darma-loader-darma-research-terminal-cursor-wave-terminal-cursor { 50% { opacity: 0; } }",
+    "react": "export default function DarmaResearchTerminalCursorWaveLoader() {\n  return (\n    <div className=\"darma-loader-darma-research-terminal-cursor-wave\" aria-label=\"Loading terminal\"><span className=\"darma-loader-darma-research-terminal-cursor-wave__prompt\">darma</span><span className=\"darma-loader-darma-research-terminal-cursor-wave__dots\"><i></i><i></i><i></i></span><span className=\"darma-loader-darma-research-terminal-cursor-wave__cursor\"></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": false,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 6",
+    "author": "Darma / ChatGPT",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

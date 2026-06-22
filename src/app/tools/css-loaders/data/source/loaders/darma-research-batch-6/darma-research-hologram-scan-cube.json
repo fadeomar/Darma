@@ -1,0 +1,36 @@
+{
+  "id": "darma-research-hologram-scan-cube",
+  "name": "Hologram Scan Cube",
+  "category": "creative",
+  "tags": [
+    "cube",
+    "hologram",
+    "scan",
+    "3d",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading hologram\"><span class=\"cube\"><i></i><i></i><i></i></span><span class=\"scan\"></span></div>",
+  "css": ".loader { --speed: var(--loader-speed); --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); display: grid; place-items: center; position: relative; perspective: 550px; }\n.cube { width: 44%; height: 44%; position: relative; transform-style: preserve-3d; animation: holo-turn calc(var(--speed) * 3) linear infinite; }\n.cube i, .cube::before, .cube::after { content: \"\"; position: absolute; inset: 0; border: 2px solid var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); box-shadow: inset 0 0 18px color-mix(in srgb, var(--accent-2) 45%, transparent), 0 0 16px var(--accent); }\n.cube::before { transform: rotateY(90deg) translateZ(calc(var(--loader-size) * .22)); } .cube::after { transform: rotateX(90deg) translateZ(calc(var(--loader-size) * .22)); }\n.cube i:nth-child(1) { transform: translateZ(calc(var(--loader-size) * .22)); } .cube i:nth-child(2) { transform: translateZ(calc(var(--loader-size) * -.22)); } .cube i:nth-child(3) { transform: rotateY(90deg) translateZ(calc(var(--loader-size) * -.22)); }\n.scan { position: absolute; width: 74%; height: 5%; border-radius: 999px; background: var(--accent-2); box-shadow: 0 0 18px 4px var(--accent-2); animation: holo-scan calc(var(--speed) * 1.6) ease-in-out infinite; }\n@keyframes holo-turn { to { transform: rotateX(360deg) rotateY(360deg); } }\n@keyframes holo-scan { 0%,100% { transform: translateY(calc(var(--loader-size) * -.36)); opacity: .25; } 50% { transform: translateY(calc(var(--loader-size) * .36)); opacity: 1; } }",
+  "defaults": {
+    "color": "#22d3ee",
+    "secondaryColor": "#a3e635",
+    "size": 88,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "popular": true,
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 6",
+    "author": "Darma / ChatGPT",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

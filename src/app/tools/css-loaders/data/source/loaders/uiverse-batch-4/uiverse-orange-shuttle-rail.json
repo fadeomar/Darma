@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-orange-shuttle-rail",
+  "name": "Orange Shuttle Rail",
+  "category": "progress",
+  "tags": [
+    "rail",
+    "orange",
+    "slide",
+    "balls",
+    "uiverse"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  width: 100px;\n  height: 46px;\n  position: relative;\n  border-bottom: 5px solid #FFF;\n  border-top: 5px solid #FFF;\n  box-sizing: border-box;\n}\n\n.loader:before , .loader:after {\ncontent: \"\";\nposition: absolute;\nleft: 0;\ntop: -20px;\nwidth: 32px;\nheight: 32px;\nborder-radius: 50%;\nbackground: orange;\nborder: 5px solid #FFF;\nbox-sizing: border-box;\nanimation: slide_391 1s infinite ease-in-out alternate;\n}\n\n.loader:after {\ntop: 20px;\nanimation-direction: alternate-reverse;\n}\n\n@keyframes slide_391 {\n0% , 20% {\ntransform: translateX(70px)\n}\n\n80% , 100% {\ntransform: translateX(-1px)\n}\n}",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 74,
+    "speed": 1,
+    "color": "#ffa500",
+    "secondaryColor": "#ffffff"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

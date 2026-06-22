@@ -1,0 +1,39 @@
+{
+  "id": "uiverse-charging-tower",
+  "name": "Charging Tower",
+  "category": "fun",
+  "tags": [
+    "charging",
+    "battery",
+    "plug",
+    "device",
+    "uiverse"
+  ],
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\n  position: relative;\n  width: 72px;\n  height: 124px;\n  border-radius: 8px;\n  background-color: #000;\n  background-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 4%,rgba(81,81,81,1) 14%,rgba(44,44,44,1) 26%,rgba(2,2,2,1) 53%,rgba(2,2,2,1) 65%,rgba(2,2,2,0) 66%),\n    linear-gradient(#111, #111);\n  background-repeat: no-repeat;\n  background-size: 9px 9px , 64px 110px;\n  background-position: center 2px, 4px 8px;\n  animation: lightUp 6s linear infinite alternate;\n}\n\n.loader:before {\ncontent: '';\nposition: absolute;\nleft: 50%;\ntop: 118px;\ntransform: translateX(-50%);\nwidth: 26px;\nheight: 44px;\nbackground-image: linear-gradient(#fff, #fff),\nlinear-gradient(#bbb, #bbb),\nlinear-gradient(#fff, #fff);\nbackground-repeat: no-repeat;\nbackground-position: center 4px , center top, center 5px;\nbackground-size: 9px 9px , 7px 4px , 2px 100%;\nanimation: plugin 6s linear infinite alternate;\n}\n\n.loader:after {\ncontent: '';\nwidth: 24px;\nheight: 48px;\nbackground-image: linear-gradient(#888, #888),\nlinear-gradient(to right, rgba(255,255,255,0.1) 0%,rgba(255,255,255,0.5) 40%,rgba(255,255,255,0.3) 50%,rgba(255,255,255,0.1) 100%),\nlinear-gradient(#15ff00, #15ff00),\nlinear-gradient(#888, #888);\nbackground-size: 10px 4px, 24px 42px , 24px 0px , 24px 46px;\nbackground-position: center 0 , center 6px , center bottom , center 4px;\nbackground-repeat: no-repeat;\ntop: 50%;\nleft: 50%;\nposition: absolute;\ntransform: translate(-50% , -50%);\nanimation: charging 6s linear infinite alternate;\n}\n\n@keyframes charging {\n0% , 25% {\nopacity: 0;\nbackground-size: 10px 4px, 24px 42px , 24px 0px , 24px 46px;\n}\n\n26% , 75% {\nopacity: 1;\nbackground-size: 10px 4px, 24px 42px , 24px 0px , 24px 46px;\n}\n\n50% , 100% {\nopacity: 1;\nbackground-size: 10px 4px, 24px 42px , 24px 46px , 24px 46px\n}\n}\n\n@keyframes lightUp {\n0% , 25% {\nbackground-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 4%,rgba(81,81,81,1) 14%,rgba(44,44,44,1) 26%,rgba(2,2,2,1) 53%,rgba(2,2,2,1) 65%,rgba(2,2,2,0) 66%),\nlinear-gradient(#111, #111);\n}\n\n26% , 100% {\nbackground-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 4%,rgba(81,81,81,1) 14%,rgba(44,44,44,1) 26%,rgba(2,2,2,1) 53%,rgba(2,2,2,1) 65%,rgba(2,2,2,0) 66%),\nlinear-gradient(#DDD, #DDD);\n}\n}\n\n@keyframes plugin {\n0% , 25% {\ntop: 118px;\nbackground-position: center 4px , center top, center 5px;\n}\n\n26% , 100% {\nbackground-position: center 0 , center top, center 5px;\ntop: 110px;\n}\n}",
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "defaults": {
+    "size": 110,
+    "speed": 6,
+    "color": "#15ff00",
+    "secondaryColor": "#111111"
+  },
+  "flags": {
+    "popular": false,
+    "singleElement": true,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  }
+}

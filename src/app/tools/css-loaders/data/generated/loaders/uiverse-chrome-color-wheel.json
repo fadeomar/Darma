@@ -1,0 +1,50 @@
+{
+  "id": "uiverse-chrome-color-wheel",
+  "name": "Chrome Color Wheel",
+  "category": "creative",
+  "tags": [
+    "chrome",
+    "color",
+    "wheel",
+    "brand",
+    "uiverse"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": false,
+    "singleElement": false,
+    "cssOnly": true,
+    "tailwind": false,
+    "customizable": true
+  },
+  "searchText": "uiverse-chrome-color-wheel chrome color wheel creative chrome color wheel brand uiverse html css react cssonly customizable",
+  "previewHtml": "<aside class=\"darma-loader-uiverse-chrome-color-wheel darma-loader-uiverse-chrome-color-wheel__chrome\">\n  <div class=\"darma-loader-uiverse-chrome-color-wheel__circle-blue-center\"></div>\n  <div class=\"darma-loader-uiverse-chrome-color-wheel__yellow-right\"></div>\n  <div class=\"darma-loader-uiverse-chrome-color-wheel__green-left\"></div>\n</aside>",
+  "previewCss": ".darma-loader-uiverse-chrome-color-wheel { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.darma-loader-uiverse-chrome-color-wheel__chrome {\n  --red: #dd5144;\n  --blue: var(--loader-color, #4285f4);\n  --yellow: #ffcd46;\n  --white: #e9e9e9;\n  --green: #1da462;\n  position: relative;\n  width: 136px;\n  height: 136px;\n  background-color: var(--red);\n  border-radius: 50%;\n  overflow: hidden;\n  animation: darma-loader-uiverse-chrome-color-wheel-animacion 5s linear infinite;\n}\n\n.darma-loader-uiverse-chrome-color-wheel__circle-blue-center {\nwidth: 72px;\nheight: 72px;\nbackground-color: var(--blue);\nposition: relative;\nborder-radius: inherit;\nborder: 8px solid var(--white);\nz-index: 3;\n}\n\n.darma-loader-uiverse-chrome-color-wheel__yellow-right {\nposition: absolute;\nbackground-color: var(--yellow);\nwidth: 100%;\nheight: 100%;\ntop: 38%;\nleft: 54%;\ntransform: skewX(-30deg);\nz-index: 2;\n}\n\n.darma-loader-uiverse-chrome-color-wheel__yellow-right::before {\ncontent: \"\";\ndisplay: block;\nwidth: 100%;\nheight: 100%;\nposition: absolute;\ntop: -20px;\nleft: 20%;\nbackground-color: inherit;\ntransform: skewX(50deg);\nz-index: 2;\n}\n\n.darma-loader-uiverse-chrome-color-wheel__green-left {\nposition: absolute;\nleft: -84px;\ntop: 38px;\nbackground-color: var(--green);\nwidth: 100%;\nheight: 100%;\ntransform: skewX(35deg);\nz-index: 1;\n}\n\n.darma-loader-uiverse-chrome-color-wheel__green-left::before {\ncontent: \"\";\ndisplay: block;\nwidth: 100%;\nposition: absolute;\nheight: 100%;\nz-index: 1;\ntop: 52px;\nleft: 38px;\nbackground-color: inherit;\ntransform: skewX(0deg);\n}\n\n@keyframes darma-loader-uiverse-chrome-color-wheel-animacion {\n0% {\ntransform: scale(0.9) rotate(0deg);\nopacity: 0.65;\n}\n\n35%,\n75% {\ntransform: scale(1) rotate(720deg);\nopacity: 1;\n}\n\n100% {\ntransform: scale(0.9) rotate(1080deg);\nopacity: 0.65;\n}\n}",
+  "defaults": {
+    "size": 90,
+    "speed": 1.2,
+    "color": "#4285f4",
+    "secondaryColor": "#fbbc05"
+  },
+  "code": {
+    "html": "<aside class=\"darma-loader-uiverse-chrome-color-wheel darma-loader-uiverse-chrome-color-wheel__chrome\">\n  <div class=\"darma-loader-uiverse-chrome-color-wheel__circle-blue-center\"></div>\n  <div class=\"darma-loader-uiverse-chrome-color-wheel__yellow-right\"></div>\n  <div class=\"darma-loader-uiverse-chrome-color-wheel__green-left\"></div>\n</aside>",
+    "css": ".darma-loader-uiverse-chrome-color-wheel { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.darma-loader-uiverse-chrome-color-wheel__chrome {\n  --red: #dd5144;\n  --blue: var(--loader-color, #4285f4);\n  --yellow: #ffcd46;\n  --white: #e9e9e9;\n  --green: #1da462;\n  position: relative;\n  width: 136px;\n  height: 136px;\n  background-color: var(--red);\n  border-radius: 50%;\n  overflow: hidden;\n  animation: darma-loader-uiverse-chrome-color-wheel-animacion 5s linear infinite;\n}\n\n.darma-loader-uiverse-chrome-color-wheel__circle-blue-center {\nwidth: 72px;\nheight: 72px;\nbackground-color: var(--blue);\nposition: relative;\nborder-radius: inherit;\nborder: 8px solid var(--white);\nz-index: 3;\n}\n\n.darma-loader-uiverse-chrome-color-wheel__yellow-right {\nposition: absolute;\nbackground-color: var(--yellow);\nwidth: 100%;\nheight: 100%;\ntop: 38%;\nleft: 54%;\ntransform: skewX(-30deg);\nz-index: 2;\n}\n\n.darma-loader-uiverse-chrome-color-wheel__yellow-right::before {\ncontent: \"\";\ndisplay: block;\nwidth: 100%;\nheight: 100%;\nposition: absolute;\ntop: -20px;\nleft: 20%;\nbackground-color: inherit;\ntransform: skewX(50deg);\nz-index: 2;\n}\n\n.darma-loader-uiverse-chrome-color-wheel__green-left {\nposition: absolute;\nleft: -84px;\ntop: 38px;\nbackground-color: var(--green);\nwidth: 100%;\nheight: 100%;\ntransform: skewX(35deg);\nz-index: 1;\n}\n\n.darma-loader-uiverse-chrome-color-wheel__green-left::before {\ncontent: \"\";\ndisplay: block;\nwidth: 100%;\nposition: absolute;\nheight: 100%;\nz-index: 1;\ntop: 52px;\nleft: 38px;\nbackground-color: inherit;\ntransform: skewX(0deg);\n}\n\n@keyframes darma-loader-uiverse-chrome-color-wheel-animacion {\n0% {\ntransform: scale(0.9) rotate(0deg);\nopacity: 0.65;\n}\n\n35%,\n75% {\ntransform: scale(1) rotate(720deg);\nopacity: 1;\n}\n\n100% {\ntransform: scale(0.9) rotate(1080deg);\nopacity: 0.65;\n}\n}",
+    "react": "export default function UiverseChromeColorWheelLoader() {\n  return (\n    <aside className=\"darma-loader-uiverse-chrome-color-wheel darma-loader-uiverse-chrome-color-wheel__chrome\">\n  <div className=\"darma-loader-uiverse-chrome-color-wheel__circle-blue-center\"></div>\n  <div className=\"darma-loader-uiverse-chrome-color-wheel__yellow-right\"></div>\n  <div className=\"darma-loader-uiverse-chrome-color-wheel__green-left\"></div>\n</aside>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Uiverse snippet collection",
+    "author": "community",
+    "license": "Unknown"
+  }
+}

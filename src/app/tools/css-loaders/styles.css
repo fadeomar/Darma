@@ -145,7 +145,7 @@
   margin-top: -0.6rem;
 }
 
-.css-loaders-category-summary span {
+.css-loaders-category-summary-chip {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-full);
   background: color-mix(in srgb, var(--color-surface-strong) 78%, transparent);
@@ -153,9 +153,27 @@
   padding: 0.28rem 0.6rem;
   font-size: 0.72rem;
   font-weight: 750;
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease, transform 160ms ease;
 }
 
-.css-loaders-category-summary strong {
+.css-loaders-category-summary-chip:hover {
+  border-color: color-mix(in srgb, var(--color-primary) 45%, var(--color-border));
+  color: var(--color-text);
+  transform: translateY(-1px);
+}
+
+.css-loaders-category-summary-chip:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.css-loaders-category-summary-chip-active {
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 14%, var(--color-surface-strong));
+  color: var(--color-text);
+}
+
+.css-loaders-category-summary-chip strong {
   color: var(--color-text);
   font-weight: 950;
 }
@@ -164,6 +182,57 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 1rem;
+}
+
+.css-loaders-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 1.5rem;
+}
+
+.css-loaders-pagination-pages {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.css-loaders-pagination-page {
+  min-width: 2.1rem;
+  min-height: 2.1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-surface-strong);
+  color: var(--color-text-muted);
+  padding: 0 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 850;
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.css-loaders-pagination-page:hover {
+  border-color: color-mix(in srgb, var(--color-primary) 45%, var(--color-border));
+  color: var(--color-text);
+  transform: translateY(-1px);
+}
+
+.css-loaders-pagination-page:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.css-loaders-pagination-page-active {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+}
+
+.css-loaders-pagination-status {
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  font-weight: 800;
 }
 
 .css-loaders-card {
@@ -1682,7 +1751,74 @@
 }
 
 .css-loaders-code-panel {
+  display: flex;
+  min-height: 0;
+  flex: 1 1 auto;
   flex-direction: column;
+  overflow: hidden;
+}
+
+.css-loaders-code-header,
+.css-loaders-code-tabs,
+.css-loaders-code-actions-secondary {
+  flex: 0 0 auto;
+}
+
+.css-loaders-code-block,
+.css-loaders-code-block-wrap {
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow: auto;
+  margin: 0;
+}
+
+.css-loaders-code-actions-secondary {
+  position: static;
+  z-index: 1;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  min-height: 3rem;
+  max-height: 3rem;
+  padding: 0.5rem 0.75rem;
+  overflow: hidden;
+  background: var(--css-loaders-panel);
+}
+
+.css-loaders-code-actions-secondary > button {
+  min-width: 0;
+  min-height: 2rem;
+  height: 2rem;
+  max-height: 2rem;
+  flex: 0 0 auto;
+  justify-content: center;
+  padding-inline: 0.65rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.css-loaders-code-actions-secondary > button svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.css-loaders-modal-side-column > .css-loaders-controls {
+  min-height: 0;
+  max-height: clamp(6.5rem, 20vh, 12rem);
+  flex: 0 1 auto;
+  overflow: auto;
+}
+
+.css-loaders-modal-side-column > .css-loaders-code-panel {
+  min-height: 0;
+  flex: 1 1 18rem;
+}
+
+@media (min-width: 1180px) {
+  .css-loaders-code-block {
+    min-height: 0;
+  }
 }
 
 /* QA fix 03: explicit quick-action roles instead of relying on child order */
@@ -1767,5 +1903,13 @@
   .css-loaders-code-block {
     font-size: 0.76rem;
     line-height: 1.55;
+  }
+
+  .css-loaders-code-actions-secondary {
+    flex-wrap: wrap;
+  }
+
+  .css-loaders-code-actions-secondary > button {
+    flex-basis: 100%;
   }
 }

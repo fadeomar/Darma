@@ -9,7 +9,8 @@ type LoaderToolbarProps = {
   filters: LoaderFilterState;
   totalCount: number;
   resultCount: number;
-  visibleCount: number;
+  pageStart: number;
+  pageEnd: number;
   isPaused: boolean;
   galleryMode: LoaderGalleryMode;
   hasActiveFilters: boolean;
@@ -30,7 +31,8 @@ export default function LoaderToolbar({
   filters,
   totalCount,
   resultCount,
-  visibleCount,
+  pageStart,
+  pageEnd,
   isPaused,
   galleryMode,
   hasActiveFilters,
@@ -122,7 +124,15 @@ export default function LoaderToolbar({
       </div>
 
       <p className="css-loaders-toolbar-count" aria-live="polite">
-        Showing <strong>{Math.min(visibleCount, resultCount)}</strong> of <strong>{resultCount}</strong> matching loaders from {totalCount} total.
+        {resultCount ? (
+          <>
+            Showing <strong>{pageStart + 1}</strong>-<strong>{pageEnd}</strong> of <strong>{resultCount}</strong> matching loaders from {totalCount} total.
+          </>
+        ) : (
+          <>
+            Showing <strong>0</strong> of <strong>0</strong> matching loaders from {totalCount} total.
+          </>
+        )}
       </p>
     </section>
   );

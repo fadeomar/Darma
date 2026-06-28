@@ -1,10 +1,11 @@
-import { existsSync, readdirSync, statSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
+import { validateGeneratedCssLoaderDefinition } from "../src/app/tools/css-loaders/data/validateGeneratedLoaders";
 import { getToolRegistry } from "../src/features/tools/registry/index";
-import type { ToolDefinition, ToolLayoutType, ToolPrivacy } from "../src/features/tools/domain/tool";
+import type { ToolLayoutType, ToolPrivacy } from "../src/features/tools/domain/tool";
 
-const KNOWN_NON_TOOL_FOLDERS = new Set(["_shared", "audience", "category", "privacy", "workflows"]);
-const VALID_LAYOUTS: ToolLayoutType[] = ["text-workbench", "visual-generator", "fullscreen-studio", "single-utility", "directory"];
+const KNOWN_NON_TOOL_FOLDERS = new Set(["_shared", "audience", "category", "fun", "privacy", "workflows"]);
+const VALID_LAYOUTS: ToolLayoutType[] = ["text-workbench", "visual-generator", "fullscreen-studio", "single-utility", "interactive-challenge", "directory"];
 const VALID_PRIVACY: ToolPrivacy[] = ["client-only", "local-storage", "server-assisted", "external-api"];
 
 function uniqueDuplicates(values: string[]) {
@@ -29,6 +30,37 @@ function readToolRouteFolders() {
       return statSync(absolutePath).isDirectory() && existsSync(join(absolutePath, "page.tsx"));
     })
     .sort();
+}
+
+function validateGeneratedCssLoaders() {
+  const loadersPath = join(
+    process.cwd(),
+    "src",
+    "app",
+    "tools",
+    "css-loaders",
+    "data",
+    "generated",
+    "loaders",
+  );
+
+  return readdirSync(loadersPath)
+    .filter((entry) => entry.endsWith(".json"))
+    .flatMap((entry) => {
+      const filePath = join(loadersPath, entry);
+
+      try {
+        const definition = JSON.parse(readFileSync(filePath, "utf8")) as unknown;
+        if (typeof definition !== "object" || definition === null || Array.isArray(definition)) {
+          return [`${entry}: loader definition must be a JSON object`];
+        }
+        return validateGeneratedCssLoaderDefinition(definition)
+          .map((issue) => `${entry} (${issue.loaderId}) ${issue.field}: ${issue.message}`);
+      } catch (error) {
+        const message = error instanceof Error ? error.message : "Unknown parse error";
+        return [`${entry}: ${message}`];
+      }
+    });
 }
 
 function printIssue(title: string, items: string[]) {
@@ -76,6 +108,7 @@ const hrefMismatches = publicTools
 const invalidRelatedTools: string[] = [];
 const selfRelatedTools: string[] = [];
 const nonPublicRelatedTools: string[] = [];
+const generatedCssLoaderIssues = validateGeneratedCssLoaders();
 const featuredWithoutSorting = publicTools
   .filter((tool) => tool.featured && typeof tool.pinned !== "number")
   .map((tool) => tool.id);
@@ -111,6 +144,7 @@ const issues: Record<string, string[]> = {
   "Invalid relatedTools references": invalidRelatedTools,
   "Self-referencing relatedTools": selfRelatedTools,
   "Related tools that are not public": nonPublicRelatedTools,
+  "Generated CSS loader data issues": generatedCssLoaderIssues,
   "Featured tools without pinned sorting": featuredWithoutSorting,
 };
 

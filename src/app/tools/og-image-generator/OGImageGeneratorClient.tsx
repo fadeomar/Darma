@@ -6,6 +6,7 @@ import { Button, Input, Select, Textarea } from "@/components/ui";
 import { CodeOutputPanel, ColorField, CompactField, ControlSection, SegmentedControl, SliderNumberField, WarningPanel, type WarningMessage } from "@/features/tools/components";
 import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
 import { downloadBlobFile } from "@/features/tools/export/downloadBlob";
+import { copyTextToClipboard } from "@/lib/copy-to-clipboard";
 import { cn } from "@/lib/cn";
 import { fileToDataUrl } from "./canvas";
 import { generateOgAssets, revokeOgAssetUrls } from "./generator";
@@ -46,16 +47,15 @@ function mapWarnings(warnings: OgWarning[]): WarningMessage[] {
 }
 
 function CopyInlineButton({ value, label = "Copy" }: { value: string; label?: string }) {
-  const [copied, setCopied] = useState(false);
+  const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "failed">("idle");
   async function copyValue() {
-    if (!navigator.clipboard) return;
-    await navigator.clipboard.writeText(value);
-    setCopied(true);
-    window.setTimeout(() => setCopied(false), 1300);
+    const copied = await copyTextToClipboard(value);
+    setCopyStatus(copied ? "copied" : "failed");
+    window.setTimeout(() => setCopyStatus("idle"), copied ? 1300 : 2200);
   }
   return (
     <Button size="sm" variant="ghost" leftIcon={<Copy className="h-3.5 w-3.5" />} onClick={copyValue}>
-      {copied ? "Copied" : label}
+      {copyStatus === "copied" ? "Copied" : copyStatus === "failed" ? "Copy failed" : label}
     </Button>
   );
 }

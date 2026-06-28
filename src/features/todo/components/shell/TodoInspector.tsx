@@ -61,21 +61,24 @@ export function TodoInspector({ mobileOpen, onCloseMobile }: Props) {
         !ui.inspectorOpen && !mobileOpen && "hidden lg:flex",
       )}
     >
-      <div className="flex items-center justify-between border-b px-4 py-3">
-        <h2 className="text-sm font-bold">Task details</h2>
+      <header className="todo-inspector__header">
+        <h2 className="todo-inspector__title">Task details</h2>
         <button
           type="button"
-          className="todo-btn todo-btn--icon todo-btn--ghost lg:hidden"
+          className="todo-btn todo-btn--icon todo-btn--ghost"
           aria-label="Close inspector"
-          onClick={onCloseMobile}
+          onClick={() => {
+            onCloseMobile?.();
+            setUi({ selectedTaskId: null, inspectorOpen: false });
+          }}
         >
           <X size={16} />
         </button>
-      </div>
+      </header>
 
-      <div className="flex flex-1 flex-col gap-4 overflow-auto p-4">
-        <div>
-          <label className="mb-1 block text-xs font-semibold todo-muted" htmlFor="inspector-title">
+      <div className="todo-inspector__body">
+        <div className="todo-field">
+          <label className="todo-field__label" htmlFor="inspector-title">
             Title
           </label>
           <input
@@ -88,8 +91,8 @@ export function TodoInspector({ mobileOpen, onCloseMobile }: Props) {
           />
         </div>
 
-        <div>
-          <label className="mb-1 block text-xs font-semibold todo-muted" htmlFor="inspector-desc">
+        <div className="todo-field">
+          <label className="todo-field__label" htmlFor="inspector-desc">
             Description
           </label>
           <textarea
@@ -101,9 +104,9 @@ export function TodoInspector({ mobileOpen, onCloseMobile }: Props) {
           />
         </div>
 
-        <div className="grid grid-cols-2 gap-3">
-          <div>
-            <label className="mb-1 block text-xs font-semibold todo-muted" htmlFor="inspector-status">
+        <div className="todo-field-grid">
+          <div className="todo-field">
+            <label className="todo-field__label" htmlFor="inspector-status">
               Status
             </label>
             <select
@@ -119,8 +122,8 @@ export function TodoInspector({ mobileOpen, onCloseMobile }: Props) {
               ))}
             </select>
           </div>
-          <div>
-            <label className="mb-1 block text-xs font-semibold todo-muted" htmlFor="inspector-priority">
+          <div className="todo-field">
+            <label className="todo-field__label" htmlFor="inspector-priority">
               Priority
             </label>
             <select
@@ -138,8 +141,8 @@ export function TodoInspector({ mobileOpen, onCloseMobile }: Props) {
           </div>
         </div>
 
-        <div>
-          <label className="mb-1 block text-xs font-semibold todo-muted" htmlFor="inspector-due">
+        <div className="todo-field">
+          <label className="todo-field__label" htmlFor="inspector-due">
             Due date
           </label>
           <input
@@ -151,8 +154,8 @@ export function TodoInspector({ mobileOpen, onCloseMobile }: Props) {
           />
         </div>
 
-        <div>
-          <label className="mb-1 block text-xs font-semibold todo-muted" htmlFor="inspector-tags">
+        <div className="todo-field">
+          <label className="todo-field__label" htmlFor="inspector-tags">
             Tags (comma separated)
           </label>
           <input
@@ -171,9 +174,9 @@ export function TodoInspector({ mobileOpen, onCloseMobile }: Props) {
           />
         </div>
 
-        <div>
-          <div className="mb-2 flex items-center justify-between">
-            <p className="text-xs font-semibold todo-muted">Subtasks</p>
+        <div className="todo-field">
+          <div className="flex items-center justify-between">
+            <span className="todo-field__label">Subtasks</span>
             <span className="text-xs todo-muted">
               {subtasks.filter((s) => s.completed).length}/{subtasks.length}
             </span>
@@ -197,7 +200,7 @@ export function TodoInspector({ mobileOpen, onCloseMobile }: Props) {
             ))}
           </ul>
           <form
-            className="mt-2 flex gap-2"
+            className="mt-1 flex gap-2"
             onSubmit={(e) => {
               e.preventDefault();
               const v = subtaskInput.trim();
@@ -218,18 +221,21 @@ export function TodoInspector({ mobileOpen, onCloseMobile }: Props) {
             </button>
           </form>
         </div>
-
-        <div className="mt-auto flex gap-2 border-t pt-4">
-          <TaskActionsMenu task={selectedTask} />
-          <button
-            type="button"
-            className="todo-btn flex-1 text-xs"
-            onClick={() => setUi({ selectedTaskId: null, inspectorOpen: false })}
-          >
-            Close
-          </button>
-        </div>
       </div>
+
+      <footer className="todo-inspector__footer">
+        <TaskActionsMenu task={selectedTask} />
+        <button
+          type="button"
+          className="todo-btn flex-1 text-xs"
+          onClick={() => {
+            onCloseMobile?.();
+            setUi({ selectedTaskId: null, inspectorOpen: false });
+          }}
+        >
+          Close
+        </button>
+      </footer>
     </aside>
   );
 }

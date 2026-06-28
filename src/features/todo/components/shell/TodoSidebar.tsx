@@ -21,6 +21,7 @@ import {
   Search,
   Table,
   Tag,
+  Trash2,
   Upload,
 } from "lucide-react";
 import { cn } from "@/lib/cn";
@@ -83,64 +84,61 @@ export function TodoSidebar({ mobileOpen, onCloseMobile }: Props) {
         mobileOpen && "todo-studio__sidebar--open",
       )}
     >
-      <div className="border-b px-4 py-3">
-        <p className="text-xs font-bold uppercase tracking-wide todo-muted">Smart filters</p>
+      <div className="todo-sidebar-section">
+        <p className="todo-sidebar-title">Smart filters</p>
       </div>
-      <nav className="flex flex-col gap-1 p-2">
+      <nav className="todo-sidebar-nav" aria-label="Smart filters">
         {FILTERS.map(({ id, label, icon: Icon }) => (
           <button
             key={id}
             type="button"
-            className={cn(
-              "todo-btn todo-btn--ghost justify-start gap-2 px-3",
-              ui.activeFilter === id && "bg-[var(--todo-primary-soft)] text-[var(--todo-primary)]",
-            )}
+            aria-current={ui.activeFilter === id ? "true" : undefined}
+            className={cn("todo-nav-item", ui.activeFilter === id && "todo-nav-item--active")}
             onClick={() => {
               setUi({ activeFilter: id, activeListId: null });
               onCloseMobile?.();
             }}
           >
-            <Icon size={16} aria-hidden />
-            {label}
+            <Icon className="todo-nav-item__icon" size={16} aria-hidden />
+            <span className="todo-nav-item__label">{label}</span>
           </button>
         ))}
       </nav>
 
-      <div className="mt-2 border-t px-4 py-3">
-        <p className="text-xs font-bold uppercase tracking-wide todo-muted">Lists</p>
+      <div className="todo-sidebar-section">
+        <p className="todo-sidebar-title">Lists</p>
       </div>
-      <nav className="flex flex-col gap-1 p-2">
-        {lists.map((list) => (
-          <button
-            key={list.id}
-            type="button"
-            className={cn(
-              "todo-btn todo-btn--ghost justify-start gap-2 px-3",
-              ui.activeFilter === "all" &&
-                (ui.activeListId ?? activeListId) === list.id &&
-                "bg-[var(--todo-primary-soft)] text-[var(--todo-primary)]",
-            )}
-            onClick={() => {
-              setUi({ activeFilter: "all", activeListId: list.id });
-              onCloseMobile?.();
-            }}
-          >
-            <span
-              className="size-2.5 shrink-0 rounded-full"
-              style={{ background: list.color ?? "var(--todo-primary)" }}
-              aria-hidden
-            />
-            {list.name}
-          </button>
-        ))}
+      <nav className="todo-sidebar-nav" aria-label="Lists">
+        {lists.map((list) => {
+          const active = ui.activeFilter === "all" && (ui.activeListId ?? activeListId) === list.id;
+          return (
+            <button
+              key={list.id}
+              type="button"
+              aria-current={active ? "true" : undefined}
+              className={cn("todo-nav-item", active && "todo-nav-item--active")}
+              onClick={() => {
+                setUi({ activeFilter: "all", activeListId: list.id });
+                onCloseMobile?.();
+              }}
+            >
+              <span
+                className="size-2.5 shrink-0 rounded-full"
+                style={{ background: list.color ?? "var(--todo-primary)" }}
+                aria-hidden
+              />
+              <span className="todo-nav-item__label">{list.name}</span>
+            </button>
+          );
+        })}
       </nav>
 
       {allTags.length > 0 && (
         <>
-          <div className="mt-2 border-t px-4 py-3">
-            <p className="text-xs font-bold uppercase tracking-wide todo-muted">Tags</p>
+          <div className="todo-sidebar-section">
+            <p className="todo-sidebar-title">Tags</p>
           </div>
-          <div className="flex flex-wrap gap-1.5 px-3 pb-3">
+          <div className="todo-sidebar-tags">
             <button
               type="button"
               className={cn("todo-chip", !ui.selectedTag && "ring-1 ring-[var(--todo-primary)]")}
@@ -165,7 +163,7 @@ export function TodoSidebar({ mobileOpen, onCloseMobile }: Props) {
         </>
       )}
 
-      <div className="mt-auto border-t p-3">
+      <div className="todo-sidebar-sort">
         <label className="mb-1 block text-xs font-semibold todo-muted" htmlFor="todo-sort">
           Sort by
         </label>
@@ -291,8 +289,8 @@ export function TodoTopBar({
   const views: TodoView[] = ["list", "board", "table", "week", "checklist", "print"];
 
   return (
-    <header className="todo-panel flex flex-wrap items-center gap-2 border-b px-3 py-2 lg:px-4">
-      <div className="relative min-w-[160px] flex-1">
+    <header className="todo-topbar">
+      <div className="todo-topbar__search">
         <Search size={16} className="pointer-events-none absolute start-3 top-1/2 -translate-y-1/2 todo-muted" />
         <input
           id="todo-search-input"
@@ -305,78 +303,83 @@ export function TodoTopBar({
         />
       </div>
 
-      <div className="flex flex-wrap gap-1" role="tablist" aria-label="View switcher">
-        {views.map((view) => {
-          const Icon = VIEW_ICONS[view];
-          return (
-            <button
-              key={view}
-              type="button"
-              role="tab"
-              aria-selected={ui.activeView === view}
-              className={cn(
-                "todo-btn todo-btn--ghost px-2.5 text-xs",
-                ui.activeView === view && "bg-[var(--todo-primary-soft)] text-[var(--todo-primary)]",
-              )}
-              onClick={() => setUi({ activeView: view })}
-            >
-              {Icon ? <Icon size={14} aria-hidden /> : null}
-              {VIEW_LABELS[view]}
-            </button>
-          );
-        })}
+      <div className="todo-topbar__center">
+        <div className="todo-view-switcher" role="tablist" aria-label="View switcher">
+          {views.map((view) => {
+            const Icon = VIEW_ICONS[view];
+            return (
+              <button
+                key={view}
+                type="button"
+                role="tab"
+                aria-selected={ui.activeView === view}
+                title={VIEW_LABELS[view]}
+                className={cn(
+                  "todo-view-tab",
+                  ui.activeView === view && "todo-view-tab--active",
+                )}
+                onClick={() => setUi({ activeView: view })}
+              >
+                {Icon ? <Icon size={14} aria-hidden /> : null}
+                {VIEW_LABELS[view]}
+              </button>
+            );
+          })}
+        </div>
       </div>
 
-      <div className="flex flex-wrap items-center gap-1">
-        <button type="button" className="todo-btn text-xs" onClick={onOpenPlanToday}>
+      <div className="todo-topbar__actions">
+        <button type="button" className="todo-btn todo-action-btn--plan text-xs" onClick={onOpenPlanToday}>
           <CalendarPlus size={14} aria-hidden /> Plan today
         </button>
-        <button type="button" className="todo-btn text-xs" onClick={onOpenBrainDump}>
+        <button type="button" className="todo-btn todo-action-btn--brain text-xs" onClick={onOpenBrainDump}>
           <Sparkles size={14} aria-hidden /> Brain Dump
         </button>
         <button type="button" className="todo-btn text-xs" onClick={onOpenTemplates}>
-          <LayoutTemplate size={14} aria-hidden /> Templates
+          <LayoutTemplate size={14} aria-hidden /> <span className="hidden xl:inline">Templates</span>
         </button>
 
         <div className="relative" ref={menuRef}>
           <button
             type="button"
-            className="todo-btn text-xs"
+            className="todo-btn todo-btn--icon"
             aria-haspopup="menu"
             aria-expanded={menuOpen}
+            aria-label="Data: import, export and copy"
+            title="Data"
             onClick={() => setMenuOpen((v) => !v)}
           >
-            <Download size={14} aria-hidden /> Data
+            <Download size={16} aria-hidden />
           </button>
           {menuOpen && (
             <div className="todo-menu" role="menu">
               <p className="todo-menu__label">Export</p>
-              <button type="button" role="menuitem" className="todo-btn todo-btn--ghost w-full justify-start text-xs" onClick={() => { void handleExportAll(); setMenuOpen(false); }}>
+              <button type="button" role="menuitem" className="todo-menu__item" onClick={() => { void handleExportAll(); setMenuOpen(false); }}>
                 Export all data (JSON)
               </button>
-              <button type="button" role="menuitem" className="todo-btn todo-btn--ghost w-full justify-start text-xs" onClick={() => { void handleExportList(); setMenuOpen(false); }}>
+              <button type="button" role="menuitem" className="todo-menu__item" onClick={() => { void handleExportList(); setMenuOpen(false); }}>
                 Export this list (JSON)
               </button>
               <p className="todo-menu__label">Copy this list</p>
-              <button type="button" role="menuitem" className="todo-btn todo-btn--ghost w-full justify-start text-xs" onClick={() => { void copyListText(activeListId, "md"); setMenuOpen(false); setDataNotice("Copied Markdown."); }}>
+              <button type="button" role="menuitem" className="todo-menu__item" onClick={() => { void copyListText(activeListId, "md"); setMenuOpen(false); setDataNotice("Copied Markdown."); }}>
                 Copy as Markdown
               </button>
-              <button type="button" role="menuitem" className="todo-btn todo-btn--ghost w-full justify-start text-xs" onClick={() => { void copyListText(activeListId, "txt"); setMenuOpen(false); setDataNotice("Copied plain text."); }}>
+              <button type="button" role="menuitem" className="todo-menu__item" onClick={() => { void copyListText(activeListId, "txt"); setMenuOpen(false); setDataNotice("Copied plain text."); }}>
                 Copy as plain text
               </button>
               <p className="todo-menu__label">Download this list</p>
-              <button type="button" role="menuitem" className="todo-btn todo-btn--ghost w-full justify-start text-xs" onClick={() => { handleDownloadList("txt"); setMenuOpen(false); }}>
+              <button type="button" role="menuitem" className="todo-menu__item" onClick={() => { handleDownloadList("txt"); setMenuOpen(false); }}>
                 Download .txt
               </button>
-              <button type="button" role="menuitem" className="todo-btn todo-btn--ghost w-full justify-start text-xs" onClick={() => { handleDownloadList("md"); setMenuOpen(false); }}>
+              <button type="button" role="menuitem" className="todo-menu__item" onClick={() => { handleDownloadList("md"); setMenuOpen(false); }}>
                 Download .md
               </button>
-              <hr className="my-1 border-[var(--todo-border)]" />
-              <button type="button" role="menuitem" className="todo-btn todo-btn--ghost w-full justify-start gap-2 text-xs" onClick={() => { handleImport(); setMenuOpen(false); }}>
+              <hr className="todo-menu__divider" />
+              <button type="button" role="menuitem" className="todo-menu__item" onClick={() => { handleImport(); setMenuOpen(false); }}>
                 <Upload size={14} aria-hidden /> Import JSON…
               </button>
-              <button type="button" role="menuitem" className="todo-btn todo-btn--ghost w-full justify-start text-xs text-[var(--todo-danger)]" onClick={() => setClearDialogOpen(true)}>
-                Clear completed in this list
+              <button type="button" role="menuitem" className="todo-menu__item todo-menu__item--danger" onClick={() => setClearDialogOpen(true)}>
+                <Trash2 size={14} aria-hidden /> Clear completed in this list
               </button>
             </div>
           )}

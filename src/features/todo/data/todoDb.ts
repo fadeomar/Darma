@@ -27,11 +27,21 @@ export function getTodoDb(): TodoDatabase {
   return db;
 }
 
-export async function seedDatabaseIfEmpty(): Promise<void> {
-  const database = getTodoDb();
-  const count = await database.lists.count();
-  if (count > 0) return;
+let seedInFlight: Promise<void> | null = null;
 
+export async function seedDatabaseIfEmpty(): Promise<void> {
+  // Dedupe concurrent callers (e.g. React StrictMode double-mounts the provider
+  // in dev, firing two refreshes at once). Without this, both would read an
+  // empty store and race to seed, and the loser throws ConstraintError.
+  if (seedInFlight) return seedInFlight;
+  seedInFlight = doSeedDatabaseIfEmpty().finally(() => {
+    seedInFlight = null;
+  });
+  return seedInFlight;
+}
+
+async function doSeedDatabaseIfEmpty(): Promise<void> {
+  const database = getTodoDb();
   const now = new Date().toISOString();
   const lists: TodoList[] = SEED_LISTS.map((l) => ({
     ...l,
@@ -81,6 +91,8 @@ export async function seedDatabaseIfEmpty(): Promise<void> {
   ];
 
   await database.transaction("rw", database.lists, database.columns, database.tasks, async () => {
+    // Re-check inside the transaction so the guard is atomic with the writes.
+    if ((await database.lists.count()) > 0) return;
     await database.lists.bulkAdd(lists);
     await database.columns.bulkAdd(columns);
     await database.tasks.bulkAdd(sampleTasks);

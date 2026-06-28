@@ -37,9 +37,9 @@ export function QuickCapture() {
   }
 
   return (
-    <div className="border-b px-3 py-3 lg:px-4">
+    <div className="todo-quick-capture">
       <form
-        className="flex gap-2"
+        className="todo-quick-capture__row"
         onSubmit={(e) => {
           e.preventDefault();
           void submit();
@@ -47,19 +47,24 @@ export function QuickCapture() {
       >
         <input
           type="text"
-          className="todo-input flex-1"
+          className="todo-input"
           placeholder="Quick capture — press Enter to add"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           aria-label="Quick capture task title"
           maxLength={500}
         />
-        <button type="submit" className="todo-btn todo-btn--primary" disabled={!title.trim() || busy}>
+        <button
+          type="submit"
+          className="todo-btn todo-btn--primary todo-quick-capture__add"
+          disabled={!title.trim() || busy}
+          aria-label="Add task"
+        >
           <Plus size={16} aria-hidden />
-          Add
+          <span className="todo-quick-capture__add-label">Add</span>
         </button>
       </form>
-      <p className="mt-1.5 text-xs todo-muted">Try: Submit proposal tomorrow #work !high</p>
+      <p className="todo-quick-capture__hint">Try: Submit proposal tomorrow #work !high</p>
     </div>
   );
 }

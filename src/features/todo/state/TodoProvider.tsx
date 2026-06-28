@@ -150,8 +150,15 @@ export function TodoProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     let active = true;
     (async () => {
-      await refresh();
-      if (active) setReady(true);
+      try {
+        await refresh();
+      } catch (err) {
+        // Never leave the UI stuck on "Loading your tasks…" if the local store
+        // fails to initialize — surface readiness so the app can render.
+        console.error("Failed to load Darma Tasks data", err);
+      } finally {
+        if (active) setReady(true);
+      }
     })();
     return () => {
       active = false;

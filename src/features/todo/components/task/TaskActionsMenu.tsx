@@ -34,16 +34,14 @@ export function TaskActionsMenu({ task, compact }: { task: Task; compact?: boole
         <MoreHorizontal size={16} />
       </button>
       {open && (
-        <div
-          className="absolute end-0 top-full z-20 mt-1 min-w-[180px] rounded-xl border bg-[var(--todo-surface)] p-1 shadow-lg"
-          style={{ borderColor: "var(--todo-border)" }}
-        >
-          <p className="px-2 py-1 text-[10px] font-bold uppercase todo-muted">Status</p>
+        <div className="todo-menu" role="menu">
+          <p className="todo-menu__label">Status</p>
           {statuses.map((s) => (
             <button
               key={s}
               type="button"
-              className="todo-btn todo-btn--ghost w-full justify-start px-2 text-xs"
+              role="menuitem"
+              className="todo-menu__item"
               onClick={() => {
                 void setTaskStatus(task.id, s);
                 setOpen(false);
@@ -52,10 +50,11 @@ export function TaskActionsMenu({ task, compact }: { task: Task; compact?: boole
               {STATUS_LABELS[s]}
             </button>
           ))}
-          <hr className="my-1 border-[var(--todo-border)]" />
+          <hr className="todo-menu__divider" />
           <button
             type="button"
-            className="todo-btn todo-btn--ghost w-full justify-start gap-2 px-2 text-xs"
+            role="menuitem"
+            className="todo-menu__item"
             onClick={() => {
               void duplicateTaskById(task.id);
               setOpen(false);
@@ -66,7 +65,8 @@ export function TaskActionsMenu({ task, compact }: { task: Task; compact?: boole
           </button>
           <button
             type="button"
-            className="todo-btn todo-btn--ghost w-full justify-start gap-2 px-2 text-xs text-[var(--todo-danger)]"
+            role="menuitem"
+            className="todo-menu__item todo-menu__item--danger"
             onClick={() => {
               void removeTask(task.id);
               setOpen(false);
@@ -78,7 +78,8 @@ export function TaskActionsMenu({ task, compact }: { task: Task; compact?: boole
           {canUndo && (
             <button
               type="button"
-              className="todo-btn todo-btn--ghost w-full justify-start px-2 text-xs"
+              role="menuitem"
+              className="todo-menu__item"
               onClick={() => {
                 void undoDelete();
                 setOpen(false);

@@ -1,100 +1,510 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import type { PointerEvent } from "react";
-import { Download, Trash2 } from "lucide-react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Download, FileText, FolderOpen, RotateCcw, Shapes, Share2 } from "lucide-react";
+import { Button, CopyButton } from "@/components/ui";
+import { WarningPanel, type WarningMessage } from "@/features/tools/components";
+import { analyzeBeam } from "./lib/beamAnalysis";
+import { validateBeam } from "./lib/beamValidation";
+import {
+  UNIT_SYSTEMS,
+  type BeamLoad,
+  type BeamModel,
+  type SelectedItem,
+  type Support,
+  type SupportType,
+} from "./lib/beamTypes";
+import { deriveBeamMode, isGuidedMode, supportsForMode, type BeamMode } from "./lib/beamMode";
+import {
+  BEAM_PRESETS,
+  DEFAULT_PRESET_ID,
+  clonePresetModel,
+  getPreset,
+  type BeamPreset,
+} from "./lib/beamPresets";
+import {
+  buildClipboardSummary,
+  buildReport,
+  parseConfig,
+  serializeConfig,
+  serializeResultsJson,
+} from "./lib/beamExport";
+import { roundTo } from "./lib/beamFormatting";
+import { BeamInputs } from "./components/BeamInputs";
+import { BeamCanvas } from "./components/BeamCanvas";
+import { BeamDiagram } from "./components/BeamDiagram";
+import { BeamResults } from "./components/BeamResults";
+import { BeamPresetCards } from "./components/BeamPresetCards";
+import { BeamHowTo } from "./components/BeamHowTo";
 
-type SupportType = "pin" | "roller" | "fixed";
-type Support = { id: string; type: SupportType; x: number };
-type PointLoad = { id: string; x: number; value: number };
-type UdlLoad = { id: string; xStart: number; xEnd: number; w: number };
-type Selected = { kind: "support" | "point" | "udl"; id: string } | null;
-type Station = { x: number; shear: number; moment: number };
+const STORAGE_KEY = "darma-beam-calculator:v2";
 
-const W = 1000, H = 300, A = 70, B = 930, Y = 160, EPS = 1e-9;
-const presets = [
-  { name: "Simply supported + mid point load", length: 6, supports: [{ id: "S1", type: "pin" as const, x: 0 }, { id: "S2", type: "roller" as const, x: 6 }], points: [{ id: "P1", x: 3, value: -20 }], udls: [] as UdlLoad[] },
-  { name: "Simply supported + full UDL", length: 8, supports: [{ id: "S1", type: "pin" as const, x: 0 }, { id: "S2", type: "roller" as const, x: 8 }], points: [] as PointLoad[], udls: [{ id: "W1", xStart: 0, xEnd: 8, w: -5 }] },
-  { name: "Cantilever + tip point load", length: 4, supports: [{ id: "S1", type: "fixed" as const, x: 0 }], points: [{ id: "P1", x: 4, value: -12 }], udls: [] as UdlLoad[] },
-];
-const round = (n: number, d = 3) => Number.isFinite(n) ? Number(n.toFixed(d)) : 0;
-const clamp = (n: number, min: number, max: number) => Math.min(max, Math.max(min, n));
+type LoadKind = "point" | "udl" | "moment";
 
-function analyze(length: number, supports: Support[], points: PointLoad[], udls: UdlLoad[]) {
-  const loads = [...points.map((p) => ({ p: p.value, x: p.x })), ...udls.map((w) => ({ p: w.w * (w.xEnd - w.xStart), x: (w.xStart + w.xEnd) / 2 }))];
-  const totalLoad = loads.reduce((s, l) => s + l.p, 0);
-  const active = supports.filter((s) => s.type === "fixed" || s.type === "pin" || s.type === "roller").sort((a, b) => a.x - b.x);
-  const reactions: { id: string; x: number; value: number }[] = [];
-  let warning = "";
-  if (active.length === 1 && active[0].type === "fixed") reactions.push({ id: active[0].id, x: active[0].x, value: -totalLoad });
-  else if (active.length === 2) {
-    const [left, right] = active;
-    const span = right.x - left.x;
-    if (Math.abs(span) < EPS) warning = "Supports cannot share the same position.";
-    else {
-      const mLeft = loads.reduce((s, l) => s + l.p * (l.x - left.x), 0);
-      const rb = -mLeft / span;
-      reactions.push({ id: left.id, x: left.x, value: -totalLoad - rb }, { id: right.id, x: right.x, value: rb });
-    }
-  } else warning = "Phase 1.5 supports one fixed cantilever support or exactly two vertical supports.";
-
-  const xs = new Set<number>([0, length]);
-  for (let i = 0; i <= 160; i++) xs.add((length * i) / 160);
-  supports.forEach((s) => xs.add(s.x)); points.forEach((p) => xs.add(p.x)); udls.forEach((u) => { xs.add(u.xStart); xs.add(u.xEnd); });
-  const stations: Station[] = [...xs].sort((a, b) => a - b).map((x) => {
-    const rv = reactions.reduce((s, r) => s + (r.x <= x + EPS ? r.value : 0), 0);
-    const pv = points.reduce((s, p) => s + (p.x <= x + EPS ? p.value : 0), 0);
-    const uv = udls.reduce((s, u) => s + u.w * Math.max(0, clamp(x, u.xStart, u.xEnd) - u.xStart), 0);
-    const rm = reactions.reduce((s, r) => s + (r.x <= x + EPS ? r.value * (x - r.x) : 0), 0);
-    const pm = points.reduce((s, p) => s + (p.x <= x + EPS ? p.value * (x - p.x) : 0), 0);
-    const um = udls.reduce((s, u) => { const a = Math.max(0, clamp(x, u.xStart, u.xEnd) - u.xStart); return s + u.w * a * (x - (u.xStart + a / 2)); }, 0);
-    return { x, shear: rv + pv + uv, moment: rm + pm + um };
-  });
-  return { ok: !warning, warning, reactions, stations, maxShear: Math.max(0, ...stations.map((s) => Math.abs(s.shear))), maxMoment: Math.max(0, ...stations.map((s) => Math.abs(s.moment))) };
+function defaultModel(): BeamModel {
+  return clonePresetModel(getPreset(DEFAULT_PRESET_ID)!);
 }
 
-function makePath(stations: Station[], key: "shear" | "moment") {
-  const maxX = Math.max(1, ...stations.map((s) => s.x));
-  const maxY = Math.max(1, ...stations.map((s) => Math.abs(s[key])));
-  const zero = 100;
-  return { zero, maxY, d: stations.map((s, i) => `${i ? "L" : "M"} ${(s.x / maxX) * 900} ${zero - (s[key] / maxY) * 78}`).join(" ") };
+function nextSupportId(supports: Support[]): string {
+  const used = new Set(supports.map((s) => s.id));
+  for (const letter of "ABCDEFGHIJKLMNOPQRSTUVWXYZ") if (!used.has(letter)) return letter;
+  let i = 1;
+  while (used.has(`S${i}`)) i += 1;
+  return `S${i}`;
+}
+
+function nextLoadId(loads: BeamLoad[], prefix: string): string {
+  const used = new Set(loads.map((l) => l.id));
+  let i = 1;
+  while (used.has(`${prefix}${i}`)) i += 1;
+  return `${prefix}${i}`;
+}
+
+function download(filename: string, content: string, type: string) {
+  const blob = new Blob([content], { type });
+  const url = URL.createObjectURL(blob);
+  const anchor = document.createElement("a");
+  anchor.href = url;
+  anchor.download = filename;
+  anchor.click();
+  URL.revokeObjectURL(url);
 }
 
 export default function BeamCalculatorClient() {
-  const [length, setLength] = useState(6);
-  const [unit, setUnit] = useState("m");
-  const [supports, setSupports] = useState<Support[]>(presets[0].supports);
-  const [points, setPoints] = useState<PointLoad[]>(presets[0].points);
-  const [udls, setUdls] = useState<UdlLoad[]>([]);
-  const [selected, setSelected] = useState<Selected>({ kind: "point", id: "P1" });
-  const [drag, setDrag] = useState<Selected>(null);
-  const analysis = useMemo(() => analyze(length, supports, points, udls), [length, supports, points, udls]);
-  const toPx = (x: number) => A + (x / length) * (B - A);
-  const fromPx = (px: number) => round(clamp(((px - A) / (B - A)) * length, 0, length), 2);
-  const selectedItem = selected?.kind === "support" ? supports.find((i) => i.id === selected.id) : selected?.kind === "point" ? points.find((i) => i.id === selected.id) : selected?.kind === "udl" ? udls.find((i) => i.id === selected.id) : null;
-  function svgX(e: PointerEvent<SVGSVGElement>) { const r = e.currentTarget.getBoundingClientRect(); return ((e.clientX - r.left) / r.width) * W; }
-  function move(e: PointerEvent<SVGSVGElement>) {
-    if (!drag) return; const x = fromPx(svgX(e));
-    if (drag.kind === "support") setSupports((v) => v.map((i) => i.id === drag.id ? { ...i, x } : i));
-    if (drag.kind === "point") setPoints((v) => v.map((i) => i.id === drag.id ? { ...i, x } : i));
-    if (drag.kind === "udl") setUdls((v) => v.map((i) => { if (i.id !== drag.id) return i; const w = i.xEnd - i.xStart; const s = clamp(x - w / 2, 0, length - w); return { ...i, xStart: round(s, 2), xEnd: round(s + w, 2) }; }));
-  }
-  function addSupport(type: SupportType) { const id = `S${supports.length + 1}`; setSupports([...supports, { id, type, x: round(length / 2, 2) }]); setSelected({ kind: "support", id }); }
-  function addPoint() { const id = `P${points.length + 1}`; setPoints([...points, { id, x: round(length / 2, 2), value: -10 }]); setSelected({ kind: "point", id }); }
-  function addUdl() { const id = `W${udls.length + 1}`; setUdls([...udls, { id, xStart: 0, xEnd: length, w: -2 }]); setSelected({ kind: "udl", id }); }
-  function removeSelected() { if (!selected) return; if (selected.kind === "support") setSupports(supports.filter((i) => i.id !== selected.id)); if (selected.kind === "point") setPoints(points.filter((i) => i.id !== selected.id)); if (selected.kind === "udl") setUdls(udls.filter((i) => i.id !== selected.id)); setSelected(null); }
-  function applyPreset(index: number) { const p = presets[index]; setLength(p.length); setSupports(p.supports); setPoints(p.points); setUdls(p.udls); setSelected(null); }
-  function exportJson() { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([JSON.stringify({ beam: { length, unit }, supports, pointLoads: points, distributedLoads: udls, results: analysis }, null, 2)], { type: "application/json" })); a.download = "darma-beam-calculator.json"; a.click(); }
-  const shear = makePath(analysis.stations, "shear"), moment = makePath(analysis.stations, "moment");
-  return <div className="beam-tool">
-    <section className="beam-toolbar"><h2>Beam Calculator</h2><label>Length<input type="number" value={length} min="0.5" step="0.1" onChange={(e) => setLength(Math.max(.5, Number(e.target.value) || .5))} /></label><label>Unit<select value={unit} onChange={(e) => setUnit(e.target.value)}><option>m</option><option>ft</option></select></label><select defaultValue="" onChange={(e) => applyPreset(Number(e.target.value))}><option value="" disabled>Load preset</option>{presets.map((p, i) => <option key={p.name} value={i}>{p.name}</option>)}</select><button type="button" onClick={exportJson}><Download size={16} /> Export</button></section>
-    <div className="beam-grid"><aside className="beam-panel"><h3>Canvas parts</h3><p>Click to add, then drag along the beam. Use the inspector for exact values.</p><div className="part-grid"><button type="button" onClick={() => addSupport("pin")}>Pin support</button><button type="button" onClick={() => addSupport("roller")}>Roller support</button><button type="button" onClick={() => addSupport("fixed")}>Fixed support</button><button type="button" onClick={addPoint}>Point load</button><button type="button" onClick={addUdl}>UDL</button></div><div className="beam-note">Phase 1.5: single-span determinate beams, vertical loads, point loads, and uniform distributed loads.</div></aside>
-    <main className="beam-main"><svg className="beam-canvas" viewBox={`0 0 ${W} ${H}`} onPointerMove={move} onPointerUp={() => setDrag(null)} onPointerLeave={() => setDrag(null)}><defs><marker id="beam-arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#ef4444" /></marker></defs><rect width={W} height={H} rx="26" fill="#f8fafc" />{[0,.25,.5,.75,1].map((t) => <g key={t}><line x1={A+t*(B-A)} x2={A+t*(B-A)} y1="55" y2="235" stroke="#e2e8f0" /><text x={A+t*(B-A)} y="265" textAnchor="middle" fontSize="13" fill="#64748b">{round(t*length,2)} {unit}</text></g>)}<line x1={A} x2={B} y1={Y} y2={Y} stroke="#0f172a" strokeWidth="8" strokeLinecap="round" />{udls.map((u) => { const x1=toPx(u.xStart), x2=toPx(u.xEnd); return <g key={u.id} onPointerDown={(e) => { e.stopPropagation(); setSelected({kind:"udl",id:u.id}); setDrag({kind:"udl",id:u.id}); }}><rect x={x1} y="65" width={Math.max(10,x2-x1)} height="45" rx="10" fill={selected?.id===u.id?"#dbeafe":"#e0f2fe"} stroke="#38bdf8" />{Array.from({length:8}).map((_,i)=><line key={i} x1={x1+(i+.5)*(x2-x1)/8} x2={x1+(i+.5)*(x2-x1)/8} y1="112" y2="147" stroke="#ef4444" strokeWidth="2" markerEnd="url(#beam-arrow)"/>)}<text x={(x1+x2)/2} y="55" textAnchor="middle" fontSize="13" fontWeight="800">{u.id}: {Math.abs(u.w)} kN/{unit}</text></g>})}{points.map((p)=>{const x=toPx(p.x);return <g key={p.id} onPointerDown={(e)=>{e.stopPropagation();setSelected({kind:"point",id:p.id});setDrag({kind:"point",id:p.id});}}><line x1={x} x2={x} y1="60" y2="145" stroke="#ef4444" strokeWidth={selected?.id===p.id?5:4} markerEnd="url(#beam-arrow)"/><circle cx={x} cy="56" r="11" fill="#fee2e2" stroke="#ef4444"/><text x={x} y="36" textAnchor="middle" fontSize="13" fontWeight="800">{p.id}: {Math.abs(p.value)} kN</text></g>})}{supports.map((s)=>{const x=toPx(s.x);return <g key={s.id} onPointerDown={(e)=>{e.stopPropagation();setSelected({kind:"support",id:s.id});setDrag({kind:"support",id:s.id});}}>{s.type==="fixed"?<rect x={x-9} y={Y-44} width="18" height="88" rx="3" fill={selected?.id===s.id?"#2563eb":"#334155"}/>:<path d={`M ${x} ${Y+6} L ${x-24} ${Y+50} L ${x+24} ${Y+50} Z`} fill={selected?.id===s.id?"#dbeafe":"#e2e8f0"} stroke="#334155" strokeWidth="3"/>}{s.type==="roller"&&<><circle cx={x-12} cy={Y+57} r="5" fill="#94a3b8"/><circle cx={x+12} cy={Y+57} r="5" fill="#94a3b8"/></>}<text x={x} y={Y+88} textAnchor="middle" fontSize="13" fontWeight="800">{s.id} {s.type}</text></g>})}</svg>{analysis.warning&&<div className="beam-warning">{analysis.warning}</div>}<div className="result-cards"><div><span>Max shear</span><b>{round(analysis.maxShear,2)} kN</b></div><div><span>Max moment</span><b>{round(analysis.maxMoment,2)} kN{unit}</b></div><div><span>Solver</span><b>{analysis.ok?"Equilibrium OK":"Needs valid supports"}</b></div></div></main>
-    <aside className="beam-panel"><div className="panel-head"><h3>Inspector</h3>{selected&&<button type="button" className="danger" onClick={removeSelected}><Trash2 size={15}/>Delete</button>}</div>{!selectedItem&&<p>Select a canvas item.</p>}{selected?.kind==="support"&&selectedItem&&"type" in selectedItem&&<div className="fields"><label>Type<select value={selectedItem.type} onChange={(e)=>setSupports(supports.map((s)=>s.id===selected.id?{...s,type:e.target.value as SupportType}:s))}><option value="pin">Pin</option><option value="roller">Roller</option><option value="fixed">Fixed</option></select></label><label>x ({unit})<input type="number" value={selectedItem.x} onChange={(e)=>setSupports(supports.map((s)=>s.id===selected.id?{...s,x:clamp(Number(e.target.value),0,length)}:s))}/></label></div>}{selected?.kind==="point"&&selectedItem&&"value" in selectedItem&&<div className="fields"><label>x ({unit})<input type="number" value={selectedItem.x} onChange={(e)=>setPoints(points.map((p)=>p.id===selected.id?{...p,x:clamp(Number(e.target.value),0,length)}:p))}/></label><label>Load kN<input type="number" value={selectedItem.value} onChange={(e)=>setPoints(points.map((p)=>p.id===selected.id?{...p,value:Number(e.target.value)}:p))}/></label><small>Downward loads are negative.</small></div>}{selected?.kind==="udl"&&selectedItem&&"w" in selectedItem&&<div className="fields"><label>Start<input type="number" value={selectedItem.xStart} onChange={(e)=>setUdls(udls.map((u)=>u.id===selected.id?{...u,xStart:clamp(Number(e.target.value),0,u.xEnd)}:u))}/></label><label>End<input type="number" value={selectedItem.xEnd} onChange={(e)=>setUdls(udls.map((u)=>u.id===selected.id?{...u,xEnd:clamp(Number(e.target.value),u.xStart,length)}:u))}/></label><label>kN/{unit}<input type="number" value={selectedItem.w} onChange={(e)=>setUdls(udls.map((u)=>u.id===selected.id?{...u,w:Number(e.target.value)}:u))}/></label></div>}<h4>Reactions</h4>{analysis.reactions.map((r)=><div className="reaction" key={r.id}><span>{r.id} @ {round(r.x,2)} {unit}</span><b>{r.value>=0?"+":""}{round(r.value,2)} kN</b></div>)}</aside></div>
-    <section className="diagram-grid"><Diagram title="Shear Force Diagram" unit="kN" path={shear.d} zero={shear.zero} max={shear.maxY}/><Diagram title="Bending Moment Diagram" unit={`kN${unit}`} path={moment.d} zero={moment.zero} max={moment.maxY}/></section>
-  </div>;
-}
+  const [model, setModel] = useState<BeamModel>(defaultModel);
+  const [beamMode, setBeamMode] = useState<BeamMode>(() => deriveBeamMode(defaultModel()));
+  const [selected, setSelected] = useState<SelectedItem | null>(null);
+  const [activePresetId, setActivePresetId] = useState<string | undefined>(DEFAULT_PRESET_ID);
+  const [notice, setNotice] = useState<string | null>(null);
+  const [hydrated, setHydrated] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
-function Diagram({ title, unit, path, zero, max }: { title: string; unit: string; path: string; zero: number; max: number }) {
-  return <div className="diagram-card"><div className="panel-head"><h3>{title}</h3><span>max {round(max,2)} {unit}</span></div><svg viewBox="0 0 900 200"><rect width="900" height="200" rx="18" fill="#f8fafc"/><line x1="0" x2="900" y1={zero} y2={zero} stroke="#94a3b8" strokeDasharray="6 6"/><path d={path} fill="none" stroke="#2563eb" strokeWidth="4" strokeLinejoin="round"/><path d={`${path} L 900 ${zero} L 0 ${zero} Z`} fill="#2563eb" opacity=".08"/></svg><p>Diagram values are sampled from beam equations. Point loads create shear jumps; UDLs create sloped shear and curved moment.</p></div>;
+  // Restore last setup from localStorage on mount.
+  useEffect(() => {
+    try {
+      const stored = window.localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        const parsed = parseConfig(stored);
+        if (parsed) {
+          setModel(parsed);
+          setBeamMode(deriveBeamMode(parsed));
+          setActivePresetId(undefined);
+        }
+      }
+    } catch {
+      // ignore corrupt storage
+    }
+    setHydrated(true);
+  }, []);
+
+  // Auto-save latest setup.
+  useEffect(() => {
+    if (!hydrated) return;
+    try {
+      window.localStorage.setItem(STORAGE_KEY, serializeConfig(model));
+    } catch {
+      // storage may be unavailable (private mode, quota) — non-fatal
+    }
+  }, [model, hydrated]);
+
+  // Transient notice auto-dismiss.
+  useEffect(() => {
+    if (!notice) return;
+    const timer = window.setTimeout(() => setNotice(null), 3200);
+    return () => window.clearTimeout(timer);
+  }, [notice]);
+
+  const units = UNIT_SYSTEMS[model.unitSystem];
+  const validation = useMemo(() => validateBeam(model), [model]);
+  const result = useMemo(() => (validation.ok ? analyzeBeam(model) : null), [model, validation.ok]);
+
+  const fieldErrors = useMemo(() => {
+    const map = new Map<string, string>();
+    for (const issue of validation.errors) {
+      if (issue.target?.id && !map.has(issue.target.id)) map.set(issue.target.id, issue.message);
+    }
+    return map;
+  }, [validation.errors]);
+
+  const beamLengthError = useMemo(() => validation.errors.find((e) => e.id === "beam-length")?.message, [validation.errors]);
+
+  // ---- Mutators ----
+  const markCustom = useCallback(() => setActivePresetId(undefined), []);
+
+  const updateLength = useCallback(
+    (length: number) => {
+      setModel((prev) => {
+        const L = roundTo(Math.max(0.1, length), 4);
+        // Guided modes keep their supports pinned to the beam ends.
+        const supports = isGuidedMode(beamMode) ? supportsForMode(beamMode, L) : prev.supports;
+        return { ...prev, length: L, supports };
+      });
+      markCustom();
+    },
+    [markCustom, beamMode],
+  );
+
+  const changeMode = useCallback(
+    (mode: BeamMode) => {
+      setBeamMode(mode);
+      setSelected(null);
+      if (mode !== "advanced") {
+        setModel((prev) => ({ ...prev, supports: supportsForMode(mode, prev.length) }));
+        markCustom();
+        setNotice(`Beam type: ${mode.replace("-", " ")}`);
+      }
+    },
+    [markCustom],
+  );
+
+  const updateSupport = useCallback(
+    (id: string, patch: Partial<Support>) => {
+      setModel((prev) => ({ ...prev, supports: prev.supports.map((s) => (s.id === id ? { ...s, ...patch } : s)) }));
+      markCustom();
+    },
+    [markCustom],
+  );
+
+  const removeSupport = useCallback(
+    (id: string) => {
+      setModel((prev) => ({ ...prev, supports: prev.supports.filter((s) => s.id !== id) }));
+      markCustom();
+    },
+    [markCustom],
+  );
+
+  const addSupport = useCallback(
+    (type: SupportType) => {
+      setModel((prev) => ({
+        ...prev,
+        supports: [...prev.supports, { id: nextSupportId(prev.supports), type, x: roundTo(prev.length / 2, 2) }],
+      }));
+      markCustom();
+    },
+    [markCustom],
+  );
+
+  const updateLoad = useCallback(
+    (id: string, patch: Partial<BeamLoad>) => {
+      setModel((prev) => ({ ...prev, loads: prev.loads.map((l) => (l.id === id ? ({ ...l, ...patch } as BeamLoad) : l)) }));
+      markCustom();
+    },
+    [markCustom],
+  );
+
+  const removeLoad = useCallback(
+    (id: string) => {
+      setModel((prev) => ({ ...prev, loads: prev.loads.filter((l) => l.id !== id) }));
+      setSelected((sel) => (sel && sel.id === id ? null : sel));
+      markCustom();
+    },
+    [markCustom],
+  );
+
+  const addLoad = useCallback(
+    (kind: LoadKind) => {
+      let newId = "";
+      setModel((prev) => {
+        let load: BeamLoad;
+        if (kind === "point") {
+          newId = nextLoadId(prev.loads, "P");
+          load = { id: newId, kind: "point", x: roundTo(prev.length / 2, 2), magnitude: 10, direction: "down" };
+        } else if (kind === "udl") {
+          newId = nextLoadId(prev.loads, "W");
+          load = { id: newId, kind: "udl", start: 0, end: prev.length, magnitude: 5, direction: "down" };
+        } else {
+          newId = nextLoadId(prev.loads, "M");
+          load = { id: newId, kind: "moment", x: roundTo(prev.length / 2, 2), magnitude: 10, rotation: "ccw" };
+        }
+        return { ...prev, loads: [...prev.loads, load] };
+      });
+      if (newId) setSelected(kind === "udl" ? { kind: "udl-body", id: newId } : { kind, id: newId });
+      markCustom();
+    },
+    [markCustom],
+  );
+
+  const loadModel = useCallback((next: BeamModel, presetId?: string) => {
+    setModel(next);
+    setBeamMode(deriveBeamMode(next));
+    setSelected(null);
+    setActivePresetId(presetId);
+  }, []);
+
+  const applyPreset = useCallback(
+    (preset: BeamPreset) => {
+      loadModel(clonePresetModel(preset), preset.id);
+      setNotice(`Loaded preset: ${preset.name}`);
+    },
+    [loadModel],
+  );
+
+  const reset = useCallback(() => {
+    const preset = getPreset(DEFAULT_PRESET_ID)!;
+    loadModel(clonePresetModel(preset), preset.id);
+    setNotice("Reset to default beam");
+  }, [loadModel]);
+
+  const loadExample = useCallback(() => {
+    const examples = BEAM_PRESETS.filter((p) => p.id !== "custom-blank" && p.id !== activePresetId);
+    const pick = examples[Math.floor(Math.random() * examples.length)] ?? BEAM_PRESETS[1];
+    applyPreset(pick);
+  }, [activePresetId, applyPreset]);
+
+  const handleImportClick = useCallback(() => fileInputRef.current?.click(), []);
+
+  const handleImportFile = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const file = event.target.files?.[0];
+      event.target.value = "";
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        const parsed = parseConfig(String(reader.result ?? ""));
+        if (parsed) {
+          loadModel(parsed, undefined);
+          setNotice("Imported beam configuration");
+        } else {
+          setNotice("Could not read that file as a beam configuration");
+        }
+      };
+      reader.readAsText(file);
+    },
+    [loadModel],
+  );
+
+  // ---- One-click fixes for common validation errors ----
+  const quickFixes = useCallback(
+    (issueId: string, targetId?: string): { label: string; run: () => void }[] => {
+      if (issueId === "support-config") {
+        return [
+          { label: "Use simply supported", run: () => changeMode("simply-supported") },
+          { label: "Use cantilever", run: () => changeMode("cantilever-left") },
+        ];
+      }
+      if (issueId === "support-duplicate") {
+        return [{ label: "Spread supports", run: () => changeMode("simply-supported") }];
+      }
+      if (targetId && issueId.includes("-x-range")) {
+        return [
+          { label: "Move to end", run: () => updateLoad(targetId, { x: model.length }) },
+          { label: "Move to center", run: () => updateLoad(targetId, { x: roundTo(model.length / 2, 2) }) },
+        ];
+      }
+      if (targetId && issueId.includes("-range-order")) {
+        return [
+          { label: "Swap start/end", run: () => {
+            const load = model.loads.find((l) => l.id === targetId);
+            if (load && load.kind === "udl") updateLoad(targetId, { start: Math.min(load.start, load.end), end: Math.max(load.start, load.end) });
+          } },
+          { label: "Use full span", run: () => updateLoad(targetId, { start: 0, end: model.length }) },
+        ];
+      }
+      if (targetId && issueId.includes("-range-bounds")) {
+        return [{ label: "Use full span", run: () => updateLoad(targetId, { start: 0, end: model.length }) }];
+      }
+      if (targetId && issueId.startsWith("support-") && issueId.includes("-x-range")) {
+        return [{ label: "Move to end", run: () => updateSupport(targetId, { x: model.length }) }];
+      }
+      return [];
+    },
+    [changeMode, updateLoad, updateSupport, model.length, model.loads],
+  );
+
+  const resultsText = result ? buildClipboardSummary(model, result) : "";
+  const configText = useMemo(() => serializeConfig(model), [model]);
+
+  const warningMessages: WarningMessage[] = useMemo(() => {
+    const renderActions = (fixes: { label: string; run: () => void }[]) =>
+      fixes.length ? (
+        <span className="mt-1.5 flex flex-wrap gap-1.5">
+          {fixes.map((fix) => (
+            <button
+              key={fix.label}
+              type="button"
+              onClick={fix.run}
+              className="rounded-[var(--radius-sm)] border border-current bg-[var(--color-surface-base)]/40 px-2 py-0.5 text-[11px] font-bold transition hover:bg-[var(--color-surface-base)]/70"
+            >
+              {fix.label}
+            </button>
+          ))}
+        </span>
+      ) : null;
+
+    const messages: WarningMessage[] = [];
+    for (const issue of validation.errors) {
+      const fixes = quickFixes(issue.id, issue.target?.id);
+      messages.push({
+        id: issue.id,
+        severity: "danger",
+        title: "Fix to calculate",
+        message: (
+          <span>
+            {issue.message}
+            {renderActions(fixes)}
+          </span>
+        ),
+      });
+    }
+    for (const issue of validation.warnings) {
+      messages.push({ id: issue.id, severity: "warning", message: issue.message });
+    }
+    return messages;
+  }, [validation, quickFixes]);
+
+  const suggestionPresetId = validation.errors.find((e) => e.suggestionPresetId)?.suggestionPresetId;
+  const noResultsHint = result ? undefined : "Fix the highlighted issues to enable export";
+
+  return (
+    <div className="space-y-5">
+      <BeamHowTo />
+
+      {/* Disclaimer */}
+      <WarningPanel
+        messages={[
+          {
+            id: "disclaimer",
+            severity: "info",
+            title: "Educational & preliminary only",
+            message:
+              "This tool is for educational and preliminary analysis only. Always consult a qualified structural engineer for real-world design or safety-critical decisions. Sign convention: downward loads negative, upward reactions positive, sagging moment positive, hogging negative.",
+          },
+        ]}
+      />
+
+      {/* Action bar */}
+      <div className="flex flex-wrap items-center gap-2">
+        <Button variant="primary" size="sm" leftIcon={<Shapes className="h-4 w-4" />} onClick={loadExample}>
+          Load example
+        </Button>
+        <Button variant="secondary" size="sm" leftIcon={<RotateCcw className="h-4 w-4" />} onClick={reset}>
+          Reset
+        </Button>
+        <div className="mx-1 hidden h-5 w-px bg-[var(--color-border-default)] sm:block" />
+        <CopyButton variant="secondary" size="sm" text={resultsText} disabled={!result} title={noResultsHint}>
+          Copy results
+        </CopyButton>
+        <Button variant="secondary" size="sm" leftIcon={<Download className="h-4 w-4" />} disabled={!result} title={noResultsHint} onClick={() => result && download("beam-results.json", serializeResultsJson(model, result), "application/json")}>
+          JSON
+        </Button>
+        <Button variant="secondary" size="sm" leftIcon={<FileText className="h-4 w-4" />} disabled={!result} title={noResultsHint} onClick={() => result && download("beam-report.md", buildReport(model, result), "text/markdown")}>
+          Report
+        </Button>
+        <div className="mx-1 hidden h-5 w-px bg-[var(--color-border-default)] sm:block" />
+        <CopyButton variant="ghost" size="sm" text={configText} copiedLabel="Copied config">
+          Copy config
+        </CopyButton>
+        <Button variant="ghost" size="sm" leftIcon={<FolderOpen className="h-4 w-4" />} onClick={handleImportClick}>
+          Import
+        </Button>
+        <input ref={fileInputRef} type="file" accept="application/json,.json" onChange={handleImportFile} className="hidden" aria-hidden tabIndex={-1} />
+        {notice ? (
+          <span className="ml-auto inline-flex items-center gap-1.5 rounded-[var(--radius-full)] border border-[var(--color-success-border)] bg-[var(--color-success-bg)] px-3 py-1 text-xs font-semibold text-[var(--color-success-text)]" role="status">
+            <Share2 className="h-3.5 w-3.5" /> {notice}
+          </span>
+        ) : null}
+      </div>
+
+      {/* Workspace */}
+      <div className="grid gap-6 lg:grid-cols-[minmax(0,380px)_minmax(0,1fr)] lg:items-start">
+        {/* Left: inputs + presets */}
+        <div className="space-y-5">
+          <BeamInputs
+            model={model}
+            units={units}
+            mode={beamMode}
+            fieldErrors={fieldErrors}
+            beamLengthError={beamLengthError}
+            selected={selected}
+            onSelect={setSelected}
+            onModeChange={changeMode}
+            onLengthChange={updateLength}
+            onSupportUpdate={updateSupport}
+            onSupportRemove={removeSupport}
+            onSupportAdd={addSupport}
+            onLoadUpdate={updateLoad}
+            onLoadRemove={removeLoad}
+            onLoadAdd={addLoad}
+          />
+          <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
+            <h2 className="mb-1 text-sm font-bold text-[var(--color-text-primary)]">Presets</h2>
+            <p className="mb-3 text-xs text-[var(--color-text-tertiary)]">Start from a valid scenario, then tweak it.</p>
+            <BeamPresetCards activeId={activePresetId} onSelect={applyPreset} />
+          </section>
+        </div>
+
+        {/* Right: preview + diagrams + results (sticky on desktop) */}
+        <div className="space-y-5 lg:sticky lg:top-24 lg:self-start">
+          <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
+            <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
+              <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Beam preview</h2>
+              <p className="text-[11px] text-[var(--color-text-tertiary)]">Drag the orange handles, or select an item and click the beam to place it.</p>
+            </div>
+            <BeamCanvas
+              model={model}
+              result={result}
+              units={units}
+              selected={selected}
+              onSelect={setSelected}
+              onSupportPosition={(id, x) => updateSupport(id, { x })}
+              onLoadPosition={updateLoad}
+              supportsDraggable={beamMode === "advanced"}
+            />
+          </section>
+
+          {warningMessages.length > 0 ? <WarningPanel messages={warningMessages} /> : null}
+
+          {result ? (
+            <>
+              <section className="grid gap-4 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)] sm:grid-cols-2">
+                <BeamDiagram
+                  title="Shear force diagram (SFD)"
+                  description={`Shear force along the beam in ${units.force}. Positive plotted above the zero line.`}
+                  samples={result.samples}
+                  metric="shear"
+                  length={model.length}
+                  lengthUnit={units.length}
+                  valueUnit={units.force}
+                  extreme={result.maxShear}
+                />
+                <BeamDiagram
+                  title="Bending moment diagram (BMD)"
+                  description={`Bending moment along the beam in ${units.moment}. Positive (sagging) plotted above the zero line.`}
+                  samples={result.samples}
+                  metric="moment"
+                  length={model.length}
+                  lengthUnit={units.length}
+                  valueUnit={units.moment}
+                  extreme={result.maxAbsMoment}
+                  secondaryExtreme={result.maxPositiveMoment.value > 1e-9 && result.maxNegativeMoment.value < -1e-9 ? result.maxPositiveMoment : undefined}
+                />
+              </section>
+
+              <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
+                <BeamResults model={model} result={result} units={units} />
+              </section>
+            </>
+          ) : (
+            <section className="rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-8 text-center">
+              <h2 className="text-sm font-bold text-[var(--color-text-primary)]">No results yet</h2>
+              <p className="mx-auto mt-2 max-w-md text-sm text-[var(--color-text-secondary)]">The current configuration can&apos;t be solved. Use a one-click fix above, or start from a working preset.</p>
+              {suggestionPresetId ? (
+                <Button
+                  className="mt-4"
+                  variant="soft"
+                  size="sm"
+                  onClick={() => {
+                    const preset = getPreset(suggestionPresetId);
+                    if (preset) applyPreset(preset);
+                  }}
+                >
+                  Load a suggested preset
+                </Button>
+              ) : null}
+            </section>
+          )}
+        </div>
+      </div>
+    </div>
+  );
 }

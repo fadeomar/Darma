@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Pause, Play, RotateCcw, SkipForward } from "lucide-react";
 import { Button, Input } from "@/components/ui";
 import { ToolControlPanel, ControlSection, WarningPanel } from "@/features/tools/components";
@@ -48,11 +48,6 @@ export default function PomodoroTimerClient() {
   const [completedFocus, setCompletedFocus] = useState(0);
   const [customMinutes, setCustomMinutes] = useState("25");
 
-  const phaseRef = useRef(phase);
-  const completedRef = useRef(completedFocus);
-  phaseRef.current = phase;
-  completedRef.current = completedFocus;
-
   // One-second ticker, active only while running.
   useEffect(() => {
     if (!running) return;
@@ -67,12 +62,12 @@ export default function PomodoroTimerClient() {
     if (!running || secondsLeft > 0) return;
     playBeep();
     setRunning(false);
-    const next = nextPomodoroPhase({ phase: phaseRef.current, completedFocus: completedRef.current });
+    const next = nextPomodoroPhase({ phase, completedFocus });
     setPhase(next.phase);
     setCompletedFocus(next.completedFocus);
     setDuration(PHASE_SECONDS[next.phase]);
     setSecondsLeft(PHASE_SECONDS[next.phase]);
-  }, [running, secondsLeft]);
+  }, [completedFocus, phase, running, secondsLeft]);
 
   // Reflect the countdown in the tab title while running.
   useEffect(() => {

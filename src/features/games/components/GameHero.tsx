@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui";
+import { Sparkles } from "lucide-react";
 
 const HERO_BADGES = ["Games", "Free", "No signup", "Browser-only"];
 
@@ -12,8 +13,9 @@ const FLOAT_TILES = [
 
 export function GameHero() {
   return (
-    <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-center">
-      <div className="min-w-0">
+    <div className="game-hero-grid relative grid gap-6 lg:grid-cols-[minmax(0,1fr)_380px] lg:items-center">
+      <div className="relative min-w-0">
+        <div className="game-soft-orb game-soft-orb-a" aria-hidden />
         <div className="flex flex-wrap items-center gap-2">
           {HERO_BADGES.map((badge, index) => (
             <Badge key={badge} variant={index === 0 ? "soft" : index === 1 ? "accent" : "outline"}>
@@ -21,10 +23,10 @@ export function GameHero() {
             </Badge>
           ))}
         </div>
-        <h1 className="mt-4 max-w-3xl text-4xl font-black leading-[var(--leading-tight)] tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-5xl">
+        <h1 className="relative mt-4 max-w-3xl text-4xl font-black leading-[var(--leading-tight)] tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-5xl">
           Play quick free games without signup
         </h1>
-        <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--color-text-secondary)] sm:text-lg">
+        <p className="relative mt-4 max-w-2xl text-base leading-7 text-[var(--color-text-secondary)] sm:text-lg">
           Discover lightweight browser games for quick breaks, puzzles, classics, and casual fun —
           all inside Darma.
         </p>
@@ -33,12 +35,15 @@ export function GameHero() {
       {/* Playful floating mini-tile composition (desktop only) */}
       <div
         aria-hidden
-        className="relative hidden h-52 rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/60 lg:block"
+        className="game-hero-visual game-identity-stage relative hidden h-56 overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/60 lg:block"
       >
+        <div className="game-hero-glow" />
+        <div className="game-pixel-sparkles" aria-hidden />
+        <Sparkles className="absolute right-5 top-5 h-5 w-5 text-[var(--color-primary)] opacity-70" />
         {FLOAT_TILES.map((tile) => (
           <div
             key={tile.motif}
-            className={`gthumb ${tile.accent} absolute flex h-16 w-16 items-center justify-center rounded-[var(--radius-lg)] text-2xl shadow-[var(--shadow-md)] ${tile.className}`}
+            className={`gthumb game-float-tile ${tile.accent} absolute flex h-16 w-16 items-center justify-center rounded-[var(--radius-lg)] text-2xl shadow-[var(--shadow-md)] ${tile.className}`}
           >
             <span className="drop-shadow-sm">{tile.motif}</span>
           </div>

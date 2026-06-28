@@ -42,7 +42,7 @@ export function GameThumbnail({ game, aspect = "16/9", size = "md", className, p
           alt=""
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover"
+          className="object-cover transition duration-500 group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
           priority={priority}
         />
       </div>
@@ -62,7 +62,8 @@ export function GameThumbnail({ game, aspect = "16/9", size = "md", className, p
       )}
     >
       <div className="gthumb-texture pointer-events-none absolute inset-0 opacity-70" />
-      <span className={cn("relative select-none drop-shadow-sm", motifSize)}>{game.thumbnail}</span>
+      <div className="game-thumbnail-shine pointer-events-none absolute inset-0" />
+      <span className={cn("relative select-none drop-shadow-sm transition duration-300 group-hover:scale-110 motion-reduce:transition-none motion-reduce:group-hover:scale-100", motifSize)}>{game.thumbnail}</span>
     </div>
   );
 }

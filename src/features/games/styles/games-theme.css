@@ -52,3 +52,531 @@
 .games-chip-scroll::-webkit-scrollbar {
   display: none;
 }
+
+/* Batch 1 polish: subtle discovery motion and depth without leaving Darma. */
+.game-hero-grid {
+  isolation: isolate;
+}
+
+.game-soft-orb {
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  height: 12rem;
+  width: 12rem;
+  border-radius: 9999px;
+  background: radial-gradient(circle, color-mix(in srgb, var(--color-primary) 24%, transparent), transparent 68%);
+  filter: blur(6px);
+  opacity: 0.55;
+}
+
+.game-soft-orb-a {
+  left: -4rem;
+  top: -4.5rem;
+}
+
+.game-soft-orb-b {
+  bottom: -5rem;
+  right: -4rem;
+  background: radial-gradient(circle, color-mix(in srgb, #14b8a6 26%, transparent), transparent 68%);
+}
+
+.game-hero-visual::before {
+  content: "";
+  position: absolute;
+  inset: 1rem;
+  border-radius: var(--radius-xl);
+  border: 1px dashed var(--color-border-subtle);
+  opacity: 0.65;
+}
+
+.game-hero-glow {
+  position: absolute;
+  inset: -30%;
+  background:
+    radial-gradient(circle at 25% 30%, color-mix(in srgb, var(--color-primary) 22%, transparent), transparent 28%),
+    radial-gradient(circle at 78% 70%, color-mix(in srgb, #14b8a6 24%, transparent), transparent 30%);
+  filter: blur(10px);
+  opacity: 0.85;
+}
+
+.game-float-tile {
+  animation: game-float 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+.game-float-tile:nth-of-type(2n) {
+  animation-delay: -1.7s;
+}
+
+.game-float-tile:nth-of-type(3n) {
+  animation-delay: -3.2s;
+}
+
+.game-card::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 12%, transparent), transparent 38%);
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.game-card:hover::before,
+.game-card:focus-within::before {
+  opacity: 1;
+}
+
+.game-thumbnail-shine {
+  transform: translateX(-120%) skewX(-18deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  transition: transform 650ms ease;
+}
+
+.game-card:hover .game-thumbnail-shine,
+.game-card:focus-within .game-thumbnail-shine {
+  transform: translateX(120%) skewX(-18deg);
+}
+
+@keyframes game-float {
+  0%, 100% { transform: translateY(0) rotate(var(--tw-rotate)); }
+  50% { transform: translateY(-8px) rotate(var(--tw-rotate)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-float-tile {
+    animation: none;
+  }
+
+  .game-thumbnail-shine,
+  .game-card::before {
+    transition: none;
+  }
+}
+
+/* Batch 2 discovery rails: horizontal shelves for mood-based browsing. */
+.games-rail {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--color-border-strong) 70%, transparent) transparent;
+}
+.games-rail::-webkit-scrollbar {
+  height: 8px;
+}
+.games-rail::-webkit-scrollbar-track {
+  background: transparent;
+}
+.games-rail::-webkit-scrollbar-thumb {
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--color-border-strong) 70%, transparent);
+}
+
+/* Batch 3 card polish: richer affordance, cleaner stats, and stronger play intent. */
+.game-card-polished {
+  transform: translateY(0);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.game-card-polished:hover,
+.game-card-polished:focus-within {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--color-primary) 38%, var(--color-border-default));
+  box-shadow: var(--shadow-card-hover, var(--shadow-card));
+}
+
+.game-card-polished::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid color-mix(in srgb, var(--color-primary) 0%, transparent);
+  opacity: 0;
+  transition: opacity 180ms ease, border-color 180ms ease;
+}
+
+.game-card-polished:hover::after,
+.game-card-polished:focus-within::after {
+  border-color: color-mix(in srgb, var(--color-primary) 24%, transparent);
+  opacity: 1;
+}
+
+.game-card-stat {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.375rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-subtle);
+  background: color-mix(in srgb, var(--color-surface-base) 82%, transparent);
+  padding: 0.45rem 0.55rem;
+  line-height: 1;
+}
+
+.game-card-stat span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.game-card-play-pulse {
+  opacity: 0.96;
+}
+
+.game-card-polished:hover .game-card-play-pulse,
+.game-card-polished:focus-within .game-card-play-pulse {
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.22);
+}
+
+.game-card-cta {
+  overflow: hidden;
+}
+
+.game-card-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  translate: -110% 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  transition: translate 520ms ease;
+}
+
+.game-card-cta:hover::before,
+.game-card-cta:focus-visible::before {
+  translate: 110% 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-card-polished,
+  .game-card-polished::after,
+  .game-card-cta::before {
+    transition: none;
+  }
+
+  .game-card-polished:hover,
+  .game-card-polished:focus-within {
+    transform: none;
+  }
+}
+
+/* Batch 4 detail page polish: stronger hero, intentional player shell, and SEO-friendly info cards. */
+.game-detail-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--color-primary) 14%, transparent), transparent 32%),
+    radial-gradient(circle at 86% 22%, color-mix(in srgb, #14b8a6 14%, transparent), transparent 28%);
+  opacity: 0.9;
+}
+
+.game-detail-preview::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), transparent 42%);
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.game-detail-preview:hover::after,
+.game-detail-preview:focus-within::after {
+  opacity: 1;
+}
+
+.game-detail-info-card {
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.game-detail-info-card:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--color-primary) 24%, var(--color-border-default));
+  box-shadow: var(--shadow-card-hover, var(--shadow-card));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-detail-preview::after,
+  .game-detail-info-card {
+    transition: none;
+  }
+
+  .game-detail-info-card:hover {
+    transform: none;
+  }
+}
+
+/* Batch 5 identity system: a consistent Darma Games visual language. */
+.game-page-shell {
+  position: relative;
+}
+
+.game-page-shell::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 8% 18%, color-mix(in srgb, var(--color-primary) 7%, transparent), transparent 24rem),
+    radial-gradient(circle at 92% 28%, color-mix(in srgb, #14b8a6 8%, transparent), transparent 26rem),
+    radial-gradient(circle at 50% 100%, color-mix(in srgb, #8b5cf6 6%, transparent), transparent 30rem);
+  opacity: 0.75;
+}
+
+.game-identity-stage {
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--color-surface-base) 86%, transparent), color-mix(in srgb, var(--color-surface-overlay) 78%, transparent)),
+    radial-gradient(circle at 18% 28%, color-mix(in srgb, var(--color-primary) 16%, transparent), transparent 34%),
+    radial-gradient(circle at 80% 70%, color-mix(in srgb, #14b8a6 16%, transparent), transparent 30%);
+}
+
+.game-pixel-sparkles {
+  position: absolute;
+  inset: 0;
+  opacity: 0.6;
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--color-border-subtle) 70%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--color-border-subtle) 70%, transparent) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(circle at center, black, transparent 74%);
+}
+
+.game-identity-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 8%, transparent), transparent 42%),
+    radial-gradient(circle at 90% 16%, color-mix(in srgb, #14b8a6 12%, transparent), transparent 26%);
+  opacity: 0.95;
+}
+
+.game-identity-grid {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0.55;
+}
+
+.game-identity-grid span {
+  position: absolute;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-subtle);
+  background: color-mix(in srgb, var(--color-surface-base) 56%, transparent);
+  transform: rotate(-8deg);
+}
+
+.game-identity-grid span:nth-child(1) {
+  right: 11%;
+  top: -2rem;
+  height: 7rem;
+  width: 7rem;
+}
+
+.game-identity-grid span:nth-child(2) {
+  bottom: -2.4rem;
+  left: 8%;
+  height: 5.5rem;
+  width: 5.5rem;
+  transform: rotate(10deg);
+}
+
+.game-identity-grid span:nth-child(3) {
+  bottom: 20%;
+  right: 36%;
+  height: 3.2rem;
+  width: 3.2rem;
+  border-radius: var(--radius-md);
+  transform: rotate(18deg);
+}
+
+.game-daily-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 10%, transparent), transparent 58%);
+}
+
+.game-daily-card-glow {
+  position: absolute;
+  inset: -25%;
+  background:
+    radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--color-primary) 18%, transparent), transparent 28%),
+    radial-gradient(circle at 80% 80%, color-mix(in srgb, #14b8a6 18%, transparent), transparent 28%);
+  filter: blur(16px);
+  opacity: 0.8;
+}
+
+.game-detail-brand-note {
+  position: relative;
+  overflow: hidden;
+}
+
+.game-detail-brand-note::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 10% 0%, color-mix(in srgb, var(--color-primary) 12%, transparent), transparent 34%),
+    radial-gradient(circle at 88% 100%, color-mix(in srgb, #14b8a6 12%, transparent), transparent 30%);
+}
+
+.game-detail-brand-note > * {
+  position: relative;
+}
+
+:root[data-mode="dark"] .game-page-shell::before {
+  opacity: 0.5;
+}
+
+:root[data-mode="dark"] .game-pixel-sparkles {
+  opacity: 0.35;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-page-shell::before {
+    position: absolute;
+  }
+}
+
+/* Batch 6 local gamification: private, browser-only personalization. */
+.game-personal-panel {
+  position: relative;
+  isolation: isolate;
+}
+
+.game-personal-panel::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 10% 16%, color-mix(in srgb, var(--color-primary) 10%, transparent), transparent 30%),
+    radial-gradient(circle at 86% 70%, color-mix(in srgb, #14b8a6 10%, transparent), transparent 28%);
+}
+
+.game-favorite-button {
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-primary) 0%, transparent);
+}
+
+.game-favorite-button[aria-pressed="true"] {
+  background: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface-base));
+}
+
+.game-favorite-button[aria-pressed="true"] svg {
+  animation: game-heart-pop 240ms ease-out;
+}
+
+@keyframes game-heart-pop {
+  0% { transform: scale(0.86); }
+  60% { transform: scale(1.16); }
+  100% { transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-favorite-button[aria-pressed="true"] svg {
+    animation: none;
+  }
+}
+
+/* Batch 7 production polish: skip link, calmer mobile surfaces, and stronger QA states. */
+.game-skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 0.75rem;
+  z-index: 50;
+  transform: translateY(-140%);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-default);
+  background: var(--color-surface-overlay);
+  padding: 0.55rem 0.85rem;
+  color: var(--color-text-primary);
+  font-size: 0.75rem;
+  font-weight: 800;
+  box-shadow: var(--shadow-card);
+  transition: transform 160ms ease;
+}
+
+.game-skip-link:focus {
+  transform: translateY(0);
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.game-production-checklist {
+  position: relative;
+  isolation: isolate;
+}
+
+.game-production-checklist::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 7%, transparent), transparent 44%),
+    radial-gradient(circle at 88% 18%, color-mix(in srgb, #14b8a6 10%, transparent), transparent 30%);
+}
+
+.games-rail > * {
+  scroll-snap-align: start;
+}
+
+.games-rail {
+  scroll-snap-type: x proximity;
+  overscroll-behavior-inline: contain;
+}
+
+.games-chip-scroll {
+  scroll-snap-type: x proximity;
+  overscroll-behavior-inline: contain;
+}
+
+.games-chip-scroll > button {
+  scroll-snap-align: start;
+}
+
+.game-card .game-favorite-button,
+.game-card .game-card-cta {
+  position: relative;
+  z-index: 20;
+}
+
+.game-card a:focus-visible,
+.game-card button:focus-visible {
+  outline: none;
+}
+
+@media (max-width: 640px) {
+  .game-page-shell::before {
+    opacity: 0.45;
+  }
+
+  .game-card-stat {
+    padding-inline: 0.5rem;
+  }
+
+  .game-production-checklist {
+    border-radius: var(--radius-lg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-skip-link {
+    transition: none;
+  }
+}

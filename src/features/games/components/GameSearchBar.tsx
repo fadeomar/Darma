@@ -6,9 +6,11 @@ import { Input } from "@/components/ui";
 export function GameSearchBar({
   value,
   onChange,
+  describedBy,
 }: {
   value: string;
   onChange: (next: string) => void;
+  describedBy?: string;
 }) {
   return (
     <label className="relative block">
@@ -22,6 +24,9 @@ export function GameSearchBar({
         value={value}
         onChange={(event) => onChange(event.target.value)}
         placeholder="Search games, puzzles, classics…"
+        autoComplete="off"
+        spellCheck={false}
+        aria-describedby={describedBy}
         size="lg"
         className="pl-10 pr-10"
       />

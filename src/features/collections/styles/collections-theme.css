@@ -1,0 +1,37 @@
+.collection-framework-card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.collection-framework-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 16%, color-mix(in srgb, var(--collection-accent, var(--color-primary)) 18%, transparent), transparent 30%),
+    radial-gradient(circle at 86% 0%, color-mix(in srgb, var(--collection-accent-2, var(--color-accent)) 14%, transparent), transparent 28%);
+  opacity: 0.78;
+  z-index: -1;
+}
+
+.collection-accent-orange { --collection-accent: #f05a28; --collection-accent-2: #f8b24a; }
+.collection-accent-teal { --collection-accent: #13b8a6; --collection-accent-2: #67e8f9; }
+.collection-accent-violet { --collection-accent: #7c3aed; --collection-accent-2: #f0abfc; }
+.collection-accent-blue { --collection-accent: #315cf6; --collection-accent-2: #93c5fd; }
+.collection-accent-emerald { --collection-accent: #10b981; --collection-accent-2: #86efac; }
+.collection-accent-amber { --collection-accent: #f59e0b; --collection-accent-2: #fde68a; }
+.collection-accent-rose { --collection-accent: #f43f5e; --collection-accent-2: #fda4af; }
+
+.collection-roadmap-line {
+  background-image: linear-gradient(90deg, color-mix(in srgb, var(--color-border-default) 80%, transparent) 50%, transparent 50%);
+  background-size: 12px 1px;
+  background-repeat: repeat-x;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .collection-framework-card:hover .collection-framework-icon {
+    transform: translateY(-2px) rotate(-3deg) scale(1.04);
+  }
+}

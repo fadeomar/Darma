@@ -8,6 +8,7 @@ import {
   getGameSlugs,
 } from "@/features/games";
 import "@/features/games/styles/games-theme.css";
+import "@/features/collections/styles/collections-theme.css";
 
 type GamePageParams = { params: Promise<{ slug: string }> };
 

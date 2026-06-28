@@ -60,6 +60,13 @@ const DEFAULT_UI: TodoUiPrefs = {
 
 type UndoEntry = { task: Task; subtasks: Task[] };
 
+export type TodoToast = {
+  id: number;
+  message: string;
+  actionLabel?: string;
+  onAction?: () => void;
+};
+
 type TodoContextValue = {
   ready: boolean;
   lists: TodoList[];
@@ -81,6 +88,8 @@ type TodoContextValue = {
   removeTask: (id: string) => Promise<void>;
   undoDelete: () => Promise<void>;
   canUndo: boolean;
+  toast: TodoToast | null;
+  dismissToast: () => void;
   toggleComplete: (id: string) => Promise<void>;
   duplicateTaskById: (id: string) => Promise<void>;
   setTaskStatus: (id: string, status: TaskStatus) => Promise<void>;
@@ -117,6 +126,12 @@ export function TodoProvider({ children }: { children: ReactNode }) {
   const undoRef = useRef<UndoEntry | null>(null);
   const [canUndo, setCanUndo] = useState(false);
   const [recentTemplateIds, setRecentTemplateIds] = useState<string[]>([]);
+  const [toast, setToast] = useState<TodoToast | null>(null);
+
+  const dismissToast = useCallback(() => setToast(null), []);
+  const showToast = useCallback((message: string, opts?: Omit<TodoToast, "id" | "message">) => {
+    setToast({ id: Date.now(), message, ...opts });
+  }, []);
 
   useEffect(() => {
     try {
@@ -237,25 +252,6 @@ export function TodoProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
-  const removeTask = useCallback(
-    async (id: string) => {
-      const removed = await deleteTask(id);
-      if (!removed) return;
-      const subs = await getSubtasks(id);
-      undoRef.current = { task: removed, subtasks: subs };
-      setCanUndo(true);
-      setTasks((prev) => prev.filter((t) => t.id !== id && t.parentTaskId !== id));
-      if (ui.selectedTaskId === id) {
-        setUi({ selectedTaskId: null, inspectorOpen: false });
-      }
-      window.setTimeout(() => {
-        undoRef.current = null;
-        setCanUndo(false);
-      }, 8000);
-    },
-    [setUi, ui.selectedTaskId],
-  );
-
   const undoDelete = useCallback(async () => {
     const entry = undoRef.current;
     if (!entry) return;
@@ -279,12 +275,58 @@ export function TodoProvider({ children }: { children: ReactNode }) {
     await refresh();
   }, [refresh]);
 
-  const toggleComplete = useCallback(async (id: string) => {
-    const task = tasks.find((t) => t.id === id);
-    if (!task) return;
-    const patch = toggleCompleted(task);
-    await saveTask(id, patch);
-  }, [tasks, saveTask]);
+  const removeTask = useCallback(
+    async (id: string) => {
+      const removed = await deleteTask(id);
+      if (!removed) return;
+      const subs = await getSubtasks(id);
+      undoRef.current = { task: removed, subtasks: subs };
+      setCanUndo(true);
+      setTasks((prev) => prev.filter((t) => t.id !== id && t.parentTaskId !== id));
+      if (ui.selectedTaskId === id) {
+        setUi({ selectedTaskId: null, inspectorOpen: false });
+      }
+      showToast("Task deleted", {
+        actionLabel: "Undo",
+        onAction: () => {
+          dismissToast();
+          void undoDelete();
+        },
+      });
+      window.setTimeout(() => {
+        undoRef.current = null;
+        setCanUndo(false);
+      }, 8000);
+    },
+    [setUi, ui.selectedTaskId, showToast, dismissToast, undoDelete],
+  );
+
+  const toggleComplete = useCallback(
+    async (id: string) => {
+      const task = tasks.find((t) => t.id === id);
+      if (!task) return;
+      const willComplete = !task.completed;
+      const patch = toggleCompleted(task);
+      await saveTask(id, patch);
+      if (!willComplete) return; // reopening a task is self-explanatory — no toast
+      // Filters other than "all" / "completed" only show incomplete tasks, so a
+      // freshly completed task leaves the current view. Explain where it went.
+      const hidesCompleted = ui.activeFilter !== "all" && ui.activeFilter !== "completed";
+      showToast(hidesCompleted ? "Task completed · moved to Completed" : "Task completed", {
+        actionLabel: "Undo",
+        onAction: () => {
+          dismissToast();
+          void saveTask(id, {
+            status: task.status,
+            completed: task.completed,
+            completedAt: task.completedAt,
+            updatedAt: new Date().toISOString(),
+          });
+        },
+      });
+    },
+    [tasks, saveTask, ui.activeFilter, showToast, dismissToast],
+  );
 
   const duplicateTaskById = useCallback(
     async (id: string) => {
@@ -538,6 +580,8 @@ export function TodoProvider({ children }: { children: ReactNode }) {
     removeTask,
     undoDelete,
     canUndo,
+    toast,
+    dismissToast,
     toggleComplete,
     duplicateTaskById,
     setTaskStatus,

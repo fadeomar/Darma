@@ -47,6 +47,7 @@ function SortableRow({ task, subtaskCount }: { task: Task; subtaskCount: { total
       className={cn(
         "todo-task-row",
         ui.selectedTaskId === task.id && "todo-task-row--selected",
+        task.completed && "todo-task-row--done",
       )}
       onClick={() => setUi({ selectedTaskId: task.id, inspectorOpen: true })}
     >

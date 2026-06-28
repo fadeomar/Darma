@@ -11,7 +11,9 @@ import { WeekView } from "../views/WeekView";
 import { ChecklistView } from "../views/ChecklistView";
 import { PrintView } from "../views/PrintView";
 import { TodoInspector } from "./TodoInspector";
+import { FilterSummary } from "./FilterSummary";
 import { TodoMobileNav, TodoSidebar, TodoTopBar } from "./TodoSidebar";
+import { TodoToast } from "../feedback/TodoToast";
 import { TemplateGallery } from "../templates/TemplateGallery";
 import { PlanTodayPanel } from "../planning/PlanTodayPanel";
 import { BrainDumpPanel } from "../brain/BrainDumpPanel";
@@ -84,6 +86,7 @@ export function TodoStudioShell() {
 
         <main className="todo-panel flex min-w-0 flex-col border-x">
           <QuickCapture />
+          {(ui.activeView === "list" || ui.activeView === "table") && <FilterSummary />}
           <div className="min-h-0 flex-1 overflow-auto">
             {ui.activeView === "list" && <ListView />}
             {ui.activeView === "board" && <BoardView />}
@@ -114,6 +117,8 @@ export function TodoStudioShell() {
       <TemplateGallery open={galleryOpen} onClose={() => setGalleryOpen(false)} />
       <PlanTodayPanel open={planOpen} onClose={() => setPlanOpen(false)} />
       <BrainDumpPanel open={brainOpen} onClose={() => setBrainOpen(false)} />
+
+      <TodoToast />
 
       {(mobileSidebar || mobileInspector) && (
         <button

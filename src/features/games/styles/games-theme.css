@@ -1,0 +1,54 @@
+/*
+ * Games section — playful thumbnail layer on top of the Darma design system.
+ * Each accent exposes --g-from / --g-to consumed by .gthumb. Dark-mode variants
+ * are intentionally deeper and softer to keep contrast and avoid neon glare.
+ */
+
+.gthumb {
+  background-image: linear-gradient(135deg, var(--g-from, #c4b5fd), var(--g-to, #8b5cf6));
+}
+
+/* Subtle dotted texture overlay for extra depth without extra assets. */
+.gthumb-texture {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.22) 1px, transparent 1.6px);
+  background-size: 14px 14px;
+}
+
+.gthumb-violet { --g-from: #c4b5fd; --g-to: #8b5cf6; }
+.gthumb-blue { --g-from: #93c5fd; --g-to: #3b82f6; }
+.gthumb-emerald { --g-from: #6ee7b7; --g-to: #10b981; }
+.gthumb-amber { --g-from: #fcd34d; --g-to: #f59e0b; }
+.gthumb-rose { --g-from: #fda4af; --g-to: #f43f5e; }
+.gthumb-cyan { --g-from: #67e8f9; --g-to: #06b6d4; }
+.gthumb-indigo { --g-from: #a5b4fc; --g-to: #6366f1; }
+.gthumb-orange { --g-from: #fdba74; --g-to: #f97316; }
+.gthumb-fuchsia { --g-from: #f0abfc; --g-to: #d946ef; }
+.gthumb-sky { --g-from: #7dd3fc; --g-to: #0ea5e9; }
+.gthumb-lime { --g-from: #bef264; --g-to: #84cc16; }
+.gthumb-teal { --g-from: #5eead4; --g-to: #14b8a6; }
+
+:root[data-mode="dark"] .gthumb-violet { --g-from: #4c1d95; --g-to: #6d28d9; }
+:root[data-mode="dark"] .gthumb-blue { --g-from: #1e3a8a; --g-to: #2563eb; }
+:root[data-mode="dark"] .gthumb-emerald { --g-from: #064e3b; --g-to: #059669; }
+:root[data-mode="dark"] .gthumb-amber { --g-from: #78350f; --g-to: #d97706; }
+:root[data-mode="dark"] .gthumb-rose { --g-from: #881337; --g-to: #e11d48; }
+:root[data-mode="dark"] .gthumb-cyan { --g-from: #164e63; --g-to: #0891b2; }
+:root[data-mode="dark"] .gthumb-indigo { --g-from: #312e81; --g-to: #4f46e5; }
+:root[data-mode="dark"] .gthumb-orange { --g-from: #7c2d12; --g-to: #ea580c; }
+:root[data-mode="dark"] .gthumb-fuchsia { --g-from: #701a75; --g-to: #c026d3; }
+:root[data-mode="dark"] .gthumb-sky { --g-from: #075985; --g-to: #0284c7; }
+:root[data-mode="dark"] .gthumb-lime { --g-from: #365314; --g-to: #65a30d; }
+:root[data-mode="dark"] .gthumb-teal { --g-from: #134e4a; --g-to: #0d9488; }
+
+/* Soften the texture overlay slightly in dark mode. */
+:root[data-mode="dark"] .gthumb-texture {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1.6px);
+}
+
+/* Hide the chip scrollbar while keeping horizontal scroll on small screens. */
+.games-chip-scroll {
+  scrollbar-width: none;
+}
+.games-chip-scroll::-webkit-scrollbar {
+  display: none;
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Plus, X } from "lucide-react";
+import { ListChecks, Plus, X } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { PRIORITY_LABELS, STATUS_LABELS } from "../../domain/constants";
 import { toDateInputValue, fromDateInputValue } from "../../domain/taskRules";
@@ -28,17 +28,48 @@ export function TodoInspector({ mobileOpen, onCloseMobile }: Props) {
     setTags(selectedTask.tags.join(", "));
   }, [selectedTask]);
 
-  if (!selectedTask && !mobileOpen) {
+  const open = ui.inspectorOpen || Boolean(mobileOpen);
+
+  // When the inspector is closed, render nothing so the workspace doesn't reserve
+  // an awkward empty panel/column to the right of the task list.
+  if (!open) return null;
+
+  // Open but nothing selected: show a clean, intentional empty state inside the
+  // panel (desktop column or mobile drawer) instead of a stray bottom bar.
+  if (!selectedTask) {
     return (
-      <aside className="todo-studio__inspector todo-panel hidden border-s lg:flex lg:flex-col">
-        <div className="todo-empty flex-1">
-          <p className="text-sm">Select a task to view details</p>
+      <aside
+        className={cn(
+          "todo-studio__inspector todo-panel flex h-full flex-col border-s",
+          mobileOpen && "todo-studio__inspector--open",
+        )}
+      >
+        <header className="todo-inspector__header">
+          <h2 className="todo-inspector__title">Task details</h2>
+          <button
+            type="button"
+            className="todo-btn todo-btn--icon todo-btn--ghost"
+            aria-label="Close inspector"
+            onClick={() => {
+              onCloseMobile?.();
+              setUi({ selectedTaskId: null, inspectorOpen: false });
+            }}
+          >
+            <X size={16} />
+          </button>
+        </header>
+        <div className="todo-inspector__empty">
+          <span className="todo-inspector__empty-icon">
+            <ListChecks size={22} aria-hidden />
+          </span>
+          <p className="todo-inspector__empty-title">Select a task</p>
+          <p className="todo-inspector__empty-help">
+            Pick a task from the list to view and edit its details here.
+          </p>
         </div>
       </aside>
     );
   }
-
-  if (!selectedTask) return null;
 
   async function persist(field: Partial<typeof selectedTask>) {
     await saveTask(selectedTask!.id, field);
@@ -58,7 +89,6 @@ export function TodoInspector({ mobileOpen, onCloseMobile }: Props) {
       className={cn(
         "todo-studio__inspector todo-panel flex h-full flex-col border-s",
         mobileOpen && "todo-studio__inspector--open",
-        !ui.inspectorOpen && !mobileOpen && "hidden lg:flex",
       )}
     >
       <header className="todo-inspector__header">

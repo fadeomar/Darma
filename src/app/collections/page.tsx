@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Clock3, Compass } from "lucide-react";
 import { Badge, Card } from "@/components/ui";
-import { getLiveCollections, getPlannedCollections } from "@/features/collections";
+import { CoreDiscoveryRail, CoreEntityBrowser, CoreSectionHeader } from "@/core";
+import { getCollectionCoreEntities, getLiveCollections, getPlannedCollections } from "@/features/collections";
 import "@/features/collections/styles/collections-theme.css";
 
 export const metadata: Metadata = {
@@ -13,6 +14,8 @@ export const metadata: Metadata = {
 export default function CollectionsPage() {
   const liveCollections = getLiveCollections();
   const plannedCollections = getPlannedCollections();
+  const coreCollections = getCollectionCoreEntities();
+  const liveCoreCollections = coreCollections.filter((collection) => collection.status === "live");
 
   return (
     <main className="mx-auto max-w-[var(--container-wide)] px-4 py-8 sm:px-6 lg:px-8">
@@ -96,6 +99,36 @@ export default function CollectionsPage() {
             );
           })}
         </div>
+      </section>
+
+      <section className="mt-10" aria-labelledby="core-ui-primitives-title">
+        <Card className="collection-framework-card collection-accent-teal">
+          <CoreSectionHeader
+            eyebrow="Core UI primitives"
+            title="Reusable cards, rails, search, filters, and empty states"
+            description="Batch 10 introduces shared UI primitives that future Darma sections can use without rebuilding the same discovery patterns again."
+          />
+          <div className="mt-6">
+            <CoreDiscoveryRail
+              title="Live core entries"
+              description="The same rail component can later power Tools, Games, Templates, Components, AI, and Resources."
+              entities={liveCoreCollections}
+              href="/collections"
+              compactCards
+            />
+          </div>
+        </Card>
+      </section>
+
+      <section className="mt-10" aria-labelledby="core-browser-title">
+        <Card className="collection-framework-card collection-accent-violet">
+          <CoreEntityBrowser
+            entities={coreCollections}
+            title="Core entity browser"
+            description="A shared client-side browser for CoreEntity data with search, category chips, ranked results, and a polished empty state."
+            searchPlaceholder="Search collections, games, tools, AI…"
+          />
+        </Card>
       </section>
 
       <section className="mt-10" aria-labelledby="framework-principles-title">

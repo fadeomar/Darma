@@ -1,3 +1,4 @@
+import type { CoreEntity } from "@/core";
 import type { CollectionItemBase } from "../domain/collection";
 
 type GameLike = {
@@ -42,6 +43,44 @@ export function getCollectionHealth(items: CollectionItemBase[]) {
     newest,
     categories,
     tags,
+    hasEnoughFeatured: featured >= 3,
+    hasEnoughCategories: categories >= 4,
+  };
+}
+
+
+export function toCoreEntities<T extends GameLike>(items: T[], kind: CoreEntity["kind"]): CoreEntity[] {
+  return items.map((item) => ({
+    id: item.id,
+    slug: item.slug,
+    kind,
+    title: item.title,
+    description: item.description,
+    href: item.href,
+    categories: item.categories,
+    tags: item.tags,
+    featured: item.featured,
+    popular: item.popular,
+    isNew: item.isNew,
+  }));
+}
+
+export function getCoreEntityHealth(items: CoreEntity[]) {
+  const featured = items.filter((item) => item.featured).length;
+  const popular = items.filter((item) => item.popular).length;
+  const newest = items.filter((item) => item.isNew).length;
+  const categories = new Set(items.flatMap((item) => item.categories ?? [])).size;
+  const tags = new Set(items.flatMap((item) => item.tags ?? [])).size;
+  const kinds = new Set(items.map((item) => item.kind)).size;
+
+  return {
+    total: items.length,
+    featured,
+    popular,
+    newest,
+    categories,
+    tags,
+    kinds,
     hasEnoughFeatured: featured >= 3,
     hasEnoughCategories: categories >= 4,
   };

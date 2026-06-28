@@ -580,3 +580,26 @@
     transition: none;
   }
 }
+
+.game-core-bridge {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.game-core-bridge::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 12% 8%, color-mix(in srgb, var(--color-primary) 10%, transparent), transparent 28%),
+    radial-gradient(circle at 92% 18%, color-mix(in srgb, #7c3aed 10%, transparent), transparent 34%),
+    linear-gradient(135deg, color-mix(in srgb, #13b8a6 7%, transparent), transparent 44%);
+}
+
+.game-core-bridge .core-scroll-row {
+  scroll-snap-type: x proximity;
+  overscroll-behavior-inline: contain;
+}

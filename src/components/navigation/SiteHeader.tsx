@@ -3,11 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ThemeToggle from "@/components/ThemeToggle";
+import { GlobalSearchButton } from "@/features/search/components/GlobalSearchOverlay";
 
 const NAV_ITEMS = [
   { href: "/", label: "Home" },
   { href: "/explore", label: "Explore" },
   { href: "/collections", label: "Collections" },
+  { href: "/search", label: "Search" },
   { href: "/tools", label: "Tools" },
   { href: "/games", label: "Games" },
   { href: "/tools/css-loaders", label: "Loaders" },
@@ -52,12 +54,7 @@ export default function SiteHeader() {
           </nav>
         </div>
         <div className="flex items-center gap-3">
-          <Link
-            href="/tools"
-            className="hidden rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-4 py-2 text-sm font-semibold text-[var(--color-text-primary)] shadow-sm transition hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] hover:shadow md:inline-flex"
-          >
-            Open tools
-          </Link>
+          <GlobalSearchButton className="hidden md:inline-flex" />
           <ThemeToggle />
         </div>
       </div>

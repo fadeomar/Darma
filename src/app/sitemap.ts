@@ -3,7 +3,7 @@ import { getToolRegistry } from "@/features/tools";
 import { absoluteUrl } from "@/features/tools/seo";
 import { getGames } from "@/features/games";
 
-const STATIC_ROUTES = ["/", "/tools", "/games", "/collections", "/explore", "/categories", "/about"];
+const STATIC_ROUTES = ["/", "/tools", "/games", "/collections", "/search", "/explore", "/categories", "/about"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const toolRoutes = getToolRegistry()

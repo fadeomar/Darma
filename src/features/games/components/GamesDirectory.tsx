@@ -9,6 +9,7 @@ import {
 import { filterAndSortGames } from "../lib/filterGames";
 import { GameCard } from "./GameCard";
 import { GameCategoryChips, type GameFilter } from "./GameCategoryChips";
+import { GameCoreBridgePanel } from "./GameCoreBridgePanel";
 import { GameCollectionRail } from "./GameCollectionRail";
 import { GameDiscoveryPanel } from "./GameDiscoveryPanel";
 import { GameHero } from "./GameHero";
@@ -185,6 +186,7 @@ export function GamesDirectory({ games }: { games: GameDefinition[] }) {
             games={classics}
           />
           {gamesCollection ? <CollectionHealthPanel collection={gamesCollection} items={collectionItems} /> : null}
+          <GameCoreBridgePanel games={games} />
           <GameProductionChecklist />
         </>
       ) : null}

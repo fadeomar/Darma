@@ -50,3 +50,5 @@ export { FavoriteToolButton } from "./FavoriteToolButton";
 export { RecentToolsRail } from "./RecentToolsRail";
 export { ToolActionBar } from "./ToolActionBar";
 export { NextToolSuggestions } from "./NextToolSuggestions";
+
+export * from "./ToolCoreBridgePanel";

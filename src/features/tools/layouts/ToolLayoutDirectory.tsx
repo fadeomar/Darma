@@ -19,6 +19,7 @@ import ToolCardLink from "@/components/analytics/ToolCardLink";
 import { Badge, Button, Card, EmptyState, Input, Select } from "@/components/ui";
 import { FavoriteToolButton } from "@/features/tools/components/FavoriteToolButton";
 import { RecentToolsRail } from "@/features/tools/components/RecentToolsRail";
+import { ToolCoreBridgePanel } from "@/features/tools/components/ToolCoreBridgePanel";
 import type { ToolAudience, ToolDefinition } from "@/features/tools";
 import { useFavoriteTools } from "@/features/tools/hooks/useFavoriteTools";
 import { toolWorkflows } from "@/features/tools/workflows";
@@ -525,6 +526,8 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
       ) : null}
 
       {showDashboardSections ? <RecentToolsRail tools={tools} /> : null}
+
+      {showDashboardSections ? <ToolCoreBridgePanel tools={tools} /> : null}
 
       {showDashboardSections && favoriteTools.length > 0 ? (
         <section className="mt-8">

@@ -10,4 +10,5 @@ export type {
 export { COLLECTIONS, getCollectionById, getLiveCollections, getPlannedCollections } from "./registry/collectionRegistry";
 export { CollectionFrameworkBanner } from "./components/CollectionFrameworkBanner";
 export { CollectionHealthPanel } from "./components/CollectionHealthPanel";
-export { getCollectionHealth, toCollectionItems } from "./lib/collectionAdapters";
+export { getCollectionHealth, getCoreEntityHealth, toCollectionItems, toCoreEntities } from "./lib/collectionAdapters";
+export * from "./lib/coreCollectionRegistry";

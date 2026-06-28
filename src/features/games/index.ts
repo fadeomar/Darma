@@ -23,3 +23,6 @@ export { getGames, getGameBySlug, getGameSlugs } from "./registry";
 export { GamesDirectory } from "./components/GamesDirectory";
 export { GameDetail } from "./components/GameDetail";
 export { buildGamesDirectoryMetadata, buildGameMetadata } from "./seo/gameMetadata";
+
+export { GameCoreBridgePanel } from "./components/GameCoreBridgePanel";
+export { createGameCoreIndex, createGameCoreRegistry, getGameCoreBridgeStats, toGameCoreEntities, toGameCoreEntity } from "./lib/gameCoreAdapter";

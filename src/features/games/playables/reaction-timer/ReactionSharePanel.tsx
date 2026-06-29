@@ -12,6 +12,7 @@ import {
   type ShareActionKind,
   type ShareableGameResult,
 } from "./reactionShareCard";
+import { emitEdgeCaseNotice } from "./reactionEdgeCases";
 
 type ActionStatus = "idle" | "copy" | "share" | "download" | "error";
 
@@ -57,7 +58,15 @@ export function ReactionSharePanel({
   const handleCopy = async () => {
     const ok = await copyTextToClipboard(result.copyText);
     setStatus(ok ? "copy" : "error");
-    if (ok) record("copy");
+    if (ok) {
+      record("copy");
+    } else {
+      emitEdgeCaseNotice({
+        severity: "warning",
+        title: "Clipboard copy unavailable",
+        detail: "The browser blocked Clipboard API access. You can still select the share text manually.",
+      });
+    }
     clearSoon();
   };
 
@@ -68,6 +77,11 @@ export function ReactionSharePanel({
       record("download");
     } catch {
       setStatus("error");
+      emitEdgeCaseNotice({
+        severity: "warning",
+        title: "PNG download failed",
+        detail: "The browser could not generate or download the result image. Copy/share text remains available.",
+      });
     }
     clearSoon();
   };
@@ -99,6 +113,11 @@ export function ReactionSharePanel({
         setStatus("idle");
       } else {
         setStatus("error");
+        emitEdgeCaseNotice({
+          severity: "warning",
+          title: "Native share failed",
+          detail: "The browser share sheet was unavailable or rejected the result. Copy/download can still be used.",
+        });
       }
     }
     clearSoon();

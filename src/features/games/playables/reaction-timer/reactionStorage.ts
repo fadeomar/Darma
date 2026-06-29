@@ -12,6 +12,7 @@
  */
 
 import { evaluateAchievements } from "./reactionAchievements";
+import { backupCorruptedLocalStorage, canUseLocalStorage, safeReadLocalStorage, safeWriteLocalStorage } from "./reactionEdgeCases";
 import { dayKey, isNextDay } from "./reactionScoring";
 import { getRank } from "./reactionScoring";
 import { getPrecisionRank } from "./precisionScoring";
@@ -184,7 +185,7 @@ export const EMPTY_STORAGE: ReactionStorageV2 = {
 };
 
 function canUseStorage(): boolean {
-  return typeof window !== "undefined" && typeof window.localStorage !== "undefined";
+  return canUseLocalStorage();
 }
 
 function num(value: unknown): number | null {
@@ -754,27 +755,26 @@ function migrateLegacy(): ReactionStorageV2 | null {
 
 export function readStorage(): ReactionStorageV2 {
   if (!canUseStorage()) return { ...EMPTY_STORAGE };
-  try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (raw) return normalize(JSON.parse(raw));
-    const migrated = migrateLegacy();
-    if (migrated) {
-      writeStorage(migrated);
-      return migrated;
+  const raw = safeReadLocalStorage(STORAGE_KEY);
+  if (raw) {
+    try {
+      return normalize(JSON.parse(raw));
+    } catch {
+      backupCorruptedLocalStorage(STORAGE_KEY, raw);
+      return { ...EMPTY_STORAGE };
     }
-    return { ...EMPTY_STORAGE };
-  } catch {
-    return { ...EMPTY_STORAGE };
   }
+
+  const migrated = migrateLegacy();
+  if (migrated) {
+    writeStorage(migrated);
+    return migrated;
+  }
+  return { ...EMPTY_STORAGE };
 }
 
 export function writeStorage(stats: ReactionStorageV2): void {
-  if (!canUseStorage()) return;
-  try {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(stats));
-  } catch {
-    // Game stays playable even when storage is blocked or full.
-  }
+  safeWriteLocalStorage(STORAGE_KEY, JSON.stringify(stats));
 }
 
 function pickMin(a: number | null, b: number | null): number | null {

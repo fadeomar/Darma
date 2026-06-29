@@ -10,6 +10,7 @@
  */
 
 import { useCallback, useEffect, useRef } from "react";
+import { emitEdgeCaseNotice } from "./reactionEdgeCases";
 
 export type SoundProfile = "balanced" | "soft" | "crisp";
 
@@ -212,6 +213,7 @@ export function useReactionAudio(enabled: boolean, volume: number, profile: Soun
   const volumeRef = useRef(volume);
   const profileRef = useRef<SoundProfile>(safeProfile(profile));
   const lastPlayedRef = useRef<Partial<Record<SoundCue, number>>>({});
+  const audioWarningRef = useRef(false);
 
   useEffect(() => {
     enabledRef.current = enabled;
@@ -235,7 +237,17 @@ export function useReactionAudio(enabled: boolean, volume: number, profile: Soun
   const ensureGraph = useCallback(() => {
     const Ctx: Ctor | undefined =
       window.AudioContext || (window as typeof window & { webkitAudioContext?: Ctor }).webkitAudioContext;
-    if (!Ctx) return null;
+    if (!Ctx) {
+      if (!audioWarningRef.current) {
+        audioWarningRef.current = true;
+        emitEdgeCaseNotice({
+          severity: "info",
+          title: "Web Audio unavailable",
+          detail: "This browser does not support Web Audio here. The game remains fully playable with visual feedback.",
+        });
+      }
+      return null;
+    }
 
     const context = contextRef.current ?? new Ctx();
     contextRef.current = context;
@@ -319,7 +331,14 @@ export function useReactionAudio(enabled: boolean, volume: number, profile: Soun
           oscillator.stop(noteStart + duration + 0.035);
         }
       } catch {
-        // Audio is a non-essential enhancement — never let it break the game.
+        if (!audioWarningRef.current) {
+          audioWarningRef.current = true;
+          emitEdgeCaseNotice({
+            severity: "info",
+            title: "Audio feedback was disabled",
+            detail: "The browser blocked an audio operation. Gameplay timing is unaffected and visual feedback remains available.",
+          });
+        }
       }
     },
     [ensureGraph],

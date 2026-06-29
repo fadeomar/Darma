@@ -26,6 +26,7 @@ import { ReactionSessionFlowPanel } from "./ReactionSessionFlowPanel";
 import { ReactionStatsStrip } from "./ReactionStatsStrip";
 import { ReactionThemePanel } from "./ReactionThemePanel";
 import { ReactionEducationSection } from "./ReactionEducationSection";
+import { ReactionEdgeCasePanel } from "./ReactionEdgeCasePanel";
 import { PrecisionView } from "./PrecisionView";
 import { TargetHunterView } from "./TargetHunterView";
 import { LevelChallengeView } from "./LevelChallengeView";
@@ -212,7 +213,11 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
   // Sprint 12: while timing-sensitive play is active, keep the page from
   // scrolling/selecting text and pause Classic runs if the tab becomes hidden.
   useActiveGameplayGuards(!settingsOpen && (classicTimingPhase || precisionTimingPhase));
-  useVisibilityInterruption(classicTimingPhase && !settingsOpen, () => {
+  useVisibilityInterruption((classicTimingPhase || precisionTimingPhase) && !settingsOpen, () => {
+    if (precisionTimingPhase) {
+      precisionToLobby();
+      return;
+    }
     if (["countdown", "waiting", "signal", "too-early", "round-result"].includes(phase)) pause();
   });
 
@@ -684,6 +689,8 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
       />
 
       <ReactionAccessibilityPanel settings={settings} />
+
+      <ReactionEdgeCasePanel />
 
       <ReactionEducationSection stats={stats} lastInputMethod={lastInputMethod} />
 

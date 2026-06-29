@@ -5559,3 +5559,164 @@ html.rtp-gameplay-active body {
     padding: 0.85rem;
   }
 }
+
+/* Sprint 20 — Runtime safety / edge-case panel */
+.rtp-edgecases {
+  width: 100%;
+}
+
+.rtp-edgecases-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.rtp-edgecases-head {
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.rtp-edgecases-head > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.rtp-edgecases-sub {
+  margin: 0.25rem 0 0;
+  color: var(--color-text-secondary);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.rtp-edgecases-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.rtp-edgecase-capability {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.2rem 0.55rem;
+  align-items: start;
+  padding: 0.85rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 1rem;
+  background: var(--color-surface-muted);
+  color: var(--color-text-secondary);
+  font-size: 0.76rem;
+}
+
+.rtp-edgecase-capability svg {
+  grid-row: span 2;
+  margin-top: 0.08rem;
+  color: rgb(var(--rtp-theme-accent-rgb, 124, 92, 246));
+}
+
+.rtp-edgecase-capability strong {
+  color: var(--color-text-primary);
+  font-size: 0.84rem;
+  font-weight: 950;
+}
+
+.rtp-edgecase-capability[data-state="fallback"] {
+  border-color: rgba(245, 158, 11, 0.35);
+  background: rgba(245, 158, 11, 0.08);
+}
+
+.rtp-edgecases-log {
+  margin-top: 0.95rem;
+  padding: 1rem;
+  border: 1px solid rgba(var(--rtp-theme-accent-rgb, 124, 92, 246), 0.18);
+  border-radius: 1.1rem;
+  background: rgba(var(--rtp-theme-accent-rgb, 124, 92, 246), 0.045);
+}
+
+.rtp-edgecases-log h4 {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0 0 0.65rem;
+  color: var(--color-text-primary);
+  font-size: 0.9rem;
+  font-weight: 950;
+}
+
+.rtp-edgecases-log ul {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rtp-edgecases-log li {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.7rem 0.75rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 0.9rem;
+  background: var(--color-surface);
+}
+
+.rtp-edgecases-log li[data-severity="warning"] {
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
+.rtp-edgecases-log li[data-severity="error"] {
+  border-color: rgba(239, 68, 68, 0.35);
+}
+
+.rtp-edgecases-log li span {
+  color: var(--color-text-tertiary);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.rtp-edgecases-log li strong {
+  color: var(--color-text-primary);
+  font-size: 0.86rem;
+}
+
+.rtp-edgecases-log li p,
+.rtp-edgecases-empty {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.rtp-shell--contrast .rtp-edgecase-capability,
+.rtp-shell--contrast .rtp-edgecases-log,
+.rtp-shell--contrast .rtp-edgecases-log li {
+  border-color: rgba(15, 23, 42, 0.34);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+@media (max-width: 900px) {
+  .rtp-edgecases-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .rtp-edgecases-head {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .rtp-edgecases-head .btn,
+  .rtp-edgecases-head button {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .rtp-edgecases-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rtp-edgecases-log {
+    padding: 0.85rem;
+  }
+}

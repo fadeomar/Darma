@@ -3,6 +3,7 @@
 /** Small shared React hooks for the reaction player. */
 
 import { useCallback, useEffect, useState, type RefObject } from "react";
+import { emitEdgeCaseNotice } from "./reactionEdgeCases";
 
 export function useReducedMotion(): boolean {
   const [reduced, setReduced] = useState(false);
@@ -41,9 +42,18 @@ export function useFullscreen(elementRef: RefObject<HTMLElement | null>) {
       } else {
         // Fallback: CSS-driven full-window mode is handled by the caller via state.
         setIsFullscreen((value) => !value);
+        emitEdgeCaseNotice({
+          severity: "info",
+          title: "Fullscreen API unavailable",
+          detail: "The browser does not expose Fullscreen API here, so the game falls back to the regular responsive player.",
+        });
       }
     } catch {
-      // Fullscreen can be blocked; the game remains fully playable.
+      emitEdgeCaseNotice({
+        severity: "warning",
+        title: "Fullscreen request was blocked",
+        detail: "The browser denied fullscreen. The game remains playable in the normal layout.",
+      });
     }
   }, [elementRef]);
 

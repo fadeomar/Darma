@@ -84,7 +84,7 @@ export function LevelChallengeStage({
   const accessibilityDescriptionId = useId();
 
   const [phase, setPhase] = useState<"countdown" | "active" | "interrupted">("countdown");
-  const [countdownValue, setCountdownValue] = useState(LEVEL_COUNTDOWN_FROM);
+  const [countdownValue, setCountdownValue] = useState<number>(LEVEL_COUNTDOWN_FROM);
   const [signalLabel, setSignalLabel] = useState<"wait" | "go" | null>(null);
   const [hud, setHud] = useState<LevelChallengeHud>({
     level: def.level,

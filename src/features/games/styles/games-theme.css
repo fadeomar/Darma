@@ -5426,3 +5426,136 @@ html.rtp-gameplay-active body {
     transition: none;
   }
 }
+
+/* Sprint 19 — Accessibility deep audit */
+.rtp-sr-status {
+  pointer-events: none;
+}
+
+.rtp-stage:focus-visible,
+.rtp-th-stage:focus-visible,
+.rtp-lc-stage:focus-visible {
+  outline: 3px solid rgba(var(--rtp-theme-accent-rgb, 124, 92, 246), 0.55);
+  outline-offset: 4px;
+}
+
+.rtp-accessibility {
+  width: 100%;
+}
+
+.rtp-accessibility-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.rtp-accessibility-head {
+  align-items: flex-start;
+}
+
+.rtp-accessibility-sub,
+.rtp-accessibility-note {
+  margin: 0.25rem 0 0;
+  color: var(--color-text-secondary);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.rtp-accessibility-statusgrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.rtp-accessibility-status {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.85rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 1rem;
+  background: var(--color-surface-muted);
+  color: var(--color-text-secondary);
+  font-size: 0.76rem;
+}
+
+.rtp-accessibility-status svg {
+  color: rgb(var(--rtp-theme-accent-rgb, 124, 92, 246));
+}
+
+.rtp-accessibility-status strong {
+  color: var(--color-text-primary);
+  font-size: 0.84rem;
+  font-weight: 950;
+}
+
+.rtp-accessibility-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 0.9rem;
+  margin-top: 0.95rem;
+}
+
+.rtp-accessibility-block {
+  padding: 1rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 1.1rem;
+  background: rgba(var(--rtp-theme-accent-rgb, 124, 92, 246), 0.045);
+}
+
+.rtp-accessibility-block h4 {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0 0 0.65rem;
+  color: var(--color-text-primary);
+  font-size: 0.9rem;
+  font-weight: 950;
+}
+
+.rtp-accessibility-block ul {
+  display: grid;
+  gap: 0.48rem;
+  margin: 0;
+  padding-inline-start: 1.1rem;
+  color: var(--color-text-secondary);
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.rtp-accessibility-block strong {
+  color: var(--color-text-primary);
+}
+
+.rtp-accessibility-note {
+  margin-top: 0.95rem;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid rgba(var(--rtp-theme-accent-rgb, 124, 92, 246), 0.18);
+  border-radius: 1rem;
+  background: rgba(var(--rtp-theme-accent-rgb, 124, 92, 246), 0.06);
+}
+
+.rtp-shell--contrast .rtp-accessibility-status,
+.rtp-shell--contrast .rtp-accessibility-block,
+.rtp-shell--contrast .rtp-accessibility-note {
+  border-color: rgba(15, 23, 42, 0.34);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+@media (max-width: 900px) {
+  .rtp-accessibility-statusgrid,
+  .rtp-accessibility-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .rtp-accessibility-statusgrid,
+  .rtp-accessibility-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rtp-accessibility-block,
+  .rtp-accessibility-note {
+    padding: 0.85rem;
+  }
+}

@@ -13,6 +13,7 @@ import { Expand, Keyboard, Minimize2, MousePointerClick, Pause, Play, Settings, 
 import { Badge, Button } from "@/components/ui";
 import { cn } from "@/lib/cn";
 import type { GameDefinition } from "../../domain/game";
+import { ReactionAccessibilityPanel } from "./ReactionAccessibilityPanel";
 import { ReactionAchievementToast } from "./ReactionAchievementToast";
 import { ReactionArena } from "./ReactionArena";
 import { ReactionFinalSummary } from "./ReactionFinalSummary";
@@ -20,6 +21,7 @@ import { ReactionModeSelect } from "./ReactionModeSelect";
 import { ReactionOnboardingCard } from "./ReactionOnboardingCard";
 import { ReactionRoundResult } from "./ReactionRoundResult";
 import { ReactionSettingsPanel } from "./ReactionSettingsPanel";
+import { ReactionScreenReaderStatus } from "./ReactionScreenReaderStatus";
 import { ReactionSessionFlowPanel } from "./ReactionSessionFlowPanel";
 import { ReactionStatsStrip } from "./ReactionStatsStrip";
 import { ReactionThemePanel } from "./ReactionThemePanel";
@@ -29,6 +31,7 @@ import { TargetHunterView } from "./TargetHunterView";
 import { LevelChallengeView } from "./LevelChallengeView";
 import { DailyChallengeView } from "./DailyChallengeView";
 import { LocalBattleView } from "./LocalBattleView";
+import { accessibilityCanvasDescription, type AccessibilityModeId } from "./reactionAccessibility";
 import { getInstruction } from "./reactionMachine";
 import { CLASSIC_ROUNDS } from "./reactionScoring";
 import { hapticsSupported } from "./reactionHaptics";
@@ -125,6 +128,19 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
   const inLevelChallenge = view === "level-challenge";
   const inDailyChallenge = view === "daily-challenge";
   const inLocalBattle = view === "local-battle";
+  const currentAccessibilityMode: AccessibilityModeId = inPrecision
+    ? "precision"
+    : inTargetHunter
+      ? "target-hunter"
+      : inLevelChallenge
+        ? "level-challenge"
+        : inDailyChallenge
+          ? "daily-challenge"
+          : inLocalBattle
+            ? "local-battle"
+            : state.mode === "practice"
+              ? "practice"
+              : "classic";
   const isPlayPhase = phase === "waiting" || phase === "signal";
   const isClassic = state.mode === "classic";
   const classicTimingPhase = ["countdown", "waiting", "signal", "too-early", "round-result"].includes(phase);
@@ -548,6 +564,18 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
         </div>
       </div>
 
+      <ReactionScreenReaderStatus
+        status={{
+          mode: currentAccessibilityMode,
+          reactionPhase: phase,
+          precisionPhase: precision.phase,
+          isFullscreen,
+          soundEnabled,
+          reducedEffects: calmMotion,
+          highContrast: settings.highContrastMode || activeTheme.id === "high-contrast",
+        }}
+      />
+
       {inLocalBattle ? (
         <LocalBattleView
           stats={stats.localBattle}
@@ -631,6 +659,7 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
                 ? "React now"
                 : "Wait for the signal"
           }
+          accessibilityHint={accessibilityCanvasDescription(currentAccessibilityMode)}
           topControls={fullscreenControls}
           modal={settingsModal}
           onModalBackdrop={closeSettings}
@@ -653,6 +682,8 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
         onSelectTheme={selectTheme}
         onResetTheme={resetTheme}
       />
+
+      <ReactionAccessibilityPanel settings={settings} />
 
       <ReactionEducationSection stats={stats} lastInputMethod={lastInputMethod} />
 

@@ -104,7 +104,7 @@ function LocalBattleLobby({
       </div>
 
       <div className="rtp-battle-typegrid" role="radiogroup" aria-label="Choose local battle type">
-        {BATTLE_TYPES.map((type) => {
+        {BATTLE_TYPES.map((type, index) => {
           const Icon = type.icon;
           const selected = battleType === type.id;
           return (
@@ -113,8 +113,23 @@ function LocalBattleLobby({
               type="button"
               className={cn("rtp-battle-type", selected && "rtp-battle-type--active")}
               onClick={() => onBattleType(type.id)}
+              onKeyDown={(event) => {
+                if (!["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp", "Home", "End"].includes(event.key)) return;
+                event.preventDefault();
+                const nextIndex = event.key === "Home"
+                  ? 0
+                  : event.key === "End"
+                    ? BATTLE_TYPES.length - 1
+                    : event.key === "ArrowRight" || event.key === "ArrowDown"
+                      ? (index + 1) % BATTLE_TYPES.length
+                      : (index - 1 + BATTLE_TYPES.length) % BATTLE_TYPES.length;
+                const nextType = BATTLE_TYPES[nextIndex];
+                if (nextType) onBattleType(nextType.id);
+              }}
               role="radio"
               aria-checked={selected}
+              aria-posinset={index + 1}
+              aria-setsize={BATTLE_TYPES.length}
             >
               <span className="rtp-battle-type-icon" aria-hidden><Icon className="h-5 w-5" /></span>
               <span className="rtp-battle-type-title">{type.title}</span>

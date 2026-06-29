@@ -18,10 +18,11 @@
  * number) — never every frame.
  */
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { Crosshair, LogOut } from "lucide-react";
 import { Button } from "@/components/ui";
 import { cn } from "@/lib/cn";
+import { accessibilityCanvasDescription } from "./reactionAccessibility";
 import { isGameplayControlTarget, useActiveGameplayGuards, useVisibilityInterruption } from "./reactionRuntimeGuards";
 import type { PlayCue } from "./reactionAudio";
 import type { Vibrate } from "./reactionHaptics";
@@ -66,6 +67,7 @@ export function TargetHunterStage({
 }) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const wrapRef = useRef<HTMLDivElement | null>(null);
+  const accessibilityDescriptionId = useId();
 
   const [countdownValue, setCountdownValue] = useState<number>(TARGET_HUNTER_COUNTDOWN_FROM);
   const [phase, setPhase] = useState<"countdown" | "active" | "interrupted">("countdown");
@@ -402,8 +404,14 @@ export function TargetHunterStage({
     <div
       ref={wrapRef}
       className={cn("rtp-th-stage", phase === "active" && "rtp-th-stage--active")}
+      role="group"
+      aria-label="Target Hunter active stage"
+      aria-describedby={accessibilityDescriptionId}
       onPointerDown={handlePointerDown}
     >
+      <p id={accessibilityDescriptionId} className="sr-only">
+        {accessibilityCanvasDescription("target-hunter")}
+      </p>
       <canvas ref={canvasRef} aria-hidden className="rtp-canvas rtp-th-canvas" />
 
       {phase === "interrupted" ? (

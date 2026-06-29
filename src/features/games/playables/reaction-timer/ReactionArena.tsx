@@ -7,7 +7,7 @@
  * handled globally by the orchestrator.
  */
 
-import type { ReactNode } from "react";
+import { useId, type ReactNode } from "react";
 import { cn } from "@/lib/cn";
 import { ReactionCanvasStage } from "./ReactionCanvasStage";
 import { isGameplayControlTarget } from "./reactionRuntimeGuards";
@@ -31,6 +31,7 @@ export function ReactionArena({
   interactive,
   onPress,
   ariaLabel,
+  accessibilityHint,
   topControls,
   modal,
   onModalBackdrop,
@@ -42,6 +43,8 @@ export function ReactionArena({
   interactive: boolean;
   onPress: () => void;
   ariaLabel: string;
+  /** Extra screen-reader context for the current canvas/arena mode. */
+  accessibilityHint?: ReactNode;
   topControls?: ReactNode;
   /** Optional overlay layer (e.g. the settings dialog) drawn above everything. */
   modal?: ReactNode;
@@ -49,12 +52,15 @@ export function ReactionArena({
   onModalBackdrop?: () => void;
   children: ReactNode;
 }) {
+  const descriptionId = useId();
+
   return (
     <div
       className={cn("rtp-stage", TONE_CLASS[phase], phase === "too-early" && !reducedMotion && "rtp-stage--shake")}
       role={interactive ? "button" : undefined}
       tabIndex={interactive ? 0 : undefined}
       aria-label={interactive ? ariaLabel : undefined}
+      aria-describedby={accessibilityHint ? descriptionId : undefined}
       data-rtp-active-stage={interactive ? "true" : undefined}
       onPointerDown={
         interactive
@@ -65,7 +71,23 @@ export function ReactionArena({
             }
           : undefined
       }
+      onKeyDown={
+        interactive
+          ? (event) => {
+              if (event.code !== "Space" && event.code !== "Enter") return;
+              if (isGameplayControlTarget(event.target)) return;
+              event.preventDefault();
+              event.stopPropagation();
+              onPress();
+            }
+          : undefined
+      }
     >
+      {accessibilityHint ? (
+        <p id={descriptionId} className="sr-only">
+          {accessibilityHint}
+        </p>
+      ) : null}
       <ReactionCanvasStage phase={phase} countdownValue={countdownValue} reducedMotion={reducedMotion} className="rtp-canvas" />
       {topControls ? (
         // Stop pointer/touch events here so tapping Sound/Pause/Exit in fullscreen

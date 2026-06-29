@@ -14,10 +14,11 @@
  * lives in refs; React state changes only when a displayed value changes.
  */
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { Crosshair, LogOut } from "lucide-react";
 import { Button } from "@/components/ui";
 import { cn } from "@/lib/cn";
+import { accessibilityCanvasDescription } from "./reactionAccessibility";
 import { isGameplayControlTarget, useActiveGameplayGuards, useVisibilityInterruption } from "./reactionRuntimeGuards";
 import type { PlayCue } from "./reactionAudio";
 import type { Vibrate } from "./reactionHaptics";
@@ -80,6 +81,7 @@ export function LevelChallengeStage({
 }) {
   const wrapRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const accessibilityDescriptionId = useId();
 
   const [phase, setPhase] = useState<"countdown" | "active" | "interrupted">("countdown");
   const [countdownValue, setCountdownValue] = useState(LEVEL_COUNTDOWN_FROM);
@@ -576,8 +578,14 @@ export function LevelChallengeStage({
     <div
       ref={wrapRef}
       className={cn("rtp-lc-stage", phase === "active" && "rtp-lc-stage--active")}
+      role="group"
+      aria-label="Level Challenge active stage"
+      aria-describedby={accessibilityDescriptionId}
       onPointerDown={handlePointerDown}
     >
+      <p id={accessibilityDescriptionId} className="sr-only">
+        {accessibilityCanvasDescription("level-challenge")}
+      </p>
       <canvas ref={canvasRef} aria-hidden className="rtp-canvas rtp-lc-canvas" />
 
       {phase === "interrupted" ? (

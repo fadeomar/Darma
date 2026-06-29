@@ -8,7 +8,7 @@
  * logic lives in `useReactionGame`; this component is layout + input wiring.
  */
 
-import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useRef, useState, type ReactNode, type CSSProperties } from "react";
 import { Expand, Keyboard, Minimize2, MousePointerClick, Pause, Play, Settings, Volume2, VolumeX, X } from "lucide-react";
 import { Badge, Button } from "@/components/ui";
 import { cn } from "@/lib/cn";
@@ -22,6 +22,7 @@ import { ReactionRoundResult } from "./ReactionRoundResult";
 import { ReactionSettingsPanel } from "./ReactionSettingsPanel";
 import { ReactionSessionFlowPanel } from "./ReactionSessionFlowPanel";
 import { ReactionStatsStrip } from "./ReactionStatsStrip";
+import { ReactionThemePanel } from "./ReactionThemePanel";
 import { ReactionEducationSection } from "./ReactionEducationSection";
 import { PrecisionView } from "./PrecisionView";
 import { TargetHunterView } from "./TargetHunterView";
@@ -33,6 +34,7 @@ import { CLASSIC_ROUNDS } from "./reactionScoring";
 import { hapticsSupported } from "./reactionHaptics";
 import { useFullscreen, useReducedMotion } from "./reactionHooks";
 import { useReactionOnboarding } from "./reactionOnboarding";
+import { useReactionTheme } from "./reactionThemes";
 import { useActiveGameplayGuards, useVisibilityInterruption } from "./reactionRuntimeGuards";
 import { useReactionGame } from "./useReactionGame";
 import type { ReactionPhase } from "./reactionTypes";
@@ -115,6 +117,7 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
     play,
     vibrate,
   } = game$;
+  const { selectedThemeId, activeTheme, selectTheme, resetTheme } = useReactionTheme(stats);
 
   const phase = state.phase;
   const inPrecision = view === "precision";
@@ -509,8 +512,10 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
       className={cn(
         "rtp-shell group/rtp",
         isFullscreen && "rtp-shell--fullscreen",
-        settings.highContrastMode && "rtp-shell--contrast",
+        (settings.highContrastMode || activeTheme.id === "high-contrast") && "rtp-shell--contrast",
       )}
+      data-rtp-theme={activeTheme.id}
+      style={{ "--rtp-theme-accent-rgb": activeTheme.accentRgb } as CSSProperties}
     >
       <div className="rtp-topbar">
         <div className="rtp-topbar-id">
@@ -519,6 +524,7 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
         </div>
         <div className="rtp-topbar-controls">
           <Badge variant="soft">5 rounds</Badge>
+          <Badge variant="outline">{activeTheme.shortLabel} theme</Badge>
           <Badge variant="outline">performance.now()</Badge>
           <Button variant="ghost" size="sm" onClick={toggleSound} leftIcon={soundEnabled ? <Volume2 className="h-4 w-4" aria-hidden /> : <VolumeX className="h-4 w-4" aria-hidden />}>
             Sound {soundEnabled ? "on" : "off"}
@@ -638,6 +644,14 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
         hydrated={hydrated}
         unlockedAchievements={unlockedAchievements}
         onClearStats={clearStats}
+      />
+
+      <ReactionThemePanel
+        stats={stats}
+        selectedThemeId={selectedThemeId}
+        activeThemeId={activeTheme.id}
+        onSelectTheme={selectTheme}
+        onResetTheme={resetTheme}
       />
 
       <ReactionEducationSection stats={stats} lastInputMethod={lastInputMethod} />

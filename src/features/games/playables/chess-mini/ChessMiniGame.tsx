@@ -349,7 +349,7 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
     setMessage(buildMoveMessage(result.record, result.status, nextTurn, result.winner));
   }, [humanColor, soundEnabled]);
 
-  const handleComputerMove = useCallback((aiMove: ChessAiMove, startedAt?: number) => {
+  const handleComputerMove = useCallback((aiMove: ChessAiMove, startedAt: number) => {
     const result = moveChessPiece(board, aiMove.from, aiMove.to, turn, { lastMove });
     if (!result) {
       setComputerThinking(false);
@@ -362,13 +362,13 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
 
     const nextTurn = getNextTurn(turn);
     finalizeMove(result, turn, nextTurn, { saveUndo: false, actor: "computer" });
-    const thinkingMs = startedAt ? Date.now() - startedAt : computerThinkingElapsedMs;
+    const thinkingMs = Date.now() - startedAt;
     setLastComputerThinkMs(thinkingMs);
     setComputerThinking(false);
     setComputerThinkingStartedAt(null);
     setComputerThinkingElapsedMs(0);
     setMessage((currentMessage) => `${currentMessage} Computer thought for ${formatThinkTime(thinkingMs)}.`);
-  }, [board, computerThinkingElapsedMs, finalizeMove, lastMove, soundEnabled, turn]);
+  }, [board, finalizeMove, lastMove, soundEnabled, turn]);
 
   useEffect(() => {
     if (gamePhase !== "playing" || isGameOver || pendingPromotion || (status !== "playing" && status !== "check") || turn !== computerColor) {
@@ -379,8 +379,6 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
       }
       return;
     }
-
-    if (computerThinking) return;
 
     const startedAt = Date.now();
     setComputerThinking(true);
@@ -404,7 +402,7 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
     }, aiDifficulty === "pro" ? 260 : aiDifficulty === "intermediate" ? 180 : 120);
 
     return () => window.clearTimeout(timerId);
-  }, [aiDifficulty, board, computerColor, computerThinking, difficultyLabel, gamePhase, handleComputerMove, humanColor, isGameOver, lastMove, pendingPromotion, status, turn]);
+  }, [aiDifficulty, board, computerColor, difficultyLabel, gamePhase, handleComputerMove, humanColor, isGameOver, lastMove, pendingPromotion, status, turn]);
 
   const handleSquarePress = useCallback(
     (square: ChessSquare) => {

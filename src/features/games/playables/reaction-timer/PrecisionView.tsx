@@ -18,6 +18,7 @@ import { ArrowLeft, Check, Copy, RotateCcw, Target, Timer } from "lucide-react";
 import { Button } from "@/components/ui";
 import { ReactionInsightPanel } from "./ReactionInsightPanel";
 import { ReactionSharePanel } from "./ReactionSharePanel";
+import { ReactionSessionFlowPanel } from "./ReactionSessionFlowPanel";
 import { cn } from "@/lib/cn";
 import { copyTextToClipboard } from "@/lib/copy-to-clipboard";
 import {
@@ -31,6 +32,7 @@ import {
 } from "./precisionScoring";
 import { buildPrecisionInsight } from "./reactionInsights";
 import { buildPrecisionShareResult, type ShareActionKind, type ShareableGameResult } from "./reactionShareCard";
+import { precisionResultFlow } from "./reactionSessionFlow";
 import type { PrecisionState } from "./precisionMachine";
 import type { PrecisionResult, PrecisionStats } from "./precisionTypes";
 
@@ -206,6 +208,7 @@ function PrecisionResultCard({
   const isBest = previousBestAbs === null || result.absDifferenceMs < previousBestAbs;
   const insight = buildPrecisionInsight(result);
   const shareResult = buildPrecisionShareResult(result);
+  const flow = precisionResultFlow(isBest);
 
   const handleCopy = async () => {
     const ok = await copyTextToClipboard(buildPrecisionShareText(result));
@@ -249,7 +252,9 @@ function PrecisionResultCard({
 
       <ReactionSharePanel result={shareResult} onShareAction={onShareAction} compact />
 
-      <div className="rtp-summary-actions">
+      <ReactionSessionFlowPanel flow={flow} compact />
+
+      <div className="rtp-summary-actions" data-rtp-control="true">
         <Button size="lg" onClick={onRetry} leftIcon={<RotateCcw className="h-5 w-5" aria-hidden />}>
           Try again
         </Button>

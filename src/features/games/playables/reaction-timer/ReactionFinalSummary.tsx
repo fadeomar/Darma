@@ -11,7 +11,9 @@ import { analyzeRun, buildShareText, formatMs } from "./reactionScoring";
 import { ReactionInsightPanel } from "./ReactionInsightPanel";
 import { ReactionFirstRunGuide } from "./ReactionOnboardingCard";
 import { ReactionSharePanel } from "./ReactionSharePanel";
+import { ReactionSessionFlowPanel } from "./ReactionSessionFlowPanel";
 import { buildClassicInsight, type InputMethod } from "./reactionInsights";
+import { classicFinalFlow } from "./reactionSessionFlow";
 import { buildClassicShareResult, type ShareActionKind, type ShareableGameResult } from "./reactionShareCard";
 import type { RunSummary } from "./reactionTypes";
 
@@ -55,6 +57,7 @@ export function ReactionFinalSummary({
   const { rank } = analysis;
   const education = buildClassicInsight({ run, previousBestMs, previousBestAverageMs, previousRun, inputMethod });
   const shareResult = buildClassicShareResult({ run, previousBestMs, previousBestAverageMs, previousRun });
+  const flow = classicFinalFlow(previousRun === null);
 
   // Headline comparison line + tone.
   let prText: string;
@@ -135,7 +138,9 @@ export function ReactionFinalSummary({
 
       <ReactionSharePanel result={shareResult} onShareAction={onShareAction} compact />
 
-      <div className="rtp-summary-actions">
+      <ReactionSessionFlowPanel flow={flow} compact />
+
+      <div className="rtp-summary-actions" data-rtp-control="true">
         <Button size="lg" onClick={onPlayAgain} leftIcon={<Zap className="h-5 w-5" aria-hidden />}>
           Play again
         </Button>

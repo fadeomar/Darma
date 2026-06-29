@@ -4,7 +4,9 @@
 
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui";
+import { ReactionSessionFlowPanel } from "./ReactionSessionFlowPanel";
 import { CLASSIC_ROUNDS, formatMs, getRank, getTip } from "./reactionScoring";
+import { classicRoundFlow } from "./reactionSessionFlow";
 import type { GameMode, ReactionAttempt } from "./reactionTypes";
 
 export function ReactionRoundResult({
@@ -28,6 +30,7 @@ export function ReactionRoundResult({
   const rank = getRank(ms);
   const isBest = ms !== null && (bestMs === null || ms <= bestMs);
   const totalLabel = mode === "classic" ? `Round ${Math.min(validCount, CLASSIC_ROUNDS)} of ${CLASSIC_ROUNDS}` : "Practice round";
+  const flow = classicRoundFlow({ validCount, totalRounds: CLASSIC_ROUNDS, autoAdvance });
 
   return (
     <div className="rtp-result">
@@ -40,7 +43,9 @@ export function ReactionRoundResult({
       </div>
       <p className="rtp-result-tip">{getTip(ms, false)}</p>
 
-      <div className="rtp-result-actions">
+      <ReactionSessionFlowPanel flow={flow} compact />
+
+      <div className="rtp-result-actions" data-rtp-control="true">
         <Button onClick={onNext} leftIcon={<ArrowRight className="h-4 w-4" aria-hidden />}>
           Next now
         </Button>

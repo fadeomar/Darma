@@ -15,6 +15,7 @@ import { ArrowLeft, Check, Copy, Crosshair, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui";
 import { ReactionInsightPanel } from "./ReactionInsightPanel";
 import { ReactionSharePanel } from "./ReactionSharePanel";
+import { ReactionSessionFlowPanel } from "./ReactionSessionFlowPanel";
 import { cn } from "@/lib/cn";
 import { copyTextToClipboard } from "@/lib/copy-to-clipboard";
 import { TargetHunterStage } from "./TargetHunterStage";
@@ -28,6 +29,7 @@ import {
 } from "./targetHunterScoring";
 import { buildTargetHunterInsight } from "./reactionInsights";
 import { buildTargetHunterShareResult, type ShareActionKind, type ShareableGameResult } from "./reactionShareCard";
+import { targetHunterResultFlow } from "./reactionSessionFlow";
 import type { TargetHunterResult, TargetHunterStats } from "./targetHunterTypes";
 
 function TargetHunterLobby({
@@ -98,6 +100,7 @@ function TargetHunterResultCard({
   const isBest = result.score > previousBestScore;
   const insight = buildTargetHunterInsight(result);
   const shareResult = buildTargetHunterShareResult(result);
+  const flow = targetHunterResultFlow(isBest);
 
   const handleCopy = async () => {
     const ok = await copyTextToClipboard(buildTargetHunterShareText(result));
@@ -153,7 +156,9 @@ function TargetHunterResultCard({
 
       <ReactionSharePanel result={shareResult} onShareAction={onShareAction} compact />
 
-      <div className="rtp-summary-actions">
+      <ReactionSessionFlowPanel flow={flow} compact />
+
+      <div className="rtp-summary-actions" data-rtp-control="true">
         <Button size="lg" onClick={onPlayAgain} leftIcon={<RotateCcw className="h-5 w-5" aria-hidden />}>
           Play again
         </Button>

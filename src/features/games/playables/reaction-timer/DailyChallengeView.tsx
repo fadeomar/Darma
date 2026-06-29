@@ -5,6 +5,7 @@ import { ArrowLeft, CalendarClock, Copy, Crosshair, RotateCcw, Timer, Zap } from
 import { Badge, Button } from "@/components/ui";
 import { ReactionInsightPanel } from "./ReactionInsightPanel";
 import { ReactionSharePanel } from "./ReactionSharePanel";
+import { ReactionSessionFlowPanel } from "./ReactionSessionFlowPanel";
 import { copyTextToClipboard } from "@/lib/copy-to-clipboard";
 import { cn } from "@/lib/cn";
 import { isGameplayControlTarget, useActiveGameplayGuards, useVisibilityInterruption } from "./reactionRuntimeGuards";
@@ -23,6 +24,7 @@ import {
 } from "./dailyChallengeScoring";
 import { buildDailyInsight } from "./reactionInsights";
 import { buildDailyShareResult, type ShareActionKind, type ShareableGameResult } from "./reactionShareCard";
+import { dailyResultFlow } from "./reactionSessionFlow";
 import type { DailyChallengeDefinition, DailyChallengeResult, DailyChallengeStats } from "./dailyChallengeTypes";
 import type { PlayCue } from "./reactionAudio";
 import type { Vibrate } from "./reactionHaptics";
@@ -144,6 +146,7 @@ function DailyResultCard({
   const isNewBest = bestScoreBefore === null || result.score > bestScoreBefore;
   const insight = buildDailyInsight(result, streak);
   const shareResult = buildDailyShareResult(result, streak);
+  const flow = dailyResultFlow({ isNewBest, objectivePassed: result.objectivePassed });
 
   const handleCopy = async () => {
     const ok = await copyTextToClipboard(buildDailyShareText(result, streak));
@@ -186,7 +189,9 @@ function DailyResultCard({
 
       <ReactionSharePanel result={shareResult} onShareAction={onShareAction} compact />
 
-      <div className="rtp-summary-actions">
+      <ReactionSessionFlowPanel flow={flow} compact />
+
+      <div className="rtp-summary-actions" data-rtp-control="true">
         <Button size="lg" onClick={onRetry} leftIcon={<RotateCcw className="h-5 w-5" aria-hidden />}>
           Play again
         </Button>

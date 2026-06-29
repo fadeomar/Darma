@@ -25,6 +25,7 @@ import {
 } from "./localBattleScoring";
 import { buildLocalBattleInsight } from "./reactionInsights";
 import { buildLocalBattleShareResult, type ShareActionKind, type ShareableGameResult } from "./reactionShareCard";
+import { battleResultFlow } from "./reactionSessionFlow";
 import type { LocalBattlePlayerId, LocalBattlePlayerResult, LocalBattleResult, LocalBattleStats, LocalBattleType } from "./localBattleTypes";
 import type { PlayCue } from "./reactionAudio";
 import type { Vibrate } from "./reactionHaptics";
@@ -506,6 +507,7 @@ function BattleResultCard({ result, onRematch, onChangeMode, onBack, onShareActi
   const [copied, setCopied] = useState(false);
   const insight = buildLocalBattleInsight(result);
   const shareResult = buildLocalBattleShareResult(result);
+  const flow = battleResultFlow(result.winner === "draw");
   const handleCopy = async () => {
     const ok = await copyTextToClipboard(buildLocalBattleShareText(result));
     if (ok) {
@@ -535,7 +537,8 @@ function BattleResultCard({ result, onRematch, onChangeMode, onBack, onShareActi
       <p className="rtp-result-tip">{result.summary}</p>
       <ReactionInsightPanel insight={insight} compact />
       <ReactionSharePanel result={shareResult} onShareAction={onShareAction} compact />
-      <div className="rtp-summary-actions">
+      <ReactionSessionFlowPanel flow={flow} compact />
+      <div className="rtp-summary-actions" data-rtp-control="true">
         <Button size="lg" onClick={onRematch} leftIcon={<RotateCcw className="h-5 w-5" aria-hidden />}>Rematch</Button>
         <Button size="lg" variant="secondary" onClick={handleCopy} leftIcon={copied ? <Check className="h-5 w-5" aria-hidden /> : <Copy className="h-5 w-5" aria-hidden />}>{copied ? "Copied" : "Copy result"}</Button>
         <Button size="lg" variant="outline" onClick={onChangeMode}>Change battle</Button>

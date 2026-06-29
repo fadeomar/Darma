@@ -17,6 +17,7 @@ import { ArrowLeft, ArrowRight, Check, Copy, Lock, Play, RotateCcw } from "lucid
 import { Button } from "@/components/ui";
 import { ReactionInsightPanel } from "./ReactionInsightPanel";
 import { ReactionSharePanel } from "./ReactionSharePanel";
+import { ReactionSessionFlowPanel } from "./ReactionSessionFlowPanel";
 import { cn } from "@/lib/cn";
 import { copyTextToClipboard } from "@/lib/copy-to-clipboard";
 import { LevelChallengeStage } from "./LevelChallengeStage";
@@ -34,6 +35,7 @@ import {
 } from "./levelChallengeScoring";
 import { buildLevelChallengeInsight } from "./reactionInsights";
 import { buildLevelChallengeShareResult, type ShareActionKind, type ShareableGameResult } from "./reactionShareCard";
+import { levelResultFlow } from "./reactionSessionFlow";
 import type { LevelChallengeResult, LevelChallengeStats } from "./levelChallengeTypes";
 
 type LevelState = "locked" | "current" | "completed";
@@ -221,6 +223,7 @@ function LevelResultCard({
   const isBest = result.passed && result.score > previousBestScore;
   const insight = buildLevelChallengeInsight(result, allCompleted);
   const shareResult = buildLevelChallengeShareResult(result, allCompleted);
+  const flow = levelResultFlow({ passed: result.passed, hasNextLevel: Boolean(onNextLevel), allCompleted });
 
   const handleCopy = async () => {
     const ok = await copyTextToClipboard(buildLevelChallengeShareText(result));
@@ -247,7 +250,8 @@ function LevelResultCard({
         <p className="rtp-result-tip">Overall best score {formatLevelScore(challengeTotalBest)}. {challengeRank.note}</p>
         <ReactionInsightPanel insight={insight} compact />
         <ReactionSharePanel result={shareResult} onShareAction={onShareAction} compact />
-        <div className="rtp-summary-actions">
+        <ReactionSessionFlowPanel flow={flow} compact />
+        <div className="rtp-summary-actions" data-rtp-control="true">
           <Button size="lg" onClick={onRestartChallenge} leftIcon={<RotateCcw className="h-5 w-5" aria-hidden />}>
             Play again from Level 1
           </Button>
@@ -325,7 +329,9 @@ function LevelResultCard({
 
       <ReactionSharePanel result={shareResult} onShareAction={onShareAction} compact />
 
-      <div className="rtp-summary-actions">
+      <ReactionSessionFlowPanel flow={flow} compact />
+
+      <div className="rtp-summary-actions" data-rtp-control="true">
         {result.passed && onNextLevel ? (
           <Button size="lg" onClick={onNextLevel} leftIcon={<ArrowRight className="h-5 w-5" aria-hidden />}>
             Next level

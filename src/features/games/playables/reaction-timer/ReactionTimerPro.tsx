@@ -20,6 +20,7 @@ import { ReactionModeSelect } from "./ReactionModeSelect";
 import { ReactionOnboardingCard } from "./ReactionOnboardingCard";
 import { ReactionRoundResult } from "./ReactionRoundResult";
 import { ReactionSettingsPanel } from "./ReactionSettingsPanel";
+import { ReactionSessionFlowPanel } from "./ReactionSessionFlowPanel";
 import { ReactionStatsStrip } from "./ReactionStatsStrip";
 import { ReactionEducationSection } from "./ReactionEducationSection";
 import { PrecisionView } from "./PrecisionView";
@@ -426,7 +427,20 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
       <div className="rtp-pause">
         <span className="rtp-eyebrow">Paused</span>
         <h2 className="rtp-pause-title">Take a breath</h2>
-        <div className="rtp-pause-actions">
+        <ReactionSessionFlowPanel
+          compact
+          flow={{
+            title: "Run safely paused",
+            description: "Resume keeps the current run in progress. Quit returns to the mode menu without saving this attempt.",
+            steps: [
+              { label: "Started", status: "done" },
+              { label: "Paused", status: "active" },
+              { label: "Resume or quit", status: "next" },
+            ],
+            tone: "info",
+          }}
+        />
+        <div className="rtp-pause-actions" data-rtp-control="true">
           <Button size="lg" onClick={resume} leftIcon={<Play className="h-5 w-5" aria-hidden />}>
             Resume
           </Button>

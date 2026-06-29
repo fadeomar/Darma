@@ -2,6 +2,8 @@ import { CheckCircle2, Expand, Gamepad2, Play, ShieldCheck } from "lucide-react"
 import { Badge } from "@/components/ui";
 import type { GameDefinition } from "../domain/game";
 import { GameThumbnail } from "./GameThumbnail";
+import { ReactionTimerPro } from "../playables/reaction-timer";
+import { TetrisGame } from "../playables/tetris";
 
 /**
  * Polished player area. Real game components can be lazy-loaded later and passed
@@ -14,6 +16,14 @@ export function GamePlayerShell({
   game: GameDefinition;
   children?: React.ReactNode;
 }) {
+  if (game.slug === "reaction-timer") {
+    return <ReactionTimerPro game={game} />;
+  }
+
+  if (game.slug === "tetris") {
+    return <TetrisGame game={game} />;
+  }
+
   return (
     <div className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-card)]">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--color-border-subtle)] px-4 py-3 sm:px-5">
@@ -76,7 +86,7 @@ export function GamePlayerShell({
         </span>
         <span className="inline-flex items-center gap-2">
           <CheckCircle2 className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
-          Future lazy-load ready
+          Playable shell ready
         </span>
       </div>
     </div>

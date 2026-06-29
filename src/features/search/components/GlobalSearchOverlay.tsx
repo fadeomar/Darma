@@ -169,7 +169,7 @@ export function GlobalSearchProvider({ entities, children }: GlobalSearchProvide
   }, [query]);
 
   useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
+    const onKeyDown = (event: globalThis.KeyboardEvent) => {
       const target = event.target as HTMLElement | null;
       const isTyping = target?.tagName === "INPUT" || target?.tagName === "TEXTAREA" || target?.isContentEditable;
       const wantsCommandPalette = (event.key.toLowerCase() === "k" && (event.ctrlKey || event.metaKey)) || (!isTyping && event.key === "/");

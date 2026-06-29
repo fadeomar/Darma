@@ -1,0 +1,157 @@
+"use client";
+
+/**
+ * Mode selector shown in the idle arena. Clean, touch-friendly mode cards for
+ * Classic Reaction, Practice, and Precision Timer — plus a compact lifetime
+ * snapshot. Each card explains what the mode tests and offers one clear CTA.
+ */
+
+import { Crosshair, Gauge, Layers, Timer, Zap } from "lucide-react";
+import { Button } from "@/components/ui";
+import { formatMs } from "./reactionScoring";
+import { formatSignedMs } from "./precisionScoring";
+import type { ReactionStorageV2, RunSummary } from "./reactionTypes";
+
+type Mode = {
+  id: "classic" | "practice" | "precision" | "target-hunter" | "level-challenge";
+  icon: typeof Zap;
+  title: string;
+  description: string;
+  badges: string[];
+  cta: string;
+  variant: "primary" | "secondary" | "ghost";
+};
+
+const MODES: Mode[] = [
+  {
+    id: "classic",
+    icon: Zap,
+    title: "Classic Reaction",
+    description: "Wait for the signal, then react as fast as you can. Five rounds, your best time wins.",
+    badges: ["5 rounds", "Reaction"],
+    cta: "Start Classic",
+    variant: "primary",
+  },
+  {
+    id: "practice",
+    icon: Gauge,
+    title: "Practice",
+    description: "Warm up with relaxed rounds. Great for getting loose — keeps your day streak alive.",
+    badges: ["Warm-up", "Endless"],
+    cta: "Practice",
+    variant: "secondary",
+  },
+  {
+    id: "precision",
+    icon: Timer,
+    title: "Precision Timer",
+    description: "Stop the timer as close as possible to the target time. A test of control, not speed.",
+    badges: ["Timing", "Control"],
+    cta: "Open Precision",
+    variant: "secondary",
+  },
+  {
+    id: "target-hunter",
+    icon: Crosshair,
+    title: "Target Hunter",
+    description: "Tap the target as soon as it appears. Build speed, accuracy, and focus in 30 seconds.",
+    badges: ["30s", "Accuracy", "Canvas"],
+    cta: "Open Target Hunter",
+    variant: "secondary",
+  },
+  {
+    id: "level-challenge",
+    icon: Layers,
+    title: "Level Challenge",
+    description: "Clear six reflex levels: signal, fade, shrink, move, decoy, and elite.",
+    badges: ["6 levels", "Progression", "Focus"],
+    cta: "Open Level Challenge",
+    variant: "secondary",
+  },
+];
+
+export function ReactionModeSelect({
+  stats,
+  hydrated,
+  lastResult,
+  onStartClassic,
+  onStartPractice,
+  onOpenPrecision,
+  onOpenTargetHunter,
+  onOpenLevelChallenge,
+}: {
+  stats: ReactionStorageV2;
+  hydrated: boolean;
+  lastResult: RunSummary | null;
+  onStartClassic: () => void;
+  onStartPractice: () => void;
+  onOpenPrecision: () => void;
+  onOpenTargetHunter: () => void;
+  onOpenLevelChallenge: () => void;
+}) {
+  const handlers: Record<Mode["id"], () => void> = {
+    classic: onStartClassic,
+    practice: onStartPractice,
+    precision: onOpenPrecision,
+    "target-hunter": onOpenTargetHunter,
+    "level-challenge": onOpenLevelChallenge,
+  };
+
+  return (
+    <div className="rtp-modeselect">
+      <span className="rtp-eyebrow">Reaction Timer Pro</span>
+      <h2 className="rtp-lobby-title">Choose a mode</h2>
+
+      <div className="rtp-modecards">
+        {MODES.map((mode) => {
+          const Icon = mode.icon;
+          return (
+            <div key={mode.id} className="rtp-modecard">
+              <span className="rtp-modecard-icon" aria-hidden>
+                <Icon className="h-6 w-6" />
+              </span>
+              <h3 className="rtp-modecard-title">{mode.title}</h3>
+              <p className="rtp-modecard-desc">{mode.description}</p>
+              <div className="rtp-modecard-badges">
+                {mode.badges.map((badge) => (
+                  <span key={badge} className="rtp-modecard-badge">
+                    {badge}
+                  </span>
+                ))}
+              </div>
+              <Button
+                variant={mode.variant === "primary" ? "primary" : mode.variant === "secondary" ? "secondary" : "ghost"}
+                onClick={handlers[mode.id]}
+                leftIcon={<mode.icon className="h-4 w-4" aria-hidden />}
+                className="rtp-modecard-cta"
+              >
+                {mode.cta}
+              </Button>
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="rtp-lobby-stats" aria-live="polite">
+        <div className="rtp-lobby-stat">
+          <span className="rtp-lobby-stat-label">Best reaction</span>
+          <span className="rtp-lobby-stat-value">{hydrated ? formatMs(stats.bestMs) : "—"}</span>
+        </div>
+        <div className="rtp-lobby-stat">
+          <span className="rtp-lobby-stat-label">Best precision</span>
+          <span className="rtp-lobby-stat-value">
+            {hydrated && stats.precision.bestSignedDifferenceMs !== null
+              ? formatSignedMs(stats.precision.bestSignedDifferenceMs)
+              : "—"}
+          </span>
+        </div>
+        <div className="rtp-lobby-stat">
+          <span className="rtp-lobby-stat-label">Last result</span>
+          <span className="rtp-lobby-stat-value">
+            {hydrated && lastResult ? `${formatMs(lastResult.averageMs)} avg` : "—"}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}

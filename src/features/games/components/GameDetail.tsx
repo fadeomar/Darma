@@ -116,7 +116,7 @@ export function GameDetail({ game, allGames }: { game: GameDefinition; allGames:
   const tips = getTips(game);
 
   return (
-    <div className="game-page-shell mx-auto max-w-[var(--container-page)] px-4 py-7 sm:px-6 sm:py-9 lg:px-8">
+    <div className="game-page-shell game-page-shell-wide mx-auto max-w-[1680px] px-3 py-7 sm:px-5 sm:py-9 lg:px-6 xl:px-8">
       <nav aria-label="Breadcrumb" className="mb-5">
         <ol className="flex flex-wrap items-center gap-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
           <li>
@@ -199,30 +199,44 @@ export function GameDetail({ game, allGames }: { game: GameDefinition; allGames:
         </div>
       </header>
 
-      <div className="mt-7 grid gap-6 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-start">
-        <div id="player" className="scroll-mt-24">
-          <GamePlayerShell game={game} />
-        </div>
-
-        <Card as="aside" variant="default" padding="lg" className="lg:sticky lg:top-24">
-          <div className="flex items-center gap-2">
-            <Trophy className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
-            <h2 className="text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Game details</h2>
+      <section id="player" className="game-player-focus mt-7 scroll-mt-24">
+        <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="font-mono text-[10px] font-black uppercase tracking-[0.12em] text-[var(--color-primary)]">Playable area</p>
+            <h2 className="mt-1 text-2xl font-black tracking-[-0.035em] text-[var(--color-text-primary)]">Play {game.title}</h2>
           </div>
-          <div className="mt-3">
+          <p className="max-w-xl text-sm leading-6 text-[var(--color-text-secondary)]">
+            The game takes the main width of the page. Details stay nearby, but they never squeeze the player.
+          </p>
+        </div>
+        <GamePlayerShell game={game} />
+      </section>
+
+      <Card as="section" variant="default" padding="lg" className="game-details-strip mt-5">
+        <div className="flex flex-col gap-4 xl:flex-row xl:items-start xl:justify-between">
+          <div className="min-w-0">
+            <div className="flex items-center gap-2">
+              <Trophy className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+              <h2 className="text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Game details</h2>
+            </div>
+            <p className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">
+              Quick context for the current game without taking space from the playable stage.
+            </p>
+          </div>
+          <div className="grid min-w-0 flex-1 gap-0 sm:grid-cols-2 xl:grid-cols-4 xl:pl-6">
             <DetailRow label="Difficulty" value={DIFFICULTY_LABELS[game.difficulty]} />
             <DetailRow label="Avg. play time" value={game.playTime} />
             <DetailRow label="Best played on" value={game.devices.map((device) => DEVICE_LABELS[device]).join(", ")} />
             <DetailRow label="Controls" value={game.input.map((input) => INPUT_LABELS[input]).join(", ")} />
           </div>
-          <div className="mt-5 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
-            <div className="flex items-start gap-3">
-              <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-[var(--color-primary)]" aria-hidden />
-              <p className="text-sm leading-6 text-[var(--color-text-secondary)]">{game.privacyNote}</p>
-            </div>
+        </div>
+        <div className="mt-5 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
+          <div className="flex items-start gap-3">
+            <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-[var(--color-primary)]" aria-hidden />
+            <p className="text-sm leading-6 text-[var(--color-text-secondary)]">{game.privacyNote}</p>
           </div>
-        </Card>
-      </div>
+        </div>
+      </Card>
 
       <div className="mt-8 grid gap-6 lg:grid-cols-3">
         <InfoCard icon={Sparkles} title="About this game">

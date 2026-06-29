@@ -60,6 +60,7 @@ function countForFilter(games: GameDefinition[], filter: GameFilter) {
   if (filter === "featured") return games.filter((game) => game.featured).length;
   if (filter === "popular") return games.filter((game) => game.popular).length;
   if (filter === "new") return games.filter((game) => game.isNew).length;
+  if (filter === "all") return games.length;
   return games.filter((game) => game.categories.includes(filter)).length;
 }
 

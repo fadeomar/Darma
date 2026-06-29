@@ -16,7 +16,7 @@ function MiniGameRow({ game, meta }: { game: GameDefinition; meta: string }) {
       className="group flex items-center gap-3 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-2.5 transition hover:border-[var(--color-border-strong)] focus:outline-none focus-visible:shadow-[var(--focus-ring)]"
     >
       <div className="w-16 shrink-0 overflow-hidden rounded-[var(--radius-sm)]">
-        <GameThumbnail game={game} aspect="16/9" size="sm" />
+        <GameThumbnail game={game} aspect="16/9" size="md" />
       </div>
       <div className="min-w-0">
         <p className="truncate text-sm font-black text-[var(--color-text-primary)]">{game.title}</p>

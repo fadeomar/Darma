@@ -4847,10 +4847,13 @@ html.rtp-gameplay-active body {
 .rtp-progression-card {
   overflow: hidden;
   border-color: rgba(125, 211, 252, 0.24) !important;
+  /* Solid dark base so the white hero text stays readable on any page theme.
+     The previous rgba(255,255,255,0.06) base was transparent and assumed a dark
+     page behind it, leaving white-on-white text in light mode. */
   background:
-    radial-gradient(circle at 12% 10%, rgba(125, 211, 252, 0.18), transparent 14rem),
-    radial-gradient(circle at 86% 0%, rgba(167, 139, 250, 0.16), transparent 15rem),
-    rgba(255, 255, 255, 0.06) !important;
+    radial-gradient(circle at 12% 10%, rgba(125, 211, 252, 0.2), transparent 14rem),
+    radial-gradient(circle at 86% 0%, rgba(167, 139, 250, 0.18), transparent 15rem),
+    linear-gradient(135deg, #14223b, #0b1322) !important;
 }
 
 .rtp-progression-hero {

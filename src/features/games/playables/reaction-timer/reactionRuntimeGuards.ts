@@ -9,13 +9,18 @@ import { emitEdgeCaseNotice } from "./reactionEdgeCases";
  * every component.
  */
 
-export function isGameplayControlTarget(target: EventTarget | null): boolean {
+export function isGameplayControlTarget(target: EventTarget | null, boundary: EventTarget | null = null): boolean {
   if (!(target instanceof HTMLElement)) return false;
-  return Boolean(
-    target.closest(
-      "button,a,input,select,textarea,summary,[contenteditable='true'],[role='button'],[role='dialog'],[data-rtp-control='true']",
-    ),
+  const control = target.closest(
+    "button,a,input,select,textarea,summary,[contenteditable='true'],[role='button'],[role='dialog'],[data-rtp-control='true']",
   );
+  if (!control) return false;
+  // The play surface itself is given role="button" for accessibility, so a press
+  // anywhere on it would otherwise match this selector and be ignored. When a
+  // boundary (the surface the handler is attached to) is passed, treat a match
+  // that IS that surface as "not a control" so taps on the arena still count.
+  if (boundary && control === boundary) return false;
+  return true;
 }
 
 export function useActiveGameplayGuards(active: boolean) {

@@ -65,7 +65,7 @@ export function ReactionArena({
       onPointerDown={
         interactive
           ? (event) => {
-              if (isGameplayControlTarget(event.target)) return;
+              if (isGameplayControlTarget(event.target, event.currentTarget)) return;
               event.preventDefault();
               onPress();
             }
@@ -75,7 +75,7 @@ export function ReactionArena({
         interactive
           ? (event) => {
               if (event.code !== "Space" && event.code !== "Enter") return;
-              if (isGameplayControlTarget(event.target)) return;
+              if (isGameplayControlTarget(event.target, event.currentTarget)) return;
               event.preventDefault();
               event.stopPropagation();
               onPress();

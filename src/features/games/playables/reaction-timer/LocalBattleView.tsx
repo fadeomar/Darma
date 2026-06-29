@@ -337,7 +337,7 @@ function ClassicBattleTurn({
       className="rtp-battle-active"
       data-rtp-active-stage="true"
       onPointerDown={(event) => {
-        if (isGameplayControlTarget(event.target)) return;
+        if (isGameplayControlTarget(event.target, event.currentTarget)) return;
         event.preventDefault();
         press();
       }}
@@ -462,7 +462,7 @@ function PrecisionBattleTurn({
       className="rtp-battle-active"
       data-rtp-active-stage="true"
       onPointerDown={(event) => {
-        if (isGameplayControlTarget(event.target)) return;
+        if (isGameplayControlTarget(event.target, event.currentTarget)) return;
         event.preventDefault();
         stop();
       }}

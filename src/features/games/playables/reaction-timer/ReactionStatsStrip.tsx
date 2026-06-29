@@ -33,6 +33,7 @@ import {
   Zap,
 } from "lucide-react";
 import { Card } from "@/components/ui";
+import { GameEngineAuditPanel } from "../../engine";
 import { ReactionBalancingPanel } from "./ReactionBalancingPanel";
 import { ReactionProgressionCard } from "./ReactionProgressionCard";
 import { cn } from "@/lib/cn";
@@ -515,6 +516,7 @@ export function ReactionStatsStrip({
       </Card>
 
       <ReactionBalancingPanel />
+      <GameEngineAuditPanel />
 
       {hydrated && stats.precision.precisionRuns > 0 ? <PrecisionStatsPanel precision={stats.precision} /> : null}
 

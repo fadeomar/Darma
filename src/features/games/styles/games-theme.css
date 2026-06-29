@@ -5720,3 +5720,165 @@ html.rtp-gameplay-active body {
     padding: 0.85rem;
   }
 }
+
+/* Sprint 21 — reusable Darma Games engine documentation panel */
+.darma-game-engine-panel {
+  display: grid;
+  gap: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.darma-game-engine-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 12% 8%, color-mix(in srgb, var(--rtp-theme-accent, var(--color-primary)) 18%, transparent), transparent 30%),
+    linear-gradient(135deg, color-mix(in srgb, var(--rtp-theme-accent, var(--color-primary)) 8%, transparent), transparent 54%);
+  opacity: 0.95;
+}
+
+.darma-game-engine-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.darma-game-engine-panel__head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.9rem;
+  align-items: start;
+}
+
+.darma-game-engine-panel__icon {
+  display: inline-flex;
+  width: 2.55rem;
+  height: 2.55rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  border: 1px solid color-mix(in srgb, var(--rtp-theme-accent, var(--color-primary)) 30%, var(--color-border-default));
+  background: color-mix(in srgb, var(--rtp-theme-accent, var(--color-primary)) 13%, var(--color-surface-raised));
+  color: var(--rtp-theme-accent, var(--color-primary));
+}
+
+.darma-game-engine-panel__lead,
+.darma-game-engine-panel__note {
+  margin: 0.35rem 0 0;
+  color: var(--color-text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.darma-game-engine-panel__note code {
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 0.45rem;
+  background: color-mix(in srgb, var(--color-surface-raised) 88%, transparent);
+  color: var(--color-text-primary);
+  font-size: 0.78rem;
+  padding: 0.12rem 0.32rem;
+}
+
+.darma-game-engine-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.darma-game-engine-card {
+  display: grid;
+  gap: 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--rtp-theme-accent, var(--color-primary)) 16%, var(--color-border-subtle));
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--color-surface-raised) 86%, transparent);
+  padding: 0.9rem;
+}
+
+.darma-game-engine-card__title {
+  display: inline-flex;
+  gap: 0.45rem;
+  align-items: center;
+  color: var(--color-text-primary);
+  font-size: 0.86rem;
+  font-weight: 950;
+}
+
+.darma-game-engine-list {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.darma-game-engine-list li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.45rem;
+  align-items: start;
+  color: var(--color-text-secondary);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.darma-game-engine-list li::before {
+  content: "";
+  width: 0.42rem;
+  height: 0.42rem;
+  margin-top: 0.35rem;
+  border-radius: 999px;
+  background: var(--rtp-theme-accent, var(--color-primary));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--rtp-theme-accent, var(--color-primary)) 12%, transparent);
+}
+
+.darma-game-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+.darma-game-shell--active {
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.darma-game-shell--fullscreen {
+  min-height: 100dvh;
+  background: var(--color-surface-base);
+}
+
+.darma-game-shell__top {
+  position: absolute;
+  z-index: 20;
+  top: 0.75rem;
+  right: 0.75rem;
+}
+
+.darma-game-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.rtp-shell--contrast .darma-game-engine-card,
+.rtp-shell--contrast .darma-game-engine-panel__icon {
+  border-color: rgba(15, 23, 42, 0.34);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+@media (max-width: 760px) {
+  .darma-game-engine-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .darma-game-engine-panel__head {
+    grid-template-columns: 1fr;
+  }
+
+  .darma-game-engine-panel__icon {
+    width: 2.35rem;
+    height: 2.35rem;
+  }
+}

@@ -3,24 +3,32 @@
 import { useCallback, useEffect, useMemo, useState, type ChangeEvent, type KeyboardEvent } from "react";
 import {
   ArrowLeftRight,
+  Bot,
   Crown,
+  Eye,
+  EyeOff,
   Flag,
   Handshake,
   History,
   Keyboard,
   MousePointerClick,
+  Palette,
+  Play,
   RotateCcw,
   ShieldAlert,
   Sparkles,
   Timer,
   Trophy,
   Undo2,
-  Users,
+  User,
+  Volume2,
+  VolumeX,
 } from "lucide-react";
 import { Badge, Button } from "@/components/ui";
 import { cn } from "@/lib/cn";
 import type { GameDefinition } from "../../domain/game";
 import { CHESS_FILES, createInitialChessBoard, getPieceAsset, getPieceLabel } from "./chessBoard";
+import { chooseComputerMove, type ChessAiDifficulty, type ChessAiMove } from "./chessAi";
 import { getLegalMoves, getMaterialScore, getNextTurn, getTurnLabel, moveChessPiece, promotePawn } from "./chessEngine";
 import { commitChessMatchStarted, readChessMatchCount } from "./chessStorage";
 import type {
@@ -53,9 +61,26 @@ const TIME_CONTROLS = [
   { id: "rapid10", label: "10 min", seconds: 10 * 60 },
 ] as const;
 
+const AI_DIFFICULTIES: Array<{ id: ChessAiDifficulty; label: string; description: string }> = [
+  { id: "beginner", label: "Beginner", description: "Forgiving moves with simple capture awareness." },
+  { id: "intermediate", label: "Intermediate", description: "Balances material, checks, center, and replies." },
+  { id: "pro", label: "Pro", description: "Uses a deeper minimax search for tougher play." },
+];
+
+const BOARD_THEMES = [
+  { id: "classic", label: "Classic" },
+  { id: "forest", label: "Forest" },
+  { id: "ocean", label: "Ocean" },
+  { id: "royal", label: "Royal" },
+  { id: "sand", label: "Sand" },
+] as const;
+
 type TimeControlId = (typeof TIME_CONTROLS)[number]["id"];
 type BoardOrientation = "white" | "black";
 type ClockState = Record<ChessColor, number | null>;
+type GamePhase = "setup" | "playing";
+type BoardThemeId = (typeof BOARD_THEMES)[number]["id"];
+type ChessSoundEvent = "start" | "move" | "capture" | "check" | "win" | "lose" | "draw" | "end" | "invalid";
 
 type ChessSnapshot = {
   board: ChessBoard;
@@ -88,9 +113,19 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
   const [timeControl, setTimeControl] = useState<TimeControlId>("untimed");
   const [timeLeft, setTimeLeft] = useState<ClockState>(() => createClock("untimed"));
   const [pendingPromotion, setPendingPromotion] = useState<PendingPromotion | null>(null);
-  const [message, setMessage] = useState("White starts. Select a white piece to see legal moves.");
+  const [message, setMessage] = useState("Choose your side, difficulty, and board style to start Chess Mini.");
   const [matchCount, setMatchCount] = useState(0);
   const [hydrated, setHydrated] = useState(false);
+  const [gamePhase, setGamePhase] = useState<GamePhase>("setup");
+  const [humanColor, setHumanColor] = useState<ChessColor>("white");
+  const [aiDifficulty, setAiDifficulty] = useState<ChessAiDifficulty>("intermediate");
+  const [boardTheme, setBoardTheme] = useState<BoardThemeId>("classic");
+  const [showCoordinates, setShowCoordinates] = useState(true);
+  const [soundEnabled, setSoundEnabled] = useState(true);
+  const [computerThinking, setComputerThinking] = useState(false);
+  const [computerThinkingStartedAt, setComputerThinkingStartedAt] = useState<number | null>(null);
+  const [computerThinkingElapsedMs, setComputerThinkingElapsedMs] = useState(0);
+  const [lastComputerThinkMs, setLastComputerThinkMs] = useState<number | null>(null);
 
   useEffect(() => {
     setMatchCount(readChessMatchCount());
@@ -99,9 +134,26 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
 
   const isGameOver = ["checkmate", "stalemate", "draw", "resigned", "timeout"].includes(status);
   const lastMove = moveHistory[0] ?? null;
+  const computerColor = getNextTurn(humanColor);
+  const isHumanTurn = gamePhase === "playing" && turn === humanColor && !computerThinking;
 
   useEffect(() => {
-    if (isGameOver || pendingPromotion || (status !== "playing" && status !== "check")) return;
+    if (!computerThinking || !computerThinkingStartedAt) {
+      if (!computerThinking) setComputerThinkingElapsedMs(0);
+      return;
+    }
+
+    const updateThinkingElapsed = () => {
+      setComputerThinkingElapsedMs(Date.now() - computerThinkingStartedAt);
+    };
+
+    updateThinkingElapsed();
+    const timerId = window.setInterval(updateThinkingElapsed, 100);
+    return () => window.clearInterval(timerId);
+  }, [computerThinking, computerThinkingStartedAt]);
+
+  useEffect(() => {
+    if (gamePhase !== "playing" || isGameOver || pendingPromotion || (status !== "playing" && status !== "check")) return;
     if (timeLeft[turn] === null) return;
 
     const timerId = window.setInterval(() => {
@@ -115,6 +167,7 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
           setWinner(timeoutWinner);
           setSelectedCoord(null);
           setPendingPromotion(null);
+          playChessSound(soundEnabled, timeoutWinner === humanColor ? "win" : "lose");
           setMessage(`${getTurnLabel(turn)} ran out of time. ${getTurnLabel(timeoutWinner)} wins on time.`);
         }
         return { ...current, [turn]: nextTurnTime };
@@ -122,7 +175,7 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
     }, 1000);
 
     return () => window.clearInterval(timerId);
-  }, [isGameOver, pendingPromotion, status, timeLeft, turn]);
+  }, [gamePhase, humanColor, isGameOver, pendingPromotion, soundEnabled, status, timeLeft, turn]);
 
   const selectedSquare = useMemo(
     () => board.flat().find((square) => square.coord === selectedCoord) ?? null,
@@ -130,8 +183,8 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
   );
 
   const legalMoves = useMemo<ChessMoveTarget[]>(
-    () => (selectedCoord && !isGameOver && !pendingPromotion ? getLegalMoves(board, selectedCoord, { lastMove }) : []),
-    [board, isGameOver, lastMove, pendingPromotion, selectedCoord],
+    () => (selectedCoord && isHumanTurn && !isGameOver && !pendingPromotion ? getLegalMoves(board, selectedCoord, { lastMove }) : []),
+    [board, isGameOver, isHumanTurn, lastMove, pendingPromotion, selectedCoord],
   );
 
   const legalMoveByCoord = useMemo(() => new Map(legalMoves.map((move) => [move.coord, move])), [legalMoves]);
@@ -143,6 +196,8 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
   const blackMaterial = getMaterialScore(blackCaptures);
   const materialLead = whiteMaterial === blackMaterial ? "Even" : whiteMaterial > blackMaterial ? `White +${whiteMaterial - blackMaterial}` : `Black +${blackMaterial - whiteMaterial}`;
   const activeTimeControl = TIME_CONTROLS.find((option) => option.id === timeControl) ?? TIME_CONTROLS[0];
+  const difficultyLabel = AI_DIFFICULTIES.find((option) => option.id === aiDifficulty)?.label ?? "Computer";
+  const aiThinkLabel = computerThinking ? `${formatThinkTime(computerThinkingElapsedMs)} thinking` : lastComputerThinkMs !== null ? formatThinkTime(lastComputerThinkMs) : "—";
 
   const displayedBoard = useMemo(
     () => (boardOrientation === "white" ? board : [...board].reverse().map((row) => [...row].reverse())),
@@ -159,47 +214,6 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
     [boardOrientation],
   );
 
-  const startNewGame = useCallback((nextTimeControl: TimeControlId = timeControl, countMatch = true) => {
-    setBoard(createInitialChessBoard());
-    setSelectedCoord(null);
-    setTurn("white");
-    setStatus("ready");
-    setWinner(null);
-    setMoveHistory([]);
-    setCapturedPieces([]);
-    setUndoStack([]);
-    setPendingPromotion(null);
-    setTimeLeft(createClock(nextTimeControl));
-    setMessage("New standard chess game started. White to move.");
-    if (countMatch) setMatchCount(commitChessMatchStarted());
-  }, [timeControl]);
-
-  const resetGame = useCallback(() => {
-    startNewGame(timeControl);
-  }, [startNewGame, timeControl]);
-
-  const restoreSnapshot = useCallback((snapshot: ChessSnapshot) => {
-    setBoard(snapshot.board);
-    setSelectedCoord(snapshot.selectedCoord);
-    setTurn(snapshot.turn);
-    setStatus(snapshot.status);
-    setWinner(snapshot.winner);
-    setMoveHistory(snapshot.moveHistory);
-    setCapturedPieces(snapshot.capturedPieces);
-    setPendingPromotion(snapshot.pendingPromotion);
-    setTimeLeft(snapshot.timeLeft);
-    setMessage(snapshot.message);
-  }, []);
-
-  const undoLastMove = useCallback(() => {
-    setUndoStack((stack) => {
-      const [snapshot, ...rest] = stack;
-      if (!snapshot) return stack;
-      restoreSnapshot({ ...snapshot, selectedCoord: null, pendingPromotion: null, message: `Move undone. ${getTurnLabel(snapshot.turn)} to move.` });
-      return rest;
-    });
-  }, [restoreSnapshot]);
-
   const snapshotCurrentState = useCallback((): ChessSnapshot => ({
     board,
     selectedCoord,
@@ -213,8 +227,193 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
     message,
   }), [board, capturedPieces, message, moveHistory, pendingPromotion, selectedCoord, status, timeLeft, turn, winner]);
 
+  const startMatch = useCallback((nextHumanColor: ChessColor = humanColor, nextDifficulty: ChessAiDifficulty = aiDifficulty, nextTimeControl: TimeControlId = timeControl) => {
+    setHumanColor(nextHumanColor);
+    setAiDifficulty(nextDifficulty);
+    setBoard(createInitialChessBoard());
+    setSelectedCoord(null);
+    setTurn("white");
+    setStatus("playing");
+    setWinner(null);
+    setMoveHistory([]);
+    setCapturedPieces([]);
+    setUndoStack([]);
+    setPendingPromotion(null);
+    setTimeLeft(createClock(nextTimeControl));
+    setBoardOrientation(nextHumanColor);
+    setComputerThinking(false);
+    setComputerThinkingStartedAt(null);
+    setComputerThinkingElapsedMs(0);
+    setLastComputerThinkMs(null);
+    setGamePhase("playing");
+    setMessage(nextHumanColor === "white" ? "Game started. You play White. Make the opening move." : "Game started. You play Black. Computer opens as White.");
+    setMatchCount(commitChessMatchStarted());
+    playChessSound(soundEnabled, "start");
+  }, [aiDifficulty, humanColor, soundEnabled, timeControl]);
+
+  const openSetup = useCallback(() => {
+    setBoard(createInitialChessBoard());
+    setSelectedCoord(null);
+    setTurn("white");
+    setStatus("ready");
+    setWinner(null);
+    setMoveHistory([]);
+    setCapturedPieces([]);
+    setUndoStack([]);
+    setPendingPromotion(null);
+    setTimeLeft(createClock(timeControl));
+    setBoardOrientation(humanColor);
+    setComputerThinking(false);
+    setComputerThinkingStartedAt(null);
+    setComputerThinkingElapsedMs(0);
+    setLastComputerThinkMs(null);
+    setGamePhase("setup");
+    setMessage("Choose your side, difficulty, and board style to start Chess Mini.");
+  }, [humanColor, timeControl]);
+
+  const resetGame = useCallback(() => {
+    openSetup();
+  }, [openSetup]);
+
+  const restoreSnapshot = useCallback((snapshot: ChessSnapshot) => {
+    setBoard(snapshot.board);
+    setSelectedCoord(snapshot.selectedCoord);
+    setTurn(snapshot.turn);
+    setStatus(snapshot.status);
+    setWinner(snapshot.winner);
+    setMoveHistory(snapshot.moveHistory);
+    setCapturedPieces(snapshot.capturedPieces);
+    setPendingPromotion(snapshot.pendingPromotion);
+    setTimeLeft(snapshot.timeLeft);
+    setMessage(snapshot.message);
+    setComputerThinking(false);
+    setComputerThinkingStartedAt(null);
+    setComputerThinkingElapsedMs(0);
+  }, []);
+
+  const undoLastMove = useCallback(() => {
+    setUndoStack((stack) => {
+      const [snapshot, ...rest] = stack;
+      if (!snapshot) return stack;
+      restoreSnapshot({ ...snapshot, selectedCoord: null, pendingPromotion: null, message: `Move undone. ${getTurnLabel(snapshot.turn)} to move.` });
+      playChessSound(soundEnabled, "move");
+      return rest;
+    });
+  }, [restoreSnapshot, soundEnabled]);
+
+  const finalizeMove = useCallback((
+    result: NonNullable<ReturnType<typeof moveChessPiece>>,
+    movingColor: ChessColor,
+    nextTurn: ChessColor,
+    options: { saveUndo: boolean; actor: "human" | "computer"; snapshot?: ChessSnapshot },
+  ) => {
+    if (options.saveUndo && options.snapshot) {
+      setUndoStack((stack) => [options.snapshot!, ...stack].slice(0, 40));
+    }
+
+    if (options.actor === "computer" && result.pendingPromotion) {
+      const promotionResult = promotePawn(result.board, result.pendingPromotion, "queen");
+      if (promotionResult) {
+        setBoard(promotionResult.board);
+        setMoveHistory((history) => [promotionResult.record, ...history].slice(0, 80));
+        if (promotionResult.record.captured) setCapturedPieces((pieces) => [promotionResult.record.captured!, ...pieces]);
+        setWinner(promotionResult.winner);
+        setStatus(promotionResult.status);
+        setSelectedCoord(null);
+        setPendingPromotion(null);
+        setTurn(promotionResult.winner ? movingColor : promotionResult.nextTurn);
+        playChessSound(soundEnabled, getSoundForMove(promotionResult.record, promotionResult.status, promotionResult.winner, humanColor));
+        setMessage(`Computer promoted to queen. ${buildMoveMessage(promotionResult.record, promotionResult.status, promotionResult.nextTurn, promotionResult.winner)}`);
+        return;
+      }
+    }
+
+    setBoard(result.board);
+    setMoveHistory((history) => [result.record, ...history].slice(0, 80));
+    if (result.record.captured) {
+      setCapturedPieces((pieces) => [result.record.captured!, ...pieces]);
+    }
+    setWinner(result.winner);
+    setStatus(result.status);
+    setSelectedCoord(null);
+
+    if (result.pendingPromotion) {
+      setPendingPromotion(result.pendingPromotion);
+      setMessage(`${readablePiece(result.record.piece)} reached ${result.record.to}. Choose promotion: queen, rook, bishop, or knight.`);
+      playChessSound(soundEnabled, "move");
+      return;
+    }
+
+    setTurn(result.winner ? movingColor : nextTurn);
+    playChessSound(soundEnabled, getSoundForMove(result.record, result.status, result.winner, humanColor));
+    setMessage(buildMoveMessage(result.record, result.status, nextTurn, result.winner));
+  }, [humanColor, soundEnabled]);
+
+  const handleComputerMove = useCallback((aiMove: ChessAiMove, startedAt?: number) => {
+    const result = moveChessPiece(board, aiMove.from, aiMove.to, turn, { lastMove });
+    if (!result) {
+      setComputerThinking(false);
+      setComputerThinkingStartedAt(null);
+      setComputerThinkingElapsedMs(0);
+      setMessage("Computer tried an outdated move. Your board is safe — make your move again.");
+      playChessSound(soundEnabled, "invalid");
+      return;
+    }
+
+    const nextTurn = getNextTurn(turn);
+    finalizeMove(result, turn, nextTurn, { saveUndo: false, actor: "computer" });
+    const thinkingMs = startedAt ? Date.now() - startedAt : computerThinkingElapsedMs;
+    setLastComputerThinkMs(thinkingMs);
+    setComputerThinking(false);
+    setComputerThinkingStartedAt(null);
+    setComputerThinkingElapsedMs(0);
+    setMessage((currentMessage) => `${currentMessage} Computer thought for ${formatThinkTime(thinkingMs)}.`);
+  }, [board, computerThinkingElapsedMs, finalizeMove, lastMove, soundEnabled, turn]);
+
+  useEffect(() => {
+    if (gamePhase !== "playing" || isGameOver || pendingPromotion || (status !== "playing" && status !== "check") || turn !== computerColor) {
+      if (turn === humanColor || isGameOver || pendingPromotion) {
+        setComputerThinking(false);
+        setComputerThinkingStartedAt(null);
+        setComputerThinkingElapsedMs(0);
+      }
+      return;
+    }
+
+    if (computerThinking) return;
+
+    const startedAt = Date.now();
+    setComputerThinking(true);
+    setComputerThinkingStartedAt(startedAt);
+    setComputerThinkingElapsedMs(0);
+    setSelectedCoord(null);
+    setMessage(`${difficultyLabel} computer is thinking as ${getTurnLabel(computerColor)}...`);
+
+    const timerId = window.setTimeout(() => {
+      const aiMove = chooseComputerMove(board, computerColor, aiDifficulty, { lastMove });
+      if (!aiMove) {
+        const thinkingMs = Date.now() - startedAt;
+        setLastComputerThinkMs(thinkingMs);
+        setComputerThinking(false);
+        setComputerThinkingStartedAt(null);
+        setComputerThinkingElapsedMs(0);
+        setMessage(`Computer had no legal move after ${formatThinkTime(thinkingMs)}. The game state is waiting for the rules engine status.`);
+        return;
+      }
+      handleComputerMove(aiMove, startedAt);
+    }, aiDifficulty === "pro" ? 260 : aiDifficulty === "intermediate" ? 180 : 120);
+
+    return () => window.clearTimeout(timerId);
+  }, [aiDifficulty, board, computerColor, computerThinking, difficultyLabel, gamePhase, handleComputerMove, humanColor, isGameOver, lastMove, pendingPromotion, status, turn]);
+
   const handleSquarePress = useCallback(
     (square: ChessSquare) => {
+      if (gamePhase === "setup") {
+        setMessage("Press Start game first, then choose your move on the board.");
+        playChessSound(soundEnabled, "invalid");
+        return;
+      }
+
       if (pendingPromotion) {
         setMessage("Choose a promotion piece before making another move.");
         return;
@@ -225,6 +424,12 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
         return;
       }
 
+      if (!isHumanTurn) {
+        setMessage(computerThinking ? "Computer is thinking. Wait for its move." : `You are ${getTurnLabel(humanColor)}. It is ${getTurnLabel(turn)}'s turn.`);
+        playChessSound(soundEnabled, "invalid");
+        return;
+      }
+
       if (selectedCoord) {
         const targetMove = legalMoveByCoord.get(square.coord);
 
@@ -232,28 +437,12 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
           const result = moveChessPiece(board, selectedCoord, square.coord, turn, { lastMove });
           if (!result) {
             setMessage("That move is no longer legal. Try another highlighted square.");
+            playChessSound(soundEnabled, "invalid");
             return;
           }
 
           const nextTurn = getNextTurn(turn);
-          setUndoStack((stack) => [snapshotCurrentState(), ...stack].slice(0, 40));
-          setBoard(result.board);
-          setMoveHistory((history) => [result.record, ...history].slice(0, 80));
-          if (result.record.captured) {
-            setCapturedPieces((pieces) => [result.record.captured!, ...pieces]);
-          }
-          setWinner(result.winner);
-          setStatus(result.status);
-          setSelectedCoord(null);
-
-          if (result.pendingPromotion) {
-            setPendingPromotion(result.pendingPromotion);
-            setMessage(`${readablePiece(result.record.piece)} reached ${result.record.to}. Choose promotion: queen, rook, bishop, or knight.`);
-            return;
-          }
-
-          setTurn(result.winner ? turn : nextTurn);
-          setMessage(buildMoveMessage(result.record, result.status, nextTurn, result.winner));
+          finalizeMove(result, turn, nextTurn, { saveUndo: true, actor: "human", snapshot: snapshotCurrentState() });
           return;
         }
 
@@ -264,9 +453,15 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
         }
       }
 
-      if (square.piece?.color === turn) {
+      if (square.piece?.color === humanColor && square.piece.color === turn) {
         setSelectedCoord(square.coord);
         setMessage(`${readablePiece(square.piece)} selected on ${square.coord}. Choose a highlighted target.`);
+        return;
+      }
+
+      if (square.piece && square.piece.color !== humanColor) {
+        setMessage("That is a computer piece. Choose one of your own pieces.");
+        playChessSound(soundEnabled, "invalid");
         return;
       }
 
@@ -275,9 +470,9 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
         return;
       }
 
-      setMessage(selectedCoord ? "That square is not a legal target for the selected piece." : `Select a ${turn} piece to start the move.`);
+      setMessage(selectedCoord ? "That square is not a legal target for the selected piece." : `Select one of your ${humanColor} pieces to start the move.`);
     },
-    [board, isGameOver, lastMove, legalMoveByCoord, pendingPromotion, selectedCoord, snapshotCurrentState, status, turn, winner],
+    [board, computerThinking, finalizeMove, gamePhase, humanColor, isGameOver, isHumanTurn, lastMove, legalMoveByCoord, pendingPromotion, selectedCoord, snapshotCurrentState, soundEnabled, status, turn, winner],
   );
 
   const handlePromotionChoice = useCallback((role: ChessPromotionRole) => {
@@ -286,6 +481,7 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
     const result = promotePawn(board, pendingPromotion, role);
     if (!result) {
       setMessage("Promotion failed. Undo the move or start a new game.");
+      playChessSound(soundEnabled, "invalid");
       return;
     }
 
@@ -295,8 +491,9 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
     setWinner(result.winner);
     setStatus(result.status);
     setTurn(result.winner ? pendingPromotion.color : result.nextTurn);
+    playChessSound(soundEnabled, getSoundForMove(result.record, result.status, result.winner, humanColor));
     setMessage(buildMoveMessage(result.record, result.status, result.nextTurn, result.winner));
-  }, [board, pendingPromotion]);
+  }, [board, humanColor, pendingPromotion, soundEnabled]);
 
   const handleSquareKeyDown = useCallback(
     (event: KeyboardEvent<HTMLButtonElement>, square: ChessSquare) => {
@@ -312,44 +509,56 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
 
   const handleTimeControlChange = useCallback((nextTimeControl: TimeControlId) => {
     setTimeControl(nextTimeControl);
-    startNewGame(nextTimeControl, false);
-    setMessage(`Time control changed to ${TIME_CONTROLS.find((option) => option.id === nextTimeControl)?.label ?? "Untimed"}. Board reset for a fair game.`);
-  }, [startNewGame]);
+    setTimeLeft(createClock(nextTimeControl));
+    if (gamePhase === "playing") {
+      startMatch(humanColor, aiDifficulty, nextTimeControl);
+      setMessage(`Time control changed to ${TIME_CONTROLS.find((option) => option.id === nextTimeControl)?.label ?? "Untimed"}. New game started for a fair clock.`);
+    }
+  }, [aiDifficulty, gamePhase, humanColor, startMatch]);
 
   const resignGame = useCallback(() => {
-    if (isGameOver) return;
-    const resignationWinner = getNextTurn(turn);
+    if (isGameOver || gamePhase !== "playing") return;
+    const resignationWinner = computerColor;
     setStatus("resigned");
     setWinner(resignationWinner);
     setSelectedCoord(null);
     setPendingPromotion(null);
-    setMessage(`${getTurnLabel(turn)} resigned. ${getTurnLabel(resignationWinner)} wins.`);
-  }, [isGameOver, turn]);
+    setComputerThinking(false);
+    setComputerThinkingStartedAt(null);
+    setComputerThinkingElapsedMs(0);
+    playChessSound(soundEnabled, "lose");
+    setMessage(`You resigned. ${getTurnLabel(resignationWinner)} wins.`);
+  }, [computerColor, gamePhase, isGameOver, soundEnabled]);
 
   const agreeDraw = useCallback(() => {
-    if (isGameOver) return;
+    if (isGameOver || gamePhase !== "playing") return;
     setStatus("draw");
     setWinner(null);
     setSelectedCoord(null);
     setPendingPromotion(null);
-    setMessage("Draw agreed by both local players.");
-  }, [isGameOver]);
+    setComputerThinking(false);
+    setComputerThinkingStartedAt(null);
+    setComputerThinkingElapsedMs(0);
+    playChessSound(soundEnabled, "draw");
+    setMessage("Game ended as a draw.");
+  }, [gamePhase, isGameOver, soundEnabled]);
 
   const statusTone = getStatusTone(status);
-  const headline = getHeadline(status, turn, winner);
-  const subtext = getStatusSubtext(status, turn, winner, pendingPromotion);
+  const headline = getHeadline(status, turn, winner, gamePhase, computerThinking, humanColor);
+  const subtext = getStatusSubtext(status, turn, winner, pendingPromotion, gamePhase, computerThinking, humanColor, computerThinkingElapsedMs);
 
   return (
-    <div className="dc-shell dc-shell--phase3">
+    <div className={cn("dc-shell dc-shell--phase3", `dc-board-theme--${boardTheme}`, !showCoordinates && "dc-shell--hide-cell-coordinates")}>
       <div className="dc-topbar">
         <div className="dc-topbar-id">
-          <span className="dc-eyebrow">Standard Chess Release</span>
+          <span className="dc-eyebrow">Player vs Computer Chess</span>
           <h2 className="dc-topbar-title">{game.title}</h2>
-          <p className="dc-topbar-subtitle">Production-ready local chess with castling, en passant, promotion choice, timers, draw/resign actions, notation, and stronger match feedback.</p>
+          <p className="dc-topbar-subtitle">Play against a computer opponent, choose your side and difficulty, switch board themes, toggle coordinates, and finish with a clear results screen.</p>
         </div>
         <div className="dc-topbar-controls">
           <Badge variant={statusTone}>{readableStatus(status)}</Badge>
-          <Badge variant="outline">Standard rules</Badge>
+          <Badge variant="outline">You: {getTurnLabel(humanColor)}</Badge>
+          <Badge variant="outline">AI: {difficultyLabel}</Badge>
           <label className="dc-time-select-label">
             <span>Clock</span>
             <select className="dc-time-select" value={timeControl} onChange={(event: ChangeEvent<HTMLSelectElement>) => handleTimeControlChange(event.target.value as TimeControlId)}>
@@ -358,7 +567,7 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
               ))}
             </select>
           </label>
-          <Button variant="ghost" size="sm" onClick={undoLastMove} disabled={undoStack.length === 0} leftIcon={<Undo2 className="h-4 w-4" aria-hidden />}>
+          <Button variant="ghost" size="sm" onClick={undoLastMove} disabled={undoStack.length === 0 || computerThinking} leftIcon={<Undo2 className="h-4 w-4" aria-hidden />}>
             Undo
           </Button>
           <Button
@@ -366,7 +575,7 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
             size="sm"
             onClick={() => {
               setBoardOrientation((orientation) => (orientation === "white" ? "black" : "white"));
-              setMessage("Board flipped for the other player view.");
+              setMessage("Board flipped for the other side view.");
             }}
             leftIcon={<ArrowLeftRight className="h-4 w-4" aria-hidden />}
           >
@@ -382,7 +591,7 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
         <div className="dc-hero-card">
           <div className={cn("dc-status-card", (status === "check" || status === "promotion") && "dc-status-card--warning", isGameOver && status !== "draw" && "dc-status-card--danger")}>
             <div className={cn("dc-turn-orb", `dc-turn-orb--${winner ?? turn}`)} aria-hidden>
-              {status === "check" ? <ShieldAlert className="h-5 w-5" /> : status === "promotion" ? <Sparkles className="h-5 w-5" /> : <Crown className="h-5 w-5" />}
+              {computerThinking ? <Bot className="h-5 w-5" /> : status === "check" ? <ShieldAlert className="h-5 w-5" /> : status === "promotion" ? <Sparkles className="h-5 w-5" /> : <Crown className="h-5 w-5" />}
             </div>
             <div>
               <p className="dc-status-title">{headline}</p>
@@ -394,173 +603,400 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
             {message}
           </div>
 
-          <div className="dc-clock-row" aria-label="Chess clocks">
-            <ClockCard color="white" active={turn === "white" && !pendingPromotion && !isGameOver} seconds={timeLeft.white} baseSeconds={activeTimeControl.seconds} />
-            <ClockCard color="black" active={turn === "black" && !pendingPromotion && !isGameOver} seconds={timeLeft.black} baseSeconds={activeTimeControl.seconds} />
-          </div>
+          {gamePhase === "setup" ? (
+            <SetupScreen
+              humanColor={humanColor}
+              difficulty={aiDifficulty}
+              timeControl={timeControl}
+              boardTheme={boardTheme}
+              showCoordinates={showCoordinates}
+              soundEnabled={soundEnabled}
+              onHumanColorChange={(color) => {
+                setHumanColor(color);
+                setBoardOrientation(color);
+              }}
+              onDifficultyChange={setAiDifficulty}
+              onTimeControlChange={(next) => {
+                setTimeControl(next);
+                setTimeLeft(createClock(next));
+              }}
+              onBoardThemeChange={setBoardTheme}
+              onShowCoordinatesChange={setShowCoordinates}
+              onSoundEnabledChange={setSoundEnabled}
+              onStart={() => startMatch(humanColor, aiDifficulty, timeControl)}
+            />
+          ) : (
+            <>
+              {isGameOver ? (
+                <EndScreen
+                  status={status}
+                  winner={winner}
+                  humanColor={humanColor}
+                  moves={moveHistory.length}
+                  materialLead={materialLead}
+                  onPlayAgain={() => startMatch(humanColor, aiDifficulty, timeControl)}
+                  onChangeSettings={openSetup}
+                />
+              ) : null}
 
-          <div className="dc-layout">
-            <div className="dc-board-wrap" aria-label="Chess Mini board area">
-              <div className="dc-board-shell">
-                <div className="dc-file-labels dc-file-labels--top" aria-hidden>
-                  {displayedFiles.map((file) => (
-                    <span key={`top-${file}`}>{file}</span>
-                  ))}
-                </div>
+              <div className="dc-clock-row" aria-label="Chess clocks">
+                <ClockCard color="white" active={turn === "white" && !pendingPromotion && !isGameOver} seconds={timeLeft.white} baseSeconds={activeTimeControl.seconds} />
+                <ClockCard color="black" active={turn === "black" && !pendingPromotion && !isGameOver} seconds={timeLeft.black} baseSeconds={activeTimeControl.seconds} />
+              </div>
 
-                <div className="dc-board-row-wrap">
-                  <div className="dc-rank-labels" aria-hidden>
-                    {displayedRanks.map((rank) => (
-                      <span key={`left-${rank}`}>{rank}</span>
-                    ))}
-                  </div>
-
-                  <div className="dc-board-frame">
-                    <div className="dc-board" role="grid" aria-label={`Chess board, ${boardOrientation} side orientation`}>
-                      {displayedBoard.map((row) =>
-                        row.map((square) => {
-                          const move = legalMoveByCoord.get(square.coord);
-                          const isSelected = square.coord === selectedCoord;
-                          const isLastMove = moveHistory[0]?.from === square.coord || moveHistory[0]?.to === square.coord;
-                          const isLight = (square.file.charCodeAt(0) + square.rank) % 2 === 0;
-                          const isPromotionSquare = pendingPromotion?.coord === square.coord;
-
-                          return (
-                            <button
-                              key={square.coord}
-                              type="button"
-                              className={cn(
-                                "dc-square",
-                                isLight ? "dc-square--light" : "dc-square--dark",
-                                square.piece && "dc-square--occupied",
-                                square.piece?.color === turn && !isGameOver && !pendingPromotion && "dc-square--selectable",
-                                isSelected && "dc-square--selected",
-                                move && "dc-square--move",
-                                move?.capture && "dc-square--capture",
-                                move?.checking && "dc-square--checking",
-                                move?.special && `dc-square--${move.special}`,
-                                isLastMove && "dc-square--last",
-                                isPromotionSquare && "dc-square--promotion-pending",
-                              )}
-                              role="gridcell"
-                              aria-label={buildSquareLabel(square, move, isSelected)}
-                              aria-pressed={isSelected}
-                              data-chess-square={square.coord}
-                              onClick={() => handleSquarePress(square)}
-                              onKeyDown={(event: KeyboardEvent<HTMLButtonElement>) => handleSquareKeyDown(event, square)}
-                            >
-                              <span className="dc-square-coordinate" aria-hidden>{square.coord}</span>
-                              {square.piece ? (
-                                <img
-                                  className="dc-piece"
-                                  src={getPieceAsset(square.piece)}
-                                  alt={getPieceLabel(square.piece)}
-                                  draggable={false}
-                                />
-                              ) : null}
-                              {move && !square.piece ? <span className="dc-move-dot" aria-hidden /> : null}
-                              {move?.capture ? <span className="dc-capture-ring" aria-hidden /> : null}
-                              {move?.special === "castle-kingside" || move?.special === "castle-queenside" ? <span className="dc-special-tag" aria-hidden>castle</span> : null}
-                              {move?.special === "en-passant" ? <span className="dc-special-tag" aria-hidden>e.p.</span> : null}
-                              {move?.promotion ? <span className="dc-special-tag" aria-hidden>promo</span> : null}
-                            </button>
-                          );
-                        }),
-                      )}
+              <div className="dc-layout">
+                <div className="dc-board-wrap" aria-label="Chess Mini board area">
+                  <div className="dc-board-shell">
+                    <div className="dc-file-labels dc-file-labels--top" aria-hidden>
+                      {displayedFiles.map((file) => (
+                        <span key={`top-${file}`}>{file}</span>
+                      ))}
                     </div>
 
-                    {pendingPromotion ? (
-                      <PromotionChooser promotion={pendingPromotion} onChoose={handlePromotionChoice} />
-                    ) : null}
-                  </div>
+                    <div className="dc-board-row-wrap">
+                      <div className="dc-rank-labels" aria-hidden>
+                        {displayedRanks.map((rank) => (
+                          <span key={`left-${rank}`}>{rank}</span>
+                        ))}
+                      </div>
 
-                  <div className="dc-rank-labels" aria-hidden>
-                    {displayedRanks.map((rank) => (
-                      <span key={`right-${rank}`}>{rank}</span>
-                    ))}
+                      <div className="dc-board-frame">
+                        <div className={cn("dc-board", computerThinking && "dc-board--thinking")} role="grid" aria-label={`Chess board, ${boardOrientation} side orientation`}>
+                          {displayedBoard.map((row) =>
+                            row.map((square) => {
+                              const move = legalMoveByCoord.get(square.coord);
+                              const isSelected = square.coord === selectedCoord;
+                              const isLastMove = moveHistory[0]?.from === square.coord || moveHistory[0]?.to === square.coord;
+                              const isLight = (square.file.charCodeAt(0) + square.rank) % 2 === 0;
+                              const isPromotionSquare = pendingPromotion?.coord === square.coord;
+                              const isHumanPiece = square.piece?.color === humanColor;
+
+                              return (
+                                <button
+                                  key={square.coord}
+                                  type="button"
+                                  className={cn(
+                                    "dc-square",
+                                    isLight ? "dc-square--light" : "dc-square--dark",
+                                    square.piece && "dc-square--occupied",
+                                    isHumanPiece && square.piece?.color === turn && isHumanTurn && !isGameOver && !pendingPromotion && "dc-square--selectable",
+                                    isSelected && "dc-square--selected",
+                                    move && "dc-square--move",
+                                    move?.capture && "dc-square--capture",
+                                    move?.checking && "dc-square--checking",
+                                    move?.special && `dc-square--${move.special}`,
+                                    isLastMove && "dc-square--last",
+                                    isPromotionSquare && "dc-square--promotion-pending",
+                                  )}
+                                  role="gridcell"
+                                  aria-label={buildSquareLabel(square, move, isSelected)}
+                                  aria-pressed={isSelected}
+                                  data-chess-square={square.coord}
+                                  onClick={() => handleSquarePress(square)}
+                                  onKeyDown={(event: KeyboardEvent<HTMLButtonElement>) => handleSquareKeyDown(event, square)}
+                                >
+                                  <span className="dc-square-coordinate" aria-hidden>{square.coord}</span>
+                                  {square.piece ? (
+                                    <img
+                                      className="dc-piece"
+                                      src={getPieceAsset(square.piece)}
+                                      alt={getPieceLabel(square.piece)}
+                                      draggable={false}
+                                    />
+                                  ) : null}
+                                  {move && !square.piece ? <span className="dc-move-dot" aria-hidden /> : null}
+                                  {move?.capture ? <span className="dc-capture-ring" aria-hidden /> : null}
+                                  {move?.special === "castle-kingside" || move?.special === "castle-queenside" ? <span className="dc-special-tag" aria-hidden>castle</span> : null}
+                                  {move?.special === "en-passant" ? <span className="dc-special-tag" aria-hidden>e.p.</span> : null}
+                                  {move?.promotion ? <span className="dc-special-tag" aria-hidden>promo</span> : null}
+                                </button>
+                              );
+                            }),
+                          )}
+                        </div>
+
+                        {pendingPromotion ? (
+                          <PromotionChooser promotion={pendingPromotion} onChoose={handlePromotionChoice} />
+                        ) : null}
+                      </div>
+
+                      <div className="dc-rank-labels" aria-hidden>
+                        {displayedRanks.map((rank) => (
+                          <span key={`right-${rank}`}>{rank}</span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="dc-file-labels" aria-hidden>
+                      {displayedFiles.map((file) => (
+                        <span key={`bottom-${file}`}>{file}</span>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                <div className="dc-file-labels" aria-hidden>
-                  {displayedFiles.map((file) => (
-                    <span key={`bottom-${file}`}>{file}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
+                <aside className="dc-panel" aria-label="Chess Mini match information">
+                  <div className="dc-panel-card dc-panel-card--accent">
+                    <span className="dc-panel-kicker">
+                      {computerThinking ? <Bot className="h-4 w-4" aria-hidden /> : turn === humanColor ? <User className="h-4 w-4" aria-hidden /> : <UsersIconFallback />} Current turn
+                    </span>
+                    <strong>{winner ? `${getTurnLabel(winner)} wins` : status === "draw" || status === "stalemate" ? "Draw" : turn === humanColor ? "Your move" : "Computer move"}</strong>
+                    <p>{pendingPromotion ? "Promotion choice required." : winner ? readableStatus(status) : computerThinking ? "The computer is calculating its reply." : status === "check" ? "King is in check; escape the threat." : turn === humanColor ? "Only your color can move now." : "Wait for the computer response."}</p>
+                  </div>
 
-            <aside className="dc-panel" aria-label="Chess Mini match information">
-              <div className="dc-panel-card dc-panel-card--accent">
-                <span className="dc-panel-kicker">
-                  <Users className="h-4 w-4" aria-hidden /> Current turn
-                </span>
-                <strong>{winner ? `${getTurnLabel(winner)} wins` : status === "draw" || status === "stalemate" ? "Draw" : getTurnLabel(turn)}</strong>
-                <p>{pendingPromotion ? "Promotion choice required." : winner ? readableStatus(status) : status === "check" ? "King is in check; escape the threat." : "Only this color can move now."}</p>
-              </div>
+                  <div className="dc-stat-grid">
+                    <StatCard label="Moves" value={moveHistory.length.toString()} />
+                    <StatCard label="Material" value={materialLead} />
+                    <StatCard label="AI think" value={aiThinkLabel} />
+                    <StatCard label="Clock" value={activeTimeControl.label} />
+                  </div>
 
-              <div className="dc-stat-grid">
-                <StatCard label="Moves" value={moveHistory.length.toString()} />
-                <StatCard label="Material" value={materialLead} />
-                <StatCard label="Selected" value={selectedSquare?.coord ?? "—"} />
-                <StatCard label="Clock" value={activeTimeControl.label} />
-              </div>
+                  <div className="dc-action-grid">
+                    <Button variant="ghost" size="sm" onClick={agreeDraw} disabled={isGameOver || computerThinking} leftIcon={<Handshake className="h-4 w-4" aria-hidden />}>
+                      Draw
+                    </Button>
+                    <Button variant="ghost" size="sm" onClick={resignGame} disabled={isGameOver || computerThinking} leftIcon={<Flag className="h-4 w-4" aria-hidden />}>
+                      Resign
+                    </Button>
+                  </div>
 
-              <div className="dc-action-grid">
-                <Button variant="ghost" size="sm" onClick={agreeDraw} disabled={isGameOver} leftIcon={<Handshake className="h-4 w-4" aria-hidden />}>
-                  Draw
-                </Button>
-                <Button variant="ghost" size="sm" onClick={resignGame} disabled={isGameOver} leftIcon={<Flag className="h-4 w-4" aria-hidden />}>
-                  Resign
-                </Button>
-              </div>
+                  <SettingsPanel
+                    boardTheme={boardTheme}
+                    showCoordinates={showCoordinates}
+                    soundEnabled={soundEnabled}
+                    onBoardThemeChange={setBoardTheme}
+                    onShowCoordinatesChange={setShowCoordinates}
+                    onSoundEnabledChange={setSoundEnabled}
+                  />
 
-              <div className="dc-panel-card">
-                <span className="dc-panel-kicker">
-                  <MousePointerClick className="h-4 w-4" aria-hidden /> Selection
-                </span>
-                <strong>{selectedPieceLabel}</strong>
-                <p>{selectedSquare ? `${legalMoves.length} legal target${legalMoves.length === 1 ? "" : "s"} highlighted.` : "Pick a piece from the active side."}</p>
-              </div>
+                  <div className="dc-panel-card">
+                    <span className="dc-panel-kicker">
+                      <MousePointerClick className="h-4 w-4" aria-hidden /> Selection
+                    </span>
+                    <strong>{selectedPieceLabel}</strong>
+                    <p>{selectedSquare ? `${legalMoves.length} legal target${legalMoves.length === 1 ? "" : "s"} highlighted.` : turn === humanColor ? "Pick one of your pieces." : "Computer controls the current turn."}</p>
+                  </div>
 
-              <div className="dc-panel-card dc-controls-card">
-                <span className="dc-panel-kicker">
-                  <Keyboard className="h-4 w-4" aria-hidden /> Controls
-                </span>
-                <p>Click/tap a piece, then a highlighted square. Keyboard users can tab to the board, use arrow keys between squares, and press Enter/Space to select.</p>
-              </div>
+                  <div className="dc-panel-card dc-controls-card">
+                    <span className="dc-panel-kicker">
+                      <Keyboard className="h-4 w-4" aria-hidden /> Controls
+                    </span>
+                    <p>Click/tap one of your pieces, then a highlighted square. Keyboard users can tab to the board, use arrow keys between squares, and press Enter/Space to select.</p>
+                  </div>
 
-              <CapturedStrip title="White captured" pieces={whiteCaptures} />
-              <CapturedStrip title="Black captured" pieces={blackCaptures} />
+                  <CapturedStrip title="White captured" pieces={whiteCaptures} />
+                  <CapturedStrip title="Black captured" pieces={blackCaptures} />
 
-              <div className="dc-panel-card">
-                <span className="dc-panel-kicker">
-                  <History className="h-4 w-4" aria-hidden /> Recent moves
-                </span>
-                {moveHistory.length > 0 ? (
-                  <ol className="dc-history-list">
-                    {moveHistory.slice(0, 8).map((move, index) => (
-                      <li key={`${move.from}-${move.to}-${index}`}>
-                        <span>{readablePiece(move.piece)}</span>
-                        <strong>{move.notation ?? `${move.from} → ${move.to}`}</strong>
-                      </li>
-                    ))}
-                  </ol>
-                ) : (
-                  <p>No moves yet. White starts.</p>
-                )}
+                  <div className="dc-panel-card dc-history-card">
+                    <span className="dc-panel-kicker">
+                      <History className="h-4 w-4" aria-hidden /> Recent moves
+                    </span>
+                    {moveHistory.length > 0 ? (
+                      <ol className="dc-history-list">
+                        {moveHistory.map((move, index) => (
+                          <li key={`${move.from}-${move.to}-${index}`}>
+                            <span>{readablePiece(move.piece)}</span>
+                            <strong>{move.notation ?? `${move.from} → ${move.to}`}</strong>
+                          </li>
+                        ))}
+                      </ol>
+                    ) : (
+                      <p>No moves yet. White starts.</p>
+                    )}
+                  </div>
+                </aside>
               </div>
-            </aside>
-          </div>
+            </>
+          )}
         </div>
       </div>
 
       <div className="dc-guide">
         <span className="dc-guide-title">
-          <Trophy className="h-4 w-4" aria-hidden /> Phase 3 scope
+          <Trophy className="h-4 w-4" aria-hidden /> QA-ready scope
         </span>
-        <span>Standard chess rules are now active: castling, en passant, promotion choice, king safety, checkmate, stalemate, and notation.</span>
+        <span>Computer opponent, start/end screens, fixed recent-moves panel, board themes, coordinate toggle, and game sounds are included with standard chess rules.</span>
         <span className="dc-guide-note">Match tools: undo, board flip, draw, resign, and optional 5/10 minute clocks.</span>
-        <span className="dc-guide-note">Local matches started: {hydrated ? matchCount : 0}</span>
+        <span className="dc-guide-note">Matches started: {hydrated ? matchCount : 0}</span>
+      </div>
+    </div>
+  );
+}
+
+function UsersIconFallback() {
+  return <Bot className="h-4 w-4" aria-hidden />;
+}
+
+function SetupScreen({
+  humanColor,
+  difficulty,
+  timeControl,
+  boardTheme,
+  showCoordinates,
+  soundEnabled,
+  onHumanColorChange,
+  onDifficultyChange,
+  onTimeControlChange,
+  onBoardThemeChange,
+  onShowCoordinatesChange,
+  onSoundEnabledChange,
+  onStart,
+}: {
+  humanColor: ChessColor;
+  difficulty: ChessAiDifficulty;
+  timeControl: TimeControlId;
+  boardTheme: BoardThemeId;
+  showCoordinates: boolean;
+  soundEnabled: boolean;
+  onHumanColorChange: (color: ChessColor) => void;
+  onDifficultyChange: (difficulty: ChessAiDifficulty) => void;
+  onTimeControlChange: (timeControl: TimeControlId) => void;
+  onBoardThemeChange: (theme: BoardThemeId) => void;
+  onShowCoordinatesChange: (show: boolean) => void;
+  onSoundEnabledChange: (enabled: boolean) => void;
+  onStart: () => void;
+}) {
+  return (
+    <div className="dc-setup-screen">
+      <div className="dc-setup-copy">
+        <span className="dc-panel-kicker"><Bot className="h-4 w-4" aria-hidden /> New match setup</span>
+        <h3>Choose your side and challenge the computer</h3>
+        <p>White always moves first. Choose Black if you want the computer to open automatically, then play your reply.</p>
+      </div>
+
+      <div className="dc-setup-grid">
+        <div className="dc-setup-card">
+          <span className="dc-panel-kicker"><User className="h-4 w-4" aria-hidden /> Your side</span>
+          <div className="dc-choice-row" role="group" aria-label="Choose your chess side">
+            {(["white", "black"] as const).map((color) => (
+              <button key={color} type="button" className={cn("dc-choice-pill", humanColor === color && "dc-choice-pill--active")} onClick={() => onHumanColorChange(color)}>
+                {getTurnLabel(color)}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="dc-setup-card">
+          <span className="dc-panel-kicker"><Bot className="h-4 w-4" aria-hidden /> Difficulty</span>
+          <div className="dc-difficulty-list">
+            {AI_DIFFICULTIES.map((option) => (
+              <button key={option.id} type="button" className={cn("dc-difficulty-option", difficulty === option.id && "dc-difficulty-option--active")} onClick={() => onDifficultyChange(option.id)}>
+                <strong>{option.label}</strong>
+                <span>{option.description}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="dc-setup-card">
+          <span className="dc-panel-kicker"><Timer className="h-4 w-4" aria-hidden /> Clock</span>
+          <select className="dc-setup-select" value={timeControl} onChange={(event: ChangeEvent<HTMLSelectElement>) => onTimeControlChange(event.target.value as TimeControlId)}>
+            {TIME_CONTROLS.map((option) => (
+              <option key={option.id} value={option.id}>{option.label}</option>
+            ))}
+          </select>
+        </div>
+
+        <div className="dc-setup-card">
+          <span className="dc-panel-kicker"><Palette className="h-4 w-4" aria-hidden /> Board theme</span>
+          <select className="dc-setup-select" value={boardTheme} onChange={(event: ChangeEvent<HTMLSelectElement>) => onBoardThemeChange(event.target.value as BoardThemeId)}>
+            {BOARD_THEMES.map((option) => (
+              <option key={option.id} value={option.id}>{option.label}</option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      <div className="dc-setup-toggles">
+        <label className="dc-toggle-row">
+          <input type="checkbox" checked={showCoordinates} onChange={(event) => onShowCoordinatesChange(event.target.checked)} />
+          <span>{showCoordinates ? <Eye className="h-4 w-4" aria-hidden /> : <EyeOff className="h-4 w-4" aria-hidden />} Show board coordinates</span>
+        </label>
+        <label className="dc-toggle-row">
+          <input type="checkbox" checked={soundEnabled} onChange={(event) => onSoundEnabledChange(event.target.checked)} />
+          <span>{soundEnabled ? <Volume2 className="h-4 w-4" aria-hidden /> : <VolumeX className="h-4 w-4" aria-hidden />} Game sounds</span>
+        </label>
+      </div>
+
+      <Button variant="primary" size="lg" onClick={onStart} leftIcon={<Play className="h-4 w-4" aria-hidden />}>
+        Start game
+      </Button>
+    </div>
+  );
+}
+
+function SettingsPanel({
+  boardTheme,
+  showCoordinates,
+  soundEnabled,
+  onBoardThemeChange,
+  onShowCoordinatesChange,
+  onSoundEnabledChange,
+}: {
+  boardTheme: BoardThemeId;
+  showCoordinates: boolean;
+  soundEnabled: boolean;
+  onBoardThemeChange: (theme: BoardThemeId) => void;
+  onShowCoordinatesChange: (show: boolean) => void;
+  onSoundEnabledChange: (enabled: boolean) => void;
+}) {
+  return (
+    <div className="dc-panel-card dc-settings-card">
+      <span className="dc-panel-kicker"><Palette className="h-4 w-4" aria-hidden /> Board options</span>
+      <label className="dc-settings-row">
+        <span>Theme</span>
+        <select className="dc-setup-select" value={boardTheme} onChange={(event: ChangeEvent<HTMLSelectElement>) => onBoardThemeChange(event.target.value as BoardThemeId)}>
+          {BOARD_THEMES.map((option) => (
+            <option key={option.id} value={option.id}>{option.label}</option>
+          ))}
+        </select>
+      </label>
+      <label className="dc-toggle-row dc-toggle-row--compact">
+        <input type="checkbox" checked={showCoordinates} onChange={(event) => onShowCoordinatesChange(event.target.checked)} />
+        <span>{showCoordinates ? <Eye className="h-4 w-4" aria-hidden /> : <EyeOff className="h-4 w-4" aria-hidden />} Cell coordinates</span>
+      </label>
+      <label className="dc-toggle-row dc-toggle-row--compact">
+        <input type="checkbox" checked={soundEnabled} onChange={(event) => onSoundEnabledChange(event.target.checked)} />
+        <span>{soundEnabled ? <Volume2 className="h-4 w-4" aria-hidden /> : <VolumeX className="h-4 w-4" aria-hidden />} Sounds</span>
+      </label>
+    </div>
+  );
+}
+
+function EndScreen({
+  status,
+  winner,
+  humanColor,
+  moves,
+  materialLead,
+  onPlayAgain,
+  onChangeSettings,
+}: {
+  status: ChessGameStatus;
+  winner: ChessColor | null;
+  humanColor: ChessColor;
+  moves: number;
+  materialLead: string;
+  onPlayAgain: () => void;
+  onChangeSettings: () => void;
+}) {
+  const title = getEndTitle(status, winner, humanColor);
+  const detail = winner ? `${getTurnLabel(winner)} finished the game by ${readableStatus(status).toLowerCase()}.` : status === "stalemate" ? "No legal move is available, so the game is a draw." : "The match finished without a winner.";
+
+  return (
+    <div className="dc-end-screen" role="status" aria-live="polite">
+      <div>
+        <span className="dc-panel-kicker"><Trophy className="h-4 w-4" aria-hidden /> Game result</span>
+        <h3>{title}</h3>
+        <p>{detail}</p>
+      </div>
+      <div className="dc-end-stats">
+        <StatCard label="Moves" value={moves.toString()} />
+        <StatCard label="Material" value={materialLead} />
+      </div>
+      <div className="dc-end-actions">
+        <Button variant="primary" size="sm" onClick={onPlayAgain} leftIcon={<Play className="h-4 w-4" aria-hidden />}>Play again</Button>
+        <Button variant="ghost" size="sm" onClick={onChangeSettings} leftIcon={<RotateCcw className="h-4 w-4" aria-hidden />}>Change setup</Button>
       </div>
     </div>
   );
@@ -661,30 +1097,39 @@ function getStatusTone(currentStatus: ChessGameStatus): "soft" | "success" | "wa
   return "soft";
 }
 
-function getHeadline(currentStatus: ChessGameStatus, turn: ChessColor, winner: ChessColor | null): string {
-  if (currentStatus === "checkmate" && winner) return `${getTurnLabel(winner)} wins by checkmate`;
-  if (currentStatus === "resigned" && winner) return `${getTurnLabel(winner)} wins by resignation`;
-  if (currentStatus === "timeout" && winner) return `${getTurnLabel(winner)} wins on time`;
-  if (currentStatus === "draw" || currentStatus === "stalemate") return currentStatus === "draw" ? "Draw agreed" : "Stalemate — draw";
+function getHeadline(currentStatus: ChessGameStatus, turn: ChessColor, winner: ChessColor | null, phase: GamePhase, computerThinking: boolean, humanColor: ChessColor): string {
+  if (phase === "setup") return "Ready to start";
+  if (computerThinking) return "Computer is thinking";
+  if (currentStatus === "checkmate" && winner) return winner === humanColor ? "You win by checkmate" : "Computer wins by checkmate";
+  if (currentStatus === "resigned" && winner) return winner === humanColor ? "You win by resignation" : "Computer wins by resignation";
+  if (currentStatus === "timeout" && winner) return winner === humanColor ? "You win on time" : "Computer wins on time";
+  if (currentStatus === "draw" || currentStatus === "stalemate") return currentStatus === "draw" ? "Draw" : "Stalemate — draw";
   if (currentStatus === "promotion") return `${getTurnLabel(turn)} promotion choice`;
-  if (currentStatus === "check") return `${getTurnLabel(turn)} king is in check`;
-  return `${getTurnLabel(turn)} to move`;
+  if (currentStatus === "check") return turn === humanColor ? "Your king is in check" : "Computer king is in check";
+  return turn === humanColor ? "Your move" : "Computer to move";
 }
 
-function getStatusSubtext(currentStatus: ChessGameStatus, turn: ChessColor, winner: ChessColor | null, pendingPromotion: PendingPromotion | null): string {
+function getStatusSubtext(currentStatus: ChessGameStatus, turn: ChessColor, winner: ChessColor | null, pendingPromotion: PendingPromotion | null, phase: GamePhase, computerThinking: boolean, humanColor: ChessColor, thinkingElapsedMs: number): string {
+  if (phase === "setup") return "Choose side, difficulty, theme, coordinates, sound, and clock before entering the board.";
+  if (computerThinking) return `The AI is calculating legal replies. Thinking time: ${formatThinkTime(thinkingElapsedMs)}.`;
   if (pendingPromotion) return "Choose queen, rook, bishop, or knight before the next turn begins.";
-  if (currentStatus === "checkmate" && winner) return "The opponent has no legal escape. Start a new game or undo the last move.";
-  if (currentStatus === "resigned" && winner) return "The match ended by resignation.";
-  if (currentStatus === "timeout" && winner) return "The clock reached zero for the opponent.";
-  if (currentStatus === "draw") return "Both local players agreed to end the match as a draw.";
+  if (currentStatus === "checkmate" && winner) return winner === humanColor ? "The computer has no legal escape." : "Your king has no legal escape.";
+  if (currentStatus === "resigned" && winner) return winner === humanColor ? "The computer resigned." : "The match ended by resignation.";
+  if (currentStatus === "timeout" && winner) return "A clock reached zero.";
+  if (currentStatus === "draw") return "The match ended as a draw.";
   if (currentStatus === "stalemate") return "The current player has no legal move but is not in check.";
   if (currentStatus === "check") return "Only moves that protect the king are allowed.";
-  return PLAYER_HINTS[turn];
+  return turn === humanColor ? PLAYER_HINTS[turn] : "Wait for the computer to calculate and respond automatically.";
 }
 
 function getGameOverMessage(currentStatus: ChessGameStatus, winner: ChessColor | null): string {
   if (winner) return `${getTurnLabel(winner)} already won by ${readableStatus(currentStatus).toLowerCase()}. Start a new game to play again.`;
   return "The match is finished. Start a new game to play again.";
+}
+
+function getEndTitle(currentStatus: ChessGameStatus, winner: ChessColor | null, humanColor: ChessColor): string {
+  if (!winner) return currentStatus === "stalemate" ? "Draw by stalemate" : "Draw";
+  return winner === humanColor ? "You won" : "Computer won";
 }
 
 function buildMoveMessage(
@@ -702,6 +1147,14 @@ function buildMoveMessage(
   if (nextStatus === "stalemate") return `${base} Stalemate — draw.`;
   if (nextStatus === "check") return `${base} ${getTurnLabel(nextTurn)} is in check.`;
   return `${base} ${getTurnLabel(nextTurn)} to move.`;
+}
+
+function getSoundForMove(move: ChessMoveRecord, status: ChessGameStatus, winner: ChessColor | null, humanColor: ChessColor): ChessSoundEvent {
+  if (winner) return winner === humanColor ? "win" : "lose";
+  if (status === "stalemate" || status === "draw") return "draw";
+  if (status === "check") return "check";
+  if (move.captured) return "capture";
+  return "move";
 }
 
 function buildSquareLabel(square: ChessSquare, move: ChessMoveTarget | undefined, isSelected: boolean): string {
@@ -741,4 +1194,34 @@ function formatClock(seconds: number | null): string {
   const minutes = Math.floor(seconds / 60).toString().padStart(2, "0");
   const remainingSeconds = (seconds % 60).toString().padStart(2, "0");
   return `${minutes}:${remainingSeconds}`;
+}
+
+function formatThinkTime(milliseconds: number): string {
+  if (milliseconds < 1000) return `${Math.max(0, milliseconds)}ms`;
+  return `${(milliseconds / 1000).toFixed(1)}s`;
+}
+
+const CHESS_SOUND_FILES: Record<ChessSoundEvent, string> = {
+  start: "/games/chess-mini/sounds/chess-start.wav",
+  move: "/games/chess-mini/sounds/chess-move.wav",
+  capture: "/games/chess-mini/sounds/chess-capture.wav",
+  check: "/games/chess-mini/sounds/chess-check.wav",
+  win: "/games/chess-mini/sounds/chess-win.wav",
+  lose: "/games/chess-mini/sounds/chess-lose.wav",
+  draw: "/games/chess-mini/sounds/chess-draw.wav",
+  end: "/games/chess-mini/sounds/chess-end.wav",
+  invalid: "/games/chess-mini/sounds/chess-invalid.wav",
+};
+
+function playChessSound(enabled: boolean, sound: ChessSoundEvent): void {
+  if (!enabled || typeof window === "undefined") return;
+
+  try {
+    const audio = new Audio(CHESS_SOUND_FILES[sound]);
+    audio.volume = sound === "invalid" ? 0.18 : 0.28;
+    audio.preload = "auto";
+    void audio.play().catch(() => undefined);
+  } catch {
+    // Ignore browsers that block audio until a trusted user gesture unlocks playback.
+  }
 }

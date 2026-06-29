@@ -135,7 +135,7 @@ export function ReactionSharePanel({
         <span className="rtp-share-panel-icon" aria-hidden>
           <ImageIcon className="h-4 w-4" />
         </span>
-        <span>
+        <span className="rtp-share-panel-headtext">
           <strong>Share your result</strong>
           <small>Copy text, use native share, or download a PNG card.</small>
         </span>

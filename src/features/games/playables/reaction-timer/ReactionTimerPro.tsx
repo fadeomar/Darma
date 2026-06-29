@@ -222,6 +222,21 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
   useActiveGameplayGuards(!settingsOpen && (classicTimingPhase || precisionTimingPhase));
   useVisibilityInterruption((classicTimingPhase || precisionTimingPhase) && !settingsOpen, handleTimingInterrupt);
 
+  // QA: opening a mode (or starting a run) from the lobby should bring the
+  // active game area into view, since the mode cards can sit far down the page.
+  // Keyed on a single "is the player in an active area" boolean so it scrolls
+  // exactly once per entry and never loops.
+  const inActiveArea = view !== "modes" || phase !== "idle";
+  useEffect(() => {
+    if (!inActiveArea) return;
+    const frame = requestAnimationFrame(() => {
+      const reduce =
+        typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+      shellRef.current?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [inActiveArea]);
+
   const handleShareAction = useCallback(
     (action: ShareActionKind, result: ShareableGameResult) => {
       shareActionComplete({ action, mode: result.mode });
@@ -470,7 +485,7 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
             Resume
           </Button>
           <Button size="lg" variant="outline" onClick={reset} leftIcon={<X className="h-5 w-5" aria-hidden />}>
-            Quit to menu
+            Quit run
           </Button>
         </div>
       </div>

@@ -4,6 +4,7 @@ import type { GameDefinition } from "../domain/game";
 import { GameThumbnail } from "./GameThumbnail";
 import { ReactionTimerPro } from "../playables/reaction-timer";
 import { TetrisGame } from "../playables/tetris";
+import { ChessMiniGame } from "../playables/chess-mini";
 
 /**
  * Polished player area. Real game components can be lazy-loaded later and passed
@@ -22,6 +23,10 @@ export function GamePlayerShell({
 
   if (game.slug === "tetris") {
     return <TetrisGame game={game} />;
+  }
+
+  if (game.slug === "chess-mini") {
+    return <ChessMiniGame game={game} />;
   }
 
   return (

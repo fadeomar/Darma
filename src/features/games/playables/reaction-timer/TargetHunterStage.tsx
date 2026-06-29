@@ -421,7 +421,7 @@ export function TargetHunterStage({
           <p className="rtp-play-sub">The tab or app changed while the timer was active, so this run was not saved.</p>
           <div className="rtp-summary-actions" data-rtp-control="true">
             <Button size="lg" onClick={onRestart}>Try again</Button>
-            <Button size="lg" variant="ghost" onClick={onQuit}>Back</Button>
+            <Button size="lg" variant="ghost" onClick={onQuit}>Quit run</Button>
           </div>
         </div>
       ) : phase === "countdown" ? (

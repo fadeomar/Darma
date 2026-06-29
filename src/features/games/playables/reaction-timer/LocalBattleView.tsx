@@ -26,6 +26,7 @@ import {
 import { buildLocalBattleInsight } from "./reactionInsights";
 import { buildLocalBattleShareResult, type ShareActionKind, type ShareableGameResult } from "./reactionShareCard";
 import { battleResultFlow } from "./reactionSessionFlow";
+import { ReactionSessionFlowPanel } from "./ReactionSessionFlowPanel";
 import type { LocalBattlePlayerId, LocalBattlePlayerResult, LocalBattleResult, LocalBattleStats, LocalBattleType } from "./localBattleTypes";
 import type { PlayCue } from "./reactionAudio";
 import type { Vibrate } from "./reactionHaptics";

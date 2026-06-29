@@ -17,6 +17,7 @@ import { ReactionAchievementToast } from "./ReactionAchievementToast";
 import { ReactionArena } from "./ReactionArena";
 import { ReactionFinalSummary } from "./ReactionFinalSummary";
 import { ReactionModeSelect } from "./ReactionModeSelect";
+import { ReactionOnboardingCard } from "./ReactionOnboardingCard";
 import { ReactionRoundResult } from "./ReactionRoundResult";
 import { ReactionSettingsPanel } from "./ReactionSettingsPanel";
 import { ReactionStatsStrip } from "./ReactionStatsStrip";
@@ -30,6 +31,7 @@ import { getInstruction } from "./reactionMachine";
 import { CLASSIC_ROUNDS } from "./reactionScoring";
 import { hapticsSupported } from "./reactionHaptics";
 import { useFullscreen, useReducedMotion } from "./reactionHooks";
+import { useReactionOnboarding } from "./reactionOnboarding";
 import { useActiveGameplayGuards, useVisibilityInterruption } from "./reactionRuntimeGuards";
 import { useReactionGame } from "./useReactionGame";
 import type { ReactionPhase } from "./reactionTypes";
@@ -60,6 +62,7 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [hapticsAvailable, setHapticsAvailable] = useState(false);
   const [lastInputMethod, setLastInputMethod] = useState<InputMethod>("unknown");
+  const { ready: onboardingReady, onboarding, completeIntro } = useReactionOnboarding();
   // Which mode owns the arena. "modes" shows the selector + classic/practice
   // flow; the others hand the arena to that mode's view.
   const [view, setView] = useState<"modes" | "precision" | "target-hunter" | "level-challenge" | "daily-challenge" | "local-battle">("modes");
@@ -166,6 +169,25 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
   }, []);
 
   const closeSettings = useCallback(() => setSettingsOpen(false), []);
+
+  const hasAnyHistory = Boolean(
+    hydrated &&
+      (stats.officialRuns > 0 ||
+        stats.practiceRuns > 0 ||
+        stats.precision.precisionRuns > 0 ||
+        stats.targetHunter.targetHunterRuns > 0 ||
+        stats.levelChallenge.levelChallengeRuns > 0 ||
+        stats.daily.recentDailyResults.length > 0 ||
+        stats.localBattle.localBattleRuns > 0),
+  );
+  const showFirstRunOnboarding = hydrated && onboardingReady && !onboarding.introCompleted && !hasAnyHistory;
+  const completeOnboardingAndStartClassic = useCallback(() => {
+    completeIntro("completed");
+    start("classic");
+  }, [completeIntro, start]);
+  const skipOnboarding = useCallback(() => {
+    completeIntro("skipped");
+  }, [completeIntro]);
 
   // Sprint 12: while timing-sensitive play is active, keep the page from
   // scrolling/selecting text and pause Classic runs if the tab becomes hidden.
@@ -328,18 +350,49 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
     );
   } else if (phase === "idle") {
     overlay = (
-      <ReactionModeSelect
-        stats={stats}
-        hydrated={hydrated}
-        lastResult={stats.lastResults[0] ?? null}
-        onStartClassic={() => start("classic")}
-        onStartPractice={() => start("practice")}
-        onOpenPrecision={openPrecision}
-        onOpenTargetHunter={openTargetHunter}
-        onOpenLevelChallenge={openLevelChallenge}
-        onOpenDailyChallenge={openDailyChallenge}
-        onOpenLocalBattle={openLocalBattle}
-      />
+      <div className="rtp-lobby-stack">
+        {showFirstRunOnboarding ? (
+          <ReactionOnboardingCard
+            onStartClassic={completeOnboardingAndStartClassic}
+            onSkip={skipOnboarding}
+          />
+        ) : null}
+        <ReactionModeSelect
+          stats={stats}
+          hydrated={hydrated}
+          lastResult={stats.lastResults[0] ?? null}
+          isNewUser={!hasAnyHistory}
+          recommendedMode="classic"
+          onStartClassic={() => {
+            if (showFirstRunOnboarding) completeIntro("completed");
+            start("classic");
+          }}
+          onStartPractice={() => {
+            if (showFirstRunOnboarding) completeIntro("completed");
+            start("practice");
+          }}
+          onOpenPrecision={() => {
+            if (showFirstRunOnboarding) completeIntro("completed");
+            openPrecision();
+          }}
+          onOpenTargetHunter={() => {
+            if (showFirstRunOnboarding) completeIntro("completed");
+            openTargetHunter();
+          }}
+          onOpenLevelChallenge={() => {
+            if (showFirstRunOnboarding) completeIntro("completed");
+            openLevelChallenge();
+          }}
+          onOpenDailyChallenge={() => {
+            if (showFirstRunOnboarding) completeIntro("completed");
+            openDailyChallenge();
+          }}
+          onOpenLocalBattle={() => {
+            if (showFirstRunOnboarding) completeIntro("completed");
+            openLocalBattle();
+          }}
+        />
+      </div>
     );
   } else if (phase === "round-result") {
     overlay = (
@@ -364,6 +417,7 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
         onPractice={() => start("practice")}
         onMenu={reset}
         inputMethod={lastInputMethod}
+        showFirstRunGuide={state.run.mode === "classic" && previousRun === null}
         onShareAction={handleShareAction}
       />
     );

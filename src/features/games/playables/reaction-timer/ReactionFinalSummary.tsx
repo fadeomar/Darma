@@ -9,6 +9,7 @@ import { cn } from "@/lib/cn";
 import { copyTextToClipboard } from "@/lib/copy-to-clipboard";
 import { analyzeRun, buildShareText, formatMs } from "./reactionScoring";
 import { ReactionInsightPanel } from "./ReactionInsightPanel";
+import { ReactionFirstRunGuide } from "./ReactionOnboardingCard";
 import { ReactionSharePanel } from "./ReactionSharePanel";
 import { buildClassicInsight, type InputMethod } from "./reactionInsights";
 import { buildClassicShareResult, type ShareActionKind, type ShareableGameResult } from "./reactionShareCard";
@@ -34,6 +35,7 @@ export function ReactionFinalSummary({
   onMenu,
   onViewStats,
   inputMethod = "unknown",
+  showFirstRunGuide = false,
   onShareAction,
 }: {
   run: RunSummary;
@@ -45,6 +47,7 @@ export function ReactionFinalSummary({
   onMenu: () => void;
   onViewStats?: () => void;
   inputMethod?: InputMethod;
+  showFirstRunGuide?: boolean;
   onShareAction?: (action: ShareActionKind, result: ShareableGameResult) => void;
 }) {
   const [copied, setCopied] = useState(false);
@@ -127,6 +130,8 @@ export function ReactionFinalSummary({
       ) : null}
 
       <ReactionInsightPanel insight={education} />
+
+      {showFirstRunGuide ? <ReactionFirstRunGuide /> : null}
 
       <ReactionSharePanel result={shareResult} onShareAction={onShareAction} compact />
 

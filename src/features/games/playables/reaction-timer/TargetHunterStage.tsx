@@ -22,6 +22,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Crosshair, LogOut } from "lucide-react";
 import { Button } from "@/components/ui";
 import { cn } from "@/lib/cn";
+import { isGameplayControlTarget, useActiveGameplayGuards, useVisibilityInterruption } from "./reactionRuntimeGuards";
 import type { PlayCue } from "./reactionAudio";
 import type { Vibrate } from "./reactionHaptics";
 import {
@@ -54,18 +55,20 @@ export function TargetHunterStage({
   vibrate,
   onComplete,
   onQuit,
+  onRestart,
 }: {
   reducedMotion: boolean;
   play: PlayCue;
   vibrate: Vibrate;
   onComplete: (result: TargetHunterResult) => void;
   onQuit: () => void;
+  onRestart: () => void;
 }) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const wrapRef = useRef<HTMLDivElement | null>(null);
 
   const [countdownValue, setCountdownValue] = useState<number>(TARGET_HUNTER_COUNTDOWN_FROM);
-  const [phase, setPhase] = useState<"countdown" | "active">("countdown");
+  const [phase, setPhase] = useState<"countdown" | "active" | "interrupted">("countdown");
   const [hud, setHud] = useState<TargetHunterHud>(EMPTY_HUD);
 
   // Stable refs for callbacks/flags so the rAF effect runs exactly once.
@@ -105,6 +108,19 @@ export function TargetHunterStage({
 
   const effectsRef = useRef<Effect[]>([]);
 
+  const interruptRun = useCallback(() => {
+    const g = game.current;
+    if (g.phase !== "countdown" && g.phase !== "active") return;
+    g.phase = "done";
+    g.finished = true;
+    g.target = null;
+    setPhase("interrupted");
+    playRef.current("result.bad");
+  }, []);
+
+  useActiveGameplayGuards(phase === "countdown" || phase === "active");
+  useVisibilityInterruption(phase === "countdown" || phase === "active", interruptRun);
+
   // Push a fresh HUD snapshot from the authoritative counters. Stable identity —
   // it only reads refs + the stable setHud, so the rAF loop can call it safely.
   const pushHud = useCallback(() => {
@@ -125,6 +141,8 @@ export function TargetHunterStage({
   // Pointer hit/miss detection. Counts only while a run is active. Records touch
   // usage and measures hit time with performance.now() (never frame time).
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (isGameplayControlTarget(event.target)) return;
+    event.preventDefault();
     const g = game.current;
     if (g.phase !== "active") return;
     const wrap = wrapRef.current;
@@ -383,7 +401,17 @@ export function TargetHunterStage({
     >
       <canvas ref={canvasRef} aria-hidden className="rtp-canvas rtp-th-canvas" />
 
-      {phase === "countdown" ? (
+      {phase === "interrupted" ? (
+        <div className="rtp-run-interrupted" role="status" aria-live="assertive">
+          <span className="rtp-eyebrow">Run interrupted</span>
+          <h2 className="rtp-pause-title">Timing paused for fairness</h2>
+          <p className="rtp-play-sub">The tab or app changed while the timer was active, so this run was not saved.</p>
+          <div className="rtp-summary-actions" data-rtp-control="true">
+            <Button size="lg" onClick={onRestart}>Try again</Button>
+            <Button size="lg" variant="ghost" onClick={onQuit}>Back</Button>
+          </div>
+        </div>
+      ) : phase === "countdown" ? (
         <div className="rtp-th-countdown">
           <span className="rtp-eyebrow">Target Hunter</span>
           <div className="rtp-instruction rtp-instruction--countdown" aria-live="assertive">

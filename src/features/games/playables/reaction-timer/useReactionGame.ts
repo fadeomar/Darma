@@ -23,7 +23,10 @@ import { evaluatePrecision } from "./precisionScoring";
 import { getRank, randomWaitMs } from "./reactionScoring";
 import {
   EMPTY_STORAGE,
+  mergeDailyChallenge,
   mergeLevelChallenge,
+  mergeLocalBattle,
+  mergeShareAction,
   mergePrecision,
   mergeRun,
   mergeTargetHunter,
@@ -32,9 +35,11 @@ import {
   resetLevelChallenge,
   writeStorage,
 } from "./reactionStorage";
-import type { GameMode, ReactionStorageV2, RunSummary } from "./reactionTypes";
+import type { GameMode, ReactionStorageV2, RunSummary, ShareActionResult } from "./reactionTypes";
 import type { TargetHunterResult } from "./targetHunterTypes";
 import type { LevelChallengeResult } from "./levelChallengeTypes";
+import type { DailyChallengeResult } from "./dailyChallengeTypes";
+import type { LocalBattleResult } from "./localBattleTypes";
 
 const COUNTDOWN_INTERVAL_MS = 650;
 const TOO_EARLY_RETRY_MS = 1300;
@@ -382,6 +387,62 @@ export function useReactionGame() {
     });
   }, []);
 
+  /** Persist a finished Daily Challenge result + unlock daily achievements. */
+  const dailyChallengeComplete = useCallback(
+    (result: DailyChallengeResult) => {
+      play(result.objectivePassed ? "final.victory" : "result.average");
+      vibrate(result.objectivePassed ? "victory" : "tap");
+      setStats((current) => {
+        const before = new Set(current.achievements);
+        const next = mergeDailyChallenge(current, result);
+        writeStorage(next);
+        const newly = next.achievements.filter((id) => !before.has(id));
+        if (newly.length) setNewAchievements(newly);
+        return next;
+      });
+    },
+    [play, vibrate],
+  );
+
+  /** Clear stale achievement toasts when a Daily Challenge attempt begins. */
+  const dailyChallengeStart = useCallback(() => setNewAchievements([]), []);
+
+  /** Persist a finished Local Battle + unlock two-player achievements. */
+  const localBattleComplete = useCallback(
+    (result: LocalBattleResult) => {
+      play(result.winner === "draw" ? "result.average" : "final.victory");
+      vibrate(result.winner === "draw" ? "tap" : "victory");
+      setStats((current) => {
+        const before = new Set(current.achievements);
+        const next = mergeLocalBattle(current, result);
+        writeStorage(next);
+        const newly = next.achievements.filter((id) => !before.has(id));
+        if (newly.length) setNewAchievements(newly);
+        return next;
+      });
+    },
+    [play, vibrate],
+  );
+
+  /** Clear stale achievement toasts when a Local Battle begins. */
+  const localBattleStart = useCallback(() => setNewAchievements([]), []);
+
+  /** Persist successful share/copy/download actions + unlock Sprint 11 share achievements. */
+  const shareActionComplete = useCallback(
+    (action: Omit<ShareActionResult, "at">) => {
+      const stamped: ShareActionResult = { ...action, at: new Date().toISOString() };
+      setStats((current) => {
+        const before = new Set(current.achievements);
+        const next = mergeShareAction(current, stamped);
+        writeStorage(next);
+        const newly = next.achievements.filter((id) => !before.has(id));
+        if (newly.length) setNewAchievements(newly);
+        return next;
+      });
+    },
+    [],
+  );
+
   const toggleSound = useCallback(
     () => updateSetting("soundEnabled", !settings.soundEnabled),
     [updateSetting, settings.soundEnabled],
@@ -440,6 +501,14 @@ export function useReactionGame() {
     levelChallengeStart,
     resetLevelProgress,
     previousLevelScore,
+    // Daily Challenge mode
+    dailyChallengeComplete,
+    dailyChallengeStart,
+    // Local Battle mode
+    localBattleComplete,
+    localBattleStart,
+    // Shareable result cards
+    shareActionComplete,
     // Shared feedback (stable identities) for the canvas engines.
     play,
     vibrate,

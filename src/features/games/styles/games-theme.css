@@ -3316,3 +3316,1010 @@
     transition: none;
   }
 }
+
+/* Sprint 8 — Daily Challenge + local return loop */
+.rtp-daily-shell {
+  touch-action: manipulation;
+  user-select: none;
+}
+
+.rtp-daily-lobby,
+.rtp-daily-intro,
+.rtp-daily-result,
+.rtp-daily-play {
+  display: grid;
+  justify-items: center;
+  gap: 0.9rem;
+  width: min(920px, 100%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.rtp-daily-goal {
+  display: inline-grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0.8rem;
+  max-width: 720px;
+  padding: 0.95rem 1.05rem;
+  border: 1px solid var(--color-primary-border);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--color-primary-soft), rgba(255,255,255,0.06));
+  color: var(--color-text-primary);
+  text-align: start;
+}
+
+.rtp-daily-goal strong,
+.rtp-daily-goal span span {
+  display: block;
+}
+
+.rtp-daily-goal-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  background: var(--color-surface-overlay);
+  color: var(--color-primary);
+}
+
+.rtp-daily-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+.rtp-daily-local-note,
+.rtp-daily-hunt-note {
+  max-width: 680px;
+  color: var(--color-text-tertiary);
+  font-size: 0.86rem;
+}
+
+.rtp-daily-live-timer,
+.rtp-daily-score {
+  font-size: clamp(3.5rem, 13vw, 7.5rem);
+  line-height: 0.95;
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  color: var(--color-text-primary);
+  text-shadow: 0 16px 42px rgba(0,0,0,0.18);
+}
+
+.rtp-daily-score {
+  color: var(--color-primary);
+}
+
+.rtp-daily-hunt {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  cursor: crosshair;
+}
+
+.rtp-daily-target {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  border-radius: 999px;
+  border: 3px solid rgba(255,255,255,0.9);
+  background:
+    radial-gradient(circle at 50% 50%, var(--color-primary) 0 24%, transparent 25% 34%, var(--color-primary) 35% 52%, transparent 53% 100%),
+    linear-gradient(135deg, var(--color-primary-soft), var(--color-primary));
+  box-shadow: 0 0 0 8px rgba(255,255,255,0.12), 0 18px 42px rgba(0,0,0,0.22);
+  pointer-events: none;
+}
+
+.rtp-daily-hud {
+  position: absolute;
+  top: 0.85rem;
+  left: 50%;
+  z-index: 4;
+  transform: translateX(-50%);
+}
+
+.rtp-daily-hud span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.rtp-daily-hunt-note {
+  position: absolute;
+  left: 50%;
+  bottom: 1rem;
+  z-index: 3;
+  transform: translateX(-50%);
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--color-border-default);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-surface-overlay) 88%, transparent);
+}
+
+.rtp-daily-stats,
+.rtp-daily-stats .rtp-local-board {
+  width: 100%;
+}
+
+.rtp-daily-routine-card {
+  display: grid;
+  gap: 0.25rem;
+  margin-top: 0.9rem;
+  padding: 0.95rem;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-subtle);
+}
+
+.rtp-daily-routine-title,
+.rtp-local-board-title {
+  font-weight: 800;
+  color: var(--color-text-primary);
+}
+
+.rtp-daily-routine-text,
+.rtp-daily-routine-note {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+.rtp-local-board {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.rtp-local-board-list {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rtp-local-board-row {
+  display: grid;
+  grid-template-columns: 3rem 6rem 1fr;
+  gap: 0.65rem;
+  align-items: center;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-base);
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+.rtp-local-board-row span:nth-child(2) {
+  font-weight: 800;
+  color: var(--color-text-primary);
+}
+
+@media (max-width: 640px) {
+  .rtp-daily-goal {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .rtp-daily-hud {
+    width: calc(100% - 1rem);
+    justify-content: center;
+  }
+
+  .rtp-local-board-row {
+    grid-template-columns: 2.5rem 5rem 1fr;
+    font-size: 0.78rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rtp-daily-target {
+    box-shadow: 0 0 0 4px rgba(255,255,255,0.12);
+  }
+}
+
+.rtp-daily-shell .rtp-stage-overlay {
+  max-width: none;
+}
+
+/* Sprint 9 — Local Battle / two-player mode */
+.rtp-battle-shell {
+  touch-action: manipulation;
+  user-select: none;
+}
+
+.rtp-battle-lobby,
+.rtp-battle-ready,
+.rtp-battle-result {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  width: min(100%, 980px);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.rtp-battle-namegrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  width: min(100%, 720px);
+}
+
+.rtp-battle-namefield {
+  display: grid;
+  gap: 0.45rem;
+  text-align: start;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.rtp-battle-namefield span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.rtp-battle-namefield input {
+  width: 100%;
+  min-height: 2.9rem;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color-surface-base) 84%, transparent);
+  color: var(--color-text-primary);
+  padding: 0.65rem 0.8rem;
+  outline: none;
+}
+
+.rtp-battle-namefield input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 18%, transparent);
+}
+
+.rtp-battle-typegrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.rtp-battle-type {
+  display: grid;
+  gap: 0.45rem;
+  align-content: start;
+  min-height: 12rem;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(circle at 20% 10%, color-mix(in srgb, var(--color-primary) 16%, transparent), transparent 34%),
+    color-mix(in srgb, var(--color-surface-base) 88%, transparent);
+  color: var(--color-text-primary);
+  padding: 1rem;
+  text-align: start;
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.rtp-battle-type:hover,
+.rtp-battle-type:focus-visible,
+.rtp-battle-type--active {
+  border-color: color-mix(in srgb, var(--color-primary) 55%, var(--color-border-default));
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.14);
+  transform: translateY(-2px);
+}
+
+.rtp-battle-type-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.55rem;
+  height: 2.55rem;
+  border-radius: 999px;
+  background: var(--color-surface-overlay);
+  color: var(--color-primary);
+}
+
+.rtp-battle-type-title,
+.rtp-battle-player-name {
+  color: var(--color-text-primary);
+  font-weight: 900;
+}
+
+.rtp-battle-type-desc,
+.rtp-battle-local-note,
+.rtp-battle-turn-summary {
+  color: var(--color-text-secondary);
+  font-size: 0.92rem;
+}
+
+.rtp-battle-type-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: auto;
+}
+
+.rtp-battle-type-badges span {
+  border: 1px solid var(--color-border-default);
+  border-radius: 999px;
+  color: var(--color-text-tertiary);
+  padding: 0.25rem 0.55rem;
+  font-size: 0.78rem;
+}
+
+.rtp-battle-active {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+  padding: clamp(1rem, 4vw, 2rem);
+  overflow: hidden;
+  cursor: pointer;
+  text-align: center;
+}
+
+.rtp-battle-hud {
+  position: absolute;
+  top: 0.85rem;
+  left: 50%;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+  width: min(100% - 1rem, 820px);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.rtp-battle-signal {
+  font-size: clamp(4rem, 16vw, 9rem);
+  line-height: 0.9;
+  color: var(--color-text-primary);
+  font-weight: 950;
+  letter-spacing: -0.08em;
+  text-shadow: 0 18px 60px rgba(0,0,0,0.2);
+}
+
+.rtp-battle-signal--go {
+  color: var(--color-success, var(--color-primary));
+}
+
+.rtp-battle-signal--error {
+  color: var(--color-danger, var(--color-error, #ef4444));
+}
+
+.rtp-battle-compare {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  width: min(100%, 780px);
+}
+
+.rtp-battle-player-card {
+  display: grid;
+  gap: 0.35rem;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  background: color-mix(in srgb, var(--color-surface-base) 86%, transparent);
+  color: var(--color-text-secondary);
+  padding: 1rem;
+  text-align: start;
+}
+
+.rtp-battle-player-card--winner {
+  border-color: color-mix(in srgb, var(--color-primary) 60%, var(--color-border-default));
+  background:
+    radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--color-primary) 16%, transparent), transparent 36%),
+    color-mix(in srgb, var(--color-surface-base) 92%, transparent);
+}
+
+.rtp-battle-stats {
+  width: 100%;
+}
+
+@media (max-width: 760px) {
+  .rtp-battle-namegrid,
+  .rtp-battle-typegrid,
+  .rtp-battle-compare {
+    grid-template-columns: 1fr;
+  }
+
+  .rtp-battle-type {
+    min-height: auto;
+  }
+
+  .rtp-battle-hud {
+    top: 0.55rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rtp-battle-type {
+    transition: none;
+  }
+
+  .rtp-battle-type:hover,
+  .rtp-battle-type:focus-visible,
+  .rtp-battle-type--active {
+    transform: none;
+  }
+}
+
+/* Sprint 10 — Educational insights + accuracy notes */
+.rtp-insight-panel {
+  display: grid;
+  gap: 0.75rem;
+  width: min(100%, 760px);
+  margin: 1rem auto 0;
+  border: 1px solid color-mix(in srgb, var(--color-primary) 22%, var(--color-border-default));
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--color-primary) 14%, transparent), transparent 42%),
+    color-mix(in srgb, var(--color-surface-base) 90%, transparent);
+  padding: clamp(0.9rem, 2vw, 1.15rem);
+  text-align: start;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+}
+
+.rtp-insight-panel--compact {
+  max-width: 720px;
+  margin-top: 0.85rem;
+  padding: 0.85rem;
+}
+
+.rtp-insight-head {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.rtp-insight-head h3 {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: 1rem;
+  font-weight: 850;
+}
+
+.rtp-insight-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-primary) 16%, transparent);
+  color: var(--color-primary);
+}
+
+.rtp-insight-list {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rtp-insight-item {
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color-surface-raised) 88%, transparent);
+  color: var(--color-text-secondary);
+  padding: 0.65rem 0.75rem;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.rtp-insight-item--good {
+  border-color: color-mix(in srgb, var(--color-success, #22c55e) 34%, var(--color-border-default));
+}
+
+.rtp-insight-item--warn {
+  border-color: color-mix(in srgb, var(--color-warning, #f59e0b) 42%, var(--color-border-default));
+}
+
+.rtp-insight-tip,
+.rtp-insight-input,
+.rtp-accuracy-note {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.rtp-insight-tip {
+  border-left: 3px solid color-mix(in srgb, var(--color-primary) 52%, transparent);
+  padding-left: 0.75rem;
+}
+
+.rtp-accuracy-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  margin: 0;
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color-surface-muted) 72%, transparent);
+  padding: 0.7rem 0.8rem;
+}
+
+.rtp-accuracy-note svg {
+  flex: 0 0 auto;
+  color: var(--color-primary);
+  margin-top: 0.1rem;
+}
+
+.rtp-education {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.rtp-education-card {
+  width: 100%;
+}
+
+.rtp-education-sub {
+  margin: 0.2rem 0 0;
+  color: var(--color-text-secondary);
+  font-size: 0.93rem;
+}
+
+.rtp-education-highlight,
+.rtp-education-mini,
+.rtp-classroom-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  background: color-mix(in srgb, var(--color-surface-raised) 82%, transparent);
+  color: var(--color-text-secondary);
+  padding: 0.9rem;
+  line-height: 1.5;
+}
+
+.rtp-education-highlight {
+  margin-top: 1rem;
+  border-color: color-mix(in srgb, var(--color-primary) 28%, var(--color-border-default));
+}
+
+.rtp-education-highlight p,
+.rtp-classroom-card p {
+  margin: 0;
+}
+
+.rtp-education-highlight svg,
+.rtp-education-mini svg,
+.rtp-classroom-card svg {
+  flex: 0 0 auto;
+  color: var(--color-primary);
+  margin-top: 0.15rem;
+}
+
+.rtp-education-insights {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin-top: 0.8rem;
+}
+
+.rtp-education-mini {
+  min-height: 100%;
+  padding: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.rtp-learn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.9rem;
+}
+
+.rtp-learn-item {
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  background: color-mix(in srgb, var(--color-surface-base) 88%, transparent);
+  overflow: hidden;
+}
+
+.rtp-learn-item summary {
+  cursor: pointer;
+  color: var(--color-text-primary);
+  font-weight: 800;
+  padding: 0.85rem 0.95rem;
+  outline: none;
+}
+
+.rtp-learn-item summary:focus-visible {
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--color-primary) 70%, white);
+}
+
+.rtp-learn-copy {
+  border-top: 1px solid var(--color-border-default);
+  color: var(--color-text-secondary);
+  padding: 0.85rem 0.95rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.rtp-learn-copy ul {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.rtp-classroom-card {
+  margin-top: 0.9rem;
+}
+
+.rtp-classroom-card h4 {
+  margin: 0 0 0.25rem;
+  color: var(--color-text-primary);
+  font-size: 1rem;
+}
+
+.rtp-shell--contrast .rtp-insight-panel,
+.rtp-shell--contrast .rtp-education-highlight,
+.rtp-shell--contrast .rtp-education-mini,
+.rtp-shell--contrast .rtp-classroom-card,
+.rtp-shell--contrast .rtp-learn-item,
+.rtp-shell--contrast .rtp-insight-item {
+  border-color: var(--color-text-primary);
+}
+
+@media (max-width: 760px) {
+  .rtp-education-insights,
+  .rtp-learn-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rtp-insight-panel {
+    margin-top: 0.75rem;
+  }
+}
+
+/* Sprint 11 — Shareable result cards */
+.rtp-share-panel {
+  width: min(100%, 760px);
+  margin: 1.05rem auto 0;
+  border: 1px solid color-mix(in srgb, var(--color-border) 78%, transparent);
+  border-radius: 1.45rem;
+  background:
+    radial-gradient(circle at 8% 0%, color-mix(in srgb, var(--color-primary) 11%, transparent), transparent 36%),
+    color-mix(in srgb, var(--color-surface) 94%, transparent);
+  box-shadow: 0 18px 45px color-mix(in srgb, var(--color-foreground) 9%, transparent);
+  overflow: hidden;
+  touch-action: manipulation;
+}
+
+.rtp-share-panel-head {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1rem 1.1rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.rtp-share-panel-head strong {
+  display: block;
+  font-size: 0.98rem;
+  line-height: 1.2;
+}
+
+.rtp-share-panel-head small {
+  display: block;
+  margin-top: 0.15rem;
+  color: var(--color-muted-foreground);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.rtp-share-panel-icon,
+.rtp-share-panel-toggle {
+  display: grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+  color: var(--color-primary);
+  font-weight: 900;
+}
+
+.rtp-share-panel-body {
+  display: grid;
+  gap: 0.9rem;
+  padding: 0 1.1rem 1.1rem;
+}
+
+.rtp-share-preview {
+  border-radius: 1.1rem;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--color-border) 72%, transparent);
+  background: color-mix(in srgb, var(--color-muted) 45%, transparent);
+  aspect-ratio: 1200 / 630;
+}
+
+.rtp-share-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rtp-share-preview-placeholder {
+  min-height: 12rem;
+  display: grid;
+  place-items: center;
+  gap: 0.4rem;
+  color: var(--color-muted-foreground);
+  font-weight: 700;
+}
+
+.rtp-share-copytext {
+  border-radius: 1rem;
+  padding: 0.85rem 0.95rem;
+  background: color-mix(in srgb, var(--color-muted) 36%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-border) 68%, transparent);
+}
+
+.rtp-share-copytext-label {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: var(--color-muted-foreground);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.rtp-share-copytext p {
+  margin: 0;
+  color: var(--color-foreground);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.rtp-share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+.rtp-share-note {
+  margin: 0;
+  color: var(--color-muted-foreground);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.rtp-share-stats .rtp-daily-routine-note {
+  display: block;
+  margin-top: 0.85rem;
+}
+
+@media (max-width: 640px) {
+  .rtp-share-panel-head {
+    padding: 0.9rem;
+  }
+
+  .rtp-share-panel-body {
+    padding: 0 0.9rem 0.9rem;
+  }
+
+  .rtp-share-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .rtp-share-actions .btn,
+  .rtp-share-actions button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rtp-share-panel,
+  .rtp-share-panel * {
+    transition: none !important;
+  }
+}
+
+/* Sprint 12 — mobile/fullscreen/performance QA polish ---------------------- */
+html.rtp-gameplay-active,
+html.rtp-gameplay-active body {
+  overscroll-behavior: contain;
+}
+
+html.rtp-gameplay-active body {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.rtp-stage--active-run,
+.rtp-stage[data-rtp-active-stage="true"],
+.rtp-th-stage,
+.rtp-lc-stage,
+.rtp-battle-active {
+  overscroll-behavior: contain;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.rtp-stage [data-rtp-control="true"],
+.rtp-stage [data-rtp-control="true"] *,
+.rtp-battle-active [data-rtp-control="true"],
+.rtp-battle-active [data-rtp-control="true"] * {
+  touch-action: manipulation;
+  -webkit-user-select: auto;
+  user-select: auto;
+}
+
+.rtp-run-interrupted {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 1.5rem;
+  text-align: center;
+  color: #fff;
+  background:
+    radial-gradient(circle at 50% 24%, rgba(255, 255, 255, 0.14), transparent 22rem),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(8, 12, 22, 0.96));
+}
+
+.rtp-run-interrupted .rtp-summary-actions {
+  margin-top: 1.1rem;
+}
+
+.rtp-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  overflow-y: auto;
+  background: rgba(4, 6, 12, 0.62);
+  backdrop-filter: blur(6px);
+}
+
+.rtp-shell:fullscreen .rtp-th-shell,
+.rtp-shell:fullscreen .rtp-battle-shell,
+.rtp-shell:fullscreen .rtp-daily-shell,
+.rtp-shell:fullscreen .rtp-lc-stage,
+.rtp-shell:fullscreen .rtp-th-stage,
+.rtp-shell--fullscreen .rtp-th-shell,
+.rtp-shell--fullscreen .rtp-battle-shell,
+.rtp-shell--fullscreen .rtp-daily-shell,
+.rtp-shell--fullscreen .rtp-lc-stage,
+.rtp-shell--fullscreen .rtp-th-stage {
+  min-height: 0;
+  height: 100%;
+}
+
+@supports (height: 100dvh) {
+  .rtp-shell:fullscreen,
+  .rtp-shell--fullscreen {
+    height: 100dvh;
+  }
+}
+
+@media (max-width: 760px) {
+  .rtp-topbar {
+    align-items: flex-start;
+  }
+
+  .rtp-topbar-controls {
+    width: 100%;
+    gap: 0.4rem;
+  }
+
+  .rtp-topbar-controls > .btn,
+  .rtp-topbar-controls > button {
+    min-height: 2.4rem;
+  }
+
+  .rtp-stage {
+    min-height: min(560px, calc(100dvh - 5rem));
+    padding: 1.75rem 0.85rem;
+  }
+
+  .rtp-stage-overlay {
+    max-width: min(100%, 38rem);
+  }
+
+  .rtp-lobby-actions,
+  .rtp-result-actions,
+  .rtp-summary-actions,
+  .rtp-pause-actions {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .rtp-lobby-actions .btn,
+  .rtp-lobby-actions button,
+  .rtp-result-actions .btn,
+  .rtp-result-actions button,
+  .rtp-summary-actions .btn,
+  .rtp-summary-actions button,
+  .rtp-pause-actions .btn,
+  .rtp-pause-actions button {
+    min-height: 2.85rem;
+    flex: 1 1 12rem;
+  }
+
+  .rtp-th-hud,
+  .rtp-lc-hud,
+  .rtp-battle-hud,
+  .rtp-daily-hud {
+    max-width: calc(100% - 1.25rem);
+    justify-content: center;
+  }
+
+  .rtp-th-active-hint {
+    max-width: calc(100% - 7.5rem);
+    white-space: normal;
+    justify-content: center;
+    text-wrap: balance;
+  }
+
+  .rtp-stage-top {
+    top: 0.6rem;
+    right: 0.6rem;
+  }
+
+  .rtp-hovercontrol {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .rtp-stage {
+    min-height: min(520px, calc(100dvh - 4rem));
+  }
+
+  .rtp-instruction--go {
+    font-size: clamp(3rem, 18vw, 5.5rem);
+  }
+
+  .rtp-lobby-stat {
+    min-width: min(9.5rem, 100%);
+  }
+
+  .rtp-th-hud-stat {
+    min-width: 2.2rem;
+    padding-inline: 0.25rem;
+  }
+
+  .rtp-th-hud-value {
+    font-size: 0.95rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rtp-run-interrupted,
+  .rtp-hovercontrol {
+    transition: none !important;
+  }
+}

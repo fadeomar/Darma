@@ -20,17 +20,23 @@ import { ReactionModeSelect } from "./ReactionModeSelect";
 import { ReactionRoundResult } from "./ReactionRoundResult";
 import { ReactionSettingsPanel } from "./ReactionSettingsPanel";
 import { ReactionStatsStrip } from "./ReactionStatsStrip";
+import { ReactionEducationSection } from "./ReactionEducationSection";
 import { PrecisionView } from "./PrecisionView";
 import { TargetHunterView } from "./TargetHunterView";
 import { LevelChallengeView } from "./LevelChallengeView";
+import { DailyChallengeView } from "./DailyChallengeView";
+import { LocalBattleView } from "./LocalBattleView";
 import { getInstruction } from "./reactionMachine";
 import { CLASSIC_ROUNDS } from "./reactionScoring";
 import { hapticsSupported } from "./reactionHaptics";
 import { useFullscreen, useReducedMotion } from "./reactionHooks";
+import { useActiveGameplayGuards, useVisibilityInterruption } from "./reactionRuntimeGuards";
 import { useReactionGame } from "./useReactionGame";
 import type { ReactionPhase } from "./reactionTypes";
+import type { InputMethod } from "./reactionInsights";
 import type { ReactionState } from "./reactionMachine";
 import type { PrecisionPhase } from "./precisionTypes";
+import type { ShareActionKind, ShareableGameResult } from "./reactionShareCard";
 
 /** Map a precision phase to a reaction phase so the shared Canvas picks a tone. */
 const PRECISION_CANVAS_PHASE: Record<PrecisionPhase, ReactionPhase> = {
@@ -53,9 +59,10 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
   const { isFullscreen, toggle: toggleFullscreen } = useFullscreen(shellRef);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [hapticsAvailable, setHapticsAvailable] = useState(false);
+  const [lastInputMethod, setLastInputMethod] = useState<InputMethod>("unknown");
   // Which mode owns the arena. "modes" shows the selector + classic/practice
   // flow; the others hand the arena to that mode's view.
-  const [view, setView] = useState<"modes" | "precision" | "target-hunter" | "level-challenge">("modes");
+  const [view, setView] = useState<"modes" | "precision" | "target-hunter" | "level-challenge" | "daily-challenge" | "local-battle">("modes");
   const game$ = useReactionGame();
   const {
     state,
@@ -96,6 +103,11 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
     levelChallengeStart,
     resetLevelProgress,
     previousLevelScore,
+    dailyChallengeComplete,
+    dailyChallengeStart,
+    localBattleComplete,
+    localBattleStart,
+    shareActionComplete,
     play,
     vibrate,
   } = game$;
@@ -104,8 +116,12 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
   const inPrecision = view === "precision";
   const inTargetHunter = view === "target-hunter";
   const inLevelChallenge = view === "level-challenge";
+  const inDailyChallenge = view === "daily-challenge";
+  const inLocalBattle = view === "local-battle";
   const isPlayPhase = phase === "waiting" || phase === "signal";
   const isClassic = state.mode === "classic";
+  const classicTimingPhase = ["countdown", "waiting", "signal", "too-early", "round-result"].includes(phase);
+  const precisionTimingPhase = inPrecision && ["countdown", "running"].includes(precision.phase);
 
   const openPrecision = useCallback(() => setView("precision"), []);
   const exitPrecision = useCallback(() => {
@@ -116,6 +132,10 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
   const exitTargetHunter = useCallback(() => setView("modes"), []);
   const openLevelChallenge = useCallback(() => setView("level-challenge"), []);
   const exitLevelChallenge = useCallback(() => setView("modes"), []);
+  const openDailyChallenge = useCallback(() => setView("daily-challenge"), []);
+  const exitDailyChallenge = useCallback(() => setView("modes"), []);
+  const openLocalBattle = useCallback(() => setView("local-battle"), []);
+  const exitLocalBattle = useCallback(() => setView("modes"), []);
   // Treat system reduced-motion and the in-game "reduce effects" setting alike.
   const calmMotion = reducedMotion || settings.reducedEffects;
 
@@ -124,7 +144,42 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
     setHapticsAvailable(hapticsSupported());
   }, []);
 
+  // Lightweight input-method awareness for educational result notes. It is not
+  // used for scoring, because browser/device latency can vary by input path.
+  useEffect(() => {
+    const onPointerDown = (event: PointerEvent) => {
+      if (event.pointerType === "touch" || event.pointerType === "pen" || event.pointerType === "mouse") {
+        setLastInputMethod(event.pointerType);
+      } else {
+        setLastInputMethod("mouse");
+      }
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.code === "Space" || event.code === "Enter") setLastInputMethod("keyboard");
+    };
+    window.addEventListener("pointerdown", onPointerDown, { capture: true });
+    window.addEventListener("keydown", onKeyDown, { capture: true });
+    return () => {
+      window.removeEventListener("pointerdown", onPointerDown, { capture: true });
+      window.removeEventListener("keydown", onKeyDown, { capture: true });
+    };
+  }, []);
+
   const closeSettings = useCallback(() => setSettingsOpen(false), []);
+
+  // Sprint 12: while timing-sensitive play is active, keep the page from
+  // scrolling/selecting text and pause Classic runs if the tab becomes hidden.
+  useActiveGameplayGuards(!settingsOpen && (classicTimingPhase || precisionTimingPhase));
+  useVisibilityInterruption(classicTimingPhase && !settingsOpen, () => {
+    if (["countdown", "waiting", "signal", "too-early", "round-result"].includes(phase)) pause();
+  });
+
+  const handleShareAction = useCallback(
+    (action: ShareActionKind, result: ShareableGameResult) => {
+      shareActionComplete({ action, mode: result.mode });
+    },
+    [shareActionComplete],
+  );
 
   // Global keyboard: Space/Enter reacts (or starts / advances); Esc pauses.
   // Suppressed while the settings dialog owns input.
@@ -153,6 +208,27 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
           if (typeof document !== "undefined" && document.fullscreenElement) return;
           event.preventDefault();
           exitLevelChallenge();
+        }
+        return;
+      }
+
+      // Daily Challenge owns its own keyboard flow. Only intercept Esc here to
+      // leave the mode when the browser is not already using it for fullscreen.
+      if (inDailyChallenge) {
+        if (event.key === "Escape") {
+          if (typeof document !== "undefined" && document.fullscreenElement) return;
+          event.preventDefault();
+          exitDailyChallenge();
+        }
+        return;
+      }
+
+      // Local Battle owns turn-level input. Only intercept Esc to leave the mode.
+      if (inLocalBattle) {
+        if (event.key === "Escape") {
+          if (typeof document !== "undefined" && document.fullscreenElement) return;
+          event.preventDefault();
+          exitLocalBattle();
         }
         return;
       }
@@ -209,22 +285,22 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [phase, press, start, advanceNow, pause, resume, settingsOpen, inPrecision, precision.phase, precisionStop, precisionStart, precisionRetry, exitPrecision, inTargetHunter, exitTargetHunter, inLevelChallenge, exitLevelChallenge]);
+  }, [phase, press, start, advanceNow, pause, resume, settingsOpen, inPrecision, precision.phase, precisionStop, precisionStart, precisionRetry, exitPrecision, inTargetHunter, exitTargetHunter, inLevelChallenge, exitLevelChallenge, inDailyChallenge, exitDailyChallenge, inLocalBattle, exitLocalBattle]);
 
   const fullscreenControls = isFullscreen ? (
     <div className="rtp-hovercontrols">
-      <button type="button" className="rtp-hovercontrol" onClick={toggleSound} aria-label={soundEnabled ? "Mute sound" : "Unmute sound"}>
+      <button type="button" className="rtp-hovercontrol" data-rtp-control="true" onClick={toggleSound} aria-label={soundEnabled ? "Mute sound" : "Unmute sound"}>
         {soundEnabled ? <Volume2 className="h-5 w-5" aria-hidden /> : <VolumeX className="h-5 w-5" aria-hidden />}
       </button>
-      <button type="button" className="rtp-hovercontrol" onClick={() => setSettingsOpen(true)} aria-label="Open settings">
+      <button type="button" className="rtp-hovercontrol" data-rtp-control="true" onClick={() => setSettingsOpen(true)} aria-label="Open settings">
         <Settings className="h-5 w-5" aria-hidden />
       </button>
       {["countdown", "waiting", "signal", "round-result", "too-early"].includes(phase) ? (
-        <button type="button" className="rtp-hovercontrol" onClick={pause} aria-label="Pause">
+        <button type="button" className="rtp-hovercontrol" data-rtp-control="true" onClick={pause} aria-label="Pause">
           <Pause className="h-5 w-5" aria-hidden />
         </button>
       ) : null}
-      <button type="button" className="rtp-hovercontrol" onClick={toggleFullscreen} aria-label="Exit fullscreen">
+      <button type="button" className="rtp-hovercontrol" data-rtp-control="true" onClick={toggleFullscreen} aria-label="Exit fullscreen">
         <X className="h-5 w-5" aria-hidden />
       </button>
     </div>
@@ -247,6 +323,7 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
         onStart={precisionStart}
         onRetry={precisionRetry}
         onBack={exitPrecision}
+        onShareAction={handleShareAction}
       />
     );
   } else if (phase === "idle") {
@@ -260,6 +337,8 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
         onOpenPrecision={openPrecision}
         onOpenTargetHunter={openTargetHunter}
         onOpenLevelChallenge={openLevelChallenge}
+        onOpenDailyChallenge={openDailyChallenge}
+        onOpenLocalBattle={openLocalBattle}
       />
     );
   } else if (phase === "round-result") {
@@ -284,6 +363,8 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
         onPlayAgain={() => start("classic")}
         onPractice={() => start("practice")}
         onMenu={reset}
+        inputMethod={lastInputMethod}
+        onShareAction={handleShareAction}
       />
     );
   } else if (phase === "paused") {
@@ -393,7 +474,39 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
         </div>
       </div>
 
-      {inLevelChallenge ? (
+      {inLocalBattle ? (
+        <LocalBattleView
+          stats={stats.localBattle}
+          hydrated={hydrated}
+          reducedMotion={calmMotion}
+          highContrast={settings.highContrastMode}
+          play={play}
+          vibrate={vibrate}
+          onComplete={localBattleComplete}
+          onRunStart={localBattleStart}
+          onBack={exitLocalBattle}
+          onShareAction={handleShareAction}
+          topControls={fullscreenControls}
+          modal={settingsModal}
+          onModalBackdrop={closeSettings}
+        />
+      ) : inDailyChallenge ? (
+        <DailyChallengeView
+          stats={stats.daily}
+          hydrated={hydrated}
+          reducedMotion={calmMotion}
+          highContrast={settings.highContrastMode}
+          play={play}
+          vibrate={vibrate}
+          onComplete={dailyChallengeComplete}
+          onRunStart={dailyChallengeStart}
+          onBack={exitDailyChallenge}
+          onShareAction={handleShareAction}
+          topControls={fullscreenControls}
+          modal={settingsModal}
+          onModalBackdrop={closeSettings}
+        />
+      ) : inLevelChallenge ? (
         <LevelChallengeView
           stats={stats.levelChallenge}
           hydrated={hydrated}
@@ -406,6 +519,7 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
           onRunStart={levelChallengeStart}
           onResetProgress={resetLevelProgress}
           onBack={exitLevelChallenge}
+          onShareAction={handleShareAction}
           topControls={fullscreenControls}
           modal={settingsModal}
           onModalBackdrop={closeSettings}
@@ -422,6 +536,7 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
           onComplete={targetHunterComplete}
           onRunStart={targetHunterStart}
           onBack={exitTargetHunter}
+          onShareAction={handleShareAction}
           topControls={fullscreenControls}
           modal={settingsModal}
           onModalBackdrop={closeSettings}
@@ -456,6 +571,8 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
         unlockedAchievements={unlockedAchievements}
         onClearStats={clearStats}
       />
+
+      <ReactionEducationSection stats={stats} lastInputMethod={lastInputMethod} />
 
       <ReactionAchievementToast achievements={newlyUnlocked} onDismiss={dismissAchievements} />
     </div>

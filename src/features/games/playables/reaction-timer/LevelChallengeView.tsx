@@ -15,6 +15,8 @@
 import { useState, type ReactNode } from "react";
 import { ArrowLeft, ArrowRight, Check, Copy, Lock, Play, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui";
+import { ReactionInsightPanel } from "./ReactionInsightPanel";
+import { ReactionSharePanel } from "./ReactionSharePanel";
 import { cn } from "@/lib/cn";
 import { copyTextToClipboard } from "@/lib/copy-to-clipboard";
 import { LevelChallengeStage } from "./LevelChallengeStage";
@@ -30,6 +32,8 @@ import {
   getLevelChallengeRank,
   getLevelDef,
 } from "./levelChallengeScoring";
+import { buildLevelChallengeInsight } from "./reactionInsights";
+import { buildLevelChallengeShareResult, type ShareActionKind, type ShareableGameResult } from "./reactionShareCard";
 import type { LevelChallengeResult, LevelChallengeStats } from "./levelChallengeTypes";
 
 type LevelState = "locked" | "current" | "completed";
@@ -199,6 +203,7 @@ function LevelResultCard({
   onRetry,
   onBack,
   onRestartChallenge,
+  onShareAction,
 }: {
   result: LevelChallengeResult;
   previousBestScore: number;
@@ -209,10 +214,13 @@ function LevelResultCard({
   onRetry: () => void;
   onBack: () => void;
   onRestartChallenge: () => void;
+  onShareAction?: (action: ShareActionKind, result: ShareableGameResult) => void;
 }) {
   const [copied, setCopied] = useState(false);
   const rank = getLevelChallengeRank(result.passed, result.score, result.accuracy);
   const isBest = result.passed && result.score > previousBestScore;
+  const insight = buildLevelChallengeInsight(result, allCompleted);
+  const shareResult = buildLevelChallengeShareResult(result, allCompleted);
 
   const handleCopy = async () => {
     const ok = await copyTextToClipboard(buildLevelChallengeShareText(result));
@@ -237,6 +245,8 @@ function LevelResultCard({
           <span>{challengeRank.label}</span>
         </div>
         <p className="rtp-result-tip">Overall best score {formatLevelScore(challengeTotalBest)}. {challengeRank.note}</p>
+        <ReactionInsightPanel insight={insight} compact />
+        <ReactionSharePanel result={shareResult} onShareAction={onShareAction} compact />
         <div className="rtp-summary-actions">
           <Button size="lg" onClick={onRestartChallenge} leftIcon={<RotateCcw className="h-5 w-5" aria-hidden />}>
             Play again from Level 1
@@ -311,6 +321,10 @@ function LevelResultCard({
             }. ${getLevelDef(result.level).tip}`}
       </p>
 
+      <ReactionInsightPanel insight={insight} compact />
+
+      <ReactionSharePanel result={shareResult} onShareAction={onShareAction} compact />
+
       <div className="rtp-summary-actions">
         {result.passed && onNextLevel ? (
           <Button size="lg" onClick={onNextLevel} leftIcon={<ArrowRight className="h-5 w-5" aria-hidden />}>
@@ -357,6 +371,7 @@ export function LevelChallengeView({
   topControls,
   modal,
   onModalBackdrop,
+  onShareAction,
 }: {
   stats: LevelChallengeStats;
   hydrated: boolean;
@@ -372,6 +387,7 @@ export function LevelChallengeView({
   topControls?: ReactNode;
   modal?: ReactNode;
   onModalBackdrop?: () => void;
+  onShareAction?: (action: ShareActionKind, result: ShareableGameResult) => void;
 }) {
   const [phase, setPhase] = useState<"lobby" | "intro" | "playing" | "result">("lobby");
   const [level, setLevel] = useState(1);
@@ -432,6 +448,7 @@ export function LevelChallengeView({
           vibrate={vibrate}
           onComplete={handleComplete}
           onQuit={() => setPhase("lobby")}
+          onRestart={startLevel}
         />
       ) : (
         <div className="rtp-stage-overlay">
@@ -456,6 +473,7 @@ export function LevelChallengeView({
               onRetry={startLevel}
               onBack={onBack}
               onRestartChallenge={() => openIntro(1)}
+              onShareAction={onShareAction}
             />
           ) : null}
         </div>

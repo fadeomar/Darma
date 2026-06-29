@@ -6,14 +6,14 @@
  * snapshot. Each card explains what the mode tests and offers one clear CTA.
  */
 
-import { Crosshair, Gauge, Layers, Timer, Zap } from "lucide-react";
+import { CalendarClock, Crosshair, Gauge, Layers, Swords, Timer, Zap } from "lucide-react";
 import { Button } from "@/components/ui";
 import { formatMs } from "./reactionScoring";
 import { formatSignedMs } from "./precisionScoring";
 import type { ReactionStorageV2, RunSummary } from "./reactionTypes";
 
 type Mode = {
-  id: "classic" | "practice" | "precision" | "target-hunter" | "level-challenge";
+  id: "classic" | "practice" | "precision" | "target-hunter" | "level-challenge" | "daily-challenge" | "local-battle";
   icon: typeof Zap;
   title: string;
   description: string;
@@ -68,6 +68,24 @@ const MODES: Mode[] = [
     cta: "Open Level Challenge",
     variant: "secondary",
   },
+  {
+    id: "daily-challenge",
+    icon: CalendarClock,
+    title: "Daily Challenge",
+    description: "Play today’s seeded reflex challenge and keep your local streak alive.",
+    badges: ["Daily", "Streak", "Local only"],
+    cta: "Open Daily",
+    variant: "secondary",
+  },
+  {
+    id: "local-battle",
+    icon: Swords,
+    title: "Local Battle",
+    description: "Take turns on the same device and see who has the sharper reflexes.",
+    badges: ["2 players", "Local only", "No login"],
+    cta: "Open Battle",
+    variant: "secondary",
+  },
 ];
 
 export function ReactionModeSelect({
@@ -79,6 +97,8 @@ export function ReactionModeSelect({
   onOpenPrecision,
   onOpenTargetHunter,
   onOpenLevelChallenge,
+  onOpenDailyChallenge,
+  onOpenLocalBattle,
 }: {
   stats: ReactionStorageV2;
   hydrated: boolean;
@@ -88,6 +108,8 @@ export function ReactionModeSelect({
   onOpenPrecision: () => void;
   onOpenTargetHunter: () => void;
   onOpenLevelChallenge: () => void;
+  onOpenDailyChallenge: () => void;
+  onOpenLocalBattle: () => void;
 }) {
   const handlers: Record<Mode["id"], () => void> = {
     classic: onStartClassic,
@@ -95,6 +117,8 @@ export function ReactionModeSelect({
     precision: onOpenPrecision,
     "target-hunter": onOpenTargetHunter,
     "level-challenge": onOpenLevelChallenge,
+    "daily-challenge": onOpenDailyChallenge,
+    "local-battle": onOpenLocalBattle,
   };
 
   return (
@@ -144,6 +168,14 @@ export function ReactionModeSelect({
               ? formatSignedMs(stats.precision.bestSignedDifferenceMs)
               : "—"}
           </span>
+        </div>
+        <div className="rtp-lobby-stat">
+          <span className="rtp-lobby-stat-label">Daily streak</span>
+          <span className="rtp-lobby-stat-value">{hydrated ? `${stats.daily.dailyStreak}` : "—"}</span>
+        </div>
+        <div className="rtp-lobby-stat">
+          <span className="rtp-lobby-stat-label">Local battles</span>
+          <span className="rtp-lobby-stat-value">{hydrated ? `${stats.localBattle.localBattleRuns}` : "—"}</span>
         </div>
         <div className="rtp-lobby-stat">
           <span className="rtp-lobby-stat-label">Last result</span>

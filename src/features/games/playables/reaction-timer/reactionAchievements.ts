@@ -389,6 +389,196 @@ export const ACHIEVEMENTS: Achievement[] = [
     rarity: "uncommon",
     isUnlocked: (ctx) => ctx.stats.levelChallenge.unlockedLevel >= 4,
   },
+
+
+  // Local Battle (Sprint 9). These unlock from local-only two-player battles.
+  {
+    id: "battle-first-duel",
+    glyph: "⚔️",
+    title: "First Duel",
+    description: "Complete your first Local Battle.",
+    rarity: "common",
+    isUnlocked: (ctx) => ctx.stats.localBattle.localBattleRuns >= 1,
+  },
+  {
+    id: "battle-friendly-rivalry",
+    glyph: "🤝",
+    title: "Friendly Rivalry",
+    description: "Complete 5 local battles.",
+    rarity: "uncommon",
+    isUnlocked: (ctx) => ctx.stats.localBattle.localBattleRuns >= 5,
+    progress: (s) => ({ current: Math.min(s.localBattle.localBattleRuns, 5), target: 5 }),
+  },
+  {
+    id: "battle-close-match",
+    glyph: "🪡",
+    title: "Close Match",
+    description: "Finish a battle with a very small margin.",
+    rarity: "uncommon",
+    isUnlocked: (ctx) =>
+      ctx.localBattle != null &&
+      (ctx.localBattle.marginLabel.includes("0 ms") ||
+        ctx.localBattle.marginLabel.includes("1 ms") ||
+        ctx.localBattle.marginLabel.includes("2 ms") ||
+        ctx.localBattle.winner === "draw"),
+  },
+  {
+    id: "battle-clean-duel",
+    glyph: "🧼",
+    title: "Clean Duel",
+    description: "Win a Classic Battle with zero early presses.",
+    rarity: "rare",
+    isUnlocked: (ctx) => {
+      const battle = ctx.localBattle;
+      if (!battle || battle.battleType !== "classic" || battle.winner === "draw") return false;
+      const result = battle.winner === "player1" ? battle.player1Result : battle.player2Result;
+      return result.kind === "classic" && result.earlyPresses === 0;
+    },
+  },
+  {
+    id: "battle-precision-duelist",
+    glyph: "⏱️",
+    title: "Precision Duelist",
+    description: "Win a Precision Battle.",
+    rarity: "uncommon",
+    isUnlocked: (ctx) => ctx.localBattle != null && ctx.localBattle.battleType === "precision" && ctx.localBattle.winner !== "draw",
+  },
+  {
+    id: "battle-hunter-duelist",
+    glyph: "🏹",
+    title: "Hunter Duelist",
+    description: "Win a Target Hunt Battle.",
+    rarity: "uncommon",
+    isUnlocked: (ctx) => ctx.localBattle != null && ctx.localBattle.battleType === "target-hunter" && ctx.localBattle.winner !== "draw",
+  },
+  {
+    id: "battle-rematch",
+    glyph: "🔁",
+    title: "Rematch",
+    description: "Use rematch after a battle.",
+    rarity: "common",
+    isUnlocked: (ctx) => ctx.stats.localBattle.rematchCount >= 1,
+  },
+
+  // Daily Challenge (Sprint 8). These read the daily stats slice and the latest
+  // daily result. Multiple attempts on the same date never duplicate-unlock.
+  {
+    id: "daily-starter",
+    glyph: "📅",
+    title: "Daily Starter",
+    description: "Complete your first Daily Challenge.",
+    rarity: "common",
+    isUnlocked: (ctx) => ctx.stats.daily.recentDailyResults.length >= 1,
+  },
+  {
+    id: "daily-streak-two",
+    glyph: "🔥",
+    title: "Streak Two",
+    description: "Complete daily challenges on 2 different local days.",
+    rarity: "uncommon",
+    isUnlocked: (ctx) => ctx.stats.daily.longestDailyStreak >= 2,
+    progress: (s) => ({ current: Math.min(s.daily.longestDailyStreak, 2), target: 2 }),
+  },
+  {
+    id: "daily-streak-five",
+    glyph: "🏆",
+    title: "Streak Five",
+    description: "Complete daily challenges on 5 different local days.",
+    rarity: "rare",
+    isUnlocked: (ctx) => ctx.stats.daily.longestDailyStreak >= 5,
+    progress: (s) => ({ current: Math.min(s.daily.longestDailyStreak, 5), target: 5 }),
+  },
+  {
+    id: "daily-perfect",
+    glyph: "💎",
+    title: "Daily Perfect",
+    description: "Achieve a top rank in any Daily Challenge.",
+    rarity: "rare",
+    isUnlocked: (ctx) => ctx.dailyChallenge != null && ctx.dailyChallenge.score >= 900,
+  },
+  {
+    id: "daily-comeback-day",
+    glyph: "📈",
+    title: "Comeback Day",
+    description: "Improve today’s result after a replay.",
+    rarity: "uncommon",
+    isUnlocked: (ctx) => ctx.dailyChallenge != null && ctx.dailyChallenge.improvedToday,
+  },
+  {
+    id: "daily-weekly-reflex",
+    glyph: "🗓️",
+    title: "Weekly Reflex",
+    description: "Complete 5 daily challenges within the local activity window.",
+    rarity: "rare",
+    isUnlocked: (ctx) => ctx.stats.daily.weeklyActivity.length >= 5,
+    progress: (s) => ({ current: Math.min(s.daily.weeklyActivity.length, 5), target: 5 }),
+  },
+  {
+    id: "daily-local-champion",
+    glyph: "🥇",
+    title: "Local Champion",
+    description: "Set a new local daily leaderboard best.",
+    rarity: "rare",
+    isUnlocked: (ctx) =>
+      ctx.dailyChallenge != null &&
+      ctx.stats.daily.localLeaderboards[0]?.id === ctx.dailyChallenge.id,
+  },
+  {
+    id: "daily-consistent-routine",
+    glyph: "✅",
+    title: "Consistent Routine",
+    description: "Complete 3 daily challenges with good accuracy.",
+    rarity: "uncommon",
+    isUnlocked: (ctx) => ctx.stats.daily.recentDailyResults.filter((r) => r.accuracy >= 75).length >= 3,
+    progress: (s) => ({
+      current: Math.min(s.daily.recentDailyResults.filter((r) => r.accuracy >= 75).length, 3),
+      target: 3,
+    }),
+  },
+
+  // Shareable result cards (Sprint 11). These unlock only after a successful
+  // copy/native-share/download action, all local-only and duplicate-safe.
+  {
+    id: "share-first",
+    glyph: "📣",
+    title: "First Share",
+    description: "Copy or share your first result.",
+    rarity: "common",
+    isUnlocked: (ctx) => ctx.stats.share.shareCount >= 1,
+  },
+  {
+    id: "share-downloaded-card",
+    glyph: "🖼️",
+    title: "Downloaded Card",
+    description: "Download your first result card PNG.",
+    rarity: "common",
+    isUnlocked: (ctx) => ctx.stats.share.downloadCount >= 1,
+  },
+  {
+    id: "share-daily-brag",
+    glyph: "📅",
+    title: "Daily Brag",
+    description: "Share a Daily Challenge result.",
+    rarity: "uncommon",
+    isUnlocked: (ctx) => ctx.stats.share.dailyShareCount >= 1,
+  },
+  {
+    id: "share-friendly-challenge",
+    glyph: "⚔️",
+    title: "Friendly Challenge",
+    description: "Share a Local Battle result.",
+    rarity: "uncommon",
+    isUnlocked: (ctx) => ctx.stats.share.battleShareCount >= 1,
+  },
+  {
+    id: "share-reflex-story",
+    glyph: "🧩",
+    title: "Reflex Story",
+    description: "Share results from 3 different modes.",
+    rarity: "rare",
+    isUnlocked: (ctx) => ctx.stats.share.sharedModes.length >= 3,
+    progress: (s) => ({ current: Math.min(s.share.sharedModes.length, 3), target: 3 }),
+  },
 ];
 
 export const ACHIEVEMENT_COUNT = ACHIEVEMENTS.length;

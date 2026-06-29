@@ -23,8 +23,12 @@ import {
   Layers,
   Lightbulb,
   Lock,
+  RotateCcw,
   Target,
   Timer,
+  Swords,
+  Share2,
+  Download,
   Trophy,
   Zap,
 } from "lucide-react";
@@ -46,9 +50,13 @@ import {
   getLevelChallengeRank,
   getLevelDef,
 } from "./levelChallengeScoring";
+import { formatDailyType, getDailyRank } from "./dailyChallengeScoring";
+import { describePlayerResult, formatBattleType } from "./localBattleScoring";
 import type { PrecisionStats } from "./precisionTypes";
 import type { TargetHunterStats } from "./targetHunterTypes";
 import type { LevelChallengeStats } from "./levelChallengeTypes";
+import type { DailyChallengeStats } from "./dailyChallengeTypes";
+import type { LocalBattleStats } from "./localBattleTypes";
 import type { Achievement, ReactionStorageV2 } from "./reactionTypes";
 
 const CHART_MIN_MS = 120;
@@ -316,6 +324,129 @@ function LevelChallengeStatsPanel({ lc }: { lc: LevelChallengeStats }) {
   );
 }
 
+
+function DailyChallengeStatsPanel({ daily }: { daily: DailyChallengeStats }) {
+  const recent = daily.recentDailyResults;
+  const best = daily.localLeaderboards.find((entry) => entry.mode === "daily") ?? null;
+  return (
+    <Card variant="default" padding="lg" className="rtp-daily-stats">
+      <div className="rtp-panel-head">
+        <CalendarClock className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+        <h3 className="rtp-panel-title">Daily Challenge</h3>
+      </div>
+      <div className="rtp-statgrid" style={{ marginTop: "0.9rem" }}>
+        <StatCard icon={Flame} label="Daily streak" value={String(daily.dailyStreak)} />
+        <StatCard icon={Trophy} label="Longest streak" value={String(daily.longestDailyStreak)} />
+        <StatCard icon={BarChart3} label="Best daily" value={best ? `${best.score} pts` : "—"} />
+        <StatCard icon={CalendarClock} label="Routine" value={daily.weeklyActivity.length ? `${daily.weeklyActivity.length} days` : "—"} />
+      </div>
+
+      <div className="rtp-daily-routine-card">
+        <span className="rtp-daily-routine-title">Your Reflex Routine</span>
+        <span className="rtp-daily-routine-text">
+          {daily.lastDailyCompletionDate ? `Last daily completed: ${daily.lastDailyCompletionDate}` : "Play today’s challenge to start your local routine."}
+        </span>
+        <span className="rtp-daily-routine-note">{daily.weeklyActivity.length ? `${daily.weeklyActivity.length} local play day${daily.weeklyActivity.length === 1 ? "" : "s"} in the recent activity window.` : "New challenge tomorrow."}</span>
+      </div>
+
+      {recent.length ? (
+        <ul className="rtp-history">
+          {recent.slice(0, 6).map((run) => {
+            const rank = getDailyRank(run.score);
+            return (
+              <li key={run.id} className="rtp-history-row">
+                <span className="rtp-history-rank">
+                  <span aria-hidden>{rank.glyph}</span>
+                  {rank.label}
+                  {run.objectivePassed ? <span className="rtp-history-clean">Goal</span> : null}
+                </span>
+                <span className="rtp-history-meta">
+                  {run.dateKey} · {formatDailyType(run.challengeType)} · {run.score} pts · {run.primaryMetric}
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+      ) : null}
+
+      {daily.localLeaderboards.length ? (
+        <div className="rtp-local-board">
+          <span className="rtp-local-board-title">Local leaderboard on this device only</span>
+          <ol className="rtp-local-board-list">
+            {daily.localLeaderboards.slice(0, 5).map((entry, index) => (
+              <li key={entry.id} className="rtp-local-board-row">
+                <span>#{index + 1}</span>
+                <span>{entry.score} pts</span>
+                <span>{entry.primaryMetric}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      ) : null}
+    </Card>
+  );
+}
+
+
+function ShareStatsPanel({ stats }: { stats: ReactionStorageV2["share"] }) {
+  if (stats.shareCount <= 0) return null;
+  return (
+    <Card variant="default" padding="lg" className="rtp-share-stats">
+      <div className="rtp-panel-head">
+        <Share2 className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+        <h3 className="rtp-panel-title">Share Cards</h3>
+      </div>
+      <div className="rtp-statgrid" style={{ marginTop: "0.9rem" }}>
+        <StatCard icon={Share2} label="Shares" value={String(stats.shareCount)} />
+        <StatCard icon={Download} label="Downloads" value={String(stats.downloadCount)} />
+        <StatCard icon={Target} label="Modes shared" value={`${stats.sharedModes.length}`} />
+        <StatCard icon={CalendarClock} label="Last shared" value={relativeDay(stats.lastSharedAt)} />
+      </div>
+      <p className="rtp-daily-routine-note">
+        Result cards are generated locally in your browser. No uploads, account, or backend are used.
+      </p>
+    </Card>
+  );
+}
+
+
+function LocalBattleStatsPanel({ battle }: { battle: LocalBattleStats }) {
+  return (
+    <Card variant="default" padding="lg" className="rtp-battle-stats">
+      <div className="rtp-panel-head">
+        <Swords className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+        <h3 className="rtp-panel-title">Local Battle</h3>
+      </div>
+      <div className="rtp-statgrid" style={{ marginTop: "0.9rem" }}>
+        <StatCard icon={Swords} label="Battles" value={String(battle.localBattleRuns)} />
+        <StatCard icon={Trophy} label="Last winner" value={battle.lastWinner ?? "—"} />
+        <StatCard icon={Zap} label="Best classic avg" value={battle.bestBattleClassicAverage !== null ? `${battle.bestBattleClassicAverage} ms` : "—"} />
+        <StatCard icon={Timer} label="Best precision" value={battle.bestBattlePrecisionDiff !== null ? `±${battle.bestBattlePrecisionDiff} ms` : "—"} />
+        <StatCard icon={Crosshair} label="Best target score" value={battle.bestBattleTargetScore ? battle.bestBattleTargetScore.toLocaleString() : "—"} />
+        <StatCard icon={RotateCcw} label="Rematches" value={String(battle.rematchCount)} />
+      </div>
+
+      {battle.recentBattles.length ? (
+        <ul className="rtp-history">
+          {battle.recentBattles.slice(0, 6).map((run) => (
+            <li key={run.id} className="rtp-history-row">
+              <span className="rtp-history-rank">
+                <span aria-hidden>{run.winner === "draw" ? "🤝" : "⚔️"}</span>
+                {formatBattleType(run.battleType)}
+                {run.rematch ? <span className="rtp-history-clean">Rematch</span> : null}
+              </span>
+              <span className="rtp-history-meta">
+                {run.winner === "draw" ? "Draw" : `${run.winnerLabel} won`} · {run.marginLabel} · {describePlayerResult(run.winner === "player2" ? run.player2Result : run.player1Result)}
+              </span>
+            </li>
+          ))}
+        </ul>
+      ) : null}
+      <p className="rtp-daily-routine-note">Local battles are stored only on this device.</p>
+    </Card>
+  );
+}
+
 export function ReactionStatsStrip({
   stats,
   hydrated,
@@ -387,6 +518,16 @@ export function ReactionStatsStrip({
         <LevelChallengeStatsPanel lc={stats.levelChallenge} />
       ) : null}
 
+      {hydrated && stats.daily.recentDailyResults.length > 0 ? (
+        <DailyChallengeStatsPanel daily={stats.daily} />
+      ) : null}
+
+      {hydrated && stats.localBattle.localBattleRuns > 0 ? (
+        <LocalBattleStatsPanel battle={stats.localBattle} />
+      ) : null}
+
+      {hydrated && stats.share.shareCount > 0 ? <ShareStatsPanel stats={stats.share} /> : null}
+
       <div className="rtp-stats-panels">
         <Card variant="default" padding="lg">
           <div className="rtp-panel-head">
@@ -449,7 +590,7 @@ export function ReactionStatsStrip({
         <div className="rtp-clear-confirm" role="alertdialog" aria-label="Confirm reset of local reaction stats">
           <span className="rtp-clear-confirm-text">
             <AlertTriangle className="h-4 w-4 text-[var(--color-warning)]" aria-hidden />
-            This permanently erases your best time, averages, history, streak, and achievements on this device. Your
+            This permanently erases your best time, averages, history, daily streak, local leaderboard, share history, and achievements on this device. Your
             settings are kept.
           </span>
           <div className="rtp-clear-confirm-actions">

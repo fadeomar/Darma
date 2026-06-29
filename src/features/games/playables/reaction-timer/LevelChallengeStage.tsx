@@ -18,6 +18,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Crosshair, LogOut } from "lucide-react";
 import { Button } from "@/components/ui";
 import { cn } from "@/lib/cn";
+import { isGameplayControlTarget, useActiveGameplayGuards, useVisibilityInterruption } from "./reactionRuntimeGuards";
 import type { PlayCue } from "./reactionAudio";
 import type { Vibrate } from "./reactionHaptics";
 import {
@@ -65,6 +66,7 @@ export function LevelChallengeStage({
   vibrate,
   onComplete,
   onQuit,
+  onRestart,
 }: {
   def: LevelDef;
   /** True when this level was already failed earlier in the session. */
@@ -74,11 +76,12 @@ export function LevelChallengeStage({
   vibrate: Vibrate;
   onComplete: (result: LevelChallengeResult) => void;
   onQuit: () => void;
+  onRestart: () => void;
 }) {
   const wrapRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  const [phase, setPhase] = useState<"countdown" | "active">("countdown");
+  const [phase, setPhase] = useState<"countdown" | "active" | "interrupted">("countdown");
   const [countdownValue, setCountdownValue] = useState(LEVEL_COUNTDOWN_FROM);
   const [signalLabel, setSignalLabel] = useState<"wait" | "go" | null>(null);
   const [hud, setHud] = useState<LevelChallengeHud>({
@@ -131,6 +134,20 @@ export function LevelChallengeStage({
     oppsResolved: 0,
     nextSpawnAt: 0,
   });
+
+  const interruptLevel = useCallback(() => {
+    const g = game.current;
+    if (g.phase !== "countdown" && g.phase !== "active") return;
+    g.phase = "done";
+    g.finished = true;
+    g.round = null;
+    setSignalLabel(null);
+    setPhase("interrupted");
+    playRef.current("result.bad");
+  }, []);
+
+  useActiveGameplayGuards(phase === "countdown" || phase === "active");
+  useVisibilityInterruption(phase === "countdown" || phase === "active", interruptLevel);
 
   const pushHud = useCallback(() => {
     const g = game.current;
@@ -251,6 +268,8 @@ export function LevelChallengeStage({
   };
 
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (isGameplayControlTarget(event.target)) return;
+    event.preventDefault();
     handlePress(event.clientX, event.clientY);
   };
 
@@ -560,7 +579,17 @@ export function LevelChallengeStage({
     >
       <canvas ref={canvasRef} aria-hidden className="rtp-canvas rtp-lc-canvas" />
 
-      {phase === "countdown" ? (
+      {phase === "interrupted" ? (
+        <div className="rtp-run-interrupted" role="status" aria-live="assertive">
+          <span className="rtp-eyebrow">Level interrupted</span>
+          <h2 className="rtp-pause-title">Timing paused for fairness</h2>
+          <p className="rtp-play-sub">The tab or app changed while this level was active, so the attempt was not saved.</p>
+          <div className="rtp-summary-actions" data-rtp-control="true">
+            <Button size="lg" onClick={onRestart}>Try again</Button>
+            <Button size="lg" variant="ghost" onClick={onQuit}>Back</Button>
+          </div>
+        </div>
+      ) : phase === "countdown" ? (
         <div className="rtp-lc-countdown">
           <span className="rtp-eyebrow">
             Level {def.level} · {def.title}

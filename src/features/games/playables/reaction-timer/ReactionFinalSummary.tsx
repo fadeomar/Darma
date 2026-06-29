@@ -8,6 +8,10 @@ import { Button } from "@/components/ui";
 import { cn } from "@/lib/cn";
 import { copyTextToClipboard } from "@/lib/copy-to-clipboard";
 import { analyzeRun, buildShareText, formatMs } from "./reactionScoring";
+import { ReactionInsightPanel } from "./ReactionInsightPanel";
+import { ReactionSharePanel } from "./ReactionSharePanel";
+import { buildClassicInsight, type InputMethod } from "./reactionInsights";
+import { buildClassicShareResult, type ShareActionKind, type ShareableGameResult } from "./reactionShareCard";
 import type { RunSummary } from "./reactionTypes";
 
 function SummaryStat({ label, value, hint }: { label: string; value: string; hint?: string }) {
@@ -29,6 +33,8 @@ export function ReactionFinalSummary({
   onPractice,
   onMenu,
   onViewStats,
+  inputMethod = "unknown",
+  onShareAction,
 }: {
   run: RunSummary;
   previousBestMs: number | null;
@@ -38,10 +44,14 @@ export function ReactionFinalSummary({
   onPractice: () => void;
   onMenu: () => void;
   onViewStats?: () => void;
+  inputMethod?: InputMethod;
+  onShareAction?: (action: ShareActionKind, result: ShareableGameResult) => void;
 }) {
   const [copied, setCopied] = useState(false);
   const analysis = analyzeRun(run, previousBestMs, previousBestAverageMs, previousRun);
   const { rank } = analysis;
+  const education = buildClassicInsight({ run, previousBestMs, previousBestAverageMs, previousRun, inputMethod });
+  const shareResult = buildClassicShareResult({ run, previousBestMs, previousBestAverageMs, previousRun });
 
   // Headline comparison line + tone.
   let prText: string;
@@ -115,6 +125,10 @@ export function ReactionFinalSummary({
           ))}
         </ul>
       ) : null}
+
+      <ReactionInsightPanel insight={education} />
+
+      <ReactionSharePanel result={shareResult} onShareAction={onShareAction} compact />
 
       <div className="rtp-summary-actions">
         <Button size="lg" onClick={onPlayAgain} leftIcon={<Zap className="h-5 w-5" aria-hidden />}>

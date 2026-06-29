@@ -16,6 +16,8 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, Check, Copy, RotateCcw, Target, Timer } from "lucide-react";
 import { Button } from "@/components/ui";
+import { ReactionInsightPanel } from "./ReactionInsightPanel";
+import { ReactionSharePanel } from "./ReactionSharePanel";
 import { cn } from "@/lib/cn";
 import { copyTextToClipboard } from "@/lib/copy-to-clipboard";
 import {
@@ -27,6 +29,8 @@ import {
   getPrecisionTip,
   randomPrecisionTargetMs,
 } from "./precisionScoring";
+import { buildPrecisionInsight } from "./reactionInsights";
+import { buildPrecisionShareResult, type ShareActionKind, type ShareableGameResult } from "./reactionShareCard";
 import type { PrecisionState } from "./precisionMachine";
 import type { PrecisionResult, PrecisionStats } from "./precisionTypes";
 
@@ -121,6 +125,7 @@ function PrecisionLobby({
   onSetTarget: (ms: number) => void;
   onStart: () => void;
   onBack: () => void;
+  onShareAction?: (action: ShareActionKind, result: ShareableGameResult) => void;
 }) {
   const bestForTarget = hydrated ? stats.bestByTargetMs[String(targetMs)] : undefined;
   return (
@@ -188,15 +193,19 @@ function PrecisionResultCard({
   previousBestAbs,
   onRetry,
   onBack,
+  onShareAction,
 }: {
   result: PrecisionResult;
   previousBestAbs: number | null;
   onRetry: () => void;
   onBack: () => void;
+  onShareAction?: (action: ShareActionKind, result: ShareableGameResult) => void;
 }) {
   const [copied, setCopied] = useState(false);
   const rank = getPrecisionRank(result.absDifferenceMs);
   const isBest = previousBestAbs === null || result.absDifferenceMs < previousBestAbs;
+  const insight = buildPrecisionInsight(result);
+  const shareResult = buildPrecisionShareResult(result);
 
   const handleCopy = async () => {
     const ok = await copyTextToClipboard(buildPrecisionShareText(result));
@@ -236,6 +245,10 @@ function PrecisionResultCard({
 
       <p className="rtp-result-tip">{getPrecisionTip(result)}</p>
 
+      <ReactionInsightPanel insight={insight} compact />
+
+      <ReactionSharePanel result={shareResult} onShareAction={onShareAction} compact />
+
       <div className="rtp-summary-actions">
         <Button size="lg" onClick={onRetry} leftIcon={<RotateCcw className="h-5 w-5" aria-hidden />}>
           Try again
@@ -267,6 +280,7 @@ export function PrecisionView({
   onStart,
   onRetry,
   onBack,
+  onShareAction,
 }: {
   state: PrecisionState;
   runningStartedAt: number | null;
@@ -278,6 +292,7 @@ export function PrecisionView({
   onStart: () => void;
   onRetry: () => void;
   onBack: () => void;
+  onShareAction?: (action: ShareActionKind, result: ShareableGameResult) => void;
 }) {
   if (state.phase === "lobby") {
     return (
@@ -288,6 +303,7 @@ export function PrecisionView({
         onSetTarget={onSetTarget}
         onStart={onStart}
         onBack={onBack}
+        onShareAction={onShareAction}
       />
     );
   }
@@ -331,6 +347,7 @@ export function PrecisionView({
         previousBestAbs={previousBestAbs}
         onRetry={onRetry}
         onBack={onBack}
+        onShareAction={onShareAction}
       />
     );
   }

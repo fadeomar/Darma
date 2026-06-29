@@ -10,6 +10,7 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 import { ReactionCanvasStage } from "./ReactionCanvasStage";
+import { isGameplayControlTarget } from "./reactionRuntimeGuards";
 import type { ReactionPhase } from "./reactionTypes";
 
 const TONE_CLASS: Record<ReactionPhase, string> = {
@@ -54,7 +55,16 @@ export function ReactionArena({
       role={interactive ? "button" : undefined}
       tabIndex={interactive ? 0 : undefined}
       aria-label={interactive ? ariaLabel : undefined}
-      onPointerDown={interactive ? onPress : undefined}
+      data-rtp-active-stage={interactive ? "true" : undefined}
+      onPointerDown={
+        interactive
+          ? (event) => {
+              if (isGameplayControlTarget(event.target)) return;
+              event.preventDefault();
+              onPress();
+            }
+          : undefined
+      }
     >
       <ReactionCanvasStage phase={phase} countdownValue={countdownValue} reducedMotion={reducedMotion} className="rtp-canvas" />
       {topControls ? (

@@ -17,13 +17,24 @@ import { getRank } from "./reactionScoring";
 import { getPrecisionRank } from "./precisionScoring";
 import { getTargetHunterRank } from "./targetHunterScoring";
 import { TOTAL_LEVELS } from "./levelChallengeScoring";
+import { getDailyRank } from "./dailyChallengeScoring";
+import { LOCAL_BATTLE_CLASSIC_ROUNDS } from "./localBattleScoring";
 import type { PrecisionResult, PrecisionStats } from "./precisionTypes";
 import type { TargetHunterResult, TargetHunterStats } from "./targetHunterTypes";
 import type { LevelChallengeResult, LevelChallengeStats } from "./levelChallengeTypes";
 import type {
+  DailyChallengeDayRecord,
+  DailyChallengeResult,
+  DailyChallengeStats,
+  LocalLeaderboardEntry,
+} from "./dailyChallengeTypes";
+import type { LocalBattleResult, LocalBattleStats } from "./localBattleTypes";
+import type {
   AchievementContext,
   RankCounts,
   ReactionStorageV2,
+  ShareActionResult,
+  ShareStats,
   RecentAttempt,
   RunSummary,
   StreakInfo,
@@ -37,6 +48,10 @@ const PLAY_DAYS_LIMIT = 60;
 const PRECISION_RESULTS_LIMIT = 10;
 const TARGET_HUNTER_RUNS_LIMIT = 10;
 const LEVEL_CHALLENGE_RUNS_LIMIT = 12;
+const DAILY_RESULTS_LIMIT = 14;
+const LEADERBOARD_LIMIT = 30;
+const WEEKLY_ACTIVITY_LIMIT = 7;
+const LOCAL_BATTLE_RESULTS_LIMIT = 10;
 
 function emptyRankCounts(): RankCounts {
   return { elite: 0, excellent: 0, good: 0, average: 0, practice: 0 };
@@ -90,6 +105,50 @@ function emptyLevelChallenge(): LevelChallengeStats {
   };
 }
 
+function emptyDaily(): DailyChallengeStats {
+  return {
+    dailyChallenges: {},
+    dailyStreak: 0,
+    longestDailyStreak: 0,
+    lastDailyCompletionDate: null,
+    recentDailyResults: [],
+    localLeaderboards: [],
+    weeklyActivity: [],
+    lastDailyPlayedAt: null,
+  };
+}
+
+function emptyLocalBattle(): LocalBattleStats {
+  return {
+    localBattleRuns: 0,
+    recentBattles: [],
+    lastWinner: null,
+    battleWinsByPlayerName: {},
+    bestBattleClassicAverage: null,
+    bestBattlePrecisionDiff: null,
+    bestBattleTargetScore: 0,
+    rematchCount: 0,
+    lastBattlePlayedAt: null,
+    defaultPlayer1Name: "Player 1",
+    defaultPlayer2Name: "Player 2",
+  };
+}
+
+function emptyShare(): ShareStats {
+  return {
+    shareCount: 0,
+    copyCount: 0,
+    downloadCount: 0,
+    nativeShareCount: 0,
+    lastSharedAt: null,
+    lastDownloadedAt: null,
+    lastSharedMode: null,
+    sharedModes: [],
+    dailyShareCount: 0,
+    battleShareCount: 0,
+  };
+}
+
 export const EMPTY_STORAGE: ReactionStorageV2 = {
   version: 2,
   bestMs: null,
@@ -111,6 +170,9 @@ export const EMPTY_STORAGE: ReactionStorageV2 = {
   precision: emptyPrecision(),
   targetHunter: emptyTargetHunter(),
   levelChallenge: emptyLevelChallenge(),
+  daily: emptyDaily(),
+  localBattle: emptyLocalBattle(),
+  share: emptyShare(),
 };
 
 function canUseStorage(): boolean {
@@ -385,6 +447,216 @@ function normalizeLevelChallenge(value: unknown): LevelChallengeStats {
   };
 }
 
+
+function normalizeDailyResult(value: unknown): DailyChallengeResult | null {
+  if (!value || typeof value !== "object") return null;
+  const r = value as Partial<DailyChallengeResult>;
+  const type = r.challengeType === "precision" || r.challengeType === "target-hunt" ? r.challengeType : "classic";
+  const dateKey = typeof r.dateKey === "string" && r.dateKey ? r.dateKey : "";
+  if (!dateKey) return null;
+  const score = typeof r.score === "number" && Number.isFinite(r.score) ? Math.max(0, Math.min(1000, Math.round(r.score))) : 0;
+  const rank = getDailyRank(score);
+  return {
+    id: typeof r.id === "string" && r.id ? r.id : `${Date.now()}-${Math.random()}`,
+    dateKey,
+    challengeId: typeof r.challengeId === "string" && r.challengeId ? r.challengeId : `daily-${dateKey}`,
+    challengeTitle: typeof r.challengeTitle === "string" && r.challengeTitle ? r.challengeTitle : "Daily Challenge",
+    challengeType: type,
+    score,
+    rankId: rank.id,
+    objectivePassed: r.objectivePassed === true,
+    primaryMetric: typeof r.primaryMetric === "string" ? r.primaryMetric : `${score} pts`,
+    secondaryMetric: typeof r.secondaryMetric === "string" ? r.secondaryMetric : "Local daily result",
+    detail: typeof r.detail === "string" ? r.detail : rank.note,
+    accuracy: clampPct(r.accuracy),
+    improvedToday: r.improvedToday === true,
+    createdAt: typeof r.createdAt === "string" ? r.createdAt : new Date().toISOString(),
+    classic: r.classic ? normalizeResult(r.classic) ?? undefined : undefined,
+    precision: r.precision ? normalizePrecisionResult(r.precision) ?? undefined : undefined,
+    targetHunter: r.targetHunter ? normalizeTargetHunterResult(r.targetHunter) ?? undefined : undefined,
+  };
+}
+
+function normalizeDailyDayRecord(value: unknown): DailyChallengeDayRecord | null {
+  if (!value || typeof value !== "object") return null;
+  const r = value as Partial<DailyChallengeDayRecord>;
+  const dateKey = typeof r.dateKey === "string" && r.dateKey ? r.dateKey : "";
+  if (!dateKey) return null;
+  const bestResult = normalizeDailyResult(r.bestResult);
+  const latestResult = normalizeDailyResult(r.latestResult);
+  const challengeType = r.challengeType === "precision" || r.challengeType === "target-hunt" ? r.challengeType : "classic";
+  return {
+    dateKey,
+    challengeId: typeof r.challengeId === "string" && r.challengeId ? r.challengeId : bestResult?.challengeId ?? `daily-${dateKey}`,
+    challengeType,
+    attempts: intOrZero(r.attempts),
+    completed: r.completed === true || Boolean(bestResult),
+    firstCompletedAt: strOrNull(r.firstCompletedAt),
+    bestCompletedAt: strOrNull(r.bestCompletedAt) ?? bestResult?.createdAt ?? null,
+    bestResult,
+    latestResult,
+  };
+}
+
+function normalizeLeaderboardEntry(value: unknown): LocalLeaderboardEntry | null {
+  if (!value || typeof value !== "object") return null;
+  const e = value as Partial<LocalLeaderboardEntry>;
+  const mode = e.mode === "classic" || e.mode === "precision" || e.mode === "target-hunter" || e.mode === "level-challenge" ? e.mode : "daily";
+  return {
+    id: typeof e.id === "string" && e.id ? e.id : `${Date.now()}-${Math.random()}`,
+    mode,
+    dateKey: typeof e.dateKey === "string" ? e.dateKey : "",
+    score: intOrZero(e.score),
+    primaryMetric: typeof e.primaryMetric === "string" ? e.primaryMetric : "—",
+    secondaryMetric: typeof e.secondaryMetric === "string" ? e.secondaryMetric : "—",
+    rankLabel: typeof e.rankLabel === "string" ? e.rankLabel : "Local result",
+    createdAt: typeof e.createdAt === "string" ? e.createdAt : new Date().toISOString(),
+    displayName: typeof e.displayName === "string" && e.displayName ? e.displayName : "You",
+  };
+}
+
+function normalizeDaily(value: unknown): DailyChallengeStats {
+  if (!value || typeof value !== "object") return emptyDaily();
+  const v = value as Partial<DailyChallengeStats>;
+  const dailyChallenges: Record<string, DailyChallengeDayRecord> = {};
+  if (v.dailyChallenges && typeof v.dailyChallenges === "object") {
+    for (const [key, raw] of Object.entries(v.dailyChallenges)) {
+      const record = normalizeDailyDayRecord(raw);
+      if (record) dailyChallenges[key || record.dateKey] = record;
+    }
+  }
+  const recentDailyResults = Array.isArray(v.recentDailyResults)
+    ? v.recentDailyResults.map(normalizeDailyResult).filter((r): r is DailyChallengeResult => Boolean(r)).slice(0, DAILY_RESULTS_LIMIT)
+    : [];
+  const localLeaderboards = Array.isArray(v.localLeaderboards)
+    ? v.localLeaderboards.map(normalizeLeaderboardEntry).filter((e): e is LocalLeaderboardEntry => Boolean(e)).slice(0, LEADERBOARD_LIMIT)
+    : [];
+  const weeklyActivity = Array.isArray(v.weeklyActivity)
+    ? Array.from(new Set(v.weeklyActivity.filter((d): d is string => typeof d === "string" && Boolean(d)))).slice(-WEEKLY_ACTIVITY_LIMIT)
+    : [];
+  return {
+    dailyChallenges,
+    dailyStreak: intOrZero(v.dailyStreak),
+    longestDailyStreak: intOrZero(v.longestDailyStreak),
+    lastDailyCompletionDate: strOrNull(v.lastDailyCompletionDate),
+    recentDailyResults,
+    localLeaderboards,
+    weeklyActivity,
+    lastDailyPlayedAt: strOrNull(v.lastDailyPlayedAt),
+  };
+}
+
+
+function normalizeLocalBattlePlayerResult(value: unknown): LocalBattleResult["player1Result"] | null {
+  if (!value || typeof value !== "object") return null;
+  const r = value as LocalBattleResult["player1Result"];
+  if (r.kind === "classic") {
+    const rounds = Array.isArray(r.rounds)
+      ? r.rounds.filter((n): n is number => typeof n === "number" && Number.isFinite(n) && n >= 0).map(Math.round).slice(0, LOCAL_BATTLE_CLASSIC_ROUNDS)
+      : [];
+    const earlyPresses = intOrZero(r.earlyPresses);
+    const attempts = rounds.length + earlyPresses;
+    return {
+      kind: "classic",
+      rounds,
+      averageMs: typeof r.averageMs === "number" && Number.isFinite(r.averageMs) ? Math.round(r.averageMs) : rounds.length ? Math.round(rounds.reduce((sum, n) => sum + n, 0) / rounds.length) : null,
+      bestMs: typeof r.bestMs === "number" && Number.isFinite(r.bestMs) ? Math.round(r.bestMs) : rounds.length ? Math.min(...rounds) : null,
+      accuracy: typeof r.accuracy === "number" ? clampPct(r.accuracy) : attempts > 0 ? Math.round((rounds.length / attempts) * 100) : 0,
+      earlyPresses,
+      validRounds: intOrZero(r.validRounds) || rounds.length,
+    };
+  }
+  if (r.kind === "precision") {
+    const targetMs = num(r.targetMs) ?? 5000;
+    const elapsedMs = typeof r.elapsedMs === "number" && Number.isFinite(r.elapsedMs) && r.elapsedMs >= 0 ? Math.round(r.elapsedMs) : 0;
+    const differenceMs = typeof r.differenceMs === "number" && Number.isFinite(r.differenceMs) ? Math.round(r.differenceMs) : elapsedMs - targetMs;
+    return { kind: "precision", targetMs, elapsedMs, differenceMs, absDifferenceMs: Math.abs(differenceMs) };
+  }
+  if (r.kind === "target-hunter") {
+    const targetHunter = normalizeTargetHunterResult(r.targetHunter);
+    return targetHunter ? { kind: "target-hunter", targetHunter } : null;
+  }
+  return null;
+}
+
+function normalizeLocalBattleResult(value: unknown): LocalBattleResult | null {
+  if (!value || typeof value !== "object") return null;
+  const r = value as Partial<LocalBattleResult>;
+  const battleType = r.battleType === "precision" || r.battleType === "target-hunter" ? r.battleType : "classic";
+  const player1Result = normalizeLocalBattlePlayerResult(r.player1Result);
+  const player2Result = normalizeLocalBattlePlayerResult(r.player2Result);
+  if (!player1Result || !player2Result) return null;
+  const winner = r.winner === "player1" || r.winner === "player2" || r.winner === "draw" ? r.winner : "draw";
+  return {
+    id: typeof r.id === "string" && r.id ? r.id : `${Date.now()}-${Math.random()}`,
+    battleType,
+    player1Name: typeof r.player1Name === "string" && r.player1Name ? r.player1Name : "Player 1",
+    player2Name: typeof r.player2Name === "string" && r.player2Name ? r.player2Name : "Player 2",
+    player1Result,
+    player2Result,
+    winner,
+    winnerLabel: typeof r.winnerLabel === "string" && r.winnerLabel ? r.winnerLabel : winner === "draw" ? "Draw" : winner === "player1" ? "Player 1" : "Player 2",
+    marginLabel: typeof r.marginLabel === "string" && r.marginLabel ? r.marginLabel : "Even match",
+    summary: typeof r.summary === "string" && r.summary ? r.summary : "Local battle result",
+    primaryMetric: typeof r.primaryMetric === "string" && r.primaryMetric ? r.primaryMetric : "Local Battle",
+    secondaryMetric: typeof r.secondaryMetric === "string" && r.secondaryMetric ? r.secondaryMetric : "Local result",
+    score: intOrZero(r.score),
+    rematch: r.rematch === true,
+    createdAt: typeof r.createdAt === "string" ? r.createdAt : new Date().toISOString(),
+  };
+}
+
+function normalizeLocalBattle(value: unknown): LocalBattleStats {
+  if (!value || typeof value !== "object") return emptyLocalBattle();
+  const v = value as Partial<LocalBattleStats>;
+  const battleWinsByPlayerName: Record<string, number> = {};
+  if (v.battleWinsByPlayerName && typeof v.battleWinsByPlayerName === "object") {
+    for (const [name, wins] of Object.entries(v.battleWinsByPlayerName)) {
+      if (name) battleWinsByPlayerName[name] = intOrZero(wins);
+    }
+  }
+  const recentBattles = Array.isArray(v.recentBattles)
+    ? v.recentBattles.map(normalizeLocalBattleResult).filter((r): r is LocalBattleResult => Boolean(r)).slice(0, LOCAL_BATTLE_RESULTS_LIMIT)
+    : [];
+  return {
+    localBattleRuns: intOrZero(v.localBattleRuns),
+    recentBattles,
+    lastWinner: strOrNull(v.lastWinner),
+    battleWinsByPlayerName,
+    bestBattleClassicAverage: num(v.bestBattleClassicAverage),
+    bestBattlePrecisionDiff: typeof v.bestBattlePrecisionDiff === "number" && Number.isFinite(v.bestBattlePrecisionDiff) && v.bestBattlePrecisionDiff >= 0 ? Math.round(v.bestBattlePrecisionDiff) : null,
+    bestBattleTargetScore: intOrZero(v.bestBattleTargetScore),
+    rematchCount: intOrZero(v.rematchCount),
+    lastBattlePlayedAt: strOrNull(v.lastBattlePlayedAt),
+    defaultPlayer1Name: typeof v.defaultPlayer1Name === "string" && v.defaultPlayer1Name ? v.defaultPlayer1Name : "Player 1",
+    defaultPlayer2Name: typeof v.defaultPlayer2Name === "string" && v.defaultPlayer2Name ? v.defaultPlayer2Name : "Player 2",
+  };
+}
+
+function normalizeShare(value: unknown): ShareStats {
+  if (!value || typeof value !== "object") return emptyShare();
+  const v = value as Partial<ShareStats>;
+  const validModes = new Set(["classic", "precision", "target-hunter", "level-challenge", "daily", "local-battle"]);
+  const sharedModes = Array.isArray(v.sharedModes)
+    ? Array.from(new Set(v.sharedModes.filter((m): m is ShareStats["sharedModes"][number] => typeof m === "string" && validModes.has(m))))
+    : [];
+  const lastMode = typeof v.lastSharedMode === "string" && validModes.has(v.lastSharedMode)
+    ? v.lastSharedMode as ShareStats["lastSharedMode"]
+    : null;
+  return {
+    shareCount: intOrZero(v.shareCount),
+    copyCount: intOrZero(v.copyCount),
+    downloadCount: intOrZero(v.downloadCount),
+    nativeShareCount: intOrZero(v.nativeShareCount),
+    lastSharedAt: strOrNull(v.lastSharedAt),
+    lastDownloadedAt: strOrNull(v.lastDownloadedAt),
+    lastSharedMode: lastMode,
+    sharedModes,
+    dailyShareCount: intOrZero(v.dailyShareCount),
+    battleShareCount: intOrZero(v.battleShareCount),
+  };
+}
+
 export function normalize(value: unknown): ReactionStorageV2 {
   if (!value || typeof value !== "object") return { ...EMPTY_STORAGE };
   const v = value as Partial<ReactionStorageV2>;
@@ -447,6 +719,9 @@ export function normalize(value: unknown): ReactionStorageV2 {
     precision: normalizePrecision(v.precision),
     targetHunter: normalizeTargetHunter(v.targetHunter),
     levelChallenge: normalizeLevelChallenge(v.levelChallenge),
+    daily: normalizeDaily(v.daily),
+    localBattle: normalizeLocalBattle(v.localBattle),
+    share: normalizeShare(v.share),
   };
 }
 
@@ -566,7 +841,7 @@ export function mergeRun(current: ReactionStorageV2, run: RunSummary): ReactionS
 
   next = applyAchievements(
     next,
-    { stats: next, latest: run, previousBestMs, previousBestAverageMs, previousRun, precision: null, targetHunter: null, levelChallenge: null },
+    { stats: next, latest: run, previousBestMs, previousBestAverageMs, previousRun, precision: null, targetHunter: null, levelChallenge: null, dailyChallenge: null, localBattle: null, shareAction: null },
     run.createdAt,
   );
   return next;
@@ -626,6 +901,9 @@ export function mergePrecision(current: ReactionStorageV2, result: PrecisionResu
       precision: result,
       targetHunter: null,
       levelChallenge: null,
+      dailyChallenge: null,
+      localBattle: null,
+      shareAction: null,
     },
     result.createdAt,
   );
@@ -677,6 +955,9 @@ export function mergeTargetHunter(current: ReactionStorageV2, result: TargetHunt
       precision: null,
       targetHunter: result,
       levelChallenge: null,
+      dailyChallenge: null,
+      localBattle: null,
+      shareAction: null,
     },
     result.createdAt,
   );
@@ -758,8 +1039,239 @@ export function mergeLevelChallenge(current: ReactionStorageV2, result: LevelCha
       precision: null,
       targetHunter: null,
       levelChallenge: result,
+      dailyChallenge: null,
+      localBattle: null,
+      shareAction: null,
     },
     result.createdAt,
+  );
+  return next;
+}
+
+
+function updateDailyStreak(daily: DailyChallengeStats, date: string): Pick<DailyChallengeStats, "dailyStreak" | "longestDailyStreak" | "lastDailyCompletionDate"> {
+  if (!date) {
+    return {
+      dailyStreak: daily.dailyStreak,
+      longestDailyStreak: daily.longestDailyStreak,
+      lastDailyCompletionDate: daily.lastDailyCompletionDate,
+    };
+  }
+  if (daily.lastDailyCompletionDate === date) {
+    return {
+      dailyStreak: daily.dailyStreak,
+      longestDailyStreak: daily.longestDailyStreak,
+      lastDailyCompletionDate: daily.lastDailyCompletionDate,
+    };
+  }
+  const nextStreak = daily.lastDailyCompletionDate && isNextDay(daily.lastDailyCompletionDate, date)
+    ? daily.dailyStreak + 1
+    : 1;
+  return {
+    dailyStreak: nextStreak,
+    longestDailyStreak: Math.max(daily.longestDailyStreak, nextStreak),
+    lastDailyCompletionDate: date,
+  };
+}
+
+function updateWeeklyActivity(days: string[], date: string): string[] {
+  if (!date) return days.slice(-WEEKLY_ACTIVITY_LIMIT);
+  return Array.from(new Set([...days, date])).slice(-WEEKLY_ACTIVITY_LIMIT);
+}
+
+/** Fold a completed Daily Challenge into local-only daily stats and leaderboard. */
+export function mergeDailyChallenge(current: ReactionStorageV2, result: DailyChallengeResult): ReactionStorageV2 {
+  const daily = current.daily;
+  const previousRecord = daily.dailyChallenges[result.dateKey];
+  const previousBest = previousRecord?.bestResult ?? null;
+  const improvedToday = previousBest === null || result.score > previousBest.score;
+  const stampedResult: DailyChallengeResult = { ...result, improvedToday };
+
+  const record: DailyChallengeDayRecord = {
+    dateKey: result.dateKey,
+    challengeId: result.challengeId,
+    challengeType: result.challengeType,
+    attempts: (previousRecord?.attempts ?? 0) + 1,
+    completed: true,
+    firstCompletedAt: previousRecord?.firstCompletedAt ?? result.createdAt,
+    bestCompletedAt: improvedToday ? result.createdAt : previousRecord?.bestCompletedAt ?? previousBest?.createdAt ?? null,
+    bestResult: improvedToday ? stampedResult : previousBest,
+    latestResult: stampedResult,
+  };
+
+  const streakUpdate = previousRecord?.completed ? {
+    dailyStreak: daily.dailyStreak,
+    longestDailyStreak: daily.longestDailyStreak,
+    lastDailyCompletionDate: daily.lastDailyCompletionDate,
+  } : updateDailyStreak(daily, result.dateKey);
+
+  const entry: LocalLeaderboardEntry = {
+    id: result.id,
+    mode: "daily",
+    dateKey: result.dateKey,
+    score: result.score,
+    primaryMetric: result.primaryMetric,
+    secondaryMetric: result.secondaryMetric,
+    rankLabel: getDailyRank(result.score).label,
+    createdAt: result.createdAt,
+    displayName: "You",
+  };
+
+  const nextDaily: DailyChallengeStats = {
+    ...daily,
+    ...streakUpdate,
+    dailyChallenges: { ...daily.dailyChallenges, [result.dateKey]: record },
+    recentDailyResults: [stampedResult, ...daily.recentDailyResults].slice(0, DAILY_RESULTS_LIMIT),
+    localLeaderboards: [entry, ...daily.localLeaderboards]
+      .sort((a, b) => b.score - a.score || new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+      .slice(0, LEADERBOARD_LIMIT),
+    weeklyActivity: updateWeeklyActivity(daily.weeklyActivity, result.dateKey),
+    lastDailyPlayedAt: result.createdAt,
+  };
+
+  const { streak, playDays } = applyDay(current.streak, current.playDays, result.createdAt);
+  let next: ReactionStorageV2 = {
+    ...current,
+    daily: nextDaily,
+    streak,
+    playDays,
+    firstPlayedAt: current.firstPlayedAt ?? result.createdAt,
+    lastPlayedAt: result.createdAt,
+  };
+
+  next = applyAchievements(
+    next,
+    {
+      stats: next,
+      latest: null,
+      previousBestMs: current.bestMs,
+      previousBestAverageMs: current.bestAverageMs,
+      previousRun: current.lastResults[0] ?? null,
+      precision: null,
+      targetHunter: null,
+      levelChallenge: null,
+      dailyChallenge: stampedResult,
+      localBattle: null,
+      shareAction: null,
+    },
+    result.createdAt,
+  );
+  return next;
+}
+
+
+/** Fold a finished Local Battle into local-only two-player stats. */
+export function mergeLocalBattle(current: ReactionStorageV2, result: LocalBattleResult): ReactionStorageV2 {
+  const b = current.localBattle;
+  const wins = { ...b.battleWinsByPlayerName };
+  if (result.winner !== "draw") {
+    wins[result.winnerLabel] = (wins[result.winnerLabel] ?? 0) + 1;
+  }
+
+  let bestBattleClassicAverage = b.bestBattleClassicAverage;
+  if (result.battleType === "classic") {
+    const p1 = result.player1Result.kind === "classic" ? result.player1Result.averageMs : null;
+    const p2 = result.player2Result.kind === "classic" ? result.player2Result.averageMs : null;
+    const bestThisBattle = pickMin(p1, p2);
+    bestBattleClassicAverage = bestThisBattle === null ? b.bestBattleClassicAverage : pickMinNonNegative(b.bestBattleClassicAverage, bestThisBattle);
+  }
+
+  let bestBattlePrecisionDiff = b.bestBattlePrecisionDiff;
+  if (result.battleType === "precision" && result.player1Result.kind === "precision" && result.player2Result.kind === "precision") {
+    bestBattlePrecisionDiff = pickMinNonNegative(
+      b.bestBattlePrecisionDiff,
+      Math.min(result.player1Result.absDifferenceMs, result.player2Result.absDifferenceMs),
+    );
+  }
+
+  let bestBattleTargetScore = b.bestBattleTargetScore;
+  if (result.battleType === "target-hunter" && result.player1Result.kind === "target-hunter" && result.player2Result.kind === "target-hunter") {
+    bestBattleTargetScore = Math.max(
+      b.bestBattleTargetScore,
+      result.player1Result.targetHunter.score,
+      result.player2Result.targetHunter.score,
+    );
+  }
+
+  const nextLocalBattle: LocalBattleStats = {
+    localBattleRuns: b.localBattleRuns + 1,
+    recentBattles: [result, ...b.recentBattles].slice(0, LOCAL_BATTLE_RESULTS_LIMIT),
+    lastWinner: result.winner === "draw" ? "Draw" : result.winnerLabel,
+    battleWinsByPlayerName: wins,
+    bestBattleClassicAverage,
+    bestBattlePrecisionDiff,
+    bestBattleTargetScore,
+    rematchCount: b.rematchCount + (result.rematch ? 1 : 0),
+    lastBattlePlayedAt: result.createdAt,
+    defaultPlayer1Name: result.player1Name,
+    defaultPlayer2Name: result.player2Name,
+  };
+
+  const { streak, playDays } = applyDay(current.streak, current.playDays, result.createdAt);
+  let next: ReactionStorageV2 = {
+    ...current,
+    localBattle: nextLocalBattle,
+    streak,
+    playDays,
+    firstPlayedAt: current.firstPlayedAt ?? result.createdAt,
+    lastPlayedAt: result.createdAt,
+  };
+
+  next = applyAchievements(
+    next,
+    {
+      stats: next,
+      latest: null,
+      previousBestMs: current.bestMs,
+      previousBestAverageMs: current.bestAverageMs,
+      previousRun: current.lastResults[0] ?? null,
+      precision: null,
+      targetHunter: null,
+      levelChallenge: null,
+      dailyChallenge: null,
+      localBattle: result,
+      shareAction: null,
+    },
+    result.createdAt,
+  );
+  return next;
+}
+
+
+/** Record a successful share/copy/download action and unlock Sprint 11 share achievements. */
+export function mergeShareAction(current: ReactionStorageV2, action: ShareActionResult): ReactionStorageV2 {
+  const share = current.share;
+  const sharedModes = share.sharedModes.includes(action.mode) ? share.sharedModes : [...share.sharedModes, action.mode];
+  const nextShare: ShareStats = {
+    shareCount: share.shareCount + 1,
+    copyCount: share.copyCount + (action.action === "copy" ? 1 : 0),
+    downloadCount: share.downloadCount + (action.action === "download" ? 1 : 0),
+    nativeShareCount: share.nativeShareCount + (action.action === "native-share" ? 1 : 0),
+    lastSharedAt: action.at,
+    lastDownloadedAt: action.action === "download" ? action.at : share.lastDownloadedAt,
+    lastSharedMode: action.mode,
+    sharedModes,
+    dailyShareCount: share.dailyShareCount + (action.mode === "daily" ? 1 : 0),
+    battleShareCount: share.battleShareCount + (action.mode === "local-battle" ? 1 : 0),
+  };
+
+  let next: ReactionStorageV2 = { ...current, share: nextShare };
+  next = applyAchievements(
+    next,
+    {
+      stats: next,
+      latest: null,
+      previousBestMs: current.bestMs,
+      previousBestAverageMs: current.bestAverageMs,
+      previousRun: current.lastResults[0] ?? null,
+      precision: null,
+      targetHunter: null,
+      levelChallenge: null,
+      dailyChallenge: null,
+      localBattle: null,
+      shareAction: action,
+    },
+    action.at,
   );
   return next;
 }
@@ -786,7 +1298,7 @@ export function recordPractice(current: ReactionStorageV2, at: string = new Date
   };
   next = applyAchievements(
     next,
-    { stats: next, latest: null, previousBestMs: current.bestMs, previousBestAverageMs: current.bestAverageMs, previousRun: current.lastResults[0] ?? null, precision: null, targetHunter: null, levelChallenge: null },
+    { stats: next, latest: null, previousBestMs: current.bestMs, previousBestAverageMs: current.bestAverageMs, previousRun: current.lastResults[0] ?? null, precision: null, targetHunter: null, levelChallenge: null, dailyChallenge: null, localBattle: null, shareAction: null },
     at,
   );
   return next;

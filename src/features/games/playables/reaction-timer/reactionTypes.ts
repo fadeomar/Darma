@@ -8,6 +8,9 @@
 import type { PrecisionResult, PrecisionStats } from "./precisionTypes";
 import type { TargetHunterResult, TargetHunterStats } from "./targetHunterTypes";
 import type { LevelChallengeResult, LevelChallengeStats } from "./levelChallengeTypes";
+import type { DailyChallengeResult, DailyChallengeStats } from "./dailyChallengeTypes";
+import type { LocalBattleResult, LocalBattleStats } from "./localBattleTypes";
+import type { ShareActionKind, ShareResultMode } from "./reactionShareCard";
 
 export type ReactionPhase =
   | "idle"
@@ -115,6 +118,31 @@ export type ReactionStorageV2 = {
   targetHunter: TargetHunterStats;
   /** Level Challenge mode stats (Sprint 7). Added without a version bump. */
   levelChallenge: LevelChallengeStats;
+  /** Daily Challenge + local leaderboard stats (Sprint 8). Added without a version bump. */
+  daily: DailyChallengeStats;
+  /** Local Battle two-player stats (Sprint 9). Added without a version bump. */
+  localBattle: LocalBattleStats;
+  /** Shareable result card stats (Sprint 11). Added without a version bump. */
+  share: ShareStats;
+};
+
+export type ShareStats = {
+  shareCount: number;
+  copyCount: number;
+  downloadCount: number;
+  nativeShareCount: number;
+  lastSharedAt: string | null;
+  lastDownloadedAt: string | null;
+  lastSharedMode: ShareResultMode | null;
+  sharedModes: ShareResultMode[];
+  dailyShareCount: number;
+  battleShareCount: number;
+};
+
+export type ShareActionResult = {
+  action: ShareActionKind;
+  mode: ShareResultMode;
+  at: string;
 };
 
 export type AchievementRarity = "common" | "uncommon" | "rare" | "epic";
@@ -147,6 +175,12 @@ export type AchievementContext = {
    * evaluations. Level Challenge achievements key off this; others ignore it.
    */
   levelChallenge: LevelChallengeResult | null;
+  /** The Daily Challenge result that just finished, or null for other evaluations. */
+  dailyChallenge: DailyChallengeResult | null;
+  /** The Local Battle result that just finished, or null for other evaluations. */
+  localBattle: LocalBattleResult | null;
+  /** The share/download/copy action that just succeeded, or null for other evaluations. */
+  shareAction: ShareActionResult | null;
 };
 
 export type Achievement = {

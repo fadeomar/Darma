@@ -186,13 +186,13 @@ const GAME_DEFINITIONS: GameDefinition[] = [
   {
     id: "reaction-timer",
     slug: "reaction-timer",
-    title: "Reaction Challenge",
-    description: "Play a 5-round reflex challenge and beat your best time.",
+    title: "Reaction Timer Pro",
+    description: "Play classic reaction, precision timing, target hunting, levels, daily goals, and local battles.",
     longDescription:
-      "A complete reflex challenge with practice mode, five official rounds, local stats, achievements, sound feedback, keyboard support, and a polished browser-only player experience.",
+      "A local reflex-training suite with classic reaction rounds, Precision Timer, Target Hunter, Level Challenge, Daily Challenge, Local Battle, achievements, educational insights, and browser-only progress. Results are useful for practice and personal comparison, not medical measurement.",
     href: "/games/reaction-timer",
     categories: ["arcade", "quick-break", "casual"],
-    tags: ["reflex", "speed", "reaction", "timing"],
+    tags: ["reflex", "speed", "reaction", "timing", "reaction time test", "reaction timer", "browser reaction game", "no signup"],
     thumbnail: "⚡",
     thumbnailType: "gradient",
     accent: "lime",
@@ -201,11 +201,11 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     playTime: "5 min",
     input: ["mouse", "touch", "keyboard"],
     devices: ["desktop", "tablet", "mobile"],
-    controls: "Start the challenge, wait for the stage to turn green, then click, tap, press Space, or press Enter as fast as you can. Do not react before the signal.",
-    privacyNote: PRIVACY_NOTE,
-    seoTitle: "Play Reaction Challenge Online Free | Darma Games",
+    controls: "Choose a mode, follow the on-screen objective, then click, tap, press Space, or press Enter where supported. Pointer/touch is recommended for target-heavy modes.",
+    privacyNote: `${PRIVACY_NOTE} Reaction Timer Pro stores progress locally and is not a medical or diagnostic test.`,
+    seoTitle: "Reaction Timer Pro — Free Browser Reaction Time Test | Darma Games",
     seoDescription:
-      "Play a free 5-round reaction challenge in your browser. Test reflex speed, unlock local achievements, and beat your best time with no signup.",
+      "Play Reaction Timer Pro free in your browser: classic reaction time test, precision timer, target hunter, level challenge, daily local goals, achievements, and no signup.",
     createdAt: "2026-06-18",
   },
   {

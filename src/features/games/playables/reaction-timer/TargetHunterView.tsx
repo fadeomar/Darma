@@ -13,6 +13,8 @@
 import { useState, type ReactNode } from "react";
 import { ArrowLeft, Check, Copy, Crosshair, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui";
+import { ReactionInsightPanel } from "./ReactionInsightPanel";
+import { ReactionSharePanel } from "./ReactionSharePanel";
 import { cn } from "@/lib/cn";
 import { copyTextToClipboard } from "@/lib/copy-to-clipboard";
 import { TargetHunterStage } from "./TargetHunterStage";
@@ -24,6 +26,8 @@ import {
   formatScore,
   getTargetHunterRank,
 } from "./targetHunterScoring";
+import { buildTargetHunterInsight } from "./reactionInsights";
+import { buildTargetHunterShareResult, type ShareActionKind, type ShareableGameResult } from "./reactionShareCard";
 import type { TargetHunterResult, TargetHunterStats } from "./targetHunterTypes";
 
 function TargetHunterLobby({
@@ -36,6 +40,7 @@ function TargetHunterLobby({
   hydrated: boolean;
   onStart: () => void;
   onBack: () => void;
+  onShareAction?: (action: ShareActionKind, result: ShareableGameResult) => void;
 }) {
   return (
     <div className="rtp-th-lobby">
@@ -80,15 +85,19 @@ function TargetHunterResultCard({
   previousBestScore,
   onPlayAgain,
   onBack,
+  onShareAction,
 }: {
   result: TargetHunterResult;
   previousBestScore: number;
   onPlayAgain: () => void;
   onBack: () => void;
+  onShareAction?: (action: ShareActionKind, result: ShareableGameResult) => void;
 }) {
   const [copied, setCopied] = useState(false);
   const rank = getTargetHunterRank(result.score, result.accuracy, result.averageHitMs);
   const isBest = result.score > previousBestScore;
+  const insight = buildTargetHunterInsight(result);
+  const shareResult = buildTargetHunterShareResult(result);
 
   const handleCopy = async () => {
     const ok = await copyTextToClipboard(buildTargetHunterShareText(result));
@@ -140,6 +149,10 @@ function TargetHunterResultCard({
 
       <p className="rtp-result-tip">{rank.note}</p>
 
+      <ReactionInsightPanel insight={insight} compact />
+
+      <ReactionSharePanel result={shareResult} onShareAction={onShareAction} compact />
+
       <div className="rtp-summary-actions">
         <Button size="lg" onClick={onPlayAgain} leftIcon={<RotateCcw className="h-5 w-5" aria-hidden />}>
           Play again
@@ -174,6 +187,7 @@ export function TargetHunterView({
   topControls,
   modal,
   onModalBackdrop,
+  onShareAction,
 }: {
   stats: TargetHunterStats;
   hydrated: boolean;
@@ -191,6 +205,7 @@ export function TargetHunterView({
   topControls?: ReactNode;
   modal?: ReactNode;
   onModalBackdrop?: () => void;
+  onShareAction?: (action: ShareActionKind, result: ShareableGameResult) => void;
 }) {
   const [phase, setPhase] = useState<"lobby" | "playing" | "result">("lobby");
   const [result, setResult] = useState<TargetHunterResult | null>(null);
@@ -230,6 +245,7 @@ export function TargetHunterView({
           vibrate={vibrate}
           onComplete={handleComplete}
           onQuit={() => setPhase("lobby")}
+          onRestart={startRun}
         />
       ) : (
         <div className="rtp-stage-overlay">
@@ -241,6 +257,7 @@ export function TargetHunterView({
               previousBestScore={previousBestScore}
               onPlayAgain={startRun}
               onBack={onBack}
+              onShareAction={onShareAction}
             />
           ) : null}
         </div>

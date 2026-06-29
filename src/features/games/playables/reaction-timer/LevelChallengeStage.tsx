@@ -143,7 +143,7 @@ export function LevelChallengeStage({
     g.round = null;
     setSignalLabel(null);
     setPhase("interrupted");
-    playRef.current("result.bad");
+    playRef.current("level.fail");
   }, []);
 
   useActiveGameplayGuards(phase === "countdown" || phase === "active");
@@ -195,10 +195,10 @@ export function LevelChallengeStage({
     g.combo += 1;
     g.maxCombo = Math.max(g.maxCombo, g.combo);
     effectsRef.current.push({ kind: "hit", x, y, start: now, life: 460 });
-    playRef.current("ui.click");
+    playRef.current("target.hit");
     vibrateRef.current("tap");
     if (g.combo > 0 && g.combo % 5 === 0) {
-      playRef.current("result.success");
+      playRef.current("combo.up");
       vibrateRef.current("achievement");
     }
   };
@@ -249,7 +249,7 @@ export function LevelChallengeStage({
         g.wrongTargets += 1;
         g.combo = 0;
         effectsRef.current.push({ kind: "wrong", x: d.x, y: d.y, start: now, life: 420 });
-        playRef.current("result.bad");
+        playRef.current("decoy.wrong");
         vibrateRef.current("tooEarly");
         pushHud();
         return;
@@ -261,7 +261,7 @@ export function LevelChallengeStage({
       g.misses += 1;
       g.combo = 0;
       effectsRef.current.push({ kind: "miss", x, y, start: now, life: 420 });
-      playRef.current("result.bad");
+      playRef.current("target.miss");
       vibrateRef.current("tooEarly");
       pushHud();
     }
@@ -351,6 +351,7 @@ export function LevelChallengeStage({
     }
 
     g.round = { correct, decoys, shownAt: now, resolved: false, missCounted: false };
+    playRef.current(def.mechanic === "decoy" || def.mechanic === "elite" ? "level.start" : "target.spawn");
   }
 
   function resolveRound(now: number) {
@@ -449,7 +450,7 @@ export function LevelChallengeStage({
         if (value <= 0) {
           g.phase = "active";
           setPhase("active");
-          playRef.current("signal.go");
+          playRef.current("level.start");
           vibrateRef.current("signal");
           if (def.mechanic === "signal") {
             startSignalAttempt(now);

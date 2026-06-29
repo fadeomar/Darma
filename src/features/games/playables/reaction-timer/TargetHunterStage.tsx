@@ -116,7 +116,7 @@ export function TargetHunterStage({
     g.finished = true;
     g.target = null;
     setPhase("interrupted");
-    playRef.current("result.bad");
+    playRef.current("level.fail");
   }, []);
 
   useActiveGameplayGuards(phase === "countdown" || phase === "active");
@@ -164,11 +164,11 @@ export function TargetHunterStage({
       g.combo += 1;
       g.longestCombo = Math.max(g.longestCombo, g.combo);
       effectsRef.current.push({ type: "hit", x: t.x, y: t.y, start: now, life: 460 });
-      playRef.current("ui.click");
+      playRef.current("target.hit");
       vibrateRef.current("tap");
       if (g.combo > 0 && g.combo % 5 === 0) {
         effectsRef.current.push({ type: "combo", x: t.x, y: t.y, start: now, life: 620 });
-        playRef.current("result.success");
+        playRef.current("combo.up");
         vibrateRef.current("achievement");
       }
       g.lastTarget = t;
@@ -180,7 +180,7 @@ export function TargetHunterStage({
       g.misses += 1;
       g.combo = 0;
       effectsRef.current.push({ type: "miss", x, y, start: now, life: 420 });
-      playRef.current("result.bad");
+      playRef.current("target.miss");
       vibrateRef.current("tooEarly");
       pushHud();
     }
@@ -335,7 +335,7 @@ export function TargetHunterStage({
           g.runStart = now;
           g.nextSpawnAt = now + FIRST_SPAWN_DELAY_MS;
           setPhase("active");
-          playRef.current("signal.go");
+          playRef.current("level.start");
           vibrateRef.current("signal");
           pushHud();
         }
@@ -361,7 +361,10 @@ export function TargetHunterStage({
           if (!g.target && now >= g.nextSpawnAt) {
             const r = targetRadiusForWidth(width);
             const spot = pickSpawn(width, height, r, g.lastTarget);
-            if (spot) g.target = { x: spot.x, y: spot.y, r, shownAt: now };
+            if (spot) {
+              g.target = { x: spot.x, y: spot.y, r, shownAt: now };
+              playRef.current("target.spawn");
+            }
           }
           if (g.target) drawTarget(g.target, now);
           // HUD second-by-second tick.

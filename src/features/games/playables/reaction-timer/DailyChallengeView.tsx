@@ -300,7 +300,7 @@ export function DailyChallengeView({
     setHuntStartedAt(null);
     setPrecisionStartedAt(null);
     setPhase("interrupted");
-    play("result.bad");
+    play("level.fail");
   }, [activeDailyPhase, clearWait, play]);
 
   useActiveGameplayGuards(activeDailyPhase);
@@ -341,7 +341,7 @@ export function DailyChallengeView({
           setHuntStartedAt(performance.now());
           setPhase("hunt-playing");
         }
-        play("signal.go");
+        play("level.start");
         vibrate("signal");
         return 0;
       });
@@ -410,9 +410,10 @@ export function DailyChallengeView({
   const handlePrecisionStop = useCallback(() => {
     if (phase !== "precision-running" || precisionStartedAt === null) return;
     const elapsed = performance.now() - precisionStartedAt;
-    play("result.success");
+    const dailyPrecisionResult = buildDailyPrecisionResult(challenge, elapsed);
+    play(dailyPrecisionResult.precision?.rankId === "perfect" ? "precision.perfect" : "precision.stop");
     vibrate("tap");
-    completeDaily(buildDailyPrecisionResult(challenge, elapsed));
+    completeDaily(dailyPrecisionResult);
   }, [phase, precisionStartedAt, challenge, completeDaily, play, vibrate]);
 
   const spawnTarget = useCallback(() => {
@@ -469,7 +470,7 @@ export function DailyChallengeView({
     if (hit) {
       const hitTime = Math.max(0, Math.round(performance.now() - target.shownAt));
       huntTimesRef.current = [...huntTimesRef.current, hitTime];
-      play("result.success");
+      play("target.hit");
       vibrate("tap");
       setHuntHits((n) => n + 1);
       setHuntCombo((combo) => {
@@ -480,7 +481,7 @@ export function DailyChallengeView({
       setTarget(null);
       window.setTimeout(spawnTarget, reducedMotion ? 50 : spawnDelayForCombo(huntCombo));
     } else {
-      play("result.bad");
+      play("target.miss");
       vibrate("tooEarly");
       setHuntMisses((n) => n + 1);
       setHuntCombo(0);

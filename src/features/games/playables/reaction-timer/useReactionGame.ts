@@ -58,7 +58,7 @@ export function useReactionGame() {
   const [previousRun, setPreviousRun] = useState<RunSummary | null>(null);
 
   const { settings, hydrated: settingsHydrated, update: updateSetting, reset: resetSettings } = useReactionSettings();
-  const play = useReactionAudio(settings.soundEnabled, settings.volume);
+  const play = useReactionAudio(settings.soundEnabled, settings.volume, settings.soundProfile);
   const vibrate = useReactionHaptics(settings.hapticsEnabled);
 
   // Precision Timer mode runs on its own pure machine but shares the single
@@ -168,7 +168,7 @@ export function useReactionGame() {
           const startedAt = performance.now();
           precisionStartedAtRef.current = startedAt;
           setPrecisionRunningStartedAt(startedAt);
-          play("signal.go");
+          play("precision.start");
           vibrate("signal");
           dispatchPrecision({ type: "BEGIN_RUNNING" });
         }
@@ -295,12 +295,12 @@ export function useReactionGame() {
 
     vibrate("tap");
     if (result.rankId === "perfect" || result.rankId === "excellent") {
-      play("result.success");
+      play(result.rankId === "perfect" ? "precision.perfect" : "result.success");
       vibrate("victory");
     } else if (result.rankId === "good" || result.rankId === "close") {
-      play("result.average");
+      play("precision.stop");
     } else {
-      play("result.bad");
+      play("precision.miss");
       vibrate("tooEarly");
     }
 
@@ -339,7 +339,7 @@ export function useReactionGame() {
   /** Persist a finished Target Hunter run + unlock achievements (single owner). */
   const targetHunterComplete = useCallback(
     (result: TargetHunterResult) => {
-      play("final.victory");
+      play(result.rankId === "elite" || result.rankId === "sharp" ? "challenge.complete" : "result.success");
       vibrate("victory");
       setStats((current) => {
         setPreviousTargetHunterBestScore(current.targetHunter.bestScore);
@@ -360,7 +360,7 @@ export function useReactionGame() {
   /** Persist a finished Level Challenge attempt + unlock achievements. */
   const levelChallengeComplete = useCallback(
     (result: LevelChallengeResult) => {
-      play(result.passed ? "final.victory" : "result.bad");
+      play(result.passed ? "level.pass" : "level.fail");
       vibrate(result.passed ? "victory" : "tooEarly");
       setStats((current) => {
         setPreviousLevelScore(current.levelChallenge.bestLevelScoresByLevel[String(result.level)] ?? 0);
@@ -390,7 +390,7 @@ export function useReactionGame() {
   /** Persist a finished Daily Challenge result + unlock daily achievements. */
   const dailyChallengeComplete = useCallback(
     (result: DailyChallengeResult) => {
-      play(result.objectivePassed ? "final.victory" : "result.average");
+      play(result.objectivePassed ? "daily.complete" : "result.average");
       vibrate(result.objectivePassed ? "victory" : "tap");
       setStats((current) => {
         const before = new Set(current.achievements);
@@ -410,7 +410,7 @@ export function useReactionGame() {
   /** Persist a finished Local Battle + unlock two-player achievements. */
   const localBattleComplete = useCallback(
     (result: LocalBattleResult) => {
-      play(result.winner === "draw" ? "result.average" : "final.victory");
+      play(result.winner === "draw" ? "result.average" : "battle.win");
       vibrate(result.winner === "draw" ? "tap" : "victory");
       setStats((current) => {
         const before = new Set(current.achievements);
@@ -430,6 +430,8 @@ export function useReactionGame() {
   /** Persist successful share/copy/download actions + unlock Sprint 11 share achievements. */
   const shareActionComplete = useCallback(
     (action: Omit<ShareActionResult, "at">) => {
+      play(action.action === "download" ? "share.download" : "share.copy");
+      vibrate("share");
       const stamped: ShareActionResult = { ...action, at: new Date().toISOString() };
       setStats((current) => {
         const before = new Set(current.achievements);
@@ -440,7 +442,7 @@ export function useReactionGame() {
         return next;
       });
     },
-    [],
+    [play, vibrate],
   );
 
   const toggleSound = useCallback(
@@ -449,7 +451,7 @@ export function useReactionGame() {
   );
 
   /** Manual one-shot feedback previews for the Settings panel. */
-  const testSound = useCallback(() => play("signal.go"), [play]);
+  const testSound = useCallback(() => play("achievement.unlock"), [play]);
   const testHaptics = useCallback(() => vibrate("signal"), [vibrate]);
 
   const unlockedAchievements = useMemo(() => new Set(stats.achievements), [stats.achievements]);

@@ -1337,6 +1337,34 @@
   cursor: not-allowed;
 }
 
+.rtp-select {
+  flex: 0 0 auto;
+  min-width: 8.75rem;
+  max-width: 50%;
+  height: 2.15rem;
+  border-radius: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(15, 23, 42, 0.72);
+  color: rgba(255, 255, 255, 0.92);
+  padding: 0 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  outline: none;
+  transition: border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.rtp-select:hover:not(:disabled),
+.rtp-select:focus-visible {
+  border-color: rgba(124, 92, 246, 0.65);
+  background: rgba(15, 23, 42, 0.9);
+  box-shadow: 0 0 0 3px rgba(124, 92, 246, 0.16);
+}
+
+.rtp-select:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
 .rtp-settings-foot {
   display: flex;
   flex-wrap: wrap;

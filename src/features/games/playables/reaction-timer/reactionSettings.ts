@@ -11,6 +11,7 @@
  */
 
 import { useCallback, useEffect, useState } from "react";
+import type { SoundProfile } from "./reactionAudio";
 
 export const SETTINGS_KEY = "darma.game.settings.v1";
 
@@ -18,6 +19,8 @@ export type ReactionSettings = {
   soundEnabled: boolean;
   /** 0..1 master volume for procedural cues. */
   volume: number;
+  /** Procedural cue character. Balanced is default; soft is calmer; crisp is snappier. */
+  soundProfile: SoundProfile;
   hapticsEnabled: boolean;
   /** Reduce non-essential visual effects (on top of system prefers-reduced-motion). */
   reducedEffects: boolean;
@@ -34,6 +37,7 @@ export type ReactionSettings = {
 export const DEFAULT_SETTINGS: ReactionSettings = {
   soundEnabled: true,
   volume: 0.7,
+  soundProfile: "balanced",
   hapticsEnabled: true,
   reducedEffects: false,
   autoAdvance: true,
@@ -55,6 +59,10 @@ function clamp01(value: unknown, fallback: number): number {
   return Math.max(0, Math.min(1, value));
 }
 
+function soundProfile(value: unknown, fallback: SoundProfile): SoundProfile {
+  return value === "soft" || value === "crisp" || value === "balanced" ? value : fallback;
+}
+
 /** Merge stored partial settings over defaults — unknown/old keys are ignored, missing keys keep defaults. */
 export function normalizeSettings(value: unknown): ReactionSettings {
   if (!value || typeof value !== "object") return { ...DEFAULT_SETTINGS };
@@ -62,6 +70,7 @@ export function normalizeSettings(value: unknown): ReactionSettings {
   return {
     soundEnabled: bool(v.soundEnabled, DEFAULT_SETTINGS.soundEnabled),
     volume: clamp01(v.volume, DEFAULT_SETTINGS.volume),
+    soundProfile: soundProfile(v.soundProfile, DEFAULT_SETTINGS.soundProfile),
     hapticsEnabled: bool(v.hapticsEnabled, DEFAULT_SETTINGS.hapticsEnabled),
     reducedEffects: bool(v.reducedEffects, DEFAULT_SETTINGS.reducedEffects),
     autoAdvance: bool(v.autoAdvance, DEFAULT_SETTINGS.autoAdvance),

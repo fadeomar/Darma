@@ -229,7 +229,7 @@ function ClassicBattleTurn({
   const interruptClassic = useCallback(() => {
     if (!classicActive) return;
     setPhase("interrupted");
-    play("result.bad");
+    play("level.fail");
   }, [classicActive, play]);
   useActiveGameplayGuards(classicActive);
   useVisibilityInterruption(classicActive, interruptClassic);
@@ -246,7 +246,7 @@ function ClassicBattleTurn({
     } else if (phase === "waiting") {
       timer = window.setTimeout(() => {
         signalShownAtRef.current = performance.now();
-        play("signal.go");
+        play("level.start");
         vibrate("signal");
         setPhase("signal");
       }, randomWaitMs());
@@ -383,7 +383,7 @@ function PrecisionBattleTurn({
     if (!precisionActive) return;
     lockRef.current = true;
     setPhase("interrupted");
-    play("result.bad");
+    play("level.fail");
   }, [precisionActive, play]);
   useActiveGameplayGuards(precisionActive);
   useVisibilityInterruption(precisionActive, interruptPrecision);
@@ -395,7 +395,7 @@ function PrecisionBattleTurn({
       if (countdown > 1) setCountdown((c) => c - 1);
       else {
         startedAtRef.current = performance.now();
-        play("signal.go");
+        play("precision.start");
         vibrate("signal");
         setPhase("running");
       }
@@ -408,7 +408,7 @@ function PrecisionBattleTurn({
     lockRef.current = true;
     const elapsed = performance.now() - startedAtRef.current;
     const result = evaluatePrecision(LOCAL_BATTLE_PRECISION_TARGET_MS, elapsed);
-    play(result.absDifferenceMs <= 120 ? "result.success" : "result.average");
+    play(result.absDifferenceMs <= 120 ? "precision.perfect" : "precision.stop");
     vibrate(result.absDifferenceMs <= 120 ? "victory" : "tap");
     onComplete(buildPrecisionBattlePlayerResult(LOCAL_BATTLE_PRECISION_TARGET_MS, elapsed));
   }, [phase, onComplete, play, vibrate]);
@@ -630,7 +630,7 @@ export function LocalBattleView({
   }, [battleType, cleanP1, cleanP2, isRematch, onComplete]);
 
   const handleTurnComplete = useCallback((turnResult: LocalBattlePlayerResult) => {
-    play("result.success");
+    play("ui.click");
     vibrate("tap");
     if (activePlayer === "player1") {
       setPlayer1Result(turnResult);

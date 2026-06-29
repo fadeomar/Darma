@@ -142,6 +142,32 @@ export function ReactionSettingsPanel({
           />
         </div>
 
+        <div className="rtp-set-row">
+          <div className="rtp-set-text">
+            <label htmlFor={`${baseId}-sound-profile`} className="rtp-set-label">
+              Sound style
+            </label>
+            <span className="rtp-set-desc">Choose a calmer or snappier procedural cue palette.</span>
+          </div>
+          <select
+            id={`${baseId}-sound-profile`}
+            className="rtp-select"
+            value={settings.soundProfile}
+            disabled={!settings.soundEnabled}
+            aria-label="Sound style"
+            onChange={(event) => {
+              const next = event.target.value;
+              if (next === "soft" || next === "balanced" || next === "crisp") {
+                onUpdate("soundProfile", next);
+              }
+            }}
+          >
+            <option value="balanced">Balanced</option>
+            <option value="soft">Soft</option>
+            <option value="crisp">Crisp</option>
+          </select>
+        </div>
+
         <ToggleRow
           id={`${baseId}-haptics`}
           label="Haptics"

@@ -34,6 +34,7 @@ import {
 } from "lucide-react";
 import { Card } from "@/components/ui";
 import { ReactionBalancingPanel } from "./ReactionBalancingPanel";
+import { ReactionProgressionCard } from "./ReactionProgressionCard";
 import { cn } from "@/lib/cn";
 import {
   ACHIEVEMENTS,
@@ -475,7 +476,11 @@ export function ReactionStatsStrip({
 
   return (
     <div className="rtp-stats" id="rtp-stats">
+      {hydrated ? <ReactionProgressionCard progression={stats.progression} /> : null}
+
       <div className="rtp-statgrid">
+        <StatCard icon={Trophy} label="Player level" value={hydrated ? `Lv ${stats.progression.level}` : "—"} />
+        <StatCard icon={Zap} label="XP" value={hydrated ? stats.progression.xp.toLocaleString() : "—"} />
         <StatCard icon={Trophy} label="Personal best" value={hydrated ? formatMs(stats.bestMs) : "—"} />
         <StatCard icon={BarChart3} label="Best average" value={hydrated ? formatMs(stats.bestAverageMs) : "—"} />
         <StatCard icon={Activity} label="Official runs" value={hydrated ? String(stats.officialRuns) : "—"} />
@@ -593,7 +598,7 @@ export function ReactionStatsStrip({
         <div className="rtp-clear-confirm" role="alertdialog" aria-label="Confirm reset of local reaction stats">
           <span className="rtp-clear-confirm-text">
             <AlertTriangle className="h-4 w-4 text-[var(--color-warning)]" aria-hidden />
-            This permanently erases your best time, averages, history, daily streak, local leaderboard, share history, and achievements on this device. Your
+            This permanently erases your best time, averages, history, daily streak, local leaderboard, share history, local progression, and achievements on this device. Your
             settings are kept.
           </span>
           <div className="rtp-clear-confirm-actions">

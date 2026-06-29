@@ -19,6 +19,12 @@ import { getTargetHunterRank } from "./targetHunterScoring";
 import { TOTAL_LEVELS } from "./levelChallengeScoring";
 import { getDailyRank } from "./dailyChallengeScoring";
 import { LOCAL_BATTLE_CLASSIC_ROUNDS } from "./localBattleScoring";
+import {
+  applyXpGrant,
+  createXpGrant,
+  emptyProgressionStats,
+  normalizeProgressionStats,
+} from "./reactionProgression";
 import type { PrecisionResult, PrecisionStats } from "./precisionTypes";
 import type { TargetHunterResult, TargetHunterStats } from "./targetHunterTypes";
 import type { LevelChallengeResult, LevelChallengeStats } from "./levelChallengeTypes";
@@ -35,6 +41,7 @@ import type {
   ReactionStorageV2,
   ShareActionResult,
   ShareStats,
+  ProgressionEventKind,
   RecentAttempt,
   RunSummary,
   StreakInfo,
@@ -173,6 +180,7 @@ export const EMPTY_STORAGE: ReactionStorageV2 = {
   daily: emptyDaily(),
   localBattle: emptyLocalBattle(),
   share: emptyShare(),
+  progression: emptyProgressionStats(),
 };
 
 function canUseStorage(): boolean {
@@ -722,6 +730,7 @@ export function normalize(value: unknown): ReactionStorageV2 {
     daily: normalizeDaily(v.daily),
     localBattle: normalizeLocalBattle(v.localBattle),
     share: normalizeShare(v.share),
+    progression: normalizeProgressionStats(v.progression),
   };
 }
 
@@ -794,15 +803,32 @@ function applyDay(streak: StreakInfo, playDays: string[], at: string): { streak:
   return { streak: nextStreak, playDays: nextDays };
 }
 
-/** Re-evaluate achievements and stamp unlock timestamps for newly-unlocked ids. */
+function applyProgressionGrant(
+  next: ReactionStorageV2,
+  kind: ProgressionEventKind,
+  at: string,
+  detail?: string,
+  bonus = 0,
+): ReactionStorageV2 {
+  return {
+    ...next,
+    progression: applyXpGrant(next.progression, createXpGrant(kind, at, detail, bonus)),
+  };
+}
+
+/** Re-evaluate achievements, stamp unlock timestamps, and award XP for newly-unlocked ids. */
 function applyAchievements(next: ReactionStorageV2, ctx: AchievementContext, at: string): ReactionStorageV2 {
   const before = new Set(next.achievements);
   const unlocked = evaluateAchievements(ctx);
   const unlockedAt = { ...next.achievementsUnlockedAt };
+  let awarded = next;
   for (const id of unlocked) {
-    if (!before.has(id) && !unlockedAt[id]) unlockedAt[id] = at;
+    if (!before.has(id) && !unlockedAt[id]) {
+      unlockedAt[id] = at;
+      awarded = applyProgressionGrant(awarded, "achievement", at, id);
+    }
   }
-  return { ...next, achievements: unlocked, achievementsUnlockedAt: unlockedAt };
+  return { ...awarded, achievements: unlocked, achievementsUnlockedAt: unlockedAt };
 }
 
 /** Fold a finished classic run into persisted stats and unlock achievements. */
@@ -838,6 +864,14 @@ export function mergeRun(current: ReactionStorageV2, run: RunSummary): ReactionS
     firstPlayedAt: current.firstPlayedAt ?? run.createdAt,
     lastPlayedAt: run.createdAt,
   };
+
+  next = applyProgressionGrant(
+    next,
+    "classic-run",
+    run.createdAt,
+    run.averageMs !== null ? `Avg ${run.averageMs} ms` : "Classic run",
+    run.earlyPresses === 0 ? 20 : 0,
+  );
 
   next = applyAchievements(
     next,
@@ -889,6 +923,13 @@ export function mergePrecision(current: ReactionStorageV2, result: PrecisionResu
     firstPlayedAt: current.firstPlayedAt ?? result.createdAt,
     lastPlayedAt: result.createdAt,
   };
+  next = applyProgressionGrant(
+    next,
+    "precision-run",
+    result.createdAt,
+    `±${result.absDifferenceMs} ms`,
+    result.absDifferenceMs <= 75 ? 30 : 0,
+  );
 
   next = applyAchievements(
     next,
@@ -943,6 +984,13 @@ export function mergeTargetHunter(current: ReactionStorageV2, result: TargetHunt
     firstPlayedAt: current.firstPlayedAt ?? result.createdAt,
     lastPlayedAt: result.createdAt,
   };
+  next = applyProgressionGrant(
+    next,
+    "target-hunter-run",
+    result.createdAt,
+    `${result.score} pts · ${result.accuracy}%`,
+    result.accuracy >= 90 ? 30 : 0,
+  );
 
   next = applyAchievements(
     next,
@@ -1027,6 +1075,13 @@ export function mergeLevelChallenge(current: ReactionStorageV2, result: LevelCha
     firstPlayedAt: current.firstPlayedAt ?? result.createdAt,
     lastPlayedAt: result.createdAt,
   };
+  next = applyProgressionGrant(
+    next,
+    "level-challenge-run",
+    result.createdAt,
+    `Level ${result.level} ${result.passed ? "passed" : "attempt"}`,
+    result.passed ? 60 : 0,
+  );
 
   next = applyAchievements(
     next,
@@ -1138,6 +1193,13 @@ export function mergeDailyChallenge(current: ReactionStorageV2, result: DailyCha
     firstPlayedAt: current.firstPlayedAt ?? result.createdAt,
     lastPlayedAt: result.createdAt,
   };
+  next = applyProgressionGrant(
+    next,
+    "daily-challenge",
+    result.createdAt,
+    `${result.challengeTitle} · ${result.score} pts`,
+    result.objectivePassed ? 50 : 0,
+  );
 
   next = applyAchievements(
     next,
@@ -1216,6 +1278,13 @@ export function mergeLocalBattle(current: ReactionStorageV2, result: LocalBattle
     firstPlayedAt: current.firstPlayedAt ?? result.createdAt,
     lastPlayedAt: result.createdAt,
   };
+  next = applyProgressionGrant(
+    next,
+    "local-battle",
+    result.createdAt,
+    result.winner === "draw" ? "Draw" : `${result.winnerLabel} won`,
+    result.winner === "draw" ? 0 : 40,
+  );
 
   next = applyAchievements(
     next,
@@ -1256,6 +1325,7 @@ export function mergeShareAction(current: ReactionStorageV2, action: ShareAction
   };
 
   let next: ReactionStorageV2 = { ...current, share: nextShare };
+  next = applyProgressionGrant(next, "share", action.at, `${action.action} · ${action.mode}`);
   next = applyAchievements(
     next,
     {
@@ -1296,6 +1366,7 @@ export function recordPractice(current: ReactionStorageV2, at: string = new Date
     firstPlayedAt: current.firstPlayedAt ?? at,
     lastPlayedAt: at,
   };
+  next = applyProgressionGrant(next, "practice-run", at, "Practice mode");
   next = applyAchievements(
     next,
     { stats: next, latest: null, previousBestMs: current.bestMs, previousBestAverageMs: current.bestAverageMs, previousRun: current.lastResults[0] ?? null, precision: null, targetHunter: null, levelChallenge: null, dailyChallenge: null, localBattle: null, shareAction: null },

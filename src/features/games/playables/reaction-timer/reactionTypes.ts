@@ -81,6 +81,35 @@ export type StreakInfo = {
 /** Per-rank tally of best-round results across official runs. */
 export type RankCounts = Record<RankId, number>;
 
+export type ProgressionEventKind =
+  | "classic-run"
+  | "practice-run"
+  | "precision-run"
+  | "target-hunter-run"
+  | "level-challenge-run"
+  | "daily-challenge"
+  | "local-battle"
+  | "share"
+  | "achievement";
+
+export type ProgressionXpEvent = {
+  kind: ProgressionEventKind;
+  amount: number;
+  label: string;
+  detail?: string;
+  at: string;
+};
+
+export type ProgressionStats = {
+  xp: number;
+  level: number;
+  rankTitle: string;
+  unlockedRankTitles: string[];
+  xpHistory: ProgressionXpEvent[];
+  totalXpEvents: number;
+  lastProgressionUpdate: string | null;
+};
+
 /**
  * Versioned persisted progress (localStorage, key `darma.game.reactionTimer.v2`).
  *
@@ -124,6 +153,8 @@ export type ReactionStorageV2 = {
   localBattle: LocalBattleStats;
   /** Shareable result card stats (Sprint 11). Added without a version bump. */
   share: ShareStats;
+  /** Local player level / XP progression (Sprint 16). Added without a version bump. */
+  progression: ProgressionStats;
 };
 
 export type ShareStats = {

@@ -536,6 +536,60 @@ export const ACHIEVEMENTS: Achievement[] = [
     }),
   },
 
+  // Local progression / XP (Sprint 16). These unlock from the local-only
+  // progression slice and never require an account or backend.
+  {
+    id: "progression-first-xp",
+    glyph: "✨",
+    title: "First XP",
+    description: "Earn your first local progression XP.",
+    rarity: "common",
+    isUnlocked: (ctx) => ctx.stats.progression.xp > 0,
+  },
+  {
+    id: "progression-level-3",
+    glyph: "🎯",
+    title: "Focused Rank",
+    description: "Reach Level 3 and become Focused.",
+    rarity: "common",
+    isUnlocked: (ctx) => ctx.stats.progression.level >= 3,
+    progress: (s) => ({ current: Math.min(s.progression.level, 3), target: 3 }),
+  },
+  {
+    id: "progression-level-6",
+    glyph: "⚡",
+    title: "Sharp Rank",
+    description: "Reach Level 6 in local progression.",
+    rarity: "uncommon",
+    isUnlocked: (ctx) => ctx.stats.progression.level >= 6,
+    progress: (s) => ({ current: Math.min(s.progression.level, 6), target: 6 }),
+  },
+  {
+    id: "progression-level-10",
+    glyph: "🤲",
+    title: "Quick Hands",
+    description: "Reach Level 10 in local progression.",
+    rarity: "rare",
+    isUnlocked: (ctx) => ctx.stats.progression.level >= 10,
+    progress: (s) => ({ current: Math.min(s.progression.level, 10), target: 10 }),
+  },
+  {
+    id: "progression-reflex-pro",
+    glyph: "🏅",
+    title: "Reflex Pro",
+    description: "Unlock the Reflex Pro rank title.",
+    rarity: "epic",
+    isUnlocked: (ctx) => ctx.stats.progression.unlockedRankTitles.includes("Reflex Pro"),
+  },
+  {
+    id: "progression-all-rounder",
+    glyph: "🧭",
+    title: "All-Rounder",
+    description: "Earn progression XP from at least five different activity types.",
+    rarity: "rare",
+    isUnlocked: (ctx) => new Set(ctx.stats.progression.xpHistory.map((event) => event.kind)).size >= 5,
+  },
+
   // Shareable result cards (Sprint 11). These unlock only after a successful
   // copy/native-share/download action, all local-only and duplicate-safe.
   {

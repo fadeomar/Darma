@@ -1,14 +1,10 @@
 /**
  * Pure scoring + ranking + analysis helpers for Reaction Timer Pro.
  *
- * Ranking thresholds (classic reaction):
- *   < 180ms  Elite
- *   180-230  Excellent
- *   230-300  Good
- *   300-400  Average
- *   > 400    Keep practicing
+ * Ranking thresholds (classic reaction) are Sprint-13 tuned in `reactionBalancing`.
  */
 
+import { reactionBalancing } from "./reactionBalancing";
 import type {
   GameMode,
   Rank,
@@ -18,9 +14,9 @@ import type {
   RunSummary,
 } from "./reactionTypes";
 
-export const CLASSIC_ROUNDS = 5;
-export const MIN_WAIT_MS = 1500;
-export const MAX_WAIT_MS = 5000;
+export const CLASSIC_ROUNDS = reactionBalancing.classic.rounds;
+export const MIN_WAIT_MS = reactionBalancing.classic.waitMinMs;
+export const MAX_WAIT_MS = reactionBalancing.classic.waitMaxMs;
 
 /**
  * Friendly, non-medical disclaimer shown beside the stats. Kept here so every
@@ -33,16 +29,17 @@ export function getRank(ms: number | null): Rank {
   if (ms === null) {
     return { id: "practice", label: "No score yet", note: "Finish a valid round to earn a rank.", glyph: "🎯" };
   }
-  if (ms < 180) {
+  const thresholds = reactionBalancing.classic.rankThresholds;
+  if (ms < thresholds.eliteMs) {
     return { id: "elite", label: "Elite", note: "Lightning reflexes — that is world-class fast.", glyph: "💎" };
   }
-  if (ms < 230) {
+  if (ms < thresholds.excellentMs) {
     return { id: "excellent", label: "Excellent", note: "Sharp and quick. Keep it consistent.", glyph: "🚀" };
   }
-  if (ms < 300) {
+  if (ms < thresholds.goodMs) {
     return { id: "good", label: "Good", note: "Solid reaction. A few rounds will sharpen it.", glyph: "⚡" };
   }
-  if (ms < 400) {
+  if (ms < thresholds.averageMs) {
     return { id: "average", label: "Average", note: "Right around typical human reaction time.", glyph: "🙂" };
   }
   return { id: "practice", label: "Keep practicing", note: "Stay calm and watch for the signal.", glyph: "🌱" };
@@ -52,9 +49,10 @@ export function getRank(ms: number | null): Rank {
 export function getTip(ms: number | null, tooEarly: boolean): string {
   if (tooEarly) return "You jumped before the signal. Relax your hand and watch, don't anticipate.";
   if (ms === null) return "Wait calmly — the signal can take up to 5 seconds.";
-  if (ms < 200) return "Incredible. Consistency is the next challenge — can you repeat it?";
-  if (ms < 280) return "Great speed. Avoid tensing up between rounds to stay loose.";
-  if (ms < 360) return "Good. Try focusing on the centre of the arena and react to motion.";
+  const tips = reactionBalancing.classic.tipThresholds;
+  if (ms < tips.incredibleMs) return "Incredible. Consistency is the next challenge — can you repeat it?";
+  if (ms < tips.greatMs) return "Great speed. Avoid tensing up between rounds to stay loose.";
+  if (ms < tips.goodMs) return "Good. Try focusing on the centre of the arena and react to motion.";
   return "Typical reaction time is ~250ms. Less coffee jitter, more steady focus.";
 }
 

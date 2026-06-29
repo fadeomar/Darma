@@ -6,14 +6,15 @@
  * is the single source of truth for the score, rank, and pass/fail decision.
  *
  * Scoring (kept simple and explainable):
- *   base       = hits * 100
- *   comboBonus = maxCombo * 20
+ *   base       = hits * configured hit points
+ *   comboBonus = maxCombo * configured combo bonus
  *   speedBonus = avg-hit derived (faster → more), 0 when no hits
- *   penalty    = misses * 25 + wrongTargets * 50
- *   levelMul   = 1 + levelIndex * 0.15
+ *   penalty    = configured miss + wrong-target penalties
+ *   levelMul   = configured multiplier per level index
  *   score      = max(0, round((base + comboBonus + speedBonus - penalty) * levelMul))
  */
 
+import { reactionBalancing } from "./reactionBalancing";
 import { makeId } from "./reactionScoring";
 import type {
   LevelChallengeRank,
@@ -22,112 +23,22 @@ import type {
   LevelDef,
 } from "./levelChallengeTypes";
 
-export const TOTAL_LEVELS = 6;
-export const LEVEL_COUNTDOWN_FROM = 3;
-export const LEVEL_COUNTDOWN_INTERVAL_MS = 650;
+export const TOTAL_LEVELS = reactionBalancing.levelChallenge.totalLevels;
+export const LEVEL_COUNTDOWN_FROM = reactionBalancing.levelChallenge.countdownFrom;
+export const LEVEL_COUNTDOWN_INTERVAL_MS = reactionBalancing.levelChallenge.countdownIntervalMs;
 /** Pause between resolving one opportunity and spawning the next. */
-export const NEXT_SPAWN_DELAY_MS = 240;
+export const NEXT_SPAWN_DELAY_MS = reactionBalancing.levelChallenge.nextSpawnDelayMs;
+export const SIGNAL_MIN_WAIT_MS = reactionBalancing.levelChallenge.signalWaitMinMs;
+export const SIGNAL_MAX_WAIT_MS = reactionBalancing.levelChallenge.signalWaitMaxMs;
 /** Vertical band reserved at the top so targets never spawn under the controls. */
-export const TOP_CONTROLS_RESERVE = 72;
-export const EDGE_PADDING = 14;
+export const TOP_CONTROLS_RESERVE = reactionBalancing.levelChallenge.topControlsReserve;
+export const EDGE_PADDING = reactionBalancing.levelChallenge.edgePadding;
 /** Arena width under which targets/decoys grow for touch. */
-export const MOBILE_WIDTH = 560;
-const MOBILE_SCALE = 1.28;
+export const MOBILE_WIDTH = reactionBalancing.levelChallenge.mobileWidth;
+const MOBILE_SCALE = reactionBalancing.levelChallenge.mobileScale;
 
-/** The six levels, in order. Tuned to be fair first-time and harder later. */
-export const LEVELS: LevelDef[] = [
-  {
-    index: 0,
-    level: 1,
-    id: "l1-signal",
-    title: "Classic Signal",
-    mechanic: "signal",
-    objective: "Wait for GO, then react. Land 2 of 3 — or average under 500ms.",
-    tip: "Watch the centre and react to the change. Don't anticipate.",
-    opportunities: 3,
-    requiredHits: 2,
-    targetLifetimeMs: 0,
-    baseRadius: 0,
-    signalAttempts: 3,
-    signalPassAvgMs: 500,
-    signalMinValid: 2,
-  },
-  {
-    index: 1,
-    level: 2,
-    id: "l2-fade",
-    title: "Fade Target",
-    mechanic: "fade",
-    objective: "Hit the target before it fades. Catch 6 of 10.",
-    tip: "Targets dissolve fast — strike as soon as you see one.",
-    opportunities: 10,
-    requiredHits: 6,
-    targetLifetimeMs: 1200,
-    baseRadius: 34,
-    fade: true,
-  },
-  {
-    index: 2,
-    level: 3,
-    id: "l3-shrink",
-    title: "Shrink Target",
-    mechanic: "shrink",
-    objective: "Hit the target before it shrinks away. Catch 6 of 10.",
-    tip: "Bigger is easier — go early while the target is large.",
-    opportunities: 10,
-    requiredHits: 6,
-    targetLifetimeMs: 1300,
-    baseRadius: 45,
-    shrink: true,
-    shrinkToRadius: 14,
-  },
-  {
-    index: 3,
-    level: 4,
-    id: "l4-move",
-    title: "Moving Target",
-    mechanic: "move",
-    objective: "Track and tap the moving target. Catch 5 of 10.",
-    tip: "Lead the target slightly — tap where it's heading.",
-    opportunities: 10,
-    requiredHits: 5,
-    targetLifetimeMs: 1900,
-    baseRadius: 34,
-    moveSpeed: 120,
-  },
-  {
-    index: 4,
-    level: 5,
-    id: "l5-decoy",
-    title: "Decoy Challenge",
-    mechanic: "decoy",
-    objective: "Hit only the ringed crosshair target. 6 of 10, under 4 wrong.",
-    tip: "The correct target has a bright ring + crosshair. Decoys are slashed squares.",
-    opportunities: 10,
-    requiredHits: 6,
-    maxWrong: 3,
-    targetLifetimeMs: 2600,
-    baseRadius: 32,
-    decoys: 3,
-  },
-  {
-    index: 5,
-    level: 6,
-    id: "l6-elite",
-    title: "Elite Reflex",
-    mechanic: "elite",
-    objective: "Fade + movement + decoys, smaller targets. Hit 7 of 12.",
-    tip: "Stay calm. Find the crosshair target first, then commit.",
-    opportunities: 12,
-    requiredHits: 7,
-    maxWrong: 4,
-    targetLifetimeMs: 1700,
-    baseRadius: 28,
-    fade: true,
-    moveSpeed: 70,
-    decoys: 2,
-  },
-];
+/** The six levels, in order. Tuned centrally in `reactionBalancing`. */
+export const LEVELS: LevelDef[] = reactionBalancing.levelChallenge.levels.map((level) => ({ ...level })) as LevelDef[];
 
 export function getLevelDef(level: number): LevelDef {
   return LEVELS.find((l) => l.level === level) ?? LEVELS[0];
@@ -148,9 +59,10 @@ const RANKS: Record<LevelChallengeRankId, LevelChallengeRank> = {
 
 export function getLevelChallengeRank(passed: boolean, score: number, accuracy: number): LevelChallengeRank {
   if (!passed) return RANKS.fail;
-  if (score >= 1500 && accuracy >= 85) return RANKS.elite;
-  if (score >= 950 && accuracy >= 70) return RANKS.sharp;
-  if (score >= 450) return RANKS.solid;
+  const thresholds = reactionBalancing.levelChallenge.ranks;
+  if (score >= thresholds.eliteScore && accuracy >= thresholds.eliteAccuracy) return RANKS.elite;
+  if (score >= thresholds.sharpScore && accuracy >= thresholds.sharpAccuracy) return RANKS.sharp;
+  if (score >= thresholds.solidScore) return RANKS.solid;
   return RANKS.warmup;
 }
 
@@ -190,11 +102,14 @@ export function finalizeLevelResult(input: {
   // For the signal level, "valid reactions" == hits (non-early presses that landed).
   const passed = didPassLevel(def, { hits, validReactions: hits, averageHitMs, wrongTargets });
 
-  const base = hits * 100;
-  const comboBonus = maxCombo * 20;
-  const speedBonus = averageHitMs !== null ? Math.max(0, Math.min(160, Math.round((900 - averageHitMs) / 4))) : 0;
-  const penalty = misses * 25 + wrongTargets * 50;
-  const levelMul = 1 + def.index * 0.15;
+  const scoring = reactionBalancing.levelChallenge.scoring;
+  const base = hits * scoring.hitPoints;
+  const comboBonus = maxCombo * scoring.comboBonus;
+  const speedBonus = averageHitMs !== null
+    ? Math.max(0, Math.min(scoring.speedBonusCap, Math.round((scoring.speedBonusBaseMs - averageHitMs) / scoring.speedBonusDivisor)))
+    : 0;
+  const penalty = misses * scoring.missPenalty + wrongTargets * scoring.wrongTargetPenalty;
+  const levelMul = 1 + def.index * scoring.levelMultiplierStep;
   const score = Math.max(0, Math.round((base + comboBonus + speedBonus - penalty) * levelMul));
 
   return {

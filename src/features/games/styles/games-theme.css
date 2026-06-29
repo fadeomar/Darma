@@ -4323,3 +4323,100 @@ html.rtp-gameplay-active body {
     transition: none !important;
   }
 }
+
+/* Sprint 13 — gameplay balancing ------------------------------------------------ */
+.rtp-balance-panel {
+  border: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
+  background:
+    radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--color-primary) 10%, transparent), transparent 16rem),
+    var(--color-surface-elevated);
+}
+
+.rtp-balance-version {
+  border-radius: 999px;
+  padding: 0.25rem 0.55rem;
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  color: var(--color-muted-foreground);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.rtp-balance-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.9rem;
+}
+
+.rtp-balance-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.45rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 1rem;
+  padding: 0.85rem;
+  background: color-mix(in srgb, var(--color-background) 76%, transparent);
+  color: var(--color-muted-foreground);
+}
+
+.rtp-balance-card-title {
+  color: var(--color-foreground);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.rtp-balance-chip {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  padding: 0.38rem 0.5rem;
+  background: color-mix(in srgb, var(--color-primary) 7%, transparent);
+  font-size: 0.78rem;
+}
+
+.rtp-balance-chip-label {
+  color: var(--color-muted-foreground);
+}
+
+.rtp-balance-chip strong {
+  color: var(--color-foreground);
+  font-weight: 850;
+}
+
+.rtp-balance-notes {
+  display: grid;
+  gap: 0.4rem;
+  margin-top: 0.9rem;
+}
+
+.rtp-balance-notes p {
+  margin: 0;
+  color: var(--color-muted-foreground);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.rtp-balance-notes strong {
+  color: var(--color-foreground);
+}
+
+@media (max-width: 900px) {
+  .rtp-balance-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .rtp-balance-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rtp-balance-version {
+    width: 100%;
+    text-align: center;
+  }
+}

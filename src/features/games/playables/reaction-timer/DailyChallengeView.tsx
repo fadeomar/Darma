@@ -9,7 +9,7 @@ import { copyTextToClipboard } from "@/lib/copy-to-clipboard";
 import { cn } from "@/lib/cn";
 import { isGameplayControlTarget, useActiveGameplayGuards, useVisibilityInterruption } from "./reactionRuntimeGuards";
 import { CLASSIC_ROUNDS, randomWaitMs } from "./reactionScoring";
-import { finalizeTargetHunterRun } from "./targetHunterScoring";
+import { finalizeTargetHunterRun, pickSpawn, spawnDelayForCombo, targetRadiusForWidth } from "./targetHunterScoring";
 import {
   buildDailyClassicResult,
   buildDailyPrecisionResult,
@@ -413,12 +413,11 @@ export function DailyChallengeView({
   const spawnTarget = useCallback(() => {
     const rect = stageRef.current?.getBoundingClientRect();
     if (!rect) return;
-    const r = rect.width < 560 ? 42 : 34;
-    const topReserve = 84;
-    const x = r + 16 + Math.random() * Math.max(1, rect.width - r * 2 - 32);
-    const y = topReserve + r + Math.random() * Math.max(1, rect.height - topReserve - r * 2 - 18);
-    setTarget({ x, y, r, shownAt: performance.now() });
-  }, []);
+    const r = targetRadiusForWidth(rect.width);
+    const spot = pickSpawn(rect.width, rect.height, r, target);
+    if (!spot) return;
+    setTarget({ x: spot.x, y: spot.y, r, shownAt: performance.now() });
+  }, [target]);
 
   useEffect(() => {
     if (phase !== "hunt-playing") return;
@@ -474,14 +473,14 @@ export function DailyChallengeView({
         return next;
       });
       setTarget(null);
-      window.setTimeout(spawnTarget, reducedMotion ? 50 : 160);
+      window.setTimeout(spawnTarget, reducedMotion ? 50 : spawnDelayForCombo(huntCombo));
     } else {
       play("result.bad");
       vibrate("tooEarly");
       setHuntMisses((n) => n + 1);
       setHuntCombo(0);
     }
-  }, [phase, target, play, vibrate, spawnTarget, reducedMotion]);
+  }, [phase, target, play, vibrate, spawnTarget, reducedMotion, huntCombo]);
 
   const handleStagePointer = (event: PointerEvent<HTMLDivElement>) => {
     if (isGameplayControlTarget(event.target)) return;

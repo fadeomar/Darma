@@ -4,28 +4,30 @@
  * Ranking is based on the ABSOLUTE difference from the target:
  *   <= 20ms   Perfect
  *   <= 75ms   Excellent
- *   <= 120ms  Good
- *   <= 250ms  Close
+ *   <= configured good threshold  Good
+ *   <= configured close threshold Close
  *   > 250ms   Miss
  *
  * No timing happens here — `usePrecisionGame` captures `performance.now()` and
  * passes the raw elapsed/target to `evaluatePrecision`.
  */
 
+import { reactionBalancing } from "./reactionBalancing";
 import { makeId } from "./reactionScoring";
 import type { PrecisionRank, PrecisionRankId, PrecisionResult } from "./precisionTypes";
 
-export const DEFAULT_PRECISION_TARGET_MS = 5000;
+export const DEFAULT_PRECISION_TARGET_MS = reactionBalancing.precision.defaultTargetMs;
 /** Fixed presets offered in the lobby (plus a seeded "Random"). */
-export const PRECISION_TARGET_PRESETS = [3000, 5000, 7000] as const;
-const RANDOM_MIN_MS = 3000;
-const RANDOM_MAX_MS = 8000;
+export const PRECISION_TARGET_PRESETS = reactionBalancing.precision.presets;
+const RANDOM_MIN_MS = reactionBalancing.precision.randomMinMs;
+const RANDOM_MAX_MS = reactionBalancing.precision.randomMaxMs;
+const RANDOM_STEP_MS = reactionBalancing.precision.randomStepMs;
 
 /** A clean random target rounded to the nearest 250ms, e.g. 4250 → "4.250s". */
 export function randomPrecisionTargetMs(): number {
   const span = RANDOM_MAX_MS - RANDOM_MIN_MS;
   const raw = RANDOM_MIN_MS + Math.random() * span;
-  return Math.round(raw / 250) * 250;
+  return Math.round(raw / RANDOM_STEP_MS) * RANDOM_STEP_MS;
 }
 
 export function isPresetTarget(targetMs: number): boolean {
@@ -41,10 +43,11 @@ const RANKS: Record<PrecisionRankId, PrecisionRank> = {
 };
 
 export function getPrecisionRank(absDifferenceMs: number): PrecisionRank {
-  if (absDifferenceMs <= 20) return RANKS.perfect;
-  if (absDifferenceMs <= 75) return RANKS.excellent;
-  if (absDifferenceMs <= 120) return RANKS.good;
-  if (absDifferenceMs <= 250) return RANKS.close;
+  const thresholds = reactionBalancing.precision.rankThresholds;
+  if (absDifferenceMs <= thresholds.perfectMs) return RANKS.perfect;
+  if (absDifferenceMs <= thresholds.excellentMs) return RANKS.excellent;
+  if (absDifferenceMs <= thresholds.goodMs) return RANKS.good;
+  if (absDifferenceMs <= thresholds.closeMs) return RANKS.close;
   return RANKS.miss;
 }
 

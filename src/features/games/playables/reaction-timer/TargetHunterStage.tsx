@@ -97,6 +97,7 @@ export function TargetHunterStage({
     runStart: 0,
     nextSpawnAt: 0,
     target: null as ActiveTarget | null,
+    lastTarget: null as ActiveTarget | null,
     hits: 0,
     misses: 0,
     combo: 0,
@@ -170,6 +171,7 @@ export function TargetHunterStage({
         playRef.current("result.success");
         vibrateRef.current("achievement");
       }
+      g.lastTarget = t;
       g.target = null;
       g.nextSpawnAt = now + spawnDelayForCombo(g.combo);
       pushHud();
@@ -358,7 +360,7 @@ export function TargetHunterStage({
           // Spawn the next target when the gap has elapsed.
           if (!g.target && now >= g.nextSpawnAt) {
             const r = targetRadiusForWidth(width);
-            const spot = pickSpawn(width, height, r, g.target);
+            const spot = pickSpawn(width, height, r, g.lastTarget);
             if (spot) g.target = { x: spot.x, y: spot.y, r, shownAt: now };
           }
           if (g.target) drawTarget(g.target, now);

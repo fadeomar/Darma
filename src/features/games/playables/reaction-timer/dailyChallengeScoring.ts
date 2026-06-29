@@ -1,3 +1,4 @@
+import { clampScore, reactionBalancing } from "./reactionBalancing";
 import { evaluatePrecision, formatSeconds, formatSignedMs, getPrecisionRank } from "./precisionScoring";
 import { formatScore as formatTargetScore } from "./targetHunterScoring";
 import { CLASSIC_ROUNDS, consistencyScore, getRank, makeId, median, dayKey } from "./reactionScoring";
@@ -19,15 +20,13 @@ const DAILY_RANKS: Record<DailyRankId, DailyRank> = {
   retry: { id: "retry", label: "Try Again", glyph: "🌱", note: "Reset and take another shot." },
 };
 
-function clampScore(score: number): number {
-  return Math.max(0, Math.min(1000, Math.round(score)));
-}
 
 export function getDailyRank(score: number): DailyRank {
-  if (score >= 900) return DAILY_RANKS.elite;
-  if (score >= 760) return DAILY_RANKS.excellent;
-  if (score >= 560) return DAILY_RANKS.solid;
-  if (score >= 320) return DAILY_RANKS.warmup;
+  const thresholds = reactionBalancing.daily.rankThresholds;
+  if (score >= thresholds.eliteScore) return DAILY_RANKS.elite;
+  if (score >= thresholds.excellentScore) return DAILY_RANKS.excellent;
+  if (score >= thresholds.solidScore) return DAILY_RANKS.solid;
+  if (score >= thresholds.warmupScore) return DAILY_RANKS.warmup;
   return DAILY_RANKS.retry;
 }
 
@@ -58,11 +57,12 @@ export function getDailyChallenge(dateKey: string = todayDateKey()): DailyChalle
   const types: DailyChallengeType[] = ["classic", "precision", "target-hunt"];
   const type = types[Math.floor(rand() * types.length)] ?? "classic";
   const difficultyRoll = rand();
-  const difficulty = difficultyRoll > 0.72 ? "hard" : difficultyRoll > 0.38 ? "medium" : "easy";
+  const difficulty: DailyChallengeDefinition["difficulty"] = difficultyRoll > 0.72 ? "hard" : difficultyRoll > 0.38 ? "medium" : "easy";
 
   if (type === "precision") {
-    const targetMs = 3000 + Math.round((rand() * 5000) / 250) * 250;
-    const threshold = difficulty === "hard" ? 90 : difficulty === "medium" ? 120 : 160;
+    const precision = reactionBalancing.daily.precision;
+    const targetMs = precision.targetMinMs + Math.round((rand() * (precision.targetMaxMs - precision.targetMinMs)) / precision.targetStepMs) * precision.targetStepMs;
+    const threshold = precision.thresholdsByDifficulty[difficulty];
     return {
       id: `daily-${dateKey}-precision`,
       dateKey,
@@ -80,9 +80,10 @@ export function getDailyChallenge(dateKey: string = todayDateKey()): DailyChalle
   }
 
   if (type === "target-hunt") {
-    const duration = difficulty === "hard" ? 25000 : 20000;
-    const goalScore = difficulty === "hard" ? 1650 : difficulty === "medium" ? 1250 : 900;
-    const goalAccuracy = difficulty === "hard" ? 75 : difficulty === "medium" ? 68 : 60;
+    const hunt = reactionBalancing.daily.targetHunt;
+    const duration = hunt.durationByDifficultyMs[difficulty];
+    const goalScore = hunt.scoreGoalByDifficulty[difficulty];
+    const goalAccuracy = hunt.accuracyGoalByDifficulty[difficulty];
     return {
       id: `daily-${dateKey}-hunt`,
       dateKey,
@@ -100,7 +101,7 @@ export function getDailyChallenge(dateKey: string = todayDateKey()): DailyChalle
     };
   }
 
-  const targetAverage = difficulty === "hard" ? 285 : difficulty === "medium" ? 335 : 390;
+  const targetAverage = reactionBalancing.daily.classic.targetAverageByDifficultyMs[difficulty];
   return {
     id: `daily-${dateKey}-classic`,
     dateKey,

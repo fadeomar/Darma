@@ -33,6 +33,7 @@ import {
   Zap,
 } from "lucide-react";
 import { Card } from "@/components/ui";
+import { ReactionBalancingPanel } from "./ReactionBalancingPanel";
 import { cn } from "@/lib/cn";
 import {
   ACHIEVEMENTS,
@@ -507,6 +508,8 @@ export function ReactionStatsStrip({
           <p className="rtp-empty">Loading your recent reactions…</p>
         )}
       </Card>
+
+      <ReactionBalancingPanel />
 
       {hydrated && stats.precision.precisionRuns > 0 ? <PrecisionStatsPanel precision={stats.precision} /> : null}
 

@@ -26,6 +26,8 @@ import {
   LEVEL_COUNTDOWN_FROM,
   LEVEL_COUNTDOWN_INTERVAL_MS,
   NEXT_SPAWN_DELAY_MS,
+  SIGNAL_MAX_WAIT_MS,
+  SIGNAL_MIN_WAIT_MS,
   TOP_CONTROLS_RESERVE,
   finalizeLevelResult,
   scaleRadiusForWidth,
@@ -43,8 +45,6 @@ type Node = { x: number; y: number; vx: number; vy: number; r: number; shownAt: 
 type Round = { correct: Node; decoys: Node[]; shownAt: number; resolved: boolean; missCounted: boolean };
 type Effect = { kind: "hit" | "miss" | "wrong"; x: number; y: number; start: number; life: number };
 
-const SIGNAL_MIN_WAIT_MS = 1200;
-const SIGNAL_MAX_WAIT_MS = 2700;
 const SIGNAL_GO_TIMEOUT_MS = 2200;
 const SIGNAL_GAP_MS = 700;
 

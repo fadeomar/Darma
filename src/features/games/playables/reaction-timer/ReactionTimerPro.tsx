@@ -212,14 +212,15 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
 
   // Sprint 12: while timing-sensitive play is active, keep the page from
   // scrolling/selecting text and pause Classic runs if the tab becomes hidden.
-  useActiveGameplayGuards(!settingsOpen && (classicTimingPhase || precisionTimingPhase));
-  useVisibilityInterruption((classicTimingPhase || precisionTimingPhase) && !settingsOpen, () => {
+  const handleTimingInterrupt = useCallback(() => {
     if (precisionTimingPhase) {
       precisionToLobby();
       return;
     }
     if (["countdown", "waiting", "signal", "too-early", "round-result"].includes(phase)) pause();
-  });
+  }, [precisionTimingPhase, precisionToLobby, phase, pause]);
+  useActiveGameplayGuards(!settingsOpen && (classicTimingPhase || precisionTimingPhase));
+  useVisibilityInterruption((classicTimingPhase || precisionTimingPhase) && !settingsOpen, handleTimingInterrupt);
 
   const handleShareAction = useCallback(
     (action: ShareActionKind, result: ShareableGameResult) => {

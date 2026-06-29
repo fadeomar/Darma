@@ -92,23 +92,21 @@ export function useVisibilityInterruption(active: boolean, onInterrupt: () => vo
     };
     const onPageHide = () => interrupt("The page was hidden or unloaded");
     const onFreeze = () => interrupt("The browser froze the page");
-    const onBlur = () => {
-      // Desktop blur can happen from devtools or window focus changes. It is a
-      // soft interruption because a high-resolution wait/signal timer is no
-      // longer a fair measurement.
-      interrupt("The browser window lost focus");
-    };
 
+    // NOTE: we intentionally do NOT interrupt on a bare window "blur". On
+    // desktop, blur fires for devtools, OS notifications, or another window
+    // coming to the foreground without the page ever being hidden — pausing the
+    // run in those cases makes Classic mode feel broken (opening devtools pauses
+    // play and kills the next click). Genuine backgrounding is already covered
+    // by visibilitychange / pagehide / freeze.
     document.addEventListener("visibilitychange", onVisibilityChange);
     window.addEventListener("pagehide", onPageHide);
     window.addEventListener("freeze", onFreeze as EventListener);
-    window.addEventListener("blur", onBlur);
 
     return () => {
       document.removeEventListener("visibilitychange", onVisibilityChange);
       window.removeEventListener("pagehide", onPageHide);
       window.removeEventListener("freeze", onFreeze as EventListener);
-      window.removeEventListener("blur", onBlur);
     };
   }, [active, onInterrupt]);
 }

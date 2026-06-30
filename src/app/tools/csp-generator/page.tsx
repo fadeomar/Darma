@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import dynamic from "next/dynamic";
+import { ChevronDown } from "lucide-react";
 import { getToolRegistry } from "@/features/tools";
 import { buildToolJsonLd, buildToolMetadata } from "@/features/tools/seo";
 import { ToolPage } from "@/features/tools/layouts";
 import ToolContentCard from "@/features/tools/ui/ToolContentCard";
+import SurfaceCard from "@/components/ui/SurfaceCard";
 
 export async function generateMetadata(): Promise<Metadata> {
   const tool = getToolRegistry().getById("csp-generator");
@@ -29,17 +31,31 @@ export default function CspGeneratorPage() {
       maxWidth="wide"
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Build Content Security Policy headers with presets, directive chips, risk warnings, import parsing, and deployment-ready snippets for modern web apps.
+          Build a Content Security Policy in four steps: pick a mode, tick the services you use, add your own domains, then copy the format for your stack.
         </p>
       }
       article={
-        <ToolContentCard title="About Content Security Policy">
-          <Article />
-        </ToolContentCard>
+        <SurfaceCard className="p-0">
+          <details className="group">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-3 p-5 sm:p-6">
+              <span className="min-w-0">
+                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Reference</span>
+                <span className="mt-1 block text-xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Learn about CSP</span>
+                <span className="mt-1 block text-sm leading-6 text-[var(--color-text-secondary)]">
+                  What Content Security Policy protects against, nonces vs. hashes, directives, and deployment tips.
+                </span>
+              </span>
+              <ChevronDown className="h-5 w-5 shrink-0 text-[var(--color-text-tertiary)] transition-transform group-open:rotate-180" aria-hidden />
+            </summary>
+            <div className="border-t border-[var(--color-border-subtle)] p-5 sm:p-6">
+              <Article />
+            </div>
+          </details>
+        </SurfaceCard>
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="CSP Generator" description="Create, understand, validate, and export Content Security Policy headers with guided security warnings.">
+      <ToolContentCard title="CSP Generator" description="A simple, guided builder for Content Security Policy headers — with live output, copy buttons, and clear warnings.">
         <CspGeneratorClient />
       </ToolContentCard>
     </ToolPage>

@@ -8226,3 +8226,27 @@ html.rtp-gameplay-active body {
     transition: none;
   }
 }
+
+/* Static legacy game embeds (2048, Hextris): keep imported games focused and fullscreen-ready. */
+.static-game-embed:fullscreen {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  border-radius: 0;
+  background: var(--color-surface-overlay);
+}
+
+.static-game-embed:fullscreen .static-game-frame {
+  min-height: 0 !important;
+  flex: 1 1 auto;
+}
+
+.static-game-embed:fullscreen .static-game-toolbar,
+.static-game-embed:fullscreen .static-game-footer {
+  flex: 0 0 auto;
+}
+
+.static-game-embed:fullscreen iframe {
+  background: #000;
+}

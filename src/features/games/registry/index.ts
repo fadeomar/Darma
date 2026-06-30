@@ -8,9 +8,9 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     id: "2048",
     slug: "2048",
     title: "2048 Classic",
-    description: "Slide and merge numbered tiles to reach 2048.",
+    description: "Slide and merge numbered tiles to reach 2048 in the original browser game.",
     longDescription:
-      "2048 is a single-player sliding puzzle. Combine matching number tiles to grow them, keep the board tidy, and chase the elusive 2048 tile. A calm but addictive numbers puzzle that rewards planning over speed.",
+      "2048 is a single-player sliding puzzle. Combine matching number tiles to grow them, keep the board tidy, and chase the elusive 2048 tile. This Darma integration embeds the original browser game locally, preserving keyboard controls, swipe input, score tracking, and the classic visual style.",
     href: "/games/2048",
     categories: ["puzzle", "brain", "classic"],
     tags: ["numbers", "merge", "sliding", "strategy"],
@@ -234,6 +234,35 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     seoDescription:
       "Play a polished classic Tetris block puzzle game with keyboard and mobile controls. Free in your browser, no signup.",
     createdAt: "2026-06-28",
+  },
+
+  {
+    id: "hextris",
+    slug: "hextris",
+    title: "Hextris",
+    description: "Rotate the hexagon, catch falling color blocks, and clear matching lines.",
+    longDescription:
+      "Hextris is a fast arcade puzzle inspired by falling-block classics. Blocks fall toward a central hexagon from six directions. Rotate the hexagon, stack matching colors, trigger combos, and survive as the speed climbs. This Darma integration keeps the original Hextris game logic and local assets inside the Darma Games player shell.",
+    href: "/games/hextris",
+    categories: ["arcade", "puzzle", "classic", "quick-break"],
+    tags: ["hextris", "arcade", "puzzle", "blocks", "colors", "falling blocks", "keyboard", "mobile"],
+    thumbnail: "⬢",
+    thumbnailType: "gradient",
+    accent: "orange",
+    featured: true,
+    popular: true,
+    isNew: true,
+    difficulty: "medium",
+    playTime: "5 min",
+    input: ["keyboard", "touch", "mouse"],
+    devices: ["desktop", "tablet", "mobile"],
+    controls:
+      "Use Left/Right arrows or A/D to rotate the hexagon. On touch devices, tap or swipe inside the game area. Match same-colored blocks to clear stacks and build combos before the hexagon fills up.",
+    privacyNote: PRIVACY_NOTE,
+    seoTitle: "Play Hextris Online Free | Darma Games",
+    seoDescription:
+      "Play Hextris free inside Darma Games. Rotate the hexagon, match colors, clear falling blocks, and chase high scores in your browser with no signup.",
+    createdAt: "2026-06-30",
   },
   {
     id: "minesweeper",

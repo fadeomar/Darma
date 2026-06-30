@@ -7,6 +7,7 @@ import { TetrisGame } from "../playables/tetris";
 import { ChessMiniGame } from "../playables/chess-mini";
 import { FloppyBirdGame } from "../playables/floppy-bird";
 import { MathSprintGame } from "../playables/math-sprint";
+import { StaticGameEmbed } from "../playables/static-embed";
 
 /**
  * Polished player area. Real game components can be lazy-loaded later and passed
@@ -19,6 +20,29 @@ export function GamePlayerShell({
   game: GameDefinition;
   children?: React.ReactNode;
 }) {
+
+  if (game.slug === "2048") {
+    return (
+      <StaticGameEmbed
+        game={game}
+        src="/darma-games/2048/index.html"
+        minHeight={640}
+        focusHint="Use arrow keys on desktop, or swipe inside the board on touch devices. Click inside the game first if the keyboard does not respond."
+      />
+    );
+  }
+
+  if (game.slug === "hextris") {
+    return (
+      <StaticGameEmbed
+        game={game}
+        src="/darma-games/hextris/index.html"
+        minHeight={700}
+        focusHint="Use Left/Right or A/D to rotate the hexagon. On mobile, swipe or tap inside the game after it loads."
+      />
+    );
+  }
+
   if (game.slug === "reaction-timer") {
     return <ReactionTimerPro game={game} />;
   }

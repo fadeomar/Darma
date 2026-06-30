@@ -5,7 +5,7 @@ import { GameThumbnail } from "./GameThumbnail";
 import { ReactionTimerPro } from "../playables/reaction-timer";
 import { TetrisGame } from "../playables/tetris";
 import { ChessMiniGame } from "../playables/chess-mini";
-import { SkyHopperGame } from "../playables/sky-hopper";
+import { FloppyBirdGame } from "../playables/floppy-bird";
 import { MathSprintGame } from "../playables/math-sprint";
 
 /**
@@ -31,8 +31,8 @@ export function GamePlayerShell({
     return <ChessMiniGame game={game} />;
   }
 
-  if (game.slug === "sky-hopper") {
-    return <SkyHopperGame game={game} />;
+  if (game.slug === "floppy-bird") {
+    return <FloppyBirdGame game={game} />;
   }
 
   if (game.slug === "math-sprint") {

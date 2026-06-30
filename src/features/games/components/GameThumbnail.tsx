@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { GameAccent, GameDefinition } from "../domain/game";
 import { cn } from "@/lib/cn";
+import { FloppyBirdCardPreview } from "../playables/floppy-bird/FloppyBirdCardPreview";
 
 const accentClass: Record<GameAccent, string> = {
   violet: "gthumb-violet",
@@ -33,6 +34,14 @@ type GameThumbnailProps = {
 export function GameThumbnail({ game, aspect = "16/9", size = "md", className, priority }: GameThumbnailProps) {
   const aspectClass = aspect === "4/3" ? "aspect-[4/3]" : "aspect-[16/9]";
   const motifSize = size === "lg" ? "text-5xl sm:text-6xl" : "text-4xl sm:text-5xl";
+
+  if (game.slug === "floppy-bird") {
+    return (
+      <div className={cn("relative w-full overflow-hidden", aspectClass, className)}>
+        <FloppyBirdCardPreview className="absolute inset-0 h-full w-full transition duration-500 group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100" />
+      </div>
+    );
+  }
 
   if (game.thumbnailType === "image" && game.thumbnail) {
     return (

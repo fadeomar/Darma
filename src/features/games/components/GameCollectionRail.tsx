@@ -34,7 +34,7 @@ export function GameCollectionRail({
           <Link
             key={game.id}
             href={game.href}
-            className="group relative min-w-[260px] snap-start overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-xs)] transition hover:-translate-y-0.5 hover:border-[var(--color-primary-border)] hover:shadow-[var(--shadow-card)] focus:outline-none focus-visible:shadow-[var(--focus-ring)] motion-reduce:transition-none motion-reduce:hover:translate-y-0 sm:min-w-[300px]"
+            className="group relative w-[260px] shrink-0 snap-start overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-xs)] transition hover:-translate-y-0.5 hover:border-[var(--color-primary-border)] hover:shadow-[var(--shadow-card)] focus:outline-none focus-visible:shadow-[var(--focus-ring)] motion-reduce:transition-none motion-reduce:hover:translate-y-0 sm:w-[300px]"
           >
             <GameThumbnail game={game} size="md" />
             <div className="p-4">

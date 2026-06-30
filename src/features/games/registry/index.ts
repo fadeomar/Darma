@@ -309,15 +309,15 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     createdAt: "2026-04-05",
   },
   {
-    id: "sky-hopper",
-    slug: "sky-hopper",
-    title: "Sky Hopper",
-    description: "Tap to flap a cute bird through the cloud gaps.",
+    id: "floppy-bird",
+    slug: "floppy-bird",
+    title: "Floppy Bird",
+    description: "A retro one-tap arcade flyer with real sprite and sound assets.",
     longDescription:
-      "Sky Hopper is a one-tap arcade flyer built for Darma Games. Tap, click, or press Space to flap and glide your bird through narrow cloud gaps. Each gap you clear scores a point, the gaps tighten and the wind picks up as you go, and your best score is saved on your device. Original artwork and sound — a breezy, pick-up-and-play challenge for quick breaks.",
-    href: "/games/sky-hopper",
+      "Floppy Bird is a focused arcade flyer built for Darma Games. Tap, click, or press Space to flap through pipe gaps, score points, beat your saved best, and earn medals at 10, 20, 30, and 40 points. The playable uses a crisp 288 × 512 retro canvas frame with local sprite and sound assets, so it feels like a real arcade game instead of a dashboard.",
+    href: "/games/floppy-bird",
     categories: ["arcade", "quick-break", "mobile-friendly", "casual"],
-    tags: ["arcade", "flappy", "flyer", "one-tap", "reflex", "endless"],
+    tags: ["arcade", "floppy", "bird", "flyer", "one-tap", "reflex", "endless"],
     thumbnail: "🐤",
     thumbnailType: "gradient",
     accent: "sky",
@@ -328,11 +328,11 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     input: ["mouse", "touch", "keyboard"],
     devices: ["desktop", "tablet", "mobile"],
     controls:
-      "Tap, click, or press Space / Up to flap and fly through the gaps. P pauses, Enter starts or restarts. Each gap cleared scores a point; clear 10, 20, 30, or 40 for bronze, silver, gold, and platinum medals.",
+      "Tap, click, or press Space / Up to flap through the pipe gaps. P pauses, Enter starts or restarts. Each cleared pipe scores a point; earn bronze, silver, gold, and platinum medals at 10, 20, 30, and 40 points.",
     privacyNote: PRIVACY_NOTE,
-    seoTitle: "Play Sky Hopper Online Free | Darma Games",
+    seoTitle: "Play Floppy Bird Online Free | Darma Games",
     seoDescription:
-      "Play Sky Hopper free in your browser. A one-tap arcade flyer — flap a cute bird through the cloud gaps, beat your best score, and earn medals. No signup, mobile-friendly.",
+      "Play Floppy Bird free in your browser. A retro one-tap arcade flyer with crisp sprites, real sound effects, saved best score, and mobile-friendly controls. No signup required.",
     createdAt: "2026-06-30",
   },
   {

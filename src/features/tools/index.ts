@@ -15,3 +15,5 @@ export type { ToolRegistry, ToolRegistryQuery } from "./domain/toolRegistry";
 export { getToolRegistry } from "./registry";
 export * from "./layouts";
 export * from "./components";
+
+export * from "./lib/toolCoreAdapter";

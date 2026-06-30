@@ -1,0 +1,25 @@
+.core-scroll-row {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-strong) transparent;
+}
+
+.core-scroll-row::-webkit-scrollbar {
+  height: 8px;
+}
+
+.core-scroll-row::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.core-scroll-row::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .group\/core-card,
+  .group\/core-card * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

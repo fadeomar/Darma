@@ -27,12 +27,49 @@ const itemBlurb = (item: ResourceItem) => item.description ?? item.about ?? "";
 
 const externalLinkClass =
   "group flex items-center justify-between gap-3 rounded-[var(--radius-sm)] border border-transparent px-3 py-2 text-sm text-[var(--color-text-secondary)] transition hover:border-[var(--color-border-default)] hover:bg-[var(--color-control-hover)] hover:text-[var(--color-text-primary)]";
+const cardHeaderClass = "grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3";
+const cardTitleClass = "min-w-0 text-lg font-bold text-[var(--color-text-primary)]";
+const externalIconClass =
+  "shrink-0 text-[var(--color-text-tertiary)] transition group-hover:text-[var(--color-primary)]";
+const countBadgeClass = "min-w-7 px-2";
+
+function ExternalTitle({ title }: { title: string }) {
+  const words = title.trim().split(/\s+/);
+
+  if (words.length <= 1) {
+    return (
+      <>
+        {title}
+        <ArrowUpRight
+          className={`mb-0.5 ml-1 inline-block h-4 w-4 align-middle ${externalIconClass}`}
+          aria-hidden
+        />
+      </>
+    );
+  }
+
+  const lastWord = words[words.length - 1];
+  const leadingWords = words.slice(0, -1).join(" ");
+
+  return (
+    <>
+      {leadingWords}{" "}
+      <span className="whitespace-nowrap">
+        {lastWord}
+        <ArrowUpRight
+          className={`mb-0.5 ml-1 inline-block h-4 w-4 align-middle ${externalIconClass}`}
+          aria-hidden
+        />
+      </span>
+    </>
+  );
+}
 
 function ExternalItem({ item }: { item: ResourceItem }) {
   return (
     <Link href={item.url} target="_blank" rel="noopener noreferrer" className={externalLinkClass}>
       <span className="min-w-0 truncate">{item.name}</span>
-      <ArrowUpRight className="h-3.5 w-3.5 shrink-0 text-[var(--color-text-tertiary)] transition group-hover:text-[var(--color-primary)]" aria-hidden />
+      <ArrowUpRight className={`h-3.5 w-3.5 ${externalIconClass}`} aria-hidden />
     </Link>
   );
 }
@@ -43,12 +80,12 @@ function CategoryCard({ category }: { category: ResourceCategory }) {
 
   return (
     <Card as="article" padding="md" className="flex h-full flex-col">
-      <div className="flex items-start justify-between gap-3">
-        <h3 className="flex items-center gap-2 text-lg font-bold text-[var(--color-text-primary)]">
-          <LinkIcon className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
-          {category.category}
+      <div className={cardHeaderClass}>
+        <h3 className={`${cardTitleClass} flex items-start gap-2`}>
+          <LinkIcon className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-primary)]" aria-hidden />
+          <span className="min-w-0">{category.category}</span>
         </h3>
-        <Badge variant="outline">{category.items.length}</Badge>
+        <Badge variant="outline" className={countBadgeClass}>{category.items.length}</Badge>
       </div>
 
       <ul className={expanded ? "mt-4 max-h-96 space-y-1.5 overflow-y-auto pr-1" : "mt-4 space-y-1.5"}>
@@ -75,15 +112,14 @@ function CategoryCard({ category }: { category: ResourceCategory }) {
 function FeaturedCard({ reference }: { reference: (typeof FEATURED_REFERENCES)[number] }) {
   return (
     <Card as="article" variant="interactive" padding="md" className="flex h-full flex-col">
-      <div className="flex items-start justify-between gap-3">
+      <div className={cardHeaderClass}>
         <Link
           href={reference.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="group inline-flex items-center gap-1.5 text-base font-bold text-[var(--color-text-primary)] transition hover:text-[var(--color-primary)]"
+          className="group min-w-0 text-base font-bold leading-snug text-[var(--color-text-primary)] transition hover:text-[var(--color-primary)]"
         >
-          {reference.name}
-          <ArrowUpRight className="h-4 w-4 text-[var(--color-text-tertiary)] transition group-hover:text-[var(--color-primary)]" aria-hidden />
+          <ExternalTitle title={reference.name} />
         </Link>
         {reference.official ? <Badge variant="soft">Official</Badge> : null}
       </div>
@@ -200,7 +236,7 @@ export default function GoodLinks() {
                 >
                   <div className="flex items-center justify-between gap-2">
                     <span className="min-w-0 truncate text-sm font-semibold text-[var(--color-text-primary)]">{item.name}</span>
-                    <ArrowUpRight className="h-3.5 w-3.5 shrink-0 text-[var(--color-text-tertiary)] transition group-hover:text-[var(--color-primary)]" aria-hidden />
+                    <ArrowUpRight className={`h-3.5 w-3.5 ${externalIconClass}`} aria-hidden />
                   </div>
                   <span className="mt-1 block text-xs text-[var(--color-text-tertiary)]">{item.category}</span>
                 </Link>

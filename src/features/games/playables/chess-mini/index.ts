@@ -1,0 +1,1 @@
+export { ChessMiniGame } from "./ChessMiniGame";

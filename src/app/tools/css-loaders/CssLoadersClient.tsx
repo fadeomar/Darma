@@ -18,8 +18,7 @@ import loaderIndexJson from "./data/generated/loader-index.json";
 import sourceStatsJson from "./data/generated/source-stats.json";
 import type { LoaderCategory, LoaderDefinition, LoaderGalleryMode, LoaderIndexItem, LoaderPreviewItem } from "./types";
 
-const INITIAL_VISIBLE_COUNT = 60;
-const LOAD_MORE_COUNT = 60;
+const LOADERS_PAGE_SIZE = 48;
 const FAVORITES_STORAGE_KEY = "darma-css-loader-favorites";
 
 const loaderIndex = loaderIndexJson as LoaderIndexItem[];
@@ -30,19 +29,13 @@ const availableCategories = LOADER_CATEGORIES.filter((category) => {
   return loaderIndex.some((loader) => loader.category === category);
 });
 
-const categoryStats = loaderIndex.reduce<Record<string, number>>((stats, loader) => {
+const categoryStats = loaderIndex.reduce<Partial<Record<LoaderCategory, number>>>((stats, loader) => {
   stats[loader.category] = (stats[loader.category] ?? 0) + 1;
   return stats;
 }, {});
 
-const popularCount = loaderIndex.filter((loader) => loader.flags.popular).length;
-const formatCount = new Set(loaderIndex.flatMap((loader) => loader.formats)).size;
 const sourceStats = sourceStatsJson as { total: number; groups: Record<string, number> };
 const sourceGroupCount = Object.keys(sourceStats.groups).length;
-
-function clampVisibleCount(count: number, resultCount: number) {
-  return Math.min(Math.max(count, INITIAL_VISIBLE_COUNT), Math.max(resultCount, INITIAL_VISIBLE_COUNT));
-}
 
 function readFavoriteIds() {
   if (typeof window === "undefined") return new Set<string>();
@@ -96,7 +89,7 @@ function CopyToast({ message }: { message: string }) {
 export default function CssLoadersClient() {
   const [filters, setFilters] = useState<LoaderFilterState>(DEFAULT_LOADER_FILTERS);
   const deferredFilters = useDeferredValue(filters);
-  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT);
+  const [currentPage, setCurrentPage] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
   const [galleryMode, setGalleryMode] = useState<LoaderGalleryMode>("grid");
   const [highlightedLoaderId, setHighlightedLoaderId] = useState<string | null>(null);
@@ -135,11 +128,18 @@ export default function CssLoadersClient() {
     return baseFilteredLoaders.filter((loader) => favoriteIds.has(loader.id));
   }, [baseFilteredLoaders, favoriteIds, deferredFilters.savedOnly]);
 
-  const visibleLoaders = useMemo(() => filteredLoaders.slice(0, visibleCount), [filteredLoaders, visibleCount]);
+  const totalPages = Math.max(1, Math.ceil(filteredLoaders.length / LOADERS_PAGE_SIZE));
+  const pageStart = filteredLoaders.length ? (currentPage - 1) * LOADERS_PAGE_SIZE : 0;
+  const pageEnd = Math.min(pageStart + LOADERS_PAGE_SIZE, filteredLoaders.length);
+  const currentPageLoaders = useMemo(() => filteredLoaders.slice(pageStart, pageEnd), [filteredLoaders, pageStart, pageEnd]);
   const visibleCategories = useMemo(
-    () => getCategoriesRequiredForVisibleLoaders(visibleLoaders, deferredFilters.category),
-    [visibleLoaders, deferredFilters.category],
+    () => getCategoriesRequiredForVisibleLoaders(currentPageLoaders, deferredFilters.category),
+    [currentPageLoaders, deferredFilters.category],
   );
+
+  useEffect(() => {
+    setCurrentPage((page) => Math.min(Math.max(page, 1), totalPages));
+  }, [totalPages]);
 
   useEffect(() => {
     const missingCategories = visibleCategories.filter((category) => !loadedPreviewCategoriesRef.current.has(category));
@@ -185,9 +185,8 @@ export default function CssLoadersClient() {
   }, [visibleCategories]);
 
   const activeFilters = hasActiveLoaderFilters(filters);
-  const shownCount = Math.min(visibleCount, filteredLoaders.length);
   const isFilteringDeferred = filters !== deferredFilters;
-  const isLoadingVisiblePreviews = visibleLoaders.some((loader) => !loaderPreviewById.has(loader.id)) || loadingPreviewCategories.size > 0;
+  const isLoadingVisiblePreviews = currentPageLoaders.some((loader) => !loaderPreviewById.has(loader.id)) || loadingPreviewCategories.size > 0;
 
   function showCopyToast(message: string) {
     setCopyToastMessage(message);
@@ -197,18 +196,14 @@ export default function CssLoadersClient() {
 
   function patchFilters(patch: Partial<LoaderFilterState>) {
     setFilters((current) => ({ ...current, ...patch }));
-    setVisibleCount(INITIAL_VISIBLE_COUNT);
+    setCurrentPage(1);
     setHighlightedLoaderId(null);
   }
 
   function resetFilters() {
     setFilters(DEFAULT_LOADER_FILTERS);
-    setVisibleCount(INITIAL_VISIBLE_COUNT);
+    setCurrentPage(1);
     setHighlightedLoaderId(null);
-  }
-
-  function loadMore() {
-    setVisibleCount((current) => clampVisibleCount(current + LOAD_MORE_COUNT, filteredLoaders.length));
   }
 
   function openLoader(loader: LoaderIndexItem) {
@@ -267,11 +262,8 @@ export default function CssLoadersClient() {
 
     const randomIndex = Math.floor(Math.random() * filteredLoaders.length);
     const loader = filteredLoaders[randomIndex];
+    setCurrentPage(Math.floor(randomIndex / LOADERS_PAGE_SIZE) + 1);
     openLoader(loader);
-
-    if (randomIndex >= visibleCount) {
-      setVisibleCount(clampVisibleCount(randomIndex + 1, filteredLoaders.length));
-    }
 
     showCopyToast(`Random pick: ${loader.name}`);
 
@@ -304,8 +296,8 @@ export default function CssLoadersClient() {
             <span>Indexed</span>
           </div>
           <div>
-            <strong>{shownCount}</strong>
-            <span>Rendered</span>
+            <strong>{currentPageLoaders.length}</strong>
+            <span>On page</span>
           </div>
           <div>
             <strong>{loaderPreviewById.size}</strong>
@@ -322,7 +314,8 @@ export default function CssLoadersClient() {
         filters={filters}
         totalCount={loaderIndex.length}
         resultCount={filteredLoaders.length}
-        visibleCount={shownCount}
+        pageStart={pageStart}
+        pageEnd={pageEnd}
         isPaused={isPaused}
         galleryMode={galleryMode}
         hasActiveFilters={activeFilters}
@@ -345,11 +338,22 @@ export default function CssLoadersClient() {
       <div className="css-loaders-category-summary" aria-label="Available category counts">
         {Object.entries(categoryStats)
           .sort(([a], [b]) => a.localeCompare(b))
-          .map(([category, count]) => (
-            <span key={category}>
-              {formatLoaderLabel(category)} <strong>{count}</strong>
-            </span>
-          ))}
+          .map(([category, count]) => {
+            const loaderCategory = category as LoaderCategory;
+            const isActive = filters.category === loaderCategory && !filters.savedOnly;
+
+            return (
+              <button
+                key={category}
+                type="button"
+                aria-pressed={isActive}
+                onClick={() => patchFilters({ category: loaderCategory, savedOnly: false })}
+                className={cn("css-loaders-category-summary-chip", isActive && "css-loaders-category-summary-chip-active")}
+              >
+                {formatLoaderLabel(category)} <strong>{count}</strong>
+              </button>
+            );
+          })}
       </div>
 
       {isFilteringDeferred ? <div className="css-loaders-filtering-status">Updating gallery results…</div> : null}
@@ -357,13 +361,17 @@ export default function CssLoadersClient() {
       {filteredLoaders.length ? (
         <LoaderGallery
           loaders={filteredLoaders}
+          currentPageLoaders={currentPageLoaders}
           loaderPreviewById={loaderPreviewById}
-          visibleCount={visibleCount}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          pageStart={pageStart}
+          pageEnd={pageEnd}
           galleryMode={galleryMode}
           highlightedLoaderId={highlightedLoaderId}
           favoriteIds={favoriteIds}
           isLoadingVisiblePreviews={isLoadingVisiblePreviews}
-          onLoadMore={loadMore}
+          onPageChange={setCurrentPage}
           onOpenLoader={openLoader}
           onToggleFavorite={toggleFavorite}
           onCopyPreview={copyPreviewSnippet}

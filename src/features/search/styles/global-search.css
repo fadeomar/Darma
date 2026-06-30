@@ -1,0 +1,36 @@
+.global-search-overlay {
+  animation: global-search-fade 160ms ease-out both;
+}
+
+.global-search-panel {
+  animation: global-search-panel 180ms ease-out both;
+  background-image:
+    radial-gradient(circle at 8% 0%, color-mix(in oklab, var(--color-primary) 12%, transparent), transparent 28%),
+    radial-gradient(circle at 100% 12%, color-mix(in oklab, var(--color-accent) 10%, transparent), transparent 32%);
+}
+
+.global-search-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in oklab, var(--color-text-tertiary) 32%, transparent) transparent;
+}
+
+.global-search-result {
+  min-height: 72px;
+}
+
+@keyframes global-search-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes global-search-panel {
+  from { opacity: 0; transform: translateY(-10px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .global-search-overlay,
+  .global-search-panel {
+    animation: none;
+  }
+}

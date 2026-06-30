@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>2048 Classic · Darma Games</title>
+
+  <link href="style/main.css" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
+  <link rel="apple-touch-startup-image" href="meta/apple-touch-startup-image-640x1096.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)">
+  <link rel="apple-touch-startup-image" href="meta/apple-touch-startup-image-640x920.png"  media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+</head>
+<body data-theme="classic">
+  <main class="darma-2048-shell" aria-label="2048 Classic game">
+    <section class="darma-2048-play-panel" aria-label="2048 board">
+      <div class="heading">
+        <h1 class="title">2048</h1>
+        <div class="scores-container" aria-label="Score board">
+          <div class="score-container">0</div>
+          <div class="best-container">0</div>
+        </div>
+      </div>
+
+      <div class="above-game">
+        <p class="game-intro">Join the numbers and reach the <strong>2048 tile!</strong></p>
+        <a class="restart-button">New Game</a>
+      </div>
+
+      <div class="game-container" tabindex="0" aria-label="2048 board. Use arrow keys or swipe to move tiles.">
+        <div class="game-message">
+          <p></p>
+          <div class="lower">
+            <a class="keep-playing-button">Keep going</a>
+            <a class="retry-button">Try again</a>
+          </div>
+        </div>
+
+        <div class="grid-container">
+          <div class="grid-row">
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+          </div>
+          <div class="grid-row">
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+          </div>
+          <div class="grid-row">
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+          </div>
+          <div class="grid-row">
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+            <div class="grid-cell"></div>
+          </div>
+        </div>
+
+        <div class="tile-container"></div>
+      </div>
+    </section>
+
+    <aside class="darma-2048-side-panel" aria-label="2048 controls and instructions">
+      <div>
+        <p class="darma-pill">Darma playable</p>
+        <h2>Play compact, no scroll</h2>
+        <p class="darma-side-copy">Everything important stays on-screen: board, score, new game, themes, sound, and controls.</p>
+      </div>
+
+      <div class="darma-control-card">
+        <div class="darma-control-header">
+          <span>Theme</span>
+          <small>changes board colors</small>
+        </div>
+        <div class="darma-theme-grid" role="group" aria-label="Choose 2048 theme">
+          <button type="button" class="darma-theme-button is-active" data-theme="classic">Classic</button>
+          <button type="button" class="darma-theme-button" data-theme="midnight">Midnight</button>
+          <button type="button" class="darma-theme-button" data-theme="candy">Candy</button>
+          <button type="button" class="darma-theme-button" data-theme="forest">Forest</button>
+          <button type="button" class="darma-theme-button" data-theme="sunset">Sunset</button>
+        </div>
+      </div>
+
+      <div class="darma-control-card darma-sound-card">
+        <div>
+          <strong>Sound effects</strong>
+          <small>move, merge, win, lose, restart</small>
+        </div>
+        <button type="button" class="darma-sound-toggle" aria-pressed="true">Sound on</button>
+      </div>
+
+      <p class="game-explanation">
+        <strong class="important">How to play:</strong> use <strong>arrow keys</strong> or <strong>WASD</strong> to move the tiles. When two matching numbers touch, they <strong>merge into one</strong>.
+      </p>
+
+      <p class="darma-control-hint">Desktop: arrows / WASD / R to restart. Touch: swipe inside the board.</p>
+    </aside>
+  </main>
+
+  <script src="js/bind_polyfill.js"></script>
+  <script src="js/classlist_polyfill.js"></script>
+  <script src="js/animframe_polyfill.js"></script>
+  <script src="js/darma_audio_ui.js"></script>
+  <script src="js/keyboard_input_manager.js"></script>
+  <script src="js/html_actuator.js"></script>
+  <script src="js/grid.js"></script>
+  <script src="js/tile.js"></script>
+  <script src="js/local_storage_manager.js"></script>
+  <script src="js/game_manager.js"></script>
+  <script src="js/application.js"></script>
+</body>
+</html>

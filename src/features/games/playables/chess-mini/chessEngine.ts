@@ -414,6 +414,45 @@ function isDoublePawnPush(piece: ChessPiece, from: ChessCoord, to: ChessCoord): 
   return piece.role === "pawn" && Math.abs(Number(from[1]) - Number(to[1])) === 2;
 }
 
+/**
+ * Lean move application for the AI search. The move is assumed to already be legal
+ * (it comes from {@link getLegalMoves}), so this skips re-validation and — crucially —
+ * skips the expensive {@link getStatusForTurn} legal-move generation that
+ * {@link moveChessPiece} performs only to build notation. Promotions are resolved to a
+ * queen. It returns just the board plus the minimal record needed for en-passant context.
+ */
+export function applySearchMove(
+  board: ChessBoard,
+  from: ChessCoord,
+  to: ChessCoord,
+  move: ChessMoveTarget,
+  turn: ChessColor,
+): { board: ChessBoard; record: ChessMoveRecord } | null {
+  const piece = findSquare(board, from)?.piece;
+  if (!piece) return null;
+
+  const nextBoard = applyMoveUnchecked(board, from, to, move);
+  if (!nextBoard) return null;
+
+  if (move.promotion) {
+    const promoted = findSquare(nextBoard, to);
+    if (promoted?.piece) promoted.piece = { ...promoted.piece, role: "queen", hasMoved: true };
+  }
+
+  const record: ChessMoveRecord = {
+    from,
+    to,
+    piece: { ...piece },
+    turn,
+    statusAfter: "playing",
+    special: move.special,
+    promotedTo: move.promotion ? "queen" : undefined,
+    isDoublePawnPush: isDoublePawnPush(piece, from, to),
+  };
+
+  return { board: nextBoard, record };
+}
+
 function getCapturedPiece(board: ChessBoard, from: ChessCoord, to: ChessCoord, move: ChessMoveTarget): CapturedPiece | undefined {
   if (move.special === "en-passant") {
     const capturedCoord = `${to[0]}${from[1]}` as ChessCoord;

@@ -28,8 +28,16 @@ import { Badge, Button } from "@/components/ui";
 import { cn } from "@/lib/cn";
 import type { GameDefinition } from "../../domain/game";
 import { CHESS_FILES, createInitialChessBoard, getPieceAsset, getPieceLabel } from "./chessBoard";
-import { chooseComputerMove, type ChessAiDifficulty, type ChessAiMove } from "./chessAi";
+import {
+  chooseComputerMove,
+  MAX_THINKING_MS,
+  VISIBLE_THINKING_RANGES,
+  type ChessAiDifficulty,
+  type ChessAiMeta,
+  type ChessAiMove,
+} from "./chessAi";
 import { getLegalMoves, getMaterialScore, getNextTurn, getTurnLabel, moveChessPiece, promotePawn } from "./chessEngine";
+import { playChessSound, unlockChessAudio, type ChessSoundEvent } from "./chessSounds";
 import { commitChessMatchStarted, readChessMatchCount } from "./chessStorage";
 import type {
   CapturedPiece,
@@ -80,7 +88,6 @@ type BoardOrientation = "white" | "black";
 type ClockState = Record<ChessColor, number | null>;
 type GamePhase = "setup" | "playing";
 type BoardThemeId = (typeof BOARD_THEMES)[number]["id"];
-type ChessSoundEvent = "start" | "move" | "capture" | "check" | "win" | "lose" | "draw" | "end" | "invalid";
 
 type ChessSnapshot = {
   board: ChessBoard;
@@ -126,6 +133,8 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
   const [computerThinkingStartedAt, setComputerThinkingStartedAt] = useState<number | null>(null);
   const [computerThinkingElapsedMs, setComputerThinkingElapsedMs] = useState(0);
   const [lastComputerThinkMs, setLastComputerThinkMs] = useState<number | null>(null);
+  const [lastThinkMeta, setLastThinkMeta] = useState<ChessAiMeta | null>(null);
+  const [usedFallback, setUsedFallback] = useState(false);
 
   useEffect(() => {
     setMatchCount(readChessMatchCount());
@@ -245,9 +254,13 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
     setComputerThinkingStartedAt(null);
     setComputerThinkingElapsedMs(0);
     setLastComputerThinkMs(null);
+    setLastThinkMeta(null);
+    setUsedFallback(false);
     setGamePhase("playing");
     setMessage(nextHumanColor === "white" ? "Game started. You play White. Make the opening move." : "Game started. You play Black. Computer opens as White.");
     setMatchCount(commitChessMatchStarted());
+    // Starting is a trusted user gesture — safe to unlock audio playback now.
+    unlockChessAudio();
     playChessSound(soundEnabled, "start");
   }, [aiDifficulty, humanColor, soundEnabled, timeControl]);
 
@@ -267,6 +280,8 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
     setComputerThinkingStartedAt(null);
     setComputerThinkingElapsedMs(0);
     setLastComputerThinkMs(null);
+    setLastThinkMeta(null);
+    setUsedFallback(false);
     setGamePhase("setup");
     setMessage("Choose your side, difficulty, and board style to start Chess Mini.");
   }, [humanColor, timeControl]);
@@ -349,60 +364,122 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
     setMessage(buildMoveMessage(result.record, result.status, nextTurn, result.winner));
   }, [humanColor, soundEnabled]);
 
-  const handleComputerMove = useCallback((aiMove: ChessAiMove, startedAt: number) => {
-    const result = moveChessPiece(board, aiMove.from, aiMove.to, turn, { lastMove });
-    if (!result) {
+  // Apply the computer's chosen move against the exact position it analyzed. Taking the
+  // analyzed board/turn/lastMove as explicit arguments guards against stale state and
+  // keeps this callback stable, so the thinking effect never reschedules itself.
+  const revealComputerMove = useCallback(
+    (
+      aiMove: ChessAiMove | null,
+      analysisBoard: ChessBoard,
+      analysisTurn: ChessColor,
+      analysisLastMove: ChessMoveRecord | null,
+      visibleMs: number,
+    ) => {
+      const clearThinking = () => {
+        setComputerThinking(false);
+        setComputerThinkingStartedAt(null);
+        setComputerThinkingElapsedMs(0);
+      };
+
+      if (!aiMove) {
+        clearThinking();
+        setLastComputerThinkMs(visibleMs);
+        setMessage("Computer reported no legal move. Waiting for the rules engine status.");
+        return;
+      }
+
+      const result = moveChessPiece(analysisBoard, aiMove.from, aiMove.to, analysisTurn, { lastMove: analysisLastMove });
+      if (!result) {
+        clearThinking();
+        setLastComputerThinkMs(visibleMs);
+        setMessage("Computer tried an outdated move. Your board is safe — make your move again.");
+        playChessSound(soundEnabled, "invalid");
+        return;
+      }
+
+      const nextTurn = getNextTurn(analysisTurn);
+      finalizeMove(result, analysisTurn, nextTurn, { saveUndo: false, actor: "computer" });
+
+      clearThinking();
+      setLastComputerThinkMs(visibleMs);
+      setLastThinkMeta(aiMove.meta);
+      const fallback = aiMove.meta.fallback || aiMove.meta.computeMs > MAX_THINKING_MS;
+      setUsedFallback(fallback);
+      setMessage((currentMessage) =>
+        fallback
+          ? `${currentMessage} Computer used a fallback move after ${formatThinkTime(visibleMs)}.`
+          : `${currentMessage} Computer thought for ${formatThinkTime(visibleMs)}.`,
+      );
+    },
+    [finalizeMove, soundEnabled],
+  );
+
+  const isComputerTurn =
+    gamePhase === "playing" &&
+    !isGameOver &&
+    !pendingPromotion &&
+    (status === "playing" || status === "check") &&
+    turn === computerColor;
+
+  // `positionId` only changes when a move is actually applied, so the thinking effect
+  // runs exactly once per computer turn instead of re-scheduling on every render.
+  const positionId = moveHistory.length;
+
+  useEffect(() => {
+    if (!isComputerTurn) return;
+
+    let cancelled = false;
+    const wallStart = Date.now();
+    const perfNow = () => (typeof performance !== "undefined" ? performance.now() : Date.now());
+    const perfStart = perfNow();
+
+    // Snapshot the exact position the AI analyzes so the applied move can never use stale state.
+    const analysisBoard = board;
+    const analysisTurn = turn;
+    const analysisLastMove = lastMove;
+    const targetVisibleMs = pickVisibleThinkMs(aiDifficulty);
+
+    setComputerThinking(true);
+    setComputerThinkingStartedAt(wallStart);
+    setComputerThinkingElapsedMs(0);
+    setSelectedCoord(null);
+    setUsedFallback(false);
+    setMessage(`${difficultyLabel} computer is thinking as ${getTurnLabel(computerColor)}...`);
+
+    let revealTimer = 0;
+    // Run the bounded calculation just after the "thinking" UI paints, then reveal the
+    // move once the intentional (but capped) visible delay has elapsed.
+    const computeTimer = window.setTimeout(() => {
+      if (cancelled) return;
+      const aiMove = chooseComputerMove(analysisBoard, analysisTurn, aiDifficulty, { lastMove: analysisLastMove });
+      const computeMs = perfNow() - perfStart;
+      const wait = Math.min(MAX_THINKING_MS, Math.max(targetVisibleMs, computeMs)) - computeMs;
+
+      revealTimer = window.setTimeout(() => {
+        if (cancelled) return;
+        revealComputerMove(aiMove, analysisBoard, analysisTurn, analysisLastMove, Date.now() - wallStart);
+      }, Math.max(0, wait));
+    }, 30);
+
+    return () => {
+      cancelled = true;
+      window.clearTimeout(computeTimer);
+      window.clearTimeout(revealTimer);
+    };
+    // `board`/`turn`/`lastMove` are constant for the duration of a computer turn (they
+    // only change when the move is applied, which flips `isComputerTurn` to false).
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isComputerTurn, positionId, aiDifficulty, computerColor, difficultyLabel, revealComputerMove]);
+
+  // Safety net: if the turn leaves the computer without a reveal (timeout, resign, draw,
+  // or undo mid-think), make sure the thinking indicator is cleared.
+  useEffect(() => {
+    if (!isComputerTurn && computerThinking) {
       setComputerThinking(false);
       setComputerThinkingStartedAt(null);
       setComputerThinkingElapsedMs(0);
-      setMessage("Computer tried an outdated move. Your board is safe — make your move again.");
-      playChessSound(soundEnabled, "invalid");
-      return;
     }
-
-    const nextTurn = getNextTurn(turn);
-    finalizeMove(result, turn, nextTurn, { saveUndo: false, actor: "computer" });
-    const thinkingMs = Date.now() - startedAt;
-    setLastComputerThinkMs(thinkingMs);
-    setComputerThinking(false);
-    setComputerThinkingStartedAt(null);
-    setComputerThinkingElapsedMs(0);
-    setMessage((currentMessage) => `${currentMessage} Computer thought for ${formatThinkTime(thinkingMs)}.`);
-  }, [board, finalizeMove, lastMove, soundEnabled, turn]);
-
-  useEffect(() => {
-    if (gamePhase !== "playing" || isGameOver || pendingPromotion || (status !== "playing" && status !== "check") || turn !== computerColor) {
-      if (turn === humanColor || isGameOver || pendingPromotion) {
-        setComputerThinking(false);
-        setComputerThinkingStartedAt(null);
-        setComputerThinkingElapsedMs(0);
-      }
-      return;
-    }
-
-    const startedAt = Date.now();
-    setComputerThinking(true);
-    setComputerThinkingStartedAt(startedAt);
-    setComputerThinkingElapsedMs(0);
-    setSelectedCoord(null);
-    setMessage(`${difficultyLabel} computer is thinking as ${getTurnLabel(computerColor)}...`);
-
-    const timerId = window.setTimeout(() => {
-      const aiMove = chooseComputerMove(board, computerColor, aiDifficulty, { lastMove });
-      if (!aiMove) {
-        const thinkingMs = Date.now() - startedAt;
-        setLastComputerThinkMs(thinkingMs);
-        setComputerThinking(false);
-        setComputerThinkingStartedAt(null);
-        setComputerThinkingElapsedMs(0);
-        setMessage(`Computer had no legal move after ${formatThinkTime(thinkingMs)}. The game state is waiting for the rules engine status.`);
-        return;
-      }
-      handleComputerMove(aiMove, startedAt);
-    }, aiDifficulty === "pro" ? 260 : aiDifficulty === "intermediate" ? 180 : 120);
-
-    return () => window.clearTimeout(timerId);
-  }, [aiDifficulty, board, computerColor, difficultyLabel, gamePhase, handleComputerMove, humanColor, isGameOver, lastMove, pendingPromotion, status, turn]);
+  }, [isComputerTurn, computerThinking]);
 
   const handleSquarePress = useCallback(
     (square: ChessSquare) => {
@@ -713,6 +790,18 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
                           )}
                         </div>
 
+                        {computerThinking ? (
+                          <div className="dc-thinking-overlay" role="status" aria-live="polite">
+                            <div className="dc-thinking-chip">
+                              <span className="dc-thinking-spinner" aria-hidden />
+                              <span className="dc-thinking-copy">
+                                <strong>Computer thinking…</strong>
+                                <span>{difficultyLabel} · {formatThinkTime(computerThinkingElapsedMs)}</span>
+                              </span>
+                            </div>
+                          </div>
+                        ) : null}
+
                         {pendingPromotion ? (
                           <PromotionChooser promotion={pendingPromotion} onChoose={handlePromotionChoice} />
                         ) : null}
@@ -740,6 +829,14 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
                     </span>
                     <strong>{winner ? `${getTurnLabel(winner)} wins` : status === "draw" || status === "stalemate" ? "Draw" : turn === humanColor ? "Your move" : "Computer move"}</strong>
                     <p>{pendingPromotion ? "Promotion choice required." : winner ? readableStatus(status) : computerThinking ? "The computer is calculating its reply." : status === "check" ? "King is in check; escape the threat." : turn === humanColor ? "Only your color can move now." : "Wait for the computer response."}</p>
+                    {computerThinking ? (
+                      <p className="dc-think-live"><span className="dc-thinking-spinner dc-thinking-spinner--sm" aria-hidden /> Thinking {formatThinkTime(computerThinkingElapsedMs)}…</p>
+                    ) : lastComputerThinkMs !== null ? (
+                      <p className="dc-think-live dc-think-live--done">
+                        {usedFallback ? "Fallback move" : "Last reply"} in {formatThinkTime(lastComputerThinkMs)}
+                        {lastThinkMeta && lastThinkMeta.depth > 0 ? ` · depth ${lastThinkMeta.depth}` : ""}
+                      </p>
+                    ) : null}
                   </div>
 
                   <div className="dc-stat-grid">
@@ -1199,27 +1296,7 @@ function formatThinkTime(milliseconds: number): string {
   return `${(milliseconds / 1000).toFixed(1)}s`;
 }
 
-const CHESS_SOUND_FILES: Record<ChessSoundEvent, string> = {
-  start: "/games/chess-mini/sounds/chess-start.wav",
-  move: "/games/chess-mini/sounds/chess-move.wav",
-  capture: "/games/chess-mini/sounds/chess-capture.wav",
-  check: "/games/chess-mini/sounds/chess-check.wav",
-  win: "/games/chess-mini/sounds/chess-win.wav",
-  lose: "/games/chess-mini/sounds/chess-lose.wav",
-  draw: "/games/chess-mini/sounds/chess-draw.wav",
-  end: "/games/chess-mini/sounds/chess-end.wav",
-  invalid: "/games/chess-mini/sounds/chess-invalid.wav",
-};
-
-function playChessSound(enabled: boolean, sound: ChessSoundEvent): void {
-  if (!enabled || typeof window === "undefined") return;
-
-  try {
-    const audio = new Audio(CHESS_SOUND_FILES[sound]);
-    audio.volume = sound === "invalid" ? 0.18 : 0.28;
-    audio.preload = "auto";
-    void audio.play().catch(() => undefined);
-  } catch {
-    // Ignore browsers that block audio until a trusted user gesture unlocks playback.
-  }
+function pickVisibleThinkMs(difficulty: ChessAiDifficulty): number {
+  const range = VISIBLE_THINKING_RANGES[difficulty];
+  return Math.round(range.min + Math.random() * (range.max - range.min));
 }

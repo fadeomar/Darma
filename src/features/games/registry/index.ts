@@ -292,7 +292,7 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     longDescription:
       "Chess Mini is a production-ready player-vs-computer chess experience built for Darma Games. Choose White or Black, play against a computer opponent with beginner/intermediate/pro difficulty, and use legal move highlighting, check/checkmate/stalemate detection, castling, en passant, promotion choice, undo, board flip, draw/resign actions, optional clocks, captured pieces, board themes, sound, and move notation.",
     href: "/games/chess-mini",
-    categories: ["classic", "brain", "single-player"],
+    categories: ["classic", "brain", "quick-break"],
     tags: ["chess", "strategy", "board", "computer opponent", "single player", "classic game"],
     thumbnail: "♟️",
     thumbnailType: "gradient",
@@ -307,6 +307,59 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     seoDescription:
       "Play Chess Mini free in your browser. A polished chess game against a computer opponent with difficulty levels, legal move highlights, timers, promotion, castling, en passant, and no signup.",
     createdAt: "2026-04-05",
+  },
+  {
+    id: "sky-hopper",
+    slug: "sky-hopper",
+    title: "Sky Hopper",
+    description: "Tap to flap a cute bird through the cloud gaps.",
+    longDescription:
+      "Sky Hopper is a one-tap arcade flyer built for Darma Games. Tap, click, or press Space to flap and glide your bird through narrow cloud gaps. Each gap you clear scores a point, the gaps tighten and the wind picks up as you go, and your best score is saved on your device. Original artwork and sound — a breezy, pick-up-and-play challenge for quick breaks.",
+    href: "/games/sky-hopper",
+    categories: ["arcade", "quick-break", "mobile-friendly", "casual"],
+    tags: ["arcade", "flappy", "flyer", "one-tap", "reflex", "endless"],
+    thumbnail: "🐤",
+    thumbnailType: "gradient",
+    accent: "sky",
+    isNew: true,
+    popular: true,
+    difficulty: "easy",
+    playTime: "1 min",
+    input: ["mouse", "touch", "keyboard"],
+    devices: ["desktop", "tablet", "mobile"],
+    controls:
+      "Tap, click, or press Space / Up to flap and fly through the gaps. P pauses, Enter starts or restarts. Each gap cleared scores a point; clear 10, 20, 30, or 40 for bronze, silver, gold, and platinum medals.",
+    privacyNote: PRIVACY_NOTE,
+    seoTitle: "Play Sky Hopper Online Free | Darma Games",
+    seoDescription:
+      "Play Sky Hopper free in your browser. A one-tap arcade flyer — flap a cute bird through the cloud gaps, beat your best score, and earn medals. No signup, mobile-friendly.",
+    createdAt: "2026-06-30",
+  },
+  {
+    id: "math-sprint",
+    slug: "math-sprint",
+    title: "Math Sprint",
+    description: "Fast arithmetic practice — answer as many as you can.",
+    longDescription:
+      "Math Sprint is a quick mental-maths workout for kids, students, and adults. Choose your operations — addition, subtraction, multiplication, division, and decimals — then drill them in Practice, a 60-second Sprint, or a calmer Kids mode with bigger buttons. Get instant feedback, build streaks, track your average answer time, and beat your best score. An on-screen keypad keeps it smooth on mobile.",
+    href: "/games/math-sprint",
+    categories: ["brain", "quick-break", "casual", "mobile-friendly"],
+    tags: ["math", "arithmetic", "mental maths", "education", "kids", "practice", "numbers"],
+    thumbnail: "➗",
+    thumbnailType: "gradient",
+    accent: "violet",
+    isNew: true,
+    difficulty: "easy",
+    playTime: "5 min",
+    input: ["keyboard", "touch", "mouse"],
+    devices: ["desktop", "tablet", "mobile"],
+    controls:
+      "Type your answer and press Enter, or use the on-screen keypad. Choose operations and a mode (Practice, 60-second Sprint, or Kids) on the setup screen. Decimals accept a dot or comma. Best score and streak are saved on your device.",
+    privacyNote: PRIVACY_NOTE,
+    seoTitle: "Play Math Sprint Online Free | Darma Games",
+    seoDescription:
+      "Play Math Sprint free in your browser. Fast arithmetic practice with addition, subtraction, multiplication, division, and decimals — Practice, 60-second Sprint, and Kids modes. No signup, mobile-friendly.",
+    createdAt: "2026-06-30",
   },
   {
     id: "typing-speed",

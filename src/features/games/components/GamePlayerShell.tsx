@@ -5,6 +5,8 @@ import { GameThumbnail } from "./GameThumbnail";
 import { ReactionTimerPro } from "../playables/reaction-timer";
 import { TetrisGame } from "../playables/tetris";
 import { ChessMiniGame } from "../playables/chess-mini";
+import { SkyHopperGame } from "../playables/sky-hopper";
+import { MathSprintGame } from "../playables/math-sprint";
 
 /**
  * Polished player area. Real game components can be lazy-loaded later and passed
@@ -27,6 +29,14 @@ export function GamePlayerShell({
 
   if (game.slug === "chess-mini") {
     return <ChessMiniGame game={game} />;
+  }
+
+  if (game.slug === "sky-hopper") {
+    return <SkyHopperGame game={game} />;
+  }
+
+  if (game.slug === "math-sprint") {
+    return <MathSprintGame game={game} />;
   }
 
   return (

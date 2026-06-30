@@ -18,20 +18,28 @@ function DirectiveRow({
   onToggle,
   onAddSource,
   onRemoveSource,
+  getError,
 }: {
   directive: CspDirective;
   onToggle: (enabled: boolean) => void;
   onAddSource: (value: string) => void;
   onRemoveSource: (value: string) => void;
+  getError: (value: string) => string | null;
 }) {
   const [value, setValue] = useState("");
+  const [error, setError] = useState<string | null>(null);
 
   function submit(event: React.FormEvent) {
     event.preventDefault();
     const trimmed = value.trim();
-    if (!trimmed) return;
+    const validationError = getError(trimmed);
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
     onAddSource(trimmed);
     setValue("");
+    setError(null);
   }
 
   return (
@@ -76,9 +84,21 @@ function DirectiveRow({
             <p className="text-[11px] text-[var(--color-text-tertiary)]">No sources — this directive emits its bare keyword.</p>
           )}
           <form onSubmit={submit} className="flex gap-2">
-            <Input value={value} onChange={(event) => setValue(event.target.value)} size="sm" placeholder="'self', https://cdn.example.com" aria-label={`Add source to ${directive.name}`} className="flex-1" />
+            <Input
+              value={value}
+              onChange={(event) => {
+                setValue(event.target.value);
+                if (error) setError(null);
+              }}
+              size="sm"
+              placeholder="'self', https://cdn.example.com"
+              aria-label={`Add source to ${directive.name}`}
+              aria-invalid={error ? true : undefined}
+              className="flex-1"
+            />
             <Button type="submit" size="sm" variant="ghost" leftIcon={<Plus className="h-3.5 w-3.5" />} disabled={!value.trim()}>Add</Button>
           </form>
+          {error ? <p role="alert" className="text-xs font-medium text-[var(--color-danger-text)]">{error}</p> : null}
         </div>
       ) : null}
     </div>
@@ -90,11 +110,13 @@ export function CspAdvanced({
   onToggleDirective,
   onAddSource,
   onRemoveSource,
+  getError,
 }: {
   state: CspGeneratorState;
   onToggleDirective: (name: string, enabled: boolean) => void;
   onAddSource: (name: string, value: string) => void;
   onRemoveSource: (name: string, value: string) => void;
+  getError: (directive: string, value: string) => string | null;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -124,6 +146,7 @@ export function CspAdvanced({
               onToggle={(enabled) => onToggleDirective(directive.name, enabled)}
               onAddSource={(value) => onAddSource(directive.name, value)}
               onRemoveSource={(value) => onRemoveSource(directive.name, value)}
+              getError={(value) => getError(directive.name, value)}
             />
           ))}
         </div>

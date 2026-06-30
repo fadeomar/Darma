@@ -43,7 +43,7 @@ export function CoreEntityCard<TEntity extends CoreEntity = CoreEntity>({
   showMetrics = true,
   className,
 }: CoreEntityCardProps<TEntity>) {
-  const visibleTags = [...(entity.categories ?? []), ...(entity.tags ?? [])].slice(0, compact ? 2 : 4);
+  const visibleTags = [...new Set([...(entity.categories ?? []), ...(entity.tags ?? [])])].slice(0, compact ? 2 : 4);
   const isExternal = entity.href.startsWith("http");
 
   return (

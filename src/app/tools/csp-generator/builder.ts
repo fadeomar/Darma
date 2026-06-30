@@ -1,4 +1,4 @@
-import { createCspDirective, createSource } from "./csp";
+import { CSP_DIRECTIVE_ORDER, createCspDirective, createSource } from "./csp";
 import { CSP_SERVICES } from "./services";
 import type { CspDirective, CspGeneratorState } from "./types";
 
@@ -21,8 +21,12 @@ export type CspBuilderState = {
   added: CspCustomSource[];
   /** Baseline/service sources the user removed in the advanced editor. */
   removed: { directive: string; value: string }[];
-  /** Directive names switched off in the advanced editor. */
-  disabledDirectives: string[];
+  /**
+   * Explicit per-directive enable/disable from the advanced editor.
+   * When a directive is absent here, its enabled state defaults to whether
+   * the active mode/services/custom sources include it.
+   */
+  directiveOverrides: Record<string, boolean>;
 };
 
 export const MODE_META: Record<CspPolicyMode, { label: string; tagline: string; description: string; recommended?: boolean }> = {
@@ -85,13 +89,16 @@ const MODE_BASE: Record<CspPolicyMode, Array<[string, string[]]>> = {
 };
 
 export function createDefaultBuilderState(): CspBuilderState {
-  return { mode: "standard", reportOnly: false, services: [], added: [], removed: [], disabledDirectives: [] };
+  return { mode: "standard", reportOnly: false, services: [], added: [], removed: [], directiveOverrides: {} };
 }
 
-let counter = 0;
+function slug(value: string) {
+  return value.trim().replace(/[^a-z0-9]+/gi, "-").replace(/^-+|-+$/g, "").toLowerCase() || "x";
+}
+
 export function createCustomSource(directive: string, value: string): CspCustomSource {
-  counter += 1;
-  return { id: `custom-${counter}-${value.replace(/[^a-z0-9]+/gi, "-")}`, directive, value: value.trim() };
+  const trimmed = value.trim();
+  return { id: `custom-${slug(directive)}-${slug(trimmed)}`, directive, value: trimmed };
 }
 
 /** Deterministically expand the builder state into a full CSP state. */
@@ -123,18 +130,31 @@ export function buildCspState(builder: CspBuilderState): CspGeneratorState {
 
   for (const custom of builder.added) add(custom.directive, [custom.value]);
 
+  // Directives the active mode / services / custom sources actually include.
+  // These default to enabled; everything else defaults to disabled so the
+  // advanced editor can expose the full directive list without polluting output.
+  const includedNames = new Set(order);
+
   for (const removal of builder.removed) {
     const arr = map.get(removal.directive);
     if (arr) map.set(removal.directive, arr.filter((value) => value !== removal.value));
   }
 
-  const directives: CspDirective[] = order.map((name) =>
-    createCspDirective({
+  // Every known directive, in canonical order, plus any custom directive not in it.
+  const allNames = [
+    ...CSP_DIRECTIVE_ORDER,
+    ...order.filter((name) => !CSP_DIRECTIVE_ORDER.includes(name)),
+  ];
+
+  const directives: CspDirective[] = allNames.map((name) => {
+    const override = builder.directiveOverrides[name];
+    const enabled = override ?? includedNames.has(name);
+    return createCspDirective({
       name,
-      enabled: !builder.disabledDirectives.includes(name),
+      enabled,
       sources: (map.get(name) ?? []).map((value) => createSource(value, name)),
-    }),
-  );
+    });
+  });
 
   return {
     presetId: builder.mode,

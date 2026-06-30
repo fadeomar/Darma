@@ -20,20 +20,28 @@ export function CspCustomStep({
   sources,
   onAdd,
   onRemove,
+  getError,
 }: {
   sources: CspCustomSource[];
   onAdd: (directive: string, value: string) => void;
   onRemove: (id: string) => void;
+  getError: (directive: string, value: string) => string | null;
 }) {
   const [directive, setDirective] = useState("connect-src");
   const [value, setValue] = useState("");
+  const [error, setError] = useState<string | null>(null);
 
   function submit(event: React.FormEvent) {
     event.preventDefault();
     const trimmed = value.trim();
-    if (!trimmed) return;
+    const validationError = getError(directive, trimmed);
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
     onAdd(directive, trimmed);
     setValue("");
+    setError(null);
   }
 
   return (
@@ -46,16 +54,24 @@ export function CspCustomStep({
         </Select>
         <Input
           value={value}
-          onChange={(event) => setValue(event.target.value)}
+          onChange={(event) => {
+            setValue(event.target.value);
+            if (error) setError(null);
+          }}
           size="sm"
           placeholder="https://api.yourdomain.com"
           aria-label="Custom domain or source"
+          aria-invalid={error ? true : undefined}
           className="flex-1"
         />
         <Button type="submit" size="sm" variant="secondary" leftIcon={<Plus className="h-3.5 w-3.5" />} disabled={!value.trim()}>
           Add
         </Button>
       </form>
+
+      {error ? (
+        <p role="alert" className="text-xs font-medium text-[var(--color-danger-text)]">{error}</p>
+      ) : null}
 
       {sources.length ? (
         <ul className="flex flex-wrap gap-2">

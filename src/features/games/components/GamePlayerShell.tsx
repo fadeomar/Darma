@@ -7,6 +7,9 @@ import { TetrisGame } from "../playables/tetris";
 import { ChessMiniGame } from "../playables/chess-mini";
 import { FloppyBirdGame } from "../playables/floppy-bird";
 import { MathSprintGame } from "../playables/math-sprint";
+import { ColorBrainRushGame } from "../playables/color-brain-rush";
+import { ColorSwitchGame } from "../playables/color-switch";
+import { MinesweeperGame } from "../playables/minesweeper";
 import { StaticGameEmbed } from "../playables/static-embed";
 
 /**
@@ -61,6 +64,18 @@ export function GamePlayerShell({
 
   if (game.slug === "math-sprint") {
     return <MathSprintGame game={game} />;
+  }
+
+  if (game.slug === "color-brain-rush") {
+    return <ColorBrainRushGame game={game} />;
+  }
+
+  if (game.slug === "color-switch") {
+    return <ColorSwitchGame game={game} />;
+  }
+
+  if (game.slug === "minesweeper") {
+    return <MinesweeperGame game={game} />;
   }
 
   return (

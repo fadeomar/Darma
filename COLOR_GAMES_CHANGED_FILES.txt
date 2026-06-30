@@ -1,0 +1,8 @@
+src/features/games/components/GamePlayerShell.tsx
+src/features/games/registry/index.ts
+src/features/games/playables/color-brain-rush/ColorBrainRushGame.tsx
+src/features/games/playables/color-brain-rush/index.ts
+src/features/games/playables/color-switch/ColorSwitchGame.tsx
+src/features/games/playables/color-switch/index.ts
+COLOR_GAMES_PATCH_NOTES.md
+CLAUDE_COLOR_GAMES_PROMPTS.md

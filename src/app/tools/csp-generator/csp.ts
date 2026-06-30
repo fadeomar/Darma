@@ -31,7 +31,7 @@ const DIRECTIVE_DESCRIPTIONS: Record<string, string> = {
   "report-to": "Reporting API group for CSP violation reports.",
 };
 
-const ORDER = [
+export const CSP_DIRECTIVE_ORDER = [
   "default-src",
   "script-src",
   "style-src",
@@ -55,8 +55,9 @@ const ORDER = [
   "report-to",
 ];
 
-function uid(prefix = "csp") {
-  return `${prefix}-${Math.random().toString(36).slice(2, 9)}`;
+/** Stable, collision-resistant slug for deterministic React keys. */
+function slug(value: string) {
+  return value.trim().replace(/[^a-z0-9]+/gi, "-").replace(/^-+|-+$/g, "").toLowerCase() || "x";
 }
 
 export function classifySourceRisk(directiveName: string, source: string): CspSourceValue["risk"] {
@@ -68,14 +69,38 @@ export function classifySourceRisk(directiveName: string, source: string): CspSo
   return "normal";
 }
 
+const QUOTED_TOKEN = /^'[^']+'$/;
+const SCHEME_ONLY = /^[a-z][a-z0-9.+-]*:$/i;
+const HOST_SOURCE = /^([a-z][a-z0-9.+-]*:\/\/)?(\*\.)?([a-z0-9-]+\.)*[a-z0-9-]+(:\d{1,5}|:\*)?(\/[^\s]*)?$/i;
+
+/**
+ * Validate a single CSP source token before it is added to a directive.
+ * Returns an error message, or `null` when the value is safe to add.
+ * The goal is to keep the generated snippets unbreakable, not to be a
+ * full CSP linter.
+ */
+export function validateCspSourceValue(rawValue: string): string | null {
+  const value = rawValue.trim();
+  if (!value) return "Enter a source value.";
+  if (/[\r\n]/.test(value)) return "Source cannot contain line breaks.";
+  if (value.includes(";")) return "Remove the “;” — it would break the policy.";
+  if (value.includes('"')) return "Use single quotes for keywords (e.g. 'self'), not double quotes.";
+  if (/\s/.test(value)) return "A single source cannot contain spaces.";
+  if (/[,<>]/.test(value)) return "Remove the “,”, “<”, or “>” character.";
+  if (value === "*") return null;
+  if (QUOTED_TOKEN.test(value) || SCHEME_ONLY.test(value) || HOST_SOURCE.test(value)) return null;
+  return "That doesn’t look like a valid CSP source (try 'self', https:, or example.com).";
+}
+
 export function createSource(value: string, directiveName: string): CspSourceValue {
-  return { id: uid("source"), value: value.trim(), risk: classifySourceRisk(directiveName, value) };
+  const trimmed = value.trim();
+  return { id: `source-${slug(directiveName)}-${slug(trimmed)}`, value: trimmed, risk: classifySourceRisk(directiveName, value) };
 }
 
 export function createCspDirective(partial: Partial<CspDirective> = {}): CspDirective {
   const name = partial.name ?? "default-src";
   return {
-    id: partial.id ?? uid("directive"),
+    id: partial.id ?? `directive-${slug(name)}`,
     name,
     enabled: partial.enabled ?? true,
     description: partial.description ?? DIRECTIVE_DESCRIPTIONS[name] ?? "Custom CSP directive.",
@@ -120,7 +145,7 @@ export function createDefaultCspState(): CspGeneratorState {
 function enabledDirectives(state: CspGeneratorState) {
   return [...state.directives]
     .filter((item) => item.enabled)
-    .sort((a, b) => ORDER.indexOf(a.name) - ORDER.indexOf(b.name));
+    .sort((a, b) => CSP_DIRECTIVE_ORDER.indexOf(a.name) - CSP_DIRECTIVE_ORDER.indexOf(b.name));
 }
 
 export function generateCspPolicy(state: CspGeneratorState): string {
@@ -147,6 +172,37 @@ export function generateCspMetaTag(state: CspGeneratorState): string {
 export function generateNextJsHeadersConfig(state: CspGeneratorState): string {
   const key = state.reportOnly ? "Content-Security-Policy-Report-Only" : "Content-Security-Policy";
   return `const securityHeaders = [\n  {\n    key: "${key}",\n    value: "${generateCspPolicy(state)}",\n  },\n];\n\nexport default {\n  async headers() {\n    return [\n      {\n        source: "/(.*)",\n        headers: securityHeaders,\n      },\n    ];\n  },\n};`;
+}
+
+/**
+ * Strict (nonce-based) CSP cannot be served from a static next.config header,
+ * because every response needs a freshly generated nonce. This emits a
+ * middleware example that generates the nonce per request.
+ */
+export function generateNextJsStrictSnippet(state: CspGeneratorState): string {
+  const key = state.reportOnly ? "Content-Security-Policy-Report-Only" : "Content-Security-Policy";
+  const policy = generateCspPolicy(state);
+  return [
+    "// middleware.ts",
+    "// Strict CSP needs a NEW nonce on every request — a static",
+    "// next.config.js header cannot do this. Generate it in middleware.",
+    'import { NextResponse, type NextRequest } from "next/server";',
+    "",
+    "export function middleware(request: NextRequest) {",
+    '  const nonce = crypto.randomUUID().replace(/-/g, "");',
+    `  const csp = \`${policy}\`.replace("{RANDOM_NONCE}", nonce);`,
+    "",
+    "  const requestHeaders = new Headers(request.headers);",
+    '  // Read this in your layout to tag trusted tags: <script nonce={nonce}>',
+    '  requestHeaders.set("x-nonce", nonce);',
+    "",
+    "  const response = NextResponse.next({ request: { headers: requestHeaders } });",
+    `  response.headers.set("${key}", csp);`,
+    "  return response;",
+    "}",
+    "",
+    'export const config = { matcher: "/((?!_next/static|_next/image|favicon.ico).*)" };',
+  ].join("\n");
 }
 
 export function generateVercelConfig(state: CspGeneratorState): string {

@@ -7,8 +7,10 @@ import {
   generateCspHeader,
   generateCspMetaTag,
   generateNextJsHeadersConfig,
+  generateNextJsStrictSnippet,
   generateNginxHeader,
   generateVercelConfig,
+  validateCspSourceValue,
   validateCspState,
 } from "./csp";
 import {
@@ -28,6 +30,15 @@ import { CspOutput } from "./components/CspOutput";
 
 const HOW_IT_WORKS = ["Pick a mode", "Choose services", "Add domains", "Copy output"];
 
+const META_REPORT_ONLY_NOTICE = [
+  "<!--",
+  "  CSP <meta> tags cannot be Report-Only.",
+  "  A meta tag ALWAYS enforces the policy and would block resources.",
+  "  For report-only testing, use the HTTP Header, Next.js, Nginx,",
+  "  or Vercel output instead.",
+  "-->",
+].join("\n");
+
 export default function CspGeneratorClient() {
   const [builder, setBuilder] = useState<CspBuilderState>(() => createDefaultBuilderState());
 
@@ -36,12 +47,30 @@ export default function CspGeneratorClient() {
   const messages = useMemo(() => validateCspState(state), [state]);
   const header = useMemo(() => generateCspHeader(state), [state]);
   const meta = useMemo(() => generateCspMetaTag(state), [state]);
-  const nextjs = useMemo(() => generateNextJsHeadersConfig(state), [state]);
   const nginx = useMemo(() => generateNginxHeader(state), [state]);
   const vercel = useMemo(() => generateVercelConfig(state), [state]);
 
+  // Strict CSP can't be served from a static next.config header — show the
+  // middleware variant instead. Meta tags can never be report-only.
+  const nextjs = useMemo(
+    () => (builder.mode === "strict" ? generateNextJsStrictSnippet(state) : generateNextJsHeadersConfig(state)),
+    [builder.mode, state],
+  );
+  const metaOutput = builder.reportOnly ? META_REPORT_ONLY_NOTICE : meta;
+
   function patch(next: Partial<CspBuilderState>) {
     setBuilder((current) => ({ ...current, ...next }));
+  }
+
+  /** Format + duplicate validation for a custom/advanced source. */
+  function sourceError(directive: string, value: string): string | null {
+    const formatError = validateCspSourceValue(value);
+    if (formatError) return formatError;
+    const existing = state.directives.find((item) => item.name === directive);
+    if (existing?.sources.some((source) => source.value === value.trim())) {
+      return "That source is already in this directive.";
+    }
+    return null;
   }
 
   function setMode(mode: CspPolicyMode) {
@@ -68,9 +97,7 @@ export default function CspGeneratorClient() {
   function toggleDirective(name: string, enabled: boolean) {
     setBuilder((current) => ({
       ...current,
-      disabledDirectives: enabled
-        ? current.disabledDirectives.filter((value) => value !== name)
-        : [...current.disabledDirectives, name],
+      directiveOverrides: { ...current.directiveOverrides, [name]: enabled },
     }));
   }
 
@@ -124,7 +151,7 @@ export default function CspGeneratorClient() {
           </CspStepCard>
 
           <CspStepCard step={3} title="Add custom domains" description="Allow your own APIs, CDNs, or sockets that aren't covered above.">
-            <CspCustomStep sources={builder.added} onAdd={addCustom} onRemove={removeCustom} />
+            <CspCustomStep sources={builder.added} onAdd={addCustom} onRemove={removeCustom} getError={sourceError} />
           </CspStepCard>
 
           <CspAdvanced
@@ -132,16 +159,18 @@ export default function CspGeneratorClient() {
             onToggleDirective={toggleDirective}
             onAddSource={addSource}
             onRemoveSource={removeSource}
+            getError={sourceError}
           />
         </div>
 
         <aside className="order-1 min-w-0 space-y-4 xl:order-2 xl:sticky xl:top-24">
           <CspOutput
+            mode={builder.mode}
             risk={risk}
             reportOnly={builder.reportOnly}
             onToggleReportOnly={(reportOnly) => patch({ reportOnly })}
             header={header}
-            meta={meta}
+            meta={metaOutput}
             nextjs={nextjs}
             nginx={nginx}
             vercel={vercel}

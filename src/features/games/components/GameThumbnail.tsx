@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { GameAccent, GameDefinition } from "../domain/game";
 import { cn } from "@/lib/cn";
 import { FloppyBirdCardPreview } from "../playables/floppy-bird/FloppyBirdCardPreview";
+import { ColorSwitchCardPreview } from "../playables/color-switch/ColorSwitchCardPreview";
 
 const accentClass: Record<GameAccent, string> = {
   violet: "gthumb-violet",
@@ -31,21 +32,54 @@ type GameThumbnailProps = {
  * Renders a game's thumbnail in one of three modes. Falls back to a generated
  * gradient tile so the card never breaks when an image is missing.
  */
-export function GameThumbnail({ game, aspect = "16/9", size = "md", className, priority }: GameThumbnailProps) {
+export function GameThumbnail({
+  game,
+  aspect = "16/9",
+  size = "md",
+  className,
+  priority,
+}: GameThumbnailProps) {
   const aspectClass = aspect === "4/3" ? "aspect-[4/3]" : "aspect-[16/9]";
-  const motifSize = size === "lg" ? "text-5xl sm:text-6xl" : "text-4xl sm:text-5xl";
+  const motifSize =
+    size === "lg" ? "text-5xl sm:text-6xl" : "text-4xl sm:text-5xl";
 
   if (game.slug === "floppy-bird") {
     return (
-      <div className={cn("relative w-full overflow-hidden", aspectClass, className)}>
+      <div
+        className={cn(
+          "relative w-full overflow-hidden",
+          aspectClass,
+          className,
+        )}
+      >
         <FloppyBirdCardPreview className="absolute inset-0 h-full w-full transition duration-500 group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100" />
+      </div>
+    );
+  }
+
+  if (game.slug === "color-switch") {
+    return (
+      <div
+        className={cn(
+          "relative w-full overflow-hidden",
+          aspectClass,
+          className,
+        )}
+      >
+        <ColorSwitchCardPreview className="absolute inset-0 h-full w-full transition duration-500 group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100" />
       </div>
     );
   }
 
   if (game.thumbnailType === "image" && game.thumbnail) {
     return (
-      <div className={cn("relative w-full overflow-hidden", aspectClass, className)}>
+      <div
+        className={cn(
+          "relative w-full overflow-hidden",
+          aspectClass,
+          className,
+        )}
+      >
         <Image
           src={game.thumbnail}
           alt=""
@@ -72,7 +106,14 @@ export function GameThumbnail({ game, aspect = "16/9", size = "md", className, p
     >
       <div className="gthumb-texture pointer-events-none absolute inset-0 opacity-70" />
       <div className="game-thumbnail-shine pointer-events-none absolute inset-0" />
-      <span className={cn("relative select-none drop-shadow-sm transition duration-300 group-hover:scale-110 motion-reduce:transition-none motion-reduce:group-hover:scale-100", motifSize)}>{game.thumbnail}</span>
+      <span
+        className={cn(
+          "relative select-none drop-shadow-sm transition duration-300 group-hover:scale-110 motion-reduce:transition-none motion-reduce:group-hover:scale-100",
+          motifSize,
+        )}
+      >
+        {game.thumbnail}
+      </span>
     </div>
   );
 }

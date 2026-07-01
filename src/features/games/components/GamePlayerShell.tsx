@@ -19,6 +19,7 @@ import { MemoryCardsGame } from "../playables/memory-cards";
 import { WordMatchGame } from "../playables/word-match";
 import { TypingSpeedGame } from "../playables/typing-speed";
 import { StaticGameEmbed } from "../playables/static-embed";
+import { PacmanCanvasGame } from "../playables/pacman-canvas";
 
 /**
  * Polished player area. Real game components can be lazy-loaded later and passed
@@ -112,6 +113,10 @@ export function GamePlayerShell({
 
   if (game.slug === "sudoku-mini") {
     return <SudokuMiniGame game={game} />;
+  }
+
+  if (game.slug === "pacman-canvas") {
+    return <PacmanCanvasGame game={game} />;
   }
 
   return (

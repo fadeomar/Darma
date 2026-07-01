@@ -1,10 +1,16 @@
-import type { SnakeDifficulty, SnakeDirection, SnakePoint, SnakeSettings, SnakeState } from "./snakeTypes";
+import type {
+  SnakeDifficulty,
+  SnakeDirection,
+  SnakePoint,
+  SnakeSettings,
+  SnakeState,
+} from "./snakeTypes";
 
 export const SNAKE_SPEED_MS: Record<SnakeDifficulty, number> = {
-  chill: 170,
-  normal: 125,
-  fast: 92,
-  insane: 68,
+  chill: 230,
+  normal: 178,
+  fast: 132,
+  insane: 96,
 };
 
 const DELTA: Record<SnakeDirection, SnakePoint> = {
@@ -27,10 +33,32 @@ export function samePoint(a: SnakePoint, b: SnakePoint): boolean {
 }
 
 export function isOpposite(a: SnakeDirection, b: SnakeDirection): boolean {
-  return (a === "up" && b === "down") || (a === "down" && b === "up") || (a === "left" && b === "right") || (a === "right" && b === "left");
+  return (
+    (a === "up" && b === "down") ||
+    (a === "down" && b === "up") ||
+    (a === "left" && b === "right") ||
+    (a === "right" && b === "left")
+  );
 }
 
-export function queueDirection(state: SnakeState, direction: SnakeDirection): SnakeState {
+export function queueDirection(
+  state: SnakeState,
+  direction: SnakeDirection,
+): SnakeState {
+  if (state.status === "ready") {
+    const head = state.snake[0];
+    const delta = DELTA[direction];
+    return {
+      ...state,
+      direction,
+      queuedDirection: direction,
+      snake: [
+        head,
+        { x: head.x - delta.x, y: head.y - delta.y },
+        { x: head.x - delta.x * 2, y: head.y - delta.y * 2 },
+      ],
+    };
+  }
   if (isOpposite(state.direction, direction)) return state;
   return { ...state, queuedDirection: direction };
 }
@@ -41,9 +69,19 @@ function pointKey(point: SnakePoint): string {
 
 function createMazeObstacles(size: number): SnakePoint[] {
   const mid = Math.floor(size / 2);
+  const safeGap = new Set([
+    mid - 3,
+    mid - 2,
+    mid - 1,
+    mid,
+    mid + 1,
+    mid + 2,
+    mid + 3,
+  ]);
   const obstacles: SnakePoint[] = [];
   for (let i = 3; i < size - 3; i += 1) {
-    if (i !== mid && i !== mid - 1) {
+    // Keep a generous plus-shaped spawn lane so Maze Runner never ends on tick one.
+    if (!safeGap.has(i)) {
       obstacles.push({ x: mid, y: i });
       if (size > 15) obstacles.push({ x: i, y: mid });
     }
@@ -51,7 +89,11 @@ function createMazeObstacles(size: number): SnakePoint[] {
   return obstacles;
 }
 
-export function placeFood(size: number, occupied: SnakePoint[], seed = Date.now()): SnakePoint {
+export function placeFood(
+  size: number,
+  occupied: SnakePoint[],
+  seed = Date.now(),
+): SnakePoint {
   const random = seededRandom(seed);
   const blocked = new Set(occupied.map(pointKey));
   const free: SnakePoint[] = [];
@@ -65,7 +107,9 @@ export function placeFood(size: number, occupied: SnakePoint[], seed = Date.now(
   return free[Math.floor(random() * free.length)];
 }
 
-export function createInitialSnakeState(settings: Partial<SnakeSettings> = {}): SnakeState {
+export function createInitialSnakeState(
+  settings: Partial<SnakeSettings> = {},
+): SnakeState {
   const size = settings.size ?? 16;
   const mode = settings.mode ?? "classic";
   const difficulty = settings.difficulty ?? "normal";
@@ -93,14 +137,28 @@ export function createInitialSnakeState(settings: Partial<SnakeSettings> = {}): 
     ticks: 0,
     status: "ready",
     message: "Press start or use the keyboard to begin.",
+    event: "none",
   };
+}
+
+/** Shared by the game loop and the renderer so movement timing and visual interpolation never disagree. */
+export function snakeStepIntervalMs(
+  difficulty: SnakeDifficulty,
+  level: number,
+): number {
+  return Math.max(42, SNAKE_SPEED_MS[difficulty] - (level - 1) * 5);
 }
 
 function wrapPoint(point: SnakePoint, size: number): SnakePoint {
   return { x: (point.x + size) % size, y: (point.y + size) % size };
 }
 
-export function nextHead(head: SnakePoint, direction: SnakeDirection, size: number, wrap: boolean): SnakePoint {
+export function nextHead(
+  head: SnakePoint,
+  direction: SnakeDirection,
+  size: number,
+  wrap: boolean,
+): SnakePoint {
   const delta = DELTA[direction];
   const next = { x: head.x + delta.x, y: head.y + delta.y };
   return wrap ? wrapPoint(next, size) : next;
@@ -117,17 +175,41 @@ export function stepSnake(state: SnakeState): SnakeState {
   const direction = state.queuedDirection;
   const head = nextHead(state.snake[0], direction, size, mode === "wrap");
   const eatsFood = samePoint(head, state.food);
-  const eatsGolden = state.goldenFood ? samePoint(head, state.goldenFood) : false;
-  const nextBody = eatsFood || eatsGolden ? [...state.snake] : state.snake.slice(0, -1);
+  const eatsGolden = state.goldenFood
+    ? samePoint(head, state.goldenFood)
+    : false;
+  const nextBody =
+    eatsFood || eatsGolden ? [...state.snake] : state.snake.slice(0, -1);
 
   if (mode !== "wrap" && isOutside(head, size)) {
-    return { ...state, direction, queuedDirection: direction, status: "game-over", message: "Wall crash. Try a cleaner turn rhythm." };
+    return {
+      ...state,
+      direction,
+      queuedDirection: direction,
+      status: "game-over",
+      message: "Wall crash. Try a cleaner turn rhythm.",
+      event: "crash-wall",
+    };
   }
   if (nextBody.some((part) => samePoint(part, head))) {
-    return { ...state, direction, queuedDirection: direction, status: "game-over", message: "Self collision. Keep more escape space open." };
+    return {
+      ...state,
+      direction,
+      queuedDirection: direction,
+      status: "game-over",
+      message: "Self collision. Keep more escape space open.",
+      event: "crash-self",
+    };
   }
   if (state.obstacles.some((part) => samePoint(part, head))) {
-    return { ...state, direction, queuedDirection: direction, status: "game-over", message: "Maze block hit. Use the lanes to plan ahead." };
+    return {
+      ...state,
+      direction,
+      queuedDirection: direction,
+      status: "game-over",
+      message: "Maze block hit. Use the lanes to plan ahead.",
+      event: "crash-obstacle",
+    };
   }
 
   const snake = [head, ...nextBody];
@@ -137,7 +219,9 @@ export function stepSnake(state: SnakeState): SnakeState {
   const streak = eatsFood || eatsGolden ? state.streak + 1 : state.streak;
   const level = Math.max(1, Math.floor(apples / 5) + 1);
   const occupied = [...snake, ...state.obstacles];
-  const food = eatsFood ? placeFood(size, occupied, seed + ticks + apples * 13) : state.food;
+  const food = eatsFood
+    ? placeFood(size, occupied, seed + ticks + apples * 13)
+    : state.food;
   const shouldSpawnGolden = eatsFood && apples > 0 && apples % 5 === 0;
   const goldenFood = eatsGolden
     ? null
@@ -159,11 +243,17 @@ export function stepSnake(state: SnakeState): SnakeState {
     level,
     streak,
     ticks,
-    message: eatsGolden ? "Golden bite! Big bonus." : eatsFood ? "Nice bite. Keep the chain clean." : state.message,
+    message: eatsGolden
+      ? "Golden bite! Big bonus."
+      : eatsFood
+        ? "Nice bite. Keep the chain clean."
+        : state.message,
+    event: eatsGolden ? "golden" : eatsFood ? "eat" : "none",
   };
 }
 
 export function boardFillPercent(state: SnakeState): number {
-  const playable = state.settings.size * state.settings.size - state.obstacles.length;
+  const playable =
+    state.settings.size * state.settings.size - state.obstacles.length;
   return Math.round((state.snake.length / playable) * 1000) / 10;
 }

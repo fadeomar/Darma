@@ -421,6 +421,35 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     createdAt: "2026-06-30",
   },
   {
+    id: "pacman-canvas",
+    slug: "pacman-canvas",
+    title: "Pacman Canvas",
+    description: "A polished Darma integration of the classic Pacman canvas game with original local assets, sounds, and mobile controls.",
+    longDescription:
+      "Pacman Canvas preserves the original mini Pacman maze, ghost SVG assets, pills, power pills, arcade sound files, scoring, lives, and level progression, then wraps it in a production Darma player with responsive canvas scaling, keyboard, swipe, D-pad controls, pause, restart, mute, focus mode, local best score, and clear win/game-over overlays.",
+    href: "/games/pacman-canvas",
+    categories: ["arcade", "classic", "quick-break", "mobile-friendly"],
+    tags: ["pacman", "canvas", "arcade", "retro", "ghosts", "maze", "keyboard", "mobile"],
+    thumbnail: "🟡",
+    thumbnailType: "gradient",
+    accent: "amber",
+    featured: true,
+    popular: true,
+    isNew: true,
+    difficulty: "medium",
+    playTime: "5 min",
+    input: ["keyboard", "touch", "mouse"],
+    devices: ["desktop", "tablet", "mobile"],
+    controls:
+      "Use Arrow keys or WASD to move Pacman. On mobile, swipe on the canvas or use the D-pad. Space/Enter starts the game, P or Esc pauses. Eat power pills to catch vulnerable ghosts.",
+    privacyNote: PRIVACY_NOTE,
+    seoTitle: "Play Pacman Canvas Online Free | Darma Games",
+    seoDescription:
+      "Play Pacman Canvas free in your browser with local retro assets, ghosts, power pills, score, lives, keyboard controls, mobile swipes, and no signup.",
+    createdAt: "2026-07-01",
+  },
+
+  {
     id: "typing-speed",
     slug: "typing-speed",
     title: "Typing Speed Pro",

@@ -1,0 +1,39 @@
+{
+  "id": "open-dot-chase",
+  "name": "Open Dot Chase",
+  "category": "dots",
+  "tags": [
+    "open-source",
+    "open-pack-2026",
+    "dots",
+    "chase",
+    "square-path"
+  ],
+  "html": "<span class=\"darma-loader-open-dot-chase\"><i></i><i></i><i></i><i></i></span>",
+  "css": ".darma-loader-open-dot-chase{position:relative;display:inline-block;width:60px;height:60px}.darma-loader-open-dot-chase i{position:absolute;width:12px;height:12px;border-radius:50%;background:var(--loader-color,#db2777);animation:darma-loader-open-dot-chase-path var(--loader-speed,1.2s) ease-in-out infinite}.darma-loader-open-dot-chase i:nth-child(2){animation-delay:.15s;background:var(--loader-secondary-color,#f9a8d4)}.darma-loader-open-dot-chase i:nth-child(3){animation-delay:.3s}.darma-loader-open-dot-chase i:nth-child(4){animation-delay:.45s;background:var(--loader-secondary-color,#f9a8d4)}@keyframes darma-loader-open-dot-chase-path{0%,100%{left:4px;top:4px}25%{left:44px;top:4px}50%{left:44px;top:44px}75%{left:4px;top:44px}}",
+  "source": {
+    "name": "SpinKit inspired pattern",
+    "author": "Tobias Ahlin / open-source CSS loader community",
+    "license": "MIT-inspired pattern, normalized by Darma",
+    "url": "https://github.com/tobiasahlin/SpinKit"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#db2777",
+    "secondaryColor": "#f9a8d4",
+    "size": 60,
+    "speed": 1.2,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": false
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "open-wave-dots",
+  "name": "Open Wave Dots",
+  "category": "dots",
+  "tags": [
+    "open-source",
+    "open-pack-2026",
+    "wave",
+    "dots",
+    "sine"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": false
+  },
+  "searchText": "open-wave-dots open wave dots dots open-source open-pack-2026 wave dots sine html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-open-wave-dots\"><i></i><i></i><i></i><i></i><i></i></span>",
+  "previewCss": ".darma-loader-open-wave-dots{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px}.darma-loader-open-wave-dots i{width:10px;height:10px;border-radius:50%;background:var(--loader-color,#1d4ed8);animation:darma-loader-open-wave-dots-wave var(--loader-speed,1.25s) ease-in-out infinite}.darma-loader-open-wave-dots i:nth-child(2){animation-delay:.1s;background:var(--loader-secondary-color,#93c5fd)}.darma-loader-open-wave-dots i:nth-child(3){animation-delay:.2s}.darma-loader-open-wave-dots i:nth-child(4){animation-delay:.3s;background:var(--loader-secondary-color,#93c5fd)}.darma-loader-open-wave-dots i:nth-child(5){animation-delay:.4s}@keyframes darma-loader-open-wave-dots-wave{0%,100%{transform:translateY(0);opacity:.45}50%{transform:translateY(-16px);opacity:1}}",
+  "defaults": {
+    "color": "#1d4ed8",
+    "secondaryColor": "#93c5fd",
+    "size": 78,
+    "speed": 1.25,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-open-wave-dots\"><i></i><i></i><i></i><i></i><i></i></span>",
+    "css": ".darma-loader-open-wave-dots{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px}.darma-loader-open-wave-dots i{width:10px;height:10px;border-radius:50%;background:var(--loader-color,#1d4ed8);animation:darma-loader-open-wave-dots-wave var(--loader-speed,1.25s) ease-in-out infinite}.darma-loader-open-wave-dots i:nth-child(2){animation-delay:.1s;background:var(--loader-secondary-color,#93c5fd)}.darma-loader-open-wave-dots i:nth-child(3){animation-delay:.2s}.darma-loader-open-wave-dots i:nth-child(4){animation-delay:.3s;background:var(--loader-secondary-color,#93c5fd)}.darma-loader-open-wave-dots i:nth-child(5){animation-delay:.4s}@keyframes darma-loader-open-wave-dots-wave{0%,100%{transform:translateY(0);opacity:.45}50%{transform:translateY(-16px);opacity:1}}",
+    "react": "export default function OpenWaveDotsLoader() {\n  return (\n    <span className=\"darma-loader-open-wave-dots\"><i></i><i></i><i></i><i></i><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "source": {
+    "name": "Loaders.css inspired pattern",
+    "author": "Connor Atherton / open-source CSS loader community",
+    "license": "MIT-inspired pattern, normalized by Darma",
+    "url": "https://github.com/ConnorAtherton/loaders.css"
+  }
+}

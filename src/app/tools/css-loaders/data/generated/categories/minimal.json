@@ -398,7 +398,7 @@
       "customizable": true
     },
     "searchText": "uiverse-lime-flower-pinwheel lime flower pinwheel minimal flower pinwheel single retro uiverse batch-5 html css react cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-uiverse-lime-flower-pinwheel\"><span class=\"darma-loader-uiverse-lime-flower-pinwheel__flower-loader\">Loading…</span></div>\n",
+    "previewHtml": "<div class=\"darma-loader-uiverse-lime-flower-pinwheel\"><span class=\"darma-loader-uiverse-lime-flower-pinwheel__flower-loader\">Loading\u2026</span></div>\n",
     "previewCss": ".darma-loader-uiverse-lime-flower-pinwheel { width: 70px; height: 70px; display: grid; place-items: center; }\n.darma-loader-uiverse-lime-flower-pinwheel__flower-loader {\n  overflow: hidden;\n  position: relative;\n  text-indent: -9999px;\n  display: inline-block;\n  width: 16px;\n  height: 16px;\n  background: var(--loader-secondary-color, #ee9966);\n  border-radius: 100%;\n  box-shadow: white 0 0 15px 0, var(--loader-color, #448855) -12px -12px 0 4px, var(--loader-color, #448855) 12px -12px 0 4px, var(--loader-color, #448855) 12px 12px 0 4px, var(--loader-color, #448855) -12px 12px 0 4px;\n  animation: darma-loader-uiverse-lime-flower-pinwheel-flowerPinwheel 5s infinite ease-in-out;\n  transform-origin: 50% 50%;\n}\n@keyframes darma-loader-uiverse-lime-flower-pinwheel-flowerPinwheel {\n  0% { transform: rotate(0deg); box-shadow: white 0 0 15px 0, var(--loader-color, #448855) -12px -12px 0 4px, var(--loader-color, #448855) 12px -12px 0 4px, var(--loader-color, #448855) 12px 12px 0 4px, var(--loader-color, #448855) -12px 12px 0 4px; }\n  50% { transform: rotate(1080deg); box-shadow: white 0 0 15px 0, var(--loader-color, #448855) 12px 12px 0 4px, var(--loader-color, #448855) -12px 12px 0 4px, var(--loader-color, #448855) -12px -12px 0 4px, var(--loader-color, #448855) 12px -12px 0 4px; }\n}\n",
     "defaults": {
       "size": 70,
@@ -607,6 +607,70 @@
       "secondaryColor": "#fde68a",
       "size": 48,
       "speed": 1,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "open-flip-square",
+    "name": "Open Flip Square",
+    "category": "minimal",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "flip",
+      "square",
+      "minimal"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "open-flip-square open flip square minimal open-source open-pack-2026 flip square minimal html css react cssonly customizable singleelement",
+    "previewHtml": "<span class=\"darma-loader-open-flip-square\"></span>",
+    "previewCss": ".darma-loader-open-flip-square{display:inline-block;width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--loader-color,#111827),var(--loader-secondary-color,#6b7280));animation:darma-loader-open-flip-square-flip var(--loader-speed,1.25s) cubic-bezier(.65,0,.35,1) infinite}@keyframes darma-loader-open-flip-square-flip{0%{transform:perspective(140px) rotateX(0) rotateY(0)}50%{transform:perspective(140px) rotateX(-180deg) rotateY(0)}100%{transform:perspective(140px) rotateX(-180deg) rotateY(-180deg)}}",
+    "defaults": {
+      "color": "#111827",
+      "secondaryColor": "#6b7280",
+      "size": 52,
+      "speed": 1.25,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "open-minimal-line",
+    "name": "Open Minimal Line",
+    "category": "minimal",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "line",
+      "minimal",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "open-minimal-line open minimal line minimal open-source open-pack-2026 line minimal progress html css react cssonly customizable singleelement",
+    "previewHtml": "<span class=\"darma-loader-open-minimal-line\"></span>",
+    "previewCss": ".darma-loader-open-minimal-line{position:relative;display:inline-block;width:96px;height:5px;overflow:hidden;border-radius:999px;background:color-mix(in srgb,var(--loader-color,#374151) 18%,transparent)}.darma-loader-open-minimal-line:before{content:\"\";position:absolute;inset:0 auto 0 0;width:40%;border-radius:inherit;background:linear-gradient(90deg,var(--loader-color,#374151),var(--loader-secondary-color,#d1d5db));animation:darma-loader-open-minimal-line-slide var(--loader-speed,1.05s) ease-in-out infinite}@keyframes darma-loader-open-minimal-line-slide{0%{transform:translateX(-110%)}100%{transform:translateX(260%)}}",
+    "defaults": {
+      "color": "#374151",
+      "secondaryColor": "#d1d5db",
+      "size": 96,
+      "speed": 1.05,
       "background": "#ffffff"
     }
   },

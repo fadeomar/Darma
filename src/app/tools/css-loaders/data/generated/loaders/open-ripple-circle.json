@@ -1,0 +1,51 @@
+{
+  "id": "open-ripple-circle",
+  "name": "Open Ripple Circle",
+  "category": "pulse",
+  "tags": [
+    "open-source",
+    "open-pack-2026",
+    "ripple",
+    "circle",
+    "pulse"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "popular": true,
+    "singleElement": false
+  },
+  "searchText": "open-ripple-circle open ripple circle pulse open-source open-pack-2026 ripple circle pulse html css react cssonly customizable popular",
+  "previewHtml": "<span class=\"darma-loader-open-ripple-circle\"><i></i><i></i></span>",
+  "previewCss": ".darma-loader-open-ripple-circle{position:relative;display:inline-block;width:72px;height:72px}.darma-loader-open-ripple-circle i{position:absolute;inset:8px;border:4px solid var(--loader-color,#dc2626);border-radius:50%;animation:darma-loader-open-ripple-circle-wave var(--loader-speed,1.45s) cubic-bezier(0,.2,.8,1) infinite}.darma-loader-open-ripple-circle i:nth-child(2){animation-delay:calc(var(--loader-speed,1.45s)*-.5);border-color:var(--loader-secondary-color,#fecaca)}@keyframes darma-loader-open-ripple-circle-wave{0%{transform:scale(.25);opacity:1}100%{transform:scale(1.15);opacity:0}}",
+  "defaults": {
+    "color": "#dc2626",
+    "secondaryColor": "#fecaca",
+    "size": 72,
+    "speed": 1.45,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-open-ripple-circle\"><i></i><i></i></span>",
+    "css": ".darma-loader-open-ripple-circle{position:relative;display:inline-block;width:72px;height:72px}.darma-loader-open-ripple-circle i{position:absolute;inset:8px;border:4px solid var(--loader-color,#dc2626);border-radius:50%;animation:darma-loader-open-ripple-circle-wave var(--loader-speed,1.45s) cubic-bezier(0,.2,.8,1) infinite}.darma-loader-open-ripple-circle i:nth-child(2){animation-delay:calc(var(--loader-speed,1.45s)*-.5);border-color:var(--loader-secondary-color,#fecaca)}@keyframes darma-loader-open-ripple-circle-wave{0%{transform:scale(.25);opacity:1}100%{transform:scale(1.15);opacity:0}}",
+    "react": "export default function OpenRippleCircleLoader() {\n  return (\n    <span className=\"darma-loader-open-ripple-circle\"><i></i><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "source": {
+    "name": "loading.io CSS loader pattern",
+    "author": "loading.io",
+    "license": "CC0/free CSS pattern, normalized by Darma",
+    "url": "https://loading.io/css/"
+  }
+}

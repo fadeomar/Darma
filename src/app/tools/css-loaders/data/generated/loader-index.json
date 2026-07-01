@@ -189,6 +189,78 @@
     "searchText": "uiverse-blue-tide-equalizer blue tide equalizer bars uiverse blue tide equalizer bars wave loader html css react cssonly customizable"
   },
   {
+    "id": "cssloaders-github-06",
+    "name": "CSSLoaders Pattern 06",
+    "category": "bars",
+    "tags": [
+      "cssloaders",
+      "bars",
+      "wave",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-06 cssloaders pattern 06 bars cssloaders bars wave loader html css react popular cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-14",
+    "name": "CSSLoaders Pattern 14",
+    "category": "bars",
+    "tags": [
+      "cssloaders",
+      "bars",
+      "wave",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-14 cssloaders pattern 14 bars cssloaders bars wave loader html css react cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-22",
+    "name": "CSSLoaders Pattern 22",
+    "category": "bars",
+    "tags": [
+      "cssloaders",
+      "bars",
+      "wave",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-22 cssloaders pattern 22 bars cssloaders bars wave loader html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-136",
     "name": "Column Bounce Swap",
     "category": "bars",
@@ -499,78 +571,6 @@
       "customizable": true
     },
     "searchText": "darma-custom-167 crossbar collapse 42 bars crossbar collapse 42 bar equalizer bars css-only single-element batch-04 html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "cssloaders-github-06",
-    "name": "CSSLoaders Pattern 06",
-    "category": "bars",
-    "tags": [
-      "cssloaders",
-      "bars",
-      "wave",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-06 cssloaders pattern 06 bars cssloaders bars wave loader html css react popular cssonly customizable"
-  },
-  {
-    "id": "cssloaders-github-14",
-    "name": "CSSLoaders Pattern 14",
-    "category": "bars",
-    "tags": [
-      "cssloaders",
-      "bars",
-      "wave",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-14 cssloaders pattern 14 bars cssloaders bars wave loader html css react cssonly customizable"
-  },
-  {
-    "id": "cssloaders-github-22",
-    "name": "CSSLoaders Pattern 22",
-    "category": "bars",
-    "tags": [
-      "cssloaders",
-      "bars",
-      "wave",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-22 cssloaders pattern 22 bars cssloaders bars wave loader html css react cssonly customizable"
   },
   {
     "id": "darma-custom-137",
@@ -1148,6 +1148,29 @@
       "customizable": true
     },
     "searchText": "darma-custom-148 offset stripe tracks bars offset stripe tracks bar equalizer bars css-only single-element batch-04 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "open-pulse-bars",
+    "name": "Open Pulse Bars",
+    "category": "bars",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "bars",
+      "pulse",
+      "audio"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false
+    },
+    "searchText": "open-pulse-bars open pulse bars bars open-source open-pack-2026 bars pulse audio html css react cssonly customizable"
   },
   {
     "id": "darma-custom-152",
@@ -3392,6 +3415,131 @@
     "searchText": "darma-custom-090 butterfly triangle flip creative butterfly triangle flip geometric creative css-only single-element batch-03 html css react singleelement cssonly customizable"
   },
   {
+    "id": "cssloaders-github-04",
+    "name": "CSSLoaders Pattern 04",
+    "category": "creative",
+    "tags": [
+      "cssloaders",
+      "square",
+      "flip",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-04 cssloaders pattern 04 creative cssloaders square flip creative loader html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-12",
+    "name": "CSSLoaders Pattern 12",
+    "category": "creative",
+    "tags": [
+      "cssloaders",
+      "square",
+      "flip",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-12 cssloaders pattern 12 creative cssloaders square flip creative loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-20",
+    "name": "CSSLoaders Pattern 20",
+    "category": "creative",
+    "tags": [
+      "cssloaders",
+      "square",
+      "flip",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-20 cssloaders pattern 20 creative cssloaders square flip creative loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-28",
+    "name": "CSSLoaders Pattern 28",
+    "category": "creative",
+    "tags": [
+      "cssloaders",
+      "square",
+      "flip",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-28 cssloaders pattern 28 creative cssloaders square flip creative loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-36",
+    "name": "CSSLoaders Pattern 36",
+    "category": "creative",
+    "tags": [
+      "cssloaders",
+      "square",
+      "flip",
+      "creative",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-36 cssloaders pattern 36 creative cssloaders square flip creative loader html css react singleelement cssonly customizable"
+  },
+  {
     "id": "uiverse-celestial-orbit-system",
     "name": "Celestial Orbit System",
     "category": "creative",
@@ -4940,131 +5088,6 @@
       "customizable": true
     },
     "searchText": "uiverse-crystal-bloom crystal bloom creative uiverse crystal bloom 3d gradient creative loader html css react cssonly customizable"
-  },
-  {
-    "id": "cssloaders-github-04",
-    "name": "CSSLoaders Pattern 04",
-    "category": "creative",
-    "tags": [
-      "cssloaders",
-      "square",
-      "flip",
-      "creative",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-04 cssloaders pattern 04 creative cssloaders square flip creative loader html css react popular singleelement cssonly customizable"
-  },
-  {
-    "id": "cssloaders-github-12",
-    "name": "CSSLoaders Pattern 12",
-    "category": "creative",
-    "tags": [
-      "cssloaders",
-      "square",
-      "flip",
-      "creative",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-12 cssloaders pattern 12 creative cssloaders square flip creative loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "cssloaders-github-20",
-    "name": "CSSLoaders Pattern 20",
-    "category": "creative",
-    "tags": [
-      "cssloaders",
-      "square",
-      "flip",
-      "creative",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-20 cssloaders pattern 20 creative cssloaders square flip creative loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "cssloaders-github-28",
-    "name": "CSSLoaders Pattern 28",
-    "category": "creative",
-    "tags": [
-      "cssloaders",
-      "square",
-      "flip",
-      "creative",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-28 cssloaders pattern 28 creative cssloaders square flip creative loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "cssloaders-github-36",
-    "name": "CSSLoaders Pattern 36",
-    "category": "creative",
-    "tags": [
-      "cssloaders",
-      "square",
-      "flip",
-      "creative",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-36 cssloaders pattern 36 creative cssloaders square flip creative loader html css react singleelement cssonly customizable"
   },
   {
     "id": "loaders-css-08",
@@ -8327,6 +8350,100 @@
     "searchText": "darma-research-neural-synapse-grid neural synapse grid creative neural grid ai dots creative html css react popular customizable cssonly"
   },
   {
+    "id": "open-cube-grid",
+    "name": "Open Cube Grid",
+    "category": "creative",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "cube",
+      "grid",
+      "spinkit"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "popular": true,
+      "singleElement": false
+    },
+    "searchText": "open-cube-grid open cube grid creative open-source open-pack-2026 cube grid spinkit html css react cssonly customizable popular"
+  },
+  {
+    "id": "open-folding-cube",
+    "name": "Open Folding Cube",
+    "category": "creative",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "folding",
+      "cube",
+      "spinkit"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false
+    },
+    "searchText": "open-folding-cube open folding cube creative open-source open-pack-2026 folding cube spinkit html css react cssonly customizable"
+  },
+  {
+    "id": "open-radar-sweep",
+    "name": "Open Radar Sweep",
+    "category": "creative",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "radar",
+      "sweep",
+      "scan"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "popular": true,
+      "singleElement": false
+    },
+    "searchText": "open-radar-sweep open radar sweep creative open-source open-pack-2026 radar sweep scan html css react cssonly customizable popular"
+  },
+  {
+    "id": "open-rotating-diamonds",
+    "name": "Open Rotating Diamonds",
+    "category": "creative",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "diamonds",
+      "rotate",
+      "orbit"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false
+    },
+    "searchText": "open-rotating-diamonds open rotating diamonds creative open-source open-pack-2026 diamonds rotate orbit html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-276",
     "name": "Orbit Gear Frame",
     "category": "creative",
@@ -10404,108 +10521,6 @@
     "searchText": "uiverse-bubblegum-trio bubblegum trio dots bubble trio gradient soft uiverse html css react cssonly customizable"
   },
   {
-    "id": "uiverse-candy-pulse-beads",
-    "name": "Candy Pulse Beads",
-    "category": "dots",
-    "tags": [
-      "dots",
-      "gradient",
-      "pulse",
-      "beads",
-      "uiverse"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "uiverse-candy-pulse-beads candy pulse beads dots dots gradient pulse beads uiverse html css react cssonly customizable"
-  },
-  {
-    "id": "demo-dots",
-    "name": "Classic Dots",
-    "category": "dots",
-    "tags": [
-      "dots",
-      "bounce",
-      "minimal",
-      "inline"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "cssOnly": true,
-      "customizable": true,
-      "singleElement": false
-    },
-    "searchText": "demo-dots classic dots dots dots bounce minimal inline html css react popular cssonly customizable"
-  },
-  {
-    "id": "darma-custom-182",
-    "name": "Collapsing Dots",
-    "category": "dots",
-    "tags": [
-      "collapsing",
-      "dots",
-      "dot",
-      "loader",
-      "css-only",
-      "single-element",
-      "batch-04"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-182 collapsing dots dots collapsing dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-187",
-    "name": "Crossing Dots",
-    "category": "dots",
-    "tags": [
-      "crossing",
-      "dots",
-      "dot",
-      "loader",
-      "css-only",
-      "single-element",
-      "batch-04"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-187 crossing dots dots crossing dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable"
-  },
-  {
     "id": "cssloaders-github-05",
     "name": "CSSLoaders Pattern 05",
     "category": "dots",
@@ -10626,6 +10641,131 @@
     "searchText": "cssloaders-github-37 cssloaders pattern 37 dots cssloaders wave dots loader html css react cssonly customizable"
   },
   {
+    "id": "uiverse-candy-pulse-beads",
+    "name": "Candy Pulse Beads",
+    "category": "dots",
+    "tags": [
+      "dots",
+      "gradient",
+      "pulse",
+      "beads",
+      "uiverse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-candy-pulse-beads candy pulse beads dots dots gradient pulse beads uiverse html css react cssonly customizable"
+  },
+  {
+    "id": "demo-dots",
+    "name": "Classic Dots",
+    "category": "dots",
+    "tags": [
+      "dots",
+      "bounce",
+      "minimal",
+      "inline"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false
+    },
+    "searchText": "demo-dots classic dots dots dots bounce minimal inline html css react popular cssonly customizable"
+  },
+  {
+    "id": "darma-custom-182",
+    "name": "Collapsing Dots",
+    "category": "dots",
+    "tags": [
+      "collapsing",
+      "dots",
+      "dot",
+      "loader",
+      "css-only",
+      "single-element",
+      "batch-04"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "darma-custom-182 collapsing dots dots collapsing dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "darma-custom-187",
+    "name": "Crossing Dots",
+    "category": "dots",
+    "tags": [
+      "crossing",
+      "dots",
+      "dot",
+      "loader",
+      "css-only",
+      "single-element",
+      "batch-04"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "darma-custom-187 crossing dots dots crossing dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "darma-research-dna-helix-dots",
+    "name": "DNA Helix Dots",
+    "category": "dots",
+    "tags": [
+      "dna",
+      "helix",
+      "dots",
+      "science",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-research-dna-helix-dots dna helix dots dots dna helix dots science creative html css react popular customizable cssonly"
+  },
+  {
     "id": "darma-custom-200",
     "name": "Diagonal Dot Swap",
     "category": "dots",
@@ -10652,29 +10792,6 @@
       "customizable": true
     },
     "searchText": "darma-custom-200 diagonal dot swap dots diagonal dot swap dots loader css-only single-element batch-04 html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-research-dna-helix-dots",
-    "name": "DNA Helix Dots",
-    "category": "dots",
-    "tags": [
-      "dna",
-      "helix",
-      "dots",
-      "science",
-      "creative"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "customizable": true,
-      "cssOnly": true
-    },
-    "searchText": "darma-research-dna-helix-dots dna helix dots dots dna helix dots science creative html css react popular customizable cssonly"
   },
   {
     "id": "darma-custom-217",
@@ -11879,6 +11996,122 @@
       "customizable": true
     },
     "searchText": "darma-custom-112 nine tile rotation dots nine tile rotation dots grid css-only single-element batch-03 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "open-bouncing-dots",
+    "name": "Open Bouncing Dots",
+    "category": "dots",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "dots",
+      "bounce",
+      "minimal"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false
+    },
+    "searchText": "open-bouncing-dots open bouncing dots dots open-source open-pack-2026 dots bounce minimal html css react cssonly customizable"
+  },
+  {
+    "id": "open-dot-chase",
+    "name": "Open Dot Chase",
+    "category": "dots",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "dots",
+      "chase",
+      "square-path"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false
+    },
+    "searchText": "open-dot-chase open dot chase dots open-source open-pack-2026 dots chase square-path html css react cssonly customizable"
+  },
+  {
+    "id": "open-orbit-dots",
+    "name": "Open Orbit Dots",
+    "category": "dots",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "orbit",
+      "dots",
+      "playful"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "popular": true,
+      "singleElement": false
+    },
+    "searchText": "open-orbit-dots open orbit dots dots open-source open-pack-2026 orbit dots playful html css react cssonly customizable popular"
+  },
+  {
+    "id": "open-typing-dots",
+    "name": "Open Typing Dots",
+    "category": "dots",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "typing",
+      "dots",
+      "chat"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false
+    },
+    "searchText": "open-typing-dots open typing dots dots open-source open-pack-2026 typing dots chat html css react cssonly customizable"
+  },
+  {
+    "id": "open-wave-dots",
+    "name": "Open Wave Dots",
+    "category": "dots",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "wave",
+      "dots",
+      "sine"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false
+    },
+    "searchText": "open-wave-dots open wave dots dots open-source open-pack-2026 wave dots sine html css react cssonly customizable"
   },
   {
     "id": "darma-custom-204",
@@ -14447,6 +14680,30 @@
     "searchText": "darma-custom-074 offset gear wobble fun offset gear wobble playful motion css-only single-element batch-03 html css react singleelement cssonly customizable"
   },
   {
+    "id": "open-liquid-blob",
+    "name": "Open Liquid Blob",
+    "category": "fun",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "liquid",
+      "blob",
+      "organic"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "popular": true,
+      "singleElement": true
+    },
+    "searchText": "open-liquid-blob open liquid blob fun open-source open-pack-2026 liquid blob organic html css react cssonly customizable popular singleelement"
+  },
+  {
     "id": "darma-custom-645",
     "name": "Orbit Earth",
     "category": "fun",
@@ -16673,6 +16930,52 @@
     "searchText": "darma-custom-705 minimal loader 31 minimal css-only single-element customizable batch-08 minimal loader html css react singleelement cssonly customizable"
   },
   {
+    "id": "open-flip-square",
+    "name": "Open Flip Square",
+    "category": "minimal",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "flip",
+      "square",
+      "minimal"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "open-flip-square open flip square minimal open-source open-pack-2026 flip square minimal html css react cssonly customizable singleelement"
+  },
+  {
+    "id": "open-minimal-line",
+    "name": "Open Minimal Line",
+    "category": "minimal",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "line",
+      "minimal",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "open-minimal-line open minimal line minimal open-source open-pack-2026 line minimal progress html css react cssonly customizable singleelement"
+  },
+  {
     "id": "uiverse-rolling-rock-steps",
     "name": "Rolling Rock Steps",
     "category": "minimal",
@@ -17535,6 +17838,246 @@
     "searchText": "darma-custom-023 bordered slider fill progress linear bordered slider pill fill batch-02 html css react popular singleelement cssonly customizable"
   },
   {
+    "id": "cssloaders-github-01",
+    "name": "CSSLoaders Pattern 01",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "stripe",
+      "progress",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-01 cssloaders pattern 01 progress cssloaders stripe progress loader html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-08",
+    "name": "CSSLoaders Pattern 08",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "progress",
+      "bar",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-08 cssloaders pattern 08 progress cssloaders progress bar loader html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-09",
+    "name": "CSSLoaders Pattern 09",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "stripe",
+      "progress",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-09 cssloaders pattern 09 progress cssloaders stripe progress loader html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-16",
+    "name": "CSSLoaders Pattern 16",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "progress",
+      "bar",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-16 cssloaders pattern 16 progress cssloaders progress bar loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-17",
+    "name": "CSSLoaders Pattern 17",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "stripe",
+      "progress",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-17 cssloaders pattern 17 progress cssloaders stripe progress loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-24",
+    "name": "CSSLoaders Pattern 24",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "progress",
+      "bar",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-24 cssloaders pattern 24 progress cssloaders progress bar loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-25",
+    "name": "CSSLoaders Pattern 25",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "stripe",
+      "progress",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-25 cssloaders pattern 25 progress cssloaders stripe progress loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-32",
+    "name": "CSSLoaders Pattern 32",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "progress",
+      "bar",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-32 cssloaders pattern 32 progress cssloaders progress bar loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-33",
+    "name": "CSSLoaders Pattern 33",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "stripe",
+      "progress",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-33 cssloaders pattern 33 progress cssloaders stripe progress loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-40",
+    "name": "CSSLoaders Pattern 40",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "progress",
+      "bar",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-40 cssloaders pattern 40 progress cssloaders progress bar loader html css react singleelement cssonly customizable"
+  },
+  {
     "id": "uiverse-candy-stripe-progress",
     "name": "Candy Stripe Progress",
     "category": "progress",
@@ -18197,246 +18740,6 @@
       "customizable": true
     },
     "searchText": "darma-custom-223 cross stripe rail progress cross stripe rail progress bar track linear loader css-only single-element batch-05 html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "cssloaders-github-01",
-    "name": "CSSLoaders Pattern 01",
-    "category": "progress",
-    "tags": [
-      "cssloaders",
-      "stripe",
-      "progress",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-01 cssloaders pattern 01 progress cssloaders stripe progress loader html css react popular singleelement cssonly customizable"
-  },
-  {
-    "id": "cssloaders-github-08",
-    "name": "CSSLoaders Pattern 08",
-    "category": "progress",
-    "tags": [
-      "cssloaders",
-      "progress",
-      "bar",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-08 cssloaders pattern 08 progress cssloaders progress bar loader html css react popular singleelement cssonly customizable"
-  },
-  {
-    "id": "cssloaders-github-09",
-    "name": "CSSLoaders Pattern 09",
-    "category": "progress",
-    "tags": [
-      "cssloaders",
-      "stripe",
-      "progress",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-09 cssloaders pattern 09 progress cssloaders stripe progress loader html css react popular singleelement cssonly customizable"
-  },
-  {
-    "id": "cssloaders-github-16",
-    "name": "CSSLoaders Pattern 16",
-    "category": "progress",
-    "tags": [
-      "cssloaders",
-      "progress",
-      "bar",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-16 cssloaders pattern 16 progress cssloaders progress bar loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "cssloaders-github-17",
-    "name": "CSSLoaders Pattern 17",
-    "category": "progress",
-    "tags": [
-      "cssloaders",
-      "stripe",
-      "progress",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-17 cssloaders pattern 17 progress cssloaders stripe progress loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "cssloaders-github-24",
-    "name": "CSSLoaders Pattern 24",
-    "category": "progress",
-    "tags": [
-      "cssloaders",
-      "progress",
-      "bar",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-24 cssloaders pattern 24 progress cssloaders progress bar loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "cssloaders-github-25",
-    "name": "CSSLoaders Pattern 25",
-    "category": "progress",
-    "tags": [
-      "cssloaders",
-      "stripe",
-      "progress",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-25 cssloaders pattern 25 progress cssloaders stripe progress loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "cssloaders-github-32",
-    "name": "CSSLoaders Pattern 32",
-    "category": "progress",
-    "tags": [
-      "cssloaders",
-      "progress",
-      "bar",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-32 cssloaders pattern 32 progress cssloaders progress bar loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "cssloaders-github-33",
-    "name": "CSSLoaders Pattern 33",
-    "category": "progress",
-    "tags": [
-      "cssloaders",
-      "stripe",
-      "progress",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-33 cssloaders pattern 33 progress cssloaders stripe progress loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "cssloaders-github-40",
-    "name": "CSSLoaders Pattern 40",
-    "category": "progress",
-    "tags": [
-      "cssloaders",
-      "progress",
-      "bar",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-40 cssloaders pattern 40 progress cssloaders progress bar loader html css react singleelement cssonly customizable"
   },
   {
     "id": "uiverse-cyber-percent-bar",
@@ -19565,6 +19868,29 @@
       "customizable": true
     },
     "searchText": "uiverse-ocean-progress-comet ocean progress comet progress progress bar ocean comet uiverse batch-5 html css react cssonly customizable"
+  },
+  {
+    "id": "open-progress-blocks",
+    "name": "Open Progress Blocks",
+    "category": "progress",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "progress",
+      "blocks",
+      "step"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false
+    },
+    "searchText": "open-progress-blocks open progress blocks progress open-source open-pack-2026 progress blocks step html css react cssonly customizable"
   },
   {
     "id": "uiverse-orange-shuttle-rail",
@@ -22526,83 +22852,6 @@
     "searchText": "uiverse-blue-ripple-rings blue ripple rings pulse ripple rings pulse blue uiverse html css react singleelement cssonly customizable"
   },
   {
-    "id": "darma-custom-120",
-    "name": "Corner Ring Expand",
-    "category": "pulse",
-    "tags": [
-      "corner",
-      "ring",
-      "expand",
-      "pulse",
-      "css-only",
-      "single-element",
-      "batch-03"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-120 corner ring expand pulse corner ring expand pulse css-only single-element batch-03 html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-custom-119",
-    "name": "Corner Ring Pulse",
-    "category": "pulse",
-    "tags": [
-      "corner",
-      "ring",
-      "pulse",
-      "expand",
-      "css-only",
-      "single-element",
-      "batch-03"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-119 corner ring pulse pulse corner ring pulse expand css-only single-element batch-03 html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "darma-research-cosmic-eclipse-core",
-    "name": "Cosmic Eclipse Core",
-    "category": "pulse",
-    "tags": [
-      "eclipse",
-      "pulse",
-      "cosmic",
-      "glow",
-      "orb"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "customizable": true,
-      "cssOnly": true
-    },
-    "searchText": "darma-research-cosmic-eclipse-core cosmic eclipse core pulse eclipse pulse cosmic glow orb html css react popular customizable cssonly"
-  },
-  {
     "id": "cssloaders-github-02",
     "name": "CSSLoaders Pattern 02",
     "category": "pulse",
@@ -22745,6 +22994,83 @@
       "customizable": true
     },
     "searchText": "cssloaders-github-34 cssloaders pattern 34 pulse cssloaders pulse circle loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "darma-custom-120",
+    "name": "Corner Ring Expand",
+    "category": "pulse",
+    "tags": [
+      "corner",
+      "ring",
+      "expand",
+      "pulse",
+      "css-only",
+      "single-element",
+      "batch-03"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "darma-custom-120 corner ring expand pulse corner ring expand pulse css-only single-element batch-03 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "darma-custom-119",
+    "name": "Corner Ring Pulse",
+    "category": "pulse",
+    "tags": [
+      "corner",
+      "ring",
+      "pulse",
+      "expand",
+      "css-only",
+      "single-element",
+      "batch-03"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "darma-custom-119 corner ring pulse pulse corner ring pulse expand css-only single-element batch-03 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "darma-research-cosmic-eclipse-core",
+    "name": "Cosmic Eclipse Core",
+    "category": "pulse",
+    "tags": [
+      "eclipse",
+      "pulse",
+      "cosmic",
+      "glow",
+      "orb"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-research-cosmic-eclipse-core cosmic eclipse core pulse eclipse pulse cosmic glow orb html css react popular customizable cssonly"
   },
   {
     "id": "glow-pulse",
@@ -23107,6 +23433,30 @@
       "customizable": true
     },
     "searchText": "darma-custom-573 mask reveal 10 pulse mask reveal 10 pulse shape loader css-only single-element batch-07 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "open-ripple-circle",
+    "name": "Open Ripple Circle",
+    "category": "pulse",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "ripple",
+      "circle",
+      "pulse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "popular": true,
+      "singleElement": false
+    },
+    "searchText": "open-ripple-circle open ripple circle pulse open-source open-pack-2026 ripple circle pulse html css react cssonly customizable popular"
   },
   {
     "id": "uiverse-orb-fill-quartet",
@@ -24029,6 +24379,29 @@
     "searchText": "uiverse-dashboard-skeleton-card dashboard skeleton card skeleton skeleton card placeholder pulse uiverse batch-5 html css react cssonly customizable"
   },
   {
+    "id": "open-skeleton-shimmer",
+    "name": "Open Skeleton Shimmer",
+    "category": "skeleton",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "skeleton",
+      "shimmer",
+      "card"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false
+    },
+    "searchText": "open-skeleton-shimmer open skeleton shimmer skeleton open-source open-pack-2026 skeleton shimmer card html css react cssonly customizable"
+  },
+  {
     "id": "skeleton-avatar",
     "name": "Skeleton Avatar",
     "category": "skeleton",
@@ -24273,6 +24646,131 @@
       "customizable": true
     },
     "searchText": "darma-custom-019 bowtie conic spinner spinners bowtie conic spinner clip-path batch-01 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-07",
+    "name": "CSSLoaders Pattern 07",
+    "category": "spinners",
+    "tags": [
+      "cssloaders",
+      "ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-07 cssloaders pattern 07 spinners cssloaders ring spinner spinners loader html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-15",
+    "name": "CSSLoaders Pattern 15",
+    "category": "spinners",
+    "tags": [
+      "cssloaders",
+      "ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-15 cssloaders pattern 15 spinners cssloaders ring spinner spinners loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-23",
+    "name": "CSSLoaders Pattern 23",
+    "category": "spinners",
+    "tags": [
+      "cssloaders",
+      "ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-23 cssloaders pattern 23 spinners cssloaders ring spinner spinners loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-31",
+    "name": "CSSLoaders Pattern 31",
+    "category": "spinners",
+    "tags": [
+      "cssloaders",
+      "ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-31 cssloaders pattern 31 spinners cssloaders ring spinner spinners loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "cssloaders-github-39",
+    "name": "CSSLoaders Pattern 39",
+    "category": "spinners",
+    "tags": [
+      "cssloaders",
+      "ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-39 cssloaders pattern 39 spinners cssloaders ring spinner spinners loader html css react singleelement cssonly customizable"
   },
   {
     "id": "demo-spinner",
@@ -24526,131 +25024,6 @@
       "customizable": true
     },
     "searchText": "darma-custom-017 cropped orbit spinner spinners circle orbit spinner radial batch-01 html css react popular singleelement cssonly customizable"
-  },
-  {
-    "id": "cssloaders-github-07",
-    "name": "CSSLoaders Pattern 07",
-    "category": "spinners",
-    "tags": [
-      "cssloaders",
-      "ring",
-      "spinner",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-07 cssloaders pattern 07 spinners cssloaders ring spinner spinners loader html css react popular singleelement cssonly customizable"
-  },
-  {
-    "id": "cssloaders-github-15",
-    "name": "CSSLoaders Pattern 15",
-    "category": "spinners",
-    "tags": [
-      "cssloaders",
-      "ring",
-      "spinner",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-15 cssloaders pattern 15 spinners cssloaders ring spinner spinners loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "cssloaders-github-23",
-    "name": "CSSLoaders Pattern 23",
-    "category": "spinners",
-    "tags": [
-      "cssloaders",
-      "ring",
-      "spinner",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-23 cssloaders pattern 23 spinners cssloaders ring spinner spinners loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "cssloaders-github-31",
-    "name": "CSSLoaders Pattern 31",
-    "category": "spinners",
-    "tags": [
-      "cssloaders",
-      "ring",
-      "spinner",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-31 cssloaders pattern 31 spinners cssloaders ring spinner spinners loader html css react singleelement cssonly customizable"
-  },
-  {
-    "id": "cssloaders-github-39",
-    "name": "CSSLoaders Pattern 39",
-    "category": "spinners",
-    "tags": [
-      "cssloaders",
-      "ring",
-      "spinner",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-39 cssloaders pattern 39 spinners cssloaders ring spinner spinners loader html css react singleelement cssonly customizable"
   },
   {
     "id": "darma-custom-614",
@@ -27587,6 +27960,99 @@
       "customizable": true
     },
     "searchText": "darma-custom-069 octagon nested spin spinners octagon nested spin spinner rotation css-only single-element batch-03 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "open-border-spinner",
+    "name": "Open Border Spinner",
+    "category": "spinners",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "border",
+      "spinner",
+      "square"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "open-border-spinner open border spinner spinners open-source open-pack-2026 border spinner square html css react cssonly customizable singleelement"
+  },
+  {
+    "id": "open-dual-ring",
+    "name": "Open Dual Ring",
+    "category": "spinners",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "ring",
+      "spinner",
+      "dual"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "popular": true,
+      "singleElement": true
+    },
+    "searchText": "open-dual-ring open dual ring spinners open-source open-pack-2026 ring spinner dual html css react cssonly customizable popular singleelement"
+  },
+  {
+    "id": "open-infinity-loop",
+    "name": "Open Infinity Loop",
+    "category": "spinners",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "infinity",
+      "loop",
+      "spinner"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "open-infinity-loop open infinity loop spinners open-source open-pack-2026 infinity loop spinner html css react cssonly customizable singleelement"
+  },
+  {
+    "id": "open-neon-ring",
+    "name": "Open Neon Ring",
+    "category": "spinners",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "neon",
+      "ring",
+      "glow"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "open-neon-ring open neon ring spinners open-source open-pack-2026 neon ring glow html css react cssonly customizable singleelement"
   },
   {
     "id": "darma-custom-344",

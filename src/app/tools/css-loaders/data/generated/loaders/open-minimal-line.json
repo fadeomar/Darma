@@ -1,0 +1,50 @@
+{
+  "id": "open-minimal-line",
+  "name": "Open Minimal Line",
+  "category": "minimal",
+  "tags": [
+    "open-source",
+    "open-pack-2026",
+    "line",
+    "minimal",
+    "progress"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": true
+  },
+  "searchText": "open-minimal-line open minimal line minimal open-source open-pack-2026 line minimal progress html css react cssonly customizable singleelement",
+  "previewHtml": "<span class=\"darma-loader-open-minimal-line\"></span>",
+  "previewCss": ".darma-loader-open-minimal-line{position:relative;display:inline-block;width:96px;height:5px;overflow:hidden;border-radius:999px;background:color-mix(in srgb,var(--loader-color,#374151) 18%,transparent)}.darma-loader-open-minimal-line:before{content:\"\";position:absolute;inset:0 auto 0 0;width:40%;border-radius:inherit;background:linear-gradient(90deg,var(--loader-color,#374151),var(--loader-secondary-color,#d1d5db));animation:darma-loader-open-minimal-line-slide var(--loader-speed,1.05s) ease-in-out infinite}@keyframes darma-loader-open-minimal-line-slide{0%{transform:translateX(-110%)}100%{transform:translateX(260%)}}",
+  "defaults": {
+    "color": "#374151",
+    "secondaryColor": "#d1d5db",
+    "size": 96,
+    "speed": 1.05,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-open-minimal-line\"></span>",
+    "css": ".darma-loader-open-minimal-line{position:relative;display:inline-block;width:96px;height:5px;overflow:hidden;border-radius:999px;background:color-mix(in srgb,var(--loader-color,#374151) 18%,transparent)}.darma-loader-open-minimal-line:before{content:\"\";position:absolute;inset:0 auto 0 0;width:40%;border-radius:inherit;background:linear-gradient(90deg,var(--loader-color,#374151),var(--loader-secondary-color,#d1d5db));animation:darma-loader-open-minimal-line-slide var(--loader-speed,1.05s) ease-in-out infinite}@keyframes darma-loader-open-minimal-line-slide{0%{transform:translateX(-110%)}100%{transform:translateX(260%)}}",
+    "react": "export default function OpenMinimalLineLoader() {\n  return (\n    <span className=\"darma-loader-open-minimal-line\"></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "source": {
+    "name": "Whirl inspired pattern",
+    "author": "Jhey Tompkins / open-source CSS loader community",
+    "license": "MIT-inspired pattern, normalized by Darma",
+    "url": "https://github.com/jh3y/whirl"
+  }
+}

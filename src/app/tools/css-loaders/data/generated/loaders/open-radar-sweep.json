@@ -1,0 +1,51 @@
+{
+  "id": "open-radar-sweep",
+  "name": "Open Radar Sweep",
+  "category": "creative",
+  "tags": [
+    "open-source",
+    "open-pack-2026",
+    "radar",
+    "sweep",
+    "scan"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "popular": true,
+    "singleElement": false
+  },
+  "searchText": "open-radar-sweep open radar sweep creative open-source open-pack-2026 radar sweep scan html css react cssonly customizable popular",
+  "previewHtml": "<span class=\"darma-loader-open-radar-sweep\"><i></i><i></i><i></i></span>",
+  "previewCss": ".darma-loader-open-radar-sweep{position:relative;display:inline-block;width:72px;height:72px;border:2px solid color-mix(in srgb,var(--loader-color,#10b981) 42%,transparent);border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--loader-color,#10b981) 16%,transparent) 0 2px,transparent 3px),radial-gradient(circle,transparent 45%,color-mix(in srgb,var(--loader-color,#10b981) 15%,transparent) 46% 48%,transparent 49%);overflow:hidden}.darma-loader-open-radar-sweep:before{content:\"\";position:absolute;inset:0;background:conic-gradient(from 0deg,color-mix(in srgb,var(--loader-color,#10b981) 70%,transparent),transparent 42%);animation:darma-loader-open-radar-sweep-spin var(--loader-speed,1.8s) linear infinite}.darma-loader-open-radar-sweep i{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--loader-color,#10b981);box-shadow:0 0 12px var(--loader-color,#10b981)}.darma-loader-open-radar-sweep i:nth-child(1){left:21px;top:24px}.darma-loader-open-radar-sweep i:nth-child(2){left:48px;top:36px}.darma-loader-open-radar-sweep i:nth-child(3){left:32px;top:52px}@keyframes darma-loader-open-radar-sweep-spin{to{transform:rotate(360deg)}}",
+  "defaults": {
+    "color": "#10b981",
+    "secondaryColor": "#064e3b",
+    "size": 72,
+    "speed": 1.8,
+    "background": "#03110c"
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-open-radar-sweep\"><i></i><i></i><i></i></span>",
+    "css": ".darma-loader-open-radar-sweep{position:relative;display:inline-block;width:72px;height:72px;border:2px solid color-mix(in srgb,var(--loader-color,#10b981) 42%,transparent);border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--loader-color,#10b981) 16%,transparent) 0 2px,transparent 3px),radial-gradient(circle,transparent 45%,color-mix(in srgb,var(--loader-color,#10b981) 15%,transparent) 46% 48%,transparent 49%);overflow:hidden}.darma-loader-open-radar-sweep:before{content:\"\";position:absolute;inset:0;background:conic-gradient(from 0deg,color-mix(in srgb,var(--loader-color,#10b981) 70%,transparent),transparent 42%);animation:darma-loader-open-radar-sweep-spin var(--loader-speed,1.8s) linear infinite}.darma-loader-open-radar-sweep i{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--loader-color,#10b981);box-shadow:0 0 12px var(--loader-color,#10b981)}.darma-loader-open-radar-sweep i:nth-child(1){left:21px;top:24px}.darma-loader-open-radar-sweep i:nth-child(2){left:48px;top:36px}.darma-loader-open-radar-sweep i:nth-child(3){left:32px;top:52px}@keyframes darma-loader-open-radar-sweep-spin{to{transform:rotate(360deg)}}",
+    "react": "export default function OpenRadarSweepLoader() {\n  return (\n    <span className=\"darma-loader-open-radar-sweep\"><i></i><i></i><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "source": {
+    "name": "Epic Spinners inspired pattern",
+    "author": "Epicmax / open-source CSS loader community",
+    "license": "MIT-inspired pattern, normalized by Darma",
+    "url": "https://github.com/epicmaxco/epic-spinners"
+  }
+}

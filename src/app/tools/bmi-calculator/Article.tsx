@@ -6,26 +6,27 @@ export default function BmiCalculatorArticle() {
           What is BMI?
         </h2>
         <p>
-          Body Mass Index (BMI) is a quick screening number that relates your weight to your height.
-          It is widely used to put weight into one of four broad bands, and to estimate a healthy
-          weight range for a given height.
+          Body Mass Index (BMI) is a quick screening number that compares weight with height. It is
+          useful for a fast adult weight-status snapshot, but it does not directly measure body fat,
+          muscle mass, bone density, or health risk.
         </p>
       </section>
 
       <section>
         <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          How it is calculated
+          How to use this upgraded tool
         </h2>
         <p>
-          In metric units, BMI is your weight in kilograms divided by the square of your height in
-          metres. In imperial units, it is 703 × weight in pounds ÷ the square of your height in
-          inches. Both formulas give the same number for the same person.
+          Enter weight and height, then add optional waist and target weight values. The dashboard
+          shows your BMI score, adult category, healthy weight range, distance from that range,
+          waist-to-height ratio, and projected BMI at your target weight. You can also save results
+          locally to compare changes over time.
         </p>
       </section>
 
       <section>
         <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          The categories
+          The adult BMI categories
         </h2>
         <ul className="list-inside list-disc space-y-2">
           <li>Below 18.5 — underweight</li>
@@ -37,13 +38,24 @@ export default function BmiCalculatorArticle() {
 
       <section>
         <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          Important limitations
+          Why waist-to-height ratio helps
         </h2>
         <p>
-          BMI does not measure body fat directly and does not account for muscle mass, bone density,
-          age, sex, or where fat is stored. Very muscular people can have a high BMI while being
-          healthy. Treat it as a general guide and talk to a healthcare professional for advice.
-          Everything here is calculated locally in your browser.
+          Waist-to-height ratio adds context because BMI does not show where weight is carried. A
+          common practical guide is to keep waist measurement below half of height, but this is still
+          a screening signal rather than a diagnosis.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
+          Important limitations and privacy
+        </h2>
+        <p>
+          Adult BMI categories may not apply to children, teens, pregnancy, athletes, older adults,
+          or people with medical conditions that affect weight or height. Treat the result as a
+          general guide and speak with a healthcare professional for personal advice. Calculations,
+          saved history, and CSV export all happen locally in your browser.
         </p>
       </section>
     </div>

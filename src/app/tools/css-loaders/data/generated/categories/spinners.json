@@ -1,69 +1,5 @@
 [
   {
-    "id": "arc-spinner",
-    "name": "Arc Spinner",
-    "category": "spinners",
-    "tags": [
-      "spinner",
-      "arc",
-      "minimal",
-      "single element"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "cssOnly": true,
-      "customizable": true,
-      "singleElement": true
-    },
-    "searchText": "arc-spinner arc spinner spinners spinner arc minimal single element html css react cssonly customizable singleelement",
-    "previewHtml": "<span class=\"darma-loader-arc-spinner\"></span>",
-    "previewCss": ".darma-loader-arc-spinner {\n  display: inline-block;\n  width: 56px;\n  height: 56px;\n  border-radius: 50%;\n  background: conic-gradient(from 0deg, var(--loader-color, #6366f1) 0 80deg, transparent 82deg 360deg);\n  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 7px), #000 0);\n  mask: radial-gradient(farthest-side, transparent calc(100% - 7px), #000 0);\n  animation: darma-loader-arc-spinner-spin 0.8s linear infinite;\n}\n@keyframes darma-loader-arc-spinner-spin { to { transform: rotate(360deg); } }\n",
-    "defaults": {
-      "color": "#6366f1",
-      "size": 48,
-      "speed": 1
-    }
-  },
-  {
-    "id": "uiverse-aurora-halo-spinner",
-    "name": "Aurora Halo Spinner",
-    "category": "spinners",
-    "tags": [
-      "uiverse",
-      "aurora",
-      "halo",
-      "gradient",
-      "spinner",
-      "glow",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "uiverse-aurora-halo-spinner aurora halo spinner spinners uiverse aurora halo gradient spinner glow loader html css react cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-uiverse-aurora-halo-spinner\">\n<div class=\"darma-loader-uiverse-aurora-halo-spinner__container\">\n  <span></span>\n  <span></span>\n  <span></span>\n  <span></span>\n</div>\n</div>",
-    "previewCss": ".darma-loader-uiverse-aurora-halo-spinner {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container {\n  position: relative;\n  width: 96px;\n  height: 96px;\n  border-radius: 50%;\n  animation: darma-loader-uiverse-aurora-halo-spinner-rotate_3922 1.2s linear infinite;\n  background-color: #9b59b6;\n  background-image: linear-gradient(#9b59b6, #84cdfa, #5ad1cd);\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container span {\nposition: absolute;\nborder-radius: 50%;\nheight: 100%;\nwidth: 100%;\nbackground-color: #9b59b6;\nbackground-image: linear-gradient(#9b59b6, #84cdfa, #5ad1cd);\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container span:nth-of-type(1) {\nfilter: blur(5px);\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container span:nth-of-type(2) {\nfilter: blur(10px);\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container span:nth-of-type(3) {\nfilter: blur(25px);\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container span:nth-of-type(4) {\nfilter: blur(50px);\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container::after {\ncontent: \"\";\nposition: absolute;\ntop: 10px;\nleft: 10px;\nright: 10px;\nbottom: 10px;\nbackground-color: #fff;\nborder: solid 5px #ffffff;\nborder-radius: 50%;\n}\n\n@keyframes darma-loader-uiverse-aurora-halo-spinner-rotate_3922 {\nfrom {\n  transform: rotate(0deg);\n}\n\nto {\n  transform: rotate(360deg);\n}\n}",
-    "defaults": {
-      "size": 96,
-      "speed": 1,
-      "background": "transparent"
-    }
-  },
-  {
     "id": "loaders-css-02",
     "name": "Ball Clip Rotate 02",
     "category": "spinners",
@@ -127,6 +63,468 @@
       "secondaryColor": "#fecaca",
       "size": 68,
       "speed": 1.07
+    }
+  },
+  {
+    "id": "cssloaders-github-07",
+    "name": "CSSLoaders Pattern 07",
+    "category": "spinners",
+    "tags": [
+      "cssloaders",
+      "ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-07 cssloaders pattern 07 spinners cssloaders ring spinner spinners loader html css react popular singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-07\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-07 {\n  display: inline-block;\n  width: 54px;\n  height: 54px;\n  border-radius: 50%;\n  border: 4px solid color-mix(in srgb, var(--loader-secondary-color, #bae6fd) 35%, transparent);\n  border-top-color: var(--loader-color, #0ea5e9);\n  border-right-color: var(--loader-color, #0ea5e9);\n  animation: darma-loader-cssloaders-github-07-spin 1.06s cubic-bezier(.55,.15,.45,.85) infinite;\n}\n.darma-loader-cssloaders-github-07::after {\n  content: \"\";\n  display: block;\n  width: calc(100% - 16px);\n  height: calc(100% - 16px);\n  margin: 4px;\n  border-radius: 50%;\n  border: 3px solid transparent;\n  border-bottom-color: var(--loader-secondary-color, #bae6fd);\n  animation: darma-loader-cssloaders-github-07-spin 0.74s linear infinite reverse;\n}\n@keyframes darma-loader-cssloaders-github-07-spin { to { transform: rotate(360deg); } }\n",
+    "defaults": {
+      "color": "#0ea5e9",
+      "secondaryColor": "#bae6fd",
+      "size": 58,
+      "speed": 1.15
+    }
+  },
+  {
+    "id": "demo-spinner",
+    "name": "Classic Spinner",
+    "category": "spinners",
+    "tags": [
+      "spinner",
+      "ring",
+      "circle",
+      "classic"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "demo-spinner classic spinner spinners spinner ring circle classic html css react popular cssonly customizable singleelement",
+    "previewHtml": "<span class=\"darma-loader-demo-spinner\"></span>",
+    "previewCss": ".darma-loader-demo-spinner {\n  display: inline-block;\n  width: 54px;\n  height: 54px;\n  border-radius: 50%;\n  border: 5px solid color-mix(in srgb, var(--loader-color, #6366f1) 18%, transparent);\n  border-top-color: var(--loader-color, #6366f1);\n  animation: darma-loader-demo-spinner-spin 0.85s linear infinite;\n}\n@keyframes darma-loader-demo-spinner-spin { to { transform: rotate(360deg); } }\n",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 48,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-custom-017",
+    "name": "Cropped Orbit Spinner",
+    "category": "spinners",
+    "tags": [
+      "circle",
+      "orbit",
+      "spinner",
+      "radial",
+      "batch-01"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "darma-custom-017 cropped orbit spinner spinners circle orbit spinner radial batch-01 html css react popular singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-darma-custom-017\"></div>",
+    "previewCss": ".darma-loader-darma-custom-017 {\n  width: 40px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  margin-top: -30px;\n  display: flex;\n  justify-content: center;\n  overflow: hidden;\n  transform-origin: 50% 116.5%;\n  animation: darma-loader-darma-custom-017-l17 2s infinite linear;\n}\n.darma-loader-darma-custom-017::before {\n  content: \"\";\n  min-width: 233%;\n  height: 233%;\n  background: radial-gradient(farthest-side, var(--loader-color, #00DA3C) 90%, #0000) top, radial-gradient(farthest-side, var(--loader-secondary-color, #00CBE7) 90%, #0000) left, radial-gradient(farthest-side, #FD8603 90%, #0000) bottom, radial-gradient(farthest-side, #F4F328 90%, #0000) right;\n  background-size: 43% 43%;\n  background-repeat: no-repeat;\n  animation: inherit;\n  animation-direction: reverse;\n}\n@keyframes darma-loader-darma-custom-017-l17 {\n  100% { transform: rotate(360deg); }\n}\n",
+    "defaults": {
+      "color": "#00DA3C",
+      "secondaryColor": "#00CBE7",
+      "size": 40,
+      "speed": 2,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "dual-ring-spinner",
+    "name": "Dual Ring Spinner",
+    "category": "spinners",
+    "tags": [
+      "spinner",
+      "ring",
+      "dual",
+      "dashboard"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "dual-ring-spinner dual ring spinner spinners spinner ring dual dashboard html css react popular cssonly customizable singleelement",
+    "previewHtml": "<span class=\"darma-loader-dual-ring-spinner\"></span>",
+    "previewCss": ".darma-loader-dual-ring-spinner {\n  position: relative;\n  display: inline-block;\n  width: 58px;\n  height: 58px;\n  border-radius: 50%;\n  color: var(--loader-color, #6366f1);\n}\n.darma-loader-dual-ring-spinner::before,\n.darma-loader-dual-ring-spinner::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  border-radius: 50%;\n  border: 4px solid transparent;\n  border-top-color: currentColor;\n  animation: darma-loader-dual-ring-spinner-spin 1s linear infinite;\n}\n.darma-loader-dual-ring-spinner::after {\n  inset: 10px;\n  border-top-color: color-mix(in srgb, var(--loader-color, #6366f1) 35%, transparent);\n  animation-direction: reverse;\n}\n@keyframes darma-loader-dual-ring-spinner-spin { to { transform: rotate(360deg); } }\n",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 48,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-custom-084",
+    "name": "Expanding Corner Arcs",
+    "category": "spinners",
+    "tags": [
+      "expanding",
+      "corner",
+      "arcs",
+      "spinner",
+      "rotation",
+      "css-only",
+      "single-element",
+      "batch-03"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "darma-custom-084 expanding corner arcs spinners expanding corner arcs spinner rotation css-only single-element batch-03 html css react popular singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-darma-custom-084\"></div>",
+    "previewCss": ".darma-loader-darma-custom-084 {\n  width: 40px;\n  height: 40px;\n  color: var(--loader-color, #f03355);\n  background:\n    conic-gradient(from  -45deg at top    20px left 50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg),\n    conic-gradient(from   45deg at right  20px top  50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg),\n    conic-gradient(from  135deg at bottom 20px left 50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg),\n    conic-gradient(from -135deg at left   20px top  50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg);\n  animation: darma-loader-darma-custom-084-l4 1.5s infinite cubic-bezier(0.3,1,0,1);\n}\n@keyframes darma-loader-darma-custom-084-l4 {\n   50%  {width:60px;height: 60px;transform: rotate(180deg)}\n   100% {transform: rotate(360deg)}\n}\n",
+    "defaults": {
+      "color": "#f03355",
+      "secondaryColor": "#e5e7eb",
+      "size": 40,
+      "speed": 1.5,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "loading-io-01",
+    "name": "Loading.io Adapted Loader 01",
+    "category": "spinners",
+    "tags": [
+      "loading-io",
+      "ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-01 loading.io adapted loader 01 spinners loading-io ring spinner spinners loader html css react popular singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loading-io-01\"></span>",
+    "previewCss": ".darma-loader-loading-io-01 {\n  display: inline-block;\n  width: 49px;\n  height: 49px;\n  border-radius: 50%;\n  border: 4px solid color-mix(in srgb, var(--loader-color, #06b6d4) 18%, transparent);\n  border-right-color: var(--loader-color, #06b6d4);\n  animation: darma-loader-loading-io-01-spin 0.73s linear infinite;\n}\n@keyframes darma-loader-loading-io-01-spin { to { transform: rotate(360deg); } }\n",
+    "defaults": {
+      "color": "#06b6d4",
+      "secondaryColor": "#bae6fd",
+      "size": 56,
+      "speed": 0.9
+    }
+  },
+  {
+    "id": "loading-io-02",
+    "name": "Loading.io Adapted Loader 02",
+    "category": "spinners",
+    "tags": [
+      "loading-io",
+      "dual-ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-02 loading.io adapted loader 02 spinners loading-io dual-ring spinner spinners loader html css react popular singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loading-io-02\"></span>",
+    "previewCss": ".darma-loader-loading-io-02 {\n  display: inline-block;\n  width: 56px;\n  height: 56px;\n  border-radius: 50%;\n  border: 5px solid color-mix(in srgb, var(--loader-secondary-color, #fed7aa) 35%, transparent);\n  border-top-color: var(--loader-color, #f97316);\n  border-right-color: var(--loader-color, #f97316);\n  animation: darma-loader-loading-io-02-spin 1.13s cubic-bezier(.55,.15,.45,.85) infinite;\n}\n.darma-loader-loading-io-02::after {\n  content: \"\";\n  display: block;\n  width: calc(100% - 16px);\n  height: calc(100% - 16px);\n  margin: 4px;\n  border-radius: 50%;\n  border: 4px solid transparent;\n  border-bottom-color: var(--loader-secondary-color, #fed7aa);\n  animation: darma-loader-loading-io-02-spin 0.79s linear infinite reverse;\n}\n@keyframes darma-loader-loading-io-02-spin { to { transform: rotate(360deg); } }\n",
+    "defaults": {
+      "color": "#f97316",
+      "secondaryColor": "#fed7aa",
+      "size": 60,
+      "speed": 1
+    }
+  },
+  {
+    "id": "loading-io-06",
+    "name": "Loading.io Adapted Loader 06",
+    "category": "spinners",
+    "tags": [
+      "loading-io",
+      "orbit",
+      "circle",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-06 loading.io adapted loader 06 spinners loading-io orbit circle spinners loader html css react popular cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loading-io-06\"><i></i><i></i></span>",
+    "previewCss": ".darma-loader-loading-io-06 {\n      position: relative;\n      display: inline-block;\n      width: 52px;\n      height: 52px;\n      border-radius: 50%;\n      border: 1px solid color-mix(in srgb, var(--loader-color, #14b8a6) 24%, transparent);\n    }\n    .darma-loader-loading-io-06 i {\n      position: absolute;\n      inset: -3px;\n      border-radius: 50%;\n      animation: darma-loader-loading-io-06-orbit 1.2s linear infinite;\n    }\n    .darma-loader-loading-io-06 i::before {\n      content: \"\";\n      position: absolute;\n      top: 0;\n      left: 50%;\n      width: 10px;\n      height: 10px;\n      margin-left: -5px;\n      border-radius: 50%;\n      background: var(--loader-color, #14b8a6);\n      box-shadow: 0 0 18px color-mix(in srgb, var(--loader-color, #14b8a6) 45%, transparent);\n    }\n    .darma-loader-loading-io-06 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-06 i:nth-child(2) { animation-delay: -0.60s; }\n    @keyframes darma-loader-loading-io-06-orbit { to { transform: rotate(360deg); } }\n",
+    "defaults": {
+      "color": "#14b8a6",
+      "secondaryColor": "#99f6e4",
+      "size": 60,
+      "speed": 0.9
+    }
+  },
+  {
+    "id": "loading-io-08",
+    "name": "Loading.io Adapted Loader 08",
+    "category": "spinners",
+    "tags": [
+      "loading-io",
+      "dual-ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "loading-io-08 loading.io adapted loader 08 spinners loading-io dual-ring spinner spinners loader html css react popular singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-loading-io-08\"></span>",
+    "previewCss": ".darma-loader-loading-io-08 {\n  display: inline-block;\n  width: 61px;\n  height: 61px;\n  border-radius: 50%;\n  border: 5px solid color-mix(in srgb, var(--loader-secondary-color, #fecaca) 35%, transparent);\n  border-top-color: var(--loader-color, #ef4444);\n  border-right-color: var(--loader-color, #ef4444);\n  animation: darma-loader-loading-io-08-spin 0.85s cubic-bezier(.55,.15,.45,.85) infinite;\n}\n.darma-loader-loading-io-08::after {\n  content: \"\";\n  display: block;\n  width: calc(100% - 16px);\n  height: calc(100% - 16px);\n  margin: 4px;\n  border-radius: 50%;\n  border: 4px solid transparent;\n  border-bottom-color: var(--loader-secondary-color, #fecaca);\n  animation: darma-loader-loading-io-08-spin 0.59s linear infinite reverse;\n}\n@keyframes darma-loader-loading-io-08-spin { to { transform: rotate(360deg); } }\n",
+    "defaults": {
+      "color": "#ef4444",
+      "secondaryColor": "#fecaca",
+      "size": 52,
+      "speed": 1.1
+    }
+  },
+  {
+    "id": "open-dual-ring",
+    "name": "Open Dual Ring",
+    "category": "spinners",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "ring",
+      "spinner",
+      "dual"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "popular": true,
+      "singleElement": true
+    },
+    "searchText": "open-dual-ring open dual ring spinners open-source open-pack-2026 ring spinner dual html css react cssonly customizable popular singleelement",
+    "previewHtml": "<span class=\"darma-loader-open-dual-ring\"></span>",
+    "previewCss": ".darma-loader-open-dual-ring{position:relative;display:inline-block;width:60px;height:60px;border-radius:50%;border:5px solid color-mix(in srgb,var(--loader-color,#2563eb) 16%,transparent);border-top-color:var(--loader-color,#2563eb);border-bottom-color:var(--loader-secondary-color,#f97316);animation:darma-loader-open-dual-ring-spin var(--loader-speed,.9s) linear infinite}.darma-loader-open-dual-ring:after{content:\"\";position:absolute;inset:10px;border-radius:inherit;border:4px solid transparent;border-left-color:var(--loader-secondary-color,#f97316);border-right-color:var(--loader-color,#2563eb);animation:darma-loader-open-dual-ring-spin calc(var(--loader-speed,.9s)*1.45) linear infinite reverse}@keyframes darma-loader-open-dual-ring-spin{to{transform:rotate(360deg)}}",
+    "defaults": {
+      "color": "#2563eb",
+      "secondaryColor": "#f97316",
+      "size": 60,
+      "speed": 0.9,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-custom-054",
+    "name": "Ring Sweep Fill",
+    "category": "spinners",
+    "tags": [
+      "ring",
+      "sweep",
+      "circle",
+      "clip-path",
+      "progress",
+      "batch-02"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "darma-custom-054 ring sweep fill spinners ring sweep circle clip-path progress batch-02 html css react popular singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-darma-custom-054\"></div>",
+    "previewCss": ".darma-loader-darma-custom-054 {\n  width: 60px;\n  aspect-ratio: 1;\n  border: 15px solid #ddd;\n  border-radius: 50%;\n  position: relative;\n  transform: rotate(45deg);\n}\n.darma-loader-darma-custom-054::before {\n  content: \"\";\n  position: absolute;\n  inset: -15px;\n  border-radius: 50%;\n  border: 15px solid var(--loader-color, #514b82);\n  animation: darma-loader-darma-custom-054-l18 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-054-l18 {\n  0% { clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0); }\n  25% { clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0); }\n  50% { clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%); }\n  75% { clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%); }\n  100% { clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0); }\n}\n",
+    "defaults": {
+      "color": "#514b82",
+      "secondaryColor": "#dddddd",
+      "size": 60,
+      "speed": 2,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-custom-009",
+    "name": "Triangular Conic Spinner",
+    "category": "spinners",
+    "tags": [
+      "triangle",
+      "conic",
+      "spinner",
+      "colorful",
+      "batch-01"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "darma-custom-009 triangular conic spinner spinners triangle conic spinner colorful batch-01 html css react popular singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-darma-custom-009\"></div>",
+    "previewCss": ".darma-loader-darma-custom-009 {\n  width: 50px;\n  aspect-ratio: 1.154;\n  clip-path: polygon(50% 0, 100% 100%, 0 100%);\n  position: relative;\n}\n.darma-loader-darma-custom-009::before {\n  content: \"\";\n  position: absolute;\n  inset: -150% -100% -50%;\n  background: repeating-conic-gradient(from 30deg, var(--loader-color, #FFABAB) 0 60deg, var(--loader-secondary-color, #ABE4FF) 0 120deg, #FF7373 0 180deg);\n  animation: darma-loader-darma-custom-009-l9 2s infinite;\n}\n@keyframes darma-loader-darma-custom-009-l9 {\n  0% { transform: rotate(0); }\n  23%, 33% { transform: rotate(60deg); }\n  56%, 66% { transform: rotate(120deg); }\n  90%, 100% { transform: rotate(180deg); }\n}\n",
+    "defaults": {
+      "color": "#FFABAB",
+      "secondaryColor": "#ABE4FF",
+      "size": 50,
+      "speed": 2,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "arc-spinner",
+    "name": "Arc Spinner",
+    "category": "spinners",
+    "tags": [
+      "spinner",
+      "arc",
+      "minimal",
+      "single element"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "arc-spinner arc spinner spinners spinner arc minimal single element html css react cssonly customizable singleelement",
+    "previewHtml": "<span class=\"darma-loader-arc-spinner\"></span>",
+    "previewCss": ".darma-loader-arc-spinner {\n  display: inline-block;\n  width: 56px;\n  height: 56px;\n  border-radius: 50%;\n  background: conic-gradient(from 0deg, var(--loader-color, #6366f1) 0 80deg, transparent 82deg 360deg);\n  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 7px), #000 0);\n  mask: radial-gradient(farthest-side, transparent calc(100% - 7px), #000 0);\n  animation: darma-loader-arc-spinner-spin 0.8s linear infinite;\n}\n@keyframes darma-loader-arc-spinner-spin { to { transform: rotate(360deg); } }\n",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 48,
+      "speed": 1
+    }
+  },
+  {
+    "id": "uiverse-aurora-halo-spinner",
+    "name": "Aurora Halo Spinner",
+    "category": "spinners",
+    "tags": [
+      "uiverse",
+      "aurora",
+      "halo",
+      "gradient",
+      "spinner",
+      "glow",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": false,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "uiverse-aurora-halo-spinner aurora halo spinner spinners uiverse aurora halo gradient spinner glow loader html css react cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-uiverse-aurora-halo-spinner\">\n<div class=\"darma-loader-uiverse-aurora-halo-spinner__container\">\n  <span></span>\n  <span></span>\n  <span></span>\n  <span></span>\n</div>\n</div>",
+    "previewCss": ".darma-loader-uiverse-aurora-halo-spinner {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container {\n  position: relative;\n  width: 96px;\n  height: 96px;\n  border-radius: 50%;\n  animation: darma-loader-uiverse-aurora-halo-spinner-rotate_3922 1.2s linear infinite;\n  background-color: #9b59b6;\n  background-image: linear-gradient(#9b59b6, #84cdfa, #5ad1cd);\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container span {\nposition: absolute;\nborder-radius: 50%;\nheight: 100%;\nwidth: 100%;\nbackground-color: #9b59b6;\nbackground-image: linear-gradient(#9b59b6, #84cdfa, #5ad1cd);\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container span:nth-of-type(1) {\nfilter: blur(5px);\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container span:nth-of-type(2) {\nfilter: blur(10px);\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container span:nth-of-type(3) {\nfilter: blur(25px);\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container span:nth-of-type(4) {\nfilter: blur(50px);\n}\n\n.darma-loader-uiverse-aurora-halo-spinner__container::after {\ncontent: \"\";\nposition: absolute;\ntop: 10px;\nleft: 10px;\nright: 10px;\nbottom: 10px;\nbackground-color: #fff;\nborder: solid 5px #ffffff;\nborder-radius: 50%;\n}\n\n@keyframes darma-loader-uiverse-aurora-halo-spinner-rotate_3922 {\nfrom {\n  transform: rotate(0deg);\n}\n\nto {\n  transform: rotate(360deg);\n}\n}",
+    "defaults": {
+      "size": 96,
+      "speed": 1,
+      "background": "transparent"
     }
   },
   {
@@ -197,14 +595,15 @@
     }
   },
   {
-    "id": "demo-spinner",
-    "name": "Classic Spinner",
+    "id": "cssloaders-github-15",
+    "name": "CSSLoaders Pattern 15",
     "category": "spinners",
     "tags": [
-      "spinner",
+      "cssloaders",
       "ring",
-      "circle",
-      "classic"
+      "spinner",
+      "spinners",
+      "loader"
     ],
     "formats": [
       "html",
@@ -212,18 +611,119 @@
       "react"
     ],
     "flags": {
-      "popular": true,
+      "popular": false,
+      "singleElement": true,
       "cssOnly": true,
-      "customizable": true,
-      "singleElement": true
+      "tailwind": false,
+      "customizable": true
     },
-    "searchText": "demo-spinner classic spinner spinners spinner ring circle classic html css react popular cssonly customizable singleelement",
-    "previewHtml": "<span class=\"darma-loader-demo-spinner\"></span>",
-    "previewCss": ".darma-loader-demo-spinner {\n  display: inline-block;\n  width: 54px;\n  height: 54px;\n  border-radius: 50%;\n  border: 5px solid color-mix(in srgb, var(--loader-color, #6366f1) 18%, transparent);\n  border-top-color: var(--loader-color, #6366f1);\n  animation: darma-loader-demo-spinner-spin 0.85s linear infinite;\n}\n@keyframes darma-loader-demo-spinner-spin { to { transform: rotate(360deg); } }\n",
+    "searchText": "cssloaders-github-15 cssloaders pattern 15 spinners cssloaders ring spinner spinners loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-15\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-15 {\n  display: inline-block;\n  width: 46px;\n  height: 46px;\n  border-radius: 50%;\n  border: 4px solid color-mix(in srgb, var(--loader-secondary-color, #fde68a) 35%, transparent);\n  border-top-color: var(--loader-color, #f59e0b);\n  border-right-color: var(--loader-color, #f59e0b);\n  animation: darma-loader-cssloaders-github-15-spin 0.9s cubic-bezier(.55,.15,.45,.85) infinite;\n}\n.darma-loader-cssloaders-github-15::after {\n  content: \"\";\n  display: block;\n  width: calc(100% - 16px);\n  height: calc(100% - 16px);\n  margin: 4px;\n  border-radius: 50%;\n  border: 3px solid transparent;\n  border-bottom-color: var(--loader-secondary-color, #fde68a);\n  animation: darma-loader-cssloaders-github-15-spin 0.63s linear infinite reverse;\n}\n@keyframes darma-loader-cssloaders-github-15-spin { to { transform: rotate(360deg); } }\n",
     "defaults": {
-      "color": "#6366f1",
-      "size": 48,
-      "speed": 1
+      "color": "#f59e0b",
+      "secondaryColor": "#fde68a",
+      "size": 50,
+      "speed": 1.15
+    }
+  },
+  {
+    "id": "cssloaders-github-23",
+    "name": "CSSLoaders Pattern 23",
+    "category": "spinners",
+    "tags": [
+      "cssloaders",
+      "ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-23 cssloaders pattern 23 spinners cssloaders ring spinner spinners loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-23\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-23 {\n  display: inline-block;\n  width: 58px;\n  height: 58px;\n  border-radius: 50%;\n  border: 4px solid color-mix(in srgb, var(--loader-secondary-color, #ddd6fe) 35%, transparent);\n  border-top-color: var(--loader-color, #8b5cf6);\n  border-right-color: var(--loader-color, #8b5cf6);\n  animation: darma-loader-cssloaders-github-23-spin 1.1400000000000001s cubic-bezier(.55,.15,.45,.85) infinite;\n}\n.darma-loader-cssloaders-github-23::after {\n  content: \"\";\n  display: block;\n  width: calc(100% - 16px);\n  height: calc(100% - 16px);\n  margin: 4px;\n  border-radius: 50%;\n  border: 3px solid transparent;\n  border-bottom-color: var(--loader-secondary-color, #ddd6fe);\n  animation: darma-loader-cssloaders-github-23-spin 0.80s linear infinite reverse;\n}\n@keyframes darma-loader-cssloaders-github-23-spin { to { transform: rotate(360deg); } }\n",
+    "defaults": {
+      "color": "#8b5cf6",
+      "secondaryColor": "#ddd6fe",
+      "size": 62,
+      "speed": 1.15
+    }
+  },
+  {
+    "id": "cssloaders-github-31",
+    "name": "CSSLoaders Pattern 31",
+    "category": "spinners",
+    "tags": [
+      "cssloaders",
+      "ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-31 cssloaders pattern 31 spinners cssloaders ring spinner spinners loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-31\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-31 {\n  display: inline-block;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  border: 4px solid color-mix(in srgb, var(--loader-secondary-color, #bbf7d0) 35%, transparent);\n  border-top-color: var(--loader-color, #22c55e);\n  border-right-color: var(--loader-color, #22c55e);\n  animation: darma-loader-cssloaders-github-31-spin 0.98s cubic-bezier(.55,.15,.45,.85) infinite;\n}\n.darma-loader-cssloaders-github-31::after {\n  content: \"\";\n  display: block;\n  width: calc(100% - 16px);\n  height: calc(100% - 16px);\n  margin: 4px;\n  border-radius: 50%;\n  border: 3px solid transparent;\n  border-bottom-color: var(--loader-secondary-color, #bbf7d0);\n  animation: darma-loader-cssloaders-github-31-spin 0.69s linear infinite reverse;\n}\n@keyframes darma-loader-cssloaders-github-31-spin { to { transform: rotate(360deg); } }\n",
+    "defaults": {
+      "color": "#22c55e",
+      "secondaryColor": "#bbf7d0",
+      "size": 54,
+      "speed": 1.15
+    }
+  },
+  {
+    "id": "cssloaders-github-39",
+    "name": "CSSLoaders Pattern 39",
+    "category": "spinners",
+    "tags": [
+      "cssloaders",
+      "ring",
+      "spinner",
+      "spinners",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-39 cssloaders pattern 39 spinners cssloaders ring spinner spinners loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-39\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-39 {\n  display: inline-block;\n  width: 62px;\n  height: 62px;\n  border-radius: 50%;\n  border: 4px solid color-mix(in srgb, var(--loader-secondary-color, #bae6fd) 35%, transparent);\n  border-top-color: var(--loader-color, #06b6d4);\n  border-right-color: var(--loader-color, #06b6d4);\n  animation: darma-loader-cssloaders-github-39-spin 1.22s cubic-bezier(.55,.15,.45,.85) infinite;\n}\n.darma-loader-cssloaders-github-39::after {\n  content: \"\";\n  display: block;\n  width: calc(100% - 16px);\n  height: calc(100% - 16px);\n  margin: 4px;\n  border-radius: 50%;\n  border: 3px solid transparent;\n  border-bottom-color: var(--loader-secondary-color, #bae6fd);\n  animation: darma-loader-cssloaders-github-39-spin 0.85s linear infinite reverse;\n}\n@keyframes darma-loader-cssloaders-github-39-spin { to { transform: rotate(360deg); } }\n",
+    "defaults": {
+      "color": "#06b6d4",
+      "secondaryColor": "#bae6fd",
+      "size": 66,
+      "speed": 1.15
     }
   },
   {
@@ -494,205 +994,6 @@
       "speed": 1,
       "color": "#ff0000",
       "secondaryColor": "#111111"
-    }
-  },
-  {
-    "id": "darma-custom-017",
-    "name": "Cropped Orbit Spinner",
-    "category": "spinners",
-    "tags": [
-      "circle",
-      "orbit",
-      "spinner",
-      "radial",
-      "batch-01"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-017 cropped orbit spinner spinners circle orbit spinner radial batch-01 html css react popular singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-017\"></div>",
-    "previewCss": ".darma-loader-darma-custom-017 {\n  width: 40px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  margin-top: -30px;\n  display: flex;\n  justify-content: center;\n  overflow: hidden;\n  transform-origin: 50% 116.5%;\n  animation: darma-loader-darma-custom-017-l17 2s infinite linear;\n}\n.darma-loader-darma-custom-017::before {\n  content: \"\";\n  min-width: 233%;\n  height: 233%;\n  background: radial-gradient(farthest-side, var(--loader-color, #00DA3C) 90%, #0000) top, radial-gradient(farthest-side, var(--loader-secondary-color, #00CBE7) 90%, #0000) left, radial-gradient(farthest-side, #FD8603 90%, #0000) bottom, radial-gradient(farthest-side, #F4F328 90%, #0000) right;\n  background-size: 43% 43%;\n  background-repeat: no-repeat;\n  animation: inherit;\n  animation-direction: reverse;\n}\n@keyframes darma-loader-darma-custom-017-l17 {\n  100% { transform: rotate(360deg); }\n}\n",
-    "defaults": {
-      "color": "#00DA3C",
-      "secondaryColor": "#00CBE7",
-      "size": 40,
-      "speed": 2,
-      "background": "#ffffff"
-    }
-  },
-  {
-    "id": "cssloaders-github-07",
-    "name": "CSSLoaders Pattern 07",
-    "category": "spinners",
-    "tags": [
-      "cssloaders",
-      "ring",
-      "spinner",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-07 cssloaders pattern 07 spinners cssloaders ring spinner spinners loader html css react popular singleelement cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-cssloaders-github-07\"></span>",
-    "previewCss": ".darma-loader-cssloaders-github-07 {\n  display: inline-block;\n  width: 54px;\n  height: 54px;\n  border-radius: 50%;\n  border: 4px solid color-mix(in srgb, var(--loader-secondary-color, #bae6fd) 35%, transparent);\n  border-top-color: var(--loader-color, #0ea5e9);\n  border-right-color: var(--loader-color, #0ea5e9);\n  animation: darma-loader-cssloaders-github-07-spin 1.06s cubic-bezier(.55,.15,.45,.85) infinite;\n}\n.darma-loader-cssloaders-github-07::after {\n  content: \"\";\n  display: block;\n  width: calc(100% - 16px);\n  height: calc(100% - 16px);\n  margin: 4px;\n  border-radius: 50%;\n  border: 3px solid transparent;\n  border-bottom-color: var(--loader-secondary-color, #bae6fd);\n  animation: darma-loader-cssloaders-github-07-spin 0.74s linear infinite reverse;\n}\n@keyframes darma-loader-cssloaders-github-07-spin { to { transform: rotate(360deg); } }\n",
-    "defaults": {
-      "color": "#0ea5e9",
-      "secondaryColor": "#bae6fd",
-      "size": 58,
-      "speed": 1.15
-    }
-  },
-  {
-    "id": "cssloaders-github-15",
-    "name": "CSSLoaders Pattern 15",
-    "category": "spinners",
-    "tags": [
-      "cssloaders",
-      "ring",
-      "spinner",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-15 cssloaders pattern 15 spinners cssloaders ring spinner spinners loader html css react singleelement cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-cssloaders-github-15\"></span>",
-    "previewCss": ".darma-loader-cssloaders-github-15 {\n  display: inline-block;\n  width: 46px;\n  height: 46px;\n  border-radius: 50%;\n  border: 4px solid color-mix(in srgb, var(--loader-secondary-color, #fde68a) 35%, transparent);\n  border-top-color: var(--loader-color, #f59e0b);\n  border-right-color: var(--loader-color, #f59e0b);\n  animation: darma-loader-cssloaders-github-15-spin 0.9s cubic-bezier(.55,.15,.45,.85) infinite;\n}\n.darma-loader-cssloaders-github-15::after {\n  content: \"\";\n  display: block;\n  width: calc(100% - 16px);\n  height: calc(100% - 16px);\n  margin: 4px;\n  border-radius: 50%;\n  border: 3px solid transparent;\n  border-bottom-color: var(--loader-secondary-color, #fde68a);\n  animation: darma-loader-cssloaders-github-15-spin 0.63s linear infinite reverse;\n}\n@keyframes darma-loader-cssloaders-github-15-spin { to { transform: rotate(360deg); } }\n",
-    "defaults": {
-      "color": "#f59e0b",
-      "secondaryColor": "#fde68a",
-      "size": 50,
-      "speed": 1.15
-    }
-  },
-  {
-    "id": "cssloaders-github-23",
-    "name": "CSSLoaders Pattern 23",
-    "category": "spinners",
-    "tags": [
-      "cssloaders",
-      "ring",
-      "spinner",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-23 cssloaders pattern 23 spinners cssloaders ring spinner spinners loader html css react singleelement cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-cssloaders-github-23\"></span>",
-    "previewCss": ".darma-loader-cssloaders-github-23 {\n  display: inline-block;\n  width: 58px;\n  height: 58px;\n  border-radius: 50%;\n  border: 4px solid color-mix(in srgb, var(--loader-secondary-color, #ddd6fe) 35%, transparent);\n  border-top-color: var(--loader-color, #8b5cf6);\n  border-right-color: var(--loader-color, #8b5cf6);\n  animation: darma-loader-cssloaders-github-23-spin 1.1400000000000001s cubic-bezier(.55,.15,.45,.85) infinite;\n}\n.darma-loader-cssloaders-github-23::after {\n  content: \"\";\n  display: block;\n  width: calc(100% - 16px);\n  height: calc(100% - 16px);\n  margin: 4px;\n  border-radius: 50%;\n  border: 3px solid transparent;\n  border-bottom-color: var(--loader-secondary-color, #ddd6fe);\n  animation: darma-loader-cssloaders-github-23-spin 0.80s linear infinite reverse;\n}\n@keyframes darma-loader-cssloaders-github-23-spin { to { transform: rotate(360deg); } }\n",
-    "defaults": {
-      "color": "#8b5cf6",
-      "secondaryColor": "#ddd6fe",
-      "size": 62,
-      "speed": 1.15
-    }
-  },
-  {
-    "id": "cssloaders-github-31",
-    "name": "CSSLoaders Pattern 31",
-    "category": "spinners",
-    "tags": [
-      "cssloaders",
-      "ring",
-      "spinner",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-31 cssloaders pattern 31 spinners cssloaders ring spinner spinners loader html css react singleelement cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-cssloaders-github-31\"></span>",
-    "previewCss": ".darma-loader-cssloaders-github-31 {\n  display: inline-block;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  border: 4px solid color-mix(in srgb, var(--loader-secondary-color, #bbf7d0) 35%, transparent);\n  border-top-color: var(--loader-color, #22c55e);\n  border-right-color: var(--loader-color, #22c55e);\n  animation: darma-loader-cssloaders-github-31-spin 0.98s cubic-bezier(.55,.15,.45,.85) infinite;\n}\n.darma-loader-cssloaders-github-31::after {\n  content: \"\";\n  display: block;\n  width: calc(100% - 16px);\n  height: calc(100% - 16px);\n  margin: 4px;\n  border-radius: 50%;\n  border: 3px solid transparent;\n  border-bottom-color: var(--loader-secondary-color, #bbf7d0);\n  animation: darma-loader-cssloaders-github-31-spin 0.69s linear infinite reverse;\n}\n@keyframes darma-loader-cssloaders-github-31-spin { to { transform: rotate(360deg); } }\n",
-    "defaults": {
-      "color": "#22c55e",
-      "secondaryColor": "#bbf7d0",
-      "size": 54,
-      "speed": 1.15
-    }
-  },
-  {
-    "id": "cssloaders-github-39",
-    "name": "CSSLoaders Pattern 39",
-    "category": "spinners",
-    "tags": [
-      "cssloaders",
-      "ring",
-      "spinner",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-39 cssloaders pattern 39 spinners cssloaders ring spinner spinners loader html css react singleelement cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-cssloaders-github-39\"></span>",
-    "previewCss": ".darma-loader-cssloaders-github-39 {\n  display: inline-block;\n  width: 62px;\n  height: 62px;\n  border-radius: 50%;\n  border: 4px solid color-mix(in srgb, var(--loader-secondary-color, #bae6fd) 35%, transparent);\n  border-top-color: var(--loader-color, #06b6d4);\n  border-right-color: var(--loader-color, #06b6d4);\n  animation: darma-loader-cssloaders-github-39-spin 1.22s cubic-bezier(.55,.15,.45,.85) infinite;\n}\n.darma-loader-cssloaders-github-39::after {\n  content: \"\";\n  display: block;\n  width: calc(100% - 16px);\n  height: calc(100% - 16px);\n  margin: 4px;\n  border-radius: 50%;\n  border: 3px solid transparent;\n  border-bottom-color: var(--loader-secondary-color, #bae6fd);\n  animation: darma-loader-cssloaders-github-39-spin 0.85s linear infinite reverse;\n}\n@keyframes darma-loader-cssloaders-github-39-spin { to { transform: rotate(360deg); } }\n",
-    "defaults": {
-      "color": "#06b6d4",
-      "secondaryColor": "#bae6fd",
-      "size": 66,
-      "speed": 1.15
     }
   },
   {
@@ -1967,36 +2268,6 @@
     }
   },
   {
-    "id": "dual-ring-spinner",
-    "name": "Dual Ring Spinner",
-    "category": "spinners",
-    "tags": [
-      "spinner",
-      "ring",
-      "dual",
-      "dashboard"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "cssOnly": true,
-      "customizable": true,
-      "singleElement": true
-    },
-    "searchText": "dual-ring-spinner dual ring spinner spinners spinner ring dual dashboard html css react popular cssonly customizable singleelement",
-    "previewHtml": "<span class=\"darma-loader-dual-ring-spinner\"></span>",
-    "previewCss": ".darma-loader-dual-ring-spinner {\n  position: relative;\n  display: inline-block;\n  width: 58px;\n  height: 58px;\n  border-radius: 50%;\n  color: var(--loader-color, #6366f1);\n}\n.darma-loader-dual-ring-spinner::before,\n.darma-loader-dual-ring-spinner::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  border-radius: 50%;\n  border: 4px solid transparent;\n  border-top-color: currentColor;\n  animation: darma-loader-dual-ring-spinner-spin 1s linear infinite;\n}\n.darma-loader-dual-ring-spinner::after {\n  inset: 10px;\n  border-top-color: color-mix(in srgb, var(--loader-color, #6366f1) 35%, transparent);\n  animation-direction: reverse;\n}\n@keyframes darma-loader-dual-ring-spinner-spin { to { transform: rotate(360deg); } }\n",
-    "defaults": {
-      "color": "#6366f1",
-      "size": 48,
-      "speed": 1
-    }
-  },
-  {
     "id": "darma-custom-091",
     "name": "Dual Triangle Sweep",
     "category": "spinners",
@@ -2030,43 +2301,6 @@
       "secondaryColor": "#e5e7eb",
       "size": 40,
       "speed": 5,
-      "background": "#ffffff"
-    }
-  },
-  {
-    "id": "darma-custom-084",
-    "name": "Expanding Corner Arcs",
-    "category": "spinners",
-    "tags": [
-      "expanding",
-      "corner",
-      "arcs",
-      "spinner",
-      "rotation",
-      "css-only",
-      "single-element",
-      "batch-03"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-084 expanding corner arcs spinners expanding corner arcs spinner rotation css-only single-element batch-03 html css react popular singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-084\"></div>",
-    "previewCss": ".darma-loader-darma-custom-084 {\n  width: 40px;\n  height: 40px;\n  color: var(--loader-color, #f03355);\n  background:\n    conic-gradient(from  -45deg at top    20px left 50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg),\n    conic-gradient(from   45deg at right  20px top  50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg),\n    conic-gradient(from  135deg at bottom 20px left 50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg),\n    conic-gradient(from -135deg at left   20px top  50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg);\n  animation: darma-loader-darma-custom-084-l4 1.5s infinite cubic-bezier(0.3,1,0,1);\n}\n@keyframes darma-loader-darma-custom-084-l4 {\n   50%  {width:60px;height: 60px;transform: rotate(180deg)}\n   100% {transform: rotate(360deg)}\n}\n",
-    "defaults": {
-      "color": "#f03355",
-      "secondaryColor": "#e5e7eb",
-      "size": 40,
-      "speed": 1.5,
       "background": "#ffffff"
     }
   },
@@ -3451,138 +3685,6 @@
     }
   },
   {
-    "id": "loading-io-01",
-    "name": "Loading.io Adapted Loader 01",
-    "category": "spinners",
-    "tags": [
-      "loading-io",
-      "ring",
-      "spinner",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loading-io-01 loading.io adapted loader 01 spinners loading-io ring spinner spinners loader html css react popular singleelement cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-loading-io-01\"></span>",
-    "previewCss": ".darma-loader-loading-io-01 {\n  display: inline-block;\n  width: 49px;\n  height: 49px;\n  border-radius: 50%;\n  border: 4px solid color-mix(in srgb, var(--loader-color, #06b6d4) 18%, transparent);\n  border-right-color: var(--loader-color, #06b6d4);\n  animation: darma-loader-loading-io-01-spin 0.73s linear infinite;\n}\n@keyframes darma-loader-loading-io-01-spin { to { transform: rotate(360deg); } }\n",
-    "defaults": {
-      "color": "#06b6d4",
-      "secondaryColor": "#bae6fd",
-      "size": 56,
-      "speed": 0.9
-    }
-  },
-  {
-    "id": "loading-io-02",
-    "name": "Loading.io Adapted Loader 02",
-    "category": "spinners",
-    "tags": [
-      "loading-io",
-      "dual-ring",
-      "spinner",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loading-io-02 loading.io adapted loader 02 spinners loading-io dual-ring spinner spinners loader html css react popular singleelement cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-loading-io-02\"></span>",
-    "previewCss": ".darma-loader-loading-io-02 {\n  display: inline-block;\n  width: 56px;\n  height: 56px;\n  border-radius: 50%;\n  border: 5px solid color-mix(in srgb, var(--loader-secondary-color, #fed7aa) 35%, transparent);\n  border-top-color: var(--loader-color, #f97316);\n  border-right-color: var(--loader-color, #f97316);\n  animation: darma-loader-loading-io-02-spin 1.13s cubic-bezier(.55,.15,.45,.85) infinite;\n}\n.darma-loader-loading-io-02::after {\n  content: \"\";\n  display: block;\n  width: calc(100% - 16px);\n  height: calc(100% - 16px);\n  margin: 4px;\n  border-radius: 50%;\n  border: 4px solid transparent;\n  border-bottom-color: var(--loader-secondary-color, #fed7aa);\n  animation: darma-loader-loading-io-02-spin 0.79s linear infinite reverse;\n}\n@keyframes darma-loader-loading-io-02-spin { to { transform: rotate(360deg); } }\n",
-    "defaults": {
-      "color": "#f97316",
-      "secondaryColor": "#fed7aa",
-      "size": 60,
-      "speed": 1
-    }
-  },
-  {
-    "id": "loading-io-06",
-    "name": "Loading.io Adapted Loader 06",
-    "category": "spinners",
-    "tags": [
-      "loading-io",
-      "orbit",
-      "circle",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": false,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loading-io-06 loading.io adapted loader 06 spinners loading-io orbit circle spinners loader html css react popular cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-loading-io-06\"><i></i><i></i></span>",
-    "previewCss": ".darma-loader-loading-io-06 {\n      position: relative;\n      display: inline-block;\n      width: 52px;\n      height: 52px;\n      border-radius: 50%;\n      border: 1px solid color-mix(in srgb, var(--loader-color, #14b8a6) 24%, transparent);\n    }\n    .darma-loader-loading-io-06 i {\n      position: absolute;\n      inset: -3px;\n      border-radius: 50%;\n      animation: darma-loader-loading-io-06-orbit 1.2s linear infinite;\n    }\n    .darma-loader-loading-io-06 i::before {\n      content: \"\";\n      position: absolute;\n      top: 0;\n      left: 50%;\n      width: 10px;\n      height: 10px;\n      margin-left: -5px;\n      border-radius: 50%;\n      background: var(--loader-color, #14b8a6);\n      box-shadow: 0 0 18px color-mix(in srgb, var(--loader-color, #14b8a6) 45%, transparent);\n    }\n    .darma-loader-loading-io-06 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-06 i:nth-child(2) { animation-delay: -0.60s; }\n    @keyframes darma-loader-loading-io-06-orbit { to { transform: rotate(360deg); } }\n",
-    "defaults": {
-      "color": "#14b8a6",
-      "secondaryColor": "#99f6e4",
-      "size": 60,
-      "speed": 0.9
-    }
-  },
-  {
-    "id": "loading-io-08",
-    "name": "Loading.io Adapted Loader 08",
-    "category": "spinners",
-    "tags": [
-      "loading-io",
-      "dual-ring",
-      "spinner",
-      "spinners",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "loading-io-08 loading.io adapted loader 08 spinners loading-io dual-ring spinner spinners loader html css react popular singleelement cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-loading-io-08\"></span>",
-    "previewCss": ".darma-loader-loading-io-08 {\n  display: inline-block;\n  width: 61px;\n  height: 61px;\n  border-radius: 50%;\n  border: 5px solid color-mix(in srgb, var(--loader-secondary-color, #fecaca) 35%, transparent);\n  border-top-color: var(--loader-color, #ef4444);\n  border-right-color: var(--loader-color, #ef4444);\n  animation: darma-loader-loading-io-08-spin 0.85s cubic-bezier(.55,.15,.45,.85) infinite;\n}\n.darma-loader-loading-io-08::after {\n  content: \"\";\n  display: block;\n  width: calc(100% - 16px);\n  height: calc(100% - 16px);\n  margin: 4px;\n  border-radius: 50%;\n  border: 4px solid transparent;\n  border-bottom-color: var(--loader-secondary-color, #fecaca);\n  animation: darma-loader-loading-io-08-spin 0.59s linear infinite reverse;\n}\n@keyframes darma-loader-loading-io-08-spin { to { transform: rotate(360deg); } }\n",
-    "defaults": {
-      "color": "#ef4444",
-      "secondaryColor": "#fecaca",
-      "size": 52,
-      "speed": 1.1
-    }
-  },
-  {
     "id": "loading-io-12",
     "name": "Loading.io Adapted Loader 12",
     "category": "spinners",
@@ -4483,6 +4585,102 @@
       "size": 90,
       "speed": 12,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "open-border-spinner",
+    "name": "Open Border Spinner",
+    "category": "spinners",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "border",
+      "spinner",
+      "square"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "open-border-spinner open border spinner spinners open-source open-pack-2026 border spinner square html css react cssonly customizable singleelement",
+    "previewHtml": "<span class=\"darma-loader-open-border-spinner\"></span>",
+    "previewCss": ".darma-loader-open-border-spinner{display:inline-block;width:58px;height:58px;border-radius:16px;border:5px solid color-mix(in srgb,var(--loader-color,#0ea5e9) 18%,transparent);border-top-color:var(--loader-color,#0ea5e9);border-right-color:var(--loader-secondary-color,#bae6fd);animation:darma-loader-open-border-spinner-turn var(--loader-speed,.95s) cubic-bezier(.65,0,.35,1) infinite}@keyframes darma-loader-open-border-spinner-turn{0%{transform:rotate(0);border-radius:16px}50%{transform:rotate(180deg);border-radius:50%}100%{transform:rotate(360deg);border-radius:16px}}",
+    "defaults": {
+      "color": "#0ea5e9",
+      "secondaryColor": "#bae6fd",
+      "size": 58,
+      "speed": 0.95,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "open-infinity-loop",
+    "name": "Open Infinity Loop",
+    "category": "spinners",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "infinity",
+      "loop",
+      "spinner"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "open-infinity-loop open infinity loop spinners open-source open-pack-2026 infinity loop spinner html css react cssonly customizable singleelement",
+    "previewHtml": "<span class=\"darma-loader-open-infinity-loop\"></span>",
+    "previewCss": ".darma-loader-open-infinity-loop{position:relative;display:inline-block;width:76px;height:38px}.darma-loader-open-infinity-loop:before,.darma-loader-open-infinity-loop:after{content:\"\";position:absolute;width:34px;height:34px;border:5px solid transparent;border-top-color:var(--loader-color,#9333ea);border-left-color:var(--loader-secondary-color,#ec4899);border-radius:50%;animation:darma-loader-open-infinity-loop-roll var(--loader-speed,1.15s) linear infinite}.darma-loader-open-infinity-loop:before{left:3px;transform-origin:36px 19px}.darma-loader-open-infinity-loop:after{right:3px;transform-origin:-2px 19px;animation-direction:reverse}@keyframes darma-loader-open-infinity-loop-roll{to{transform:rotate(360deg)}}",
+    "defaults": {
+      "color": "#9333ea",
+      "secondaryColor": "#ec4899",
+      "size": 74,
+      "speed": 1.15,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "open-neon-ring",
+    "name": "Open Neon Ring",
+    "category": "spinners",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "neon",
+      "ring",
+      "glow"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "open-neon-ring open neon ring spinners open-source open-pack-2026 neon ring glow html css react cssonly customizable singleelement",
+    "previewHtml": "<span class=\"darma-loader-open-neon-ring\"></span>",
+    "previewCss": ".darma-loader-open-neon-ring{position:relative;display:inline-block;width:68px;height:68px;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 18%,var(--loader-color,#22d3ee) 34%,var(--loader-secondary-color,#a855f7) 54%,transparent 72% 100%);animation:darma-loader-open-neon-ring-spin var(--loader-speed,1.05s) linear infinite;box-shadow:0 0 24px color-mix(in srgb,var(--loader-color,#22d3ee) 42%,transparent)}.darma-loader-open-neon-ring:after{content:\"\";position:absolute;inset:8px;border-radius:inherit;background:var(--loader-bg,#020617)}@keyframes darma-loader-open-neon-ring-spin{to{transform:rotate(360deg)}}",
+    "defaults": {
+      "color": "#22d3ee",
+      "secondaryColor": "#a855f7",
+      "size": 68,
+      "speed": 1.05,
+      "background": "#020617"
     }
   },
   {
@@ -5601,41 +5799,6 @@
     }
   },
   {
-    "id": "darma-custom-054",
-    "name": "Ring Sweep Fill",
-    "category": "spinners",
-    "tags": [
-      "ring",
-      "sweep",
-      "circle",
-      "clip-path",
-      "progress",
-      "batch-02"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-054 ring sweep fill spinners ring sweep circle clip-path progress batch-02 html css react popular singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-054\"></div>",
-    "previewCss": ".darma-loader-darma-custom-054 {\n  width: 60px;\n  aspect-ratio: 1;\n  border: 15px solid #ddd;\n  border-radius: 50%;\n  position: relative;\n  transform: rotate(45deg);\n}\n.darma-loader-darma-custom-054::before {\n  content: \"\";\n  position: absolute;\n  inset: -15px;\n  border-radius: 50%;\n  border: 15px solid var(--loader-color, #514b82);\n  animation: darma-loader-darma-custom-054-l18 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-054-l18 {\n  0% { clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0); }\n  25% { clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0); }\n  50% { clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%); }\n  75% { clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%); }\n  100% { clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0); }\n}\n",
-    "defaults": {
-      "color": "#514b82",
-      "secondaryColor": "#dddddd",
-      "size": 60,
-      "speed": 2,
-      "background": "#ffffff"
-    }
-  },
-  {
     "id": "uiverse-ripple-beacon-rings",
     "name": "Ripple Beacon Rings",
     "category": "spinners",
@@ -6060,40 +6223,6 @@
       "size": 96,
       "speed": 1,
       "background": "transparent"
-    }
-  },
-  {
-    "id": "darma-custom-009",
-    "name": "Triangular Conic Spinner",
-    "category": "spinners",
-    "tags": [
-      "triangle",
-      "conic",
-      "spinner",
-      "colorful",
-      "batch-01"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-009 triangular conic spinner spinners triangle conic spinner colorful batch-01 html css react popular singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-009\"></div>",
-    "previewCss": ".darma-loader-darma-custom-009 {\n  width: 50px;\n  aspect-ratio: 1.154;\n  clip-path: polygon(50% 0, 100% 100%, 0 100%);\n  position: relative;\n}\n.darma-loader-darma-custom-009::before {\n  content: \"\";\n  position: absolute;\n  inset: -150% -100% -50%;\n  background: repeating-conic-gradient(from 30deg, var(--loader-color, #FFABAB) 0 60deg, var(--loader-secondary-color, #ABE4FF) 0 120deg, #FF7373 0 180deg);\n  animation: darma-loader-darma-custom-009-l9 2s infinite;\n}\n@keyframes darma-loader-darma-custom-009-l9 {\n  0% { transform: rotate(0); }\n  23%, 33% { transform: rotate(60deg); }\n  56%, 66% { transform: rotate(120deg); }\n  90%, 100% { transform: rotate(180deg); }\n}\n",
-    "defaults": {
-      "color": "#FFABAB",
-      "secondaryColor": "#ABE4FF",
-      "size": 50,
-      "speed": 2,
-      "background": "#ffffff"
     }
   },
   {

@@ -1,0 +1,1 @@
+export { TypingSpeedGame } from "./TypingSpeedGame";

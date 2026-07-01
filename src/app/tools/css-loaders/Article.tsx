@@ -33,6 +33,13 @@ export default function Article() {
         </section>
 
         <section>
+          <h2 className="text-xl font-bold text-[var(--color-text)]">Open Pack 2026 additions</h2>
+          <p className="mt-3">
+            The gallery now includes an <strong>Open Pack 2026</strong> set with 20 additional non-duplicate loader patterns inspired by open-source CSS loader families such as loading.io, Loaders.css, SpinKit, Epic Spinners, and Whirl. Search for <code>open-pack-2026</code> to review the whole set, then open any loader to copy HTML, CSS, React, or the customized output.
+          </p>
+        </section>
+
+        <section>
           <h2 className="text-xl font-bold text-[var(--color-text)]">Accessibility tips for loading states</h2>
           <p className="mt-3">
             Loading animations should support the user instead of distracting them. Use clear text such as “Saving…” or “Loading dashboard…” beside important loaders, avoid endless blocking overlays when partial content can render, keep color contrast readable on light and dark backgrounds, and respect reduced-motion preferences. This gallery includes a pause control and reduced-motion CSS so the page remains usable for motion-sensitive users.

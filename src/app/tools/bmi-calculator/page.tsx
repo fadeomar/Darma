@@ -29,8 +29,7 @@ export default function BmiCalculatorPage() {
       maxWidth="wide"
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Calculate your Body Mass Index from metric or imperial measurements, see your category, and
-          find a healthy weight range for your height — all in your browser.
+          Calculate BMI from metric or imperial measurements, add waist and target weight context, save local history, and export a private health snapshot — all in your browser.
         </p>
       }
       article={
@@ -40,7 +39,7 @@ export default function BmiCalculatorPage() {
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Calculate your BMI" description="Body Mass Index, category, and healthy weight range from metric or imperial units — calculated in your browser with no data sent to a server.">
+      <ToolContentCard title="Body Health Snapshot" description="BMI, adult category, visual scale, healthy range, waist-to-height ratio, target planner, and local history — calculated in your browser with no data sent to a server.">
         <BmiCalculatorClient />
       </ToolContentCard>
     </ToolPage>

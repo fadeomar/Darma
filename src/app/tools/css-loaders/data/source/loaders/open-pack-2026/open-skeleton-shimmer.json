@@ -1,0 +1,39 @@
+{
+  "id": "open-skeleton-shimmer",
+  "name": "Open Skeleton Shimmer",
+  "category": "skeleton",
+  "tags": [
+    "open-source",
+    "open-pack-2026",
+    "skeleton",
+    "shimmer",
+    "card"
+  ],
+  "html": "<span class=\"darma-loader-open-skeleton-shimmer\"><i></i><i></i><i></i></span>",
+  "css": ".darma-loader-open-skeleton-shimmer{position:relative;display:grid;gap:10px;width:150px;overflow:hidden}.darma-loader-open-skeleton-shimmer i{display:block;height:12px;border-radius:999px;background:linear-gradient(90deg,var(--loader-color,#e5e7eb),var(--loader-secondary-color,#f8fafc),var(--loader-color,#e5e7eb));background-size:220% 100%;animation:darma-loader-open-skeleton-shimmer-slide var(--loader-speed,1.2s) ease-in-out infinite}.darma-loader-open-skeleton-shimmer i:nth-child(2){width:78%;animation-delay:.08s}.darma-loader-open-skeleton-shimmer i:nth-child(3){width:56%;animation-delay:.16s}@keyframes darma-loader-open-skeleton-shimmer-slide{0%{background-position:120% 0}100%{background-position:-120% 0}}",
+  "source": {
+    "name": "Whirl inspired pattern",
+    "author": "Jhey Tompkins / open-source CSS loader community",
+    "license": "MIT-inspired pattern, normalized by Darma",
+    "url": "https://github.com/jh3y/whirl"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#e5e7eb",
+    "secondaryColor": "#f8fafc",
+    "size": 96,
+    "speed": 1.2,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": false
+  }
+}

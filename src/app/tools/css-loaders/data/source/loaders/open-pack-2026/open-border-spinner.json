@@ -1,0 +1,39 @@
+{
+  "id": "open-border-spinner",
+  "name": "Open Border Spinner",
+  "category": "spinners",
+  "tags": [
+    "open-source",
+    "open-pack-2026",
+    "border",
+    "spinner",
+    "square"
+  ],
+  "html": "<span class=\"darma-loader-open-border-spinner\"></span>",
+  "css": ".darma-loader-open-border-spinner{display:inline-block;width:58px;height:58px;border-radius:16px;border:5px solid color-mix(in srgb,var(--loader-color,#0ea5e9) 18%,transparent);border-top-color:var(--loader-color,#0ea5e9);border-right-color:var(--loader-secondary-color,#bae6fd);animation:darma-loader-open-border-spinner-turn var(--loader-speed,.95s) cubic-bezier(.65,0,.35,1) infinite}@keyframes darma-loader-open-border-spinner-turn{0%{transform:rotate(0);border-radius:16px}50%{transform:rotate(180deg);border-radius:50%}100%{transform:rotate(360deg);border-radius:16px}}",
+  "source": {
+    "name": "Whirl inspired pattern",
+    "author": "Jhey Tompkins / open-source CSS loader community",
+    "license": "MIT-inspired pattern, normalized by Darma",
+    "url": "https://github.com/jh3y/whirl"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#0ea5e9",
+    "secondaryColor": "#bae6fd",
+    "size": 58,
+    "speed": 0.95,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": true
+  }
+}

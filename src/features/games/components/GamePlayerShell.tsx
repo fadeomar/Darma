@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { CheckCircle2, Expand, Gamepad2, Play, ShieldCheck } from "lucide-react";
 import { Badge } from "@/components/ui";
 import type { GameDefinition } from "../domain/game";
@@ -10,6 +11,13 @@ import { MathSprintGame } from "../playables/math-sprint";
 import { ColorBrainRushGame } from "../playables/color-brain-rush";
 import { ColorSwitchGame } from "../playables/color-switch";
 import { MinesweeperGame } from "../playables/minesweeper";
+import { SudokuMiniGame } from "../playables/sudoku-mini";
+import { SnakeGame } from "../playables/snake";
+import { TicTacToeGame } from "../playables/tic-tac-toe";
+import { ConnectFourGame } from "../playables/connect-four";
+import { MemoryCardsGame } from "../playables/memory-cards";
+import { WordMatchGame } from "../playables/word-match";
+import { TypingSpeedGame } from "../playables/typing-speed";
 import { StaticGameEmbed } from "../playables/static-embed";
 
 /**
@@ -21,7 +29,7 @@ export function GamePlayerShell({
   children,
 }: {
   game: GameDefinition;
-  children?: React.ReactNode;
+  children?: ReactNode;
 }) {
 
   if (game.slug === "2048") {
@@ -44,6 +52,30 @@ export function GamePlayerShell({
         focusHint="Use Left/Right or A/D to rotate the hexagon. On mobile, swipe or tap inside the game after it loads."
       />
     );
+  }
+
+  if (game.slug === "snake") {
+    return <SnakeGame game={game} />;
+  }
+
+  if (game.slug === "tic-tac-toe") {
+    return <TicTacToeGame game={game} />;
+  }
+
+  if (game.slug === "connect-four") {
+    return <ConnectFourGame game={game} />;
+  }
+
+  if (game.slug === "memory-cards") {
+    return <MemoryCardsGame game={game} />;
+  }
+
+  if (game.slug === "word-match") {
+    return <WordMatchGame game={game} />;
+  }
+
+  if (game.slug === "typing-speed") {
+    return <TypingSpeedGame game={game} />;
   }
 
   if (game.slug === "reaction-timer") {
@@ -76,6 +108,10 @@ export function GamePlayerShell({
 
   if (game.slug === "minesweeper") {
     return <MinesweeperGame game={game} />;
+  }
+
+  if (game.slug === "sudoku-mini") {
+    return <SudokuMiniGame game={game} />;
   }
 
   return (

@@ -1,5 +1,615 @@
 [
   {
+    "id": "darma-custom-041",
+    "name": "Battery Charging Steps",
+    "category": "progress",
+    "tags": [
+      "battery",
+      "charging",
+      "steps",
+      "progress",
+      "device",
+      "batch-02"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "darma-custom-041 battery charging steps progress battery charging steps progress device batch-02 html css react popular singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-darma-custom-041\"></div>",
+    "previewCss": ".darma-loader-darma-custom-041 {\n  width: 80px;\n  height: 40px;\n  color: #000;\n  border: 2px solid currentColor;\n  border-right-color: transparent;\n  padding: 3px;\n  background:\n    repeating-linear-gradient(90deg, currentColor 0 10px, #0000 0 15px)\n    0/0% no-repeat content-box content-box;\n  position: relative;\n  box-sizing: border-box;\n  animation: darma-loader-darma-custom-041-l5 2s infinite steps(6);\n}\n.darma-loader-darma-custom-041::before {\n  content: \"\";\n  position: absolute;\n  top: -2px;\n  bottom: -2px;\n  left: 100%;\n  width: 10px;\n  background:\n    linear-gradient(#0000 calc(50% - 7px), currentColor 0 calc(50% - 5px), #0000 0 calc(50% + 5px), currentColor 0 calc(50% + 7px), #0000 0) left/100% 100%,\n    linear-gradient(currentColor calc(50% - 5px), #0000 0 calc(50% + 5px), currentColor 0) left/2px 100%,\n    linear-gradient(#0000 calc(50% - 5px), currentColor 0 calc(50% + 5px), #0000 0) right/2px 100%;\n  background-repeat: no-repeat;\n}\n@keyframes darma-loader-darma-custom-041-l5 {\n  100% { background-size: 120%; }\n}\n",
+    "defaults": {
+      "color": "#000000",
+      "secondaryColor": "#dddddd",
+      "size": 80,
+      "speed": 2,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-custom-023",
+    "name": "Bordered Slider Fill",
+    "category": "progress",
+    "tags": [
+      "linear",
+      "bordered",
+      "slider",
+      "pill",
+      "fill",
+      "batch-02"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "darma-custom-023 bordered slider fill progress linear bordered slider pill fill batch-02 html css react popular singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-darma-custom-023\"></div>",
+    "previewCss": ".darma-loader-darma-custom-023 {\n  width: 120px;\n  height: 22px;\n  border-radius: 40px;\n  color: var(--loader-color, #514b82);\n  border: 2px solid;\n  position: relative;\n}\n.darma-loader-darma-custom-023::before {\n  content: \"\";\n  position: absolute;\n  margin: 2px;\n  width: 25%;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  border-radius: inherit;\n  background: currentColor;\n  animation: darma-loader-darma-custom-023-l3 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-023-l3 {\n  50% { left: 100%; transform: translateX(calc(-100% - 4px)); }\n}\n",
+    "defaults": {
+      "color": "#514b82",
+      "secondaryColor": "#a5b4fc",
+      "size": 120,
+      "speed": 1,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "cssloaders-github-01",
+    "name": "CSSLoaders Pattern 01",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "stripe",
+      "progress",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-01 cssloaders pattern 01 progress cssloaders stripe progress loader html css react popular singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-01\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-01 {\n  display: inline-block;\n  width: 94px;\n  height: 10px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, var(--loader-color, #22c55e) 25%, var(--loader-secondary-color, #bbf7d0) 25%, var(--loader-secondary-color, #bbf7d0) 50%, var(--loader-color, #22c55e) 50%, var(--loader-color, #22c55e) 75%, var(--loader-secondary-color, #bbf7d0) 75%);\n  background-size: 32px 100%; animation: darma-loader-cssloaders-github-01-progressStripe 0.97s linear infinite;\n}\n@keyframes darma-loader-cssloaders-github-01-progressStripe { 0% { background-position: 0 0; } 100% { background-position: 32px 0; } }\n",
+    "defaults": {
+      "color": "#22c55e",
+      "secondaryColor": "#bbf7d0",
+      "size": 54,
+      "speed": 0.95
+    }
+  },
+  {
+    "id": "cssloaders-github-08",
+    "name": "CSSLoaders Pattern 08",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "progress",
+      "bar",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-08 cssloaders pattern 08 progress cssloaders progress bar loader html css react popular singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-08\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-08 {\n  display: inline-block;\n  width: 116px;\n  height: 12px;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #6366f1) 16%, transparent);\n  overflow: hidden;\n}\n.darma-loader-cssloaders-github-08::before {\n      content: \"\";\n      display: block;\n      width: 42%;\n      height: 100%;\n      border-radius: inherit;\n      background: linear-gradient(90deg, var(--loader-color, #6366f1), var(--loader-secondary-color, #a5b4fc));\n      animation: darma-loader-cssloaders-github-08-progressSlide 0.9s ease-in-out infinite;\n    }\n    @keyframes darma-loader-cssloaders-github-08-progressSlide { 0% { transform: translateX(-120%); } 100% { transform: translateX(260%); } }\n",
+    "defaults": {
+      "color": "#6366f1",
+      "secondaryColor": "#a5b4fc",
+      "size": 62,
+      "speed": 0.85
+    }
+  },
+  {
+    "id": "cssloaders-github-09",
+    "name": "CSSLoaders Pattern 09",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "stripe",
+      "progress",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-09 cssloaders pattern 09 progress cssloaders stripe progress loader html css react popular singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-09\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-09 {\n  display: inline-block;\n  width: 130px;\n  height: 10px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, var(--loader-color, #06b6d4) 25%, var(--loader-secondary-color, #bae6fd) 25%, var(--loader-secondary-color, #bae6fd) 50%, var(--loader-color, #06b6d4) 50%, var(--loader-color, #06b6d4) 75%, var(--loader-secondary-color, #bae6fd) 75%);\n  background-size: 32px 100%; animation: darma-loader-cssloaders-github-09-progressStripe 0.97s linear infinite;\n}\n@keyframes darma-loader-cssloaders-github-09-progressStripe { 0% { background-position: 0 0; } 100% { background-position: 32px 0; } }\n",
+    "defaults": {
+      "color": "#06b6d4",
+      "secondaryColor": "#bae6fd",
+      "size": 66,
+      "speed": 0.95
+    }
+  },
+  {
+    "id": "darma-custom-047",
+    "name": "Conic Circle Sweep",
+    "category": "progress",
+    "tags": [
+      "circle",
+      "conic",
+      "sweep",
+      "progress",
+      "single-element",
+      "batch-02"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "darma-custom-047 conic circle sweep progress circle conic sweep progress single-element batch-02 html css react popular singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-darma-custom-047\"></div>",
+    "previewCss": ".darma-loader-darma-custom-047 {\n  width: 60px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  animation: darma-loader-darma-custom-047-l11 2s infinite;\n}\n@keyframes darma-loader-darma-custom-047-l11 {\n  0% { background: conic-gradient(var(--loader-color, #f03355) 0, #0000 0); }\n  12.5% { background: conic-gradient(var(--loader-color, #f03355) 45deg, #0000 46deg); }\n  25% { background: conic-gradient(var(--loader-color, #f03355) 90deg, #0000 91deg); }\n  37.5% { background: conic-gradient(var(--loader-color, #f03355) 135deg, #0000 136deg); }\n  50% { background: conic-gradient(var(--loader-color, #f03355) 180deg, #0000 181deg); }\n  62.5% { background: conic-gradient(var(--loader-color, #f03355) 225deg, #0000 226deg); }\n  75% { background: conic-gradient(var(--loader-color, #f03355) 270deg, #0000 271deg); }\n  87.5% { background: conic-gradient(var(--loader-color, #f03355) 315deg, #0000 316deg); }\n  100% { background: conic-gradient(var(--loader-color, #f03355) 360deg, #0000 360deg); }\n}\n",
+    "defaults": {
+      "color": "#f03355",
+      "secondaryColor": "#a5b4fc",
+      "size": 60,
+      "speed": 2,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-custom-020",
+    "name": "Conic Sector Wipe",
+    "category": "progress",
+    "tags": [
+      "conic",
+      "sector",
+      "wipe",
+      "square",
+      "batch-01"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "darma-custom-020 conic sector wipe progress conic sector wipe square batch-01 html css react popular singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-darma-custom-020\"></div>",
+    "previewCss": ".darma-loader-darma-custom-020 {\n  width: 70px;\n  aspect-ratio: 1;\n  background: conic-gradient(from -45deg, var(--loader-color, #8A8780) 90deg, var(--loader-secondary-color, #94BA65) 0 180deg, #2790B0 0 270deg, #2B4E72 0);\n  animation: darma-loader-darma-custom-020-l20 2s infinite;\n}\n@keyframes darma-loader-darma-custom-020-l20 {\n  0% { clip-path: polygon(0 0, 100% 0, 50% 50%); }\n  25% { clip-path: polygon(100% 0, 100% 100%, 50% 50%); }\n  50% { clip-path: polygon(100% 100%, 0 100%, 50% 50%); }\n  75% { clip-path: polygon(0 100%, 0 0, 50% 50%); }\n  100% { clip-path: polygon(0 0, 100% 0, 50% 50%); }\n}\n",
+    "defaults": {
+      "color": "#8A8780",
+      "secondaryColor": "#94BA65",
+      "size": 70,
+      "speed": 2,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-custom-066",
+    "name": "Isometric Belt Progress",
+    "category": "progress",
+    "tags": [
+      "isometric",
+      "belt",
+      "progress",
+      "loading",
+      "css-only",
+      "single-element",
+      "batch-03"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "darma-custom-066 isometric belt progress progress isometric belt progress loading css-only single-element batch-03 html css react popular singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-darma-custom-066\"></div>",
+    "previewCss": ".darma-loader-darma-custom-066 {\n  --s: 25px;\n  --g :5px;  \n  \n  width: calc(3*(1.353*var(--s) + var(--g)));\n  display: grid;\n  justify-items: end;\n  aspect-ratio: 3;\n  overflow: hidden;\n  --_m: linear-gradient(90deg,#0000,#000 15px calc(100% - 15px),#0000);\n  -webkit-mask: var(--_m);\n          mask: var(--_m);\n}\n.darma-loader-darma-custom-066:before { \n  content: \"\";\n  width: 200%;\n  background:\n    linear-gradient(90deg,var(--loader-color, #ff1818) 50%,#0000 0),\n    conic-gradient(from -90deg at var(--s) calc(0.353*var(--s)),\n      #fff 135deg,var(--loader-secondary-color, #666) 0 270deg,#aaa 0); \n  background-blend-mode: multiply;\n  --_m:\n    linear-gradient(to bottom right,\n       #0000 calc(0.25*var(--s)),#000 0 calc(100% - calc(0.25*var(--s)) - 1.414*var(--g)),#0000 0),\n    conic-gradient(from -90deg at right var(--g) bottom var(--g),#000 90deg,#0000 0);\n  -webkit-mask: var(--_m);\n          mask: var(--_m);\n  background-size:   calc(100%/3) 100%, calc(100%/6) 100%;\n  -webkit-mask-size: calc(100%/6) 100%;\n          mask-size: calc(100%/6) 100%;\n  -webkit-mask-composite: source-in;\n          mask-composite: intersect;\n  animation: darma-loader-darma-custom-066-l10 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-066-l10 {\n  to {transform:translate(calc(100%/3))}\n}\n",
+    "defaults": {
+      "color": "#ff1818",
+      "secondaryColor": "#666",
+      "size": 90,
+      "speed": 1,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-custom-037",
+    "name": "Linear Fill Bar",
+    "category": "progress",
+    "tags": [
+      "linear",
+      "fill",
+      "progress",
+      "single-element",
+      "batch-02"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "darma-custom-037 linear fill bar progress linear fill progress single-element batch-02 html css react popular singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-darma-custom-037\"></div>",
+    "previewCss": ".darma-loader-darma-custom-037 {\n  width: 120px;\n  height: 20px;\n  background:\n    linear-gradient(#000 0 0) 0/0% no-repeat\n    #ddd;\n  animation: darma-loader-darma-custom-037-l1 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-037-l1 {\n  100% { background-size: 100%; }\n}\n",
+    "defaults": {
+      "color": "#000000",
+      "secondaryColor": "#dddddd",
+      "size": 120,
+      "speed": 2,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "linear-progress",
+    "name": "Linear Progress",
+    "category": "progress",
+    "tags": [
+      "progress",
+      "bar",
+      "upload",
+      "linear"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true
+    },
+    "searchText": "linear-progress linear progress progress progress bar upload linear html css react popular cssonly customizable singleelement",
+    "previewHtml": "<span class=\"darma-loader-linear-progress\"></span>",
+    "previewCss": ".darma-loader-linear-progress {\n  position: relative;\n  display: inline-block;\n  width: 132px;\n  height: 10px;\n  overflow: hidden;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #6366f1) 15%, transparent);\n}\n.darma-loader-linear-progress::before {\n  content: \"\";\n  position: absolute;\n  inset: 0 auto 0 0;\n  width: 48%;\n  border-radius: inherit;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-linear-progress-progress 1.25s ease-in-out infinite;\n}\n@keyframes darma-loader-linear-progress-progress {\n  0% { transform: translateX(-105%); }\n  55%, 100% { transform: translateX(210%); }\n}\n",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 48,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-custom-052",
+    "name": "Material Indeterminate Line",
+    "category": "progress",
+    "tags": [
+      "material",
+      "indeterminate",
+      "line",
+      "thin",
+      "progress",
+      "batch-02"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "darma-custom-052 material indeterminate line progress material indeterminate line thin progress batch-02 html css react popular singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-darma-custom-052\"></div>",
+    "previewCss": ".darma-loader-darma-custom-052 {\n  height: 4px;\n  width: 130px;\n  --c: no-repeat linear-gradient(var(--loader-color, #6100ee) 0 0);\n  background: var(--c), var(--c), var(--loader-secondary-color, #d7b8fc);\n  background-size: 60% 100%;\n  animation: darma-loader-darma-custom-052-l16 3s infinite;\n}\n@keyframes darma-loader-darma-custom-052-l16 {\n  0% { background-position: -150% 0, -150% 0; }\n  66% { background-position: 250% 0, -150% 0; }\n  100% { background-position: 250% 0, 250% 0; }\n}\n",
+    "defaults": {
+      "color": "#6100ee",
+      "secondaryColor": "#d7b8fc",
+      "size": 130,
+      "speed": 3,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-custom-042",
+    "name": "Outline Pill Fill",
+    "category": "progress",
+    "tags": [
+      "outline",
+      "pill",
+      "fill",
+      "progress",
+      "batch-02"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "darma-custom-042 outline pill fill progress outline pill fill progress batch-02 html css react popular singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-darma-custom-042\"></div>",
+    "previewCss": ".darma-loader-darma-custom-042 {\n  width: 120px;\n  height: 22px;\n  border-radius: 20px;\n  color: var(--loader-color, #514b82);\n  border: 2px solid;\n  position: relative;\n}\n.darma-loader-darma-custom-042::before {\n  content: \"\";\n  position: absolute;\n  margin: 2px;\n  inset: 0 100% 0 0;\n  border-radius: inherit;\n  background: currentColor;\n  animation: darma-loader-darma-custom-042-l6 2s infinite;\n}\n@keyframes darma-loader-darma-custom-042-l6 {\n  100% { inset: 0; }\n}\n",
+    "defaults": {
+      "color": "#514b82",
+      "secondaryColor": "#a5b4fc",
+      "size": 120,
+      "speed": 2,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-research-prism-marquee-loader",
+    "name": "Prism Marquee Loader",
+    "category": "progress",
+    "tags": [
+      "progress",
+      "marquee",
+      "prism",
+      "text",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-research-prism-marquee-loader prism marquee loader progress progress marquee prism text creative html css react popular customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-research-prism-marquee-loader\" aria-label=\"Loading progress\"><span class=\"darma-loader-darma-research-prism-marquee-loader__label\">LOADING</span><span class=\"darma-loader-darma-research-prism-marquee-loader__track\"><span class=\"darma-loader-darma-research-prism-marquee-loader__fill\"></span></span></div>",
+    "previewCss": ".darma-loader-darma-research-prism-marquee-loader { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #ec4899); --accent-2: var(--loader-secondary-color, #22d3ee); width: calc(var(--loader-size, 72px) * 2.7); min-width: 170px; display: grid; gap: 10px; font: 800 13px/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .35em; color: transparent; }\n.darma-loader-darma-research-prism-marquee-loader__label { background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent)); background-size: 240% 100%; -webkit-background-clip: text; background-clip: text; animation: darma-loader-darma-research-prism-marquee-loader-prism-text calc(var(--speed) * 2.4) linear infinite; }\n.darma-loader-darma-research-prism-marquee-loader__track { height: 14px; border-radius: 999px; overflow: hidden; background: #111827; box-shadow: inset 0 0 0 1px #ffffff1f; position: relative; }\n.darma-loader-darma-research-prism-marquee-loader__fill { position: absolute; inset: 2px auto 2px 2px; width: 42%; border-radius: inherit; background: repeating-linear-gradient(115deg, var(--accent) 0 12px, var(--accent-2) 12px 24px, #fff 24px 28px); box-shadow: 0 0 18px var(--accent); animation: darma-loader-darma-research-prism-marquee-loader-prism-fill calc(var(--speed) * 1.5) cubic-bezier(.7,0,.25,1) infinite; }\n@keyframes darma-loader-darma-research-prism-marquee-loader-prism-fill { 0% { translate: -105% 0; width: 38%; } 45% { width: 70%; } 100% { translate: 250% 0; width: 38%; } }\n@keyframes darma-loader-darma-research-prism-marquee-loader-prism-text { to { background-position: 240% 0; } }",
+    "defaults": {
+      "color": "#ec4899",
+      "secondaryColor": "#22d3ee",
+      "size": 72,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-custom-022",
+    "name": "Rounded Dot Track",
+    "category": "progress",
+    "tags": [
+      "linear",
+      "rounded",
+      "dot",
+      "track",
+      "pill",
+      "batch-02"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "darma-custom-022 rounded dot track progress linear rounded dot track pill batch-02 html css react popular singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-darma-custom-022\"></div>",
+    "previewCss": ".darma-loader-darma-custom-022 {\n  width: 120px;\n  height: 20px;\n  border-radius: 20px;\n  background:\n    radial-gradient(farthest-side, var(--loader-color, #ffa500) 94%, #0000) left/20px 20px no-repeat\n    var(--loader-secondary-color, #add8e6);\n  animation: darma-loader-darma-custom-022-l2 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-022-l2 {\n  50% { background-position: right; }\n}\n",
+    "defaults": {
+      "color": "#ffa500",
+      "secondaryColor": "#add8e6",
+      "size": 120,
+      "speed": 1,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-custom-038",
+    "name": "Rounded Step Fill",
+    "category": "progress",
+    "tags": [
+      "rounded",
+      "steps",
+      "fill",
+      "progress",
+      "pill",
+      "batch-02"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "darma-custom-038 rounded step fill progress rounded steps fill progress pill batch-02 html css react popular singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-darma-custom-038\"></div>",
+    "previewCss": ".darma-loader-darma-custom-038 {\n  width: 120px;\n  height: 20px;\n  border-radius: 20px;\n  background:\n    linear-gradient(var(--loader-color, #ffa500) 0 0) 0/0% no-repeat\n    var(--loader-secondary-color, #add8e6);\n  animation: darma-loader-darma-custom-038-l2 2s infinite steps(10);\n}\n@keyframes darma-loader-darma-custom-038-l2 {\n  100% { background-size: 110%; }\n}\n",
+    "defaults": {
+      "color": "#ffa500",
+      "secondaryColor": "#add8e6",
+      "size": 120,
+      "speed": 2,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-custom-021",
+    "name": "Sliding Block Track",
+    "category": "progress",
+    "tags": [
+      "linear",
+      "track",
+      "sliding",
+      "block",
+      "single-element",
+      "batch-02"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "darma-custom-021 sliding block track progress linear track sliding block single-element batch-02 html css react popular singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-darma-custom-021\"></div>",
+    "previewCss": ".darma-loader-darma-custom-021 {\n  width: 120px;\n  height: 20px;\n  background:\n    linear-gradient(#000 0 0) left/20px 20px no-repeat\n    #ddd;\n  animation: darma-loader-darma-custom-021-l1 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-021-l1 {\n  50% { background-position: right; }\n}\n",
+    "defaults": {
+      "color": "#000000",
+      "secondaryColor": "#dddddd",
+      "size": 120,
+      "speed": 1,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-custom-039",
+    "name": "Striped Candy Fill",
+    "category": "progress",
+    "tags": [
+      "striped",
+      "candy",
+      "fill",
+      "rounded",
+      "progress",
+      "batch-02"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "darma-custom-039 striped candy fill progress striped candy fill rounded progress batch-02 html css react popular singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-darma-custom-039\"></div>",
+    "previewCss": ".darma-loader-darma-custom-039 {\n  width: 120px;\n  height: 20px;\n  border-radius: 20px;\n  background:\n    repeating-linear-gradient(135deg, var(--loader-color, #f03355) 0 10px, var(--loader-secondary-color, #ffa516) 0 20px) 0/0% no-repeat,\n    repeating-linear-gradient(135deg, #ddd 0 10px, #eee 0 20px) 0/100%;\n  animation: darma-loader-darma-custom-039-l3 2s infinite;\n}\n@keyframes darma-loader-darma-custom-039-l3 {\n  100% { background-size: 100%; }\n}\n",
+    "defaults": {
+      "color": "#f03355",
+      "secondaryColor": "#ffa516",
+      "size": 120,
+      "speed": 2,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-custom-045",
+    "name": "Wavy Circle Fill",
+    "category": "progress",
+    "tags": [
+      "circle",
+      "wave",
+      "fill",
+      "radial",
+      "single-element",
+      "batch-02"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "darma-custom-045 wavy circle fill progress circle wave fill radial single-element batch-02 html css react popular singleelement cssonly customizable",
+    "previewHtml": "<div class=\"darma-loader-darma-custom-045\"></div>",
+    "previewCss": ".darma-loader-darma-custom-045 {\n  --r1: 154%;\n  --r2: 68.5%;\n  width: 60px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background:\n    radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, var(--loader-color, #269af2) 80%),\n    radial-gradient(var(--r1) var(--r2) at bottom, var(--loader-color, #269af2) 79.5%, #0000 80%),\n    radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, var(--loader-color, #269af2) 80%),\n    #ccc;\n  background-size: 50.5% 220%;\n  background-position: -100% 0%, 0% 0%, 100% 0%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-045-l9 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-045-l9 {\n  33% { background-position: 0% 33%, 100% 33%, 200% 33%; }\n  66% { background-position: -100% 66%, 0% 66%, 100% 66%; }\n  100% { background-position: 0% 100%, 100% 100%, 200% 100%; }\n}\n",
+    "defaults": {
+      "color": "#269af2",
+      "secondaryColor": "#cccccc",
+      "size": 60,
+      "speed": 2,
+      "background": "#ffffff"
+    }
+  },
+  {
     "id": "uiverse-aqua-pill-fill",
     "name": "Aqua Pill Fill",
     "category": "progress",
@@ -72,16 +682,14 @@
     }
   },
   {
-    "id": "darma-custom-041",
-    "name": "Battery Charging Steps",
+    "id": "cssloaders-github-16",
+    "name": "CSSLoaders Pattern 16",
     "category": "progress",
     "tags": [
-      "battery",
-      "charging",
-      "steps",
+      "cssloaders",
       "progress",
-      "device",
-      "batch-02"
+      "bar",
+      "loader"
     ],
     "formats": [
       "html",
@@ -89,34 +697,31 @@
       "react"
     ],
     "flags": {
-      "popular": true,
+      "popular": false,
       "singleElement": true,
       "cssOnly": true,
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-041 battery charging steps progress battery charging steps progress device batch-02 html css react popular singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-041\"></div>",
-    "previewCss": ".darma-loader-darma-custom-041 {\n  width: 80px;\n  height: 40px;\n  color: #000;\n  border: 2px solid currentColor;\n  border-right-color: transparent;\n  padding: 3px;\n  background:\n    repeating-linear-gradient(90deg, currentColor 0 10px, #0000 0 15px)\n    0/0% no-repeat content-box content-box;\n  position: relative;\n  box-sizing: border-box;\n  animation: darma-loader-darma-custom-041-l5 2s infinite steps(6);\n}\n.darma-loader-darma-custom-041::before {\n  content: \"\";\n  position: absolute;\n  top: -2px;\n  bottom: -2px;\n  left: 100%;\n  width: 10px;\n  background:\n    linear-gradient(#0000 calc(50% - 7px), currentColor 0 calc(50% - 5px), #0000 0 calc(50% + 5px), currentColor 0 calc(50% + 7px), #0000 0) left/100% 100%,\n    linear-gradient(currentColor calc(50% - 5px), #0000 0 calc(50% + 5px), currentColor 0) left/2px 100%,\n    linear-gradient(#0000 calc(50% - 5px), currentColor 0 calc(50% + 5px), #0000 0) right/2px 100%;\n  background-repeat: no-repeat;\n}\n@keyframes darma-loader-darma-custom-041-l5 {\n  100% { background-size: 120%; }\n}\n",
+    "searchText": "cssloaders-github-16 cssloaders pattern 16 progress cssloaders progress bar loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-16\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-16 {\n  display: inline-block;\n  width: 92px;\n  height: 10px;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #ef4444) 16%, transparent);\n  overflow: hidden;\n}\n.darma-loader-cssloaders-github-16::before {\n      content: \"\";\n      display: block;\n      width: 42%;\n      height: 100%;\n      border-radius: inherit;\n      background: linear-gradient(90deg, var(--loader-color, #ef4444), var(--loader-secondary-color, #fecaca));\n      animation: darma-loader-cssloaders-github-16-progressSlide 0.9s ease-in-out infinite;\n    }\n    @keyframes darma-loader-cssloaders-github-16-progressSlide { 0% { transform: translateX(-120%); } 100% { transform: translateX(260%); } }\n",
     "defaults": {
-      "color": "#000000",
-      "secondaryColor": "#dddddd",
-      "size": 80,
-      "speed": 2,
-      "background": "#ffffff"
+      "color": "#ef4444",
+      "secondaryColor": "#fecaca",
+      "size": 54,
+      "speed": 0.85
     }
   },
   {
-    "id": "darma-custom-023",
-    "name": "Bordered Slider Fill",
+    "id": "cssloaders-github-17",
+    "name": "CSSLoaders Pattern 17",
     "category": "progress",
     "tags": [
-      "linear",
-      "bordered",
-      "slider",
-      "pill",
-      "fill",
-      "batch-02"
+      "cssloaders",
+      "stripe",
+      "progress",
+      "loader"
     ],
     "formats": [
       "html",
@@ -124,21 +729,180 @@
       "react"
     ],
     "flags": {
-      "popular": true,
+      "popular": false,
       "singleElement": true,
       "cssOnly": true,
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-023 bordered slider fill progress linear bordered slider pill fill batch-02 html css react popular singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-023\"></div>",
-    "previewCss": ".darma-loader-darma-custom-023 {\n  width: 120px;\n  height: 22px;\n  border-radius: 40px;\n  color: var(--loader-color, #514b82);\n  border: 2px solid;\n  position: relative;\n}\n.darma-loader-darma-custom-023::before {\n  content: \"\";\n  position: absolute;\n  margin: 2px;\n  width: 25%;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  border-radius: inherit;\n  background: currentColor;\n  animation: darma-loader-darma-custom-023-l3 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-023-l3 {\n  50% { left: 100%; transform: translateX(calc(-100% - 4px)); }\n}\n",
+    "searchText": "cssloaders-github-17 cssloaders pattern 17 progress cssloaders stripe progress loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-17\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-17 {\n  display: inline-block;\n  width: 106px;\n  height: 10px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, var(--loader-color, #0ea5e9) 25%, var(--loader-secondary-color, #bae6fd) 25%, var(--loader-secondary-color, #bae6fd) 50%, var(--loader-color, #0ea5e9) 50%, var(--loader-color, #0ea5e9) 75%, var(--loader-secondary-color, #bae6fd) 75%);\n  background-size: 32px 100%; animation: darma-loader-cssloaders-github-17-progressStripe 0.97s linear infinite;\n}\n@keyframes darma-loader-cssloaders-github-17-progressStripe { 0% { background-position: 0 0; } 100% { background-position: 32px 0; } }\n",
     "defaults": {
-      "color": "#514b82",
-      "secondaryColor": "#a5b4fc",
-      "size": 120,
-      "speed": 1,
-      "background": "#ffffff"
+      "color": "#0ea5e9",
+      "secondaryColor": "#bae6fd",
+      "size": 58,
+      "speed": 0.95
+    }
+  },
+  {
+    "id": "cssloaders-github-24",
+    "name": "CSSLoaders Pattern 24",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "progress",
+      "bar",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-24 cssloaders pattern 24 progress cssloaders progress bar loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-24\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-24 {\n  display: inline-block;\n  width: 128px;\n  height: 8px;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #14b8a6) 16%, transparent);\n  overflow: hidden;\n}\n.darma-loader-cssloaders-github-24::before {\n      content: \"\";\n      display: block;\n      width: 42%;\n      height: 100%;\n      border-radius: inherit;\n      background: linear-gradient(90deg, var(--loader-color, #14b8a6), var(--loader-secondary-color, #99f6e4));\n      animation: darma-loader-cssloaders-github-24-progressSlide 0.9s ease-in-out infinite;\n    }\n    @keyframes darma-loader-cssloaders-github-24-progressSlide { 0% { transform: translateX(-120%); } 100% { transform: translateX(260%); } }\n",
+    "defaults": {
+      "color": "#14b8a6",
+      "secondaryColor": "#99f6e4",
+      "size": 66,
+      "speed": 0.85
+    }
+  },
+  {
+    "id": "cssloaders-github-25",
+    "name": "CSSLoaders Pattern 25",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "stripe",
+      "progress",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-25 cssloaders pattern 25 progress cssloaders stripe progress loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-25\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-25 {\n  display: inline-block;\n  width: 82px;\n  height: 10px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, var(--loader-color, #f59e0b) 25%, var(--loader-secondary-color, #fde68a) 25%, var(--loader-secondary-color, #fde68a) 50%, var(--loader-color, #f59e0b) 50%, var(--loader-color, #f59e0b) 75%, var(--loader-secondary-color, #fde68a) 75%);\n  background-size: 32px 100%; animation: darma-loader-cssloaders-github-25-progressStripe 0.97s linear infinite;\n}\n@keyframes darma-loader-cssloaders-github-25-progressStripe { 0% { background-position: 0 0; } 100% { background-position: 32px 0; } }\n",
+    "defaults": {
+      "color": "#f59e0b",
+      "secondaryColor": "#fde68a",
+      "size": 50,
+      "speed": 0.95
+    }
+  },
+  {
+    "id": "cssloaders-github-32",
+    "name": "CSSLoaders Pattern 32",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "progress",
+      "bar",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-32 cssloaders pattern 32 progress cssloaders progress bar loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-32\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-32 {\n  display: inline-block;\n  width: 104px;\n  height: 12px;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #ec4899) 16%, transparent);\n  overflow: hidden;\n}\n.darma-loader-cssloaders-github-32::before {\n      content: \"\";\n      display: block;\n      width: 42%;\n      height: 100%;\n      border-radius: inherit;\n      background: linear-gradient(90deg, var(--loader-color, #ec4899), var(--loader-secondary-color, #fbcfe8));\n      animation: darma-loader-cssloaders-github-32-progressSlide 0.9s ease-in-out infinite;\n    }\n    @keyframes darma-loader-cssloaders-github-32-progressSlide { 0% { transform: translateX(-120%); } 100% { transform: translateX(260%); } }\n",
+    "defaults": {
+      "color": "#ec4899",
+      "secondaryColor": "#fbcfe8",
+      "size": 58,
+      "speed": 0.85
+    }
+  },
+  {
+    "id": "cssloaders-github-33",
+    "name": "CSSLoaders Pattern 33",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "stripe",
+      "progress",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-33 cssloaders pattern 33 progress cssloaders stripe progress loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-33\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-33 {\n  display: inline-block;\n  width: 118px;\n  height: 10px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, var(--loader-color, #8b5cf6) 25%, var(--loader-secondary-color, #ddd6fe) 25%, var(--loader-secondary-color, #ddd6fe) 50%, var(--loader-color, #8b5cf6) 50%, var(--loader-color, #8b5cf6) 75%, var(--loader-secondary-color, #ddd6fe) 75%);\n  background-size: 32px 100%; animation: darma-loader-cssloaders-github-33-progressStripe 0.97s linear infinite;\n}\n@keyframes darma-loader-cssloaders-github-33-progressStripe { 0% { background-position: 0 0; } 100% { background-position: 32px 0; } }\n",
+    "defaults": {
+      "color": "#8b5cf6",
+      "secondaryColor": "#ddd6fe",
+      "size": 62,
+      "speed": 0.95
+    }
+  },
+  {
+    "id": "cssloaders-github-40",
+    "name": "CSSLoaders Pattern 40",
+    "category": "progress",
+    "tags": [
+      "cssloaders",
+      "progress",
+      "bar",
+      "loader"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": false,
+      "singleElement": true,
+      "cssOnly": true,
+      "tailwind": false,
+      "customizable": true
+    },
+    "searchText": "cssloaders-github-40 cssloaders pattern 40 progress cssloaders progress bar loader html css react singleelement cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-cssloaders-github-40\"></span>",
+    "previewCss": ".darma-loader-cssloaders-github-40 {\n  display: inline-block;\n  width: 80px;\n  height: 10px;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #f97316) 16%, transparent);\n  overflow: hidden;\n}\n.darma-loader-cssloaders-github-40::before {\n      content: \"\";\n      display: block;\n      width: 42%;\n      height: 100%;\n      border-radius: inherit;\n      background: linear-gradient(90deg, var(--loader-color, #f97316), var(--loader-secondary-color, #fed7aa));\n      animation: darma-loader-cssloaders-github-40-progressSlide 0.9s ease-in-out infinite;\n    }\n    @keyframes darma-loader-cssloaders-github-40-progressSlide { 0% { transform: translateX(-120%); } 100% { transform: translateX(260%); } }\n",
+    "defaults": {
+      "color": "#f97316",
+      "secondaryColor": "#fed7aa",
+      "size": 50,
+      "speed": 0.85
     }
   },
   {
@@ -860,75 +1624,6 @@
     }
   },
   {
-    "id": "darma-custom-047",
-    "name": "Conic Circle Sweep",
-    "category": "progress",
-    "tags": [
-      "circle",
-      "conic",
-      "sweep",
-      "progress",
-      "single-element",
-      "batch-02"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-047 conic circle sweep progress circle conic sweep progress single-element batch-02 html css react popular singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-047\"></div>",
-    "previewCss": ".darma-loader-darma-custom-047 {\n  width: 60px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  animation: darma-loader-darma-custom-047-l11 2s infinite;\n}\n@keyframes darma-loader-darma-custom-047-l11 {\n  0% { background: conic-gradient(var(--loader-color, #f03355) 0, #0000 0); }\n  12.5% { background: conic-gradient(var(--loader-color, #f03355) 45deg, #0000 46deg); }\n  25% { background: conic-gradient(var(--loader-color, #f03355) 90deg, #0000 91deg); }\n  37.5% { background: conic-gradient(var(--loader-color, #f03355) 135deg, #0000 136deg); }\n  50% { background: conic-gradient(var(--loader-color, #f03355) 180deg, #0000 181deg); }\n  62.5% { background: conic-gradient(var(--loader-color, #f03355) 225deg, #0000 226deg); }\n  75% { background: conic-gradient(var(--loader-color, #f03355) 270deg, #0000 271deg); }\n  87.5% { background: conic-gradient(var(--loader-color, #f03355) 315deg, #0000 316deg); }\n  100% { background: conic-gradient(var(--loader-color, #f03355) 360deg, #0000 360deg); }\n}\n",
-    "defaults": {
-      "color": "#f03355",
-      "secondaryColor": "#a5b4fc",
-      "size": 60,
-      "speed": 2,
-      "background": "#ffffff"
-    }
-  },
-  {
-    "id": "darma-custom-020",
-    "name": "Conic Sector Wipe",
-    "category": "progress",
-    "tags": [
-      "conic",
-      "sector",
-      "wipe",
-      "square",
-      "batch-01"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-020 conic sector wipe progress conic sector wipe square batch-01 html css react popular singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-020\"></div>",
-    "previewCss": ".darma-loader-darma-custom-020 {\n  width: 70px;\n  aspect-ratio: 1;\n  background: conic-gradient(from -45deg, var(--loader-color, #8A8780) 90deg, var(--loader-secondary-color, #94BA65) 0 180deg, #2790B0 0 270deg, #2B4E72 0);\n  animation: darma-loader-darma-custom-020-l20 2s infinite;\n}\n@keyframes darma-loader-darma-custom-020-l20 {\n  0% { clip-path: polygon(0 0, 100% 0, 50% 50%); }\n  25% { clip-path: polygon(100% 0, 100% 100%, 50% 50%); }\n  50% { clip-path: polygon(100% 100%, 0 100%, 50% 50%); }\n  75% { clip-path: polygon(0 100%, 0 0, 50% 50%); }\n  100% { clip-path: polygon(0 0, 100% 0, 50% 50%); }\n}\n",
-    "defaults": {
-      "color": "#8A8780",
-      "secondaryColor": "#94BA65",
-      "size": 70,
-      "speed": 2,
-      "background": "#ffffff"
-    }
-  },
-  {
     "id": "darma-custom-229",
     "name": "Counter March Rail",
     "category": "progress",
@@ -1006,326 +1701,6 @@
       "size": 84,
       "speed": 1,
       "background": "#ffffff"
-    }
-  },
-  {
-    "id": "cssloaders-github-01",
-    "name": "CSSLoaders Pattern 01",
-    "category": "progress",
-    "tags": [
-      "cssloaders",
-      "stripe",
-      "progress",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-01 cssloaders pattern 01 progress cssloaders stripe progress loader html css react popular singleelement cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-cssloaders-github-01\"></span>",
-    "previewCss": ".darma-loader-cssloaders-github-01 {\n  display: inline-block;\n  width: 94px;\n  height: 10px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, var(--loader-color, #22c55e) 25%, var(--loader-secondary-color, #bbf7d0) 25%, var(--loader-secondary-color, #bbf7d0) 50%, var(--loader-color, #22c55e) 50%, var(--loader-color, #22c55e) 75%, var(--loader-secondary-color, #bbf7d0) 75%);\n  background-size: 32px 100%; animation: darma-loader-cssloaders-github-01-progressStripe 0.97s linear infinite;\n}\n@keyframes darma-loader-cssloaders-github-01-progressStripe { 0% { background-position: 0 0; } 100% { background-position: 32px 0; } }\n",
-    "defaults": {
-      "color": "#22c55e",
-      "secondaryColor": "#bbf7d0",
-      "size": 54,
-      "speed": 0.95
-    }
-  },
-  {
-    "id": "cssloaders-github-08",
-    "name": "CSSLoaders Pattern 08",
-    "category": "progress",
-    "tags": [
-      "cssloaders",
-      "progress",
-      "bar",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-08 cssloaders pattern 08 progress cssloaders progress bar loader html css react popular singleelement cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-cssloaders-github-08\"></span>",
-    "previewCss": ".darma-loader-cssloaders-github-08 {\n  display: inline-block;\n  width: 116px;\n  height: 12px;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #6366f1) 16%, transparent);\n  overflow: hidden;\n}\n.darma-loader-cssloaders-github-08::before {\n      content: \"\";\n      display: block;\n      width: 42%;\n      height: 100%;\n      border-radius: inherit;\n      background: linear-gradient(90deg, var(--loader-color, #6366f1), var(--loader-secondary-color, #a5b4fc));\n      animation: darma-loader-cssloaders-github-08-progressSlide 0.9s ease-in-out infinite;\n    }\n    @keyframes darma-loader-cssloaders-github-08-progressSlide { 0% { transform: translateX(-120%); } 100% { transform: translateX(260%); } }\n",
-    "defaults": {
-      "color": "#6366f1",
-      "secondaryColor": "#a5b4fc",
-      "size": 62,
-      "speed": 0.85
-    }
-  },
-  {
-    "id": "cssloaders-github-09",
-    "name": "CSSLoaders Pattern 09",
-    "category": "progress",
-    "tags": [
-      "cssloaders",
-      "stripe",
-      "progress",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-09 cssloaders pattern 09 progress cssloaders stripe progress loader html css react popular singleelement cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-cssloaders-github-09\"></span>",
-    "previewCss": ".darma-loader-cssloaders-github-09 {\n  display: inline-block;\n  width: 130px;\n  height: 10px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, var(--loader-color, #06b6d4) 25%, var(--loader-secondary-color, #bae6fd) 25%, var(--loader-secondary-color, #bae6fd) 50%, var(--loader-color, #06b6d4) 50%, var(--loader-color, #06b6d4) 75%, var(--loader-secondary-color, #bae6fd) 75%);\n  background-size: 32px 100%; animation: darma-loader-cssloaders-github-09-progressStripe 0.97s linear infinite;\n}\n@keyframes darma-loader-cssloaders-github-09-progressStripe { 0% { background-position: 0 0; } 100% { background-position: 32px 0; } }\n",
-    "defaults": {
-      "color": "#06b6d4",
-      "secondaryColor": "#bae6fd",
-      "size": 66,
-      "speed": 0.95
-    }
-  },
-  {
-    "id": "cssloaders-github-16",
-    "name": "CSSLoaders Pattern 16",
-    "category": "progress",
-    "tags": [
-      "cssloaders",
-      "progress",
-      "bar",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-16 cssloaders pattern 16 progress cssloaders progress bar loader html css react singleelement cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-cssloaders-github-16\"></span>",
-    "previewCss": ".darma-loader-cssloaders-github-16 {\n  display: inline-block;\n  width: 92px;\n  height: 10px;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #ef4444) 16%, transparent);\n  overflow: hidden;\n}\n.darma-loader-cssloaders-github-16::before {\n      content: \"\";\n      display: block;\n      width: 42%;\n      height: 100%;\n      border-radius: inherit;\n      background: linear-gradient(90deg, var(--loader-color, #ef4444), var(--loader-secondary-color, #fecaca));\n      animation: darma-loader-cssloaders-github-16-progressSlide 0.9s ease-in-out infinite;\n    }\n    @keyframes darma-loader-cssloaders-github-16-progressSlide { 0% { transform: translateX(-120%); } 100% { transform: translateX(260%); } }\n",
-    "defaults": {
-      "color": "#ef4444",
-      "secondaryColor": "#fecaca",
-      "size": 54,
-      "speed": 0.85
-    }
-  },
-  {
-    "id": "cssloaders-github-17",
-    "name": "CSSLoaders Pattern 17",
-    "category": "progress",
-    "tags": [
-      "cssloaders",
-      "stripe",
-      "progress",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-17 cssloaders pattern 17 progress cssloaders stripe progress loader html css react singleelement cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-cssloaders-github-17\"></span>",
-    "previewCss": ".darma-loader-cssloaders-github-17 {\n  display: inline-block;\n  width: 106px;\n  height: 10px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, var(--loader-color, #0ea5e9) 25%, var(--loader-secondary-color, #bae6fd) 25%, var(--loader-secondary-color, #bae6fd) 50%, var(--loader-color, #0ea5e9) 50%, var(--loader-color, #0ea5e9) 75%, var(--loader-secondary-color, #bae6fd) 75%);\n  background-size: 32px 100%; animation: darma-loader-cssloaders-github-17-progressStripe 0.97s linear infinite;\n}\n@keyframes darma-loader-cssloaders-github-17-progressStripe { 0% { background-position: 0 0; } 100% { background-position: 32px 0; } }\n",
-    "defaults": {
-      "color": "#0ea5e9",
-      "secondaryColor": "#bae6fd",
-      "size": 58,
-      "speed": 0.95
-    }
-  },
-  {
-    "id": "cssloaders-github-24",
-    "name": "CSSLoaders Pattern 24",
-    "category": "progress",
-    "tags": [
-      "cssloaders",
-      "progress",
-      "bar",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-24 cssloaders pattern 24 progress cssloaders progress bar loader html css react singleelement cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-cssloaders-github-24\"></span>",
-    "previewCss": ".darma-loader-cssloaders-github-24 {\n  display: inline-block;\n  width: 128px;\n  height: 8px;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #14b8a6) 16%, transparent);\n  overflow: hidden;\n}\n.darma-loader-cssloaders-github-24::before {\n      content: \"\";\n      display: block;\n      width: 42%;\n      height: 100%;\n      border-radius: inherit;\n      background: linear-gradient(90deg, var(--loader-color, #14b8a6), var(--loader-secondary-color, #99f6e4));\n      animation: darma-loader-cssloaders-github-24-progressSlide 0.9s ease-in-out infinite;\n    }\n    @keyframes darma-loader-cssloaders-github-24-progressSlide { 0% { transform: translateX(-120%); } 100% { transform: translateX(260%); } }\n",
-    "defaults": {
-      "color": "#14b8a6",
-      "secondaryColor": "#99f6e4",
-      "size": 66,
-      "speed": 0.85
-    }
-  },
-  {
-    "id": "cssloaders-github-25",
-    "name": "CSSLoaders Pattern 25",
-    "category": "progress",
-    "tags": [
-      "cssloaders",
-      "stripe",
-      "progress",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-25 cssloaders pattern 25 progress cssloaders stripe progress loader html css react singleelement cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-cssloaders-github-25\"></span>",
-    "previewCss": ".darma-loader-cssloaders-github-25 {\n  display: inline-block;\n  width: 82px;\n  height: 10px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, var(--loader-color, #f59e0b) 25%, var(--loader-secondary-color, #fde68a) 25%, var(--loader-secondary-color, #fde68a) 50%, var(--loader-color, #f59e0b) 50%, var(--loader-color, #f59e0b) 75%, var(--loader-secondary-color, #fde68a) 75%);\n  background-size: 32px 100%; animation: darma-loader-cssloaders-github-25-progressStripe 0.97s linear infinite;\n}\n@keyframes darma-loader-cssloaders-github-25-progressStripe { 0% { background-position: 0 0; } 100% { background-position: 32px 0; } }\n",
-    "defaults": {
-      "color": "#f59e0b",
-      "secondaryColor": "#fde68a",
-      "size": 50,
-      "speed": 0.95
-    }
-  },
-  {
-    "id": "cssloaders-github-32",
-    "name": "CSSLoaders Pattern 32",
-    "category": "progress",
-    "tags": [
-      "cssloaders",
-      "progress",
-      "bar",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-32 cssloaders pattern 32 progress cssloaders progress bar loader html css react singleelement cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-cssloaders-github-32\"></span>",
-    "previewCss": ".darma-loader-cssloaders-github-32 {\n  display: inline-block;\n  width: 104px;\n  height: 12px;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #ec4899) 16%, transparent);\n  overflow: hidden;\n}\n.darma-loader-cssloaders-github-32::before {\n      content: \"\";\n      display: block;\n      width: 42%;\n      height: 100%;\n      border-radius: inherit;\n      background: linear-gradient(90deg, var(--loader-color, #ec4899), var(--loader-secondary-color, #fbcfe8));\n      animation: darma-loader-cssloaders-github-32-progressSlide 0.9s ease-in-out infinite;\n    }\n    @keyframes darma-loader-cssloaders-github-32-progressSlide { 0% { transform: translateX(-120%); } 100% { transform: translateX(260%); } }\n",
-    "defaults": {
-      "color": "#ec4899",
-      "secondaryColor": "#fbcfe8",
-      "size": 58,
-      "speed": 0.85
-    }
-  },
-  {
-    "id": "cssloaders-github-33",
-    "name": "CSSLoaders Pattern 33",
-    "category": "progress",
-    "tags": [
-      "cssloaders",
-      "stripe",
-      "progress",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-33 cssloaders pattern 33 progress cssloaders stripe progress loader html css react singleelement cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-cssloaders-github-33\"></span>",
-    "previewCss": ".darma-loader-cssloaders-github-33 {\n  display: inline-block;\n  width: 118px;\n  height: 10px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, var(--loader-color, #8b5cf6) 25%, var(--loader-secondary-color, #ddd6fe) 25%, var(--loader-secondary-color, #ddd6fe) 50%, var(--loader-color, #8b5cf6) 50%, var(--loader-color, #8b5cf6) 75%, var(--loader-secondary-color, #ddd6fe) 75%);\n  background-size: 32px 100%; animation: darma-loader-cssloaders-github-33-progressStripe 0.97s linear infinite;\n}\n@keyframes darma-loader-cssloaders-github-33-progressStripe { 0% { background-position: 0 0; } 100% { background-position: 32px 0; } }\n",
-    "defaults": {
-      "color": "#8b5cf6",
-      "secondaryColor": "#ddd6fe",
-      "size": 62,
-      "speed": 0.95
-    }
-  },
-  {
-    "id": "cssloaders-github-40",
-    "name": "CSSLoaders Pattern 40",
-    "category": "progress",
-    "tags": [
-      "cssloaders",
-      "progress",
-      "bar",
-      "loader"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": false,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "cssloaders-github-40 cssloaders pattern 40 progress cssloaders progress bar loader html css react singleelement cssonly customizable",
-    "previewHtml": "<span class=\"darma-loader-cssloaders-github-40\"></span>",
-    "previewCss": ".darma-loader-cssloaders-github-40 {\n  display: inline-block;\n  width: 80px;\n  height: 10px;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #f97316) 16%, transparent);\n  overflow: hidden;\n}\n.darma-loader-cssloaders-github-40::before {\n      content: \"\";\n      display: block;\n      width: 42%;\n      height: 100%;\n      border-radius: inherit;\n      background: linear-gradient(90deg, var(--loader-color, #f97316), var(--loader-secondary-color, #fed7aa));\n      animation: darma-loader-cssloaders-github-40-progressSlide 0.9s ease-in-out infinite;\n    }\n    @keyframes darma-loader-cssloaders-github-40-progressSlide { 0% { transform: translateX(-120%); } 100% { transform: translateX(260%); } }\n",
-    "defaults": {
-      "color": "#f97316",
-      "secondaryColor": "#fed7aa",
-      "size": 50,
-      "speed": 0.85
     }
   },
   {
@@ -2008,42 +2383,6 @@
     }
   },
   {
-    "id": "darma-custom-066",
-    "name": "Isometric Belt Progress",
-    "category": "progress",
-    "tags": [
-      "isometric",
-      "belt",
-      "progress",
-      "loading",
-      "css-only",
-      "single-element",
-      "batch-03"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-066 isometric belt progress progress isometric belt progress loading css-only single-element batch-03 html css react popular singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-066\"></div>",
-    "previewCss": ".darma-loader-darma-custom-066 {\n  --s: 25px;\n  --g :5px;  \n  \n  width: calc(3*(1.353*var(--s) + var(--g)));\n  display: grid;\n  justify-items: end;\n  aspect-ratio: 3;\n  overflow: hidden;\n  --_m: linear-gradient(90deg,#0000,#000 15px calc(100% - 15px),#0000);\n  -webkit-mask: var(--_m);\n          mask: var(--_m);\n}\n.darma-loader-darma-custom-066:before { \n  content: \"\";\n  width: 200%;\n  background:\n    linear-gradient(90deg,var(--loader-color, #ff1818) 50%,#0000 0),\n    conic-gradient(from -90deg at var(--s) calc(0.353*var(--s)),\n      #fff 135deg,var(--loader-secondary-color, #666) 0 270deg,#aaa 0); \n  background-blend-mode: multiply;\n  --_m:\n    linear-gradient(to bottom right,\n       #0000 calc(0.25*var(--s)),#000 0 calc(100% - calc(0.25*var(--s)) - 1.414*var(--g)),#0000 0),\n    conic-gradient(from -90deg at right var(--g) bottom var(--g),#000 90deg,#0000 0);\n  -webkit-mask: var(--_m);\n          mask: var(--_m);\n  background-size:   calc(100%/3) 100%, calc(100%/6) 100%;\n  -webkit-mask-size: calc(100%/6) 100%;\n          mask-size: calc(100%/6) 100%;\n  -webkit-mask-composite: source-in;\n          mask-composite: intersect;\n  animation: darma-loader-darma-custom-066-l10 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-066-l10 {\n  to {transform:translate(calc(100%/3))}\n}\n",
-    "defaults": {
-      "color": "#ff1818",
-      "secondaryColor": "#666",
-      "size": 90,
-      "speed": 1,
-      "background": "#ffffff"
-    }
-  },
-  {
     "id": "darma-custom-064",
     "name": "Isometric Conveyor",
     "category": "progress",
@@ -2113,70 +2452,6 @@
       "size": 90,
       "speed": 1.5,
       "background": "#ffffff"
-    }
-  },
-  {
-    "id": "darma-custom-037",
-    "name": "Linear Fill Bar",
-    "category": "progress",
-    "tags": [
-      "linear",
-      "fill",
-      "progress",
-      "single-element",
-      "batch-02"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-037 linear fill bar progress linear fill progress single-element batch-02 html css react popular singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-037\"></div>",
-    "previewCss": ".darma-loader-darma-custom-037 {\n  width: 120px;\n  height: 20px;\n  background:\n    linear-gradient(#000 0 0) 0/0% no-repeat\n    #ddd;\n  animation: darma-loader-darma-custom-037-l1 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-037-l1 {\n  100% { background-size: 100%; }\n}\n",
-    "defaults": {
-      "color": "#000000",
-      "secondaryColor": "#dddddd",
-      "size": 120,
-      "speed": 2,
-      "background": "#ffffff"
-    }
-  },
-  {
-    "id": "linear-progress",
-    "name": "Linear Progress",
-    "category": "progress",
-    "tags": [
-      "progress",
-      "bar",
-      "upload",
-      "linear"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "cssOnly": true,
-      "customizable": true,
-      "singleElement": true
-    },
-    "searchText": "linear-progress linear progress progress progress bar upload linear html css react popular cssonly customizable singleelement",
-    "previewHtml": "<span class=\"darma-loader-linear-progress\"></span>",
-    "previewCss": ".darma-loader-linear-progress {\n  position: relative;\n  display: inline-block;\n  width: 132px;\n  height: 10px;\n  overflow: hidden;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #6366f1) 15%, transparent);\n}\n.darma-loader-linear-progress::before {\n  content: \"\";\n  position: absolute;\n  inset: 0 auto 0 0;\n  width: 48%;\n  border-radius: inherit;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-linear-progress-progress 1.25s ease-in-out infinite;\n}\n@keyframes darma-loader-linear-progress-progress {\n  0% { transform: translateX(-105%); }\n  55%, 100% { transform: translateX(210%); }\n}\n",
-    "defaults": {
-      "color": "#6366f1",
-      "size": 48,
-      "speed": 1
     }
   },
   {
@@ -2273,41 +2548,6 @@
       "secondaryColor": "#FF5254",
       "size": 60,
       "speed": 2,
-      "background": "#ffffff"
-    }
-  },
-  {
-    "id": "darma-custom-052",
-    "name": "Material Indeterminate Line",
-    "category": "progress",
-    "tags": [
-      "material",
-      "indeterminate",
-      "line",
-      "thin",
-      "progress",
-      "batch-02"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-052 material indeterminate line progress material indeterminate line thin progress batch-02 html css react popular singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-052\"></div>",
-    "previewCss": ".darma-loader-darma-custom-052 {\n  height: 4px;\n  width: 130px;\n  --c: no-repeat linear-gradient(var(--loader-color, #6100ee) 0 0);\n  background: var(--c), var(--c), var(--loader-secondary-color, #d7b8fc);\n  background-size: 60% 100%;\n  animation: darma-loader-darma-custom-052-l16 3s infinite;\n}\n@keyframes darma-loader-darma-custom-052-l16 {\n  0% { background-position: -150% 0, -150% 0; }\n  66% { background-position: 250% 0, -150% 0; }\n  100% { background-position: 250% 0, 250% 0; }\n}\n",
-    "defaults": {
-      "color": "#6100ee",
-      "secondaryColor": "#d7b8fc",
-      "size": 130,
-      "speed": 3,
       "background": "#ffffff"
     }
   },
@@ -2808,6 +3048,38 @@
     }
   },
   {
+    "id": "open-progress-blocks",
+    "name": "Open Progress Blocks",
+    "category": "progress",
+    "tags": [
+      "open-source",
+      "open-pack-2026",
+      "progress",
+      "blocks",
+      "step"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false
+    },
+    "searchText": "open-progress-blocks open progress blocks progress open-source open-pack-2026 progress blocks step html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-open-progress-blocks\"><i></i><i></i><i></i><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-open-progress-blocks{display:inline-flex;align-items:center;gap:5px;padding:4px}.darma-loader-open-progress-blocks i{width:10px;height:28px;border-radius:5px;background:color-mix(in srgb,var(--loader-color,#ea580c) 24%,transparent);animation:darma-loader-open-progress-blocks-fill var(--loader-speed,1.15s) linear infinite}.darma-loader-open-progress-blocks i:nth-child(2){animation-delay:.12s}.darma-loader-open-progress-blocks i:nth-child(3){animation-delay:.24s}.darma-loader-open-progress-blocks i:nth-child(4){animation-delay:.36s}.darma-loader-open-progress-blocks i:nth-child(5){animation-delay:.48s}.darma-loader-open-progress-blocks i:nth-child(6){animation-delay:.6s}@keyframes darma-loader-open-progress-blocks-fill{0%,100%{background:color-mix(in srgb,var(--loader-color,#ea580c) 24%,transparent);transform:scaleY(.68)}40%{background:var(--loader-color,#ea580c);transform:scaleY(1)}}",
+    "defaults": {
+      "color": "#ea580c",
+      "secondaryColor": "#fed7aa",
+      "size": 82,
+      "speed": 1.15,
+      "background": "#ffffff"
+    }
+  },
+  {
     "id": "uiverse-orange-shuttle-rail",
     "name": "Orange Shuttle Rail",
     "category": "progress",
@@ -2838,40 +3110,6 @@
       "speed": 1,
       "color": "#ffa500",
       "secondaryColor": "#ffffff"
-    }
-  },
-  {
-    "id": "darma-custom-042",
-    "name": "Outline Pill Fill",
-    "category": "progress",
-    "tags": [
-      "outline",
-      "pill",
-      "fill",
-      "progress",
-      "batch-02"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-042 outline pill fill progress outline pill fill progress batch-02 html css react popular singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-042\"></div>",
-    "previewCss": ".darma-loader-darma-custom-042 {\n  width: 120px;\n  height: 22px;\n  border-radius: 20px;\n  color: var(--loader-color, #514b82);\n  border: 2px solid;\n  position: relative;\n}\n.darma-loader-darma-custom-042::before {\n  content: \"\";\n  position: absolute;\n  margin: 2px;\n  inset: 0 100% 0 0;\n  border-radius: inherit;\n  background: currentColor;\n  animation: darma-loader-darma-custom-042-l6 2s infinite;\n}\n@keyframes darma-loader-darma-custom-042-l6 {\n  100% { inset: 0; }\n}\n",
-    "defaults": {
-      "color": "#514b82",
-      "secondaryColor": "#a5b4fc",
-      "size": 120,
-      "speed": 2,
-      "background": "#ffffff"
     }
   },
   {
@@ -4499,37 +4737,6 @@
     }
   },
   {
-    "id": "darma-research-prism-marquee-loader",
-    "name": "Prism Marquee Loader",
-    "category": "progress",
-    "tags": [
-      "progress",
-      "marquee",
-      "prism",
-      "text",
-      "creative"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "customizable": true,
-      "cssOnly": true
-    },
-    "searchText": "darma-research-prism-marquee-loader prism marquee loader progress progress marquee prism text creative html css react popular customizable cssonly",
-    "previewHtml": "<div class=\"darma-loader-darma-research-prism-marquee-loader\" aria-label=\"Loading progress\"><span class=\"darma-loader-darma-research-prism-marquee-loader__label\">LOADING</span><span class=\"darma-loader-darma-research-prism-marquee-loader__track\"><span class=\"darma-loader-darma-research-prism-marquee-loader__fill\"></span></span></div>",
-    "previewCss": ".darma-loader-darma-research-prism-marquee-loader { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #ec4899); --accent-2: var(--loader-secondary-color, #22d3ee); width: calc(var(--loader-size, 72px) * 2.7); min-width: 170px; display: grid; gap: 10px; font: 800 13px/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .35em; color: transparent; }\n.darma-loader-darma-research-prism-marquee-loader__label { background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent)); background-size: 240% 100%; -webkit-background-clip: text; background-clip: text; animation: darma-loader-darma-research-prism-marquee-loader-prism-text calc(var(--speed) * 2.4) linear infinite; }\n.darma-loader-darma-research-prism-marquee-loader__track { height: 14px; border-radius: 999px; overflow: hidden; background: #111827; box-shadow: inset 0 0 0 1px #ffffff1f; position: relative; }\n.darma-loader-darma-research-prism-marquee-loader__fill { position: absolute; inset: 2px auto 2px 2px; width: 42%; border-radius: inherit; background: repeating-linear-gradient(115deg, var(--accent) 0 12px, var(--accent-2) 12px 24px, #fff 24px 28px); box-shadow: 0 0 18px var(--accent); animation: darma-loader-darma-research-prism-marquee-loader-prism-fill calc(var(--speed) * 1.5) cubic-bezier(.7,0,.25,1) infinite; }\n@keyframes darma-loader-darma-research-prism-marquee-loader-prism-fill { 0% { translate: -105% 0; width: 38%; } 45% { width: 70%; } 100% { translate: 250% 0; width: 38%; } }\n@keyframes darma-loader-darma-research-prism-marquee-loader-prism-text { to { background-position: 240% 0; } }",
-    "defaults": {
-      "color": "#ec4899",
-      "secondaryColor": "#22d3ee",
-      "size": 72,
-      "speed": 1
-    }
-  },
-  {
     "id": "uiverse-redirect-meter-card",
     "name": "Redirect Meter Card",
     "category": "progress",
@@ -4660,76 +4867,6 @@
       "size": 160,
       "speed": 1,
       "background": "#111827"
-    }
-  },
-  {
-    "id": "darma-custom-022",
-    "name": "Rounded Dot Track",
-    "category": "progress",
-    "tags": [
-      "linear",
-      "rounded",
-      "dot",
-      "track",
-      "pill",
-      "batch-02"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-022 rounded dot track progress linear rounded dot track pill batch-02 html css react popular singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-022\"></div>",
-    "previewCss": ".darma-loader-darma-custom-022 {\n  width: 120px;\n  height: 20px;\n  border-radius: 20px;\n  background:\n    radial-gradient(farthest-side, var(--loader-color, #ffa500) 94%, #0000) left/20px 20px no-repeat\n    var(--loader-secondary-color, #add8e6);\n  animation: darma-loader-darma-custom-022-l2 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-022-l2 {\n  50% { background-position: right; }\n}\n",
-    "defaults": {
-      "color": "#ffa500",
-      "secondaryColor": "#add8e6",
-      "size": 120,
-      "speed": 1,
-      "background": "#ffffff"
-    }
-  },
-  {
-    "id": "darma-custom-038",
-    "name": "Rounded Step Fill",
-    "category": "progress",
-    "tags": [
-      "rounded",
-      "steps",
-      "fill",
-      "progress",
-      "pill",
-      "batch-02"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-038 rounded step fill progress rounded steps fill progress pill batch-02 html css react popular singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-038\"></div>",
-    "previewCss": ".darma-loader-darma-custom-038 {\n  width: 120px;\n  height: 20px;\n  border-radius: 20px;\n  background:\n    linear-gradient(var(--loader-color, #ffa500) 0 0) 0/0% no-repeat\n    var(--loader-secondary-color, #add8e6);\n  animation: darma-loader-darma-custom-038-l2 2s infinite steps(10);\n}\n@keyframes darma-loader-darma-custom-038-l2 {\n  100% { background-size: 110%; }\n}\n",
-    "defaults": {
-      "color": "#ffa500",
-      "secondaryColor": "#add8e6",
-      "size": 120,
-      "speed": 2,
-      "background": "#ffffff"
     }
   },
   {
@@ -5459,41 +5596,6 @@
     }
   },
   {
-    "id": "darma-custom-021",
-    "name": "Sliding Block Track",
-    "category": "progress",
-    "tags": [
-      "linear",
-      "track",
-      "sliding",
-      "block",
-      "single-element",
-      "batch-02"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-021 sliding block track progress linear track sliding block single-element batch-02 html css react popular singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-021\"></div>",
-    "previewCss": ".darma-loader-darma-custom-021 {\n  width: 120px;\n  height: 20px;\n  background:\n    linear-gradient(#000 0 0) left/20px 20px no-repeat\n    #ddd;\n  animation: darma-loader-darma-custom-021-l1 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-021-l1 {\n  50% { background-position: right; }\n}\n",
-    "defaults": {
-      "color": "#000000",
-      "secondaryColor": "#dddddd",
-      "size": 120,
-      "speed": 1,
-      "background": "#ffffff"
-    }
-  },
-  {
     "id": "uiverse-soft-progress-breath",
     "name": "Soft Progress Breath",
     "category": "progress",
@@ -5593,41 +5695,6 @@
       "color": "#6366f1",
       "size": 48,
       "speed": 1
-    }
-  },
-  {
-    "id": "darma-custom-039",
-    "name": "Striped Candy Fill",
-    "category": "progress",
-    "tags": [
-      "striped",
-      "candy",
-      "fill",
-      "rounded",
-      "progress",
-      "batch-02"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-039 striped candy fill progress striped candy fill rounded progress batch-02 html css react popular singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-039\"></div>",
-    "previewCss": ".darma-loader-darma-custom-039 {\n  width: 120px;\n  height: 20px;\n  border-radius: 20px;\n  background:\n    repeating-linear-gradient(135deg, var(--loader-color, #f03355) 0 10px, var(--loader-secondary-color, #ffa516) 0 20px) 0/0% no-repeat,\n    repeating-linear-gradient(135deg, #ddd 0 10px, #eee 0 20px) 0/100%;\n  animation: darma-loader-darma-custom-039-l3 2s infinite;\n}\n@keyframes darma-loader-darma-custom-039-l3 {\n  100% { background-size: 100%; }\n}\n",
-    "defaults": {
-      "color": "#f03355",
-      "secondaryColor": "#ffa516",
-      "size": 120,
-      "speed": 2,
-      "background": "#ffffff"
     }
   },
   {
@@ -6474,41 +6541,6 @@
       "secondaryColor": "#fde047",
       "size": 84,
       "speed": 1,
-      "background": "#ffffff"
-    }
-  },
-  {
-    "id": "darma-custom-045",
-    "name": "Wavy Circle Fill",
-    "category": "progress",
-    "tags": [
-      "circle",
-      "wave",
-      "fill",
-      "radial",
-      "single-element",
-      "batch-02"
-    ],
-    "formats": [
-      "html",
-      "css",
-      "react"
-    ],
-    "flags": {
-      "popular": true,
-      "singleElement": true,
-      "cssOnly": true,
-      "tailwind": false,
-      "customizable": true
-    },
-    "searchText": "darma-custom-045 wavy circle fill progress circle wave fill radial single-element batch-02 html css react popular singleelement cssonly customizable",
-    "previewHtml": "<div class=\"darma-loader-darma-custom-045\"></div>",
-    "previewCss": ".darma-loader-darma-custom-045 {\n  --r1: 154%;\n  --r2: 68.5%;\n  width: 60px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background:\n    radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, var(--loader-color, #269af2) 80%),\n    radial-gradient(var(--r1) var(--r2) at bottom, var(--loader-color, #269af2) 79.5%, #0000 80%),\n    radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, var(--loader-color, #269af2) 80%),\n    #ccc;\n  background-size: 50.5% 220%;\n  background-position: -100% 0%, 0% 0%, 100% 0%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-045-l9 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-045-l9 {\n  33% { background-position: 0% 33%, 100% 33%, 200% 33%; }\n  66% { background-position: -100% 66%, 0% 66%, 100% 66%; }\n  100% { background-position: 0% 100%, 100% 100%, 200% 100%; }\n}\n",
-    "defaults": {
-      "color": "#269af2",
-      "secondaryColor": "#cccccc",
-      "size": 60,
-      "speed": 2,
       "background": "#ffffff"
     }
   },

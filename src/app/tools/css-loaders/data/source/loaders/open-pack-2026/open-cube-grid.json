@@ -1,0 +1,40 @@
+{
+  "id": "open-cube-grid",
+  "name": "Open Cube Grid",
+  "category": "creative",
+  "tags": [
+    "open-source",
+    "open-pack-2026",
+    "cube",
+    "grid",
+    "spinkit"
+  ],
+  "html": "<span class=\"darma-loader-open-cube-grid\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>",
+  "css": ".darma-loader-open-cube-grid{display:inline-grid;grid-template-columns:repeat(3,16px);grid-template-rows:repeat(3,16px);gap:4px}.darma-loader-open-cube-grid i{display:block;width:16px;height:16px;border-radius:4px;background:var(--loader-color,#16a34a);animation:darma-loader-open-cube-grid-pulse var(--loader-speed,1.3s) ease-in-out infinite}.darma-loader-open-cube-grid i:nth-child(2),.darma-loader-open-cube-grid i:nth-child(4){animation-delay:.1s}.darma-loader-open-cube-grid i:nth-child(3),.darma-loader-open-cube-grid i:nth-child(5),.darma-loader-open-cube-grid i:nth-child(7){animation-delay:.2s;background:var(--loader-secondary-color,#86efac)}.darma-loader-open-cube-grid i:nth-child(6),.darma-loader-open-cube-grid i:nth-child(8){animation-delay:.3s}.darma-loader-open-cube-grid i:nth-child(9){animation-delay:.4s}@keyframes darma-loader-open-cube-grid-pulse{0%,70%,100%{transform:scale(.72);opacity:.42}35%{transform:scale(1);opacity:1}}",
+  "source": {
+    "name": "SpinKit inspired pattern",
+    "author": "Tobias Ahlin / open-source CSS loader community",
+    "license": "MIT-inspired pattern, normalized by Darma",
+    "url": "https://github.com/tobiasahlin/SpinKit"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#16a34a",
+    "secondaryColor": "#86efac",
+    "size": 56,
+    "speed": 1.3,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "popular": true,
+    "singleElement": false
+  }
+}

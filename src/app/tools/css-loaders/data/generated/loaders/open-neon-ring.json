@@ -1,0 +1,50 @@
+{
+  "id": "open-neon-ring",
+  "name": "Open Neon Ring",
+  "category": "spinners",
+  "tags": [
+    "open-source",
+    "open-pack-2026",
+    "neon",
+    "ring",
+    "glow"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": true
+  },
+  "searchText": "open-neon-ring open neon ring spinners open-source open-pack-2026 neon ring glow html css react cssonly customizable singleelement",
+  "previewHtml": "<span class=\"darma-loader-open-neon-ring\"></span>",
+  "previewCss": ".darma-loader-open-neon-ring{position:relative;display:inline-block;width:68px;height:68px;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 18%,var(--loader-color,#22d3ee) 34%,var(--loader-secondary-color,#a855f7) 54%,transparent 72% 100%);animation:darma-loader-open-neon-ring-spin var(--loader-speed,1.05s) linear infinite;box-shadow:0 0 24px color-mix(in srgb,var(--loader-color,#22d3ee) 42%,transparent)}.darma-loader-open-neon-ring:after{content:\"\";position:absolute;inset:8px;border-radius:inherit;background:var(--loader-bg,#020617)}@keyframes darma-loader-open-neon-ring-spin{to{transform:rotate(360deg)}}",
+  "defaults": {
+    "color": "#22d3ee",
+    "secondaryColor": "#a855f7",
+    "size": 68,
+    "speed": 1.05,
+    "background": "#020617"
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-open-neon-ring\"></span>",
+    "css": ".darma-loader-open-neon-ring{position:relative;display:inline-block;width:68px;height:68px;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 18%,var(--loader-color,#22d3ee) 34%,var(--loader-secondary-color,#a855f7) 54%,transparent 72% 100%);animation:darma-loader-open-neon-ring-spin var(--loader-speed,1.05s) linear infinite;box-shadow:0 0 24px color-mix(in srgb,var(--loader-color,#22d3ee) 42%,transparent)}.darma-loader-open-neon-ring:after{content:\"\";position:absolute;inset:8px;border-radius:inherit;background:var(--loader-bg,#020617)}@keyframes darma-loader-open-neon-ring-spin{to{transform:rotate(360deg)}}",
+    "react": "export default function OpenNeonRingLoader() {\n  return (\n    <span className=\"darma-loader-open-neon-ring\"></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": true
+  },
+  "source": {
+    "name": "loading.io CSS loader pattern",
+    "author": "loading.io",
+    "license": "CC0/free CSS pattern, normalized by Darma",
+    "url": "https://loading.io/css/"
+  }
+}

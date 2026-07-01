@@ -450,6 +450,35 @@ const GAME_DEFINITIONS: GameDefinition[] = [
   },
 
   {
+    id: "endless-runner",
+    slug: "endless-runner",
+    title: "Endless Runner",
+    description: "A polished canvas runner with the original parallax backgrounds, an animated sprite character, fair speed-aware obstacles, and mobile controls.",
+    longDescription:
+      "Endless Runner keeps the original project’s two parallax background images, then upgrades the demo into a Darma-ready canvas arcade game. The player is a real animated sprite (idle, run, jump, fall, slide, hurt), obstacles are pooled and fairly spaced based on current speed and reaction time, and the game stays responsive for long sessions. Rocks, spikes, crates, and logs require a jump; a flying bird and a hanging branch require a slide. Includes lives with a brief shield after each hit, score, local best score, start/pause/restart, responsive sizing, keyboard controls, and tap-to-jump mobile play.",
+    href: "/games/endless-runner",
+    categories: ["arcade", "quick-break", "mobile-friendly", "casual"],
+    tags: ["runner", "endless", "canvas", "jump", "parallax", "obstacles", "mobile", "score"],
+    thumbnail: "🏃",
+    thumbnailType: "gradient",
+    accent: "orange",
+    featured: true,
+    popular: true,
+    isNew: true,
+    difficulty: "medium",
+    playTime: "5 min",
+    input: ["keyboard", "touch", "mouse"],
+    devices: ["desktop", "tablet", "mobile"],
+    controls:
+      "Press Space, Arrow Up, W, or tap the canvas to jump. Press Arrow Down or S, or the Slide button, to slide under head-height obstacles. Use P or Esc to pause. On mobile, tap the canvas or the Jump/Slide buttons to play.",
+    privacyNote: PRIVACY_NOTE,
+    seoTitle: "Play Endless Runner Online Free | Darma Games",
+    seoDescription:
+      "Play Endless Runner free in your browser. Jump over obstacles, slide under birds and branches, collect coins, enjoy parallax canvas backgrounds, mobile controls, and local best score. No signup required.",
+    createdAt: "2026-07-01",
+  },
+
+  {
     id: "typing-speed",
     slug: "typing-speed",
     title: "Typing Speed Pro",

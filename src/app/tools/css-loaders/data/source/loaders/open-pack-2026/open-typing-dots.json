@@ -1,0 +1,39 @@
+{
+  "id": "open-typing-dots",
+  "name": "Open Typing Dots",
+  "category": "dots",
+  "tags": [
+    "open-source",
+    "open-pack-2026",
+    "typing",
+    "dots",
+    "chat"
+  ],
+  "html": "<span class=\"darma-loader-open-typing-dots\"><i></i><i></i><i></i></span>",
+  "css": ".darma-loader-open-typing-dots{display:inline-flex;align-items:center;gap:6px;min-width:70px;padding:13px 16px;border-radius:999px;background:color-mix(in srgb,var(--loader-color,#4f46e5) 12%,transparent)}.darma-loader-open-typing-dots i{width:9px;height:9px;border-radius:50%;background:var(--loader-color,#4f46e5);animation:darma-loader-open-typing-dots-pop var(--loader-speed,1.1s) ease-in-out infinite}.darma-loader-open-typing-dots i:nth-child(2){animation-delay:.16s}.darma-loader-open-typing-dots i:nth-child(3){animation-delay:.32s}@keyframes darma-loader-open-typing-dots-pop{0%,80%,100%{transform:translateY(0) scale(.7);opacity:.45}40%{transform:translateY(-4px) scale(1);opacity:1}}",
+  "source": {
+    "name": "Loaders.css inspired pattern",
+    "author": "Connor Atherton / open-source CSS loader community",
+    "license": "MIT-inspired pattern, normalized by Darma",
+    "url": "https://github.com/ConnorAtherton/loaders.css"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#4f46e5",
+    "secondaryColor": "#c7d2fe",
+    "size": 68,
+    "speed": 1.1,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": false
+  }
+}

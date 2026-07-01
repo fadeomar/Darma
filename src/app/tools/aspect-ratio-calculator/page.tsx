@@ -29,18 +29,17 @@ export default function AspectRatioCalculatorPage() {
       maxWidth="wide"
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Solve a missing width or height from an aspect ratio, and reduce any pixel size to its
-          simplest ratio — for video, images, and social posts, all in your browser.
+          A creator-focused aspect ratio studio for social posts, videos, web banners, and responsive design: solve dimensions, preview crops, fit within bounds, generate CSS, and copy production-ready sizes.
         </p>
       }
       article={
-        <ToolContentCard title="About aspect ratios">
+        <ToolContentCard title="About the aspect ratio studio">
           <Article />
         </ToolContentCard>
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Calculate an aspect ratio" description="Pick a ratio, enter one dimension, and the other is solved — plus the simplified ratio of any pixel size, calculated in your browser.">
+      <ToolContentCard title="Aspect ratio studio" description="Pick a professional preset, solve dimensions, preview shape, calculate crop/fit sizes, and copy CSS — all locally in your browser.">
         <AspectRatioCalculatorClient />
       </ToolContentCard>
     </ToolPage>

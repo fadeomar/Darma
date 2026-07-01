@@ -1,0 +1,1 @@
+export { PacmanCanvasGame } from "./PacmanCanvasGame";

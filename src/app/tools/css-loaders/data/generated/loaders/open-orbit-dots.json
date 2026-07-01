@@ -1,0 +1,51 @@
+{
+  "id": "open-orbit-dots",
+  "name": "Open Orbit Dots",
+  "category": "dots",
+  "tags": [
+    "open-source",
+    "open-pack-2026",
+    "orbit",
+    "dots",
+    "playful"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "popular": true,
+    "singleElement": false
+  },
+  "searchText": "open-orbit-dots open orbit dots dots open-source open-pack-2026 orbit dots playful html css react cssonly customizable popular",
+  "previewHtml": "<span class=\"darma-loader-open-orbit-dots\"><i></i><i></i><i></i></span>",
+  "previewCss": ".darma-loader-open-orbit-dots{position:relative;display:inline-block;width:64px;height:64px;animation:darma-loader-open-orbit-dots-spin var(--loader-speed,1.1s) linear infinite}.darma-loader-open-orbit-dots i{position:absolute;left:50%;top:50%;width:12px;height:12px;margin:-6px;border-radius:50%;background:var(--loader-color,#6366f1);box-shadow:0 0 18px color-mix(in srgb,var(--loader-color,#6366f1) 55%,transparent)}.darma-loader-open-orbit-dots i:nth-child(1){transform:rotate(0deg) translateX(25px)}.darma-loader-open-orbit-dots i:nth-child(2){transform:rotate(120deg) translateX(25px);background:var(--loader-secondary-color,#22c55e)}.darma-loader-open-orbit-dots i:nth-child(3){transform:rotate(240deg) translateX(25px);opacity:.72}@keyframes darma-loader-open-orbit-dots-spin{to{transform:rotate(360deg)}}",
+  "defaults": {
+    "color": "#6366f1",
+    "secondaryColor": "#22c55e",
+    "size": 64,
+    "speed": 1.1,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-open-orbit-dots\"><i></i><i></i><i></i></span>",
+    "css": ".darma-loader-open-orbit-dots{position:relative;display:inline-block;width:64px;height:64px;animation:darma-loader-open-orbit-dots-spin var(--loader-speed,1.1s) linear infinite}.darma-loader-open-orbit-dots i{position:absolute;left:50%;top:50%;width:12px;height:12px;margin:-6px;border-radius:50%;background:var(--loader-color,#6366f1);box-shadow:0 0 18px color-mix(in srgb,var(--loader-color,#6366f1) 55%,transparent)}.darma-loader-open-orbit-dots i:nth-child(1){transform:rotate(0deg) translateX(25px)}.darma-loader-open-orbit-dots i:nth-child(2){transform:rotate(120deg) translateX(25px);background:var(--loader-secondary-color,#22c55e)}.darma-loader-open-orbit-dots i:nth-child(3){transform:rotate(240deg) translateX(25px);opacity:.72}@keyframes darma-loader-open-orbit-dots-spin{to{transform:rotate(360deg)}}",
+    "react": "export default function OpenOrbitDotsLoader() {\n  return (\n    <span className=\"darma-loader-open-orbit-dots\"><i></i><i></i><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "source": {
+    "name": "loading.io CSS loader pattern",
+    "author": "loading.io",
+    "license": "CC0/free CSS pattern, normalized by Darma",
+    "url": "https://loading.io/css/"
+  }
+}

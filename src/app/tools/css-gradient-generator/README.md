@@ -1,24 +1,20 @@
-# CSS Gradient Generator
+# CSS HDR Gradient Studio
 
-Design linear and radial CSS gradients visually — adjust angle, color stops, and positions — then copy clean CSS background code.
-
-## Privacy
-
-`local-only` — all gradient generation runs in the browser. No data is sent anywhere.
+A Darma port inspired by the original `gradient.style` project. It creates modern CSS gradients with editable layers and copy-ready output.
 
 ## Features
 
-- Linear and radial gradient types
-- Adjustable angle / shape
-- Multiple color stops with position control
-- Presets and random gradient generation
-- Reverse stops
-- Copy as `background` value or full CSS class
+- Linear, radial, and conic gradients
+- OKLab, OKLCH, LCH, HSL, HWB, Display-P3, Rec. 2020, and other color spaces
+- Hue interpolation for cylindrical spaces
+- Editable color stops with position 1 and position 2
+- Transition hints between stops
+- Multiple visible/hidden layers with reorder, duplicate, and delete actions
+- Original-style presets imported into editable state
+- CSS import for linear/radial/conic gradients
+- Modern HDR CSS and classic SDR fallback output
+- Tailwind arbitrary background export
 
-## Files
+## Privacy
 
-| File | Role |
-|---|---|
-| `page.tsx` | Server component — `generateMetadata`, `ToolPage` |
-| `CssGradientGeneratorClient.tsx` | `"use client"` — gradient controls, live preview, copy output |
-| `Article.tsx` | Educational content about CSS gradients |
+`client-only` — generation, import, and preview run in the browser.

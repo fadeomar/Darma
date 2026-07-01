@@ -1,0 +1,39 @@
+{
+  "id": "open-rotating-diamonds",
+  "name": "Open Rotating Diamonds",
+  "category": "creative",
+  "tags": [
+    "open-source",
+    "open-pack-2026",
+    "diamonds",
+    "rotate",
+    "orbit"
+  ],
+  "html": "<span class=\"darma-loader-open-rotating-diamonds\"><i></i><i></i><i></i><i></i></span>",
+  "css": ".darma-loader-open-rotating-diamonds{position:relative;display:inline-block;width:66px;height:66px;animation:darma-loader-open-rotating-diamonds-spin var(--loader-speed,1.35s) linear infinite}.darma-loader-open-rotating-diamonds i{position:absolute;width:16px;height:16px;background:var(--loader-color,#f59e0b);transform:rotate(45deg);border-radius:4px}.darma-loader-open-rotating-diamonds i:nth-child(1){left:25px;top:0}.darma-loader-open-rotating-diamonds i:nth-child(2){right:0;top:25px;background:var(--loader-secondary-color,#fde68a)}.darma-loader-open-rotating-diamonds i:nth-child(3){left:25px;bottom:0}.darma-loader-open-rotating-diamonds i:nth-child(4){left:0;top:25px;background:var(--loader-secondary-color,#fde68a)}@keyframes darma-loader-open-rotating-diamonds-spin{to{transform:rotate(360deg)}}",
+  "source": {
+    "name": "Epic Spinners inspired pattern",
+    "author": "Epicmax / open-source CSS loader community",
+    "license": "MIT-inspired pattern, normalized by Darma",
+    "url": "https://github.com/epicmaxco/epic-spinners"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#f59e0b",
+    "secondaryColor": "#fde68a",
+    "size": 66,
+    "speed": 1.35,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": false
+  }
+}

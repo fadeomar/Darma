@@ -1,0 +1,50 @@
+{
+  "id": "open-infinity-loop",
+  "name": "Open Infinity Loop",
+  "category": "spinners",
+  "tags": [
+    "open-source",
+    "open-pack-2026",
+    "infinity",
+    "loop",
+    "spinner"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": true
+  },
+  "searchText": "open-infinity-loop open infinity loop spinners open-source open-pack-2026 infinity loop spinner html css react cssonly customizable singleelement",
+  "previewHtml": "<span class=\"darma-loader-open-infinity-loop\"></span>",
+  "previewCss": ".darma-loader-open-infinity-loop{position:relative;display:inline-block;width:76px;height:38px}.darma-loader-open-infinity-loop:before,.darma-loader-open-infinity-loop:after{content:\"\";position:absolute;width:34px;height:34px;border:5px solid transparent;border-top-color:var(--loader-color,#9333ea);border-left-color:var(--loader-secondary-color,#ec4899);border-radius:50%;animation:darma-loader-open-infinity-loop-roll var(--loader-speed,1.15s) linear infinite}.darma-loader-open-infinity-loop:before{left:3px;transform-origin:36px 19px}.darma-loader-open-infinity-loop:after{right:3px;transform-origin:-2px 19px;animation-direction:reverse}@keyframes darma-loader-open-infinity-loop-roll{to{transform:rotate(360deg)}}",
+  "defaults": {
+    "color": "#9333ea",
+    "secondaryColor": "#ec4899",
+    "size": 74,
+    "speed": 1.15,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-open-infinity-loop\"></span>",
+    "css": ".darma-loader-open-infinity-loop{position:relative;display:inline-block;width:76px;height:38px}.darma-loader-open-infinity-loop:before,.darma-loader-open-infinity-loop:after{content:\"\";position:absolute;width:34px;height:34px;border:5px solid transparent;border-top-color:var(--loader-color,#9333ea);border-left-color:var(--loader-secondary-color,#ec4899);border-radius:50%;animation:darma-loader-open-infinity-loop-roll var(--loader-speed,1.15s) linear infinite}.darma-loader-open-infinity-loop:before{left:3px;transform-origin:36px 19px}.darma-loader-open-infinity-loop:after{right:3px;transform-origin:-2px 19px;animation-direction:reverse}@keyframes darma-loader-open-infinity-loop-roll{to{transform:rotate(360deg)}}",
+    "react": "export default function OpenInfinityLoopLoader() {\n  return (\n    <span className=\"darma-loader-open-infinity-loop\"></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "source": {
+    "name": "Epic Spinners inspired pattern",
+    "author": "Epicmax / open-source CSS loader community",
+    "license": "MIT-inspired pattern, normalized by Darma",
+    "url": "https://github.com/epicmaxco/epic-spinners"
+  }
+}

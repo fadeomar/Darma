@@ -8250,3 +8250,124 @@ html.rtp-gameplay-active body {
 .static-game-embed:fullscreen iframe {
   background: #000;
 }
+
+@keyframes connectFourPop {
+  0% {
+    transform: translateY(-12px) scale(0.72);
+    opacity: 0.45;
+  }
+  70% {
+    transform: translateY(2px) scale(1.04);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* ========================================================================== */
+/* Snake Pro — `dsnk-` namespace (canvas arena sizing + fullscreen)           */
+/* ========================================================================== */
+.dsnk-shell {
+  position: relative;
+}
+
+.dsnk-arena-wrap {
+  touch-action: none;
+}
+
+.dsnk-arena {
+  position: relative;
+  width: 100%;
+  max-width: min(66dvh, 560px);
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+.dsnk-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+}
+
+/* Focus mode: CSS-overlay fallback for browsers that reject requestFullscreen. */
+/* Fullscreen / focus mode: make the WHOLE shell a flex column that fills the
+   viewport (header on top, play area centered below) so the board is centered
+   instead of stuck bottom-left, with no page scroll. Both the CSS-overlay
+   fallback (.dsnk-shell--focus) and native :fullscreen share the same rules. */
+.dsnk-shell--focus {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  height: 100dvh;
+  border-radius: 0;
+}
+
+.dsnk-shell--focus,
+.dsnk-shell:fullscreen {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--color-surface-base);
+}
+
+.dsnk-shell:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+}
+
+/* Header keeps its natural height; the play area takes the rest. */
+.dsnk-shell--focus > div:first-child,
+.dsnk-shell:fullscreen > div:first-child {
+  flex: 0 0 auto;
+}
+
+.dsnk-shell--focus .dsnk-layout,
+.dsnk-shell:fullscreen .dsnk-layout {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+}
+
+/* Controls sidebar becomes a fixed-width companion beside the centered board. */
+.dsnk-shell--focus .dsnk-layout > aside,
+.dsnk-shell:fullscreen .dsnk-layout > aside {
+  width: min(320px, 90vw);
+}
+
+/* Size the arena by available height so board + stats + header always fit. */
+.dsnk-shell--focus .dsnk-arena,
+.dsnk-shell:fullscreen .dsnk-arena {
+  max-width: min(72dvh, 820px);
+}
+
+@media (max-width: 640px) {
+  .dsnk-arena {
+    max-width: min(92vw, 88dvh);
+  }
+
+  /* On phones the board + controls can exceed the height, so allow internal
+     scroll (still no full-page scroll) and stack from the top. */
+  .dsnk-shell--focus .dsnk-layout,
+  .dsnk-shell:fullscreen .dsnk-layout {
+    align-content: flex-start;
+    overflow-y: auto;
+  }
+
+  .dsnk-shell--focus .dsnk-arena,
+  .dsnk-shell:fullscreen .dsnk-arena {
+    max-width: min(92vw, 62dvh);
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "open-pulse-bars",
+  "name": "Open Pulse Bars",
+  "category": "bars",
+  "tags": [
+    "open-source",
+    "open-pack-2026",
+    "bars",
+    "pulse",
+    "audio"
+  ],
+  "html": "<span class=\"darma-loader-open-pulse-bars\"><i></i><i></i><i></i><i></i><i></i></span>",
+  "css": ".darma-loader-open-pulse-bars{display:inline-flex;align-items:center;justify-content:center;gap:6px;height:56px}.darma-loader-open-pulse-bars i{width:7px;height:44px;border-radius:999px;background:linear-gradient(180deg,var(--loader-secondary-color,#a78bfa),var(--loader-color,#7c3aed));animation:darma-loader-open-pulse-bars-rise var(--loader-speed,1.05s) ease-in-out infinite}.darma-loader-open-pulse-bars i:nth-child(2){animation-delay:.1s}.darma-loader-open-pulse-bars i:nth-child(3){animation-delay:.2s}.darma-loader-open-pulse-bars i:nth-child(4){animation-delay:.3s}.darma-loader-open-pulse-bars i:nth-child(5){animation-delay:.4s}@keyframes darma-loader-open-pulse-bars-rise{0%,100%{transform:scaleY(.35);opacity:.45}50%{transform:scaleY(1);opacity:1}}",
+  "source": {
+    "name": "Loaders.css inspired pattern",
+    "author": "Connor Atherton / open-source CSS loader community",
+    "license": "MIT-inspired pattern, normalized by Darma",
+    "url": "https://github.com/ConnorAtherton/loaders.css"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#7c3aed",
+    "secondaryColor": "#a78bfa",
+    "size": 56,
+    "speed": 1.05,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": false
+  }
+}

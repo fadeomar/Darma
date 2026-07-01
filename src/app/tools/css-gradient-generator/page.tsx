@@ -1,99 +1,40 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
-import { getToolRegistry } from "@/features/tools";
-import ToolPageShell from "@/features/tools/ui/ToolPageShell";
-import ToolContentCard from "@/features/tools/ui/ToolContentCard";
-import SurfaceCard from "@/components/ui/SurfaceCard";
 
 export const metadata: Metadata = {
-  title: "Free CSS Gradient Generator - Create Linear and Radial Gradients",
+  title: "Free CSS HDR Gradient Studio - OKLCH, OKLab, Layers and Fallback CSS",
   description:
-    "Create CSS linear and radial gradients, adjust color stops, preview the result, and copy clean CSS background code in your browser.",
+    "Create modern CSS linear, radial, and conic gradients with OKLCH/OKLab color mixing, transition hints, editable layers, import, and classic fallback CSS.",
   keywords: [
     "css gradient generator",
+    "oklch gradient generator",
+    "oklab gradient generator",
+    "css hdr gradient",
     "linear gradient generator",
     "radial gradient generator",
-    "css background generator",
-    "gradient css",
+    "conic gradient generator",
+    "css color 4",
+    "css color 5",
+    "gradient layers",
     "color stops",
-    "frontend tool",
-    "design tool",
   ],
   openGraph: {
-    title: "Free CSS Gradient Generator — Linear and Radial Gradients",
-    description:
-      "Design gradients visually, tune color stops and angles, then copy clean CSS instantly in your browser.",
+    title: "Free CSS HDR Gradient Studio — OKLCH, OKLab and Layers",
+    description: "Design modern CSS gradients visually, stack layers, tune color stops and hints, then copy modern and fallback CSS.",
   },
 };
 
 const CssGradientGeneratorClient = dynamic(() => import("./CssGradientGeneratorClient"), {
-  loading: () => <div className="h-[640px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
+  loading: () => <div className="min-h-[calc(100dvh-74px)] animate-pulse bg-[var(--color-surface-subtle)]" />,
 });
 
 const Article = dynamic(() => import("./Article"));
 
 export default function CssGradientGeneratorPage() {
-  const tool = getToolRegistry().getById("css-gradient-generator");
-  if (!tool) return null;
-
   return (
-    <ToolPageShell
-      tool={tool}
-      intro={
-        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Create CSS linear and radial gradients, adjust color stops, preview the
-          result live, and copy clean CSS background code. Everything runs
-          locally in your browser.
-        </p>
-      }
-      sidebar={
-        <div className="flex flex-col gap-5">
-          <SurfaceCard>
-            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-              What you can do
-            </h2>
-            <ul className="mt-3 space-y-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-              <li>Create linear and radial CSS gradients.</li>
-              <li>Adjust angle, shape, colors, and stop positions.</li>
-              <li>Use presets, random gradients, and reverse stops.</li>
-              <li>Copy CSS background code or a full CSS class.</li>
-            </ul>
-          </SurfaceCard>
-
-          <SurfaceCard>
-            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-              Good for
-            </h2>
-            <ul className="mt-3 space-y-1.5 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
-              <li>Hero backgrounds</li>
-              <li>Cards and banners</li>
-              <li>Buttons and UI surfaces</li>
-              <li>Frontend prototypes</li>
-            </ul>
-          </SurfaceCard>
-
-          <SurfaceCard>
-            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-              Privacy
-            </h2>
-            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
-              The gradient is generated in your browser. No colors or CSS are
-              sent to a server.
-            </p>
-          </SurfaceCard>
-        </div>
-      }
-    >
-      <ToolContentCard
-        title="CSS Gradient Generator"
-        description="Design a gradient visually and copy the generated CSS instantly."
-      >
-        <CssGradientGeneratorClient />
-      </ToolContentCard>
-
-      <ToolContentCard title="About this tool">
-        <Article />
-      </ToolContentCard>
-    </ToolPageShell>
+    <>
+      <CssGradientGeneratorClient />
+      <Article />
+    </>
   );
 }

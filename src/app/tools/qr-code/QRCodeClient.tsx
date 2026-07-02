@@ -106,6 +106,7 @@ export default function QRCodeClient() {
   const validationMessages = useMemo(() => validateQRForm(form), [form]);
   const activeType = qrTypes.find((type) => type.value === form.type) ?? qrTypes[0];
   const canGenerate = validationMessages.length === 0 && payload.trim().length > 0;
+  const isDirectPayloadType = form.type === "url" || form.type === "text";
 
   const patchForm = (patch: Partial<QRFormState>) => setForm((current) => ({ ...current, ...patch }));
   const patchOptions = (patch: Partial<QROptions>) => setOptions((current) => ({ ...current, ...patch }));
@@ -186,13 +187,24 @@ export default function QRCodeClient() {
                   <Badge variant="outline">{activeType.label}</Badge>
                   <Badge variant="outline">{payload.length}/1800 chars</Badge>
                 </div>
-                <Textarea
-                  value={payload}
-                  readOnly
-                  minRows={7}
-                  variant="output"
-                  placeholder="QR payload will appear here."
-                />
+                {isDirectPayloadType ? (
+                  <Textarea
+                    value={form.type === "url" ? form.url : form.text}
+                    onChange={(event) =>
+                      patchForm(form.type === "url" ? { url: event.target.value } : { text: event.target.value })
+                    }
+                    minRows={7}
+                    placeholder={form.type === "url" ? "Paste or type the URL to encode, e.g. https://example.com" : "Paste or type the note, code, or message to encode."}
+                  />
+                ) : (
+                  <Textarea
+                    value={payload}
+                    readOnly
+                    minRows={7}
+                    variant="output"
+                    placeholder="QR payload will appear here."
+                  />
+                )}
               </div>
               <div className="flex justify-center">
                 {pngUrl ? (

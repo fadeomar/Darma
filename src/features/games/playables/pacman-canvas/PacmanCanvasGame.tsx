@@ -1,8 +1,25 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type PointerEvent as ReactPointerEvent,
+} from "react";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, Maximize2, Minimize2, Pause, Play, RotateCcw, Volume2, VolumeX } from "lucide-react";
+import NextImage from "next/image";
+import {
+  ArrowLeft,
+  Maximize2,
+  Minimize2,
+  Pause,
+  Play,
+  RotateCcw,
+  Volume2,
+  VolumeX,
+} from "lucide-react";
 import { Badge, Button } from "@/components/ui";
 import { cn } from "@/lib/cn";
 import type { GameDefinition } from "../../domain/game";
@@ -12,7 +29,13 @@ type DirectionName = "left" | "right" | "up" | "down" | "none";
 type Tile = "#" | "." | "o" | "-" | "G" | " ";
 type GhostId = "blinky" | "pinky" | "inky" | "clyde";
 
-type Direction = { name: DirectionName; x: number; y: number; angle1: number; angle2: number };
+type Direction = {
+  name: DirectionName;
+  x: number;
+  y: number;
+  angle1: number;
+  angle2: number;
+};
 type Actor = {
   x: number;
   y: number;
@@ -104,7 +127,10 @@ const OPPOSITE: Record<DirectionName, DirectionName> = {
   none: "none",
 };
 
-const GHOST_ASSETS: Record<GhostId, Record<Exclude<DirectionName, "none"> | "default", string>> = {
+const GHOST_ASSETS: Record<
+  GhostId,
+  Record<Exclude<DirectionName, "none"> | "default", string>
+> = {
   blinky: {
     default: "/games/pacman/ghost/blinky/blinky.svg",
     left: "/games/pacman/ghost/blinky/blinky_left.svg",
@@ -135,7 +161,10 @@ const GHOST_ASSETS: Record<GhostId, Record<Exclude<DirectionName, "none"> | "def
   },
 };
 
-const DAZZLED_ASSETS: Record<Exclude<DirectionName, "none"> | "default", string> = {
+const DAZZLED_ASSETS: Record<
+  Exclude<DirectionName, "none"> | "default",
+  string
+> = {
   default: "/games/pacman/ghost/dazzled/dazzled.svg",
   left: "/games/pacman/ghost/dazzled/dazzled_left.svg",
   right: "/games/pacman/ghost/dazzled/dazzled_right.svg",
@@ -143,13 +172,14 @@ const DAZZLED_ASSETS: Record<Exclude<DirectionName, "none"> | "default", string>
   down: "/games/pacman/ghost/dazzled/dazzled_down.svg",
 };
 
-const DEAD_ASSETS: Record<Exclude<DirectionName, "none"> | "default", string> = {
-  default: "/games/pacman/ghost/dead/dead.svg",
-  left: "/games/pacman/ghost/dead/dead_left.svg",
-  right: "/games/pacman/ghost/dead/dead_right.svg",
-  up: "/games/pacman/ghost/dead/dead_up.svg",
-  down: "/games/pacman/ghost/dead/dead_down.svg",
-};
+const DEAD_ASSETS: Record<Exclude<DirectionName, "none"> | "default", string> =
+  {
+    default: "/games/pacman/ghost/dead/dead.svg",
+    left: "/games/pacman/ghost/dead/dead_left.svg",
+    right: "/games/pacman/ghost/dead/dead_right.svg",
+    up: "/games/pacman/ghost/dead/dead_up.svg",
+    down: "/games/pacman/ghost/dead/dead_down.svg",
+  };
 
 type AudioName = "theme" | "waka" | "powerpill" | "eatghost" | "die";
 
@@ -180,11 +210,18 @@ function cloneMap(): Tile[][] {
 }
 
 function countPellets(map: Tile[][]) {
-  return map.reduce((total, row) => total + row.filter((tile) => tile === "." || tile === "o").length, 0);
+  return map.reduce(
+    (total, row) =>
+      total + row.filter((tile) => tile === "." || tile === "o").length,
+    0,
+  );
 }
 
 function cellCenter(col: number, row: number) {
-  return { x: col * TILE_SIZE + TILE_SIZE / 2, y: row * TILE_SIZE + TILE_SIZE / 2 };
+  return {
+    x: col * TILE_SIZE + TILE_SIZE / 2,
+    y: row * TILE_SIZE + TILE_SIZE / 2,
+  };
 }
 
 function gridFromPosition(x: number, y: number) {
@@ -198,7 +235,10 @@ function isCenterAligned(actor: Actor, threshold = 3.2) {
   const col = Math.round((actor.x - TILE_SIZE / 2) / TILE_SIZE);
   const row = Math.round((actor.y - TILE_SIZE / 2) / TILE_SIZE);
   const center = cellCenter(col, row);
-  return Math.abs(actor.x - center.x) <= threshold && Math.abs(actor.y - center.y) <= threshold;
+  return (
+    Math.abs(actor.x - center.x) <= threshold &&
+    Math.abs(actor.y - center.y) <= threshold
+  );
 }
 
 function snapToCenter(actor: Actor) {
@@ -216,7 +256,12 @@ function getTile(map: Tile[][], col: number, row: number): Tile {
   return map[row]?.[wrappedCol] ?? "#";
 }
 
-function canMove(map: Tile[][], actor: Actor, dirName: DirectionName, actorType: "pacman" | "ghost") {
+function canMove(
+  map: Tile[][],
+  actor: Actor,
+  dirName: DirectionName,
+  actorType: "pacman" | "ghost",
+) {
   if (dirName === "none") return false;
   const dir = DIRECTIONS[dirName];
   const { col, row } = gridFromPosition(actor.x, actor.y);
@@ -228,33 +273,101 @@ function canMove(map: Tile[][], actor: Actor, dirName: DirectionName, actorType:
   return true;
 }
 
-function moveActor(map: Tile[][], actor: Actor, dt: number, actorType: "pacman" | "ghost") {
-  if (isCenterAligned(actor)) {
-    snapToCenter(actor);
-    if (actor.nextDir !== actor.dir && canMove(map, actor, actor.nextDir, actorType)) {
+function moveActor(
+  map: Tile[][],
+  actor: Actor,
+  dt: number,
+  actorType: "pacman" | "ghost",
+) {
+  let remaining = Math.max(0, actor.speed * dt);
+
+  while (remaining > 0) {
+    if (actor.dir === "none") {
+      if (!canMove(map, actor, actor.nextDir, actorType)) return;
       actor.dir = actor.nextDir;
     }
-    if (!canMove(map, actor, actor.dir, actorType)) {
-      actor.dir = "none";
+
+    const dir = DIRECTIONS[actor.dir];
+    const axisSign = dir.x !== 0 ? dir.x : dir.y;
+    const axisPos = dir.x !== 0 ? actor.x : actor.y;
+    // Distance to the center of the tile the actor is currently heading
+    // toward, computed exactly (not via a proximity threshold) so arrival
+    // detection is frame-rate independent and never re-triggers on a tile
+    // the actor has already departed.
+    const rel = (axisPos - TILE_SIZE / 2) / TILE_SIZE;
+    const nextIndex = axisSign > 0 ? Math.floor(rel) + 1 : Math.ceil(rel) - 1;
+    const targetAxisPos = nextIndex * TILE_SIZE + TILE_SIZE / 2;
+    const distanceToTarget = Math.abs(targetAxisPos - axisPos);
+
+    const step = Math.min(remaining, distanceToTarget);
+    actor.x += dir.x * step;
+    actor.y += dir.y * step;
+    remaining -= step;
+
+    if (actor.x < -TILE_SIZE / 2) actor.x = WORLD_WIDTH + TILE_SIZE / 2;
+    if (actor.x > WORLD_WIDTH + TILE_SIZE / 2) actor.x = -TILE_SIZE / 2;
+    actor.y = Math.max(
+      TILE_SIZE / 2,
+      Math.min(WORLD_HEIGHT - TILE_SIZE / 2, actor.y),
+    );
+
+    if (step >= distanceToTarget) {
+      snapToCenter(actor);
+      if (
+        actor.nextDir !== actor.dir &&
+        canMove(map, actor, actor.nextDir, actorType)
+      ) {
+        actor.dir = actor.nextDir;
+      }
+      if (!canMove(map, actor, actor.dir, actorType)) {
+        actor.dir = "none";
+      }
     }
   }
-
-  const dir = DIRECTIONS[actor.dir];
-  actor.x += dir.x * actor.speed * dt;
-  actor.y += dir.y * actor.speed * dt;
-
-  if (actor.x < -TILE_SIZE / 2) actor.x = WORLD_WIDTH + TILE_SIZE / 2;
-  if (actor.x > WORLD_WIDTH + TILE_SIZE / 2) actor.x = -TILE_SIZE / 2;
-  actor.y = Math.max(TILE_SIZE / 2, Math.min(WORLD_HEIGHT - TILE_SIZE / 2, actor.y));
 }
 
 function createGhosts(level: number): GhostActor[] {
   const speed = BASE_GHOST_SPEED + Math.min(34, level * 5);
-  const positions: Array<{ id: GhostId; col: number; row: number; dir: DirectionName; scatter: { col: number; row: number }; delay: number }> = [
-    { id: "blinky", col: 8, row: 5, dir: "up", scatter: { col: 16, row: 1 }, delay: 0 },
-    { id: "pinky", col: 7, row: 5, dir: "right", scatter: { col: 1, row: 1 }, delay: 900 },
-    { id: "inky", col: 9, row: 5, dir: "left", scatter: { col: 16, row: 11 }, delay: 2200 },
-    { id: "clyde", col: 10, row: 5, dir: "left", scatter: { col: 1, row: 11 }, delay: 3600 },
+  const positions: Array<{
+    id: GhostId;
+    col: number;
+    row: number;
+    dir: DirectionName;
+    scatter: { col: number; row: number };
+    delay: number;
+  }> = [
+    {
+      id: "blinky",
+      col: 8,
+      row: 5,
+      dir: "up",
+      scatter: { col: 16, row: 1 },
+      delay: 0,
+    },
+    {
+      id: "pinky",
+      col: 7,
+      row: 5,
+      dir: "right",
+      scatter: { col: 1, row: 1 },
+      delay: 900,
+    },
+    {
+      id: "inky",
+      col: 9,
+      row: 5,
+      dir: "left",
+      scatter: { col: 16, row: 11 },
+      delay: 2200,
+    },
+    {
+      id: "clyde",
+      col: 10,
+      row: 5,
+      dir: "left",
+      scatter: { col: 1, row: 11 },
+      delay: 3600,
+    },
   ];
   return positions.map((ghost) => {
     const center = cellCenter(ghost.col, ghost.row);
@@ -329,31 +442,53 @@ function distance(a: { x: number; y: number }, b: { x: number; y: number }) {
   return Math.hypot(a.x - b.x, a.y - b.y);
 }
 
-function squaredGridDistance(col: number, row: number, target: { col: number; row: number }) {
+function squaredGridDistance(
+  col: number,
+  row: number,
+  target: { col: number; row: number },
+) {
   return (col - target.col) ** 2 + (row - target.row) ** 2;
 }
 
 function legalGhostDirections(map: Tile[][], ghost: GhostActor) {
-  const dirs = (["left", "right", "up", "down"] as DirectionName[]).filter((dir) => canMove(map, ghost, dir, "ghost"));
+  const dirs = (["left", "right", "up", "down"] as DirectionName[]).filter(
+    (dir) => canMove(map, ghost, dir, "ghost"),
+  );
   const withoutReverse = dirs.filter((dir) => dir !== OPPOSITE[ghost.dir]);
   return withoutReverse.length > 0 ? withoutReverse : dirs;
 }
 
-function ghostTarget(model: PacmanModel, ghost: GhostActor, index: number): { col: number; row: number } {
+function ghostTarget(
+  model: PacmanModel,
+  ghost: GhostActor,
+  index: number,
+): { col: number; row: number } {
   const pac = gridFromPosition(model.pacman.x, model.pacman.y);
-  const pacDir = DIRECTIONS[model.pacman.dir === "none" ? model.pacman.nextDir : model.pacman.dir];
+  const pacDir =
+    DIRECTIONS[
+      model.pacman.dir === "none" ? model.pacman.nextDir : model.pacman.dir
+    ];
   if (ghost.eaten) return { col: ghost.spawnCol, row: ghost.spawnRow };
   if (model.powerTimer > 0) return ghost.scatter;
   if (ghost.id === "blinky") return pac;
-  if (ghost.id === "pinky") return { col: pac.col + pacDir.x * 4, row: pac.row + pacDir.y * 4 };
-  if (ghost.id === "inky") return index % 2 === 0 ? pac : { col: pac.col + pacDir.x * 2, row: pac.row + pacDir.y * 2 };
+  if (ghost.id === "pinky")
+    return { col: pac.col + pacDir.x * 4, row: pac.row + pacDir.y * 4 };
+  if (ghost.id === "inky")
+    return index % 2 === 0
+      ? pac
+      : { col: pac.col + pacDir.x * 2, row: pac.row + pacDir.y * 2 };
   const ghostGrid = gridFromPosition(ghost.x, ghost.y);
-  return squaredGridDistance(ghostGrid.col, ghostGrid.row, pac) < 18 ? ghost.scatter : pac;
+  return squaredGridDistance(ghostGrid.col, ghostGrid.row, pac) < 18
+    ? ghost.scatter
+    : pac;
 }
 
-function chooseGhostDirection(model: PacmanModel, ghost: GhostActor, index: number) {
+function chooseGhostDirection(
+  model: PacmanModel,
+  ghost: GhostActor,
+  index: number,
+) {
   if (!isCenterAligned(ghost)) return;
-  snapToCenter(ghost);
   if (ghost.releaseDelay > 0) {
     ghost.releaseDelay -= 120;
     ghost.nextDir = ghost.dir;
@@ -367,20 +502,44 @@ function chooseGhostDirection(model: PacmanModel, ghost: GhostActor, index: numb
   if (model.powerTimer > 0 && !ghost.eaten) {
     const currentGrid = gridFromPosition(ghost.x, ghost.y);
     const pacGrid = gridFromPosition(model.pacman.x, model.pacman.y);
-    ghost.nextDir = dirs.slice().sort((a, b) => {
-      const da = DIRECTIONS[a];
-      const db = DIRECTIONS[b];
-      return squaredGridDistance(currentGrid.col + db.x, currentGrid.row + db.y, pacGrid) - squaredGridDistance(currentGrid.col + da.x, currentGrid.row + da.y, pacGrid);
-    })[0] ?? dirs[0];
+    ghost.nextDir =
+      dirs.slice().sort((a, b) => {
+        const da = DIRECTIONS[a];
+        const db = DIRECTIONS[b];
+        return (
+          squaredGridDistance(
+            currentGrid.col + db.x,
+            currentGrid.row + db.y,
+            pacGrid,
+          ) -
+          squaredGridDistance(
+            currentGrid.col + da.x,
+            currentGrid.row + da.y,
+            pacGrid,
+          )
+        );
+      })[0] ?? dirs[0];
     return;
   }
   const target = ghostTarget(model, ghost, index);
   const currentGrid = gridFromPosition(ghost.x, ghost.y);
-  ghost.nextDir = dirs.slice().sort((a, b) => {
-    const da = DIRECTIONS[a];
-    const db = DIRECTIONS[b];
-    return squaredGridDistance(currentGrid.col + da.x, currentGrid.row + da.y, target) - squaredGridDistance(currentGrid.col + db.x, currentGrid.row + db.y, target);
-  })[0] ?? dirs[0];
+  ghost.nextDir =
+    dirs.slice().sort((a, b) => {
+      const da = DIRECTIONS[a];
+      const db = DIRECTIONS[b];
+      return (
+        squaredGridDistance(
+          currentGrid.col + da.x,
+          currentGrid.row + da.y,
+          target,
+        ) -
+        squaredGridDistance(
+          currentGrid.col + db.x,
+          currentGrid.row + db.y,
+          target,
+        )
+      );
+    })[0] ?? dirs[0];
 }
 
 function eatTile(model: PacmanModel, playSound: (name: AudioName) => void) {
@@ -399,11 +558,17 @@ function eatTile(model: PacmanModel, playSound: (name: AudioName) => void) {
     model.powerTimer = POWER_DURATION;
     model.ghostCombo = 0;
     model.ghosts.forEach((ghost) => {
-      if (!ghost.eaten) ghost.speed = Math.max(68, BASE_GHOST_SPEED - 24 + model.level * 2);
+      if (!ghost.eaten)
+        ghost.speed = Math.max(68, BASE_GHOST_SPEED - 24 + model.level * 2);
     });
     playSound("powerpill");
   }
-  if (model.fruit && !model.fruit.eaten && model.fruit.col === col && model.fruit.row === row) {
+  if (
+    model.fruit &&
+    !model.fruit.eaten &&
+    model.fruit.col === col &&
+    model.fruit.row === row
+  ) {
     model.fruit.eaten = true;
     model.score += 200;
     playSound("waka");
@@ -422,7 +587,11 @@ function loseLife(model: PacmanModel) {
   }
 }
 
-function updateGame(model: PacmanModel, dt: number, playSound: (name: AudioName) => void) {
+function updateGame(
+  model: PacmanModel,
+  dt: number,
+  playSound: (name: AudioName) => void,
+) {
   if (model.phase !== "playing") return;
   model.elapsed += dt * 1000;
   if (!model.fruit && model.pelletsLeft < 72) {
@@ -505,7 +674,14 @@ function updateGame(model: PacmanModel, dt: number, playSound: (name: AudioName)
   }
 }
 
-function drawRoundRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number) {
+function drawRoundRect(
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  w: number,
+  h: number,
+  r: number,
+) {
   const radius = Math.min(r, w / 2, h / 2);
   ctx.beginPath();
   ctx.moveTo(x + radius, y);
@@ -533,7 +709,14 @@ function drawMap(ctx: CanvasRenderingContext2D, model: PacmanModel) {
         const up = getTile(model.map, col, row - 1) === "#";
         const down = getTile(model.map, col, row + 1) === "#";
         ctx.fillStyle = "#0316a8";
-        drawRoundRect(ctx, x + 3, y + 3, TILE_SIZE - 6, TILE_SIZE - 6, left || right || up || down ? 5 : 9);
+        drawRoundRect(
+          ctx,
+          x + 3,
+          y + 3,
+          TILE_SIZE - 6,
+          TILE_SIZE - 6,
+          left || right || up || down ? 5 : 9,
+        );
         ctx.fill();
         ctx.strokeStyle = "#24a3ff";
         ctx.lineWidth = 1.5;
@@ -586,21 +769,39 @@ function drawPacman(ctx: CanvasRenderingContext2D, model: PacmanModel) {
   ctx.shadowBlur = 8;
   ctx.beginPath();
   ctx.moveTo(pac.x, pac.y);
-  ctx.arc(pac.x, pac.y, PACMAN_RADIUS, (dir.angle1 + model.mouth) * Math.PI, (dir.angle2 - model.mouth) * Math.PI, false);
+  ctx.arc(
+    pac.x,
+    pac.y,
+    PACMAN_RADIUS,
+    (dir.angle1 + model.mouth) * Math.PI,
+    (dir.angle2 - model.mouth) * Math.PI,
+    false,
+  );
   ctx.closePath();
   ctx.fill();
   ctx.restore();
 }
 
 function resolveGhostAsset(model: PacmanModel, ghost: GhostActor) {
-  const dir = (ghost.dir === "none" ? "default" : ghost.dir) as Exclude<DirectionName, "none"> | "default";
+  const dir = (ghost.dir === "none" ? "default" : ghost.dir) as
+    | Exclude<DirectionName, "none">
+    | "default";
   if (ghost.eaten) return DEAD_ASSETS[dir];
   if (model.powerTimer > 0) return DAZZLED_ASSETS[dir];
   return GHOST_ASSETS[ghost.id][dir];
 }
 
-function drawGhostFallback(ctx: CanvasRenderingContext2D, ghost: GhostActor, scared: boolean) {
-  const colors: Record<GhostId, string> = { blinky: "#ff2b2b", pinky: "#ffb5ff", inky: "#00e5ff", clyde: "#ffb000" };
+function drawGhostFallback(
+  ctx: CanvasRenderingContext2D,
+  ghost: GhostActor,
+  scared: boolean,
+) {
+  const colors: Record<GhostId, string> = {
+    blinky: "#ff2b2b",
+    pinky: "#ffb5ff",
+    inky: "#00e5ff",
+    clyde: "#ffb000",
+  };
   ctx.save();
   ctx.fillStyle = scared ? "#2437ff" : colors[ghost.id];
   ctx.beginPath();
@@ -620,12 +821,22 @@ function drawGhostFallback(ctx: CanvasRenderingContext2D, ghost: GhostActor, sca
   ctx.restore();
 }
 
-function drawActors(ctx: CanvasRenderingContext2D, model: PacmanModel, images: Map<string, HTMLImageElement>) {
+function drawActors(
+  ctx: CanvasRenderingContext2D,
+  model: PacmanModel,
+  images: Map<string, HTMLImageElement>,
+) {
   for (const ghost of model.ghosts) {
     const src = resolveGhostAsset(model, ghost);
     const image = images.get(src);
     if (image?.complete && image.naturalWidth > 0) {
-      ctx.drawImage(image, ghost.x - GHOST_SIZE / 2, ghost.y - GHOST_SIZE / 2, GHOST_SIZE, GHOST_SIZE);
+      ctx.drawImage(
+        image,
+        ghost.x - GHOST_SIZE / 2,
+        ghost.y - GHOST_SIZE / 2,
+        GHOST_SIZE,
+        GHOST_SIZE,
+      );
     } else {
       drawGhostFallback(ctx, ghost, model.powerTimer > 0 && !ghost.eaten);
     }
@@ -635,8 +846,20 @@ function drawActors(ctx: CanvasRenderingContext2D, model: PacmanModel, images: M
 
 function drawOverlay(ctx: CanvasRenderingContext2D, model: PacmanModel) {
   if (model.phase === "playing") return;
-  const title = model.phase === "idle" ? "PACMAN" : model.phase === "paused" ? model.message : model.phase === "won" ? "YOU WIN" : "GAME OVER";
-  const hint = model.phase === "idle" ? "Press Start, Enter, or Space" : model.phase === "paused" ? "Press Resume to continue" : "Restart to play again";
+  const title =
+    model.phase === "idle"
+      ? "PACMAN"
+      : model.phase === "paused"
+        ? model.message
+        : model.phase === "won"
+          ? "YOU WIN"
+          : "GAME OVER";
+  const hint =
+    model.phase === "idle"
+      ? "Press Start, Enter, or Space"
+      : model.phase === "paused"
+        ? "Press Resume to continue"
+        : "Restart to play again";
   ctx.save();
   ctx.fillStyle = "rgba(0, 0, 0, 0.58)";
   ctx.fillRect(0, 0, WORLD_WIDTH, WORLD_HEIGHT);
@@ -649,18 +872,29 @@ function drawOverlay(ctx: CanvasRenderingContext2D, model: PacmanModel) {
   ctx.fillStyle = "#ffeb1a";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
-  ctx.font = "700 28px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace";
+  ctx.font =
+    "700 28px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace";
   ctx.fillText(title, WORLD_WIDTH / 2, 174);
   ctx.fillStyle = "rgba(255,255,255,0.86)";
-  ctx.font = "700 13px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace";
+  ctx.font =
+    "700 13px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace";
   ctx.fillText(hint, WORLD_WIDTH / 2, 210);
   ctx.fillStyle = "rgba(255,255,255,0.64)";
-  ctx.font = "700 11px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace";
-  ctx.fillText(`Score ${model.score}  •  Best ${model.best}`, WORLD_WIDTH / 2, 234);
+  ctx.font =
+    "700 11px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace";
+  ctx.fillText(
+    `Score ${model.score}  •  Best ${model.best}`,
+    WORLD_WIDTH / 2,
+    234,
+  );
   ctx.restore();
 }
 
-function drawFrame(ctx: CanvasRenderingContext2D, model: PacmanModel, images: Map<string, HTMLImageElement>) {
+function drawFrame(
+  ctx: CanvasRenderingContext2D,
+  model: PacmanModel,
+  images: Map<string, HTMLImageElement>,
+) {
   drawMap(ctx, model);
   drawActors(ctx, model, images);
   drawOverlay(ctx, model);
@@ -674,20 +908,30 @@ function toHud(model: PacmanModel): HudState {
     level: model.level,
     lives: model.lives,
     pelletsLeft: model.pelletsLeft,
-    powerTimer: model.powerTimer,
+    powerTimer: Math.ceil(model.powerTimer / 1000) * 1000,
     message: model.message,
   };
 }
 
 function uniqueAssetSources() {
   const sources = new Set<string>();
-  Object.values(GHOST_ASSETS).forEach((assetGroup) => Object.values(assetGroup).forEach((src) => sources.add(src)));
+  Object.values(GHOST_ASSETS).forEach((assetGroup) =>
+    Object.values(assetGroup).forEach((src) => sources.add(src)),
+  );
   Object.values(DAZZLED_ASSETS).forEach((src) => sources.add(src));
   Object.values(DEAD_ASSETS).forEach((src) => sources.add(src));
   return Array.from(sources);
 }
 
-function DirectionButton({ label, direction, onDirection }: { label: string; direction: DirectionName; onDirection: (direction: DirectionName) => void }) {
+function DirectionButton({
+  label,
+  direction,
+  onDirection,
+}: {
+  label: string;
+  direction: DirectionName;
+  onDirection: (direction: DirectionName) => void;
+}) {
   return (
     <button
       type="button"
@@ -703,8 +947,12 @@ function DirectionButton({ label, direction, onDirection }: { label: string; dir
 function StatPill({ label, value }: { label: string; value: string | number }) {
   return (
     <div className="rounded-2xl border border-white/10 bg-black/25 px-3 py-2 shadow-inner">
-      <p className="font-mono text-[9px] font-black uppercase tracking-[0.12em] text-yellow-200/75">{label}</p>
-      <p className="mt-0.5 font-mono text-lg font-black leading-none text-white">{value}</p>
+      <p className="font-mono text-[9px] font-black uppercase tracking-[0.12em] text-yellow-200/75">
+        {label}
+      </p>
+      <p className="mt-0.5 font-mono text-lg font-black leading-none text-white">
+        {value}
+      </p>
     </div>
   );
 }
@@ -728,6 +976,9 @@ export function PacmanCanvasGame({ game }: { game: GameDefinition }) {
   const focusModeRef = useRef(false);
   const touchStartRef = useRef<{ x: number; y: number } | null>(null);
   const lastHudJsonRef = useRef("");
+  const lastHudSyncRef = useRef(0);
+  const forceHudSyncRef = useRef(true);
+  const lastWakaSoundRef = useRef(0);
 
   useEffect(() => {
     mutedRef.current = muted;
@@ -737,25 +988,46 @@ export function PacmanCanvasGame({ game }: { game: GameDefinition }) {
     focusModeRef.current = focusMode;
   }, [focusMode]);
 
-  const syncHud = useCallback(() => {
+  const syncHud = useCallback((force = false) => {
+    const now = performance.now();
+    if (
+      !force &&
+      !forceHudSyncRef.current &&
+      now - lastHudSyncRef.current < 120
+    )
+      return;
     const nextHud = toHud(modelRef.current);
     const signature = JSON.stringify(nextHud);
-    if (signature !== lastHudJsonRef.current) {
+    if (force || signature !== lastHudJsonRef.current) {
       lastHudJsonRef.current = signature;
+      lastHudSyncRef.current = now;
+      forceHudSyncRef.current = false;
       setHud(nextHud);
     }
   }, []);
 
   const playSound = useCallback((name: AudioName) => {
     if (mutedRef.current) return;
+    const now = performance.now();
+    if (name === "waka") {
+      if (now - lastWakaSoundRef.current < 90) return;
+      lastWakaSoundRef.current = now;
+    }
     const audio = audioRef.current[name];
     if (!audio) return;
-    audio.currentTime = 0;
-    void audio.play().catch(() => undefined);
+    try {
+      audio.pause();
+      audio.currentTime = 0;
+      void audio.play().catch(() => undefined);
+    } catch {
+      // Audio playback can fail while the browser is unlocking media; never block gameplay.
+    }
   }, []);
 
   const unlockAudio = useCallback(() => {
-    (Object.values(audioRef.current) as Array<HTMLAudioElement | undefined>).forEach((audio) => {
+    (
+      Object.values(audioRef.current) as Array<HTMLAudioElement | undefined>
+    ).forEach((audio) => {
       if (!audio) return;
       audio.muted = true;
       void audio
@@ -775,6 +1047,7 @@ export function PacmanCanvasGame({ game }: { game: GameDefinition }) {
     const best = readNumber(STORAGE_KEY, 0);
     const nextModel = createModel(best);
     modelRef.current = nextModel;
+    forceHudSyncRef.current = true;
     setHud(toHud(nextModel));
     const storedMuted = readMuted();
     mutedRef.current = storedMuted;
@@ -790,13 +1063,17 @@ export function PacmanCanvasGame({ game }: { game: GameDefinition }) {
       eatghost: new Audio("/games/pacman/audio/eatghost.mp3"),
       die: new Audio("/games/pacman/audio/die.mp3"),
     };
-    (Object.values(audioRef.current) as Array<HTMLAudioElement | undefined>).forEach((audio) => {
+    (
+      Object.values(audioRef.current) as Array<HTMLAudioElement | undefined>
+    ).forEach((audio) => {
       if (!audio) return;
       audio.preload = "auto";
       audio.volume = 0.45;
     });
     return () => {
-      (Object.values(audioRef.current) as Array<HTMLAudioElement | undefined>).forEach((audio) => {
+      (
+        Object.values(audioRef.current) as Array<HTMLAudioElement | undefined>
+      ).forEach((audio) => {
         if (!audio) return;
         audio.pause();
         audio.src = "";
@@ -865,14 +1142,17 @@ export function PacmanCanvasGame({ game }: { game: GameDefinition }) {
     renderNow();
   }, [assetsReady, renderNow]);
 
-  const setDirection = useCallback((direction: DirectionName) => {
-    if (direction === "none") return;
-    modelRef.current.pacman.nextDir = direction;
-    if (modelRef.current.phase === "idle") {
-      modelRef.current.message = "Press Start to play";
-    }
-    syncHud();
-  }, [syncHud]);
+  const setDirection = useCallback(
+    (direction: DirectionName) => {
+      if (direction === "none") return;
+      modelRef.current.pacman.nextDir = direction;
+      if (modelRef.current.phase === "idle") {
+        modelRef.current.message = "Press Start to play";
+      }
+      syncHud(true);
+    },
+    [syncHud],
+  );
 
   const startOrResume = useCallback(() => {
     unlockAudio();
@@ -884,12 +1164,14 @@ export function PacmanCanvasGame({ game }: { game: GameDefinition }) {
       modelRef.current.pacman.dir = "right";
     } else {
       model.phase = "playing";
-      if (model.pacman.dir === "none") model.pacman.dir = model.pacman.nextDir === "none" ? "right" : model.pacman.nextDir;
+      if (model.pacman.dir === "none")
+        model.pacman.dir =
+          model.pacman.nextDir === "none" ? "right" : model.pacman.nextDir;
     }
     modelRef.current.message = "Playing";
     lastTimeRef.current = null;
     playSound("theme");
-    syncHud();
+    syncHud(true);
     renderNow();
   }, [playSound, renderNow, syncHud, unlockAudio]);
 
@@ -898,7 +1180,7 @@ export function PacmanCanvasGame({ game }: { game: GameDefinition }) {
     if (model.phase === "playing") {
       model.phase = "paused";
       model.message = "Paused";
-      syncHud();
+      syncHud(true);
       renderNow();
     }
   }, [renderNow, syncHud]);
@@ -912,7 +1194,7 @@ export function PacmanCanvasGame({ game }: { game: GameDefinition }) {
     modelRef.current.message = "Playing";
     lastTimeRef.current = null;
     playSound("theme");
-    syncHud();
+    syncHud(true);
     renderNow();
   }, [playSound, renderNow, syncHud, unlockAudio]);
 
@@ -930,59 +1212,72 @@ export function PacmanCanvasGame({ game }: { game: GameDefinition }) {
     window.setTimeout(() => renderNow(), 80);
   }, [renderNow]);
 
-  const handleKeyboard = useCallback((event: KeyboardEvent) => {
-    const tag = event.target instanceof HTMLElement ? event.target.tagName.toLowerCase() : "";
-    if (["input", "textarea", "select"].includes(tag)) return;
-    const key = event.key.toLowerCase();
-    if (["arrowleft", "a"].includes(key)) {
-      event.preventDefault();
-      setDirection("left");
-    } else if (["arrowright", "d"].includes(key)) {
-      event.preventDefault();
-      setDirection("right");
-    } else if (["arrowup", "w"].includes(key)) {
-      event.preventDefault();
-      setDirection("up");
-    } else if (["arrowdown", "s"].includes(key)) {
-      event.preventDefault();
-      setDirection("down");
-    } else if (key === " " || key === "enter") {
-      event.preventDefault();
-      startOrResume();
-    } else if (key === "p" || key === "escape") {
-      event.preventDefault();
-      if (modelRef.current.phase === "playing") pauseGame();
-      else if (modelRef.current.phase === "paused") startOrResume();
-    }
-  }, [pauseGame, setDirection, startOrResume]);
+  const handleKeyboard = useCallback(
+    (event: KeyboardEvent) => {
+      const tag =
+        event.target instanceof HTMLElement
+          ? event.target.tagName.toLowerCase()
+          : "";
+      if (["input", "textarea", "select"].includes(tag)) return;
+      const key = event.key.toLowerCase();
+      if (["arrowleft", "a"].includes(key)) {
+        event.preventDefault();
+        setDirection("left");
+      } else if (["arrowright", "d"].includes(key)) {
+        event.preventDefault();
+        setDirection("right");
+      } else if (["arrowup", "w"].includes(key)) {
+        event.preventDefault();
+        setDirection("up");
+      } else if (["arrowdown", "s"].includes(key)) {
+        event.preventDefault();
+        setDirection("down");
+      } else if (key === " " || key === "enter") {
+        event.preventDefault();
+        startOrResume();
+      } else if (key === "p" || key === "escape") {
+        event.preventDefault();
+        if (modelRef.current.phase === "playing") pauseGame();
+        else if (modelRef.current.phase === "paused") startOrResume();
+      }
+    },
+    [pauseGame, setDirection, startOrResume],
+  );
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyboard);
     return () => window.removeEventListener("keydown", handleKeyboard);
   }, [handleKeyboard]);
 
-  const handlePointerDown = useCallback((event: ReactPointerEvent<HTMLCanvasElement>) => {
-    touchStartRef.current = { x: event.clientX, y: event.clientY };
-  }, []);
+  const handlePointerDown = useCallback(
+    (event: ReactPointerEvent<HTMLCanvasElement>) => {
+      touchStartRef.current = { x: event.clientX, y: event.clientY };
+    },
+    [],
+  );
 
-  const handlePointerUp = useCallback((event: ReactPointerEvent<HTMLCanvasElement>) => {
-    const start = touchStartRef.current;
-    touchStartRef.current = null;
-    if (!start) return;
-    const dx = event.clientX - start.x;
-    const dy = event.clientY - start.y;
-    if (Math.max(Math.abs(dx), Math.abs(dy)) < 18) {
-      if (modelRef.current.phase !== "playing") startOrResume();
-      return;
-    }
-    if (Math.abs(dx) > Math.abs(dy)) setDirection(dx > 0 ? "right" : "left");
-    else setDirection(dy > 0 ? "down" : "up");
-  }, [setDirection, startOrResume]);
+  const handlePointerUp = useCallback(
+    (event: ReactPointerEvent<HTMLCanvasElement>) => {
+      const start = touchStartRef.current;
+      touchStartRef.current = null;
+      if (!start) return;
+      const dx = event.clientX - start.x;
+      const dy = event.clientY - start.y;
+      if (Math.max(Math.abs(dx), Math.abs(dy)) < 18) {
+        if (modelRef.current.phase !== "playing") startOrResume();
+        return;
+      }
+      if (Math.abs(dx) > Math.abs(dy)) setDirection(dx > 0 ? "right" : "left");
+      else setDirection(dy > 0 ? "down" : "up");
+    },
+    [setDirection, startOrResume],
+  );
 
   const statusLabel = useMemo(() => {
     if (!hydrated) return "Loading";
     if (!assetsReady) return "Loading sprites";
-    if (hud.phase === "playing") return hud.powerTimer > 0 ? "Power mode" : "Playing";
+    if (hud.phase === "playing")
+      return hud.powerTimer > 0 ? "Power mode" : "Playing";
     if (hud.phase === "paused") return hud.message || "Paused";
     if (hud.phase === "won") return "Win screen";
     if (hud.phase === "lost") return "Game over";
@@ -996,37 +1291,56 @@ export function PacmanCanvasGame({ game }: { game: GameDefinition }) {
       ref={shellRef}
       className={cn(
         "overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[#050510] shadow-[var(--shadow-card)]",
-        focusMode && "fixed inset-2 z-50 overflow-y-auto rounded-[2rem] border-yellow-300/50 bg-[#050510] p-2 sm:inset-4",
+        focusMode &&
+          "fixed inset-2 z-50 overflow-y-auto rounded-[2rem] border-yellow-300/50 bg-[#050510] p-2 sm:inset-4",
       )}
     >
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 bg-black/40 px-4 py-3 text-white sm:px-5">
         <div className="flex min-w-0 items-center gap-3">
           <button
             type="button"
-            onClick={() => (focusMode ? setFocusMode(false) : router.push("/games"))}
+            onClick={() =>
+              focusMode ? setFocusMode(false) : router.push("/games")
+            }
             className="inline-flex h-9 w-9 items-center justify-center rounded-2xl border border-white/10 bg-white/10 text-white transition hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-300"
             aria-label={focusMode ? "Exit focus mode" : "Back to games"}
           >
             <ArrowLeft className="h-4 w-4" aria-hidden />
           </button>
           <div className="min-w-0">
-            <p className="font-mono text-[10px] font-black uppercase tracking-[0.14em] text-yellow-200/70">Darma Arcade</p>
-            <h2 className="truncate text-base font-black tracking-[-0.02em] text-white sm:text-lg">{game.title}</h2>
+            <p className="font-mono text-[10px] font-black uppercase tracking-[0.14em] text-yellow-200/70">
+              Darma Arcade
+            </p>
+            <h2 className="truncate text-base font-black tracking-[-0.02em] text-white sm:text-lg">
+              {game.title}
+            </h2>
           </div>
         </div>
         <div className="flex flex-wrap items-center gap-2">
           <Badge variant="soft">Canvas</Badge>
-          <Badge variant={hud.phase === "playing" ? "accent" : "outline"}>{statusLabel}</Badge>
+          <Badge variant={hud.phase === "playing" ? "accent" : "outline"}>
+            {statusLabel}
+          </Badge>
         </div>
       </div>
 
-      <div className={cn("grid gap-4 p-3 sm:p-5", focusMode ? "xl:grid-cols-[minmax(0,1fr)_320px]" : "xl:grid-cols-[minmax(0,1fr)_300px]")}> 
+      <div
+        className={cn(
+          "grid gap-4 p-3 sm:p-5",
+          focusMode
+            ? "xl:grid-cols-[minmax(0,1fr)_320px]"
+            : "xl:grid-cols-[minmax(0,1fr)_300px]",
+        )}
+      >
         <div className="min-w-0">
           <div className="mb-3 grid grid-cols-2 gap-2 sm:grid-cols-5">
             <StatPill label="Score" value={hud.score} />
             <StatPill label="Best" value={hud.best} />
             <StatPill label="Level" value={`${hud.level}/${MAX_LEVEL}`} />
-            <StatPill label="Lives" value={"🟡".repeat(Math.max(0, hud.lives)) || "0"} />
+            <StatPill
+              label="Lives"
+              value={"🟡".repeat(Math.max(0, hud.lives)) || "0"}
+            />
             <StatPill label="Pellets" value={hud.pelletsLeft} />
           </div>
 
@@ -1066,53 +1380,125 @@ export function PacmanCanvasGame({ game }: { game: GameDefinition }) {
 
           <div className="mt-4 grid gap-3 sm:grid-cols-[1fr_auto] sm:items-center">
             <div className="flex flex-wrap gap-2">
-              <Button type="button" onClick={startOrResume} size="sm" variant="primary" className="gap-2">
+              <Button
+                type="button"
+                onClick={startOrResume}
+                size="sm"
+                variant="primary"
+                className="gap-2"
+              >
                 <Play className="h-4 w-4" aria-hidden />
-                {hud.phase === "paused" ? "Resume" : hud.phase === "lost" || hud.phase === "won" ? "Play again" : "Start"}
+                {hud.phase === "paused"
+                  ? "Resume"
+                  : hud.phase === "lost" || hud.phase === "won"
+                    ? "Play again"
+                    : "Start"}
               </Button>
-              <Button type="button" onClick={pauseGame} size="sm" variant="secondary" className="gap-2" disabled={!isPlaying}>
+              <Button
+                type="button"
+                onClick={pauseGame}
+                size="sm"
+                variant="secondary"
+                className="gap-2"
+                disabled={!isPlaying}
+              >
                 <Pause className="h-4 w-4" aria-hidden />
                 Pause
               </Button>
-              <Button type="button" onClick={restartGame} size="sm" variant="secondary" className="gap-2">
+              <Button
+                type="button"
+                onClick={restartGame}
+                size="sm"
+                variant="secondary"
+                className="gap-2"
+              >
                 <RotateCcw className="h-4 w-4" aria-hidden />
                 Restart
               </Button>
-              <Button type="button" onClick={toggleMute} size="sm" variant="ghost" className="gap-2 text-white hover:bg-white/10">
-                {muted ? <VolumeX className="h-4 w-4" aria-hidden /> : <Volume2 className="h-4 w-4" aria-hidden />}
+              <Button
+                type="button"
+                onClick={toggleMute}
+                size="sm"
+                variant="ghost"
+                className="gap-2 text-white hover:bg-white/10"
+              >
+                {muted ? (
+                  <VolumeX className="h-4 w-4" aria-hidden />
+                ) : (
+                  <Volume2 className="h-4 w-4" aria-hidden />
+                )}
                 {muted ? "Muted" : "Sound"}
               </Button>
-              <Button type="button" onClick={toggleFocus} size="sm" variant="ghost" className="gap-2 text-white hover:bg-white/10">
-                {focusMode ? <Minimize2 className="h-4 w-4" aria-hidden /> : <Maximize2 className="h-4 w-4" aria-hidden />}
+              <Button
+                type="button"
+                onClick={toggleFocus}
+                size="sm"
+                variant="ghost"
+                className="gap-2 text-white hover:bg-white/10"
+              >
+                {focusMode ? (
+                  <Minimize2 className="h-4 w-4" aria-hidden />
+                ) : (
+                  <Maximize2 className="h-4 w-4" aria-hidden />
+                )}
                 {focusMode ? "Exit focus" : "Focus"}
               </Button>
             </div>
 
             <div className="mx-auto grid w-[144px] grid-cols-3 gap-2 sm:mx-0">
               <span />
-              <DirectionButton label="↑" direction="up" onDirection={setDirection} />
+              <DirectionButton
+                label="↑"
+                direction="up"
+                onDirection={setDirection}
+              />
               <span />
-              <DirectionButton label="←" direction="left" onDirection={setDirection} />
-              <DirectionButton label="↓" direction="down" onDirection={setDirection} />
-              <DirectionButton label="→" direction="right" onDirection={setDirection} />
+              <DirectionButton
+                label="←"
+                direction="left"
+                onDirection={setDirection}
+              />
+              <DirectionButton
+                label="↓"
+                direction="down"
+                onDirection={setDirection}
+              />
+              <DirectionButton
+                label="→"
+                direction="right"
+                onDirection={setDirection}
+              />
             </div>
           </div>
         </div>
 
         <aside className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-4 text-white">
           <div className="flex items-center gap-3">
-            <img src="/games/pacman/img/Pacman-Icon.svg" alt="" className="h-11 w-11 rounded-2xl bg-yellow-300 p-1" />
+            <NextImage
+              src="/games/pacman/img/Pacman-Icon.svg"
+              alt=""
+              width={44}
+              height={44}
+              className="h-11 w-11 rounded-2xl bg-yellow-300 p-1"
+            />
             <div>
-              <p className="font-mono text-[10px] font-black uppercase tracking-[0.14em] text-yellow-200/70">Classic maze</p>
-              <h3 className="text-lg font-black tracking-[-0.02em]">Preserved original feel</h3>
+              <p className="font-mono text-[10px] font-black uppercase tracking-[0.14em] text-yellow-200/70">
+                Classic maze
+              </p>
+              <h3 className="text-lg font-black tracking-[-0.02em]">
+                Preserved original feel
+              </h3>
             </div>
           </div>
           <div className="mt-4 space-y-3 text-sm leading-6 text-white/72">
             <p>
-              This build keeps the original Pacman canvas size, maze, ghost SVG assets, pills, power pills, and arcade sound files, but removes the old debug/demo shell.
+              This build keeps the original Pacman canvas size, maze, ghost SVG
+              assets, pills, power pills, and arcade sound files, but removes
+              the old debug/demo shell.
             </p>
             <p>
-              Controls: arrows or WASD on desktop, swipe or the D-pad on mobile. Space/Enter starts, P/Esc pauses.
+              Controls: arrows or WASD on desktop, swipe or the D-pad on mobile.
+              Space/Enter starts, P/Esc pauses.
             </p>
           </div>
           <div className="mt-4 grid gap-2 rounded-2xl border border-white/10 bg-black/25 p-3 text-xs font-bold text-white/75">

@@ -95,6 +95,9 @@ const BASE_PACMAN_SPEED = 118;
 const BASE_GHOST_SPEED = 96;
 const POWER_DURATION = 7600;
 const FRUIT_DURATION = 9000;
+const MOVE_EPSILON = 0.0001;
+const CENTER_EPSILON = 0.65;
+const MAX_MOVE_ITERATIONS = 12;
 const MAP_TEMPLATE = [
   "##################",
   "#o..#........#..o#",
@@ -281,7 +284,28 @@ function moveActor(
 ) {
   let remaining = Math.max(0, actor.speed * dt);
 
-  while (remaining > 0) {
+  if (!Number.isFinite(remaining) || remaining <= MOVE_EPSILON) return;
+
+  let iterations = 0;
+
+  while (remaining > MOVE_EPSILON && iterations < MAX_MOVE_ITERATIONS) {
+    iterations += 1;
+
+    if (isCenterAligned(actor, CENTER_EPSILON)) {
+      snapToCenter(actor);
+
+      if (
+        actor.nextDir !== actor.dir &&
+        canMove(map, actor, actor.nextDir, actorType)
+      ) {
+        actor.dir = actor.nextDir;
+      }
+
+      if (actor.dir !== "none" && !canMove(map, actor, actor.dir, actorType)) {
+        actor.dir = "none";
+      }
+    }
+
     if (actor.dir === "none") {
       if (!canMove(map, actor, actor.nextDir, actorType)) return;
       actor.dir = actor.nextDir;
@@ -289,6 +313,9 @@ function moveActor(
 
     const dir = DIRECTIONS[actor.dir];
     const axisSign = dir.x !== 0 ? dir.x : dir.y;
+
+    if (axisSign === 0) return;
+
     const axisPos = dir.x !== 0 ? actor.x : actor.y;
     // Distance to the center of the tile the actor is currently heading
     // toward, computed exactly (not via a proximity threshold) so arrival
@@ -299,7 +326,20 @@ function moveActor(
     const targetAxisPos = nextIndex * TILE_SIZE + TILE_SIZE / 2;
     const distanceToTarget = Math.abs(targetAxisPos - axisPos);
 
+    if (!Number.isFinite(distanceToTarget)) {
+      actor.dir = "none";
+      return;
+    }
+
+    if (distanceToTarget <= MOVE_EPSILON) {
+      snapToCenter(actor);
+      continue;
+    }
+
     const step = Math.min(remaining, distanceToTarget);
+
+    if (!Number.isFinite(step) || step <= MOVE_EPSILON) break;
+
     actor.x += dir.x * step;
     actor.y += dir.y * step;
     remaining -= step;
@@ -311,15 +351,17 @@ function moveActor(
       Math.min(WORLD_HEIGHT - TILE_SIZE / 2, actor.y),
     );
 
-    if (step >= distanceToTarget) {
+    if (step + MOVE_EPSILON >= distanceToTarget) {
       snapToCenter(actor);
+
       if (
         actor.nextDir !== actor.dir &&
         canMove(map, actor, actor.nextDir, actorType)
       ) {
         actor.dir = actor.nextDir;
       }
-      if (!canMove(map, actor, actor.dir, actorType)) {
+
+      if (actor.dir !== "none" && !canMove(map, actor, actor.dir, actorType)) {
         actor.dir = "none";
       }
     }
@@ -970,6 +1012,7 @@ export function PacmanCanvasGame({ game }: { game: GameDefinition }) {
   const modelRef = useRef<PacmanModel>(createModel(0));
   const imageMapRef = useRef<Map<string, HTMLImageElement>>(new Map());
   const audioRef = useRef<Partial<Record<AudioName, HTMLAudioElement>>>({});
+  const failedAudioRef = useRef<Set<AudioName>>(new Set());
   const rafRef = useRef<number | null>(null);
   const lastTimeRef = useRef<number | null>(null);
   const mutedRef = useRef(false);
@@ -1007,7 +1050,7 @@ export function PacmanCanvasGame({ game }: { game: GameDefinition }) {
   }, []);
 
   const playSound = useCallback((name: AudioName) => {
-    if (mutedRef.current) return;
+    if (mutedRef.current || failedAudioRef.current.has(name)) return;
     const now = performance.now();
     if (name === "waka") {
       if (now - lastWakaSoundRef.current < 90) return;
@@ -1056,20 +1099,31 @@ export function PacmanCanvasGame({ game }: { game: GameDefinition }) {
   }, []);
 
   useEffect(() => {
-    audioRef.current = {
+    failedAudioRef.current.clear();
+
+    const nextAudio: Partial<Record<AudioName, HTMLAudioElement>> = {
       theme: new Audio("/games/pacman/audio/theme.mp3"),
       waka: new Audio("/games/pacman/audio/waka.mp3"),
       powerpill: new Audio("/games/pacman/audio/powerpill.mp3"),
       eatghost: new Audio("/games/pacman/audio/eatghost.mp3"),
       die: new Audio("/games/pacman/audio/die.mp3"),
     };
+
+    audioRef.current = nextAudio;
+
     (
-      Object.values(audioRef.current) as Array<HTMLAudioElement | undefined>
-    ).forEach((audio) => {
+      Object.entries(nextAudio) as Array<
+        [AudioName, HTMLAudioElement | undefined]
+      >
+    ).forEach(([name, audio]) => {
       if (!audio) return;
       audio.preload = "auto";
       audio.volume = 0.45;
+      audio.addEventListener("error", () => {
+        failedAudioRef.current.add(name);
+      });
     });
+
     return () => {
       (
         Object.values(audioRef.current) as Array<HTMLAudioElement | undefined>

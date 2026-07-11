@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Lock, RefreshCw, Shuffle, Unlock } from "lucide-react";
+import { CheckCircle2, Lock, RefreshCw, Shuffle, Unlock } from "lucide-react";
 import { Badge, Button, CopyButton, Select } from "@/components/ui";
 import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
 import {
@@ -16,25 +16,34 @@ import {
 } from "@/features/tools/components";
 import { HARMONY_OPTIONS, PALETTE_PRESETS, STARTER_COLORS } from "./presets";
 import {
-  exportHexList,
+  exportAccessibilityReport,
   exportGradientSuggestion,
+  exportHexList,
   exportPaletteCssVariables,
+  exportPaletteDesignTokens,
   exportPaletteJson,
   exportPaletteTailwindObject,
   generatePalette,
   getAccessibilityStatus,
+  getColorUsage,
   getContrastPairs,
+  getPaletteSummary,
   getReadableTextColor,
   normalizeHex,
   randomHexColor,
 } from "./palette";
 import type { HarmonyMode, PaletteColor, PalettePreset, PaletteSize, PaletteUiMode } from "./types";
 
+type DetailsTab = "overview" | "accessibility" | "exports";
+
+const PALETTE_SIZE_VALUES: PaletteSize[] = [3, 5, 7, 9];
+
 export default function ColorPaletteClient() {
   const [baseColor, setBaseColor] = useState("#2563EB");
   const [harmony, setHarmony] = useState<HarmonyMode>("analogous");
   const [size, setSize] = useState<PaletteSize>(5);
   const [uiMode, setUiMode] = useState<PaletteUiMode>("light");
+  const [activeTab, setActiveTab] = useState<DetailsTab>("overview");
   const [lockedColors, setLockedColors] = useState<Record<number, PaletteColor>>({});
 
   const normalizedBase = normalizeHex(baseColor);
@@ -45,20 +54,24 @@ export default function ColorPaletteClient() {
   );
 
   const contrastPairs = useMemo(() => getContrastPairs(colors), [colors]);
+  const summary = useMemo(() => getPaletteSummary(colors), [colors]);
 
   const tabs = useMemo<CodeOutputTab[]>(
     () => [
       { id: "css", label: "CSS variables", language: "css", filename: "darma-palette.css", code: exportPaletteCssVariables(colors) },
       { id: "tailwind", label: "Tailwind", language: "txt", filename: "darma-palette-tailwind.txt", code: exportPaletteTailwindObject(colors) },
       { id: "json", label: "JSON tokens", language: "json", filename: "darma-palette.json", code: exportPaletteJson(colors) },
+      { id: "tokens", label: "Design tokens", language: "json", filename: "darma-palette-tokens.json", code: exportPaletteDesignTokens(colors) },
       { id: "gradient", label: "Gradient", language: "css", filename: "darma-palette-gradient.css", code: `.hero-gradient {\n  background: ${exportGradientSuggestion(colors)};\n}` },
+      { id: "a11y", label: "A11y report", language: "txt", filename: "darma-palette-accessibility.txt", code: exportAccessibilityReport(colors) },
       { id: "hex", label: "HEX list", language: "txt", filename: "darma-palette.txt", code: exportHexList(colors) },
     ],
     [colors],
   );
 
   function handleBaseColorChange(value: string) {
-    const nextValue = value.startsWith("#") ? value.slice(0, 7) : `#${value.replace("#", "").slice(0, 6)}`;
+    const stripped = value.replace(/[^\da-f#]/gi, "").replace(/#/g, "");
+    const nextValue = `#${stripped.slice(0, 6)}`;
     setBaseColor(nextValue.toUpperCase());
     setLockedColors({});
   }
@@ -107,6 +120,7 @@ export default function ColorPaletteClient() {
     setSize(preset.size);
     setUiMode(preset.uiMode);
     setLockedColors({});
+    setActiveTab("overview");
   }
 
   function handleDownload(tab: CodeOutputTab) {
@@ -125,14 +139,19 @@ export default function ColorPaletteClient() {
 
   const previewBackground = uiMode === "dark" ? "#0F172A" : "#F8FAFC";
   const previewText = uiMode === "dark" ? "#E2E8F0" : "#0F172A";
+  const primaryColor = colors[Math.min(2, colors.length - 1)]?.hex ?? "#2563EB";
+  const accentColor = colors[Math.min(4, colors.length - 1)]?.hex ?? primaryColor;
 
   const previewSlot = (
-    <div className="flex flex-col">
+    <div className="flex h-full min-h-0 flex-col">
       <PreviewToolbar
         title="Color palette"
-        description="Lock any swatch to keep it when regenerating unlocked colors."
+        description="Generate usable palettes with readable roles, lockable swatches, contrast checks, and copy-ready exports."
         actions={
           <div className="flex flex-wrap gap-2">
+            <CopyButton text={exportHexList(colors)} size="sm" variant="secondary">
+              Copy HEX list
+            </CopyButton>
             <Button variant="secondary" size="sm" onClick={randomizeBaseColor} leftIcon={<Shuffle className="h-4 w-4" />}>
               Random
             </Button>
@@ -142,54 +161,101 @@ export default function ColorPaletteClient() {
           </div>
         }
       />
-      <div
-        className="grid"
-        style={{ gridTemplateColumns: `repeat(${colors.length}, minmax(0, 1fr))` }}
-      >
-        {colors.map((color, index) => {
-          const textColor = getReadableTextColor(color.hex);
-          const isLocked = Boolean(lockedColors[index]);
-          return (
-            <div
-              key={`${color.hex}-${index}`}
-              className="group flex min-h-52 flex-col justify-between p-4"
-              style={{ backgroundColor: color.hex, color: textColor }}
-            >
-              <div className="flex items-center justify-between gap-2">
-                <span className="min-w-0 truncate rounded-full bg-black/15 px-2 py-1 text-[10px] font-black uppercase tracking-[0.12em] text-current">
-                  {color.name}
-                </span>
-                <Button
-                  size="icon"
-                  variant="ghost"
-                  onClick={() => toggleLocked(index)}
-                  leftIcon={isLocked ? <Lock className="h-4 w-4" /> : <Unlock className="h-4 w-4" />}
-                  className="shrink-0 bg-white/15 text-current hover:bg-white/25 hover:text-current"
+
+      <div className="grid gap-3 border-b border-[var(--color-border-subtle)] p-4 sm:grid-cols-2 lg:grid-cols-4">
+        <MetricCard label="Palette health" value={summary.health} tone={summary.health === "Needs review" ? "warning" : "success"} />
+        <MetricCard label="Accessible pairs" value={`${summary.aaPairs}/${summary.totalPairs}`} tone={summary.aaPairs === summary.totalPairs ? "success" : "warning"} />
+        <MetricCard label="Dominant hue" value={summary.dominantHue} />
+        <MetricCard label="Mood" value={summary.mood} />
+      </div>
+
+      <div className="min-w-0 p-4">
+        <div className="overflow-x-auto rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)]">
+          <div className="grid min-w-[760px]" style={{ gridTemplateColumns: `repeat(${colors.length}, minmax(120px, 1fr))` }}>
+            {colors.map((color, index) => {
+              const textColor = getReadableTextColor(color.hex);
+              const isLocked = Boolean(lockedColors[index]);
+              return (
+                <div
+                  key={`${color.hex}-${index}`}
+                  className="group flex min-h-[220px] flex-col justify-between border-r border-black/10 p-4 last:border-r-0"
+                  style={{ backgroundColor: color.hex, color: textColor }}
                 >
-                  {isLocked ? "Unlock color" : "Lock color"}
-                </Button>
-              </div>
-              <div className="space-y-3">
-                <div>
-                  <p className="font-mono text-lg font-black">{color.hex}</p>
-                  <p className="mt-1 text-xs font-semibold opacity-85">{color.hsl}</p>
-                  <p className="text-xs font-semibold opacity-85">{color.rgb}</p>
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="min-w-0">
+                      <p className="truncate rounded-full bg-black/15 px-2 py-1 text-[10px] font-black uppercase tracking-[0.12em] text-current">
+                        {color.name}
+                      </p>
+                      <p className="mt-2 text-xs font-bold opacity-85">{getColorUsage(color, index)}</p>
+                    </div>
+                    <Button
+                      size="icon"
+                      variant="ghost"
+                      onClick={() => toggleLocked(index)}
+                      leftIcon={isLocked ? <Lock className="h-4 w-4" /> : <Unlock className="h-4 w-4" />}
+                      className="shrink-0 bg-white/15 text-current hover:bg-white/25 hover:text-current"
+                    >
+                      {isLocked ? "Unlock color" : "Lock color"}
+                    </Button>
+                  </div>
+                  <div className="space-y-3">
+                    <div>
+                      <p className="font-mono text-lg font-black">{color.hex}</p>
+                      <p className="mt-1 truncate text-xs font-semibold opacity-85">{color.hsl}</p>
+                      <p className="truncate text-xs font-semibold opacity-85">{color.rgb}</p>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      <CopyButton text={color.hex} size="sm" variant="secondary" className="bg-white/85 text-[var(--color-text-primary)] hover:bg-white">
+                        HEX
+                      </CopyButton>
+                      <CopyButton text={color.rgb} size="sm" variant="secondary" className="bg-white/85 text-[var(--color-text-primary)] hover:bg-white">
+                        RGB
+                      </CopyButton>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex flex-wrap gap-1.5">
-                  <CopyButton text={color.hex} size="sm" variant="secondary" className="bg-white/85 text-[var(--color-text-primary)] hover:bg-white">
-                    HEX
-                  </CopyButton>
-                  <CopyButton text={color.rgb} size="sm" variant="secondary" className="bg-white/85 text-[var(--color-text-primary)] hover:bg-white">
-                    RGB
-                  </CopyButton>
-                  <CopyButton text={color.hsl} size="sm" variant="secondary" className="bg-white/85 text-[var(--color-text-primary)] hover:bg-white">
-                    HSL
-                  </CopyButton>
-                </div>
-              </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      <div className="grid gap-4 p-4 lg:grid-cols-[minmax(0,1fr)_320px]">
+        <div
+          className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-5"
+          style={{ backgroundColor: previewBackground, color: previewText }}
+        >
+          <p className="text-xs font-black uppercase tracking-[0.16em] opacity-70">Production preview</p>
+          <h4 className="mt-2 text-2xl font-black">Design system surface</h4>
+          <p className="mt-2 max-w-xl text-sm leading-6 opacity-80">
+            Preview primary action, accent badge, muted chip, card surface, and body text before exporting.
+          </p>
+          <div className="mt-5 grid gap-3 sm:grid-cols-2">
+            <div className="rounded-[var(--radius-md)] border border-current/10 p-4" style={{ backgroundColor: colors[3]?.hex ?? "#FFFFFF", color: getReadableTextColor(colors[3]?.hex ?? "#FFFFFF") }}>
+              <p className="text-xs font-black uppercase tracking-[0.12em] opacity-70">Card</p>
+              <h5 className="mt-2 text-lg font-black">Campaign preview</h5>
+              <p className="mt-1 text-sm opacity-80">Readable surfaces with generated design tokens.</p>
             </div>
-          );
-        })}
+            <div className="flex flex-col justify-center gap-2">
+              <button className="rounded-full px-4 py-3 text-sm font-black" style={{ backgroundColor: primaryColor, color: getReadableTextColor(primaryColor) }}>
+                Primary action
+              </button>
+              <span className="inline-flex w-fit rounded-full px-3 py-2 text-xs font-bold" style={{ backgroundColor: accentColor, color: getReadableTextColor(accentColor) }}>
+                Accent badge
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-strong)] p-5">
+          <h4 className="text-sm font-black text-[var(--color-text-primary)]">Quick checks</h4>
+          <div className="mt-4 space-y-3">
+            <CheckItem ok={summary.health !== "Needs review"} label={`${summary.aaPairs}/${summary.totalPairs} contrast checks pass AA`} />
+            <CheckItem ok={colors.length === size} label={`${colors.length} swatches generated`} />
+            <CheckItem ok={Object.keys(lockedColors).length > 0} label={Object.keys(lockedColors).length ? `${Object.keys(lockedColors).length} locked swatch` : "No locked swatches"} neutral={!Object.keys(lockedColors).length} />
+            <CheckItem ok={Boolean(normalizedBase)} label={normalizedBase ? `Base color ${normalizedBase}` : "Base color is invalid"} />
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -197,22 +263,58 @@ export default function ColorPaletteClient() {
   const controlsSlot = (
     <ToolControlPanel
       title="Palette settings"
-      description="Choose a base color, harmony mode, and palette size."
+      description="Choose a base color, harmony mode, size, and preview context."
       badge={<Badge variant="success">Browser-only</Badge>}
     >
       <ControlSection>
-        <ColorField label="Base color" value={baseColor} onChange={handleBaseColorChange} />
+        <ColorField label="Base color" value={baseColor} onChange={handleBaseColorChange} error={normalizedBase ? undefined : "Use a 3 or 6 digit HEX color."} />
+        <div className="mt-3 flex flex-wrap gap-1.5">
+          {STARTER_COLORS.map((color) => (
+            <button
+              key={color}
+              type="button"
+              onClick={() => applyStarterColor(color)}
+              className="inline-flex h-8 items-center gap-1.5 rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-2.5 text-[11px] font-bold text-[var(--color-text-primary)] transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-raised)] focus:outline-none focus:shadow-[var(--focus-ring)]"
+            >
+              <span className="h-3 w-3 shrink-0 rounded-full border border-black/10" style={{ backgroundColor: color }} aria-hidden />
+              {color}
+            </button>
+          ))}
+        </div>
+      </ControlSection>
+
+      <ControlSection title="Designer presets">
+        <div className="grid gap-2">
+          {PALETTE_PRESETS.map((preset) => (
+            <button
+              key={preset.id}
+              type="button"
+              onClick={() => applyPreset(preset)}
+              className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-3 text-left transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-raised)] focus:outline-none focus:shadow-[var(--focus-ring)]"
+            >
+              <span className="flex items-center justify-between gap-2">
+                <span className="flex min-w-0 items-center gap-2">
+                  <span className="h-4 w-4 rounded-full border border-black/10" style={{ backgroundColor: preset.baseColor }} aria-hidden />
+                  <span className="truncate text-sm font-black text-[var(--color-text-primary)]">{preset.title}</span>
+                </span>
+                <span className="shrink-0 text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">{preset.size}</span>
+              </span>
+              <span className="mt-1 block text-xs leading-5 text-[var(--color-text-secondary)]">{preset.description}</span>
+              {preset.tags?.length ? (
+                <span className="mt-2 flex flex-wrap gap-1">
+                  {preset.tags.map((tag) => <Badge key={tag} variant="outline">{tag}</Badge>)}
+                </span>
+              ) : null}
+            </button>
+          ))}
+        </div>
       </ControlSection>
 
       <ControlSection title="Harmony mode">
-        <CompactField
-          hint={HARMONY_OPTIONS.find((option) => option.value === harmony)?.description}
-        >
+        <CompactField hint={HARMONY_OPTIONS.find((option) => option.value === harmony)?.description}>
           <Select value={harmony} onChange={(event) => setHarmony(event.target.value as HarmonyMode)}>
             {HARMONY_OPTIONS.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
+              <option key={option.value} value={option.value}>{option.label}</option>
             ))}
           </Select>
         </CompactField>
@@ -223,12 +325,7 @@ export default function ColorPaletteClient() {
           ariaLabel="Palette size"
           value={String(size)}
           onChange={(v) => handleSizeChange(Number(v) as PaletteSize)}
-          options={[
-            { value: "3", label: "3" },
-            { value: "5", label: "5" },
-            { value: "7", label: "7" },
-            { value: "9", label: "9" },
-          ]}
+          options={PALETTE_SIZE_VALUES.map((value) => ({ value: String(value), label: String(value) }))}
           size="md"
           fullWidth
         />
@@ -239,138 +336,124 @@ export default function ColorPaletteClient() {
           ariaLabel="Preview mode"
           value={uiMode}
           onChange={(v) => setUiMode(v as PaletteUiMode)}
-          options={[
-            { value: "light", label: "Light" },
-            { value: "dark", label: "Dark" },
-          ]}
+          options={[{ value: "light", label: "Light" }, { value: "dark", label: "Dark" }]}
           size="md"
           fullWidth
         />
       </ControlSection>
-
-      <ControlSection title="Preset colors">
-        <div className="flex flex-wrap gap-1.5">
-          {STARTER_COLORS.map((color) => (
-            <button
-              key={color}
-              type="button"
-              onClick={() => applyStarterColor(color)}
-              className="inline-flex h-8 items-center gap-1.5 rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-2.5 text-[11px] font-bold text-[var(--color-text-primary)] transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-raised)]"
-            >
-              <span
-                className="h-3 w-3 shrink-0 rounded-full border border-black/10"
-                style={{ backgroundColor: color }}
-                aria-hidden
-              />
-              {color}
-            </button>
-          ))}
-        </div>
-      </ControlSection>
     </ToolControlPanel>
   );
 
-  const presetsSlot = (
-    <div className="space-y-5">
-      <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-strong)] shadow-[var(--shadow-sm)]">
-        <div className="border-b border-[var(--color-border-subtle)] px-5 py-4">
-          <h3 className="text-sm font-bold text-[var(--color-text-primary)]">Designer presets</h3>
-          <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">
-            Start with a practical palette direction, then fine-tune color, harmony, and size.
-          </p>
-        </div>
-        <div className="grid gap-3 p-5 md:grid-cols-2 xl:grid-cols-5">
-          {PALETTE_PRESETS.map((preset) => (
-            <button
-              key={preset.id}
-              type="button"
-              onClick={() => applyPreset(preset)}
-              className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-4 text-left transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-raised)] focus:outline-none focus:shadow-[var(--focus-ring)]"
-            >
-              <span className="flex items-center gap-2">
-                <span className="h-4 w-4 rounded-full border border-black/10" style={{ backgroundColor: preset.baseColor }} aria-hidden />
-                <span className="text-sm font-black text-[var(--color-text-primary)]">{preset.title}</span>
-              </span>
-              <span className="mt-2 block text-xs leading-5 text-[var(--color-text-secondary)]">{preset.description}</span>
-            </button>
-          ))}
-        </div>
-      </section>
-
-      <CodeOutputPanel
-        title="Export palette"
-        description="Copy CSS variables, Tailwind-style tokens, JSON, a gradient, or a plain HEX list."
-        tabs={tabs}
-        defaultTab="css"
-        onDownload={handleDownload}
-      />
-
-      <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-strong)] shadow-[var(--shadow-sm)]">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--color-border-subtle)] px-5 py-4">
+  const detailsSlot = (
+    <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-strong)] shadow-[var(--shadow-sm)]">
+      <div className="flex flex-col gap-3 border-b border-[var(--color-border-subtle)] px-5 py-4 lg:flex-row lg:items-center lg:justify-between">
         <div>
-          <h3 className="text-sm font-bold text-[var(--color-text-primary)]">Accessibility checks</h3>
+          <h3 className="text-sm font-bold text-[var(--color-text-primary)]">Palette workspace</h3>
           <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">
-            Auto text colors tested against common UI roles.
+            Keep the main canvas clean, then inspect usage, accessibility, and exports here.
           </p>
         </div>
-        <Badge variant="outline">AA target: 4.5:1</Badge>
+        <SegmentedControl
+          ariaLabel="Palette detail tabs"
+          value={activeTab}
+          onChange={(value) => setActiveTab(value as DetailsTab)}
+          options={[
+            { value: "overview", label: "Overview" },
+            { value: "accessibility", label: "A11y" },
+            { value: "exports", label: "Exports" },
+          ]}
+          size="sm"
+        />
       </div>
-      <div className="space-y-4 p-5">
-        <div className="grid gap-3 md:grid-cols-2">
-          {contrastPairs.map((pair) => (
-            <div
-              key={pair.label}
-              className="rounded-[var(--radius-md)] border border-[var(--color-border)] p-4"
-              style={{ backgroundColor: pair.background, color: pair.foreground }}
-            >
-              <div className="flex items-center justify-between gap-2">
-                <h4 className="text-sm font-black">{pair.label}</h4>
-                <Badge variant={pair.rating === "Fail" ? "danger" : pair.rating === "AA" ? "success" : "default"}>
-                  {pair.rating}
-                </Badge>
+
+      {activeTab === "overview" ? (
+        <div className="grid gap-4 p-5 lg:grid-cols-3">
+          {colors.map((color, index) => (
+            <div key={`${color.hex}-usage`} className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-4">
+              <div className="flex items-center gap-3">
+                <span className="h-10 w-10 shrink-0 rounded-[var(--radius-sm)] border border-black/10" style={{ backgroundColor: color.hex }} />
+                <div className="min-w-0">
+                  <h4 className="truncate text-sm font-black text-[var(--color-text-primary)]">{color.name}</h4>
+                  <p className="font-mono text-xs text-[var(--color-text-tertiary)]">{color.hex}</p>
+                </div>
               </div>
-              <p className="mt-3 text-2xl font-black">{pair.ratio}:1</p>
-              <p className="mt-1 text-sm font-bold opacity-90">{getAccessibilityStatus(pair.rating)}</p>
-              <p className="mt-1 font-mono text-xs opacity-85">
-                {pair.foreground} on {pair.background}
-              </p>
+              <p className="mt-3 text-sm leading-6 text-[var(--color-text-secondary)]">{getColorUsage(color, index)}</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <Badge variant="outline">L {color.lightness}%</Badge>
+                <Badge variant="outline">S {color.saturation}%</Badge>
+                <Badge variant="outline">H {color.hue}°</Badge>
+              </div>
             </div>
           ))}
         </div>
-        <div
-          className="rounded-[var(--radius-md)] border border-[var(--color-border)] p-5"
-          style={{ backgroundColor: previewBackground, color: previewText }}
-        >
-          <p className="text-xs font-black uppercase tracking-[0.16em] opacity-70">Palette preview</p>
-          <h4 className="mt-2 text-2xl font-black">Design system surface</h4>
-          <p className="mt-2 max-w-xl text-sm leading-6 opacity-80">
-            Use the generated swatches as background, muted, primary, card, accent, and border tokens.
-          </p>
-          <div className="mt-4 flex flex-wrap gap-2">
-            <span
-              className="rounded-full px-4 py-2 text-sm font-bold"
-              style={{ backgroundColor: colors[2]?.hex, color: getReadableTextColor(colors[2]?.hex ?? "#2563EB") }}
-            >
-              Primary action
-            </span>
-            <span
-              className="rounded-full px-4 py-2 text-sm font-bold"
-              style={{ backgroundColor: colors[1]?.hex, color: getReadableTextColor(colors[1]?.hex ?? "#E2E8F0") }}
-            >
-              Muted chip
-            </span>
+      ) : null}
+
+      {activeTab === "accessibility" ? (
+        <div className="space-y-4 p-5">
+          <div className="flex flex-wrap items-center justify-between gap-3 rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-4">
+            <div>
+              <h4 className="text-sm font-black text-[var(--color-text-primary)]">Accessibility summary</h4>
+              <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">AA target is 4.5:1 for normal text.</p>
+            </div>
+            <Badge variant={summary.health === "Needs review" ? "warning" : "success"}>{summary.aaPairs}/{summary.totalPairs} pass</Badge>
+          </div>
+          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+            {contrastPairs.map((pair) => (
+              <div key={pair.label} className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] p-4" style={{ backgroundColor: pair.background, color: pair.foreground }}>
+                <div className="flex items-center justify-between gap-2">
+                  <h4 className="text-sm font-black">{pair.label}</h4>
+                  <Badge variant={pair.rating === "Fail" ? "danger" : pair.rating === "AA" ? "success" : "default"}>{pair.rating}</Badge>
+                </div>
+                <p className="mt-3 text-2xl font-black">{pair.ratio}:1</p>
+                <p className="mt-1 text-sm font-bold opacity-90">{getAccessibilityStatus(pair.rating)}</p>
+                <p className="mt-1 truncate font-mono text-xs opacity-85">{pair.foreground} on {pair.background}</p>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
-      </section>
-    </div>
+      ) : null}
+
+      {activeTab === "exports" ? (
+        <div className="p-5">
+          <CodeOutputPanel
+            title="Export palette"
+            description="Copy CSS variables, Tailwind tokens, JSON, design tokens, accessibility report, gradient, or plain HEX list."
+            tabs={tabs}
+            defaultTab="css"
+            onDownload={handleDownload}
+          />
+        </div>
+      ) : null}
+    </section>
   );
 
   return (
     <ToolLayoutVisualGenerator
       previewSlot={previewSlot}
       controlsSlot={controlsSlot}
-      presetsSlot={presetsSlot}
+      presetsSlot={detailsSlot}
+      actionsPlacement="under-preview"
     />
+  );
+}
+
+function MetricCard({ label, value, tone = "info" }: { label: string; value: string; tone?: "info" | "success" | "warning" }) {
+  return (
+    <div className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-3">
+      <p className="text-[10px] font-black uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">{label}</p>
+      <div className="mt-2 flex items-center justify-between gap-2">
+        <p className="truncate text-sm font-black text-[var(--color-text-primary)]">{value}</p>
+        <Badge variant={tone === "success" ? "success" : tone === "warning" ? "warning" : "info"}>{tone}</Badge>
+      </div>
+    </div>
+  );
+}
+
+function CheckItem({ label, ok, neutral = false }: { label: string; ok: boolean; neutral?: boolean }) {
+  return (
+    <div className="flex items-start gap-2 text-sm leading-6 text-[var(--color-text-secondary)]">
+      <CheckCircle2 className={`mt-0.5 h-4 w-4 shrink-0 ${neutral ? "text-[var(--color-text-tertiary)]" : ok ? "text-[var(--color-success-text)]" : "text-[var(--color-warning-text)]"}`} aria-hidden />
+      <span>{label}</span>
+    </div>
   );
 }

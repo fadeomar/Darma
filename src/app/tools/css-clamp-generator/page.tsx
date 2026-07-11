@@ -29,7 +29,7 @@ export default function CssClampGeneratorPage() {
       maxWidth="wide"
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Generate responsive CSS <code>clamp()</code> values for fluid typography, spacing, widths, and design token systems.
+          Generate fluid CSS <code>clamp()</code> values, preview them across viewport widths, and export production-ready CSS variables, Tailwind tokens, JSON, and SCSS maps.
         </p>
       }
       article={
@@ -39,7 +39,7 @@ export default function CssClampGeneratorPage() {
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="CSS Clamp Generator" description="Calculate fluid CSS values locally and export ready-to-use declarations or token sets.">
+      <ToolContentCard title="CSS Clamp Generator" description="Calculate fluid typography, spacing, width, and token-scale values locally with compact previews and practical exports.">
         <CssClampClient />
       </ToolContentCard>
     </ToolPage>

@@ -1,4 +1,4 @@
-import type { ContrastPair, HarmonyMode, PaletteColor, PaletteOptions, WcagRating } from "./types";
+import type { ContrastPair, HarmonyMode, PaletteColor, PaletteOptions, PaletteSummary, WcagRating } from "./types";
 
 const HEX_REGEX = /^#?([\da-f]{3}|[\da-f]{6})$/i;
 
@@ -38,18 +38,22 @@ export function generatePalette(baseColor: string, options: PaletteOptions): Pal
 
   const baseHsl = hexToHsl(normalized);
   const offsets = getHarmonyOffsets(options.harmony, options.size);
-  const lightnessSteps = getLightnessSteps(options.size, options.harmony);
+  const lightnessSteps = getLightnessSteps(options.size, options.harmony, baseHsl.l);
   const colors = offsets.map((offset, index) => {
     const locked = options.lockedColors?.[index];
     if (locked) return { ...locked, locked: true };
 
     const hue = normalizeHue(baseHsl.h + offset);
-    const saturation = clamp(baseHsl.s + getSaturationShift(options.harmony, index), 34, 92);
-    const lightness = clamp(lightnessSteps[index] ?? baseHsl.l, 16, 92);
+    const saturation = clamp(baseHsl.s + getSaturationShift(options.harmony, index), 28, 96);
+    const lightness = clamp(lightnessSteps[index] ?? baseHsl.l, 8, 96);
     const hex = hslToHex(hue, saturation, lightness);
 
-    return createPaletteColor(hex, index, Boolean(locked));
+    return createPaletteColor(hex, index, false);
   });
+
+  if (options.harmony === "monochromatic" || options.harmony === "shades" || options.harmony === "tints") {
+    return colors.map((color, index) => ({ ...color, name: getRoleName(index, options.harmony) }));
+  }
 
   return colors;
 }
@@ -98,11 +102,15 @@ export function getContrastPairs(colors: PaletteColor[]): ContrastPair[] {
   const primary = colors[Math.min(2, colors.length - 1)]?.hex ?? "#2563EB";
   const muted = colors[Math.min(1, colors.length - 1)]?.hex ?? "#E2E8F0";
   const card = colors[Math.min(3, colors.length - 1)]?.hex ?? "#FFFFFF";
+  const accent = colors[Math.min(4, colors.length - 1)]?.hex ?? primary;
+  const ink = colors[colors.length - 1]?.hex ?? "#0F172A";
   const pairs = [
-    { label: "Background / text", background, foreground: getReadableTextColor(background) },
-    { label: "Primary / primary text", background: primary, foreground: getReadableTextColor(primary) },
-    { label: "Muted / muted text", background: muted, foreground: getReadableTextColor(muted) },
-    { label: "Card / card text", background: card, foreground: getReadableTextColor(card) },
+    { label: "Page background", background, foreground: getReadableTextColor(background) },
+    { label: "Primary action", background: primary, foreground: getReadableTextColor(primary) },
+    { label: "Muted chip", background: muted, foreground: getReadableTextColor(muted) },
+    { label: "Card surface", background: card, foreground: getReadableTextColor(card) },
+    { label: "Accent badge", background: accent, foreground: getReadableTextColor(accent) },
+    { label: "Ink on background", background, foreground: ink },
   ];
 
   return pairs.map((pair) => {
@@ -111,12 +119,44 @@ export function getContrastPairs(colors: PaletteColor[]): ContrastPair[] {
   });
 }
 
+export function getPaletteSummary(colors: PaletteColor[]): PaletteSummary {
+  const pairs = getContrastPairs(colors);
+  const aaPairs = pairs.filter((pair) => pair.rating !== "Fail").length;
+  const totalPairs = pairs.length;
+  const averageHue = colors.length ? colors.reduce((sum, color) => sum + color.hue, 0) / colors.length : 0;
+  const averageSaturation = colors.length ? colors.reduce((sum, color) => sum + color.saturation, 0) / colors.length : 0;
+  const averageLightness = colors.length ? colors.reduce((sum, color) => sum + color.lightness, 0) / colors.length : 0;
+  const primary = colors[Math.min(2, colors.length - 1)]?.hex ?? colors[0]?.hex ?? "#2563EB";
+
+  return {
+    health: aaPairs === totalPairs ? "Excellent" : aaPairs >= Math.ceil(totalPairs * 0.7) ? "Good" : "Needs review",
+    aaPairs,
+    totalPairs,
+    dominantHue: getHueFamily(averageHue),
+    mood: getPaletteMood(averageSaturation, averageLightness),
+    recommendedText: getReadableTextColor(primary) === "#FFFFFF" ? "Light text" : "Dark text",
+  };
+}
+
+export function getColorUsage(color: PaletteColor, index: number): string {
+  if (index === 0) return color.lightness > 80 ? "Page background" : "Deep surface";
+  if (index === 1) return "Muted surface";
+  if (index === 2) return "Primary action";
+  if (index === 3) return "Card / section";
+  if (index === 4) return "Accent / highlight";
+  if (index === 5) return "Border / divider";
+  if (index === 6) return "Support color";
+  if (index === 7) return "Data / chart";
+  return "Text / ink";
+}
+
 export function exportPaletteCssVariables(colors: PaletteColor[]): string {
   const lines = colors.flatMap((color, index) => {
-    const tokenName = color.name.toLowerCase().replace(/\s+/g, "-");
+    const tokenName = color.name.toLowerCase().replace(/\s+|\//g, "-");
     return [
       `  --color-palette-${index + 1}: ${color.hex};`,
       `  --color-${tokenName}: ${color.hex};`,
+      `  --color-${tokenName}-text: ${getReadableTextColor(color.hex)};`,
     ];
   });
   return `:root {\n${lines.join("\n")}\n}`;
@@ -124,7 +164,7 @@ export function exportPaletteCssVariables(colors: PaletteColor[]): string {
 
 export function exportPaletteTailwindObject(colors: PaletteColor[]): string {
   const lines = colors.map((color, index) => {
-    const tokenName = color.name.toLowerCase().replace(/\s+/g, "-");
+    const tokenName = color.name.toLowerCase().replace(/\s+|\//g, "-");
     return `      "${tokenName}": "${color.hex}",\n      "${index + 1}": "${color.hex}",`;
   });
   return `colors: {\n  darma: {\n${lines.join("\n")}\n  }\n}`;
@@ -133,15 +173,32 @@ export function exportPaletteTailwindObject(colors: PaletteColor[]): string {
 export function exportPaletteJson(colors: PaletteColor[]): string {
   return JSON.stringify(
     colors.map((color, index) => ({
-      name: color.name.toLowerCase().replace(/\s+/g, "-"),
+      name: color.name.toLowerCase().replace(/\s+|\//g, "-"),
+      usage: getColorUsage(color, index),
       step: index + 1,
       hex: color.hex,
       rgb: color.rgb,
       hsl: color.hsl,
+      text: getReadableTextColor(color.hex),
+      contrastWithText: getContrastRatio(getReadableTextColor(color.hex), color.hex),
     })),
     null,
     2,
   );
+}
+
+export function exportPaletteDesignTokens(colors: PaletteColor[]): string {
+  const roles = colors.map((color, index) => {
+    const key = color.name.toLowerCase().replace(/\s+|\//g, "-");
+    return `  "${key}": { "value": "${color.hex}", "type": "color", "description": "${getColorUsage(color, index)}" },`;
+  });
+  return `{\n${roles.join("\n")}\n}`;
+}
+
+export function exportAccessibilityReport(colors: PaletteColor[]): string {
+  return getContrastPairs(colors)
+    .map((pair) => `${pair.label}: ${pair.foreground} on ${pair.background} = ${pair.ratio}:1 (${pair.rating})`)
+    .join("\n");
 }
 
 export function exportHexList(colors: PaletteColor[]): string {
@@ -150,8 +207,11 @@ export function exportHexList(colors: PaletteColor[]): string {
 
 export function exportGradientSuggestion(colors: PaletteColor[]): string {
   const start = colors[2]?.hex ?? colors[0]?.hex ?? "#2563EB";
-  const end = colors[4]?.hex ?? colors[colors.length - 1]?.hex ?? "#7C3AED";
-  return `linear-gradient(135deg, ${start} 0%, ${end} 100%)`;
+  const middle = colors[4]?.hex ?? colors[Math.max(0, colors.length - 2)]?.hex;
+  const end = colors[colors.length - 1]?.hex ?? "#7C3AED";
+  return middle
+    ? `linear-gradient(135deg, ${start} 0%, ${middle} 48%, ${end} 100%)`
+    : `linear-gradient(135deg, ${start} 0%, ${end} 100%)`;
 }
 
 export function getAccessibilityStatus(rating: WcagRating): string {
@@ -163,7 +223,7 @@ export function getAccessibilityStatus(rating: WcagRating): string {
 function getHarmonyOffsets(mode: HarmonyMode, size: number): number[] {
   const maps: Record<HarmonyMode, number[]> = {
     monochromatic: [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    analogous: [-36, -24, -12, 0, 12, 24, 36, 48, -48],
+    analogous: [-32, -20, -10, 0, 12, 24, 36, 48, -44],
     complementary: [0, 180, -12, 168, 12, 192, -24, 156, 24],
     "split-complementary": [0, 150, 210, -12, 162, 198, 12, 138, 222],
     triadic: [0, 120, 240, -12, 132, 228, 12, 108, 252],
@@ -177,21 +237,27 @@ function getHarmonyOffsets(mode: HarmonyMode, size: number): number[] {
   return Array.from({ length: size }, (_, index) => values[index % values.length] + Math.floor(index / values.length) * 8);
 }
 
-function getLightnessSteps(size: number, mode?: HarmonyMode): number[] {
+function getLightnessSteps(size: number, mode?: HarmonyMode, baseLightness = 52): number[] {
   if (mode === "shades") {
-    if (size === 3) return [65, 38, 14];
-    if (size === 5) return [72, 55, 40, 26, 13];
-    if (size === 7) return [78, 65, 52, 40, 28, 18, 9];
-    return [85, 74, 63, 52, 41, 31, 22, 14, 7];
+    if (size === 3) return [66, 38, 14];
+    if (size === 5) return [74, 56, 40, 26, 13];
+    if (size === 7) return [80, 66, 53, 40, 28, 18, 9];
+    return [88, 76, 64, 53, 42, 32, 23, 15, 7];
   }
   if (mode === "tints") {
-    if (size === 3) return [90, 78, 65];
-    if (size === 5) return [97, 90, 82, 73, 62];
-    if (size === 7) return [98, 93, 87, 80, 72, 63, 54];
-    return [98, 94, 89, 83, 76, 68, 60, 51, 42];
+    if (size === 3) return [96, 82, 66];
+    if (size === 5) return [98, 92, 84, 74, 62];
+    if (size === 7) return [99, 95, 90, 83, 75, 66, 55];
+    return [99, 96, 92, 87, 80, 72, 63, 53, 42];
   }
-  if (size === 3) return [90, 52, 22];
-  if (size === 5) return [94, 76, 54, 36, 18];
+  if (mode === "monochromatic") {
+    if (size === 3) return [90, baseLightness, 20];
+    if (size === 5) return [96, 80, baseLightness, 34, 16];
+    if (size === 7) return [97, 88, 74, baseLightness, 38, 25, 14];
+    return [98, 91, 82, 70, baseLightness, 40, 30, 22, 13];
+  }
+  if (size === 3) return [92, 54, 24];
+  if (size === 5) return [95, 76, 54, 36, 18];
   if (size === 7) return [96, 84, 70, 55, 42, 30, 18];
   return [97, 88, 78, 66, 54, 43, 33, 24, 16];
 }
@@ -199,12 +265,44 @@ function getLightnessSteps(size: number, mode?: HarmonyMode): number[] {
 function getSaturationShift(mode: HarmonyMode, index: number): number {
   if (mode === "monochromatic") return index % 2 === 0 ? -8 : 6;
   if (mode === "shades" || mode === "tints") return index % 2 === 0 ? -4 : 4;
-  return index % 3 === 0 ? 0 : index % 3 === 1 ? -4 : 6;
+  return index % 3 === 0 ? 0 : index % 3 === 1 ? -6 : 8;
 }
 
 function getColorName(index: number): string {
   const names = ["Background", "Muted", "Primary", "Card", "Accent", "Border", "Surface", "Highlight", "Ink"];
   return names[index] ?? `Color ${index + 1}`;
+}
+
+function getRoleName(index: number, mode: HarmonyMode): string {
+  if (mode === "shades") {
+    const names = ["Light", "Soft", "Base", "Deep", "Dark", "Darker", "Night", "Ink", "Black" ];
+    return names[index] ?? getColorName(index);
+  }
+  if (mode === "tints") {
+    const names = ["Cloud", "Mist", "Tint", "Soft", "Base", "Fresh", "Accent", "Deep", "Ink" ];
+    return names[index] ?? getColorName(index);
+  }
+  return getColorName(index);
+}
+
+function getHueFamily(hue: number): string {
+  if (hue < 15 || hue >= 345) return "Red";
+  if (hue < 45) return "Orange";
+  if (hue < 70) return "Yellow";
+  if (hue < 165) return "Green";
+  if (hue < 195) return "Cyan";
+  if (hue < 255) return "Blue";
+  if (hue < 290) return "Violet";
+  if (hue < 345) return "Magenta";
+  return "Neutral";
+}
+
+function getPaletteMood(saturation: number, lightness: number): string {
+  if (saturation < 28) return lightness < 38 ? "Minimal and serious" : "Soft and neutral";
+  if (lightness < 34) return "Deep and premium";
+  if (lightness > 76) return "Light and airy";
+  if (saturation > 72) return "Vibrant and expressive";
+  return "Balanced and modern";
 }
 
 function normalizeHue(value: number): number {
@@ -226,7 +324,7 @@ export function hexToRgb(hexInput: string): { r: number; g: number; b: number } 
 }
 
 export function rgbToHex(r: number, g: number, b: number): string {
-  return `#${[r, g, b].map((value) => value.toString(16).padStart(2, "0")).join("")}`.toUpperCase();
+  return `#${[r, g, b].map((value) => Math.round(clamp(value, 0, 255)).toString(16).padStart(2, "0")).join("")}`.toUpperCase();
 }
 
 export function hexToHsl(hex: string): { h: number; s: number; l: number } {
@@ -277,7 +375,7 @@ export function hslToHex(h: number, s: number, l: number): string {
   else if (h < 300) [r, g, b] = [x, 0, c];
   else [r, g, b] = [c, 0, x];
 
-  return rgbToHex(Math.round((r + m) * 255), Math.round((g + m) * 255), Math.round((b + m) * 255));
+  return rgbToHex((r + m) * 255, (g + m) * 255, (b + m) * 255);
 }
 
 function getRelativeLuminance(r: number, g: number, b: number): number {

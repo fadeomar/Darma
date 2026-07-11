@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { Button, CopyButton, Input, Select } from "@/components/ui";
-import { ToolControlPanel, ControlSection, ControlGrid, WarningPanel } from "@/features/tools/components";
+import { ControlGrid, ControlSection, ToolControlPanel, WarningPanel } from "@/features/tools/components";
 import { ToolLayoutTextWorkbench } from "@/features/tools/layouts";
 import {
   closestPreset,
@@ -20,8 +20,44 @@ import {
   widthFromHeight,
 } from "./aspect";
 
+type ExportTab = "css" | "html" | "react" | "tokens";
+type PreviewMode = "shape" | "social" | "crop";
+type OverlayMode = "clean" | "safe" | "grid";
+type TargetSpec = {
+  id: string;
+  label: string;
+  width: number;
+  height: number;
+  group: "social" | "video" | "web" | "print";
+  hint: string;
+};
+
+type CheckSeverity = "good" | "info" | "warn";
+
+type ProductionCheck = {
+  id: string;
+  severity: CheckSeverity;
+  title: string;
+  message: string;
+};
+
 const SCALE_OPTIONS = [25, 50, 75, 100, 125, 150, 200];
 const LONG_EDGE_PRESETS = [720, 1080, 1200, 1600, 1920, 2048, 2560, 3840];
+
+const TARGET_SPECS: TargetSpec[] = [
+  { id: "ig-square", label: "Instagram square", width: 1080, height: 1080, group: "social", hint: "Classic feed square." },
+  { id: "ig-portrait", label: "Instagram portrait", width: 1080, height: 1350, group: "social", hint: "4:5 feed post with extra height." },
+  { id: "story", label: "Story / Reel", width: 1080, height: 1920, group: "social", hint: "Vertical story, reel, short, or TikTok." },
+  { id: "x-post", label: "X / link image", width: 1200, height: 675, group: "social", hint: "Wide social image and article preview." },
+  { id: "youtube-thumb", label: "YouTube thumbnail", width: 1280, height: 720, group: "video", hint: "16:9 thumbnail export." },
+  { id: "full-hd", label: "Full HD", width: 1920, height: 1080, group: "video", hint: "Widescreen video frame." },
+  { id: "vertical-hd", label: "Vertical HD", width: 1080, height: 1920, group: "video", hint: "Portrait video frame." },
+  { id: "og", label: "Open Graph", width: 1200, height: 630, group: "web", hint: "Common share card / OG image." },
+  { id: "hero", label: "Hero banner", width: 1920, height: 720, group: "web", hint: "Wide website hero area." },
+  { id: "app-card", label: "App card", width: 640, height: 420, group: "web", hint: "Dashboard or product card preview." },
+  { id: "a4", label: "A4 landscape", width: 3508, height: 2480, group: "print", hint: "300 DPI A4 landscape." },
+  { id: "poster", label: "Poster portrait", width: 2000, height: 3000, group: "print", hint: "2:3 poster crop." },
+];
 
 function toInput(value: number): string {
   return Number.isFinite(value) ? String(roundDimension(value)) : "";
@@ -29,11 +65,46 @@ function toInput(value: number): string {
 
 function parsePositive(value: string): number {
   const parsed = Number.parseFloat(value);
-  return Number.isFinite(parsed) && parsed > 0 ? parsed : NaN;
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : Number.NaN;
 }
 
 function labelCase(value: string): string {
-  return value.slice(0, 1).toUpperCase() + value.slice(1);
+  return value.slice(0, 1).toUpperCase() + value.slice(1).replaceAll("-", " ");
+}
+
+function compactNumber(value: number): string {
+  if (!Number.isFinite(value)) return "—";
+  return Number.isInteger(value) ? String(value) : String(roundDimension(value));
+}
+
+function ratioLabel(width: number, height: number): string {
+  const ratio = simplifyRatio(width, height);
+  return ratio?.label ?? "—";
+}
+
+function pixelCount(width: number, height: number): string {
+  if (!Number.isFinite(width) || !Number.isFinite(height)) return "—";
+  const total = width * height;
+  if (total >= 1_000_000) return `${roundDimension(total / 1_000_000)} MP`;
+  return `${Math.round(total).toLocaleString()} px`;
+}
+
+function formatPercent(value: number): string {
+  if (!Number.isFinite(value)) return "—";
+  return `${roundDimension(value)}%`;
+}
+
+function calcCropLoss(width: number, height: number, cropWidth?: number, cropHeight?: number): number {
+  if (!cropWidth || !cropHeight || width <= 0 || height <= 0) return 0;
+  const original = width * height;
+  const cropped = cropWidth * cropHeight;
+  return Math.max(0, Math.min(100, ((original - cropped) / original) * 100));
+}
+
+function statusClasses(severity: CheckSeverity): string {
+  if (severity === "good") return "border-emerald-500/25 bg-emerald-500/10 text-emerald-700 dark:text-emerald-200";
+  if (severity === "warn") return "border-amber-500/25 bg-amber-500/10 text-amber-700 dark:text-amber-200";
+  return "border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] text-[var(--color-text-secondary)]";
 }
 
 export default function AspectRatioCalculatorClient() {
@@ -45,6 +116,12 @@ export default function AspectRatioCalculatorClient() {
   const [maxHeight, setMaxHeight] = useState("900");
   const [fitMode, setFitMode] = useState<"contain" | "cover">("contain");
   const [longEdge, setLongEdge] = useState("1920");
+  const [previewMode, setPreviewMode] = useState<PreviewMode>("shape");
+  const [overlayMode, setOverlayMode] = useState<OverlayMode>("safe");
+  const [activeExport, setActiveExport] = useState<ExportTab>("css");
+  const [targetFilter, setTargetFilter] = useState<TargetSpec["group"] | "all">("all");
+  const [className, setClassName] = useState("ratio-card");
+  const [objectFit, setObjectFit] = useState<"cover" | "contain">("cover");
 
   const width = parsePositive(rawWidth);
   const height = parsePositive(rawHeight);
@@ -52,17 +129,37 @@ export default function AspectRatioCalculatorClient() {
   const boundHeight = parsePositive(maxHeight);
   const longEdgeValue = parsePositive(longEdge);
 
-  function applyRatio(nextW: number, nextH: number) {
-    if (!Number.isFinite(nextW) || !Number.isFinite(nextH) || nextW <= 0 || nextH <= 0) {
-      setRatioW(nextW);
-      setRatioH(nextH);
-      return;
-    }
+  const valid = Number.isFinite(width) && Number.isFinite(height) && width > 0 && height > 0;
+  const simplified = useMemo(() => simplifyRatio(width, height), [width, height]);
+  const activePreset = RATIO_PRESETS.find((preset) => preset.w === ratioW && preset.h === ratioH);
+  const nearest = useMemo(() => closestPreset(width, height), [width, height]);
+  const fit = useMemo(() => fitWithinBounds(width, height, boundWidth, boundHeight, fitMode), [width, height, boundWidth, boundHeight, fitMode]);
+  const containFit = useMemo(() => fitWithinBounds(width, height, boundWidth, boundHeight, "contain"), [width, height, boundWidth, boundHeight]);
+  const coverFit = useMemo(() => fitWithinBounds(width, height, boundWidth, boundHeight, "cover"), [width, height, boundWidth, boundHeight]);
+  const crop = useMemo(() => cropToRatio(width, height, ratioW, ratioH), [width, height, ratioW, ratioH]);
+  const longEdgeResult = useMemo(() => dimensionsFromRatioAndLongEdge(ratioW, ratioH, longEdgeValue), [ratioW, ratioH, longEdgeValue]);
+  const cropLoss = crop ? calcCropLoss(width, height, crop.cropWidth, crop.cropHeight) : 0;
+  const paddingFallback = paddingTopPercent(ratioW, ratioH);
+  const cssSnippet = cssAspectRatio(ratioW, ratioH);
+  const safeClassName = className.trim() || "ratio-card";
 
+  const filteredTargets = TARGET_SPECS.filter((target) => targetFilter === "all" || target.group === targetFilter);
+
+  function applyRatio(nextW: number, nextH: number) {
     setRatioW(nextW);
     setRatioH(nextH);
     const nextHeight = heightFromWidth(nextW, nextH, parsePositive(rawWidth));
     if (Number.isFinite(nextHeight)) setRawHeight(toInput(nextHeight));
+  }
+
+  function applyDimensions(nextWidth: number, nextHeight: number) {
+    setRawWidth(toInput(nextWidth));
+    setRawHeight(toInput(nextHeight));
+    const nextRatio = simplifyRatio(nextWidth, nextHeight);
+    if (nextRatio) {
+      setRatioW(nextRatio.w);
+      setRatioH(nextRatio.h);
+    }
   }
 
   function changeWidth(value: string) {
@@ -80,83 +177,149 @@ export default function AspectRatioCalculatorClient() {
   function applyLongEdge(edge: number) {
     setLongEdge(String(edge));
     const next = dimensionsFromRatioAndLongEdge(ratioW, ratioH, edge);
-    if (next) {
-      setRawWidth(toInput(next.width));
-      setRawHeight(toInput(next.height));
-    }
+    if (next) applyDimensions(next.width, next.height);
   }
 
   function flipRatio() {
     applyRatio(ratioH, ratioW);
   }
 
-  const simplified = useMemo(() => simplifyRatio(width, height), [width, height]);
-  const valid = Number.isFinite(width) && Number.isFinite(height) && width > 0 && height > 0;
-  const activePreset = RATIO_PRESETS.find((preset) => preset.w === ratioW && preset.h === ratioH);
-  const nearest = useMemo(() => closestPreset(width, height), [width, height]);
-  const fit = useMemo(() => fitWithinBounds(width, height, boundWidth, boundHeight, fitMode), [width, height, boundWidth, boundHeight, fitMode]);
-  const crop = useMemo(() => cropToRatio(width, height, ratioW, ratioH), [width, height, ratioW, ratioH]);
-  const longEdgeResult = useMemo(() => dimensionsFromRatioAndLongEdge(ratioW, ratioH, longEdgeValue), [ratioW, ratioH, longEdgeValue]);
+  const scaleText = SCALE_OPTIONS.map((scale) => {
+    const scaled = scaledDimensions(width, height, scale);
+    return scaled ? `${scale}%: ${formatDimensionPair(scaled.width, scaled.height)}` : "";
+  }).filter(Boolean).join("\n");
 
-  const cssSnippet = cssAspectRatio(ratioW, ratioH);
-  const paddingFallback = paddingTopPercent(ratioW, ratioH);
+  const cssExport = `.${safeClassName} {
+  aspect-ratio: ${compactNumber(ratioW)} / ${compactNumber(ratioH)};
+  width: 100%;
+  overflow: hidden;
+}
+
+.${safeClassName} > img,
+.${safeClassName} > video {
+  width: 100%;
+  height: 100%;
+  object-fit: ${objectFit};
+}
+
+/* Legacy fallback */
+.${safeClassName}::before {
+  content: "";
+  display: block;
+  padding-top: ${formatPercent(paddingFallback)};
+}`;
+
+  const htmlExport = `<div class="${safeClassName}">
+  <img src="image.jpg" alt="" loading="lazy" />
+</div>`;
+
+  const reactExport = `type RatioCardProps = {
+  src: string;
+  alt: string;
+};
+
+export function RatioCard({ src, alt }: RatioCardProps) {
+  return (
+    <figure className="${safeClassName}">
+      <img src={src} alt={alt} loading="lazy" />
+    </figure>
+  );
+}`;
+
+  const tokenExport = JSON.stringify(
+    {
+      name: safeClassName,
+      ratio: `${compactNumber(ratioW)}:${compactNumber(ratioH)}`,
+      aspectRatio: `${compactNumber(ratioW)} / ${compactNumber(ratioH)}`,
+      dimensions: valid ? { width: roundDimension(width), height: roundDimension(height), pixels: Math.round(width * height) } : null,
+      css: cssSnippet,
+      paddingTopFallback: Number.isFinite(paddingFallback) ? `${paddingFallback}%` : null,
+      objectFit,
+      exports: {
+        containBounds: containFit ? { width: containFit.width, height: containFit.height } : null,
+        coverBounds: coverFit ? { width: coverFit.width, height: coverFit.height } : null,
+        crop: crop ? { width: crop.cropWidth, height: crop.cropHeight, offsetX: crop.cropX, offsetY: crop.cropY, lossPercent: roundDimension(cropLoss) } : null,
+      },
+    },
+    null,
+    2,
+  );
+
+  const exportMap: Record<ExportTab, string> = {
+    css: cssExport,
+    html: htmlExport,
+    react: reactExport,
+    tokens: tokenExport,
+  };
+
   const summary = valid
     ? [
-        `${formatDimensionPair(width, height)} — ratio ${simplified?.label ?? `${ratioW}:${ratioH}`}`,
+        `${formatDimensionPair(width, height)} — ${simplified?.label ?? `${ratioW}:${ratioH}`}`,
+        `Closest preset: ${nearest?.label ?? "—"}`,
+        `Pixels: ${pixelCount(width, height)}`,
         `CSS: ${cssSnippet}`,
-        Number.isFinite(paddingFallback) ? `Legacy padding-top: ${paddingFallback}%` : "",
-      ]
-        .filter(Boolean)
-        .join("\n")
+        Number.isFinite(paddingFallback) ? `Padding fallback: ${paddingFallback}%` : "",
+      ].filter(Boolean).join("\n")
     : "";
 
-  const presetGroups = ["social", "video", "photo", "web", "print"] as const;
+  const checks = useMemo<ProductionCheck[]>(() => {
+    const list: ProductionCheck[] = [];
+    if (!valid || !simplified) {
+      return [{ id: "invalid", severity: "warn", title: "Missing dimensions", message: "Enter positive width and height values to generate outputs." }];
+    }
+
+    list.push({ id: "ratio", severity: "good", title: "Ratio solved", message: `${formatDimensionPair(width, height)} simplifies to ${simplified.label}.` });
+
+    if (Math.abs(width - Math.round(width)) > 0.01 || Math.abs(height - Math.round(height)) > 0.01) {
+      list.push({ id: "decimal", severity: "warn", title: "Decimal pixels", message: "Some platforms prefer whole-pixel exports. Round before final delivery." });
+    }
+
+    if (width * height > 16_000_000) {
+      list.push({ id: "large", severity: "warn", title: "Large canvas", message: "This is a large pixel count. Confirm compression and upload limits before export." });
+    } else {
+      list.push({ id: "size", severity: "good", title: "Reasonable canvas", message: `${pixelCount(width, height)} is safe for most web handoffs.` });
+    }
+
+    if (cropLoss > 12) {
+      list.push({ id: "crop", severity: "warn", title: "Heavy crop", message: `Cover crop removes about ${formatPercent(cropLoss)} of the original area.` });
+    } else {
+      list.push({ id: "crop", severity: "info", title: "Crop check", message: `Centered cover crop loss is about ${formatPercent(cropLoss)}.` });
+    }
+
+    if (nearest) {
+      const delta = Math.abs(nearest.w / nearest.h - width / height);
+      list.push({ id: "preset", severity: delta < 0.01 ? "good" : "info", title: "Nearest preset", message: `${nearest.label} — ${nearest.hint}` });
+    }
+
+    return list;
+  }, [cropLoss, height, nearest, simplified, valid, width]);
 
   return (
     <ToolLayoutTextWorkbench
       inputSlot={
-        <ToolControlPanel title="Aspect ratio studio" description="Solve dimensions, preview crops, fit inside bounds, generate CSS, and prepare common creator sizes without uploading anything.">
-          <ControlSection title="Professional presets">
-            <div className="space-y-3">
-              {presetGroups.map((group) => {
-                const items = RATIO_PRESETS.filter((preset) => preset.group === group);
-                if (!items.length) return null;
-                return (
-                  <div key={group}>
-                    <p className="mb-1 text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{labelCase(group)}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {items.map((preset) => {
-                        const active = preset.w === ratioW && preset.h === ratioH;
-                        return (
-                          <Button
-                            key={preset.id}
-                            size="sm"
-                            variant={active ? "soft" : "secondary"}
-                            aria-pressed={active}
-                            title={preset.hint}
-                            onClick={() => applyRatio(preset.w, preset.h)}
-                          >
-                            {preset.label}
-                          </Button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                );
-              })}
+        <ToolControlPanel title="Aspect ratio studio" description="Solve creator dimensions, preview crops, fit inside bounds, and export production snippets without uploading files.">
+          <ControlSection title="Quick targets">
+            <div className="mb-3 flex flex-wrap gap-2">
+              {(["all", "social", "video", "web", "print"] as const).map((group) => (
+                <Button key={group} size="sm" variant={targetFilter === group ? "soft" : "secondary"} aria-pressed={targetFilter === group} onClick={() => setTargetFilter(group)}>
+                  {labelCase(group)}
+                </Button>
+              ))}
             </div>
-            {activePreset ? (
-              <div className="mt-3 rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 text-xs text-[var(--color-text-secondary)]">
-                <strong className="text-[var(--color-text-primary)]">{activePreset.label}</strong> — {activePreset.hint}
-                <div className="mt-2 flex flex-wrap gap-1.5">
-                  {activePreset.useCases.map((item) => (
-                    <span key={item} className="rounded-[var(--radius-full)] bg-[var(--color-surface-subtle)] px-2 py-1 text-[10px] font-bold text-[var(--color-text-tertiary)]">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ) : null}
+            <div className="grid gap-2 sm:grid-cols-2">
+              {filteredTargets.slice(0, 8).map((target) => (
+                <button
+                  key={target.id}
+                  type="button"
+                  onClick={() => applyDimensions(target.width, target.height)}
+                  className="rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 text-left transition hover:border-[var(--color-primary-border)] hover:bg-[var(--color-primary-soft)]"
+                  title={target.hint}
+                >
+                  <span className="block text-xs font-black text-[var(--color-text-primary)]">{target.label}</span>
+                  <span className="mt-1 block truncate font-mono text-[11px] text-[var(--color-text-tertiary)]">{target.width} × {target.height} · {ratioLabel(target.width, target.height)}</span>
+                </button>
+              ))}
+            </div>
           </ControlSection>
 
           <ControlSection title="Ratio and dimensions">
@@ -186,7 +349,7 @@ export default function AspectRatioCalculatorClient() {
             </ControlGrid>
           </ControlSection>
 
-          <ControlSection title="Resize tools">
+          <ControlSection title="Resize and preview">
             <ControlGrid columns={2}>
               <label className="text-xs font-semibold text-[var(--color-text-muted)]">
                 Long edge
@@ -215,6 +378,40 @@ export default function AspectRatioCalculatorClient() {
                 <Input className="mt-1" type="text" inputMode="decimal" value={maxHeight} onChange={(event) => setMaxHeight(event.target.value)} aria-label="Maximum height" />
               </label>
             </ControlGrid>
+            <ControlGrid columns={2} className="mt-4">
+              <label className="text-xs font-semibold text-[var(--color-text-muted)]">
+                Preview
+                <Select className="mt-1" value={previewMode} onChange={(event) => setPreviewMode(event.target.value as PreviewMode)} aria-label="Preview mode">
+                  <option value="shape">Shape card</option>
+                  <option value="social">Social crop</option>
+                  <option value="crop">Crop bounds</option>
+                </Select>
+              </label>
+              <label className="text-xs font-semibold text-[var(--color-text-muted)]">
+                Overlay
+                <Select className="mt-1" value={overlayMode} onChange={(event) => setOverlayMode(event.target.value as OverlayMode)} aria-label="Overlay mode">
+                  <option value="clean">Clean</option>
+                  <option value="safe">Safe zone</option>
+                  <option value="grid">Grid</option>
+                </Select>
+              </label>
+            </ControlGrid>
+          </ControlSection>
+
+          <ControlSection title="Export settings">
+            <ControlGrid columns={2}>
+              <label className="text-xs font-semibold text-[var(--color-text-muted)]">
+                CSS class
+                <Input className="mt-1" value={className} onChange={(event) => setClassName(event.target.value)} aria-label="CSS class name" />
+              </label>
+              <label className="text-xs font-semibold text-[var(--color-text-muted)]">
+                Object fit
+                <Select className="mt-1" value={objectFit} onChange={(event) => setObjectFit(event.target.value as "cover" | "contain")} aria-label="Object fit">
+                  <option value="cover">cover</option>
+                  <option value="contain">contain</option>
+                </Select>
+              </label>
+            </ControlGrid>
           </ControlSection>
 
           {!valid ? <p className="mt-2 text-xs font-semibold text-[var(--color-danger)]">Enter positive width and height values.</p> : null}
@@ -225,72 +422,91 @@ export default function AspectRatioCalculatorClient() {
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3">
             <div>
               <h2 className="text-sm font-bold tracking-[-0.01em] text-[var(--color-text-primary)]">Design-ready output</h2>
-              <p className="text-xs text-[var(--color-text-tertiary)]">Ratio, crop, fit, CSS, and quick scale sizes.</p>
+              <p className="text-xs text-[var(--color-text-tertiary)]">Ratio, crop, fit, CSS, exports, and production checks.</p>
             </div>
             <CopyButton text={summary} size="sm" variant="secondary" disabled={!valid}>Copy report</CopyButton>
           </div>
-          <div className="flex flex-1 flex-col gap-4 p-4">
+
+          <div className="flex flex-1 flex-col gap-4 overflow-auto p-4">
             {valid && simplified ? (
               <>
-                <div className="grid gap-3 sm:grid-cols-3">
-                  <MetricCard label="Simplified ratio" value={simplified.label} />
-                  <MetricCard label="Decimal" value={String(roundDimension(simplified.decimal))} />
-                  <MetricCard label="Orientation" value={labelCase(simplified.orientation)} />
+                <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+                  <MetricCard label="Ratio" value={simplified.label} sub={`Decimal ${roundDimension(simplified.decimal)}`} />
+                  <MetricCard label="Canvas" value={`${compactNumber(width)} × ${compactNumber(height)}`} sub={pixelCount(width, height)} />
+                  <MetricCard label="Orientation" value={labelCase(simplified.orientation)} sub={nearest ? `Near ${nearest.label}` : "Custom ratio"} />
+                  <MetricCard label="Fallback" value={formatPercent(paddingFallback)} sub="padding-top" />
                 </div>
 
-                <div className="flex items-center justify-center rounded-[var(--radius-md)] border border-dashed border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-4">
-                  <div
-                    className="flex items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] px-3 text-center text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-primary)] shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]"
-                    style={{ aspectRatio: `${simplified.decimal}`, width: "min(100%, 260px)", maxHeight: 170 }}
-                  >
-                    {formatDimensionPair(width, height)}
+                <div className="grid gap-4 xl:grid-cols-[minmax(0,1.05fr)_minmax(260px,0.95fr)]">
+                  <PreviewCard
+                    width={width}
+                    height={height}
+                    ratio={simplified.decimal}
+                    previewMode={previewMode}
+                    overlayMode={overlayMode}
+                    cropLoss={cropLoss}
+                  />
+
+                  <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-1">
+                    <InfoPanel title="Closest preset" lines={[nearest ? `${nearest.label} — ${nearest.hint}` : "No close preset found"]} />
+                    <InfoPanel title="Long edge result" lines={[longEdgeResult ? formatDimensionPair(longEdgeResult.width, longEdgeResult.height) : "Enter a valid long edge"]} />
+                    <InfoPanel title={`${fitMode === "contain" ? "Fit inside" : "Cover"} bounds`} lines={[fit ? `${formatDimensionPair(fit.width, fit.height)} (${roundDimension(fit.scale * 100)}%)` : "Enter valid bounds"]} />
+                    <InfoPanel title="Centered crop" lines={crop ? [`${formatDimensionPair(crop.cropWidth, crop.cropHeight)} crop area`, `Offset X ${crop.cropX}px / Y ${crop.cropY}px`, `${formatPercent(cropLoss)} area removed`] : ["Enter valid dimensions"]} />
                   </div>
                 </div>
 
-                <div className="grid gap-3 lg:grid-cols-2">
-                  <InfoPanel title="Closest preset" lines={[nearest ? `${nearest.label} — ${nearest.hint}` : "No close preset found"]} />
-                  <InfoPanel title="Long edge result" lines={[longEdgeResult ? formatDimensionPair(longEdgeResult.width, longEdgeResult.height) : "Enter a valid long edge"]} />
-                  <InfoPanel title={`${fitMode === "contain" ? "Fit inside" : "Cover"} bounds`} lines={[fit ? `${formatDimensionPair(fit.width, fit.height)} (${roundDimension(fit.scale * 100)}%)` : "Enter valid bounds"]} />
-                  <InfoPanel title="Centered crop" lines={crop ? [`${formatDimensionPair(crop.cropWidth, crop.cropHeight)} crop area`, `Offset X ${crop.cropX}px / Y ${crop.cropY}px`] : ["Enter valid dimensions"]} />
-                </div>
-
-                <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <h3 className="text-sm font-black text-[var(--color-text-primary)]">Responsive scale ladder</h3>
-                    <CopyButton
-                      text={SCALE_OPTIONS.map((scale) => {
+                <div className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_minmax(280px,0.8fr)]">
+                  <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <h3 className="text-sm font-black text-[var(--color-text-primary)]">Responsive scale ladder</h3>
+                      <CopyButton text={scaleText} size="sm" variant="secondary">Copy sizes</CopyButton>
+                    </div>
+                    <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+                      {SCALE_OPTIONS.map((scale) => {
                         const scaled = scaledDimensions(width, height, scale);
-                        return scaled ? `${scale}%: ${formatDimensionPair(scaled.width, scaled.height)}` : "";
-                      }).filter(Boolean).join("\n")}
-                      size="sm"
-                      variant="secondary"
-                    >
-                      Copy sizes
-                    </CopyButton>
+                        return (
+                          <div key={scale} className="min-w-0 rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-2 text-xs">
+                            <div className="font-black text-[var(--color-text-primary)]">{scale}%</div>
+                            <div className="mt-1 truncate font-mono text-[var(--color-text-secondary)]">{scaled ? `${scaled.width} × ${scaled.height}` : "—"}</div>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
-                  <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-                    {SCALE_OPTIONS.map((scale) => {
-                      const scaled = scaledDimensions(width, height, scale);
-                      return (
-                        <div key={scale} className="rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-2 text-xs">
-                          <div className="font-black text-[var(--color-text-primary)]">{scale}%</div>
-                          <div className="mt-1 font-mono text-[var(--color-text-secondary)]">{scaled ? `${scaled.width} × ${scaled.height}` : "—"}</div>
+
+                  <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
+                    <h3 className="text-sm font-black text-[var(--color-text-primary)]">Production checks</h3>
+                    <div className="mt-3 space-y-2">
+                      {checks.slice(0, 5).map((check) => (
+                        <div key={check.id} className={`rounded-[var(--radius-sm)] border p-2 text-xs ${statusClasses(check.severity)}`}>
+                          <div className="font-black">{check.title}</div>
+                          <div className="mt-1 leading-5 opacity-85">{check.message}</div>
                         </div>
-                      );
-                    })}
+                      ))}
+                    </div>
                   </div>
                 </div>
 
                 <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <h3 className="text-sm font-black text-[var(--color-text-primary)]">CSS output</h3>
-                    <CopyButton text={`${cssSnippet}\n/* Legacy fallback */\npadding-top: ${paddingFallback}%;`} size="sm" variant="secondary">Copy CSS</CopyButton>
+                    <div>
+                      <h3 className="text-sm font-black text-[var(--color-text-primary)]">Production export</h3>
+                      <p className="text-xs text-[var(--color-text-tertiary)]">Copy modern CSS, markup, React, or design tokens.</p>
+                    </div>
+                    <CopyButton text={exportMap[activeExport]} size="sm" variant="secondary">Copy {activeExport.toUpperCase()}</CopyButton>
                   </div>
-                  <pre className="mt-3 overflow-auto rounded-[var(--radius-sm)] bg-[var(--color-surface-subtle)] p-3 text-xs text-[var(--color-text-primary)]"><code>{`${cssSnippet}\n/* Legacy fallback */\npadding-top: ${paddingFallback}%;`}</code></pre>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {(["css", "html", "react", "tokens"] as ExportTab[]).map((tab) => (
+                      <Button key={tab} size="sm" variant={activeExport === tab ? "soft" : "secondary"} aria-pressed={activeExport === tab} onClick={() => setActiveExport(tab)}>
+                        {labelCase(tab)}
+                      </Button>
+                    ))}
+                  </div>
+                  <pre className="mt-3 max-h-[280px] overflow-auto rounded-[var(--radius-sm)] bg-[var(--color-surface-subtle)] p-3 text-xs text-[var(--color-text-primary)]"><code>{exportMap[activeExport]}</code></pre>
                 </div>
               </>
             ) : (
-              <div className="flex flex-1 items-center justify-center text-sm text-[var(--color-text-tertiary)]">Enter a width and height to see the ratio studio.</div>
+              <div className="flex min-h-[360px] items-center justify-center text-sm text-[var(--color-text-tertiary)]">Enter a width and height to see the ratio studio.</div>
             )}
           </div>
         </section>
@@ -298,8 +514,8 @@ export default function AspectRatioCalculatorClient() {
       statsSlot={
         <WarningPanel
           messages={[
-            { id: "how", severity: "info", title: "Designer workflow", message: "Use presets for social/video, solve exact dimensions, then copy CSS or a full production-size report." },
-            { id: "crop", severity: "info", title: "Crop vs fit", message: "Contain keeps the whole asset visible. Cover fills the target box and may require cropping." },
+            { id: "workflow", severity: "info", title: "Designer workflow", message: "Pick a real target size, verify the crop, then copy CSS or tokens for implementation." },
+            { id: "safe", severity: "info", title: "Safe-zone preview", message: "Use the safe overlay for story/reel content so text does not sit too close to cropped edges." },
             { id: "local", severity: "info", title: "Local calculation", message: "Everything is calculated in your browser — no images or dimensions are uploaded." },
           ]}
         />
@@ -308,11 +524,12 @@ export default function AspectRatioCalculatorClient() {
   );
 }
 
-function MetricCard({ label, value }: { label: string; value: string }) {
+function MetricCard({ label, value, sub }: { label: string; value: string; sub: string }) {
   return (
-    <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 text-center shadow-[inset_0_1px_0_var(--color-border-subtle)]">
-      <div className="font-mono text-2xl font-black tracking-tight text-[var(--color-text-primary)]">{value}</div>
+    <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 shadow-[inset_0_1px_0_var(--color-border-subtle)]">
+      <div className="truncate font-mono text-xl font-black tracking-tight text-[var(--color-text-primary)]" title={value}>{value}</div>
       <div className="mt-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
+      <div className="mt-1 truncate text-xs text-[var(--color-text-secondary)]" title={sub}>{sub}</div>
     </div>
   );
 }
@@ -322,7 +539,38 @@ function InfoPanel({ title, lines }: { title: string; lines: string[] }) {
     <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
       <div className="text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{title}</div>
       <div className="mt-2 space-y-1 text-sm font-semibold text-[var(--color-text-primary)]">
-        {lines.filter(Boolean).map((line) => <p key={line}>{line}</p>)}
+        {lines.filter(Boolean).map((line) => <p key={line} className="break-words">{line}</p>)}
+      </div>
+    </div>
+  );
+}
+
+function PreviewCard({ width, height, ratio, previewMode, overlayMode, cropLoss }: { width: number; height: number; ratio: number; previewMode: PreviewMode; overlayMode: OverlayMode; cropLoss: number }) {
+  const label = previewMode === "social" ? "Social preview" : previewMode === "crop" ? "Crop preview" : "Ratio shape";
+  return (
+    <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <div>
+          <h3 className="text-sm font-black text-[var(--color-text-primary)]">{label}</h3>
+          <p className="text-xs text-[var(--color-text-tertiary)]">{formatDimensionPair(width, height)} · {pixelCount(width, height)}</p>
+        </div>
+        <span className="rounded-[var(--radius-full)] bg-[var(--color-primary-soft)] px-2 py-1 text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-primary)]">
+          {formatPercent(cropLoss)} crop loss
+        </span>
+      </div>
+      <div className="mt-4 flex min-h-[240px] items-center justify-center rounded-[var(--radius-md)] border border-dashed border-[var(--color-border-default)] bg-[linear-gradient(135deg,var(--color-surface-subtle),var(--color-surface-overlay))] p-4">
+        <div
+          className="relative flex min-h-[110px] items-center justify-center overflow-hidden rounded-[var(--radius-sm)] border border-[var(--color-primary-border)] bg-[radial-gradient(circle_at_30%_25%,rgba(255,255,255,0.28),transparent_32%),linear-gradient(135deg,var(--color-primary-soft),var(--color-surface-base))] text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_16px_50px_rgba(0,0,0,0.14)]"
+          style={{ aspectRatio: `${ratio}`, width: "min(100%, 420px)", maxHeight: 240 }}
+        >
+          {overlayMode === "grid" ? <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.22)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.22)_1px,transparent_1px)] bg-[size:33.333%_33.333%]" /> : null}
+          {overlayMode === "safe" ? <div className="absolute inset-[8%] rounded-[var(--radius-xs)] border border-dashed border-white/55" /> : null}
+          {previewMode === "crop" ? <div className="absolute inset-y-0 left-1/2 w-[55%] -translate-x-1/2 border-x border-white/45 bg-white/5" /> : null}
+          <div className="relative z-10 px-3">
+            <div className="font-mono text-lg font-black text-[var(--color-text-primary)]">{compactNumber(width)} × {compactNumber(height)}</div>
+            <div className="mt-1 text-[10px] font-black uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">{ratioLabel(width, height)}</div>
+          </div>
+        </div>
       </div>
     </div>
   );

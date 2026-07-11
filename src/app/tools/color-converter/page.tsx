@@ -6,24 +6,26 @@ import ToolContentCard from "@/features/tools/ui/ToolContentCard";
 import SurfaceCard from "@/components/ui/SurfaceCard";
 
 export const metadata: Metadata = {
-  title: "Free Color Converter - HEX, RGB, HSL and CSS Color Tool",
+  title: "Free Color Converter - HEX, RGB, HSL, HWB, CMYK, LAB and OKLCH",
   description:
-    "Convert HEX, RGB, and HSL colors, preview shades, check black or white text contrast, and copy clean CSS color values in your browser.",
+    "Convert HEX, RGB, HSL, RGBA, HSLA, CSS names, HWB, CMYK, LAB, and OKLCH colors, preview accessibility, generate shade scales, and copy developer-ready tokens.",
   keywords: [
     "color converter",
     "hex to rgb",
     "rgb to hex",
     "hex to hsl",
     "hsl to rgb",
+    "rgba converter",
+    "oklch converter",
+    "lab color converter",
+    "cmyk converter",
     "css color converter",
-    "color palette tool",
-    "frontend tool",
-    "design tool",
+    "design token color tool",
   ],
   openGraph: {
-    title: "Free Color Converter — HEX, RGB, HSL and CSS Colors",
+    title: "Free Color Converter — HEX, RGB, HSL, LAB and OKLCH",
     description:
-      "Convert colors, preview shades, check text contrast, and copy CSS-ready values instantly in your browser.",
+      "Convert colors, check accessibility, generate shade scales, and copy CSS, Tailwind, JSON, and SCSS tokens in your browser.",
   },
 };
 
@@ -41,23 +43,21 @@ export default function ColorConverterPage() {
     <ToolPageShell
       tool={tool}
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Convert HEX, RGB, and HSL colors, preview the result, generate quick
-          lighter and darker shades, and copy CSS-ready values. Everything runs
-          locally in your browser.
+        <p className="max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
+          Convert color values across practical CSS and design formats, validate black or white text contrast, generate an accessible shade scale, and copy ready-to-use design tokens without leaving the browser.
         </p>
       }
       sidebar={
         <div className="flex flex-col gap-5">
           <SurfaceCard>
             <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-              What you can do
+              Best for
             </h2>
             <ul className="mt-3 space-y-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-              <li>Convert HEX, RGB, and HSL color formats.</li>
-              <li>Preview the color with readable black/white text.</li>
-              <li>Generate lighter and darker shade suggestions.</li>
-              <li>Copy CSS values and CSS custom properties.</li>
+              <li>Converting colors between CSS, design, and print-friendly formats.</li>
+              <li>Checking whether black or white text is safer on a color.</li>
+              <li>Creating a quick accessible shade scale from one color.</li>
+              <li>Exporting CSS variables, Tailwind tokens, JSON, or SCSS maps.</li>
             </ul>
           </SurfaceCard>
 
@@ -67,9 +67,11 @@ export default function ColorConverterPage() {
             </h2>
             <ul className="mt-3 space-y-1.5 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
               <li><code className="font-mono text-xs">#3b82f6</code></li>
-              <li><code className="font-mono text-xs">#fff</code></li>
-              <li><code className="font-mono text-xs">rgb(59, 130, 246)</code></li>
-              <li><code className="font-mono text-xs">hsl(217, 91%, 60%)</code></li>
+              <li><code className="font-mono text-xs">#3b82f680</code></li>
+              <li><code className="font-mono text-xs">rgb(59 130 246 / .8)</code></li>
+              <li><code className="font-mono text-xs">rgba(59, 130, 246, .8)</code></li>
+              <li><code className="font-mono text-xs">hsl(217 91% 60%)</code></li>
+              <li><code className="font-mono text-xs">rebeccapurple</code></li>
             </ul>
           </SurfaceCard>
 
@@ -78,8 +80,7 @@ export default function ColorConverterPage() {
               Privacy
             </h2>
             <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
-              The conversion happens in the browser. No color input is sent to a
-              server.
+              All conversion, contrast checks, shade generation, and exports run locally in your browser.
             </p>
           </SurfaceCard>
         </div>
@@ -87,7 +88,7 @@ export default function ColorConverterPage() {
     >
       <ToolContentCard
         title="Color Converter"
-        description="Enter a HEX, RGB, or HSL color and copy the converted values instantly."
+        description="Enter a color once and get production-ready conversions, contrast checks, shade scales, and exports."
       >
         <ColorConverterClient />
       </ToolContentCard>

@@ -108,3 +108,14 @@ export type FlexPreset = {
   description: string;
   state: FlexGeneratorState;
 };
+
+export type FlexStats = {
+  mainAxis: string;
+  crossAxis: string;
+  growingItems: number;
+  fixedItems: number;
+  autoMarginItems: number;
+  responsiveSummary: string;
+  wrapSummary: string;
+  riskLevel: "low" | "medium" | "high";
+};

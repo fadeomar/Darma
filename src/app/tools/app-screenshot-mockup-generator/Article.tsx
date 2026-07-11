@@ -9,7 +9,7 @@ export default function Article() {
           Turn a raw app or website screenshot into a polished PNG with a phone, tablet, laptop, desktop, browser, or clean card frame. Add a solid, gradient, mesh, or image background; optional marketing copy; and export-safe guides before downloading one file or a complete ZIP.
         </p>
         <p>
-          The tool is useful for developers documenting a release, designers presenting interface work, creators making launch graphics, students preparing portfolios, marketers building campaign assets, and anyone who wants a cleaner screenshot without opening a full design application.
+          The tool is useful for developers documenting a release, designers presenting interface work, creators making launch graphics, students preparing portfolios, marketers building campaign assets, and anyone who wants a cleaner screenshot without opening a full design application. The updated workflow also includes production handoff checks, responsive snippets, CSS variables, and JSON tokens for teams that need to move the exported image into a real product page.
         </p>
       </ToolArticleSection>
 
@@ -19,7 +19,7 @@ export default function Article() {
           <li>Choose a quick preset or select the frame that best matches the product.</li>
           <li>Use Cover for an edge-to-edge crop or Contain when every part of the screenshot must remain visible.</li>
           <li>Choose an export pack, then adjust the background, copy, spacing, and optional frame details.</li>
-          <li>Review the live preview and readiness warnings. Generate the pack, download individual PNGs, or download the ZIP with code snippets.</li>
+          <li>Review the live preview, crop summary, production handoff checks, and readiness warnings. Generate the pack, download individual PNGs, or download the ZIP with code snippets and design tokens.</li>
         </ol>
       </ToolArticleSection>
 
@@ -40,6 +40,16 @@ export default function Article() {
           <li>Keep titles concise and leave important interface content away from crop and safe-area edges.</li>
           <li>Match the frame to the interface rather than using a device frame only for decoration.</li>
           <li>Preview both wide and portrait exports when artwork will appear across several channels.</li>
+        </ul>
+      </ToolArticleSection>
+
+
+      <ToolArticleSection title="Production handoff tips">
+        <ul className="list-disc space-y-2 pl-5">
+          <li>Use the preview canvas controls to test the composition before generating the full pack.</li>
+          <li>Generate the ZIP when the selected export pack matches the campaign channel, then use the individual PNG download only for quick iterations.</li>
+          <li>Use the responsive picture snippet when several generated sizes are shipped together.</li>
+          <li>Use the JSON token export to document the chosen frame, canvas, colors, and generated asset dimensions.</li>
         </ul>
       </ToolArticleSection>
 
@@ -65,7 +75,7 @@ export default function Article() {
           { question: "Can I remove the device frame?", answer: "Yes. Choose Card for a clean framed image, or turn off chrome on supported device frames." },
           { question: "Why is part of my screenshot missing?", answer: "Cover fills the frame by cropping edges when aspect ratios differ. Switch to Contain to preserve the whole screenshot." },
           { question: "Can I use my own background image?", answer: "Yes. Select Image background mode and use the background upload shown there. It remains local to the browser." },
-          { question: "What is included in the ZIP?", answer: "The ZIP contains the selected PNG export pack, a README, HTML and Next.js examples, and a small CSS file." },
+          { question: "What is included in the ZIP?", answer: "The ZIP contains the selected PNG export pack, a README, HTML and Next.js examples, a responsive picture snippet, CSS, CSS variables, and a JSON token file for handoff." },
           { question: "Why does the preview show a placeholder?", answer: "The generator supports placeholder previews so you can explore the controls first. Upload a screenshot before producing final assets." },
         ]}
       />

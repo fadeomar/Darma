@@ -68,7 +68,7 @@ function BatchRow({
   const previewSrc = item.output?.objectUrl ?? item.objectUrl;
 
   return (
-    <div className="flex items-center gap-3 rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-2.5 sm:p-3">
+    <div className="grid grid-cols-[auto,minmax(0,1fr),auto] items-center gap-3 rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-2.5 sm:p-3">
       {/* Thumbnail */}
       <div className="h-10 w-10 shrink-0 overflow-hidden rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] sm:h-12 sm:w-12">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -85,16 +85,15 @@ function BatchRow({
         <p className="truncate text-xs font-bold text-[var(--color-text-primary)]">
           {item.name}
         </p>
-        <p className="mt-0.5 text-[11px] leading-4 text-[var(--color-text-tertiary)]">
-          {item.width && item.height ? `${item.width} × ${item.height} · ` : ""}
-          {formatBytes(item.size)}
+        <p className="mt-0.5 flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-[11px] leading-4 text-[var(--color-text-tertiary)]">
+          {item.width && item.height ? <span>{item.width} × {item.height}</span> : null}
+          <span>{formatBytes(item.size)}</span>
           {item.output && (
             <>
-              {" "}→{" "}
+              <span aria-hidden>→</span>
               <span className="font-bold text-[var(--color-success-text)]">
                 {formatBytes(item.output.size)}
               </span>
-              {"  "}
               <span className="font-bold text-[var(--color-success-text)]">
                 −{item.output.savedPercent}%
               </span>
@@ -109,14 +108,13 @@ function BatchRow({
       </div>
 
       {/* Status badge */}
-      <span
-        className={`hidden shrink-0 rounded-[var(--radius-full)] border px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.05em] sm:inline-block ${className}`}
-      >
-        {label}
-      </span>
-
       {/* Actions */}
       <div className="flex shrink-0 items-center gap-1">
+        <span
+          className={`hidden rounded-[var(--radius-full)] border px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.05em] md:inline-block ${className}`}
+        >
+          {label}
+        </span>
         <button
           type="button"
           onClick={onDownload}

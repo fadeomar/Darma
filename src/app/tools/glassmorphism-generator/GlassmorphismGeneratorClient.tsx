@@ -22,10 +22,15 @@ import {
 import {
   createDefaultGlassmorphismState,
   generateGlassCss,
+  generateGlassCssVariables,
   generateGlassHtml,
   generateGlassJsx,
+  generateGlassReactStyle,
+  generateGlassTokenJson,
+  generateSolidFallbackCss,
   generateTailwindStarter,
   getGlassPreviewStyle,
+  getGlassProductionMetrics,
   getScenePreviewStyle,
   randomizeGlassState,
   validateGlassmorphismState,
@@ -51,6 +56,23 @@ function labelize(value: string) {
   return value.replace(/-/g, " ");
 }
 
+function toneClass(tone: "good" | "warning" | "danger" | "neutral") {
+  if (tone === "good") return "border-emerald-200 bg-emerald-50 text-emerald-900 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-100";
+  if (tone === "warning") return "border-amber-200 bg-amber-50 text-amber-900 dark:border-amber-500/30 dark:bg-amber-500/10 dark:text-amber-100";
+  if (tone === "danger") return "border-rose-200 bg-rose-50 text-rose-900 dark:border-rose-500/30 dark:bg-rose-500/10 dark:text-rose-100";
+  return "border-[var(--color-border)] bg-[var(--color-surface-strong)] text-[var(--color-text)]";
+}
+
+function MetricCard({ label, value, detail, tone = "neutral" }: { label: string; value: string; detail: string; tone?: "good" | "warning" | "danger" | "neutral" }) {
+  return (
+    <div className={`min-w-0 rounded-[var(--radius-md)] border px-3 py-2.5 shadow-[var(--shadow-xs)] ${toneClass(tone)}`}>
+      <p className="font-mono text-[10px] font-black uppercase tracking-[0.12em] opacity-70">{label}</p>
+      <p className="mt-1 truncate text-sm font-black">{value}</p>
+      <p className="mt-1 line-clamp-2 text-[11px] leading-4 opacity-75">{detail}</p>
+    </div>
+  );
+}
+
 function CheckboxRow({ label, checked, onChange }: { label: ReactNode; checked: boolean; onChange: (checked: boolean) => void }) {
   return (
     <label className="flex items-center justify-between gap-3 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-strong)] px-3 py-2 text-sm text-[var(--color-text)]">
@@ -67,8 +89,13 @@ export default function GlassmorphismGeneratorClient() {
   const html = useMemo(() => generateGlassHtml(state), [state]);
   const jsx = useMemo(() => generateGlassJsx(state), [state]);
   const tailwind = useMemo(() => generateTailwindStarter(state), [state]);
+  const cssVariables = useMemo(() => generateGlassCssVariables(state), [state]);
+  const tokenJson = useMemo(() => generateGlassTokenJson(state), [state]);
+  const solidFallback = useMemo(() => generateSolidFallbackCss(state), [state]);
+  const reactStyle = useMemo(() => generateGlassReactStyle(state), [state]);
   const sceneStyle = useMemo(() => getScenePreviewStyle(state), [state]);
   const glassStyle = useMemo(() => getGlassPreviewStyle(state), [state]);
+  const metrics = useMemo(() => getGlassProductionMetrics(state), [state]);
   const warnings = useMemo<WarningMessage[]>(
     () =>
       validateGlassmorphismState(state).map((message, index) => ({
@@ -82,11 +109,15 @@ export default function GlassmorphismGeneratorClient() {
   const tabs = useMemo<CodeOutputTab[]>(
     () => [
       { id: "css", label: "CSS", language: "css", filename: "glassmorphism.css", code: css },
+      { id: "vars", label: "CSS vars", language: "css", filename: "glassmorphism-vars.css", code: cssVariables },
+      { id: "fallback", label: "Fallback", language: "css", filename: "glassmorphism-fallback.css", code: solidFallback },
       { id: "html", label: "HTML", language: "html", filename: "glassmorphism.html", code: html },
       { id: "jsx", label: "React JSX", language: "tsx", filename: "GlassCard.tsx", code: jsx },
-      { id: "tailwind", label: "Tailwind-style", language: "txt", filename: "glassmorphism-tailwind.txt", code: tailwind },
+      { id: "react-style", label: "React style", language: "tsx", filename: "glass-style.ts", code: reactStyle },
+      { id: "tailwind", label: "Tailwind", language: "txt", filename: "glassmorphism-tailwind.txt", code: tailwind },
+      { id: "tokens", label: "Tokens", language: "json", filename: "glassmorphism.tokens.json", code: tokenJson },
     ],
-    [css, html, jsx, tailwind],
+    [css, cssVariables, html, jsx, reactStyle, solidFallback, tailwind, tokenJson],
   );
 
   function patchState(patch: Partial<GlassmorphismState>) {
@@ -122,7 +153,7 @@ export default function GlassmorphismGeneratorClient() {
       <style>{`.darma-glass-scene-animated{animation:darma-glass-shift 12s ease-in-out infinite alternate;background-size:160% 160%;}@keyframes darma-glass-shift{from{background-position:0% 50%;}to{background-position:100% 50%;}}`}</style>
       <PreviewToolbar
         title="Glass preview"
-        description="Live backdrop-filter preview with scene background."
+        description="Live backdrop-filter preview with production checks and fallback-aware output."
         actions={
           <div className="flex flex-wrap gap-2">
             <Button variant="secondary" size="sm" onClick={() => patchState({ showBeforeAfter: !state.showBeforeAfter })}>{state.showBeforeAfter ? "Show blur" : "Compare no blur"}</Button>
@@ -130,7 +161,15 @@ export default function GlassmorphismGeneratorClient() {
           </div>
         }
       />
-      <div className="grid gap-4 lg:grid-cols-[230px_minmax(0,1fr)]">
+
+      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+        <MetricCard label="Readability" value={metrics.readability.label} detail={metrics.readability.detail} tone={metrics.readability.tone} />
+        <MetricCard label="Performance" value={metrics.performance.label} detail={metrics.performance.detail} tone={metrics.performance.tone} />
+        <MetricCard label="Fallback" value={metrics.fallback.label} detail={metrics.fallback.detail} tone={metrics.fallback.tone} />
+        <MetricCard label="CSS size" value={metrics.cssSize.label} detail={metrics.cssSize.detail} tone="neutral" />
+      </div>
+
+      <div className="grid gap-4 lg:grid-cols-[220px_minmax(0,1fr)]">
         <PresetGallery
           presets={GLASS_PRESETS}
           selectedId={state.presetId}
@@ -141,10 +180,10 @@ export default function GlassmorphismGeneratorClient() {
           renderPreview={(preset) => <div className="h-14 rounded-[var(--radius-md)]" style={getScenePreviewStyle(preset.state)} />}
           className="lg:grid-cols-1"
         />
-        <div className={`relative min-h-[520px] overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border)] p-6 ${state.scene.animated ? "darma-glass-scene-animated" : ""}`} style={sceneStyle}>
+        <div className={`relative min-h-[470px] overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border)] p-4 sm:p-6 ${state.scene.animated ? "darma-glass-scene-animated" : ""}`} style={sceneStyle}>
           <div className="absolute left-10 top-10 h-24 w-24 rounded-full bg-white/30 blur-2xl" />
           <div className="absolute bottom-16 right-12 h-32 w-32 rounded-full bg-cyan-300/30 blur-3xl" />
-          <div className="relative flex min-h-[460px] items-center justify-center">
+          <div className="relative flex min-h-[400px] items-center justify-center">
             <article className="relative overflow-hidden" style={glassStyle as CSSProperties}>
               {state.scene.noiseEnabled ? <div className="pointer-events-none absolute inset-0 opacity-40 [background-image:radial-gradient(rgb(255_255_255_/_0.55)_1px,transparent_1px)] [background-size:7px_7px]" /> : null}
               <div className="relative z-10">
@@ -155,12 +194,25 @@ export default function GlassmorphismGeneratorClient() {
               </div>
             </article>
           </div>
-          <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-center justify-between gap-2 rounded-[var(--radius-md)] border border-white/50 bg-white/80 p-3 text-xs font-bold text-[var(--color-text-secondary)] shadow-sm backdrop-blur dark:border-[var(--color-code-border)] dark:bg-[var(--color-code-bg)]/75 dark:text-[var(--color-text-secondary)]">
-            <span>{labelize(state.scene.preset)}</span>
-            <span>blur {state.effect.blur}px</span>
-            <span>opacity {state.effect.opacity.toFixed(2)}</span>
+          <div className="absolute bottom-4 left-4 right-4 grid gap-2 rounded-[var(--radius-md)] border border-white/50 bg-white/80 p-3 text-xs font-bold text-[var(--color-text-secondary)] shadow-sm backdrop-blur dark:border-[var(--color-code-border)] dark:bg-[var(--color-code-bg)]/75 dark:text-[var(--color-text-secondary)] sm:grid-cols-4">
+            <span className="truncate">{labelize(state.scene.preset)}</span>
+            <span className="truncate">blur {state.effect.blur}px</span>
+            <span className="truncate">opacity {state.effect.opacity.toFixed(2)}</span>
+            <span className="truncate">{state.showBeforeAfter ? "no blur comparison" : metrics.filterLabel}</span>
           </div>
         </div>
+      </div>
+
+      <div className="grid gap-3 lg:grid-cols-3">
+        {metrics.checks.map((check) => (
+          <div key={check.label} className="rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-3 shadow-[var(--shadow-xs)]">
+            <div className="flex items-center justify-between gap-2">
+              <p className="text-sm font-black text-[var(--color-text)]">{check.label}</p>
+              <Badge variant={check.tone === "good" ? "success" : check.tone === "danger" ? "danger" : "soft"}>{check.status}</Badge>
+            </div>
+            <p className="mt-2 text-xs leading-5 text-[var(--color-text-secondary)]">{check.detail}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -177,6 +229,10 @@ export default function GlassmorphismGeneratorClient() {
           <NumberField label="Width" value={state.shape.width} min={160} max={900} unit="px" onChange={(value) => patchShape({ width: value })} />
           <NumberField label="Height" value={state.shape.minHeight} min={80} max={720} unit="px" onChange={(value) => patchShape({ minHeight: value })} />
         </ControlGrid>
+        <ControlGrid columns={2}>
+          <NumberField label="Padding" value={state.shape.padding} min={8} max={96} unit="px" onChange={(value) => patchShape({ padding: value })} />
+          <NumberField label="Radius" value={state.shape.borderRadius} min={0} max={96} unit="px" onChange={(value) => patchShape({ borderRadius: value })} />
+        </ControlGrid>
       </ControlSection>
 
       <ControlSection title="Glass effect">
@@ -184,16 +240,21 @@ export default function GlassmorphismGeneratorClient() {
         <SliderNumberField label="Opacity" value={state.effect.opacity} min={0} max={1} step={0.01} onChange={(value) => patchEffect({ opacity: value })} />
         <ControlGrid columns={2}>
           <SliderNumberField label="Saturation" value={state.effect.saturation} min={80} max={260} unit="%" onChange={(value) => patchEffect({ saturation: value })} />
-          <SliderNumberField label="Radius" value={state.shape.borderRadius} min={0} max={80} unit="px" onChange={(value) => patchShape({ borderRadius: value })} />
+          <SliderNumberField label="Brightness" value={state.effect.brightness} min={70} max={140} unit="%" onChange={(value) => patchEffect({ brightness: value })} />
         </ControlGrid>
+        <SliderNumberField label="Contrast" value={state.effect.contrast} min={80} max={150} unit="%" onChange={(value) => patchEffect({ contrast: value })} />
       </ControlSection>
 
       <ControlSection title="Colors and border">
-        <ColorField label="Tint" value={state.effect.tintColor} onChange={(value) => patchEffect({ tintColor: value })} />
-        <ColorField label="Text" value={state.content.textColor} onChange={(value) => patchContent({ textColor: value })} />
+        <ControlGrid columns={2}>
+          <ColorField label="Tint" value={state.effect.tintColor} onChange={(value) => patchEffect({ tintColor: value })} />
+          <ColorField label="Text" value={state.content.textColor} onChange={(value) => patchContent({ textColor: value })} />
+          <ColorField label="Accent" value={state.content.accentColor} onChange={(value) => patchContent({ accentColor: value })} />
+          <ColorField label="Border" value={state.effect.borderColor} onChange={(value) => patchEffect({ borderColor: value })} />
+        </ControlGrid>
         <ControlGrid columns={2}>
           <SliderNumberField label="Border opacity" value={state.effect.borderOpacity} min={0} max={1} step={0.01} onChange={(value) => patchEffect({ borderOpacity: value })} />
-          <NumberField label="Border" value={state.effect.borderWidth} min={0} max={12} unit="px" onChange={(value) => patchEffect({ borderWidth: value })} />
+          <NumberField label="Border width" value={state.effect.borderWidth} min={0} max={12} unit="px" onChange={(value) => patchEffect({ borderWidth: value })} />
         </ControlGrid>
       </ControlSection>
 
@@ -212,15 +273,35 @@ export default function GlassmorphismGeneratorClient() {
           <CheckboxRow label="Animate scene" checked={state.scene.animated} onChange={(checked) => patchScene({ animated: checked })} />
           <CheckboxRow label="Noise texture" checked={state.scene.noiseEnabled} onChange={(checked) => patchScene({ noiseEnabled: checked })} />
         </ControlGrid>
+        <SliderNumberField label="Noise opacity" value={state.scene.noiseOpacity} min={0} max={0.2} step={0.01} disabled={!state.scene.noiseEnabled} onChange={(value) => patchScene({ noiseOpacity: value })} />
+      </ControlSection>
+
+      <ControlSection title="Content">
+        <Field label="Title" density="compact">
+          <Input size="sm" value={state.content.title} onChange={(event) => patchContent({ title: event.target.value })} />
+        </Field>
+        <Field label="Eyebrow" density="compact">
+          <Input size="sm" value={state.content.eyebrow} onChange={(event) => patchContent({ eyebrow: event.target.value })} />
+        </Field>
+        <Field label="Action label" density="compact">
+          <Input size="sm" value={state.content.actionLabel} onChange={(event) => patchContent({ actionLabel: event.target.value })} />
+        </Field>
       </ControlSection>
 
       <ControlSection title="Shadow and export">
         <SegmentedControl ariaLabel="Shadow preset" value={state.effect.shadowPreset} onChange={(value) => patchEffect({ shadowPreset: value })} options={shadows.map((shadow) => ({ value: shadow, label: labelize(shadow) }))} />
+        {state.effect.shadowPreset === "custom" ? (
+          <Field label="Custom shadow" density="compact">
+            <Input size="sm" value={state.effect.customShadow} onChange={(event) => patchEffect({ customShadow: event.target.value })} />
+          </Field>
+        ) : null}
         <Field label="CSS class" density="compact">
           <Input size="sm" value={state.exportOptions.className} onChange={(event) => patchExport({ className: event.target.value })} />
         </Field>
         <ControlGrid columns={2}>
+          <CheckboxRow label="WebKit prefix" checked={state.fallback.includeWebkitPrefix} onChange={(checked) => patchFallback({ includeWebkitPrefix: checked })} />
           <CheckboxRow label="Supports fallback" checked={state.fallback.includeSupportsFallback} onChange={(checked) => patchFallback({ includeSupportsFallback: checked })} />
+          <CheckboxRow label="Reduced transparency" checked={state.fallback.includeReducedTransparency} onChange={(checked) => patchFallback({ includeReducedTransparency: checked })} />
           <CheckboxRow label="Reduced motion" checked={state.fallback.includeReducedMotion} onChange={(checked) => patchFallback({ includeReducedMotion: checked })} />
         </ControlGrid>
       </ControlSection>
@@ -231,17 +312,19 @@ export default function GlassmorphismGeneratorClient() {
     <ToolLayoutVisualGenerator
       previewSlot={previewSlot}
       controlsSlot={controlsSlot}
+      actionsPlacement="under-preview"
       actionsSlot={
         <div className="flex flex-wrap gap-2">
           <Button variant="secondary" leftIcon={<Shuffle className="h-4 w-4" />} onClick={() => setState((current) => randomizeGlassState(current))}>Randomize</Button>
           <Button variant="secondary" leftIcon={<RefreshCcw className="h-4 w-4" />} onClick={() => setState(createDefaultGlassmorphismState())}>Reset</Button>
           <CopyButton text={css}>Copy CSS</CopyButton>
+          <CopyButton text={tokenJson} variant="soft">Copy tokens</CopyButton>
         </div>
       }
       codeSlot={
         <div className="space-y-4">
           <WarningPanel title="Readability and production notes" messages={warnings} />
-          <CodeOutputPanel title="Generated glass code" description="Copy CSS, HTML, React JSX, or a Tailwind-style starter." tabs={tabs} defaultTab="css" onDownload={(tab) => downloadText(tab.filename ?? `${tab.id}.txt`, tab.code)} />
+          <CodeOutputPanel title="Generated glass code" description="Copy production CSS, fallbacks, HTML, React, Tailwind, or design tokens." tabs={tabs} defaultTab="css" onDownload={(tab) => downloadText(tab.filename ?? `${tab.id}.txt`, tab.code)} />
         </div>
       }
     />

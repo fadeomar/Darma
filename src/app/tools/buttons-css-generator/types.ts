@@ -10,17 +10,20 @@ export type ButtonVariant =
   | "loading"
   | "pill";
 
-export type ButtonHoverEffect = "lift" | "glow" | "darken" | "scale" | "none";
+export type ButtonHoverEffect = "lift" | "glow" | "darken" | "scale" | "slide" | "none";
 export type IconPosition = "left" | "right";
 
 export type ButtonGeneratorConfig = {
   variant: ButtonVariant;
+  className: string;
   text: string;
   fontSize: number;
   fontWeight: number;
+  letterSpacing: number;
   radius: number;
   paddingX: number;
   paddingY: number;
+  minWidth: number;
   shadow: number;
   background: string;
   background2: string;
@@ -30,7 +33,11 @@ export type ButtonGeneratorConfig = {
   activeEffect: boolean;
   disabled: boolean;
   iconPosition: IconPosition;
+  iconSymbol: string;
+  uppercase: boolean;
   fullWidth: boolean;
+  includeFocusRing: boolean;
+  includeReducedMotion: boolean;
 };
 
 export type ButtonPreset = {

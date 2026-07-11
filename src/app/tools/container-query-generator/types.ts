@@ -1,6 +1,7 @@
 export type ContainerType = "inline-size" | "size" | "normal";
 export type ContainerConditionType = "min-width" | "max-width" | "range";
 export type ContainerUnit = "px" | "rem" | "em";
+export type ContainerPreviewMode = "card" | "product" | "dashboard" | "article";
 
 export type ComponentPresetId =
   | "responsive-card"
@@ -35,6 +36,9 @@ export type ContainerQueryExportOptions = {
   includeComments: boolean;
   includeDemoStyles: boolean;
   includeMediaQueryComparison: boolean;
+  includeSupportsGuard: boolean;
+  includeFallbackLayer: boolean;
+  includeContainerUnits: boolean;
   classPrefix: string;
 };
 
@@ -45,17 +49,26 @@ export type ContainerQueryState = {
   containerType: ContainerType;
   componentClassName: string;
   previewWidth: number;
+  previewMode: ContainerPreviewMode;
   showContainerOutline: boolean;
   showBreakpointMarkers: boolean;
   showActiveRules: boolean;
+  showDemoContent: boolean;
   breakpoints: ContainerBreakpoint[];
   selectedBreakpointId: string | null;
   exportOptions: ContainerQueryExportOptions;
 };
 
 export type ContainerQueryValidationMessage = {
-  type: "info" | "warning" | "error";
+  type: "info" | "warning" | "error" | "success";
   message: string;
   breakpointId?: string;
   ruleId?: string;
+};
+
+export type ContainerQuerySummary = {
+  breakpoints: number;
+  rules: number;
+  active: number;
+  maxWidth: number;
 };

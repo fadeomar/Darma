@@ -20,9 +20,9 @@ function backgroundLayers(state: AnimatedBackgroundState) {
 }
 
 function shapeCss(state: AnimatedBackgroundState) {
-  if (state.shape === "diamond") return `border-radius: ${state.borderRadius}%; transform: rotate(45deg);`;
-  if (state.shape === "soft-square") return `border-radius: ${state.borderRadius}%;`;
-  return "border-radius: 999px;";
+  if (state.shape === "diamond") return `border-radius: ${state.borderRadius}%; --shape-rotate: 45deg;`;
+  if (state.shape === "soft-square") return `border-radius: ${state.borderRadius}%; --shape-rotate: 0deg;`;
+  return "border-radius: 999px; --shape-rotate: 0deg;";
 }
 
 function presetExtras(state: AnimatedBackgroundState) {
@@ -169,6 +169,7 @@ ${bgClass} span:nth-child(${particle.id}) {
   min-height: 420px;
   overflow: hidden;
   isolation: isolate;
+  contain: paint;
   background: ${backgroundLayers(state)};
 }
 
@@ -187,6 +188,7 @@ ${bgClass} span {
   position: absolute;
   display: block;
   z-index: 0;
+  pointer-events: none;
   ${shapeCss(state)}
   animation-name: darma-float;
   animation-timing-function: ease-in-out;
@@ -198,9 +200,9 @@ ${bgClass} span {
 ${items}
 
 @keyframes darma-float {
-  0% { transform: translate3d(0, 0, 0) scale(.92) rotate(0deg); }
+  0% { transform: translate3d(0, 0, 0) scale(.92) rotate(var(--shape-rotate)); }
   50% { opacity: ${Math.min(0.95, state.opacity + 0.18).toFixed(2)}; }
-  100% { transform: translate3d(var(--drift-x), var(--drift-y), 0) scale(1.08) rotate(var(--rotate)); }
+  100% { transform: translate3d(var(--drift-x), var(--drift-y), 0) scale(1.08) rotate(calc(var(--shape-rotate) + var(--rotate))); }
 }
 ${presetExtras(state)}
 

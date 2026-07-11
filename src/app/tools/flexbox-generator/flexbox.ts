@@ -4,6 +4,7 @@ import type {
   FlexItem,
   FlexQuickAction,
   FlexValidationMessage,
+  FlexStats,
 } from "./types";
 
 const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
@@ -265,6 +266,132 @@ export function generateTailwindStarter(state: FlexGeneratorState): string {
     .join("\n");
 
   return `<div className="flex ${directionClass} ${wrapClass} ${tailwindJustify(normalized.justifyContent)} ${tailwindAlign(normalized.alignItems)} ${gapClass}">\n${children}\n</div>`;
+}
+
+
+export function generateFlexCssVariables(state: FlexGeneratorState): string {
+  const normalized = normalizeFlexState(state);
+  const className = normalized.containerClassName;
+  const lines: string[] = [];
+
+  lines.push(`.${className} {`);
+  lines.push(`  --${className}-display: ${normalized.display};`);
+  lines.push(`  --${className}-direction: ${normalized.direction};`);
+  lines.push(`  --${className}-wrap: ${normalized.wrap};`);
+  lines.push(`  --${className}-justify: ${normalized.justifyContent};`);
+  lines.push(`  --${className}-align: ${normalized.alignItems};`);
+  lines.push(`  --${className}-align-content: ${normalized.alignContent};`);
+  lines.push(`  --${className}-row-gap: ${normalized.gap.row}${normalized.gap.unit};`);
+  lines.push(`  --${className}-column-gap: ${normalized.gap.column}${normalized.gap.unit};`);
+  lines.push(`  --${className}-padding: ${normalized.padding};`);
+  lines.push(`  --${className}-background: ${normalized.background};`);
+  lines.push(`  --${className}-radius: ${normalized.borderRadius}px;`);
+  lines.push("}", "");
+  lines.push(`.${className} {`);
+  lines.push(`  display: var(--${className}-display);`);
+  lines.push(`  flex-direction: var(--${className}-direction);`);
+  lines.push(`  flex-wrap: var(--${className}-wrap);`);
+  lines.push(`  justify-content: var(--${className}-justify);`);
+  lines.push(`  align-items: var(--${className}-align);`);
+  lines.push(`  align-content: var(--${className}-align-content);`);
+  lines.push(`  gap: var(--${className}-row-gap) var(--${className}-column-gap);`);
+  if (normalized.includeDemoStyles) {
+    lines.push(`  padding: var(--${className}-padding);`);
+    lines.push(`  background: var(--${className}-background);`);
+    lines.push(`  border-radius: var(--${className}-radius);`);
+  }
+  lines.push("}");
+
+  return lines.join("\n").trim();
+}
+
+export function generateFlexTokenJson(state: FlexGeneratorState): string {
+  const normalized = normalizeFlexState(state);
+  return JSON.stringify(
+    {
+      name: normalized.containerClassName,
+      type: "flexbox-layout",
+      container: {
+        display: normalized.display,
+        direction: normalized.direction,
+        wrap: normalized.wrap,
+        justifyContent: normalized.justifyContent,
+        alignItems: normalized.alignItems,
+        alignContent: normalized.alignContent,
+        gap: `${normalized.gap.row}${normalized.gap.unit} ${normalized.gap.column}${normalized.gap.unit}`,
+        minHeight: `${normalized.minHeight}px`,
+        padding: normalized.padding,
+        background: normalized.background,
+        borderRadius: `${normalized.borderRadius}px`,
+      },
+      responsive: normalized.responsive,
+      items: normalized.items.map((item, index) => ({
+        name: item.name,
+        className: itemClass(normalized, index),
+        content: item.content,
+        flex: `${item.flexGrow} ${item.flexShrink} ${item.flexBasis}`,
+        width: item.width,
+        height: item.height,
+        order: item.order,
+        alignSelf: item.alignSelf,
+        marginLeftAuto: item.marginLeftAuto,
+        marginRightAuto: item.marginRightAuto,
+      })),
+    },
+    null,
+    2,
+  );
+}
+
+export function generateFlexExplanation(state: FlexGeneratorState): string {
+  const normalized = normalizeFlexState(state);
+  const stats = getFlexStats(normalized);
+  const lines: string[] = [];
+  lines.push(`Layout: ${normalized.containerClassName}`);
+  lines.push(`Direction: ${normalized.direction}. Main axis is ${stats.mainAxis}. Cross axis is ${stats.crossAxis}.`);
+  lines.push(`Distribution: ${normalized.justifyContent} on the main axis and ${normalized.alignItems} on the cross axis.`);
+  lines.push(`Wrapping: ${normalized.wrap}. ${stats.wrapSummary}`);
+  lines.push(`Items: ${normalized.items.length} total, ${stats.growingItems} growing, ${stats.fixedItems} fixed-size, ${stats.autoMarginItems} using auto margins.`);
+  if (normalized.responsive.enabled) {
+    lines.push(`Responsive: tablet ${normalized.responsive.tabletBehavior} at ${normalized.responsive.tabletBreakpoint}px, mobile ${normalized.responsive.mobileBehavior} at ${normalized.responsive.mobileBreakpoint}px.`);
+  } else {
+    lines.push("Responsive: disabled. The generated CSS keeps the same flex behavior at every viewport size.");
+  }
+  lines.push("");
+  lines.push("Production notes:");
+  if (normalized.wrap === "nowrap" && normalized.items.length > 4) lines.push("- nowrap with many items can overflow on small screens. Add wrap or a mobile stack rule.");
+  if (normalized.alignContent !== "stretch" && normalized.wrap === "nowrap") lines.push("- align-content only becomes visible when flex lines wrap.");
+  if (stats.autoMarginItems > 0) lines.push("- auto margins can override justify-content spacing for the selected item.");
+  if (normalized.items.some((item) => item.flexBasis === "0" && item.flexGrow > 0)) lines.push("- flex-basis: 0 creates equal distribution when flex-grow values are equal.");
+  if (!lines.some((line) => line.startsWith("- "))) lines.push("- Current settings are simple and should be safe for production layouts.");
+  return lines.join("\n");
+}
+
+export function getFlexStats(state: FlexGeneratorState): FlexStats {
+  const normalized = normalizeFlexState(state);
+  const isRow = normalized.direction === "row" || normalized.direction === "row-reverse";
+  const growingItems = normalized.items.filter((item) => item.flexGrow > 0).length;
+  const autoMarginItems = normalized.items.filter((item) => item.marginLeftAuto || item.marginRightAuto).length;
+  const fixedItems = normalized.items.filter((item) => item.flexGrow === 0).length;
+  const responsiveSummary = normalized.responsive.enabled
+    ? `${normalized.responsive.tabletBehavior} / ${normalized.responsive.mobileBehavior}`
+    : "off";
+  const riskScore =
+    (normalized.wrap === "nowrap" && normalized.items.length > 4 ? 2 : 0) +
+    (normalized.previewWidth <= 520 && normalized.wrap === "nowrap" ? 2 : 0) +
+    (autoMarginItems > 0 ? 1 : 0) +
+    (normalized.gap.unit === "rem" && normalized.gap.column >= 4 ? 1 : 0);
+
+  return {
+    mainAxis: isRow ? (normalized.direction === "row-reverse" ? "horizontal, right to left" : "horizontal, left to right") : (normalized.direction === "column-reverse" ? "vertical, bottom to top" : "vertical, top to bottom"),
+    crossAxis: isRow ? "vertical" : "horizontal",
+    growingItems,
+    fixedItems,
+    autoMarginItems,
+    responsiveSummary,
+    wrapSummary: normalized.wrap === "nowrap" ? "Items stay on one flex line." : "Items can create additional flex lines.",
+    riskLevel: riskScore >= 4 ? "high" : riskScore >= 2 ? "medium" : "low",
+  };
 }
 
 export function generateInlinePreviewStyles(state: FlexGeneratorState): {

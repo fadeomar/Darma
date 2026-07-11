@@ -31,7 +31,7 @@ export default function CspGeneratorPage() {
       maxWidth="wide"
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Build a Content Security Policy in four steps: pick a mode, tick the services you use, add your own domains, then copy the format for your stack.
+          Build a Content Security Policy from practical presets, service allowlists, custom domains, live warnings, and copy-ready deployment snippets.
         </p>
       }
       article={
@@ -55,7 +55,7 @@ export default function CspGeneratorPage() {
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="CSP Generator" description="A simple, guided builder for Content Security Policy headers — with live output, copy buttons, and clear warnings.">
+      <ToolContentCard title="CSP Generator" description="A compact guided CSP builder with quick presets, categorized services, live risk checks, custom domains, and copy-ready deployment output.">
         <CspGeneratorClient />
       </ToolContentCard>
     </ToolPage>

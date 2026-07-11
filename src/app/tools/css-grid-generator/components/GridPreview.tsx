@@ -1,22 +1,30 @@
 import { Button } from "@/components/ui";
-import { PreviewToolbar, SegmentedControl } from "@/features/tools/components";
+import { PreviewToolbar, SegmentedControl, type WarningMessage } from "@/features/tools/components";
 import { cn } from "@/lib/cn";
 import type { GridGeneratorState, GridItem } from "../types";
 
 export function GridPreview({
   state,
+  messages,
   onPatch,
   onSelectItem,
 }: {
   state: GridGeneratorState;
+  messages: WarningMessage[];
   onPatch: (patch: Partial<GridGeneratorState>) => void;
   onSelectItem: (id: string) => void;
 }) {
+  const blockingIssues = messages.filter((message) => message.severity === "danger").length;
+  const warnings = messages.filter((message) => message.severity === "warning").length;
+  const responsiveLabel = state.responsive.enabled
+    ? `${state.responsive.tabletColumns} cols tablet / ${state.responsive.mobileBehavior}`
+    : "Off";
+
   return (
     <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)]">
       <PreviewToolbar
         title="Grid preview"
-        description="Real CSS Grid with selectable items, grid lines, and responsive width controls."
+        description="Real CSS Grid with selectable items, overlays, named areas, and responsive width checks."
         actions={
           <>
             {[375, 768, 1024].map((width) => (
@@ -44,16 +52,22 @@ export function GridPreview({
           ]}
         />
       </PreviewToolbar>
+      <div className="grid gap-2 border-y border-[var(--color-border)] bg-[var(--color-bg-soft)] p-3 sm:grid-cols-4">
+        <PreviewStat label="Tracks" value={`${state.columns} × ${state.rows}`} helper={`${state.items.length} items`} />
+        <PreviewStat label="Gap" value={`${state.gap.row}${state.gap.unit} / ${state.gap.column}${state.gap.unit}`} helper="row / column" />
+        <PreviewStat label="Responsive" value={responsiveLabel} helper="breakpoint output" />
+        <PreviewStat label="Checks" value={blockingIssues ? `${blockingIssues} error` : warnings ? `${warnings} warning` : "Clean"} helper={state.useTemplateAreas ? "areas mode" : "line placement"} tone={blockingIssues ? "danger" : warnings ? "warning" : "success"} />
+      </div>
       <div className="overflow-auto bg-[var(--color-bg-soft)] p-4">
         <div className="relative mx-auto transition-all" style={{ width: state.previewWidth, maxWidth: "100%" }}>
-          <div className="mb-3 flex items-center justify-between text-xs text-[var(--color-text-soft)]">
-            <span>{state.columns} columns × {state.rows} rows</span>
-            <span>{state.previewWidth}px container</span>
+          <div className="mb-3 flex flex-wrap items-center justify-between gap-2 text-xs text-[var(--color-text-soft)]">
+            <span className="truncate">{state.columnTemplate}</span>
+            <span className="shrink-0">{state.previewWidth}px container</span>
           </div>
           {state.showLineNumbers ? <GridLineLabels columns={state.columns} rows={state.rows} /> : null}
           <div
             className={cn(
-              "relative grid min-h-[430px] rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border)] p-3",
+              "relative grid min-h-[360px] rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border)] p-3",
               state.showGridLines && "bg-[linear-gradient(to_right,var(--color-preview-grid)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-preview-grid)_1px,transparent_1px)] bg-[size:48px_48px]",
             )}
             style={{
@@ -71,6 +85,16 @@ export function GridPreview({
         </div>
       </div>
     </section>
+  );
+}
+
+function PreviewStat({ label, value, helper, tone = "default" }: { label: string; value: string; helper: string; tone?: "default" | "success" | "warning" | "danger" }) {
+  return (
+    <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface)] p-3">
+      <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--color-text-soft)]">{label}</p>
+      <p className={cn("mt-1 truncate text-sm font-black text-[var(--color-text)]", tone === "success" && "text-[var(--color-success-text)]", tone === "warning" && "text-[var(--color-warning-text)]", tone === "danger" && "text-[var(--color-danger-text)]")}>{value}</p>
+      <p className="mt-1 truncate text-[11px] text-[var(--color-text-soft)]">{helper}</p>
+    </div>
   );
 }
 
@@ -94,9 +118,9 @@ function GridPreviewItem({ item, selected, showAreaNames, onSelect }: { item: Gr
         alignSelf: item.alignSelf === "auto" ? undefined : item.alignSelf,
       }}
     >
-      <span className="block text-sm font-black">{showAreaNames ? item.areaName : item.name}</span>
-      <span className="mt-2 block text-xs opacity-80">{item.columnStart}/{item.rowStart} → {item.columnEnd}/{item.rowEnd}</span>
-      <span className="mt-4 block text-sm font-medium opacity-90">{item.content}</span>
+      <span className="block truncate text-sm font-black">{showAreaNames ? item.areaName : item.name}</span>
+      <span className="mt-2 block truncate text-xs opacity-80">{item.columnStart}/{item.rowStart} → {item.columnEnd}/{item.rowEnd}</span>
+      <span className="mt-4 block line-clamp-2 text-sm font-medium opacity-90">{item.content}</span>
     </button>
   );
 }

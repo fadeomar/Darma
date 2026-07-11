@@ -240,6 +240,90 @@ export function generateTailwindStarter(state: BorderRadiusState): string {
   return `<div className="${heightClass} ${widthClass} rounded-[${radius}] ${background} shadow-2xl" aria-hidden="true" />`;
 }
 
+
+
+export function generateCssVariables(state: BorderRadiusState): string {
+  const className = normalizeClassName(state.exportOptions.className);
+  const radius = getBorderRadiusValue(state);
+  const style = state.style;
+  return [
+    `:root {`,
+    `  --${className}-width: ${style.width}${style.sizeUnit};`,
+    `  --${className}-height: ${style.height}${style.sizeUnit};`,
+    `  --${className}-radius: ${radius};`,
+    `  --${className}-background: ${backgroundCss(style)};`,
+    `  --${className}-shadow: ${shadowValue(style)};`,
+    `}`,
+    ``,
+    `.${className} {`,
+    `  width: var(--${className}-width);`,
+    `  height: var(--${className}-height);`,
+    `  border-radius: var(--${className}-radius);`,
+    `  background: var(--${className}-background);`,
+    `  box-shadow: var(--${className}-shadow);`,
+    `}`,
+  ].join("\n");
+}
+
+export function generateScssMap(state: BorderRadiusState): string {
+  const className = normalizeClassName(state.exportOptions.className);
+  const radius = getBorderRadiusValue(state);
+  const style = state.style;
+  return `$${className}: (\n  width: ${style.width}${style.sizeUnit},\n  height: ${style.height}${style.sizeUnit},\n  radius: ${radius},\n  background: ${backgroundCss(style)},\n  shadow: ${shadowValue(style)}\n);`;
+}
+
+export function generateRadiusTokenJson(state: BorderRadiusState): string {
+  const className = normalizeClassName(state.exportOptions.className);
+  const radius = getBorderRadiusValue(state);
+  return JSON.stringify(
+    {
+      name: className,
+      mode: state.mode,
+      context: state.previewContext,
+      radius,
+      size: {
+        width: `${state.style.width}${state.style.sizeUnit}`,
+        height: `${state.style.height}${state.style.sizeUnit}`,
+      },
+      background: backgroundCss(state.style),
+      shadow: shadowValue(state.style),
+      animation: state.animation.enabled
+        ? {
+            duration: `${state.animation.duration}s`,
+            timingFunction: state.animation.timingFunction,
+            direction: state.animation.direction,
+            reducedMotion: state.animation.includeReducedMotion || state.exportOptions.includeReducedMotion,
+          }
+        : null,
+    },
+    null,
+    2,
+  );
+}
+
+export function getBorderRadiusStats(state: BorderRadiusState) {
+  const radius = getBorderRadiusValue(state);
+  const simpleValues = Object.values(state.simpleValues);
+  const advancedValues = [...Object.values(state.advancedValues.horizontal), ...Object.values(state.advancedValues.vertical)];
+  const activeValues = state.mode === "simple" ? simpleValues : advancedValues;
+  const min = Math.min(...activeValues);
+  const max = Math.max(...activeValues);
+  const spread = max - min;
+  const hasSlashSyntax = radius.includes("/");
+  const isProductionUi = state.mode === "simple" || state.previewContext === "card" || state.previewContext === "button" || state.previewContext === "avatar";
+  const complexity = state.animation.enabled || state.mode === "animated" ? "Animated" : hasSlashSyntax ? "Elliptical" : spread > 0 ? "Mixed corners" : "Simple";
+
+  return {
+    radius,
+    min,
+    max,
+    spread,
+    complexity,
+    hasSlashSyntax,
+    fit: isProductionUi ? "UI ready" : "Decorative",
+  };
+}
+
 export function validateBorderRadiusState(state: BorderRadiusState): BorderRadiusValidationMessage[] {
   const messages: BorderRadiusValidationMessage[] = [];
   const radius = getBorderRadiusValue(state);

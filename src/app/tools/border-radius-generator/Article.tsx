@@ -44,11 +44,16 @@ export default function Article() {
       <h2>FAQ</h2>
       <h3>Can I use these values in Tailwind?</h3>
       <p>
-        Yes. The Tailwind-style output uses arbitrary values, but complex slash syntax may need escaping or formatting depending on your Tailwind setup.
+        Yes. The Tailwind-style output uses arbitrary values, while the token exports help you move important radii into a reusable design system.
       </p>
       <h3>Why does my percentage radius look different on another element?</h3>
       <p>
         Percentage radii are based on the element dimensions. A 50% radius on a square creates a circle, while the same percentage on a rectangle creates an oval-like curve.
+      </p>
+    
+      <h2>Production tips</h2>
+      <p>
+        Use small radii for dense dashboards, medium radii for cards and modals, large pill radii for buttons and filters, and percentage slash syntax for decorative blobs. Keep animated shapes subtle and include reduced-motion CSS.
       </p>
     </article>
   );

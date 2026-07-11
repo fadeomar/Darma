@@ -29,17 +29,17 @@ export default function CssGridGeneratorPage() {
       maxWidth="wide"
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Design responsive CSS Grid layouts visually, create grid areas, preview real grid behavior, and copy clean CSS, HTML, React, or Tailwind-style starter code.
+          Design responsive CSS Grid layouts visually, tune track templates, switch between line placement and named areas, preview breakpoints, and export CSS, HTML, React, Tailwind starters, variables, and design tokens.
         </p>
       }
       article={
-        <ToolContentCard title="About CSS Grid layouts">
+        <ToolContentCard title="About production CSS Grid layouts">
           <Article />
         </ToolContentCard>
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="CSS Grid Generator" description="Build responsive grid layouts with presets, visual placement, line overlays, named areas, validation, and copy-ready code.">
+      <ToolContentCard title="CSS Grid Generator" description="Build production-ready grid layouts with presets, selectable items, template editing, responsive rules, validation, and copy-ready exports.">
         <CssGridGeneratorClient />
       </ToolContentCard>
     </ToolPage>

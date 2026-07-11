@@ -3,7 +3,18 @@
 import { useMemo, useState } from "react";
 import { WarningPanel, type WarningMessage } from "@/features/tools/components";
 import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
-import { createDefaultTransformState, generateTailwindStarter, generateTransformCss, generateTransformHtml, generateTransformJsx, validateTransformState } from "./transform";
+import {
+  createDefaultTransformState,
+  generateTailwindStarter,
+  generateTransformCss,
+  generateTransformCssVariables,
+  generateTransformHtml,
+  generateTransformJsx,
+  generateTransformKeyframeSnippet,
+  generateTransformReactStyleObject,
+  generateTransformTokenJson,
+  validateTransformState,
+} from "./transform";
 import type { TransformGeneratorState, TransformPreset } from "./types";
 import { TransformPreview } from "./components/TransformPreview";
 import { TransformControls } from "./components/TransformControls";
@@ -15,8 +26,35 @@ export default function CssTransformGeneratorClient() {
   const html = useMemo(() => generateTransformHtml(state), [state]);
   const jsx = useMemo(() => generateTransformJsx(state), [state]);
   const tailwind = useMemo(() => generateTailwindStarter(state), [state]);
-  const messages = useMemo<WarningMessage[]>(() => validateTransformState(state).map((message, index) => ({ id: `${message.type}-${index}`, severity: message.type === "error" ? "danger" : message.type === "warning" ? "warning" : "info", message: message.message })), [state]);
-  function patchState(patch: Partial<TransformGeneratorState>) { setState((current) => ({ ...current, ...patch })); }
-  function loadPreset(preset: TransformPreset) { setState(preset.state); }
-  return <ToolLayoutVisualGenerator previewSlot={<TransformPreview state={state} onPatch={patchState} />} controlsSlot={<TransformControls state={state} onPatch={patchState} onLoadPreset={loadPreset} />} codeSlot={<TransformCodeOutput css={css} html={html} jsx={jsx} tailwind={tailwind} />} presetsSlot={<WarningPanel title="Transform checks" messages={messages.length ? messages : [{ id: "ok", severity: "success", message: "Transform output matches the current controls." }]} />} />;
+  const variables = useMemo(() => generateTransformCssVariables(state), [state]);
+  const reactStyle = useMemo(() => generateTransformReactStyleObject(state), [state]);
+  const tokenJson = useMemo(() => generateTransformTokenJson(state), [state]);
+  const keyframes = useMemo(() => generateTransformKeyframeSnippet(state), [state]);
+  const messages = useMemo<WarningMessage[]>(
+    () =>
+      validateTransformState(state).map((message, index) => ({
+        id: `${message.type}-${index}`,
+        severity: message.type === "error" ? "danger" : message.type === "warning" ? "warning" : "info",
+        message: message.message,
+      })),
+    [state],
+  );
+
+  function patchState(patch: Partial<TransformGeneratorState>) {
+    setState((current) => ({ ...current, ...patch }));
+  }
+
+  function loadPreset(preset: TransformPreset) {
+    setState(preset.state);
+  }
+
+  return (
+    <ToolLayoutVisualGenerator
+      previewSlot={<TransformPreview state={state} onPatch={patchState} />}
+      controlsSlot={<TransformControls state={state} onPatch={patchState} onLoadPreset={loadPreset} />}
+      codeSlot={<TransformCodeOutput css={css} html={html} jsx={jsx} tailwind={tailwind} variables={variables} reactStyle={reactStyle} tokenJson={tokenJson} keyframes={keyframes} />}
+      presetsSlot={<WarningPanel title="Transform checks" messages={messages.length ? messages : [{ id: "ok", severity: "success", message: "Transform output matches the current controls." }]} />}
+      actionsPlacement="under-preview"
+    />
+  );
 }

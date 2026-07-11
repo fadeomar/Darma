@@ -29,7 +29,7 @@ export default function AppScreenshotMockupGeneratorPage() {
       maxWidth="wide"
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Turn product screenshots into polished device mockups, landing-page hero images, app listing drafts, social launch graphics, and documentation screenshots locally in your browser.
+          Turn product screenshots into polished device mockups, landing-page hero images, app listing drafts, social launch graphics, and documentation screenshots with local rendering, export packs, responsive snippets, and handoff checks.
         </p>
       }
       article={
@@ -39,7 +39,7 @@ export default function AppScreenshotMockupGeneratorPage() {
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="App Screenshot / Mockup Generator" description="Upload a screenshot, choose a device frame and background, then export polished PNG mockup packs with install snippets and validation checks.">
+      <ToolContentCard title="App Screenshot / Mockup Generator" description="Upload a screenshot, choose a device frame and background, then export polished PNG mockup packs with responsive HTML, Next.js snippets, CSS variables, design tokens, and validation checks.">
         <AppScreenshotMockupClient />
       </ToolContentCard>
     </ToolPage>

@@ -1,5 +1,7 @@
 export type ClampUnit = "rem" | "px";
 export type ClampPropertyPreset = "font-size" | "spacing" | "width" | "custom";
+export type ClampExportTab = "css" | "variables" | "tokens" | "tailwind" | "json" | "scss";
+export type ClampPreviewMode = "text" | "spacing" | "width";
 
 export type ClampInput = {
   property: string;
@@ -34,4 +36,10 @@ export type PresetOption<T extends string> = {
   value: T;
   label: string;
   description?: string;
+};
+
+export type ClampHealth = {
+  label: string;
+  tone: "good" | "warning" | "danger";
+  notes: string[];
 };

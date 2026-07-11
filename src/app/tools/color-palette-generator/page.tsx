@@ -30,7 +30,7 @@ export default function ColorPaletteGeneratorPage() {
       maxWidth="wide"
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Generate accessible color palettes, harmony sets, CSS variables, and design tokens locally in your browser.
+          Generate practical color palettes with lockable swatches, production previews, accessibility checks, CSS variables, Tailwind tokens, and design-token exports locally in your browser.
         </p>
       }
       article={
@@ -47,7 +47,7 @@ export default function ColorPaletteGeneratorPage() {
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Color Palette Generator" description="Create harmony palettes, inspect contrast, lock swatches, and export CSS-ready color tokens.">
+      <ToolContentCard title="Color Palette Generator" description="Create production-ready palettes, inspect usage roles, validate contrast, lock swatches, and export clean design tokens.">
         <ColorPaletteClient />
       </ToolContentCard>
     </ToolPage>

@@ -1037,6 +1037,16 @@ export default function ImageCompressorClient() {
                 )}
               </div>
 
+              <SingleOptimizationSummary
+                input={toInputState(singleItem!)}
+                output={singleOutput}
+                estimatedDims={estimatedDims}
+                resolvedMime={resolvedMime}
+                quality={settings.quality}
+                targetEnabled={settings.targetFileSizeEnabled}
+                targetKB={settings.targetFileSizeKB}
+              />
+
               {/* Image preview — full width, no inner padding */}
               <div className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-subtle)]">
                 <PreviewArea
@@ -1134,6 +1144,17 @@ export default function ImageCompressorClient() {
                 Clear all
               </Button>
             </div>
+
+            <BatchPlanSummary
+              items={batchItems}
+              summary={batchSummary}
+              outputFormat={settings.outputFormat}
+              quality={settings.quality}
+              targetEnabled={settings.targetFileSizeEnabled}
+              targetKB={settings.targetFileSizeKB}
+              targetWidth={settings.targetWidth}
+              targetHeight={settings.targetHeight}
+            />
 
             <div aria-live="polite" aria-atomic="true" className="contents">
               {batchProcessing && (
@@ -1233,7 +1254,7 @@ function UploadDropzone({
       onDragLeave={onDragLeave}
       onDrop={onDrop}
       aria-label="Image upload area — drag and drop or click to choose images"
-      className={`flex min-h-[280px] flex-col items-center justify-center rounded-[var(--radius-lg)] border-2 border-dashed p-8 text-center transition ${
+      className={`flex min-h-[250px] flex-col items-center justify-center rounded-[var(--radius-lg)] border-2 border-dashed p-5 text-center transition sm:p-6 ${
         isDragging
           ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]"
           : "border-[var(--color-border-default)] bg-[var(--color-surface-subtle)]"
@@ -1246,9 +1267,30 @@ function UploadDropzone({
       <p className="mt-5 text-xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">
         Drop images here or click to browse
       </p>
-      <p className="mt-2 max-w-sm text-sm leading-6 text-[var(--color-text-secondary)]">
-        JPG, PNG, and WebP. One image or up to {MAX_BATCH} at once. Your files stay on your device.
+      <p className="mt-2 max-w-xl text-sm leading-6 text-[var(--color-text-secondary)]">
+        JPG, PNG, and WebP. Drop one image for a side-by-side preview, or add up to {MAX_BATCH} images for batch optimization and ZIP export.
       </p>
+
+      <div className="mt-5 grid w-full max-w-2xl gap-2 text-left sm:grid-cols-3">
+        {[
+          ["1", "Choose", "Drop, browse, or paste an image."],
+          ["2", "Optimize", "Pick quality, format, resize, or target KB."],
+          ["3", "Export", "Download one image or a ZIP batch."],
+        ].map(([step, title, description]) => (
+          <div
+            key={step}
+            className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-3"
+          >
+            <span className="font-mono text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-accent)]">
+              Step {step}
+            </span>
+            <p className="mt-1 text-xs font-black text-[var(--color-text-primary)]">{title}</p>
+            <p className="mt-0.5 text-[11px] leading-4 text-[var(--color-text-tertiary)]">
+              {description}
+            </p>
+          </div>
+        ))}
+      </div>
 
       <Button
         className="mt-5"
@@ -1278,6 +1320,151 @@ function UploadDropzone({
         ))}
       </div>
     </div>
+  );
+}
+
+
+function SummaryCards({
+  cards,
+}: {
+  cards: Array<{ label: string; value: string; description?: string; tone?: "success" | "warning" | "default" }>;
+}) {
+  return (
+    <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
+      {cards.map((card) => (
+        <div
+          key={card.label}
+          className={`rounded-[var(--radius-md)] border p-3 ${
+            card.tone === "success"
+              ? "border-[var(--color-success-border)] bg-[var(--color-success-bg)]"
+              : card.tone === "warning"
+                ? "border-amber-200 bg-amber-50 dark:border-amber-700 dark:bg-amber-900/20"
+                : "border-[var(--color-border-default)] bg-[var(--color-surface-base)]"
+          }`}
+        >
+          <p className="truncate text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+            {card.label}
+          </p>
+          <p className="mt-1 truncate text-sm font-black text-[var(--color-text-primary)]" title={card.value}>
+            {card.value}
+          </p>
+          {card.description && (
+            <p className="mt-0.5 line-clamp-2 text-[11px] leading-4 text-[var(--color-text-tertiary)]">
+              {card.description}
+            </p>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function SingleOptimizationSummary({
+  input,
+  output,
+  estimatedDims,
+  resolvedMime,
+  quality,
+  targetEnabled,
+  targetKB,
+}: {
+  input: ImageInputState;
+  output: ImageOutputState | null;
+  estimatedDims: { width: number; height: number } | null;
+  resolvedMime: string | null;
+  quality: number;
+  targetEnabled: boolean;
+  targetKB: string;
+}) {
+  const outputDims = output
+    ? `${output.width} × ${output.height}`
+    : estimatedDims
+      ? `${estimatedDims.width} × ${estimatedDims.height}`
+      : `${input.width} × ${input.height}`;
+  const savingsTone = output && output.savedPercent >= 30 ? "success" : "default";
+
+  return (
+    <SummaryCards
+      cards={[
+        {
+          label: "Input",
+          value: formatBytes(input.size),
+          description: `${input.width} × ${input.height} · ${formatMimeLabel(input.type)}`,
+        },
+        {
+          label: output ? "Output" : "Planned output",
+          value: output ? formatBytes(output.size) : formatMimeLabel(resolvedMime ?? input.type),
+          description: outputDims,
+          tone: output ? "success" : "default",
+        },
+        {
+          label: output ? "Saved" : "Quality",
+          value: output ? `−${output.savedPercent}%` : `${Math.round(quality * 100)}%`,
+          description: output ? "Compared with original file" : "Applied to JPEG/WebP exports",
+          tone: savingsTone,
+        },
+        {
+          label: "Mode",
+          value: targetEnabled ? `${targetKB || "—"} KB target` : "Quality mode",
+          description: targetEnabled ? "Auto-reduces quality when possible" : "Manual quality + resize settings",
+        },
+      ]}
+    />
+  );
+}
+
+function BatchPlanSummary({
+  items,
+  summary,
+  outputFormat,
+  quality,
+  targetEnabled,
+  targetKB,
+  targetWidth,
+  targetHeight,
+}: {
+  items: BatchImageItem[];
+  summary: BatchSummary;
+  outputFormat: OutputFormat;
+  quality: number;
+  targetEnabled: boolean;
+  targetKB: string;
+  targetWidth: string;
+  targetHeight: string;
+}) {
+  const ready = items.filter((item) => item.status === "ready").length;
+  const processing = items.filter((item) => item.status === "processing").length;
+  const done = summary.successCount;
+  const failed = summary.failedCount;
+  const formatLabel = outputFormat === "original" ? "Keep original" : formatMimeLabel(outputFormat);
+  const resizeLabel = targetWidth || targetHeight ? `${targetWidth || "auto"} × ${targetHeight || "auto"}` : "Original dimensions";
+
+  return (
+    <SummaryCards
+      cards={[
+        {
+          label: "Queue",
+          value: `${items.length}/${MAX_BATCH} images`,
+          description: `${ready} ready · ${done} done · ${failed} failed${processing ? ` · ${processing} running` : ""}`,
+        },
+        {
+          label: "Output",
+          value: formatLabel,
+          description: `${Math.round(quality * 100)}% quality${targetEnabled ? ` · ${targetKB || "—"} KB target` : ""}`,
+        },
+        {
+          label: "Resize",
+          value: resizeLabel,
+          description: "Aspect ratio and enlarge rules apply per image",
+        },
+        {
+          label: done > 0 ? "Batch saved" : "Export",
+          value: done > 0 ? `−${summary.averageSavedPercent}% avg` : "ZIP ready after processing",
+          description: done > 0 ? `${formatBytes(summary.totalOriginalSize)} → ${formatBytes(summary.totalOutputSize)}` : "Download individually or as one ZIP",
+          tone: done > 0 ? "success" : "default",
+        },
+      ]}
+    />
   );
 }
 

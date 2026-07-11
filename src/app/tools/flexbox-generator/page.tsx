@@ -29,7 +29,7 @@ export default function FlexboxGeneratorPage() {
       maxWidth="wide"
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Design flexible row and column layouts visually, tune alignment and item sizing, preview wrapping behavior, and copy clean CSS, HTML, React, or Tailwind-style starter code.
+          Build responsive Flexbox layouts visually, check wrapping and alignment behavior, then export production CSS, variables, HTML, React, Tailwind starter code, and design tokens.
         </p>
       }
       article={
@@ -39,7 +39,7 @@ export default function FlexboxGeneratorPage() {
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Flexbox Generator" description="Build one-dimensional CSS layouts with presets, axis overlays, item sizing controls, responsive behavior, warnings, and copy-ready code.">
+      <ToolContentCard title="Flexbox Generator" description="Design one-dimensional layouts with presets, quick actions, selected-item controls, responsive rules, production checks, and copy-ready code exports.">
         <FlexboxGeneratorClient />
       </ToolContentCard>
     </ToolPage>

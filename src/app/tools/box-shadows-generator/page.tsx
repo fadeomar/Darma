@@ -26,11 +26,15 @@ export default function BoxShadowsGeneratorPage() {
     <ToolPage
       tool={tool}
       maxWidth="wide"
-      intro={<p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)]">Build multi-layer CSS box shadows with a live preview, compact layer editor, presets, and copy-ready output.</p>}
+      intro={
+        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)]">
+          Build production-ready layered CSS shadows with presets, live component preview, performance checks, and exports for CSS variables, Tailwind, React styles, and design tokens.
+        </p>
+      }
       article={<ToolContentCard title="About CSS box-shadow"><Article /></ToolContentCard>}
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Box Shadows Generator" description="Tune layered shadows, preview radius, surface color, and export CSS or Tailwind-style snippets.">
+      <ToolContentCard title="Box Shadows Generator" description="Tune layers, light direction, blur, spread, radius, surface color, and copy clean reusable shadow tokens.">
         <BoxShadowsGeneratorClient />
       </ToolContentCard>
     </ToolPage>

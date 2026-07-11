@@ -11,7 +11,7 @@ import { cn } from "@/lib/cn";
 import { fileToDataUrl, loadImageFromDataUrl, renderMockupDataUrl } from "./canvas";
 import { createReadme, generateMockupAssets, revokeMockupAssetUrls } from "./generator";
 import { DEFAULT_MOCKUP_INPUT, DEVICE_OPTIONS, EXPORT_PACKS, MAX_UPLOAD_BYTES, QUICK_PRESETS } from "./presets";
-import { createCssSnippet, createHtmlFigureSnippet, createNextImageSnippet } from "./snippets";
+import { createCssSnippet, createCssVariablesSnippet, createDesignTokenSnippet, createHtmlFigureSnippet, createNextImageSnippet, createResponsivePictureSnippet } from "./snippets";
 import type { GeneratedMockupAsset, MockupAlignment, MockupBackgroundMode, MockupDevice, MockupExportPackId, MockupFitMode, MockupInput, MockupOrientation, MockupShadowStyle, MockupWarning, PackageCheckResult } from "./types";
 import { createReadinessChecks, scoreReadiness, validateExistingPackage, validateGeneratedAssets, validateMockupInput } from "./validation";
 import { createZipArchive } from "./zip";
@@ -60,6 +60,49 @@ function formatBytes(bytes?: number) {
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
   return `${(bytes / 1024 / 1024).toFixed(1)} MB`;
 }
+
+function greatestCommonDivisor(a: number, b: number): number {
+  let x = Math.abs(Math.round(a));
+  let y = Math.abs(Math.round(b));
+  while (y) {
+    const next = x % y;
+    x = y;
+    y = next;
+  }
+  return x || 1;
+}
+
+function formatRatio(width: number, height: number) {
+  if (!width || !height) return "—";
+  const divisor = greatestCommonDivisor(width, height);
+  return `${Math.round(width / divisor)}:${Math.round(height / divisor)}`;
+}
+
+function formatMegapixels(width: number, height: number) {
+  if (!width || !height) return "0 MP";
+  return `${((width * height) / 1_000_000).toFixed(width * height > 9_000_000 ? 1 : 2)} MP`;
+}
+
+function getCropSummary(input: MockupInput) {
+  if (!input.screenshotWidth || !input.screenshotHeight) return input.fitMode === "cover" ? "Placeholder crop" : "Placeholder fit";
+  if (input.fitMode === "contain") return "No crop";
+  const sourceRatio = input.screenshotWidth / input.screenshotHeight;
+  const canvasRatio = input.canvasWidth / input.canvasHeight;
+  const difference = Math.abs(sourceRatio - canvasRatio) / Math.max(sourceRatio, canvasRatio);
+  if (difference < 0.06) return "Low crop";
+  if (difference < 0.18) return "Medium crop";
+  return "High crop";
+}
+
+function getSourceSummary(input: MockupInput) {
+  if (!input.screenshotDataUrl) return "Placeholder";
+  return `${input.screenshotWidth}×${input.screenshotHeight}`;
+}
+
+function getCanvasSummary(input: MockupInput) {
+  return `${formatRatio(input.canvasWidth, input.canvasHeight)} · ${formatMegapixels(input.canvasWidth, input.canvasHeight)}`;
+}
+
 
 function FieldGroup({ children, className }: { children: ReactNode; className?: string }) {
   return <div className={cn("grid gap-3 sm:grid-cols-2", className)}>{children}</div>;
@@ -338,50 +381,84 @@ function DesignControls({ input, setInput, setStatusMessage }: { input: MockupIn
 
 function ExportControls({ input, setInput }: { input: MockupInput; setInput: Dispatch<SetStateAction<MockupInput>> }) {
   const pack = EXPORT_PACKS.find((item) => item.id === input.exportPackId) ?? EXPORT_PACKS[0];
+  const firstSize = pack.sizes[0];
+  const previewMatchesFirstSize = firstSize ? input.canvasWidth === firstSize.width && input.canvasHeight === firstSize.height : false;
+
   return (
-    <ControlSection title="Export pack" description="Choose the output sizes for your mockup package.">
+    <ControlSection title="Export pack" description="Choose the output sizes and tune the live preview canvas before generating PNGs.">
       <CompactField label="Pack">
         <Select value={input.exportPackId} onChange={(event) => updateInput(setInput, { exportPackId: event.target.value as MockupExportPackId })}>
           {EXPORT_PACKS.map((option) => <option key={option.id} value={option.id}>{option.title}</option>)}
         </Select>
       </CompactField>
       <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
-        <p className="text-xs leading-5 text-[var(--color-text-secondary)]">{pack.description}</p>
-        <details className="mt-2">
-          <summary className="cursor-pointer text-xs font-bold text-[var(--color-text-primary)]">{pack.sizes.length} export sizes</summary>
-          <div className="mt-2 grid gap-2">
-          {pack.sizes.map((size) => (
-            <div key={size.id} className="flex items-center justify-between gap-3 rounded-[var(--radius-sm)] bg-[var(--color-surface-subtle)] px-3 py-2 text-xs">
-              <span className="font-bold text-[var(--color-text-primary)]">{size.label}</span>
-              <span className="font-mono text-[var(--color-text-tertiary)]">{size.width}×{size.height}</span>
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div className="min-w-0">
+            <p className="text-xs font-bold text-[var(--color-text-primary)]">{pack.title}</p>
+            <p className="mt-1 text-xs leading-5 text-[var(--color-text-secondary)]">{pack.description}</p>
+          </div>
+          <span className="rounded-[var(--radius-full)] bg-[var(--color-surface-subtle)] px-2 py-1 font-mono text-[11px] font-bold text-[var(--color-text-secondary)]">{pack.sizes.length} sizes</span>
+        </div>
+        <div className="mt-3 grid gap-2">
+          {pack.sizes.slice(0, 4).map((size) => (
+            <div key={size.id} className="flex min-w-0 items-center justify-between gap-3 rounded-[var(--radius-sm)] bg-[var(--color-surface-subtle)] px-3 py-2 text-xs">
+              <span className="min-w-0 truncate font-bold text-[var(--color-text-primary)]">{size.label}</span>
+              <span className="shrink-0 font-mono text-[var(--color-text-tertiary)]">{size.width}×{size.height}</span>
             </div>
           ))}
-          </div>
-        </details>
+        </div>
+        {pack.sizes.length > 4 ? <p className="mt-2 text-[11px] text-[var(--color-text-tertiary)]">Plus {pack.sizes.length - 4} more outputs in the ZIP.</p> : null}
       </div>
+
+      <Disclosure title="Live preview canvas" description="Controls the working preview. Export pack sizes are still generated from the selected pack.">
+        <FieldGroup>
+          <SliderNumberField label="Preview width" min={640} max={3000} step={10} value={input.canvasWidth} unit="px" onChange={(canvasWidth) => updateInput(setInput, { canvasWidth })} />
+          <SliderNumberField label="Preview height" min={480} max={3000} step={10} value={input.canvasHeight} unit="px" onChange={(canvasHeight) => updateInput(setInput, { canvasHeight })} />
+        </FieldGroup>
+        <div className="flex flex-wrap items-center justify-between gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 text-xs">
+          <span className="text-[var(--color-text-secondary)]">Preview: <strong className="text-[var(--color-text-primary)]">{formatRatio(input.canvasWidth, input.canvasHeight)}</strong> · {formatMegapixels(input.canvasWidth, input.canvasHeight)}</span>
+          {firstSize ? (
+            <Button size="sm" variant={previewMatchesFirstSize ? "secondary" : "ghost"} onClick={() => updateInput(setInput, { canvasWidth: firstSize.width, canvasHeight: firstSize.height })}>
+              {previewMatchesFirstSize ? "Matched" : `Match ${firstSize.label}`}
+            </Button>
+          ) : null}
+        </div>
+      </Disclosure>
     </ControlSection>
   );
 }
 
+
 function PreviewPanel({ previewUrl, input, status }: { previewUrl: string; input: MockupInput; status: Status }) {
   const aspect = input.canvasWidth / input.canvasHeight;
+  const statusLabel = status === "generating" ? "Rendering…" : status === "error" ? "Preview error" : "Client-only";
+
   return (
     <div className="flex h-full min-h-[420px] flex-col gap-4 bg-[radial-gradient(circle_at_top,var(--color-primary-soft),transparent_34%),var(--color-surface-subtle)] p-4 sm:p-5">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Live mockup preview</p>
           <h3 className="mt-1 text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">{input.canvasWidth}×{input.canvasHeight} canvas</h3>
+          <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">{getCanvasSummary(input)}</p>
         </div>
         <div className="rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] px-3 py-1.5 text-xs font-bold text-[var(--color-text-secondary)]">
-          {status === "generating" ? "Rendering…" : "Client-only"}
+          {statusLabel}
         </div>
       </div>
-      <div className="flex min-h-[340px] flex-1 items-center justify-center rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] p-3 shadow-[var(--shadow-card)]">
+
+      <div className="grid gap-2 sm:grid-cols-4">
+        <PreviewStat title="Source" value={getSourceSummary(input)} />
+        <PreviewStat title="Frame" value={input.device} />
+        <PreviewStat title="Pack" value={input.exportPackId} />
+        <PreviewStat title="Fit" value={getCropSummary(input)} />
+      </div>
+
+      <div className="flex min-h-[300px] flex-1 items-center justify-center rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] p-3 shadow-[var(--shadow-card)]">
         {previewUrl ? (
           <img
             src={previewUrl}
             alt="Generated app screenshot mockup preview"
-            className="max-h-[66vh] w-full max-w-full rounded-[var(--radius-md)] object-contain shadow-[var(--shadow-lg)]"
+            className="max-h-[58vh] w-full max-w-full rounded-[var(--radius-md)] object-contain shadow-[var(--shadow-lg)]"
             style={{ aspectRatio: String(aspect) }}
           />
         ) : (
@@ -391,20 +468,16 @@ function PreviewPanel({ previewUrl, input, status }: { previewUrl: string; input
           </div>
         )}
       </div>
-      <div className="grid gap-2 sm:grid-cols-3">
-        <PreviewStat title="Frame" value={input.device} />
-        <PreviewStat title="Pack" value={input.exportPackId} />
-        <PreviewStat title="Fit" value={input.fitMode} />
-      </div>
     </div>
   );
 }
 
+
 function PreviewStat({ title, value }: { title: string; value: string }) {
   return (
-    <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-3">
+    <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-3">
       <MiniLabel>{title}</MiniLabel>
-      <p className="mt-1 text-sm font-bold capitalize text-[var(--color-text-primary)]">{value.replace(/-/g, " ")}</p>
+      <p className="mt-1 truncate text-sm font-bold capitalize text-[var(--color-text-primary)]" title={value}>{value.replace(/-/g, " ")}</p>
     </div>
   );
 }
@@ -470,6 +543,38 @@ function GeneratedFilesPanel({ assets, checks, onDownload }: { assets: Generated
             </div>
           ))}
         </div>
+      </div>
+    </div>
+  );
+}
+
+function ProductionHandoffPanel({ input, assets, warnings }: { input: MockupInput; assets: GeneratedMockupAsset[]; warnings: MockupWarning[] }) {
+  const hasRealScreenshot = Boolean(input.screenshotDataUrl);
+  const generatedTotal = assets.reduce((sum, asset) => sum + asset.blob.size, 0);
+  const checks = [
+    { id: "source", label: hasRealScreenshot ? "Real screenshot loaded" : "Placeholder mode", detail: hasRealScreenshot ? `${input.screenshotWidth}×${input.screenshotHeight} source ready.` : "Upload a final screenshot before campaign export.", tone: hasRealScreenshot ? "good" : "warn" },
+    { id: "crop", label: getCropSummary(input), detail: input.fitMode === "cover" ? "Cover fills the frame and may crop source edges." : "Contain preserves the whole screenshot inside the frame.", tone: getCropSummary(input) === "High crop" ? "warn" : "good" },
+    { id: "pack", label: `${EXPORT_PACKS.find((pack) => pack.id === input.exportPackId)?.sizes.length ?? 0} output sizes`, detail: `${input.exportPackId.replace(/-/g, " ")} pack selected for current handoff.`, tone: "good" },
+    { id: "warnings", label: warnings.length ? `${warnings.length} readiness note${warnings.length === 1 ? "" : "s"}` : "No blocking warnings", detail: warnings[0]?.message ?? "Frame, text, and export setup look usable.", tone: warnings.some((warning) => warning.level === "error") ? "bad" : warnings.length ? "warn" : "good" },
+    { id: "assets", label: assets.length ? `${assets.length} files generated` : "No generated pack yet", detail: assets.length ? `${formatBytes(generatedTotal)} total generated locally.` : "Generate a pack to download PNGs and snippets.", tone: assets.length ? "good" : "warn" },
+  ];
+
+  return (
+    <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] p-4 shadow-[var(--shadow-xs)]">
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+        <div>
+          <MiniLabel>Production handoff</MiniLabel>
+          <p className="mt-1 text-sm font-bold text-[var(--color-text-primary)]">Campaign checks before final export</p>
+        </div>
+        <span className="rounded-[var(--radius-full)] bg-[var(--color-surface-subtle)] px-2.5 py-1 font-mono text-[11px] font-bold text-[var(--color-text-secondary)]">local-only</span>
+      </div>
+      <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
+        {checks.map((check) => (
+          <div key={check.id} className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
+            <p className={cn("truncate text-xs font-bold", check.tone === "bad" ? "text-[var(--color-danger-text)]" : check.tone === "warn" ? "text-[var(--color-warning-text)]" : "text-[var(--color-success-text)]")} title={check.label}>{check.label}</p>
+            <p className="mt-1 line-clamp-2 text-[11px] leading-4 text-[var(--color-text-tertiary)]">{check.detail}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -567,8 +672,11 @@ export default function AppScreenshotMockupClient() {
   const warnings = useMemo(() => validateMockupInput(input), [input]);
   const generatedChecks = useMemo(() => validateGeneratedAssets(assets), [assets]);
   const htmlSnippet = useMemo(() => createHtmlFigureSnippet(input, assets[0]), [input, assets]);
+  const pictureSnippet = useMemo(() => createResponsivePictureSnippet(input, assets), [input, assets]);
   const nextSnippet = useMemo(() => createNextImageSnippet(input, assets[0]), [input, assets]);
   const cssSnippet = useMemo(() => createCssSnippet(), []);
+  const cssVariablesSnippet = useMemo(() => createCssVariablesSnippet(input), [input]);
+  const tokenSnippet = useMemo(() => createDesignTokenSnippet(input, assets), [input, assets]);
 
   async function generateAssets() {
     setStatus("generating");
@@ -593,7 +701,10 @@ export default function AppScreenshotMockupClient() {
       { filename: "README.md", data: createReadme(input, currentAssets), mimeType: "text/markdown" },
       { filename: "html-figure-snippet.html", data: createHtmlFigureSnippet(input, currentAssets[0]), mimeType: "text/html" },
       { filename: "next-image-snippet.tsx", data: createNextImageSnippet(input, currentAssets[0]), mimeType: "text/plain" },
+      { filename: "responsive-picture-snippet.html", data: createResponsivePictureSnippet(input, currentAssets), mimeType: "text/html" },
       { filename: "mockup-styles.css", data: createCssSnippet(), mimeType: "text/css" },
+      { filename: "mockup-variables.css", data: createCssVariablesSnippet(input), mimeType: "text/css" },
+      { filename: "mockup.tokens.json", data: createDesignTokenSnippet(input, currentAssets), mimeType: "application/json" },
     ]);
     downloadBlobFile({ blob: zip, filename: `${input.filePrefix || "app-mockup"}-mockup-pack.zip` });
   }
@@ -632,8 +743,11 @@ export default function AppScreenshotMockupClient() {
 
   const codeTabs = [
     { id: "html", label: "HTML", code: htmlSnippet, language: "html", filename: "html-figure-snippet.html" },
+    { id: "picture", label: "Picture", code: pictureSnippet, language: "html", filename: "responsive-picture-snippet.html" },
     { id: "next", label: "Next.js", code: nextSnippet, language: "tsx", filename: "next-image-snippet.tsx" },
     { id: "css", label: "CSS", code: cssSnippet, language: "css", filename: "mockup-styles.css" },
+    { id: "variables", label: "Variables", code: cssVariablesSnippet, language: "css", filename: "mockup-variables.css" },
+    { id: "tokens", label: "Tokens", code: tokenSnippet, language: "json", filename: "mockup.tokens.json" },
   ];
 
   return (
@@ -645,6 +759,7 @@ export default function AppScreenshotMockupClient() {
       codeSlot={
         <div className="space-y-5">
           {warnings.length ? <WarningPanel title="Mockup readiness warnings" messages={mapWarnings(warnings)} /> : null}
+          <ProductionHandoffPanel input={input} assets={assets} warnings={warnings} />
           <ReadinessPanel input={input} assets={assets} />
           <GeneratedFilesPanel assets={assets} checks={checkerResults.length ? checkerResults : generatedChecks} onDownload={(asset) => downloadBlobFile({ blob: asset.blob, filename: asset.filename })} />
           <CodeOutputPanel title="Install snippets" description="Copy the generated mockup into a landing page, documentation page, or Next.js component." tabs={codeTabs} onDownload={downloadCodeFile} actions={<CopyInlineButton value={assets.map((asset) => asset.filename).join("\n") || input.filePrefix} />} />

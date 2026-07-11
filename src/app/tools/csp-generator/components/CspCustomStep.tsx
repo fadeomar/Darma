@@ -16,6 +16,12 @@ const DIRECTIVE_OPTIONS = [
   { value: "default-src", label: "default-src (fallback)" },
 ];
 
+const QUICK_EXAMPLES = [
+  { directive: "connect-src", value: "https://api.example.com" },
+  { directive: "img-src", value: "https://cdn.example.com" },
+  { directive: "connect-src", value: "wss://socket.example.com" },
+];
+
 export function CspCustomStep({
   sources,
   onAdd,
@@ -44,10 +50,22 @@ export function CspCustomStep({
     setError(null);
   }
 
+  function addExample(nextDirective: string, nextValue: string) {
+    const validationError = getError(nextDirective, nextValue);
+    if (validationError) {
+      setDirective(nextDirective);
+      setValue(nextValue);
+      setError(validationError);
+      return;
+    }
+    onAdd(nextDirective, nextValue);
+    setError(null);
+  }
+
   return (
     <div className="space-y-3">
-      <form onSubmit={submit} className="flex flex-col gap-2 sm:flex-row">
-        <Select value={directive} onChange={(event) => setDirective(event.target.value)} size="sm" className="sm:w-56">
+      <form onSubmit={submit} className="grid gap-2 lg:grid-cols-[minmax(180px,240px)_minmax(0,1fr)_auto]">
+        <Select value={directive} onChange={(event) => setDirective(event.target.value)} size="sm">
           {DIRECTIVE_OPTIONS.map((option) => (
             <option key={option.value} value={option.value}>{option.label}</option>
           ))}
@@ -62,7 +80,6 @@ export function CspCustomStep({
           placeholder="https://api.yourdomain.com"
           aria-label="Custom domain or source"
           aria-invalid={error ? true : undefined}
-          className="flex-1"
         />
         <Button type="submit" size="sm" variant="secondary" leftIcon={<Plus className="h-3.5 w-3.5" />} disabled={!value.trim()}>
           Add
@@ -73,28 +90,42 @@ export function CspCustomStep({
         <p role="alert" className="text-xs font-medium text-[var(--color-danger-text)]">{error}</p>
       ) : null}
 
-      {sources.length ? (
-        <ul className="flex flex-wrap gap-2">
-          {sources.map((source) => (
-            <li key={source.id}>
-              <span className="inline-flex items-center gap-2 rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-3 py-1 text-xs text-[var(--color-text-primary)]">
-                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">{source.directive}</span>
-                <span className="font-bold">{source.value}</span>
-                <button
-                  type="button"
-                  onClick={() => onRemove(source.id)}
-                  className="rounded-full text-[var(--color-text-tertiary)] transition hover:text-[var(--color-danger)]"
-                  aria-label={`Remove ${source.value}`}
-                >
-                  <X className="h-3.5 w-3.5" aria-hidden />
-                </button>
-              </span>
-            </li>
+      {!sources.length ? (
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Examples</span>
+          {QUICK_EXAMPLES.map((example) => (
+            <button
+              key={`${example.directive}-${example.value}`}
+              type="button"
+              onClick={() => addExample(example.directive, example.value)}
+              className="rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-2.5 py-1 font-mono text-[11px] font-bold text-[var(--color-text-secondary)] transition hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]"
+            >
+              {example.value}
+            </button>
           ))}
-        </ul>
+        </div>
+      ) : null}
+
+      {sources.length ? (
+        <div className="grid gap-2 sm:grid-cols-2">
+          {sources.map((source) => (
+            <div key={source.id} className="flex min-w-0 items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-3 py-2 text-xs text-[var(--color-text-primary)]">
+              <span className="shrink-0 rounded-[var(--radius-full)] bg-[var(--color-surface-subtle)] px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">{source.directive}</span>
+              <span className="min-w-0 flex-1 truncate font-mono font-bold" title={source.value}>{source.value}</span>
+              <button
+                type="button"
+                onClick={() => onRemove(source.id)}
+                className="shrink-0 rounded-full text-[var(--color-text-tertiary)] transition hover:text-[var(--color-danger)]"
+                aria-label={`Remove ${source.value}`}
+              >
+                <X className="h-3.5 w-3.5" aria-hidden />
+              </button>
+            </div>
+          ))}
+        </div>
       ) : (
         <p className="text-xs leading-5 text-[var(--color-text-tertiary)]">
-          No custom domains yet. Add your own API, CDN, or socket endpoints — for example <code className="rounded bg-[var(--color-surface-subtle)] px-1 py-0.5 font-mono text-[11px]">https://api.yourdomain.com</code>.
+          Add exact API, CDN, or socket endpoints when possible. Exact domains keep the policy safer than broad <code className="rounded bg-[var(--color-surface-subtle)] px-1 py-0.5 font-mono text-[11px]">https:</code> wildcards.
         </p>
       )}
     </div>

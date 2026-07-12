@@ -424,7 +424,7 @@ export default function ColorConverterClient() {
               <ConversionGrid parsed={parsed} />
             </>
           ) : (
-            <InvalidState parsed={parsed} />
+            <InvalidState parsed={parsed as Extract<ParsedColorResult, { ok: false }>} />
           )}
         </div>
       </div>

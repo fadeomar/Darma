@@ -129,7 +129,7 @@ export default function ColorNameFinderClient() {
       </div>
       <div className="rounded-[28px] border border-red-200 bg-red-50 p-6 text-red-800 dark:border-red-900/50 dark:bg-red-950/30 dark:text-red-200">
         <h3 className="text-lg font-black">Invalid color</h3>
-        <p className="mt-2 text-sm">{parsed.error}</p>
+        <p className="mt-2 text-sm">{(parsed as { error: string }).error}</p>
       </div>
     </div>;
   }

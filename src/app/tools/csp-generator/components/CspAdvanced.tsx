@@ -71,9 +71,9 @@ function DirectiveRow({
             <ul className="flex flex-wrap gap-1.5">
               {directive.sources.map((source) => (
                 <li key={source.id}>
-                  <span className={cn("inline-flex items-center gap-1.5 rounded-[var(--radius-full)] border px-2.5 py-1 font-mono text-[11px] font-bold", RISK_CHIP[source.risk])}>
-                    {source.value}
-                    <button type="button" onClick={() => onRemoveSource(source.value)} className="opacity-70 transition hover:opacity-100" aria-label={`Remove ${source.value} from ${directive.name}`}>
+                  <span className={cn("inline-flex max-w-full items-center gap-1.5 rounded-[var(--radius-full)] border px-2.5 py-1 font-mono text-[11px] font-bold", RISK_CHIP[source.risk])}>
+                    <span className="max-w-[220px] truncate" title={source.value}>{source.value}</span>
+                    <button type="button" onClick={() => onRemoveSource(source.value)} className="shrink-0 opacity-70 transition hover:opacity-100" aria-label={`Remove ${source.value} from ${directive.name}`}>
                       <X className="h-3 w-3" aria-hidden />
                     </button>
                   </span>

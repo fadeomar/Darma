@@ -15,7 +15,7 @@ const CONTROLS: { term: string; desc: string }[] = [
   { term: "Hints", desc: "Move the visual midpoint between two neighboring stops." },
   { term: "Layers", desc: "Stack multiple gradients for richer, layered effects." },
   { term: "Import", desc: "Paste an existing CSS gradient and edit it visually." },
-  { term: "Export", desc: "Copy modern CSS, classic CSS, or Tailwind-friendly output." },
+  { term: "Export", desc: "Copy modern CSS, fallback CSS, CSS variables, Tailwind-friendly output, React style, and token JSON." },
 ];
 
 const RELATED_TOOLS: { title: string; href: string; desc: string }[] = [
@@ -76,7 +76,7 @@ export default function CssGradientGeneratorArticle() {
             <li>Drag the preview handles or use the controls to adjust angle, position, and color stops.</li>
             <li>Click the gradient line to add new color stops.</li>
             <li>Use HD/SDR mode to compare modern CSS output with fallback output.</li>
-            <li>Copy the CSS and use it in your project.</li>
+            <li>Copy CSS, CSS variables, React style, or design token JSON and use it in your project.</li>
           </ol>
         </Section>
 
@@ -84,7 +84,7 @@ export default function CssGradientGeneratorArticle() {
         <Section title="What this tool creates">
           <p className="max-w-[70ch] text-sm leading-7 text-[var(--color-text-secondary)]">
             The studio generates production-ready CSS gradients you can drop straight into a
-            project. It is handy for a wide range of interface and brand visuals:
+            project. The editor also surfaces layer counts, stop counts, fallback status, and export snippets so the result is easier to ship in real UI work:
           </p>
           <ul className="flex max-w-[70ch] flex-wrap gap-2">
             {[

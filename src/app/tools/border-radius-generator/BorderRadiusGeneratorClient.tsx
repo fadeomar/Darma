@@ -26,7 +26,11 @@ import {
   generateBorderRadiusCss,
   generateBorderRadiusHtml,
   generateBorderRadiusJsx,
+  generateCssVariables,
+  generateRadiusTokenJson,
+  generateScssMap,
   generateTailwindStarter,
+  getBorderRadiusStats,
   getBorderRadiusValue,
   randomizeBlobValues,
   validateBorderRadiusState,
@@ -76,6 +80,16 @@ function shadowValue(state: BorderRadiusState) {
   return state.style.customShadow || "0 24px 80px rgb(15 23 42 / 0.22)";
 }
 
+function QuickMetric({ label, value, detail }: { label: string; value: ReactNode; detail?: string }) {
+  return (
+    <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-white/75 p-3 shadow-sm backdrop-blur dark:bg-[var(--color-code-surface)]/70">
+      <div className="text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
+      <div className="mt-1 truncate text-sm font-black text-[var(--color-text-primary)]" title={typeof value === "string" ? value : undefined}>{value}</div>
+      {detail ? <div className="mt-1 truncate text-xs font-semibold text-[var(--color-text-secondary)]" title={detail}>{detail}</div> : null}
+    </div>
+  );
+}
+
 function CheckboxRow({ label, checked, onChange }: { label: ReactNode; checked: boolean; onChange: (checked: boolean) => void }) {
   return (
     <label className="flex items-center justify-between gap-3 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-surface-strong)] px-3 py-2 text-sm text-[var(--color-text)]">
@@ -92,7 +106,11 @@ export default function BorderRadiusGeneratorClient() {
   const html = useMemo(() => generateBorderRadiusHtml(state), [state]);
   const jsx = useMemo(() => generateBorderRadiusJsx(state), [state]);
   const tailwind = useMemo(() => generateTailwindStarter(state), [state]);
+  const cssVariables = useMemo(() => generateCssVariables(state), [state]);
+  const tokenJson = useMemo(() => generateRadiusTokenJson(state), [state]);
+  const scssMap = useMemo(() => generateScssMap(state), [state]);
   const radiusValue = useMemo(() => getBorderRadiusValue(state), [state]);
+  const stats = useMemo(() => getBorderRadiusStats(state), [state]);
   const warnings = useMemo<WarningMessage[]>(
     () =>
       validateBorderRadiusState(state).map((message, index) => ({
@@ -109,8 +127,11 @@ export default function BorderRadiusGeneratorClient() {
       { id: "html", label: "HTML", language: "html", filename: "border-radius.html", code: html },
       { id: "jsx", label: "React JSX", language: "tsx", filename: "Shape.tsx", code: jsx },
       { id: "tailwind", label: "Tailwind", language: "txt", filename: "border-radius-tailwind.txt", code: tailwind },
+      { id: "vars", label: "CSS vars", language: "css", filename: "border-radius-tokens.css", code: cssVariables },
+      { id: "json", label: "Token JSON", language: "json", filename: "border-radius-token.json", code: tokenJson },
+      { id: "scss", label: "SCSS", language: "scss", filename: "border-radius-map.scss", code: scssMap },
     ],
-    [css, html, jsx, tailwind],
+    [css, html, jsx, tailwind, cssVariables, tokenJson, scssMap],
   );
 
   function patchState(patch: Partial<BorderRadiusState>) {
@@ -192,6 +213,12 @@ export default function BorderRadiusGeneratorClient() {
           </div>
         }
       />
+      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+        <QuickMetric label="Radius" value={stats.radius} detail={stats.complexity} />
+        <QuickMetric label="Fit" value={stats.fit} detail={labelize(state.previewContext)} />
+        <QuickMetric label="Range" value={`${stats.min}–${stats.max}${state.mode === "simple" ? state.simpleUnit : state.advancedUnit}`} detail={`Spread ${stats.spread}`} />
+        <QuickMetric label="Output" value={state.animation.enabled || state.mode === "animated" ? "Keyframes" : stats.hasSlashSyntax ? "Slash CSS" : "Simple CSS"} detail={state.animation.includeReducedMotion || state.exportOptions.includeReducedMotion ? "Reduced motion included" : "Static radius"} />
+      </div>
       <div className="grid gap-4 lg:grid-cols-[230px_minmax(0,1fr)]">
         <PresetGallery
           presets={BORDER_RADIUS_PRESETS}
@@ -268,8 +295,20 @@ export default function BorderRadiusGeneratorClient() {
           <ColorField label="Solid" value={state.style.backgroundColor} onChange={(value) => patchStyle({ backgroundColor: value })} />
           <ColorField label="Gradient from" value={state.style.gradientFrom} onChange={(value) => patchStyle({ gradientFrom: value })} />
           <ColorField label="Gradient to" value={state.style.gradientTo} onChange={(value) => patchStyle({ gradientTo: value })} />
+          <SliderNumberField label="Angle" value={state.style.gradientAngle} min={0} max={360} unit="deg" onChange={(value) => patchStyle({ gradientAngle: value })} />
           <NumberField label="Border" value={state.style.borderWidth} min={0} max={24} unit="px" onChange={(value) => patchStyle({ borderWidth: value, borderStyle: value > 0 ? "solid" : "none" })} />
+          <ColorField label="Border color" value={state.style.borderColor} onChange={(value) => patchStyle({ borderColor: value })} />
         </ControlGrid>
+        <Field label="Shadow" density="compact">
+          <Select size="sm" value={state.style.shadowPreset} onChange={(event) => patchStyle({ shadowPreset: event.target.value as BorderRadiusState["style"]["shadowPreset"] })}>
+            <option value="none">None</option>
+            <option value="soft">Soft</option>
+            <option value="medium">Medium</option>
+            <option value="strong">Strong</option>
+            <option value="custom">Custom</option>
+          </Select>
+        </Field>
+        {state.style.shadowPreset === "custom" ? <Field label="Custom shadow" density="compact"><Input size="sm" value={state.style.customShadow} onChange={(event) => patchStyle({ customShadow: event.target.value })} /></Field> : null}
       </ControlSection>
 
       <ControlSection title="Animation and export">
@@ -294,12 +333,13 @@ export default function BorderRadiusGeneratorClient() {
         <div className="flex flex-wrap gap-2">
           <Button variant="secondary" leftIcon={<RefreshCcw className="h-4 w-4" />} onClick={() => setState(createDefaultBorderRadiusState())}>Reset</Button>
           <CopyButton text={css}>Copy CSS</CopyButton>
+          <CopyButton text={cssVariables}>Copy tokens</CopyButton>
         </div>
       }
       codeSlot={
         <div className="space-y-4">
           <WarningPanel title="Helpful warnings" messages={warnings} />
-          <CodeOutputPanel title="Generated radius code" description="Copy CSS, HTML, React JSX, or a Tailwind arbitrary radius starter." tabs={tabs} defaultTab="css" onDownload={(tab) => downloadText(tab.filename ?? `${tab.id}.txt`, tab.code)} />
+          <CodeOutputPanel title="Generated radius code" description="Copy production CSS, framework snippets, design tokens, or component markup." tabs={tabs} defaultTab="css" onDownload={(tab) => downloadText(tab.filename ?? `${tab.id}.txt`, tab.code)} />
         </div>
       }
     />

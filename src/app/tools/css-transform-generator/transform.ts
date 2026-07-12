@@ -239,3 +239,141 @@ export function randomizeTransformState(state: TransformGeneratorState): Transfo
     transform3d: { ...state.transform3d, rotateX: rand(-18, 18), rotateY: rand(-24, 24), rotateZ: rand(-8, 8), translateZ: rand(-20, 42), perspective: rand(600, 1200) },
   };
 }
+
+export type TransformSummaryItem = {
+  label: string;
+  value: string;
+  tone?: "good" | "warn" | "info";
+};
+
+export function getTransformSummary(state: TransformGeneratorState): TransformSummaryItem[] {
+  const is3d = state.mode === "3d" || state.mode === "card-tilt";
+  const base = activeTransform(state, false);
+  const hover = activeTransform(state, true);
+  return [
+    { label: "Mode", value: state.mode.replace("-", " "), tone: is3d ? "info" : "good" },
+    { label: "Origin", value: generateTransformOrigin(state), tone: "info" },
+    { label: "Base", value: base.length > 38 ? `${base.slice(0, 35)}…` : base, tone: "good" },
+    { label: "Hover", value: state.mode === "hover" || state.mode === "card-tilt" ? (hover.length > 38 ? `${hover.slice(0, 35)}…` : hover) : "Not needed", tone: "info" },
+  ];
+}
+
+export function getTransformProductionChecks(state: TransformGeneratorState): TransformSummaryItem[] {
+  const checks: TransformSummaryItem[] = [];
+  const is3d = state.mode === "3d" || state.mode === "card-tilt";
+  const maxRotation = Math.max(Math.abs(state.transform3d.rotateX), Math.abs(state.transform3d.rotateY), Math.abs(state.transform3d.rotateZ));
+  const maxScale = Math.max(state.transform2d.scaleX, state.transform2d.scaleY, state.hover2d.scaleX, state.hover2d.scaleY);
+  const movement = Math.max(Math.abs(state.transform2d.translateX), Math.abs(state.transform2d.translateY), Math.abs(state.hover2d.translateX), Math.abs(state.hover2d.translateY));
+
+  checks.push({
+    label: "Motion safety",
+    value: state.exportOptions.includeReducedMotion || state.animation.includeReducedMotion ? "Reduced-motion guard" : "Add guard",
+    tone: state.exportOptions.includeReducedMotion || state.animation.includeReducedMotion ? "good" : "warn",
+  });
+  checks.push({
+    label: "GPU path",
+    value: state.exportOptions.useTransformGpuHint ? "transform-gpu hint" : "No hint",
+    tone: state.exportOptions.useTransformGpuHint ? "good" : "info",
+  });
+  checks.push({
+    label: "Readability",
+    value: is3d && maxRotation > 45 ? "Text may tilt too far" : maxScale > 1.25 ? "Large zoom" : "Safe range",
+    tone: (is3d && maxRotation > 45) || maxScale > 1.25 ? "warn" : "good",
+  });
+  checks.push({
+    label: "Layout impact",
+    value: movement > 120 ? "Visual offset only" : "No reflow",
+    tone: movement > 120 ? "warn" : "good",
+  });
+  return checks;
+}
+
+export function generateTransformCssVariables(state: TransformGeneratorState): string {
+  const className = state.exportOptions.className || "transform-card";
+  return `:root {
+  --${className}-transform: ${activeTransform(state, false)};
+  --${className}-hover-transform: ${activeTransform(state, true)};
+  --${className}-origin: ${generateTransformOrigin(state)};
+  --${className}-transition-duration: ${state.transition.duration}ms;
+  --${className}-transition-easing: ${state.transition.timingFunction};
+  --${className}-radius: ${state.style.borderRadius}px;
+}
+
+.${className} {
+  transform: var(--${className}-transform);
+  transform-origin: var(--${className}-origin);
+  transition: transform var(--${className}-transition-duration) var(--${className}-transition-easing);
+}
+
+.${className}:hover {
+  transform: var(--${className}-hover-transform);
+}`;
+}
+
+export function generateTransformReactStyleObject(state: TransformGeneratorState): string {
+  const styleObject = {
+    width: `${state.style.width}px`,
+    minHeight: `${state.style.height}px`,
+    padding: `${state.style.padding}px`,
+    borderRadius: `${state.style.borderRadius}px`,
+    color: state.style.textColor,
+    background: state.style.background,
+    boxShadow: shadowValue(state.style.shadow),
+    transform: activeTransform(state, false),
+    transformOrigin: generateTransformOrigin(state),
+    transition: state.transition.enabled ? `transform ${state.transition.duration}ms ${state.transition.timingFunction}` : undefined,
+    willChange: state.exportOptions.useTransformGpuHint ? "transform" : undefined,
+  };
+  return `const transformCardStyle = ${JSON.stringify(styleObject, null, 2)};`;
+}
+
+export function generateTransformTokenJson(state: TransformGeneratorState): string {
+  const className = state.exportOptions.className || "transform-card";
+  return JSON.stringify({
+    name: className,
+    mode: state.mode,
+    transform: {
+      base: activeTransform(state, false),
+      hover: activeTransform(state, true),
+      origin: generateTransformOrigin(state),
+      order: state.transform2d.order,
+    },
+    transition: {
+      enabled: state.transition.enabled,
+      duration: `${state.transition.duration}ms`,
+      delay: `${state.transition.delay}ms`,
+      timingFunction: state.transition.timingFunction,
+    },
+    animation: state.mode === "entrance" ? {
+      name: state.animation.name,
+      duration: `${state.animation.duration}ms`,
+      timingFunction: state.animation.timingFunction,
+      fillMode: state.animation.fillMode,
+      reducedMotion: state.animation.includeReducedMotion,
+    } : undefined,
+    style: {
+      width: `${state.style.width}px`,
+      height: `${state.style.height}px`,
+      radius: `${state.style.borderRadius}px`,
+      shadow: shadowValue(state.style.shadow),
+      background: state.style.background,
+      color: state.style.textColor,
+    },
+  }, null, 2);
+}
+
+export function generateTransformKeyframeSnippet(state: TransformGeneratorState): string {
+  const animationName = state.animation.name || "transform-enter";
+  const resting = activeTransform(state, false);
+  return `@keyframes ${animationName} {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: ${resting};
+  }
+}`;
+}

@@ -29,7 +29,7 @@ export default function BorderRadiusGeneratorPage() {
       maxWidth="wide"
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Design rounded corners, elliptical border-radius shapes, organic blobs, image masks, and animated UI decorations with copy-ready CSS.
+          Design production-ready border radius tokens, UI corners, organic blobs, image masks, and animated decorations with compact previews and export-ready code.
         </p>
       }
       article={
@@ -39,7 +39,7 @@ export default function BorderRadiusGeneratorPage() {
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="CSS Border Radius Generator" description="Create normal rounded corners, advanced slash syntax, organic blobs, image masks, animation keyframes, and exportable code.">
+      <ToolContentCard title="CSS Border Radius Generator" description="Create simple corners, slash syntax, organic blobs, image masks, animation keyframes, CSS variables, Tailwind snippets, and design tokens.">
         <BorderRadiusGeneratorClient />
       </ToolContentCard>
     </ToolPage>

@@ -40,6 +40,13 @@ export default function Article() {
         </section>
 
         <section>
+          <h2 className="text-xl font-bold text-[var(--color-text)]">Production workflow tips</h2>
+          <p className="mt-3">
+            Start with one of the quick use-case collections when you already know where the loader will appear: button states, skeleton screens, React/Tailwind snippets, or progress UI. Use the card density and cards-per-page controls to keep the gallery fast while browsing, then open only the loader you want to customize and export.
+          </p>
+        </section>
+
+        <section>
           <h2 className="text-xl font-bold text-[var(--color-text)]">Accessibility tips for loading states</h2>
           <p className="mt-3">
             Loading animations should support the user instead of distracting them. Use clear text such as “Saving…” or “Loading dashboard…” beside important loaders, avoid endless blocking overlays when partial content can render, keep color contrast readable on light and dark backgrounds, and respect reduced-motion preferences. This gallery includes a pause control and reduced-motion CSS so the page remains usable for motion-sensitive users.

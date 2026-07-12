@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 
 export const metadata: Metadata = {
-  title: "Free CSS HDR Gradient Studio - OKLCH, OKLab, Layers and Fallback CSS",
+  title: "Free CSS Gradient Generator - OKLCH, Layers, Fallback CSS and Design Tokens",
   description:
-    "Create modern CSS linear, radial, and conic gradients with OKLCH/OKLab color mixing, transition hints, editable layers, import, and classic fallback CSS.",
+    "Create production-ready CSS linear, radial, and conic gradients with OKLCH/OKLab color mixing, editable layers, fallback CSS, CSS variables, React style, and token exports.",
   keywords: [
     "css gradient generator",
     "oklch gradient generator",
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
     "color stops",
   ],
   openGraph: {
-    title: "Free CSS HDR Gradient Studio — OKLCH, OKLab and Layers",
-    description: "Design modern CSS gradients visually, stack layers, tune color stops and hints, then copy modern and fallback CSS.",
+    title: "Free CSS Gradient Generator — OKLCH, Layers and Production Exports",
+    description: "Design modern CSS gradients visually, stack layers, tune color stops and hints, then copy fallback CSS, CSS variables, React style, and design tokens.",
   },
 };
 

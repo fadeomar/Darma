@@ -29,6 +29,62 @@ export type CspBuilderState = {
   directiveOverrides: Record<string, boolean>;
 };
 
+
+export type CspQuickPreset = {
+  id: string;
+  label: string;
+  tagline: string;
+  description: string;
+  mode: CspPolicyMode;
+  services: string[];
+  added?: Array<{ directive: string; value: string }>;
+  reportOnly?: boolean;
+};
+
+export const CSP_QUICK_PRESETS: readonly CspQuickPreset[] = [
+  {
+    id: "static-site",
+    label: "Static site",
+    tagline: "Safe starter",
+    description: "Marketing pages, docs, blogs, and simple landing pages.",
+    mode: "standard",
+    services: ["google-fonts", "image-cdn"],
+  },
+  {
+    id: "next-saas",
+    label: "Next.js SaaS",
+    tagline: "Most common app",
+    description: "Next.js app with analytics, API calls, images, and Vercel.",
+    mode: "standard",
+    services: ["google-fonts", "vercel", "external-apis", "image-cdn"],
+  },
+  {
+    id: "media-page",
+    label: "Media embeds",
+    tagline: "YouTube/Vimeo",
+    description: "Content-heavy pages that embed video and load CDN images.",
+    mode: "standard",
+    services: ["google-fonts", "youtube", "vimeo", "image-cdn"],
+  },
+  {
+    id: "payments",
+    label: "Payments",
+    tagline: "Checkout ready",
+    description: "Checkout pages using Stripe or PayPal plus app API calls.",
+    mode: "standard",
+    services: ["google-fonts", "stripe", "paypal", "external-apis"],
+  },
+  {
+    id: "strict-report",
+    label: "Strict test",
+    tagline: "Report-only",
+    description: "Nonce-based CSP for advanced apps. Start in report-only mode.",
+    mode: "strict",
+    services: [],
+    reportOnly: true,
+  },
+] as const;
+
 export const MODE_META: Record<CspPolicyMode, { label: string; tagline: string; description: string; recommended?: boolean }> = {
   basic: {
     label: "Basic",
@@ -90,6 +146,26 @@ const MODE_BASE: Record<CspPolicyMode, Array<[string, string[]]>> = {
 
 export function createDefaultBuilderState(): CspBuilderState {
   return { mode: "standard", reportOnly: false, services: [], added: [], removed: [], directiveOverrides: {} };
+}
+
+
+export function applyQuickPreset(preset: CspQuickPreset): CspBuilderState {
+  return {
+    mode: preset.mode,
+    reportOnly: preset.reportOnly ?? false,
+    services: [...preset.services],
+    added: (preset.added ?? []).map((item) => createCustomSource(item.directive, item.value)),
+    removed: [],
+    directiveOverrides: {},
+  };
+}
+
+export function countBuilderSelections(builder: CspBuilderState) {
+  return {
+    services: builder.services.length,
+    customSources: builder.added.length,
+    removedSources: builder.removed.length,
+  };
 }
 
 function slug(value: string) {

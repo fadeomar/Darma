@@ -29,17 +29,17 @@ export default function CssTransformGeneratorPage() {
       maxWidth="wide"
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Design 2D and 3D transforms, transform origins, hover states, entrance animations, card tilts, and reduced-motion-ready CSS in a visual Transform Studio.
+          Build production-ready CSS transforms with 2D/3D controls, transform-origin, hover states, entrance motion, preview checks, reduced-motion guards, and copy-ready exports.
         </p>
       }
       article={
-        <ToolContentCard title="About CSS transforms, origin, and motion">
+        <ToolContentCard title="About CSS transforms, origin, motion, and exports">
           <Article />
         </ToolContentCard>
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="CSS Transform Generator" description="Tune translate, rotate, scale, skew, 3D perspective, transform-origin, hover states, transitions, and export copy-ready code.">
+      <ToolContentCard title="CSS Transform Generator" description="Tune translate, rotate, scale, skew, 3D perspective, origin, transitions, hover states, production checks, and export copy-ready code.">
         <CssTransformGeneratorClient />
       </ToolContentCard>
     </ToolPage>

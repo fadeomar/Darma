@@ -29,7 +29,7 @@ export default function GlassmorphismGeneratorPage() {
       maxWidth="wide"
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Design frosted glass cards, navbars, modals, overlays, and buttons with backdrop blur, transparency, borders, shadows, fallback CSS, and copy-ready code.
+          Build production-ready glass UI with backdrop blur, tint, border, shadow, animated scenes, readability checks, fallbacks, and copy-ready CSS or React exports.
         </p>
       }
       article={
@@ -39,7 +39,7 @@ export default function GlassmorphismGeneratorPage() {
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Glassmorphism CSS Generator" description="Tune blur, tint, transparency, borders, shadows, scene backgrounds, readability, and browser fallbacks in a live Glass UI Studio.">
+      <ToolContentCard title="Glassmorphism CSS Generator" description="Tune the frosted glass effect, preview it over real scenes, and export CSS, variables, fallbacks, React styles, Tailwind starters, and design tokens.">
         <GlassmorphismGeneratorClient />
       </ToolContentCard>
     </ToolPage>

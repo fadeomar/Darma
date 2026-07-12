@@ -11,6 +11,7 @@ export type HarmonyMode =
 export type PaletteSize = 3 | 5 | 7 | 9;
 export type PaletteUiMode = "light" | "dark";
 export type WcagRating = "Fail" | "AA" | "AAA";
+export type PaletteHealth = "Excellent" | "Good" | "Needs review";
 
 export type PalettePreset = {
   id: string;
@@ -20,6 +21,7 @@ export type PalettePreset = {
   harmony: HarmonyMode;
   size: PaletteSize;
   uiMode: PaletteUiMode;
+  tags?: string[];
 };
 
 export type PaletteOptions = {
@@ -46,4 +48,13 @@ export type ContrastPair = {
   background: string;
   ratio: number;
   rating: WcagRating;
+};
+
+export type PaletteSummary = {
+  health: PaletteHealth;
+  aaPairs: number;
+  totalPairs: number;
+  dominantHue: string;
+  mood: string;
+  recommendedText: "Light text" | "Dark text";
 };

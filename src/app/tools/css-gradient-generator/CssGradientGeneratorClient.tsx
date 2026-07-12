@@ -206,6 +206,35 @@ function TypeIcon({ type }: { type: GradientType }) {
   return <span className="gs-type-icon gs-linear-icon">▥</span>;
 }
 
+function countColorStops(state: GradientState) {
+  return state.layers.reduce((total, layer) => total + layer.stops.filter((stop) => stop.kind === "stop").length, 0);
+}
+
+function countHints(state: GradientState) {
+  return state.layers.reduce((total, layer) => total + layer.stops.filter((stop) => stop.kind === "hint").length, 0);
+}
+
+function tokenNameFromGradient(state: GradientState) {
+  const primaryLayer = state.layers[0]?.name?.trim() || "brand-gradient";
+  return primaryLayer
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "") || "brand-gradient";
+}
+
+function getGradientChecks(state: GradientState, validation: { ok: boolean; errors: string[] }) {
+  const activeLayers = state.layers.filter((layer) => layer.visible);
+  const totalStops = countColorStops(state);
+  const checks: Array<{ label: string; value: string; tone: "good" | "warn" | "info" }> = [];
+
+  checks.push({ label: "Valid CSS", value: validation.ok ? "Ready" : "Needs fix", tone: validation.ok ? "good" : "warn" });
+  checks.push({ label: "Visible layers", value: String(activeLayers.length), tone: activeLayers.length > 4 ? "warn" : "info" });
+  checks.push({ label: "Color stops", value: String(totalStops), tone: totalStops > 10 ? "warn" : "info" });
+  checks.push({ label: "Fallback", value: state.modernPreview ? "HDR + SDR" : "SDR view", tone: state.modernPreview ? "good" : "info" });
+
+  return checks;
+}
+
 // Length of the CSS gradient line for a box of w×h at the given angle. Matches
 // the CSS spec (|w·sin| + |h·cos|) so overlay handles line up with real stops.
 function gradientLineLength(w: number, h: number, angle: number) {
@@ -414,6 +443,44 @@ export default function CssGradientGeneratorClient() {
   const tailwindClass = useMemo(() => (validation.ok ? buildTailwindArbitraryClass(state) : ""), [state, validation.ok]);
   const activeLayerStrings = useMemo(() => (activeLayer ? buildLayerGradientStrings(activeLayer) : { modern: "", classic: "" }), [activeLayer]);
   const visibleCount = state.layers.filter((layer) => layer.visible).length;
+  const colorStopCount = useMemo(() => countColorStops(state), [state]);
+  const hintCount = useMemo(() => countHints(state), [state]);
+  const tokenName = useMemo(() => tokenNameFromGradient(state), [state]);
+  const gradientChecks = useMemo(() => getGradientChecks(state, validation), [state, validation]);
+  const cssVariableSnippet = useMemo(
+    () => `:root {
+  --${tokenName}: ${backgroundCss.modern};
+  --${tokenName}-fallback: ${backgroundCss.classic};
+}
+
+.hero {
+  background: var(--${tokenName}-fallback);
+  background: var(--${tokenName});
+}`,
+    [backgroundCss.classic, backgroundCss.modern, tokenName],
+  );
+  const reactStyleSnippet = useMemo(
+    () => `const gradientStyle = {
+  background: ${JSON.stringify(backgroundCss.modern)},
+} as const;`,
+    [backgroundCss.modern],
+  );
+  const tokenJsonSnippet = useMemo(
+    () => JSON.stringify(
+      {
+        name: tokenName,
+        type: "css-gradient",
+        modern: backgroundCss.modern,
+        fallback: backgroundCss.classic,
+        layerCount: state.layers.length,
+        visibleLayers: visibleCount,
+        colorStops: colorStopCount,
+      },
+      null,
+      2,
+    ),
+    [backgroundCss.classic, backgroundCss.modern, colorStopCount, state.layers.length, tokenName, visibleCount],
+  );
 
   function copyText(label: string, text: string) {
     if (!text) return;
@@ -613,10 +680,18 @@ export default function CssGradientGeneratorClient() {
             </div>
             <div className="gs-code-card">
               <h2>Gradient CSS</h2>
+              <div className="gs-code-summary">
+                <span><b>{visibleCount}</b> visible layers</span>
+                <span><b>{colorStopCount}</b> color stops</span>
+                <span><b>{state.modernPreview ? "HDR" : "SDR"}</b> preview mode</span>
+              </div>
               <CodeBlock label="Modern CSS" code={`background: ${backgroundCss.modern};`} onCopy={() => copyText("modern", `background: ${backgroundCss.modern};`)} />
-              <CodeBlock label="Classic CSS" code={`background: ${backgroundCss.classic};`} onCopy={() => copyText("classic", `background: ${backgroundCss.classic};`)} />
+              <CodeBlock label="Classic fallback" code={`background: ${backgroundCss.classic};`} onCopy={() => copyText("classic", `background: ${backgroundCss.classic};`)} />
               <CodeBlock label="CSS class" code={cssSnippet} onCopy={() => copyText("class", cssSnippet)} />
-              <CodeBlock label="Tailwind" code={tailwindClass} onCopy={() => copyText("tailwind", tailwindClass)} />
+              <CodeBlock label="CSS variables" code={cssVariableSnippet} onCopy={() => copyText("variables", cssVariableSnippet)} />
+              <CodeBlock label="Tailwind arbitrary" code={tailwindClass} onCopy={() => copyText("tailwind", tailwindClass)} />
+              <CodeBlock label="React style" code={reactStyleSnippet} onCopy={() => copyText("react", reactStyleSnippet)} />
+              <CodeBlock label="Design token JSON" code={tokenJsonSnippet} onCopy={() => copyText("json", tokenJsonSnippet)} />
             </div>
           </section>
         </main>
@@ -638,6 +713,22 @@ export default function CssGradientGeneratorClient() {
               <ChevronDown size={15} />
             </button>
           </div>
+
+          <section className="gs-summary-panel" aria-label="Gradient summary">
+            <div className="gs-summary-grid">
+              <SummaryCard label="Layers" value={`${visibleCount}/${state.layers.length}`} detail="visible / total" />
+              <SummaryCard label="Stops" value={String(colorStopCount)} detail={`${hintCount} hints`} />
+              <SummaryCard label="Mode" value={state.modernPreview ? "HDR" : "SDR"} detail={state.modernPreview ? "modern CSS" : "fallback view"} />
+            </div>
+            <div className="gs-check-row">
+              {gradientChecks.map((check) => (
+                <span key={check.label} className={`gs-check-pill gs-check-${check.tone}`} title={`${check.label}: ${check.value}`}>
+                  <b>{check.value}</b>
+                  <small>{check.label}</small>
+                </span>
+              ))}
+            </div>
+          </section>
 
           <section className="gs-control-set gs-color-space">
             <div className="gs-label-select-combo">
@@ -825,7 +916,7 @@ export default function CssGradientGeneratorClient() {
         }
 
         .gs-right-panel {
-          grid-template-rows: auto auto auto 1fr auto;
+          grid-template-rows: auto auto auto auto 1fr auto;
           border-left: 1px solid var(--gs-line);
         }
 
@@ -1509,6 +1600,26 @@ export default function CssGradientGeneratorClient() {
           letter-spacing: -0.04em;
         }
 
+        .gs-code-summary {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          margin: -6px 0 16px;
+        }
+
+        .gs-code-summary span {
+          border: 1px solid var(--gs-line);
+          border-radius: 999px;
+          background: var(--gs-surface-1);
+          padding: 7px 10px;
+          color: var(--gs-text-2);
+          font-size: 12px;
+        }
+
+        .gs-code-summary b {
+          color: var(--gs-text-1);
+        }
+
         .gs-code-block {
           display: grid;
           gap: 8px;
@@ -1583,6 +1694,98 @@ export default function CssGradientGeneratorClient() {
           opacity: 0;
           width: 100%;
           cursor: pointer;
+        }
+
+        .gs-summary-panel {
+          padding: 0 20px 16px;
+          border-bottom: 1px solid var(--gs-line);
+        }
+
+        .gs-summary-grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 8px;
+        }
+
+        .gs-summary-card {
+          min-width: 0;
+          border: 1px solid var(--gs-line);
+          border-radius: 16px;
+          background: color-mix(in srgb, var(--gs-surface-3) 84%, transparent);
+          padding: 10px;
+        }
+
+        .gs-summary-card small,
+        .gs-summary-card span {
+          display: block;
+          min-width: 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .gs-summary-card small {
+          color: var(--gs-text-3);
+          font-size: 10px;
+          font-weight: 850;
+          letter-spacing: .08em;
+          text-transform: uppercase;
+        }
+
+        .gs-summary-card b {
+          display: block;
+          margin-top: 5px;
+          font-size: 20px;
+          line-height: 1;
+          letter-spacing: -0.05em;
+        }
+
+        .gs-summary-card span {
+          margin-top: 5px;
+          color: var(--gs-text-2);
+          font-size: 11px;
+        }
+
+        .gs-check-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 7px;
+          margin-top: 10px;
+        }
+
+        .gs-check-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          max-width: 100%;
+          border: 1px solid var(--gs-line);
+          border-radius: 999px;
+          background: var(--gs-surface-3);
+          padding: 6px 9px;
+          color: var(--gs-text-2);
+          font-size: 11px;
+        }
+
+        .gs-check-pill b,
+        .gs-check-pill small {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .gs-check-pill b {
+          color: var(--gs-text-1);
+          font-weight: 950;
+        }
+
+        .gs-check-good {
+          border-color: color-mix(in srgb, #12b76a 42%, var(--gs-line));
+          background: color-mix(in srgb, #12b76a 10%, var(--gs-surface-3));
+        }
+
+        .gs-check-warn {
+          border-color: color-mix(in srgb, #f79009 44%, var(--gs-line));
+          background: color-mix(in srgb, #f79009 12%, var(--gs-surface-3));
         }
 
         .gs-gradient-stops {
@@ -1790,6 +1993,16 @@ export default function CssGradientGeneratorClient() {
         }
       `}</style>
     </div>
+  );
+}
+
+function SummaryCard({ label, value, detail }: { label: string; value: string; detail: string }) {
+  return (
+    <article className="gs-summary-card">
+      <small>{label}</small>
+      <b>{value}</b>
+      <span>{detail}</span>
+    </article>
   );
 }
 

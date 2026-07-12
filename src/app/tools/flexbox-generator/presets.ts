@@ -146,4 +146,63 @@ export const FLEX_PRESETS: FlexPreset[] = [
       selectedItemId: "hero-copy",
     },
   },
+  {
+    id: "form-actions",
+    name: "Form actions",
+    description: "Cancel action on the left and primary submit action pushed to the end.",
+    state: {
+      ...base,
+      wrap: "wrap",
+      justifyContent: "flex-start",
+      alignItems: "center",
+      minHeight: 180,
+      items: [
+        createFlexItem({ id: "cancel", name: "Cancel", content: "Cancel", flexBasis: "120px", background: "#64748b" }),
+        createFlexItem({ id: "save", name: "Save", content: "Save changes", flexBasis: "160px", marginLeftAuto: true, background: "#2563eb" }),
+      ],
+      selectedItemId: "save",
+    },
+  },
+  {
+    id: "feature-row",
+    name: "Feature row",
+    description: "Responsive feature cards with equal distribution and natural wrapping.",
+    state: {
+      ...base,
+      wrap: "wrap",
+      justifyContent: "flex-start",
+      alignItems: "stretch",
+      items: ["Fast", "Accessible", "Reusable", "Exportable"].map((name, index) =>
+        createFlexItem({
+          id: `feature-${index + 1}`,
+          name,
+          content: name,
+          flexGrow: 1,
+          flexShrink: 1,
+          flexBasis: "220px",
+          background: ["#2563eb", "#0f766e", "#7c3aed", "#be123c"][index],
+        }),
+      ),
+      selectedItemId: "feature-1",
+    },
+  },
+  {
+    id: "app-shell",
+    name: "App shell",
+    description: "Column shell with header, growing content, and footer actions.",
+    state: {
+      ...base,
+      direction: "column",
+      wrap: "nowrap",
+      justifyContent: "flex-start",
+      alignItems: "stretch",
+      minHeight: 420,
+      items: [
+        createFlexItem({ id: "shell-header", name: "Header", content: "Header", flexBasis: "auto", background: "#0f172a" }),
+        createFlexItem({ id: "shell-content", name: "Main", content: "Main content", flexGrow: 1, flexShrink: 1, flexBasis: "0", background: "#2563eb" }),
+        createFlexItem({ id: "shell-footer", name: "Footer", content: "Footer actions", flexBasis: "auto", background: "#0f766e" }),
+      ],
+      selectedItemId: "shell-content",
+    },
+  },
 ];

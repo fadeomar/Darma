@@ -26,11 +26,11 @@ export default function NeumorphicCssGeneratorPage() {
     <ToolPage
       tool={tool}
       maxWidth="wide"
-      intro={<p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">Create soft neumorphic surfaces with scoped preview styles, compact controls, and copy-ready CSS.</p>}
+      intro={<p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">Create soft neumorphic cards, buttons, and dashboard widgets with production checks, accessible text contrast, and copy-ready CSS exports.</p>}
       article={<ToolContentCard title="About neumorphic CSS"><NeumorphismArticle /></ToolContentCard>}
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Neumorphic CSS Generator" description="Tune surface color, radius, size, shadow distance, light direction, and inset/outset depth.">
+      <ToolContentCard title="Neumorphic CSS Generator" description="Tune surface color, shape, radius, soft shadow depth, light direction, and export-ready tokens in one compact workspace.">
         <NeumorphicCssGeneratorClient />
       </ToolContentCard>
     </ToolPage>

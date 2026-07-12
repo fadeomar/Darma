@@ -29,7 +29,7 @@ export default function AspectRatioCalculatorPage() {
       maxWidth="wide"
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          A creator-focused aspect ratio studio for social posts, videos, web banners, and responsive design: solve dimensions, preview crops, fit within bounds, generate CSS, and copy production-ready sizes.
+          A production-focused aspect ratio studio for social posts, videos, web banners, app cards, and developer handoff: solve dimensions, preview safe zones, calculate crop loss, fit within bounds, and export clean CSS, HTML, React, and design tokens.
         </p>
       }
       article={
@@ -39,7 +39,7 @@ export default function AspectRatioCalculatorPage() {
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Aspect ratio studio" description="Pick a professional preset, solve dimensions, preview shape, calculate crop/fit sizes, and copy CSS — all locally in your browser.">
+      <ToolContentCard title="Aspect ratio studio" description="Pick a real target size, solve dimensions, preview safe zones, calculate crop and fit sizes, then copy production-ready snippets — all locally in your browser.">
         <AspectRatioCalculatorClient />
       </ToolContentCard>
     </ToolPage>

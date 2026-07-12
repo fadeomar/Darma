@@ -148,6 +148,12 @@ export function normalizeGridState(
   const items = state.items
     .slice(0, 24)
     .map((item) => clampItemToGrid(item, columns, rows));
+  const responsive = {
+    ...state.responsive,
+    tabletBreakpoint: clamp(Number(state.responsive.tabletBreakpoint) || 768, 480, 1200),
+    mobileBreakpoint: clamp(Number(state.responsive.mobileBreakpoint) || 480, 280, 760),
+    tabletColumns: clamp(Number(state.responsive.tabletColumns) || 1, 1, columns),
+  };
   return {
     ...state,
     columns,
@@ -156,6 +162,8 @@ export function normalizeGridState(
       state.columnTemplate.trim() || `repeat(${columns}, minmax(0, 1fr))`,
     rowTemplate:
       state.rowTemplate.trim() || `repeat(${rows}, minmax(96px, auto))`,
+    containerClassName: normalizeCssClass(state.containerClassName, "grid-layout"),
+    itemClassPrefix: normalizeCssClass(state.itemClassPrefix, "grid-item"),
     gap: {
       row: clamp(
         Number(state.gap.row) || 0,
@@ -170,6 +178,7 @@ export function normalizeGridState(
       unit: state.gap.unit,
     },
     previewWidth: clamp(Number(state.previewWidth) || 960, 320, 1440),
+    responsive,
     items,
     selectedItemId: items.some((item) => item.id === state.selectedItemId)
       ? state.selectedItemId
@@ -182,8 +191,24 @@ const itemClass = (state: GridGeneratorState, item: GridItem, index: number) =>
 const gapValue = (state: GridGeneratorState) =>
   `${state.gap.row}${state.gap.unit} ${state.gap.column}${state.gap.unit}`;
 
+function normalizeCssClass(value: string, fallback: string) {
+  const cleaned = value.trim().replace(/^\./, "");
+  return CSS_IDENTIFIER.test(cleaned) ? cleaned : fallback;
+}
+
+function customProperties(state: GridGeneratorState) {
+  return [
+    ["--grid-columns", state.columnTemplate],
+    ["--grid-rows", state.rowTemplate],
+    ["--grid-row-gap", `${state.gap.row}${state.gap.unit}`],
+    ["--grid-column-gap", `${state.gap.column}${state.gap.unit}`],
+    ["--grid-gap", gapValue(state)],
+  ] as const;
+}
+
 export function generateTemplateAreas(state: GridGeneratorState): {
   css: string;
+  matrix: string[][];
   warnings: string[];
 } {
   const normalized = normalizeGridState(state);
@@ -238,6 +263,7 @@ export function generateTemplateAreas(state: GridGeneratorState): {
   const rows = matrix.map((row) => `  "${row.join(" ")}"`).join("\n");
   return {
     css: `grid-template-areas:\n${rows};`,
+    matrix,
     warnings: Array.from(new Set(warnings)),
   };
 }
@@ -327,6 +353,23 @@ export function generateGridCss(state: GridGeneratorState): string {
   return lines.join("\n").trim();
 }
 
+export function generateGridCssVariables(state: GridGeneratorState): string {
+  const normalized = normalizeGridState(state);
+  const areas = generateTemplateAreas(normalized);
+  const lines: string[] = [`.${normalized.containerClassName} {`];
+  customProperties(normalized).forEach(([name, value]) => lines.push(`  ${name}: ${value};`));
+  lines.push(
+    "  display: grid;",
+    "  grid-template-columns: var(--grid-columns);",
+    "  grid-template-rows: var(--grid-rows);",
+    "  gap: var(--grid-gap);",
+  );
+  if (normalized.useTemplateAreas)
+    lines.push(...areas.css.split("\n").map((line) => `  ${line}`));
+  lines.push("}");
+  return lines.join("\n");
+}
+
 export function generateGridHtml(state: GridGeneratorState): string {
   const normalized = normalizeGridState(state);
   const children = normalized.items
@@ -355,19 +398,70 @@ export function generateTailwindStarter(state: GridGeneratorState): string {
     normalized.gap.unit === "rem"
       ? Math.round(normalized.gap.column * 4)
       : Math.round(normalized.gap.column / 4);
-  return `<div className="grid grid-cols-${normalized.columns} gap-${clamp(gap, 0, 24)}">\n${normalized.items
+  return `<div className="grid grid-cols-${normalized.columns} gap-${clamp(gap, 0, 24)} max-md:grid-cols-${normalized.responsive.enabled ? Math.max(1, normalized.responsive.tabletColumns) : normalized.columns} max-sm:grid-cols-1">\n${normalized.items
     .map((item) => {
       const colSpan = item.columnEnd - item.columnStart;
       const rowSpan = item.rowEnd - item.rowStart;
       const classes = [
         colSpan > 1 ? `col-span-${colSpan}` : "",
         rowSpan > 1 ? `row-span-${rowSpan}` : "",
+        "rounded-2xl p-4",
       ]
         .filter(Boolean)
         .join(" ");
-      return `  <div${classes ? ` className="${classes}"` : ""}>${escapeHtml(item.content)}</div>`;
+      return `  <div className="${classes}">${escapeHtml(item.content)}</div>`;
     })
     .join("\n")}\n</div>`;
+}
+
+export function generateGridTokenJson(state: GridGeneratorState): string {
+  const normalized = normalizeGridState(state);
+  const areas = generateTemplateAreas(normalized);
+  return JSON.stringify(
+    {
+      name: normalized.containerClassName,
+      columns: normalized.columns,
+      rows: normalized.rows,
+      templates: {
+        columns: normalized.columnTemplate,
+        rows: normalized.rowTemplate,
+        areas: normalized.useTemplateAreas ? areas.matrix.map((row) => row.join(" ")) : null,
+      },
+      gap: {
+        row: `${normalized.gap.row}${normalized.gap.unit}`,
+        column: `${normalized.gap.column}${normalized.gap.unit}`,
+      },
+      responsive: normalized.responsive,
+      items: normalized.items.map((item, index) => ({
+        name: item.name,
+        className: itemClass(normalized, item, index),
+        areaName: item.areaName,
+        placement: {
+          column: `${item.columnStart} / ${item.columnEnd}`,
+          row: `${item.rowStart} / ${item.rowEnd}`,
+        },
+        style: {
+          background: item.background,
+          color: item.textColor,
+          borderRadius: `${item.borderRadius}px`,
+          padding: item.padding,
+        },
+      })),
+    },
+    null,
+    2,
+  );
+}
+
+export function generateGridAreaMap(state: GridGeneratorState): string {
+  const normalized = normalizeGridState(state);
+  const areas = generateTemplateAreas(normalized);
+  const rows = areas.matrix
+    .map((row, index) => `row ${index + 1}: ${row.join("  ")}`)
+    .join("\n");
+  return `Grid area map\n${"=".repeat(13)}\n${rows}\n\nItems\n${"=".repeat(5)}\n${normalized.items
+    .map((item) => `${item.name}: columns ${item.columnStart}-${item.columnEnd}, rows ${item.rowStart}-${item.rowEnd}, area ${item.areaName}`)
+    .join("\n")}`;
 }
 
 export function detectOverlaps(items: GridItem[]): GridValidationMessage[] {
@@ -411,10 +505,20 @@ export function validateGridState(
         itemId: item.id,
       });
   });
+  if (normalized.items.length > normalized.columns * normalized.rows)
+    messages.push({
+      type: "warning",
+      message: "There are more items than visible grid cells. Check overlap and mobile behavior.",
+    });
   if (normalized.columns > 8 || normalized.rows > 8)
     messages.push({
       type: "info",
       message: "Large grids can be harder to read on small screens.",
+    });
+  if (!normalized.columnTemplate.includes("minmax") && normalized.columnTemplate.includes("fr"))
+    messages.push({
+      type: "info",
+      message: "Consider minmax(0, 1fr) tracks to reduce unexpected overflow.",
     });
   if (
     normalized.responsive.enabled &&

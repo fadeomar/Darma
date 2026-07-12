@@ -1,147 +1,60 @@
-"use client";
-import {
-  LucideLightbulb,
-  LucideCode,
-  LucideLayoutDashboard,
-} from "lucide-react";
-import cn from "@/utils/cn"; // Assuming you have a utility for classNames
-import { ReactNode } from "react";
+import { Code2, MousePointerClick, ShieldCheck, SlidersHorizontal } from "lucide-react";
 
-// Card and CardContent components for consistency with NeumorphismArticle
-interface CardProps {
-  children: ReactNode;
-  className?: string;
-}
+const cards = [
+  {
+    icon: SlidersHorizontal,
+    title: "Start from production presets",
+    description: "Use CTA, outline, glass, icon, loading, and soft UI presets, then tune only the details you need.",
+  },
+  {
+    icon: MousePointerClick,
+    title: "Preview interaction states",
+    description: "Check default, hover, active, and disabled states before shipping a button into a real interface.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Review accessibility quickly",
+    description: "Contrast, tap target size, focus-visible output, and reduced-motion guards are surfaced directly in the studio.",
+  },
+  {
+    icon: Code2,
+    title: "Export usable code",
+    description: "Copy CSS, HTML, React JSX, React style objects, Tailwind starter snippets, CSS variables, or token JSON.",
+  },
+];
 
-interface CardContentProps {
-  children: ReactNode;
-}
-
-export const CardContent = ({ children }: CardContentProps) => {
-  return <div className="text-foreground">{children}</div>;
-};
-
-export const Card = ({ children, className }: CardProps) => {
+export default function ButtonCSSGeneratorArticle() {
   return (
-    <div className={cn("bg-baseColor rounded-2xl shadow-lg p-6", className)}>
-      {children}
-    </div>
-  );
-};
-
-const ButtonCSSGeneratorArticle = () => {
-  return (
-    <div className="bg-background min-h-screen p-4 md:p-8 md:px-8 rounded-xl">
-      <div className="max-w-4xl mx-auto">
-        {/* Title Section */}
-        <h1 className="text-4xl font-bold text-textColor text-center mb-6">
-          🎨 Button CSS Generator
-        </h1>
-        <p className="text-lg text-center text-textColor mb-10">
-          Create stunning, custom buttons with effortless precision. Tailor
-          every detail to match your website’s vibe.
+    <div className="space-y-6 text-sm leading-7 text-[var(--color-text-secondary)]">
+      <div className="space-y-3">
+        <h2 className="text-xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">Design buttons that are ready to use, not just pretty in isolation.</h2>
+        <p>
+          The Buttons CSS Generator helps you build primary actions, secondary actions, icon buttons, loading buttons, and decorative marketing buttons with a live preview and copy-ready code. It is built for practical interface work: readable labels, predictable hover states, focus styles, and exports that fit common front-end workflows.
         </p>
+      </div>
 
-        {/* Introduction */}
-        <Card className="shadow-lg p-6 bg-baseColor rounded-2xl text-textColor">
-          <CardContent>
-            <h2 className="text-2xl font-semibold mb-4 text-textColor">
-              🔧 What is the Button CSS Generator?
-            </h2>
-            <p className="text-textColor">
-              A powerful tool that allows you to design bespoke buttons with
-              unparalleled flexibility. Craft buttons that elevate your site’s
-              interactivity and style without writing a single line of code.
-            </p>
-          </CardContent>
-        </Card>
+      <div className="grid gap-3 sm:grid-cols-2">
+        {cards.map((card) => {
+          const Icon = card.icon;
+          return (
+            <div key={card.title} className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-strong)] p-4 shadow-[var(--shadow-xs)]">
+              <Icon className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+              <h3 className="mt-3 font-bold text-[var(--color-text-primary)]">{card.title}</h3>
+              <p className="mt-1 text-xs leading-6 text-[var(--color-text-tertiary)]">{card.description}</p>
+            </div>
+          );
+        })}
+      </div>
 
-        {/* Key Features */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-          <Card className="p-6 bg-baseColor rounded-2xl shadow-inner">
-            <CardContent>
-              <LucideLightbulb className="text-darkColor w-8 h-8 mb-3 dark:text-lightColor" />
-              <h3 className="text-xl font-semibold text-textColor">
-                Unmatched Customization
-              </h3>
-              <p className="text-textColor">
-                Fine-tune size, colors, shadows, hover effects, and more.
-              </p>
-            </CardContent>
-          </Card>
-          <Card className="p-6 bg-baseColor rounded-2xl shadow-inner">
-            <CardContent>
-              <LucideCode className="text-darkColor w-8 h-8 mb-3 dark:text-lightColor" />
-              <h3 className="text-xl font-semibold text-textColor">
-                Diverse Variants
-              </h3>
-              <p className="text-textColor">
-                Choose from 3D, gradients, glow, and other eye-catching styles.
-              </p>
-            </CardContent>
-          </Card>
-          <Card className="p-6 bg-baseColor rounded-2xl shadow-inner">
-            <CardContent>
-              <LucideLayoutDashboard className="text-darkColor dark:text-lightColor w-8 h-8 mb-3" />
-              <h3 className="text-xl font-semibold text-textColor">
-                Dynamic Hover Effects
-              </h3>
-              <p className="text-textColor">
-                Bring buttons to life with interactive hover states.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* How to Use */}
-        <div className="mt-10">
-          <h2 className="text-2xl font-semibold mb-4 text-textColor">
-            📋 How to Use the Generator
-          </h2>
-          <Card className="p-6 bg-baseColor rounded-2xl shadow-lg">
-            <CardContent>
-              <ol className="list-decimal list-inside space-y-2 text-textColor">
-                <li>
-                  <strong>Select a Variant</strong>: Choose from styles like 3D,
-                  glow, or gradients.
-                </li>
-                <li>
-                  <strong>Customize Colors</strong>: Use color pickers to set
-                  text, background, and shadow colors.
-                </li>
-                <li>
-                  <strong>Adjust Details</strong>: Modify size, shadows, and
-                  other properties with sliders.
-                </li>
-                <li>
-                  <strong>Preview in Real-Time</strong>: See your button evolve
-                  as you make changes.
-                </li>
-                <li>
-                  <strong>Generate CSS</strong>: Copy the clean, semantic CSS
-                  code and use it in your project.
-                </li>
-              </ol>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Call to Action */}
-        <div className="mt-12 text-center">
-          <h2 className="text-2xl font-semibold mb-4 text-textColor">
-            🚀 Ready to Create Something Epic?
-          </h2>
-          <p className="text-textColor mb-6">
-            Start designing custom, professional-grade buttons today. Your
-            website deserves it.
-          </p>
-          <button type="button" className="rounded-[var(--radius-sm)] bg-[var(--color-primary)] px-6 py-2 font-semibold text-[var(--color-primary-text)] shadow-[var(--shadow-xs)] transition-colors hover:bg-[var(--color-primary-hover)]">
-            Try the Generator Now
-          </button>
-        </div>
+      <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface)] p-4">
+        <h3 className="font-bold text-[var(--color-text-primary)]">Recommended workflow</h3>
+        <ol className="mt-3 list-decimal space-y-2 pl-5 text-xs leading-6 text-[var(--color-text-tertiary)]">
+          <li>Pick the closest preset so the base spacing, shape, and interaction already feel balanced.</li>
+          <li>Adjust text, class name, colors, padding, radius, and shadow inside the compact control panel.</li>
+          <li>Check the production metrics for contrast, tap target, paint cost, and fallback requirements.</li>
+          <li>Copy CSS for quick use, or export tokens and variables when the button will become part of a design system.</li>
+        </ol>
       </div>
     </div>
   );
-};
-
-export default ButtonCSSGeneratorArticle;
+}

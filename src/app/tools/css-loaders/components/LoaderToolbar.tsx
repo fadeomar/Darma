@@ -13,9 +13,12 @@ type LoaderToolbarProps = {
   pageEnd: number;
   isPaused: boolean;
   galleryMode: LoaderGalleryMode;
+  pageSize: number;
+  pageSizeOptions: readonly number[];
   hasActiveFilters: boolean;
   onFiltersChange: (patch: Partial<LoaderFilterState>) => void;
   onModeChange: (mode: LoaderGalleryMode) => void;
+  onPageSizeChange: (size: number) => void;
   onReset: () => void;
   onRandom: () => void;
   onTogglePause: () => void;
@@ -35,9 +38,12 @@ export default function LoaderToolbar({
   pageEnd,
   isPaused,
   galleryMode,
+  pageSize,
+  pageSizeOptions,
   hasActiveFilters,
   onFiltersChange,
   onModeChange,
+  onPageSizeChange,
   onReset,
   onRandom,
   onTogglePause,
@@ -101,6 +107,20 @@ export default function LoaderToolbar({
           <option value="popular">Popular first</option>
           <option value="name">Name A-Z</option>
           <option value="category">Category</option>
+        </Select>
+
+        <Select
+          value={String(pageSize)}
+          onChange={(event) => onPageSizeChange(Number(event.target.value))}
+          size="sm"
+          width="auto"
+          aria-label="Cards per page"
+        >
+          {pageSizeOptions.map((size) => (
+            <option key={size} value={size}>
+              {size} cards
+            </option>
+          ))}
         </Select>
 
         <Button variant="secondary" size="sm" onClick={onRandom} leftIcon={<Shuffle className="h-4 w-4" />}>

@@ -58,7 +58,7 @@ describe("rgbToHex", () => {
 
   it("round-trips with hexToRgb", () => {
     const rgb = hexToRgb("#3b82f6")!;
-    expect(rgbToHex(rgb)).toBe("#3b82f6");
+    expect(rgbToHex(rgb.rgb)).toBe("#3b82f6");
   });
 });
 

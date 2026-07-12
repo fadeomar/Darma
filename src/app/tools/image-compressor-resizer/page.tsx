@@ -35,9 +35,9 @@ export default function ImageCompressorPage() {
       maxWidth="wide"
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)]">
-          Compress, resize, and convert JPG, PNG, and WebP images in your browser — one at a
-          time or up to 20 in batch. Download individually or as a ZIP. No upload, no signup,
-          no watermark.
+          Compress, resize, convert, and batch-export JPG, PNG, and WebP images with
+          production presets, target file sizes, side-by-side previews, and ZIP download.
+          Everything runs locally in your browser — no upload, no signup, no watermark.
         </p>
       }
       article={<Article />}

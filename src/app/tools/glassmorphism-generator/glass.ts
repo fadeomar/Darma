@@ -262,7 +262,7 @@ export function randomizeGlassState(state: GlassmorphismState): GlassmorphismSta
       blur: Math.round(10 + Math.random() * 26),
       saturation: Math.round(120 + Math.random() * 90),
       borderOpacity: Number((0.18 + Math.random() * 0.28).toFixed(2)),
-      shadowPreset: pick(["soft", "medium", "strong"]),
+      shadowPreset: pick<ShadowPreset>(["soft", "medium", "strong"]),
     },
     shape: {
       ...state.shape,
@@ -274,6 +274,201 @@ export function randomizeGlassState(state: GlassmorphismState): GlassmorphismSta
       preset: pick(scenes),
       noiseEnabled: Math.random() > 0.25,
     },
+  };
+}
+
+
+type ProductionTone = "good" | "warning" | "danger" | "neutral";
+
+function normalizeRgbChannel(value: number) {
+  const channel = clamp(value, 0, 255) / 255;
+  return channel <= 0.03928 ? channel / 12.92 : Math.pow((channel + 0.055) / 1.055, 2.4);
+}
+
+function relativeLuminance(rgb: { r: number; g: number; b: number }) {
+  return 0.2126 * normalizeRgbChannel(rgb.r) + 0.7152 * normalizeRgbChannel(rgb.g) + 0.0722 * normalizeRgbChannel(rgb.b);
+}
+
+function contrastRatio(a: { r: number; g: number; b: number }, b: { r: number; g: number; b: number }) {
+  const lighter = Math.max(relativeLuminance(a), relativeLuminance(b));
+  const darker = Math.min(relativeLuminance(a), relativeLuminance(b));
+  return (lighter + 0.05) / (darker + 0.05);
+}
+
+function compositeRgb(foreground: { r: number; g: number; b: number }, background: { r: number; g: number; b: number }, alpha: number) {
+  const opacity = clamp(alpha, 0, 1);
+  return {
+    r: Math.round(foreground.r * opacity + background.r * (1 - opacity)),
+    g: Math.round(foreground.g * opacity + background.g * (1 - opacity)),
+    b: Math.round(foreground.b * opacity + background.b * (1 - opacity)),
+  };
+}
+
+function metricTone(score: number): ProductionTone {
+  if (score >= 4.5) return "good";
+  if (score >= 3) return "warning";
+  return "danger";
+}
+
+function bytesLabel(value: number) {
+  if (value < 1024) return `${value} B`;
+  return `${(value / 1024).toFixed(1)} KB`;
+}
+
+export function generateGlassCssVariables(state: GlassmorphismState): string {
+  const { effect, shape, content, exportOptions } = state;
+  const prefix = exportOptions.className || "glass-card";
+  const filter = `blur(${effect.blur}px) saturate(${effect.saturation}%) brightness(${effect.brightness}%) contrast(${effect.contrast}%)`;
+  return `:root {
+  --${prefix}-tint: ${alphaColor(effect.tintColor, effect.opacity)};
+  --${prefix}-border: ${alphaColor(effect.borderColor, effect.borderOpacity)};
+  --${prefix}-text: ${content.textColor};
+  --${prefix}-accent: ${content.accentColor};
+  --${prefix}-radius: ${shape.borderRadius}px;
+  --${prefix}-padding: ${shape.padding}px;
+  --${prefix}-shadow: ${shadowValue(effect.shadowPreset, effect.customShadow)};
+  --${prefix}-backdrop-filter: ${filter};
+}
+
+.${prefix} {
+  color: var(--${prefix}-text);
+  background: var(--${prefix}-tint);
+  border: ${effect.borderWidth}px solid var(--${prefix}-border);
+  border-radius: var(--${prefix}-radius);
+  padding: var(--${prefix}-padding);
+  box-shadow: var(--${prefix}-shadow);
+  backdrop-filter: var(--${prefix}-backdrop-filter);
+  -webkit-backdrop-filter: var(--${prefix}-backdrop-filter);
+}`;
+}
+
+export function generateSolidFallbackCss(state: GlassmorphismState): string {
+  const className = state.exportOptions.className || "glass-card";
+  const fallbackAlpha = state.effect.opacity >= 0.5 ? 0.96 : 0.9;
+  return `/* Solid fallback for browsers or modes without backdrop-filter */
+.${className} {
+  background: ${alphaColor(state.effect.tintColor, fallbackAlpha)};
+  border: ${state.effect.borderWidth}px solid ${alphaColor(state.effect.borderColor, Math.min(0.8, state.effect.borderOpacity + 0.24))};
+  box-shadow: ${shadowValue(state.effect.shadowPreset, state.effect.customShadow)};
+}
+
+@supports ((backdrop-filter: blur(${state.effect.blur}px)) or (-webkit-backdrop-filter: blur(${state.effect.blur}px))) {
+  .${className} {
+    background: ${alphaColor(state.effect.tintColor, state.effect.opacity)};
+    backdrop-filter: blur(${state.effect.blur}px) saturate(${state.effect.saturation}%) brightness(${state.effect.brightness}%) contrast(${state.effect.contrast}%);
+    -webkit-backdrop-filter: blur(${state.effect.blur}px) saturate(${state.effect.saturation}%) brightness(${state.effect.brightness}%) contrast(${state.effect.contrast}%);
+  }
+}`;
+}
+
+export function generateGlassReactStyle(state: GlassmorphismState): string {
+  const style = {
+    position: "relative",
+    overflow: "hidden",
+    width: `min(100%, ${state.shape.width}px)`,
+    minHeight: `${state.shape.minHeight}px`,
+    padding: `${state.shape.padding}px`,
+    borderRadius: `${state.shape.borderRadius}px`,
+    color: state.content.textColor,
+    background: alphaColor(state.effect.tintColor, state.effect.opacity),
+    border: state.effect.borderWidth > 0 ? `${state.effect.borderWidth}px solid ${alphaColor(state.effect.borderColor, state.effect.borderOpacity)}` : "0",
+    boxShadow: shadowValue(state.effect.shadowPreset, state.effect.customShadow),
+    backdropFilter: `blur(${state.effect.blur}px) saturate(${state.effect.saturation}%) brightness(${state.effect.brightness}%) contrast(${state.effect.contrast}%)`,
+    WebkitBackdropFilter: `blur(${state.effect.blur}px) saturate(${state.effect.saturation}%) brightness(${state.effect.brightness}%) contrast(${state.effect.contrast}%)`,
+  } satisfies CSSProperties;
+  return `import type { CSSProperties } from "react";
+
+export const glassStyle: CSSProperties = ${JSON.stringify(style, null, 2)};`;
+}
+
+export function generateGlassTokenJson(state: GlassmorphismState): string {
+  const className = state.exportOptions.className || "glass-card";
+  return JSON.stringify(
+    {
+      name: className,
+      component: state.shape.componentType,
+      effect: {
+        tint: alphaColor(state.effect.tintColor, state.effect.opacity),
+        tintHex: state.effect.tintColor,
+        opacity: state.effect.opacity,
+        blur: `${state.effect.blur}px`,
+        saturation: `${state.effect.saturation}%`,
+        brightness: `${state.effect.brightness}%`,
+        contrast: `${state.effect.contrast}%`,
+        border: `${state.effect.borderWidth}px solid ${alphaColor(state.effect.borderColor, state.effect.borderOpacity)}`,
+        radius: `${state.shape.borderRadius}px`,
+        shadow: shadowValue(state.effect.shadowPreset, state.effect.customShadow),
+      },
+      layout: {
+        width: `${state.shape.width}px`,
+        minHeight: `${state.shape.minHeight}px`,
+        padding: `${state.shape.padding}px`,
+      },
+      scene: {
+        preset: state.scene.preset,
+        colors: [state.scene.colorA, state.scene.colorB, state.scene.colorC],
+        animated: state.scene.animated,
+        noise: state.scene.noiseEnabled,
+      },
+      fallback: state.fallback,
+    },
+    null,
+    2,
+  );
+}
+
+export function getGlassProductionMetrics(state: GlassmorphismState) {
+  const text = hexToRgb(state.content.textColor);
+  const tint = hexToRgb(state.effect.tintColor);
+  const lightComposite = compositeRgb(tint, { r: 255, g: 255, b: 255 }, state.effect.opacity);
+  const darkComposite = compositeRgb(tint, { r: 15, g: 23, b: 42 }, state.effect.opacity);
+  const minimumContrast = Math.min(contrastRatio(text, lightComposite), contrastRatio(text, darkComposite));
+  const readabilityTone = metricTone(minimumContrast);
+  const performanceTone: ProductionTone = state.effect.blur > 34 && state.scene.animated ? "danger" : state.effect.blur > 26 || (state.scene.animated && state.scene.noiseEnabled) ? "warning" : "good";
+  const fallbackTone: ProductionTone = state.fallback.includeSupportsFallback && state.fallback.includeWebkitPrefix && state.fallback.includeReducedTransparency ? "good" : state.fallback.includeSupportsFallback ? "warning" : "danger";
+  const cssLength = generateGlassCss(state).length;
+  const filterLabel = `saturate ${state.effect.saturation}%`;
+  return {
+    filterLabel,
+    readability: {
+      label: `${minimumContrast.toFixed(1)}:1 min`,
+      detail: readabilityTone === "good" ? "Text contrast is strong across light and dark fallback estimates." : readabilityTone === "warning" ? "Readable mainly for larger text; test over real imagery." : "Risky over mixed backgrounds; increase tint opacity or text contrast.",
+      tone: readabilityTone,
+    },
+    performance: {
+      label: performanceTone === "good" ? "Good" : performanceTone === "warning" ? "Moderate" : "Heavy",
+      detail: performanceTone === "good" ? "Blur and scene settings are reasonable for production." : performanceTone === "warning" ? "Test on low-power devices, especially with animation." : "High blur plus animation can be expensive on mobile GPUs.",
+      tone: performanceTone,
+    },
+    fallback: {
+      label: fallbackTone === "good" ? "Covered" : fallbackTone === "warning" ? "Partial" : "Missing",
+      detail: fallbackTone === "good" ? "Supports, WebKit, and reduced-transparency fallbacks are enabled." : fallbackTone === "warning" ? "Basic @supports fallback exists; consider WebKit/reduced-transparency." : "Add fallbacks before shipping to production.",
+      tone: fallbackTone,
+    },
+    cssSize: {
+      label: bytesLabel(cssLength),
+      detail: state.exportOptions.includeDemoScene ? "Includes demo scene CSS. Disable demo scene for a smaller production snippet." : "Production component CSS only.",
+    },
+    checks: [
+      {
+        label: "Backdrop support",
+        status: state.fallback.includeSupportsFallback ? "Ready" : "Needs fallback",
+        tone: state.fallback.includeSupportsFallback ? "good" : "warning",
+        detail: state.fallback.includeSupportsFallback ? "The output includes @supports logic for browsers with backdrop-filter support." : "Enable @supports fallback to avoid invisible blur behavior in unsupported browsers.",
+      },
+      {
+        label: "Motion safety",
+        status: !state.scene.animated || state.fallback.includeReducedMotion ? "Ready" : "Add media query",
+        tone: !state.scene.animated || state.fallback.includeReducedMotion ? "good" : "warning",
+        detail: !state.scene.animated ? "Scene animation is disabled." : state.fallback.includeReducedMotion ? "Reduced-motion users get a calmer experience." : "Enable reduced-motion fallback for animated scenes.",
+      },
+      {
+        label: "Transparency safety",
+        status: state.effect.opacity >= 0.12 ? "Balanced" : "Too clear",
+        tone: state.effect.opacity >= 0.12 ? "good" : "danger",
+        detail: state.effect.opacity >= 0.12 ? "Tint opacity gives the glass a visible surface." : "Very transparent glass may lose readability over busy backgrounds.",
+      },
+    ] as Array<{ label: string; status: string; tone: ProductionTone; detail: string }>,
   };
 }
 

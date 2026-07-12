@@ -3,7 +3,20 @@
 import { useMemo, useState } from "react";
 import { WarningPanel, type WarningMessage } from "@/features/tools/components";
 import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
-import { clampItemToGrid, createDefaultGridState, createGridItem, generateGridCss, generateGridHtml, generateGridJsx, generateTailwindStarter, normalizeGridState, validateGridState } from "./grid";
+import {
+  clampItemToGrid,
+  createDefaultGridState,
+  createGridItem,
+  generateGridAreaMap,
+  generateGridCss,
+  generateGridCssVariables,
+  generateGridHtml,
+  generateGridJsx,
+  generateGridTokenJson,
+  generateTailwindStarter,
+  normalizeGridState,
+  validateGridState,
+} from "./grid";
 import type { GridGeneratorState, GridItem, GridPreset } from "./types";
 import { GridPreview } from "./components/GridPreview";
 import { GridControls } from "./components/GridControls";
@@ -15,9 +28,12 @@ export default function CssGridGeneratorClient() {
   const normalized = useMemo(() => normalizeGridState(state), [state]);
   const selectedItem = normalized.items.find((item) => item.id === normalized.selectedItemId) ?? normalized.items[0] ?? null;
   const css = useMemo(() => generateGridCss(normalized), [normalized]);
+  const cssVariables = useMemo(() => generateGridCssVariables(normalized), [normalized]);
   const html = useMemo(() => generateGridHtml(normalized), [normalized]);
   const jsx = useMemo(() => generateGridJsx(normalized), [normalized]);
   const tailwind = useMemo(() => generateTailwindStarter(normalized), [normalized]);
+  const tokens = useMemo(() => generateGridTokenJson(normalized), [normalized]);
+  const areaMap = useMemo(() => generateGridAreaMap(normalized), [normalized]);
   const messages = useMemo<WarningMessage[]>(() => validateGridState(normalized).map((message, index) => ({ id: `${message.type}-${index}`, severity: message.type === "error" ? "danger" : message.type === "warning" ? "warning" : "info", message: message.message })), [normalized]);
 
   function patchState(patch: Partial<GridGeneratorState>) {
@@ -56,10 +72,10 @@ export default function CssGridGeneratorClient() {
 
   return (
     <ToolLayoutVisualGenerator
-      previewSlot={<GridPreview state={normalized} onPatch={patchState} onSelectItem={(id) => patchState({ selectedItemId: id })} />}
+      previewSlot={<GridPreview state={normalized} messages={messages} onPatch={patchState} onSelectItem={(id) => patchState({ selectedItemId: id })} />}
       controlsSlot={<GridControls state={normalized} activePreset={activePreset} selectedItem={selectedItem} onPatch={patchState} onLoadPreset={loadPreset} onUpdateItem={updateSelectedItem} onAddItem={addItem} onDuplicateItem={duplicateSelectedItem} onDeleteItem={deleteSelectedItem} />}
-      codeSlot={<GridCodeOutput css={css} html={html} jsx={jsx} tailwind={tailwind} />}
-      presetsSlot={<WarningPanel title="Grid checks" messages={messages.length ? messages : [{ id: "ok", severity: "success", message: "The current grid settings look valid." }]} />}
+      codeSlot={<GridCodeOutput css={css} cssVariables={cssVariables} html={html} jsx={jsx} tailwind={tailwind} tokens={tokens} areaMap={areaMap} />}
+      presetsSlot={<WarningPanel title="Grid checks" messages={messages.length ? messages : [{ id: "ok", severity: "success", message: "The current grid settings look production-safe." }]} />}
     />
   );
 }

@@ -28,17 +28,17 @@ export default function Article() {
 
       <h2>Browser fallback and -webkit-backdrop-filter</h2>
       <p>
-        Include <code>-webkit-backdrop-filter</code> for better Safari compatibility and provide a solid fallback background for environments where blur is unsupported or disabled.
+        Include <code>-webkit-backdrop-filter</code> for better Safari compatibility and provide a solid fallback background for environments where blur is unsupported or disabled. Production glass UI should also consider reduced transparency and reduced motion preferences.
       </p>
 
       <h2>Performance tips</h2>
       <p>
-        Avoid stacking many large blurred layers on one page. Animated scenes behind large glass surfaces can look great, but they should be tested on low-power devices and paired with reduced-motion fallbacks.
+        Avoid stacking many large blurred layers on one page. Animated scenes behind large glass surfaces can look great, but they should be tested on low-power devices and paired with reduced-motion fallbacks. Keep blur values moderate for large fixed or sticky surfaces.
       </p>
 
       <h2>Privacy note</h2>
       <p>
-        This tool runs in your browser. It generates CSS, HTML, and React snippets locally and does not need a server route.
+        This tool runs in your browser. It generates CSS, HTML, React snippets, design tokens, and fallback styles locally and does not need a server route.
       </p>
 
       <h2>FAQ</h2>

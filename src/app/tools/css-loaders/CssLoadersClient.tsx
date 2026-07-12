@@ -18,7 +18,8 @@ import loaderIndexJson from "./data/generated/loader-index.json";
 import sourceStatsJson from "./data/generated/source-stats.json";
 import type { LoaderCategory, LoaderDefinition, LoaderGalleryMode, LoaderIndexItem, LoaderPreviewItem } from "./types";
 
-const LOADERS_PAGE_SIZE = 48;
+const DEFAULT_LOADERS_PAGE_SIZE = 48;
+const LOADERS_PAGE_SIZE_OPTIONS = [24, 48, 72] as const;
 const FAVORITES_STORAGE_KEY = "darma-css-loader-favorites";
 
 const loaderIndex = loaderIndexJson as LoaderIndexItem[];
@@ -86,12 +87,67 @@ function CopyToast({ message }: { message: string }) {
   );
 }
 
+
+type QuickCollection = {
+  id: string;
+  title: string;
+  description: string;
+  filters: Partial<LoaderFilterState>;
+  mode?: LoaderGalleryMode;
+  pause?: boolean;
+};
+
+const QUICK_COLLECTIONS: QuickCollection[] = [
+  {
+    id: "button-loaders",
+    title: "Button states",
+    description: "Small loaders for save, submit, upload, and checkout buttons.",
+    filters: { category: "button", format: "all", query: "", savedOnly: false, sort: "popular" },
+    mode: "compact",
+  },
+  {
+    id: "skeletons",
+    title: "Skeleton screens",
+    description: "Layout-friendly placeholders for cards, dashboards, and content blocks.",
+    filters: { category: "skeleton", format: "all", query: "", savedOnly: false, sort: "popular" },
+    mode: "grid",
+  },
+  {
+    id: "react-tailwind",
+    title: "React / Tailwind",
+    description: "Copy framework-ready loaders with component and utility-class outputs.",
+    filters: { category: "all", format: "react", query: "tailwind", savedOnly: false, sort: "popular" },
+    mode: "grid",
+  },
+  {
+    id: "subtle-progress",
+    title: "Progress UI",
+    description: "Bars and lightweight progress indicators for dashboards and uploads.",
+    filters: { category: "progress", format: "all", query: "", savedOnly: false, sort: "popular" },
+    mode: "compact",
+  },
+];
+
+function QuickLoaderCollections({ onApply }: { onApply: (collection: QuickCollection) => void }) {
+  return (
+    <section className="css-loaders-quick-collections" aria-label="Quick loader use cases">
+      {QUICK_COLLECTIONS.map((collection) => (
+        <button key={collection.id} type="button" onClick={() => onApply(collection)} className="css-loaders-quick-card">
+          <strong>{collection.title}</strong>
+          <span>{collection.description}</span>
+        </button>
+      ))}
+    </section>
+  );
+}
+
 export default function CssLoadersClient() {
   const [filters, setFilters] = useState<LoaderFilterState>(DEFAULT_LOADER_FILTERS);
   const deferredFilters = useDeferredValue(filters);
   const [currentPage, setCurrentPage] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
   const [galleryMode, setGalleryMode] = useState<LoaderGalleryMode>("grid");
+  const [pageSize, setPageSize] = useState<number>(DEFAULT_LOADERS_PAGE_SIZE);
   const [highlightedLoaderId, setHighlightedLoaderId] = useState<string | null>(null);
   const [selectedLoaderId, setSelectedLoaderId] = useState<string | null>(null);
   const [selectedLoaderSummary, setSelectedLoaderSummary] = useState<LoaderIndexItem | null>(null);
@@ -128,9 +184,9 @@ export default function CssLoadersClient() {
     return baseFilteredLoaders.filter((loader) => favoriteIds.has(loader.id));
   }, [baseFilteredLoaders, favoriteIds, deferredFilters.savedOnly]);
 
-  const totalPages = Math.max(1, Math.ceil(filteredLoaders.length / LOADERS_PAGE_SIZE));
-  const pageStart = filteredLoaders.length ? (currentPage - 1) * LOADERS_PAGE_SIZE : 0;
-  const pageEnd = Math.min(pageStart + LOADERS_PAGE_SIZE, filteredLoaders.length);
+  const totalPages = Math.max(1, Math.ceil(filteredLoaders.length / pageSize));
+  const pageStart = filteredLoaders.length ? (currentPage - 1) * pageSize : 0;
+  const pageEnd = Math.min(pageStart + pageSize, filteredLoaders.length);
   const currentPageLoaders = useMemo(() => filteredLoaders.slice(pageStart, pageEnd), [filteredLoaders, pageStart, pageEnd]);
   const visibleCategories = useMemo(
     () => getCategoriesRequiredForVisibleLoaders(currentPageLoaders, deferredFilters.category),
@@ -206,6 +262,15 @@ export default function CssLoadersClient() {
     setHighlightedLoaderId(null);
   }
 
+  function applyQuickCollection(collection: QuickCollection) {
+    setFilters((current) => ({ ...current, ...collection.filters }));
+    if (collection.mode) setGalleryMode(collection.mode);
+    if (typeof collection.pause === "boolean") setIsPaused(collection.pause);
+    setCurrentPage(1);
+    setHighlightedLoaderId(null);
+    showCopyToast(`${collection.title} filters applied`);
+  }
+
   function openLoader(loader: LoaderIndexItem) {
     const requestId = detailRequestRef.current + 1;
     detailRequestRef.current = requestId;
@@ -262,7 +327,7 @@ export default function CssLoadersClient() {
 
     const randomIndex = Math.floor(Math.random() * filteredLoaders.length);
     const loader = filteredLoaders[randomIndex];
-    setCurrentPage(Math.floor(randomIndex / LOADERS_PAGE_SIZE) + 1);
+    setCurrentPage(Math.floor(randomIndex / pageSize) + 1);
     openLoader(loader);
 
     showCopyToast(`Random pick: ${loader.name}`);
@@ -288,6 +353,12 @@ export default function CssLoadersClient() {
           <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--color-text-muted)]">
             Browse production-ready CSS loaders with fast metadata loading, category preview chunks, copy shortcuts, favorites, and a customization modal that opens full code only when you choose a loader.
           </p>
+          <div className="css-loaders-production-strip" aria-label="Production checks">
+            <span>Lazy preview chunks</span>
+            <span>Pause all animations</span>
+            <span>Reduced-motion aware</span>
+            <span>Local favorites</span>
+          </div>
         </div>
 
         <div className="css-loaders-hero-stats" aria-label="Gallery stats">
@@ -310,6 +381,8 @@ export default function CssLoadersClient() {
         </div>
       </section>
 
+      <QuickLoaderCollections onApply={applyQuickCollection} />
+
       <LoaderToolbar
         filters={filters}
         totalCount={loaderIndex.length}
@@ -318,6 +391,12 @@ export default function CssLoadersClient() {
         pageEnd={pageEnd}
         isPaused={isPaused}
         galleryMode={galleryMode}
+        pageSize={pageSize}
+        pageSizeOptions={LOADERS_PAGE_SIZE_OPTIONS}
+        onPageSizeChange={(size) => {
+          setPageSize(size);
+          setCurrentPage(1);
+        }}
         hasActiveFilters={activeFilters}
         onFiltersChange={patchFilters}
         onModeChange={setGalleryMode}

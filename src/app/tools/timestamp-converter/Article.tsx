@@ -1,114 +1,94 @@
 export default function Article() {
   return (
-    <div className="space-y-8 text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
+    <div className="space-y-8 text-sm leading-7 text-[var(--color-text-secondary)]">
       <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          What is a Unix timestamp?
-        </h2>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">Unix timestamps represent instants</h2>
         <p>
-          A Unix timestamp is a number that represents a single instant in time
-          as an offset from the Unix epoch: January 1, 1970 at 00:00:00 UTC.
-          It is commonly used in APIs, logs, databases, analytics pipelines, and
-          debugging tools because it is compact and easy for computers to sort.
+          A Unix timestamp measures time from the Unix epoch, January 1, 1970 at
+          00:00:00 UTC. The number itself is not tied to a time zone. UTC,
+          Hebron, London, New York, or Tokyo are display views of the same
+          instant.
         </p>
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          Seconds vs milliseconds
-        </h2>
-        <p>
-          Unix timestamps are commonly represented in seconds. JavaScript{" "}
-          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
-            Date
-          </code>{" "}
-          values internally use milliseconds since the Unix epoch, and{" "}
-          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
-            Date.getTime()
-          </code>{" "}
-          returns milliseconds. That is why the same instant can appear as a
-          10-digit seconds value or a 13-digit milliseconds value.
-        </p>
-      </section>
-
-      <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          Timestamp to date examples
-        </h2>
-        <div className="space-y-3">
-          {[
-            ["0", "1970-01-01T00:00:00.000Z"],
-            ["1700000000", "2023-11-14T22:13:20.000Z"],
-            ["1700000000000", "2023-11-14T22:13:20.000Z"],
-            ["-1", "1969-12-31T23:59:59.000Z"],
-          ].map(([timestamp, iso]) => (
-            <div
-              key={timestamp}
-              className="rounded-xl border border-black/10 bg-[var(--color-surface-subtle)] p-3 dark:border-white/10 dark:bg-[var(--color-code-surface)]/40"
-            >
-              <p className="text-xs text-[var(--color-text-tertiary)]">Timestamp</p>
-              <p className="font-mono text-xs text-[var(--color-text-primary)] dark:text-[var(--color-text-secondary)]">
-                {timestamp}
-              </p>
-              <p className="mt-2 text-xs text-[var(--color-text-tertiary)]">UTC ISO output</p>
-              <p className="font-mono text-xs text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-                {iso}
-              </p>
-            </div>
-          ))}
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">Seconds, milliseconds, microseconds, and nanoseconds</h2>
+        <div className="overflow-x-auto rounded-xl border border-[var(--color-border-subtle)]">
+          <table className="w-full min-w-[620px] text-left text-sm">
+            <thead className="bg-[var(--color-surface-subtle)] text-xs uppercase tracking-wide text-[var(--color-text-tertiary)]">
+              <tr><th className="px-4 py-3">Unit</th><th className="px-4 py-3">Typical current length</th><th className="px-4 py-3">Common source</th></tr>
+            </thead>
+            <tbody>
+              {[
+                ["Seconds", "10 digits", "Unix APIs and databases"],
+                ["Milliseconds", "13 digits", "JavaScript Date.now()"],
+                ["Microseconds", "16 digits", "Logs and analytics systems"],
+                ["Nanoseconds", "19 digits", "Tracing and high-resolution telemetry"],
+              ].map(([unit, length, source]) => (
+                <tr key={unit} className="border-t border-[var(--color-border-subtle)]">
+                  <td className="px-4 py-3 font-bold text-[var(--color-text-primary)]">{unit}</td>
+                  <td className="px-4 py-3 font-mono text-xs">{length}</td>
+                  <td className="px-4 py-3">{source}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          Date to timestamp examples
-        </h2>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">Why auto-detection needs review</h2>
         <p>
-          A browser local date/time input is interpreted using your current
-          browser timezone. An ISO value such as{" "}
-          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
-            2030-01-01T00:00:00.000Z
-          </code>{" "}
-          includes the UTC timezone marker, so it describes the same instant for
-          everyone.
+          Digit length is a useful signal, but not an absolute rule. An 11- or
+          12-digit number can be interpreted as a far-future seconds timestamp
+          or an older millisecond timestamp. The studio scores every supported
+          interpretation using digit length and a plausible calendar range, then
+          keeps the alternatives visible instead of hiding the assumption.
         </p>
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          UTC vs local time
-        </h2>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">ISO input versus browser-local input</h2>
         <p>
-          A timestamp is not timezone-specific. It represents an instant. The
-          timezone only affects how that instant is displayed. UTC output is
-          useful for logs, APIs, and shared debugging. Browser local output is
-          useful when you need to compare an event with the time shown on your
-          own device.
+          ISO values ending in <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs">Z</code> or
+          containing an explicit offset such as <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs">+03:00</code> identify one exact instant.
+          A browser-local date has no offset, so its meaning depends on the
+          device time zone and daylight-saving rules.
         </p>
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          Common developer use cases
-        </h2>
-        <ul className="ml-4 list-disc space-y-1.5">
-          <li>Debugging API payloads and database records</li>
-          <li>Checking log events across local time and UTC</li>
-          <li>Converting JavaScript millisecond values from browser code</li>
-          <li>Creating test data for scheduled jobs and expiry times</li>
-          <li>Comparing timestamps from analytics, queues, and webhooks</li>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">Microsecond and nanosecond precision</h2>
+        <p>
+          JavaScript <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs">Date</code> stores time in whole milliseconds. The converter can safely read large
+          microsecond and nanosecond strings without requiring BigInt, but the
+          visual date output necessarily truncates digits below one millisecond.
+          Keep the original raw value when exact telemetry precision matters.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">Batch conversion format</h2>
+        <p>Enter one timestamp per line. A row can contain only a value or an explicit unit alias:</p>
+        <pre className="mt-3 overflow-x-auto rounded-xl bg-[var(--color-code-surface)] p-4 font-mono text-xs text-[var(--color-code-text)]">{`1700000000 seconds
+1700000000000 ms
+1700000000123456 us
+1700000000123456789 ns`}</pre>
+        <p className="mt-3">
+          Invalid rows remain in the table and CSV with an error message, so a
+          production review does not silently discard data.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">Common production checks</h2>
+        <ul className="ml-5 list-disc space-y-1.5">
+          <li>Confirm the source unit instead of trusting digit length alone.</li>
+          <li>Review dates far beyond the expected business range.</li>
+          <li>Preserve raw sub-millisecond values when exact ordering matters.</li>
+          <li>Use ISO values with offsets when sharing an instant across systems.</li>
+          <li>Process very large datasets in streamed or server-side batches.</li>
         </ul>
-      </section>
-
-      <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          Privacy note
-        </h2>
-        <p>
-          All timestamp and date conversion runs entirely in your browser using
-          built-in JavaScript date APIs. Your timestamps and dates are never
-          uploaded, stored, or sent to a server.
-        </p>
       </section>
     </div>
   );

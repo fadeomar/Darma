@@ -6,23 +6,25 @@ import ToolContentCard from "@/features/tools/ui/ToolContentCard";
 import SurfaceCard from "@/components/ui/SurfaceCard";
 
 export const metadata: Metadata = {
-  title: "Free Timestamp Converter - Convert Unix Time and Dates",
+  title: "Timestamp Converter Studio - Unix Seconds, Milliseconds, Microseconds & Nanoseconds",
   description:
-    "Convert Unix timestamps to readable dates and convert dates back to Unix time in seconds or milliseconds. View local time, UTC time, ISO format, and copy results instantly.",
+    "Convert Unix timestamps in seconds, milliseconds, microseconds, and nanoseconds. Compare time zones, process timestamp batches, inspect unit ambiguity, and export CSV, JSON, Markdown, JavaScript, or ZIP reports locally.",
   keywords: [
     "timestamp converter",
-    "unix timestamp",
-    "unix time",
-    "epoch time",
-    "date converter",
-    "utc timestamp",
-    "milliseconds timestamp",
-    "developer tool",
+    "unix timestamp converter",
+    "epoch converter",
+    "seconds to date",
+    "milliseconds to date",
+    "microseconds timestamp",
+    "nanoseconds timestamp",
+    "timestamp batch converter",
+    "iso date converter",
+    "unix time zones",
   ],
   openGraph: {
-    title: "Free Timestamp Converter - Convert Unix Time and Dates",
+    title: "Timestamp Converter Studio",
     description:
-      "Convert Unix timestamps to readable dates and convert dates back to Unix time in seconds or milliseconds. View local time, UTC time, ISO format, and copy results instantly.",
+      "Convert epoch values and ISO dates, compare time zones, inspect unit ambiguity, and export production-ready timestamp reports.",
   },
 };
 
@@ -30,7 +32,7 @@ const TimestampConverterClient = dynamic(
   () => import("./TimestampConverterClient"),
   {
     loading: () => (
-      <div className="h-[640px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />
+      <div className="h-[760px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />
     ),
   },
 );
@@ -45,57 +47,53 @@ export default function TimestampConverterPage() {
     <ToolPageShell
       tool={tool}
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Convert Unix timestamps to readable dates, turn browser local dates
-          back into Unix time, compare UTC and local displays, and copy the
-          format you need. Everything runs locally in your browser.
+        <p className="max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)]">
+          Convert epoch values in seconds, milliseconds, microseconds, or
+          nanoseconds; turn ISO and browser-local dates back into Unix formats;
+          compare the same instant across time zones; and validate mixed batch
+          data without uploading anything.
         </p>
       }
       sidebar={
         <div className="flex flex-col gap-5">
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-              What this tool does
-            </h2>
-            <ul className="mt-3 space-y-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-              <li>Convert Unix seconds or milliseconds to dates</li>
-              <li>Convert browser local dates back to Unix time</li>
-              <li>Show local time, UTC time, and ISO 8601</li>
-              <li>Auto-detect seconds vs milliseconds</li>
-              <li>Copy timestamp and date formats instantly</li>
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)]">Built for real timestamp data</h2>
+            <ul className="mt-3 space-y-2 text-sm leading-6 text-[var(--color-text-secondary)]">
+              <li>Seconds, milliseconds, microseconds, and nanoseconds</li>
+              <li>ISO 8601 and browser-local date conversion</li>
+              <li>Batch rows with per-line unit aliases</li>
+              <li>IANA time-zone comparison</li>
+              <li>CSV, JSON, Markdown, JavaScript, and ZIP exports</li>
             </ul>
           </SurfaceCard>
 
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-              Timezone note
-            </h2>
-            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
-              A Unix timestamp represents one instant. The same instant can be
-              displayed as browser local time or UTC, depending on formatting.
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)]">Precision note</h2>
+            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">
+              JavaScript dates store whole milliseconds. Microsecond and
+              nanosecond inputs can be interpreted safely, but sub-millisecond
+              digits are reported as precision loss in the date preview.
             </p>
           </SurfaceCard>
 
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-              Privacy
-            </h2>
-            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
-              Timestamp conversion happens entirely in your browser. No date or
-              timestamp input is sent to a server.
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)]">Local and private</h2>
+            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">
+              All conversion, time-zone formatting, validation, and export work
+              runs in your browser. Timestamp data is not sent to a server.
             </p>
           </SurfaceCard>
         </div>
       }
     >
       <ToolContentCard
-        title="Timestamp Converter"
-        description="Convert Unix timestamps, browser local dates, ISO values, seconds, and milliseconds."
+        title="Timestamp Converter Studio"
+        description="Convert, inspect, batch-process, compare, and export epoch timestamps and dates."
       >
         <TimestampConverterClient />
       </ToolContentCard>
 
-      <ToolContentCard title="About Unix timestamps">
+      <ToolContentCard title="Timestamp conversion guide">
         <Article />
       </ToolContentCard>
     </ToolPageShell>

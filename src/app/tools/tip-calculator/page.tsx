@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const TipCalculatorClient = dynamic(() => import("./TipCalculatorClient"), {
-  loading: () => <div className="h-[420px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
+  loading: () => <div className="h-[620px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
 });
 const Article = dynamic(() => import("./Article"));
 
@@ -28,19 +28,19 @@ export default function TipCalculatorPage() {
       tool={tool}
       maxWidth="wide"
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Calculate the tip and split a bill between any number of people, with optional rounding —
-          instantly and locally in your browser.
+        <p className="max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
+          Model the full receipt, choose the tip basis, split equally or by guest weight, compare common
+          tip rates, and export a transparent payment plan—all locally in your browser.
         </p>
       }
       article={
-        <ToolContentCard title="About tipping and splitting bills">
+        <ToolContentCard title="About tip calculation and bill splitting">
           <Article />
         </ToolContentCard>
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Calculate the tip and split the bill" description="Tip amount, total, and per-person share for any group — calculated in your browser with no data sent to a server.">
+      <ToolContentCard title="Analyze the receipt and split the total" description="Tax, service charge, tip basis, weighted guests, rounding, scenarios, checks, and practical exports in one compact workflow.">
         <TipCalculatorClient />
       </ToolContentCard>
     </ToolPage>

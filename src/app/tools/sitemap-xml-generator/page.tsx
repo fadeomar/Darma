@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const SitemapXmlClient = dynamic(() => import("./SitemapXmlClient"), {
-  loading: () => <div className="h-[820px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
+  loading: () => <div className="h-[720px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
 });
 const Article = dynamic(() => import("./Article"));
 
@@ -29,7 +29,7 @@ export default function SitemapXmlGeneratorPage() {
       maxWidth="wide"
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Generate a valid UTF-8 sitemap.xml file from manual URLs or table rows, all locally in your browser.
+          Build, validate, split, and export production-ready XML sitemaps from plain URL lists or CSV rows, entirely in your browser.
         </p>
       }
       article={
@@ -39,7 +39,7 @@ export default function SitemapXmlGeneratorPage() {
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Sitemap XML Generator" description="Create XML sitemap entries with loc, lastmod, changefreq, and priority values.">
+      <ToolContentCard title="Sitemap XML Studio" description="Edit URL metadata, validate protocol limits, split large sets, and export XML files with a sitemap index.">
         <SitemapXmlClient />
       </ToolContentCard>
     </ToolPage>

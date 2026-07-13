@@ -6,29 +6,32 @@ import ToolContentCard from "@/features/tools/ui/ToolContentCard";
 import SurfaceCard from "@/components/ui/SurfaceCard";
 
 export const metadata: Metadata = {
-  title: "Free URL Encoder and Decoder - Encode URLs and Query Parameters",
+  title: "URL Encoder, Decoder & Query Inspector",
   description:
-    "Encode URLs, decode percent-encoded text, inspect query parameters, and copy clean results instantly in your browser.",
+    "Encode full URLs or components, decode percent escapes, edit query parameters, inspect URL structure, detect leakage risks, and export production-ready reports locally.",
   keywords: [
     "url encoder",
     "url decoder",
-    "encodeURIComponent",
     "percent encoding",
-    "query parameters",
-    "decode url online",
-    "encode url online",
-    "developer tool",
-    "web utility",
+    "encodeURIComponent",
+    "URLSearchParams",
+    "query string editor",
+    "query parameter inspector",
+    "double encoding detector",
+    "url security checker",
+    "application x-www-form-urlencoded",
   ],
   openGraph: {
-    title: "Free URL Encoder and Decoder — Encode URLs and Query Parameters",
+    title: "URL Encoder, Decoder & Query Inspector",
     description:
-      "Encode URLs, decode percent-encoded text, inspect query parameters, and copy clean results instantly in your browser.",
+      "Encode, decode, inspect, edit, audit, and export URLs and query parameters without uploading data.",
   },
 };
 
 const UrlEncoderDecoderClient = dynamic(() => import("./UrlEncoderDecoderClient"), {
-  loading: () => <div className="h-[560px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
+  loading: () => (
+    <div className="h-[720px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />
+  ),
 });
 
 const Article = dynamic(() => import("./Article"));
@@ -41,59 +44,52 @@ export default function UrlEncoderDecoderPage() {
     <ToolPageShell
       tool={tool}
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Encode full URLs, encode query values with component-safe escaping,
-          decode percent-encoded text, and inspect query parameters without
-          uploading anything. The tool runs fully in your browser using native
-          URL APIs.
+        <p className="max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)]">
+          Encode complete URLs, individual components, or form values; decode
+          percent escapes; inspect URL structure; edit query parameters; and run
+          production checks for malformed sequences, duplicates, credentials,
+          sensitive values, and possible double encoding.
         </p>
       }
       sidebar={
         <div className="flex flex-col gap-5">
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-              What you can do
-            </h2>
-            <ul className="mt-3 space-y-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-              <li>Encode full URLs while preserving structure.</li>
-              <li>Encode query values with component mode.</li>
-              <li>Decode percent-encoded URLs and text.</li>
-              <li>Inspect query string key/value pairs.</li>
-              <li>Copy output or individual query values.</li>
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)]">Included workflows</h2>
+            <ul className="mt-3 space-y-2 text-sm leading-6 text-[var(--color-text-secondary)]">
+              <li>Full URL, component, and form-value conversion.</li>
+              <li>Editable duplicate-aware query parameter table.</li>
+              <li>URL component and protocol inspection.</li>
+              <li>Leakage, compatibility, and double-encoding checks.</li>
+              <li>JavaScript, cURL, JSON, and ZIP exports.</li>
             </ul>
           </SurfaceCard>
 
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-              Good to know
-            </h2>
-            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
-              URL encoding formats text for URLs. It does not encrypt, secure,
-              or hide data. Sensitive tokens in URLs should still be handled
-              carefully.
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)]">Security note</h2>
+            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">
+              Encoding is reversible formatting. It does not secure tokens,
+              passwords, API keys, or private redirect data.
             </p>
           </SurfaceCard>
 
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-              Privacy
-            </h2>
-            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
-              Encoding, decoding, and query inspection happen locally in the
-              browser. No URL or text input is sent to a server.
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)]">Privacy</h2>
+            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">
+              All conversion, analysis, query editing, and export generation run
+              locally in the browser.
             </p>
           </SurfaceCard>
         </div>
       }
     >
       <ToolContentCard
-        title="URL Encoder / Decoder"
-        description="Paste a URL, query string, or text, choose the action and encoding type, then copy the clean result."
+        title="URL Encoding & Query Studio"
+        description="Transform, inspect, edit, review, and export URLs and query strings from one compact workspace."
       >
         <UrlEncoderDecoderClient />
       </ToolContentCard>
 
-      <ToolContentCard title="About this tool">
+      <ToolContentCard title="URL encoding guide">
         <Article />
       </ToolContentCard>
     </ToolPageShell>

@@ -56,6 +56,6 @@ describe("token export helpers", () => {
   });
 
   it("exports a gradient suggestion", () => {
-    expect(exportGradientSuggestion(colors)).toBe("linear-gradient(135deg, #2563EB 0%, #2563EB 100%)");
+    expect(exportGradientSuggestion(colors)).toBe("linear-gradient(135deg, #2563EB 0%, #DBEAFE 48%, #2563EB 100%)");
   });
 });

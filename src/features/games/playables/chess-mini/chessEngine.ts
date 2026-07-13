@@ -4,11 +4,13 @@ import type {
   ChessBoard,
   ChessColor,
   ChessCoord,
+  ChessDrawReason,
   ChessFile,
   ChessGameStatus,
   ChessMoveRecord,
   ChessMoveTarget,
   ChessPiece,
+  ChessPositionCounts,
   ChessPromotionRole,
   ChessRank,
   PendingPromotion,
@@ -18,6 +20,8 @@ type Offset = { file: number; rank: number };
 
 type MoveContext = {
   lastMove?: ChessMoveRecord | null;
+  halfmoveClock?: number;
+  positionCounts?: Readonly<ChessPositionCounts>;
 };
 
 const KNIGHT_OFFSETS: readonly Offset[] = [
@@ -66,6 +70,18 @@ const PIECE_NOTATION: Record<ChessPiece["role"], string> = {
   queen: "Q",
   king: "K",
 };
+
+const POSITION_ROLE_KEY: Record<ChessPiece["role"], string> = {
+  pawn: "p",
+  knight: "n",
+  bishop: "b",
+  rook: "r",
+  queen: "q",
+  king: "k",
+};
+
+const FIFTY_MOVE_HALFMOVES = 100;
+const SEVENTY_FIVE_MOVE_HALFMOVES = 150;
 
 function opposite(color: ChessColor): ChessColor {
   return color === "white" ? "black" : "white";
@@ -410,6 +426,135 @@ export function getStatusForTurn(board: ChessBoard, colorToMove: ChessColor, con
   return "playing";
 }
 
+function getCastlingRightsKey(board: ChessBoard): string {
+  const rights: string[] = [];
+
+  const whiteKing = findSquare(board, "E1")?.piece;
+  if (whiteKing?.role === "king" && whiteKing.color === "white" && !whiteKing.hasMoved) {
+    const kingsideRook = findSquare(board, "H1")?.piece;
+    const queensideRook = findSquare(board, "A1")?.piece;
+    if (kingsideRook?.role === "rook" && kingsideRook.color === "white" && !kingsideRook.hasMoved) rights.push("K");
+    if (queensideRook?.role === "rook" && queensideRook.color === "white" && !queensideRook.hasMoved) rights.push("Q");
+  }
+
+  const blackKing = findSquare(board, "E8")?.piece;
+  if (blackKing?.role === "king" && blackKing.color === "black" && !blackKing.hasMoved) {
+    const kingsideRook = findSquare(board, "H8")?.piece;
+    const queensideRook = findSquare(board, "A8")?.piece;
+    if (kingsideRook?.role === "rook" && kingsideRook.color === "black" && !kingsideRook.hasMoved) rights.push("k");
+    if (queensideRook?.role === "rook" && queensideRook.color === "black" && !queensideRook.hasMoved) rights.push("q");
+  }
+
+  return rights.join("") || "-";
+}
+
+function getEnPassantKey(board: ChessBoard, colorToMove: ChessColor, lastMove?: ChessMoveRecord | null): string {
+  if (!lastMove?.isDoublePawnPush || lastMove.piece.role !== "pawn" || lastMove.piece.color === colorToMove) return "-";
+
+  const lastFile = lastMove.to[0] as ChessFile;
+  const lastRank = Number(lastMove.to[1]);
+  const targetRank = lastRank + (colorToMove === "white" ? 1 : -1);
+  const target = toCoord(toFileIndex(lastFile), targetRank);
+  if (!target) return "-";
+
+  for (const fileDelta of [-1, 1]) {
+    const pawnCoord = toCoord(toFileIndex(lastFile) + fileDelta, lastRank);
+    const pawn = pawnCoord ? findSquare(board, pawnCoord)?.piece : undefined;
+    if (
+      pawnCoord &&
+      pawn?.role === "pawn" &&
+      pawn.color === colorToMove &&
+      getLegalMoves(board, pawnCoord, { lastMove }).some((move) => move.coord === target && move.special === "en-passant")
+    ) {
+      return target.toLowerCase();
+    }
+  }
+
+  return "-";
+}
+
+/**
+ * Canonical repetition key: piece placement, side to move, castling rights, and a
+ * genuinely legal en-passant target. Piece IDs and irrelevant `hasMoved` flags are
+ * intentionally excluded because they do not change the available chess moves.
+ */
+export function getPositionKey(board: ChessBoard, colorToMove: ChessColor, context: MoveContext = {}): string {
+  const placement = board
+    .flat()
+    .map((square) => {
+      const piece = square.piece;
+      if (!piece) return "..";
+      const colorKey = piece.color === "white" ? "w" : "b";
+      return `${colorKey}${POSITION_ROLE_KEY[piece.role]}`;
+    })
+    .join("");
+
+  const sideKey = colorToMove === "white" ? "w" : "b";
+  return `${placement}|${sideKey}|${getCastlingRightsKey(board)}|${getEnPassantKey(board, colorToMove, context.lastMove)}`;
+}
+
+/**
+ * Fast, conservative dead-position detector for the standard material-only cases.
+ * It intentionally does not call K+NN vs K a draw: mate is still legally possible
+ * with cooperation, even though it cannot be forced.
+ */
+export function isDeadPosition(board: ChessBoard): boolean {
+  const nonKings = board.flat().filter((square) => square.piece && square.piece.role !== "king");
+  if (nonKings.length === 0) return true;
+
+  if (nonKings.length === 1) {
+    const role = nonKings[0].piece?.role;
+    return role === "bishop" || role === "knight";
+  }
+
+  if (nonKings.every((square) => square.piece?.role === "bishop")) {
+    const colorComplexes = new Set(nonKings.map((square) => (toFileIndex(square.file) + square.rank) % 2));
+    return colorComplexes.size === 1;
+  }
+
+  return false;
+}
+
+type DrawRuleEvaluation = {
+  automaticReason: ChessDrawReason | null;
+  claimableReason: ChessDrawReason | null;
+  positionKey: string;
+  positionCount: number;
+};
+
+function getHalfmoveClockAfterMove(previous: number | undefined, piece: ChessPiece, captured?: CapturedPiece): number {
+  return piece.role === "pawn" || captured ? 0 : (previous ?? 0) + 1;
+}
+
+function evaluateDrawRules(
+  board: ChessBoard,
+  colorToMove: ChessColor,
+  lastMove: ChessMoveRecord,
+  halfmoveClock: number,
+  context: MoveContext,
+  baseStatus: ChessGameStatus,
+): DrawRuleEvaluation {
+  const positionKey = getPositionKey(board, colorToMove, { lastMove });
+  const positionCount = (context.positionCounts?.[positionKey] ?? 0) + 1;
+
+  if (baseStatus === "checkmate" || baseStatus === "stalemate") {
+    return { automaticReason: null, claimableReason: null, positionKey, positionCount };
+  }
+
+  let automaticReason: ChessDrawReason | null = null;
+  if (isDeadPosition(board)) automaticReason = "dead-position";
+  else if (positionCount >= 5) automaticReason = "fivefold-repetition";
+  else if (halfmoveClock >= SEVENTY_FIVE_MOVE_HALFMOVES) automaticReason = "seventy-five-move-rule";
+
+  let claimableReason: ChessDrawReason | null = null;
+  if (!automaticReason) {
+    if (positionCount >= 3) claimableReason = "threefold-repetition";
+    else if (halfmoveClock >= FIFTY_MOVE_HALFMOVES) claimableReason = "fifty-move-rule";
+  }
+
+  return { automaticReason, claimableReason, positionKey, positionCount };
+}
+
 function isDoublePawnPush(piece: ChessPiece, from: ChessCoord, to: ChessCoord): boolean {
   return piece.role === "pawn" && Math.abs(Number(from[1]) - Number(to[1])) === 2;
 }
@@ -484,7 +629,18 @@ export function moveChessPiece(
   to: ChessCoord,
   turn: ChessColor,
   context: MoveContext = {},
-): { board: ChessBoard; record: ChessMoveRecord; status: ChessGameStatus; winner: ChessColor | null; pendingPromotion?: PendingPromotion } | null {
+): {
+  board: ChessBoard;
+  record: ChessMoveRecord;
+  status: ChessGameStatus;
+  winner: ChessColor | null;
+  pendingPromotion?: PendingPromotion;
+  halfmoveClock: number;
+  positionKey?: string;
+  positionCount?: number;
+  drawReason: ChessDrawReason | null;
+  claimableDrawReason: ChessDrawReason | null;
+} | null {
   const fromSquare = findSquare(board, from);
   const toSquare = findSquare(board, to);
   const piece = fromSquare?.piece;
@@ -498,6 +654,7 @@ export function moveChessPiece(
   const nextBoard = applyMoveUnchecked(board, from, to, move);
   if (!nextBoard) return null;
 
+  const halfmoveClock = getHalfmoveClockAfterMove(context.halfmoveClock, piece, captured);
   const baseRecord: ChessMoveRecord = {
     from,
     to,
@@ -516,6 +673,9 @@ export function moveChessPiece(
       status: "promotion",
       winner: null,
       pendingPromotion,
+      halfmoveClock,
+      drawReason: null,
+      claimableDrawReason: null,
       record: {
         ...baseRecord,
         notation: buildNotation(baseRecord, "promotion"),
@@ -525,11 +685,13 @@ export function moveChessPiece(
 
   const nextTurn = opposite(turn);
   const recordForContext = { ...baseRecord };
-  const status = getStatusForTurn(nextBoard, nextTurn, { lastMove: recordForContext });
+  const baseStatus = getStatusForTurn(nextBoard, nextTurn, { lastMove: recordForContext });
+  const drawEvaluation = evaluateDrawRules(nextBoard, nextTurn, recordForContext, halfmoveClock, context, baseStatus);
+  const status: ChessGameStatus = drawEvaluation.automaticReason ? "draw" : baseStatus;
   const record: ChessMoveRecord = {
     ...baseRecord,
     statusAfter: status,
-    notation: buildNotation(baseRecord, status),
+    notation: buildNotation(baseRecord, baseStatus),
   };
 
   return {
@@ -537,6 +699,11 @@ export function moveChessPiece(
     status,
     winner: status === "checkmate" ? turn : null,
     record,
+    halfmoveClock,
+    positionKey: drawEvaluation.positionKey,
+    positionCount: drawEvaluation.positionCount,
+    drawReason: drawEvaluation.automaticReason,
+    claimableDrawReason: drawEvaluation.claimableReason,
   };
 }
 
@@ -544,7 +711,19 @@ export function promotePawn(
   board: ChessBoard,
   pendingPromotion: PendingPromotion,
   promotedTo: ChessPromotionRole,
-): { board: ChessBoard; record: ChessMoveRecord; status: ChessGameStatus; winner: ChessColor | null; nextTurn: ChessColor } | null {
+  context: MoveContext = {},
+): {
+  board: ChessBoard;
+  record: ChessMoveRecord;
+  status: ChessGameStatus;
+  winner: ChessColor | null;
+  nextTurn: ChessColor;
+  halfmoveClock: number;
+  positionKey: string;
+  positionCount: number;
+  drawReason: ChessDrawReason | null;
+  claimableDrawReason: ChessDrawReason | null;
+} | null {
   const square = findSquare(board, pendingPromotion.coord);
   const pawn = square?.piece;
   if (!square || !pawn || pawn.role !== "pawn" || pawn.color !== pendingPromotion.color) return null;
@@ -561,16 +740,19 @@ export function promotePawn(
   };
 
   const nextTurn = opposite(pendingPromotion.color);
+  const halfmoveClock = 0;
   const recordBase: ChessMoveRecord = {
     ...pendingPromotion.move,
     promotedTo,
     special: "promotion",
   };
-  const status = getStatusForTurn(nextBoard, nextTurn, { lastMove: recordBase });
+  const baseStatus = getStatusForTurn(nextBoard, nextTurn, { lastMove: recordBase });
+  const drawEvaluation = evaluateDrawRules(nextBoard, nextTurn, recordBase, halfmoveClock, context, baseStatus);
+  const status: ChessGameStatus = drawEvaluation.automaticReason ? "draw" : baseStatus;
   const record: ChessMoveRecord = {
     ...recordBase,
     statusAfter: status,
-    notation: buildNotation(recordBase, status),
+    notation: buildNotation(recordBase, baseStatus),
   };
 
   return {
@@ -579,6 +761,11 @@ export function promotePawn(
     status,
     winner: status === "checkmate" ? pendingPromotion.color : null,
     nextTurn,
+    halfmoveClock,
+    positionKey: drawEvaluation.positionKey,
+    positionCount: drawEvaluation.positionCount,
+    drawReason: drawEvaluation.automaticReason,
+    claimableDrawReason: drawEvaluation.claimableReason,
   };
 }
 

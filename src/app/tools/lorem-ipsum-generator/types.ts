@@ -10,6 +10,8 @@ export type TextStyle =
 
 export type OutputFormat = "plain" | "html";
 export type BlockLength = "short" | "medium" | "long";
+export type PreviewViewport = "desktop" | "mobile";
+export type LoremResultTab = "preview" | "plain" | "html" | "react" | "report";
 
 export type StructuredBlock =
   | "hero"
@@ -31,6 +33,7 @@ export type LoremConfig = {
   includeHeadings: boolean;
   includeLists: boolean;
   structuredBlock: StructuredBlock;
+  seed: string;
 };
 
 export type GeneratedOutput = {
@@ -44,11 +47,36 @@ export type LoremStats = {
   sentences: number;
   paragraphs: number;
   readingTimeSeconds: number;
+  bytes: number;
+  blocks: number;
+  uniqueWordRatio: number;
+};
+
+export type LoremCheckLevel = "success" | "info" | "warning" | "danger";
+
+export type LoremCheck = {
+  id: string;
+  level: LoremCheckLevel;
+  title: string;
+  message: string;
+};
+
+export type LoremReport = {
+  generatedAt: string;
+  config: LoremConfig;
+  stats: LoremStats;
+  checks: LoremCheck[];
+  outputs: {
+    plainCharacters: number;
+    htmlCharacters: number;
+    hasPlaceholderLinks: boolean;
+  };
 };
 
 export type Preset = {
   id: string;
   label: string;
   icon: string;
+  description: string;
   config: Partial<LoremConfig>;
 };

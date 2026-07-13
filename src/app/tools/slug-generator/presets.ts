@@ -1,0 +1,66 @@
+import type { SlugPreset } from "./types";
+
+export const SLUG_PRESETS: SlugPreset[] = [
+  {
+    id: "blog-launch",
+    name: "Blog launch",
+    description: "Generate concise article routes and preserve previous paths for redirects.",
+    mode: "bulk",
+    input: "How to Build Better Browser Tools\t/blog/browser-tools-guide\nA Practical Guide to URL Design\t/blog/url-design\nThe Future of Local-First Utilities",
+    pathPrefix: "/blog",
+    collisionMode: "suffix",
+    options: { removeStopWords: true, maxLengthEnabled: true, maxLength: 64 },
+  },
+  {
+    id: "product-catalog",
+    name: "Product catalog",
+    description: "Keep model numbers and resolve repeated product names automatically.",
+    mode: "bulk",
+    input: "Wireless Keyboard K2\nWireless Keyboard K2\nUSB-C Dock 12-in-1\n27-inch 4K Monitor",
+    pathPrefix: "/products",
+    collisionMode: "suffix",
+    options: { keepNumbers: true, maxLengthEnabled: true, maxLength: 72 },
+  },
+  {
+    id: "docs-routes",
+    name: "Documentation paths",
+    description: "Preserve nested slash-separated documentation sections.",
+    mode: "bulk",
+    input: "getting started/installation\ngetting started/environment setup\napi/authentication/oauth 2\napi/authentication/api keys",
+    pathPrefix: "/docs",
+    collisionMode: "error",
+    options: { preserveSlashes: true, removeStopWords: false, maxLengthEnabled: true, maxLength: 96 },
+  },
+  {
+    id: "multilingual",
+    name: "Multilingual routes",
+    description: "Keep Arabic and other Unicode letters in readable URL slugs.",
+    mode: "bulk",
+    input: "أفضل أدوات المطورين\nدليل تحسين محركات البحث\nCafé Déjà Vu\n東京 開発 ガイド",
+    pathPrefix: "/articles",
+    collisionMode: "suffix",
+    options: { asciiOnly: false, maxLengthEnabled: true, maxLength: 80 },
+  },
+  {
+    id: "cms-migration",
+    name: "CMS migration",
+    description: "Create a redirect-ready route manifest from tab-separated old paths.",
+    mode: "bulk",
+    input: "Company About Page\t/about-us-old\nCustomer Success Stories\t/case-studies\nPricing and Plans\t/plans-and-pricing",
+    pathPrefix: "",
+    collisionMode: "error",
+    options: { removeStopWords: true, maxLengthEnabled: true, maxLength: 64 },
+  },
+  {
+    id: "ascii-handles",
+    name: "ASCII handles",
+    description: "Generate lowercase ASCII identifiers for systems that reject Unicode paths.",
+    mode: "bulk",
+    input: "Résumé Builder Pro\nCrème Brûlée Recipe\nÜber Analytics 2026\nDeveloper Portal",
+    pathPrefix: "/apps",
+    collisionMode: "suffix",
+    options: { asciiOnly: true, keepNumbers: true, maxLengthEnabled: true, maxLength: 48 },
+  },
+];
+
+export const DEFAULT_SLUG_PRESET_ID = "blog-launch";

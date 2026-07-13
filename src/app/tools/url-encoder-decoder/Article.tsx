@@ -1,118 +1,100 @@
 export default function Article() {
   return (
-    <div className="space-y-8 text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
+    <div className="space-y-8 text-sm leading-7 text-[var(--color-text-secondary)]">
       <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          What is URL encoding?
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">
+          URL encoding is formatting, not encryption
         </h2>
         <p>
-          URL encoding, also called percent encoding, converts spaces, Unicode
-          text, emojis, and reserved characters into a format that can travel
-          safely inside a URL. For example, a space often becomes{" "}
-          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
-            %20
-          </code>
-          . Encoding is formatting for URLs, not encryption and not security.
+          Percent encoding converts spaces, Unicode text, and reserved
+          characters into a representation that can safely travel inside a URL.
+          It does not hide or protect the value. Anyone who can see an encoded
+          URL can decode it, so credentials and tokens should not be placed in a
+          query string merely because they are encoded.
         </p>
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          URL encoding vs URL decoding
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">
+          Choose the correct encoding mode
         </h2>
-        <p>
-          Encoding changes readable text into URL-safe text. Decoding changes
-          percent-encoded text back into readable text. Developers commonly use
-          this when building links, API requests, redirect URLs, search pages,
-          UTM campaigns, and query strings.
-        </p>
-      </section>
-
-      <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          Full URL vs URL component
-        </h2>
-        <div className="space-y-4">
-          <div>
-            <h3 className="font-semibold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-              Full URL
-            </h3>
-            <p className="mt-1 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
-              Use full URL mode when you want to keep URL structure characters
-              such as <code className="font-mono text-xs">:</code>,{" "}
-              <code className="font-mono text-xs">/</code>,{" "}
-              <code className="font-mono text-xs">?</code>, and{" "}
-              <code className="font-mono text-xs">&</code> readable while
-              encoding unsafe characters like spaces and Unicode text.
+        <div className="grid gap-4 md:grid-cols-3">
+          <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-4">
+            <h3 className="font-bold text-[var(--color-text-primary)]">Full URL</h3>
+            <p className="mt-1 text-xs leading-6">
+              Preserves structural separators such as <code>:</code>, <code>/</code>,
+              <code>?</code>, and <code>&amp;</code>. Use it when the whole value is
+              already a URL.
             </p>
           </div>
-          <div>
-            <h3 className="font-semibold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-              URL component / query value
-            </h3>
-            <p className="mt-1 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
-              Use component mode for a single query parameter value, path
-              segment, or piece of text that will be inserted into a larger URL.
-              This mode encodes reserved characters more aggressively, which is
-              usually what you want for values like search terms or redirect
-              URLs.
+          <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-4">
+            <h3 className="font-bold text-[var(--color-text-primary)]">Component</h3>
+            <p className="mt-1 text-xs leading-6">
+              Encodes reserved separators more aggressively. Use it for one path
+              segment, query value, redirect URL, or any value inserted into a
+              larger URL.
+            </p>
+          </div>
+          <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-4">
+            <h3 className="font-bold text-[var(--color-text-primary)]">Form value</h3>
+            <p className="mt-1 text-xs leading-6">
+              Uses application/x-www-form-urlencoded behavior, where spaces are
+              represented by plus signs. This differs from ordinary component
+              decoding, where a plus sign stays literal.
             </p>
           </div>
         </div>
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          When to use encodeURIComponent
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">
+          Query parameter behavior
         </h2>
         <p>
-          Use component encoding when a value sits after an equals sign in a
-          query string. For example, encode the value in{" "}
-          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
-            ?q=hello world & Darma tools
-          </code>{" "}
-          before placing it into a URL. This prevents characters like ampersands
-          from accidentally splitting your query into extra parameters.
+          Duplicate query keys are legal, but applications do not always resolve
+          them in the same way. One framework may keep the first value, another
+          may keep the last, and another may expose an array. The parameter
+          editor preserves duplicates and highlights them so their intended
+          behavior can be reviewed before deployment.
         </p>
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          Query parameter examples
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">
+          Double encoding and malformed escapes
         </h2>
         <p>
-          A query string like{" "}
-          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
-            name=Darma&amp;tool=url%20encoder
-          </code>{" "}
-          has two parameters: <strong>name</strong> with the value{" "}
-          <strong>Darma</strong>, and <strong>tool</strong> with the decoded
-          value <strong>url encoder</strong>. The inspector in this tool helps
-          you quickly read those key/value pairs.
+          A value such as <code>%252F</code> decodes once to <code>%2F</code> and
+          only becomes a slash after a second decode. Accidental double decoding
+          can change routes, validation results, and security boundaries. A lone
+          percent sign or a sequence such as <code>%ZZ</code> is malformed and is
+          rejected by strict URI decoding.
         </p>
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          Common URL encoding mistakes
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">
+          URL safety checklist
         </h2>
-        <ul className="list-disc space-y-2 pl-5 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
-          <li>Using full URL encoding for a query value that contains ampersands.</li>
-          <li>Decoding malformed text such as <code className="font-mono text-xs">%ZZ</code>.</li>
-          <li>Thinking URL encoding hides private data. It does not.</li>
-          <li>Replacing every plus sign with a space outside query-string parsing.</li>
+        <ul className="list-disc space-y-2 pl-5">
+          <li>Do not embed usernames, passwords, session IDs, or API keys in URLs.</li>
+          <li>Encode individual values before concatenating a query string.</li>
+          <li>Review duplicate keys and nested redirect URLs carefully.</li>
+          <li>Test long URLs across browsers, proxies, servers, and analytics tools.</li>
+          <li>Remember that fragments remain visible to browser-side code and history.</li>
         </ul>
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          Privacy note
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">
+          Browser-local processing
         </h2>
         <p>
-          Conversion happens entirely in your browser using built-in JavaScript
-          URL APIs. Your input is not uploaded to a server. Still, be careful
-          with sensitive tokens in URLs because encoded data can be decoded by
-          anyone who can see the link.
+          Encoding, decoding, inspection, query editing, report generation, and
+          ZIP creation run locally in the browser. The JSON audit report redacts
+          detected credentials and sensitive query values, but the raw input and
+          output files in an export pack still contain the values supplied by the
+          user and should be handled accordingly.
         </p>
       </section>
     </div>

@@ -1,6 +1,12 @@
 export type RobotsDirective = "Allow" | "Disallow";
 
-export type RobotsPresetId = "allow-all" | "block-all" | "block-private" | "wordpress" | "custom";
+export type RobotsPresetId =
+  | "public-site"
+  | "staging-block"
+  | "wordpress"
+  | "ecommerce"
+  | "documentation"
+  | "crawler-split";
 
 export type RobotsRule = {
   id: string;
@@ -10,22 +16,43 @@ export type RobotsRule = {
 
 export type RobotsGroup = {
   id: string;
-  userAgent: string;
+  userAgents: string[];
   rules: RobotsRule[];
 };
 
 export type RobotsConfig = {
   siteUrl: string;
-  sitemapUrl: string;
+  sitemapUrls: string[];
   groups: RobotsGroup[];
 };
 
-export type RobotsWarningLevel = "info" | "warning" | "danger";
+export type RobotsCheckSeverity = "success" | "info" | "warning" | "danger";
 
-export type RobotsWarning = {
+export type RobotsCheck = {
   id: string;
-  level: RobotsWarningLevel;
+  level: RobotsCheckSeverity;
+  title: string;
   message: string;
+  groupId?: string;
+  ruleId?: string;
+};
+
+export type RobotsStats = {
+  groups: number;
+  userAgents: number;
+  rules: number;
+  allowRules: number;
+  disallowRules: number;
+  blockAllGroups: number;
+  sitemaps: number;
+  bytes: number;
+  duplicateRules: number;
+};
+
+export type RobotsBuildResult = {
+  output: string;
+  checks: RobotsCheck[];
+  stats: RobotsStats;
 };
 
 export type RobotsPreset = {
@@ -34,4 +61,19 @@ export type RobotsPreset = {
   description: string;
   config: RobotsConfig;
   destructive?: boolean;
+};
+
+export type RobotsRouteTest = {
+  crawler: string;
+  input: string;
+  normalizedPath: string;
+  allowed: boolean;
+  matchedAgents: string[];
+  matchedRule?: RobotsRule;
+  reason: string;
+};
+
+export type RobotsParseResult = {
+  config: RobotsConfig;
+  notices: string[];
 };

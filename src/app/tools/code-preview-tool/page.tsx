@@ -24,12 +24,12 @@ export default function Page() {
       tool={tool}
       maxWidth="full"
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)]">
-          Write HTML, CSS, and JavaScript in a browser-local workbench and preview the result in a sandboxed iframe.
+        <p className="max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)]">
+          Build and test responsive HTML, CSS, and JavaScript in a compact browser-local studio with practical presets, device previews, runtime logs, production checks, and export-ready files.
         </p>
       }
       article={
-        <ToolContentCard title="About the code preview tool">
+        <ToolContentCard title="How to use the code preview studio">
           <Article />
         </ToolContentCard>
       }

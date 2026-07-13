@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const UnitConverterClient = dynamic(() => import("./UnitConverterClient"), {
-  loading: () => <div className="h-[420px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
+  loading: () => <div className="h-[720px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
 });
 const Article = dynamic(() => import("./Article"));
 
@@ -26,23 +26,21 @@ export default function UnitConverterPage() {
   return (
     <ToolPage
       tool={tool}
-      maxWidth="wide"
+      maxWidth="full"
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Convert between metric and imperial units for length, weight, temperature, volume, area,
-          speed, digital storage, and time — instantly and locally in your browser.
+        <p className="max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)]">
+          Convert metric, US customary, imperial, SI decimal, and IEC binary units with clear formulas,
+          batch processing, standard warnings, precision controls, and production-ready exports.
         </p>
       }
       article={
-        <ToolContentCard title="About unit conversion">
+        <ToolContentCard title="Unit systems, precision, and conversion standards">
           <Article />
         </ToolContentCard>
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Convert between units" description="Length, weight, temperature, volume, area, speed, digital storage, and time — calculated in your browser with no data sent to a server.">
-        <UnitConverterClient />
-      </ToolContentCard>
+      <UnitConverterClient />
     </ToolPage>
   );
 }

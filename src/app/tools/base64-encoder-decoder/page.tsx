@@ -1,97 +1,47 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import dynamic from "next/dynamic";
 import { getToolRegistry } from "@/features/tools";
-import ToolPageShell from "@/features/tools/ui/ToolPageShell";
+import { buildToolJsonLd, buildToolMetadata } from "@/features/tools/seo";
+import { ToolPage } from "@/features/tools/layouts";
 import ToolContentCard from "@/features/tools/ui/ToolContentCard";
-import SurfaceCard from "@/components/ui/SurfaceCard";
 
-export const metadata: Metadata = {
-  title: "Free Base64 Encoder and Decoder - Encode and Decode Text Online",
-  description:
-    "Encode text to Base64 or decode Base64 back to readable text directly in your browser. Supports Unicode, URL-safe Base64, copy, validation, and instant output.",
-  keywords: [
-    "base64",
-    "base64 encoder",
-    "base64 decoder",
-    "encode",
-    "decode",
-    "url-safe base64",
-    "unicode base64",
-    "developer tool",
-  ],
-  openGraph: {
-    title: "Free Base64 Encoder and Decoder - Encode and Decode Text Online",
-    description:
-      "Instantly encode text to Base64 or decode Base64 into readable text. Unicode-safe, URL-safe options, validation, and copy-ready output in your browser.",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const tool = getToolRegistry().getById("base64-encoder-decoder");
+  if (!tool) return {};
+  return buildToolMetadata(tool);
+}
 
 const Base64Client = dynamic(() => import("./Base64Client"), {
-  loading: () => <div className="h-[560px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
+  loading: () => <div className="h-[760px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
 });
-
 const Article = dynamic(() => import("./Article"));
 
 export default function Base64EncoderDecoderPage() {
   const tool = getToolRegistry().getById("base64-encoder-decoder");
-  if (!tool) return null;
+  if (!tool) notFound();
+
+  const jsonLd = buildToolJsonLd(tool);
 
   return (
-    <ToolPageShell
+    <ToolPage
       tool={tool}
+      maxWidth="full"
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Encode plain text to Base64 or decode Base64 back to readable text
-          instantly. Supports Unicode, URL-safe mode, validation, and one-click
-          copy. Everything runs locally in your browser.
+        <p className="max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
+          Encode Unicode text or raw files, decode Base64 and Base64URL into text or binary bytes, inspect Data URLs and MIME signatures, and export a production handoff pack — entirely in your browser.
         </p>
       }
-      sidebar={
-        <div className="flex flex-col gap-5">
-          <SurfaceCard>
-            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-              What this tool does
-            </h2>
-            <ul className="mt-3 space-y-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-              <li>Encode text to Base64</li>
-              <li>Decode Base64 to text</li>
-              <li>Validate Base64 input in decode mode</li>
-              <li>Handle Unicode safely (Arabic, emojis, accents)</li>
-              <li>Support URL-safe Base64 options</li>
-            </ul>
-          </SurfaceCard>
-
-          <SurfaceCard>
-            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-              Important note
-            </h2>
-            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
-              Base64 is encoding, not encryption. It is useful for transport and
-              formatting compatibility, not for data security.
-            </p>
-          </SurfaceCard>
-
-          <SurfaceCard>
-            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-              Privacy
-            </h2>
-            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
-              Your input never leaves the browser. No server processing.
-            </p>
-          </SurfaceCard>
-        </div>
+      article={
+        <ToolContentCard title="How to use Base64 safely in production">
+          <Article />
+        </ToolContentCard>
       }
     >
-      <ToolContentCard
-        title="Base64 Encoder / Decoder"
-        description="Type or paste input, switch mode, and get instant output with validation."
-      >
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <ToolContentCard title="Base64 File & Text Studio" description="Transform text or binary files, validate payload structure, inspect decoded bytes, and export reusable implementation artifacts.">
         <Base64Client />
       </ToolContentCard>
-
-      <ToolContentCard title="About Base64">
-        <Article />
-      </ToolContentCard>
-    </ToolPageShell>
+    </ToolPage>
   );
 }

@@ -1,30 +1,37 @@
 export default function MarkdownPreviewerArticle() {
   return (
     <article className="prose prose-slate max-w-none dark:prose-invert">
-      <h2>What Markdown is used for</h2>
+      <h2>Preview Markdown before it reaches production</h2>
       <p>
-        Markdown is a lightweight writing format for READMEs, documentation, changelogs, notes, tutorials, issue templates, and API examples. It keeps the source text readable while still converting into structured HTML for publishing.
+        Markdown is used for repository READMEs, API references, release notes, runbooks, meeting notes, tutorials, and long-form content. A useful previewer should do more than convert headings and lists: it should make the document structure visible, surface publishing risks, and produce files that can be used outside the editor.
       </p>
 
-      <h2>Why live preview helps</h2>
+      <h2>A practical editing workflow</h2>
+      <ol>
+        <li>Start with a preset or open an existing Markdown or text file.</li>
+        <li>Write with live preview enabled, or switch to manual mode for large edits.</li>
+        <li>Review the document outline, link behavior, and production checks.</li>
+        <li>Export the original Markdown, a standalone styled HTML page, or a JSON quality report.</li>
+      </ol>
+
+      <h2>What the production checks cover</h2>
       <p>
-        A side-by-side preview makes editing faster because you can write on one side and immediately check headings, lists, links, tables, code blocks, and blockquotes on the other. This is especially useful when preparing GitHub READMEs, project docs, release notes, and internal guides.
+        The checks review the primary H1, heading hierarchy, duplicate section labels, fenced code blocks, code language labels, unsafe or placeholder links, image alt text, raw HTML, long lines, and overall editor size. These checks are practical heuristics rather than a replacement for a documentation review, but they catch common issues before publishing.
       </p>
 
-      <h2>Common syntax examples</h2>
+      <h2>Sanitized and browser-local</h2>
+      <p>
+        The source is processed in your browser and is not sent to a Darma server. Preview HTML is sanitized before it is inserted into the page, unsafe link protocols are blocked, and raw HTML is displayed as text instead of being executed. The standalone HTML export uses the sanitized output and includes responsive document styling.
+      </p>
+
+      <h2>Supported Markdown features</h2>
       <ul>
-        <li><code># Heading</code> creates a main heading.</li>
-        <li><code>**bold**</code> and <code>*italic*</code> add emphasis.</li>
-        <li><code>[label](https://example.com)</code> creates a link.</li>
-        <li><code>- item</code> creates a bullet list.</li>
-        <li><code>```js</code> starts a fenced code block.</li>
-        <li>Tables use pipes and a separator row, such as <code>| Name | Type |</code>.</li>
+        <li>H1 through H6 headings with unique anchor IDs.</li>
+        <li>Bold, italic, strikethrough, inline code, links, and images.</li>
+        <li>Ordered lists, bullet lists, and task list checkboxes.</li>
+        <li>Blockquotes, horizontal rules, fenced code blocks, and tables.</li>
+        <li>Optional GitHub-style single-line breaks and safe new-tab links.</li>
       </ul>
-
-      <h2>Privacy and security</h2>
-      <p>
-        Markdown is processed locally in your browser. The text is not uploaded to a server, and no server route is used. The generated preview is sanitized before rendering so pasted content cannot run unsafe scripts in the preview panel.
-      </p>
     </article>
   );
 }

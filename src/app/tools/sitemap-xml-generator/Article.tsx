@@ -2,22 +2,23 @@ export default function Article() {
   return (
     <article className="prose prose-slate max-w-none dark:prose-invert">
       <p>
-        A sitemap is a machine-readable XML file that lists the important URLs on a website. Search engines can use it to discover pages and understand optional metadata about when pages changed and how frequently they may update.
+        An XML sitemap lists canonical, indexable URLs that you want search engines to discover. This studio accepts plain URL lists or CSV rows, lets you edit metadata per URL, validates production constraints, and can split large sets into multiple sitemap files with an index.
       </p>
-
-      <h3>Required and optional fields</h3>
+      <h3>Input formats</h3>
       <p>
-        Each sitemap URL entry needs a <code>&lt;loc&gt;</code> value. Optional fields include <code>&lt;lastmod&gt;</code> for the last modified date, <code>&lt;changefreq&gt;</code> for a crawl hint, and <code>&lt;priority&gt;</code> for a relative importance hint from <code>0.0</code> to <code>1.0</code>.
+        Paste one absolute HTTP(S) URL per line, or use CSV columns in the order <code>loc,lastmod,changefreq,priority</code>. The URL is required. The other fields are optional and can inherit the defaults configured in the controls.
       </p>
-
-      <h3>Uploading sitemap.xml</h3>
+      <h3>Protocol limits and host consistency</h3>
       <p>
-        Save the generated output as <code>sitemap.xml</code> and upload it to the site root, for example <code>https://example.com/sitemap.xml</code>. You can also reference it from your <code>robots.txt</code> file with a <code>Sitemap:</code> directive.
+        A standard sitemap file supports up to 50,000 URLs and 50 MB uncompressed. URLs in one sitemap should normally belong to the same host. The production checks highlight invalid dates, priorities, mixed hosts, duplicate URLs, oversized values, and output splitting requirements.
       </p>
-
-      <h3>XML escaping and privacy</h3>
+      <h3>Publishing the generated files</h3>
       <p>
-        Sitemap XML values must be escaped and the file should be UTF-8 encoded. This generator escapes URL values before export and runs entirely in your browser; it does not crawl your website, fetch remote pages, or submit anything to search engines.
+        Upload <code>sitemap.xml</code>, or the generated sitemap files and <code>sitemap-index.xml</code>, to publicly accessible URLs. Reference the sitemap or index from <code>robots.txt</code>, then submit it through the relevant search-engine webmaster tools.
+      </p>
+      <h3>Metadata is a hint, not a command</h3>
+      <p>
+        Use <code>lastmod</code> only when it reflects a meaningful page change. Search engines may ignore <code>changefreq</code> and <code>priority</code>, so accurate canonical URLs and useful content remain more important than aggressive values.
       </p>
     </article>
   );

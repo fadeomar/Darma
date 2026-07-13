@@ -15,6 +15,7 @@ import {
   Palette,
   Play,
   RotateCcw,
+  Redo2,
   ShieldAlert,
   Sparkles,
   Timer,
@@ -36,7 +37,7 @@ import {
   type ChessAiMeta,
   type ChessAiMove,
 } from "./chessAi";
-import { getLegalMoves, getMaterialScore, getNextTurn, getTurnLabel, moveChessPiece, promotePawn } from "./chessEngine";
+import { getLegalMoves, getMaterialScore, getNextTurn, getPositionKey, getTurnLabel, moveChessPiece, promotePawn } from "./chessEngine";
 import { playChessSound, unlockChessAudio, type ChessSoundEvent } from "./chessSounds";
 import { commitChessMatchStarted, readChessMatchCount } from "./chessStorage";
 import type {
@@ -44,10 +45,12 @@ import type {
   ChessBoard,
   ChessColor,
   ChessCoord,
+  ChessDrawReason,
   ChessGameStatus,
   ChessMoveRecord,
   ChessMoveTarget,
   ChessPiece,
+  ChessPositionCounts,
   ChessPromotionRole,
   ChessRank,
   ChessSquare,
@@ -99,12 +102,20 @@ type ChessSnapshot = {
   capturedPieces: CapturedPiece[];
   pendingPromotion: PendingPromotion | null;
   timeLeft: ClockState;
+  halfmoveClock: number;
+  positionCounts: ChessPositionCounts;
+  drawReason: ChessDrawReason | null;
+  claimableDrawReason: ChessDrawReason | null;
   message: string;
 };
 
 function createClock(timeControl: TimeControlId): ClockState {
   const option = TIME_CONTROLS.find((candidate) => candidate.id === timeControl) ?? TIME_CONTROLS[0];
   return { white: option.seconds, black: option.seconds };
+}
+
+function createInitialPositionCounts(board: ChessBoard): ChessPositionCounts {
+  return { [getPositionKey(board, "white")]: 1 };
 }
 
 export function ChessMiniGame({ game }: { game: GameDefinition }) {
@@ -116,6 +127,12 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
   const [moveHistory, setMoveHistory] = useState<ChessMoveRecord[]>([]);
   const [capturedPieces, setCapturedPieces] = useState<CapturedPiece[]>([]);
   const [undoStack, setUndoStack] = useState<ChessSnapshot[]>([]);
+  const [redoStack, setRedoStack] = useState<ChessSnapshot[]>([]);
+  const [halfmoveClock, setHalfmoveClock] = useState(0);
+  const [positionCounts, setPositionCounts] = useState<ChessPositionCounts>(() => createInitialPositionCounts(createInitialChessBoard()));
+  const [drawReason, setDrawReason] = useState<ChessDrawReason | null>(null);
+  const [claimableDrawReason, setClaimableDrawReason] = useState<ChessDrawReason | null>(null);
+  const [computerMovePaused, setComputerMovePaused] = useState(false);
   const [boardOrientation, setBoardOrientation] = useState<BoardOrientation>("white");
   const [timeControl, setTimeControl] = useState<TimeControlId>("untimed");
   const [timeLeft, setTimeLeft] = useState<ClockState>(() => createClock("untimed"));
@@ -162,7 +179,7 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
   }, [computerThinking, computerThinkingStartedAt]);
 
   useEffect(() => {
-    if (gamePhase !== "playing" || isGameOver || pendingPromotion || (status !== "playing" && status !== "check")) return;
+    if (gamePhase !== "playing" || isGameOver || pendingPromotion || computerMovePaused || (status !== "playing" && status !== "check")) return;
     if (timeLeft[turn] === null) return;
 
     const timerId = window.setInterval(() => {
@@ -184,7 +201,7 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
     }, 1000);
 
     return () => window.clearInterval(timerId);
-  }, [gamePhase, humanColor, isGameOver, pendingPromotion, soundEnabled, status, timeLeft, turn]);
+  }, [computerMovePaused, gamePhase, humanColor, isGameOver, pendingPromotion, soundEnabled, status, timeLeft, turn]);
 
   const selectedSquare = useMemo(
     () => board.flat().find((square) => square.coord === selectedCoord) ?? null,
@@ -233,13 +250,33 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
     capturedPieces,
     pendingPromotion,
     timeLeft,
+    halfmoveClock,
+    positionCounts,
+    drawReason,
+    claimableDrawReason,
     message,
-  }), [board, capturedPieces, message, moveHistory, pendingPromotion, selectedCoord, status, timeLeft, turn, winner]);
+  }), [
+    board,
+    capturedPieces,
+    claimableDrawReason,
+    drawReason,
+    halfmoveClock,
+    message,
+    moveHistory,
+    pendingPromotion,
+    positionCounts,
+    selectedCoord,
+    status,
+    timeLeft,
+    turn,
+    winner,
+  ]);
 
   const startMatch = useCallback((nextHumanColor: ChessColor = humanColor, nextDifficulty: ChessAiDifficulty = aiDifficulty, nextTimeControl: TimeControlId = timeControl) => {
+    const nextBoard = createInitialChessBoard();
     setHumanColor(nextHumanColor);
     setAiDifficulty(nextDifficulty);
-    setBoard(createInitialChessBoard());
+    setBoard(nextBoard);
     setSelectedCoord(null);
     setTurn("white");
     setStatus("playing");
@@ -247,6 +284,12 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
     setMoveHistory([]);
     setCapturedPieces([]);
     setUndoStack([]);
+    setRedoStack([]);
+    setHalfmoveClock(0);
+    setPositionCounts(createInitialPositionCounts(nextBoard));
+    setDrawReason(null);
+    setClaimableDrawReason(null);
+    setComputerMovePaused(false);
     setPendingPromotion(null);
     setTimeLeft(createClock(nextTimeControl));
     setBoardOrientation(nextHumanColor);
@@ -265,7 +308,8 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
   }, [aiDifficulty, humanColor, soundEnabled, timeControl]);
 
   const openSetup = useCallback(() => {
-    setBoard(createInitialChessBoard());
+    const nextBoard = createInitialChessBoard();
+    setBoard(nextBoard);
     setSelectedCoord(null);
     setTurn("white");
     setStatus("ready");
@@ -273,6 +317,12 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
     setMoveHistory([]);
     setCapturedPieces([]);
     setUndoStack([]);
+    setRedoStack([]);
+    setHalfmoveClock(0);
+    setPositionCounts(createInitialPositionCounts(nextBoard));
+    setDrawReason(null);
+    setClaimableDrawReason(null);
+    setComputerMovePaused(false);
     setPendingPromotion(null);
     setTimeLeft(createClock(timeControl));
     setBoardOrientation(humanColor);
@@ -290,7 +340,7 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
     openSetup();
   }, [openSetup]);
 
-  const restoreSnapshot = useCallback((snapshot: ChessSnapshot) => {
+  const restoreSnapshot = useCallback((snapshot: ChessSnapshot, pauseComputer = false) => {
     setBoard(snapshot.board);
     setSelectedCoord(snapshot.selectedCoord);
     setTurn(snapshot.turn);
@@ -300,21 +350,67 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
     setCapturedPieces(snapshot.capturedPieces);
     setPendingPromotion(snapshot.pendingPromotion);
     setTimeLeft(snapshot.timeLeft);
+    setHalfmoveClock(snapshot.halfmoveClock);
+    setPositionCounts(snapshot.positionCounts);
+    setDrawReason(snapshot.drawReason);
+    setClaimableDrawReason(snapshot.claimableDrawReason);
     setMessage(snapshot.message);
     setComputerThinking(false);
     setComputerThinkingStartedAt(null);
     setComputerThinkingElapsedMs(0);
-  }, []);
+    setComputerMovePaused(
+      pauseComputer &&
+      snapshot.turn === computerColor &&
+      (snapshot.status === "playing" || snapshot.status === "check") &&
+      !snapshot.pendingPromotion,
+    );
+  }, [computerColor]);
 
   const undoLastMove = useCallback(() => {
-    setUndoStack((stack) => {
-      const [snapshot, ...rest] = stack;
-      if (!snapshot) return stack;
-      restoreSnapshot({ ...snapshot, selectedCoord: null, pendingPromotion: null, message: `Move undone. ${getTurnLabel(snapshot.turn)} to move.` });
-      playChessSound(soundEnabled, "move");
-      return rest;
-    });
-  }, [restoreSnapshot, soundEnabled]);
+    const [snapshot, ...rest] = undoStack;
+    if (!snapshot) return;
+
+    setUndoStack(rest);
+    setRedoStack((stack) => [snapshotCurrentState(), ...stack].slice(0, 80));
+    restoreSnapshot(
+      { ...snapshot, selectedCoord: null, message: `Move undone. ${getTurnLabel(snapshot.turn)} to move.` },
+      true,
+    );
+    playChessSound(soundEnabled, "move");
+  }, [restoreSnapshot, snapshotCurrentState, soundEnabled, undoStack]);
+
+  const redoLastMove = useCallback(() => {
+    const [snapshot, ...rest] = redoStack;
+    if (!snapshot) return;
+
+    setRedoStack(rest);
+    setUndoStack((stack) => [snapshotCurrentState(), ...stack].slice(0, 80));
+    restoreSnapshot(
+      { ...snapshot, selectedCoord: null, message: `Move restored. ${getTurnLabel(snapshot.turn)} to move.` },
+      true,
+    );
+    playChessSound(soundEnabled, "move");
+  }, [redoStack, restoreSnapshot, snapshotCurrentState, soundEnabled]);
+
+  const continueComputerMove = useCallback(() => {
+    setComputerMovePaused(false);
+    setMessage(`${difficultyLabel} computer will calculate a new reply from this position.`);
+  }, [difficultyLabel]);
+
+  const finishAsDraw = useCallback((reason: ChessDrawReason, nextMessage: string) => {
+    setStatus("draw");
+    setWinner(null);
+    setDrawReason(reason);
+    setClaimableDrawReason(null);
+    setSelectedCoord(null);
+    setPendingPromotion(null);
+    setComputerThinking(false);
+    setComputerThinkingStartedAt(null);
+    setComputerThinkingElapsedMs(0);
+    setComputerMovePaused(false);
+    playChessSound(soundEnabled, "draw");
+    setMessage(nextMessage);
+  }, [soundEnabled]);
 
   const finalizeMove = useCallback((
     result: NonNullable<ReturnType<typeof moveChessPiece>>,
@@ -323,11 +419,29 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
     options: { saveUndo: boolean; actor: "human" | "computer"; snapshot?: ChessSnapshot },
   ) => {
     if (options.saveUndo && options.snapshot) {
-      setUndoStack((stack) => [options.snapshot!, ...stack].slice(0, 40));
+      setUndoStack((stack) => [options.snapshot!, ...stack].slice(0, 80));
+      setRedoStack([]);
     }
+    setComputerMovePaused(false);
+
+    const applyCompletedRuleState = (completed: {
+      halfmoveClock: number;
+      positionKey: string;
+      positionCount: number;
+      drawReason: ChessDrawReason | null;
+      claimableDrawReason: ChessDrawReason | null;
+    }) => {
+      setHalfmoveClock(completed.halfmoveClock);
+      setPositionCounts((counts) => ({ ...counts, [completed.positionKey]: completed.positionCount }));
+      setDrawReason(completed.drawReason);
+      setClaimableDrawReason(completed.claimableDrawReason);
+    };
 
     if (options.actor === "computer" && result.pendingPromotion) {
-      const promotionResult = promotePawn(result.board, result.pendingPromotion, "queen");
+      const promotionResult = promotePawn(result.board, result.pendingPromotion, "queen", {
+        halfmoveClock: result.halfmoveClock,
+        positionCounts: options.snapshot?.positionCounts,
+      });
       if (promotionResult) {
         setBoard(promotionResult.board);
         setMoveHistory((history) => [promotionResult.record, ...history].slice(0, 80));
@@ -337,8 +451,16 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
         setSelectedCoord(null);
         setPendingPromotion(null);
         setTurn(promotionResult.winner ? movingColor : promotionResult.nextTurn);
+        applyCompletedRuleState(promotionResult);
         playChessSound(soundEnabled, getSoundForMove(promotionResult.record, promotionResult.status, promotionResult.winner, humanColor));
-        setMessage(`Computer promoted to queen. ${buildMoveMessage(promotionResult.record, promotionResult.status, promotionResult.nextTurn, promotionResult.winner)}`);
+        setMessage(`Computer promoted to queen. ${buildMoveMessage(
+          promotionResult.record,
+          promotionResult.status,
+          promotionResult.nextTurn,
+          promotionResult.winner,
+          promotionResult.drawReason,
+          promotionResult.claimableDrawReason,
+        )}`);
         return;
       }
     }
@@ -351,28 +473,41 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
     setWinner(result.winner);
     setStatus(result.status);
     setSelectedCoord(null);
+    setHalfmoveClock(result.halfmoveClock);
+    setDrawReason(result.drawReason);
+    setClaimableDrawReason(result.claimableDrawReason);
 
     if (result.pendingPromotion) {
       setPendingPromotion(result.pendingPromotion);
+      setDrawReason(null);
+      setClaimableDrawReason(null);
       setMessage(`${readablePiece(result.record.piece)} reached ${result.record.to}. Choose promotion: queen, rook, bishop, or knight.`);
       playChessSound(soundEnabled, "move");
       return;
     }
 
+    if (result.positionKey && result.positionCount !== undefined) {
+      setPositionCounts((counts) => ({ ...counts, [result.positionKey!]: result.positionCount! }));
+    }
     setTurn(result.winner ? movingColor : nextTurn);
     playChessSound(soundEnabled, getSoundForMove(result.record, result.status, result.winner, humanColor));
-    setMessage(buildMoveMessage(result.record, result.status, nextTurn, result.winner));
+    setMessage(buildMoveMessage(
+      result.record,
+      result.status,
+      nextTurn,
+      result.winner,
+      result.drawReason,
+      result.claimableDrawReason,
+    ));
   }, [humanColor, soundEnabled]);
 
   // Apply the computer's chosen move against the exact position it analyzed. Taking the
-  // analyzed board/turn/lastMove as explicit arguments guards against stale state and
-  // keeps this callback stable, so the thinking effect never reschedules itself.
+  // analyzed snapshot as an explicit argument guards against stale state and gives undo
+  // a precise pre-move checkpoint for every individual ply.
   const revealComputerMove = useCallback(
     (
       aiMove: ChessAiMove | null,
-      analysisBoard: ChessBoard,
-      analysisTurn: ChessColor,
-      analysisLastMove: ChessMoveRecord | null,
+      analysisSnapshot: ChessSnapshot,
       visibleMs: number,
     ) => {
       const clearThinking = () => {
@@ -388,7 +523,17 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
         return;
       }
 
-      const result = moveChessPiece(analysisBoard, aiMove.from, aiMove.to, analysisTurn, { lastMove: analysisLastMove });
+      const result = moveChessPiece(
+        analysisSnapshot.board,
+        aiMove.from,
+        aiMove.to,
+        analysisSnapshot.turn,
+        {
+          lastMove: analysisSnapshot.moveHistory[0] ?? null,
+          halfmoveClock: analysisSnapshot.halfmoveClock,
+          positionCounts: analysisSnapshot.positionCounts,
+        },
+      );
       if (!result) {
         clearThinking();
         setLastComputerThinkMs(visibleMs);
@@ -397,8 +542,12 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
         return;
       }
 
-      const nextTurn = getNextTurn(analysisTurn);
-      finalizeMove(result, analysisTurn, nextTurn, { saveUndo: false, actor: "computer" });
+      const nextTurn = getNextTurn(analysisSnapshot.turn);
+      finalizeMove(result, analysisSnapshot.turn, nextTurn, {
+        saveUndo: true,
+        actor: "computer",
+        snapshot: analysisSnapshot,
+      });
 
       clearThinking();
       setLastComputerThinkMs(visibleMs);
@@ -418,6 +567,7 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
     gamePhase === "playing" &&
     !isGameOver &&
     !pendingPromotion &&
+    !computerMovePaused &&
     (status === "playing" || status === "check") &&
     turn === computerColor;
 
@@ -428,15 +578,38 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
   useEffect(() => {
     if (!isComputerTurn) return;
 
+    if (claimableDrawReason) {
+      finishAsDraw(
+        claimableDrawReason,
+        `Computer claimed a draw by ${readableDrawReason(claimableDrawReason).toLowerCase()}.`,
+      );
+      return;
+    }
+
     let cancelled = false;
     const wallStart = Date.now();
     const perfNow = () => (typeof performance !== "undefined" ? performance.now() : Date.now());
     const perfStart = perfNow();
 
-    // Snapshot the exact position the AI analyzes so the applied move can never use stale state.
-    const analysisBoard = board;
-    const analysisTurn = turn;
-    const analysisLastMove = lastMove;
+    // Snapshot the exact position and rule counters the AI analyzes. The same snapshot
+    // is restored by Undo, so a computer move is one reversible step just like a human move.
+    const analysisSnapshot: ChessSnapshot = {
+      board,
+      selectedCoord: null,
+      turn,
+      status,
+      winner,
+      moveHistory,
+      capturedPieces,
+      pendingPromotion,
+      timeLeft,
+      halfmoveClock,
+      positionCounts,
+      drawReason,
+      claimableDrawReason,
+      message,
+    };
+    const analysisLastMove = moveHistory[0] ?? null;
     const targetVisibleMs = pickVisibleThinkMs(aiDifficulty);
 
     setComputerThinking(true);
@@ -451,13 +624,13 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
     // move once the intentional (but capped) visible delay has elapsed.
     const computeTimer = window.setTimeout(() => {
       if (cancelled) return;
-      const aiMove = chooseComputerMove(analysisBoard, analysisTurn, aiDifficulty, { lastMove: analysisLastMove });
+      const aiMove = chooseComputerMove(analysisSnapshot.board, analysisSnapshot.turn, aiDifficulty, { lastMove: analysisLastMove });
       const computeMs = perfNow() - perfStart;
       const wait = Math.min(MAX_THINKING_MS, Math.max(targetVisibleMs, computeMs)) - computeMs;
 
       revealTimer = window.setTimeout(() => {
         if (cancelled) return;
-        revealComputerMove(aiMove, analysisBoard, analysisTurn, analysisLastMove, Date.now() - wallStart);
+        revealComputerMove(aiMove, analysisSnapshot, Date.now() - wallStart);
       }, Math.max(0, wait));
     }, 30);
 
@@ -466,10 +639,19 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
       window.clearTimeout(computeTimer);
       window.clearTimeout(revealTimer);
     };
-    // `board`/`turn`/`lastMove` are constant for the duration of a computer turn (they
-    // only change when the move is applied, which flips `isComputerTurn` to false).
+    // The position snapshot is intentionally keyed by `positionId`; the board and rule
+    // state remain constant until the computer move is revealed.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isComputerTurn, positionId, aiDifficulty, computerColor, difficultyLabel, revealComputerMove]);
+  }, [
+    isComputerTurn,
+    positionId,
+    aiDifficulty,
+    computerColor,
+    difficultyLabel,
+    claimableDrawReason,
+    finishAsDraw,
+    revealComputerMove,
+  ]);
 
   // Safety net: if the turn leaves the computer without a reveal (timeout, resign, draw,
   // or undo mid-think), make sure the thinking indicator is cleared.
@@ -495,7 +677,7 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
       }
 
       if (isGameOver) {
-        setMessage(getGameOverMessage(status, winner));
+        setMessage(getGameOverMessage(status, winner, drawReason));
         return;
       }
 
@@ -509,7 +691,7 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
         const targetMove = legalMoveByCoord.get(square.coord);
 
         if (targetMove) {
-          const result = moveChessPiece(board, selectedCoord, square.coord, turn, { lastMove });
+          const result = moveChessPiece(board, selectedCoord, square.coord, turn, { lastMove, halfmoveClock, positionCounts });
           if (!result) {
             setMessage("That move is no longer legal. Try another highlighted square.");
             playChessSound(soundEnabled, "invalid");
@@ -547,13 +729,13 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
 
       setMessage(selectedCoord ? "That square is not a legal target for the selected piece." : `Select one of your ${humanColor} pieces to start the move.`);
     },
-    [board, computerThinking, finalizeMove, gamePhase, humanColor, isGameOver, isHumanTurn, lastMove, legalMoveByCoord, pendingPromotion, selectedCoord, snapshotCurrentState, soundEnabled, status, turn, winner],
+    [board, computerThinking, drawReason, finalizeMove, gamePhase, halfmoveClock, humanColor, isGameOver, isHumanTurn, lastMove, legalMoveByCoord, pendingPromotion, positionCounts, selectedCoord, snapshotCurrentState, soundEnabled, status, turn, winner],
   );
 
   const handlePromotionChoice = useCallback((role: ChessPromotionRole) => {
     if (!pendingPromotion) return;
 
-    const result = promotePawn(board, pendingPromotion, role);
+    const result = promotePawn(board, pendingPromotion, role, { halfmoveClock, positionCounts });
     if (!result) {
       setMessage("Promotion failed. Undo the move or start a new game.");
       playChessSound(soundEnabled, "invalid");
@@ -566,9 +748,20 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
     setWinner(result.winner);
     setStatus(result.status);
     setTurn(result.winner ? pendingPromotion.color : result.nextTurn);
+    setHalfmoveClock(result.halfmoveClock);
+    setPositionCounts((counts) => ({ ...counts, [result.positionKey]: result.positionCount }));
+    setDrawReason(result.drawReason);
+    setClaimableDrawReason(result.claimableDrawReason);
     playChessSound(soundEnabled, getSoundForMove(result.record, result.status, result.winner, humanColor));
-    setMessage(buildMoveMessage(result.record, result.status, result.nextTurn, result.winner));
-  }, [board, humanColor, pendingPromotion, soundEnabled]);
+    setMessage(buildMoveMessage(
+      result.record,
+      result.status,
+      result.nextTurn,
+      result.winner,
+      result.drawReason,
+      result.claimableDrawReason,
+    ));
+  }, [board, halfmoveClock, humanColor, pendingPromotion, positionCounts, soundEnabled]);
 
   const handleSquareKeyDown = useCallback(
     (event: KeyboardEvent<HTMLButtonElement>, square: ChessSquare) => {
@@ -607,20 +800,18 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
 
   const agreeDraw = useCallback(() => {
     if (isGameOver || gamePhase !== "playing") return;
-    setStatus("draw");
-    setWinner(null);
-    setSelectedCoord(null);
-    setPendingPromotion(null);
-    setComputerThinking(false);
-    setComputerThinkingStartedAt(null);
-    setComputerThinkingElapsedMs(0);
-    playChessSound(soundEnabled, "draw");
-    setMessage("Game ended as a draw.");
-  }, [gamePhase, isGameOver, soundEnabled]);
+    const reason = claimableDrawReason ?? "agreement";
+    finishAsDraw(
+      reason,
+      claimableDrawReason
+        ? `Draw claimed by ${readableDrawReason(claimableDrawReason).toLowerCase()}.`
+        : "Game ended as a draw by agreement.",
+    );
+  }, [claimableDrawReason, finishAsDraw, gamePhase, isGameOver]);
 
   const statusTone = getStatusTone(status);
   const headline = getHeadline(status, turn, winner, gamePhase, computerThinking, humanColor);
-  const subtext = getStatusSubtext(status, turn, winner, pendingPromotion, gamePhase, computerThinking, humanColor, computerThinkingElapsedMs);
+  const subtext = getStatusSubtext(status, turn, winner, pendingPromotion, gamePhase, computerThinking, humanColor, computerThinkingElapsedMs, drawReason, claimableDrawReason, computerMovePaused);
 
   return (
     <div className={cn("dc-shell dc-shell--phase3", `dc-board-theme--${boardTheme}`, !showCoordinates && "dc-shell--hide-cell-coordinates")}>
@@ -645,6 +836,14 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
           <Button variant="ghost" size="sm" onClick={undoLastMove} disabled={undoStack.length === 0 || computerThinking} leftIcon={<Undo2 className="h-4 w-4" aria-hidden />}>
             Undo
           </Button>
+          <Button variant="ghost" size="sm" onClick={redoLastMove} disabled={redoStack.length === 0 || computerThinking} leftIcon={<Redo2 className="h-4 w-4" aria-hidden />}>
+            Redo
+          </Button>
+          {computerMovePaused ? (
+            <Button variant="secondary" size="sm" onClick={continueComputerMove} leftIcon={<Bot className="h-4 w-4" aria-hidden />}>
+              Continue AI
+            </Button>
+          ) : null}
           <Button
             variant="ghost"
             size="sm"
@@ -707,6 +906,7 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
                   status={status}
                   winner={winner}
                   humanColor={humanColor}
+                  drawReason={drawReason}
                   moves={moveHistory.length}
                   materialLead={materialLead}
                   onPlayAgain={() => startMatch(humanColor, aiDifficulty, timeControl)}
@@ -828,7 +1028,7 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
                       {computerThinking ? <Bot className="h-4 w-4" aria-hidden /> : turn === humanColor ? <User className="h-4 w-4" aria-hidden /> : <UsersIconFallback />} Current turn
                     </span>
                     <strong>{winner ? `${getTurnLabel(winner)} wins` : status === "draw" || status === "stalemate" ? "Draw" : turn === humanColor ? "Your move" : "Computer move"}</strong>
-                    <p>{pendingPromotion ? "Promotion choice required." : winner ? readableStatus(status) : computerThinking ? "The computer is calculating its reply." : status === "check" ? "King is in check; escape the threat." : turn === humanColor ? "Only your color can move now." : "Wait for the computer response."}</p>
+                    <p>{pendingPromotion ? "Promotion choice required." : winner ? readableStatus(status) : status === "draw" && drawReason ? readableDrawReason(drawReason) : computerMovePaused ? "History restored. Continue AI when you are ready." : computerThinking ? "The computer is calculating its reply." : claimableDrawReason ? `${readableDrawReason(claimableDrawReason)} is available.` : status === "check" ? "King is in check; escape the threat." : turn === humanColor ? "Only your color can move now." : "Wait for the computer response."}</p>
                     {computerThinking ? (
                       <p className="dc-think-live"><span className="dc-thinking-spinner dc-thinking-spinner--sm" aria-hidden /> Thinking {formatThinkTime(computerThinkingElapsedMs)}…</p>
                     ) : lastComputerThinkMs !== null ? (
@@ -848,7 +1048,7 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
 
                   <div className="dc-action-grid">
                     <Button variant="ghost" size="sm" onClick={agreeDraw} disabled={isGameOver || computerThinking} leftIcon={<Handshake className="h-4 w-4" aria-hidden />}>
-                      Draw
+                      {claimableDrawReason ? "Claim draw" : "Draw"}
                     </Button>
                     <Button variant="ghost" size="sm" onClick={resignGame} disabled={isGameOver || computerThinking} leftIcon={<Flag className="h-4 w-4" aria-hidden />}>
                       Resign
@@ -876,7 +1076,7 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
                     <span className="dc-panel-kicker">
                       <Keyboard className="h-4 w-4" aria-hidden /> Controls
                     </span>
-                    <p>Click/tap one of your pieces, then a highlighted square. Keyboard users can tab to the board, use arrow keys between squares, and press Enter/Space to select.</p>
+                    <p>Click/tap one of your pieces, then a highlighted square. Undo and Redo step through individual human or computer moves; when history lands on the computer turn, press Continue AI after reviewing the position.</p>
                   </div>
 
                   <CapturedStrip title="White captured" pieces={whiteCaptures} />
@@ -910,8 +1110,8 @@ export function ChessMiniGame({ game }: { game: GameDefinition }) {
         <span className="dc-guide-title">
           <Trophy className="h-4 w-4" aria-hidden /> QA-ready scope
         </span>
-        <span>Computer opponent, start/end screens, fixed recent-moves panel, board themes, coordinate toggle, and game sounds are included with standard chess rules.</span>
-        <span className="dc-guide-note">Match tools: undo, board flip, draw, resign, and optional 5/10 minute clocks.</span>
+        <span>Computer opponent, legal-move revalidation, automatic dead-position/fivefold/75-move draws, claimable threefold/50-move draws, and standard checkmate/stalemate handling are included.</span>
+        <span className="dc-guide-note">Match tools: multi-step undo/redo per move, paused AI history review, board flip, draw, resign, and optional 5/10 minute clocks.</span>
         <span className="dc-guide-note">Matches started: {hydrated ? matchCount : 0}</span>
       </div>
     </div>
@@ -1062,6 +1262,7 @@ function EndScreen({
   status,
   winner,
   humanColor,
+  drawReason,
   moves,
   materialLead,
   onPlayAgain,
@@ -1070,13 +1271,20 @@ function EndScreen({
   status: ChessGameStatus;
   winner: ChessColor | null;
   humanColor: ChessColor;
+  drawReason: ChessDrawReason | null;
   moves: number;
   materialLead: string;
   onPlayAgain: () => void;
   onChangeSettings: () => void;
 }) {
-  const title = getEndTitle(status, winner, humanColor);
-  const detail = winner ? `${getTurnLabel(winner)} finished the game by ${readableStatus(status).toLowerCase()}.` : status === "stalemate" ? "No legal move is available, so the game is a draw." : "The match finished without a winner.";
+  const title = getEndTitle(status, winner, humanColor, drawReason);
+  const detail = winner
+    ? `${getTurnLabel(winner)} finished the game by ${readableStatus(status).toLowerCase()}.`
+    : status === "stalemate"
+      ? "No legal move is available, so the game is a draw."
+      : drawReason
+        ? `${readableDrawReason(drawReason)} ended the game.`
+        : "The match finished without a winner.";
 
   return (
     <div className="dc-end-screen" role="status" aria-live="polite">
@@ -1185,6 +1393,19 @@ function readableStatus(currentStatus: ChessGameStatus): string {
   return labels[currentStatus];
 }
 
+function readableDrawReason(reason: ChessDrawReason): string {
+  const labels: Record<ChessDrawReason, string> = {
+    agreement: "Draw by agreement",
+    "dead-position": "Draw by dead position",
+    "threefold-repetition": "Draw by threefold repetition",
+    "fivefold-repetition": "Draw by fivefold repetition",
+    "fifty-move-rule": "Draw by the 50-move rule",
+    "seventy-five-move-rule": "Draw by the 75-move rule",
+  };
+
+  return labels[reason];
+}
+
 function getStatusTone(currentStatus: ChessGameStatus): "soft" | "success" | "warning" | "danger" | "outline" {
   if (["checkmate", "resigned", "timeout"].includes(currentStatus)) return "danger";
   if (["check", "stalemate", "promotion"].includes(currentStatus)) return "warning";
@@ -1204,26 +1425,45 @@ function getHeadline(currentStatus: ChessGameStatus, turn: ChessColor, winner: C
   return turn === humanColor ? "Your move" : "Computer to move";
 }
 
-function getStatusSubtext(currentStatus: ChessGameStatus, turn: ChessColor, winner: ChessColor | null, pendingPromotion: PendingPromotion | null, phase: GamePhase, computerThinking: boolean, humanColor: ChessColor, thinkingElapsedMs: number): string {
+function getStatusSubtext(
+  currentStatus: ChessGameStatus,
+  turn: ChessColor,
+  winner: ChessColor | null,
+  pendingPromotion: PendingPromotion | null,
+  phase: GamePhase,
+  computerThinking: boolean,
+  humanColor: ChessColor,
+  thinkingElapsedMs: number,
+  drawReason: ChessDrawReason | null,
+  claimableDrawReason: ChessDrawReason | null,
+  computerMovePaused: boolean,
+): string {
   if (phase === "setup") return "Choose side, difficulty, theme, coordinates, sound, and clock before entering the board.";
+  if (computerMovePaused) return "A computer-turn position was restored. Review or keep stepping through history, then press Continue AI.";
   if (computerThinking) return `The AI is calculating legal replies. Thinking time: ${formatThinkTime(thinkingElapsedMs)}.`;
   if (pendingPromotion) return "Choose queen, rook, bishop, or knight before the next turn begins.";
   if (currentStatus === "checkmate" && winner) return winner === humanColor ? "The computer has no legal escape." : "Your king has no legal escape.";
   if (currentStatus === "resigned" && winner) return winner === humanColor ? "The computer resigned." : "The match ended by resignation.";
   if (currentStatus === "timeout" && winner) return "A clock reached zero.";
-  if (currentStatus === "draw") return "The match ended as a draw.";
+  if (currentStatus === "draw") return drawReason ? `${readableDrawReason(drawReason)}.` : "The match ended as a draw.";
   if (currentStatus === "stalemate") return "The current player has no legal move but is not in check.";
+  if (claimableDrawReason) return `${readableDrawReason(claimableDrawReason)} is now claimable from the Draw button.`;
   if (currentStatus === "check") return "Only moves that protect the king are allowed.";
   return turn === humanColor ? PLAYER_HINTS[turn] : "Wait for the computer to calculate and respond automatically.";
 }
 
-function getGameOverMessage(currentStatus: ChessGameStatus, winner: ChessColor | null): string {
+function getGameOverMessage(currentStatus: ChessGameStatus, winner: ChessColor | null, drawReason: ChessDrawReason | null): string {
   if (winner) return `${getTurnLabel(winner)} already won by ${readableStatus(currentStatus).toLowerCase()}. Start a new game to play again.`;
+  if (currentStatus === "stalemate") return "The game already ended by stalemate. Start a new game to play again.";
+  if (drawReason) return `${readableDrawReason(drawReason)} already ended the game. Start a new game to play again.`;
   return "The match is finished. Start a new game to play again.";
 }
 
-function getEndTitle(currentStatus: ChessGameStatus, winner: ChessColor | null, humanColor: ChessColor): string {
-  if (!winner) return currentStatus === "stalemate" ? "Draw by stalemate" : "Draw";
+function getEndTitle(currentStatus: ChessGameStatus, winner: ChessColor | null, humanColor: ChessColor, drawReason: ChessDrawReason | null): string {
+  if (!winner) {
+    if (currentStatus === "stalemate") return "Draw by stalemate";
+    return drawReason ? readableDrawReason(drawReason) : "Draw";
+  }
   return winner === humanColor ? "You won" : "Computer won";
 }
 
@@ -1232,6 +1472,8 @@ function buildMoveMessage(
   nextStatus: ChessGameStatus,
   nextTurn: ChessColor,
   winner: ChessColor | null,
+  drawReason: ChessDrawReason | null = null,
+  claimableDrawReason: ChessDrawReason | null = null,
 ): string {
   const captureText = move.captured ? ` and captured ${readablePiece(move.captured)}` : "";
   const promotionText = move.promotedTo ? ` Promotion: ${move.promotedTo}.` : "";
@@ -1240,7 +1482,9 @@ function buildMoveMessage(
 
   if (nextStatus === "checkmate" && winner) return `${base} Checkmate — ${getTurnLabel(winner)} wins.`;
   if (nextStatus === "stalemate") return `${base} Stalemate — draw.`;
+  if (nextStatus === "draw" && drawReason) return `${base} ${readableDrawReason(drawReason)}.`;
   if (nextStatus === "check") return `${base} ${getTurnLabel(nextTurn)} is in check.`;
+  if (claimableDrawReason) return `${base} ${getTurnLabel(nextTurn)} to move. ${readableDrawReason(claimableDrawReason)} can be claimed.`;
   return `${base} ${getTurnLabel(nextTurn)} to move.`;
 }
 

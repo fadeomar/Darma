@@ -1,59 +1,119 @@
 import { describe, expect, it } from "vitest";
-import { computeSplit, formatMoney } from "./split";
+import { DEFAULT_TIP_INPUT } from "./presets";
+import {
+  buildGuestCsv,
+  buildJavaScriptSnippet,
+  buildScenarioCsv,
+  buildTipChecks,
+  buildTipScenarios,
+  buildTipSummaryMarkdown,
+  computeSplit,
+  getCurrencyMinorDigits,
+  validateTipInput,
+} from "./split";
 
-describe("computeSplit", () => {
-  it("computes tip, total, and per-person share", () => {
-    const result = computeSplit({ bill: 100, tipPercent: 20, people: 4, roundUp: false });
-    expect(result).not.toBeNull();
-    expect(result!.tipAmount).toBe(20);
-    expect(result!.total).toBe(120);
-    expect(result!.perPerson).toBe(30);
-    expect(result!.perPersonBill).toBe(25);
-    expect(result!.perPersonTip).toBe(5);
+describe("tip and bill split logic", () => {
+  it("calculates tax, tip, and total using the selected basis", () => {
+    const result = computeSplit({ ...DEFAULT_TIP_INPUT, subtotal: 100, taxPercent: 10, servicePercent: 0, tipPercent: 20, people: 2 });
+    expect(result?.taxAmount).toBe(10);
+    expect(result?.tipBasisAmount).toBe(110);
+    expect(result?.tipAmount).toBe(22);
+    expect(result?.totalBeforeRounding).toBe(132);
+    expect(result?.totalCollected).toBe(132);
   });
 
-  it("rounds each share up to the next whole unit when asked", () => {
-    // 100 + 15% = 115, /3 = 38.333... -> rounded up to 39
-    const result = computeSplit({ bill: 100, tipPercent: 15, people: 3, roundUp: true });
-    expect(result!.perPerson).toBe(39);
-    expect(result!.rounded).toBe(true);
-    expect(result!.totalCollected).toBe(117);
+  it("supports subtotal-only tips", () => {
+    const result = computeSplit({ ...DEFAULT_TIP_INPUT, subtotal: 100, taxPercent: 10, tipPercent: 20, tipBasis: "subtotal" });
+    expect(result?.tipAmount).toBe(20);
   });
 
-  it("does not flag rounding when the share is already whole", () => {
-    const result = computeSplit({ bill: 100, tipPercent: 20, people: 4, roundUp: true });
-    expect(result!.perPerson).toBe(30);
-    expect(result!.rounded).toBe(false);
+  it("can include service charge in the tip basis", () => {
+    const result = computeSplit({ ...DEFAULT_TIP_INPUT, subtotal: 100, taxPercent: 10, servicePercent: 10, tipPercent: 20, tipBasis: "pretip-total" });
+    expect(result?.tipBasisAmount).toBe(120);
+    expect(result?.tipAmount).toBe(24);
   });
 
-  it("handles a zero tip", () => {
-    const result = computeSplit({ bill: 50, tipPercent: 0, people: 2, roundUp: false });
-    expect(result!.tipAmount).toBe(0);
-    expect(result!.perPerson).toBe(25);
+  it("distributes indivisible minor units without losing the bill total", () => {
+    const result = computeSplit({ ...DEFAULT_TIP_INPUT, subtotal: 10, taxPercent: 0, tipPercent: 0, people: 3, roundMode: "fair" });
+    expect(result?.guestShares.map((share) => share.finalShare)).toEqual([3.34, 3.33, 3.33]);
+    expect(result?.totalCollected).toBe(10);
   });
 
-  it("rounds cents correctly", () => {
-    const result = computeSplit({ bill: 53.45, tipPercent: 18, people: 2, roundUp: false });
-    // tip = 9.621 -> 9.62, total = 63.07, /2 = 31.535 -> 31.54
-    expect(result!.tipAmount).toBe(9.62);
-    expect(result!.total).toBe(63.07);
-    expect(result!.perPerson).toBe(31.54);
+  it("supports weighted guest shares", () => {
+    const result = computeSplit({
+      ...DEFAULT_TIP_INPUT,
+      subtotal: 90,
+      taxPercent: 0,
+      tipPercent: 0,
+      splitMode: "weighted",
+      guests: [
+        { id: "a", name: "Adult", weight: 2 },
+        { id: "b", name: "Child", weight: 1 },
+      ],
+    });
+    expect(result?.guestShares.map((share) => share.finalShare)).toEqual([60, 30]);
+    expect(result?.guestShares[0].sharePercent).toBeCloseTo(66.6667, 3);
   });
 
-  it("rejects invalid input", () => {
-    expect(computeSplit({ bill: -1, tipPercent: 10, people: 2, roundUp: false })).toBeNull();
-    expect(computeSplit({ bill: 10, tipPercent: 10, people: 0, roundUp: false })).toBeNull();
-    expect(computeSplit({ bill: 10, tipPercent: Number.NaN, people: 2, roundUp: false })).toBeNull();
+  it("rounds every share upward to whole currency units", () => {
+    const result = computeSplit({ ...DEFAULT_TIP_INPUT, subtotal: 10, taxPercent: 0, tipPercent: 0, people: 3, roundMode: "up-whole" });
+    expect(result?.guestShares.map((share) => share.finalShare)).toEqual([4, 4, 4]);
+    expect(result?.roundingDelta).toBe(2);
   });
-});
 
-describe("formatMoney", () => {
-  it("always shows two decimals", () => {
-    expect(formatMoney(30)).toBe("30.00");
-    expect(formatMoney(31.5)).toBe("31.50");
-    expect(formatMoney(1234.5)).toBe("1,234.50");
+  it("uses zero decimal places for JPY", () => {
+    const result = computeSplit({ ...DEFAULT_TIP_INPUT, subtotal: 1001, taxPercent: 0, tipPercent: 0, people: 2, currency: "JPY" });
+    expect(getCurrencyMinorDigits("JPY")).toBe(0);
+    expect(result?.guestShares.map((share) => share.finalShare)).toEqual([501, 500]);
   });
-  it("renders a dash for non-finite values", () => {
-    expect(formatMoney(Number.NaN)).toBe("—");
+
+  it("rejects invalid percentages and people", () => {
+    expect(validateTipInput({ ...DEFAULT_TIP_INPUT, tipPercent: -1 })).toMatch(/between/);
+    expect(validateTipInput({ ...DEFAULT_TIP_INPUT, people: 0 })).toMatch(/People/);
+    expect(computeSplit({ ...DEFAULT_TIP_INPUT, servicePercent: 101 })).toBeNull();
+  });
+
+  it("rejects non-positive weighted guest weights", () => {
+    const input = { ...DEFAULT_TIP_INPUT, splitMode: "weighted" as const, guests: [{ id: "a", name: "A", weight: 0 }] };
+    expect(validateTipInput(input)).toMatch(/weight/);
+  });
+
+  it("builds practical tip scenarios", () => {
+    const scenarios = buildTipScenarios({ ...DEFAULT_TIP_INPUT, subtotal: 100, taxPercent: 0, people: 2 });
+    expect(scenarios).toHaveLength(6);
+    expect(scenarios.find((scenario) => scenario.tipPercent === 20)?.total).toBe(120);
+  });
+
+  it("warns when service charge and tip are both present", () => {
+    const input = { ...DEFAULT_TIP_INPUT, servicePercent: 15, tipPercent: 20 };
+    const checks = buildTipChecks(input, computeSplit(input));
+    expect(checks.some((check) => check.id === "double-gratuity" && check.level === "warning")).toBe(true);
+  });
+
+  it("reports round-up overcollection", () => {
+    const input = { ...DEFAULT_TIP_INPUT, subtotal: 10, taxPercent: 0, tipPercent: 0, people: 3, roundMode: "up-whole" as const };
+    const result = computeSplit(input);
+    const checks = buildTipChecks(input, result);
+    expect(checks.some((check) => check.id === "rounding")).toBe(true);
+  });
+
+  it("exports guest and scenario CSV files", () => {
+    const result = computeSplit(DEFAULT_TIP_INPUT);
+    expect(buildGuestCsv(result)).toContain("share_percent");
+    expect(buildGuestCsv(result)).toContain("Guest 1");
+    expect(buildScenarioCsv(buildTipScenarios(DEFAULT_TIP_INPUT))).toContain("tip_percent");
+  });
+
+  it("exports readable Markdown", () => {
+    const result = computeSplit(DEFAULT_TIP_INPUT);
+    const markdown = buildTipSummaryMarkdown(DEFAULT_TIP_INPUT, result, buildTipChecks(DEFAULT_TIP_INPUT, result));
+    expect(markdown).toContain("# Tip and bill split");
+    expect(markdown).toContain("## Guest shares");
+  });
+
+  it("exports a valid JavaScript starter", () => {
+    const snippet = buildJavaScriptSnippet();
+    expect(snippet).toContain("function splitBill");
+    expect(() => new Function(`${snippet}; return splitBill;`)()).not.toThrow();
   });
 });

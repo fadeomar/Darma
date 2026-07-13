@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const RobotsTxtClient = dynamic(() => import("./RobotsTxtClient"), {
-  loading: () => <div className="h-[780px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
+  loading: () => <div className="h-[820px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
 });
 const Article = dynamic(() => import("./Article"));
 
@@ -28,18 +28,18 @@ export default function RobotsTxtGeneratorPage() {
       tool={tool}
       maxWidth="wide"
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Build crawler rules, sitemap references, and safe robots.txt starter files locally in your browser.
+        <p className="max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
+          Build multi-crawler robots.txt policies, test URL paths, import an existing file, run production checks, and export plain text, Next.js, JSON, or a deployment pack — entirely in your browser.
         </p>
       }
       article={
-        <ToolContentCard title="About robots.txt files">
+        <ToolContentCard title="Robots.txt deployment guide">
           <Article />
         </ToolContentCard>
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Robots.txt Generator" description="Create copy-ready crawler rules with Allow, Disallow, User-agent, and Sitemap directives.">
+      <ToolContentCard title="Robots.txt Policy Studio" description="Create auditable crawler groups with route testing, import, production checks, and framework-ready exports.">
         <RobotsTxtClient />
       </ToolContentCard>
     </ToolPage>

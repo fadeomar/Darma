@@ -29,18 +29,17 @@ export default function GpaCalculatorPage() {
       maxWidth="wide"
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Calculate your grade point average on the 4.0 scale from your courses, letter grades, and
-          credit hours — instantly and privately in your browser.
+          Calculate semester and cumulative GPA, inspect course-level impact, and plan the grades needed to reach a target — privately in your browser.
         </p>
       }
       article={
-        <ToolContentCard title="About GPA calculation">
+        <ToolContentCard title="About GPA analysis and target planning">
           <Article />
         </ToolContentCard>
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Calculate your GPA" description="Add your courses, grades, and credit hours to get a credit-weighted GPA on the 4.0 scale — calculated in your browser.">
+      <ToolContentCard title="GPA Analysis Studio" description="Model semester grades, projected cumulative GPA, course impact, and target scenarios on a common 4.0 scale.">
         <GpaCalculatorClient />
       </ToolContentCard>
     </ToolPage>

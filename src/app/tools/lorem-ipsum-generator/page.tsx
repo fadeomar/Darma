@@ -6,9 +6,9 @@ import ToolContentCard from "@/features/tools/ui/ToolContentCard";
 import SurfaceCard from "@/components/ui/SurfaceCard";
 
 export const metadata: Metadata = {
-  title: "Lorem Ipsum Generator | Darma Tools",
+  title: "Lorem Ipsum Generator & Placeholder Content Studio | Darma Tools",
   description:
-    "Generate classic lorem ipsum, readable placeholder text, startup copy, ecommerce descriptions, and fully structured HTML blocks for mockups, wireframes, and UI prototyping.",
+    "Generate reproducible lorem ipsum, readable placeholder copy, structured UI content, responsive HTML previews, React starters, and production-ready content packs.",
   keywords: [
     "lorem ipsum generator",
     "placeholder text",
@@ -22,9 +22,9 @@ export const metadata: Metadata = {
     "content placeholder",
   ],
   openGraph: {
-    title: "Lorem Ipsum Generator — Placeholder Content Studio",
+    title: "Lorem Ipsum Generator — Reproducible Placeholder Content Studio",
     description:
-      "Go beyond basic filler text. Generate hero sections, testimonials, FAQ blocks, product descriptions, pricing tables, and more — in plain text or ready-to-use HTML.",
+      "Generate seeded placeholder text and structured UI blocks, inspect responsive previews, run production checks, and export plain text, HTML, React, JSON, CSV, or ZIP.",
   },
 };
 
@@ -43,15 +43,13 @@ export default function LoremIpsumPage() {
       tool={tool}
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          More than basic lorem ipsum — choose your text style, pick a design
-          preset, and generate placeholder content shaped like real UI copy.
-          Instant output, one-click copy, optional HTML wrapping.
+          Generate repeatable placeholder content for mockups, CMS previews, and component testing. Use a named seed, inspect a responsive preview, and export the exact format needed for design or development handoff.
         </p>
       }
     >
       <ToolContentCard
-        title="Placeholder content studio"
-        description="Pick a mode, choose a style or preset, and generate instantly. Copy plain text or HTML — whichever fits your workflow."
+        title="Reproducible placeholder content studio"
+        description="Generate realistic content shapes, preview them responsively, run production checks, and export a complete local content pack."
       >
         <LoremIpsumClient />
       </ToolContentCard>

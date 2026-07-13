@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const DateDifferenceClient = dynamic(() => import("./DateDifferenceClient"), {
-  loading: () => <div className="h-[420px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
+  loading: () => <div className="h-[720px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
 });
 const Article = dynamic(() => import("./Article"));
 
@@ -26,22 +26,23 @@ export default function DateDifferenceCalculatorPage() {
   return (
     <ToolPage
       tool={tool}
-      maxWidth="wide"
+      maxWidth="full"
+      eyebrow="Calendar and scheduling utility"
+      headerSize="compact"
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Find the difference between two dates in years, months, and days, or calculate an age from a birth date. Everything runs locally in your browser.
+        <p className="max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
+          Compare calendar dates or fixed-offset date-times, calculate inclusive and working-day totals,
+          inspect milestones, and export a complete local audit without uploading your schedule.
         </p>
       }
       article={
-        <ToolContentCard title="About date and age calculations">
+        <ToolContentCard title="About date, duration, and workday calculations">
           <Article />
         </ToolContentCard>
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Calculate the difference between two dates" description="Years, months, days, total weeks, and weekdays — calculated in your browser with no data sent to a server.">
-        <DateDifferenceClient />
-      </ToolContentCard>
+      <DateDifferenceClient />
     </ToolPage>
   );
 }

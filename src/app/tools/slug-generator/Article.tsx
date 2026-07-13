@@ -1,97 +1,94 @@
 export default function Article() {
   return (
-    <div className="space-y-8 text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
+    <div className="space-y-8 text-sm leading-7 text-[var(--color-text-secondary)]">
       <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          What is a slug?
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">
+          What is a production-ready slug?
         </h2>
         <p>
-          A slug is the readable part of a URL that identifies a page. Instead of
-          long or cryptic links, a slug turns a title into a clean format like{" "}
-          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
-            /blog/how-to-build-a-json-formatter
-          </code>
-          . Slugs improve readability for people and help search engines
-          understand your page topic.
+          A slug is the readable route segment that identifies a page, product,
+          article, or documentation entry. A production-ready slug is more than
+          lowercase text with hyphens: it must also remain unique, avoid reserved
+          application routes, fit your CMS constraints, and preserve redirects
+          when an existing URL changes.
         </p>
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          Why clean URL slugs matter
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">
+          Single routes, bulk manifests, and migrations
+        </h2>
+        <p>
+          Single mode is useful while drafting one page. Bulk mode turns one title
+          per line into a route manifest for catalogs, documentation, migrations,
+          or CMS imports. Add a tab followed by the previous path to any bulk row
+          to create a redirect mapping automatically.
+        </p>
+        <pre className="mt-3 overflow-x-auto rounded-xl bg-[var(--color-code-surface)] p-4 text-xs leading-6 text-[var(--color-code-text)]">
+{`New article title\t/old-article-path
+Second article title
+Documentation/API authentication`}
+        </pre>
+      </section>
+
+      <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">
+          Collision and reserved-route planning
         </h2>
         <ul className="ml-4 list-disc space-y-1.5">
           <li>
-            <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-              Better SEO context
-            </strong>{" "}
-            — meaningful words in URLs can improve click trust and page relevance.
+            <strong className="text-[var(--color-text-primary)]">Append number</strong>{" "}
+            creates deterministic suffixes such as <code>product-name-2</code>.
           </li>
           <li>
-            <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-              Easier sharing
-            </strong>{" "}
-            — short, readable links are simpler to copy and remember.
+            <strong className="text-[var(--color-text-primary)]">Block duplicates</strong>{" "}
+            is safer when every collision needs editorial review.
           </li>
           <li>
-            <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-              Cleaner CMS content
-            </strong>{" "}
-            — consistent slugs keep blog posts, products, and docs organized.
+            <strong className="text-[var(--color-text-primary)]">Allow duplicates</strong>{" "}
+            is mainly useful when different prefixes or external systems guarantee uniqueness.
           </li>
           <li>
-            <strong className="text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-              Fewer routing issues
-            </strong>{" "}
-            — removing unsafe characters prevents broken links and encoding quirks.
+            Reserved segments such as <code>admin</code>, <code>api</code>, or
+            <code>sitemap.xml</code> should be checked against your framework and infrastructure.
           </li>
         </ul>
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          How to write good SEO slugs
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">
+          Unicode and ASCII-only routes
+        </h2>
+        <p>
+          Unicode slugs keep Arabic, CJK, and other scripts readable. They are valid
+          URL path content, but downstream analytics, CMS, redirect, and deployment
+          tools must preserve them consistently. ASCII-only mode is intended for
+          systems that explicitly reject Unicode; it removes unsupported non-Latin
+          characters rather than pretending to transliterate languages incorrectly.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">
+          Safe slug migration workflow
         </h2>
         <ol className="ml-4 list-decimal space-y-1.5">
-          <li>Use clear keywords that match page intent.</li>
-          <li>Keep slugs concise and avoid filler words when possible.</li>
-          <li>Use one separator style consistently (usually hyphen).</li>
-          <li>Avoid punctuation, emoji, and duplicate separators.</li>
-          <li>Do not change published slugs unless you also add redirects.</li>
+          <li>Export the route CSV and review collisions or blocked rows.</li>
+          <li>Confirm reserved paths against your application router.</li>
+          <li>Import or deploy the new routes.</li>
+          <li>Apply permanent redirects from every previous path.</li>
+          <li>Update internal links and canonical URLs.</li>
+          <li>Monitor 404s after deployment instead of deleting redirects immediately.</li>
         </ol>
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          Slug examples
-        </h2>
-        <div className="space-y-3">
-          {[
-            ["How to Build a JSON Formatter", "how-to-build-a-json-formatter"],
-            ["React + Next.js Guide 2026!", "react-next-js-guide-2026"],
-            ["أفضل أدوات المطورين", "أفضل-أدوات-المطورين"],
-            ["Café Déjà Vu & Crème Brûlée", "cafe-deja-vu-creme-brulee"],
-          ].map(([from, to]) => (
-            <div
-              key={from}
-              className="rounded-xl border border-black/8 bg-[var(--color-surface-subtle)] p-3 dark:border-white/10 dark:bg-[var(--color-code-surface)]/40"
-            >
-              <p className="text-xs text-[var(--color-text-tertiary)]">Input</p>
-              <p className="font-medium text-[var(--color-text-primary)] dark:text-[var(--color-text-secondary)]">{from}</p>
-              <p className="mt-2 text-xs text-[var(--color-text-tertiary)]">Slug</p>
-              <p className="font-mono text-xs text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">{to}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          Privacy note
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">
+          Privacy
         </h2>
         <p>
-          All slug generation runs entirely in your browser. Your text is never
-          uploaded, stored, or sent to a server.
+          Route generation, collision detection, reports, and ZIP exports run in
+          your browser. Titles and previous paths are not uploaded to a server.
         </p>
       </section>
     </div>

@@ -1,127 +1,139 @@
-import { describe, it, expect } from "vitest";
-import { processUrlText, parseQueryParams } from "./url";
+import { describe, expect, it } from "vitest";
+import {
+  buildUrlChecks,
+  computeUrlStats,
+  hasMalformedPercentEncoding,
+  inspectUrlInput,
+  parseQueryParams,
+  processUrlText,
+  rebuildInputWithQueryRows,
+  redactUrlForReport,
+} from "./url";
 
-// ─── processUrlText ───────────────────────────────────────────────────────────
-
-describe("processUrlText – empty input", () => {
-  it("returns an error for empty string", () => {
-    const result = processUrlText("", "encode", "full");
-    expect(result.ok).toBe(false);
-    expect(result.status).toBe("Empty input");
-  });
-});
-
-describe("processUrlText – encode", () => {
-  it("encodes a URL with spaces (full mode preserves : // /)", () => {
-    const result = processUrlText("https://example.com/my page", "encode", "full");
+describe("processUrlText", () => {
+  it("encodes a full URL while preserving URL structure", () => {
+    const result = processUrlText("https://example.com/my page?q=hello world", "encode", "full");
     expect(result.ok).toBe(true);
     if (result.ok) {
-      expect(result.output).toContain("%20");
       expect(result.output).toContain("https://");
-      expect(result.status).toBe("Encoded");
-    }
-  });
-
-  it("encodes all special chars in component mode", () => {
-    const result = processUrlText("hello world&foo=bar", "encode", "component");
-    expect(result.ok).toBe(true);
-    if (result.ok) {
       expect(result.output).toContain("%20");
-      expect(result.output).toContain("%26");
-      expect(result.output).toContain("%3D");
+      expect(result.output).toContain("?q=");
     }
   });
 
-  it("encodes Arabic text", () => {
-    const result = processUrlText("مرحبا", "encode", "component");
-    expect(result.ok).toBe(true);
-    if (result.ok) {
-      expect(result.output).toMatch(/%[0-9A-F]{2}/i);
-    }
+  it("encodes reserved characters in component mode", () => {
+    const result = processUrlText("hello world&foo=bar", "encode", "component");
+    expect(result).toMatchObject({ ok: true, output: "hello%20world%26foo%3Dbar" });
   });
 
-  it("round-trips: encode then decode returns original", () => {
-    const original = "hello world & Darma tools!";
+  it("uses application/x-www-form-urlencoded rules", () => {
+    const result = processUrlText("hello world + tools~", "encode", "form");
+    expect(result).toMatchObject({ ok: true, output: "hello+world+%2B+tools%7E" });
+  });
+
+  it("decodes plus signs as spaces only in form mode", () => {
+    expect(processUrlText("hello+world", "decode", "form")).toMatchObject({ ok: true, output: "hello world" });
+    expect(processUrlText("hello+world", "decode", "component")).toMatchObject({ ok: true, output: "hello+world" });
+  });
+
+  it("round-trips Unicode text", () => {
+    const original = "مرحبا café 🚀";
     const encoded = processUrlText(original, "encode", "component");
     expect(encoded.ok).toBe(true);
-    if (encoded.ok) {
-      const decoded = processUrlText(encoded.output, "decode", "component");
-      expect(decoded.ok).toBe(true);
-      if (decoded.ok) {
-        expect(decoded.output).toBe(original);
-      }
-    }
+    if (!encoded.ok) return;
+    expect(processUrlText(encoded.output, "decode", "component")).toMatchObject({ ok: true, output: original });
+  });
+
+  it("rejects malformed percent escapes", () => {
+    expect(processUrlText("hello%ZZworld", "decode", "component")).toMatchObject({ ok: false, status: "Invalid URL encoding" });
+    expect(hasMalformedPercentEncoding("abc%2Fdef")).toBe(false);
+    expect(hasMalformedPercentEncoding("abc%2")).toBe(true);
   });
 });
 
-describe("processUrlText – decode", () => {
-  it("decodes a percent-encoded string", () => {
-    const result = processUrlText("hello%20world", "decode", "full");
-    expect(result.ok).toBe(true);
-    if (result.ok) {
-      expect(result.output).toBe("hello world");
-      expect(result.status).toBe("Decoded");
-    }
+describe("inspectUrlInput", () => {
+  it("inspects an absolute URL", () => {
+    const inspection = inspectUrlInput("https://example.com:8443/docs?a=1#top");
+    expect(inspection).toMatchObject({
+      kind: "absolute-url",
+      parseable: true,
+      protocol: "https:",
+      host: "example.com:8443",
+      pathname: "/docs",
+      hash: "#top",
+    });
+    expect(inspection.queryParams).toHaveLength(1);
   });
 
-  it("decodes component-encoded ampersand", () => {
-    const result = processUrlText("hello%26world", "decode", "component");
-    expect(result.ok).toBe(true);
-    if (result.ok) {
-      expect(result.output).toBe("hello&world");
-    }
+  it("inspects a relative URL without exposing the artificial base", () => {
+    const inspection = inspectUrlInput("/products?q=phone");
+    expect(inspection.kind).toBe("relative-url");
+    expect(inspection.host).toBe("");
+    expect(inspection.pathname).toBe("/products");
   });
 
-  it("returns an error for invalid percent sequence", () => {
-    const result = processUrlText("hello%ZZworld", "decode", "component");
-    expect(result.ok).toBe(false);
-    expect(result.status).toBe("Invalid URL encoding");
+  it("detects duplicate and sensitive query keys", () => {
+    const inspection = inspectUrlInput("https://example.com/?tag=a&tag=b&api_key=secret");
+    expect(inspection.duplicateParamKeys).toEqual(["tag"]);
+    expect(inspection.sensitiveParamKeys).toEqual(["api_key"]);
+    expect(inspection.queryParams.find((row) => row.key === "api_key")?.sensitive).toBe(true);
   });
 
-  it("returns an error for truncated percent sequence", () => {
-    const result = processUrlText("hello%2", "decode", "component");
-    expect(result.ok).toBe(false);
+  it("parses a standalone query string and preserves duplicate rows", () => {
+    const params = parseQueryParams("?name=Darma&tag=ui&tag=web");
+    expect(params.map((row) => [row.key, row.value])).toEqual([
+      ["name", "Darma"],
+      ["tag", "ui"],
+      ["tag", "web"],
+    ]);
+  });
+
+  it("classifies plain text without equals signs as text", () => {
+    expect(inspectUrlInput("hello world").kind).toBe("text");
   });
 });
 
-// ─── parseQueryParams ─────────────────────────────────────────────────────────
-
-describe("parseQueryParams", () => {
-  it("returns empty array for empty string", () => {
-    expect(parseQueryParams("")).toEqual([]);
+describe("query editing", () => {
+  it("rebuilds an absolute URL while preserving its fragment", () => {
+    const rebuilt = rebuildInputWithQueryRows("https://example.com/search?q=old#results", [
+      { key: "q", value: "new value" },
+      { key: "page", value: "2" },
+    ]);
+    expect(rebuilt).toBe("https://example.com/search?q=new+value&page=2#results");
   });
 
-  it("parses a full URL and extracts query params", () => {
-    const rows = parseQueryParams("https://example.com/search?q=hello&lang=en");
-    expect(rows).toHaveLength(2);
-    expect(rows[0]).toEqual({ key: "q", value: "hello" });
-    expect(rows[1]).toEqual({ key: "lang", value: "en" });
+  it("rebuilds a standalone query string", () => {
+    expect(rebuildInputWithQueryRows("?a=1", [{ key: "a", value: "2" }])).toBe("?a=2");
+  });
+});
+
+describe("production checks and reports", () => {
+  it("flags credentials, sensitive keys, duplicate keys, and double encoding", () => {
+    const input = "https://user:pass@example.com/?token=abc&tag=1&tag=2&next=%252Fdashboard";
+    const result = processUrlText(input, "decode", "full");
+    const inspection = inspectUrlInput(input);
+    const checks = buildUrlChecks({ input, mode: "decode", type: "full", result, inspection });
+    const ids = checks.map((check) => check.id);
+    expect(ids).toEqual(expect.arrayContaining(["credentials", "sensitive-query", "duplicate-params", "double-encoding"]));
   });
 
-  it("parses a query string starting with ?", () => {
-    const rows = parseQueryParams("?foo=bar&baz=qux");
-    expect(rows).toHaveLength(2);
-    expect(rows[0]).toEqual({ key: "foo", value: "bar" });
-    expect(rows[1]).toEqual({ key: "baz", value: "qux" });
+  it("redacts credentials and sensitive query values", () => {
+    const redacted = redactUrlForReport("https://user:pass@example.com/?token=abc&safe=yes");
+    expect(redacted).not.toContain("pass");
+    expect(redacted).not.toContain("abc");
+    expect(redacted).toContain("safe=yes");
   });
 
-  it("parses a query string without leading ?", () => {
-    const rows = parseQueryParams("name=Darma&tool=url%20encoder");
-    expect(rows).toHaveLength(2);
-    expect(rows[0]).toEqual({ key: "name", value: "Darma" });
-    expect(rows[1]).toEqual({ key: "tool", value: "url encoder" });
-  });
-
-  it("returns empty array for plain text without = sign", () => {
-    expect(parseQueryParams("just some text")).toEqual([]);
-  });
-
-  it("returns empty array for malformed URL", () => {
-    expect(parseQueryParams("not-a-url")).toEqual([]);
-  });
-
-  it("handles URL-encoded values in query params", () => {
-    const rows = parseQueryParams("?q=hello%20world");
-    expect(rows[0]).toEqual({ key: "q", value: "hello world" });
+  it("computes stable statistics", () => {
+    const inspection = inspectUrlInput("?a=1&a=2&b=3");
+    const stats = computeUrlStats("hello world", "hello%20world", inspection);
+    expect(stats).toMatchObject({
+      inputCharacters: 11,
+      outputCharacters: 13,
+      percentSequences: 1,
+      queryParameters: 3,
+      uniqueQueryKeys: 2,
+      duplicateQueryKeys: 1,
+    });
   });
 });

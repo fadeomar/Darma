@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const JwtDecoderClient = dynamic(() => import("./JwtDecoderClient"), {
-  loading: () => <div className="h-[680px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
+  loading: () => <div className="h-[780px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
 });
 const Article = dynamic(() => import("./Article"));
 
@@ -28,18 +28,18 @@ export default function JwtDecoderPage() {
       tool={tool}
       maxWidth="wide"
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Decode JWT headers and payloads locally, inspect registered claims, and copy formatted JSON with clear verification warnings.
+        <p className="max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
+          Decode JWT headers and claims locally, inspect lifecycle and security risks, optionally verify signatures with a shared secret or public JWK, and export a key-free production report.
         </p>
       }
       article={
-        <ToolContentCard title="About JWT decoding and verification">
+        <ToolContentCard title="JWT decoding, verification, and production safety">
           <Article />
         </ToolContentCard>
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="JWT Decoder" description="Decode JSON Web Tokens in your browser without sending token data to a server.">
+      <ToolContentCard title="JWT Decoder & Verification Studio" description="Inspect token structure and claims without uploading data. Decode is immediate; signature verification is explicit and optional.">
         <JwtDecoderClient />
       </ToolContentCard>
     </ToolPage>

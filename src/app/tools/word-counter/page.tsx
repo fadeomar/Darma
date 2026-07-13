@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const WordCounterClient = dynamic(() => import("./WordCounterClient"), {
-  loading: () => <div className="h-[520px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
+  loading: () => <div className="h-[680px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
 });
 const Article = dynamic(() => import("./Article"));
 
@@ -26,20 +26,23 @@ export default function WordCounterPage() {
   return (
     <ToolPage
       tool={tool}
-      maxWidth="wide"
+      maxWidth="full"
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Count words, characters, sentences, and paragraphs in real time, check platform length limits, and estimate reading time. Everything runs locally in your browser.
+        <p className="max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)]">
+          Count words and characters, measure reading and speaking time, inspect keyword density and document structure, compare against practical writing goals, and export a complete local audit.
         </p>
       }
       article={
-        <ToolContentCard title="About counting words and characters">
+        <ToolContentCard title="How to use Word Counter Studio">
           <Article />
         </ToolContentCard>
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Count words and characters" description="Live word, character, sentence, and paragraph counts with reading time and length limits — without sending text to a server.">
+      <ToolContentCard
+        title="Word Counter Studio"
+        description="A production-ready writing audit with goals, repetition analysis, structure review, custom timing, and Markdown, JSON, CSV, or ZIP exports."
+      >
         <WordCounterClient />
       </ToolContentCard>
     </ToolPage>

@@ -29,17 +29,17 @@ export default function HtmlEntityEncoderDecoderPage() {
       maxWidth="wide"
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Encode text into HTML entities or decode escaped content back into readable text without sending your input to a server.
+          Encode or decode HTML entities with context-aware attribute handling, Unicode inspection, double-encoding checks, production guidance, and export-ready reports — all locally in your browser.
         </p>
       }
       article={
-        <ToolContentCard title="About HTML entities">
+        <ToolContentCard title="HTML entity encoding and safe output contexts">
           <Article />
         </ToolContentCard>
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="HTML Entity Encoder / Decoder" description="Escape HTML-sensitive characters, convert symbols to named or numeric entities, and decode entities back to text.">
+      <ToolContentCard title="HTML Entity & Unicode Studio" description="Encode text for HTML contexts, decode named or numeric references, inspect Unicode code points, detect malformed or double-encoded values, and export production-ready reports.">
         <HtmlEntityClient />
       </ToolContentCard>
     </ToolPage>

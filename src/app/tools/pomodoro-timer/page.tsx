@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const PomodoroTimerClient = dynamic(() => import("./PomodoroTimerClient"), {
-  loading: () => <div className="h-[420px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
+  loading: () => <div className="h-[720px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
 });
 const Article = dynamic(() => import("./Article"));
 
@@ -26,21 +26,22 @@ export default function PomodoroTimerPage() {
   return (
     <ToolPage
       tool={tool}
-      maxWidth="wide"
+      maxWidth="full"
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          A focus timer with Pomodoro presets and custom countdowns — it beeps when time is up and
-          runs entirely in your browser.
+        <p className="max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)]">
+          Run accurate focus cycles with practical presets, task and daily-target planning,
+          configurable auto-start behavior, local session statistics, production checks, and
+          exportable reports — entirely in your browser.
         </p>
       }
       article={
-        <ToolContentCard title="About the Pomodoro timer">
+        <ToolContentCard title="Pomodoro focus workflow guide">
           <Article />
         </ToolContentCard>
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Focus timer" description="Pomodoro focus blocks and breaks, or a custom countdown — running in your browser with a sound when time is up.">
+      <ToolContentCard title="Pomodoro Focus Studio" description="Plan, run, inspect, and export drift-resistant focus cycles with browser-local history.">
         <PomodoroTimerClient />
       </ToolContentCard>
     </ToolPage>

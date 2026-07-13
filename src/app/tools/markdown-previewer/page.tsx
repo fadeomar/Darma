@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const MarkdownPreviewerClient = dynamic(() => import("./MarkdownPreviewerClient"), {
-  loading: () => <div className="h-[640px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
+  loading: () => <div className="h-[760px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
 });
 const Article = dynamic(() => import("./Article"));
 
@@ -28,18 +28,18 @@ export default function MarkdownPreviewerPage() {
       tool={tool}
       maxWidth="wide"
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Write Markdown and preview sanitized HTML side by side. Useful for README files, documentation, notes, and developer content workflows.
+        <p className="max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
+          Write or import Markdown, inspect a sanitized responsive preview, review document quality checks, and export Markdown, standalone HTML, or a JSON report without uploading your content.
         </p>
       }
       article={
-        <ToolContentCard title="About Markdown previewing">
+        <ToolContentCard title="Markdown previewing and production checks">
           <Article />
         </ToolContentCard>
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Markdown Previewer" description="Write, preview, copy, and download Markdown or sanitized HTML locally in your browser.">
+      <ToolContentCard title="Markdown Previewer Studio" description="A compact browser-local workspace for writing, previewing, checking, and exporting Markdown documents.">
         <MarkdownPreviewerClient />
       </ToolContentCard>
     </ToolPage>

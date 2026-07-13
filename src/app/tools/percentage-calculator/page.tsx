@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const PercentageCalculatorClient = dynamic(() => import("./PercentageCalculatorClient"), {
-  loading: () => <div className="h-[420px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
+  loading: () => <div className="h-[680px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
 });
 const Article = dynamic(() => import("./Article"));
 
@@ -26,23 +26,21 @@ export default function PercentageCalculatorPage() {
   return (
     <ToolPage
       tool={tool}
-      maxWidth="wide"
+      maxWidth="full"
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Work out percentages, percentage change, discounts, and tips with four simple modes —
-          instantly and locally in your browser.
+        <p className="max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)]">
+          Calculate percentage amounts, ratios, growth, reverse changes, discounts, markup, and margin
+          with formula steps, what-if scenarios, production checks, and practical exports.
         </p>
       }
       article={
-        <ToolContentCard title="About percentage calculations">
+        <ToolContentCard title="Percentage formulas, denominators, and business use">
           <Article />
         </ToolContentCard>
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Calculate a percentage" description="Percent of a number, percentage change, and increase or decrease — calculated in your browser with no data sent to a server.">
-        <PercentageCalculatorClient />
-      </ToolContentCard>
+      <PercentageCalculatorClient />
     </ToolPage>
   );
 }

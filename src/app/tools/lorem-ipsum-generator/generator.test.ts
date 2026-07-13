@@ -1,5 +1,16 @@
 import { describe, it, expect } from "vitest";
-import { generate, computeStats, formatReadingTime } from "./generator";
+import {
+  buildBlocksCsv,
+  buildLoremReport,
+  buildPreviewDocument,
+  buildProductionChecks,
+  buildReactStarter,
+  computeStats,
+  createSeededRandom,
+  formatReadingTime,
+  generate,
+} from "./generator";
+import { DESIGN_PRESETS, LENGTH_PRESETS } from "./presets";
 import type { LoremConfig } from "./types";
 
 function config(overrides: Partial<LoremConfig> = {}): LoremConfig {
@@ -13,6 +24,7 @@ function config(overrides: Partial<LoremConfig> = {}): LoremConfig {
     includeHeadings: false,
     includeLists: false,
     structuredBlock: "hero",
+    seed: "test-seed",
     ...overrides,
   };
 }
@@ -169,5 +181,81 @@ describe("formatReadingTime", () => {
 
   it("rounds up to nearest minute", () => {
     expect(formatReadingTime(90)).toBe("2 min read");
+  });
+});
+
+
+// ─── Deterministic generation and production exports ─────────────────────────
+
+describe("seeded generation", () => {
+  it("recreates identical content with the same seed", () => {
+    const input = config({ mode: "paragraphs", amount: 4, style: "readable", seed: "repeatable" });
+    expect(generate(input)).toEqual(generate(input));
+  });
+
+  it("changes content when the seed changes", () => {
+    const first = generate(config({ mode: "paragraphs", amount: 4, seed: "one" }));
+    const second = generate(config({ mode: "paragraphs", amount: 4, seed: "two" }));
+    expect(first.plain).not.toBe(second.plain);
+  });
+
+  it("returns repeatable random values", () => {
+    const first = createSeededRandom("same");
+    const second = createSeededRandom("same");
+    expect([first(), first(), first()]).toEqual([second(), second(), second()]);
+  });
+});
+
+describe("analysis and exports", () => {
+  it("includes byte and unique-word metrics", () => {
+    const stats = computeStats("one two two");
+    expect(stats.bytes).toBeGreaterThan(0);
+    expect(stats.uniqueWordRatio).toBeCloseTo(2 / 3);
+  });
+
+  it("warns about placeholder links in structured HTML", () => {
+    const input = config({ mode: "structured", structuredBlock: "hero" });
+    const output = generate(input);
+    expect(buildProductionChecks(input, output).some((check) => check.id === "links" && check.level === "warning")).toBe(true);
+  });
+
+  it("builds a complete JSON-safe report", () => {
+    const input = config({ mode: "sentences", amount: 2 });
+    const output = generate(input);
+    const report = buildLoremReport(input, output, "2026-07-13T00:00:00.000Z");
+    expect(report.generatedAt).toBe("2026-07-13T00:00:00.000Z");
+    expect(report.stats.words).toBeGreaterThan(0);
+    expect(() => JSON.stringify(report)).not.toThrow();
+  });
+
+  it("creates a standalone responsive preview document", () => {
+    const document = buildPreviewDocument("<p>Hello</p>", "Preview & test");
+    expect(document).toContain("<!doctype html>");
+    expect(document).toContain("Preview &amp; test");
+    expect(document).toContain("<p>Hello</p>");
+  });
+
+  it("creates a React starter without innerHTML", () => {
+    const starter = buildReactStarter({ plain: "Hello <world>", html: "<p>Hello</p>" });
+    expect(starter).toContain("PlaceholderContent");
+    expect(starter).not.toContain("dangerouslySetInnerHTML");
+  });
+
+  it("creates CSV rows for output blocks", () => {
+    const csv = buildBlocksCsv({ plain: `First block\n\nSecond block`, html: "" });
+    expect(csv).toContain('"block","words","content"');
+    expect(csv).toContain('"2","2","Second block"');
+  });
+});
+
+
+describe("presets", () => {
+  it("generates usable output for every design and length preset", () => {
+    for (const preset of [...DESIGN_PRESETS, ...LENGTH_PRESETS]) {
+      const input = config(preset.config);
+      const output = generate(input);
+      expect(output.plain.trim().length, preset.id).toBeGreaterThan(0);
+      expect(output.html.trim().length, preset.id).toBeGreaterThan(0);
+    }
   });
 });

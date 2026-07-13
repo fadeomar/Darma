@@ -42,6 +42,16 @@ export type CapturedPiece = ChessPiece & {
 
 export type ChessGameStatus = "ready" | "playing" | "check" | "checkmate" | "stalemate" | "promotion" | "draw" | "resigned" | "timeout";
 
+export type ChessDrawReason =
+  | "agreement"
+  | "dead-position"
+  | "threefold-repetition"
+  | "fivefold-repetition"
+  | "fifty-move-rule"
+  | "seventy-five-move-rule";
+
+export type ChessPositionCounts = Record<string, number>;
+
 export type ChessMoveRecord = {
   from: ChessCoord;
   to: ChessCoord;

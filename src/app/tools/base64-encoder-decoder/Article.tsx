@@ -1,101 +1,45 @@
-export default function Article() {
+export default function Base64Article() {
   return (
-    <div className="space-y-8 text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
+    <div className="space-y-7 text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
       <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          What is Base64?
-        </h2>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">Base64 represents bytes as portable text</h2>
         <p>
-          Base64 is a text-encoding format that converts binary or Unicode data
-          into plain ASCII characters. It is commonly used when systems accept
-          text only, such as JSON payloads, data URLs, email MIME content, or
-          token-like values.
+          Base64 converts every three source bytes into four printable characters. That makes binary data easier to place inside JSON, email, XML, configuration values, and other text-only channels. The tradeoff is predictable size overhead: a normal Base64 payload is roughly one third larger than the original bytes before surrounding markup or metadata is added.
         </p>
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          When to use Base64 encoding
-        </h2>
-        <ul className="ml-4 list-disc space-y-1.5">
-          <li>Embedding text-like payloads into APIs that expect safe characters</li>
-          <li>Transporting binary-like data through text-only channels</li>
-          <li>Creating data URLs for small assets</li>
-          <li>Interoperating with legacy systems or protocols</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          Base64 vs encryption
-        </h2>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">Text and files require different handling</h2>
         <p>
-          Base64 is <strong>not encryption</strong>. It does not protect data and
-          is not a security measure. Anyone with basic tools can decode Base64
-          back to the original text. Use proper cryptography (encryption + key
-          management) when confidentiality is required.
+          Text must first be converted to bytes, normally with UTF-8. Files should be read as raw bytes and must not pass through a text decoder, because arbitrary images, PDFs, archives, and other binary formats may not be valid UTF-8. This studio keeps those workflows separate and exposes a hex preview when decoded bytes are not readable text.
         </p>
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          URL-safe Base64 explained
-        </h2>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">Standard Base64, Base64URL, and padding</h2>
         <p>
-          Standard Base64 uses{" "}
-          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
-            +
-          </code>{" "}
-          and{" "}
-          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
-            /
-          </code>
-          , which can be awkward in URLs. URL-safe Base64 replaces them with{" "}
-          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
-            -
-          </code>{" "}
-          and{" "}
-          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
-            _
-          </code>
-          . Optional padding removal (
-          <code className="rounded bg-[var(--color-surface-subtle)] px-1 font-mono text-xs dark:bg-[var(--color-code-surface)]">
-            =
-          </code>
-          ) is also common for compact URL tokens.
+          Standard Base64 uses <code className="font-mono">+</code> and <code className="font-mono">/</code>. Base64URL replaces them with <code className="font-mono">-</code> and <code className="font-mono">_</code>, which is more convenient in URLs and token formats. Trailing <code className="font-mono">=</code> padding is sometimes omitted. Forgiving mode can restore safe missing padding and remove line breaks, while strict mode rejects non-canonical input for validation work.
         </p>
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          Common examples
-        </h2>
-        <div className="space-y-3">
-          {[
-            ["Hello world", "SGVsbG8gd29ybGQ="],
-            ['{"name":"Darma","tool":"Base64"}', "eyJuYW1lIjoiRGFybWEiLCJ0b29sIjoiQmFzZTY0In0="],
-            ["مرحبا بالعالم", "2YXYsdit2KjYpyDYqNin2YTYudin2YTZhQ=="],
-          ].map(([plain, encoded]) => (
-            <div
-              key={plain}
-              className="rounded-xl border border-black/8 bg-[var(--color-surface-subtle)] p-3 dark:border-white/10 dark:bg-[var(--color-code-surface)]/40"
-            >
-              <p className="text-xs text-[var(--color-text-tertiary)]">Text</p>
-              <p className="font-medium text-[var(--color-text-primary)] dark:text-[var(--color-text-secondary)]">{plain}</p>
-              <p className="mt-2 text-xs text-[var(--color-text-tertiary)]">Base64</p>
-              <p className="font-mono text-xs text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">{encoded}</p>
-            </div>
-          ))}
-        </div>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">Data URLs and MIME inspection</h2>
+        <p>
+          A Data URL combines a MIME type and a Base64 payload in a single string such as <code className="font-mono">data:image/png;base64,...</code>. They are useful for small inline assets, but large Data URLs increase document size and cannot be cached independently. Darma preserves declared MIME metadata and also checks common file signatures when decoding raw payloads.
+        </p>
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-          Privacy note
-        </h2>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">Base64 is not encryption</h2>
         <p>
-          All encoding and decoding happens locally in your browser. Your text is
-          never sent to a server.
+          Encoded data is immediately reversible and provides no confidentiality, integrity, or authentication. Do not use Base64 to hide passwords, API keys, personal data, or private files. Use established encryption and secure key management when information must be protected.
+        </p>
+      </section>
+
+      <section>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">Private browser processing and practical limits</h2>
+        <p>
+          Text conversion, file reading, validation, byte inspection, and downloads run locally in the browser. The file limit protects the page from holding too many simultaneous in-memory copies. For large production files, prefer streaming APIs or command-line tools instead of converting the entire payload in one browser tab.
         </p>
       </section>
     </div>

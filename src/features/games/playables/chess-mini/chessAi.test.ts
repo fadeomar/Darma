@@ -112,7 +112,7 @@ describe("Chess Mini computer opponent", () => {
     setPiece(board, "E8", { id: "black-king-E8", role: "king", color: "black", hasMoved: false });
     setPiece(board, "G2", { id: "black-pawn-G2", role: "pawn", color: "black", hasMoved: true });
 
-    const aiMove = chooseComputerMove(board, "black", "intermediate");
+    const aiMove = chooseComputerMove(board, "black", "pro");
 
     expect(aiMove).toMatchObject({ from: "G2", to: "G1", promotion: "queen" });
   });

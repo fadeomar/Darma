@@ -1,27 +1,472 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Button, CopyButton, Input } from "@/components/ui";
-import { CodeOutputPanel, EditorPanel, ResultPanel, ToolControlPanel, ControlSection, WarningPanel } from "@/features/tools/components";
-import { ToolLayoutTextWorkbench } from "@/features/tools/layouts";
-import { buildRegex, findMatches, replaceMatches } from "./regex";
-import { DEFAULT_FLAGS, DEFAULT_PATTERN, DEFAULT_REPLACEMENT, FLAG_OPTIONS, SAMPLE_TEXT } from "./presets";
+import {
+  AlertTriangle,
+  Braces,
+  CheckCircle2,
+  Code2,
+  Download,
+  FileJson,
+  Highlighter,
+  ListChecks,
+  RefreshCcw,
+  Replace,
+  ShieldCheck,
+  Sparkles,
+  XCircle,
+} from "lucide-react";
+import { Button, CopyButton, Input, Tabs, Textarea } from "@/components/ui";
+import { downloadText } from "../_shared/clientUtils";
+import {
+  assessRegexRisk,
+  buildHighlightSegments,
+  buildJavaScriptSnippet,
+  buildProductionChecks,
+  buildRegex,
+  buildTypeScriptSnippet,
+  calculateCoverage,
+  findMatches,
+  getPatternStats,
+  REGEX_INPUT_LIMIT,
+  REGEX_RISK_INPUT_LIMIT,
+  replaceMatches,
+} from "./regex";
+import {
+  CHEATSHEET,
+  DEFAULT_FLAGS,
+  DEFAULT_PATTERN,
+  DEFAULT_REPLACEMENT,
+  FLAG_OPTIONS,
+  REGEX_EXAMPLES,
+  SAMPLE_TEXT,
+} from "./presets";
+import type { RegexExample, RegexProductionCheck, RegexTab } from "./types";
+
+const CHECK_STYLES: Record<RegexProductionCheck["severity"], string> = {
+  success: "border-[var(--color-success-border)] bg-[var(--color-success-bg)] text-[var(--color-success-text)]",
+  info: "border-[var(--color-info-border)] bg-[var(--color-info-bg)] text-[var(--color-info-text)]",
+  warning: "border-[var(--color-warning-border)] bg-[var(--color-warning-bg)] text-[var(--color-warning-text)]",
+  danger: "border-[var(--color-danger-border)] bg-[var(--color-danger-bg)] text-[var(--color-danger-text)]",
+};
+
+function countLines(value: string) {
+  return value ? value.split(/\r\n|\r|\n/).length : 0;
+}
+
+function SummaryCard({ label, value, hint }: { label: string; value: string; hint: string }) {
+  return (
+    <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2.5 shadow-[var(--shadow-xs)]">
+      <div className="truncate font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
+      <div className="mt-1 truncate text-xl font-black tracking-tight text-[var(--color-text-primary)]">{value}</div>
+      <div className="mt-0.5 truncate text-[11px] text-[var(--color-text-tertiary)]">{hint}</div>
+    </div>
+  );
+}
+
+function CheckIcon({ severity }: { severity: RegexProductionCheck["severity"] }) {
+  if (severity === "success") return <CheckCircle2 className="h-4 w-4" aria-hidden />;
+  if (severity === "danger") return <XCircle className="h-4 w-4" aria-hidden />;
+  if (severity === "warning") return <AlertTriangle className="h-4 w-4" aria-hidden />;
+  return <ShieldCheck className="h-4 w-4" aria-hidden />;
+}
 
 export default function RegexTesterClient() {
   const [pattern, setPattern] = useState(DEFAULT_PATTERN);
   const [flags, setFlags] = useState(DEFAULT_FLAGS);
   const [text, setText] = useState(SAMPLE_TEXT);
   const [replacement, setReplacement] = useState(DEFAULT_REPLACEMENT);
+  const [selectedPreset, setSelectedPreset] = useState("");
+  const [activeTab, setActiveTab] = useState<RegexTab>("highlight");
+  const [selectedMatch, setSelectedMatch] = useState(0);
+
   const built = useMemo(() => buildRegex(pattern, flags), [pattern, flags]);
-  const matches = useMemo(() => built instanceof RegExp ? findMatches(pattern, flags, text) : [], [built, pattern, flags, text]);
-  const replaced = useMemo(() => built instanceof RegExp ? replaceMatches(pattern, flags, text, replacement) : "", [built, pattern, flags, text, replacement]);
-  const error = !(built instanceof RegExp) ? built.message : "";
-  function toggleFlag(flag: string) { setFlags((current) => current.includes(flag) ? current.replace(flag, "") : current + flag); }
-  return <ToolLayoutTextWorkbench
-    inputSlot={<EditorPanel title="Test text" language="Text" value={text} onChange={setText} minRows={15} placeholder="Paste text to test..." actions={<><Button size="sm" variant="secondary" onClick={() => setText(SAMPLE_TEXT)}>Sample</Button><Button size="sm" variant="ghost" onClick={() => setText("")}>Clear</Button></>} footer={`${matches.length.toLocaleString()} match(es) found`} />}
-    outputSlot={<CodeOutputPanel title="Regex results" description="Matches, groups, and replacement output." tabs={[{ id: "matches", label: "Matches", code: matches.map((m, i) => `#${i + 1} [${m.index}-${m.endIndex}] ${m.match}${m.captures.length ? `\nCaptures: ${m.captures.map((c) => `${c.index}: ${c.value ?? ""}`).join(", ")}` : ""}${m.namedGroups.length ? `\nNamed: ${m.namedGroups.map((g) => `${g.name}: ${g.value ?? ""}`).join(", ")}` : ""}`).join("\n\n"), language: "txt" }, { id: "replace", label: "Replace", code: replaced, language: "txt" }]} emptyMessage="No matches yet." />}
-    actionsSlot={<><Input size="sm" width="medium" aria-label="Regex pattern" value={pattern} onChange={(event) => setPattern(event.target.value)} placeholder="Pattern" /><Input size="sm" width="short" aria-label="Replacement" value={replacement} onChange={(event) => setReplacement(event.target.value)} placeholder="Replacement" /><CopyButton text={`/${pattern}/${flags}`} size="sm" variant="secondary">Copy regex</CopyButton></>}
-    optionsSlot={<ToolControlPanel title="Regex options"><ControlSection title="Flags"><div className="flex flex-wrap gap-2">{FLAG_OPTIONS.map(({ flag, label }) => <Button key={flag} size="sm" variant={flags.includes(flag) ? "primary" : "secondary"} onClick={() => toggleFlag(flag)}>{label}</Button>)}</div></ControlSection><ControlSection title="Summary"><ResultPanel value={<div className="space-y-1 text-left"><p><strong>Pattern:</strong> /{pattern}/{flags}</p><p><strong>Matches:</strong> {matches.length}</p></div>} /></ControlSection></ToolControlPanel>}
-    statsSlot={<WarningPanel messages={error ? [{ id: "regex-error", severity: "danger", title: "Invalid regex", message: error }] : [{ id: "ok", severity: "info", title: "Keyboard accessible", message: "Matches are listed as text with positions and groups, not color-only highlights." }]} />}
-  />;
+  const risk = useMemo(() => assessRegexRisk(pattern), [pattern]);
+  const executionBlocked = risk.blocksLongInput && text.length > REGEX_RISK_INPUT_LIMIT;
+  const matches = useMemo(
+    () => (built instanceof RegExp && !executionBlocked ? findMatches(pattern, flags, text) : []),
+    [built, executionBlocked, flags, pattern, text],
+  );
+  const replaced = useMemo(
+    () => (built instanceof RegExp && !executionBlocked ? replaceMatches(pattern, flags, text, replacement) : text),
+    [built, executionBlocked, flags, pattern, replacement, text],
+  );
+  const segments = useMemo(() => buildHighlightSegments(text, matches), [matches, text]);
+  const patternStats = useMemo(() => getPatternStats(pattern), [pattern]);
+  const coverage = useMemo(() => calculateCoverage(matches, text.length), [matches, text.length]);
+  const checks = useMemo(
+    () => buildProductionChecks({ pattern, flags, text, replacement, built, matches, risk }),
+    [built, flags, matches, pattern, replacement, risk, text],
+  );
+  const javascriptSnippet = useMemo(() => buildJavaScriptSnippet(pattern, flags, replacement), [flags, pattern, replacement]);
+  const typescriptSnippet = useMemo(() => buildTypeScriptSnippet(pattern, flags, replacement), [flags, pattern, replacement]);
+  const reportJson = useMemo(
+    () => JSON.stringify({
+      engine: "JavaScript RegExp",
+      pattern,
+      flags,
+      replacement,
+      summary: {
+        valid: built instanceof RegExp,
+        matches: matches.length,
+        captureGroups: patternStats.captureGroups,
+        namedGroups: patternStats.namedGroups,
+        coveragePercent: Number(coverage.toFixed(2)),
+        inputCharacters: text.length,
+        riskLevel: risk.level,
+        executionBlocked,
+      },
+      matches,
+      replacedText: replaced,
+      productionChecks: checks,
+    }, null, 2),
+    [built, checks, coverage, executionBlocked, flags, matches, pattern, patternStats, replaced, replacement, risk.level, text.length],
+  );
+
+  const activeMatch = matches[selectedMatch] ?? matches[0];
+  const status = !(built instanceof RegExp)
+    ? "Invalid"
+    : executionBlocked
+      ? "Paused"
+      : matches.length
+        ? "Matching"
+        : "No match";
+  const statusHint = !(built instanceof RegExp)
+    ? "Fix the pattern syntax"
+    : executionBlocked
+      ? `Risky pattern + ${REGEX_RISK_INPUT_LIMIT.toLocaleString()}+ chars`
+      : risk.level === "low"
+        ? "JavaScript RegExp ready"
+        : `${risk.level} backtracking risk`;
+
+  function updatePattern(value: string) {
+    setPattern(value);
+    setSelectedPreset("");
+    setSelectedMatch(0);
+  }
+
+  function updateText(value: string) {
+    setText(value);
+    setSelectedPreset("");
+    setSelectedMatch(0);
+  }
+
+  function updateReplacement(value: string) {
+    setReplacement(value);
+    setSelectedPreset("");
+  }
+
+  function toggleFlag(flag: string) {
+    setFlags((current) => current.includes(flag) ? current.replace(flag, "") : `${current}${flag}`);
+    setSelectedPreset("");
+    setSelectedMatch(0);
+  }
+
+  function applyPreset(preset: RegexExample) {
+    setPattern(preset.pattern);
+    setFlags(preset.flags);
+    setText(preset.text);
+    setReplacement(preset.replacement);
+    setSelectedPreset(preset.id);
+    setSelectedMatch(0);
+    setActiveTab("highlight");
+  }
+
+  function resetTool() {
+    setPattern(DEFAULT_PATTERN);
+    setFlags(DEFAULT_FLAGS);
+    setText(SAMPLE_TEXT);
+    setReplacement(DEFAULT_REPLACEMENT);
+    setSelectedPreset("");
+    setSelectedMatch(0);
+    setActiveTab("highlight");
+  }
+
+  return (
+    <div className="space-y-4">
+      <section className="grid grid-cols-2 gap-2 lg:grid-cols-4" aria-label="Regex summary">
+        <SummaryCard label="Status" value={status} hint={statusHint} />
+        <SummaryCard label="Matches" value={matches.length.toLocaleString()} hint={flags.includes("g") ? "Global search enabled" : "First match behavior"} />
+        <SummaryCard label="Captures" value={patternStats.captureGroups.toLocaleString()} hint={patternStats.namedGroups.length ? `${patternStats.namedGroups.length} named group(s)` : "No named groups"} />
+        <SummaryCard label="Coverage" value={`${coverage.toFixed(1)}%`} hint={`${text.length.toLocaleString()} input characters`} />
+      </section>
+
+      <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
+        <div className="flex flex-col gap-3 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3 lg:flex-row lg:items-center lg:justify-between">
+          <div className="min-w-0">
+            <div className="flex items-center gap-2">
+              <Sparkles className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+              <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Practical presets</h2>
+            </div>
+            <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Start from a real extraction, cleanup, validation, or transform pattern.</p>
+          </div>
+          <Button size="sm" variant="ghost" leftIcon={<RefreshCcw className="h-3.5 w-3.5" />} onClick={resetTool}>Reset</Button>
+        </div>
+        <div className="grid gap-2 p-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+          {REGEX_EXAMPLES.map((preset) => (
+            <button
+              key={preset.id}
+              type="button"
+              aria-pressed={selectedPreset === preset.id}
+              onClick={() => applyPreset(preset)}
+              className={`min-w-0 rounded-[var(--radius-md)] border p-2.5 text-left transition focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)] ${selectedPreset === preset.id ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]" : "border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-raised)]"}`}
+            >
+              <span className="block truncate text-xs font-bold text-[var(--color-text-primary)]">{preset.label}</span>
+              <span className="mt-1 block truncate font-mono text-[10px] uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">{preset.category}</span>
+              <span className="mt-1 line-clamp-2 block text-[11px] leading-4 text-[var(--color-text-secondary)]">{preset.description}</span>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <div className="grid min-w-0 gap-4 xl:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] xl:items-stretch">
+        <section className="flex min-w-0 flex-col overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
+          <div className="border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Pattern and test input</h2>
+                <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Uses the native JavaScript RegExp engine.</p>
+              </div>
+              <CopyButton text={`/${pattern}/${flags}`} size="sm" variant="secondary">Copy regex</CopyButton>
+            </div>
+          </div>
+
+          <div className="flex flex-1 flex-col gap-4 p-4">
+            <div className="space-y-2">
+              <label htmlFor="regex-pattern" className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Pattern</label>
+              <div className="flex min-w-0 items-center rounded-[var(--radius-sm)] border border-[var(--color-border-default)] bg-[var(--color-control-bg)] shadow-[var(--shadow-xs)] focus-within:border-[var(--color-primary)] focus-within:shadow-[var(--focus-ring)]">
+                <span className="shrink-0 px-3 font-mono text-sm font-bold text-[var(--color-text-tertiary)]">/</span>
+                <input
+                  id="regex-pattern"
+                  value={pattern}
+                  onChange={(event) => updatePattern(event.target.value)}
+                  aria-invalid={!(built instanceof RegExp)}
+                  spellCheck={false}
+                  className="min-h-[42px] min-w-0 flex-1 border-0 bg-transparent py-2 font-mono text-sm text-[var(--color-text-primary)] outline-none placeholder:text-[var(--color-text-tertiary)]"
+                  placeholder="Enter a JavaScript regular expression"
+                />
+                <span className="shrink-0 px-3 font-mono text-sm font-bold text-[var(--color-text-tertiary)]">/{flags}</span>
+              </div>
+              {!(built instanceof RegExp) ? <p className="text-xs font-semibold text-[var(--color-danger-text)]">{built.message}</p> : null}
+            </div>
+
+            <div className="space-y-2">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Flags</span>
+                <span className="text-[11px] text-[var(--color-text-tertiary)]">Click a flag to toggle it</span>
+              </div>
+              <div className="flex flex-wrap gap-2" role="group" aria-label="Regular expression flags">
+                {FLAG_OPTIONS.map((option) => (
+                  <button
+                    key={option.flag}
+                    type="button"
+                    title={option.description}
+                    aria-label={`${option.label}: ${option.description}`}
+                    aria-pressed={flags.includes(option.flag)}
+                    onClick={() => toggleFlag(option.flag)}
+                    className={`h-9 min-w-9 rounded-[var(--radius-sm)] border px-2 font-mono text-xs font-black transition focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)] ${flags.includes(option.flag) ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-base)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)]"}`}
+                  >
+                    {option.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <label htmlFor="regex-replacement" className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Replacement</label>
+              <Input id="regex-replacement" value={replacement} onChange={(event) => updateReplacement(event.target.value)} className="font-mono" placeholder="Use $&, $1, or $<name>" />
+            </div>
+
+            <div className="flex min-h-0 flex-1 flex-col space-y-2">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <label htmlFor="regex-test-text" className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Test text</label>
+                <div className="flex items-center gap-2 text-[11px] text-[var(--color-text-tertiary)]">
+                  <span>{countLines(text)} line(s)</span>
+                  <span aria-hidden>·</span>
+                  <span className={text.length > REGEX_INPUT_LIMIT ? "font-bold text-[var(--color-danger-text)]" : ""}>{text.length.toLocaleString()} / {REGEX_INPUT_LIMIT.toLocaleString()}</span>
+                  <Button size="sm" variant="ghost" onClick={() => updateText("")}>Clear</Button>
+                </div>
+              </div>
+              <Textarea
+                id="regex-test-text"
+                value={text}
+                onChange={(event) => updateText(event.target.value)}
+                variant="editor"
+                minRows={12}
+                spellCheck={false}
+                aria-invalid={text.length > REGEX_INPUT_LIMIT}
+                className="min-h-[300px] flex-1 font-mono text-xs leading-6"
+                placeholder="Paste text to test against the pattern…"
+              />
+            </div>
+
+            <details className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2">
+              <summary className="cursor-pointer text-xs font-bold text-[var(--color-text-primary)]">Regex quick reference</summary>
+              <div className="mt-3 grid gap-x-4 gap-y-2 sm:grid-cols-2">
+                {CHEATSHEET.map((item) => (
+                  <div key={item.token} className="flex min-w-0 gap-2 text-[11px] leading-5">
+                    <code className="shrink-0 font-bold text-[var(--color-primary)]">{item.token}</code>
+                    <span className="text-[var(--color-text-secondary)]">{item.meaning}</span>
+                  </div>
+                ))}
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <section className="flex min-w-0 flex-col overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-code-border)] [border-top:2px_solid_var(--color-primary)] bg-[var(--color-code-bg)] shadow-[var(--shadow-md)]" aria-live="polite">
+          <div className="flex flex-col gap-3 border-b border-[var(--color-code-border)] bg-[var(--color-code-surface)] px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h2 className="text-sm font-bold text-[var(--color-code-text)]">Live regex inspector</h2>
+              <p className="mt-1 text-xs text-[var(--color-code-muted)]">Highlight matches, inspect captures, preview replacement, or export code.</p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <CopyButton text={reportJson} size="sm" variant="soft">Copy JSON</CopyButton>
+              <Button size="sm" variant="secondary" leftIcon={<Download className="h-3.5 w-3.5" />} onClick={() => downloadText("regex-report.json", reportJson, "application/json;charset=utf-8")}>Report</Button>
+            </div>
+          </div>
+
+          <div className="overflow-x-auto border-b border-[var(--color-code-border)] bg-[var(--color-code-surface)]/80 px-4 py-3">
+            <Tabs<RegexTab>
+              ariaLabel="Regex result views"
+              value={activeTab}
+              onChange={setActiveTab}
+              items={[
+                { value: "highlight", label: <span className="inline-flex items-center gap-1.5"><Highlighter className="h-3.5 w-3.5" />Highlight</span> },
+                { value: "matches", label: <span className="inline-flex items-center gap-1.5"><ListChecks className="h-3.5 w-3.5" />Matches</span> },
+                { value: "replace", label: <span className="inline-flex items-center gap-1.5"><Replace className="h-3.5 w-3.5" />Replace</span> },
+                { value: "code", label: <span className="inline-flex items-center gap-1.5"><Code2 className="h-3.5 w-3.5" />Code</span> },
+              ]}
+              className="whitespace-nowrap border-[var(--color-code-border)] bg-[rgba(244,241,234,0.06)] [&_button]:text-slate-300 [&_button[aria-selected='true']]:bg-white [&_button[aria-selected='true']]:text-slate-950"
+            />
+          </div>
+
+          <div className="flex min-h-[520px] flex-1 flex-col p-3.5 sm:p-4">
+            {executionBlocked ? (
+              <div className="mb-3 rounded-[var(--radius-md)] border border-[var(--color-warning-border)] bg-[var(--color-warning-bg)] p-3 text-xs leading-5 text-[var(--color-warning-text)]">
+                Preview execution was paused because this pattern has a backtracking warning and the test text exceeds {REGEX_RISK_INPUT_LIMIT.toLocaleString()} characters. Shorten the sample or simplify the expression.
+              </div>
+            ) : null}
+
+            {activeTab === "highlight" ? (
+              <div className="flex min-h-0 flex-1 flex-col gap-3">
+                <div className="min-h-[320px] flex-1 overflow-auto rounded-[var(--radius-md)] border border-[var(--color-code-border)] bg-[var(--color-code-bg)] p-4">
+                  {text ? (
+                    <pre className="whitespace-pre-wrap break-words font-mono text-xs leading-6 text-[var(--color-code-text)]">
+                      {segments.map((segment) => segment.highlighted ? (
+                        <button
+                          key={segment.id}
+                          type="button"
+                          title={`Match ${(segment.matchIndex ?? 0) + 1}`}
+                          onClick={() => setSelectedMatch(segment.matchIndex ?? 0)}
+                          className={`rounded-[2px] px-0.5 [font:inherit] text-inherit outline-none transition focus-visible:ring-2 focus-visible:ring-white ${selectedMatch === segment.matchIndex ? "bg-[var(--color-primary)] text-[var(--color-primary-text)]" : "bg-[var(--color-warning-bg)] text-[var(--color-warning-text)] hover:brightness-95"} ${segment.zeroLength ? "mx-0.5" : ""}`}
+                        >
+                          {segment.text}
+                        </button>
+                      ) : <span key={segment.id}>{segment.text}</span>)}
+                    </pre>
+                  ) : <div className="flex min-h-[280px] items-center justify-center text-center text-sm text-[var(--color-code-muted)]">Add test text to see highlighted matches.</div>}
+                </div>
+
+                {activeMatch ? (
+                  <div className="grid gap-2 rounded-[var(--radius-md)] border border-[var(--color-code-border)] bg-[var(--color-code-surface)] p-3 sm:grid-cols-[minmax(0,1fr)_auto_auto] sm:items-center">
+                    <div className="min-w-0">
+                      <div className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-code-muted)]">Selected match #{(matches.indexOf(activeMatch) + 1).toLocaleString()}</div>
+                      <code className="mt-1 block truncate text-xs font-bold text-[var(--color-code-text)]">{activeMatch.match || "Zero-length match"}</code>
+                    </div>
+                    <div className="text-xs text-[var(--color-code-muted)]">Line {activeMatch.line}, column {activeMatch.column}</div>
+                    <div className="text-xs text-[var(--color-code-muted)]">Index {activeMatch.index}–{activeMatch.endIndex}</div>
+                  </div>
+                ) : null}
+              </div>
+            ) : null}
+
+            {activeTab === "matches" ? (
+              <div className="min-h-[420px] flex-1 overflow-auto rounded-[var(--radius-md)] border border-[var(--color-code-border)] bg-[var(--color-code-bg)] p-3">
+                {matches.length ? (
+                  <div className="space-y-2">
+                    {matches.slice(0, 200).map((match, index) => (
+                      <button
+                        key={`${match.index}-${index}`}
+                        type="button"
+                        onClick={() => { setSelectedMatch(index); setActiveTab("highlight"); }}
+                        className="w-full min-w-0 rounded-[var(--radius-sm)] border border-[var(--color-code-border)] bg-[var(--color-code-surface)] p-3 text-left transition hover:border-[var(--color-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]"
+                      >
+                        <div className="flex flex-wrap items-center justify-between gap-2">
+                          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-code-muted)]">Match #{index + 1}</span>
+                          <span className="font-mono text-[10px] text-[var(--color-code-muted)]">L{match.line}:C{match.column} · {match.index}–{match.endIndex}</span>
+                        </div>
+                        <code className="mt-2 block break-all text-xs font-bold leading-5 text-[var(--color-code-text)]">{match.match || "Zero-length match"}</code>
+                        {match.captures.length || match.namedGroups.length ? (
+                          <div className="mt-2 flex flex-wrap gap-1.5">
+                            {match.captures.map((capture) => <span key={`capture-${capture.index}`} className="rounded-full border border-[var(--color-code-border)] px-2 py-0.5 font-mono text-[10px] text-[var(--color-code-muted)]">${capture.index}: {capture.value ?? "undefined"}</span>)}
+                            {match.namedGroups.map((group) => <span key={`named-${group.name}`} className="rounded-full border border-[var(--color-primary)] px-2 py-0.5 font-mono text-[10px] text-[var(--color-code-text)]">{group.name}: {group.value ?? "undefined"}</span>)}
+                          </div>
+                        ) : null}
+                      </button>
+                    ))}
+                    {matches.length > 200 ? <p className="py-2 text-center text-xs text-[var(--color-code-muted)]">Showing the first 200 matches in the inspector. The JSON report includes all previewed matches.</p> : null}
+                  </div>
+                ) : <div className="flex min-h-[390px] items-center justify-center text-center text-sm text-[var(--color-code-muted)]">No matches to inspect.</div>}
+              </div>
+            ) : null}
+
+            {activeTab === "replace" ? (
+              <div className="flex min-h-0 flex-1 flex-col gap-3">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div className="text-xs text-[var(--color-code-muted)]">JavaScript replacement preview using <code className="text-[var(--color-code-text)]">String.replace()</code>.</div>
+                  <CopyButton text={replaced} size="sm" variant="soft" disabled={!replaced}>Copy output</CopyButton>
+                </div>
+                <pre className="min-h-[420px] flex-1 overflow-auto whitespace-pre-wrap break-words rounded-[var(--radius-md)] border border-[var(--color-code-border)] bg-[var(--color-code-bg)] p-4 font-mono text-xs leading-6 text-[var(--color-code-text)]">{replaced || "Replacement output will appear here."}</pre>
+              </div>
+            ) : null}
+
+            {activeTab === "code" ? (
+              <div className="space-y-3">
+                <div className="overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-code-border)] bg-[var(--color-code-bg)]">
+                  <div className="flex items-center justify-between gap-2 border-b border-[var(--color-code-border)] bg-[var(--color-code-surface)] px-3 py-2">
+                    <span className="inline-flex items-center gap-2 text-xs font-bold text-[var(--color-code-text)]"><Braces className="h-3.5 w-3.5" />JavaScript</span>
+                    <CopyButton text={javascriptSnippet} size="sm" variant="soft">Copy JS</CopyButton>
+                  </div>
+                  <pre className="max-h-64 overflow-auto whitespace-pre-wrap p-4 font-mono text-xs leading-6 text-[var(--color-code-text)]"><code>{javascriptSnippet}</code></pre>
+                </div>
+                <div className="overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-code-border)] bg-[var(--color-code-bg)]">
+                  <div className="flex items-center justify-between gap-2 border-b border-[var(--color-code-border)] bg-[var(--color-code-surface)] px-3 py-2">
+                    <span className="inline-flex items-center gap-2 text-xs font-bold text-[var(--color-code-text)]"><Code2 className="h-3.5 w-3.5" />TypeScript utility</span>
+                    <CopyButton text={typescriptSnippet} size="sm" variant="soft">Copy TS</CopyButton>
+                  </div>
+                  <pre className="max-h-72 overflow-auto whitespace-pre-wrap p-4 font-mono text-xs leading-6 text-[var(--color-code-text)]"><code>{typescriptSnippet}</code></pre>
+                </div>
+                <div className="grid gap-2 sm:grid-cols-2">
+                  <Button variant="secondary" leftIcon={<FileJson className="h-4 w-4" />} onClick={() => downloadText("regex-report.json", reportJson, "application/json;charset=utf-8")}>Download JSON report</Button>
+                  <Button variant="secondary" leftIcon={<Download className="h-4 w-4" />} onClick={() => downloadText("regex-snippets.txt", `JavaScript\n==========\n${javascriptSnippet}\n\nTypeScript\n==========\n${typescriptSnippet}`)}>Download code snippets</Button>
+                </div>
+              </div>
+            ) : null}
+          </div>
+        </section>
+      </div>
+
+      <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3">
+          <div className="flex items-center gap-2">
+            <ShieldCheck className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+            <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Production checks</h2>
+          </div>
+          <span className="text-xs text-[var(--color-text-tertiary)]">Heuristics supplement tests; they do not prove a regex is ReDoS-safe.</span>
+        </div>
+        <div className="grid gap-2 p-3 md:grid-cols-2 xl:grid-cols-3">
+          {checks.map((check) => (
+            <div key={check.id} className={`rounded-[var(--radius-md)] border p-3 ${CHECK_STYLES[check.severity]}`}>
+              <div className="flex items-center gap-2">
+                <CheckIcon severity={check.severity} />
+                <h3 className="text-xs font-bold">{check.title}</h3>
+              </div>
+              <p className="mt-1.5 text-xs leading-5 opacity-90">{check.message}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
 }

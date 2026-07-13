@@ -13,21 +13,25 @@ import {
 
 describe("hexToRgb", () => {
   it("parses a 6-digit hex color", () => {
-    expect(hexToRgb("#3b82f6")).toEqual({ r: 59, g: 130, b: 246 });
+    expect(hexToRgb("#3b82f6")).toEqual({ rgb: { r: 59, g: 130, b: 246 }, alpha: 1 });
   });
 
   it("parses without leading #", () => {
-    expect(hexToRgb("3b82f6")).toEqual({ r: 59, g: 130, b: 246 });
+    expect(hexToRgb("3b82f6")).toEqual({ rgb: { r: 59, g: 130, b: 246 }, alpha: 1 });
   });
 
   it("parses a 3-digit shorthand hex", () => {
-    expect(hexToRgb("#fff")).toEqual({ r: 255, g: 255, b: 255 });
-    expect(hexToRgb("#000")).toEqual({ r: 0, g: 0, b: 0 });
-    expect(hexToRgb("#f00")).toEqual({ r: 255, g: 0, b: 0 });
+    expect(hexToRgb("#fff")).toEqual({ rgb: { r: 255, g: 255, b: 255 }, alpha: 1 });
+    expect(hexToRgb("#000")).toEqual({ rgb: { r: 0, g: 0, b: 0 }, alpha: 1 });
+    expect(hexToRgb("#f00")).toEqual({ rgb: { r: 255, g: 0, b: 0 }, alpha: 1 });
+  });
+
+  it("parses an 8-digit hex with alpha", () => {
+    expect(hexToRgb("#3b82f680")).toEqual({ rgb: { r: 59, g: 130, b: 246 }, alpha: 0.502 });
   });
 
   it("is case-insensitive", () => {
-    expect(hexToRgb("#3B82F6")).toEqual({ r: 59, g: 130, b: 246 });
+    expect(hexToRgb("#3B82F6")).toEqual({ rgb: { r: 59, g: 130, b: 246 }, alpha: 1 });
   });
 
   it("returns null for invalid hex", () => {
@@ -235,12 +239,24 @@ describe("parseColorInput", () => {
     }
   });
 
-  it("returns 7 shades", () => {
+  it("returns an 11-stop tonal shade scale", () => {
     const result = parseColorInput("#3b82f6");
     expect(result.ok).toBe(true);
     if (result.ok) {
-      expect(result.shades).toHaveLength(7);
-      expect(result.shades[3].label).toBe("Base");
+      expect(result.shades).toHaveLength(11);
+      expect(result.shades.map((shade) => shade.label)).toEqual([
+        "50",
+        "100",
+        "200",
+        "300",
+        "400",
+        "500",
+        "600",
+        "700",
+        "800",
+        "900",
+        "950",
+      ]);
     }
   });
 });

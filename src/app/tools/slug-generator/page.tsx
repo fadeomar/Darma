@@ -6,28 +6,30 @@ import ToolContentCard from "@/features/tools/ui/ToolContentCard";
 import SurfaceCard from "@/components/ui/SurfaceCard";
 
 export const metadata: Metadata = {
-  title: "Free Slug Generator - Create Clean SEO URL Slugs",
+  title: "Slug Route Studio - Bulk Slugs, Redirects & Collision Checks",
   description:
-    "Convert titles and text into clean, readable, SEO-friendly URL slugs directly in your browser.",
+    "Generate single or bulk URL slugs, resolve collisions, audit reserved routes, create redirect mappings, and export CSV, JSON, Next.js, or ZIP route packs locally.",
   keywords: [
     "slug generator",
+    "bulk slug generator",
     "url slug",
+    "redirect generator",
+    "nextjs redirects",
+    "route manifest",
     "seo slug",
-    "blog slug",
-    "cms slug",
-    "url cleaner",
-    "kebab case",
-    "url friendly text",
+    "unicode slug",
+    "cms migration",
+    "url collision checker",
   ],
   openGraph: {
-    title: "Free Slug Generator - Create Clean SEO URL Slugs",
+    title: "Slug Route Studio - Bulk Slugs, Redirects & Collision Checks",
     description:
-      "Generate clean URL slugs from titles and text instantly. Supports Arabic and multilingual input, separator options, and browser-only processing.",
+      "Build production-ready route manifests with bulk slug generation, collision handling, redirect exports, Unicode support, and browser-local checks.",
   },
 };
 
 const SlugGeneratorClient = dynamic(() => import("./SlugGeneratorClient"), {
-  loading: () => <div className="h-[520px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
+  loading: () => <div className="h-[720px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
 });
 
 const Article = dynamic(() => import("./Article"));
@@ -40,60 +42,61 @@ export default function SlugGeneratorPage() {
     <ToolPageShell
       tool={tool}
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Turn headings, article names, and product titles into clean URL slugs
-          in real time. Choose separator style, casing, optional stop-word
-          removal, and max length. Everything runs locally in your browser.
+        <p className="max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)]">
+          Turn one title or an entire content catalog into reviewed URL routes.
+          Resolve duplicates, preserve nested paths, flag reserved segments, map
+          previous URLs, and export deployment-ready route and redirect files.
+          Everything runs locally in your browser.
         </p>
       }
       sidebar={
         <div className="flex flex-col gap-5">
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-              Good slug checklist
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)]">
+              Production checklist
             </h2>
-            <ul className="mt-3 space-y-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-              <li>Keep it short and descriptive</li>
-              <li>Use one separator style consistently</li>
-              <li>Avoid symbols and repeated separators</li>
-              <li>Keep important keywords near the start</li>
-              <li>Do not change published slugs without redirects</li>
+            <ul className="mt-3 space-y-2 text-sm leading-6 text-[var(--color-text-secondary)]">
+              <li>Resolve duplicate or blocked routes</li>
+              <li>Review framework-reserved segments</li>
+              <li>Keep public URLs lowercase consistently</li>
+              <li>Create redirects before changing live URLs</li>
+              <li>Verify Unicode support across your stack</li>
             </ul>
           </SurfaceCard>
 
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-              Common use cases
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)]">
+              Export formats
             </h2>
-            <ul className="mt-3 space-y-1.5 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-              <li>Blog article URLs</li>
-              <li>Product page handles</li>
-              <li>CMS and headless content paths</li>
-              <li>Documentation routes</li>
-              <li>SEO-friendly campaign pages</li>
+            <ul className="mt-3 space-y-1.5 text-sm leading-6 text-[var(--color-text-secondary)]">
+              <li>Route manifest CSV</li>
+              <li>Redirect JSON</li>
+              <li>Next.js redirect config</li>
+              <li>TypeScript slug utility</li>
+              <li>Full JSON and ZIP audit packs</li>
             </ul>
           </SurfaceCard>
 
           <SurfaceCard>
-            <h2 className="text-lg font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">
-              Privacy
+            <h2 className="text-lg font-bold text-[var(--color-text-primary)]">
+              Bulk input format
             </h2>
-            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)] dark:text-[var(--color-text-tertiary)]">
-              Slug generation happens entirely in your browser. No text is sent
-              to any server.
+            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">
+              Enter one title per line. For migrations, add a tab followed by the
+              old path to generate a redirect mapping.
             </p>
           </SurfaceCard>
         </div>
       }
     >
       <ToolContentCard
-        title="Slug Generator"
-        description="Paste text, adjust options, and copy a clean URL slug instantly."
+        title="Slug Route Studio"
+        description="Generate, review, de-duplicate, and export production URL routes."
       >
         <SlugGeneratorClient />
       </ToolContentCard>
 
-      <ToolContentCard title="About URL slugs">
+      <ToolContentCard title="Production slug and redirect guide">
         <Article />
       </ToolContentCard>
     </ToolPageShell>

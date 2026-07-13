@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const StatisticsCalculatorClient = dynamic(() => import("./StatisticsCalculatorClient"), {
-  loading: () => <div className="h-[420px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
+  loading: () => <div className="h-[720px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
 });
 const Article = dynamic(() => import("./Article"));
 
@@ -26,21 +26,20 @@ export default function StatisticsCalculatorPage() {
   return (
     <ToolPage
       tool={tool}
-      maxWidth="wide"
+      maxWidth="full"
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Get the mean, median, mode, range, variance, and standard deviation of a list of numbers —
-          instantly and locally in your browser.
+        <p className="max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
+          Analyze numeric data with mean, median, quartiles, percentiles, sample and population spread, histogram, box plot, IQR outliers, parser diagnostics, and production-ready exports — entirely in your browser.
         </p>
       }
       article={
-        <ToolContentCard title="About descriptive statistics">
+        <ToolContentCard title="How to review descriptive statistics responsibly">
           <Article />
         </ToolContentCard>
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Calculate statistics" description="Mean, median, mode, range, variance, and standard deviation — calculated in your browser with no data sent to a server.">
+      <ToolContentCard title="Statistics Analysis Studio" description="Paste or import a compact data set, inspect its distribution and data quality, then export a reproducible analysis pack.">
         <StatisticsCalculatorClient />
       </ToolContentCard>
     </ToolPage>

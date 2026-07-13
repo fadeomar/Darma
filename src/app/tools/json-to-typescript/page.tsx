@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const JsonToTypescriptClient = dynamic(() => import("./JsonToTypescriptClient"), {
-  loading: () => <div className="h-[720px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
+  loading: () => <div className="h-[760px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
 });
 const Article = dynamic(() => import("./Article"));
 
@@ -28,18 +28,18 @@ export default function JsonToTypescriptPage() {
       tool={tool}
       maxWidth="wide"
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Convert JSON examples into TypeScript interfaces or type aliases with nested objects, arrays, optional fields, and copy-ready output.
+        <p className="max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)]">
+          Turn representative JSON into TypeScript declarations, inspect structural inference risks, and export Zod, JSON Schema, audit reports, or a complete contract pack—all locally in your browser.
         </p>
       }
       article={
-        <ToolContentCard title="About JSON to TypeScript generation">
+        <ToolContentCard title="From JSON samples to production contracts">
           <Article />
         </ToolContentCard>
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="JSON to TypeScript" description="Generate TypeScript declarations from JSON locally in your browser.">
+      <ToolContentCard title="JSON Contract Studio" description="Infer compile-time types, generate runtime-schema starters, and review the sample before production use.">
         <JsonToTypescriptClient />
       </ToolContentCard>
     </ToolPage>

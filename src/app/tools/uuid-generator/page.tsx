@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const UuidGeneratorClient = dynamic(() => import("./UuidGeneratorClient"), {
-  loading: () => <div className="h-[520px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
+  loading: () => <div className="h-[620px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
 });
 const Article = dynamic(() => import("./Article"));
 
@@ -28,18 +28,18 @@ export default function UuidGeneratorPage() {
       tool={tool}
       maxWidth="wide"
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Create one UUID or a batch of secure v4 UUIDs for development workflows. Everything runs locally in your browser.
+        <p className="max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
+          Generate secure UUID v4 or time-ordered UUID v7 batches, validate existing identifiers, inspect version and variant fields, and export fixture-ready JSON, CSV, SQL, TypeScript, or ZIP packs. Everything runs locally in your browser.
         </p>
       }
       article={
-        <ToolContentCard title="About UUIDs and v4 generation">
+        <ToolContentCard title="UUID v4, UUID v7, validation, and production use">
           <Article />
         </ToolContentCard>
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Generate UUIDs" description="Generate, format, copy, and download secure v4 UUIDs without sending data to a server.">
+      <ToolContentCard title="UUID Generator & Inspector" description="Create secure identifiers, inspect UUID fields, review production checks, and export practical developer formats.">
         <UuidGeneratorClient />
       </ToolContentCard>
     </ToolPage>

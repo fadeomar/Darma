@@ -9,7 +9,7 @@ describe("typingSpeedEngine", () => {
   });
 
   it("calculates WPM, raw WPM, accuracy, and mistakes", () => {
-    const metrics = calculateTypingMetrics("hello world", "hello worlx", 60_000);
+    const metrics = calculateTypingMetrics("hello world", "hello worx", 60_000);
     expect(metrics.typedChars).toBe(10);
     expect(metrics.correctChars).toBe(9);
     expect(metrics.incorrectChars).toBe(1);

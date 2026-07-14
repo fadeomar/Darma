@@ -7,7 +7,7 @@ function round(value: number) {
   return Math.round(Number.isFinite(value) ? value : 0);
 }
 
-function sampleDistance(sample: ScrollSample) {
+export function sampleDistance(sample: ScrollSample) {
   return Math.hypot(sample.dx, sample.dy);
 }
 
@@ -66,15 +66,19 @@ function calculateBestBurst(samples: ScrollSample[]) {
   return best;
 }
 
-function calculateSmoothness(samples: ScrollSample[]) {
-  if (samples.length < 4) return 0;
-
+export function scrollGaps(samples: ScrollSample[]) {
   const gaps: number[] = [];
   for (let index = 1; index < samples.length; index += 1) {
     const gap = samples[index].time - samples[index - 1].time;
-    if (gap > 0 && gap < 1200) gaps.push(gap);
+    if (gap > 0) gaps.push(gap);
   }
+  return gaps;
+}
 
+function calculateSmoothness(samples: ScrollSample[]) {
+  if (samples.length < 4) return 0;
+
+  const gaps = scrollGaps(samples);
   if (gaps.length < 3) return 0;
 
   const average = gaps.reduce((sum, gap) => sum + gap, 0) / gaps.length;
@@ -87,12 +91,15 @@ function calculateSmoothness(samples: ScrollSample[]) {
   return Math.max(0, Math.min(100, score));
 }
 
-export function normalizeWheelDelta(event: WheelEvent) {
+export function normalizeWheelDelta(
+  event: Pick<WheelEvent, "deltaMode" | "deltaX" | "deltaY">,
+  pageHeight = typeof window === "undefined" ? 800 : window.innerHeight || 800,
+) {
   const unit =
     event.deltaMode === 1
       ? LINE_HEIGHT_IN_PIXELS
       : event.deltaMode === 2
-        ? Math.max(window.innerHeight || 800, 1)
+        ? Math.max(pageHeight, 1)
         : 1;
 
   return {
@@ -168,6 +175,6 @@ export function resultInsight(stats: ScrollStats) {
   return "Nice run. For a fair comparison, keep the same browser, device, and scroll settings.";
 }
 
-export function formatNumber(value: number) {
-  return new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(value);
+export function formatNumber(value: number, maximumFractionDigits = 0) {
+  return new Intl.NumberFormat("en-US", { maximumFractionDigits }).format(value);
 }

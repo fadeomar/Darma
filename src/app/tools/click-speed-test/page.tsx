@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import dynamic from "next/dynamic";
 import { Badge } from "@/components/ui";
-import { getToolRegistry } from "@/features/tools";
-import { ToolPage } from "@/features/tools/layouts";
+import { getToolRegistry } from "@/features/tools/registry";
+import { ToolPage } from "@/features/tools/layouts/ToolPage";
 import { buildToolJsonLd, buildToolMetadata } from "@/features/tools/seo";
 import ToolContentCard from "@/features/tools/ui/ToolContentCard";
 
@@ -14,7 +14,9 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const ClickSpeedTestClient = dynamic(() => import("./ClickSpeedTestClient"), {
-  loading: () => <div className="h-[620px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
+  loading: () => (
+    <div className="h-[620px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />
+  ),
 });
 const Article = dynamic(() => import("./Article"));
 
@@ -33,23 +35,31 @@ export default function ClickSpeedTestPage() {
       intro={
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-4">
           <p className="text-sm leading-7 text-[var(--color-text-secondary)] sm:text-base">
-            A Darma fun tool for testing click speed with a reusable challenge UI system, countdown, timed modes, live CPS, best burst, score copy, and local personal best.
+            Measure CPS across timed or manual pointer sprints, preserve
+            per-click evidence, audit comparison quality, restore local backups,
+            and export Markdown, CSV, JSON, or ZIP reports.
           </p>
           <div className="flex flex-wrap justify-center gap-2">
             <Badge variant="soft">Click Sprint</Badge>
-            <Badge variant="accent">Fun Tools Phase 4</Badge>
+            <Badge variant="accent">Phase 35 production studio</Badge>
             <Badge variant="outline">No upload</Badge>
-            <Badge variant="outline">Personal best</Badge>
+            <Badge variant="outline">Per-click CSV</Badge>
           </div>
         </div>
       }
       article={
-        <ToolContentCard title="About Click Speed Test" description="How the challenge measures CPS, click rhythm, input method, and why browser results can vary.">
+        <ToolContentCard
+          title="About Click Speed Test"
+          description="How CPS, click-gap evidence, result-quality checks, local backups, and production exports work."
+        >
           <Article />
         </ToolContentCard>
       }
     >
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <ClickSpeedTestClient />
     </ToolPage>
   );

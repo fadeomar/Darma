@@ -1,10 +1,13 @@
 export type SpacebarTestMode = 5 | 10 | 30 | 60 | "manual";
 
-export type SpacebarInputMethod = "Keyboard" | "Touch" | "Mouse" | "Mixed" | "None";
+export type SpacebarInputMethod =
+  "Keyboard" | "Touch" | "Mouse" | "Mixed" | "None";
+
+export type SpacebarSampleSource = "keyboard" | "touch" | "mouse";
 
 export type SpacebarSample = {
   time: number;
-  source: "keyboard" | "touch" | "mouse";
+  source: SpacebarSampleSource;
 };
 
 export type SpacebarStats = {
@@ -23,5 +26,8 @@ export type SpacebarAttempt = {
   id: string;
   createdAt: string;
   mode: SpacebarTestMode;
+  elapsedMs: number;
   stats: SpacebarStats;
+  samples: SpacebarSample[];
+  ignoredRepeats: number;
 };

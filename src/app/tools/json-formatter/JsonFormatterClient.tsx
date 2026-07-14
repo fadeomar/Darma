@@ -1,19 +1,28 @@
 "use client";
 
 import { type ChangeEvent, useEffect, useMemo, useRef, useState } from "react";
+import JSZip from "jszip";
 import {
   AlertTriangle,
   CheckCircle2,
   ClipboardCheck,
+  Archive,
+  Braces,
   Database,
   Download,
+  FileCode2,
   FileJson2,
+  FileSpreadsheet,
+  Gauge,
   History,
+  Info,
   ListTree,
   Maximize2,
   Minimize2,
   PanelTopOpen,
   RotateCcw,
+  Settings2,
+  ShieldCheck,
   Sparkles,
   Table2,
   Upload,
@@ -21,11 +30,32 @@ import {
 } from "lucide-react";
 import { Badge, Button, CopyButton, Select } from "@/components/ui";
 import { downloadText } from "../_shared/clientUtils";
+import { downloadBlobFile } from "@/features/tools/export/downloadBlob";
 import { cn } from "@/lib/cn";
 import JsonCodeEditor, { type JsonCodeEditorHandle } from "./JsonCodeEditor";
 import JsonStatsPanel from "./JsonStatsPanel";
 import JsonTableView from "./JsonTableView";
 import JsonTreeView from "./JsonTreeView";
+import {
+  JSON_FORMATTER_PRESETS,
+  MAX_JSON_IMPORT_BYTES,
+  buildJsonFormatterAudit,
+  buildJsonFormatterJavaScriptModule,
+  buildJsonFormatterMarkdownReport,
+  buildJsonFormatterMetricsCsv,
+  buildJsonFormatterProductionFiles,
+  buildJsonFormatterSnapshot,
+  buildJsonFormatterSummaryCards,
+  buildJsonFormatterTypeScriptModule,
+  createJsonFormatterProfile,
+  findUnsafeIntegerLiterals,
+  parseJsonFormatterProfile,
+  summarizeJsonFormatterAudit,
+  type JsonAuditCheck,
+  type JsonFormatterOperation,
+  type JsonFormatterSettings,
+  type JsonFormatterView,
+} from "./studio";
 import {
   analyzeJSON,
   escapeJSONString,
@@ -44,7 +74,7 @@ import {
 } from "./utils";
 
 type JsonAction = "format" | "minify" | "validate" | "fix" | "sort" | "escape" | "unescape";
-type JsonView = "text" | "tree" | "table" | "stats";
+type JsonView = JsonFormatterView;
 type TreeExpansion = "auto" | "expanded" | "collapsed";
 
 type HistoryItem = {
@@ -172,6 +202,67 @@ function WorkbenchStat({ label, value }: { label: string; value: string | number
   );
 }
 
+function SummaryCard({ label, value, detail }: { label: string; value: string; detail: string }) {
+  return (
+    <div className="min-w-0 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
+      <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</p>
+      <p className="mt-2 truncate text-xl font-black tracking-[-0.04em] text-[var(--color-text-primary)]">{value}</p>
+      <p className="mt-1 text-xs leading-5 text-[var(--color-text-secondary)]">{detail}</p>
+    </div>
+  );
+}
+
+const AUDIT_BADGE_VARIANT: Record<JsonAuditCheck["severity"], "danger" | "warning" | "info" | "success"> = {
+  error: "danger",
+  warning: "warning",
+  info: "info",
+  pass: "success",
+};
+
+function ProductionAudit({ checks }: { checks: JsonAuditCheck[] }) {
+  const summary = summarizeJsonFormatterAudit(checks);
+  return (
+    <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)] sm:p-5">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div>
+          <div className="flex items-center gap-2">
+            <ShieldCheck className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+            <h3 className="text-base font-black text-[var(--color-text-primary)]">Production checks</h3>
+          </div>
+          <p className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">
+            Syntax, precision, payload size, risky keys, privacy, and downstream contract reminders.
+          </p>
+        </div>
+        <Badge variant={summary.status === "Blocked" ? "danger" : summary.status === "Review" ? "warning" : "success"}>
+          {summary.status}
+        </Badge>
+      </div>
+
+      <div className="mt-4 grid gap-2 lg:grid-cols-2">
+        {checks.map((check) => {
+          const Icon = check.severity === "error" || check.severity === "warning"
+            ? AlertTriangle
+            : check.severity === "pass"
+              ? CheckCircle2
+              : Info;
+          return (
+            <div key={check.id} className="flex min-w-0 items-start gap-3 rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-3">
+              <Icon className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-text-tertiary)]" aria-hidden />
+              <div className="min-w-0">
+                <div className="flex flex-wrap items-center gap-2">
+                  <p className="text-sm font-bold text-[var(--color-text-primary)]">{check.title}</p>
+                  <Badge variant={AUDIT_BADGE_VARIANT[check.severity]}>{check.severity}</Badge>
+                </div>
+                <p className="mt-1 break-words text-xs leading-5 text-[var(--color-text-secondary)]">{check.message}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
 export default function JsonFormatterClient() {
   const inputEditorRef = useRef<JsonCodeEditorHandle>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -191,6 +282,9 @@ export default function JsonFormatterClient() {
   const [historyEnabled, setHistoryEnabled] = useState(false);
   const [historyItems, setHistoryItems] = useState<HistoryItem[]>([]);
   const [treeExpansion, setTreeExpansion] = useState<TreeExpansion>("auto");
+  const [lastOperation, setLastOperation] = useState<JsonFormatterOperation>("preview");
+  const [repairChanges, setRepairChanges] = useState<string[]>([]);
+  const [isExporting, setIsExporting] = useState(false);
 
   useEffect(() => {
     if (!input.trim()) {
@@ -221,6 +315,7 @@ export default function JsonFormatterClient() {
     return result.ok ? result.parsed : undefined;
   }, [parseTarget]);
 
+  const unsafeInputIntegers = useMemo(() => findUnsafeIntegerLiterals(input), [input]);
   const stats = useMemo(() => {
     if (parsedTarget === undefined) return undefined;
     return analyzeJSON(parsedTarget, parseTarget);
@@ -229,18 +324,42 @@ export default function JsonFormatterClient() {
   const tableData = useMemo(() => jsonToTableData(parsedTarget), [parsedTarget]);
   const error = validationMessage(validation);
   const autoFormattedOutput = useMemo(() => {
-    if (output || !input.trim()) return "";
+    if (output || !input.trim() || unsafeInputIntegers.length) return "";
     const result = formatJSON(input, indent, sortKeys);
     return result.ok && result.output ? result.output : "";
-  }, [input, indent, sortKeys, output]);
+  }, [input, indent, sortKeys, output, unsafeInputIntegers.length]);
   const outputForCopy = output || autoFormattedOutput;
   const isLiveFormattedPreview = !output && Boolean(autoFormattedOutput);
   const inputLines = input ? input.split("\n").length : 0;
   const outputLines = outputForCopy ? outputForCopy.split("\n").length : 0;
+  const formatterSettings = useMemo<JsonFormatterSettings>(() => ({
+    indent,
+    sortKeys,
+    preferredView: activeView,
+  }), [activeView, indent, sortKeys]);
+  const productionSnapshot = useMemo(() => buildJsonFormatterSnapshot({
+    input,
+    resultText: outputForCopy,
+    settings: formatterSettings,
+    operation: lastOperation,
+    repairChanges,
+    historyEnabled,
+  }), [formatterSettings, historyEnabled, input, lastOperation, outputForCopy, repairChanges]);
+  const productionChecks = useMemo(
+    () => buildJsonFormatterAudit(productionSnapshot),
+    [productionSnapshot],
+  );
+  const summaryCards = useMemo(
+    () => buildJsonFormatterSummaryCards(productionSnapshot, productionChecks),
+    [productionChecks, productionSnapshot],
+  );
+  const payloadExportReady = productionSnapshot.valid && productionSnapshot.unsafeIntegerLiterals.length === 0;
 
   function handleInputChange(nextValue: string) {
     setInput(nextValue);
     setOutput("");
+    setLastOperation("preview");
+    setRepairChanges([]);
   }
 
   function saveToHistory(value: string) {
@@ -258,6 +377,16 @@ export default function JsonFormatterClient() {
   }
 
   function handleResult(action: JsonAction, value: string) {
+    if (findUnsafeIntegerLiterals(value).length) {
+      setOutput("");
+      setLastOperation(action === "sort" ? "sort" : action === "fix" ? "repair" : action);
+      setNotice({
+        tone: "danger",
+        title: "Unsafe integer precision",
+        message: "Formatting or minifying this payload through JSON.parse would change at least one integer. Encode exact large identifiers as strings first.",
+      });
+      return;
+    }
     const result = action === "minify"
       ? minifyJSON(value, sortKeys)
       : formatJSON(value, indent, action === "sort" ? true : sortKeys);
@@ -276,6 +405,8 @@ export default function JsonFormatterClient() {
     }
 
     setOutput(result.output);
+    setLastOperation(action === "sort" ? "sort" : action === "fix" ? "repair" : action);
+    setRepairChanges([]);
     saveToHistory(result.output);
     setActiveView("text");
     setNotice({
@@ -301,6 +432,8 @@ export default function JsonFormatterClient() {
     }
 
     setOutput(result.output);
+    setLastOperation(action);
+    setRepairChanges([]);
     saveToHistory(result.output);
     setActiveView("text");
     setNotice({
@@ -321,6 +454,8 @@ export default function JsonFormatterClient() {
     if (action === "validate") {
       const result = validateJSON(input);
       setValidation(result);
+      setLastOperation("validate");
+      setRepairChanges([]);
       if (result.ok) {
         saveToHistory(input.trim());
         setNotice({
@@ -341,6 +476,16 @@ export default function JsonFormatterClient() {
     }
 
     if (action === "fix") {
+      if (unsafeInputIntegers.length) {
+        setOutput("");
+        setLastOperation("repair");
+        setNotice({
+          tone: "danger",
+          title: "Repair paused to protect integer precision",
+          message: "Convert exact integers beyond JavaScript's safe range to quoted strings before automatic repair.",
+        });
+        return;
+      }
       const result = repairLooseJSON(input, indent, sortKeys);
       setValidation(result.validation);
       if (!result.ok || !result.output) {
@@ -353,6 +498,8 @@ export default function JsonFormatterClient() {
         return;
       }
       setOutput(result.output);
+      setLastOperation("repair");
+      setRepairChanges(result.changes);
       saveToHistory(result.output);
       setActiveView("text");
       setNotice({
@@ -368,9 +515,57 @@ export default function JsonFormatterClient() {
 
   async function handleFile(file?: File) {
     if (!file) return;
+    if (file.size > MAX_JSON_IMPORT_BYTES) {
+      setNotice({
+        tone: "danger",
+        title: "File is too large",
+        message: "The browser workbench accepts JSON files up to 5 MB. Use a streaming or command-line tool for larger payloads.",
+      });
+      return;
+    }
+
     const content = await file.text();
-    setInput(content);
+    if (!content.trim()) {
+      setNotice({
+        tone: "danger",
+        title: "File is empty",
+        message: "Choose a JSON payload or a Darma JSON Formatter profile that contains data.",
+      });
+      return;
+    }
+
+    let parsedFile: { schema?: unknown } | null = null;
+    try {
+      parsedFile = JSON.parse(content) as { schema?: unknown };
+    } catch {
+      // Invalid payload JSON is still useful input for validation and repair.
+    }
+
+    if (parsedFile && typeof parsedFile === "object" && parsedFile.schema === "darma.json-formatter-profile") {
+      try {
+        const imported = parseJsonFormatterProfile(content);
+        setIndent(imported.indent);
+        setSortKeys(imported.sortKeys);
+        setActiveView(imported.preferredView);
+        setNotice({
+          tone: "success",
+          title: "Formatter profile imported",
+          message: `${file.name} updated indentation, key sorting, and the preferred inspector view without replacing your payload.`,
+        });
+      } catch (error) {
+        setNotice({
+          tone: "danger",
+          title: "Formatter profile could not be imported",
+          message: error instanceof Error ? error.message : "The selected profile is not supported.",
+        });
+      }
+      return;
+    }
+
+    setInput(content.replace(/^\uFEFF/, ""));
     setOutput("");
+    setLastOperation("preview");
+    setRepairChanges([]);
     setNotice({
       tone: "info",
       title: "File loaded",
@@ -388,6 +583,8 @@ export default function JsonFormatterClient() {
     setOutput("");
     setValidation(null);
     setActiveView("text");
+    setLastOperation("preview");
+    setRepairChanges([]);
     setNotice({
       tone: "info",
       title: "Workspace cleared",
@@ -401,6 +598,8 @@ export default function JsonFormatterClient() {
     setOutput("");
     setValidation({ ok: true });
     setActiveView(sample === "table" ? "table" : "text");
+    setLastOperation("preview");
+    setRepairChanges([]);
     setNotice({
       tone: "info",
       title: sample === "table" ? "Table sample loaded" : "API sample loaded",
@@ -412,11 +611,134 @@ export default function JsonFormatterClient() {
     if (!output) return;
     setInput(output);
     setOutput("");
+    setLastOperation("preview");
+    setRepairChanges([]);
     setNotice({
       tone: "success",
       title: "Input replaced",
       message: "The generated output is now your input, ready for another operation.",
     });
+  }
+
+  function applyPreset(preset: (typeof JSON_FORMATTER_PRESETS)[number]) {
+    setIndent(preset.settings.indent);
+    setSortKeys(preset.settings.sortKeys);
+    setActiveView(preset.settings.preferredView);
+    setRepairChanges([]);
+
+    if (!input.trim()) {
+      setNotice({
+        tone: "info",
+        title: `${preset.title} preset selected`,
+        message: "The formatter settings are ready. Paste or upload JSON to apply them.",
+      });
+      return;
+    }
+
+    if (unsafeInputIntegers.length) {
+      setOutput("");
+      setNotice({
+        tone: "danger",
+        title: "Preset paused to protect integer precision",
+        message: "Convert exact large integer identifiers to strings before formatting or minifying.",
+      });
+      return;
+    }
+
+    const result = preset.operation === "minify"
+      ? minifyJSON(input, preset.settings.sortKeys)
+      : formatJSON(input, preset.settings.indent, preset.operation === "sort" || preset.settings.sortKeys);
+    setValidation(result.validation);
+    if (!result.ok || !result.output) {
+      setOutput("");
+      setNotice({
+        tone: "danger",
+        title: "Preset could not be applied",
+        message: validationMessage(result.validation) || "Resolve the JSON syntax error first.",
+      });
+      return;
+    }
+
+    setOutput(result.output);
+    setLastOperation(preset.operation);
+    saveToHistory(result.output);
+    setNotice({
+      tone: "success",
+      title: `${preset.title} applied`,
+      message: preset.description,
+    });
+  }
+
+  function downloadProfile() {
+    downloadText(
+      "darma-json-formatter-profile.json",
+      `${JSON.stringify(createJsonFormatterProfile(formatterSettings), null, 2)}\n`,
+      "application/json;charset=utf-8",
+    );
+  }
+
+  function downloadReport() {
+    downloadText(
+      "darma-json-audit.md",
+      buildJsonFormatterMarkdownReport(productionSnapshot),
+      "text/markdown;charset=utf-8",
+    );
+  }
+
+  function downloadMetrics() {
+    downloadText(
+      "darma-json-metrics.csv",
+      buildJsonFormatterMetricsCsv(productionSnapshot),
+      "text/csv;charset=utf-8",
+    );
+  }
+
+  function downloadJavaScriptModule() {
+    try {
+      downloadText(
+        "json-data.js",
+        buildJsonFormatterJavaScriptModule(productionSnapshot),
+        "text/javascript;charset=utf-8",
+      );
+    } catch (error) {
+      setNotice({ tone: "danger", title: "JavaScript export unavailable", message: error instanceof Error ? error.message : "Validate the JSON first." });
+    }
+  }
+
+  function downloadTypeScriptModule() {
+    try {
+      downloadText(
+        "json-data.ts",
+        buildJsonFormatterTypeScriptModule(productionSnapshot),
+        "text/typescript;charset=utf-8",
+      );
+    } catch (error) {
+      setNotice({ tone: "danger", title: "TypeScript export unavailable", message: error instanceof Error ? error.message : "Validate the JSON first." });
+    }
+  }
+
+  async function downloadProductionPack() {
+    setIsExporting(true);
+    try {
+      const files = buildJsonFormatterProductionFiles(productionSnapshot);
+      const zip = new JSZip();
+      Object.entries(files).forEach(([filename, content]) => zip.file(filename, content));
+      const blob = await zip.generateAsync({ type: "blob" });
+      downloadBlobFile({ blob, filename: "darma-json-formatter-production-pack.zip" });
+      setNotice({
+        tone: "success",
+        title: "Production pack created",
+        message: "The ZIP contains formatted and minified JSON, JavaScript and TypeScript modules, a settings-only profile, an audit report, and metrics CSV.",
+      });
+    } catch (error) {
+      setNotice({
+        tone: "danger",
+        title: "Production pack unavailable",
+        message: error instanceof Error ? error.message : "Validate the JSON and try again.",
+      });
+    } finally {
+      setIsExporting(false);
+    }
   }
 
   const wrapperClass = isFullscreen
@@ -426,6 +748,10 @@ export default function JsonFormatterClient() {
   return (
     <div className={wrapperClass}>
       <input ref={fileInputRef} type="file" accept=".json,application/json,text/json,text/plain" onChange={handleFileInput} className="sr-only" />
+
+      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4" aria-label="JSON production summary">
+        {summaryCards.map((card) => <SummaryCard key={card.label} {...card} />)}
+      </div>
 
       <section
         className={cn(
@@ -516,6 +842,20 @@ export default function JsonFormatterClient() {
               <Button size="sm" variant="secondary" disabled={!outputForCopy} leftIcon={<Download className="h-4 w-4" />} onClick={() => downloadText("formatted.json", outputForCopy, "application/json;charset=utf-8")}>
                 Download
               </Button>
+            </div>
+          </div>
+
+          <div className="mt-3 flex flex-col gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3 lg:flex-row lg:items-center">
+            <div className="flex items-center gap-2 lg:mr-2">
+              <Settings2 className="h-4 w-4 text-[var(--color-text-tertiary)]" aria-hidden />
+              <p className="text-xs font-bold uppercase tracking-[0.06em] text-[var(--color-text-secondary)]">Practical presets</p>
+            </div>
+            <div className="flex min-w-0 flex-wrap gap-2">
+              {JSON_FORMATTER_PRESETS.map((preset) => (
+                <Button key={preset.id} size="sm" variant="ghost" onClick={() => applyPreset(preset)} title={preset.description}>
+                  {preset.title}
+                </Button>
+              ))}
             </div>
           </div>
         </div>
@@ -610,13 +950,56 @@ export default function JsonFormatterClient() {
               <Button size="sm" variant="secondary" disabled={!output} onClick={replaceInputWithOutput}>
                 Replace input with output
               </Button>
-              <Button size="sm" variant="ghost" disabled={!output} onClick={() => setOutput("")}>
+              <Button size="sm" variant="ghost" disabled={!output} onClick={() => {
+                setOutput("");
+                setLastOperation("preview");
+                setRepairChanges([]);
+              }}>
                 Clear output
               </Button>
             </div>
           </div>
         </div>
       </section>
+
+      <div className="grid gap-4 xl:grid-cols-[minmax(0,1.45fr)_minmax(320px,0.55fr)]">
+        <ProductionAudit checks={productionChecks} />
+
+        <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)] sm:p-5">
+          <div className="flex items-center gap-2">
+            <Archive className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+            <h3 className="text-base font-black text-[var(--color-text-primary)]">Production exports</h3>
+          </div>
+          <p className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">
+            Export the payload for developers, or share a settings-only profile and metrics-only audit without JSON values.
+          </p>
+
+          <div className="mt-4 grid gap-2 sm:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-2">
+            <Button size="sm" variant="secondary" leftIcon={<Settings2 className="h-4 w-4" />} onClick={downloadProfile}>
+              Profile JSON
+            </Button>
+            <Button size="sm" variant="secondary" leftIcon={<FileSpreadsheet className="h-4 w-4" />} onClick={downloadMetrics}>
+              Metrics CSV
+            </Button>
+            <Button size="sm" variant="secondary" leftIcon={<Gauge className="h-4 w-4" />} onClick={downloadReport}>
+              Audit Markdown
+            </Button>
+            <Button size="sm" variant="secondary" disabled={!payloadExportReady} leftIcon={<FileCode2 className="h-4 w-4" />} onClick={downloadJavaScriptModule}>
+              JavaScript
+            </Button>
+            <Button size="sm" variant="secondary" disabled={!payloadExportReady} leftIcon={<Braces className="h-4 w-4" />} onClick={downloadTypeScriptModule}>
+              TypeScript
+            </Button>
+            <Button size="sm" disabled={!payloadExportReady || isExporting} leftIcon={<Archive className="h-4 w-4" />} onClick={() => void downloadProductionPack()}>
+              {isExporting ? "Building ZIP…" : "ZIP pack"}
+            </Button>
+          </div>
+
+          <div className="mt-4 rounded-[var(--radius-md)] border border-[var(--color-warning-border)] bg-[var(--color-warning-bg)] p-3 text-xs leading-5 text-[var(--color-warning-text)]">
+            The profile, audit, and metrics files exclude JSON values. JavaScript, TypeScript, formatted JSON, minified JSON, and the ZIP pack contain the current payload.
+          </div>
+        </section>
+      </div>
 
       <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_360px]">
         <NoticePanel notice={notice} />
@@ -644,6 +1027,8 @@ export default function JsonFormatterClient() {
                   onClick={() => {
                     setInput(item.value);
                     setOutput("");
+                    setLastOperation("preview");
+                    setRepairChanges([]);
                     setNotice({ tone: "info", title: "History restored", message: item.title });
                   }}
                   className="w-full rounded-[var(--radius-sm)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-3 py-2 text-left text-xs text-[var(--color-text-secondary)] transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-subtle)]"

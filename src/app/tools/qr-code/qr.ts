@@ -291,6 +291,12 @@ export function validateQRForm(form: QRFormState): string[] {
   if (form.type === "event") {
     if (!clean(form.eventTitle)) messages.push("Enter an event title.");
     if (!form.eventStart) messages.push("Enter an event start date and time.");
+    if (form.eventStart && form.eventEnd) {
+      const start = new Date(form.eventStart).getTime();
+      const end = new Date(form.eventEnd).getTime();
+      if (!Number.isFinite(start) || !Number.isFinite(end)) messages.push("Enter valid event dates.");
+      else if (end <= start) messages.push("Event end must be after the start time.");
+    }
   }
 
   const payload = buildQRPayload(form);

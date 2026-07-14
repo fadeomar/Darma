@@ -1,4 +1,9 @@
-import type { ClickInputMethod, ClickSample, ClickStats, ClickTestMode } from "./types";
+import type {
+  ClickInputMethod,
+  ClickSample,
+  ClickStats,
+  ClickTestMode,
+} from "./types";
 
 const BURST_WINDOW_MS = 1000;
 
@@ -8,12 +13,24 @@ function round(value: number, decimals = 0) {
   return Math.round(value * multiplier) / multiplier;
 }
 
-function gapsFromSamples(samples: ClickSample[]) {
+function validSamples(samples: ClickSample[]) {
+  return samples
+    .filter(
+      (sample) =>
+        Number.isFinite(sample.time) &&
+        sample.time >= 0 &&
+        ["mouse", "touch", "pen"].includes(sample.source),
+    )
+    .sort((a, b) => a.time - b.time);
+}
+
+export function clickGaps(samples: ClickSample[]) {
+  const safeSamples = validSamples(samples);
   const gaps: number[] = [];
 
-  for (let index = 1; index < samples.length; index += 1) {
-    const gap = samples[index].time - samples[index - 1].time;
-    if (gap > 0 && gap < 5000) gaps.push(gap);
+  for (let index = 1; index < safeSamples.length; index += 1) {
+    const gap = safeSamples[index].time - safeSamples[index - 1].time;
+    if (gap > 0 && Number.isFinite(gap)) gaps.push(gap);
   }
 
   return gaps;
@@ -33,11 +50,15 @@ function resolveInputMethod(samples: ClickSample[]): ClickInputMethod {
 }
 
 function calculateBestBurst(samples: ClickSample[]) {
+  const safeSamples = validSamples(samples);
   let best = 0;
   let left = 0;
 
-  for (let right = 0; right < samples.length; right += 1) {
-    while (samples[right].time - samples[left].time > BURST_WINDOW_MS) {
+  for (let right = 0; right < safeSamples.length; right += 1) {
+    while (
+      left < right &&
+      safeSamples[right].time - safeSamples[left].time > BURST_WINDOW_MS
+    ) {
       left += 1;
     }
 
@@ -48,13 +69,14 @@ function calculateBestBurst(samples: ClickSample[]) {
 }
 
 function calculateConsistency(samples: ClickSample[]) {
-  const gaps = gapsFromSamples(samples);
+  const gaps = clickGaps(samples);
   if (gaps.length < 4) return 0;
 
   const average = gaps.reduce((sum, gap) => sum + gap, 0) / gaps.length;
   if (average <= 0) return 0;
 
-  const variance = gaps.reduce((sum, gap) => sum + (gap - average) ** 2, 0) / gaps.length;
+  const variance =
+    gaps.reduce((sum, gap) => sum + (gap - average) ** 2, 0) / gaps.length;
   const coefficientOfVariation = Math.sqrt(variance) / average;
   const score = 100 - Math.min(100, coefficientOfVariation * 80);
 
@@ -80,22 +102,28 @@ export function createEmptyStats(): ClickStats {
   };
 }
 
-export function calculateClickStats(samples: ClickSample[], elapsedMs: number): ClickStats {
+export function calculateClickStats(
+  samples: ClickSample[],
+  elapsedMs: number,
+): ClickStats {
+  const safeSamples = validSamples(samples);
   const elapsedSeconds = Math.max(elapsedMs / 1000, 0.01);
-  const gaps = gapsFromSamples(samples);
-  const totalClicks = samples.length;
-  const averageGapMs = gaps.length ? gaps.reduce((sum, gap) => sum + gap, 0) / gaps.length : 0;
+  const gaps = clickGaps(safeSamples);
+  const totalClicks = safeSamples.length;
+  const averageGapMs = gaps.length
+    ? gaps.reduce((sum, gap) => sum + gap, 0) / gaps.length
+    : 0;
   const fastestGapMs = gaps.length ? Math.min(...gaps) : 0;
 
   return {
     totalClicks,
     elapsedSeconds: round(elapsedSeconds, 2),
     clicksPerSecond: round(totalClicks / elapsedSeconds, 2),
-    bestBurst: calculateBestBurst(samples),
+    bestBurst: calculateBestBurst(safeSamples),
     averageGapMs: round(averageGapMs),
     fastestGapMs: round(fastestGapMs),
-    consistencyScore: round(calculateConsistency(samples)),
-    inputMethod: resolveInputMethod(samples),
+    consistencyScore: round(calculateConsistency(safeSamples)),
+    inputMethod: resolveInputMethod(safeSamples),
   };
 }
 
@@ -120,14 +148,21 @@ export function consistencyLabel(score: number) {
 }
 
 export function resultInsight(stats: ClickStats) {
-  if (stats.totalClicks === 0) return "Start a sprint and click the target area to generate a score.";
-  if (stats.clicksPerSecond >= 12 && stats.consistencyScore >= 70) return "Excellent sprint: high CPS with controlled rhythm.";
-  if (stats.clicksPerSecond >= 9) return "Strong click speed. Try 10 seconds to see if you can keep the pace.";
-  if (stats.consistencyScore < 35 && stats.totalClicks > 8) return "Your rhythm is bursty. Try lighter pressure and keep your wrist relaxed.";
-  if (stats.inputMethod === "Touch") return "Touch input is working. Compare scores on the same device for the fairest result.";
+  if (stats.totalClicks === 0)
+    return "Start a sprint and click the target area to generate a score.";
+  if (stats.clicksPerSecond >= 12 && stats.consistencyScore >= 70)
+    return "Excellent sprint: high CPS with controlled rhythm.";
+  if (stats.clicksPerSecond >= 9)
+    return "Strong click speed. Try 10 seconds to see if you can keep the pace.";
+  if (stats.consistencyScore < 35 && stats.totalClicks > 8)
+    return "Your rhythm is bursty. Try lighter pressure and keep your wrist relaxed.";
+  if (stats.inputMethod === "Touch")
+    return "Touch input is working. Compare scores on the same device for the fairest result.";
   return "Nice run. For fair comparison, keep the same mouse, browser, and timer mode.";
 }
 
 export function formatNumber(value: number, maximumFractionDigits = 0) {
-  return new Intl.NumberFormat("en-US", { maximumFractionDigits }).format(value);
+  return new Intl.NumberFormat("en-US", { maximumFractionDigits }).format(
+    value,
+  );
 }

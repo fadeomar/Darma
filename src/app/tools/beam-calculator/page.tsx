@@ -25,13 +25,21 @@ export default function BeamCalculatorPage() {
       maxWidth="wide"
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)]">
-          Pick a preset or build your own beam, add point loads, distributed loads, and moments, then read the reactions
-          and diagrams instantly. Everything stays in your browser.
+          Build a determinate beam, inspect reactions and SFD/BMD diagrams, run
+          a production-readiness audit, and export JSON, CSV, SVG, Markdown, or
+          a complete ZIP handoff. Everything stays in your browser.
         </p>
       }
-      article={<ToolContentCard title="About Beam Calculator Studio"><Article /></ToolContentCard>}
+      article={
+        <ToolContentCard title="About Beam Calculator Production Studio">
+          <Article />
+        </ToolContentCard>
+      }
     >
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <BeamCalculatorShell />
     </ToolPage>
   );

@@ -1,38 +1,77 @@
 export default function Article() {
   return (
-    <div className="space-y-6 text-sm leading-7 text-[var(--color-text-secondary)]">
+    <div className="space-y-7 text-sm leading-7 text-[var(--color-text-secondary)]">
       <section>
-        <h3 className="text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">What is the Click Speed Test?</h3>
+        <h3 className="text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">
+          What does the Click Speed Test measure?
+        </h3>
         <p className="mt-2">
-          Click Speed Test is a small interactive challenge that measures how many mouse, touch, or pen pointer presses your browser receives during a timed run. It is designed as a fun sprint, a simple input check, and a quick way to compare your clicking rhythm across devices.
+          The challenge records primary mouse, touch, or pen presses inside the
+          target while a sprint is active. It calculates total clicks, clicks
+          per second, the strongest rolling one-second burst, average and
+          fastest click gaps, rhythm consistency, and the input path used.
         </p>
       </section>
 
       <section>
-        <h3 className="text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">How the score works</h3>
+        <h3 className="text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">
+          Choose a repeatable timer mode
+        </h3>
         <p className="mt-2">
-          The tool counts primary pointer presses on the target only while the test is running. It calculates total clicks, clicks per second, best one-second burst, average time between clicks, fastest gap, input method, and a friendly consistency score.
+          Five seconds is useful for a quick warm-up, ten seconds is the most
+          practical comparison, and thirty or sixty seconds emphasize endurance.
+          Manual mode is useful for input testing, but its result depends on
+          when you press Stop and is therefore less repeatable.
         </p>
       </section>
 
       <section>
-        <h3 className="text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">What changed in Phase 4?</h3>
+        <h3 className="text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">
+          Per-click evidence and quality checks
+        </h3>
         <p className="mt-2">
-          Phase 4 adds the first second challenge tool to the new Fun Tools system. Click Speed Test reuses the same Darma challenge layout, mode selector, stat tiles, personal best card, history panel, and tips foundation created for Mouse Scroll Test.
+          New runs preserve each click&apos;s relative timestamp and pointer
+          source. The production audit uses that evidence to flag very small
+          samples, interrupted pauses, mixed input methods, inconsistent rhythm,
+          timing mismatches, and gaps below eight milliseconds that should be
+          treated as an event diagnostic rather than a human-speed claim.
         </p>
       </section>
 
       <section>
-        <h3 className="text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Why results may differ</h3>
+        <h3 className="text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">
+          Backups and exports
+        </h3>
         <p className="mt-2">
-          CPS results can vary because of mouse switch quality, touch device behavior, browser timing, operating system settings, refresh rate, and physical technique. Treat the result as a fun browser-based comparison rather than a certified hardware benchmark.
+          A versioned JSON backup restores the selected timer and up to ten
+          saved runs. Markdown summarizes the latest result and audit, CSV
+          provides one row per click, and the ZIP production pack combines the
+          backup, report, evidence, and handoff notes.
         </p>
       </section>
 
       <section>
-        <h3 className="text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Privacy</h3>
+        <h3 className="text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">
+          Why CPS differs between devices
+        </h3>
         <p className="mt-2">
-          The test runs in the browser. Darma stores only your last five attempts in localStorage so you can compare recent runs on the same device.
+          Mouse debounce, touch sampling, browser scheduling, operating-system
+          settings, display refresh, grip, and fatigue can all affect the
+          result. Compare runs using the same device, browser, mode, and input
+          method. This is an entertainment and browser-input tool, not a
+          certified hardware, accessibility, or medical assessment.
+        </p>
+      </section>
+
+      <section>
+        <h3 className="text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">
+          Privacy
+        </h3>
+        <p className="mt-2">
+          Processing stays in the browser. Up to ten attempts are stored in
+          localStorage. Nothing is uploaded unless you choose to share a file
+          that you downloaded yourself; those files can reveal your clicking
+          rhythm, so review them before sharing.
         </p>
       </section>
     </div>

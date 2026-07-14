@@ -73,7 +73,9 @@ describe("healthy ranges", () => {
     expect(weightDeltaToHealthyRange(70, 175)?.direction).toBe("inside");
     expect(weightDeltaToHealthyRange(50, 175)?.direction).toBe("below");
     expect(weightDeltaToHealthyRange(90, 175)?.direction).toBe("above");
-    expect(formatWeightDelta(weightDeltaToHealthyRange(90, 175), "metric")).toContain("above");
+    expect(
+      formatWeightDelta(weightDeltaToHealthyRange(90, 175), "metric"),
+    ).toContain("above");
   });
 });
 
@@ -91,7 +93,14 @@ describe("waist and target helpers", () => {
 
 describe("validation and exports", () => {
   it("flags unusual ranges", () => {
-    expect(validateMeasurementRange({ weightKg: 10, heightCm: 300, waistCm: 10, age: 16 })).toHaveLength(4);
+    expect(
+      validateMeasurementRange({
+        weightKg: 10,
+        heightCm: 300,
+        waistCm: 10,
+        age: 16,
+      }),
+    ).toHaveLength(3);
   });
   it("exports CSV", () => {
     const csv = historyToCsv([

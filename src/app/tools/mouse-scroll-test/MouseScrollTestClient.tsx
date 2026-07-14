@@ -44,7 +44,9 @@ import {
   saveChallengeHistory,
   type ChallengeModeOption,
 } from "@/features/tools/challenges";
-import { ToolLayoutInteractiveChallenge } from "@/features/tools/layouts";
+import { downloadBlobFile } from "@/features/tools/export/downloadBlob";
+import { downloadTextFile } from "@/features/tools/export/downloadText";
+import { ToolLayoutInteractiveChallenge } from "@/features/tools/layouts/ToolLayoutInteractiveChallenge";
 import { cn } from "@/lib/cn";
 import {
   calculateScrollStats,
@@ -56,6 +58,24 @@ import {
   scoreLabel,
   smoothnessLabel,
 } from "./scrollMetrics";
+import {
+  ScrollProductionPanel,
+  ScrollSummaryGrid,
+} from "./components/ScrollProductionPanel";
+import {
+  SCROLL_HISTORY_LIMIT,
+  SCROLL_IMPORT_MAX_BYTES,
+  buildScrollAudit,
+  buildScrollSummaryCards,
+  createScrollAttempt,
+  createScrollBackup,
+  createScrollProductionPack,
+  normalizeScrollAttempt,
+  parseScrollBackup,
+  scrollAttemptCsv,
+  scrollAttemptMarkdown,
+  scrollBackupJson,
+} from "./studio";
 import type { ScrollAttempt, ScrollSample, ScrollStats, ScrollTestMode } from "./types";
 
 const HISTORY_KEY = "darma:mouse-scroll-test:history:v2";
@@ -105,32 +125,17 @@ function metricText(stats: ScrollStats, mode: ScrollTestMode) {
   ].join("\n");
 }
 
-function normalizeAttempt(value: unknown): ScrollAttempt | null {
-  if (!value || typeof value !== "object") return null;
-  const attempt = value as ScrollAttempt;
-  if (!attempt.id || !attempt.stats) return null;
-
-  return {
-    ...attempt,
-    stats: {
-      ...createEmptyStats(),
-      ...attempt.stats,
-      inputMethod: attempt.stats.inputMethod ?? "Wheel",
-    },
-  };
-}
-
 function loadHistory() {
   return loadChallengeHistoryWithFallback<ScrollAttempt>({
     key: HISTORY_KEY,
     fallbackKeys: [LEGACY_HISTORY_KEY],
-    normalize: normalizeAttempt,
-    limit: 5,
+    normalize: normalizeScrollAttempt,
+    limit: SCROLL_HISTORY_LIMIT,
   });
 }
 
 function saveHistory(history: ScrollAttempt[]) {
-  saveChallengeHistory(HISTORY_KEY, history, 5);
+  saveChallengeHistory(HISTORY_KEY, history, SCROLL_HISTORY_LIMIT);
 }
 
 export default function MouseScrollTestClient() {
@@ -140,6 +145,12 @@ export default function MouseScrollTestClient() {
   const [elapsedMs, setElapsedMs] = useState(0);
   const [stats, setStats] = useState<ScrollStats>(() => createEmptyStats());
   const [history, setHistory] = useState<ScrollAttempt[]>([]);
+  const [latestAttempt, setLatestAttempt] = useState<ScrollAttempt | null>(null);
+  const [importStatus, setImportStatus] = useState<{
+    tone: "success" | "error";
+    message: string;
+  } | null>(null);
+  const [isPacking, setIsPacking] = useState(false);
 
   const prefersReducedMotion = usePrefersReducedMotion();
   const arenaRef = useRef<HTMLDivElement | null>(null);
@@ -149,6 +160,8 @@ export default function MouseScrollTestClient() {
   const modeRef = useRef<ScrollTestMode>(mode);
   const countdownTimerRef = useRef<number | null>(null);
   const touchPointRef = useRef<TouchPoint | null>(null);
+  const importInputRef = useRef<HTMLInputElement | null>(null);
+  const lastUiUpdateRef = useRef(0);
 
   const clearCountdown = useCallback(() => {
     if (countdownTimerRef.current !== null) {
@@ -163,6 +176,7 @@ export default function MouseScrollTestClient() {
     samplesRef.current = [];
     touchPointRef.current = null;
     startTimeRef.current = performance.now();
+    lastUiUpdateRef.current = 0;
     statusRef.current = "running";
     setElapsedMs(0);
     setStats(createEmptyStats());
@@ -171,7 +185,9 @@ export default function MouseScrollTestClient() {
   }, [clearCountdown]);
 
   useEffect(() => {
-    setHistory(loadHistory());
+    const saved = loadHistory();
+    setHistory(saved);
+    setLatestAttempt(saved[0] ?? null);
   }, []);
 
   useEffect(() => {
@@ -189,23 +205,27 @@ export default function MouseScrollTestClient() {
   const finishTest = useCallback((elapsedOverride?: number) => {
     if (statusRef.current !== "running") return;
 
-    const elapsed = Math.max(elapsedOverride ?? performance.now() - startTimeRef.current, 1);
-    const finalStats = calculateScrollStats(samplesRef.current, elapsed);
+    const elapsed = Math.max(
+      elapsedOverride ?? performance.now() - startTimeRef.current,
+      1,
+    );
     const activeMode = modeRef.current;
-    const attempt: ScrollAttempt = {
-      id: `${Date.now()}`,
+    const attempt = createScrollAttempt({
+      id: `scroll-${Date.now()}`,
       createdAt: new Date().toISOString(),
       mode: activeMode,
-      stats: finalStats,
-    };
+      elapsedMs: elapsed,
+      samples: samplesRef.current,
+    });
 
     touchPointRef.current = null;
-    setElapsedMs(elapsed);
-    setStats(finalStats);
+    setElapsedMs(attempt.elapsedMs);
+    setStats(attempt.stats);
+    setLatestAttempt(attempt);
     setStatus("finished");
     statusRef.current = "finished";
     setHistory((previous) => {
-      const next = [attempt, ...previous].slice(0, 5);
+      const next = [attempt, ...previous].slice(0, SCROLL_HISTORY_LIMIT);
       saveHistory(next);
       return next;
     });
@@ -223,8 +243,11 @@ export default function MouseScrollTestClient() {
         return;
       }
 
-      setElapsedMs(elapsed);
-      setStats(calculateScrollStats(samplesRef.current, elapsed));
+      if (elapsed - lastUiUpdateRef.current >= 100) {
+        lastUiUpdateRef.current = elapsed;
+        setElapsedMs(elapsed);
+        setStats(calculateScrollStats(samplesRef.current, elapsed));
+      }
       frame = window.requestAnimationFrame(tick);
     };
 
@@ -273,15 +296,18 @@ export default function MouseScrollTestClient() {
 
   const pushSample = useCallback((sample: ScrollSample) => {
     samplesRef.current.push(sample);
-    setElapsedMs(sample.time);
-    setStats(calculateScrollStats(samplesRef.current, sample.time));
+    if (sample.time - lastUiUpdateRef.current >= 100) {
+      lastUiUpdateRef.current = sample.time;
+      setElapsedMs(sample.time);
+      setStats(calculateScrollStats(samplesRef.current, sample.time));
+    }
   }, []);
 
   useEffect(() => {
     // Non-passive window listener so we can call preventDefault during an active test.
     // This blocks the browser's default page-scroll while the sprint is running.
     const blockScroll = (event: Event) => {
-      if (statusRef.current === "running" || statusRef.current === "countdown" || statusRef.current === "finished") {
+      if (statusRef.current === "running") {
         event.preventDefault();
       }
     };
@@ -335,6 +361,7 @@ export default function MouseScrollTestClient() {
 
   const clearHistory = useCallback(() => {
     setHistory([]);
+    setLatestAttempt(null);
     saveHistory([]);
   }, []);
 
@@ -362,9 +389,125 @@ export default function MouseScrollTestClient() {
   const isRunning = status === "running";
   const isCountdown = status === "countdown";
   const canCopy = stats.eventsCount > 0 && status !== "countdown";
+  const summaryCards = useMemo(
+    () => buildScrollSummaryCards(latestAttempt),
+    [latestAttempt],
+  );
+  const auditChecks = useMemo(
+    () => buildScrollAudit(latestAttempt),
+    [latestAttempt],
+  );
+
+  const handleModeChange = useCallback(
+    (nextMode: ScrollTestMode) => {
+      if (
+        statusRef.current === "running" ||
+        statusRef.current === "countdown"
+      ) {
+        return;
+      }
+      resetTest();
+      modeRef.current = nextMode;
+      setMode(nextMode);
+    },
+    [resetTest],
+  );
+
+  const backup = useCallback(
+    () => createScrollBackup({ mode }, history),
+    [history, mode],
+  );
+
+  const downloadBackup = useCallback(() => {
+    if (!history.length) return;
+    downloadTextFile({
+      content: scrollBackupJson(backup()),
+      filename: "darma-mouse-scroll-session.json",
+      mimeType: "application/json;charset=utf-8",
+    });
+  }, [backup, history.length]);
+
+  const downloadMarkdown = useCallback(() => {
+    if (!latestAttempt) return;
+    downloadTextFile({
+      content: scrollAttemptMarkdown(latestAttempt),
+      filename: "darma-mouse-scroll-report.md",
+      mimeType: "text/markdown;charset=utf-8",
+    });
+  }, [latestAttempt]);
+
+  const downloadCsv = useCallback(() => {
+    if (!latestAttempt) return;
+    downloadTextFile({
+      content: scrollAttemptCsv(latestAttempt),
+      filename: "darma-mouse-scroll-events.csv",
+      mimeType: "text/csv;charset=utf-8",
+    });
+  }, [latestAttempt]);
+
+  const downloadPack = useCallback(async () => {
+    if (!latestAttempt || isPacking) return;
+    setIsPacking(true);
+    try {
+      const archive = await createScrollProductionPack(backup(), latestAttempt);
+      downloadBlobFile({
+        blob: new Blob([Uint8Array.from(archive)], { type: "application/zip" }),
+        filename: "darma-mouse-scroll-production-pack.zip",
+      });
+    } finally {
+      setIsPacking(false);
+    }
+  }, [backup, isPacking, latestAttempt]);
+
+  const importBackup = useCallback(
+    async (file: File) => {
+      if (file.size > SCROLL_IMPORT_MAX_BYTES) {
+        setImportStatus({
+          tone: "error",
+          message: "The selected backup is larger than the 1 MB import limit.",
+        });
+        return;
+      }
+
+      try {
+        const parsed = parseScrollBackup(await file.text());
+        resetTest();
+        modeRef.current = parsed.settings.mode;
+        setMode(parsed.settings.mode);
+        setHistory(parsed.attempts);
+        setLatestAttempt(parsed.attempts[0] ?? null);
+        saveHistory(parsed.attempts);
+        setImportStatus({
+          tone: "success",
+          message: `Restored ${parsed.attempts.length} saved sprint${parsed.attempts.length === 1 ? "" : "s"} and the timer setting.`,
+        });
+      } catch (error) {
+        setImportStatus({
+          tone: "error",
+          message:
+            error instanceof Error
+              ? error.message
+              : "The backup could not be imported.",
+        });
+      }
+    },
+    [resetTest],
+  );
 
   return (
-    <ToolLayoutInteractiveChallenge
+    <>
+      <input
+        ref={importInputRef}
+        type="file"
+        accept="application/json,.json"
+        className="sr-only"
+        onChange={(event) => {
+          const file = event.target.files?.[0];
+          if (file) void importBackup(file);
+          event.currentTarget.value = "";
+        }}
+      />
+      <ToolLayoutInteractiveChallenge
       arenaSlot={
         <ChallengeArenaChrome>
           <div
@@ -493,21 +636,43 @@ export default function MouseScrollTestClient() {
         </ChallengeArenaChrome>
       }
       controlsSlot={
-        <ChallengeCard
-          eyebrow="Challenge setup"
-          title="Pick your sprint duration"
-          description="Timed modes finish automatically. Manual mode keeps running until you stop it. Touch movement works on mobile and touchpads inside the arena."
-          badge={<Badge variant="accent">Challenge system</Badge>}
-        >
-          <ChallengeModeSelector options={TEST_MODES} value={mode} disabled={isRunning || isCountdown} onChange={(v) => setMode(v)} />
-        </ChallengeCard>
+        <div className="space-y-4">
+          <ChallengeCard
+            eyebrow="Challenge setup"
+            title="Pick your sprint duration"
+            description="Timed modes finish automatically. Manual mode keeps running until you stop it. Changing the mode resets the live result without deleting saved history."
+            badge={<Badge variant="accent">Per-event evidence</Badge>}
+          >
+            <ChallengeModeSelector
+              options={TEST_MODES}
+              value={mode}
+              disabled={isRunning || isCountdown}
+              onChange={handleModeChange}
+            />
+          </ChallengeCard>
+          <ScrollProductionPanel
+            checks={auditChecks}
+            hasAttempt={Boolean(latestAttempt)}
+            hasHistory={history.length > 0}
+            isPacking={isPacking}
+            importStatus={importStatus}
+            onImport={() => importInputRef.current?.click()}
+            onDownloadBackup={downloadBackup}
+            onDownloadMarkdown={downloadMarkdown}
+            onDownloadCsv={downloadCsv}
+            onDownloadPack={downloadPack}
+          />
+        </div>
       }
       statsSlot={
-        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-          <ChallengeStatTile label="Average speed" value={`${formatNumber(stats.pixelsPerSecond)}`} hint="pixels per second" icon={<Gauge className="h-5 w-5" />} />
-          <ChallengeStatTile label="Best burst" value={`${formatNumber(stats.bestBurst)}`} hint="fastest 0.5s window" icon={<Zap className="h-5 w-5" />} />
-          <ChallengeStatTile label="Smoothness" value={`${stats.smoothnessScore}%`} hint={smoothnessLabel(stats.smoothnessScore)} icon={<Activity className="h-5 w-5" />} />
-          <ChallengeStatTile label="Score mood" value={activeScoreLabel} hint="friendly label" icon={<Trophy className="h-5 w-5" />} />
+        <div className="space-y-3">
+          <ScrollSummaryGrid cards={summaryCards} />
+          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+            <ChallengeStatTile label="Live average speed" value={`${formatNumber(stats.pixelsPerSecond)}`} hint="pixels per second" icon={<Gauge className="h-5 w-5" />} />
+            <ChallengeStatTile label="Best burst" value={`${formatNumber(stats.bestBurst)}`} hint="fastest 0.5s window" icon={<Zap className="h-5 w-5" />} />
+            <ChallengeStatTile label="Smoothness" value={`${stats.smoothnessScore}%`} hint={smoothnessLabel(stats.smoothnessScore)} icon={<Activity className="h-5 w-5" />} />
+            <ChallengeStatTile label="Score label" value={activeScoreLabel} hint="latest live result" icon={<Trophy className="h-5 w-5" />} />
+          </div>
         </div>
       }
       historySlot={
@@ -535,7 +700,7 @@ export default function MouseScrollTestClient() {
           </ChallengePersonalBestCard>
 
           <ChallengeHistoryPanel
-            title="Last 5 runs"
+            title="Last 10 runs"
             icon={<History className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />}
             items={history}
             onClear={clearHistory}
@@ -543,7 +708,7 @@ export default function MouseScrollTestClient() {
               <ChallengeEmptyState
                 icon={<History className="h-4 w-4" aria-hidden />}
                 title="Your last runs will appear here"
-                description="Finish a scroll sprint to unlock a local timeline of your last five attempts."
+                description="Finish a scroll sprint to unlock a local timeline of your last ten attempts."
               />
             }
             renderItem={(attempt, index) => (
@@ -553,7 +718,7 @@ export default function MouseScrollTestClient() {
                   <Badge variant="outline">{modeLabel(attempt.mode)}</Badge>
                 </div>
                 <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">
-                  {formatNumber(attempt.stats.totalDistance)} px · {attempt.stats.eventsCount} events · {attempt.stats.inputMethod} · {attempt.stats.direction}
+                  {formatNumber(attempt.stats.totalDistance)} px · {attempt.stats.eventsCount} events · {attempt.stats.inputMethod} · {attempt.samples.length ? `${attempt.samples.length} samples` : "Legacy aggregate only"}
                 </p>
               </div>
             )}
@@ -562,19 +727,19 @@ export default function MouseScrollTestClient() {
       }
       infoSlot={
         <ChallengeTipList
-          eyebrow="Fun tools system"
+          eyebrow="Measurement notes"
           tips={[
             {
               icon: <Medal className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]" aria-hidden />,
-              text: "Challenge UI pieces are reusable and now power more than one interactive tool.",
+              text: "Each new run keeps relative event timing, movement deltas, and the wheel or touch source for local review.",
             },
             {
               icon: <Timer className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]" aria-hidden />,
-              text: "Countdown, mode selection, local history, stats, and tips now follow one shared pattern.",
+              text: "Use a fixed timer and one input method when comparing attempts. Manual mode is useful for diagnostics, not rankings.",
             },
             {
               icon: <ShieldCheck className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]" aria-hidden />,
-              text: "Motion-heavy effects still use motion-safe classes and stay gentle for Darma’s calm identity.",
+              text: "The page scroll lock is active only while the sprint is running and is released immediately when the run ends.",
             },
             {
               icon: <Info className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]" aria-hidden />,
@@ -582,11 +747,12 @@ export default function MouseScrollTestClient() {
             },
             {
               icon: <Sparkles className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]" aria-hidden />,
-              text: "This foundation now supports Click Speed Test and can expand to Spacebar Counter, Reaction Time Test, and more fun tools.",
+              text: "JSON restores local history, while Markdown, CSV, and ZIP preserve the latest result for controlled comparison.",
             },
           ]}
         />
       }
     />
+    </>
   );
 }

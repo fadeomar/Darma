@@ -13,9 +13,14 @@ export async function generateMetadata(): Promise<Metadata> {
   return buildToolMetadata(tool);
 }
 
-const ReactionTimeTestClient = dynamic(() => import("./ReactionTimeTestClient"), {
-  loading: () => <div className="h-[620px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
-});
+const ReactionTimeTestClient = dynamic(
+  () => import("./ReactionTimeTestClient"),
+  {
+    loading: () => (
+      <div className="h-[620px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />
+    ),
+  },
+);
 const Article = dynamic(() => import("./Article"));
 
 export default function ReactionTimeTestPage() {
@@ -33,23 +38,32 @@ export default function ReactionTimeTestPage() {
       intro={
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-4">
           <p className="text-sm leading-7 text-[var(--color-text-secondary)] sm:text-base">
-            A Darma fun tool for testing reflex speed with random wait signals, false-start handling, keyboard/touch/mouse input, score copy, and local personal best.
+            Measure browser reaction timing across configurable rounds and
+            unpredictable signal profiles, inspect median and consistency, audit
+            result quality, restore local backups, and export round-level
+            evidence.
           </p>
           <div className="flex flex-wrap justify-center gap-2">
-            <Badge variant="soft">Reflex Challenge</Badge>
-            <Badge variant="accent">Fun Tools Phase 6</Badge>
-            <Badge variant="outline">No upload</Badge>
-            <Badge variant="outline">False-start safe</Badge>
+            <Badge variant="soft">Reaction Studio</Badge>
+            <Badge variant="accent">Round Evidence</Badge>
+            <Badge variant="outline">Local Backup</Badge>
+            <Badge variant="outline">False-start Safe</Badge>
           </div>
         </div>
       }
       article={
-        <ToolContentCard title="About Reaction Time Test" description="How the challenge measures reflex speed, false starts, consistency, and why browser results can vary.">
+        <ToolContentCard
+          title="About Reaction Time Test"
+          description="How browser timing, round evidence, result-quality checks, exports, and device latency affect reaction comparisons."
+        >
           <Article />
         </ToolContentCard>
       }
     >
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <ReactionTimeTestClient />
     </ToolPage>
   );

@@ -1,62 +1,109 @@
+const sectionTitle =
+  "mb-3 text-xl font-bold text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]";
+
+const faqs = [
+  {
+    question: "Does Darma send generated passwords to a server?",
+    answer:
+      "No. Generation uses the browser Web Crypto API and fails closed when secure randomness is unavailable. The value stays in page memory unless you deliberately copy it.",
+  },
+  {
+    question: "Do policy exports contain the generated secret?",
+    answer:
+      "No. JSON, Markdown, JavaScript, TypeScript, environment templates, and ZIP packs contain settings and guidance only. The secret is intentionally excluded from every downloaded file.",
+  },
+  {
+    question: "Which preset should I use?",
+    answer:
+      "Use Everyday for ordinary accounts, Important for primary email and cloud storage, Admin or finance for privileged access, Service secret for automation, and Memorable passphrase when manual typing matters.",
+  },
+  {
+    question: "Is the crack-time estimate a guarantee?",
+    answer:
+      "No. It is an illustrative offline brute-force estimate based on the configured random search space. Real security also depends on rate limits, hashing, breaches, reuse, phishing resistance, and storage practices.",
+  },
+  {
+    question: "Should I add a name or custom phrase?",
+    answer:
+      "Avoid it for important secrets. Custom fragments are predictable, so Darma treats them as contributing zero estimated entropy and raises a policy warning or error.",
+  },
+];
+
 export default function Article() {
   return (
     <div className="space-y-8 text-sm leading-7 text-[var(--color-text-secondary)]">
       <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">
-          What makes a generated password strong?
-        </h2>
+        <h2 className={sectionTitle}>What makes a generated password strong?</h2>
         <p>
-          Strong generated passwords combine randomness and length. Randomness
-          makes each character or word unpredictable, while length increases the
-          number of possible combinations an attacker would need to try.
-        </p>
-        <p className="mt-3">
-          Darma estimates strength with entropy bits. Higher entropy means a
-          larger search space. The estimate is useful for comparing settings,
-          but it should not replace good habits: use a unique secret per
-          account, save it safely, and enable two-factor authentication for
-          high-value services.
+          Strong generated secrets combine trustworthy randomness with enough search space. In random
+          password mode, length and the enabled character pool drive the estimate. In passphrase mode,
+          the number of independently selected words is the main factor. A longer value is usually
+          more useful than complicated rules that make the result harder to store or enter.
         </p>
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">
-          Why length usually matters most
-        </h2>
+        <h2 className={sectionTitle}>Choose a policy based on account impact</h2>
         <p>
-          Adding a few extra characters usually improves strength more than
-          swapping between small character preferences. For important accounts,
-          a long random password is ideal when a password manager can fill it.
-          When the password must be typed manually, a longer passphrase can be
-          easier to use without giving up practical security.
+          There is no single minimum that fits every situation. A low-risk forum account, a primary
+          email address, an administrator login, and a machine credential have different consequences
+          if compromised. Darma&apos;s policy profiles translate those use cases into transparent
+          entropy, length, and word-count checks without claiming that one number guarantees safety.
         </p>
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">
-          Why exclude similar characters?
-        </h2>
+        <h2 className={sectionTitle}>Passwords versus passphrases</h2>
         <p>
-          Similar characters such as <code className="rounded bg-[var(--color-surface-subtle)] px-1 py-0.5 text-xs">l</code>,{" "}
-          <code className="rounded bg-[var(--color-surface-subtle)] px-1 py-0.5 text-xs">1</code>,{" "}
-          <code className="rounded bg-[var(--color-surface-subtle)] px-1 py-0.5 text-xs">O</code>, and{" "}
-          <code className="rounded bg-[var(--color-surface-subtle)] px-1 py-0.5 text-xs">0</code> can be confused in some fonts or on paper. Excluding
-          them slightly reduces the character pool, but it can prevent typing
-          mistakes when a human has to read the password.
+          Use a random password when a password manager will save and autofill the value. Use a
+          randomized passphrase when a human must type or remember it temporarily. Machine secrets
+          should generally use compact random-password mode because words offer no usability advantage
+          to software and may create unnecessary formatting constraints.
         </p>
       </section>
 
       <section>
-        <h2 className="mb-3 text-xl font-bold text-[var(--color-text-primary)]">
-          Local generation and safe handling
-        </h2>
+        <h2 className={sectionTitle}>Why custom fragments reduce confidence</h2>
         <p>
-          The generator uses secure browser randomness and does not submit the
-          generated value to a server. After copying, paste the password into
-          the account form and save it in a trusted password manager. Avoid
-          storing real passwords in screenshots, shared documents, chat
-          messages, or plain notes.
+          Names, dates, company terms, and familiar phrases are not random. The generator can include a
+          custom fragment for compatibility with unusual workflows, but the strength calculation treats
+          that fragment as predictable. For important, privileged, or automated credentials, leave the
+          field empty and let secure randomness create the entire value.
         </p>
+      </section>
+
+      <section>
+        <h2 className={sectionTitle}>Safe handling after generation</h2>
+        <ul className="list-inside list-disc space-y-2">
+          <li>Use a unique secret for every account or service.</li>
+          <li>Save it directly in a trusted password manager or deployment secret manager.</li>
+          <li>Enable phishing-resistant multi-factor authentication where available.</li>
+          <li>Never paste real secrets into tickets, chat, screenshots, source files, or reports.</li>
+          <li>Rotate a secret immediately when it may have been exposed or shared.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 className={sectionTitle}>What the production pack is for</h2>
+        <p>
+          The ZIP pack documents the chosen policy and provides JSON, Markdown, JavaScript, TypeScript,
+          and an empty environment-file template. It is designed for review and implementation without
+          turning the generated password into an unsafe downloadable artifact. Generate the real secret
+          where it will be stored, then inject it using the destination platform&apos;s secret-management
+          workflow.
+        </p>
+      </section>
+
+      <section>
+        <h2 className={sectionTitle}>Frequently asked questions</h2>
+        <dl className="space-y-4">
+          {faqs.map((faq) => (
+            <div key={faq.question}>
+              <dt className="font-semibold text-[var(--color-text-primary)]">{faq.question}</dt>
+              <dd className="mt-1">{faq.answer}</dd>
+            </div>
+          ))}
+        </dl>
       </section>
     </div>
   );

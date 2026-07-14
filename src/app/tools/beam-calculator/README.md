@@ -1,53 +1,72 @@
-# Beam Calculator Studio
+# Beam Calculator Production Studio
 
-A clear, user-friendly beam analysis tool for educational and preliminary calculations: supports, loads, reactions, shear force, bending moment, and visual diagrams.
+A browser-local beam analysis and handoff tool for statically determinate simply supported beams and cantilevers. It calculates reactions, shear force, bending moment, key stations, SFD/BMD diagrams, and production-readiness findings.
 
-> Educational and preliminary analysis only. Not a substitute for a licensed structural engineer.
+> Educational and preliminary analysis only. A readiness result is not a structural capacity or code-compliance check.
 
 ## Privacy
 
-`client-only` — every calculation and diagram runs in the browser. The latest setup is auto-saved to `localStorage` (key `darma-beam-calculator:v2`). No data is sent to any server.
+`client-only` — calculations, diagrams, imports, and exports run in the browser. The latest setup is saved to `localStorage` under `darma-beam-calculator:v2`. No beam data is uploaded.
 
-## What it does
+## Supported analysis
 
-- Statically determinate beams: **simply supported** (two pin/roller supports) and **cantilever** (one fixed support).
-- Loads: **point loads**, **uniformly distributed loads (UDL)**, and **applied moments** (up/down, CW/CCW).
-- Outputs: support reactions, fixed-end moment (cantilever), shear force & bending moment at key stations, max shear, max sagging/hogging moment, max absolute moment, and an equilibrium check.
-- Visuals: beam schematic with supports/loads/reactions, shear force diagram (SFD), bending moment diagram (BMD).
-- Quality of life: presets, validation with field-level errors, auto-save/restore, reset, copy results, download JSON, download Markdown report, copy/import config JSON.
+- Simply supported beams with two pin/roller supports at distinct positions.
+- Cantilevers with one fixed support.
+- Point loads, uniformly distributed loads, and applied moments.
+- Vertical reactions, fixed-end moment, SFD, BMD, extrema, key stations, and force/moment equilibrium.
+- Metric model units: m, kN, kN/m, and kN·m.
+
+## Phase 33 production improvements
+
+- Four fixed summary cards for beam type, applied loads, maximum absolute moment, and readiness.
+- Severity-based production audit separate from field validation.
+- Hardened project import:
+  - 1 MB maximum file size in the UI.
+  - Correct `tool` and `version` required for wrapped project files.
+  - Unique, non-empty support and load IDs.
+  - Non-negative load magnitudes; direction/rotation controls determine sign.
+  - Defensive limits on imported support and load counts.
+- Export formats:
+  - Editable project JSON.
+  - Solved results JSON.
+  - Markdown calculation and readiness report.
+  - CSV key-station table.
+  - Standalone SVG containing SFD and BMD.
+  - ZIP production pack with all handoff files and a scope README.
+
+## Production pack
+
+The ZIP contains:
+
+- `beam-project.json`
+- `beam-results.json`
+- `beam-report.md`
+- `beam-stations.csv`
+- `beam-diagrams.svg`
+- `README.md`
 
 ## Sign conventions
 
-- x runs left (0) to right (L).
-- Downward loads negative, upward reactions positive (UP-positive force axis).
-- Sagging moment positive, hogging moment negative.
-- Applied moments: CCW positive, CW negative.
+- x runs from the left end, `0`, to the right end, `L`.
+- Upward force is positive; downward force is negative.
+- Sagging bending moment is positive; hogging is negative.
+- Counter-clockwise applied moments are positive; clockwise moments are negative.
+- Magnitude inputs are stored as zero or positive values. Use the direction or rotation control to reverse an action.
 
 ## Architecture
 
-| File | Role |
-|---|---|
-| `page.tsx` | Server component — metadata, JSON-LD, `ToolPage`, About article |
-| `BeamCalculatorShell.tsx` | Dynamic (client-only) mount wrapper |
-| `BeamCalculatorClient.tsx` | Orchestrator — state, persistence, actions, layout |
-| `Article.tsx` | Educational About content |
-| `components/BeamInputs.tsx` | Beam length + supports + loads control panel |
-| `components/BeamSupportEditor.tsx` | Add/edit/remove supports |
-| `components/BeamLoadEditor.tsx` | Add/edit/remove loads |
-| `components/BeamPresetCards.tsx` | Preset gallery |
-| `components/BeamCanvas.tsx` | Beam schematic SVG (supports, loads, reactions) |
-| `components/BeamDiagram.tsx` | Reusable SFD/BMD SVG |
-| `components/BeamResults.tsx` | Summary cards, station table, plain-language explanation |
-| `lib/beamTypes.ts` | Data model and result types |
-| `lib/beamAnalysis.ts` | Reaction solver + shear/moment engine |
-| `lib/beamValidation.ts` | Input guardrails |
-| `lib/beamPresets.ts` | Ready-to-solve scenarios |
-| `lib/beamExport.ts` | Config/results serialization + reports |
-| `lib/beamFormatting.ts` | Number formatting helpers |
-| `__tests__/` | Vitest coverage for the engine and validation |
+| File                       | Role                                                                           |
+| -------------------------- | ------------------------------------------------------------------------------ |
+| `page.tsx`                 | Metadata, JSON-LD, tool shell, and article                                     |
+| `BeamCalculatorShell.tsx`  | Client-only dynamic mount                                                      |
+| `BeamCalculatorClient.tsx` | State, persistence, input actions, audit UI, import, and exports               |
+| `components/*`             | Beam inputs, schematic, diagrams, presets, and result views                    |
+| `lib/beamAnalysis.ts`      | Reaction solver and shear/moment engine                                        |
+| `lib/beamValidation.ts`    | Solver input guardrails                                                        |
+| `lib/beamExport.ts`        | Project/result serialization and base report generation                        |
+| `lib/studio.ts`            | Phase 33 audit, summary, CSV, SVG, Markdown, and ZIP exports                   |
+| `__tests__/*`              | Solver, validation, import, explanation, coordinate, and production-pack tests |
 
-## Future enhancements
+## Scope limits
 
-- Imperial units (data model already routes through `UNIT_SYSTEMS`).
-- Overhanging supports and triangular/linear distributed loads (type union is open for this).
-- SVG diagram export and deflection estimates.
+This tool does not calculate stress, member capacity, section classification, deflection, vibration, buckling, lateral torsional stability, connections, load combinations, partial factors, or code compliance. It is not a replacement for structural engineering software or professional review.

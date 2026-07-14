@@ -1,37 +1,53 @@
-# Password Generator
+# Password Generator Studio
 
-Cryptographically random passwords and passphrases with a real-time strength meter. Nothing leaves the browser.
+A browser-local password and passphrase generator with policy profiles, production checks, safe configuration import/export, and developer-ready policy packs.
+
+## Security model
+
+- Random generation uses `globalThis.crypto.getRandomValues` with rejection sampling.
+- Generation fails closed when Web Crypto is unavailable.
+- Generated secrets are held only in component state.
+- No breach API or remote password check is used.
+- Every export deliberately excludes the generated password or passphrase.
+- Custom seed text is treated as predictable and contributes zero estimated entropy.
 
 ## Structure
 
-```
+```text
 password-generator/
-  page.tsx                  — thin route shell, metadata from registry
-  PasswordGeneratorClient.tsx — UI: mode tabs, sliders, toggles, colour-coded output
-  generator.ts              — pure logic: generatePassword, generatePassphrase, calculateStrength, annotatePassword
-  generator.test.ts         — vitest unit tests for generator
-  types.ts                  — PasswordConfig, StrengthResult, CharType
-  Article.tsx               — SEO article content (entropy guide, FAQ)
+  page.tsx                       route shell, registry metadata, JSON-LD
+  PasswordGeneratorClient.tsx   generator UI, presets, audit, import/export, ZIP
+  generator.ts                  secure generation and strength estimation
+  generator.test.ts             generator and entropy regression tests
+  studio.ts                     policy profiles, normalization, audit, safe exports
+  studio.test.ts                policy/import/export edge-case tests
+  types.ts                      shared generator types
+  Article.tsx                   production and security guidance
 ```
 
-## Features
+## Practical presets
 
-- Password mode: length, character sets, exclude-similar, exclude-ambiguous, seed text
-- Passphrase mode: word count, separator, capitalise, include number/symbol
-- Real-time entropy (bits) and crack-time estimate
-- Colour-coded character types (lower / upper / digit / symbol)
-- One-click copy
+- Everyday account
+- Important account
+- Admin or finance
+- Service secret
+- Memorable passphrase
 
-## Privacy
+## Safe exports
 
-`local-only` — uses `window.crypto.getRandomValues` exclusively. Nothing is sent anywhere.
+- Darma policy JSON
+- Markdown audit report
+- JavaScript policy starter
+- TypeScript policy starter
+- Empty `.env.example`
+- ZIP production pack
 
-## Security note
+None of these formats contains the generated secret.
 
-The standard fallback (`Math.random`) is only reached if the browser lacks `window.crypto`, which is not the case for any modern browser. The tool fails closed — always prefer the cryptographic API.
-
-## Running tests
+## Tests
 
 ```bash
-npx vitest run src/app/tools/password-generator/generator.test.ts
+npm exec vitest run \
+  src/app/tools/password-generator/generator.test.ts \
+  src/app/tools/password-generator/studio.test.ts
 ```

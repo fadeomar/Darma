@@ -13,10 +13,24 @@ import { useSearchParams } from "next/navigation";
 import { Check, Copy, Link2, Maximize2, RotateCcw, SkipBack, SkipForward } from "lucide-react";
 import { enterFullscreen } from "@/lib/tools/screens/fullscreen";
 import { COLOR_PRESETS, normalizeHex, withBrightness } from "@/lib/tools/screens/colors";
-import { buildShareUrl, copyText, readChoiceParam, readNumberParam, readStringParam } from "@/lib/tools/screens/url-state";
+import { buildShareUrl, copyText } from "@/lib/tools/screens/url-state";
 import { SCREEN_SAFETY_NOTE } from "@/lib/tools/screens/presets";
+import { downloadBlobFile } from "@/features/tools/export/downloadBlob";
+import { downloadTextFile } from "@/features/tools/export/downloadText";
 import { ToolLayoutFullscreenStudio } from "@/features/tools/layouts";
 import { DEFAULT_FAKE_SCREEN_STATE, FAKE_SCREEN_PRESETS, MODE_LABELS } from "./presets";
+import { FakeScreenProductionPanel, FakeScreenSummaryGrid } from "./components/FakeScreenProductionPanel";
+import {
+  buildFakeScreenAudit,
+  buildFakeScreenMarkdown,
+  buildFakeScreenQuery,
+  buildFakeScreenSummary,
+  buildStandaloneHtml,
+  calculateFakeScreenProgress,
+  parseFakeScreenConfig,
+  readFakeScreenQuery,
+  serializeFakeScreenConfig,
+} from "./lib/studio";
 import type {
   CanvasTemplate,
   ColorMode,
@@ -105,27 +119,6 @@ const DEAD_PIXEL_COLORS = [
 
 const SPEED_MAP: Record<ScreensaverSpeed, number> = { slow: 1.4, medium: 2.6, fast: 4 };
 const CANVAS_SPEED_MAP: Record<ScreensaverSpeed, number> = { slow: 0.55, medium: 1, fast: 1.75 };
-const MODE_VALUES: FakeScreenMode[] = ["color", "update", "error", "screensaver", "canvas"];
-const COLOR_MODE_VALUES = COLOR_MODES.map((item) => item.value);
-const UPDATE_TEMPLATE_VALUES = UPDATE_TEMPLATES.map((item) => item.value);
-const UPDATE_MODE_VALUES = UPDATE_MODES.map((item) => item.value);
-const ERROR_TEMPLATE_VALUES = ERROR_TEMPLATES.map((item) => item.value);
-const SCREENSAVER_TEMPLATE_VALUES = SCREENSAVER_TEMPLATES.map((item) => item.value);
-const CANVAS_TEMPLATE_VALUES = CANVAS_TEMPLATES.map((item) => item.value);
-
-function calculateProgress(state: FakeScreenState, startedAt: number, now: number): number {
-  if (state.updateProgressMode === "manual") return state.manualProgress;
-  const durationMs = Math.max(1, state.updateDurationMinutes) * 60 * 1000;
-  const elapsedRatio = Math.max(0, (now - startedAt) / durationMs);
-  const start = Math.min(99, Math.max(0, state.updateStartPercent));
-  if (state.updateProgressMode === "loop") return Math.round(start + (100 - start) * (elapsedRatio % 1));
-  const capped = Math.min(1, elapsedRatio);
-  if (state.updateProgressMode === "linear") return Math.round(start + (100 - start) * capped);
-  if (state.updateProgressMode === "stuck-99") return Math.min(99, Math.round(start + (99 - start) * Math.min(1, capped * 1.7)));
-  const realistic = capped < 0.55 ? capped * 1.25 : 0.69 + (1 - Math.exp(-(capped - 0.55) * 4.1)) * 0.3;
-  return Math.min(99, Math.round(start + (99 - start) * realistic));
-}
-
 function Field({ label, hint, children }: { label: string; hint?: string; children: ReactNode }) {
   return (
     <label className="block text-xs font-black uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">
@@ -245,6 +238,9 @@ function ColorPreview({ state, patch }: { state: FakeScreenState; patch: (next: 
 function UpdatePreview({ state, progress }: { state: FakeScreenState; progress: number }) {
   const p = Math.max(0, Math.min(100, progress));
   const step = Math.max(1, Math.min(117, Math.round((p / 100) * 117)));
+  const complete = p >= 100;
+  const title = complete && state.updateCompletionText ? state.updateCompletionText : state.updateTitle;
+  const subtitle = state.updateSubtitle;
 
   if (state.updateTemplate === "winxp") {
     return (
@@ -253,14 +249,14 @@ function UpdatePreview({ state, progress }: { state: FakeScreenState; progress: 
         <div className="absolute inset-x-0 top-0 h-[76px] bg-[#003399]" />
         <div className="absolute inset-x-0 bottom-0 h-[76px] bg-gradient-to-r from-[#30279d] via-[#2149c7] to-[#003399]" />
         <div className="absolute bottom-[76px] left-0 right-0 h-[3px] bg-[#e89b18]" />
-        <div className="z-10 flex flex-col items-center text-center">
+        <div className="z-10 flex max-w-3xl flex-col items-center px-6 text-center">
           <WindowsMark colorful />
           <div className="mt-4 flex items-end gap-1 drop-shadow-sm"><span className="text-xs">Microsoft</span><span className="text-5xl font-semibold leading-none">Windows</span><span className="pb-1 text-2xl font-black text-orange-500">XP</span></div>
-          <div className="mt-8 w-[340px] rounded-sm bg-white/20 p-1 shadow-inner">
+          <div className="mt-8 w-full max-w-[340px] rounded-sm bg-white/20 p-1 shadow-inner">
             <div className="flex gap-1">{Array.from({ length: 18 }).map((_, i) => <span key={i} className="h-3 flex-1 rounded-[1px]" style={{ backgroundColor: i < Math.round(p / 5.6) ? "#30d158" : "rgba(255,255,255,.22)" }} />)}</div>
           </div>
-          <p className="mt-5 text-xl font-semibold">Installing update {step} of 117...</p>
-          <p className="mt-3 text-xl">Do not turn off or unplug your computer.</p>
+          <p className="mt-5 text-xl font-semibold">{complete ? title : `${title} ${step} of 117...`}</p>
+          <p className="mt-3 text-lg leading-7 text-white/90">{subtitle}</p>
         </div>
       </div>
     );
@@ -270,11 +266,10 @@ function UpdatePreview({ state, progress }: { state: FakeScreenState; progress: 
     return (
       <div className="relative flex h-full min-h-[520px] items-center justify-center rounded-[28px] bg-[#0078d7] text-white">
         <ExitHint />
-        <div className="flex flex-col items-center text-center">
+        <div className="flex max-w-3xl flex-col items-center px-6 text-center">
           <WindowsSpinner />
-          <p className="mt-10 text-2xl font-normal">Working on updates {p}%</p>
-          <p className="mt-5 text-xl">Don't turn off your PC. This will take a while.</p>
-          <p className="mt-3 text-lg">Your PC will restart several times.</p>
+          <p className="mt-10 text-2xl font-normal">{title}{complete ? "" : ` ${p}%`}</p>
+          <p className="mt-5 text-lg leading-7 text-white/90">{subtitle}</p>
         </div>
       </div>
     );
@@ -285,11 +280,11 @@ function UpdatePreview({ state, progress }: { state: FakeScreenState; progress: 
       <div className="relative flex h-full min-h-[520px] items-center justify-center rounded-[28px] bg-[#05070c] text-white">
         <ExitHint />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(40,80,180,.25),transparent_45%)]" />
-        <div className="relative flex flex-col items-center text-center">
+        <div className="relative flex max-w-3xl flex-col items-center px-6 text-center">
           <WindowsSpinner color="#dbeafe" />
-          <p className="mt-10 text-2xl font-light">Updates are underway</p>
+          <p className="mt-10 text-2xl font-light">{title}</p>
           <p className="mt-3 text-xl">{p}% complete</p>
-          <p className="mt-8 text-lg text-white/75">Please keep your device on.</p>
+          <p className="mt-8 text-lg leading-7 text-white/75">{subtitle}</p>
         </div>
       </div>
     );
@@ -299,10 +294,11 @@ function UpdatePreview({ state, progress }: { state: FakeScreenState; progress: 
     return (
       <div className="relative flex h-full min-h-[520px] items-center justify-center rounded-[28px] bg-black text-white">
         <ExitHint />
-        <div className="flex w-full max-w-md flex-col items-center">
+        <div className="flex w-full max-w-xl flex-col items-center px-6 text-center">
           <AppleLikeMark />
-          <div className="mt-12 h-1.5 w-80 overflow-hidden rounded-full bg-white/20"><div className="h-full rounded-full bg-white" style={{ width: `${p}%` }} /></div>
-          <p className="mt-5 text-sm text-white/70">Installing update... {p}%</p>
+          <p className="mt-8 text-xl font-medium">{title}</p>
+          <div className="mt-8 h-1.5 w-full max-w-80 overflow-hidden rounded-full bg-white/20"><div className="h-full rounded-full bg-white" style={{ width: `${p}%` }} /></div>
+          <p className="mt-5 text-sm leading-6 text-white/70">{subtitle} {p}%</p>
         </div>
       </div>
     );
@@ -313,12 +309,12 @@ function UpdatePreview({ state, progress }: { state: FakeScreenState; progress: 
       <div className="relative flex h-full min-h-[520px] items-center justify-center rounded-[28px] bg-[#300a24] text-white">
         <ExitHint />
         <div className="absolute left-0 top-0 h-full w-20 bg-black/25" />
-        <div className="flex flex-col items-center text-center">
+        <div className="flex max-w-3xl flex-col items-center px-6 text-center">
           <div className="ubuntu-orb"><span /><span /><span /></div>
           <p className="mt-8 text-4xl font-light tracking-tight">ubuntu</p>
-          <p className="mt-8 text-xl">Installing system updates</p>
-          <div className="mt-6 flex gap-2">{Array.from({ length: 14 }).map((_, i) => <span key={i} className="h-2 w-7 rounded-full" style={{ backgroundColor: i < Math.round(p / 7.2) ? "#e95420" : "rgba(255,255,255,.22)" }} />)}</div>
-          <p className="mt-5 text-sm text-white/75">{p}% complete</p>
+          <p className="mt-8 text-xl">{title}</p>
+          <div className="mt-6 flex w-full max-w-xl gap-2">{Array.from({ length: 14 }).map((_, i) => <span key={i} className="h-2 flex-1 rounded-full" style={{ backgroundColor: i < Math.round(p / 7.2) ? "#e95420" : "rgba(255,255,255,.22)" }} />)}</div>
+          <p className="mt-5 text-sm leading-6 text-white/75">{subtitle} · {p}%</p>
         </div>
       </div>
     );
@@ -328,11 +324,11 @@ function UpdatePreview({ state, progress }: { state: FakeScreenState; progress: 
     return (
       <div className="relative flex h-full min-h-[520px] items-center justify-center rounded-[28px] bg-[#202124] text-white">
         <ExitHint />
-        <div className="flex flex-col items-center text-center">
+        <div className="flex w-full max-w-xl flex-col items-center px-6 text-center">
           <ChromeLikeMark />
-          <p className="mt-8 text-2xl">Applying critical update</p>
-          <p className="mt-3 text-sm text-white/60">Do not turn off your device</p>
-          <div className="mt-8 h-1.5 w-80 overflow-hidden rounded-full bg-white/15"><div className="h-full rounded-full bg-blue-400" style={{ width: `${p}%` }} /></div>
+          <p className="mt-8 text-2xl">{title}</p>
+          <p className="mt-3 text-sm leading-6 text-white/60">{subtitle}</p>
+          <div className="mt-8 h-1.5 w-full max-w-80 overflow-hidden rounded-full bg-white/15"><div className="h-full rounded-full bg-blue-400" style={{ width: `${p}%` }} /></div>
         </div>
       </div>
     );
@@ -342,11 +338,11 @@ function UpdatePreview({ state, progress }: { state: FakeScreenState; progress: 
     return (
       <div className="relative flex h-full min-h-[520px] items-center justify-center rounded-[28px] bg-[#121212] text-[#a7f3d0]">
         <ExitHint />
-        <div className="flex flex-col items-center text-center">
+        <div className="flex max-w-3xl flex-col items-center px-6 text-center">
           <AndroidLikeMark />
           <WindowsSpinner color="#3ddc84" small />
-          <p className="mt-8 text-2xl text-white">Installing system update</p>
-          <p className="mt-2 text-lg text-white/70">Optimizing apps {p}%</p>
+          <p className="mt-8 text-2xl text-white">{title}</p>
+          <p className="mt-2 text-lg leading-7 text-white/70">{subtitle} {p}%</p>
         </div>
       </div>
     );
@@ -355,9 +351,9 @@ function UpdatePreview({ state, progress }: { state: FakeScreenState; progress: 
   return (
     <div className="relative h-full min-h-[520px] overflow-hidden rounded-[28px] bg-black p-8 font-mono text-green-400">
       <ExitHint />
-      <p className="text-lg">$ sudo apt update && sudo apt upgrade</p>
+      <p className="max-w-3xl text-lg">$ {title}</p>
       {Array.from({ length: 18 }).map((_, i) => <p key={i} className="mt-2 text-sm opacity-80">[{String(i + 1).padStart(2, "0")}] resolving package-{i * 7 + p}.visual ... done</p>)}
-      <p className="absolute bottom-8 left-8 text-xl">Progress: {p}%</p>
+      <div className="absolute inset-x-8 bottom-8 flex flex-wrap justify-between gap-3 text-sm sm:text-xl"><p>{subtitle}</p><p>Progress: {p}%</p></div>
     </div>
   );
 }
@@ -592,7 +588,8 @@ function CanvasBackground({ state }: { state: FakeScreenState }) {
         ctx.lineWidth = 1.5 + (j % 3);
         for (let x = 0; x <= width; x += 8) {
           const y = height * 0.5 + Math.sin(x / (70 + j * 4) + t + j * 0.35) * (22 + j * 2.5) + (j - 13) * 12;
-          x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+          if (x === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
         }
         ctx.stroke();
       }
@@ -792,47 +789,21 @@ export default function FakeScreenClient() {
   const [copied, setCopied] = useState<string | null>(null);
   const [startedAt, setStartedAt] = useState(Date.now());
   const [now, setNow] = useState(Date.now());
-  const [state, setState] = useState<FakeScreenState>(() => ({
-    ...DEFAULT_FAKE_SCREEN_STATE,
-    mode: readChoiceParam(params, "mode", DEFAULT_FAKE_SCREEN_STATE.mode, MODE_VALUES),
-    colorMode: readChoiceParam(params, "colorMode", DEFAULT_FAKE_SCREEN_STATE.colorMode, COLOR_MODE_VALUES),
-    color: normalizeHex(readStringParam(params, "color", DEFAULT_FAKE_SCREEN_STATE.color), DEFAULT_FAKE_SCREEN_STATE.color),
-    brightness: readNumberParam(params, "brightness", DEFAULT_FAKE_SCREEN_STATE.brightness, 10, 100),
-    deadPixelIndex: readNumberParam(params, "test", DEFAULT_FAKE_SCREEN_STATE.deadPixelIndex, 0, DEAD_PIXEL_COLORS.length - 1),
-    updateTemplate: readChoiceParam(params, "update", DEFAULT_FAKE_SCREEN_STATE.updateTemplate, UPDATE_TEMPLATE_VALUES),
-    updateProgressMode: readChoiceParam(params, "progress", DEFAULT_FAKE_SCREEN_STATE.updateProgressMode, UPDATE_MODE_VALUES),
-    updateDurationMinutes: readNumberParam(params, "duration", DEFAULT_FAKE_SCREEN_STATE.updateDurationMinutes, 1, 90),
-    updateStartPercent: readNumberParam(params, "start", DEFAULT_FAKE_SCREEN_STATE.updateStartPercent, 0, 99),
-    errorTemplate: readChoiceParam(params, "error", DEFAULT_FAKE_SCREEN_STATE.errorTemplate, ERROR_TEMPLATE_VALUES),
-    screensaverTemplate: readChoiceParam(params, "saver", DEFAULT_FAKE_SCREEN_STATE.screensaverTemplate, SCREENSAVER_TEMPLATE_VALUES),
-    screensaverText: readStringParam(params, "text", DEFAULT_FAKE_SCREEN_STATE.screensaverText),
-    screensaverSpeed: readChoiceParam(params, "speed", DEFAULT_FAKE_SCREEN_STATE.screensaverSpeed, ["slow", "medium", "fast"]),
-    canvasTemplate: readChoiceParam(params, "canvas", DEFAULT_FAKE_SCREEN_STATE.canvasTemplate, CANVAS_TEMPLATE_VALUES),
-  }));
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const [isPacking, setIsPacking] = useState(false);
+  const [importStatus, setImportStatus] = useState<{ tone: "success" | "error"; message: string } | null>(null);
+  const [state, setState] = useState<FakeScreenState>(() => readFakeScreenQuery(params));
 
   useEffect(() => { const id = window.setInterval(() => setNow(Date.now()), 500); return () => window.clearInterval(id); }, []);
-  const progress = useMemo(() => calculateProgress(state, startedAt, now), [state, startedAt, now]);
+  const progress = useMemo(() => calculateFakeScreenProgress(state, startedAt, now), [state, startedAt, now]);
   const activePresets = FAKE_SCREEN_PRESETS.filter((preset) => preset.mode === state.mode);
+  const productionChecks = useMemo(() => buildFakeScreenAudit(state), [state]);
+  const summaryCards = useMemo(() => buildFakeScreenSummary(state, progress, productionChecks), [productionChecks, progress, state]);
 
   function patch(next: Partial<FakeScreenState>) { setState((current) => ({ ...current, ...next })); }
 
   async function copyShareLink() {
-    const url = buildShareUrl("/tools/fake-screen", {
-      mode: state.mode,
-      colorMode: state.colorMode,
-      color: state.color,
-      brightness: state.brightness,
-      test: state.deadPixelIndex,
-      update: state.updateTemplate,
-      duration: state.updateDurationMinutes,
-      start: state.updateStartPercent,
-      progress: state.updateProgressMode,
-      error: state.errorTemplate,
-      saver: state.screensaverTemplate,
-      text: state.screensaverText,
-      speed: state.screensaverSpeed,
-      canvas: state.canvasTemplate,
-    });
+    const url = buildShareUrl("/tools/fake-screen", buildFakeScreenQuery(state));
     if (await copyText(url)) { setCopied("share"); window.setTimeout(() => setCopied(null), 1400); }
   }
 
@@ -840,19 +811,95 @@ export default function FakeScreenClient() {
     if (await copyText(state.color)) { setCopied("color"); window.setTimeout(() => setCopied(null), 1400); }
   }
 
+  function downloadJsonConfig() {
+    downloadTextFile({
+      filename: "darma-fake-screen-config.json",
+      content: serializeFakeScreenConfig(state),
+      mimeType: "application/json;charset=utf-8",
+    });
+  }
+
+  function downloadStandaloneHtml() {
+    downloadTextFile({
+      filename: "darma-fake-screen.html",
+      content: buildStandaloneHtml(state),
+      mimeType: "text/html;charset=utf-8",
+    });
+  }
+
+  function downloadAuditReport() {
+    downloadTextFile({
+      filename: "darma-fake-screen-report.md",
+      content: buildFakeScreenMarkdown(state, productionChecks),
+      mimeType: "text/markdown;charset=utf-8",
+    });
+  }
+
+  async function downloadProductionPack() {
+    setIsPacking(true);
+    try {
+      const { default: JSZip } = await import("jszip");
+      const zip = new JSZip();
+      zip.file("fake-screen.html", buildStandaloneHtml(state));
+      zip.file("fake-screen.config.json", serializeFakeScreenConfig(state));
+      zip.file("fake-screen-report.md", buildFakeScreenMarkdown(state, productionChecks));
+      zip.file("README.txt", "Darma Fake Screen production pack\n\nOpen fake-screen.html in a modern browser. Click the scene to enter fullscreen and press Esc to exit. Keep the visible demo notice when sharing prank-style scenes.\n");
+      const blob = await zip.generateAsync({ type: "blob" });
+      downloadBlobFile({ blob, filename: "darma-fake-screen-production-pack.zip" });
+      setImportStatus({ tone: "success", message: "Production ZIP created successfully." });
+    } catch {
+      setImportStatus({ tone: "error", message: "The production ZIP could not be created." });
+    } finally {
+      setIsPacking(false);
+    }
+  }
+
+  async function importConfig(file: File | undefined) {
+    if (!file) return;
+    if (file.size > 256 * 1024) {
+      setImportStatus({ tone: "error", message: "Configuration files must be 256 KB or smaller." });
+      if (fileInputRef.current) fileInputRef.current.value = "";
+      return;
+    }
+    try {
+      const result = parseFakeScreenConfig(await file.text());
+      if ("error" in result) {
+        setImportStatus({ tone: "error", message: result.error });
+        return;
+      }
+      setState(result.state);
+      setStartedAt(Date.now());
+      setImportStatus({ tone: "success", message: `Imported ${file.name} successfully.` });
+    } catch {
+      setImportStatus({ tone: "error", message: "The selected configuration could not be read." });
+    } finally {
+      if (fileInputRef.current) fileInputRef.current.value = "";
+    }
+  }
+
   return (
     <div className="space-y-6">
       <style>{styles}</style>
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept="application/json,.json"
+        className="sr-only"
+        onChange={(event) => void importConfig(event.target.files?.[0])}
+      />
       <ToolLayoutFullscreenStudio
         categorySlot={
-          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
-            {(Object.keys(MODE_LABELS) as FakeScreenMode[]).map((mode) => (
-              <button key={mode} type="button" onClick={() => patch({ mode })} className={["rounded-[var(--radius-lg)] border p-5 text-left transition hover:-translate-y-0.5 hover:shadow-sm", state.mode === mode ? "border-[var(--color-primary)] bg-[var(--color-code-surface)] text-[var(--color-code-text)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-base)] text-[var(--color-text-primary)]"].join(" ")}>
-                <span className="text-xs font-black uppercase tracking-[0.18em] opacity-70">Category</span>
-                <span className="mt-2 block text-lg font-black">{MODE_LABELS[mode]}</span>
-              </button>
-            ))}
-          </div>
+          <>
+            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
+              {(Object.keys(MODE_LABELS) as FakeScreenMode[]).map((mode) => (
+                <button key={mode} type="button" onClick={() => patch({ mode })} className={["rounded-[var(--radius-lg)] border p-5 text-left transition hover:-translate-y-0.5 hover:shadow-sm", state.mode === mode ? "border-[var(--color-primary)] bg-[var(--color-code-surface)] text-[var(--color-code-text)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-base)] text-[var(--color-text-primary)]"].join(" ")}>
+                  <span className="text-xs font-black uppercase tracking-[0.18em] opacity-70">Category</span>
+                  <span className="mt-2 block text-lg font-black">{MODE_LABELS[mode]}</span>
+                </button>
+              ))}
+            </div>
+            <FakeScreenSummaryGrid cards={summaryCards} />
+          </>
         }
         previewSlot={
           <div ref={stageRef} className="h-full overflow-hidden rounded-[30px] bg-[var(--color-surface-subtle)] shadow-sm">
@@ -864,7 +911,7 @@ export default function FakeScreenClient() {
             <button type="button" onClick={() => stageRef.current && void enterFullscreen(stageRef.current)} className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[var(--textColor)] px-5 py-3 text-sm font-black text-[var(--baseColor)] transition hover:opacity-85"><Maximize2 className="h-4 w-4" /> Start Fullscreen</button>
             <button type="button" onClick={copyShareLink} className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-4 py-3 text-sm font-bold text-[var(--color-text-primary)] transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-control-hover)]">{copied === "share" ? <Check className="h-4 w-4" /> : <Link2 className="h-4 w-4" />} {copied === "share" ? "Copied" : "Copy Link"}</button>
             {state.mode === "color" && state.colorMode !== "dead-pixel" ? <button type="button" onClick={copyColor} className="inline-flex items-center gap-2 rounded-2xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-4 py-3 text-sm font-bold text-[var(--color-text-primary)]"><Copy className="h-4 w-4" /> {copied === "color" ? "Copied" : "Copy Hex"}</button> : null}
-            <button type="button" onClick={() => { setState(DEFAULT_FAKE_SCREEN_STATE); setStartedAt(Date.now()); }} className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-4 py-3 text-sm font-bold text-[var(--color-text-primary)] transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-control-hover)]"><RotateCcw className="h-4 w-4" /> Reset</button>
+            <button type="button" onClick={() => { setState(DEFAULT_FAKE_SCREEN_STATE); setStartedAt(Date.now()); setImportStatus(null); }} className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-4 py-3 text-sm font-bold text-[var(--color-text-primary)] transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-control-hover)]"><RotateCcw className="h-4 w-4" /> Reset</button>
             <span className="ml-auto text-xs font-bold text-[var(--color-text-tertiary)]">Fullscreen starts manually. Press Esc to exit.</span>
           </>
         }
@@ -887,6 +934,18 @@ export default function FakeScreenClient() {
             })}
           </div>
           </>
+        }
+        sidebarSlot={
+          <FakeScreenProductionPanel
+            checks={productionChecks}
+            importStatus={importStatus}
+            isPacking={isPacking}
+            onImport={() => fileInputRef.current?.click()}
+            onDownloadJson={downloadJsonConfig}
+            onDownloadHtml={downloadStandaloneHtml}
+            onDownloadMarkdown={downloadAuditReport}
+            onDownloadPack={() => void downloadProductionPack()}
+          />
         }
         controlsSlot={
           <>
@@ -923,7 +982,41 @@ function ColorControls({ state, patch }: { state: FakeScreenState; patch: (next:
 }
 
 function UpdateControls({ state, patch, restart }: { state: FakeScreenState; patch: (next: Partial<FakeScreenState>) => void; restart: () => void }) {
-  return <div className="space-y-4"><Field label="Update example"><SelectButtons options={UPDATE_TEMPLATES} value={state.updateTemplate} onChange={(updateTemplate) => { patch({ updateTemplate }); restart(); }} /></Field><Field label="Progress mode"><SelectButtons options={UPDATE_MODES} value={state.updateProgressMode} onChange={(updateProgressMode) => patch({ updateProgressMode })} /></Field><div className="grid gap-3 sm:grid-cols-2"><Field label="Duration minutes"><TextInput type="number" min={1} max={90} value={state.updateDurationMinutes} onChange={(e) => patch({ updateDurationMinutes: Number(e.target.value) })} /></Field><Field label="Start percent"><TextInput type="number" min={0} max={99} value={state.updateStartPercent} onChange={(e) => patch({ updateStartPercent: Number(e.target.value) })} /></Field></div>{state.updateProgressMode === "manual" ? <Field label={`Manual progress: ${state.manualProgress}%`}><input type="range" min="0" max="100" value={state.manualProgress} onChange={(e) => patch({ manualProgress: Number(e.target.value) })} className="w-full" /></Field> : null}<Field label="Main message"><TextInput value={state.updateTitle} onChange={(e) => patch({ updateTitle: e.target.value })} /></Field><Field label="Secondary message"><TextArea value={state.updateSubtitle} onChange={(e) => patch({ updateSubtitle: e.target.value })} /></Field><button type="button" onClick={restart} className="rounded-2xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-4 py-3 text-sm font-bold text-[var(--color-text-primary)]">Start / Restart Progress</button></div>;
+  return (
+    <div className="space-y-4">
+      <Field label="Update example">
+        <SelectButtons options={UPDATE_TEMPLATES} value={state.updateTemplate} onChange={(updateTemplate) => { patch({ updateTemplate }); restart(); }} />
+      </Field>
+      <Field label="Progress mode">
+        <SelectButtons options={UPDATE_MODES} value={state.updateProgressMode} onChange={(updateProgressMode) => patch({ updateProgressMode })} />
+      </Field>
+      <div className="grid gap-3 sm:grid-cols-2">
+        <Field label="Duration minutes">
+          <TextInput type="number" min={1} max={90} value={state.updateDurationMinutes} onChange={(event) => patch({ updateDurationMinutes: Number(event.target.value) })} />
+        </Field>
+        <Field label="Start percent">
+          <TextInput type="number" min={0} max={99} value={state.updateStartPercent} onChange={(event) => patch({ updateStartPercent: Number(event.target.value) })} />
+        </Field>
+      </div>
+      {state.updateProgressMode === "manual" ? (
+        <Field label={`Manual progress: ${state.manualProgress}%`}>
+          <input type="range" min="0" max="100" value={state.manualProgress} onChange={(event) => patch({ manualProgress: Number(event.target.value) })} className="w-full" />
+        </Field>
+      ) : null}
+      <Field label="Main message">
+        <TextInput value={state.updateTitle} maxLength={120} onChange={(event) => patch({ updateTitle: event.target.value })} />
+      </Field>
+      <Field label="Secondary message">
+        <TextArea value={state.updateSubtitle} maxLength={260} onChange={(event) => patch({ updateSubtitle: event.target.value })} />
+      </Field>
+      <Field label="Completion message" hint="Shown when a finishable progress mode reaches 100%.">
+        <TextInput value={state.updateCompletionText} maxLength={100} onChange={(event) => patch({ updateCompletionText: event.target.value })} />
+      </Field>
+      <button type="button" onClick={restart} className="rounded-2xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-4 py-3 text-sm font-bold text-[var(--color-text-primary)]">
+        Start / Restart Progress
+      </button>
+    </div>
+  );
 }
 
 function ErrorControls({ state, patch }: { state: FakeScreenState; patch: (next: Partial<FakeScreenState>) => void }) {

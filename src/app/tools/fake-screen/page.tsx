@@ -1,40 +1,67 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
-import Link from "next/link";
+import dynamic from "next/dynamic";
+import { notFound } from "next/navigation";
+import { Badge } from "@/components/ui";
+import { NextToolSuggestions } from "@/features/tools/components/NextToolSuggestions";
 import { getToolRegistry } from "@/features/tools";
+import { ToolPage } from "@/features/tools/layouts";
+import { buildToolJsonLd, buildToolMetadata } from "@/features/tools/seo";
 import ToolContentCard from "@/features/tools/ui/ToolContentCard";
-import ToolPageShell from "@/features/tools/ui/ToolPageShell";
-import FakeScreenClient from "./FakeScreenClient";
 
-export const metadata: Metadata = {
-  title: "Fake Screen Tool | Darma Tools",
-  description: "Create safe fullscreen color screens, fake update screens, prank/error screens, DVD screensavers, and animated canvas backgrounds from one clean Darma tool.",
-  keywords: ["fake screen", "fullscreen screen", "color screen", "fake update screen", "blue screen simulator", "dvd screensaver", "canvas background", "screen tools"],
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const tool = getToolRegistry().getById("fake-screen");
+  if (!tool) return {};
+  return buildToolMetadata(tool);
+}
 
-const categoryDescriptions = [
-  ["Color screens", "Solid colors, dead pixel testing, screen cleaning, and soft light."],
-  ["Fake updates", "Windows-style, Mac-style, Ubuntu-style, Chrome OS-style, Android, and terminal update scenes."],
-  ["Prank/error screens", "Blue errors, classic crashes, no signal, radar, broken glass, and hacker-style visuals."],
-  ["Screensavers", "DVD bounce, flip clock, quote screen, no-signal bars, matrix rain, and floating text."],
-  ["Canvas backgrounds", "Ten animated canvas examples including circles, starfield, network, waves, aurora, and confetti."],
-];
+const FakeScreenClient = dynamic(() => import("./FakeScreenClient"), {
+  loading: () => (
+    <div className="min-h-[680px] animate-pulse rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-card)]" />
+  ),
+});
+const Article = dynamic(() => import("./Article"));
 
 export default function FakeScreenPage() {
   const tool = getToolRegistry().getById("fake-screen");
-  if (!tool) return null;
+  if (!tool) notFound();
+
+  const jsonLd = buildToolJsonLd(tool);
 
   return (
-    <ToolPageShell
+    <ToolPage
       tool={tool}
-      intro={<div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">{categoryDescriptions.map(([title, description]) => <div key={title} className="rounded-[var(--radius-lg)] border border-black/10 bg-white/70 p-4"><h2 className="text-sm font-black text-[var(--color-text-primary)]">{title}</h2><p className="mt-2 text-xs leading-5 text-[var(--color-text-secondary)]">{description}</p></div>)}</div>}
+      maxWidth="full"
+      eyebrow="Fullscreen visual production studio"
+      headerSize="compact"
+      intro={
+        <div className="space-y-3">
+          <p className="max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)]">
+            Build safe fullscreen color tests, update simulations, error scenes,
+            screensavers, and animated backgrounds. Preview instantly, run production
+            checks, preserve complete share links, and export a portable browser pack.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <Badge variant="soft">Client-side</Badge>
+            <Badge variant="soft">JSON import</Badge>
+            <Badge variant="soft">Standalone HTML</Badge>
+            <Badge variant="soft">Responsible-use audit</Badge>
+          </div>
+        </div>
+      }
+      article={
+        <ToolContentCard title="Fake Screen workflow, exports, and responsible use">
+          <Article />
+        </ToolContentCard>
+      }
+      related={
+        <NextToolSuggestions toolIds={["animated-background-generator", "color-shades", "og-image-generator", "qr-code"]} />
+      }
     >
-      <ToolContentCard title="Fake Screen generator" description="Pick a category, preview the screen first, use the small action bar for fullscreen/share/reset, then fine-tune examples and controls below the preview.">
-        <Suspense fallback={<div className="rounded-[28px] border border-black/10 bg-white p-8 text-sm font-bold text-[var(--color-text-secondary)]">Loading Fake Screen...</div>}><FakeScreenClient /></Suspense>
-      </ToolContentCard>
-      <ToolContentCard title="About this tool">
-        <div className="space-y-5 text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]"><p>Fake Screen is now one focused Darma tool instead of many small pages. The main flow is simpler: choose a category, see the large preview, then use the small action bar for fullscreen, share link, and reset.</p><p>The fake update examples use CSS-only, Darma-built approximations of familiar update layouts. They include Windows 11/10/XP-inspired layouts, Mac-style, Ubuntu-style, Chrome OS-style, Android-style, and terminal update screens. The spinner and progress behavior were improved to feel more natural while keeping the feature safe and browser-only.</p><p>The new Canvas backgrounds category adds ten animated examples, including the interactive circle idea, starfield, particle network, waves, aurora, fireflies, bubbles, snowfall, plasma, and confetti. These are useful as fullscreen backgrounds for demos, classrooms, video scenes, and ambient displays.</p><h3 className="text-lg font-black text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">Responsible use</h3><p>Use prank-style screens only for harmless jokes, videos, demos, and creative scenes. Fullscreen always requires a click and can be exited with Esc. The tool does not open popups, block shortcuts, or modify the user device.</p><h3 className="text-lg font-black text-[var(--color-text-primary)] dark:text-[var(--color-code-text)]">Related Darma tools</h3><div className="flex flex-wrap gap-2 text-sm font-bold"><Link href="/tools/color-shades" className="rounded-2xl border border-black/10 bg-white/70 px-4 py-2 text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-subtle)]">Color Shades Generator</Link><Link href="/tools/animated-background-generator" className="rounded-2xl border border-black/10 bg-white/70 px-4 py-2 text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-subtle)]">Animated Background Generator</Link><Link href="/tools/qr-code" className="rounded-2xl border border-black/10 bg-white/70 px-4 py-2 text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-subtle)]">QR Code Generator</Link></div></div>
-      </ToolContentCard>
-    </ToolPageShell>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <Suspense fallback={<div className="min-h-[680px] animate-pulse rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-surface)] shadow-[var(--shadow-card)]" />}>
+        <FakeScreenClient />
+      </Suspense>
+    </ToolPage>
   );
 }

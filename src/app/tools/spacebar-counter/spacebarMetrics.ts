@@ -1,4 +1,9 @@
-import type { SpacebarInputMethod, SpacebarSample, SpacebarStats, SpacebarTestMode } from "./types";
+import type {
+  SpacebarInputMethod,
+  SpacebarSample,
+  SpacebarStats,
+  SpacebarTestMode,
+} from "./types";
 
 const BURST_WINDOW_MS = 1000;
 
@@ -8,14 +13,24 @@ function round(value: number, decimals = 0) {
   return Math.round(value * multiplier) / multiplier;
 }
 
-function gapsFromSamples(samples: SpacebarSample[]) {
+function validSamples(samples: SpacebarSample[]) {
+  return samples
+    .filter(
+      (sample) =>
+        Number.isFinite(sample.time) &&
+        sample.time >= 0 &&
+        ["keyboard", "touch", "mouse"].includes(sample.source),
+    )
+    .sort((a, b) => a.time - b.time);
+}
+
+export function spacebarGaps(samples: SpacebarSample[]) {
+  const safeSamples = validSamples(samples);
   const gaps: number[] = [];
-
-  for (let index = 1; index < samples.length; index += 1) {
-    const gap = samples[index].time - samples[index - 1].time;
-    if (gap > 0 && gap < 5000) gaps.push(gap);
+  for (let index = 1; index < safeSamples.length; index += 1) {
+    const gap = safeSamples[index].time - safeSamples[index - 1].time;
+    if (gap > 0 && Number.isFinite(gap)) gaps.push(gap);
   }
-
   return gaps;
 }
 
@@ -24,7 +39,6 @@ function resolveInputMethod(samples: SpacebarSample[]): SpacebarInputMethod {
   const touch = samples.some((sample) => sample.source === "touch");
   const mouse = samples.some((sample) => sample.source === "mouse");
   const active = [keyboard, touch, mouse].filter(Boolean).length;
-
   if (active > 1) return "Mixed";
   if (keyboard) return "Keyboard";
   if (touch) return "Touch";
@@ -33,32 +47,33 @@ function resolveInputMethod(samples: SpacebarSample[]): SpacebarInputMethod {
 }
 
 function calculateBestBurst(samples: SpacebarSample[]) {
+  const safeSamples = validSamples(samples);
   let best = 0;
   let left = 0;
-
-  for (let right = 0; right < samples.length; right += 1) {
-    while (samples[right].time - samples[left].time > BURST_WINDOW_MS) {
+  for (let right = 0; right < safeSamples.length; right += 1) {
+    while (
+      left < right &&
+      safeSamples[right].time - safeSamples[left].time > BURST_WINDOW_MS
+    ) {
       left += 1;
     }
-
     best = Math.max(best, right - left + 1);
   }
-
   return best;
 }
 
 function calculateConsistency(samples: SpacebarSample[]) {
-  const gaps = gapsFromSamples(samples);
+  const gaps = spacebarGaps(samples);
   if (gaps.length < 4) return 0;
-
   const average = gaps.reduce((sum, gap) => sum + gap, 0) / gaps.length;
   if (average <= 0) return 0;
-
-  const variance = gaps.reduce((sum, gap) => sum + (gap - average) ** 2, 0) / gaps.length;
+  const variance =
+    gaps.reduce((sum, gap) => sum + (gap - average) ** 2, 0) / gaps.length;
   const coefficientOfVariation = Math.sqrt(variance) / average;
-  const score = 100 - Math.min(100, coefficientOfVariation * 78);
-
-  return Math.max(0, Math.min(100, score));
+  return Math.max(
+    0,
+    Math.min(100, 100 - Math.min(100, coefficientOfVariation * 78)),
+  );
 }
 
 export function pointerSource(pointerType: string): SpacebarSample["source"] {
@@ -66,7 +81,9 @@ export function pointerSource(pointerType: string): SpacebarSample["source"] {
 }
 
 export function isSpacebarEvent(event: KeyboardEvent) {
-  return event.code === "Space" || event.key === " " || event.key === "Spacebar";
+  return (
+    event.code === "Space" || event.key === " " || event.key === "Spacebar"
+  );
 }
 
 export function createEmptyStats(): SpacebarStats {
@@ -83,23 +100,29 @@ export function createEmptyStats(): SpacebarStats {
   };
 }
 
-export function calculateSpacebarStats(samples: SpacebarSample[], elapsedMs: number, ignoredRepeats = 0): SpacebarStats {
+export function calculateSpacebarStats(
+  samples: SpacebarSample[],
+  elapsedMs: number,
+  ignoredRepeats = 0,
+): SpacebarStats {
+  const safeSamples = validSamples(samples);
   const elapsedSeconds = Math.max(elapsedMs / 1000, 0.01);
-  const gaps = gapsFromSamples(samples);
-  const totalPresses = samples.length;
-  const averageGapMs = gaps.length ? gaps.reduce((sum, gap) => sum + gap, 0) / gaps.length : 0;
+  const gaps = spacebarGaps(safeSamples);
+  const totalPresses = safeSamples.length;
+  const averageGapMs = gaps.length
+    ? gaps.reduce((sum, gap) => sum + gap, 0) / gaps.length
+    : 0;
   const fastestGapMs = gaps.length ? Math.min(...gaps) : 0;
-
   return {
     totalPresses,
     elapsedSeconds: round(elapsedSeconds, 2),
     pressesPerSecond: round(totalPresses / elapsedSeconds, 2),
-    bestBurst: calculateBestBurst(samples),
+    bestBurst: calculateBestBurst(safeSamples),
     averageGapMs: round(averageGapMs),
     fastestGapMs: round(fastestGapMs),
-    consistencyScore: round(calculateConsistency(samples)),
-    ignoredRepeats,
-    inputMethod: resolveInputMethod(samples),
+    consistencyScore: round(calculateConsistency(safeSamples)),
+    ignoredRepeats: Math.max(0, Math.floor(ignoredRepeats)),
+    inputMethod: resolveInputMethod(safeSamples),
   };
 }
 
@@ -124,15 +147,23 @@ export function consistencyLabel(score: number) {
 }
 
 export function resultInsight(stats: SpacebarStats) {
-  if (stats.totalPresses === 0) return "Start a sprint and press the spacebar to generate a score.";
-  if (stats.ignoredRepeats > stats.totalPresses) return "Holding space was detected and repeat events were ignored. Use separate taps for a fair score.";
-  if (stats.pressesPerSecond >= 10 && stats.consistencyScore >= 70) return "Excellent sprint: high speed with a controlled spacebar rhythm.";
-  if (stats.pressesPerSecond >= 8) return "Strong spacebar speed. Try the 10-second mode to test your consistency.";
-  if (stats.consistencyScore < 35 && stats.totalPresses > 8) return "Your rhythm is bursty. Try lighter taps and keep your hand relaxed.";
-  if (stats.inputMethod === "Touch") return "Touch fallback is working. For classic results, compare keyboard runs on the same device.";
+  if (stats.totalPresses === 0)
+    return "Start a sprint and press the spacebar to generate a score.";
+  if (stats.ignoredRepeats > stats.totalPresses)
+    return "Holding space was detected and repeat events were ignored. Use separate taps for a fair score.";
+  if (stats.pressesPerSecond >= 10 && stats.consistencyScore >= 70)
+    return "Excellent sprint: high speed with a controlled spacebar rhythm.";
+  if (stats.pressesPerSecond >= 8)
+    return "Strong spacebar speed. Try the 10-second mode to test your consistency.";
+  if (stats.consistencyScore < 35 && stats.totalPresses > 8)
+    return "Your rhythm is bursty. Try lighter taps and keep your hand relaxed.";
+  if (stats.inputMethod === "Touch")
+    return "Touch fallback is working. For classic results, compare keyboard runs on the same device.";
   return "Nice run. For fair comparison, keep the same keyboard, browser, timer mode, and posture.";
 }
 
 export function formatNumber(value: number, maximumFractionDigits = 0) {
-  return new Intl.NumberFormat("en-US", { maximumFractionDigits }).format(value);
+  return new Intl.NumberFormat("en-US", { maximumFractionDigits }).format(
+    value,
+  );
 }

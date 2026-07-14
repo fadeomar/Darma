@@ -1,0 +1,28 @@
+{
+  "id": "swing-set",
+  "name": "Swing Set",
+  "category": "fun",
+  "tags": [
+    "swing",
+    "seat",
+    "playground",
+    "chains",
+    "pendulum"
+  ],
+  "html": "<span class=\"loader\"><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 48px;\n  height: 52px;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  top: 6px;\n  left: 4px;\n  right: 4px;\n  height: 3px;\n  border-radius: 2px;\n  background: #4338ca;\n}\n.loader i {\n  position: absolute;\n  top: 8px;\n  left: 50%;\n  width: 20px;\n  height: 30px;\n  margin-left: -10px;\n  transform-origin: top center;\n  animation: sw 1.6s ease-in-out infinite;\n}\n.loader i::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 2px;\n  width: 2px;\n  height: 26px;\n  background: #c7d2fe;\n  box-shadow: 14px 0 0 #c7d2fe;\n}\n.loader i::after {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 20px;\n  height: 5px;\n  border-radius: 2px;\n  background: #6366f1;\n}\n@keyframes sw {\n  0%, 100% { transform: rotate(-20deg); }\n  50% { transform: rotate(20deg); }\n}",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "yoyo-drop",
+  "name": "Yo-Yo Drop",
+  "category": "fun",
+  "tags": [
+    "yoyo",
+    "drop",
+    "string",
+    "spin",
+    "toy"
+  ],
+  "html": "<span class=\"loader\"><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 24px;\n  height: 52px;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 2px;\n  margin-left: -1px;\n  background: #c7d2fe;\n  animation: str 1s ease-in-out infinite;\n}\n.loader i {\n  position: absolute;\n  left: 50%;\n  width: 22px;\n  height: 22px;\n  margin-left: -11px;\n  border-radius: 50%;\n  background: #6366f1;\n  box-shadow: inset 0 0 0 3px #4338ca;\n  animation: drop 1s ease-in-out infinite, spin 0.5s linear infinite;\n}\n@keyframes drop {\n  0%, 100% { top: 8px; }\n  50% { top: 28px; }\n}\n@keyframes str {\n  0%, 100% { height: 16px; }\n  50% { height: 36px; }\n}\n@keyframes spin { to { transform: rotate(360deg); } }",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

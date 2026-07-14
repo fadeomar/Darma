@@ -1,0 +1,29 @@
+{
+  "id": "soccer-roll",
+  "name": "Soccer Roll",
+  "category": "fun",
+  "tags": [
+    "soccer",
+    "ball",
+    "roll",
+    "football",
+    "spin"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader {\n  width: 44px;\n  height: 44px;\n  border-radius: 50%;\n  border: 2px solid #6366f1;\n  box-sizing: border-box;\n  background-color: #eef2ff;\n  background-image:\n    radial-gradient(circle at 50% 50%, #6366f1 18%, transparent 19%),\n    radial-gradient(circle at 20% 30%, #6366f1 8%, transparent 9%),\n    radial-gradient(circle at 80% 30%, #6366f1 8%, transparent 9%),\n    radial-gradient(circle at 25% 80%, #6366f1 8%, transparent 9%),\n    radial-gradient(circle at 75% 80%, #6366f1 8%, transparent 9%);\n  animation: spin 1s linear infinite;\n}\n@keyframes spin { to { transform: rotate(360deg); } }",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "popular": true
+  }
+}

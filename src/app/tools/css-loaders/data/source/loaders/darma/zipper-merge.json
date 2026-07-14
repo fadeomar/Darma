@@ -1,0 +1,28 @@
+{
+  "id": "zipper-merge",
+  "name": "Zipper Merge",
+  "category": "creative",
+  "tags": [
+    "zipper",
+    "teeth",
+    "merge",
+    "slider",
+    "close"
+  ],
+  "html": "<span class=\"loader\"><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 26px;\n  height: 52px;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  top: 0;\n  bottom: 0;\n  width: 11px;\n  background: repeating-linear-gradient(#6366f1 0 4px, transparent 4px 8px);\n}\n.loader::after {\n  content: \"\";\n  position: absolute;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  width: 11px;\n  background: repeating-linear-gradient(transparent 0 4px, #6366f1 4px 8px);\n}\n.loader i {\n  position: absolute;\n  left: 50%;\n  top: 0;\n  width: 10px;\n  height: 9px;\n  margin-left: -5px;\n  border-radius: 2px;\n  background: #4338ca;\n  z-index: 2;\n  animation: zip 1.5s ease-in-out infinite;\n}\n@keyframes zip {\n  0% { top: 0; }\n  50% { top: calc(100% - 9px); }\n  100% { top: 0; }\n}",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

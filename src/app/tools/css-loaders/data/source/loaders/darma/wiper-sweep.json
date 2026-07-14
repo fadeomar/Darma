@@ -1,0 +1,28 @@
+{
+  "id": "wiper-sweep",
+  "name": "Wiper Sweep",
+  "category": "fun",
+  "tags": [
+    "wiper",
+    "sweep",
+    "windshield",
+    "swing",
+    "clean"
+  ],
+  "html": "<span class=\"loader\"><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 52px;\n  height: 34px;\n  border: 2px solid #c7d2fe;\n  border-radius: 6px 6px 3px 3px;\n  box-sizing: border-box;\n  overflow: hidden;\n}\n.loader i {\n  position: absolute;\n  bottom: 2px;\n  left: 50%;\n  width: 4px;\n  height: 28px;\n  margin-left: -2px;\n  border-radius: 2px;\n  background: #6366f1;\n  transform-origin: bottom center;\n  animation: wipe 1.4s ease-in-out infinite;\n}\n.loader i::after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: -3px;\n  width: 10px;\n  height: 5px;\n  border-radius: 2px;\n  background: #6366f1;\n}\n@keyframes wipe {\n  0% { transform: rotate(-58deg); }\n  50% { transform: rotate(58deg); }\n  100% { transform: rotate(-58deg); }\n}",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": "envelope-send",
+  "name": "Envelope Send",
+  "category": "fun",
+  "tags": [
+    "envelope",
+    "send",
+    "mail",
+    "message",
+    "fly"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "envelope-send envelope send fun envelope send mail message fly html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-envelope-send\"><i></i></span>",
+  "previewCss": ".darma-loader-envelope-send {\n  position: relative;\n  width: 48px;\n  height: 34px;\n  animation: darma-loader-envelope-send-send 1.6s ease-in-out infinite;\n}\n.darma-loader-envelope-send::before {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  background: var(--loader-color, #6366f1);\n  border-radius: 3px;\n}\n.darma-loader-envelope-send::after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 62%;\n  background: #4338ca;\n  border-radius: 3px 3px 0 0;\n  clip-path: polygon(0 0, 100% 0, 50% 100%);\n}\n.darma-loader-envelope-send i {\n  position: absolute;\n  left: -12px;\n  top: 50%;\n  width: 10px;\n  height: 2px;\n  margin-top: -1px;\n  border-radius: 2px;\n  background: #c7d2fe;\n  box-shadow: -2px -7px 0 #c7d2fe, -2px 7px 0 #c7d2fe;\n}\n@keyframes darma-loader-envelope-send-send {\n  0%, 100% { transform: translate(0, 0); }\n  50% { transform: translate(6px, -6px); }\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-envelope-send\"><i></i></span>",
+    "css": ".darma-loader-envelope-send {\n  position: relative;\n  width: 48px;\n  height: 34px;\n  animation: darma-loader-envelope-send-send 1.6s ease-in-out infinite;\n}\n.darma-loader-envelope-send::before {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  background: var(--loader-color, #6366f1);\n  border-radius: 3px;\n}\n.darma-loader-envelope-send::after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 62%;\n  background: #4338ca;\n  border-radius: 3px 3px 0 0;\n  clip-path: polygon(0 0, 100% 0, 50% 100%);\n}\n.darma-loader-envelope-send i {\n  position: absolute;\n  left: -12px;\n  top: 50%;\n  width: 10px;\n  height: 2px;\n  margin-top: -1px;\n  border-radius: 2px;\n  background: #c7d2fe;\n  box-shadow: -2px -7px 0 #c7d2fe, -2px 7px 0 #c7d2fe;\n}\n@keyframes darma-loader-envelope-send-send {\n  0%, 100% { transform: translate(0, 0); }\n  50% { transform: translate(6px, -6px); }\n}",
+    "react": "export default function EnvelopeSendLoader() {\n  return (\n    <span className=\"darma-loader-envelope-send\"><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": "tetris-drop",
+  "name": "Tetris Drop",
+  "category": "fun",
+  "tags": [
+    "tetris",
+    "block",
+    "drop",
+    "puzzle",
+    "stack"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "tetris-drop tetris drop fun tetris block drop puzzle stack html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-tetris-drop\"><i></i></span>",
+  "previewCss": ".darma-loader-tetris-drop {\n  position: relative;\n  width: 40px;\n  height: 48px;\n  border: 2px solid #c7d2fe;\n  border-radius: 3px;\n  box-sizing: border-box;\n  overflow: hidden;\n  background-image:\n    repeating-linear-gradient(90deg, transparent 0 9px, color-mix(in srgb, var(--loader-color, #6366f1) 12%, transparent) 9px 10px),\n    repeating-linear-gradient(transparent 0 9px, color-mix(in srgb, var(--loader-color, #6366f1) 12%, transparent) 9px 10px);\n}\n.darma-loader-tetris-drop::after {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 10px;\n  background: #4338ca;\n}\n.darma-loader-tetris-drop i {\n  position: absolute;\n  left: 9px;\n  width: 20px;\n  height: 10px;\n  background: var(--loader-color, #6366f1);\n  border-radius: 2px;\n  animation: darma-loader-tetris-drop-fall 1.3s ease-in infinite;\n}\n.darma-loader-tetris-drop i::after {\n  content: \"\";\n  position: absolute;\n  top: 10px;\n  left: 5px;\n  width: 10px;\n  height: 10px;\n  background: var(--loader-color, #6366f1);\n  border-radius: 2px;\n}\n@keyframes darma-loader-tetris-drop-fall {\n  0% { top: -4px; opacity: 0; }\n  15% { opacity: 1; }\n  70% { top: 24px; }\n  85% { top: 24px; opacity: 1; }\n  100% { top: -4px; opacity: 0; }\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-tetris-drop\"><i></i></span>",
+    "css": ".darma-loader-tetris-drop {\n  position: relative;\n  width: 40px;\n  height: 48px;\n  border: 2px solid #c7d2fe;\n  border-radius: 3px;\n  box-sizing: border-box;\n  overflow: hidden;\n  background-image:\n    repeating-linear-gradient(90deg, transparent 0 9px, color-mix(in srgb, var(--loader-color, #6366f1) 12%, transparent) 9px 10px),\n    repeating-linear-gradient(transparent 0 9px, color-mix(in srgb, var(--loader-color, #6366f1) 12%, transparent) 9px 10px);\n}\n.darma-loader-tetris-drop::after {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 10px;\n  background: #4338ca;\n}\n.darma-loader-tetris-drop i {\n  position: absolute;\n  left: 9px;\n  width: 20px;\n  height: 10px;\n  background: var(--loader-color, #6366f1);\n  border-radius: 2px;\n  animation: darma-loader-tetris-drop-fall 1.3s ease-in infinite;\n}\n.darma-loader-tetris-drop i::after {\n  content: \"\";\n  position: absolute;\n  top: 10px;\n  left: 5px;\n  width: 10px;\n  height: 10px;\n  background: var(--loader-color, #6366f1);\n  border-radius: 2px;\n}\n@keyframes darma-loader-tetris-drop-fall {\n  0% { top: -4px; opacity: 0; }\n  15% { opacity: 1; }\n  70% { top: 24px; }\n  85% { top: 24px; opacity: 1; }\n  100% { top: -4px; opacity: 0; }\n}",
+    "react": "export default function TetrisDropLoader() {\n  return (\n    <span className=\"darma-loader-tetris-drop\"><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

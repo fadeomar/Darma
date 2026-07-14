@@ -1,0 +1,42 @@
+{
+  "id": "fidget-spinner",
+  "name": "Fidget Spinner",
+  "category": "spinners",
+  "tags": [
+    "fidget",
+    "spinner",
+    "three",
+    "lobes",
+    "toy"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "popular": true
+  },
+  "searchText": "fidget-spinner fidget spinner spinners fidget spinner three lobes toy html css react cssonly customizable popular",
+  "previewHtml": "<span class=\"darma-loader-fidget-spinner\"><i></i><i></i><i></i></span>",
+  "previewCss": ".darma-loader-fidget-spinner {\n  position: relative;\n  width: 52px;\n  height: 52px;\n  animation: darma-loader-fidget-spinner-spin 0.9s ease-in-out infinite;\n}\n.darma-loader-fidget-spinner::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 14px;\n  height: 14px;\n  margin: -7px 0 0 -7px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color, #6366f1);\n  box-sizing: border-box;\n  background: #e0e7ff;\n  z-index: 2;\n}\n.darma-loader-fidget-spinner i {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 16px;\n  height: 16px;\n  margin: -8px 0 0 -8px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n}\n.darma-loader-fidget-spinner i:nth-child(1) { transform: rotate(0deg) translateY(-17px); }\n.darma-loader-fidget-spinner i:nth-child(2) { transform: rotate(120deg) translateY(-17px); }\n.darma-loader-fidget-spinner i:nth-child(3) { transform: rotate(240deg) translateY(-17px); }\n@keyframes darma-loader-fidget-spinner-spin { to { transform: rotate(360deg); } }",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-fidget-spinner\"><i></i><i></i><i></i></span>",
+    "css": ".darma-loader-fidget-spinner {\n  position: relative;\n  width: 52px;\n  height: 52px;\n  animation: darma-loader-fidget-spinner-spin 0.9s ease-in-out infinite;\n}\n.darma-loader-fidget-spinner::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 14px;\n  height: 14px;\n  margin: -7px 0 0 -7px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color, #6366f1);\n  box-sizing: border-box;\n  background: #e0e7ff;\n  z-index: 2;\n}\n.darma-loader-fidget-spinner i {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 16px;\n  height: 16px;\n  margin: -8px 0 0 -8px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n}\n.darma-loader-fidget-spinner i:nth-child(1) { transform: rotate(0deg) translateY(-17px); }\n.darma-loader-fidget-spinner i:nth-child(2) { transform: rotate(120deg) translateY(-17px); }\n.darma-loader-fidget-spinner i:nth-child(3) { transform: rotate(240deg) translateY(-17px); }\n@keyframes darma-loader-fidget-spinner-spin { to { transform: rotate(360deg); } }",
+    "react": "export default function FidgetSpinnerLoader() {\n  return (\n    <span className=\"darma-loader-fidget-spinner\"><i></i><i></i><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

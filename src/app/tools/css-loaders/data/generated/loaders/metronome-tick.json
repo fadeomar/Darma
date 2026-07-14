@@ -1,0 +1,41 @@
+{
+  "id": "metronome-tick",
+  "name": "Metronome Tick",
+  "category": "fun",
+  "tags": [
+    "metronome",
+    "swing",
+    "pendulum",
+    "tick",
+    "music"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "metronome-tick metronome tick fun metronome swing pendulum tick music html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-metronome-tick\"><i></i></span>",
+  "previewCss": ".darma-loader-metronome-tick {\n  position: relative;\n  width: 46px;\n  height: 52px;\n}\n.darma-loader-metronome-tick::before {\n  content: \"\";\n  position: absolute;\n  bottom: 2px;\n  left: 50%;\n  width: 16px;\n  height: 6px;\n  margin-left: -8px;\n  border-radius: 2px;\n  background: var(--loader-color, #6366f1);\n}\n.darma-loader-metronome-tick i {\n  position: absolute;\n  bottom: 6px;\n  left: 50%;\n  width: 4px;\n  height: 40px;\n  margin-left: -2px;\n  border-radius: 2px;\n  background: var(--loader-color, #6366f1);\n  transform-origin: bottom center;\n  animation: darma-loader-metronome-tick-swing 1.2s ease-in-out infinite;\n}\n.darma-loader-metronome-tick i::after {\n  content: \"\";\n  position: absolute;\n  top: 2px;\n  left: 50%;\n  width: 11px;\n  height: 11px;\n  margin-left: -5.5px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n}\n@keyframes darma-loader-metronome-tick-swing {\n  0%, 100% { transform: rotate(-28deg); }\n  50% { transform: rotate(28deg); }\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-metronome-tick\"><i></i></span>",
+    "css": ".darma-loader-metronome-tick {\n  position: relative;\n  width: 46px;\n  height: 52px;\n}\n.darma-loader-metronome-tick::before {\n  content: \"\";\n  position: absolute;\n  bottom: 2px;\n  left: 50%;\n  width: 16px;\n  height: 6px;\n  margin-left: -8px;\n  border-radius: 2px;\n  background: var(--loader-color, #6366f1);\n}\n.darma-loader-metronome-tick i {\n  position: absolute;\n  bottom: 6px;\n  left: 50%;\n  width: 4px;\n  height: 40px;\n  margin-left: -2px;\n  border-radius: 2px;\n  background: var(--loader-color, #6366f1);\n  transform-origin: bottom center;\n  animation: darma-loader-metronome-tick-swing 1.2s ease-in-out infinite;\n}\n.darma-loader-metronome-tick i::after {\n  content: \"\";\n  position: absolute;\n  top: 2px;\n  left: 50%;\n  width: 11px;\n  height: 11px;\n  margin-left: -5.5px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n}\n@keyframes darma-loader-metronome-tick-swing {\n  0%, 100% { transform: rotate(-28deg); }\n  50% { transform: rotate(28deg); }\n}",
+    "react": "export default function MetronomeTickLoader() {\n  return (\n    <span className=\"darma-loader-metronome-tick\"><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

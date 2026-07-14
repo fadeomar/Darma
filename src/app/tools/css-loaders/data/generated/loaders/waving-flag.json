@@ -1,0 +1,41 @@
+{
+  "id": "waving-flag",
+  "name": "Waving Flag",
+  "category": "fun",
+  "tags": [
+    "flag",
+    "wave",
+    "ripple",
+    "pole",
+    "wind"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "waving-flag waving flag fun flag wave ripple pole wind html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-waving-flag\"><i></i><i></i><i></i><i></i></span>",
+  "previewCss": ".darma-loader-waving-flag {\n  position: relative;\n  width: 50px;\n  height: 44px;\n}\n.darma-loader-waving-flag::before {\n  content: \"\";\n  position: absolute;\n  left: 4px;\n  top: 0;\n  width: 3px;\n  height: 100%;\n  border-radius: 2px;\n  background: #4338ca;\n}\n.darma-loader-waving-flag i {\n  position: absolute;\n  top: 8px;\n  width: 9px;\n  height: 22px;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-waving-flag-rip 0.9s ease-in-out infinite;\n}\n.darma-loader-waving-flag i:nth-child(1) { left: 8px; animation-delay: 0s; }\n.darma-loader-waving-flag i:nth-child(2) { left: 17px; animation-delay: 0.09s; }\n.darma-loader-waving-flag i:nth-child(3) { left: 26px; animation-delay: 0.18s; }\n.darma-loader-waving-flag i:nth-child(4) { left: 35px; animation-delay: 0.27s; }\n@keyframes darma-loader-waving-flag-rip {\n  0%, 100% { transform: translateY(0) skewX(0deg); }\n  50% { transform: translateY(-4px) skewX(-7deg); }\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-waving-flag\"><i></i><i></i><i></i><i></i></span>",
+    "css": ".darma-loader-waving-flag {\n  position: relative;\n  width: 50px;\n  height: 44px;\n}\n.darma-loader-waving-flag::before {\n  content: \"\";\n  position: absolute;\n  left: 4px;\n  top: 0;\n  width: 3px;\n  height: 100%;\n  border-radius: 2px;\n  background: #4338ca;\n}\n.darma-loader-waving-flag i {\n  position: absolute;\n  top: 8px;\n  width: 9px;\n  height: 22px;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-waving-flag-rip 0.9s ease-in-out infinite;\n}\n.darma-loader-waving-flag i:nth-child(1) { left: 8px; animation-delay: 0s; }\n.darma-loader-waving-flag i:nth-child(2) { left: 17px; animation-delay: 0.09s; }\n.darma-loader-waving-flag i:nth-child(3) { left: 26px; animation-delay: 0.18s; }\n.darma-loader-waving-flag i:nth-child(4) { left: 35px; animation-delay: 0.27s; }\n@keyframes darma-loader-waving-flag-rip {\n  0%, 100% { transform: translateY(0) skewX(0deg); }\n  50% { transform: translateY(-4px) skewX(-7deg); }\n}",
+    "react": "export default function WavingFlagLoader() {\n  return (\n    <span className=\"darma-loader-waving-flag\"><i></i><i></i><i></i><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

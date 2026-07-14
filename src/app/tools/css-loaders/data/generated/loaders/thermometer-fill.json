@@ -1,0 +1,41 @@
+{
+  "id": "thermometer-fill",
+  "name": "Thermometer Fill",
+  "category": "progress",
+  "tags": [
+    "thermometer",
+    "temperature",
+    "mercury",
+    "fill",
+    "gauge"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "thermometer-fill thermometer fill progress thermometer temperature mercury fill gauge html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-thermometer-fill\"><i></i></span>",
+  "previewCss": ".darma-loader-thermometer-fill {\n  position: relative;\n  width: 16px;\n  height: 52px;\n}\n.darma-loader-thermometer-fill::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 10px;\n  height: 42px;\n  margin-left: -5px;\n  border: 2px solid #c7d2fe;\n  border-radius: 6px;\n  box-sizing: border-box;\n}\n.darma-loader-thermometer-fill::after {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 50%;\n  width: 16px;\n  height: 16px;\n  margin-left: -8px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n}\n.darma-loader-thermometer-fill i {\n  position: absolute;\n  bottom: 6px;\n  left: 50%;\n  width: 6px;\n  margin-left: -3px;\n  border-radius: 3px;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-thermometer-fill-merc 1.6s ease-in-out infinite;\n}\n@keyframes darma-loader-thermometer-fill-merc {\n  0%, 100% { height: 8px; }\n  50% { height: 36px; }\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-thermometer-fill\"><i></i></span>",
+    "css": ".darma-loader-thermometer-fill {\n  position: relative;\n  width: 16px;\n  height: 52px;\n}\n.darma-loader-thermometer-fill::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 10px;\n  height: 42px;\n  margin-left: -5px;\n  border: 2px solid #c7d2fe;\n  border-radius: 6px;\n  box-sizing: border-box;\n}\n.darma-loader-thermometer-fill::after {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 50%;\n  width: 16px;\n  height: 16px;\n  margin-left: -8px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n}\n.darma-loader-thermometer-fill i {\n  position: absolute;\n  bottom: 6px;\n  left: 50%;\n  width: 6px;\n  margin-left: -3px;\n  border-radius: 3px;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-thermometer-fill-merc 1.6s ease-in-out infinite;\n}\n@keyframes darma-loader-thermometer-fill-merc {\n  0%, 100% { height: 8px; }\n  50% { height: 36px; }\n}",
+    "react": "export default function ThermometerFillLoader() {\n  return (\n    <span className=\"darma-loader-thermometer-fill\"><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

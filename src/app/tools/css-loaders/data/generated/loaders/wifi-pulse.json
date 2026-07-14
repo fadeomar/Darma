@@ -1,0 +1,41 @@
+{
+  "id": "wifi-pulse",
+  "name": "WiFi Pulse",
+  "category": "pulse",
+  "tags": [
+    "wifi",
+    "signal",
+    "arcs",
+    "connect",
+    "pulse"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "wifi-pulse wifi pulse pulse wifi signal arcs connect pulse html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-wifi-pulse\"><i></i><i></i><i></i></span>",
+  "previewCss": ".darma-loader-wifi-pulse {\n  position: relative;\n  width: 54px;\n  height: 34px;\n}\n.darma-loader-wifi-pulse::before {\n  content: \"\";\n  position: absolute;\n  bottom: 2px;\n  left: 50%;\n  width: 8px;\n  height: 8px;\n  margin-left: -4px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-wifi-pulse-wblink 1.4s ease-in-out infinite;\n}\n.darma-loader-wifi-pulse i {\n  position: absolute;\n  bottom: 2px;\n  left: 50%;\n  border: 4px solid var(--loader-color, #6366f1);\n  border-color: var(--loader-color, #6366f1) transparent transparent transparent;\n  border-radius: 50%;\n  box-sizing: border-box;\n  transform: translateX(-50%);\n  animation: darma-loader-wifi-pulse-wblink 1.4s ease-in-out infinite;\n}\n.darma-loader-wifi-pulse i:nth-child(1) { width: 22px; height: 22px; animation-delay: 0.15s; }\n.darma-loader-wifi-pulse i:nth-child(2) { width: 38px; height: 38px; animation-delay: 0.3s; }\n.darma-loader-wifi-pulse i:nth-child(3) { width: 54px; height: 54px; animation-delay: 0.45s; }\n@keyframes darma-loader-wifi-pulse-wblink {\n  0%, 65%, 100% { opacity: 0.2; }\n  30% { opacity: 1; }\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-wifi-pulse\"><i></i><i></i><i></i></span>",
+    "css": ".darma-loader-wifi-pulse {\n  position: relative;\n  width: 54px;\n  height: 34px;\n}\n.darma-loader-wifi-pulse::before {\n  content: \"\";\n  position: absolute;\n  bottom: 2px;\n  left: 50%;\n  width: 8px;\n  height: 8px;\n  margin-left: -4px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-wifi-pulse-wblink 1.4s ease-in-out infinite;\n}\n.darma-loader-wifi-pulse i {\n  position: absolute;\n  bottom: 2px;\n  left: 50%;\n  border: 4px solid var(--loader-color, #6366f1);\n  border-color: var(--loader-color, #6366f1) transparent transparent transparent;\n  border-radius: 50%;\n  box-sizing: border-box;\n  transform: translateX(-50%);\n  animation: darma-loader-wifi-pulse-wblink 1.4s ease-in-out infinite;\n}\n.darma-loader-wifi-pulse i:nth-child(1) { width: 22px; height: 22px; animation-delay: 0.15s; }\n.darma-loader-wifi-pulse i:nth-child(2) { width: 38px; height: 38px; animation-delay: 0.3s; }\n.darma-loader-wifi-pulse i:nth-child(3) { width: 54px; height: 54px; animation-delay: 0.45s; }\n@keyframes darma-loader-wifi-pulse-wblink {\n  0%, 65%, 100% { opacity: 0.2; }\n  30% { opacity: 1; }\n}",
+    "react": "export default function WifiPulseLoader() {\n  return (\n    <span className=\"darma-loader-wifi-pulse\"><i></i><i></i><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

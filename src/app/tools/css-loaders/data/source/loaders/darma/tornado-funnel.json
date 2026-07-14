@@ -1,0 +1,28 @@
+{
+  "id": "tornado-funnel",
+  "name": "Tornado Funnel",
+  "category": "creative",
+  "tags": [
+    "tornado",
+    "funnel",
+    "swirl",
+    "storm",
+    "vortex"
+  ],
+  "html": "<span class=\"loader\"><i></i><i></i><i></i><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 48px;\n  height: 52px;\n}\n.loader i {\n  position: absolute;\n  left: 50%;\n  border-radius: 50%;\n  background: #6366f1;\n  animation: swirl 1s ease-in-out infinite;\n}\n.loader i:nth-child(1) { top: 2px; width: 44px; height: 10px; margin-left: -22px; animation-delay: 0s; opacity: 0.9; }\n.loader i:nth-child(2) { top: 16px; width: 32px; height: 9px; margin-left: -16px; animation-delay: 0.1s; opacity: 0.8; }\n.loader i:nth-child(3) { top: 29px; width: 20px; height: 8px; margin-left: -10px; animation-delay: 0.2s; opacity: 0.7; }\n.loader i:nth-child(4) { top: 41px; width: 10px; height: 7px; margin-left: -5px; animation-delay: 0.3s; opacity: 0.6; }\n@keyframes swirl {\n  0%, 100% { transform: translateX(-4px) scaleX(0.85); }\n  50% { transform: translateX(4px) scaleX(1); }\n}",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

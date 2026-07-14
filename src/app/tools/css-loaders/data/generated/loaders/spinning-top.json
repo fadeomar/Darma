@@ -1,0 +1,41 @@
+{
+  "id": "spinning-top",
+  "name": "Spinning Top",
+  "category": "fun",
+  "tags": [
+    "top",
+    "spin",
+    "wobble",
+    "toy",
+    "precession"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "spinning-top spinning top fun top spin wobble toy precession html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-spinning-top\"></span>",
+  "previewCss": ".darma-loader-spinning-top {\n  position: relative;\n  width: 34px;\n  height: 44px;\n  transform-origin: bottom center;\n  animation: darma-loader-spinning-top-wob 1.2s ease-in-out infinite;\n}\n.darma-loader-spinning-top::before {\n  content: \"\";\n  position: absolute;\n  top: 8px;\n  left: 50%;\n  width: 30px;\n  height: 32px;\n  margin-left: -15px;\n  background: var(--loader-color, #6366f1);\n  clip-path: polygon(0 0, 100% 0, 50% 100%);\n}\n.darma-loader-spinning-top::after {\n  content: \"\";\n  position: absolute;\n  top: 3px;\n  left: 50%;\n  width: 30px;\n  height: 11px;\n  margin-left: -15px;\n  border-radius: 50%;\n  background: #4338ca;\n}\n@keyframes darma-loader-spinning-top-wob {\n  0%, 100% { transform: rotate(-11deg); }\n  50% { transform: rotate(11deg); }\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-spinning-top\"></span>",
+    "css": ".darma-loader-spinning-top {\n  position: relative;\n  width: 34px;\n  height: 44px;\n  transform-origin: bottom center;\n  animation: darma-loader-spinning-top-wob 1.2s ease-in-out infinite;\n}\n.darma-loader-spinning-top::before {\n  content: \"\";\n  position: absolute;\n  top: 8px;\n  left: 50%;\n  width: 30px;\n  height: 32px;\n  margin-left: -15px;\n  background: var(--loader-color, #6366f1);\n  clip-path: polygon(0 0, 100% 0, 50% 100%);\n}\n.darma-loader-spinning-top::after {\n  content: \"\";\n  position: absolute;\n  top: 3px;\n  left: 50%;\n  width: 30px;\n  height: 11px;\n  margin-left: -15px;\n  border-radius: 50%;\n  background: #4338ca;\n}\n@keyframes darma-loader-spinning-top-wob {\n  0%, 100% { transform: rotate(-11deg); }\n  50% { transform: rotate(11deg); }\n}",
+    "react": "export default function SpinningTopLoader() {\n  return (\n    <span className=\"darma-loader-spinning-top\"></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

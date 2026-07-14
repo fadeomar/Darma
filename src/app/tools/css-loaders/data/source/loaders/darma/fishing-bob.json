@@ -1,0 +1,28 @@
+{
+  "id": "fishing-bob",
+  "name": "Fishing Bob",
+  "category": "fun",
+  "tags": [
+    "fishing",
+    "float",
+    "bob",
+    "water",
+    "ripple"
+  ],
+  "html": "<span class=\"loader\"><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 48px;\n  height: 48px;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 0;\n  right: 0;\n  height: 2px;\n  margin-top: -1px;\n  background: #c7d2fe;\n}\n.loader::after {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 10px;\n  height: 6px;\n  margin: -3px 0 0 -5px;\n  border: 2px solid #6366f1;\n  border-radius: 50%;\n  box-sizing: border-box;\n  opacity: 0;\n  animation: ripple 1.8s ease-out infinite;\n}\n.loader i {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 12px;\n  height: 16px;\n  margin: -16px 0 0 -6px;\n  border-radius: 6px 6px 50% 50%;\n  background: #6366f1;\n  transform-origin: bottom center;\n  animation: bob 1.8s ease-in-out infinite;\n}\n.loader i::before {\n  content: \"\";\n  position: absolute;\n  top: -6px;\n  left: 50%;\n  width: 2px;\n  height: 6px;\n  margin-left: -1px;\n  background: #4338ca;\n}\n.loader i::after {\n  content: \"\";\n  position: absolute;\n  bottom: 2px;\n  left: 0;\n  right: 0;\n  height: 4px;\n  background: #eef2ff;\n}\n@keyframes bob {\n  0%, 100% { transform: translateY(0); }\n  45% { transform: translateY(-3px); }\n  70% { transform: translateY(6px); }\n}\n@keyframes ripple {\n  0%, 60% { opacity: 0; transform: scale(0.4); }\n  70% { opacity: 0.7; transform: scale(1); }\n  100% { opacity: 0; transform: scale(2.4); }\n}",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

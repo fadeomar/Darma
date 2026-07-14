@@ -1,0 +1,28 @@
+{
+  "id": "stopwatch-sweep",
+  "name": "Stopwatch Sweep",
+  "category": "fun",
+  "tags": [
+    "stopwatch",
+    "timer",
+    "sweep",
+    "hand",
+    "time"
+  ],
+  "html": "<span class=\"loader\"><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 46px;\n  height: 52px;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 8px;\n  height: 6px;\n  margin-left: -4px;\n  border-radius: 2px 2px 0 0;\n  background: #4338ca;\n}\n.loader::after {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 50%;\n  width: 44px;\n  height: 44px;\n  margin-left: -22px;\n  border-radius: 50%;\n  border: 3px solid #6366f1;\n  box-sizing: border-box;\n}\n.loader i {\n  position: absolute;\n  left: 50%;\n  bottom: 22px;\n  width: 2px;\n  height: 18px;\n  margin-left: -1px;\n  border-radius: 2px;\n  background: #6366f1;\n  transform-origin: bottom center;\n  animation: spin 1.2s linear infinite;\n}\n.loader i::after {\n  content: \"\";\n  position: absolute;\n  bottom: -3px;\n  left: 50%;\n  width: 6px;\n  height: 6px;\n  margin-left: -3px;\n  border-radius: 50%;\n  background: #4338ca;\n}\n@keyframes spin { to { transform: rotate(360deg); } }",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

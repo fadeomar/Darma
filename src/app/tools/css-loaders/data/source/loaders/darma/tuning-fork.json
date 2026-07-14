@@ -1,0 +1,28 @@
+{
+  "id": "tuning-fork",
+  "name": "Tuning Fork",
+  "category": "fun",
+  "tags": [
+    "tuning",
+    "fork",
+    "vibrate",
+    "music",
+    "pitch"
+  ],
+  "html": "<span class=\"loader\"><i></i><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 34px;\n  height: 52px;\n  animation: vib 0.14s ease-in-out infinite;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  bottom: 14px;\n  left: 8px;\n  width: 18px;\n  height: 6px;\n  background: #6366f1;\n  border-radius: 3px;\n}\n.loader::after {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 50%;\n  width: 6px;\n  height: 16px;\n  margin-left: -3px;\n  border-radius: 0 0 3px 3px;\n  background: #6366f1;\n}\n.loader i {\n  position: absolute;\n  bottom: 18px;\n  width: 6px;\n  height: 32px;\n  border-radius: 3px 3px 0 0;\n  background: #6366f1;\n}\n.loader i:nth-child(1) { left: 8px; }\n.loader i:nth-child(2) { right: 8px; }\n@keyframes vib {\n  0%, 100% { transform: translateX(-1.5px); }\n  50% { transform: translateX(1.5px); }\n}",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

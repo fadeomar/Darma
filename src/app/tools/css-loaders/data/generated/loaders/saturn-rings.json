@@ -1,0 +1,42 @@
+{
+  "id": "saturn-rings",
+  "name": "Saturn Rings",
+  "category": "creative",
+  "tags": [
+    "saturn",
+    "planet",
+    "ring",
+    "moon",
+    "orbit"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "popular": true
+  },
+  "searchText": "saturn-rings saturn rings creative saturn planet ring moon orbit html css react cssonly customizable popular",
+  "previewHtml": "<span class=\"darma-loader-saturn-rings\"><i></i><i></i></span>",
+  "previewCss": ".darma-loader-saturn-rings {\n  position: relative;\n  width: 52px;\n  height: 52px;\n}\n.darma-loader-saturn-rings::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 24px;\n  height: 24px;\n  margin: -12px 0 0 -12px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n  box-shadow: inset -4px -4px 0 rgba(0, 0, 0, 0.18);\n  z-index: 2;\n}\n.darma-loader-saturn-rings i:nth-child(1) {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 50px;\n  height: 20px;\n  margin: -10px 0 0 -25px;\n  border: 4px solid var(--loader-color, #6366f1);\n  border-radius: 50%;\n  box-sizing: border-box;\n  transform: rotate(-18deg);\n  z-index: 1;\n}\n.darma-loader-saturn-rings i:nth-child(2) {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 44px;\n  height: 44px;\n  margin: -22px 0 0 -22px;\n  z-index: 3;\n  animation: darma-loader-saturn-rings-spin 1.8s linear infinite;\n}\n.darma-loader-saturn-rings i:nth-child(2)::before {\n  content: \"\";\n  position: absolute;\n  top: -3px;\n  left: 50%;\n  width: 7px;\n  height: 7px;\n  margin-left: -3.5px;\n  border-radius: 50%;\n  background: #4338ca;\n}\n@keyframes darma-loader-saturn-rings-spin { to { transform: rotate(360deg); } }",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-saturn-rings\"><i></i><i></i></span>",
+    "css": ".darma-loader-saturn-rings {\n  position: relative;\n  width: 52px;\n  height: 52px;\n}\n.darma-loader-saturn-rings::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 24px;\n  height: 24px;\n  margin: -12px 0 0 -12px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n  box-shadow: inset -4px -4px 0 rgba(0, 0, 0, 0.18);\n  z-index: 2;\n}\n.darma-loader-saturn-rings i:nth-child(1) {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 50px;\n  height: 20px;\n  margin: -10px 0 0 -25px;\n  border: 4px solid var(--loader-color, #6366f1);\n  border-radius: 50%;\n  box-sizing: border-box;\n  transform: rotate(-18deg);\n  z-index: 1;\n}\n.darma-loader-saturn-rings i:nth-child(2) {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 44px;\n  height: 44px;\n  margin: -22px 0 0 -22px;\n  z-index: 3;\n  animation: darma-loader-saturn-rings-spin 1.8s linear infinite;\n}\n.darma-loader-saturn-rings i:nth-child(2)::before {\n  content: \"\";\n  position: absolute;\n  top: -3px;\n  left: 50%;\n  width: 7px;\n  height: 7px;\n  margin-left: -3.5px;\n  border-radius: 50%;\n  background: #4338ca;\n}\n@keyframes darma-loader-saturn-rings-spin { to { transform: rotate(360deg); } }",
+    "react": "export default function SaturnRingsLoader() {\n  return (\n    <span className=\"darma-loader-saturn-rings\"><i></i><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": "piston-engine",
+  "name": "Piston Engine",
+  "category": "creative",
+  "tags": [
+    "piston",
+    "engine",
+    "pump",
+    "cylinders",
+    "motor"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "piston-engine piston engine creative piston engine pump cylinders motor html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-piston-engine\"><i></i><i></i><i></i></span>",
+  "previewCss": ".darma-loader-piston-engine {\n  display: flex;\n  gap: 6px;\n  align-items: flex-end;\n  width: 52px;\n  height: 44px;\n}\n.darma-loader-piston-engine i {\n  position: relative;\n  width: 12px;\n  height: 40px;\n  border: 2px solid #c7d2fe;\n  border-radius: 3px;\n  box-sizing: border-box;\n  overflow: hidden;\n}\n.darma-loader-piston-engine i::before {\n  content: \"\";\n  position: absolute;\n  left: 1px;\n  right: 1px;\n  bottom: 0;\n  height: 14px;\n  border-radius: 2px;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-piston-engine-pump 0.8s ease-in-out infinite;\n}\n.darma-loader-piston-engine i:nth-child(1)::before { animation-delay: 0s; }\n.darma-loader-piston-engine i:nth-child(2)::before { animation-delay: 0.16s; }\n.darma-loader-piston-engine i:nth-child(3)::before { animation-delay: 0.32s; }\n@keyframes darma-loader-piston-engine-pump {\n  0%, 100% { transform: translateY(0); }\n  50% { transform: translateY(-20px); }\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-piston-engine\"><i></i><i></i><i></i></span>",
+    "css": ".darma-loader-piston-engine {\n  display: flex;\n  gap: 6px;\n  align-items: flex-end;\n  width: 52px;\n  height: 44px;\n}\n.darma-loader-piston-engine i {\n  position: relative;\n  width: 12px;\n  height: 40px;\n  border: 2px solid #c7d2fe;\n  border-radius: 3px;\n  box-sizing: border-box;\n  overflow: hidden;\n}\n.darma-loader-piston-engine i::before {\n  content: \"\";\n  position: absolute;\n  left: 1px;\n  right: 1px;\n  bottom: 0;\n  height: 14px;\n  border-radius: 2px;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-piston-engine-pump 0.8s ease-in-out infinite;\n}\n.darma-loader-piston-engine i:nth-child(1)::before { animation-delay: 0s; }\n.darma-loader-piston-engine i:nth-child(2)::before { animation-delay: 0.16s; }\n.darma-loader-piston-engine i:nth-child(3)::before { animation-delay: 0.32s; }\n@keyframes darma-loader-piston-engine-pump {\n  0%, 100% { transform: translateY(0); }\n  50% { transform: translateY(-20px); }\n}",
+    "react": "export default function PistonEngineLoader() {\n  return (\n    <span className=\"darma-loader-piston-engine\"><i></i><i></i><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

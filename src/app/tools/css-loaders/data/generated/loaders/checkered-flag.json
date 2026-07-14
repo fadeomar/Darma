@@ -1,0 +1,41 @@
+{
+  "id": "checkered-flag",
+  "name": "Checkered Flag",
+  "category": "fun",
+  "tags": [
+    "checkered",
+    "flag",
+    "race",
+    "finish",
+    "wave"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "checkered-flag checkered flag fun checkered flag race finish wave html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-checkered-flag\"><i></i></span>",
+  "previewCss": ".darma-loader-checkered-flag {\n  position: relative;\n  width: 50px;\n  height: 44px;\n}\n.darma-loader-checkered-flag::before {\n  content: \"\";\n  position: absolute;\n  left: 4px;\n  top: 0;\n  width: 3px;\n  height: 100%;\n  border-radius: 2px;\n  background: #4338ca;\n}\n.darma-loader-checkered-flag i {\n  position: absolute;\n  left: 7px;\n  top: 6px;\n  width: 38px;\n  height: 24px;\n  border-radius: 2px;\n  background-color: #eef2ff;\n  background-image: conic-gradient(var(--loader-color, #6366f1) 25%, transparent 0 50%, var(--loader-color, #6366f1) 0 75%, transparent 0);\n  background-size: 10px 10px;\n  transform-origin: left center;\n  animation: darma-loader-checkered-flag-flag 1.1s ease-in-out infinite;\n}\n@keyframes darma-loader-checkered-flag-flag {\n  0%, 100% { transform: skewY(0deg) skewX(0deg); }\n  25% { transform: skewY(4deg) skewX(-4deg); }\n  75% { transform: skewY(-4deg) skewX(4deg); }\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-checkered-flag\"><i></i></span>",
+    "css": ".darma-loader-checkered-flag {\n  position: relative;\n  width: 50px;\n  height: 44px;\n}\n.darma-loader-checkered-flag::before {\n  content: \"\";\n  position: absolute;\n  left: 4px;\n  top: 0;\n  width: 3px;\n  height: 100%;\n  border-radius: 2px;\n  background: #4338ca;\n}\n.darma-loader-checkered-flag i {\n  position: absolute;\n  left: 7px;\n  top: 6px;\n  width: 38px;\n  height: 24px;\n  border-radius: 2px;\n  background-color: #eef2ff;\n  background-image: conic-gradient(var(--loader-color, #6366f1) 25%, transparent 0 50%, var(--loader-color, #6366f1) 0 75%, transparent 0);\n  background-size: 10px 10px;\n  transform-origin: left center;\n  animation: darma-loader-checkered-flag-flag 1.1s ease-in-out infinite;\n}\n@keyframes darma-loader-checkered-flag-flag {\n  0%, 100% { transform: skewY(0deg) skewX(0deg); }\n  25% { transform: skewY(4deg) skewX(-4deg); }\n  75% { transform: skewY(-4deg) skewX(4deg); }\n}",
+    "react": "export default function CheckeredFlagLoader() {\n  return (\n    <span className=\"darma-loader-checkered-flag\"><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

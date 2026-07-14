@@ -1,0 +1,41 @@
+{
+  "id": "tuning-fork",
+  "name": "Tuning Fork",
+  "category": "fun",
+  "tags": [
+    "tuning",
+    "fork",
+    "vibrate",
+    "music",
+    "pitch"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "tuning-fork tuning fork fun tuning fork vibrate music pitch html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-tuning-fork\"><i></i><i></i></span>",
+  "previewCss": ".darma-loader-tuning-fork {\n  position: relative;\n  width: 34px;\n  height: 52px;\n  animation: darma-loader-tuning-fork-vib 0.14s ease-in-out infinite;\n}\n.darma-loader-tuning-fork::before {\n  content: \"\";\n  position: absolute;\n  bottom: 14px;\n  left: 8px;\n  width: 18px;\n  height: 6px;\n  background: var(--loader-color, #6366f1);\n  border-radius: 3px;\n}\n.darma-loader-tuning-fork::after {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 50%;\n  width: 6px;\n  height: 16px;\n  margin-left: -3px;\n  border-radius: 0 0 3px 3px;\n  background: var(--loader-color, #6366f1);\n}\n.darma-loader-tuning-fork i {\n  position: absolute;\n  bottom: 18px;\n  width: 6px;\n  height: 32px;\n  border-radius: 3px 3px 0 0;\n  background: var(--loader-color, #6366f1);\n}\n.darma-loader-tuning-fork i:nth-child(1) { left: 8px; }\n.darma-loader-tuning-fork i:nth-child(2) { right: 8px; }\n@keyframes darma-loader-tuning-fork-vib {\n  0%, 100% { transform: translateX(-1.5px); }\n  50% { transform: translateX(1.5px); }\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-tuning-fork\"><i></i><i></i></span>",
+    "css": ".darma-loader-tuning-fork {\n  position: relative;\n  width: 34px;\n  height: 52px;\n  animation: darma-loader-tuning-fork-vib 0.14s ease-in-out infinite;\n}\n.darma-loader-tuning-fork::before {\n  content: \"\";\n  position: absolute;\n  bottom: 14px;\n  left: 8px;\n  width: 18px;\n  height: 6px;\n  background: var(--loader-color, #6366f1);\n  border-radius: 3px;\n}\n.darma-loader-tuning-fork::after {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 50%;\n  width: 6px;\n  height: 16px;\n  margin-left: -3px;\n  border-radius: 0 0 3px 3px;\n  background: var(--loader-color, #6366f1);\n}\n.darma-loader-tuning-fork i {\n  position: absolute;\n  bottom: 18px;\n  width: 6px;\n  height: 32px;\n  border-radius: 3px 3px 0 0;\n  background: var(--loader-color, #6366f1);\n}\n.darma-loader-tuning-fork i:nth-child(1) { left: 8px; }\n.darma-loader-tuning-fork i:nth-child(2) { right: 8px; }\n@keyframes darma-loader-tuning-fork-vib {\n  0%, 100% { transform: translateX(-1.5px); }\n  50% { transform: translateX(1.5px); }\n}",
+    "react": "export default function TuningForkLoader() {\n  return (\n    <span className=\"darma-loader-tuning-fork\"><i></i><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

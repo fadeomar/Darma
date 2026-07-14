@@ -1,0 +1,41 @@
+{
+  "id": "flip-clock-card",
+  "name": "Flip Clock Card",
+  "category": "creative",
+  "tags": [
+    "flip",
+    "clock",
+    "card",
+    "fold",
+    "countdown"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "flip-clock-card flip clock card creative flip clock card fold countdown html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-flip-clock-card\"><i></i></span>",
+  "previewCss": ".darma-loader-flip-clock-card {\n  position: relative;\n  width: 44px;\n  height: 52px;\n  perspective: 140px;\n}\n.darma-loader-flip-clock-card::before {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 50%;\n  background: #4338ca;\n  border-radius: 0 0 6px 6px;\n}\n.darma-loader-flip-clock-card::after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 50%;\n  background: var(--loader-color, #6366f1);\n  border-radius: 6px 6px 0 0;\n  box-shadow: inset 0 -1px 0 #312e81;\n}\n.darma-loader-flip-clock-card i {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 50%;\n  background: var(--loader-color, #6366f1);\n  border-radius: 6px 6px 0 0;\n  transform-origin: bottom center;\n  backface-visibility: hidden;\n  animation: darma-loader-flip-clock-card-flip 1.4s ease-in infinite;\n}\n@keyframes darma-loader-flip-clock-card-flip {\n  0% { transform: rotateX(0deg); }\n  50%, 100% { transform: rotateX(-90deg); }\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-flip-clock-card\"><i></i></span>",
+    "css": ".darma-loader-flip-clock-card {\n  position: relative;\n  width: 44px;\n  height: 52px;\n  perspective: 140px;\n}\n.darma-loader-flip-clock-card::before {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 50%;\n  background: #4338ca;\n  border-radius: 0 0 6px 6px;\n}\n.darma-loader-flip-clock-card::after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 50%;\n  background: var(--loader-color, #6366f1);\n  border-radius: 6px 6px 0 0;\n  box-shadow: inset 0 -1px 0 #312e81;\n}\n.darma-loader-flip-clock-card i {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 50%;\n  background: var(--loader-color, #6366f1);\n  border-radius: 6px 6px 0 0;\n  transform-origin: bottom center;\n  backface-visibility: hidden;\n  animation: darma-loader-flip-clock-card-flip 1.4s ease-in infinite;\n}\n@keyframes darma-loader-flip-clock-card-flip {\n  0% { transform: rotateX(0deg); }\n  50%, 100% { transform: rotateX(-90deg); }\n}",
+    "react": "export default function FlipClockCardLoader() {\n  return (\n    <span className=\"darma-loader-flip-clock-card\"><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

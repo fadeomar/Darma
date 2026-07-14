@@ -1,0 +1,28 @@
+{
+  "id": "cassette-reels",
+  "name": "Cassette Reels",
+  "category": "creative",
+  "tags": [
+    "cassette",
+    "tape",
+    "reels",
+    "spin",
+    "retro"
+  ],
+  "html": "<span class=\"loader\"><i></i><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 56px;\n  height: 36px;\n  border: 3px solid #6366f1;\n  border-radius: 6px;\n  box-sizing: border-box;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  top: 9px;\n  left: 15px;\n  right: 15px;\n  height: 4px;\n  border-radius: 2px;\n  background: #c7d2fe;\n}\n.loader i {\n  position: absolute;\n  top: 50%;\n  width: 14px;\n  height: 14px;\n  margin-top: -7px;\n  border-radius: 50%;\n  border: 2px solid #6366f1;\n  box-sizing: border-box;\n  background:\n    linear-gradient(#6366f1, #6366f1) center / 2px 100% no-repeat,\n    linear-gradient(#6366f1, #6366f1) center / 100% 2px no-repeat;\n  animation: spin 1s linear infinite;\n}\n.loader i:nth-child(1) { left: 7px; }\n.loader i:nth-child(2) { right: 7px; }\n@keyframes spin { to { transform: rotate(360deg); } }",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "waving-flag",
+  "name": "Waving Flag",
+  "category": "fun",
+  "tags": [
+    "flag",
+    "wave",
+    "ripple",
+    "pole",
+    "wind"
+  ],
+  "html": "<span class=\"loader\"><i></i><i></i><i></i><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 50px;\n  height: 44px;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  left: 4px;\n  top: 0;\n  width: 3px;\n  height: 100%;\n  border-radius: 2px;\n  background: #4338ca;\n}\n.loader i {\n  position: absolute;\n  top: 8px;\n  width: 9px;\n  height: 22px;\n  background: #6366f1;\n  animation: rip 0.9s ease-in-out infinite;\n}\n.loader i:nth-child(1) { left: 8px; animation-delay: 0s; }\n.loader i:nth-child(2) { left: 17px; animation-delay: 0.09s; }\n.loader i:nth-child(3) { left: 26px; animation-delay: 0.18s; }\n.loader i:nth-child(4) { left: 35px; animation-delay: 0.27s; }\n@keyframes rip {\n  0%, 100% { transform: translateY(0) skewX(0deg); }\n  50% { transform: translateY(-4px) skewX(-7deg); }\n}",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

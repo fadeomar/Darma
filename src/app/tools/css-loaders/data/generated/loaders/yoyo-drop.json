@@ -1,0 +1,41 @@
+{
+  "id": "yoyo-drop",
+  "name": "Yo-Yo Drop",
+  "category": "fun",
+  "tags": [
+    "yoyo",
+    "drop",
+    "string",
+    "spin",
+    "toy"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "yoyo-drop yo-yo drop fun yoyo drop string spin toy html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-yoyo-drop\"><i></i></span>",
+  "previewCss": ".darma-loader-yoyo-drop {\n  position: relative;\n  width: 24px;\n  height: 52px;\n}\n.darma-loader-yoyo-drop::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 2px;\n  margin-left: -1px;\n  background: #c7d2fe;\n  animation: darma-loader-yoyo-drop-str 1s ease-in-out infinite;\n}\n.darma-loader-yoyo-drop i {\n  position: absolute;\n  left: 50%;\n  width: 22px;\n  height: 22px;\n  margin-left: -11px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n  box-shadow: inset 0 0 0 3px #4338ca;\n  animation: darma-loader-yoyo-drop-drop 1s ease-in-out infinite, darma-loader-yoyo-drop-spin 0.5s linear infinite;\n}\n@keyframes darma-loader-yoyo-drop-drop {\n  0%, 100% { top: 8px; }\n  50% { top: 28px; }\n}\n@keyframes darma-loader-yoyo-drop-str {\n  0%, 100% { height: 16px; }\n  50% { height: 36px; }\n}\n@keyframes darma-loader-yoyo-drop-spin { to { transform: rotate(360deg); } }",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-yoyo-drop\"><i></i></span>",
+    "css": ".darma-loader-yoyo-drop {\n  position: relative;\n  width: 24px;\n  height: 52px;\n}\n.darma-loader-yoyo-drop::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 2px;\n  margin-left: -1px;\n  background: #c7d2fe;\n  animation: darma-loader-yoyo-drop-str 1s ease-in-out infinite;\n}\n.darma-loader-yoyo-drop i {\n  position: absolute;\n  left: 50%;\n  width: 22px;\n  height: 22px;\n  margin-left: -11px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n  box-shadow: inset 0 0 0 3px #4338ca;\n  animation: darma-loader-yoyo-drop-drop 1s ease-in-out infinite, darma-loader-yoyo-drop-spin 0.5s linear infinite;\n}\n@keyframes darma-loader-yoyo-drop-drop {\n  0%, 100% { top: 8px; }\n  50% { top: 28px; }\n}\n@keyframes darma-loader-yoyo-drop-str {\n  0%, 100% { height: 16px; }\n  50% { height: 36px; }\n}\n@keyframes darma-loader-yoyo-drop-spin { to { transform: rotate(360deg); } }",
+    "react": "export default function YoyoDropLoader() {\n  return (\n    <span className=\"darma-loader-yoyo-drop\"><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

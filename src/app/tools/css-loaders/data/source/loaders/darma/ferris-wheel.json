@@ -1,0 +1,29 @@
+{
+  "id": "ferris-wheel",
+  "name": "Ferris Wheel",
+  "category": "fun",
+  "tags": [
+    "ferris",
+    "wheel",
+    "rotate",
+    "cabins",
+    "carnival"
+  ],
+  "html": "<span class=\"loader\"><i></i><i></i><i></i><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 56px;\n  height: 56px;\n  border-radius: 50%;\n  border: 4px solid #6366f1;\n  box-sizing: border-box;\n  background:\n    linear-gradient(#6366f1, #6366f1) center / 4px 100% no-repeat,\n    linear-gradient(#6366f1, #6366f1) center / 100% 4px no-repeat;\n  animation: spin 3s linear infinite;\n}\n.loader i {\n  position: absolute;\n  width: 12px;\n  height: 9px;\n  border-radius: 2px;\n  background: #6366f1;\n  animation: spin 3s linear infinite reverse;\n}\n.loader i:nth-child(1) { top: -5px; left: 50%; margin-left: -6px; }\n.loader i:nth-child(2) { right: -5px; top: 50%; margin-top: -4px; }\n.loader i:nth-child(3) { bottom: -5px; left: 50%; margin-left: -6px; }\n.loader i:nth-child(4) { left: -5px; top: 50%; margin-top: -4px; }\n@keyframes spin { to { transform: rotate(360deg); } }",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "popular": true
+  }
+}

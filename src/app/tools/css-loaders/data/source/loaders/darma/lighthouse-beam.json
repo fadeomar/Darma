@@ -1,0 +1,28 @@
+{
+  "id": "lighthouse-beam",
+  "name": "Lighthouse Beam",
+  "category": "creative",
+  "tags": [
+    "lighthouse",
+    "beam",
+    "sweep",
+    "light",
+    "tower"
+  ],
+  "html": "<span class=\"loader\"><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 52px;\n  height: 52px;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 50%;\n  width: 20px;\n  height: 32px;\n  margin-left: -10px;\n  background: #6366f1;\n  clip-path: polygon(25% 0, 75% 0, 100% 100%, 0 100%);\n  z-index: 2;\n}\n.loader::after {\n  content: \"\";\n  position: absolute;\n  top: 12px;\n  left: 50%;\n  width: 14px;\n  height: 10px;\n  margin-left: -7px;\n  border-radius: 2px;\n  background: #4338ca;\n  z-index: 3;\n}\n.loader i {\n  position: absolute;\n  top: 17px;\n  left: 50%;\n  width: 52px;\n  height: 52px;\n  margin: -26px 0 0 -26px;\n  border-radius: 50%;\n  background: conic-gradient(from -12deg, rgba(99, 102, 241, 0.55) 0 24deg, transparent 24deg 360deg);\n  z-index: 1;\n  animation: spin 2.4s linear infinite;\n}\n@keyframes spin { to { transform: rotate(360deg); } }",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

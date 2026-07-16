@@ -5,6 +5,36 @@ const PRIVACY_NOTE =
 
 const GAME_DEFINITIONS: GameDefinition[] = [
   {
+    id: "gridland",
+    slug: "gridland",
+    title: "Gridland",
+    description: "Match resources by day, build your settlement, and survive the creatures that emerge at night.",
+    longDescription:
+      "Gridland is the original match-and-build survival game preserved inside Darma. Daytime matches gather resources and grow your settlement; nighttime matches become weapons, shields, and monsters. This integration keeps the original visual language, game flow, CSS animations, local saves, music, and sound effects while self-hosting the runtime and assets in an isolated browser frame.",
+    href: "/games/gridland",
+    categories: ["puzzle", "brain", "classic", "mobile-friendly"],
+    tags: ["match-3", "strategy", "survival", "building", "resources", "day and night", "original"],
+    thumbnail: "🌗",
+    thumbnailType: "gradient",
+    accent: "amber",
+    featured: true,
+    popular: true,
+    isNew: true,
+    difficulty: "hard",
+    playTime: "15 min",
+    input: ["mouse", "touch"],
+    devices: ["desktop", "tablet", "mobile"],
+    controls:
+      "Swap adjacent tiles to make groups of three or more. Gather and build during the day; create weapons and shields at night. Use the in-game menu for sound, save export/import, and other options.",
+    privacyNote:
+      "Gridland runs entirely in your browser with self-hosted assets. Progress and settings stay in namespaced local storage on this device; no signup is required.",
+    seoTitle: "Play Gridland Online Free | Darma Games",
+    seoDescription:
+      "Play Gridland in your browser: match resources, build by day, and survive monsters at night. Original visuals, music, local saves, and no signup.",
+    pinned: 0,
+    createdAt: "2026-07-16",
+  },
+  {
     id: "2048",
     slug: "2048",
     title: "2048 Classic",

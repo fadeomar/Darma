@@ -34,6 +34,17 @@ export function GamePlayerShell({
   children?: ReactNode;
 }) {
 
+  if (game.slug === "gridland") {
+    return (
+      <StaticGameEmbed
+        game={game}
+        src="/darma-games/gridland/index.html"
+        minHeight={760}
+        focusHint="Match tiles to gather resources by day and survive at night. The original game menu controls sound, saves, and import/export."
+      />
+    );
+  }
+
   if (game.slug === "2048") {
     return (
       <StaticGameEmbed

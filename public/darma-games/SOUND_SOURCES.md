@@ -12,3 +12,13 @@ If downloaded later, keep the selected OGG/WAV files under `public/darma-games/s
 
 - `public/darma-games/2048/js/darma_audio_ui.js`
 - `public/darma-games/hextris/js/darma_audio_theme.js`
+
+## Gridland
+
+Gridland ships its original local MP3 and OGG music and sound-effect files from the open-source Gridland distribution. Credits retained from the original project:
+
+- Code, game design, and graphics: Michael Townsend / doublespeak games
+- Music: Vince Nitro
+- Project license: Mozilla Public License 2.0 (see `public/darma-games/gridland/LICENSE`)
+
+The Darma runtime does not fetch Gridland audio or sprites from the original external media CDN.

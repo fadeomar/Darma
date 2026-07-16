@@ -6,6 +6,7 @@ import {
   useMemo,
   useRef,
   useState,
+  type ChangeEvent,
   type Dispatch,
   type SetStateAction,
 } from "react";
@@ -17,6 +18,7 @@ import {
   ExternalLink,
   FileArchive,
   FileCode2,
+  FileText,
   Maximize2,
   Monitor,
   Play,
@@ -26,6 +28,7 @@ import {
   Smartphone,
   Tablet,
   Terminal,
+  Upload,
 } from "lucide-react";
 import CodeEditor from "@/components/CodeEditor";
 import { Badge, Button, CopyButton, Select } from "@/components/ui";
@@ -41,18 +44,25 @@ import {
   DEFAULT_CODE_PREVIEW_PRESET,
   type CodePreviewPreset,
 } from "./presets";
+import {
+  CODE_PREVIEW_PROJECT_MAX_BYTES,
+  buildMarkdownReport,
+  buildMetricsCsv,
+  buildProjectJson,
+  buildStandaloneDocument,
+  createProductionZip,
+  getMetrics,
+  getProductionChecks,
+  parseProjectJson,
+  type CodePreviewViewport,
+  type ProjectSource,
+} from "./studio";
 
 type EditorTab = "html" | "css" | "js";
-type ViewportId = "desktop" | "tablet" | "mobile";
+type ViewportId = CodePreviewViewport;
 type RuntimeStatus = "idle" | "running" | "ready" | "error";
 type ConsoleLevel = "log" | "info" | "warn" | "error";
-type CheckStatus = "pass" | "warning" | "error";
-
-type ProjectSource = {
-  html: string;
-  css: string;
-  js: string;
-};
+type ImportStatus = { kind: "success" | "error"; message: string } | null;
 
 type RenderedProject = ProjectSource & {
   version: number;
@@ -62,13 +72,6 @@ type ConsoleEntry = {
   id: string;
   level: ConsoleLevel;
   message: string;
-};
-
-type ProductionCheck = {
-  id: string;
-  label: string;
-  detail: string;
-  status: CheckStatus;
 };
 
 const editorTabs: Array<{ value: EditorTab; label: string }> = [
@@ -96,153 +99,6 @@ function formatBytes(bytes: number) {
 
 function escapeRawTextClosingTag(value: string, tag: "script" | "style") {
   return value.replace(new RegExp(`</${tag}`, "gi"), `<\\/${tag}`);
-}
-
-function buildStandaloneDocument(source: ProjectSource, externalFiles = false) {
-  const styles = externalFiles
-    ? '<link rel="stylesheet" href="styles.css" />'
-    : `<style>\n${escapeRawTextClosingTag(source.css, "style")}\n</style>`;
-  const scripts = externalFiles
-    ? '<script src="script.js" defer></script>'
-    : `<script>\n${escapeRawTextClosingTag(source.js, "script")}\n</script>`;
-
-  return `<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Darma code preview</title>
-  ${styles}
-</head>
-<body>
-${source.html}
-  ${scripts}
-</body>
-</html>`;
-}
-
-function buildProjectJson(source: ProjectSource) {
-  return JSON.stringify(
-    {
-      schemaVersion: 1,
-      tool: "darma-code-preview",
-      exportedAt: new Date().toISOString(),
-      files: {
-        "index.html": source.html,
-        "styles.css": source.css,
-        "script.js": source.js,
-      },
-    },
-    null,
-    2,
-  );
-}
-
-function getDuplicateIds(html: string) {
-  const ids = Array.from(html.matchAll(/\bid\s*=\s*["']([^"']+)["']/gi), (match) => match[1]);
-  const counts = new Map<string, number>();
-  ids.forEach((id) => counts.set(id, (counts.get(id) ?? 0) + 1));
-  return Array.from(counts.entries())
-    .filter(([, count]) => count > 1)
-    .map(([id]) => id);
-}
-
-function hasBalancedCssBraces(css: string) {
-  const withoutComments = css.replace(/\/\*[\s\S]*?\*\//g, "");
-  let depth = 0;
-  for (const char of withoutComments) {
-    if (char === "{") depth += 1;
-    if (char === "}") depth -= 1;
-    if (depth < 0) return false;
-  }
-  return depth === 0;
-}
-
-function canCompileJavascript(js: string) {
-  if (!js.trim()) return true;
-  try {
-    // Syntax check only. The function is never executed here.
-    new Function(js);
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-function getProductionChecks(source: ProjectSource): ProductionCheck[] {
-  const duplicateIds = getDuplicateIds(source.html);
-  const images = Array.from(source.html.matchAll(/<img\b[^>]*>/gi), (match) => match[0]);
-  const imagesWithoutAlt = images.filter((tag) => !/\balt\s*=\s*["'][^"']*["']/i.test(tag));
-  const buttons = Array.from(source.html.matchAll(/<button\b[^>]*>/gi), (match) => match[0]);
-  const buttonsWithoutType = buttons.filter((tag) => !/\btype\s*=/i.test(tag));
-  const blankLinks = Array.from(source.html.matchAll(/<a\b[^>]*target\s*=\s*["']_blank["'][^>]*>/gi), (match) => match[0]);
-  const unsafeBlankLinks = blankLinks.filter((tag) => !/\brel\s*=\s*["'][^"']*noopener[^"']*["']/i.test(tag));
-  const hasInlineHandlers = /\son[a-z]+\s*=/i.test(source.html);
-  const hasScriptTag = /<script\b/i.test(source.html);
-  const hasDebugStatements = /\bconsole\.(log|debug)\s*\(/.test(source.js);
-
-  return [
-    {
-      id: "html-source",
-      label: "HTML source",
-      detail: source.html.trim() ? "Markup is present." : "Add HTML before exporting or sharing the preview.",
-      status: source.html.trim() ? "pass" : "error",
-    },
-    {
-      id: "css-braces",
-      label: "CSS structure",
-      detail: hasBalancedCssBraces(source.css) ? "CSS braces are balanced." : "One or more CSS braces appear unmatched.",
-      status: hasBalancedCssBraces(source.css) ? "pass" : "error",
-    },
-    {
-      id: "js-syntax",
-      label: "JavaScript syntax",
-      detail: canCompileJavascript(source.js) ? "JavaScript passes a syntax compile check." : "JavaScript contains a syntax error.",
-      status: canCompileJavascript(source.js) ? "pass" : "error",
-    },
-    {
-      id: "duplicate-ids",
-      label: "Unique element IDs",
-      detail: duplicateIds.length ? `Duplicate IDs: ${duplicateIds.slice(0, 3).join(", ")}.` : "No duplicate IDs detected.",
-      status: duplicateIds.length ? "warning" : "pass",
-    },
-    {
-      id: "image-alt",
-      label: "Image alternatives",
-      detail: imagesWithoutAlt.length ? `${imagesWithoutAlt.length} image tag(s) are missing alt text.` : "All detected images include alt text.",
-      status: imagesWithoutAlt.length ? "warning" : "pass",
-    },
-    {
-      id: "button-types",
-      label: "Button behavior",
-      detail: buttonsWithoutType.length ? `${buttonsWithoutType.length} button(s) are missing an explicit type.` : "All detected buttons have an explicit type.",
-      status: buttonsWithoutType.length ? "warning" : "pass",
-    },
-    {
-      id: "blank-links",
-      label: "External link safety",
-      detail: unsafeBlankLinks.length ? `${unsafeBlankLinks.length} target=_blank link(s) need rel=noopener.` : "No unsafe target=_blank links detected.",
-      status: unsafeBlankLinks.length ? "warning" : "pass",
-    },
-    {
-      id: "inline-events",
-      label: "Event separation",
-      detail: hasInlineHandlers ? "Move inline on* handlers into the JavaScript panel." : "No inline event handlers detected.",
-      status: hasInlineHandlers ? "warning" : "pass",
-    },
-    {
-      id: "html-scripts",
-      label: "Script placement",
-      detail: hasScriptTag ? "Keep scripts in the JavaScript panel for predictable execution." : "No script tags found inside the HTML panel.",
-      status: hasScriptTag ? "warning" : "pass",
-    },
-    {
-      id: "debug-statements",
-      label: "Debug statements",
-      detail: hasDebugStatements ? "Remove console.log/debug calls before production export." : "No console.log/debug calls detected.",
-      status: hasDebugStatements ? "warning" : "pass",
-    },
-  ];
 }
 
 function buildIframeDocument(project: RenderedProject) {
@@ -348,22 +204,27 @@ export default function CodePreviewTool() {
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
   const previewPanelRef = useRef<HTMLDivElement | null>(null);
   const previewCanvasRef = useRef<HTMLDivElement | null>(null);
+  const importInputRef = useRef<HTMLInputElement | null>(null);
   const versionRef = useRef(1);
   const [previewCanvasWidth, setPreviewCanvasWidth] = useState(0);
+  const [importStatus, setImportStatus] = useState<ImportStatus>(null);
 
   const source = useMemo<ProjectSource>(() => ({ html, css, js }), [css, html, js]);
   const productionChecks = useMemo(() => getProductionChecks(source), [source]);
-  const passingChecks = productionChecks.filter((check) => check.status === "pass").length;
-  const blockingChecks = productionChecks.filter((check) => check.status === "error").length;
-  const warningChecks = productionChecks.filter((check) => check.status === "warning").length;
-  const sourceBytes = new Blob([html, css, js]).size;
+  const metrics = useMemo(() => getMetrics(source, productionChecks), [productionChecks, source]);
+  const blockingChecks = metrics.blockingChecks;
+  const warningChecks = metrics.warningChecks;
+  const infoChecks = metrics.infoChecks;
+  const sourceBytes = metrics.sourceBytes;
   const viewport = viewports[viewportId];
   const previewScale = previewCanvasWidth > 0 ? Math.min(1, Math.max(0.25, (previewCanvasWidth - 8) / viewport.width)) : 1;
   const scaledPreviewWidth = Math.round(viewport.width * previewScale);
   const scaledPreviewHeight = Math.round(viewport.height * previewScale);
   const iframeContent = useMemo(() => buildIframeDocument(renderedProject), [renderedProject]);
   const standaloneDocument = useMemo(() => buildStandaloneDocument(source), [source]);
-  const projectJson = useMemo(() => buildProjectJson(source), [source]);
+  const projectJson = useMemo(() => buildProjectJson(source, viewportId, autoRun), [autoRun, source, viewportId]);
+  const markdownReport = useMemo(() => buildMarkdownReport(source, productionChecks), [productionChecks, source]);
+  const metricsCsv = useMemo(() => buildMetricsCsv(source, productionChecks), [productionChecks, source]);
 
   const runPreview = useCallback(() => {
     versionRef.current += 1;
@@ -471,6 +332,7 @@ export default function CodePreviewTool() {
     applyPreset(DEFAULT_CODE_PREVIEW_PRESET.id, DEFAULT_CODE_PREVIEW_PRESET);
     setViewportId("desktop");
     setAutoRun(true);
+    setImportStatus(null);
   }
 
   function openPreview() {
@@ -480,15 +342,34 @@ export default function CodePreviewTool() {
     window.setTimeout(() => URL.revokeObjectURL(url), 30_000);
   }
 
+  async function importProject(file: File) {
+    setImportStatus(null);
+    if (file.size > CODE_PREVIEW_PROJECT_MAX_BYTES) {
+      setImportStatus({ kind: "error", message: "Project files must be 1 MB or smaller." });
+      return;
+    }
+
+    try {
+      const imported = parseProjectJson(await file.text());
+      setHtml(imported.source.html);
+      setCss(imported.source.css);
+      setJs(imported.source.js);
+      setViewportId(imported.viewport);
+      setAutoRun(imported.autoRun);
+      setSelectedPresetId("custom");
+      setActiveTab("html");
+      setImportStatus({ kind: "success", message: `Imported ${file.name}.` });
+    } catch (error) {
+      setImportStatus({ kind: "error", message: error instanceof Error ? error.message : "Unable to import the project." });
+    } finally {
+      if (importInputRef.current) importInputRef.current.value = "";
+    }
+  }
+
   async function downloadProjectZip() {
-    const { default: JSZip } = await import("jszip");
-    const zip = new JSZip();
-    zip.file("index.html", buildStandaloneDocument(source, true));
-    zip.file("styles.css", css);
-    zip.file("script.js", js);
-    zip.file("darma-project.json", projectJson);
-    const blob = await zip.generateAsync({ type: "blob" });
-    downloadBlob("darma-code-preview-project.zip", blob, "application/zip");
+    const bytes = await createProductionZip(source, viewportId, autoRun);
+    const buffer = bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength) as ArrayBuffer;
+    downloadBlob("darma-code-preview-production.zip", buffer, "application/zip");
   }
 
   async function enterFullscreen() {
@@ -508,7 +389,7 @@ export default function CodePreviewTool() {
       <section className="grid gap-2 sm:grid-cols-2 xl:grid-cols-4" aria-label="Project summary">
         <SummaryCard label="Runtime" value={runtimeLabel} detail={runtimeDetail} icon={runtimeStatus === "error" ? AlertTriangle : Play} />
         <SummaryCard label="Source" value={formatBytes(sourceBytes)} detail="HTML + CSS + JavaScript" icon={FileCode2} />
-        <SummaryCard label="Production" value={`${passingChecks}/${productionChecks.length} pass`} detail={`${blockingChecks} blocking · ${warningChecks} warnings`} icon={ShieldCheck} />
+        <SummaryCard label="Readiness" value={`${metrics.readinessScore}/100`} detail={`${blockingChecks} blocking · ${warningChecks} warnings · ${infoChecks} info`} icon={ShieldCheck} />
         <SummaryCard label="Viewport" value={`${viewport.width} × ${viewport.height}`} detail={viewport.label} icon={viewport.icon} />
       </section>
 
@@ -524,9 +405,9 @@ export default function CodePreviewTool() {
                 presets={CODE_PREVIEW_PRESETS}
                 selectedId={selectedPresetId}
                 onSelect={applyPreset}
-                getId={(preset) => preset.id}
-                getLabel={(preset) => preset.name}
-                getDescription={(preset) => preset.description}
+                getId={(preset: CodePreviewPreset) => preset.id}
+                getLabel={(preset: CodePreviewPreset) => preset.name}
+                getDescription={(preset: CodePreviewPreset) => preset.description}
                 compact
                 className="lg:grid-cols-3"
               />
@@ -541,7 +422,7 @@ export default function CodePreviewTool() {
                 <SegmentedControl
                   ariaLabel="Editor source file"
                   value={activeTab}
-                  onChange={(value) => setActiveTab(value as EditorTab)}
+                  onChange={(value: string) => setActiveTab(value as EditorTab)}
                   options={editorTabs}
                 />
                 <CopyButton text={activeCode} size="sm" variant="secondary">Copy file</CopyButton>
@@ -575,7 +456,7 @@ export default function CodePreviewTool() {
                   width="short"
                   aria-label="Preview viewport"
                   value={viewportId}
-                  onChange={(event) => setViewportId(event.target.value as ViewportId)}
+                  onChange={(event: ChangeEvent<HTMLSelectElement>) => setViewportId(event.target.value as ViewportId)}
                 >
                   {viewportOptions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
                 </Select>
@@ -651,10 +532,13 @@ export default function CodePreviewTool() {
                   check.status === "pass" && "border-[var(--color-success-border)] bg-[var(--color-success-bg)]",
                   check.status === "warning" && "border-[var(--color-warning-border)] bg-[var(--color-warning-bg)]",
                   check.status === "error" && "border-[var(--color-danger-border)] bg-[var(--color-danger-bg)]",
+                  check.status === "info" && "border-[var(--color-info-border)] bg-[var(--color-info-bg)]",
                 )}
               >
                 {check.status === "pass" ? (
                   <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-success-text)]" />
+                ) : check.status === "info" ? (
+                  <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-info-text)]" />
                 ) : (
                   <AlertTriangle className={cn("mt-0.5 h-4 w-4 shrink-0", check.status === "error" ? "text-[var(--color-danger-text)]" : "text-[var(--color-warning-text)]")} />
                 )}
@@ -691,11 +575,34 @@ export default function CodePreviewTool() {
               )}
             </div>
 
+            <input
+              ref={importInputRef}
+              type="file"
+              accept="application/json,.json"
+              className="sr-only"
+              onChange={(event) => {
+                const file = event.target.files?.[0];
+                if (file) void importProject(file);
+              }}
+            />
+            {importStatus ? (
+              <div className={cn(
+                "rounded-[var(--radius-sm)] border px-3 py-2 text-xs",
+                importStatus.kind === "success"
+                  ? "border-[var(--color-success-border)] bg-[var(--color-success-bg)] text-[var(--color-success-text)]"
+                  : "border-[var(--color-danger-border)] bg-[var(--color-danger-bg)] text-[var(--color-danger-text)]",
+              )}>
+                {importStatus.message}
+              </div>
+            ) : null}
             <div className="flex flex-wrap gap-2">
               <CopyButton text={standaloneDocument} size="sm" variant="secondary">Copy HTML</CopyButton>
+              <Button size="sm" variant="secondary" onClick={() => importInputRef.current?.click()} leftIcon={<Upload className="h-3.5 w-3.5" />}>Import</Button>
               <Button size="sm" variant="secondary" onClick={() => downloadBlob("darma-preview.html", standaloneDocument, "text/html;charset=utf-8")} leftIcon={<Download className="h-3.5 w-3.5" />}>HTML</Button>
-              <Button size="sm" variant="secondary" onClick={() => downloadBlob("darma-project.json", projectJson, "application/json;charset=utf-8")} leftIcon={<Code2 className="h-3.5 w-3.5" />}>JSON</Button>
-              <Button size="sm" variant="secondary" onClick={downloadProjectZip} leftIcon={<FileArchive className="h-3.5 w-3.5" />}>Project ZIP</Button>
+              <Button size="sm" variant="secondary" onClick={() => downloadBlob("darma-project.json", projectJson, "application/json;charset=utf-8")} leftIcon={<Code2 className="h-3.5 w-3.5" />}>Project</Button>
+              <Button size="sm" variant="secondary" onClick={() => downloadBlob("production-report.md", markdownReport, "text/markdown;charset=utf-8")} leftIcon={<FileText className="h-3.5 w-3.5" />}>Report</Button>
+              <Button size="sm" variant="secondary" onClick={() => downloadBlob("production-metrics.csv", metricsCsv, "text/csv;charset=utf-8")} leftIcon={<Download className="h-3.5 w-3.5" />}>CSV</Button>
+              <Button size="sm" variant="secondary" onClick={downloadProjectZip} leftIcon={<FileArchive className="h-3.5 w-3.5" />}>Production ZIP</Button>
               <Button size="sm" variant="ghost" onClick={resetProject} leftIcon={<RotateCcw className="h-3.5 w-3.5" />}>Reset</Button>
             </div>
           </div>

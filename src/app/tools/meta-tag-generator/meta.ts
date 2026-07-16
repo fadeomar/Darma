@@ -1,9 +1,10 @@
+import { DESCRIPTION_LIMIT, TEXT_LIMIT, TITLE_LIMIT, URL_LIMIT } from "./presets";
 import type { MetaTagInput, MetaTagSection, MetaTagValidation, SocialPreviewModel } from "./types";
 
-const TITLE_WARNING_LENGTH = 60;
-const DESCRIPTION_WARNING_LENGTH = 160;
+export const TITLE_WARNING_LENGTH = 60;
+export const DESCRIPTION_WARNING_LENGTH = 160;
 
-function escapeHtml(value: string): string {
+export function escapeHtml(value: string): string {
   return value
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
@@ -11,13 +12,18 @@ function escapeHtml(value: string): string {
     .replace(/\"/g, "&quot;");
 }
 
-function normalizeHandle(value: string): string {
+export function normalizeHandle(value: string): string {
   const trimmed = value.trim();
   if (!trimmed) return "";
   return trimmed.startsWith("@") ? trimmed : `@${trimmed}`;
 }
 
-function isValidAbsoluteUrl(value: string): boolean {
+export function isValidSocialHandle(value: string): boolean {
+  const normalized = normalizeHandle(value);
+  return !normalized || /^@[A-Za-z0-9_]{1,30}$/.test(normalized);
+}
+
+export function isValidAbsoluteUrl(value: string): boolean {
   if (!value.trim()) return false;
   try {
     const url = new URL(value.trim());
@@ -25,6 +31,10 @@ function isValidAbsoluteUrl(value: string): boolean {
   } catch {
     return false;
   }
+}
+
+export function isValidOgLocale(value: string): boolean {
+  return /^[a-z]{2}_[A-Z]{2}$/.test(value.trim());
 }
 
 function getDomain(value: string): string {
@@ -72,16 +82,20 @@ export function generateMetaTags(input: MetaTagInput, section: MetaTagSection = 
     lines.push(propertyTag("og:type", input.ogType));
     if (siteName) lines.push(propertyTag("og:site_name", siteName));
     if (locale) lines.push(propertyTag("og:locale", locale));
-    if (imageUrl) lines.push(propertyTag("og:image", imageUrl));
-    if (imageAlt) lines.push(propertyTag("og:image:alt", imageAlt));
+    if (imageUrl) {
+      lines.push(propertyTag("og:image", imageUrl));
+      if (imageAlt) lines.push(propertyTag("og:image:alt", imageAlt));
+    }
   }
 
   if (section === "all" || section === "twitter") {
     lines.push(tag("twitter:card", input.twitterCard));
     if (title) lines.push(tag("twitter:title", title));
     if (description) lines.push(tag("twitter:description", description));
-    if (imageUrl) lines.push(tag("twitter:image", imageUrl));
-    if (imageAlt) lines.push(tag("twitter:image:alt", imageAlt));
+    if (imageUrl) {
+      lines.push(tag("twitter:image", imageUrl));
+      if (imageAlt) lines.push(tag("twitter:image:alt", imageAlt));
+    }
     if (twitterSite) lines.push(tag("twitter:site", twitterSite));
     if (twitterCreator) lines.push(tag("twitter:creator", twitterCreator));
   }
@@ -98,20 +112,32 @@ export function validateMetaTagInput(input: MetaTagInput): MetaTagValidation[] {
 
   if (!title) validations.push({ level: "error", field: "title", message: "Page title is required for SEO and social previews." });
   if (title.length > TITLE_WARNING_LENGTH) validations.push({ level: "warning", field: "title", message: `Title is ${title.length} characters. Search results often truncate titles above about ${TITLE_WARNING_LENGTH} characters.` });
+  if (title.length > TITLE_LIMIT) validations.push({ level: "error", field: "title", message: `Title exceeds the supported ${TITLE_LIMIT}-character project limit.` });
 
   if (!description) validations.push({ level: "warning", field: "description", message: "Add a meta description for better search snippets and social cards." });
   if (description.length > DESCRIPTION_WARNING_LENGTH) validations.push({ level: "warning", field: "description", message: `Description is ${description.length} characters. Search snippets often truncate above about ${DESCRIPTION_WARNING_LENGTH} characters.` });
+  if (description.length > DESCRIPTION_LIMIT) validations.push({ level: "error", field: "description", message: `Description exceeds the supported ${DESCRIPTION_LIMIT}-character project limit.` });
 
   if (!canonicalUrl) validations.push({ level: "error", field: "canonicalUrl", message: "Canonical URL is required for og:url and rel=canonical." });
   else if (!isValidAbsoluteUrl(canonicalUrl)) validations.push({ level: "error", field: "canonicalUrl", message: "Use an absolute http or https URL." });
+  if (canonicalUrl.length > URL_LIMIT) validations.push({ level: "error", field: "canonicalUrl", message: `Canonical URL exceeds the supported ${URL_LIMIT}-character limit.` });
 
   if (!imageUrl) validations.push({ level: "warning", field: "imageUrl", message: "Add an image URL for richer Open Graph and Twitter/X cards." });
   else if (!isValidAbsoluteUrl(imageUrl)) validations.push({ level: "error", field: "imageUrl", message: "Image URL should be an absolute http or https URL." });
+  if (imageUrl.length > URL_LIMIT) validations.push({ level: "error", field: "imageUrl", message: `Image URL exceeds the supported ${URL_LIMIT}-character limit.` });
 
   if (imageUrl && !input.imageAlt.trim()) validations.push({ level: "warning", field: "imageAlt", message: "Add image alt text so social images have accessible context." });
+  if (input.imageAlt.length > TEXT_LIMIT) validations.push({ level: "error", field: "imageAlt", message: `Image alt text exceeds the supported ${TEXT_LIMIT}-character limit.` });
 
-  if (input.twitterSite.trim() && !normalizeHandle(input.twitterSite).startsWith("@")) {
-    validations.push({ level: "info", field: "twitterSite", message: "Twitter/X handles are normalized with @ in the generated tags." });
+  if (input.locale.trim() && !isValidOgLocale(input.locale)) {
+    validations.push({ level: "warning", field: "locale", message: "Use an Open Graph locale such as en_US or ar_PS." });
+  }
+
+  if (!isValidSocialHandle(input.twitterSite)) {
+    validations.push({ level: "warning", field: "twitterSite", message: "Use letters, numbers, and underscores only for the site handle." });
+  }
+  if (!isValidSocialHandle(input.twitterCreator)) {
+    validations.push({ level: "warning", field: "twitterCreator", message: "Use letters, numbers, and underscores only for the creator handle." });
   }
 
   return validations;

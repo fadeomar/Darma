@@ -29,7 +29,7 @@ export default function FaviconAppIconGeneratorPage() {
       maxWidth="wide"
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Generate favicons, Apple touch icons, PWA icons, maskable previews, web manifests, Next.js setup files, and validation checks locally in your browser.
+          Build, validate, save, reopen, and export complete favicon, Apple touch icon, PWA, maskable, manifest, and framework-ready production packages locally in your browser.
         </p>
       }
       article={
@@ -39,7 +39,7 @@ export default function FaviconAppIconGeneratorPage() {
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Favicon & App Icon Generator" description="Create a complete launch-ready favicon package from an image, SVG, initials, or emoji.">
+      <ToolContentCard title="Favicon & App Icon Production Studio" description="Create a launch-ready icon package, portable settings project, production audit, metrics report, and install handoff from an image, SVG, initials, or emoji.">
         <FaviconAppIconClient />
       </ToolContentCard>
     </ToolPage>

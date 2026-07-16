@@ -91,5 +91,12 @@ export async function createZipArchive(entries: ZipEntryInput[]) {
   writeUint32(endView, 16, offset);
   writeUint16(endView, 20, 0);
 
-  return new Blob([...localParts, ...centralParts, end], { type: "application/zip" });
+  const parts = [...localParts, ...centralParts, end];
+  const archive = new Uint8Array(parts.reduce((sum, part) => sum + part.byteLength, 0));
+  let cursor = 0;
+  for (const part of parts) {
+    archive.set(part, cursor);
+    cursor += part.byteLength;
+  }
+  return new Blob([archive.buffer], { type: "application/zip" });
 }

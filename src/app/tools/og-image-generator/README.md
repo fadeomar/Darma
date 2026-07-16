@@ -1,54 +1,45 @@
-# OG Image / Social Preview Generator
+# Open Graph Image Production Studio
 
-Browser-only Darma tool for creating Open Graph images, Twitter/X cards, social previews, metadata snippets, export packs, and local validation checks.
+Browser-only Darma studio for designing Open Graph images, social preview cards, metadata snippets, reusable settings projects, production audits, and export packs.
 
 ## Route
 
 `/tools/og-image-generator`
 
-## Features
+## Phase 38 capabilities
 
-- 1200×630 live canvas preview
-- Templates for SaaS, developer tools, blog posts, launches, terminal style, docs, portfolio, and announcements
-- Logo and background image upload
-- Solid, gradient, image, and pattern backgrounds
-- Text, badge, domain, author, CTA, alt text, and site URL controls
-- Platform previews for Twitter/X, LinkedIn, Discord, and Slack-style unfurls
-- Export packs: Basic Web, Next.js App Router, Social Platforms, Blog/Article, Complete Launch
-- Local ZIP generation without a dependency
-- Generated file checklist and package validator
+- Eight visual templates and five practical quick presets
+- 1200×630 primary preview plus platform-style previews
+- Logo and background image uploads processed locally
+- Four production summary cards
+- Severity-based production checks
+- Versioned settings-only JSON project import/export
+- Explicit stale-package detection while a design regenerates
+- HTML and Next.js metadata snippets
+- Local HTML/meta checker and existing-package checker
+- PNG and ZIP downloads
+- Unit tests for validation, project normalization, audits, reports, and ZIP generation
 
-## Generated outputs
+## Production ZIP contents
 
-Depending on selected export pack:
+The exact image list depends on the selected pack. Every generated package also includes:
 
-- `opengraph-image.png`
-- `twitter-image.png`
-- `og-image.png`
-- `linkedin-preview.png`
-- `facebook-preview.png`
-- `discord-slack-preview.png`
-- `square-social-preview.png`
-- `src/app/opengraph-image.png`
-- `src/app/twitter-image.png`
 - `html-meta-tags.txt`
 - `metadata-snippet.ts`
 - `social-preview.html`
 - `validation-checklist.md`
+- `og-project.json`
+- `production-audit.md`
+- `production-metrics.csv`
 - `asset-manifest.json`
 - `README.md`
 
+Next.js and complete packs also include App Router instructions.
+
+## Project-file policy
+
+The JSON project stores design and metadata settings only. Uploaded logo and background data URLs are intentionally removed so the project remains compact and does not duplicate private local assets. Imported projects require those files to be reattached.
+
 ## Privacy
 
-All image processing happens locally in the browser.
-
-## Final QA polish notes
-
-Latest polish pass:
-
-- keeps the local HTML/meta checker synced with the current generated snippet until the user edits or uploads HTML;
-- lets users copy HTML, Next.js metadata, and URL directly from the snippets panel;
-- resets file inputs after uploads so the same file can be re-selected during QA;
-- blocks downloads unless the generated package is in a ready state;
-- clears stale generated assets if rendering fails;
-- validates uploaded asset MIME types before reading them locally.
+All rendering, validation, project parsing, and ZIP generation happen locally in the browser.

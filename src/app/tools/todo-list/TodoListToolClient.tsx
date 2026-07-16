@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { TodoProvider, useTodo } from "@/features/todo/state/TodoProvider";
 import { TodoStudioShell } from "@/features/todo/components/shell/TodoStudioShell";
+import { TodoProductionPanel } from "@/features/todo/components/shell/TodoProductionPanel";
 import { getTemplateById } from "@/features/todo/data/seedTemplates";
 import "@/features/todo/styles/todo-theme.css";
 
@@ -11,6 +12,7 @@ export default function TodoListToolClient() {
     <TodoProvider>
       <TemplateQueryLoader />
       <TodoStudioShell />
+      <TodoProductionPanel />
     </TodoProvider>
   );
 }

@@ -28,7 +28,7 @@ export default function RegexTesterPage() {
       maxWidth="full"
       intro={
         <p className="max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)]">
-          Build and debug JavaScript regular expressions with clickable match highlighting, capture inspection, replacement previews, practical presets, production checks, and export-ready JavaScript, TypeScript, and JSON.
+          Build, reopen, and audit JavaScript regular expressions with guarded previews, capture inspection, replacement evidence, portable project files, developer modules, and a complete production ZIP.
         </p>
       }
       article={
@@ -40,7 +40,7 @@ export default function RegexTesterPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <ToolContentCard
         title="Regex Tester Studio"
-        description="Test real JavaScript RegExp behavior locally, inspect every result, and move validated patterns into production code."
+        description="Test native JavaScript RegExp behavior locally, guard risky previews, preserve the project, and export code plus review evidence."
       >
         <RegexTesterClient />
       </ToolContentCard>

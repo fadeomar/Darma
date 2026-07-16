@@ -13,6 +13,11 @@ export async function getAllLists(): Promise<TodoList[]> {
     .sortBy("name");
 }
 
+/** Return every stored list, including archived lists, for complete backups. */
+export async function getAllStoredLists(): Promise<TodoList[]> {
+  return getTodoDb().lists.orderBy("name").toArray();
+}
+
 export async function getListById(id: string): Promise<TodoList | undefined> {
   return getTodoDb().lists.get(id);
 }

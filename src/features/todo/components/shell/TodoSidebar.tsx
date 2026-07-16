@@ -25,7 +25,7 @@ import {
   Upload,
 } from "lucide-react";
 import { cn } from "@/lib/cn";
-import { VIEW_LABELS } from "../../domain/constants";
+import { TODO_IMPORT_MAX_BYTES, VIEW_LABELS } from "../../domain/constants";
 import { buildMarkdown, buildPlainText, type ImportMode, type ImportSummary } from "../../data/importExport";
 import type { SidebarFilter, SortMode, TodoView } from "../../domain/types";
 import { TodoConfirmDialog } from "../dialogs/TodoConfirmDialog";
@@ -244,6 +244,14 @@ export function TodoTopBar({
     input.onchange = async () => {
       const file = input.files?.[0];
       if (!file) return;
+      if (file.size > TODO_IMPORT_MAX_BYTES) {
+        setDataNotice(`Import file exceeds ${Math.round(TODO_IMPORT_MAX_BYTES / 1024 / 1024)} MB.`);
+        return;
+      }
+      if (file.size === 0) {
+        setDataNotice("Import file is empty.");
+        return;
+      }
       const text = await file.text();
       const summary = summarizeImport(text);
       if (!summary.ok || !summary.counts) {

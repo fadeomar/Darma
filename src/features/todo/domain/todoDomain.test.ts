@@ -198,4 +198,35 @@ describe("validateImportData", () => {
     const result = validateImportData({ ...validBundle, version: 999 });
     expect(result.ok).toBe(false);
   });
+
+  it("requires the Darma Tasks tool marker for version 2 backups", () => {
+    const result = validateImportData({ ...validBundle, version: 2 });
+    expect(result.ok).toBe(false);
+    expect(result.error).toMatch(/Expected tool darma-tasks/);
+  });
+
+  it("rejects duplicate record ids", () => {
+    const duplicate = { ...validBundle, tasks: [validBundle.tasks[0], { ...validBundle.tasks[0], title: "Duplicate" }] };
+    const result = validateImportData(duplicate);
+    expect(result.ok).toBe(false);
+    expect(result.error).toMatch(/Duplicate task id/);
+  });
+
+  it("rejects missing and cyclic parent relationships", () => {
+    const missingParent = {
+      ...validBundle,
+      tasks: [{ ...validBundle.tasks[0], parentTaskId: "ghost" }],
+    };
+    expect(validateImportData(missingParent).error).toMatch(/missing parent/);
+
+    const first = { ...validBundle.tasks[0], id: "a", parentTaskId: "b" };
+    const second = { ...validBundle.tasks[0], id: "b", parentTaskId: "a" };
+    const cyclic = { ...validBundle, tasks: [first, second] };
+    expect(validateImportData(cyclic).error).toMatch(/cyclic parent/);
+  });
+
+  it("rejects invalid timestamps", () => {
+    const broken = { ...validBundle, exportedAt: "not-a-date" };
+    expect(validateImportData(broken).ok).toBe(false);
+  });
 });

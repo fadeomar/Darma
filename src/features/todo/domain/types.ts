@@ -136,6 +136,7 @@ export type TodoUiPrefs = {
 };
 
 export type TodoExportBundle = {
+  tool: "darma-tasks";
   version: number;
   exportedAt: string;
   lists: TodoList[];

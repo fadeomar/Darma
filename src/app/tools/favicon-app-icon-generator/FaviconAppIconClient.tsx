@@ -16,6 +16,8 @@ import { createHtmlHeadSnippet, createInstallReadme, createManifestSnippet, crea
 import type { ExportPackId, FaviconInput, FaviconSourceMode, FileValidationIssue, GeneratedAsset, IconShape, ProjectProfileId, QualityIssueActionId, QualityIssueSeverity, ReadinessCategory, SmartQualityIssue } from "./types";
 import { bestReadableColor, createReadinessChecks, createSmartQualityIssues, scoreReadiness, validateExistingFiles, validateFaviconInput, validateGeneratedAssets, validateHtmlHeadText, validateManifestText, validateWebsiteUrlInput } from "./validation";
 import { createZipArchive } from "./zip";
+import { FaviconProductionChecks, FaviconProductionSummary, FaviconProjectControls } from "./components/FaviconProductionPanel";
+import { MAX_FAVICON_PROJECT_BYTES, createFaviconHandoffAssets, createFaviconInputFingerprint, createFaviconProjectJson, parseFaviconProjectJson } from "./studio";
 
 type Status = "idle" | "generating" | "ready" | "error";
 type PreviewMode = "essential" | "platform" | "advanced";
@@ -1387,6 +1389,8 @@ export default function FaviconAppIconClient() {
   const [status, setStatus] = useState<Status>("idle");
   const [generationError, setGenerationError] = useState("");
   const [uploadError, setUploadError] = useState("");
+  const [generatedFingerprint, setGeneratedFingerprint] = useState<string>();
+  const [projectMessage, setProjectMessage] = useState("");
 
   const warnings = useMemo(() => validateFaviconInput(input), [input]);
   const hasBlockingError = warnings.some((warning) => warning.level === "error");
@@ -1394,20 +1398,25 @@ export default function FaviconAppIconClient() {
   useEffect(() => {
     let cancelled = false;
 
+    if (hasBlockingError) {
+      setStatus("error");
+      setGeneratedFingerprint(undefined);
+      setGenerationError("Fix the highlighted errors before generating the icon pack.");
+      setAssets((previous) => {
+        revokeGeneratedAssetUrls(previous);
+        return [];
+      });
+      return () => {
+        cancelled = true;
+      };
+    }
+
+    // Invalidate the previous package immediately. Without this synchronous state
+    // transition, the old ZIP can remain clickable during the debounce window.
+    setStatus("generating");
+    setGenerationError("");
+
     async function run() {
-      if (hasBlockingError) {
-        setStatus("error");
-        setGenerationError("Fix the highlighted errors before generating the icon pack.");
-        setAssets((previous) => {
-          revokeGeneratedAssetUrls(previous);
-          return [];
-        });
-        return;
-      }
-
-      setStatus("generating");
-      setGenerationError("");
-
       try {
         const generated = await generateFaviconAssets(input, input.exportPack);
         if (cancelled) {
@@ -1418,10 +1427,12 @@ export default function FaviconAppIconClient() {
           revokeGeneratedAssetUrls(previous);
           return generated;
         });
+        setGeneratedFingerprint(createFaviconInputFingerprint(input));
         setStatus("ready");
       } catch (error) {
         if (cancelled) return;
         setStatus("error");
+        setGeneratedFingerprint(undefined);
         setGenerationError(error instanceof Error ? error.message : "Could not generate the icon pack.");
         setAssets((previous) => {
           revokeGeneratedAssetUrls(previous);
@@ -1456,10 +1467,45 @@ export default function FaviconAppIconClient() {
     { id: "readme", label: "README", language: "md", filename: "README.md", code: createInstallReadme(input) },
   ], [input, selectedProject?.shortLabel]);
 
+  const currentFingerprint = useMemo(() => createFaviconInputFingerprint(input), [input]);
+  const packageIsCurrent = status === "ready" && assets.length > 0 && generatedFingerprint === currentFingerprint;
+
   async function downloadZip() {
-    if (!assets.length) return;
-    const zip = await createZipArchive(assets);
+    if (!packageIsCurrent) return;
+    const handoffAssets = createFaviconHandoffAssets(input, assets, generatedFingerprint);
+    const zip = await createZipArchive([...assets, ...handoffAssets]);
     downloadBlobFile({ blob: zip, filename: `darma-favicon-${input.exportPack}-pack.zip` });
+  }
+
+  function exportProject() {
+    const blob = new Blob([createFaviconProjectJson(input)], { type: "application/json;charset=utf-8" });
+    downloadBlobFile({ blob, filename: "darma-favicon-project.json" });
+    setProjectMessage("Project settings exported. Uploaded image data was intentionally excluded.");
+  }
+
+  async function importProject(file: File) {
+    if (file.size > MAX_FAVICON_PROJECT_BYTES) {
+      setProjectMessage("Project import failed: choose a JSON file below 1 MB.");
+      return;
+    }
+    try {
+      const source = await file.text();
+      if (!source.trim()) throw new Error("The selected project file is empty.");
+      const project = parseFaviconProjectJson(source);
+      setInput(project.input);
+      setUploadError("");
+      setProjectMessage(project.sourcePolicy.svgEmbedded
+        ? "Project imported with its safe SVG source."
+        : "Project imported. Reattach any uploaded image or excluded SVG source before export.");
+    } catch (error) {
+      setProjectMessage(`Project import failed: ${error instanceof Error ? error.message : "Unable to read the file."}`);
+    }
+  }
+
+  function resetProject() {
+    setInput(DEFAULT_FAVICON_INPUT);
+    setUploadError("");
+    setProjectMessage("Settings reset to the Darma default.");
   }
 
   function ActionContent() {
@@ -1467,11 +1513,11 @@ export default function FaviconAppIconClient() {
       <>
         <div className="flex min-w-0 items-center gap-2 text-xs text-[var(--color-text-tertiary)]">
           <FileArchive className="h-4 w-4 shrink-0" />
-          <span>{assets.length ? `${assets.length} files ready` : "No files generated yet"}</span>
+          <span>{packageIsCurrent ? `${assets.length} files ready` : assets.length ? "Regenerating current files" : "No files generated yet"}</span>
         </div>
         <div className="flex flex-wrap items-center gap-2">
-          <Button variant="secondary" leftIcon={<Download className="h-4 w-4" />} disabled={!assets.length || status === "generating"} onClick={downloadZip}>Download ZIP</Button>
-          <Button variant="ghost" onClick={() => setInput(DEFAULT_FAVICON_INPUT)}>Reset</Button>
+          <Button variant="secondary" leftIcon={<Download className="h-4 w-4" />} disabled={!packageIsCurrent} onClick={downloadZip}>Download ZIP</Button>
+          <Button variant="ghost" onClick={resetProject}>Reset</Button>
         </div>
       </>
     );
@@ -1479,6 +1525,7 @@ export default function FaviconAppIconClient() {
 
   const controls = (
     <>
+      <FaviconProjectControls message={projectMessage} onExport={exportProject} onImport={importProject} onReset={resetProject} />
       <SourceControls input={input} setInput={setInput} uploadError={uploadError} setUploadError={setUploadError} />
       <ColorControls input={input} setInput={setInput} />
       <SourceFramingControls input={input} setInput={setInput} />
@@ -1513,7 +1560,9 @@ export default function FaviconAppIconClient() {
 
       <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-start">
         <main className="min-w-0 space-y-5">
+          <FaviconProductionSummary input={input} assets={assets} generatedFingerprint={generatedFingerprint} />
           <PreviewPanel input={input} assets={assets} status={status} error={generationError} />
+          <FaviconProductionChecks input={input} assets={assets} generatedFingerprint={generatedFingerprint} />
 
           <ActionBar align="between" className="lg:hidden">
             <ActionContent />

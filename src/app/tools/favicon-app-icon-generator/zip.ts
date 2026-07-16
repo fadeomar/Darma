@@ -140,7 +140,8 @@ function isTextZipEntryName(name: string): boolean {
     lower.endsWith(".html") ||
     lower.endsWith(".htm") ||
     lower.endsWith(".txt") ||
-    lower.endsWith(".md")
+    lower.endsWith(".md") ||
+    lower.endsWith(".csv")
   );
 }
 

@@ -21,11 +21,12 @@ function clamp(value: number, min: number, max: number) {
 
 function quote(value: string, quoteStyle: "double" | "single") {
   const mark = quoteStyle === "single" ? "'" : '"';
-  return `${mark}${value.replaceAll(mark, `\\${mark}`)}${mark}`;
-}
-
-function escapeHtml(value: string) {
-  return value.replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+  const escaped = value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll(quoteStyle === "single" ? "'" : '"', quoteStyle === "single" ? "&#39;" : "&quot;");
+  return `${mark}${escaped}${mark}`;
 }
 
 function jsxEscape(value: string) {
@@ -191,7 +192,7 @@ export function generateImgMarkup(state: ResponsiveImageState): string {
     formatAttr("sizes", generateSizes(normalized.sizes, normalized.defaultSlotSize), q),
     formatAttr("width", normalized.attributes.width, q),
     formatAttr("height", normalized.attributes.height, q),
-    formatAttr("alt", escapeHtml(normalized.attributes.alt), q),
+    formatAttr("alt", normalized.attributes.alt, q),
     formatAttr("loading", normalized.attributes.loading, q),
     formatAttr("decoding", normalized.attributes.decoding, q),
     normalized.attributes.fetchPriority !== "auto" ? formatAttr("fetchpriority", normalized.attributes.fetchPriority, q) : "",
@@ -219,7 +220,7 @@ export function generatePictureMarkup(state: ResponsiveImageState): string {
 export function generateNextImageMarkup(state: ResponsiveImageState): string {
   const normalized = normalizeResponsiveImageState(state);
   const componentName = sanitizeComponentName(normalized.exportOptions.componentName || "ResponsiveImage");
-  return `import Image from "next/image";\n\nexport function ${componentName}() {\n  return (\n    <Image\n      src="${jsxEscape(normalized.attributes.src || normalized.fallbackSrc)}"\n      alt="${jsxEscape(normalized.attributes.alt)}"\n      width={${normalized.attributes.width}}\n      height={${normalized.attributes.height}}\n      sizes="${jsxEscape(generateSizes(normalized.sizes, normalized.defaultSlotSize))}"\n      className="${jsxEscape(normalized.attributes.className || "h-auto w-full object-cover")}"\n      loading="${normalized.attributes.loading}"\n      decoding="${normalized.attributes.decoding}"\n    />\n  );\n}`;
+  return `import Image from "next/image";\n\nexport function ${componentName}() {\n  return (\n    <Image\n      src="${jsxEscape(normalized.attributes.src || normalized.fallbackSrc)}"\n      alt="${jsxEscape(normalized.attributes.alt)}"\n      width={${normalized.attributes.width}}\n      height={${normalized.attributes.height}}\n      sizes="${jsxEscape(generateSizes(normalized.sizes, normalized.defaultSlotSize))}"\n      className="${jsxEscape(normalized.attributes.className || "h-auto w-full object-cover")}"\n      loading="${normalized.attributes.loading}"\n      decoding="${normalized.attributes.decoding}"${normalized.attributes.fetchPriority !== "auto" ? `\n      fetchPriority="${normalized.attributes.fetchPriority}"` : ""}\n    />\n  );\n}`;
 }
 
 export function generateCssHelper(state: ResponsiveImageState): string {
@@ -279,16 +280,18 @@ export function generateResponsiveImageExplanation(state: ResponsiveImageState):
 }
 
 export function generateAllResponsiveImageCode(state: ResponsiveImageState): string {
-  return [
-    "<!-- HTML img -->",
-    generateImgMarkup(state),
-    "",
-    "<!-- Picture -->",
-    generatePictureMarkup(state),
-    "",
-    "/* CSS helper */",
-    generateCssHelper(state),
-  ].join("\n");
+  const normalized = normalizeResponsiveImageState(state);
+  const sections: string[] = [];
+  if (normalized.exportOptions.includeComments) sections.push("<!-- HTML img -->");
+  sections.push(generateImgMarkup(normalized), "");
+  if (normalized.exportOptions.includeComments) sections.push("<!-- Picture -->");
+  sections.push(generatePictureMarkup(normalized));
+  if (normalized.exportOptions.includeCssHelper) {
+    sections.push("");
+    if (normalized.exportOptions.includeComments) sections.push("/* CSS helper */");
+    sections.push(generateCssHelper(normalized));
+  }
+  return sections.join("\n");
 }
 
 export function validateResponsiveImageState(state: ResponsiveImageState): ResponsiveImageValidationMessage[] {

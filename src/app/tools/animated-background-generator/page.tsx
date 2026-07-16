@@ -4,9 +4,9 @@ import { getToolRegistry } from "@/features/tools";
 import ToolPageShell from "@/features/tools/ui/ToolPageShell";
 
 export const metadata: Metadata = {
-  title: "Animated Background Generator | Darma Tools",
+  title: "Animated Background Production Studio | Darma Tools",
   description:
-    "Create production-ready animated CSS backgrounds with mesh gradients, particles, motion controls, real UI previews, reduced-motion support, and exportable HTML, CSS, React, Tailwind, and token snippets.",
+    "Design deterministic animated CSS backgrounds, audit motion and performance, import or export editable projects, and download HTML, CSS, React, tokens, reports, and a production ZIP.",
 };
 
 export default function AnimatedBackgroundPage() {
@@ -19,7 +19,7 @@ export default function AnimatedBackgroundPage() {
       tool={tool}
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)]">
-          Start from a professional animated background preset, preview it behind real hero, card, or dashboard content, fine-tune performance-sensitive motion, then copy production-ready code with reduced-motion support.
+          Build deterministic animated backgrounds behind real interface previews, review motion and paint-cost checks, save a reopenable project, and export deployment-ready HTML, CSS, React, tokens, reports, or a complete production pack.
         </p>
       }
     >

@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState, type ChangeEvent, type ReactNode } from "react";
-import { AlertTriangle, CheckCircle2, Copy, Download, FileArchive, ImageIcon, Loader2, Sparkles, UploadCloud, XCircle } from "lucide-react";
+import { useEffect, useMemo, useRef, useState, type ChangeEvent, type ReactNode } from "react";
+import { AlertTriangle, CheckCircle2, Copy, Download, FileArchive, FileJson, ImageIcon, Loader2, RotateCcw, Sparkles, Upload, UploadCloud, XCircle } from "lucide-react";
 import { Button, Input, Select, Textarea } from "@/components/ui";
 import { CodeOutputPanel, ColorField, CompactField, ControlSection, SegmentedControl, SliderNumberField, WarningPanel, type WarningMessage } from "@/features/tools/components";
 import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
@@ -15,6 +15,7 @@ import { createHtmlMetaSnippet, createNextMetadataSnippet } from "./snippets";
 import type { OgBackgroundMode, OgGeneratedAsset, OgImageInput, OgLogoPosition, OgTextAlign, OgTemplateId, OgWarning } from "./types";
 import { createReadinessChecks, scoreReadiness, validateExistingPackage, validateGeneratedAssets, validateOgInput } from "./validation";
 import { createZipArchive } from "./zip";
+import { MAX_OG_PROJECT_BYTES, createInputFingerprint, createOgProductionChecks, createOgProjectJson, formatBytes as formatStudioBytes, parseOgProjectJson, summarizeOgProduction, type OgAuditCheck } from "./studio";
 
 type Status = "idle" | "generating" | "ready" | "error";
 
@@ -43,6 +44,15 @@ function mapWarnings(warnings: OgWarning[]): WarningMessage[] {
     severity: warning.level === "error" ? "danger" : warning.level,
     title: warning.title,
     message: warning.message,
+  }));
+}
+
+function mapAuditChecks(checks: OgAuditCheck[]): WarningMessage[] {
+  return checks.map((check) => ({
+    id: check.id,
+    severity: check.severity === "error" ? "danger" : check.severity === "pass" ? "success" : check.severity,
+    title: check.title,
+    message: check.message,
   }));
 }
 
@@ -251,6 +261,79 @@ function ExportControls({ input, setInput }: { input: OgImageInput; setInput: Re
         })}
       </div>
     </ControlSection>
+  );
+}
+
+function ProjectControls({
+  message,
+  onExport,
+  onImport,
+  onReset,
+}: {
+  message: string;
+  onExport: () => void;
+  onImport: (file: File) => void;
+  onReset: () => void;
+}) {
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  return (
+    <ControlSection title="Project backup" description="Save or reopen design settings without embedding uploaded logo or background image data.">
+      <div className="grid gap-2 sm:grid-cols-3">
+        <Button variant="secondary" size="sm" leftIcon={<FileJson className="h-4 w-4" />} onClick={onExport}>
+          Export project
+        </Button>
+        <Button variant="secondary" size="sm" leftIcon={<Upload className="h-4 w-4" />} onClick={() => fileInputRef.current?.click()}>
+          Import project
+        </Button>
+        <Button variant="ghost" size="sm" leftIcon={<RotateCcw className="h-4 w-4" />} onClick={onReset}>
+          Reset settings
+        </Button>
+      </div>
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept="application/json,.json"
+        className="sr-only"
+        onChange={(event) => {
+          const file = event.target.files?.[0];
+          if (file) onImport(file);
+          event.target.value = "";
+        }}
+      />
+      <p className="text-[11px] leading-5 text-[var(--color-text-tertiary)]">
+        Settings projects are capped at 1 MB. Uploaded images stay on your device and must be reattached after import.
+      </p>
+      {message ? <p role="status" className="text-xs font-medium text-[var(--color-text-secondary)]">{message}</p> : null}
+    </ControlSection>
+  );
+}
+
+function ProductionSummary({
+  input,
+  assets,
+  generatedFingerprint,
+}: {
+  input: OgImageInput;
+  assets: OgGeneratedAsset[];
+  generatedFingerprint?: string;
+}) {
+  const summary = summarizeOgProduction(input, assets, generatedFingerprint);
+  const cards = [
+    { label: "Template", value: summary.template, detail: input.exportPack },
+    { label: "Title", value: `${summary.titleLength}/90`, detail: "characters" },
+    { label: "Contrast", value: summary.contrast === null ? "Manual" : `${summary.contrast.toFixed(2)}:1`, detail: input.backgroundMode === "image" ? "image review" : "main text" },
+    { label: "Readiness", value: summary.statusLabel, detail: `${summary.assetCount} files · ${formatStudioBytes(summary.assetBytes)}` },
+  ];
+  return (
+    <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
+      {cards.map((card) => (
+        <div key={card.label} className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] p-3 shadow-[var(--shadow-xs)]">
+          <MiniLabel>{card.label}</MiniLabel>
+          <div className="mt-1 truncate text-base font-black text-[var(--color-text-primary)]" title={card.value}>{card.value}</div>
+          <div className="mt-0.5 truncate text-[11px] text-[var(--color-text-tertiary)]">{card.detail}</div>
+        </div>
+      ))}
+    </div>
   );
 }
 
@@ -623,12 +706,17 @@ export default function OGImageGeneratorClient() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
   const [uploadError, setUploadError] = useState("");
+  const [projectMessage, setProjectMessage] = useState("");
+  const [generatedFingerprint, setGeneratedFingerprint] = useState<string>();
 
   useEffect(() => {
     let cancelled = false;
+    const generationInput = input;
+    const fingerprint = createInputFingerprint(generationInput);
     setStatus("generating");
+    setGeneratedFingerprint(undefined);
     setError("");
-    generateOgAssets(input)
+    generateOgAssets(generationInput)
       .then((nextAssets) => {
         if (cancelled) {
           revokeOgAssetUrls(nextAssets);
@@ -638,6 +726,7 @@ export default function OGImageGeneratorClient() {
           revokeOgAssetUrls(current);
           return nextAssets;
         });
+        setGeneratedFingerprint(fingerprint);
         setStatus("ready");
       })
       .catch((generationError) => {
@@ -646,6 +735,7 @@ export default function OGImageGeneratorClient() {
           revokeOgAssetUrls(current);
           return [];
         });
+        setGeneratedFingerprint(undefined);
         setError(generationError instanceof Error ? generationError.message : "Unable to generate preview.");
         setStatus("error");
       });
@@ -661,20 +751,50 @@ export default function OGImageGeneratorClient() {
   const nextSnippet = useMemo(() => createNextMetadataSnippet(input), [input]);
   const inputWarnings = validateOgInput(input);
   const generatedWarnings = validateGeneratedAssets(assets);
+  const productionChecks = createOgProductionChecks(input, assets, generatedFingerprint);
+  const currentFingerprint = createInputFingerprint(input);
+  const packageIsCurrent = status === "ready" && generatedFingerprint === currentFingerprint;
+
+  function exportProject() {
+    const blob = new Blob([createOgProjectJson(input)], { type: "application/json;charset=utf-8" });
+    downloadBlobFile({ blob, filename: "darma-og-image-project.json" });
+    setProjectMessage("Settings project exported. Uploaded images were intentionally excluded.");
+  }
+
+  async function importProject(file: File) {
+    try {
+      if (file.size <= 0) throw new Error("The selected project file is empty.");
+      if (file.size > MAX_OG_PROJECT_BYTES) throw new Error("Project files must be 1 MB or smaller.");
+      const project = parseOgProjectJson(await file.text());
+      setInput(project.input);
+      setUploadError("");
+      setProjectMessage("Project settings imported. Reattach any logo or background image used by the original design.");
+    } catch (projectError) {
+      setProjectMessage(projectError instanceof Error ? projectError.message : "Unable to import this project file.");
+    }
+  }
+
+  function resetProject() {
+    setInput(DEFAULT_OG_INPUT);
+    setUploadError("");
+    setProjectMessage("Settings reset to the default social preview project.");
+  }
 
   async function downloadZip() {
+    if (!packageIsCurrent) return;
     const zip = await createZipArchive(assets);
     downloadBlobFile({ blob: zip, filename: `darma-og-image-${input.exportPack}.zip` });
   }
 
   function downloadPrimary() {
-    if (!assets.length || status !== "ready") return;
+    if (!assets.length || !packageIsCurrent) return;
     const primary = assets.find((asset) => asset.filename.endsWith("opengraph-image.png") || asset.filename.endsWith("og-image.png")) ?? assets.find((asset) => asset.kind === "image");
     if (primary) downloadBlobFile({ blob: primary.blob, filename: primary.filename.split("/").pop() ?? primary.filename });
   }
 
   const controls = (
     <div className="space-y-4">
+      <ProjectControls message={projectMessage} onExport={exportProject} onImport={importProject} onReset={resetProject} />
       <QuickPresets setInput={setInput} />
       <ContentControls input={input} setInput={setInput} />
       <AssetControls input={input} setInput={setInput} uploadError={uploadError} setUploadError={setUploadError} />
@@ -686,9 +806,11 @@ export default function OGImageGeneratorClient() {
 
   const preview = (
     <div className="space-y-4">
+      <ProductionSummary input={input} assets={assets} generatedFingerprint={generatedFingerprint} />
       <MainPreview previewUrl={primaryPreview} status={status} input={input} />
       {error ? <WarningPanel messages={[{ id: "generation-error", severity: "danger", title: "Generation failed", message: error }]} /> : null}
       <PlatformPreview previewUrl={primaryPreview} input={input} />
+      <WarningPanel title="Production checks" messages={mapAuditChecks(productionChecks)} />
       <ReadinessPanel input={input} assets={assets} />
       <GeneratedFiles assets={assets} />
       <WarningPanel title="Export self-check" messages={mapWarnings(generatedWarnings)} />
@@ -722,8 +844,9 @@ export default function OGImageGeneratorClient() {
         Current pack: <strong className="text-[var(--color-text-primary)]">{EXPORT_PACKS.find((pack) => pack.id === input.exportPack)?.label}</strong> · {assets.length} files
       </div>
       <div className="flex flex-wrap gap-2">
-        <Button variant="secondary" leftIcon={<Download className="h-4 w-4" />} onClick={downloadPrimary} disabled={!assets.length || status !== "ready"}>Download PNG</Button>
-        <Button variant="primary" leftIcon={<FileArchive className="h-4 w-4" />} onClick={downloadZip} disabled={!assets.length || status !== "ready"}>Download ZIP</Button>
+        <Button variant="secondary" leftIcon={<FileJson className="h-4 w-4" />} onClick={exportProject}>Project JSON</Button>
+        <Button variant="secondary" leftIcon={<Download className="h-4 w-4" />} onClick={downloadPrimary} disabled={!assets.length || !packageIsCurrent}>Download PNG</Button>
+        <Button variant="primary" leftIcon={<FileArchive className="h-4 w-4" />} onClick={downloadZip} disabled={!assets.length || !packageIsCurrent}>Download ZIP</Button>
       </div>
     </div>
   );

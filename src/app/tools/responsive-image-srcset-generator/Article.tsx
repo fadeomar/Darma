@@ -1,57 +1,48 @@
 export default function Article() {
   return (
     <article className="prose prose-slate max-w-none dark:prose-invert">
-      <h2>What are responsive images?</h2>
+      <h2>Responsive images are a delivery contract</h2>
       <p>
-        Responsive images let the browser choose an image file that fits the user&apos;s layout, viewport, and device pixel ratio. Instead of shipping one oversized file to every device, you provide multiple candidates and describe how wide the image will be rendered.
+        A responsive image combines source assets, layout information, and loading hints. The <code>srcset</code> candidates describe the files that exist, while <code>sizes</code> describes the width of the rendered slot. Browsers use both values, together with device pixel ratio and their own network heuristics, to choose a resource.
       </p>
 
-      <h2>What srcset does</h2>
+      <h2>Plan useful width candidates</h2>
       <p>
-        The <code>srcset</code> attribute lists image candidates. Width descriptors such as <code>400w</code>, <code>800w</code>, and <code>1200w</code> tell the browser the intrinsic width of each file. The browser can then pick a candidate that is close to the image slot it needs.
+        Width descriptors such as <code>400w</code>, <code>800w</code>, and <code>1200w</code> represent intrinsic file widths. A practical set should cover the smallest real slot and the largest high-DPR requirement without creating dozens of nearly identical assets. Duplicate width descriptors are ambiguous and should be removed.
       </p>
 
-      <h2>What sizes does</h2>
+      <h2>Keep sizes aligned with CSS</h2>
       <p>
-        The <code>sizes</code> attribute describes the rendered slot size at different viewport widths. For example, a card image may be <code>100vw</code> on mobile, <code>50vw</code> on tablet, and <code>33vw</code> in a desktop grid. Good <code>sizes</code> values are the difference between useful responsive images and accidentally downloading files that are too large.
+        The <code>sizes</code> attribute is not a list of file sizes. It is a media-condition map for the image&apos;s rendered width. If a card is full width on mobile, half width on tablet, and one third on desktop, the sizes rules should express that same layout. An inaccurate value can make the browser download an image that is much larger than the visible slot.
       </p>
 
-      <h2>Width descriptors vs density descriptors</h2>
+      <h2>Use picture for format fallback or art direction</h2>
       <p>
-        Width descriptors are best for fluid layouts because the image slot can change. Density descriptors such as <code>1x</code> and <code>2x</code> are simpler and can work well for fixed-size icons or avatars, but width descriptors plus <code>sizes</code> are usually better for responsive cards, heroes, and content images.
+        A normal <code>&lt;img&gt;</code> with <code>srcset</code> is enough for most fluid layouts. Use <code>&lt;picture&gt;</code> when you need AVIF or WebP sources before a fallback, or when mobile and desktop need different crops. Every source still needs a valid candidate set and, when appropriate, its own media condition.
       </p>
 
-      <h2>When to use picture</h2>
-      <p>
-        Use the <code>&lt;picture&gt;</code> element when you need art direction or format fallback. Art direction means serving different crops for different conditions. Format fallback means offering AVIF or WebP first while keeping a JPG or PNG fallback inside the final <code>&lt;img&gt;</code> element.
-      </p>
-
-      <h2>How to use responsive images in Next.js</h2>
-      <p>
-        Next.js <code>&lt;Image&gt;</code> still needs a thoughtful <code>sizes</code> value when the image is responsive. Without a useful <code>sizes</code> value, the generated candidates may not match the actual layout as well as they could. Treat <code>sizes</code> as the contract between your CSS layout and the image optimizer.
-      </p>
-
-      <h2>Performance and accessibility tips</h2>
+      <h2>Loading and layout stability</h2>
       <ul>
-        <li>Add <code>width</code> and <code>height</code> so the browser can reserve space and reduce layout shift.</li>
-        <li>Write descriptive <code>alt</code> text unless the image is decorative.</li>
-        <li>Use <code>loading=&quot;lazy&quot;</code> for most below-the-fold images.</li>
-        <li>Use <code>loading=&quot;eager&quot;</code> and high fetch priority only for important above-the-fold images.</li>
-        <li>Keep candidate sets practical. Three to six useful widths are often easier to maintain than a very long list.</li>
+        <li>Provide intrinsic width and height so the browser can reserve the correct aspect ratio.</li>
+        <li>Use lazy loading for most below-the-fold images.</li>
+        <li>Use eager loading and high fetch priority only for an important above-the-fold image.</li>
+        <li>Write useful alternative text for meaningful content; use an empty value only for decorative images.</li>
       </ul>
 
-      <h2>Privacy note</h2>
+      <h2>Next.js Image behavior</h2>
       <p>
-        This generator works in your browser. It creates markup from the URLs, sizes, and attributes you enter without uploading image files or sending generation data to a server route.
+        Next.js generates its own optimized candidate URLs, so the exported component does not copy the manual <code>srcset</code>. The important handoff is the source image, intrinsic dimensions, loading hints, and an accurate <code>sizes</code> value that matches the component&apos;s real layout.
       </p>
 
-      <h2>FAQ</h2>
-      <h3>Does the browser always choose the exact candidate shown by the analyzer?</h3>
-      <p>No. The analyzer is an educational estimate. Real browsers can also consider caching, network conditions, and supported image formats.</p>
-      <h3>Should I always use picture?</h3>
-      <p>No. Use a normal <code>&lt;img&gt;</code> with <code>srcset</code> and <code>sizes</code> for most responsive images. Use <code>&lt;picture&gt;</code> when you need format fallback or different crops.</p>
-      <h3>What is the most common mistake?</h3>
-      <p>The most common mistake is adding <code>srcset</code> but leaving out a correct <code>sizes</code> value. That can make browsers assume the image is much wider than it really is.</p>
+      <h2>Production verification</h2>
+      <p>
+        Treat the analyzer as a planning estimate. Before shipping, serve real files, inspect network requests at several viewports, test at high device pixel ratio, disable cache, and verify the fallback when a modern format is unavailable. The production report records candidate coverage, syntax warnings, accessibility checks, and the current readiness state.
+      </p>
+
+      <h2>Private, reopenable projects</h2>
+      <p>
+        Project JSON stores URLs, candidate widths, sizes rules, attributes, picture sources, preview settings, and export preferences. It does not fetch or upload image files. Import is validated and limited to 1 MB, and all generation remains in the browser.
+      </p>
     </article>
   );
 }

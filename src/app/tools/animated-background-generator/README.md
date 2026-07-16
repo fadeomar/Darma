@@ -1,71 +1,81 @@
-# Animated Background Generator
+# Animated Background Production Studio
 
-Generate animated particle backgrounds — pick a preset, tune speed, colors, size, and blend mode, then copy the ready-to-use CSS + HTML.
+Create deterministic animated CSS backgrounds, preview them behind real interface content, audit motion and paint cost, save a reopenable project, and export a complete production package.
 
 ## Privacy
 
-`local-only` — all CSS and HTML is generated in the browser from configuration state. No data is sent anywhere.
+The tool is local-only. Project parsing, particle generation, previews, reports, and ZIP assembly happen in the browser. No configuration or generated code is uploaded.
 
-## Logic
+## Core workflow
 
-The generator is composed of three layers:
+1. Start from a production preset.
+2. Tune colors, density, size, speed, intensity, blur, glow, blend mode, and gradient style.
+3. Preview the result behind hero, card, or dashboard content.
+4. Review the four summary cards and severity-based production checks.
+5. Export individual code snippets, a project JSON, reports, or the complete ZIP.
 
-### 1. `lib/seededRandom.ts`
+## Project format
 
-```ts
-createSeededRandom(seed: number): () => number
-randomBetween(random, min, max): number
+The reopenable JSON format uses:
+
+```json
+{
+  "tool": "darma-animated-background-generator",
+  "schemaVersion": 1,
+  "exportedAt": "2026-07-14T00:00:00.000Z",
+  "state": {}
+}
 ```
 
-A simple 32-bit linear congruential PRNG (Park-Miller). Given the same seed it always produces the same sequence — making particle layouts deterministic and reproducible.
+Import rules:
 
-### 2. `lib/generateParticleData.ts`
+- Maximum file size: 1 MB
+- Exact tool and schema-version match required
+- Invalid numbers are clamped to supported ranges
+- Invalid enums and colors fall back to safe defaults
+- Null characters are removed
+- Imported projects always resume with animation running
 
-```ts
-generateParticleData(state: AnimatedBackgroundState): ParticleData[]
-```
+## Production ZIP
 
-Produces an array of particle descriptors using the seeded RNG. Count is clamped to [1, 44].  
-Each `ParticleData` has: `id`, `x`, `y`, `size`, `delay`, `duration`, `driftX`, `driftY`, `rotate`, `color`, `opacity`.
+The pack contains:
 
-- **Colors** cycle through `state.colors` using `index % colors.length`
-- **Size** is drawn from [`state.minSize`, `state.maxSize`]
-- **Duration** scales inversely with `state.speed` — higher speed = shorter duration
-- **Drift** range scales with `state.intensity`
-- **Opacity** is capped at 0.95
+- `index.html`
+- `animated-background.css`
+- `AnimatedBackground.tsx`
+- `animated-background.tokens.json`
+- `animated-background-project.json`
+- `production-report.md`
+- `production-metrics.csv`
+- `README.md`
 
-### 3. `lib/generateCss.ts`
+## Production checks
 
-```ts
-generateCss(state: AnimatedBackgroundState, particles: ParticleData[], options?: { paused?: boolean }): string
-```
+The audit reviews:
 
-Produces a complete CSS block targeting `.darma-animated-bg`:
+- Hex color validity
+- Particle-size ordering
+- DOM density
+- Large blur and glow combinations
+- Estimated performance cost
+- Motion intensity
+- Blend-mode portability
+- Reduced-motion support
+- Readability-preview status
+- Export payload size
+- Manual device verification
 
-- **Background layers** — `radial-gradient` mesh/linear/radial pattern from the state's colors, with optional grid lines for cyber/matrix presets
-- **Per-particle CSS** — `nth-child(n)` rules with position, size, opacity, blur, glow (`drop-shadow`), blend mode, animation duration, and drift CSS variables
-- **`@keyframes darma-float`** — translates by `--drift-x`/`--drift-y` and scales 0.92 → 1.08
-- **Preset extras** — special `::after` animations for neon-waves, cyber-grid, matrix-rain, starlight-drift, sunset-ribbons, and neural-glow presets
-- **`prefers-reduced-motion`** — disables all animations when the user has requested reduced motion
+## Implementation
 
-#### Shape rendering
-
-| `state.shape` | CSS |
-|---|---|
-| `"circle"` | `border-radius: 999px` |
-| `"soft-square"` | `border-radius: <borderRadius>%` |
-| `"diamond"` | `border-radius: <borderRadius>%; transform: rotate(45deg)` |
-
-### 4. `lib/generateHtml.ts`
-
-Generates the matching HTML scaffold (`<div class="darma-animated-bg">` with `<span>` children for each particle).
-
-### 5. `lib/presets.ts`
-
-Defines the preset library — each preset is a partial `AnimatedBackgroundState` merged over sensible defaults.
+- `lib/seededRandom.ts`: deterministic pseudo-random number generation
+- `lib/generateParticleData.ts`: particle positions, sizes, timing, drift, color, and opacity
+- `lib/generateCss.ts`: scoped CSS, keyframes, preset-specific layers, and reduced-motion fallback
+- `lib/generateHtml.ts`: matching particle markup
+- `lib/studio.ts`: project validation, metrics, audit, reports, and production files
+- `lib/zip.ts`: dependency-free stored ZIP creation and verification
 
 ## Tests
 
-`lib/generateParticleData.test.ts` — 21 tests covering:
-- `generateParticleData`: count, clamping, determinism, different seeds, sequential IDs, color cycling, size bounds, opacity cap
-- `generateCss`: non-empty output, `.darma-animated-bg` selector, `animation-play-state`, `@keyframes darma-float`, `prefers-reduced-motion`, nth-child per particle, shape CSS, blend mode
+- `lib/generateParticleData.test.ts`: deterministic generation, bounds, CSS, HTML, and reduced motion
+- `lib/studio.test.ts`: normalization, project import, readiness, metrics, and production checks
+- `lib/studio.export.test.ts`: generated files and ZIP round-trip

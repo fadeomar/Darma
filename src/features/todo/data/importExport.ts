@@ -1,14 +1,12 @@
-import { TODO_EXPORT_VERSION } from "../domain/constants";
+import { TODO_EXPORT_TOOL, TODO_EXPORT_VERSION, TODO_IMPORT_MAX_BYTES } from "../domain/constants";
 import { validateImportData } from "../domain/schema";
 import type { BoardColumn, Task, TodoExportBundle, TodoList } from "../domain/types";
 import {
-  bulkPutColumns,
-  bulkPutTasks,
   getAllColumns,
   getAllTasks,
 } from "./repositories/tasksRepository";
-import { bulkPutLists, getAllLists } from "./repositories/listsRepository";
-import { clearTodoDatabase, seedDatabaseIfEmpty } from "./todoDb";
+import { getAllStoredLists } from "./repositories/listsRepository";
+import { mergeTodoDatabase, replaceTodoDatabase, seedDatabaseIfEmpty } from "./todoDb";
 
 export type ImportMode = "replace" | "merge" | "merge-skip-duplicates";
 
@@ -17,8 +15,9 @@ export type ImportMode = "replace" | "merge" | "merge-skip-duplicates";
  * ------------------------------------------------------------------ */
 
 export async function exportTodoData(): Promise<TodoExportBundle> {
-  const [lists, tasks, columns] = await Promise.all([getAllLists(), getAllTasks(), getAllColumns()]);
+  const [lists, tasks, columns] = await Promise.all([getAllStoredLists(), getAllTasks(), getAllColumns()]);
   return {
+    tool: TODO_EXPORT_TOOL,
     version: TODO_EXPORT_VERSION,
     exportedAt: new Date().toISOString(),
     lists,
@@ -34,9 +33,10 @@ export async function exportTodoJson(): Promise<string> {
 
 /** Export a single list (with its tasks and columns) as a valid import bundle. */
 export async function exportListJson(listId: string): Promise<string> {
-  const [lists, tasks, columns] = await Promise.all([getAllLists(), getAllTasks(), getAllColumns()]);
+  const [lists, tasks, columns] = await Promise.all([getAllStoredLists(), getAllTasks(), getAllColumns()]);
   const list = lists.find((l) => l.id === listId);
   const bundle: TodoExportBundle = {
+    tool: TODO_EXPORT_TOOL,
     version: TODO_EXPORT_VERSION,
     exportedAt: new Date().toISOString(),
     lists: list ? [list] : [],
@@ -196,6 +196,9 @@ export function summarizeImport(raw: unknown, existingLists: TodoList[] = [], ex
 }
 
 export function summarizeImportJson(json: string, existingLists: TodoList[] = [], existingTasks: Task[] = []): ImportSummary {
+  if (new TextEncoder().encode(json).length > TODO_IMPORT_MAX_BYTES) {
+    return { ok: false, error: `Import file exceeds ${Math.round(TODO_IMPORT_MAX_BYTES / 1024 / 1024)} MB` };
+  }
   try {
     return summarizeImport(JSON.parse(json) as unknown, existingLists, existingTasks);
   } catch {
@@ -258,7 +261,7 @@ export async function importTodoData(raw: unknown, mode: ImportMode = "replace")
 
   if (mode === "merge" || mode === "merge-skip-duplicates") {
     if (mode === "merge-skip-duplicates") {
-      const existingLists = await getAllLists();
+      const existingLists = await getAllStoredLists();
       const filtered = removeLikelyDuplicateLists(lists, tasks, columns, existingLists);
       lists = filtered.lists;
       tasks = filtered.tasks;
@@ -269,14 +272,9 @@ export async function importTodoData(raw: unknown, mode: ImportMode = "replace")
     lists = remapped.lists;
     tasks = remapped.tasks;
     columns = remapped.columns;
-    await bulkPutLists(lists);
-    await bulkPutColumns(columns);
-    await bulkPutTasks(tasks);
+    await mergeTodoDatabase({ lists, tasks, columns });
   } else {
-    await clearTodoDatabase();
-    await bulkPutLists(lists);
-    await bulkPutColumns(columns);
-    await bulkPutTasks(tasks);
+    await replaceTodoDatabase({ lists, tasks, columns });
     if (lists.length === 0) await seedDatabaseIfEmpty();
   }
 
@@ -292,6 +290,9 @@ export async function importTodoData(raw: unknown, mode: ImportMode = "replace")
 }
 
 export async function importTodoJson(json: string, mode: ImportMode = "replace"): Promise<ImportResult> {
+  if (new TextEncoder().encode(json).length > TODO_IMPORT_MAX_BYTES) {
+    return { ok: false, error: `Import file exceeds ${Math.round(TODO_IMPORT_MAX_BYTES / 1024 / 1024)} MB` };
+  }
   try {
     const parsed = JSON.parse(json) as unknown;
     return importTodoData(parsed, mode);

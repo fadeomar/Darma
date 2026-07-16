@@ -29,7 +29,7 @@ export default function OGImageGeneratorPage() {
       maxWidth="wide"
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Design Open Graph images, Twitter/X cards, LinkedIn previews, Discord/Slack unfurls, Next.js metadata snippets, and export-ready social preview packages locally in your browser.
+          Design, audit, save, reopen, and export Open Graph images, Twitter/X cards, Next.js metadata, social previews, and production handoff files locally in your browser.
         </p>
       }
       article={
@@ -39,7 +39,7 @@ export default function OGImageGeneratorPage() {
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="OG Image / Social Preview Generator" description="Create share-ready 1200×630 preview images with platform previews, metadata snippets, validation checks, and ZIP export.">
+      <ToolContentCard title="Open Graph Image Production Studio" description="Create share-ready 1200×630 previews with project import, contrast and readiness checks, metadata snippets, reports, and complete ZIP export.">
         <OGImageGeneratorClient />
       </ToolContentCard>
     </ToolPage>

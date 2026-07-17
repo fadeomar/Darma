@@ -239,6 +239,39 @@
     }
   },
   {
+    "id": "three-dots-bricks",
+    "name": "Bricks Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "bricks",
+      "square",
+      "shift",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false,
+      "popular": false
+    },
+    "searchText": "three-dots-bricks bricks dots dots three-dots three dots dots bricks square shift three-dots html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-three-dots-bricks\"><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-three-dots-bricks{\n  --td-dot: calc(var(--loader-size, 56px) / 5.6);\n  --td-gap: calc(var(--loader-size, 56px) / 12);\n  display:inline-flex;\n  align-items:center;\n  justify-content:center;\n  gap:var(--td-gap);\n  width:var(--loader-size, 56px);\n  height:var(--loader-size, 56px);\n}\n.darma-loader-three-dots-bricks i{\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:var(--loader-color, #6366f1);\n}\n.darma-loader-three-dots-bricks i{border-radius:calc(var(--loader-size, 56px) / 28);animation:darma-loader-three-dots-bricks-td-bricks var(--loader-speed, 2s) infinite ease}\n.darma-loader-three-dots-bricks i:nth-child(2){animation-delay:calc(var(--loader-speed, 2s) / 4)}\n.darma-loader-three-dots-bricks i:nth-child(3){animation-delay:calc(var(--loader-speed, 2s) / 2)}\n@keyframes darma-loader-three-dots-bricks-td-bricks{\n  0%,100%{transform:translateY(0)}\n  25%{transform:translateY(calc(var(--td-dot) * -1))}\n  50%{transform:translateY(0)}\n}",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 56,
+      "speed": 2,
+      "background": "#ffffff"
+    }
+  },
+  {
     "id": "uiverse-bubblegum-trio",
     "name": "Bubblegum Trio",
     "category": "dots",
@@ -307,6 +340,38 @@
     }
   },
   {
+    "id": "three-dots-carousel",
+    "name": "Carousel Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "carousel",
+      "slide",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false,
+      "popular": false
+    },
+    "searchText": "three-dots-carousel carousel dots dots three-dots three dots dots carousel slide three-dots html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-three-dots-carousel\"><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-three-dots-carousel{\n  --td-dot: calc(var(--loader-size, 56px) / 5.6);\n  --td-gap: calc(var(--loader-size, 56px) / 12);\n  display:inline-flex;\n  align-items:center;\n  justify-content:center;\n  gap:var(--td-gap);\n  width:var(--loader-size, 56px);\n  height:var(--loader-size, 56px);\n}\n.darma-loader-three-dots-carousel i{\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:var(--loader-color, #6366f1);\n}\n.darma-loader-three-dots-carousel i{animation:darma-loader-three-dots-carousel-td-carousel var(--loader-speed, 2s) infinite ease}\n.darma-loader-three-dots-carousel i:nth-child(2){animation-delay:calc(var(--loader-speed, 2s) / -3)}\n.darma-loader-three-dots-carousel i:nth-child(3){animation-delay:calc(var(--loader-speed, 2s) / -1.5)}\n@keyframes darma-loader-three-dots-carousel-td-carousel{\n  0%{transform:translateX(0) scale(.6);opacity:0}\n  20%,80%{opacity:1}\n  50%{transform:translateX(calc(var(--loader-size, 56px) / 3)) scale(1)}\n  100%{transform:translateX(calc(var(--loader-size, 56px) / 1.5)) scale(.6);opacity:0}\n}",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 56,
+      "speed": 2,
+      "background": "#ffffff"
+    }
+  },
+  {
     "id": "demo-dots",
     "name": "Classic Dots",
     "category": "dots",
@@ -371,6 +436,39 @@
       "secondaryColor": "#c084fc",
       "size": 60,
       "speed": 1,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "three-dots-collision",
+    "name": "Collision Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "collision",
+      "bounce",
+      "single-element",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true,
+      "popular": false
+    },
+    "searchText": "three-dots-collision collision dots dots three-dots three dots dots collision bounce single-element three-dots html css react cssonly customizable singleelement",
+    "previewHtml": "<span class=\"darma-loader-three-dots-collision\"></span>",
+    "previewCss": ".darma-loader-three-dots-collision{\n  --td-dot: calc(var(--loader-size, 56px) / 5.6);\n  --td-gap: calc(var(--loader-size, 56px) / 3.7);\n  position:relative;\n  display:inline-block;\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:var(--loader-color, #6366f1);\n}\n.darma-loader-three-dots-collision::before,\n.darma-loader-three-dots-collision::after{\n  content:\"\";\n  position:absolute;\n  top:0;\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:inherit;\n}\n.darma-loader-three-dots-collision::before{left:calc(var(--td-gap) * -1);}\n.darma-loader-three-dots-collision::after{left:var(--td-gap);}\n.darma-loader-three-dots-collision::before{animation:darma-loader-three-dots-collision-td-collision-before var(--loader-speed, 0.6s) infinite ease-in-out;}\n.darma-loader-three-dots-collision::after{animation:darma-loader-three-dots-collision-td-collision-after var(--loader-speed, 0.6s) infinite ease-in-out;}\n@keyframes darma-loader-three-dots-collision-td-collision-before{\n  0%,50%,100%{transform:translateX(0)}\n  25%{transform:translateX(calc(var(--td-gap) * 0.72))}\n}\n@keyframes darma-loader-three-dots-collision-td-collision-after{\n  0%,50%,100%{transform:translateX(0)}\n  25%{transform:translateX(calc(var(--td-gap) * -0.72))}\n}",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 56,
+      "speed": 0.6,
       "background": "#ffffff"
     }
   },
@@ -1474,6 +1572,38 @@
     }
   },
   {
+    "id": "three-dots-elastic",
+    "name": "Elastic Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "elastic",
+      "stretch",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false,
+      "popular": false
+    },
+    "searchText": "three-dots-elastic elastic dots dots three-dots three dots dots elastic stretch three-dots html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-three-dots-elastic\"><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-three-dots-elastic{\n  --td-dot: calc(var(--loader-size, 56px) / 5.6);\n  --td-gap: calc(var(--loader-size, 56px) / 12);\n  display:inline-flex;\n  align-items:center;\n  justify-content:center;\n  gap:var(--td-gap);\n  width:var(--loader-size, 56px);\n  height:var(--loader-size, 56px);\n}\n.darma-loader-three-dots-elastic i{\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:var(--loader-color, #6366f1);\n}\n.darma-loader-three-dots-elastic i{animation:darma-loader-three-dots-elastic-td-elastic var(--loader-speed, 1s) infinite linear;transform-origin:center}\n.darma-loader-three-dots-elastic i:nth-child(2){animation-delay:calc(var(--loader-speed, 1s) / 4)}\n.darma-loader-three-dots-elastic i:nth-child(3){animation-delay:calc(var(--loader-speed, 1s) / 2)}\n@keyframes darma-loader-three-dots-elastic-td-elastic{\n  0%,100%{transform:scaleY(1)}\n  25%{transform:scaleY(1.6)}\n  50%{transform:scaleY(0.7)}\n  75%{transform:scaleY(1)}\n}",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 56,
+      "speed": 1,
+      "background": "#ffffff"
+    }
+  },
+  {
     "id": "uiverse-ember-bounce-row",
     "name": "Ember Bounce Row",
     "category": "dots",
@@ -1584,6 +1714,71 @@
     }
   },
   {
+    "id": "three-dots-falling",
+    "name": "Falling Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "falling",
+      "drop",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false,
+      "popular": false
+    },
+    "searchText": "three-dots-falling falling dots dots three-dots three dots dots falling drop three-dots html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-three-dots-falling\"><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-three-dots-falling{\n  --td-dot: calc(var(--loader-size, 56px) / 5.6);\n  --td-gap: calc(var(--loader-size, 56px) / 12);\n  display:inline-flex;\n  align-items:center;\n  justify-content:center;\n  gap:var(--td-gap);\n  width:var(--loader-size, 56px);\n  height:var(--loader-size, 56px);\n}\n.darma-loader-three-dots-falling i{\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:var(--loader-color, #6366f1);\n}\n.darma-loader-three-dots-falling i{animation:darma-loader-three-dots-falling-td-falling var(--loader-speed, 1s) infinite linear}\n.darma-loader-three-dots-falling i:nth-child(2){animation-delay:calc(var(--loader-speed, 1s) / 5)}\n.darma-loader-three-dots-falling i:nth-child(3){animation-delay:calc(var(--loader-speed, 1s) / 2.5)}\n@keyframes darma-loader-three-dots-falling-td-falling{\n  0%{transform:translateY(calc(var(--loader-size, 56px) / -3));opacity:0}\n  25%,75%{opacity:1}\n  100%{transform:translateY(calc(var(--loader-size, 56px) / 3));opacity:0}\n}",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 56,
+      "speed": 1,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "three-dots-fire",
+    "name": "Fire Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "fire",
+      "rise",
+      "fade",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false,
+      "popular": false
+    },
+    "searchText": "three-dots-fire fire dots dots three-dots three dots dots fire rise fade three-dots html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-three-dots-fire\"><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-three-dots-fire{\n  --td-dot: calc(var(--loader-size, 56px) / 5.6);\n  --td-gap: calc(var(--loader-size, 56px) / 12);\n  display:inline-flex;\n  align-items:center;\n  justify-content:center;\n  gap:var(--td-gap);\n  width:var(--loader-size, 56px);\n  height:var(--loader-size, 56px);\n}\n.darma-loader-three-dots-fire i{\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:var(--loader-color, #6366f1);\n}\n.darma-loader-three-dots-fire{position:relative}\n.darma-loader-three-dots-fire i{position:absolute;animation:darma-loader-three-dots-fire-td-fire var(--loader-speed, 1.5s) infinite ease-out}\n.darma-loader-three-dots-fire i:nth-child(2){animation-delay:calc(var(--loader-speed, 1.5s) / 3)}\n.darma-loader-three-dots-fire i:nth-child(3){animation-delay:calc(var(--loader-speed, 1.5s) / 1.5)}\n@keyframes darma-loader-three-dots-fire-td-fire{\n  0%{transform:translateY(calc(var(--loader-size, 56px) / 3)) scale(1);opacity:1}\n  100%{transform:translateY(calc(var(--loader-size, 56px) / -3)) scale(.3);opacity:0}\n}",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 56,
+      "speed": 1.5,
+      "background": "#ffffff"
+    }
+  },
+  {
     "id": "uiverse-firefly-square-grid",
     "name": "Firefly Square Grid",
     "category": "dots",
@@ -1652,6 +1847,40 @@
     }
   },
   {
+    "id": "three-dots-flashing",
+    "name": "Flashing Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "flashing",
+      "colour",
+      "single-element",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true,
+      "popular": false
+    },
+    "searchText": "three-dots-flashing flashing dots dots three-dots three dots dots flashing colour single-element three-dots html css react cssonly customizable singleelement",
+    "previewHtml": "<span class=\"darma-loader-three-dots-flashing\"></span>",
+    "previewCss": ".darma-loader-three-dots-flashing{\n  --td-dot: calc(var(--loader-size, 56px) / 5.6);\n  --td-gap: calc(var(--loader-size, 56px) / 3.7);\n  position:relative;\n  display:inline-block;\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:var(--loader-color, #6366f1);\n  animation:darma-loader-three-dots-flashing-td-flash var(--loader-speed, 1s) infinite linear alternate;animation-delay:calc(var(--loader-speed, 1s) / 2);\n}\n.darma-loader-three-dots-flashing::before,\n.darma-loader-three-dots-flashing::after{\n  content:\"\";\n  position:absolute;\n  top:0;\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:inherit;\n}\n.darma-loader-three-dots-flashing::before{left:calc(var(--td-gap) * -1);}\n.darma-loader-three-dots-flashing::after{left:var(--td-gap);}\n.darma-loader-three-dots-flashing::before{animation:darma-loader-three-dots-flashing-td-flash var(--loader-speed, 1s) infinite linear alternate;animation-delay:0s;background-color:var(--loader-color, #6366f1)}\n.darma-loader-three-dots-flashing::after{animation:darma-loader-three-dots-flashing-td-flash var(--loader-speed, 1s) infinite linear alternate;animation-delay:var(--loader-speed, 1s);background-color:var(--loader-color, #6366f1)}\n@keyframes darma-loader-three-dots-flashing-td-flash{\n  0%{background-color:var(--loader-color, #6366f1)}\n  50%,100%{background-color:var(--loader-secondary-color, #a5b4fc)}\n}",
+    "defaults": {
+      "color": "#6366f1",
+      "secondaryColor": "#a5b4fc",
+      "size": 56,
+      "speed": 1,
+      "background": "#ffffff"
+    }
+  },
+  {
     "id": "darma-custom-184",
     "name": "Flip Orbit Dots",
     "category": "dots",
@@ -1686,6 +1915,39 @@
       "secondaryColor": "#34d399",
       "size": 64,
       "speed": 1,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "three-dots-floating",
+    "name": "Floating Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "floating",
+      "drift",
+      "calm",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false,
+      "popular": false
+    },
+    "searchText": "three-dots-floating floating dots dots three-dots three dots dots floating drift calm three-dots html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-three-dots-floating\"><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-three-dots-floating{\n  --td-dot: calc(var(--loader-size, 56px) / 5.6);\n  --td-gap: calc(var(--loader-size, 56px) / 12);\n  display:inline-flex;\n  align-items:center;\n  justify-content:center;\n  gap:var(--td-gap);\n  width:var(--loader-size, 56px);\n  height:var(--loader-size, 56px);\n}\n.darma-loader-three-dots-floating i{\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:var(--loader-color, #6366f1);\n}\n.darma-loader-three-dots-floating i{animation:darma-loader-three-dots-floating-td-floating var(--loader-speed, 3s) infinite ease-in-out}\n.darma-loader-three-dots-floating i:nth-child(2){animation-delay:calc(var(--loader-speed, 3s) / 12)}\n.darma-loader-three-dots-floating i:nth-child(3){animation-delay:calc(var(--loader-speed, 3s) / 6)}\n@keyframes darma-loader-three-dots-floating-td-floating{\n  0%,100%{transform:translateY(0)}\n  50%{transform:translateY(calc(var(--td-dot) * -0.8))}\n}",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 56,
+      "speed": 3,
       "background": "#ffffff"
     }
   },
@@ -1827,6 +2089,41 @@
       "color": "#f59e0b",
       "size": 72,
       "speed": 2.1
+    }
+  },
+  {
+    "id": "three-dots-hourglass",
+    "name": "Hourglass Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "hourglass",
+      "swap",
+      "vertical",
+      "single-element",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true,
+      "popular": false
+    },
+    "searchText": "three-dots-hourglass hourglass dots dots three-dots three dots dots hourglass swap vertical single-element three-dots html css react cssonly customizable singleelement",
+    "previewHtml": "<span class=\"darma-loader-three-dots-hourglass\"></span>",
+    "previewCss": ".darma-loader-three-dots-hourglass{\n  --td-dot: calc(var(--loader-size, 56px) / 5.6);\n  --td-rise: calc(var(--loader-size, 56px) / 3.5);\n  position:relative;\n  display:inline-block;\n  width:var(--td-dot);\n  height:var(--td-dot);\n}\n.darma-loader-three-dots-hourglass::before,\n.darma-loader-three-dots-hourglass::after{\n  content:\"\";\n  position:absolute;\n  left:0;\n  top:0;\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n}\n.darma-loader-three-dots-hourglass::before{\n  background-color:var(--loader-color, #6366f1);\n  animation:darma-loader-three-dots-hourglass-td-hourglass-up var(--loader-speed, 1.8s) infinite ease-in-out;\n}\n.darma-loader-three-dots-hourglass::after{\n  background-color:var(--loader-secondary-color, #a5b4fc);\n  animation:darma-loader-three-dots-hourglass-td-hourglass-down var(--loader-speed, 1.8s) infinite ease-in-out;\n}\n@keyframes darma-loader-three-dots-hourglass-td-hourglass-up{\n  0%,100%{transform:translateY(calc(var(--td-rise) * -1)) scale(1)}\n  50%{transform:translateY(var(--td-rise)) scale(.7)}\n}\n@keyframes darma-loader-three-dots-hourglass-td-hourglass-down{\n  0%,100%{transform:translateY(var(--td-rise)) scale(.7)}\n  50%{transform:translateY(calc(var(--td-rise) * -1)) scale(1)}\n}",
+    "defaults": {
+      "color": "#6366f1",
+      "secondaryColor": "#a5b4fc",
+      "size": 56,
+      "speed": 1.8,
+      "background": "#ffffff"
     }
   },
   {
@@ -2736,6 +3033,39 @@
     }
   },
   {
+    "id": "three-dots-pulse",
+    "name": "Pulse Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "pulse",
+      "typing",
+      "chat",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false,
+      "popular": false
+    },
+    "searchText": "three-dots-pulse pulse dots dots three-dots three dots dots pulse typing chat three-dots html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-three-dots-pulse\"><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-three-dots-pulse{\n  --td-dot: calc(var(--loader-size, 56px) / 5.6);\n  --td-gap: calc(var(--loader-size, 56px) / 12);\n  display:inline-flex;\n  align-items:center;\n  justify-content:center;\n  gap:var(--td-gap);\n  width:var(--loader-size, 56px);\n  height:var(--loader-size, 56px);\n}\n.darma-loader-three-dots-pulse i{\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:var(--loader-color, #6366f1);\n}\n.darma-loader-three-dots-pulse i{animation:darma-loader-three-dots-pulse-td-pulse var(--loader-speed, 1.5s) infinite linear}\n.darma-loader-three-dots-pulse i:nth-child(2){animation-delay:calc(var(--loader-speed, 1.5s) / 5)}\n.darma-loader-three-dots-pulse i:nth-child(3){animation-delay:calc(var(--loader-speed, 1.5s) / 2.5)}\n@keyframes darma-loader-three-dots-pulse-td-pulse{\n  0%,60%,100%{transform:scale(1);opacity:.45}\n  30%{transform:scale(1.4);opacity:1}\n}",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 56,
+      "speed": 1.5,
+      "background": "#ffffff"
+    }
+  },
+  {
     "id": "uiverse-purple-pulse-batons",
     "name": "Purple Pulse Batons",
     "category": "dots",
@@ -2803,6 +3133,40 @@
       "secondaryColor": "#22d3ee",
       "size": 60,
       "speed": 1,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "three-dots-revolution",
+    "name": "Revolution Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "revolution",
+      "orbit",
+      "single-element",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true,
+      "popular": false
+    },
+    "searchText": "three-dots-revolution revolution dots dots three-dots three dots dots revolution orbit single-element three-dots html css react cssonly customizable singleelement",
+    "previewHtml": "<span class=\"darma-loader-three-dots-revolution\"></span>",
+    "previewCss": ".darma-loader-three-dots-revolution{\n  --td-dot: calc(var(--loader-size, 56px) / 5.6);\n  --td-orbit: calc(var(--loader-size, 56px) / 2.8);\n  position:relative;\n  display:inline-block;\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:var(--loader-color, #6366f1);\n}\n.darma-loader-three-dots-revolution::before{\n  content:\"\";\n  position:absolute;\n  top:50%;\n  left:50%;\n  width:var(--td-dot);\n  height:var(--td-dot);\n  margin:calc(var(--td-dot) / -2) 0 0 calc(var(--td-dot) / -2);\n  border-radius:50%;\n  background-color:var(--loader-secondary-color, #a5b4fc);\n  animation:darma-loader-three-dots-revolution-td-revolution var(--loader-speed, 1.4s) infinite linear;\n}\n@keyframes darma-loader-three-dots-revolution-td-revolution{\n  from{transform:rotate(0deg) translateX(var(--td-orbit))}\n  to{transform:rotate(360deg) translateX(var(--td-orbit))}\n}",
+    "defaults": {
+      "color": "#6366f1",
+      "secondaryColor": "#a5b4fc",
+      "size": 56,
+      "speed": 1.4,
       "background": "#ffffff"
     }
   },
@@ -2991,6 +3355,38 @@
     }
   },
   {
+    "id": "three-dots-stretching",
+    "name": "Stretching Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "stretching",
+      "spread",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false,
+      "popular": false
+    },
+    "searchText": "three-dots-stretching stretching dots dots three-dots three dots dots stretching spread three-dots html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-three-dots-stretching\"><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-three-dots-stretching{\n  --td-dot: calc(var(--loader-size, 56px) / 5.6);\n  --td-gap: calc(var(--loader-size, 56px) / 12);\n  display:inline-flex;\n  align-items:center;\n  justify-content:center;\n  gap:var(--td-gap);\n  width:var(--loader-size, 56px);\n  height:var(--loader-size, 56px);\n}\n.darma-loader-three-dots-stretching i{\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:var(--loader-color, #6366f1);\n}\n.darma-loader-three-dots-stretching i{animation:darma-loader-three-dots-stretching-td-stretch-mid var(--loader-speed, 1.4s) infinite ease-in-out}\n.darma-loader-three-dots-stretching i:nth-child(1){animation-name:darma-loader-three-dots-stretching-td-stretch-left}\n.darma-loader-three-dots-stretching i:nth-child(3){animation-name:darma-loader-three-dots-stretching-td-stretch-right}\n@keyframes darma-loader-three-dots-stretching-td-stretch-left{\n  0%,100%{transform:translateX(0) scale(.75)}\n  50%{transform:translateX(calc(var(--loader-size, 56px) / -6)) scale(1)}\n}\n@keyframes darma-loader-three-dots-stretching-td-stretch-mid{\n  0%,100%{transform:scale(1)}\n  50%{transform:scale(1.25)}\n}\n@keyframes darma-loader-three-dots-stretching-td-stretch-right{\n  0%,100%{transform:translateX(0) scale(.75)}\n  50%{transform:translateX(calc(var(--loader-size, 56px) / 6)) scale(1)}\n}",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 56,
+      "speed": 1.4,
+      "background": "#ffffff"
+    }
+  },
+  {
     "id": "darma-custom-197",
     "name": "Triangle Dot Cycle",
     "category": "dots",
@@ -3132,6 +3528,73 @@
       "color": "#6366f1",
       "size": 48,
       "speed": 1
+    }
+  },
+  {
+    "id": "three-dots-typing",
+    "name": "Typing Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "typing",
+      "chat",
+      "bounce",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false,
+      "popular": false
+    },
+    "searchText": "three-dots-typing typing dots dots three-dots three dots dots typing chat bounce three-dots html css react cssonly customizable",
+    "previewHtml": "<span class=\"darma-loader-three-dots-typing\"><i></i><i></i><i></i></span>",
+    "previewCss": ".darma-loader-three-dots-typing{\n  --td-dot: calc(var(--loader-size, 56px) / 5.6);\n  --td-gap: calc(var(--loader-size, 56px) / 12);\n  display:inline-flex;\n  align-items:center;\n  justify-content:center;\n  gap:var(--td-gap);\n  width:var(--loader-size, 56px);\n  height:var(--loader-size, 56px);\n}\n.darma-loader-three-dots-typing i{\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:var(--loader-color, #6366f1);\n}\n.darma-loader-three-dots-typing i{animation:darma-loader-three-dots-typing-td-typing var(--loader-speed, 1.5s) infinite linear}\n.darma-loader-three-dots-typing i:nth-child(2){animation-delay:calc(var(--loader-speed, 1.5s) / 6)}\n.darma-loader-three-dots-typing i:nth-child(3){animation-delay:calc(var(--loader-speed, 1.5s) / 3)}\n@keyframes darma-loader-three-dots-typing-td-typing{\n  0%,60%,100%{transform:translateY(0)}\n  30%{transform:translateY(calc(var(--td-dot) * -1.1))}\n}",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 56,
+      "speed": 1.5,
+      "background": "#ffffff"
+    }
+  },
+  {
+    "id": "three-dots-windmill",
+    "name": "Windmill Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "windmill",
+      "rotate",
+      "single-element",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true,
+      "popular": false
+    },
+    "searchText": "three-dots-windmill windmill dots dots three-dots three dots dots windmill rotate single-element three-dots html css react cssonly customizable singleelement",
+    "previewHtml": "<span class=\"darma-loader-three-dots-windmill\"></span>",
+    "previewCss": ".darma-loader-three-dots-windmill{\n  --td-dot: calc(var(--loader-size, 56px) / 5.6);\n  --td-arm: calc(var(--loader-size, 56px) / 3.2);\n  position:relative;\n  display:inline-block;\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:var(--loader-color, #6366f1);\n  animation:darma-loader-three-dots-windmill-td-windmill var(--loader-speed, 2s) infinite ease-in-out;\n}\n.darma-loader-three-dots-windmill::before,\n.darma-loader-three-dots-windmill::after{\n  content:\"\";\n  position:absolute;\n  top:0;\n  left:0;\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:var(--loader-secondary-color, #a5b4fc);\n}\n.darma-loader-three-dots-windmill::before{transform:rotate(120deg) translateY(calc(var(--td-arm) * -1))}\n.darma-loader-three-dots-windmill::after{transform:rotate(240deg) translateY(calc(var(--td-arm) * -1))}\n@keyframes darma-loader-three-dots-windmill-td-windmill{\n  0%{transform:rotate(0deg)}\n  50%{transform:rotate(180deg)}\n  100%{transform:rotate(360deg)}\n}",
+    "defaults": {
+      "color": "#6366f1",
+      "secondaryColor": "#a5b4fc",
+      "size": 56,
+      "speed": 2,
+      "background": "#ffffff"
     }
   }
 ]

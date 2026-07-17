@@ -1,0 +1,40 @@
+{
+  "id": "three-dots-windmill",
+  "name": "Windmill Dots",
+  "category": "dots",
+  "tags": [
+    "dots",
+    "windmill",
+    "rotate",
+    "single-element",
+    "three-dots"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader{\n  --td-dot: calc(var(--loader-size, 56px) / 5.6);\n  --td-arm: calc(var(--loader-size, 56px) / 3.2);\n  position:relative;\n  display:inline-block;\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:var(--loader-color, #6366f1);\n  animation:td-windmill var(--loader-speed, 2s) infinite ease-in-out;\n}\n.loader::before,\n.loader::after{\n  content:\"\";\n  position:absolute;\n  top:0;\n  left:0;\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:var(--loader-secondary-color, #a5b4fc);\n}\n.loader::before{transform:rotate(120deg) translateY(calc(var(--td-arm) * -1))}\n.loader::after{transform:rotate(240deg) translateY(calc(var(--td-arm) * -1))}\n@keyframes td-windmill{\n  0%{transform:rotate(0deg)}\n  50%{transform:rotate(180deg)}\n  100%{transform:rotate(360deg)}\n}",
+  "source": {
+    "name": "three-dots",
+    "author": "Zongbin (nzbin)",
+    "license": "MIT",
+    "url": "https://github.com/nzbin/three-dots"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "secondaryColor": "#a5b4fc",
+    "size": 56,
+    "speed": 2,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": true,
+    "popular": false
+  }
+}

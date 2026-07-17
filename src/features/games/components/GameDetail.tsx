@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {
   ArrowLeft,
+  BookOpen,
   CheckCircle2,
   ChevronRight,
   Clock3,
@@ -251,6 +252,52 @@ export function GameDetail({ game, allGames }: { game: GameDefinition; allGames:
           </p>
         </InfoCard>
       </div>
+
+      {game.credits ? (
+        <div className="mt-6">
+          <InfoCard icon={BookOpen} title="Credits and licence">
+            <p>
+              <span className="font-bold text-[var(--color-text-primary)]">{game.title}</span> was created by{" "}
+              {game.credits.authorUrl ? (
+                <a
+                  href={game.credits.authorUrl}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="font-bold text-[var(--color-primary)] underline underline-offset-2"
+                >
+                  {game.credits.author}
+                </a>
+              ) : (
+                <span className="font-bold text-[var(--color-text-primary)]">{game.credits.author}</span>
+              )}
+              {game.credits.additional?.map((entry) => (
+                <span key={`${entry.role}-${entry.name}`}>
+                  {" · "}
+                  {entry.role}: {entry.name}
+                </span>
+              ))}
+              .
+            </p>
+            <p className="mt-2">{game.credits.integrationNote}</p>
+            <p className="mt-2">
+              Licensed under{" "}
+              {game.credits.licenseUrl ? (
+                <a
+                  href={game.credits.licenseUrl}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="font-bold text-[var(--color-primary)] underline underline-offset-2"
+                >
+                  {game.credits.license}
+                </a>
+              ) : (
+                <span className="font-bold text-[var(--color-text-primary)]">{game.credits.license}</span>
+              )}
+              .
+            </p>
+          </InfoCard>
+        </div>
+      ) : null}
 
       <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_0.9fr]">
         <Card variant="default" padding="lg">

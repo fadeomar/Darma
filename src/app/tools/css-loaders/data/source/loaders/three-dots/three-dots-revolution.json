@@ -1,0 +1,40 @@
+{
+  "id": "three-dots-revolution",
+  "name": "Revolution Dots",
+  "category": "dots",
+  "tags": [
+    "dots",
+    "revolution",
+    "orbit",
+    "single-element",
+    "three-dots"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader{\n  --td-dot: calc(var(--loader-size, 56px) / 5.6);\n  --td-orbit: calc(var(--loader-size, 56px) / 2.8);\n  position:relative;\n  display:inline-block;\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:var(--loader-color, #6366f1);\n}\n.loader::before{\n  content:\"\";\n  position:absolute;\n  top:50%;\n  left:50%;\n  width:var(--td-dot);\n  height:var(--td-dot);\n  margin:calc(var(--td-dot) / -2) 0 0 calc(var(--td-dot) / -2);\n  border-radius:50%;\n  background-color:var(--loader-secondary-color, #a5b4fc);\n  animation:td-revolution var(--loader-speed, 1.4s) infinite linear;\n}\n@keyframes td-revolution{\n  from{transform:rotate(0deg) translateX(var(--td-orbit))}\n  to{transform:rotate(360deg) translateX(var(--td-orbit))}\n}",
+  "source": {
+    "name": "three-dots",
+    "author": "Zongbin (nzbin)",
+    "license": "MIT",
+    "url": "https://github.com/nzbin/three-dots"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "secondaryColor": "#a5b4fc",
+    "size": 56,
+    "speed": 1.4,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": true,
+    "popular": false
+  }
+}

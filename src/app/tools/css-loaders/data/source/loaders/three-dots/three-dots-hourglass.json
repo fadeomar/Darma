@@ -1,0 +1,41 @@
+{
+  "id": "three-dots-hourglass",
+  "name": "Hourglass Dots",
+  "category": "dots",
+  "tags": [
+    "dots",
+    "hourglass",
+    "swap",
+    "vertical",
+    "single-element",
+    "three-dots"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader{\n  --td-dot: calc(var(--loader-size, 56px) / 5.6);\n  --td-rise: calc(var(--loader-size, 56px) / 3.5);\n  position:relative;\n  display:inline-block;\n  width:var(--td-dot);\n  height:var(--td-dot);\n}\n.loader::before,\n.loader::after{\n  content:\"\";\n  position:absolute;\n  left:0;\n  top:0;\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n}\n.loader::before{\n  background-color:var(--loader-color, #6366f1);\n  animation:td-hourglass-up var(--loader-speed, 1.8s) infinite ease-in-out;\n}\n.loader::after{\n  background-color:var(--loader-secondary-color, #a5b4fc);\n  animation:td-hourglass-down var(--loader-speed, 1.8s) infinite ease-in-out;\n}\n@keyframes td-hourglass-up{\n  0%,100%{transform:translateY(calc(var(--td-rise) * -1)) scale(1)}\n  50%{transform:translateY(var(--td-rise)) scale(.7)}\n}\n@keyframes td-hourglass-down{\n  0%,100%{transform:translateY(var(--td-rise)) scale(.7)}\n  50%{transform:translateY(calc(var(--td-rise) * -1)) scale(1)}\n}",
+  "source": {
+    "name": "three-dots",
+    "author": "Zongbin (nzbin)",
+    "license": "MIT",
+    "url": "https://github.com/nzbin/three-dots"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "secondaryColor": "#a5b4fc",
+    "size": 56,
+    "speed": 1.8,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": true,
+    "popular": false
+  }
+}

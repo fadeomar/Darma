@@ -138,7 +138,10 @@ export default function AspectRatioCalculatorClient() {
   const coverFit = useMemo(() => fitWithinBounds(width, height, boundWidth, boundHeight, "cover"), [width, height, boundWidth, boundHeight]);
   const crop = useMemo(() => cropToRatio(width, height, ratioW, ratioH), [width, height, ratioW, ratioH]);
   const longEdgeResult = useMemo(() => dimensionsFromRatioAndLongEdge(ratioW, ratioH, longEdgeValue), [ratioW, ratioH, longEdgeValue]);
-  const cropLoss = crop ? calcCropLoss(width, height, crop.cropWidth, crop.cropHeight) : 0;
+  const cropLoss = useMemo(
+    () => (crop ? calcCropLoss(width, height, crop.cropWidth, crop.cropHeight) : 0),
+    [crop, width, height],
+  );
   const paddingFallback = paddingTopPercent(ratioW, ratioH);
   const cssSnippet = cssAspectRatio(ratioW, ratioH);
   const safeClassName = className.trim() || "ratio-card";

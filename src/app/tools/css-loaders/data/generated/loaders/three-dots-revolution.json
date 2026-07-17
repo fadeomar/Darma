@@ -1,0 +1,52 @@
+{
+  "id": "three-dots-revolution",
+  "name": "Revolution Dots",
+  "category": "dots",
+  "sourceId": "three-dots",
+  "tags": [
+    "dots",
+    "revolution",
+    "orbit",
+    "single-element",
+    "three-dots"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": true,
+    "popular": false
+  },
+  "searchText": "three-dots-revolution revolution dots dots three-dots three dots dots revolution orbit single-element three-dots html css react cssonly customizable singleelement",
+  "previewHtml": "<span class=\"darma-loader-three-dots-revolution\"></span>",
+  "previewCss": ".darma-loader-three-dots-revolution{\n  --td-dot: calc(var(--loader-size, 56px) / 5.6);\n  --td-orbit: calc(var(--loader-size, 56px) / 2.8);\n  position:relative;\n  display:inline-block;\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:var(--loader-color, #6366f1);\n}\n.darma-loader-three-dots-revolution::before{\n  content:\"\";\n  position:absolute;\n  top:50%;\n  left:50%;\n  width:var(--td-dot);\n  height:var(--td-dot);\n  margin:calc(var(--td-dot) / -2) 0 0 calc(var(--td-dot) / -2);\n  border-radius:50%;\n  background-color:var(--loader-secondary-color, #a5b4fc);\n  animation:darma-loader-three-dots-revolution-td-revolution var(--loader-speed, 1.4s) infinite linear;\n}\n@keyframes darma-loader-three-dots-revolution-td-revolution{\n  from{transform:rotate(0deg) translateX(var(--td-orbit))}\n  to{transform:rotate(360deg) translateX(var(--td-orbit))}\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "secondaryColor": "#a5b4fc",
+    "size": 56,
+    "speed": 1.4,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-three-dots-revolution\"></span>",
+    "css": ".darma-loader-three-dots-revolution{\n  --td-dot: calc(var(--loader-size, 56px) / 5.6);\n  --td-orbit: calc(var(--loader-size, 56px) / 2.8);\n  position:relative;\n  display:inline-block;\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:var(--loader-color, #6366f1);\n}\n.darma-loader-three-dots-revolution::before{\n  content:\"\";\n  position:absolute;\n  top:50%;\n  left:50%;\n  width:var(--td-dot);\n  height:var(--td-dot);\n  margin:calc(var(--td-dot) / -2) 0 0 calc(var(--td-dot) / -2);\n  border-radius:50%;\n  background-color:var(--loader-secondary-color, #a5b4fc);\n  animation:darma-loader-three-dots-revolution-td-revolution var(--loader-speed, 1.4s) infinite linear;\n}\n@keyframes darma-loader-three-dots-revolution-td-revolution{\n  from{transform:rotate(0deg) translateX(var(--td-orbit))}\n  to{transform:rotate(360deg) translateX(var(--td-orbit))}\n}",
+    "react": "export default function ThreeDotsRevolutionLoader() {\n  return (\n    <span className=\"darma-loader-three-dots-revolution\"></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "three-dots",
+    "author": "Zongbin (nzbin)",
+    "license": "MIT",
+    "url": "https://github.com/nzbin/three-dots"
+  }
+}

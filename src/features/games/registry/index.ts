@@ -14,8 +14,8 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     href: "/games/gridland",
     categories: ["puzzle", "brain", "classic", "mobile-friendly"],
     tags: ["match-3", "strategy", "survival", "building", "resources", "day and night", "original"],
-    thumbnail: "🌗",
-    thumbnailType: "gradient",
+    thumbnail: "/darma-games/gridland/img/badge.png",
+    thumbnailType: "image",
     accent: "amber",
     featured: true,
     popular: true,
@@ -31,6 +31,15 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     seoTitle: "Play Gridland Online Free | Darma Games",
     seoDescription:
       "Play Gridland in your browser: match resources, build by day, and survive monsters at night. Original visuals, music, local saves, and no signup.",
+    credits: {
+      author: "Michael Townsend (Doublespeak Games)",
+      authorUrl: "https://www.doublespeakgames.com",
+      additional: [{ role: "Music", name: "Vince Nitro" }],
+      license: "MPL 2.0",
+      licenseUrl: "/darma-games/gridland/LICENSE",
+      integrationNote:
+        "Gridland was created by Doublespeak Games, not by Darma. Darma self-hosts the original runtime, artwork, and audio unchanged, and adds only the surrounding player shell, namespaced saves, and a read-only status bridge.",
+    },
     pinned: 0,
     createdAt: "2026-07-16",
   },

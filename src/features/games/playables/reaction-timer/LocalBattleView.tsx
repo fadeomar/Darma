@@ -393,6 +393,9 @@ function PrecisionBattleTurn({
   const [phase, setPhase] = useState<"countdown" | "running" | "interrupted">("countdown");
   const [countdown, setCountdown] = useState(3);
   const startedAtRef = useRef(0);
+  // Display-only mirror of startedAtRef. The ref stays authoritative for the
+  // precision measurement in stop() so timing is unaffected.
+  const [runStartedAt, setRunStartedAt] = useState(0);
   const lockRef = useRef(false);
   const precisionActive = phase === "countdown" || phase === "running";
   const interruptPrecision = useCallback(() => {
@@ -410,7 +413,9 @@ function PrecisionBattleTurn({
     const timer = window.setTimeout(() => {
       if (countdown > 1) setCountdown((c) => c - 1);
       else {
-        startedAtRef.current = performance.now();
+        const startedAt = performance.now();
+        startedAtRef.current = startedAt;
+        setRunStartedAt(startedAt);
         play("precision.start");
         vibrate("signal");
         setPhase("running");
@@ -476,7 +481,7 @@ function PrecisionBattleTurn({
       </div>
       <span className="rtp-eyebrow">Precision Battle</span>
       <div className={cn("rtp-battle-signal", phase === "running" && "rtp-battle-signal--go")} aria-live="assertive">
-        {phase === "countdown" ? countdown : <RunningPrecision startedAt={startedAtRef.current} />}
+        {phase === "countdown" ? countdown : <RunningPrecision startedAt={runStartedAt} />}
       </div>
       <p className="rtp-lobby-text">Stop as close as possible to {formatSeconds(LOCAL_BATTLE_PRECISION_TARGET_MS)}.</p>
     </div>

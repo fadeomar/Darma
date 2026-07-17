@@ -11310,6 +11310,31 @@
     "searchText": "uiverse-bouncing-ball-chain bouncing ball chain dots uiverse-batch-4 uiverse batch 4 balls chain bounce orbit uiverse html css react cssonly customizable"
   },
   {
+    "id": "three-dots-bricks",
+    "name": "Bricks Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "bricks",
+      "square",
+      "shift",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false,
+      "popular": false
+    },
+    "searchText": "three-dots-bricks bricks dots dots three-dots three dots dots bricks square shift three-dots html css react cssonly customizable"
+  },
+  {
     "id": "uiverse-bubblegum-trio",
     "name": "Bubblegum Trio",
     "category": "dots",
@@ -11362,6 +11387,30 @@
     "searchText": "uiverse-candy-pulse-beads candy pulse beads dots uiverse-batch-4 uiverse batch 4 dots gradient pulse beads uiverse html css react cssonly customizable"
   },
   {
+    "id": "three-dots-carousel",
+    "name": "Carousel Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "carousel",
+      "slide",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false,
+      "popular": false
+    },
+    "searchText": "three-dots-carousel carousel dots dots three-dots three dots dots carousel slide three-dots html css react cssonly customizable"
+  },
+  {
     "id": "demo-dots",
     "name": "Classic Dots",
     "category": "dots",
@@ -11412,6 +11461,31 @@
       "customizable": true
     },
     "searchText": "darma-custom-182 collapsing dots dots darma-custom darma custom collapsing dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "three-dots-collision",
+    "name": "Collision Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "collision",
+      "bounce",
+      "single-element",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true,
+      "popular": false
+    },
+    "searchText": "three-dots-collision collision dots dots three-dots three dots dots collision bounce single-element three-dots html css react cssonly customizable singleelement"
   },
   {
     "id": "darma-custom-187",
@@ -12251,6 +12325,30 @@
     "searchText": "elastic-dots elastic dots dots darma darma originals dots elastic stretch playful html css react cssonly customizable"
   },
   {
+    "id": "three-dots-elastic",
+    "name": "Elastic Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "elastic",
+      "stretch",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false,
+      "popular": false
+    },
+    "searchText": "three-dots-elastic elastic dots dots three-dots three dots dots elastic stretch three-dots html css react cssonly customizable"
+  },
+  {
     "id": "uiverse-ember-bounce-row",
     "name": "Ember Bounce Row",
     "category": "dots",
@@ -12336,6 +12434,55 @@
     "searchText": "darma-custom-177 faded signal dots dots darma-custom darma custom faded signal dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable"
   },
   {
+    "id": "three-dots-falling",
+    "name": "Falling Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "falling",
+      "drop",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false,
+      "popular": false
+    },
+    "searchText": "three-dots-falling falling dots dots three-dots three dots dots falling drop three-dots html css react cssonly customizable"
+  },
+  {
+    "id": "three-dots-fire",
+    "name": "Fire Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "fire",
+      "rise",
+      "fade",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false,
+      "popular": false
+    },
+    "searchText": "three-dots-fire fire dots dots three-dots three dots dots fire rise fade three-dots html css react cssonly customizable"
+  },
+  {
     "id": "uiverse-firefly-square-grid",
     "name": "Firefly Square Grid",
     "category": "dots",
@@ -12389,6 +12536,31 @@
     "searchText": "uiverse-five-dot-launch five dot launch dots uiverse-batch-4 uiverse batch 4 dots jump launch cyan uiverse html css react cssonly customizable"
   },
   {
+    "id": "three-dots-flashing",
+    "name": "Flashing Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "flashing",
+      "colour",
+      "single-element",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true,
+      "popular": false
+    },
+    "searchText": "three-dots-flashing flashing dots dots three-dots three dots dots flashing colour single-element three-dots html css react cssonly customizable singleelement"
+  },
+  {
     "id": "darma-custom-184",
     "name": "Flip Orbit Dots",
     "category": "dots",
@@ -12416,6 +12588,31 @@
       "customizable": true
     },
     "searchText": "darma-custom-184 flip orbit dots dots darma-custom darma custom flip orbit dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "three-dots-floating",
+    "name": "Floating Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "floating",
+      "drift",
+      "calm",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false,
+      "popular": false
+    },
+    "searchText": "three-dots-floating floating dots dots three-dots three dots dots floating drift calm three-dots html css react cssonly customizable"
   },
   {
     "id": "darma-custom-214",
@@ -12525,6 +12722,32 @@
       "customizable": true
     },
     "searchText": "uiverse-honeycomb honeycomb loader dots uiverse uiverse uiverse honeycomb hexagon dots grid loader html css react cssonly customizable"
+  },
+  {
+    "id": "three-dots-hourglass",
+    "name": "Hourglass Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "hourglass",
+      "swap",
+      "vertical",
+      "single-element",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true,
+      "popular": false
+    },
+    "searchText": "three-dots-hourglass hourglass dots dots three-dots three dots dots hourglass swap vertical single-element three-dots html css react cssonly customizable singleelement"
   },
   {
     "id": "darma-custom-173",
@@ -13212,6 +13435,31 @@
     "searchText": "darma-custom-189 pill dot wave dots darma-custom darma custom pill dot wave dots loader css-only single-element batch-04 html css react singleelement cssonly customizable"
   },
   {
+    "id": "three-dots-pulse",
+    "name": "Pulse Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "pulse",
+      "typing",
+      "chat",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false,
+      "popular": false
+    },
+    "searchText": "three-dots-pulse pulse dots dots three-dots three dots dots pulse typing chat three-dots html css react cssonly customizable"
+  },
+  {
     "id": "uiverse-purple-pulse-batons",
     "name": "Purple Pulse Batons",
     "category": "dots",
@@ -13265,6 +13513,31 @@
       "customizable": true
     },
     "searchText": "darma-custom-171 reveal dots dots darma-custom darma custom reveal dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "three-dots-revolution",
+    "name": "Revolution Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "revolution",
+      "orbit",
+      "single-element",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true,
+      "popular": false
+    },
+    "searchText": "three-dots-revolution revolution dots dots three-dots three dots dots revolution orbit single-element three-dots html css react cssonly customizable singleelement"
   },
   {
     "id": "darma-custom-213",
@@ -13408,6 +13681,30 @@
     "searchText": "darma-custom-172 step dots dots darma-custom darma custom step dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable"
   },
   {
+    "id": "three-dots-stretching",
+    "name": "Stretching Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "stretching",
+      "spread",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false,
+      "popular": false
+    },
+    "searchText": "three-dots-stretching stretching dots dots three-dots three dots dots stretching spread three-dots html css react cssonly customizable"
+  },
+  {
     "id": "darma-custom-197",
     "name": "Triangle Dot Cycle",
     "category": "dots",
@@ -13516,6 +13813,56 @@
       "customizable": true
     },
     "searchText": "typing-dots typing dots dots darma darma originals dots typing chat message html css react popular cssonly customizable"
+  },
+  {
+    "id": "three-dots-typing",
+    "name": "Typing Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "typing",
+      "chat",
+      "bounce",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": false,
+      "popular": false
+    },
+    "searchText": "three-dots-typing typing dots dots three-dots three dots dots typing chat bounce three-dots html css react cssonly customizable"
+  },
+  {
+    "id": "three-dots-windmill",
+    "name": "Windmill Dots",
+    "category": "dots",
+    "sourceId": "three-dots",
+    "tags": [
+      "dots",
+      "windmill",
+      "rotate",
+      "single-element",
+      "three-dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "singleElement": true,
+      "popular": false
+    },
+    "searchText": "three-dots-windmill windmill dots dots three-dots three dots dots windmill rotate single-element three-dots html css react cssonly customizable singleelement"
   },
   {
     "id": "anchor-swing",

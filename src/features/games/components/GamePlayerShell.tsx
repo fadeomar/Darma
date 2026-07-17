@@ -40,6 +40,12 @@ export function GamePlayerShell({
         game={game}
         src="/darma-games/gridland/index.html"
         minHeight={760}
+        variant="immersive"
+        bridge={{
+          source: "darma-gridland-runtime",
+          gameId: "gridland",
+          version: 1,
+        }}
         focusHint="Match tiles to gather resources by day and survive at night. The original game menu controls sound, saves, and import/export."
       />
     );

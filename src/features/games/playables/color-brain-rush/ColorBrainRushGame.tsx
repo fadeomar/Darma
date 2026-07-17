@@ -241,6 +241,9 @@ export function ColorBrainRushGame({ game }: { game: GameDefinition }) {
   const rafRef = useRef<number | null>(null);
   const timerRef = useRef<number | null>(null);
   const lockRef = useRef(false);
+  // Render-visible mirror of lockRef. lockRef stays authoritative for the
+  // synchronous answer/timeout guards; this only drives the disabled state.
+  const [locked, setLocked] = useState(false);
   const mutedRef = useRef(false);
   const audioRef = useRef<ReturnType<typeof createAudio> | null>(null);
 
@@ -355,6 +358,7 @@ export function ColorBrainRushGame({ game }: { game: GameDefinition }) {
       }
       const now = Date.now();
       lockRef.current = false;
+      setLocked(false);
       setQuestion({ word, ink, index, startedAt: now });
       setTimeLeft(DIFFICULTIES[selectedDifficulty].seconds);
       setFeedback("idle");
@@ -388,6 +392,7 @@ export function ColorBrainRushGame({ game }: { game: GameDefinition }) {
     (color: ColorOption | null, timedOut = false) => {
       if (!question || lockRef.current || phase !== "playing") return;
       lockRef.current = true;
+      setLocked(true);
       const isCorrect = !timedOut && color?.id === question.ink.id;
       const reactionMs = Math.max(0, Date.now() - question.startedAt);
       const remainingRatio = Math.max(0, Math.min(1, timeLeft / config.seconds));
@@ -705,7 +710,7 @@ export function ColorBrainRushGame({ game }: { game: GameDefinition }) {
                 key={color.id}
                 type="button"
                 onClick={() => answer(color)}
-                disabled={phase !== "playing" || lockRef.current}
+                disabled={phase !== "playing" || locked}
                 className="group min-h-16 rounded-[1.35rem] border border-white/10 bg-white/12 px-4 py-3 text-left shadow-xl backdrop-blur-md transition hover:-translate-y-0.5 hover:bg-white/18 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 disabled:cursor-not-allowed disabled:opacity-55"
               >
                 <span className="flex items-center justify-between gap-3">

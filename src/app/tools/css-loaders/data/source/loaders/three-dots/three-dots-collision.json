@@ -1,0 +1,39 @@
+{
+  "id": "three-dots-collision",
+  "name": "Collision Dots",
+  "category": "dots",
+  "tags": [
+    "dots",
+    "collision",
+    "bounce",
+    "single-element",
+    "three-dots"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader{\n  --td-dot: calc(var(--loader-size, 56px) / 5.6);\n  --td-gap: calc(var(--loader-size, 56px) / 3.7);\n  position:relative;\n  display:inline-block;\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:var(--loader-color, #6366f1);\n}\n.loader::before,\n.loader::after{\n  content:\"\";\n  position:absolute;\n  top:0;\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:inherit;\n}\n.loader::before{left:calc(var(--td-gap) * -1);}\n.loader::after{left:var(--td-gap);}\n.loader::before{animation:td-collision-before var(--loader-speed, 0.6s) infinite ease-in-out;}\n.loader::after{animation:td-collision-after var(--loader-speed, 0.6s) infinite ease-in-out;}\n@keyframes td-collision-before{\n  0%,50%,100%{transform:translateX(0)}\n  25%{transform:translateX(calc(var(--td-gap) * 0.72))}\n}\n@keyframes td-collision-after{\n  0%,50%,100%{transform:translateX(0)}\n  25%{transform:translateX(calc(var(--td-gap) * -0.72))}\n}",
+  "source": {
+    "name": "three-dots",
+    "author": "Zongbin (nzbin)",
+    "license": "MIT",
+    "url": "https://github.com/nzbin/three-dots"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 0.6,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": true,
+    "popular": false
+  }
+}

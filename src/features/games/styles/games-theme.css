@@ -8227,7 +8227,83 @@ html.rtp-gameplay-active body {
   }
 }
 
-/* Static legacy game embeds (2048, Hextris): keep imported games focused and fullscreen-ready. */
+/* Static legacy game embeds (2048, Hextris, Gridland): isolated runtimes with
+   a small Darma control surface around the original game. */
+.static-game-embed {
+  isolation: isolate;
+}
+
+.static-game-embed--immersive {
+  border-color: color-mix(in srgb, var(--color-border-default) 78%, var(--color-primary) 22%);
+}
+
+.static-game-embed--immersive .static-game-toolbar {
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--color-surface-base) 95%, var(--color-primary) 5%), var(--color-surface-base));
+}
+
+.static-game-embed--immersive .static-game-frame {
+  min-height: clamp(720px, 82dvh, 900px) !important;
+}
+
+.static-game-status svg {
+  flex: 0 0 auto;
+}
+
+.static-game-loading {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.08), transparent 28%),
+    #050505;
+}
+
+/*
+ * Darma-owned shell chrome only. The preserved game runtime keeps its own
+ * animation timing inside the frame; the loading state stays legible through
+ * its text rather than the spinner.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .static-game-loading,
+  .static-game-loading .animate-spin,
+  .static-game-status .animate-spin {
+    animation: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 639px) {
+  .static-game-embed--immersive {
+    border-radius: var(--radius-md);
+  }
+
+  .static-game-embed--immersive .static-game-toolbar {
+    padding-inline: 0.875rem;
+  }
+
+  .static-game-embed--immersive .static-game-frame {
+    min-height: 740px !important;
+  }
+
+  .static-game-embed--immersive .static-game-actions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .static-game-embed--immersive .static-game-actions > button,
+  .static-game-embed--immersive .static-game-open-link {
+    width: 100%;
+    padding-inline: 0.625rem;
+  }
+
+  .static-game-embed--immersive .static-game-meta-badge {
+    display: none;
+  }
+
+  .static-game-embed--immersive .static-game-footer {
+    padding-inline: 0.875rem;
+  }
+}
+
 .static-game-embed:fullscreen {
   display: flex;
   width: 100vw;
@@ -8370,4 +8446,14 @@ html.rtp-gameplay-active body {
   .dsnk-shell:fullscreen .dsnk-arena {
     max-width: min(92vw, 62dvh);
   }
+}
+
+/* Gridland's original 125×125 badge is pixel art; present it without cropping. */
+.gridland-thumbnail-grid {
+  opacity: 0.34;
+  background-image:
+    linear-gradient(rgba(53, 48, 39, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(53, 48, 39, 0.08) 1px, transparent 1px);
+  background-size: 18px 18px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent 92%);
 }

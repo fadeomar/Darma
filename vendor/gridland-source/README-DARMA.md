@@ -12,3 +12,7 @@ Darma host adaptations are intentionally narrow:
 - namespaced storage (`darma:games:gridland:v1:*`).
 
 Do not modernize or rewrite gameplay code in the same change as a behavior fix. Rebuild and compare against the preserved runtime after every engine change.
+
+## Phase 2 host bridge
+
+The maintenance mirror includes `www/js/darma-bridge.js`, loaded separately from the original AMD game bundle. It only exposes runtime readiness and lifecycle state to the same-origin Darma parent frame. It is intentionally excluded from gameplay, save, audio, and rendering logic.

@@ -2,6 +2,7 @@
   "id": "uiverse-aqua-pill-fill",
   "name": "Aqua Pill Fill",
   "category": "progress",
+  "sourceId": "uiverse-batch-3",
   "tags": [
     "uiverse",
     "pill",
@@ -22,7 +23,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "uiverse-aqua-pill-fill aqua pill fill progress uiverse pill fill aqua progress loader html css react singleelement cssonly customizable",
+  "searchText": "uiverse-aqua-pill-fill aqua pill fill progress uiverse-batch-3 uiverse batch 3 uiverse pill fill aqua progress loader html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-uiverse-aqua-pill-fill\"></div>",
   "previewCss": ".darma-loader-uiverse-aqua-pill-fill {\n  /* color of choise */\n  --clr: #05A8AA;\n  /* loading time of choice */\n  --load-time: 2s;\n  outline: 5px solid var(--clr);\n  outline-offset: 5px;\n  position: relative;\n  overflow: hidden;\n  border-radius: 5rem;\n  /* width: 10rem; */\n  /* height: 2rem; */\n  padding: 1rem 5rem;\n  /* use either padding or width + height*/\n  /* I prefer the padding one */\n  /* rotate: -90deg; */\n  /* rotate if you want/need vertical loader */\n}\n\n.darma-loader-uiverse-aqua-pill-fill::after {\ncontent: '';\nposition: absolute;\ntop: 0;\nleft: 0;\nwidth: 100%;\nheight: 100%;\nbackground-color: var(--clr);\nz-index: 2;\nanimation: darma-loader-uiverse-aqua-pill-fill-loading var(--load-time) ease-in-out infinite;\n}\n\n@keyframes darma-loader-uiverse-aqua-pill-fill-loading {\n0% {\nwidth: 0%;\n}\n\n100% {\nwidth: 100%;\n}\n}",
   "defaults": {

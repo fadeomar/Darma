@@ -2,6 +2,7 @@
   "id": "darma-custom-018",
   "name": "Masked Quadrant Sweep",
   "category": "progress",
+  "sourceId": "darma-custom",
   "tags": [
     "mask",
     "quadrant",
@@ -21,7 +22,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-018 masked quadrant sweep progress mask quadrant sweep square batch-01 html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-018 masked quadrant sweep progress darma-custom darma custom mask quadrant sweep square batch-01 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-018\"></div>",
   "previewCss": ".darma-loader-darma-custom-018 {\n  width: 60px;\n  aspect-ratio: 1;\n  background: linear-gradient(90deg, var(--loader-color, #CEE879) 50%, var(--loader-secondary-color, #FF5254) 0) top / 100% 50% no-repeat, linear-gradient(90deg, #FCB653 50%, #5CACC4 0);\n  -webkit-mask: linear-gradient(#000 0 0) 0 0 / 50% 50% no-repeat;\n  animation: darma-loader-darma-custom-018-l18 2s infinite;\n}\n@keyframes darma-loader-darma-custom-018-l18 {\n  0% { -webkit-mask-position: 0 0; }\n  25% { -webkit-mask-position: 100% 0; }\n  50% { -webkit-mask-position: 100% 100%; }\n  75% { -webkit-mask-position: 0 100%; }\n  100% { -webkit-mask-position: 0 0; }\n}\n",
   "defaults": {

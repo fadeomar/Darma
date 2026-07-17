@@ -2,6 +2,7 @@
   "id": "paper-plane-loop",
   "name": "Paper Plane Loop",
   "category": "fun",
+  "sourceId": "darma",
   "tags": [
     "paper",
     "plane",
@@ -18,7 +19,7 @@
     "cssOnly": true,
     "customizable": true
   },
-  "searchText": "paper-plane-loop paper plane loop fun paper plane fly trail send html css react cssonly customizable",
+  "searchText": "paper-plane-loop paper plane loop fun darma darma originals paper plane fly trail send html css react cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-paper-plane-loop\"><i></i></span>",
   "previewCss": ".darma-loader-paper-plane-loop {\n  position: relative;\n  width: 56px;\n  height: 46px;\n}\n.darma-loader-paper-plane-loop::before {\n  content: \"\";\n  position: absolute;\n  left: 4px;\n  bottom: 10px;\n  width: 46px;\n  height: 0;\n  border-top: 2px dashed #c7d2fe;\n  transform: rotate(-20deg);\n  transform-origin: left center;\n}\n.darma-loader-paper-plane-loop i {\n  position: absolute;\n  width: 16px;\n  height: 16px;\n  background: var(--loader-color, #6366f1);\n  clip-path: polygon(0 0, 100% 50%, 0 100%, 26% 50%);\n  animation: darma-loader-paper-plane-loop-fly 1.8s ease-in-out infinite;\n}\n@keyframes darma-loader-paper-plane-loop-fly {\n  0% { transform: translate(0, 30px) rotate(-12deg); opacity: 0; }\n  15% { opacity: 1; }\n  85% { opacity: 1; }\n  100% { transform: translate(42px, -4px) rotate(8deg); opacity: 0; }\n}",
   "defaults": {

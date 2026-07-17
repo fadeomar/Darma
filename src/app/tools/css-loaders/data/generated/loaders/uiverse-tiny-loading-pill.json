@@ -2,6 +2,7 @@
   "id": "uiverse-tiny-loading-pill",
   "name": "Tiny Loading Pill",
   "category": "minimal",
+  "sourceId": "uiverse",
   "tags": [
     "uiverse",
     "minimal",
@@ -20,7 +21,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "uiverse-tiny-loading-pill tiny loading pill minimal uiverse minimal pill loader html css react singleelement cssonly customizable",
+  "searchText": "uiverse-tiny-loading-pill tiny loading pill minimal uiverse uiverse uiverse minimal pill loader html css react singleelement cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-uiverse-tiny-loading-pill\"></span>",
   "previewCss": ".darma-loader-uiverse-tiny-loading-pill {\n  display: inline-block;\n  width: 70px;\n  height: 8px;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #f97316) 16%, transparent);\n  overflow: hidden;\n}\n.darma-loader-uiverse-tiny-loading-pill::before {\n      content: \"\";\n      display: block;\n      width: 42%;\n      height: 100%;\n      border-radius: inherit;\n      background: linear-gradient(90deg, var(--loader-color, #f97316), var(--loader-secondary-color, #fed7aa));\n      animation: darma-loader-uiverse-tiny-loading-pill-progressSlide 0.95s ease-in-out infinite;\n    }\n    @keyframes darma-loader-uiverse-tiny-loading-pill-progressSlide { 0% { transform: translateX(-120%); } 100% { transform: translateX(260%); } }\n",
   "defaults": {

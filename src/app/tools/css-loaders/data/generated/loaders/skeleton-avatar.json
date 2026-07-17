@@ -2,6 +2,7 @@
   "id": "skeleton-avatar",
   "name": "Skeleton Avatar",
   "category": "skeleton",
+  "sourceId": "darma",
   "tags": [
     "skeleton",
     "avatar",
@@ -18,7 +19,7 @@
     "cssOnly": true,
     "customizable": true
   },
-  "searchText": "skeleton-avatar skeleton avatar skeleton skeleton avatar profile placeholder html css react popular cssonly customizable",
+  "searchText": "skeleton-avatar skeleton avatar skeleton darma darma originals skeleton avatar profile placeholder html css react popular cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-skeleton-avatar\"><b></b><i></i><i></i></span>",
   "previewCss": ".darma-loader-skeleton-avatar {\n  display: grid;\n  grid-template-columns: 42px 108px;\n  gap: 8px 12px;\n  align-items: center;\n}\n.darma-loader-skeleton-avatar b,\n.darma-loader-skeleton-avatar i {\n  display: block;\n  background: linear-gradient(90deg, color-mix(in srgb, var(--loader-color, #6366f1) 12%, transparent), color-mix(in srgb, var(--loader-color, #6366f1) 32%, transparent), color-mix(in srgb, var(--loader-color, #6366f1) 12%, transparent));\n  background-size: 220% 100%;\n  animation: darma-loader-skeleton-avatar-shimmer 1s linear infinite;\n}\n.darma-loader-skeleton-avatar b {\n  grid-row: span 2;\n  width: 42px;\n  height: 42px;\n  border-radius: 50%;\n}\n.darma-loader-skeleton-avatar i {\n  height: 11px;\n  border-radius: 999px;\n}\n.darma-loader-skeleton-avatar i:last-child { width: 72%; }\n@keyframes darma-loader-skeleton-avatar-shimmer { to { background-position: -220% 0; } }\n",
   "defaults": {

@@ -2,6 +2,7 @@
   "id": "lighthouse-beam",
   "name": "Lighthouse Beam",
   "category": "creative",
+  "sourceId": "darma",
   "tags": [
     "lighthouse",
     "beam",
@@ -18,7 +19,7 @@
     "cssOnly": true,
     "customizable": true
   },
-  "searchText": "lighthouse-beam lighthouse beam creative lighthouse beam sweep light tower html css react cssonly customizable",
+  "searchText": "lighthouse-beam lighthouse beam creative darma darma originals lighthouse beam sweep light tower html css react cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-lighthouse-beam\"><i></i></span>",
   "previewCss": ".darma-loader-lighthouse-beam {\n  position: relative;\n  width: 52px;\n  height: 52px;\n}\n.darma-loader-lighthouse-beam::before {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 50%;\n  width: 20px;\n  height: 32px;\n  margin-left: -10px;\n  background: var(--loader-color, #6366f1);\n  clip-path: polygon(25% 0, 75% 0, 100% 100%, 0 100%);\n  z-index: 2;\n}\n.darma-loader-lighthouse-beam::after {\n  content: \"\";\n  position: absolute;\n  top: 12px;\n  left: 50%;\n  width: 14px;\n  height: 10px;\n  margin-left: -7px;\n  border-radius: 2px;\n  background: #4338ca;\n  z-index: 3;\n}\n.darma-loader-lighthouse-beam i {\n  position: absolute;\n  top: 17px;\n  left: 50%;\n  width: 52px;\n  height: 52px;\n  margin: -26px 0 0 -26px;\n  border-radius: 50%;\n  background: conic-gradient(from -12deg, color-mix(in srgb, var(--loader-color, #6366f1) 55%, transparent) 0 24deg, transparent 24deg 360deg);\n  z-index: 1;\n  animation: darma-loader-lighthouse-beam-spin 2.4s linear infinite;\n}\n@keyframes darma-loader-lighthouse-beam-spin { to { transform: rotate(360deg); } }",
   "defaults": {

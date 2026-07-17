@@ -3,6 +3,7 @@
     "id": "button-dots",
     "name": "Button Dots",
     "category": "button",
+    "sourceId": "darma",
     "tags": [
       "button",
       "dots",
@@ -19,7 +20,7 @@
       "cssOnly": true,
       "customizable": true
     },
-    "searchText": "button-dots button dots button button dots inline submit html css react popular cssonly customizable",
+    "searchText": "button-dots button dots button darma darma originals button dots inline submit html css react popular cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-button-dots\"><i></i><i></i><i></i></span>",
     "previewCss": ".darma-loader-button-dots {\n  display: inline-flex;\n  align-items: center;\n  gap: 5px;\n  border-radius: 999px;\n  background: var(--loader-color, #6366f1);\n  padding: 12px 18px;\n  color: #fff;\n}\n.darma-loader-button-dots i {\n  width: 7px;\n  height: 7px;\n  border-radius: 50%;\n  background: currentColor;\n  animation: darma-loader-button-dots-blink 0.95s ease-in-out infinite;\n}\n.darma-loader-button-dots i:nth-child(2) { animation-delay: 0.15s; }\n.darma-loader-button-dots i:nth-child(3) { animation-delay: 0.3s; }\n@keyframes darma-loader-button-dots-blink {\n  0%, 100% { opacity: 0.28; transform: scale(0.8); }\n  50% { opacity: 1; transform: scale(1); }\n}\n",
     "defaults": {
@@ -32,6 +33,7 @@
     "id": "uiverse-button-save-dots",
     "name": "Button Save Dots",
     "category": "button",
+    "sourceId": "uiverse",
     "tags": [
       "uiverse",
       "button",
@@ -50,7 +52,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "uiverse-button-save-dots button save dots button uiverse button saving loader html css react popular cssonly customizable",
+    "searchText": "uiverse-button-save-dots button save dots button uiverse uiverse uiverse button saving loader html css react popular cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-uiverse-button-save-dots\"><i></i><i></i><i></i></span>",
     "previewCss": ".darma-loader-uiverse-button-save-dots {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 5px;\n      min-width: 36px;\n      min-height: 14px;\n    }\n    .darma-loader-uiverse-button-save-dots i {\n      display: block;\n      width: 7px;\n      height: 7px;\n      border-radius: 50%;\n      background: var(--loader-color, #0ea5e9);\n      animation: darma-loader-uiverse-button-save-dots-dotPulse 0.72s ease-in-out infinite;\n    }\n    .darma-loader-uiverse-button-save-dots i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-uiverse-button-save-dots i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-uiverse-button-save-dots i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-uiverse-button-save-dots-dotPulse { 0%, 80%, 100% { transform: translateY(0) scale(.75); opacity: .45; } 40% { transform: translateY(-8px) scale(1); opacity: 1; } }\n",
     "defaults": {
@@ -65,6 +67,7 @@
     "id": "button-spinner",
     "name": "Button Spinner",
     "category": "button",
+    "sourceId": "darma",
     "tags": [
       "button",
       "spinner",
@@ -82,7 +85,7 @@
       "customizable": true,
       "singleElement": true
     },
-    "searchText": "button-spinner button spinner button button spinner inline submit html css react popular cssonly customizable singleelement",
+    "searchText": "button-spinner button spinner button darma darma originals button spinner inline submit html css react popular cssonly customizable singleelement",
     "previewHtml": "<span class=\"darma-loader-button-spinner\"></span>",
     "previewCss": ".darma-loader-button-spinner {\n  display: inline-block;\n  width: 26px;\n  height: 26px;\n  border-radius: 50%;\n  border: 3px solid color-mix(in srgb, var(--loader-color, #6366f1) 20%, transparent);\n  border-right-color: var(--loader-color, #6366f1);\n  animation: darma-loader-button-spinner-spin 0.7s linear infinite;\n}\n@keyframes darma-loader-button-spinner-spin { to { transform: rotate(360deg); } }\n",
     "defaults": {
@@ -95,6 +98,7 @@
     "id": "uiverse-orbital-button-spinner",
     "name": "Orbital Button Spinner",
     "category": "button",
+    "sourceId": "uiverse",
     "tags": [
       "uiverse",
       "button",
@@ -113,7 +117,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "uiverse-orbital-button-spinner orbital button spinner button uiverse button spinner loader html css react cssonly customizable",
+    "searchText": "uiverse-orbital-button-spinner orbital button spinner button uiverse uiverse uiverse button spinner loader html css react cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-uiverse-orbital-button-spinner\"><i></i><i></i></span>",
     "previewCss": ".darma-loader-uiverse-orbital-button-spinner {\n      position: relative;\n      display: inline-block;\n      width: 34px;\n      height: 34px;\n      border-radius: 50%;\n      border: 1px solid color-mix(in srgb, var(--loader-color, #ec4899) 24%, transparent);\n    }\n    .darma-loader-uiverse-orbital-button-spinner i {\n      position: absolute;\n      inset: -3px;\n      border-radius: 50%;\n      animation: darma-loader-uiverse-orbital-button-spinner-orbit 0.8s linear infinite;\n    }\n    .darma-loader-uiverse-orbital-button-spinner i::before {\n      content: \"\";\n      position: absolute;\n      top: 0;\n      left: 50%;\n      width: 10px;\n      height: 10px;\n      margin-left: -5px;\n      border-radius: 50%;\n      background: var(--loader-color, #ec4899);\n      box-shadow: 0 0 18px color-mix(in srgb, var(--loader-color, #ec4899) 45%, transparent);\n    }\n    .darma-loader-uiverse-orbital-button-spinner i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-uiverse-orbital-button-spinner i:nth-child(2) { animation-delay: -0.40s; }\n    @keyframes darma-loader-uiverse-orbital-button-spinner-orbit { to { transform: rotate(360deg); } }\n",
     "defaults": {
@@ -128,6 +132,7 @@
     "id": "darma-research-orbital-upload-rings",
     "name": "Orbital Upload Rings",
     "category": "button",
+    "sourceId": "darma-research-batch-6",
     "tags": [
       "button",
       "upload",
@@ -144,7 +149,7 @@
       "customizable": true,
       "cssOnly": true
     },
-    "searchText": "darma-research-orbital-upload-rings orbital upload rings button button upload rings orbit microinteraction html css react customizable cssonly",
+    "searchText": "darma-research-orbital-upload-rings orbital upload rings button darma-research-batch-6 darma research batch 6 button upload rings orbit microinteraction html css react customizable cssonly",
     "previewHtml": "<button class=\"darma-loader-darma-research-orbital-upload-rings\" type=\"button\" aria-label=\"Uploading\"><span class=\"darma-loader-darma-research-orbital-upload-rings__ring\"></span><span class=\"darma-loader-darma-research-orbital-upload-rings__arrow\">↑</span><span class=\"darma-loader-darma-research-orbital-upload-rings__text\">Upload</span></button>",
     "previewCss": ".darma-loader-darma-research-orbital-upload-rings { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #3b82f6); --accent-2: var(--loader-secondary-color, #22c55e); border: 0; color: #fff; background: #111827; border-radius: 999px; padding: 12px 18px 12px 46px; min-width: 132px; position: relative; font: 800 14px/1 system-ui, sans-serif; box-shadow: inset 0 0 0 1px #ffffff1a, 0 12px 25px #0206173d; }\n.darma-loader-darma-research-orbital-upload-rings__ring { position: absolute; left: 12px; top: 50%; width: 22px; height: 22px; margin-top: -11px; border-radius: 50%; border: 3px solid color-mix(in srgb, var(--accent) 25%, transparent); border-top-color: var(--accent); animation: darma-loader-darma-research-orbital-upload-rings-upload-ring calc(var(--speed) * .9) linear infinite; }\n.darma-loader-darma-research-orbital-upload-rings__arrow { position: absolute; left: 18px; top: 50%; translate: 0 -50%; color: var(--accent-2); animation: darma-loader-darma-research-orbital-upload-rings-upload-arrow calc(var(--speed) * 1.1) ease-in-out infinite; }\n.darma-loader-darma-research-orbital-upload-rings__text { background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }\n@keyframes darma-loader-darma-research-orbital-upload-rings-upload-ring { to { rotate: 360deg; } }\n@keyframes darma-loader-darma-research-orbital-upload-rings-upload-arrow { 50% { transform: translateY(-5px); opacity:.65; } }",
     "defaults": {

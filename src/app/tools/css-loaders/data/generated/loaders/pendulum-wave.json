@@ -2,6 +2,7 @@
   "id": "pendulum-wave",
   "name": "Pendulum Wave",
   "category": "fun",
+  "sourceId": "darma",
   "tags": [
     "pendulum",
     "wave",
@@ -18,7 +19,7 @@
     "cssOnly": true,
     "customizable": true
   },
-  "searchText": "pendulum-wave pendulum wave fun pendulum wave physics swing harmonic html css react cssonly customizable",
+  "searchText": "pendulum-wave pendulum wave fun darma darma originals pendulum wave physics swing harmonic html css react cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-pendulum-wave\"><i></i><i></i><i></i><i></i><i></i></span>",
   "previewCss": ".darma-loader-pendulum-wave {\n  position: relative;\n  width: 56px;\n  height: 46px;\n}\n.darma-loader-pendulum-wave::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 3px;\n  border-radius: 2px;\n  background: var(--loader-color, #6366f1);\n}\n.darma-loader-pendulum-wave i {\n  position: absolute;\n  top: 3px;\n  width: 2px;\n  border-radius: 2px;\n  background: #c7d2fe;\n  transform-origin: top center;\n  animation: darma-loader-pendulum-wave-pend 1s ease-in-out infinite;\n}\n.darma-loader-pendulum-wave i::after {\n  content: \"\";\n  position: absolute;\n  bottom: -6px;\n  left: 50%;\n  width: 7px;\n  height: 7px;\n  margin-left: -3.5px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n}\n.darma-loader-pendulum-wave i:nth-child(1) { left: 6px; height: 18px; animation-duration: 1s; }\n.darma-loader-pendulum-wave i:nth-child(2) { left: 17px; height: 24px; animation-duration: 1.12s; }\n.darma-loader-pendulum-wave i:nth-child(3) { left: 28px; height: 30px; animation-duration: 1.24s; }\n.darma-loader-pendulum-wave i:nth-child(4) { left: 39px; height: 24px; animation-duration: 1.36s; }\n.darma-loader-pendulum-wave i:nth-child(5) { left: 50px; height: 18px; animation-duration: 1.48s; }\n@keyframes darma-loader-pendulum-wave-pend {\n  0%, 100% { transform: rotate(24deg); }\n  50% { transform: rotate(-24deg); }\n}",
   "defaults": {

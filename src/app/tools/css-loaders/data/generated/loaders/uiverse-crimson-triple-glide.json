@@ -2,6 +2,7 @@
   "id": "uiverse-crimson-triple-glide",
   "name": "Crimson Triple Glide",
   "category": "bars",
+  "sourceId": "uiverse-batch-4",
   "tags": [
     "bars",
     "glide",
@@ -21,7 +22,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "uiverse-crimson-triple-glide crimson triple glide bars bars glide red minimal uiverse html css react singleelement cssonly customizable",
+  "searchText": "uiverse-crimson-triple-glide crimson triple glide bars uiverse-batch-4 uiverse batch 4 bars glide red minimal uiverse html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-uiverse-crimson-triple-glide darma-loader-uiverse-crimson-triple-glide__mover\"></div>",
   "previewCss": ".darma-loader-uiverse-crimson-triple-glide { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.darma-loader-uiverse-crimson-triple-glide__mover {\n  background: color-mix(in srgb, var(--loader-color, #f81919) 98%, transparent);\n  height: 10px;\n  width: 80px;\n  border-radius: 10px;\n  position: relative;\n  animation: darma-loader-uiverse-crimson-triple-glide-mover5 2s ease-in-out infinite;\n}\n\n.darma-loader-uiverse-crimson-triple-glide__mover::before,\n.darma-loader-uiverse-crimson-triple-glide__mover::after {\ncontent: '';\nposition: absolute;\nheight: 10px;\nborder-radius: 10px;\nleft: 20px;\nanimation: darma-loader-uiverse-crimson-triple-glide-mover5 2s ease-in-out infinite;\n}\n\n.darma-loader-uiverse-crimson-triple-glide__mover::before {\nbackground: rgb(201, 1, 1);\ntop: 20px;\nwidth: 50px;\n}\n\n.darma-loader-uiverse-crimson-triple-glide__mover::after {\nbackground: var(--loader-secondary-color, #ff746a);\ntop: -20px;\nwidth: 60px;\n}\n\n@keyframes darma-loader-uiverse-crimson-triple-glide-mover5 {\n0% {\ntransform: translateX(30px) scale(1);\n}\n\n50% {\ntransform: translateX(-30px) scale(1.1);\n}\n\n100% {\ntransform: translateX(30px) scale(1);\n}\n}",
   "defaults": {

@@ -2,6 +2,7 @@
   "id": "clock-hands",
   "name": "Clock Hands",
   "category": "fun",
+  "sourceId": "darma",
   "tags": [
     "clock",
     "time",
@@ -19,7 +20,7 @@
     "customizable": true,
     "popular": true
   },
-  "searchText": "clock-hands clock hands fun clock time hands watch tick html css react cssonly customizable popular",
+  "searchText": "clock-hands clock hands fun darma darma originals clock time hands watch tick html css react cssonly customizable popular",
   "previewHtml": "<span class=\"darma-loader-clock-hands\"><b></b><i></i></span>",
   "previewCss": ".darma-loader-clock-hands {\n  position: relative;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color, #6366f1);\n  box-sizing: border-box;\n}\n.darma-loader-clock-hands::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 6px;\n  height: 6px;\n  margin: -3px 0 0 -3px;\n  border-radius: 50%;\n  background: #4338ca;\n  z-index: 2;\n}\n.darma-loader-clock-hands b, .darma-loader-clock-hands i {\n  position: absolute;\n  left: 50%;\n  bottom: 50%;\n  border-radius: 2px;\n  transform-origin: bottom center;\n}\n.darma-loader-clock-hands b {\n  width: 3px;\n  height: 12px;\n  margin-left: -1.5px;\n  background: #4338ca;\n  animation: darma-loader-clock-hands-spin 6s linear infinite;\n}\n.darma-loader-clock-hands i {\n  width: 2px;\n  height: 18px;\n  margin-left: -1px;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-clock-hands-spin 2s linear infinite;\n}\n@keyframes darma-loader-clock-hands-spin { to { transform: rotate(360deg); } }",
   "defaults": {

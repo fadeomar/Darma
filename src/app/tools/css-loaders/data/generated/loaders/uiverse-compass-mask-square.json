@@ -2,6 +2,7 @@
   "id": "uiverse-compass-mask-square",
   "name": "Compass Mask Square",
   "category": "minimal",
+  "sourceId": "uiverse-batch-3",
   "tags": [
     "uiverse",
     "compass",
@@ -22,7 +23,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "uiverse-compass-mask-square compass mask square minimal uiverse compass mask square minimal loader html css react singleelement cssonly customizable",
+  "searchText": "uiverse-compass-mask-square compass mask square minimal uiverse-batch-3 uiverse batch 3 uiverse compass mask square minimal loader html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-uiverse-compass-mask-square\"></div>",
   "previewCss": ".darma-loader-uiverse-compass-mask-square {\n  width: 160px;\n  height: 160px;\n  color: #0000F4;\n  background: conic-gradient(from  165deg at top   ,#0000, currentColor 1deg 30deg,#0000 31deg) top,\n    conic-gradient(from   75deg at left  ,#0000, currentColor 1deg 30deg,#0000 31deg) left,\n    conic-gradient(from  -15deg at bottom,#0000, currentColor 1deg 30deg,#0000 31deg) bottom, \n    conic-gradient(from -105deg at right ,#0000, currentColor 1deg 30deg,#0000 31deg) right;\n  background-size: 100% 50%,50% 100%;\n  -webkit-mask: radial-gradient(circle 10px,#0000 90%,#000);\n  background-repeat: no-repeat;\n  animation: darma-loader-uiverse-compass-mask-square-sh1 1.5s infinite linear;\n}\n\n@keyframes darma-loader-uiverse-compass-mask-square-sh1 {\n\n100% {\ntransform: rotate(1turn)\n}\n}",
   "defaults": {

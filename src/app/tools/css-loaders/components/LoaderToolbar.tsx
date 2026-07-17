@@ -5,8 +5,16 @@ import { getLoaderFormatLabel, LOADER_FORMATS } from "../loader-utils";
 import type { LoaderFilterState } from "../filter-utils";
 import type { LoaderGalleryMode } from "../types";
 
+export type LoaderSourceOption = {
+  value: string;
+  label: string;
+  count: number;
+  isOriginal: boolean;
+};
+
 type LoaderToolbarProps = {
   filters: LoaderFilterState;
+  sourceOptions: LoaderSourceOption[];
   totalCount: number;
   resultCount: number;
   pageStart: number;
@@ -32,6 +40,7 @@ const GALLERY_MODE_ITEMS: Array<{ value: LoaderGalleryMode; label: string; icon:
 
 export default function LoaderToolbar({
   filters,
+  sourceOptions,
   totalCount,
   resultCount,
   pageStart,
@@ -95,6 +104,34 @@ export default function LoaderToolbar({
               {getLoaderFormatLabel(format)}
             </option>
           ))}
+        </Select>
+
+        <Select
+          value={filters.source}
+          onChange={(event) => onFiltersChange({ source: event.target.value })}
+          size="sm"
+          width="auto"
+          aria-label="Filter by source"
+        >
+          <option value="all">All sources</option>
+          <optgroup label="Darma originals">
+            {sourceOptions
+              .filter((option) => option.isOriginal)
+              .map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label} ({option.count})
+                </option>
+              ))}
+          </optgroup>
+          <optgroup label="External collections">
+            {sourceOptions
+              .filter((option) => !option.isOriginal)
+              .map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label} ({option.count})
+                </option>
+              ))}
+          </optgroup>
         </Select>
 
         <Select

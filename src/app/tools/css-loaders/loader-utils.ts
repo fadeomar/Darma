@@ -6,6 +6,7 @@ export const DEFAULT_LOADER_FILTERS: LoaderFilterState = {
   query: "",
   category: "all",
   format: "all",
+  source: "all",
   sort: "popular",
   savedOnly: false,
 };

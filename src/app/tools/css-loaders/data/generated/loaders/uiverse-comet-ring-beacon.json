@@ -2,6 +2,7 @@
   "id": "uiverse-comet-ring-beacon",
   "name": "Comet Ring Beacon",
   "category": "spinners",
+  "sourceId": "uiverse-batch-4",
   "tags": [
     "comet",
     "ring",
@@ -21,7 +22,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "uiverse-comet-ring-beacon comet ring beacon spinners comet ring beacon glow uiverse html css react singleelement cssonly customizable",
+  "searchText": "uiverse-comet-ring-beacon comet ring beacon spinners uiverse-batch-4 uiverse batch 4 comet ring beacon glow uiverse html css react singleelement cssonly customizable",
   "previewHtml": "<div aria-live=\"assertive\" role=\"alert\" class=\"darma-loader-uiverse-comet-ring-beacon\"></div>",
   "previewCss": ".darma-loader-uiverse-comet-ring-beacon {\n--hue: 210;\n--size: 100px;\n--border: 10px;\n--speed: 1s;\n--blur: var(--border);\n}\n\n.darma-loader-uiverse-comet-ring-beacon {\nwidth: var(--border);\naspect-ratio: 1;\nbackground: white;\nborder-radius: 50%;\nposition: relative;\n--y: calc((var(--size) * -0.5) + (var(--border) * 0.5));\ntransform: rotate(0deg) translateY(var(--y));\nanimation: darma-loader-uiverse-comet-ring-beacon-spin var(--speed) infinite linear;\n}\n\n.darma-loader-uiverse-comet-ring-beacon::before {\ncontent: \"\";\nposition: absolute;\ninset: calc(var(--border) * -0.5);\nborder-radius: 50%;\nbackground: white;\nfilter: blur(var(--blur));\nz-index: -1;\n}\n\n.darma-loader-uiverse-comet-ring-beacon::after {\ncontent: \"\";\nwidth: var(--size);\naspect-ratio: 1;\nposition: absolute;\ntop: 0%;\nleft: 50%;\ntranslate: -50% 0;\nbackground: conic-gradient(\nwhite,\nhsl(var(--hue), 100%, 70%),\nhsl(var(--hue), 100%, 10%),\ntransparent 65%\n);\nborder-radius: 50%;\nmask: radial-gradient(\ntransparent calc(((var(--size) * 0.5) - var(--border)) - 1px),\nwhite calc((var(--size) * 0.5) - var(--border))\n);\n}\n\n@keyframes darma-loader-uiverse-comet-ring-beacon-spin {\nto {\ntransform: rotate(-360deg) translateY(var(--y));\n}\n}",
   "defaults": {

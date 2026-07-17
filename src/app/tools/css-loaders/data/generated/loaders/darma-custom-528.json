@@ -2,6 +2,7 @@
   "id": "darma-custom-528",
   "name": "Eye Blink 04",
   "category": "fun",
+  "sourceId": "darma-custom",
   "tags": [
     "eye",
     "blink",
@@ -27,7 +28,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-528 eye blink 04 fun eye blink 04 eyes face fun minimal loader css-only single-element batch-07 html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-528 eye blink 04 fun darma-custom darma custom eye blink 04 eyes face fun minimal loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-528\"></div>",
   "previewCss": ".darma-loader-darma-custom-528 {color: var(--loader-color, #6d28d9);\n  --loader-secondary-color: var(--loader-secondary-color, #f0abfc);\n  --loader-bg: var(--loader-bg, #ffffff);\n   height: 60px;\n   aspect-ratio: 1;\n   display: grid;\n}\n.darma-loader-darma-custom-528:before, .darma-loader-darma-custom-528:after  {\n  content: \"\";\n   background: radial-gradient(farthest-side,currentColor 15%,#0000 18%)0 0/50% 100%, radial-gradient(50% 100% at 50% 160%,currentColor 95%,#0000) 0 0 /50% 50%, radial-gradient(50% 100% at 50% -60%,currentColor 95%,#0000) 0 100%/50% 50%;\n   background-repeat: repeat-x;\n   -webkit-mask: radial-gradient(50% 100%,currentColor 95%,#0000) 0 100%/50% 0% repeat-x;\n   animation: darma-loader-darma-custom-528-l4 1s infinite alternate ease-in;\n}\n.darma-loader-darma-custom-528:after  {\n  animation-duration: .7s;\n}\n@keyframes darma-loader-darma-custom-528-l4  {\n  0%, 70% {-webkit-mask-size:50% 100%}\n85% {-webkit-mask-size:50% 0}\n100% {-webkit-mask-size:50% 100%}\n}\n",
   "defaults": {

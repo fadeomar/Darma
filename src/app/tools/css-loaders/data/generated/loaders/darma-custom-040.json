@@ -2,6 +2,7 @@
   "id": "darma-custom-040",
   "name": "Segmented Mask Fill",
   "category": "progress",
+  "sourceId": "darma-custom",
   "tags": [
     "segmented",
     "mask",
@@ -22,7 +23,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-040 segmented mask fill progress segmented mask steps linear progress batch-02 html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-040 segmented mask fill progress darma-custom darma custom segmented mask steps linear progress batch-02 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-040\"></div>",
   "previewCss": ".darma-loader-darma-custom-040 {\n  width: 120px;\n  height: 20px;\n  -webkit-mask: linear-gradient(90deg, #000 70%, #0000 0) 0/20%;\n  background:\n    linear-gradient(#000 0 0) 0/0% no-repeat\n    #ddd;\n  animation: darma-loader-darma-custom-040-l4 2s infinite steps(6);\n}\n@keyframes darma-loader-darma-custom-040-l4 {\n  100% { background-size: 120%; }\n}\n",
   "defaults": {

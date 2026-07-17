@@ -2,6 +2,7 @@
   "id": "uiverse-ripple-beacon-rings",
   "name": "Ripple Beacon Rings",
   "category": "spinners",
+  "sourceId": "uiverse-batch-3",
   "tags": [
     "uiverse",
     "ripple",
@@ -22,7 +23,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "uiverse-ripple-beacon-rings ripple beacon rings spinners uiverse ripple beacon rings pulse loader html css react cssonly customizable",
+  "searchText": "uiverse-ripple-beacon-rings ripple beacon rings spinners uiverse-batch-3 uiverse batch 3 uiverse ripple beacon rings pulse loader html css react cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-uiverse-ripple-beacon-rings\">\n    <div></div>\n\n    <div></div>\n\n</div>",
   "previewCss": ".darma-loader-uiverse-ripple-beacon-rings {\n  position: relative;\n  width: 64px;\n  height: 64px;\n}\n\n.darma-loader-uiverse-ripple-beacon-rings div {\nposition: absolute;\nborder: 4px solid #454ade;\nborder-radius: 50%;\nanimation: darma-loader-uiverse-ripple-beacon-rings-loader8435 1s ease-out infinite;\n}\n\n.darma-loader-uiverse-ripple-beacon-rings div:nth-child(2) {\nanimation-delay: -0.5s;\n}\n\n@keyframes darma-loader-uiverse-ripple-beacon-rings-loader8435 {\n0% {\ntop: 32px;\nleft: 32px;\nwidth: 0;\nheight: 0;\nopacity: 1;\n}\n\n100% {\ntop: 0;\nleft: 0;\nwidth: 64px;\nheight: 64px;\nopacity: 0;\n}\n}",
   "defaults": {

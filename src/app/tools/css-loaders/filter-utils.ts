@@ -7,6 +7,7 @@ export type LoaderFilterState = {
   query: string;
   category: LoaderCategory;
   format: "all" | LoaderFormat;
+  source: "all" | string;
   sort: LoaderSortKey;
   savedOnly: boolean;
 };
@@ -18,8 +19,9 @@ export function matchesLoaderFilters(loader: LoaderIndexItem, filters: LoaderFil
     filters.category === "all" ||
     (filters.category === "popular" ? Boolean(loader.flags.popular) : loader.category === filters.category);
   const matchesFormat = filters.format === "all" || loader.formats.includes(filters.format);
+  const matchesSource = filters.source === "all" || loader.sourceId === filters.source;
 
-  return matchesQuery && matchesCategory && matchesFormat;
+  return matchesQuery && matchesCategory && matchesFormat && matchesSource;
 }
 
 export function filterLoaders(loaders: LoaderIndexItem[], filters: LoaderFilterState) {
@@ -27,5 +29,12 @@ export function filterLoaders(loaders: LoaderIndexItem[], filters: LoaderFilterS
 }
 
 export function hasActiveLoaderFilters(filters: LoaderFilterState) {
-  return Boolean(filters.query.trim()) || filters.category !== "all" || filters.format !== "all" || filters.sort !== "popular" || filters.savedOnly;
+  return (
+    Boolean(filters.query.trim()) ||
+    filters.category !== "all" ||
+    filters.format !== "all" ||
+    filters.source !== "all" ||
+    filters.sort !== "popular" ||
+    filters.savedOnly
+  );
 }

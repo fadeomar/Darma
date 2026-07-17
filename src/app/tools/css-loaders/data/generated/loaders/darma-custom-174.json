@@ -2,6 +2,7 @@
   "id": "darma-custom-174",
   "name": "Morph Dots",
   "category": "dots",
+  "sourceId": "darma-custom",
   "tags": [
     "morph",
     "dots",
@@ -23,7 +24,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-174 morph dots dots morph dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-174 morph dots dots darma-custom darma custom morph dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-174\"></div>",
   "previewCss": ".darma-loader-darma-custom-174 {\n  color: var(--loader-color, #db2777);\nwidth: 60px;\naspect-ratio: 4;\n--c:currentColor 90%,#0000;\nbackground:\nradial-gradient(circle closest-side at left 6px top 50%,var(--c)),\nradial-gradient(circle closest-side ,var(--c)),\nradial-gradient(circle closest-side at right 6px top 50%,var(--c));\nbackground-size: 100% 100%;\nbackground-repeat: no-repeat;\nanimation: darma-loader-darma-custom-174-l4 1s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-174-l4 {\nto{width:25px;aspect-ratio: 1}\n}\n",
   "defaults": {

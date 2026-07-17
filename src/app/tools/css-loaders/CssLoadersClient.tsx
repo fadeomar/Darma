@@ -14,6 +14,8 @@ import { copyTextToClipboard } from "./copy-utils";
 import { filterLoaders, hasActiveLoaderFilters, type LoaderFilterState } from "./filter-utils";
 import { loadLoaderDetail, loadLoaderPreviewCategories } from "./loader-data";
 import { DEFAULT_LOADER_FILTERS, formatLoaderLabel, LOADER_CATEGORIES } from "./loader-utils";
+import { LOADER_SOURCE_GROUPS } from "./loader-sources";
+import type { LoaderSourceOption } from "./components/LoaderToolbar";
 import loaderIndexJson from "./data/generated/loader-index.json";
 import sourceStatsJson from "./data/generated/source-stats.json";
 import type { LoaderCategory, LoaderDefinition, LoaderGalleryMode, LoaderIndexItem, LoaderPreviewItem } from "./types";
@@ -37,6 +39,15 @@ const categoryStats = loaderIndex.reduce<Partial<Record<LoaderCategory, number>>
 
 const sourceStats = sourceStatsJson as { total: number; groups: Record<string, number> };
 const sourceGroupCount = Object.keys(sourceStats.groups).length;
+
+// Counted from the index rather than source-stats so the label always matches what
+// the filter can actually return. Registry order keeps the list deterministic.
+const sourceOptions: LoaderSourceOption[] = LOADER_SOURCE_GROUPS.map((group) => ({
+  value: group.id,
+  label: group.name,
+  count: loaderIndex.filter((loader) => loader.sourceId === group.id).length,
+  isOriginal: group.isOriginal,
+})).filter((option) => option.count > 0);
 
 function readFavoriteIds() {
   if (typeof window === "undefined") return new Set<string>();
@@ -385,6 +396,7 @@ export default function CssLoadersClient() {
 
       <LoaderToolbar
         filters={filters}
+        sourceOptions={sourceOptions}
         totalCount={loaderIndex.length}
         resultCount={filteredLoaders.length}
         pageStart={pageStart}

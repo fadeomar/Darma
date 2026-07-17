@@ -2,6 +2,7 @@
   "id": "darma-custom-220",
   "name": "Segment Conveyor",
   "category": "progress",
+  "sourceId": "darma-custom",
   "tags": [
     "segment",
     "conveyor",
@@ -26,7 +27,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-220 segment conveyor progress segment conveyor progress bar track linear loader css-only single-element batch-05 html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-220 segment conveyor progress darma-custom darma custom segment conveyor progress bar track linear loader css-only single-element batch-05 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-220\"></div>",
   "previewCss": ".darma-loader-darma-custom-220 {\n  color: var(--loader-color, #2563eb);\n  width: 90px;\n  height: 14px;\n  background: repeating-linear-gradient(90deg,currentColor 0 calc(25% - 5px),#0000 0 25%) left/calc(4*100%/3) 100%;\n  animation: darma-loader-darma-custom-220-l1 0.5s infinite linear;\n}\n@keyframes darma-loader-darma-custom-220-l1 {\n    100% {background-position: right}\n}\n",
   "defaults": {

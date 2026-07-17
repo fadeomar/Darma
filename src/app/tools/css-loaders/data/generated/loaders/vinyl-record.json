@@ -2,6 +2,7 @@
   "id": "vinyl-record",
   "name": "Vinyl Record",
   "category": "creative",
+  "sourceId": "darma",
   "tags": [
     "vinyl",
     "record",
@@ -18,7 +19,7 @@
     "cssOnly": true,
     "customizable": true
   },
-  "searchText": "vinyl-record vinyl record creative vinyl record disc spin music html css react cssonly customizable",
+  "searchText": "vinyl-record vinyl record creative darma darma originals vinyl record disc spin music html css react cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-vinyl-record\"></span>",
   "previewCss": ".darma-loader-vinyl-record {\n  position: relative;\n  width: 56px;\n  height: 56px;\n  border-radius: 50%;\n  background:\n    radial-gradient(circle, var(--loader-color, #6366f1) 0 30%, transparent 31%),\n    repeating-radial-gradient(circle, #111827 0 2px, #1f2937 2px 4px);\n  animation: darma-loader-vinyl-record-spin 1.6s linear infinite;\n}\n.darma-loader-vinyl-record::before {\n  content: \"\";\n  position: absolute;\n  top: 12px;\n  left: 50%;\n  width: 5px;\n  height: 5px;\n  margin-left: -2.5px;\n  border-radius: 50%;\n  background: #ffffff;\n}\n.darma-loader-vinyl-record::after {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 4px;\n  height: 4px;\n  margin: -2px 0 0 -2px;\n  border-radius: 50%;\n  background: #111827;\n  box-shadow: 0 0 0 2px #ffffff;\n}\n@keyframes darma-loader-vinyl-record-spin { to { transform: rotate(360deg); } }",
   "defaults": {

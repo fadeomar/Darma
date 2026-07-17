@@ -2,6 +2,7 @@
   "id": "uiverse-redirect-meter-card",
   "name": "Redirect Meter Card",
   "category": "progress",
+  "sourceId": "uiverse-batch-5",
   "tags": [
     "redirect",
     "card",
@@ -22,7 +23,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "uiverse-redirect-meter-card redirect meter card progress redirect card progress bar uiverse batch-5 html css react cssonly customizable",
+  "searchText": "uiverse-redirect-meter-card redirect meter card progress uiverse-batch-5 uiverse batch 5 redirect card progress bar uiverse batch-5 html css react cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-uiverse-redirect-meter-card\">\n  <div class=\"darma-loader-uiverse-redirect-meter-card__label\">Redirecting...</div>\n  <div class=\"darma-loader-uiverse-redirect-meter-card__loading\"></div>\n</div>\n",
   "previewCss": ".darma-loader-uiverse-redirect-meter-card {\n  width: 260px;\n  height: 135px;\n  border-radius: 14px;\n  background: #ffffff;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-evenly;\n  padding: 24px;\n  box-shadow: 2px 2px 18px -8px #94a3b8;\n}\n.darma-loader-uiverse-redirect-meter-card__loading { width: 100%; height: 10px; background: var(--loader-secondary-color, #d9d9d9); border-radius: 10px; position: relative; overflow: hidden; }\n.darma-loader-uiverse-redirect-meter-card__loading::after { content: \"\"; position: absolute; top: 0; left: 0; width: 50%; height: 10px; background: var(--loader-color, #000022); border-radius: 10px; animation: darma-loader-uiverse-redirect-meter-card-redirectBar .7s alternate infinite; }\n.darma-loader-uiverse-redirect-meter-card__label { color: var(--loader-color, #000022); font-size: 18px; font-weight: 700; animation: darma-loader-uiverse-redirect-meter-card-redirectBlink .7s alternate infinite; }\n@keyframes darma-loader-uiverse-redirect-meter-card-redirectBlink { from { opacity: .35; } to { opacity: 1; } }\n@keyframes darma-loader-uiverse-redirect-meter-card-redirectBar { from { left: 0%; } to { left: 50%; } }\n",
   "defaults": {

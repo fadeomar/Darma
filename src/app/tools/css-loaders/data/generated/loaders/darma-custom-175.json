@@ -2,6 +2,7 @@
   "id": "darma-custom-175",
   "name": "Arc Hop Meter",
   "category": "creative",
+  "sourceId": "darma-custom",
   "tags": [
     "arc",
     "hop",
@@ -24,7 +25,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-175 arc hop meter creative arc hop meter creative motion css-only single-element batch-04 html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-175 arc hop meter creative darma-custom darma custom arc hop meter creative motion css-only single-element batch-04 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-175\"></div>",
   "previewCss": ".darma-loader-darma-custom-175 {\n  color: var(--loader-color, #4f46e5);\nwidth: 15px;\naspect-ratio: 1;\nborder-radius: 50%;\nanimation: darma-loader-darma-custom-175-l5 1s infinite linear alternate;\n}\n@keyframes darma-loader-darma-custom-175-l5 {\n0% {box-shadow: 20px 0 currentColor, -20px 0 color-mix(in srgb, currentColor 13%, transparent);background: currentColor }\n33% {box-shadow: 20px 0 currentColor, -20px 0 color-mix(in srgb, currentColor 13%, transparent);background: color-mix(in srgb, currentColor 13%, transparent)}\n66% {box-shadow: 20px 0 color-mix(in srgb, currentColor 13%, transparent),-20px 0 currentColor; background: color-mix(in srgb, currentColor 13%, transparent)}\n100%{box-shadow: 20px 0 color-mix(in srgb, currentColor 13%, transparent),-20px 0 currentColor; background: currentColor }\n}\n",
   "defaults": {

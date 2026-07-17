@@ -2,6 +2,7 @@
   "id": "darma-custom-052",
   "name": "Material Indeterminate Line",
   "category": "progress",
+  "sourceId": "darma-custom",
   "tags": [
     "material",
     "indeterminate",
@@ -22,7 +23,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-052 material indeterminate line progress material indeterminate line thin progress batch-02 html css react popular singleelement cssonly customizable",
+  "searchText": "darma-custom-052 material indeterminate line progress darma-custom darma custom material indeterminate line thin progress batch-02 html css react popular singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-052\"></div>",
   "previewCss": ".darma-loader-darma-custom-052 {\n  height: 4px;\n  width: 130px;\n  --c: no-repeat linear-gradient(var(--loader-color, #6100ee) 0 0);\n  background: var(--c), var(--c), var(--loader-secondary-color, #d7b8fc);\n  background-size: 60% 100%;\n  animation: darma-loader-darma-custom-052-l16 3s infinite;\n}\n@keyframes darma-loader-darma-custom-052-l16 {\n  0% { background-position: -150% 0, -150% 0; }\n  66% { background-position: 250% 0, -150% 0; }\n  100% { background-position: 250% 0, 250% 0; }\n}\n",
   "defaults": {

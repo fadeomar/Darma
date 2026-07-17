@@ -3,6 +3,7 @@
     "id": "uiverse-aurora-jump-pearls",
     "name": "Aurora Jump Pearls",
     "category": "dots",
+    "sourceId": "uiverse-batch-4",
     "tags": [
       "dots",
       "glow",
@@ -22,7 +23,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "uiverse-aurora-jump-pearls aurora jump pearls dots dots glow jump aurora uiverse html css react cssonly customizable",
+    "searchText": "uiverse-aurora-jump-pearls aurora jump pearls dots uiverse-batch-4 uiverse batch 4 dots glow jump aurora uiverse html css react cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-uiverse-aurora-jump-pearls\">\n  <div class=\"darma-loader-uiverse-aurora-jump-pearls___circle\"></div>\n  <div class=\"darma-loader-uiverse-aurora-jump-pearls___circle\"></div>\n  <div class=\"darma-loader-uiverse-aurora-jump-pearls___circle\"></div>\n  <div class=\"darma-loader-uiverse-aurora-jump-pearls___circle\"></div>\n  <div class=\"darma-loader-uiverse-aurora-jump-pearls___circle\"></div>\n</div>",
     "previewCss": ".darma-loader-uiverse-aurora-jump-pearls {\n  position: relative;\n  display: flex;\n  gap: 0.3em;\n}\n\n.darma-loader-uiverse-aurora-jump-pearls::before {\ncontent: \"\";\nposition: absolute;\nleft: 0;\ntop: 0;\nwidth: 100%;\nheight: 2em;\nfilter: blur(45px);\nbackground-color: var(--loader-secondary-color, #e299ff);\nbackground-image: radial-gradient(at 52% 57%, hsla(11,83%,72%,1) 0px, transparent 50%),\nradial-gradient(at 37% 57%, hsla(175,78%,66%,1) 0px, transparent 50%);\n}\n\n.darma-loader-uiverse-aurora-jump-pearls___circle {\n--size-loader: 0.6em;\nwidth: var(--size-loader);\nheight: var(--size-loader);\nborder-radius: 50%;\nanimation: darma-loader-uiverse-aurora-jump-pearls-loaderCircleJumping 2s infinite;\nbackground-color: var(--loader-color, #b499ff);\n}\n\n.darma-loader-uiverse-aurora-jump-pearls___circle:nth-child(2n) {\nanimation-delay: 300ms;\nbackground-color: #e499ff;\n}\n\n.darma-loader-uiverse-aurora-jump-pearls___circle:nth-child(3n) {\nanimation-delay: 600ms;\n}\n\n@keyframes darma-loader-uiverse-aurora-jump-pearls-loaderCircleJumping {\n0%, 100% {\ntransform: translateY(0px);\n}\n\n25% {\ntransform: translateY(-15px) scale(0.5);\n}\n\n50% {\ntransform: translateY(0px);\n}\n\n75% {\ntransform: translateY(5px) scale(0.9);\n}\n}",
     "defaults": {
@@ -36,6 +37,7 @@
     "id": "loaders-css-03",
     "name": "Ball Beat 03",
     "category": "dots",
+    "sourceId": "loaders-css",
     "tags": [
       "loaders-css",
       "beat",
@@ -55,7 +57,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "loaders-css-03 ball beat 03 dots loaders-css beat ball dots loader html css react popular cssonly customizable",
+    "searchText": "loaders-css-03 ball beat 03 dots loaders-css loaders.css loaders-css beat ball dots loader html css react popular cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-loaders-css-03\"><i></i><i></i><i></i></span>",
     "previewCss": ".darma-loader-loaders-css-03 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 7px;\n      min-width: 57px;\n      min-height: 24px;\n    }\n    .darma-loader-loaders-css-03 i {\n      display: block;\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: var(--loader-color, #f59e0b);\n      animation: darma-loader-loaders-css-03-dotPulse 0.89s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-03 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-03 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loaders-css-03 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loaders-css-03-dotPulse { 0%, 80%, 100% { opacity: .25; transform: scale(.7); } 40% { opacity: 1; transform: scale(1); } }\n",
     "defaults": {
@@ -69,6 +71,7 @@
     "id": "loaders-css-01",
     "name": "Ball Grid Pulse 01",
     "category": "dots",
+    "sourceId": "loaders-css",
     "tags": [
       "loaders-css",
       "ball",
@@ -88,7 +91,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "loaders-css-01 ball grid pulse 01 dots loaders-css ball pulse dots loader html css react popular cssonly customizable",
+    "searchText": "loaders-css-01 ball grid pulse 01 dots loaders-css loaders.css loaders-css ball pulse dots loader html css react popular cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-loaders-css-01\"><i></i><i></i><i></i><i></i></span>",
     "previewCss": ".darma-loader-loaders-css-01 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      min-width: 68px;\n      min-height: 22px;\n    }\n    .darma-loader-loaders-css-01 i {\n      display: block;\n      width: 11px;\n      height: 11px;\n      border-radius: 50%;\n      background: var(--loader-color, #8b5cf6);\n      animation: darma-loader-loaders-css-01-dotPulse 0.7799999999999999s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-01 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-01 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loaders-css-01 i:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-loaders-css-01 i:nth-child(4) { animation-delay: 0.36s; }\n    @keyframes darma-loader-loaders-css-01-dotPulse { 0%, 80%, 100% { opacity: .25; transform: scale(.7); } 40% { opacity: 1; transform: scale(1); } }\n",
     "defaults": {
@@ -102,6 +105,7 @@
     "id": "loaders-css-10",
     "name": "Ball Pulse 10",
     "category": "dots",
+    "sourceId": "loaders-css",
     "tags": [
       "loaders-css",
       "ball",
@@ -121,7 +125,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "loaders-css-10 ball pulse 10 dots loaders-css ball pulse dots loader html css react cssonly customizable",
+    "searchText": "loaders-css-10 ball pulse 10 dots loaders-css loaders.css loaders-css ball pulse dots loader html css react cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-loaders-css-10\"><i></i><i></i><i></i><i></i></span>",
     "previewCss": ".darma-loader-loaders-css-10 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      min-width: 72px;\n      min-height: 24px;\n    }\n    .darma-loader-loaders-css-10 i {\n      display: block;\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: var(--loader-color, #ec4899);\n      animation: darma-loader-loaders-css-10-dotPulse 0.7s ease-in-out infinite;\n    }\n    .darma-loader-loaders-css-10 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loaders-css-10 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loaders-css-10 i:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-loaders-css-10 i:nth-child(4) { animation-delay: 0.36s; }\n    @keyframes darma-loader-loaders-css-10-dotPulse { 0%, 80%, 100% { transform: translateY(0) scale(.75); opacity: .45; } 40% { transform: translateY(-8px) scale(1); opacity: 1; } }\n",
     "defaults": {
@@ -135,6 +139,7 @@
     "id": "darma-research-blob-family-bounce",
     "name": "Blob Family Bounce",
     "category": "dots",
+    "sourceId": "darma-research-batch-6",
     "tags": [
       "blob",
       "dots",
@@ -151,7 +156,7 @@
       "customizable": true,
       "cssOnly": true
     },
-    "searchText": "darma-research-blob-family-bounce blob family bounce dots blob dots bounce cute fun html css react customizable cssonly",
+    "searchText": "darma-research-blob-family-bounce blob family bounce dots darma-research-batch-6 darma research batch 6 blob dots bounce cute fun html css react customizable cssonly",
     "previewHtml": "<div class=\"darma-loader-darma-research-blob-family-bounce\" aria-label=\"Loading blobs\"><span></span><span></span><span></span><span></span></div>",
     "previewCss": ".darma-loader-darma-research-blob-family-bounce { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #fb7185); --accent-2: var(--loader-secondary-color, #8b5cf6); width: calc(var(--loader-size, 84px) * 1.35); height: calc(var(--loader-size, 84px) * .65); display: flex; align-items: end; justify-content: center; gap: 7%; }\n.darma-loader-darma-research-blob-family-bounce span { width: 19%; aspect-ratio: 1; border-radius: 58% 42% 55% 45% / 45% 55% 45% 55%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: inset 0 -8px #0002, 0 8px 18px color-mix(in srgb, var(--accent) 40%, transparent); animation: darma-loader-darma-research-blob-family-bounce-blob-bounce calc(var(--speed) * 1.15) cubic-bezier(.5,0,.2,1) infinite; }\n.darma-loader-darma-research-blob-family-bounce span:nth-child(2) { animation-delay: .1s; width: 23%; } .darma-loader-darma-research-blob-family-bounce span:nth-child(3) { animation-delay: .2s; } .darma-loader-darma-research-blob-family-bounce span:nth-child(4) { animation-delay: .3s; width: 15%; }\n@keyframes darma-loader-darma-research-blob-family-bounce-blob-bounce { 0%,100% { transform: translateY(0) scale(1.15,.85); } 45% { transform: translateY(-26px) scale(.82,1.18) rotate(12deg); border-radius: 42% 58% 45% 55% / 55% 45% 55% 45%; } 70% { transform: translateY(4px) scale(1.22,.78); } }",
     "defaults": {
@@ -165,6 +170,7 @@
     "id": "darma-custom-205",
     "name": "Bounce Hop Dots",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "bounce",
       "hop",
@@ -187,7 +193,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-205 bounce hop dots dots bounce hop dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-205 bounce hop dots dots darma-custom darma custom bounce hop dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-205\"></div>",
     "previewCss": ".darma-loader-darma-custom-205 {\n  color: var(--loader-color, #2563eb);\nheight: 15px;\naspect-ratio: 5;\ndisplay: grid;\n}\n.darma-loader-darma-custom-205:before,\n.darma-loader-darma-custom-205:after {\ncontent: \"\";\ngrid-area: 1/1;\nheight: inherit;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 15px 100%;\nbackground-repeat: no-repeat;\nanimation: darma-loader-darma-custom-205-l35 1s infinite linear;\n}\n.darma-loader-darma-custom-205:after {\nmargin-left: auto;\n--s:-1;\n}\n@keyframes darma-loader-darma-custom-205-l35 {\n0% {transform:translateY(calc(var(--s,1)*0px));aspect-ratio: 2.3 }\n33% {transform:translateY(calc(var(--s,1)*8px));aspect-ratio: 2.3 }\n66% {transform:translateY(calc(var(--s,1)*8px));aspect-ratio: 3.7 }\n100% {transform:translateY(calc(var(--s,1)*0px));aspect-ratio: 3.7 }\n}\n",
     "defaults": {
@@ -202,6 +208,7 @@
     "id": "uiverse-bouncing-ball-chain",
     "name": "Bouncing Ball Chain",
     "category": "dots",
+    "sourceId": "uiverse-batch-4",
     "tags": [
       "balls",
       "chain",
@@ -221,7 +228,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "uiverse-bouncing-ball-chain bouncing ball chain dots balls chain bounce orbit uiverse html css react cssonly customizable",
+    "searchText": "uiverse-bouncing-ball-chain bouncing ball chain dots uiverse-batch-4 uiverse batch 4 balls chain bounce orbit uiverse html css react cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-uiverse-bouncing-ball-chain\">\n  <span class=\"darma-loader-uiverse-bouncing-ball-chain__ball\"></span>\n  <span class=\"darma-loader-uiverse-bouncing-ball-chain__ball\"></span>\n  <span class=\"darma-loader-uiverse-bouncing-ball-chain__ball\"></span>\n  <span class=\"darma-loader-uiverse-bouncing-ball-chain__ball\"></span>\n  <span class=\"darma-loader-uiverse-bouncing-ball-chain__ball\"></span>\n  <span class=\"darma-loader-uiverse-bouncing-ball-chain__ball\"></span>\n  <span class=\"darma-loader-uiverse-bouncing-ball-chain__ball\"></span>\n  <span class=\"darma-loader-uiverse-bouncing-ball-chain__ball\"></span>\n</div>",
     "previewCss": ".darma-loader-uiverse-bouncing-ball-chain {\n  position: relative;\n  display: block;\n  width: 220px;\n  height: 220px;\n  border-radius: 50%;\n  border: solid 5px transparent;\n  overflow: visible;\n  isolation: isolate;\n  transform-style: flat;\n  box-shadow:\n    5px 5px 5px rgb(12, 12, 12),\n    inset 5px 5px 5px rgb(24, 23, 23),\n    inset -1px -1px 10px rgba(153, 148, 148, 0.432),\n    -1px -1px 10px rgba(206, 198, 198, 0.281);\n}\n\n.darma-loader-uiverse-bouncing-ball-chain::before {\n  content: \"\";\n  position: absolute;\n  z-index: 1;\n  width: 180px;\n  height: 180px;\n  border-radius: 50%;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  box-shadow: 5px 5px 20px black, -2px -2px 40px black;\n  background: repeating-conic-gradient(\n    rgb(61, 59, 59) 0%,\n    rgba(248, 248, 246, 0.534) 15%,\n    rgb(54, 52, 52) 33.33%\n  );\n}\n\n.darma-loader-uiverse-bouncing-ball-chain__ball {\n  --phase: 0deg;\n  --orbit-radius: 97.5px;\n  --ball-size: 15px;\n\n  position: absolute;\n  z-index: 2;\n  top: 50%;\n  left: 50%;\n  width: var(--ball-size);\n  height: var(--ball-size);\n  margin: calc(var(--ball-size) / -2) 0 0 calc(var(--ball-size) / -2);\n  display: block;\n  border-radius: 50%;\n  background: radial-gradient(\n    circle at 35% 35%,\n    rgb(255, 255, 255) 1%,\n    rgb(5, 5, 5) 55%\n  );\n  transform: rotate(var(--phase)) translateX(var(--orbit-radius));\n  animation: darma-loader-uiverse-bouncing-ball-chain-rotate var(--loader-speed, 5s) infinite linear;\n  backface-visibility: hidden;\n  will-change: transform;\n}\n\n.darma-loader-uiverse-bouncing-ball-chain__ball:nth-child(1) { --phase: 0deg; }\n.darma-loader-uiverse-bouncing-ball-chain__ball:nth-child(2) { --phase: 45deg; }\n.darma-loader-uiverse-bouncing-ball-chain__ball:nth-child(3) { --phase: 90deg; }\n.darma-loader-uiverse-bouncing-ball-chain__ball:nth-child(4) { --phase: 135deg; }\n.darma-loader-uiverse-bouncing-ball-chain__ball:nth-child(5) { --phase: 180deg; }\n.darma-loader-uiverse-bouncing-ball-chain__ball:nth-child(6) { --phase: 225deg; }\n.darma-loader-uiverse-bouncing-ball-chain__ball:nth-child(7) { --phase: 270deg; }\n.darma-loader-uiverse-bouncing-ball-chain__ball:nth-child(8) { --phase: 315deg; }\n\n@keyframes darma-loader-uiverse-bouncing-ball-chain-rotate {\n  from {\n    transform: rotate(var(--phase)) translateX(var(--orbit-radius));\n  }\n\n  to {\n    transform: rotate(calc(var(--phase) + 360deg)) translateX(var(--orbit-radius));\n  }\n}",
     "defaults": {
@@ -235,6 +242,7 @@
     "id": "uiverse-bubblegum-trio",
     "name": "Bubblegum Trio",
     "category": "dots",
+    "sourceId": "uiverse-batch-4",
     "tags": [
       "bubble",
       "trio",
@@ -254,7 +262,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "uiverse-bubblegum-trio bubblegum trio dots bubble trio gradient soft uiverse html css react cssonly customizable",
+    "searchText": "uiverse-bubblegum-trio bubblegum trio dots uiverse-batch-4 uiverse batch 4 bubble trio gradient soft uiverse html css react cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-uiverse-bubblegum-trio\">\n  <div class=\"darma-loader-uiverse-bubblegum-trio__bubble\"></div>\n  <div class=\"darma-loader-uiverse-bubblegum-trio__bubble\"></div>\n  <div class=\"darma-loader-uiverse-bubblegum-trio__bubble\"></div>\n</div>",
     "previewCss": ".darma-loader-uiverse-bubblegum-trio {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100%;\n}\n\n.darma-loader-uiverse-bubblegum-trio__bubble {\nwidth: 20px;\nheight: 20px;\nborder-radius: 50%;\nbackground-image: linear-gradient(to right, var(--loader-color, #ff6b81), var(--loader-secondary-color, #ff9a44));\nmargin: 0 5px;\nanimation: darma-loader-uiverse-bubblegum-trio-bubbleAnimation 1.5s ease-in-out infinite;\n}\n\n@keyframes darma-loader-uiverse-bubblegum-trio-bubbleAnimation {\n0%,\n100% {\ntransform: scale(1);\nopacity: 1;\n}\n50% {\ntransform: scale(2);\nopacity: 0.5;\n}\n}",
     "defaults": {
@@ -268,6 +276,7 @@
     "id": "uiverse-candy-pulse-beads",
     "name": "Candy Pulse Beads",
     "category": "dots",
+    "sourceId": "uiverse-batch-4",
     "tags": [
       "dots",
       "gradient",
@@ -287,7 +296,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "uiverse-candy-pulse-beads candy pulse beads dots dots gradient pulse beads uiverse html css react cssonly customizable",
+    "searchText": "uiverse-candy-pulse-beads candy pulse beads dots uiverse-batch-4 uiverse batch 4 dots gradient pulse beads uiverse html css react cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-uiverse-candy-pulse-beads\">\n    <div class=\"darma-loader-uiverse-candy-pulse-beads__circle\"></div>\n    <div class=\"darma-loader-uiverse-candy-pulse-beads__circle\"></div>\n    <div class=\"darma-loader-uiverse-candy-pulse-beads__circle\"></div>\n    <div class=\"darma-loader-uiverse-candy-pulse-beads__circle\"></div>\n    <div class=\"darma-loader-uiverse-candy-pulse-beads__circle\"></div>\n  </div>",
     "previewCss": ".darma-loader-uiverse-candy-pulse-beads {\n  flex-direction: row;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.darma-loader-uiverse-candy-pulse-beads__circle {\nwidth: 20px;\nheight: 20px;\nbackground-color: var(--loader-color, #8bc6ec);\nbackground-image: linear-gradient(135deg, var(--loader-color, #8bc6ec) 0%, var(--loader-secondary-color, #9599e2) 100%);\nborder-radius: 50%;\nmargin-right: 1rem;\nanimation: darma-loader-uiverse-candy-pulse-beads-pulse 1.2s ease-in-out infinite;\n}\n\n.darma-loader-uiverse-candy-pulse-beads__circle:nth-child(2) {\nanimation-delay: 0.2s;\nbackground-color: #4158D0;\nbackground-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);\n}\n\n.darma-loader-uiverse-candy-pulse-beads__circle:nth-child(3) {\nanimation-delay: 0.4s;\nbackground-color: #0093E9;\nbackground-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);\n}\n\n.darma-loader-uiverse-candy-pulse-beads__circle:nth-child(4) {\nanimation-delay: 0.6s;\nbackground-color: #8EC5FC;\nbackground-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);\n}\n\n.darma-loader-uiverse-candy-pulse-beads__circle:nth-child(5) {\nanimation-delay: 0.8s;\nbackground-color: #00DBDE;\nbackground-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);\n}\n\n@keyframes darma-loader-uiverse-candy-pulse-beads-pulse {\n0% {\ntransform: scale(0.8);\nopacity: 0.7;\n}\n\n50% {\ntransform: scale(1);\nopacity: 1;\n}\n\n100% {\ntransform: scale(0.8);\nopacity: 0.7;\n}\n}",
     "defaults": {
@@ -301,6 +310,7 @@
     "id": "demo-dots",
     "name": "Classic Dots",
     "category": "dots",
+    "sourceId": "darma",
     "tags": [
       "dots",
       "bounce",
@@ -318,7 +328,7 @@
       "customizable": true,
       "singleElement": false
     },
-    "searchText": "demo-dots classic dots dots dots bounce minimal inline html css react popular cssonly customizable",
+    "searchText": "demo-dots classic dots dots darma darma originals dots bounce minimal inline html css react popular cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-demo-dots\"><span></span><span></span><span></span></span>",
     "previewCss": ".darma-loader-demo-dots {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  color: var(--loader-color, #6366f1);\n}\n.darma-loader-demo-dots span {\n  width: 12px;\n  height: 12px;\n  border-radius: 999px;\n  background: currentColor;\n  animation: darma-loader-demo-dots-loader-bounce 0.75s ease-in-out infinite alternate;\n}\n.darma-loader-demo-dots span:nth-child(2) { animation-delay: 0.15s; }\n.darma-loader-demo-dots span:nth-child(3) { animation-delay: 0.3s; }\n@keyframes darma-loader-demo-dots-loader-bounce {\n  from { transform: translateY(0); opacity: 0.55; }\n  to { transform: translateY(-12px); opacity: 1; }\n}\n",
     "defaults": {
@@ -331,6 +341,7 @@
     "id": "darma-custom-182",
     "name": "Collapsing Dots",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "collapsing",
       "dots",
@@ -352,7 +363,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-182 collapsing dots dots collapsing dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-182 collapsing dots dots darma-custom darma custom collapsing dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-182\"></div>",
     "previewCss": ".darma-loader-darma-custom-182 {\n  color: var(--loader-color, #7c3aed);\nwidth: 60px;\naspect-ratio: 2;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 90%,#0000);\nbackground:\nvar(--_g) 0 50%,\nvar(--_g) 50% 50%,\nvar(--_g) 50% 50%,\nvar(--_g) 100% 50%;\nbackground-size: 25% 50%;\nanimation: darma-loader-darma-custom-182-l12 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-182-l12 {\n33% {background-position:0 0 ,50% 100%,50% 100%,100% 0}\n66% {background-position:50% 0 ,0 100%,100% 100%,50% 0}\n100% {background-position:50% 50%,0 50% ,100% 50% ,50% 50%}\n}\n",
     "defaults": {
@@ -367,6 +378,7 @@
     "id": "darma-custom-187",
     "name": "Crossing Dots",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "crossing",
       "dots",
@@ -388,7 +400,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-187 crossing dots dots crossing dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-187 crossing dots dots darma-custom darma custom crossing dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-187\"></div>",
     "previewCss": ".darma-loader-darma-custom-187 {\n  color: var(--loader-color, #4f46e5);\nwidth: 60px;\naspect-ratio: 1;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 90%,#0000);\nbackground: var(--_g), var(--_g), var(--_g);\nbackground-size: 25% 25%;\nanimation: darma-loader-darma-custom-187-l17 1s infinite;\n}\n@keyframes darma-loader-darma-custom-187-l17{\n0% {background-position: 0% -100%,50% -100%,100% -100%}\n16.67% {background-position: 0% 50%,50% -100%,100% -100%}\n33.33% {background-position: 0% 50%,50% 50%,100% -100%}\n45%,55%{background-position: 0% 50%,50% 50%,100% 50%}\n66.67% {background-position: 0% 200%,50% 50%,100% 50%}\n83.33% {background-position: 0% 200%,50% 200%,100% 50%}\n100% {background-position: 0% 200%,50% 200%,100% 200%}\n}\n",
     "defaults": {
@@ -403,6 +415,7 @@
     "id": "cssloaders-github-05",
     "name": "CSSLoaders Pattern 05",
     "category": "dots",
+    "sourceId": "cssloaders-github",
     "tags": [
       "cssloaders",
       "wave",
@@ -421,7 +434,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "cssloaders-github-05 cssloaders pattern 05 dots cssloaders wave dots loader html css react popular cssonly customizable",
+    "searchText": "cssloaders-github-05 cssloaders pattern 05 dots cssloaders-github css loaders cssloaders wave dots loader html css react popular cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-cssloaders-github-05\"><i></i><i></i><i></i><i></i></span>",
     "previewCss": ".darma-loader-cssloaders-github-05 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 5px;\n      min-width: 52px;\n      min-height: 16px;\n    }\n    .darma-loader-cssloaders-github-05 i {\n      display: block;\n      width: 8px;\n      height: 8px;\n      border-radius: 50%;\n      background: var(--loader-color, #f59e0b);\n      animation: darma-loader-cssloaders-github-05-dotPulse 0.95s ease-in-out infinite;\n    }\n    .darma-loader-cssloaders-github-05 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-cssloaders-github-05 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-cssloaders-github-05 i:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-cssloaders-github-05 i:nth-child(4) { animation-delay: 0.36s; }\n    @keyframes darma-loader-cssloaders-github-05-dotPulse { 0%, 100% { transform: translateY(0); opacity: .45; } 45% { transform: translateY(-12px); opacity: 1; } }\n",
     "defaults": {
@@ -435,6 +448,7 @@
     "id": "cssloaders-github-13",
     "name": "CSSLoaders Pattern 13",
     "category": "dots",
+    "sourceId": "cssloaders-github",
     "tags": [
       "cssloaders",
       "wave",
@@ -453,7 +467,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "cssloaders-github-13 cssloaders pattern 13 dots cssloaders wave dots loader html css react cssonly customizable",
+    "searchText": "cssloaders-github-13 cssloaders pattern 13 dots cssloaders-github css loaders cssloaders wave dots loader html css react cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-cssloaders-github-13\"><i></i><i></i><i></i><i></i></span>",
     "previewCss": ".darma-loader-cssloaders-github-13 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 5px;\n      min-width: 64px;\n      min-height: 22px;\n    }\n    .darma-loader-cssloaders-github-13 i {\n      display: block;\n      width: 11px;\n      height: 11px;\n      border-radius: 50%;\n      background: var(--loader-color, #8b5cf6);\n      animation: darma-loader-cssloaders-github-13-dotPulse 0.95s ease-in-out infinite;\n    }\n    .darma-loader-cssloaders-github-13 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-cssloaders-github-13 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-cssloaders-github-13 i:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-cssloaders-github-13 i:nth-child(4) { animation-delay: 0.36s; }\n    @keyframes darma-loader-cssloaders-github-13-dotPulse { 0%, 100% { transform: translateY(0); opacity: .45; } 45% { transform: translateY(-12px); opacity: 1; } }\n",
     "defaults": {
@@ -467,6 +481,7 @@
     "id": "cssloaders-github-21",
     "name": "CSSLoaders Pattern 21",
     "category": "dots",
+    "sourceId": "cssloaders-github",
     "tags": [
       "cssloaders",
       "wave",
@@ -485,7 +500,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "cssloaders-github-21 cssloaders pattern 21 dots cssloaders wave dots loader html css react cssonly customizable",
+    "searchText": "cssloaders-github-21 cssloaders pattern 21 dots cssloaders-github css loaders cssloaders wave dots loader html css react cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-cssloaders-github-21\"><i></i><i></i><i></i><i></i></span>",
     "previewCss": ".darma-loader-cssloaders-github-21 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 5px;\n      min-width: 56px;\n      min-height: 18px;\n    }\n    .darma-loader-cssloaders-github-21 i {\n      display: block;\n      width: 9px;\n      height: 9px;\n      border-radius: 50%;\n      background: var(--loader-color, #22c55e);\n      animation: darma-loader-cssloaders-github-21-dotPulse 0.95s ease-in-out infinite;\n    }\n    .darma-loader-cssloaders-github-21 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-cssloaders-github-21 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-cssloaders-github-21 i:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-cssloaders-github-21 i:nth-child(4) { animation-delay: 0.36s; }\n    @keyframes darma-loader-cssloaders-github-21-dotPulse { 0%, 100% { transform: translateY(0); opacity: .45; } 45% { transform: translateY(-12px); opacity: 1; } }\n",
     "defaults": {
@@ -499,6 +514,7 @@
     "id": "cssloaders-github-29",
     "name": "CSSLoaders Pattern 29",
     "category": "dots",
+    "sourceId": "cssloaders-github",
     "tags": [
       "cssloaders",
       "wave",
@@ -517,7 +533,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "cssloaders-github-29 cssloaders pattern 29 dots cssloaders wave dots loader html css react cssonly customizable",
+    "searchText": "cssloaders-github-29 cssloaders pattern 29 dots cssloaders-github css loaders cssloaders wave dots loader html css react cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-cssloaders-github-29\"><i></i><i></i><i></i><i></i></span>",
     "previewCss": ".darma-loader-cssloaders-github-29 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 5px;\n      min-width: 68px;\n      min-height: 24px;\n    }\n    .darma-loader-cssloaders-github-29 i {\n      display: block;\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: var(--loader-color, #06b6d4);\n      animation: darma-loader-cssloaders-github-29-dotPulse 0.95s ease-in-out infinite;\n    }\n    .darma-loader-cssloaders-github-29 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-cssloaders-github-29 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-cssloaders-github-29 i:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-cssloaders-github-29 i:nth-child(4) { animation-delay: 0.36s; }\n    @keyframes darma-loader-cssloaders-github-29-dotPulse { 0%, 100% { transform: translateY(0); opacity: .45; } 45% { transform: translateY(-12px); opacity: 1; } }\n",
     "defaults": {
@@ -531,6 +547,7 @@
     "id": "cssloaders-github-37",
     "name": "CSSLoaders Pattern 37",
     "category": "dots",
+    "sourceId": "cssloaders-github",
     "tags": [
       "cssloaders",
       "wave",
@@ -549,7 +566,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "cssloaders-github-37 cssloaders pattern 37 dots cssloaders wave dots loader html css react cssonly customizable",
+    "searchText": "cssloaders-github-37 cssloaders pattern 37 dots cssloaders-github css loaders cssloaders wave dots loader html css react cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-cssloaders-github-37\"><i></i><i></i><i></i><i></i></span>",
     "previewCss": ".darma-loader-cssloaders-github-37 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 5px;\n      min-width: 60px;\n      min-height: 20px;\n    }\n    .darma-loader-cssloaders-github-37 i {\n      display: block;\n      width: 10px;\n      height: 10px;\n      border-radius: 50%;\n      background: var(--loader-color, #0ea5e9);\n      animation: darma-loader-cssloaders-github-37-dotPulse 0.95s ease-in-out infinite;\n    }\n    .darma-loader-cssloaders-github-37 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-cssloaders-github-37 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-cssloaders-github-37 i:nth-child(3) { animation-delay: 0.24s; }\n.darma-loader-cssloaders-github-37 i:nth-child(4) { animation-delay: 0.36s; }\n    @keyframes darma-loader-cssloaders-github-37-dotPulse { 0%, 100% { transform: translateY(0); opacity: .45; } 45% { transform: translateY(-12px); opacity: 1; } }\n",
     "defaults": {
@@ -563,6 +580,7 @@
     "id": "darma-custom-200",
     "name": "Diagonal Dot Swap",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "diagonal",
       "dot",
@@ -585,7 +603,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-200 diagonal dot swap dots diagonal dot swap dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-200 diagonal dot swap dots darma-custom darma custom diagonal dot swap dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-200\"></div>",
     "previewCss": ".darma-loader-darma-custom-200 {\n  color: var(--loader-color, #0f766e);\n--s: 17px;\nwidth: calc(var(--s)*2.33);\naspect-ratio: 1;\ndisplay: flex;\njustify-content: space-between;\n}\n.darma-loader-darma-custom-200::before,\n.darma-loader-darma-custom-200::after {\ncontent: \"\";\nwidth: var(--s);\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) top,\nvar(--_g) bottom;\nbackground-size: 100% var(--s);\ntransform-origin: 50% calc(100% - var(--s)/2);\nanimation: darma-loader-darma-custom-200-l30 1s infinite;\n}\n.darma-loader-darma-custom-200::after {\ntransform-origin: 50% calc(var(--s)/2);\n}\n@keyframes darma-loader-darma-custom-200-l30 {\n70%,100% {transform:rotate(-270deg)}\n}\n",
     "defaults": {
@@ -600,6 +618,7 @@
     "id": "darma-research-dna-helix-dots",
     "name": "DNA Helix Dots",
     "category": "dots",
+    "sourceId": "darma-research-batch-6",
     "tags": [
       "dna",
       "helix",
@@ -617,7 +636,7 @@
       "customizable": true,
       "cssOnly": true
     },
-    "searchText": "darma-research-dna-helix-dots dna helix dots dots dna helix dots science creative html css react popular customizable cssonly",
+    "searchText": "darma-research-dna-helix-dots dna helix dots dots darma-research-batch-6 darma research batch 6 dna helix dots science creative html css react popular customizable cssonly",
     "previewHtml": "<div class=\"darma-loader-darma-research-dna-helix-dots\" aria-label=\"Loading helix\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
     "previewCss": ".darma-loader-darma-research-dna-helix-dots { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #22c55e); --accent-2: var(--loader-secondary-color, #60a5fa); width: calc(var(--loader-size, 88px) * .72); height: calc(var(--loader-size, 88px) * 1.28); position: relative; }\n.darma-loader-darma-research-dna-helix-dots::before { content: \"\"; position: absolute; left: 48%; top: 6%; bottom: 6%; width: 2px; background: linear-gradient(var(--accent), var(--accent-2)); opacity: .25; }\n.darma-loader-darma-research-dna-helix-dots span { position: absolute; left: 50%; top: calc(var(--i) * 12.5%); width: 17%; aspect-ratio: 1; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); animation: darma-loader-darma-research-dna-helix-dots-dna-dot calc(var(--speed) * 1.7) ease-in-out infinite; animation-delay: calc(var(--i) * -.12s); }\n.darma-loader-darma-research-dna-helix-dots span:nth-child(1){ --i:0; --angle:0deg; } .darma-loader-darma-research-dna-helix-dots span:nth-child(2){ --i:1; --angle:45deg; background:var(--accent-2); } .darma-loader-darma-research-dna-helix-dots span:nth-child(3){ --i:2; --angle:90deg; } .darma-loader-darma-research-dna-helix-dots span:nth-child(4){ --i:3; --angle:135deg; background:var(--accent-2); } .darma-loader-darma-research-dna-helix-dots span:nth-child(5){ --i:4; --angle:180deg; } .darma-loader-darma-research-dna-helix-dots span:nth-child(6){ --i:5; --angle:225deg; background:var(--accent-2); } .darma-loader-darma-research-dna-helix-dots span:nth-child(7){ --i:6; --angle:270deg; } .darma-loader-darma-research-dna-helix-dots span:nth-child(8){ --i:7; --angle:315deg; background:var(--accent-2); }\n@keyframes darma-loader-darma-research-dna-helix-dots-dna-dot { 0%,100% { transform: translateX(-30px) scale(.75); opacity:.5; } 50% { transform: translateX(30px) scale(1.12); opacity:1; } }",
     "defaults": {
@@ -631,6 +650,7 @@
     "id": "darma-custom-217",
     "name": "Dot Chain Flip",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "dot",
       "chain",
@@ -653,7 +673,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-217 dot chain flip dots dot chain flip dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-217 dot chain flip dots darma-custom darma custom dot chain flip dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-217\"></div>",
     "previewCss": ".darma-loader-darma-custom-217 {\n  color: var(--loader-color, #2563eb);\nheight: 15px;\naspect-ratio: 5;\n-webkit-mask: linear-gradient(90deg,#0000 ,currentColor 20% 80%,#0000);\nbackground: radial-gradient(closest-side at 37.5% 50%,currentColor 94%,#0000) 0/calc(80%/3) 100%;\nanimation: darma-loader-darma-custom-217-l48 .75s infinite linear;\n}\n@keyframes darma-loader-darma-custom-217-l48 {\n100% {background-position: 36.36%}\n}\n",
     "defaults": {
@@ -668,6 +688,7 @@
     "id": "darma-custom-216",
     "name": "Dot Chain Swap",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "dot",
       "chain",
@@ -690,7 +711,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-216 dot chain swap dots dot chain swap dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-216 dot chain swap dots darma-custom darma custom dot chain swap dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-216\"></div>",
     "previewCss": ".darma-loader-darma-custom-216 {\n  color: var(--loader-color, #0ea5e9);\nheight: 15px;\naspect-ratio: 5;\nbackground: radial-gradient(closest-side at 37.5% 50%,currentColor 94%,#0000) 0/calc(80%/3) 100%;\nanimation: darma-loader-darma-custom-216-l47 .75s infinite;\n}\n@keyframes darma-loader-darma-custom-216-l47 {\n100% {background-position: 36.36%}\n}\n",
     "defaults": {
@@ -705,6 +726,7 @@
     "id": "darma-custom-201",
     "name": "Dot Conveyor",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "dot",
       "conveyor",
@@ -726,7 +748,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-201 dot conveyor dots dot conveyor dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-201 dot conveyor dots darma-custom darma custom dot conveyor dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-201\"></div>",
     "previewCss": ".darma-loader-darma-custom-201 {\n  color: var(--loader-color, #9333ea);\nheight: 15px;\naspect-ratio: 4;\ndisplay: grid;\nanimation: darma-loader-darma-custom-201-l31-0 1s infinite;\n}\n.darma-loader-darma-custom-201:before,\n.darma-loader-darma-custom-201:after {\ncontent: \"\";\ngrid-area: 1/1;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 25% 100%;\n}\n.darma-loader-darma-custom-201:after {\ntransform: rotate(0) translate(37.5%) rotate(0);\nanimation: inherit;\nanimation-name: darma-loader-darma-custom-201-l31-1;\n}\n@keyframes darma-loader-darma-custom-201-l31-0 {\n100% {transform:translate(37.5%)}\n}\n@keyframes darma-loader-darma-custom-201-l31-1 {\n100% {transform:rotate(-.5turn) translate(37.5%) rotate(.5turn)}\n}\n",
     "defaults": {
@@ -741,6 +763,7 @@
     "id": "darma-custom-203",
     "name": "Dot Depth Pulse",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "dot",
       "depth",
@@ -763,7 +786,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-203 dot depth pulse dots dot depth pulse dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-203 dot depth pulse dots darma-custom darma custom dot depth pulse dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-203\"></div>",
     "previewCss": ".darma-loader-darma-custom-203 {\n  color: var(--loader-color, #ca8a04);\nheight: 15px;\naspect-ratio: 5;\ndisplay: flex;\njustify-content: space-between;\n}\n.darma-loader-darma-custom-203:before,\n.darma-loader-darma-custom-203:after {\ncontent: \"\";\nwidth: calc(140%/3);\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: calc(300%/7) 100%;\ntransform-origin: calc(300%/14) 50%;\ntransform: translate(0) rotate(0);\nanimation: darma-loader-darma-custom-203-l33 1s infinite linear;\n}\n.darma-loader-darma-custom-203:after {\n--s:-1;\ntransform-origin: calc(100% - calc(300%/14)) 50%;\n}\n@keyframes darma-loader-darma-custom-203-l33 {\n100% {transform: translate(calc(var(--s,1)*(100% - calc(300%/7)))) rotate(calc(var(--s,1)*.5turn))}\n}\n",
     "defaults": {
@@ -778,6 +801,7 @@
     "id": "darma-custom-209",
     "name": "Dot Matrix Pulse",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "dot",
       "matrix",
@@ -800,7 +824,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-209 dot matrix pulse dots dot matrix pulse dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-209 dot matrix pulse dots darma-custom darma custom dot matrix pulse dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-209\"></div>",
     "previewCss": ".darma-loader-darma-custom-209 {\n  color: var(--loader-color, #ea580c);\nheight: 15px;\naspect-ratio: 5;\ndisplay: grid;\nanimation: darma-loader-darma-custom-209-l39-0 1s infinite linear;\n}\n.darma-loader-darma-custom-209:before,\n.darma-loader-darma-custom-209:after {\ncontent: \"\";\nwidth: calc(140%/3);\ngrid-area: 1/1;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: calc(300%/7) 100%;\nanimation: darma-loader-darma-custom-209-l39-1 1s infinite linear;\n}\n.darma-loader-darma-custom-209:after {\nmargin-left: auto;\n--s:-1;\n}\n@keyframes darma-loader-darma-custom-209-l39-0 {\n0%,30% {transform: rotate(0)}\n50%,100% {transform: rotate(.5turn)}\n}\n@keyframes darma-loader-darma-custom-209-l39-1 {\n30%,70% {transform:translate(calc(var(--s,1)*400%/14))}\n}\n",
     "defaults": {
@@ -815,6 +839,7 @@
     "id": "darma-custom-708",
     "name": "Dot Pulse 34",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "css-only",
       "single-element",
@@ -837,7 +862,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-708 dot pulse 34 dots css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-708 dot pulse 34 dots darma-custom darma custom css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-708\"></div>",
     "previewCss": ".darma-loader-darma-custom-708 {\n  color: var(--loader-color, #f97316);\n  --loader-secondary-color: var(--loader-secondary-color, #fdba74);\n  --loader-bg: var(--loader-bg, #ffffff);\nwidth: 40px;\nheight: 26px;\n--c:no-repeat linear-gradient(currentColor 0 0);\nbackground:\nvar(--c) 0 100%,\nvar(--c) 50% 100%,\nvar(--c) 100% 100%;\nbackground-size:8px calc(100% - 4px);\nposition: relative;\n}\n.darma-loader-darma-custom-708:before {\ncontent: \"\";\nposition: absolute;\nwidth: 8px;\nheight: 8px;\nborder-radius: 50%;\nbackground: currentColor;\nleft: 0;\ntop: 0;\nanimation:\ndarma-loader-darma-custom-708-l3-1 1.5s linear infinite alternate,\ndarma-loader-darma-custom-708-l3-2 0.75s cubic-bezier(.45, 0, .55, 1) infinite;\n}\n@keyframes darma-loader-darma-custom-708-l3-1 {\n100% {left:calc(100% - 8px)}\n}\n@keyframes darma-loader-darma-custom-708-l3-2 {\n100% {top:-0.1px}\n}",
     "defaults": {
@@ -852,6 +877,7 @@
     "id": "darma-custom-710",
     "name": "Dot Pulse 36",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "css-only",
       "single-element",
@@ -874,7 +900,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-710 dot pulse 36 dots css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-710 dot pulse 36 dots darma-custom darma custom css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-710\"></div>",
     "previewCss": ".darma-loader-darma-custom-710 {\n  color: var(--loader-color, #22c55e);\n  --loader-secondary-color: var(--loader-secondary-color, #86efac);\n  --loader-bg: var(--loader-bg, #ffffff);\nwidth: 40px;\nheight: 30px;\n--c:no-repeat linear-gradient(currentColor 0 0);\nbackground:\nvar(--c) 0 100%/8px 30px,\nvar(--c) 50% 100%/8px 20px,\nvar(--c) 100% 100%/8px 10px;\nposition: relative;\nclip-path: inset(-100% 0);\n}\n.darma-loader-darma-custom-710:before{\ncontent: \"\";\nposition: absolute;\nwidth: 8px;\nheight: 8px;\nborder-radius: 50%;\nbackground: currentColor;\nleft: -16px;\ntop: 0;\nanimation:\ndarma-loader-darma-custom-710-l5-1 2s linear infinite,\ndarma-loader-darma-custom-710-l5-2 0.5s cubic-bezier(.45, 0, .55, 1) infinite;\n}\n@keyframes darma-loader-darma-custom-710-l5-1 {\n0% {left:-16px;transform:translateY(-8px)}\n100% {left:calc(100% + 8px);transform:translateY(22px)}\n}\n@keyframes darma-loader-darma-custom-710-l5-2 {\n100% {top:-0.1px}\n}",
     "defaults": {
@@ -889,6 +915,7 @@
     "id": "darma-custom-711",
     "name": "Dot Pulse 37",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "css-only",
       "single-element",
@@ -911,7 +938,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-711 dot pulse 37 dots css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-711 dot pulse 37 dots darma-custom darma custom css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-711\"></div>",
     "previewCss": ".darma-loader-darma-custom-711 {\n  color: var(--loader-color, #8b5cf6);\n  --loader-secondary-color: var(--loader-secondary-color, #c4b5fd);\n  --loader-bg: var(--loader-bg, #ffffff);\nwidth: 40px;\nheight: 20px;\n--c:no-repeat radial-gradient(farthest-side,currentColor 93%,#0000);\nbackground:\nvar(--c) 0 0,\nvar(--c) 50% 0;\nbackground-size: 8px 8px;\nposition: relative;\nclip-path: inset(-200% -100% 0 0);\nanimation: darma-loader-darma-custom-711-l6-0 1.5s linear infinite;\n}\n.darma-loader-darma-custom-711:before {\ncontent: \"\";\nposition: absolute;\nwidth: 8px;\nheight: 12px;\nbackground: currentColor;\nleft: -16px;\ntop: 0;\nanimation:\ndarma-loader-darma-custom-711-l6-1 1.5s linear infinite,\ndarma-loader-darma-custom-711-l6-2 0.5s cubic-bezier(.45, 0, .55, 1) infinite;\n}\n.darma-loader-darma-custom-711:after {\ncontent: \"\";\nposition: absolute;\ninset: 0 0 auto auto;\nwidth: 8px;\nheight: 8px;\nborder-radius: 50%;\nbackground: currentColor;\nanimation: darma-loader-darma-custom-711-l6-3 1.5s linear infinite;\n}\n@keyframes darma-loader-darma-custom-711-l6-0 {\n0%,30% {background-position: 0 0 ,50% 0 }\n33% {background-position: 0 100%,50% 0 }\n41%,63% {background-position: 0 0 ,50% 0 }\n66% {background-position: 0 0 ,50% 100%}\n74%,100%{background-position: 0 0 ,50% 0 }\n}\n@keyframes darma-loader-darma-custom-711-l6-1 {\n90% {transform:translateY(0)}\n95% {transform:translateY(15px)}\n100% {transform:translateY(15px);left:calc(100% - 8px)}\n}\n@keyframes darma-loader-darma-custom-711-l6-2 {\n100% {top:-0.1px}\n}\n@keyframes darma-loader-darma-custom-711-l6-3 {\n0%,80%,100% {transform:translate(0)}\n90% {transform:translate(26px)}\n}",
     "defaults": {
@@ -926,6 +953,7 @@
     "id": "darma-custom-712",
     "name": "Dot Pulse 38",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "css-only",
       "single-element",
@@ -948,7 +976,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-712 dot pulse 38 dots css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-712 dot pulse 38 dots darma-custom darma custom css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-712\"></div>",
     "previewCss": ".darma-loader-darma-custom-712 {\n  color: var(--loader-color, #14b8a6);\n  --loader-secondary-color: var(--loader-secondary-color, #99f6e4);\n  --loader-bg: var(--loader-bg, #ffffff);\nwidth: 40px;\naspect-ratio: 1;\n--c:no-repeat linear-gradient(currentColor 0 0);\nbackground:\nvar(--c) 0 0,\nvar(--c) 0 100%,\nvar(--c) 50% 0,  \n var(--c) 50% 100%,\nvar(--c) 100% 0,\nvar(--c) 100% 100%;\nbackground-size: 8px 50%;\nanimation: darma-loader-darma-custom-712-l7-0 1s infinite;\nposition: relative;\noverflow: hidden;\n}\n.darma-loader-darma-custom-712:before {\ncontent: \"\";\nposition: absolute;\nwidth: 8px;\nheight: 8px;\nborder-radius: 50%;\nbackground: currentColor;\ntop: calc(50% - 4px);\nleft: -8px;\nanimation: inherit;\nanimation-name: darma-loader-darma-custom-712-l7-1;\n}\n\n@keyframes darma-loader-darma-custom-712-l7-0 {\n16.67% {background-size:8px 30%, 8px 30%, 8px 50%, 8px 50%, 8px 50%, 8px 50%}\n33.33% {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n50% {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 30%}\n66.67% {background-size:8px 50%, 8px 50%, 8px 30%, 8px 30%, 8px 30%, 8px 30%}\n83.33% {background-size:8px 50%, 8px 50%, 8px 50%, 8px 50%, 8px 30%, 8px 30%}\n}\n\n@keyframes darma-loader-darma-custom-712-l7-1 {\n20% {left:0px}\n40% {left:calc(50% - 4px)}\n60% {left:calc(100% - 8px)}\n80%,\n100% {left:100%}\n}",
     "defaults": {
@@ -963,6 +991,7 @@
     "id": "darma-custom-713",
     "name": "Dot Pulse 39",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "css-only",
       "single-element",
@@ -985,7 +1014,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-713 dot pulse 39 dots css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-713 dot pulse 39 dots darma-custom darma custom css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-713\"></div>",
     "previewCss": ".darma-loader-darma-custom-713 {\n  color: var(--loader-color, #f59e0b);\n  --loader-secondary-color: var(--loader-secondary-color, #fde68a);\n  --loader-bg: var(--loader-bg, #ffffff);\nwidth: 40px;\naspect-ratio: 1;\n--c:no-repeat linear-gradient(currentColor 0 0);\nbackground:\nvar(--c) 0 0,\nvar(--c) 0 100%,\nvar(--c) 50% 0,  \n var(--c) 50% 100%,\nvar(--c) 100% 0,\nvar(--c) 100% 100%;\nbackground-size: 8px 50%;\nanimation: darma-loader-darma-custom-713-l8-0 2s infinite;\nposition: relative;\noverflow: hidden;\n}\n.darma-loader-darma-custom-713:before {\ncontent: \"\";\nposition: absolute;\nwidth: 8px;\nheight: 8px;\nborder-radius: 50%;\nbackground: currentColor;\ntop: calc(50% - 4px);\nleft: -8px;\nanimation: inherit;\nanimation-name: darma-loader-darma-custom-713-l8-1;\n}\n@keyframes darma-loader-darma-custom-713-l8-0 {\n16.67% {background-size:8px 30%, 8px 30%, 8px 50%, 8px 50%, 8px 50%, 8px 50%}\n33.33% {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n50% {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n66.67% {background-size:8px 50%, 8px 50%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n83.33% {background-size:8px 50%, 8px 50%, 8px 50%, 8px 50%, 8px 50%, 8px 50%}\n}\n@keyframes darma-loader-darma-custom-713-l8-1 {\n20% {left:0px}\n40%,100% {left:calc(50% - 4px)}\n}",
     "defaults": {
@@ -1000,6 +1029,7 @@
     "id": "darma-custom-714",
     "name": "Dot Pulse 40",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "css-only",
       "single-element",
@@ -1022,7 +1052,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-714 dot pulse 40 dots css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-714 dot pulse 40 dots darma-custom darma custom css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-714\"></div>",
     "previewCss": ".darma-loader-darma-custom-714 {\n  color: var(--loader-color, #6366f1);\n  --loader-secondary-color: var(--loader-secondary-color, #a5b4fc);\n  --loader-bg: var(--loader-bg, #ffffff);\nwidth: 40px;\nheight: 40px;\n--c:no-repeat linear-gradient(currentColor 0 0);\nbackground:\nvar(--c) 0 0,\nvar(--c) 0 100%,\nvar(--c) 50% 0,  \n var(--c) 50% 100%,\nvar(--c) 100% 0,\nvar(--c) 100% 100%;\nbackground-size: 8px 50%;\nanimation: darma-loader-darma-custom-714-l9-0 2s infinite;\nposition: relative;\noverflow: hidden;\n}\n.darma-loader-darma-custom-714:before {\ncontent: \"\";\nposition: absolute;\nwidth: 8px;\nheight: 8px;\nborder-radius: 50%;\nbackground: currentColor;\ntop: calc(50% - 4px);\nleft: -8px;\nanimation: inherit;\nanimation-name: darma-loader-darma-custom-714-l9-1;\n}\n@keyframes darma-loader-darma-custom-714-l9-0 {\n16.67% {background-size:8px 30%, 8px 30%, 8px 50%, 8px 50%, 8px 50%, 8px 50%}\n33.33% {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n50% {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n66.67% {background-size:8px 50%, 8px 50%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n83.33% {background-size:8px 50%, 8px 50%, 8px 50%, 8px 50%, 8px 50%, 8px 50%}\n}\n@keyframes darma-loader-darma-custom-714-l9-1 {\n20% {left:0px}\n40%,70% {left:calc(50% - 4px)}\n80%,85% {left:8px;top:calc(50% - 4px)}\n100% {left:8px;top:-8px}\n}",
     "defaults": {
@@ -1037,6 +1067,7 @@
     "id": "darma-custom-748",
     "name": "Dot Pulse 74",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "css-only",
       "single-element",
@@ -1059,7 +1090,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-748 dot pulse 74 dots css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-748 dot pulse 74 dots darma-custom darma custom css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-748\"></div>",
     "previewCss": ".darma-loader-darma-custom-748 {\n  color: var(--loader-color, #f97316);\n  --loader-secondary-color: var(--loader-secondary-color, #fdba74);\n  --loader-bg: var(--loader-bg, #ffffff);\nwidth: 50px;\nheight: 28px;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) 50% 0,\nvar(--_g) 100% 0;\nbackground-size: 12px 12px;\nposition: relative;\nanimation: darma-loader-darma-custom-748-l23-0 1.5s linear infinite;\n}\n.darma-loader-darma-custom-748:before {\ncontent: \"\";\nposition: absolute;\nheight: 12px;\naspect-ratio: 1;\nborder-radius: 50%;\nbackground: currentColor;\nleft:0;\ntop:0;\nanimation:\ndarma-loader-darma-custom-748-l23-1 1.5s linear infinite,\ndarma-loader-darma-custom-748-l23-2 0.5s cubic-bezier(.45, 0, .55, 1) infinite;\n}\n@keyframes darma-loader-darma-custom-748-l23-0 {\n0%,31% {background-position: 50% 0 ,100% 0}\n33% {background-position: 50% 100%,100% 0}\n43%,64% {background-position: 50% 0 ,100% 0}\n66% {background-position: 50% 0 ,100% 100%}\n79% {background-position: 50% 0 ,100% 0}\n100% {transform:translateX(calc(-100%/3))}\n}\n@keyframes darma-loader-darma-custom-748-l23-1 {\n100% {left:calc(100% + 7px)}\n}\n@keyframes darma-loader-darma-custom-748-l23-2 {\n100% {top:-0.1px}\n}",
     "defaults": {
@@ -1074,6 +1105,7 @@
     "id": "darma-custom-749",
     "name": "Dot Pulse 75",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "css-only",
       "single-element",
@@ -1096,7 +1128,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-749 dot pulse 75 dots css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-749 dot pulse 75 dots darma-custom darma custom css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-749\"></div>",
     "previewCss": ".darma-loader-darma-custom-749 {\n  color: var(--loader-color, #ec4899);\n  --loader-secondary-color: var(--loader-secondary-color, #f9a8d4);\n  --loader-bg: var(--loader-bg, #ffffff);\nwidth: 88px;\nheight: 12px;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) 25% 0,\nvar(--_g) 75% 0;\nbackground-size: 12px 12px;\nposition: relative;\nanimation: darma-loader-darma-custom-749-l24-0 1s linear infinite;\n}\n.darma-loader-darma-custom-749:before {\ncontent: \"\";\nposition: absolute;\nheight: 12px;\naspect-ratio: 1;\nborder-radius: 50%;\nbackground: currentColor;\ninset: 0;\nmargin: auto;\nanimation: darma-loader-darma-custom-749-l24-1 1s cubic-bezier(.45, 0, .55, 1) infinite;\n}\n@keyframes darma-loader-darma-custom-749-l24-0 {\n0%,24% {background-position: 25% 0,75% 0}\n40% {background-position: 25% 0,85% 0}\n50%,72% {background-position: 25% 0,75% 0}\n90% {background-position: 15% 0,75% 0}\n100% {background-position: 25% 0,75% 0}\n}\n@keyframes darma-loader-darma-custom-749-l24-1 {\n100% {transform:translate(0.1px)}\n}",
     "defaults": {
@@ -1111,6 +1143,7 @@
     "id": "darma-custom-750",
     "name": "Dot Pulse 76",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "css-only",
       "single-element",
@@ -1133,7 +1166,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-750 dot pulse 76 dots css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-750 dot pulse 76 dots darma-custom darma custom css-only single-element customizable batch-08 dots pulse micro loader html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-750\"></div>",
     "previewCss": ".darma-loader-darma-custom-750 {\n  color: var(--loader-color, #22c55e);\n  --loader-secondary-color: var(--loader-secondary-color, #86efac);\n  --loader-bg: var(--loader-bg, #ffffff);\nwidth: 50px;\nheight: 12px;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 12px 12px;\nposition: relative;\n}\n.darma-loader-darma-custom-750:before {\ncontent: \"\";\nposition: absolute;\nheight: 12px;\naspect-ratio: 1;\nborder-radius: 50%;\nbackground: currentColor;\ninset: 0;\nmargin: auto;\nanimation: darma-loader-darma-custom-750-l25-1 1s, darma-loader-darma-custom-750-l25-2 0.5s;\nanimation-timing-function: cubic-bezier(.45, 0, .55, 1);\nanimation-iteration-count: infinite;\n}\n@keyframes darma-loader-darma-custom-750-l25-1 {\n100% {transform:translate(0.12px)}\n}\n@keyframes darma-loader-darma-custom-750-l25-2 {\n100% {inset:-0.15px 0 0;}\n}",
     "defaults": {
@@ -1148,6 +1181,7 @@
     "id": "darma-custom-219",
     "name": "Dot Rail Reverse",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "dot",
       "rail",
@@ -1170,7 +1204,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-219 dot rail reverse dots dot rail reverse dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-219 dot rail reverse dots darma-custom darma custom dot rail reverse dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-219\"></div>",
     "previewCss": ".darma-loader-darma-custom-219 {\n  color: var(--loader-color, #0891b2);\nheight: 15px;\naspect-ratio: 4;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 90%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 25% 100%;\ndisplay: flex;\n}\n.darma-loader-darma-custom-219:before{\ncontent: \"\";\nflex: 1;\nbackground: inherit;\nanimation: darma-loader-darma-custom-219-l50 2s infinite;\n}\n@keyframes darma-loader-darma-custom-219-l50 {\n0% {transform: translate( 37.5%) rotate(0) }\n16.67%{transform: translate( 37.5%) rotate(90deg) }\n33.33%{transform: translate(-37.5%) rotate(90deg) }\n50% {transform: translate(-37.5%) rotate(180deg)}\n66.67%{transform: translate(-37.5%) rotate(270deg)}\n83.33%{transform: translate( 37.5%) rotate(270deg)}\n100% {transform: translate( 37.5%) rotate(360deg)}\n}\n",
     "defaults": {
@@ -1185,6 +1219,7 @@
     "id": "darma-custom-218",
     "name": "Dot Rail Turn",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "dot",
       "rail",
@@ -1207,7 +1242,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-218 dot rail turn dots dot rail turn dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-218 dot rail turn dots darma-custom darma custom dot rail turn dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-218\"></div>",
     "previewCss": ".darma-loader-darma-custom-218 {\n  color: var(--loader-color, #7c3aed);\nheight: 15px;\naspect-ratio: 4;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 90%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 25% 100%;\ndisplay: grid;\n}\n.darma-loader-darma-custom-218:before,\n.darma-loader-darma-custom-218:after {\ncontent: \"\";\nheight: inherit;\naspect-ratio: 1;\ngrid-area: 1/1;\nmargin: auto;\nborder-radius: 50%;\ntransform-origin: -100% 50%;\nbackground: currentColor;\nanimation: darma-loader-darma-custom-218-l49 1s infinite linear;\n}\n.darma-loader-darma-custom-218:after {\ntransform-origin: 200% 50%;\n--s:-1;\nanimation-delay: -.5s;\n}\n\n@keyframes darma-loader-darma-custom-218-l49 {\n58%,\n100% {transform: rotate(calc(var(--s,1)*1turn))}\n}\n",
     "defaults": {
@@ -1222,6 +1257,7 @@
     "id": "darma-custom-215",
     "name": "Dot Ribbon Spin",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "dot",
       "ribbon",
@@ -1244,7 +1280,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-215 dot ribbon spin dots dot ribbon spin dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-215 dot ribbon spin dots darma-custom darma custom dot ribbon spin dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-215\"></div>",
     "previewCss": ".darma-loader-darma-custom-215 {\n  color: var(--loader-color, #ca8a04);\nwidth: 38px;\naspect-ratio: 1;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 90%,#0000);\nbackground: var(--_g), var(--_g), var(--_g), var(--_g);\nbackground-size: 40% 40%;\nanimation: darma-loader-darma-custom-215-l46 1s infinite;\n}\n@keyframes darma-loader-darma-custom-215-l46 {\n0% {background-position: 0 0 ,100% 0,100% 100%,0 100%}\n40%,\n50% {background-position: 100% 100%,100% 0,0 0 ,0 100%}\n90%,\n100%{background-position: 100% 100%,0 100%,0 0 ,100% 0}\n}\n",
     "defaults": {
@@ -1259,6 +1295,7 @@
     "id": "darma-custom-208",
     "name": "Double Bounce Dot",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "double",
       "bounce",
@@ -1281,7 +1318,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-208 double bounce dot dots double bounce dot dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-208 double bounce dot dots darma-custom darma custom double bounce dot dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-208\"></div>",
     "previewCss": ".darma-loader-darma-custom-208 {\n  color: var(--loader-color, #059669);\nwidth: 41px;\naspect-ratio: 1;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) 0 0,\nvar(--_g) 100% 0,\nvar(--_g) 100% 100%,\nvar(--_g) 0 100%;\nbackground-size: 40% 40%;\nanimation: darma-loader-darma-custom-208-l38 .5s infinite;\n}\n@keyframes darma-loader-darma-custom-208-l38 {\n100% {background-position: 100% 0,100% 100%,0 100%,0 0}\n}\n",
     "defaults": {
@@ -1296,6 +1333,7 @@
     "id": "darma-custom-199",
     "name": "Drop Dot Rain",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "drop",
       "dot",
@@ -1318,7 +1356,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-199 drop dot rain dots drop dot rain dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-199 drop dot rain dots darma-custom darma custom drop dot rain dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-199\"></div>",
     "previewCss": ".darma-loader-darma-custom-199 {\n  color: var(--loader-color, #4f46e5);\n--s: 17px;\nwidth: calc(var(--s)*2.33);\naspect-ratio: 1;\ndisplay: flex;\njustify-content: space-between;\nanimation: darma-loader-darma-custom-199-l29-0 1s infinite;\n}\n.darma-loader-darma-custom-199::before,\n.darma-loader-darma-custom-199::after {\ncontent: \"\";\nwidth: var(--s);\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) top,\nvar(--_g) bottom;\nbackground-size: 100% var(--s);\ntransform-origin: 50% calc(100% - var(--s)/2);\nanimation: inherit;\nanimation-name: darma-loader-darma-custom-199-l29-1;\n}\n.darma-loader-darma-custom-199::after {\n--_s:-1;\n}\n@keyframes darma-loader-darma-custom-199-l29-0 {\n100% {transform:translateY(calc(var(--s) - 100%))}\n}\n@keyframes darma-loader-darma-custom-199-l29-1 {\n100% {transform:rotate(calc(var(--_s,1)*-180deg))}\n}\n",
     "defaults": {
@@ -1333,6 +1371,7 @@
     "id": "darma-custom-185",
     "name": "Dual Orbit Dots",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "dual",
       "orbit",
@@ -1355,7 +1394,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-185 dual orbit dots dots dual orbit dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-185 dual orbit dots dots darma-custom darma custom dual orbit dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-185\"></div>",
     "previewCss": ".darma-loader-darma-custom-185 {\n  color: var(--loader-color, #ea580c);\nwidth: 60px;\naspect-ratio: 4;\nbackground: radial-gradient(closest-side at calc(100%/6) 50%,currentColor 90%,#0000) 0/75% 100%;\nposition: relative;\nanimation: darma-loader-darma-custom-185-l15-0 1s infinite linear;\n}\n.darma-loader-darma-custom-185::before {\ncontent:\"\";\nposition: absolute;\nbackground: inherit;\nclip-path: inset(0 0 0 50%);\ninset: 0;\nanimation: darma-loader-darma-custom-185-l15-1 0.5s infinite linear;\n}\n@keyframes darma-loader-darma-custom-185-l15-0 {\n0%,49.99% {transform: scale(1)}\n50%,100% {transform: scale(-1)}\n}\n@keyframes darma-loader-darma-custom-185-l15-1 {\n0% {transform: translateX(-37.5%) rotate(0turn)}\n80%,100% {transform: translateX(-37.5%) rotate(1turn)}\n}\n",
     "defaults": {
@@ -1370,6 +1409,7 @@
     "id": "darma-custom-206",
     "name": "Elastic Center Dot",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "elastic",
       "center",
@@ -1392,7 +1432,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-206 elastic center dot dots elastic center dot dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-206 elastic center dot dots darma-custom darma custom elastic center dot dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-206\"></div>",
     "previewCss": ".darma-loader-darma-custom-206 {\n  color: var(--loader-color, #7c3aed);\nheight: 15px;\naspect-ratio: 5;\ndisplay: grid;\nanimation: darma-loader-darma-custom-206-l36-0 2s infinite linear;\n}\n.darma-loader-darma-custom-206:before,\n.darma-loader-darma-custom-206:after {\ncontent: \"\";\ngrid-area: 1/1;\nheight: inherit;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 15px 100%;\nbackground-repeat: no-repeat;\nanimation: darma-loader-darma-custom-206-l36-1 1s infinite linear;\n}\n.darma-loader-darma-custom-206:after {\nmargin-left: auto;\n--s:-1;\n}\n@keyframes darma-loader-darma-custom-206-l36-0 {\n0%,49.99% {transform: scaleY( 1)}\n50%,100% {transform: scaleY(-1)}\n}\n@keyframes darma-loader-darma-custom-206-l36-1 {\n0% {transform:translate(0 ,calc(var(--s,1)*0px));aspect-ratio: 2.3}\n33% {transform:translate(0 ,calc(var(--s,1)*8px));aspect-ratio: 2.3}\n66% {transform:translate(calc(var(--s,1)*19px),calc(var(--s,1)*8px));aspect-ratio: 3.7}\n100% {transform:translate(calc(var(--s,1)*19px),calc(var(--s,1)*0px));aspect-ratio: 3.7}\n}\n",
     "defaults": {
@@ -1407,6 +1447,7 @@
     "id": "elastic-dots",
     "name": "Elastic Dots",
     "category": "dots",
+    "sourceId": "darma",
     "tags": [
       "dots",
       "elastic",
@@ -1423,7 +1464,7 @@
       "cssOnly": true,
       "customizable": true
     },
-    "searchText": "elastic-dots elastic dots dots dots elastic stretch playful html css react cssonly customizable",
+    "searchText": "elastic-dots elastic dots dots darma darma originals dots elastic stretch playful html css react cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-elastic-dots\"><b></b><b></b><b></b></span>",
     "previewCss": ".darma-loader-elastic-dots {\n  display: inline-flex;\n  gap: 7px;\n  color: var(--loader-color, #6366f1);\n}\n.darma-loader-elastic-dots b {\n  width: 11px;\n  height: 11px;\n  border-radius: 999px;\n  background: currentColor;\n  transform-origin: center;\n  animation: darma-loader-elastic-dots-elastic 0.9s ease-in-out infinite;\n}\n.darma-loader-elastic-dots b:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-elastic-dots b:nth-child(3) { animation-delay: 0.24s; }\n@keyframes darma-loader-elastic-dots-elastic {\n  0%, 100% { transform: scaleY(1); opacity: 0.45; }\n  45% { transform: scaleY(2.1); opacity: 1; }\n}\n",
     "defaults": {
@@ -1436,6 +1477,7 @@
     "id": "uiverse-ember-bounce-row",
     "name": "Ember Bounce Row",
     "category": "dots",
+    "sourceId": "uiverse-batch-3",
     "tags": [
       "uiverse",
       "ember",
@@ -1456,7 +1498,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "uiverse-ember-bounce-row ember bounce row dots uiverse ember bounce row dots loader html css react cssonly customizable",
+    "searchText": "uiverse-ember-bounce-row ember bounce row dots uiverse-batch-3 uiverse batch 3 uiverse ember bounce row dots loader html css react cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-uiverse-ember-bounce-row\">\n<div class=\"darma-loader-uiverse-ember-bounce-row__load-row\">\n    <span></span>\n    <span></span>\n    <span></span>\n    <span></span>\n</div>\n</div>",
     "previewCss": ".darma-loader-uiverse-ember-bounce-row {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-ember-bounce-row__load-row {\n  width: 100px;\n  height: 50px;\n  line-height: 50px;\n  text-align: center;\n}\n\n.darma-loader-uiverse-ember-bounce-row__load-row span {\ndisplay: inline-block;\nwidth: 10px;\nheight: 10px;\nbackground: #f76002;\nborder-radius: 50px;\nanimation: darma-loader-uiverse-ember-bounce-row-up-down6 0.5s ease-in infinite alternate;\n}\n\n.darma-loader-uiverse-ember-bounce-row__load-row span:nth-child(2) {\nbackground: #e85b04c4;\nanimation-delay: 0.16s;\n}\n\n.darma-loader-uiverse-ember-bounce-row__load-row span:nth-child(3) {\nbackground: #e85b0491;\nanimation-delay: 0.32s;\n}\n\n.darma-loader-uiverse-ember-bounce-row__load-row span:nth-child(4) {\nbackground: #e85b0456;\nanimation-delay: 0.48s;\n}\n\n@keyframes darma-loader-uiverse-ember-bounce-row-up-down6 {\n0% {\ntransform: translateY(-10px);\n}\n\n100% {\ntransform: translateY(10px);\n}\n}",
     "defaults": {
@@ -1469,6 +1511,7 @@
     "id": "darma-custom-211",
     "name": "Expanding Dot Cross",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "expanding",
       "dot",
@@ -1491,7 +1534,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-211 expanding dot cross dots expanding dot cross dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-211 expanding dot cross dots darma-custom darma custom expanding dot cross dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-211\"></div>",
     "previewCss": ".darma-loader-darma-custom-211 {\n  color: var(--loader-color, #4f46e5);\nheight: 15px;\naspect-ratio: 5;\ndisplay: flex;\njustify-content: space-between;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 95%,#0000);\nbackground:\nvar(--_g) calc(1*100%/3) 0,\nvar(--_g) calc(2*100%/3) 0;\nbackground-size: 20% 100%;\n}\n.darma-loader-darma-custom-211:before,\n.darma-loader-darma-custom-211:after {\ncontent: \"\";\nheight: inherit;\naspect-ratio: 1;\nborder-radius: 50%;\nbackground: currentColor;\nanimation: darma-loader-darma-custom-211-l41 1s infinite;\n}\n.darma-loader-darma-custom-211:after {\n--s:-1,-1;\n}\n@keyframes darma-loader-darma-custom-211-l41 {\n0% {transform: scale(var(--s,1)) translate(0 ,0)}\n33% {transform: scale(var(--s,1)) translate(0 ,130%)}\n66% {transform: scale(var(--s,1)) translate(400%,130%)}\n100% {transform: scale(var(--s,1)) translate(400%,0)}\n}\n",
     "defaults": {
@@ -1506,6 +1549,7 @@
     "id": "darma-custom-177",
     "name": "Faded Signal Dots",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "faded",
       "signal",
@@ -1528,7 +1572,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-177 faded signal dots dots faded signal dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-177 faded signal dots dots darma-custom darma custom faded signal dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-177\"></div>",
     "previewCss": ".darma-loader-darma-custom-177 {\n  color: var(--loader-color, #9333ea);\nwidth: 60px;\naspect-ratio: 4;\n--_g: no-repeat radial-gradient(circle closest-side,currentColor 90%,#0000);\nbackground:\nvar(--_g) 0% 50%,\nvar(--_g) 50% 50%,\nvar(--_g) 100% 50%;\nbackground-size: calc(100%/3) 100%;\nanimation: darma-loader-darma-custom-177-l7 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-177-l7 {\n33%{background-size:calc(100%/3) 0% ,calc(100%/3) 100%,calc(100%/3) 100%}\n50%{background-size:calc(100%/3) 100%,calc(100%/3) 0% ,calc(100%/3) 100%}\n66%{background-size:calc(100%/3) 100%,calc(100%/3) 100%,calc(100%/3) 0% }\n}\n",
     "defaults": {
@@ -1543,6 +1587,7 @@
     "id": "uiverse-firefly-square-grid",
     "name": "Firefly Square Grid",
     "category": "dots",
+    "sourceId": "uiverse-batch-2",
     "tags": [
       "uiverse",
       "grid",
@@ -1563,7 +1608,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "uiverse-firefly-square-grid firefly square grid dots uiverse grid squares firefly pulse loader html css react cssonly customizable",
+    "searchText": "uiverse-firefly-square-grid firefly square grid dots uiverse-batch-2 uiverse batch 2 uiverse grid squares firefly pulse loader html css react cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-uiverse-firefly-square-grid\">\n  <div class=\"darma-loader-uiverse-firefly-square-grid__square darma-loader-uiverse-firefly-square-grid__sq1\"></div>\n  <div class=\"darma-loader-uiverse-firefly-square-grid__square darma-loader-uiverse-firefly-square-grid__sq2\"></div>\n  <div class=\"darma-loader-uiverse-firefly-square-grid__square darma-loader-uiverse-firefly-square-grid__sq3\"></div>\n  <div class=\"darma-loader-uiverse-firefly-square-grid__square darma-loader-uiverse-firefly-square-grid__sq4\"></div>\n  <div class=\"darma-loader-uiverse-firefly-square-grid__square darma-loader-uiverse-firefly-square-grid__sq5\"></div>\n  <div class=\"darma-loader-uiverse-firefly-square-grid__square darma-loader-uiverse-firefly-square-grid__sq6\"></div>\n  <div class=\"darma-loader-uiverse-firefly-square-grid__square darma-loader-uiverse-firefly-square-grid__sq7\"></div>\n  <div class=\"darma-loader-uiverse-firefly-square-grid__square darma-loader-uiverse-firefly-square-grid__sq8\"></div>\n  <div class=\"darma-loader-uiverse-firefly-square-grid__square darma-loader-uiverse-firefly-square-grid__sq9\"></div>\n</div>",
     "previewCss": "@keyframes darma-loader-uiverse-firefly-square-grid-loader_5191 {\n  from {\n    opacity: 0;\n  }\n\nto {\nopacity: 1;\n}\n}\n\n.darma-loader-uiverse-firefly-square-grid__square {\nbackground: #ddd;\nwidth: 10px;\nheight: 10px;\nposition: absolute;\ntop: 50%;\nleft: 50%;\nmargin-top: -5px;\nmargin-left: -5px;\n}\n\n.darma-loader-uiverse-firefly-square-grid__sq1 {\nmargin-top: -25px;\nmargin-left: -25px;\nanimation: darma-loader-uiverse-firefly-square-grid-loader_5191 675ms ease-in-out 0s infinite alternate;\n}\n\n.darma-loader-uiverse-firefly-square-grid__sq2 {\nmargin-top: -25px;\nanimation: darma-loader-uiverse-firefly-square-grid-loader_5191 675ms ease-in-out 75ms infinite alternate;\n}\n\n.darma-loader-uiverse-firefly-square-grid__sq3 {\nmargin-top: -25px;\nmargin-left: 15px;\nanimation: darma-loader-uiverse-firefly-square-grid-loader_5191 675ms ease-in-out 150ms infinite;\n}\n\n.darma-loader-uiverse-firefly-square-grid__sq4 {\nmargin-left: -25px;\nanimation: darma-loader-uiverse-firefly-square-grid-loader_5191 675ms ease-in-out 225ms infinite;\n}\n\n.darma-loader-uiverse-firefly-square-grid__sq5 {\nanimation: darma-loader-uiverse-firefly-square-grid-loader_5191 675ms ease-in-out 300ms infinite;\n}\n\n.darma-loader-uiverse-firefly-square-grid__sq6 {\nmargin-left: 15px;\nanimation: darma-loader-uiverse-firefly-square-grid-loader_5191 675ms ease-in-out 375ms infinite;\n}\n\n.darma-loader-uiverse-firefly-square-grid__sq7 {\nmargin-top: 15px;\nmargin-left: -25px;\nanimation: darma-loader-uiverse-firefly-square-grid-loader_5191 675ms ease-in-out 450ms infinite;\n}\n\n.darma-loader-uiverse-firefly-square-grid__sq8 {\nmargin-top: 15px;\nanimation: darma-loader-uiverse-firefly-square-grid-loader_5191 675ms ease-in-out 525ms infinite;\n}\n\n.darma-loader-uiverse-firefly-square-grid__sq9 {\nmargin-top: 15px;\nmargin-left: 15px;\nanimation: darma-loader-uiverse-firefly-square-grid-loader_5191 675ms ease-in-out 600ms infinite;\n}",
     "defaults": {
@@ -1576,6 +1621,7 @@
     "id": "uiverse-five-dot-launch",
     "name": "Five Dot Launch",
     "category": "dots",
+    "sourceId": "uiverse-batch-4",
     "tags": [
       "dots",
       "jump",
@@ -1595,7 +1641,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "uiverse-five-dot-launch five dot launch dots dots jump launch cyan uiverse html css react cssonly customizable",
+    "searchText": "uiverse-five-dot-launch five dot launch dots uiverse-batch-4 uiverse batch 4 dots jump launch cyan uiverse html css react cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-uiverse-five-dot-launch\">\n  <div class=\"darma-loader-uiverse-five-dot-launch__dot\"></div>\n  <div class=\"darma-loader-uiverse-five-dot-launch__dot\"></div>\n  <div class=\"darma-loader-uiverse-five-dot-launch__dot\"></div>\n  <div class=\"darma-loader-uiverse-five-dot-launch__dot\"></div>\n  <div class=\"darma-loader-uiverse-five-dot-launch__dot\"></div>\n</div>",
     "previewCss": ".darma-loader-uiverse-five-dot-launch {\n  display: flex;\n  align-items: flex-end;\n  justify-content: center;\n  gap: 8px;\n  min-height: 96px;\n}\n\n.darma-loader-uiverse-five-dot-launch .darma-loader-uiverse-five-dot-launch__dot {\n  width: 20px;\n  height: 20px;\n  border: 2px solid #e8e8e8;\n  border-radius: 50%;\n  background: var(--loader-color, #16b0c1);\n  animation: darma-loader-uiverse-five-dot-launch-jump 0.8s ease-in-out infinite alternate;\n}\n\n.darma-loader-uiverse-five-dot-launch .darma-loader-uiverse-five-dot-launch__dot:nth-child(1) {\n  animation-delay: 0.1s;\n}\n\n.darma-loader-uiverse-five-dot-launch .darma-loader-uiverse-five-dot-launch__dot:nth-child(2) {\n  animation-delay: 0.2s;\n}\n\n.darma-loader-uiverse-five-dot-launch .darma-loader-uiverse-five-dot-launch__dot:nth-child(3) {\n  animation-delay: 0.3s;\n}\n\n.darma-loader-uiverse-five-dot-launch .darma-loader-uiverse-five-dot-launch__dot:nth-child(4) {\n  animation-delay: 0.4s;\n}\n\n.darma-loader-uiverse-five-dot-launch .darma-loader-uiverse-five-dot-launch__dot:nth-child(5) {\n  animation-delay: 0.5s;\n}\n\n@keyframes darma-loader-uiverse-five-dot-launch-jump {\n  100% {\n    background: var(--loader-secondary-color, #661e92);\n    transform: translateY(-3rem) scale(1.9);\n  }\n}",
     "defaults": {
@@ -1609,6 +1655,7 @@
     "id": "darma-custom-184",
     "name": "Flip Orbit Dots",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "flip",
       "orbit",
@@ -1631,7 +1678,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-184 flip orbit dots dots flip orbit dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-184 flip orbit dots dots darma-custom darma custom flip orbit dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-184\"></div>",
     "previewCss": ".darma-loader-darma-custom-184 {\n  color: var(--loader-color, #059669);\n--s: 64px;\nwidth: var(--s);\naspect-ratio: 2;\n--_g: currentColor 90%,#0000;\nbackground:\nradial-gradient(farthest-side,var(--_g)) 0 50%/25% 50%,\nradial-gradient(farthest-side at bottom,var(--_g)) 50% calc(50% - var(--s)/16)/25% 25%,\nradial-gradient(farthest-side at top ,var(--_g)) 50% calc(50% + var(--s)/16)/25% 25%,\nradial-gradient(farthest-side at bottom,var(--_g)) 100% calc(50% - var(--s)/16)/25% 25%,\nradial-gradient(farthest-side at top ,var(--_g)) 100% calc(50% + var(--s)/16)/25% 25%;\nbackground-repeat: no-repeat;\nanimation: darma-loader-darma-custom-184-l14 1s infinite;\n}\n@keyframes darma-loader-darma-custom-184-l14 {\n25% {background-position:0 50%,50% 0,50% 100%,100% 0,100% 100%}\n50% {background-position:100% 50%,0 0,0 100%,50% 0,50% 100%}\n75%,\n100% {background-position:100% 50%,0 calc(50% - var(--s)/16),0 calc(50% + var(--s)/16),50% calc(50% - var(--s)/16),50% calc(50% + var(--s)/16)}\n}\n",
     "defaults": {
@@ -1646,6 +1693,7 @@
     "id": "darma-custom-214",
     "name": "Four Dot Flip",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "four",
       "dot",
@@ -1668,7 +1716,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-214 four dot flip dots four dot flip dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-214 four dot flip dots darma-custom darma custom four dot flip dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-214\"></div>",
     "previewCss": ".darma-loader-darma-custom-214 {\n  color: var(--loader-color, #e11d48);\nheight: 30px;\naspect-ratio: 2.5;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 90%,#0000);\nbackground: var(--_g), var(--_g), var(--_g), var(--_g);\nbackground-size: 20% 50%;\nanimation: darma-loader-darma-custom-214-l44 1s infinite linear alternate;\n}\n@keyframes darma-loader-darma-custom-214-l44 {\n0%,\n5% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n12.5% {background-position: calc(0*100%/3) 0 ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n25% {background-position: calc(0*100%/3) 0 ,calc(1*100%/3) 0 ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n37.5% {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 0 ,calc(2*100%/3) 0 ,calc(3*100%/3) 50% }\n50% {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 100%,calc(2*100%/3) 0 ,calc(3*100%/3) 0 }\n62.5% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 100%,calc(2*100%/3) 100%,calc(3*100%/3) 0 }\n75% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 100%,calc(3*100%/3) 100%}\n87.5% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 100%}\n95%,\n100% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n}\n",
     "defaults": {
@@ -1683,6 +1731,7 @@
     "id": "uiverse-golden-bubble-train",
     "name": "Golden Bubble Train",
     "category": "dots",
+    "sourceId": "uiverse-batch-3",
     "tags": [
       "uiverse",
       "golden",
@@ -1703,7 +1752,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "uiverse-golden-bubble-train golden bubble train dots uiverse golden bubble train dots loader html css react cssonly customizable",
+    "searchText": "uiverse-golden-bubble-train golden bubble train dots uiverse-batch-3 uiverse batch 3 uiverse golden bubble train dots loader html css react cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-uiverse-golden-bubble-train\">\n\t<div></div>\n\t<div></div>\n\t<div></div>\n\t<div></div>\n\t<div></div>\n</div>",
     "previewCss": ".darma-loader-uiverse-golden-bubble-train {\n  height: 30px;\n  display: inline-block;\n}\n\n.darma-loader-uiverse-golden-bubble-train > div {\nwidth: 10px;\nheight: 10px;\nborder-radius: 100%;\nbox-shadow: 0 0 10px orange;\nbackground: #FFECBA;\nfloat: left;\nmargin: 5px;\ntransform: scale(2);\n}\n\n.darma-loader-uiverse-golden-bubble-train > div:nth-child(1) {\nanimation: darma-loader-uiverse-golden-bubble-train-anm-BL-53-move1 1s infinite linear;\n}\n\n.darma-loader-uiverse-golden-bubble-train > div:nth-child(2) {\nanimation: darma-loader-uiverse-golden-bubble-train-anm-BL-53-move2 1s infinite linear;\nanimation-delay: 0.2s;\n}\n\n.darma-loader-uiverse-golden-bubble-train > div:nth-child(3) {\nanimation: darma-loader-uiverse-golden-bubble-train-anm-BL-53-move3 1s infinite linear;\nanimation-delay: 0.3s;\n}\n\n.darma-loader-uiverse-golden-bubble-train > div:nth-child(4) {\nanimation: darma-loader-uiverse-golden-bubble-train-anm-BL-53-move4 1s infinite linear;\nanimation-delay: 0.4s;\n}\n\n.darma-loader-uiverse-golden-bubble-train > div:nth-child(5) {\nanimation: darma-loader-uiverse-golden-bubble-train-anm-BL-53-move5 1s infinite linear;\nanimation-delay: 0.5s;\n}\n\n@keyframes darma-loader-uiverse-golden-bubble-train-anm-BL-53-move1 {\n50% {\nbackground: #FFBB00;\ntransform: scale(1);\n}\n}\n\n@keyframes darma-loader-uiverse-golden-bubble-train-anm-BL-53-move2 {\n50% {\nbackground: #FFBB00;\ntransform: scale(1);\n}\n}\n\n@keyframes darma-loader-uiverse-golden-bubble-train-anm-BL-53-move3 {\n50% {\nbackground: #FFBB00;\ntransform: scale(1);\n}\n}\n\n@keyframes darma-loader-uiverse-golden-bubble-train-anm-BL-53-move4 {\n50% {\nbackground: #FFBB00;\ntransform: scale(1);\n}\n}\n\n@keyframes darma-loader-uiverse-golden-bubble-train-anm-BL-53-move5 {\n50% {\nbackground: #FFBB00;\ntransform: scale(1);\n}\n}",
     "defaults": {
@@ -1716,6 +1765,7 @@
     "id": "uiverse-gooey-split-drops",
     "name": "Gooey Split Drops",
     "category": "dots",
+    "sourceId": "uiverse-batch-4",
     "tags": [
       "gooey",
       "drops",
@@ -1735,7 +1785,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "uiverse-gooey-split-drops gooey split drops dots gooey drops split gradient uiverse html css react singleelement cssonly customizable",
+    "searchText": "uiverse-gooey-split-drops gooey split drops dots uiverse-batch-4 uiverse batch 4 gooey drops split gradient uiverse html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-uiverse-gooey-split-drops\"><svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\"><defs><filter id=\"gooey-split-drops-filter\"><feGaussianBlur in=\"SourceGraphic\" stdDeviation=\"6\" result=\"blur\"></feGaussianBlur><feColorMatrix in=\"blur\" mode=\"matrix\" values=\"1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7\" result=\"goo\"></feColorMatrix><feBlend in=\"SourceGraphic\" in2=\"goo\"></feBlend></filter></defs></svg></div>",
     "previewCss": ".darma-loader-uiverse-gooey-split-drops {\n  position: relative;\n  width: 1.5em;\n  aspect-ratio: 1/2;\n  filter: url(#gooey-split-drops-filter);\n}\n\n.darma-loader-uiverse-gooey-split-drops svg defs {\ndisplay: none\n}\n\n.darma-loader-uiverse-gooey-split-drops:before, .darma-loader-uiverse-gooey-split-drops:after {\ncontent: '';\nposition: absolute;\ninset: 0;\nmargin: auto;\nwidth: 100%;\naspect-ratio: 1/1;\nanimation: 1.5s ease-out infinite darma-loader-uiverse-gooey-split-drops-loader;\nborder-radius: 50%;\n}\n\n.darma-loader-uiverse-gooey-split-drops:before {\nbackground: linear-gradient(rgb(255, 206, 58), var(--loader-color, #42b549))\n}\n\n.darma-loader-uiverse-gooey-split-drops:after {\nanimation-delay: 0.75s;\nbackground: linear-gradient(to top, var(--loader-secondary-color, #72dfe7), var(--loader-color, #42b549))\n}\n\n@keyframes darma-loader-uiverse-gooey-split-drops-loader {\n0%, 50%, 100% {\ntransform: translateY(0)\n}\n\n25% {\ntransform: translateY(70%)\n}\n\n75% {\ntransform: translateY(-70%)\n}\n}",
     "defaults": {
@@ -1749,6 +1799,7 @@
     "id": "uiverse-honeycomb",
     "name": "Honeycomb Loader",
     "category": "dots",
+    "sourceId": "uiverse",
     "tags": [
       "uiverse",
       "honeycomb",
@@ -1769,7 +1820,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "uiverse-honeycomb honeycomb loader dots uiverse honeycomb hexagon dots grid loader html css react cssonly customizable",
+    "searchText": "uiverse-honeycomb honeycomb loader dots uiverse uiverse uiverse honeycomb hexagon dots grid loader html css react cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-uiverse-honeycomb__honeycomb\"><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>",
     "previewCss": "@keyframes darma-loader-uiverse-honeycomb-honeycomb {\n  0%, 20%, 80%, 100% { opacity: 0; transform: scale(0); }\n  30%, 70% { opacity: 1; transform: scale(1); }\n}\n.darma-loader-uiverse-honeycomb__honeycomb {\n  height: 24px;\n  position: relative;\n  width: 24px;\n}\n.darma-loader-uiverse-honeycomb__honeycomb div {\n  animation: darma-loader-uiverse-honeycomb-honeycomb 2.1s infinite backwards;\n  background: var(--loader-color, #f3f3f3);\n  height: 12px;\n  margin-top: 6px;\n  position: absolute;\n  width: 24px;\n}\n.darma-loader-uiverse-honeycomb__honeycomb div:after, .darma-loader-uiverse-honeycomb__honeycomb div:before {\n  content: '';\n  border-left: 12px solid transparent;\n  border-right: 12px solid transparent;\n  position: absolute;\n  left: 0;\n  right: 0;\n}\n.darma-loader-uiverse-honeycomb__honeycomb div:after { top: -6px; border-bottom: 6px solid var(--loader-color, #f3f3f3); }\n.darma-loader-uiverse-honeycomb__honeycomb div:before { bottom: -6px; border-top: 6px solid var(--loader-color, #f3f3f3); }\n.darma-loader-uiverse-honeycomb__honeycomb div:nth-child(1) { animation-delay: 0s; left: -28px; top: 0; }\n.darma-loader-uiverse-honeycomb__honeycomb div:nth-child(2) { animation-delay: 0.1s; left: -14px; top: 22px; }\n.darma-loader-uiverse-honeycomb__honeycomb div:nth-child(3) { animation-delay: 0.2s; left: 14px; top: 22px; }\n.darma-loader-uiverse-honeycomb__honeycomb div:nth-child(4) { animation-delay: 0.3s; left: 28px; top: 0; }\n.darma-loader-uiverse-honeycomb__honeycomb div:nth-child(5) { animation-delay: 0.4s; left: 14px; top: -22px; }\n.darma-loader-uiverse-honeycomb__honeycomb div:nth-child(6) { animation-delay: 0.5s; left: -14px; top: -22px; }\n.darma-loader-uiverse-honeycomb__honeycomb div:nth-child(7) { animation-delay: 0.6s; left: 0; top: 0; }",
     "defaults": {
@@ -1782,6 +1833,7 @@
     "id": "darma-custom-173",
     "name": "Jumping Dots",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "jumping",
       "dots",
@@ -1803,7 +1855,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-173 jumping dots dots jumping dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-173 jumping dots dots darma-custom darma custom jumping dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-173\"></div>",
     "previewCss": ".darma-loader-darma-custom-173 {\n  color: var(--loader-color, #ea580c);\nwidth: 60px;\naspect-ratio: 2;\n--_g: no-repeat radial-gradient(circle closest-side,currentColor 90%,#0000);\nbackground:\nvar(--_g) 0% 50%,\nvar(--_g) 50% 50%,\nvar(--_g) 100% 50%;\nbackground-size: calc(100%/3) 50%;\nanimation: darma-loader-darma-custom-173-l3 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-173-l3 {\n20%{background-position:0% 0%, 50% 50%,100% 50%}\n40%{background-position:0% 100%, 50% 0%,100% 50%}\n60%{background-position:0% 50%, 50% 100%,100% 0%}\n80%{background-position:0% 50%, 50% 50%,100% 100%}\n}\n",
     "defaults": {
@@ -1818,6 +1870,7 @@
     "id": "loading-io-03",
     "name": "Loading.io Adapted Loader 03",
     "category": "dots",
+    "sourceId": "loading-io",
     "tags": [
       "loading-io",
       "dots",
@@ -1836,7 +1889,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "loading-io-03 loading.io adapted loader 03 dots loading-io dots ellipsis loader html css react popular cssonly customizable",
+    "searchText": "loading-io-03 loading.io adapted loader 03 dots loading-io loading.io loading-io dots ellipsis loader html css react popular cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-loading-io-03\"><i></i><i></i><i></i></span>",
     "previewCss": ".darma-loader-loading-io-03 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 8px;\n      min-width: 60px;\n      min-height: 24px;\n    }\n    .darma-loader-loading-io-03 i {\n      display: block;\n      width: 12px;\n      height: 12px;\n      border-radius: 50%;\n      background: var(--loader-color, #22c55e);\n      animation: darma-loader-loading-io-03-dotPulse 1.05s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-03 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-03 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loading-io-03 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loading-io-03-dotPulse { 0%, 80%, 100% { transform: translateY(0) scale(.75); opacity: .45; } 40% { transform: translateY(-8px) scale(1); opacity: 1; } }\n",
     "defaults": {
@@ -1850,6 +1903,7 @@
     "id": "loading-io-04",
     "name": "Loading.io Adapted Loader 04",
     "category": "dots",
+    "sourceId": "loading-io",
     "tags": [
       "loading-io",
       "grid",
@@ -1868,7 +1922,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "loading-io-04 loading.io adapted loader 04 dots loading-io grid dots loader html css react popular cssonly customizable",
+    "searchText": "loading-io-04 loading.io adapted loader 04 dots loading-io loading.io loading-io grid dots loader html css react popular cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-loading-io-04\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>",
     "previewCss": ".darma-loader-loading-io-04 {\n      display: inline-grid;\n      grid-template-columns: repeat(3, 12px);\n      gap: 5px;\n    }\n    .darma-loader-loading-io-04 i {\n      width: 12px;\n      height: 12px;\n      border-radius: 4px;\n      background: var(--loader-color, #ec4899);\n      animation: darma-loader-loading-io-04-gridFlash 1.25s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-04 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-04 i:nth-child(2) { animation-delay: 0.08s; }\n.darma-loader-loading-io-04 i:nth-child(3) { animation-delay: 0.16s; }\n.darma-loader-loading-io-04 i:nth-child(4) { animation-delay: 0.08s; }\n.darma-loader-loading-io-04 i:nth-child(5) { animation-delay: 0.16s; }\n.darma-loader-loading-io-04 i:nth-child(6) { animation-delay: 0.24s; }\n.darma-loader-loading-io-04 i:nth-child(7) { animation-delay: 0.16s; }\n.darma-loader-loading-io-04 i:nth-child(8) { animation-delay: 0.24s; }\n.darma-loader-loading-io-04 i:nth-child(9) { animation-delay: 0.32s; }\n    @keyframes darma-loader-loading-io-04-gridFlash { 0%, 70%, 100% { opacity: .25; transform: scale(.75); } 35% { opacity: 1; transform: scale(1); } }\n",
     "defaults": {
@@ -1882,6 +1936,7 @@
     "id": "loading-io-09",
     "name": "Loading.io Adapted Loader 09",
     "category": "dots",
+    "sourceId": "loading-io",
     "tags": [
       "loading-io",
       "dots",
@@ -1900,7 +1955,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "loading-io-09 loading.io adapted loader 09 dots loading-io dots ellipsis loader html css react cssonly customizable",
+    "searchText": "loading-io-09 loading.io adapted loader 09 dots loading-io loading.io loading-io dots ellipsis loader html css react cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-loading-io-09\"><i></i><i></i><i></i></span>",
     "previewCss": ".darma-loader-loading-io-09 {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 6px;\n      min-width: 48px;\n      min-height: 20px;\n    }\n    .darma-loader-loading-io-09 i {\n      display: block;\n      width: 10px;\n      height: 10px;\n      border-radius: 50%;\n      background: var(--loader-color, #0ea5e9);\n      animation: darma-loader-loading-io-09-dotPulse 0.85s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-09 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-09 i:nth-child(2) { animation-delay: 0.12s; }\n.darma-loader-loading-io-09 i:nth-child(3) { animation-delay: 0.24s; }\n    @keyframes darma-loader-loading-io-09-dotPulse { 0%, 80%, 100% { transform: translateY(0) scale(.75); opacity: .45; } 40% { transform: translateY(-8px) scale(1); opacity: 1; } }\n",
     "defaults": {
@@ -1914,6 +1969,7 @@
     "id": "loading-io-10",
     "name": "Loading.io Adapted Loader 10",
     "category": "dots",
+    "sourceId": "loading-io",
     "tags": [
       "loading-io",
       "grid",
@@ -1932,7 +1988,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "loading-io-10 loading.io adapted loader 10 dots loading-io grid dots loader html css react cssonly customizable",
+    "searchText": "loading-io-10 loading.io adapted loader 10 dots loading-io loading.io loading-io grid dots loader html css react cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-loading-io-10\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>",
     "previewCss": ".darma-loader-loading-io-10 {\n      display: inline-grid;\n      grid-template-columns: repeat(3, 8px);\n      gap: 5px;\n    }\n    .darma-loader-loading-io-10 i {\n      width: 8px;\n      height: 8px;\n      border-radius: 4px;\n      background: var(--loader-color, #6366f1);\n      animation: darma-loader-loading-io-10-gridFlash 0.85s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-10 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-10 i:nth-child(2) { animation-delay: 0.08s; }\n.darma-loader-loading-io-10 i:nth-child(3) { animation-delay: 0.16s; }\n.darma-loader-loading-io-10 i:nth-child(4) { animation-delay: 0.08s; }\n.darma-loader-loading-io-10 i:nth-child(5) { animation-delay: 0.16s; }\n.darma-loader-loading-io-10 i:nth-child(6) { animation-delay: 0.24s; }\n.darma-loader-loading-io-10 i:nth-child(7) { animation-delay: 0.16s; }\n.darma-loader-loading-io-10 i:nth-child(8) { animation-delay: 0.24s; }\n.darma-loader-loading-io-10 i:nth-child(9) { animation-delay: 0.32s; }\n    @keyframes darma-loader-loading-io-10-gridFlash { 0%, 70%, 100% { opacity: .25; transform: scale(.75); } 35% { opacity: 1; transform: scale(1); } }\n",
     "defaults": {
@@ -1946,6 +2002,7 @@
     "id": "loading-io-16",
     "name": "Loading.io Adapted Loader 16",
     "category": "dots",
+    "sourceId": "loading-io",
     "tags": [
       "loading-io",
       "grid",
@@ -1964,7 +2021,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "loading-io-16 loading.io adapted loader 16 dots loading-io grid dots loader html css react cssonly customizable",
+    "searchText": "loading-io-16 loading.io adapted loader 16 dots loading-io loading.io loading-io grid dots loader html css react cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-loading-io-16\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>",
     "previewCss": ".darma-loader-loading-io-16 {\n      display: inline-grid;\n      grid-template-columns: repeat(3, 9px);\n      gap: 5px;\n    }\n    .darma-loader-loading-io-16 i {\n      width: 9px;\n      height: 9px;\n      border-radius: 4px;\n      background: var(--loader-color, #14b8a6);\n      animation: darma-loader-loading-io-16-gridFlash 0.95s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-16 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-16 i:nth-child(2) { animation-delay: 0.08s; }\n.darma-loader-loading-io-16 i:nth-child(3) { animation-delay: 0.16s; }\n.darma-loader-loading-io-16 i:nth-child(4) { animation-delay: 0.08s; }\n.darma-loader-loading-io-16 i:nth-child(5) { animation-delay: 0.16s; }\n.darma-loader-loading-io-16 i:nth-child(6) { animation-delay: 0.24s; }\n.darma-loader-loading-io-16 i:nth-child(7) { animation-delay: 0.16s; }\n.darma-loader-loading-io-16 i:nth-child(8) { animation-delay: 0.24s; }\n.darma-loader-loading-io-16 i:nth-child(9) { animation-delay: 0.32s; }\n    @keyframes darma-loader-loading-io-16-gridFlash { 0%, 70%, 100% { opacity: .25; transform: scale(.75); } 35% { opacity: 1; transform: scale(1); } }\n",
     "defaults": {
@@ -1978,6 +2035,7 @@
     "id": "loading-io-22",
     "name": "Loading.io Adapted Loader 22",
     "category": "dots",
+    "sourceId": "loading-io",
     "tags": [
       "loading-io",
       "grid",
@@ -1996,7 +2054,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "loading-io-22 loading.io adapted loader 22 dots loading-io grid dots loader html css react cssonly customizable",
+    "searchText": "loading-io-22 loading.io adapted loader 22 dots loading-io loading.io loading-io grid dots loader html css react cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-loading-io-22\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>",
     "previewCss": ".darma-loader-loading-io-22 {\n      display: inline-grid;\n      grid-template-columns: repeat(3, 10px);\n      gap: 5px;\n    }\n    .darma-loader-loading-io-22 i {\n      width: 10px;\n      height: 10px;\n      border-radius: 4px;\n      background: var(--loader-color, #f97316);\n      animation: darma-loader-loading-io-22-gridFlash 1.05s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-22 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-22 i:nth-child(2) { animation-delay: 0.08s; }\n.darma-loader-loading-io-22 i:nth-child(3) { animation-delay: 0.16s; }\n.darma-loader-loading-io-22 i:nth-child(4) { animation-delay: 0.08s; }\n.darma-loader-loading-io-22 i:nth-child(5) { animation-delay: 0.16s; }\n.darma-loader-loading-io-22 i:nth-child(6) { animation-delay: 0.24s; }\n.darma-loader-loading-io-22 i:nth-child(7) { animation-delay: 0.16s; }\n.darma-loader-loading-io-22 i:nth-child(8) { animation-delay: 0.24s; }\n.darma-loader-loading-io-22 i:nth-child(9) { animation-delay: 0.32s; }\n    @keyframes darma-loader-loading-io-22-gridFlash { 0%, 70%, 100% { opacity: .25; transform: scale(.75); } 35% { opacity: 1; transform: scale(1); } }\n",
     "defaults": {
@@ -2010,6 +2068,7 @@
     "id": "loading-io-28",
     "name": "Loading.io Adapted Loader 28",
     "category": "dots",
+    "sourceId": "loading-io",
     "tags": [
       "loading-io",
       "grid",
@@ -2028,7 +2087,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "loading-io-28 loading.io adapted loader 28 dots loading-io grid dots loader html css react cssonly customizable",
+    "searchText": "loading-io-28 loading.io adapted loader 28 dots loading-io loading.io loading-io grid dots loader html css react cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-loading-io-28\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>",
     "previewCss": ".darma-loader-loading-io-28 {\n      display: inline-grid;\n      grid-template-columns: repeat(3, 11px);\n      gap: 5px;\n    }\n    .darma-loader-loading-io-28 i {\n      width: 11px;\n      height: 11px;\n      border-radius: 4px;\n      background: var(--loader-color, #ef4444);\n      animation: darma-loader-loading-io-28-gridFlash 1.15s ease-in-out infinite;\n    }\n    .darma-loader-loading-io-28 i:nth-child(1) { animation-delay: 0.00s; }\n.darma-loader-loading-io-28 i:nth-child(2) { animation-delay: 0.08s; }\n.darma-loader-loading-io-28 i:nth-child(3) { animation-delay: 0.16s; }\n.darma-loader-loading-io-28 i:nth-child(4) { animation-delay: 0.08s; }\n.darma-loader-loading-io-28 i:nth-child(5) { animation-delay: 0.16s; }\n.darma-loader-loading-io-28 i:nth-child(6) { animation-delay: 0.24s; }\n.darma-loader-loading-io-28 i:nth-child(7) { animation-delay: 0.16s; }\n.darma-loader-loading-io-28 i:nth-child(8) { animation-delay: 0.24s; }\n.darma-loader-loading-io-28 i:nth-child(9) { animation-delay: 0.32s; }\n    @keyframes darma-loader-loading-io-28-gridFlash { 0%, 70%, 100% { opacity: .25; transform: scale(.75); } 35% { opacity: 1; transform: scale(1); } }\n",
     "defaults": {
@@ -2042,6 +2101,7 @@
     "id": "darma-research-magnet-comet-dots",
     "name": "Magnet Comet Dots",
     "category": "dots",
+    "sourceId": "darma-research-batch-6",
     "tags": [
       "dots",
       "comet",
@@ -2059,7 +2119,7 @@
       "cssOnly": true,
       "singleElement": false
     },
-    "searchText": "darma-research-magnet-comet-dots magnet comet dots dots dots comet magnet trail minimal html css react customizable cssonly",
+    "searchText": "darma-research-magnet-comet-dots magnet comet dots dots darma-research-batch-6 darma research batch 6 dots comet magnet trail minimal html css react customizable cssonly",
     "previewHtml": "<div class=\"darma-loader-darma-research-magnet-comet-dots\" aria-label=\"Loading dots\"><span></span><span></span><span></span><span></span><span></span></div>",
     "previewCss": ".darma-loader-darma-research-magnet-comet-dots { --speed: var(--loader-speed, 1s); --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #6366f1); width: calc(var(--loader-size, 78px) * 1.35); height: calc(var(--loader-size, 78px) * .52); display: flex; align-items: center; justify-content: space-between; gap: 7px; filter: drop-shadow(0 0 10px color-mix(in srgb, var(--accent) 45%, transparent)); }\n.darma-loader-darma-research-magnet-comet-dots span { width: 14%; aspect-ratio: 1; border-radius: 50%; background: var(--accent-2); animation: darma-loader-darma-research-magnet-comet-dots-comet-pull calc(var(--speed) * 1.2) ease-in-out infinite; }\n.darma-loader-darma-research-magnet-comet-dots span:nth-child(1) { animation-delay: -.4s; } .darma-loader-darma-research-magnet-comet-dots span:nth-child(2) { animation-delay: -.3s; } .darma-loader-darma-research-magnet-comet-dots span:nth-child(3) { animation-delay: -.2s; } .darma-loader-darma-research-magnet-comet-dots span:nth-child(4) { animation-delay: -.1s; }\n.darma-loader-darma-research-magnet-comet-dots span:nth-child(5) { background: var(--accent); box-shadow: 0 0 18px var(--accent); }\n@keyframes darma-loader-darma-research-magnet-comet-dots-comet-pull { 0%,100% { transform: translateY(0) scale(.75); opacity: .45; } 45% { transform: translateY(-16px) scale(1.15); opacity: 1; } 70% { transform: translateY(7px) scale(.85); } }",
     "defaults": {
@@ -2073,6 +2133,7 @@
     "id": "darma-custom-202",
     "name": "Mirrored Dot Roll",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "mirrored",
       "dot",
@@ -2095,7 +2156,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-202 mirrored dot roll dots mirrored dot roll dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-202 mirrored dot roll dots darma-custom darma custom mirrored dot roll dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-202\"></div>",
     "previewCss": ".darma-loader-darma-custom-202 {\n  color: var(--loader-color, #e11d48);\nheight: 15px;\naspect-ratio: 5;\ndisplay: grid;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\n}\n.darma-loader-darma-custom-202:before,\n.darma-loader-darma-custom-202:after {\ncontent: \"\";\ngrid-area: 1/1;\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 20% 100%;\nanimation: darma-loader-darma-custom-202-l32 1s infinite;\n}\n.darma-loader-darma-custom-202:after {\nbackground:\nvar(--_g) calc(1*100%/3),\nvar(--_g) calc(2*100%/3);\nbackground-size: 20% 100%;\nanimation-direction: reverse;\n}\n@keyframes darma-loader-darma-custom-202-l32 {\n80%,100% {transform:rotate(.5turn)}\n}\n",
     "defaults": {
@@ -2110,6 +2171,7 @@
     "id": "darma-custom-174",
     "name": "Morph Dots",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "morph",
       "dots",
@@ -2131,7 +2193,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-174 morph dots dots morph dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-174 morph dots dots darma-custom darma custom morph dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-174\"></div>",
     "previewCss": ".darma-loader-darma-custom-174 {\n  color: var(--loader-color, #db2777);\nwidth: 60px;\naspect-ratio: 4;\n--c:currentColor 90%,#0000;\nbackground:\nradial-gradient(circle closest-side at left 6px top 50%,var(--c)),\nradial-gradient(circle closest-side ,var(--c)),\nradial-gradient(circle closest-side at right 6px top 50%,var(--c));\nbackground-size: 100% 100%;\nbackground-repeat: no-repeat;\nanimation: darma-loader-darma-custom-174-l4 1s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-174-l4 {\nto{width:25px;aspect-ratio: 1}\n}\n",
     "defaults": {
@@ -2146,6 +2208,7 @@
     "id": "darma-custom-111",
     "name": "Nine Tile Pulse",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "nine",
       "tile",
@@ -2168,7 +2231,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-111 nine tile pulse dots nine tile pulse dots grid css-only single-element batch-03 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-111 nine tile pulse dots darma-custom darma custom nine tile pulse dots grid css-only single-element batch-03 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-111\"></div>",
     "previewCss": ".darma-loader-darma-custom-111 {\n  --c:no-repeat linear-gradient(var(--loader-color, #ffa500) 0 0);\n  background: \n    var(--c) 0 0,\n    var(--c) 0 50%,\n    var(--c) 0 100%,\n    var(--c) 50% 0,\n    var(--c) 50% 50%,\n    var(--c) 50% 100%,\n    var(--c) 100% 0,\n    var(--c) 100% 50%,\n    var(--c) 100% 100%;\n  background-size: 16px 16px;\n  animation: darma-loader-darma-custom-111-l31 .5s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-111-l31 {\n  0%,20%  {width:45px;height: 45px}\n  90%,100%{width:65px;height: 65px}\n}\n",
     "defaults": {
@@ -2183,6 +2246,7 @@
     "id": "darma-custom-112",
     "name": "Nine Tile Rotation",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "nine",
       "tile",
@@ -2205,7 +2269,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-112 nine tile rotation dots nine tile rotation dots grid css-only single-element batch-03 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-112 nine tile rotation dots darma-custom darma custom nine tile rotation dots grid css-only single-element batch-03 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-112\"></div>",
     "previewCss": ".darma-loader-darma-custom-112 {\n  --c:no-repeat linear-gradient(var(--loader-color, #ffa500) 0 0);\n  background: \n    var(--c),var(--c),var(--c),\n    var(--c),var(--c),var(--c),\n    var(--c),var(--c),var(--c);\n  background-size: 16px 16px;\n  animation: \n    darma-loader-darma-custom-112-l32-1 1s infinite,\n    darma-loader-darma-custom-112-l32-2 1s infinite;\n}\n@keyframes darma-loader-darma-custom-112-l32-1 {\n  0%,100% {width:45px;height: 45px}\n  35%,65% {width:65px;height: 65px}\n}\n@keyframes darma-loader-darma-custom-112-l32-2 {\n  0%,40%  {background-position: 0 0,0 50%, 0 100%,50% 100%,100% 100%,100% 50%,100% 0,50% 0,  50% 50% }\n  60%,100%{background-position: 0 50%, 0 100%,50% 100%,100% 100%,100% 50%,100% 0,50% 0,0 0,  50% 50% }\n}\n",
     "defaults": {
@@ -2220,6 +2284,7 @@
     "id": "open-bouncing-dots",
     "name": "Open Bouncing Dots",
     "category": "dots",
+    "sourceId": "open-pack-2026",
     "tags": [
       "open-source",
       "open-pack-2026",
@@ -2237,7 +2302,7 @@
       "customizable": true,
       "singleElement": false
     },
-    "searchText": "open-bouncing-dots open bouncing dots dots open-source open-pack-2026 dots bounce minimal html css react cssonly customizable",
+    "searchText": "open-bouncing-dots open bouncing dots dots open-pack-2026 open pack 2026 open-source open-pack-2026 dots bounce minimal html css react cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-open-bouncing-dots__darma-loader-open-bouncing-dots\"><i></i><i></i><i></i></span>",
     "previewCss": ".darma-loader-open-bouncing-dots__darma-loader-open-bouncing-dots{display:inline-flex;align-items:flex-end;gap:8px;height:42px}.darma-loader-open-bouncing-dots__darma-loader-open-bouncing-dots i{width:12px;height:12px;border-radius:50%;background:var(--loader-color,#0891b2);animation:darma-loader-open-bouncing-dots-darma-loader-open-bouncing-dots-hop var(--loader-speed,.78s) cubic-bezier(.38,0,.2,1) infinite}.darma-loader-open-bouncing-dots__darma-loader-open-bouncing-dots i:nth-child(2){animation-delay:.12s;background:var(--loader-secondary-color,#06b6d4)}.darma-loader-open-bouncing-dots__darma-loader-open-bouncing-dots i:nth-child(3){animation-delay:.24s}@keyframes darma-loader-open-bouncing-dots-darma-loader-open-bouncing-dots-hop{0%,100%{transform:translateY(0) scale(1);opacity:.55}45%{transform:translateY(-24px) scale(1.08);opacity:1}}",
     "defaults": {
@@ -2252,6 +2317,7 @@
     "id": "open-dot-chase",
     "name": "Open Dot Chase",
     "category": "dots",
+    "sourceId": "open-pack-2026",
     "tags": [
       "open-source",
       "open-pack-2026",
@@ -2269,7 +2335,7 @@
       "customizable": true,
       "singleElement": false
     },
-    "searchText": "open-dot-chase open dot chase dots open-source open-pack-2026 dots chase square-path html css react cssonly customizable",
+    "searchText": "open-dot-chase open dot chase dots open-pack-2026 open pack 2026 open-source open-pack-2026 dots chase square-path html css react cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-open-dot-chase__darma-loader-open-dot-chase\"><i></i><i></i><i></i><i></i></span>",
     "previewCss": ".darma-loader-open-dot-chase__darma-loader-open-dot-chase{position:relative;display:inline-block;width:60px;height:60px}.darma-loader-open-dot-chase__darma-loader-open-dot-chase i{position:absolute;width:12px;height:12px;border-radius:50%;background:var(--loader-color,#db2777);animation:darma-loader-open-dot-chase-darma-loader-open-dot-chase-path var(--loader-speed,1.2s) ease-in-out infinite}.darma-loader-open-dot-chase__darma-loader-open-dot-chase i:nth-child(2){animation-delay:.15s;background:var(--loader-secondary-color,#f9a8d4)}.darma-loader-open-dot-chase__darma-loader-open-dot-chase i:nth-child(3){animation-delay:.3s}.darma-loader-open-dot-chase__darma-loader-open-dot-chase i:nth-child(4){animation-delay:.45s;background:var(--loader-secondary-color,#f9a8d4)}@keyframes darma-loader-open-dot-chase-darma-loader-open-dot-chase-path{0%,100%{left:4px;top:4px}25%{left:44px;top:4px}50%{left:44px;top:44px}75%{left:4px;top:44px}}",
     "defaults": {
@@ -2284,6 +2350,7 @@
     "id": "open-orbit-dots",
     "name": "Open Orbit Dots",
     "category": "dots",
+    "sourceId": "open-pack-2026",
     "tags": [
       "open-source",
       "open-pack-2026",
@@ -2302,7 +2369,7 @@
       "popular": true,
       "singleElement": false
     },
-    "searchText": "open-orbit-dots open orbit dots dots open-source open-pack-2026 orbit dots playful html css react cssonly customizable popular",
+    "searchText": "open-orbit-dots open orbit dots dots open-pack-2026 open pack 2026 open-source open-pack-2026 orbit dots playful html css react cssonly customizable popular",
     "previewHtml": "<span class=\"darma-loader-open-orbit-dots__darma-loader-open-orbit-dots\"><i></i><i></i><i></i></span>",
     "previewCss": ".darma-loader-open-orbit-dots__darma-loader-open-orbit-dots{position:relative;display:inline-block;width:64px;height:64px;animation:darma-loader-open-orbit-dots-darma-loader-open-orbit-dots-spin var(--loader-speed,1.1s) linear infinite}.darma-loader-open-orbit-dots__darma-loader-open-orbit-dots i{position:absolute;left:50%;top:50%;width:12px;height:12px;margin:-6px;border-radius:50%;background:var(--loader-color,#6366f1);box-shadow:0 0 18px color-mix(in srgb,var(--loader-color,#6366f1) 55%,transparent)}.darma-loader-open-orbit-dots__darma-loader-open-orbit-dots i:nth-child(1){transform:rotate(0deg) translateX(25px)}.darma-loader-open-orbit-dots__darma-loader-open-orbit-dots i:nth-child(2){transform:rotate(120deg) translateX(25px);background:var(--loader-secondary-color,#22c55e)}.darma-loader-open-orbit-dots__darma-loader-open-orbit-dots i:nth-child(3){transform:rotate(240deg) translateX(25px);opacity:.72}@keyframes darma-loader-open-orbit-dots-darma-loader-open-orbit-dots-spin{to{transform:rotate(360deg)}}",
     "defaults": {
@@ -2317,6 +2384,7 @@
     "id": "open-typing-dots",
     "name": "Open Typing Dots",
     "category": "dots",
+    "sourceId": "open-pack-2026",
     "tags": [
       "open-source",
       "open-pack-2026",
@@ -2334,7 +2402,7 @@
       "customizable": true,
       "singleElement": false
     },
-    "searchText": "open-typing-dots open typing dots dots open-source open-pack-2026 typing dots chat html css react cssonly customizable",
+    "searchText": "open-typing-dots open typing dots dots open-pack-2026 open pack 2026 open-source open-pack-2026 typing dots chat html css react cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-open-typing-dots__darma-loader-open-typing-dots\"><i></i><i></i><i></i></span>",
     "previewCss": ".darma-loader-open-typing-dots__darma-loader-open-typing-dots{display:inline-flex;align-items:center;gap:6px;min-width:70px;padding:13px 16px;border-radius:999px;background:color-mix(in srgb,var(--loader-color,#4f46e5) 12%,transparent)}.darma-loader-open-typing-dots__darma-loader-open-typing-dots i{width:9px;height:9px;border-radius:50%;background:var(--loader-color,#4f46e5);animation:darma-loader-open-typing-dots-darma-loader-open-typing-dots-pop var(--loader-speed,1.1s) ease-in-out infinite}.darma-loader-open-typing-dots__darma-loader-open-typing-dots i:nth-child(2){animation-delay:.16s}.darma-loader-open-typing-dots__darma-loader-open-typing-dots i:nth-child(3){animation-delay:.32s}@keyframes darma-loader-open-typing-dots-darma-loader-open-typing-dots-pop{0%,80%,100%{transform:translateY(0) scale(.7);opacity:.45}40%{transform:translateY(-4px) scale(1);opacity:1}}",
     "defaults": {
@@ -2349,6 +2417,7 @@
     "id": "open-wave-dots",
     "name": "Open Wave Dots",
     "category": "dots",
+    "sourceId": "open-pack-2026",
     "tags": [
       "open-source",
       "open-pack-2026",
@@ -2366,7 +2435,7 @@
       "customizable": true,
       "singleElement": false
     },
-    "searchText": "open-wave-dots open wave dots dots open-source open-pack-2026 wave dots sine html css react cssonly customizable",
+    "searchText": "open-wave-dots open wave dots dots open-pack-2026 open pack 2026 open-source open-pack-2026 wave dots sine html css react cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-open-wave-dots__darma-loader-open-wave-dots\"><i></i><i></i><i></i><i></i><i></i></span>",
     "previewCss": ".darma-loader-open-wave-dots__darma-loader-open-wave-dots{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px}.darma-loader-open-wave-dots__darma-loader-open-wave-dots i{width:10px;height:10px;border-radius:50%;background:var(--loader-color,#1d4ed8);animation:darma-loader-open-wave-dots-darma-loader-open-wave-dots-wave var(--loader-speed,1.25s) ease-in-out infinite}.darma-loader-open-wave-dots__darma-loader-open-wave-dots i:nth-child(2){animation-delay:.1s;background:var(--loader-secondary-color,#93c5fd)}.darma-loader-open-wave-dots__darma-loader-open-wave-dots i:nth-child(3){animation-delay:.2s}.darma-loader-open-wave-dots__darma-loader-open-wave-dots i:nth-child(4){animation-delay:.3s;background:var(--loader-secondary-color,#93c5fd)}.darma-loader-open-wave-dots__darma-loader-open-wave-dots i:nth-child(5){animation-delay:.4s}@keyframes darma-loader-open-wave-dots-darma-loader-open-wave-dots-wave{0%,100%{transform:translateY(0);opacity:.45}50%{transform:translateY(-16px);opacity:1}}",
     "defaults": {
@@ -2381,6 +2450,7 @@
     "id": "darma-custom-204",
     "name": "Orbit Cluster",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "orbit",
       "cluster",
@@ -2403,7 +2473,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-204 orbit cluster dots orbit cluster dot dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-204 orbit cluster dots darma-custom darma custom orbit cluster dot dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-204\"></div>",
     "previewCss": ".darma-loader-darma-custom-204 {\n  color: var(--loader-color, #0ea5e9);\nheight: 15px;\naspect-ratio: 4;\ndisplay: grid;\n}\n.darma-loader-darma-custom-204:before,\n.darma-loader-darma-custom-204:after {\ncontent: \"\";\ngrid-area: 1/1;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 25% 100%;\nanimation: darma-loader-darma-custom-204-l34 1s infinite;\ntransform: translate(var(--d,0)) rotate(0);\n}\n.darma-loader-darma-custom-204:after {\n--d: 37.5%;\nanimation-delay: .5s;\n}\n@keyframes darma-loader-darma-custom-204-l34 {\n50%,100% {transform: translate(var(--d,0)) rotate(.5turn)}\n}\n",
     "defaults": {
@@ -2418,6 +2488,7 @@
     "id": "orbit-dots",
     "name": "Orbit Dots",
     "category": "dots",
+    "sourceId": "darma",
     "tags": [
       "dots",
       "orbit",
@@ -2435,7 +2506,7 @@
       "customizable": true,
       "singleElement": true
     },
-    "searchText": "orbit-dots orbit dots dots dots orbit circle loop html css react cssonly customizable singleelement",
+    "searchText": "orbit-dots orbit dots dots darma darma originals dots orbit circle loop html css react cssonly customizable singleelement",
     "previewHtml": "<span class=\"darma-loader-orbit-dots\"></span>",
     "previewCss": ".darma-loader-orbit-dots {\n  position: relative;\n  display: inline-block;\n  width: 54px;\n  height: 54px;\n  color: var(--loader-color, #6366f1);\n  animation: darma-loader-orbit-dots-spin 1.2s linear infinite;\n}\n.darma-loader-orbit-dots::before,\n.darma-loader-orbit-dots::after {\n  content: \"\";\n  position: absolute;\n  width: 14px;\n  height: 14px;\n  border-radius: 50%;\n  background: currentColor;\n  top: 0;\n  left: 50%;\n  transform: translateX(-50%);\n}\n.darma-loader-orbit-dots::after {\n  top: auto;\n  bottom: 0;\n  opacity: 0.35;\n}\n@keyframes darma-loader-orbit-dots-spin { to { transform: rotate(360deg); } }\n",
     "defaults": {
@@ -2448,6 +2519,7 @@
     "id": "darma-custom-183",
     "name": "Orbit Pair Dots",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "orbit",
       "pair",
@@ -2470,7 +2542,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-183 orbit pair dots dots orbit pair dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-183 orbit pair dots dots darma-custom darma custom orbit pair dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-183\"></div>",
     "previewCss": ".darma-loader-darma-custom-183 {\n  color: var(--loader-color, #0891b2);\n--s: 64px;\nwidth: var(--s);\naspect-ratio: 2;\n--_g: currentColor 90%,#0000;\nbackground:\nradial-gradient(farthest-side at bottom,var(--_g)) 0 calc(50% - var(--s)/16),\nradial-gradient(farthest-side at top ,var(--_g)) 0 calc(50% + var(--s)/16),\nradial-gradient(farthest-side at bottom,var(--_g)) 50% calc(50% - var(--s)/16),\nradial-gradient(farthest-side at top ,var(--_g)) 50% calc(50% + var(--s)/16),\nradial-gradient(farthest-side at bottom,var(--_g)) 100% calc(50% - var(--s)/16),\nradial-gradient(farthest-side at top ,var(--_g)) 100% calc(50% + var(--s)/16);\nbackground-size: 25% 25%;\nbackground-repeat: no-repeat;\nanimation: darma-loader-darma-custom-183-l13 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-183-l13 {\n16.67% {background-position:0 0,0 100%,50% calc(50% - var(--s)/8),50% calc(50% + var(--s)/16),100% calc(50% - var(--s)/16),100% calc(50% + var(--s)/16)}\n33.33% {background-position:0 0,0 100%,50% 0,50% 100%,100% calc(50% - var(--s)/16),100% calc(50% + var(--s)/16)}\n50% {background-position:0 0,0 100%,50% 0,50% 100%,100% 0,100% 100%}\n66.67% {background-position:0 calc(50% - var(--s)/16),0 calc(50% + var(--s)/16),50% 0,50% 100%,100% 0,100% 100%}\n83.33% {background-position:0 calc(50% - var(--s)/16),0 calc(50% + var(--s)/16),50% calc(50% - var(--s)/16),50% calc(50% + var(--s)/16),100% 0,100% 100%}\n}\n",
     "defaults": {
@@ -2485,6 +2557,7 @@
     "id": "uiverse-orbital-status-dots",
     "name": "Orbital Status Dots",
     "category": "dots",
+    "sourceId": "uiverse-batch-3",
     "tags": [
       "uiverse",
       "orbital",
@@ -2505,7 +2578,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "uiverse-orbital-status-dots orbital status dots dots uiverse orbital dots status text loader html css react cssonly customizable",
+    "searchText": "uiverse-orbital-status-dots orbital status dots dots uiverse-batch-3 uiverse batch 3 uiverse orbital dots status text loader html css react cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-uiverse-orbital-status-dots\">\n  <span class=\"darma-loader-uiverse-orbital-status-dots__shadow\"></span>\n  <span class=\"darma-loader-uiverse-orbital-status-dots__shadow\"></span>\n  <span class=\"darma-loader-uiverse-orbital-status-dots__shadow\"></span>\n  <span class=\"darma-loader-uiverse-orbital-status-dots__dot\"></span>\n  <span class=\"darma-loader-uiverse-orbital-status-dots__text\">&nbsp;&nbsp;&nbsp;loading...</span>\n</div>",
     "previewCss": ".darma-loader-uiverse-orbital-status-dots {\n  align-items: center;\n  border: 16px solid rgba(119, 119, 119, 0.05);\n  border-radius: 50%;\n  box-shadow:\n    0 0 5px #f1f1f1,\n    0 0 5px #d1d1d1 inset;\n  display: flex;\n  height: 100px;\n  justify-content: center;\n  width: 100px;\n}\n\n.darma-loader-uiverse-orbital-status-dots > .darma-loader-uiverse-orbital-status-dots__text {\ncolor: #888;\nfont-size: 10px;\nfont-weight: 200;\nopacity: 0;\ntransition: all 200ms;\n}\n\n.darma-loader-uiverse-orbital-status-dots:hover > .darma-loader-uiverse-orbital-status-dots__text {\nfont-weight: 400;\nopacity: 1;\n}\n\n.darma-loader-uiverse-orbital-status-dots__dot,\n.darma-loader-uiverse-orbital-status-dots__shadow {\nbackground-color: #ccc;\nborder-radius: 50%;\nheight: 16px;\nmargin: 40px;\nposition: absolute;\nwidth: 16px;\n}\n\n.darma-loader-uiverse-orbital-status-dots__shadow:nth-child(1) {\nanimation: darma-loader-uiverse-orbital-status-dots-orbit 1s infinite 0.02s;\n}\n\n.darma-loader-uiverse-orbital-status-dots__shadow:nth-child(2) {\nanimation: darma-loader-uiverse-orbital-status-dots-orbit 1s infinite 0.04s;\n}\n\n.darma-loader-uiverse-orbital-status-dots__shadow:nth-child(3) {\nanimation: darma-loader-uiverse-orbital-status-dots-orbit 1s infinite 0.06s;\n}\n\n.darma-loader-uiverse-orbital-status-dots__dot {\nanimation: darma-loader-uiverse-orbital-status-dots-orbit 1s infinite;\nbackground-color: #bbb;\nborder-radius: 50%;\nheight: 18px;\nposition: absolute;\nwidth: 18px;\n}\n\n@keyframes darma-loader-uiverse-orbital-status-dots-orbit {\nfrom {\ntransform: rotate(0deg) translateX(42px) rotate(0deg);\n}\nto {\ntransform: rotate(360deg) translateX(42px) rotate(-360deg);\n}\n}",
     "defaults": {
@@ -2518,6 +2591,7 @@
     "id": "darma-custom-191",
     "name": "Pac Dot Sweep",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "pac",
       "dot",
@@ -2540,7 +2614,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-191 pac dot sweep dots pac dot sweep dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-191 pac dot sweep dots darma-custom darma custom pac dot sweep dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-191\"></div>",
     "previewCss": ".darma-loader-darma-custom-191 {\ncolor: var(--loader-color, #ca8a04);\nwidth: 4px;\naspect-ratio: 1;\nborder-radius: 50%;\nbox-shadow: 19px 0 0 7px, 38px 0 0 3px, 57px 0 0 0;\ntransform: translateX(-38px);\nanimation: darma-loader-darma-custom-191-l21 .5s infinite alternate linear;\n}\n\n@keyframes darma-loader-darma-custom-191-l21 {\n50% {box-shadow: 19px 0 0 3px, 38px 0 0 7px, 57px 0 0 3px}\n100% {box-shadow: 19px 0 0 0 , 38px 0 0 3px, 57px 0 0 7px}\n}\n",
     "defaults": {
@@ -2555,6 +2629,7 @@
     "id": "uiverse-pearl-typing-row",
     "name": "Pearl Typing Row",
     "category": "dots",
+    "sourceId": "uiverse-batch-4",
     "tags": [
       "typing",
       "pearls",
@@ -2574,7 +2649,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "uiverse-pearl-typing-row pearl typing row dots typing pearls dots text uiverse html css react cssonly customizable",
+    "searchText": "uiverse-pearl-typing-row pearl typing row dots uiverse-batch-4 uiverse batch 4 typing pearls dots text uiverse html css react cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-uiverse-pearl-typing-row darma-loader-uiverse-pearl-typing-row__wrapper\">\n  <div class=\"darma-loader-uiverse-pearl-typing-row__circle-loader\">\n    <div class=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n    <div class=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n    <div class=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n    <div class=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n    <div class=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n    <div class=\"darma-loader-uiverse-pearl-typing-row__circle\"></div>\n  </div>\n  <div class=\"darma-loader-uiverse-pearl-typing-row__loading-text\">Loading...</div>\n</div>",
     "previewCss": ".darma-loader-uiverse-pearl-typing-row { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.darma-loader-uiverse-pearl-typing-row__wrapper {\n  position: relative;\n  width: 220px;\n  height: 110px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle-loader {\ndisplay: flex;\ngap: 15px;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle {\nwidth: 24px;\nheight: 24px;\nborder-radius: 50%;\nbackground: radial-gradient(circle at 30% 30%, #f5f5f5, var(--loader-color, #d5d5d5));\nposition: relative;\nbox-shadow:\n6px 6px 12px rgba(0, 0, 0, 0.15),\n-6px -6px 12px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 80%, transparent),\ninset 2px 2px 4px rgba(0, 0, 0, 0.1),\ninset -2px -2px 4px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 90%, transparent);\nanimation: darma-loader-uiverse-pearl-typing-row-circleRotate 2s ease-in-out infinite;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(1) {\nanimation-delay: 0s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(2) {\nanimation-delay: 0.2s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(3) {\nanimation-delay: 0.3s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(4) {\nanimation-delay: 0.4s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(5) {\nanimation-delay: 0.5s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(6) {\nanimation-delay: 0.6s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle:nth-child(7) {\nanimation-delay: 0.7s;\n}\n\n.darma-loader-uiverse-pearl-typing-row__circle::before {\ncontent: \"\";\nposition: absolute;\ntop: 8px;\nleft: 8px;\nwidth: 15px;\nheight: 15px;\nbackground: radial-gradient(circle, color-mix(in srgb, var(--loader-secondary-color, #ffffff) 80%, transparent), transparent);\nborder-radius: 50%;\n}\n\n@keyframes darma-loader-uiverse-pearl-typing-row-circleRotate {\n0% {\ntransform: scale(1) rotateZ(0deg);\nbox-shadow:\n6px 6px 12px rgba(0, 0, 0, 0.15),\n-6px -6px 12px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 80%, transparent),\ninset 2px 2px 4px rgba(0, 0, 0, 0.1),\ninset -2px -2px 4px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 90%, transparent);\n}\n\n50% {\ntransform: scale(1.2) rotateZ(180deg);\nbox-shadow:\n8px 8px 16px rgba(0, 0, 0, 0.2),\n-8px -8px 16px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 90%, transparent),\ninset 3px 3px 6px rgba(0, 0, 0, 0.15),\ninset -3px -3px 6px var(--loader-secondary-color, #ffffff);\n}\n\n100% {\ntransform: scale(1) rotateZ(360deg);\nbox-shadow:\n6px 6px 12px rgba(0, 0, 0, 0.15),\n-6px -6px 12px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 80%, transparent),\ninset 2px 2px 4px rgba(0, 0, 0, 0.1),\ninset -2px -2px 4px color-mix(in srgb, var(--loader-secondary-color, #ffffff) 90%, transparent);\n}\n}\n\n.darma-loader-uiverse-pearl-typing-row__loading-text {\nposition: absolute;\nbottom: 30px;\nleft: 50%;\ntransform: translateX(-50%);\nfont-size: 24px;\nfont-weight: 300;\ncolor: #444;\nletter-spacing: 1px;\nanimation: darma-loader-uiverse-pearl-typing-row-fadeBlink 1.5s infinite;\n}\n\n@keyframes darma-loader-uiverse-pearl-typing-row-fadeBlink {\n0%,\n100% {\nopacity: 1;\ntransform: translateX(-50%) translateY(0);\n}\n\n50% {\nopacity: 0.4;\ntransform: translateX(-50%) translateY(-3px);\n}\n}",
     "defaults": {
@@ -2588,6 +2663,7 @@
     "id": "darma-custom-190",
     "name": "Pill Dot Shift",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "pill",
       "dot",
@@ -2610,7 +2686,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-190 pill dot shift dots pill dot shift dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-190 pill dot shift dots darma-custom darma custom pill dot shift dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-190\"></div>",
     "previewCss": ".darma-loader-darma-custom-190 {\n  color: var(--loader-color, #e11d48);\nheight: 15px;\naspect-ratio: 6;\ndisplay: flex;\n}\n.darma-loader-darma-custom-190:before,\n.darma-loader-darma-custom-190:after {\ncontent: \"\";\nflex: 1;\npadding-left: calc(100%/6);\nbackground: radial-gradient(closest-side at calc(100%/3) 50%,currentColor 90%,#0000) 0/75% 100% content-box;\nanimation: darma-loader-darma-custom-190-l20 2s infinite;\n}\n.darma-loader-darma-custom-190:after {\n--_s:-1;\n}\n@keyframes darma-loader-darma-custom-190-l20 {\n0% {transform:scale(var(--_s,1)) translate(0) rotate(0)}\n25% {transform:scale(var(--_s,1)) translate(-25%) rotate(0)}\n50% {transform:scale(var(--_s,1)) translate(-25%) rotate(1turn)}\n75%,100% {transform:scale(var(--_s,1)) translate(0) rotate(1turn)}\n}\n",
     "defaults": {
@@ -2625,6 +2701,7 @@
     "id": "darma-custom-189",
     "name": "Pill Dot Wave",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "pill",
       "dot",
@@ -2647,7 +2724,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-189 pill dot wave dots pill dot wave dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-189 pill dot wave dots darma-custom darma custom pill dot wave dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-189\"></div>",
     "previewCss": ".darma-loader-darma-custom-189 {\n  color: var(--loader-color, #9333ea);\nwidth: 15px;\naspect-ratio: 1;\nborder-radius: 50%;\nclip-path: inset(-45px);\nbox-shadow: -60px 15px,-60px 15px,-60px 15px;\ntransform: translateY(-15px);\nanimation: darma-loader-darma-custom-189-l19 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-189-l19{\n16.67% {box-shadow:-60px 15px,-60px 15px,19px 15px}\n33.33% {box-shadow:-60px 15px, 0px 15px,19px 15px}\n40%,60%{box-shadow:-19px 15px, 0px 15px,19px 15px}\n66.67% {box-shadow:-19px 15px, 0px 15px,60px 15px}\n83.33% {box-shadow:-19px 15px, 60px 15px,60px 15px}\n100% {box-shadow: 60px 15px, 60px 15px,60px 15px}\n}\n",
     "defaults": {
@@ -2662,6 +2739,7 @@
     "id": "uiverse-purple-pulse-batons",
     "name": "Purple Pulse Batons",
     "category": "dots",
+    "sourceId": "uiverse-batch-3",
     "tags": [
       "uiverse",
       "pulse",
@@ -2682,7 +2760,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "uiverse-purple-pulse-batons purple pulse batons dots uiverse pulse batons dots purple loader html css react cssonly customizable",
+    "searchText": "uiverse-purple-pulse-batons purple pulse batons dots uiverse-batch-3 uiverse batch 3 uiverse pulse batons dots purple loader html css react cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-uiverse-purple-pulse-batons__container\">\n  <div class=\"darma-loader-uiverse-purple-pulse-batons__dot\"></div>\n  <div class=\"darma-loader-uiverse-purple-pulse-batons__dot\"></div>\n  <div class=\"darma-loader-uiverse-purple-pulse-batons__dot\"></div>\n  <div class=\"darma-loader-uiverse-purple-pulse-batons__dot\"></div>\n</div>\n\n/* mini loader component */",
     "previewCss": ".darma-loader-uiverse-purple-pulse-batons__container {\ndisplay: flex;\nalign-items: center;\njustify-content: center;\nwidth: 3.75em; /* 60px */\n}\n\n.darma-loader-uiverse-purple-pulse-batons__dot {\nheight: 0.8125em; /* 13px */\nwidth: 1.25em; /* 20px */\nmargin-right: 0.625em; /* 10px */\nborder-radius: 0.625em; /* 10px */\nbackground-color: #721a8f;\nanimation: darma-loader-uiverse-purple-pulse-batons-loaderpulse 1.5s infinite ease-in-out;\n}\n\n.darma-loader-uiverse-purple-pulse-batons__dot:last-child {\nmargin-right: 0;\n}\n\n.darma-loader-uiverse-purple-pulse-batons__dot:nth-child(1) {\nanimation-delay: -0.1875s; /* -0.3s */\n}\n\n.darma-loader-uiverse-purple-pulse-batons__dot:nth-child(2) {\nanimation-delay: -0.0625s; /* -0.1s */\n}\n\n.darma-loader-uiverse-purple-pulse-batons__dot:nth-child(3) {\nanimation-delay: 0.0625s; /* 0.1s */\n}\n\n@keyframes darma-loader-uiverse-purple-pulse-batons-loaderpulse {\n0% {\ntransform: scale(0.8);\nbackground-color: #d7b3fc;\nbox-shadow: 0 0 0 0 rgb(196 178 252 / 70%);\n}\n\n50% {\ntransform: scale(1.2);\nbackground-color: #70198e;\nbox-shadow: 0 0 0 0.625em rgba(178, 212, 252, 0); /* 10px */\n}\n\n100% {\ntransform: scale(0.8);\nbackground-color: #d7b3fc;\nbox-shadow: 0 0 0 0 rgb(196 178 252 / 70%);\n}\n}\n/* mini loader component end */",
     "defaults": {
@@ -2695,6 +2773,7 @@
     "id": "darma-custom-171",
     "name": "Reveal Dots",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "reveal",
       "dots",
@@ -2716,7 +2795,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-171 reveal dots dots reveal dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-171 reveal dots dots darma-custom darma custom reveal dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-171\"></div>",
     "previewCss": ".darma-loader-darma-custom-171 {\n  color: var(--loader-color, #0891b2);\nwidth: 60px;\naspect-ratio: 4;\nbackground: radial-gradient(circle closest-side,currentColor 90%,#0000) 0/calc(100%/3) 100% space;\nclip-path: inset(0 100% 0 0);\nanimation: darma-loader-darma-custom-171-l1 1s steps(4) infinite;\n}\n@keyframes darma-loader-darma-custom-171-l1 {to{clip-path: inset(0 -34% 0 0)}}\n",
     "defaults": {
@@ -2731,6 +2810,7 @@
     "id": "darma-custom-213",
     "name": "Rotating Dot Pair",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "rotating",
       "dot",
@@ -2753,7 +2833,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-213 rotating dot pair dots rotating dot pair dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-213 rotating dot pair dots darma-custom darma custom rotating dot pair dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-213\"></div>",
     "previewCss": ".darma-loader-darma-custom-213 {\n  color: var(--loader-color, #9333ea);\nheight: 30px;\naspect-ratio: 2.5;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 90%,#0000);\nbackground:var(--_g), var(--_g), var(--_g), var(--_g);\nbackground-size: 20% 50%;\nanimation: darma-loader-darma-custom-213-l43 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-213-l43 {\n0% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n16.67% {background-position: calc(0*100%/3) 0 ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n33.33% {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 0 ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n50% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 100%,calc(2*100%/3) 0 ,calc(3*100%/3) 50% }\n66.67% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 100%,calc(3*100%/3) 0 }\n83.33% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 100%}\n100% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n}\n",
     "defaults": {
@@ -2768,6 +2848,7 @@
     "id": "uiverse-shadow-hopper-dots",
     "name": "Shadow Hopper Dots",
     "category": "dots",
+    "sourceId": "uiverse-batch-2",
     "tags": [
       "uiverse",
       "dots",
@@ -2788,7 +2869,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "uiverse-shadow-hopper-dots shadow hopper dots dots uiverse dots bounce shadow minimal loader html css react cssonly customizable",
+    "searchText": "uiverse-shadow-hopper-dots shadow hopper dots dots uiverse-batch-2 uiverse batch 2 uiverse dots bounce shadow minimal loader html css react cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-uiverse-shadow-hopper-dots\">\n<div class=\"darma-loader-uiverse-shadow-hopper-dots__wrapper\">\n    <div class=\"darma-loader-uiverse-shadow-hopper-dots__circle\"></div>\n    <div class=\"darma-loader-uiverse-shadow-hopper-dots__circle\"></div>\n    <div class=\"darma-loader-uiverse-shadow-hopper-dots__circle\"></div>\n    <div class=\"darma-loader-uiverse-shadow-hopper-dots__shadow\"></div>\n    <div class=\"darma-loader-uiverse-shadow-hopper-dots__shadow\"></div>\n    <div class=\"darma-loader-uiverse-shadow-hopper-dots__shadow\"></div>\n</div>\n</div>",
     "previewCss": ".darma-loader-uiverse-shadow-hopper-dots {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-shadow-hopper-dots__wrapper {\n  width: 200px;\n  height: 60px;\n  position: relative;\n  z-index: 1;\n}\n\n.darma-loader-uiverse-shadow-hopper-dots__circle {\nwidth: 20px;\nheight: 20px;\nposition: absolute;\nborder-radius: 50%;\nbackground-color: #fff;\nleft: 15%;\ntransform-origin: 50%;\nanimation: darma-loader-uiverse-shadow-hopper-dots-circle7124 .5s alternate infinite ease;\n}\n\n@keyframes darma-loader-uiverse-shadow-hopper-dots-circle7124 {\n0% {\ntop: 60px;\nheight: 5px;\nborder-radius: 50px 50px 25px 25px;\ntransform: scaleX(1.7);\n}\n\n40% {\nheight: 20px;\nborder-radius: 50%;\ntransform: scaleX(1);\n}\n\n100% {\ntop: 0%;\n}\n}\n\n.darma-loader-uiverse-shadow-hopper-dots__circle:nth-child(2) {\nleft: 45%;\nanimation-delay: .2s;\n}\n\n.darma-loader-uiverse-shadow-hopper-dots__circle:nth-child(3) {\nleft: auto;\nright: 15%;\nanimation-delay: .3s;\n}\n\n.darma-loader-uiverse-shadow-hopper-dots__shadow {\nwidth: 20px;\nheight: 4px;\nborder-radius: 50%;\nbackground-color: rgba(0,0,0,0.9);\nposition: absolute;\ntop: 62px;\ntransform-origin: 50%;\nz-index: -1;\nleft: 15%;\nfilter: blur(1px);\nanimation: darma-loader-uiverse-shadow-hopper-dots-shadow046 .5s alternate infinite ease;\n}\n\n@keyframes darma-loader-uiverse-shadow-hopper-dots-shadow046 {\n0% {\ntransform: scaleX(1.5);\n}\n\n40% {\ntransform: scaleX(1);\nopacity: .7;\n}\n\n100% {\ntransform: scaleX(.2);\nopacity: .4;\n}\n}\n\n.darma-loader-uiverse-shadow-hopper-dots__shadow:nth-child(4) {\nleft: 45%;\nanimation-delay: .2s\n}\n\n.darma-loader-uiverse-shadow-hopper-dots__shadow:nth-child(5) {\nleft: auto;\nright: 15%;\nanimation-delay: .3s;\n}",
     "defaults": {
@@ -2801,6 +2882,7 @@
     "id": "darma-custom-181",
     "name": "Sliding Dots",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "sliding",
       "dots",
@@ -2822,7 +2904,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-181 sliding dots dots sliding dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-181 sliding dots dots darma-custom darma custom sliding dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-181\"></div>",
     "previewCss": ".darma-loader-darma-custom-181 {\n  color: var(--loader-color, #2563eb);\nwidth: 41px;\naspect-ratio: 1;\n--_g: no-repeat radial-gradient(circle closest-side,currentColor 90%,#0000);\nbackground:\nvar(--_g) 0 0,\nvar(--_g) 0 100%,\nvar(--_g) 100% 100%;\nbackground-size: 40% 40%;\nanimation:darma-loader-darma-custom-181-l11 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-181-l11 {\n25% {background-position:100% 0 ,0 100%,100% 100%}\n50% {background-position:100% 0 ,0 0 ,100% 100%}\n75% {background-position:100% 0 ,0 0 ,0 100%}\n100%{background-position:100% 100%,0 0 ,0 100%}\n}\n",
     "defaults": {
@@ -2837,6 +2919,7 @@
     "id": "darma-custom-210",
     "name": "Split Dot Swing",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "split",
       "dot",
@@ -2859,7 +2942,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-210 split dot swing dots split dot swing dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-210 split dot swing dots darma-custom darma custom split dot swing dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-210\"></div>",
     "previewCss": ".darma-loader-darma-custom-210 {\n  color: var(--loader-color, #db2777);\nheight: 15px;\naspect-ratio: 5;\n--_g:no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground: var(--_g),var(--_g),var(--_g),var(--_g);\nbackground-size: 20% 100%;\nanimation:\ndarma-loader-darma-custom-210-l40-1 .75s infinite alternate,\ndarma-loader-darma-custom-210-l40-2 1.5s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-210-l40-1 {\n0%,\n10% {background-position: 0 0,0 0,0 0,0 0}\n33% {background-position: 0 0,calc(100%/3) 0,calc(100%/3) 0,calc(100%/3) 0}\n66% {background-position: 0 0,calc(100%/3) 0,calc(2*100%/3) 0,calc(2*100%/3) 0}\n90%,\n100% {background-position: 0 0,calc(100%/3) 0,calc(2*100%/3) 0,100% 0}\n}\n@keyframes darma-loader-darma-custom-210-l40-2 {\n0%,49.99% {transform: scale( 1)}\n50%,100% {transform: scale(-1)}\n}\n",
     "defaults": {
@@ -2874,6 +2957,7 @@
     "id": "darma-custom-172",
     "name": "Step Dots",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "step",
       "dots",
@@ -2895,7 +2979,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-172 step dots dots step dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-172 step dots dots darma-custom darma custom step dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-172\"></div>",
     "previewCss": ".darma-loader-darma-custom-172 {\n  color: var(--loader-color, #059669);\nwidth: 60px;\naspect-ratio: 4;\nbackground: radial-gradient(circle closest-side,currentColor 90%,#0000) 0/calc(100%/3) 100% no-repeat;\nanimation: darma-loader-darma-custom-172-l2 1s steps(3) infinite;\n}\n@keyframes darma-loader-darma-custom-172-l2 {to{background-position: 150%}}\n",
     "defaults": {
@@ -2910,6 +2994,7 @@
     "id": "darma-custom-197",
     "name": "Triangle Dot Cycle",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "triangle",
       "dot",
@@ -2932,7 +3017,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-197 triangle dot cycle dots triangle dot cycle dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-197 triangle dot cycle dots darma-custom darma custom triangle dot cycle dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-197\"></div>",
     "previewCss": ".darma-loader-darma-custom-197 {\n  color: var(--loader-color, #ea580c);\nheight: 15px;\naspect-ratio: 4;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 94%,#0000);\nbackground:\nvar(--_g) left,\nvar(--_g) right;\nbackground-size: 25% 100%;\ndisplay: grid;\n}\n.darma-loader-darma-custom-197:before,\n.darma-loader-darma-custom-197:after {\ncontent: \"\";\ngrid-area: 1/1;\nmargin: auto;\nheight: 100%;\naspect-ratio: 1;\nborder-radius: 50%;\nbackground: currentColor;\nclip-path: inset(0 0 49%);\ntransform-origin: -100% 50%;\nanimation: darma-loader-darma-custom-197-l27 .5s infinite alternate;\n}\n.darma-loader-darma-custom-197:after {\n--s:-1;\ntransform-origin: 200% 50%;\n}\n@keyframes darma-loader-darma-custom-197-l27 {\n0%,40% {transform:scaleY(var(--s,1)) rotate(0)}\n100% {transform:scaleY(var(--s,1)) rotate(calc(var(--s,1)*-90deg))}\n}\n",
     "defaults": {
@@ -2947,6 +3032,7 @@
     "id": "darma-custom-186",
     "name": "Triangle Dot Walk",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "triangle",
       "dot",
@@ -2969,7 +3055,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-186 triangle dot walk dots triangle dot walk dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-186 triangle dot walk dots darma-custom darma custom triangle dot walk dots loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-186\"></div>",
     "previewCss": ".darma-loader-darma-custom-186 {\n  color: var(--loader-color, #db2777);\nwidth: 45px;\naspect-ratio: 1.154;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 90%,#0000);\nbackground:\nvar(--_g) 50% 0,\nvar(--_g) 0 100%,\nvar(--_g) 100% 100%;\nbackground-size: 35% calc(35%*1.154);\nanimation: darma-loader-darma-custom-186-l16 1s infinite;\n}\n@keyframes darma-loader-darma-custom-186-l16{\n50%,100% {background-position: 100% 100%,50% 0,0 100%}\n}\n",
     "defaults": {
@@ -2984,6 +3070,7 @@
     "id": "darma-custom-212",
     "name": "Twin Pendulum Dots",
     "category": "dots",
+    "sourceId": "darma-custom",
     "tags": [
       "twin",
       "pendulum",
@@ -3006,7 +3093,7 @@
       "tailwind": false,
       "customizable": true
     },
-    "searchText": "darma-custom-212 twin pendulum dots dots twin pendulum dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
+    "searchText": "darma-custom-212 twin pendulum dots dots darma-custom darma custom twin pendulum dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-darma-custom-212\"></div>",
     "previewCss": ".darma-loader-darma-custom-212 {\n  color: var(--loader-color, #0f766e);\nheight: 15px;\naspect-ratio: 5;\ndisplay: flex;\njustify-content: space-between;\n--_g: no-repeat radial-gradient(farthest-side,currentColor 95%,#0000);\nbackground: var(--_g),var(--_g);\nbackground-size: 20% 100%;\nanimation: darma-loader-darma-custom-212-l42-0 1s infinite;\n}\n.darma-loader-darma-custom-212:before,\n.darma-loader-darma-custom-212:after {\ncontent: \"\";\nheight: inherit;\naspect-ratio: 1;\nborder-radius: 50%;\nbackground: currentColor;\nanimation: darma-loader-darma-custom-212-l42-1 1s infinite;\n}\n.darma-loader-darma-custom-212:after {\n--s:-1,-1;\n}\n@keyframes darma-loader-darma-custom-212-l42-0 {\n0%,\n60% {background-position: calc(1*100%/3) 0, calc(2*100%/3) 0}\n100% {background-position: calc(0*100%/3) 0, calc(3*100%/3) 0}\n}\n@keyframes darma-loader-darma-custom-212-l42-1 {\n0% {transform: scale(var(--s,1)) translate(0 ,0)}\n33% {transform: scale(var(--s,1)) translate(0 ,130%)}\n66% {transform: scale(var(--s,1)) translate(calc(400%/3),130%)}\n100% {transform: scale(var(--s,1)) translate(calc(400%/3),0)}\n}\n",
     "defaults": {
@@ -3021,6 +3108,7 @@
     "id": "typing-dots",
     "name": "Typing Dots",
     "category": "dots",
+    "sourceId": "darma",
     "tags": [
       "dots",
       "typing",
@@ -3037,7 +3125,7 @@
       "cssOnly": true,
       "customizable": true
     },
-    "searchText": "typing-dots typing dots dots dots typing chat message html css react popular cssonly customizable",
+    "searchText": "typing-dots typing dots dots darma darma originals dots typing chat message html css react popular cssonly customizable",
     "previewHtml": "<span class=\"darma-loader-typing-dots\"><i></i><i></i><i></i></span>",
     "previewCss": ".darma-loader-typing-dots {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  border-radius: 999px;\n  background: color-mix(in srgb, var(--loader-color, #6366f1) 10%, transparent);\n  padding: 13px 16px;\n  color: var(--loader-color, #6366f1);\n}\n.darma-loader-typing-dots i {\n  width: 8px;\n  height: 8px;\n  border-radius: 50%;\n  background: currentColor;\n  animation: darma-loader-typing-dots-typing 1.05s ease-in-out infinite;\n}\n.darma-loader-typing-dots i:nth-child(2) { animation-delay: 0.16s; }\n.darma-loader-typing-dots i:nth-child(3) { animation-delay: 0.32s; }\n@keyframes darma-loader-typing-dots-typing {\n  0%, 80%, 100% { transform: translateY(0); opacity: 0.35; }\n  40% { transform: translateY(-7px); opacity: 1; }\n}\n",
     "defaults": {

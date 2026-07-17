@@ -2,6 +2,7 @@
   "id": "open-folding-cube",
   "name": "Open Folding Cube",
   "category": "creative",
+  "sourceId": "open-pack-2026",
   "tags": [
     "open-source",
     "open-pack-2026",
@@ -19,7 +20,7 @@
     "customizable": true,
     "singleElement": false
   },
-  "searchText": "open-folding-cube open folding cube creative open-source open-pack-2026 folding cube spinkit html css react cssonly customizable",
+  "searchText": "open-folding-cube open folding cube creative open-pack-2026 open pack 2026 open-source open-pack-2026 folding cube spinkit html css react cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-open-folding-cube__darma-loader-open-folding-cube\"><i></i><i></i><i></i><i></i></span>",
   "previewCss": ".darma-loader-open-folding-cube__darma-loader-open-folding-cube{position:relative;display:inline-block;width:58px;height:58px;transform:rotate(45deg)}.darma-loader-open-folding-cube__darma-loader-open-folding-cube i{position:absolute;width:50%;height:50%;background:var(--loader-color,#0f766e);transform-origin:100% 100%;animation:darma-loader-open-folding-cube-darma-loader-open-folding-cube-fold var(--loader-speed,1.55s) infinite linear both}.darma-loader-open-folding-cube__darma-loader-open-folding-cube i:nth-child(2){left:50%;transform-origin:0 100%;animation-delay:.2s;background:var(--loader-secondary-color,#5eead4)}.darma-loader-open-folding-cube__darma-loader-open-folding-cube i:nth-child(3){left:50%;top:50%;transform-origin:0 0;animation-delay:.4s}.darma-loader-open-folding-cube__darma-loader-open-folding-cube i:nth-child(4){top:50%;transform-origin:100% 0;animation-delay:.6s;background:var(--loader-secondary-color,#5eead4)}@keyframes darma-loader-open-folding-cube-darma-loader-open-folding-cube-fold{0%,10%{transform:perspective(110px) rotateX(-180deg);opacity:0}25%,75%{transform:perspective(110px) rotateX(0);opacity:1}90%,100%{transform:perspective(110px) rotateY(180deg);opacity:0}}",
   "defaults": {

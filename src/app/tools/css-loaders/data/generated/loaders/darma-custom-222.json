@@ -2,6 +2,7 @@
   "id": "darma-custom-222",
   "name": "Diagonal Stripe Rail",
   "category": "progress",
+  "sourceId": "darma-custom",
   "tags": [
     "diagonal",
     "stripe",
@@ -27,7 +28,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-222 diagonal stripe rail progress diagonal stripe rail progress bar track linear loader css-only single-element batch-05 html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-222 diagonal stripe rail progress darma-custom darma custom diagonal stripe rail progress bar track linear loader css-only single-element batch-05 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-222\"></div>",
   "previewCss": ".darma-loader-darma-custom-222 {\n  color: var(--loader-color, #0891b2);\n  width: calc(72px / cos(45deg));\n  height: 14px;\n  background: repeating-linear-gradient(-45deg,currentColor 0 15px,#0000 0 20px) left/200% 100%;\n  animation: darma-loader-darma-custom-222-l3 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-222-l3 {\n    100% {background-position:right}\n}\n",
   "defaults": {

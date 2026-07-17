@@ -2,6 +2,7 @@
   "id": "loaders-css-02",
   "name": "Ball Clip Rotate 02",
   "category": "spinners",
+  "sourceId": "loaders-css",
   "tags": [
     "loaders-css",
     "clip",
@@ -21,7 +22,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "loaders-css-02 ball clip rotate 02 spinners loaders-css clip rotate spinners loader html css react popular singleelement cssonly customizable",
+  "searchText": "loaders-css-02 ball clip rotate 02 spinners loaders-css loaders.css loaders-css clip rotate spinners loader html css react popular singleelement cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-loaders-css-02\"></span>",
   "previewCss": ".darma-loader-loaders-css-02 {\n  display: inline-block;\n  width: 52px;\n  height: 52px;\n  border-radius: 50%;\n  border: 4px solid color-mix(in srgb, var(--loader-color, #14b8a6) 18%, transparent);\n  border-top-color: var(--loader-color, #14b8a6);\n  animation: darma-loader-loaders-css-02-spin 0.9299999999999999s linear infinite;\n}\n@keyframes darma-loader-loaders-css-02-spin { to { transform: rotate(360deg); } }\n",
   "defaults": {

@@ -2,6 +2,7 @@
   "id": "darma-custom-029",
   "name": "Seesaw Dot Bar",
   "category": "fun",
+  "sourceId": "darma-custom",
   "tags": [
     "seesaw",
     "dots",
@@ -22,7 +23,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-029 seesaw dot bar fun seesaw dots bar tilt single-element batch-02 html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-029 seesaw dot bar fun darma-custom darma custom seesaw dots bar tilt single-element batch-02 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-029\"></div>",
   "previewCss": ".darma-loader-darma-custom-029 {\n  width: 80px;\n  height: 20px;\n  color: var(--loader-color, #514b82);\n  background:\n    radial-gradient(farthest-side, currentColor 98%, #0000) left/20px 20px,\n    radial-gradient(farthest-side, currentColor 98%, #0000) right/20px 20px,\n    radial-gradient(farthest-side, #000 98%, #0000) center/5px 5px,\n    linear-gradient(currentColor 0 0) center/100% 2px;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-029-l9 1s cubic-bezier(.5, -150, .5, 150) infinite;\n}\n@keyframes darma-loader-darma-custom-029-l9 {\n  100% { transform: rotate(1deg); }\n}\n",
   "defaults": {

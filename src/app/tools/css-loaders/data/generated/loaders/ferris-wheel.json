@@ -2,6 +2,7 @@
   "id": "ferris-wheel",
   "name": "Ferris Wheel",
   "category": "fun",
+  "sourceId": "darma",
   "tags": [
     "ferris",
     "wheel",
@@ -19,7 +20,7 @@
     "customizable": true,
     "popular": true
   },
-  "searchText": "ferris-wheel ferris wheel fun ferris wheel rotate cabins carnival html css react cssonly customizable popular",
+  "searchText": "ferris-wheel ferris wheel fun darma darma originals ferris wheel rotate cabins carnival html css react cssonly customizable popular",
   "previewHtml": "<span class=\"darma-loader-ferris-wheel\"><i></i><i></i><i></i><i></i></span>",
   "previewCss": ".darma-loader-ferris-wheel {\n  position: relative;\n  width: 56px;\n  height: 56px;\n  border-radius: 50%;\n  border: 4px solid var(--loader-color, #6366f1);\n  box-sizing: border-box;\n  background:\n    linear-gradient(var(--loader-color, #6366f1), var(--loader-color, #6366f1)) center / 4px 100% no-repeat,\n    linear-gradient(var(--loader-color, #6366f1), var(--loader-color, #6366f1)) center / 100% 4px no-repeat;\n  animation: darma-loader-ferris-wheel-spin 3s linear infinite;\n}\n.darma-loader-ferris-wheel i {\n  position: absolute;\n  width: 12px;\n  height: 9px;\n  border-radius: 2px;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-ferris-wheel-spin 3s linear infinite reverse;\n}\n.darma-loader-ferris-wheel i:nth-child(1) { top: -5px; left: 50%; margin-left: -6px; }\n.darma-loader-ferris-wheel i:nth-child(2) { right: -5px; top: 50%; margin-top: -4px; }\n.darma-loader-ferris-wheel i:nth-child(3) { bottom: -5px; left: 50%; margin-left: -6px; }\n.darma-loader-ferris-wheel i:nth-child(4) { left: -5px; top: 50%; margin-top: -4px; }\n@keyframes darma-loader-ferris-wheel-spin { to { transform: rotate(360deg); } }",
   "defaults": {

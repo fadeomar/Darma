@@ -2,6 +2,7 @@
   "id": "darma-custom-424",
   "name": "Line Orbit 10",
   "category": "spinners",
+  "sourceId": "darma-custom",
   "tags": [
     "line",
     "orbit",
@@ -27,7 +28,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-424 line orbit 10 spinners line orbit 10 geometric spinner outline spinners loader css-only single-element batch-06 html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-424 line orbit 10 spinners darma-custom darma custom line orbit 10 geometric spinner outline spinners loader css-only single-element batch-06 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-424\"></div>",
   "previewCss": ".darma-loader-darma-custom-424 {color: var(--loader-color, #4f46e5);\n  --loader-secondary-color: var(--loader-secondary-color, #a5b4fc);\n  --loader-bg: var(--loader-bg, #ffffff);\n  width: 50px;\n  aspect-ratio: 1;\n  border: 2px solid;\n  box-sizing: border-box;\n  --c: conic-gradient(from 180deg at 50% calc(100% - 2px),currentColor 90deg, #0000 0);\n  background: var(--c),var(--c);\n  background-position: 0 0,8px 0;\n  background-size: 16px 9.6px;\n  animation: darma-loader-darma-custom-424-l15 1s infinite;\n}@keyframes darma-loader-darma-custom-424-l15 {100% {background-position: 0 -9.6px,8px 9.6px}}\n",
   "defaults": {

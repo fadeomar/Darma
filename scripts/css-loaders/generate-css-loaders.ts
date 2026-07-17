@@ -2,6 +2,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import type { LoaderDefinition, LoaderFormat, LoaderIndexItem, LoaderPreviewItem, LoaderSourceDefinition } from "../../src/app/tools/css-loaders/types";
+import { getLoaderSourceGroupName, isLoaderSourceGroupId, LOADER_SOURCE_GROUP_IDS } from "../../src/app/tools/css-loaders/loader-sources.ts";
 import { fingerprintLoader, findDuplicateGroups, formatDuplicateReport, getViolatingGroups, type FingerprintEntry } from "./fingerprint.ts";
 import { generateReactCode } from "./generate-react-code.ts";
 import { detectAvailableControls, scopeLoaderCode } from "./normalize-css.ts";
@@ -63,7 +64,11 @@ function buildSearchText(item: LoaderIndexItem) {
     .filter(([, value]) => Boolean(value))
     .map(([key]) => key);
 
-  return [item.id, item.name, item.category, ...item.tags, ...item.formats, ...activeFlags].join(" ").toLowerCase();
+  const sourceName = getLoaderSourceGroupName(item.sourceId);
+
+  return [item.id, item.name, item.category, item.sourceId, sourceName, ...item.tags, ...item.formats, ...activeFlags]
+    .join(" ")
+    .toLowerCase();
 }
 
 function createLoaderDefinition(sourceFile: SourceFile): LoaderDefinition {
@@ -75,6 +80,7 @@ function createLoaderDefinition(sourceFile: SourceFile): LoaderDefinition {
     id: definition.id,
     name: definition.name,
     category: definition.category,
+    sourceId: sourceFile.sourceGroup,
     tags: definition.tags,
     formats,
     flags,
@@ -145,6 +151,15 @@ async function readSourceLoaders() {
     }
 
     sources.push({ filename: relativePath, relativePath, sourceGroup, definition: validateLoaderSource(parsed, relativePath) });
+  }
+
+  for (const source of sources) {
+    if (!isLoaderSourceGroupId(source.sourceGroup)) {
+      fail(
+        `${source.filename}: source directory "${source.sourceGroup}" is not registered in ` +
+          `src/app/tools/css-loaders/loader-sources.ts. Registered groups: ${LOADER_SOURCE_GROUP_IDS.join(", ")}.`,
+      );
+    }
   }
 
   const seenIds = new Map<string, string>();

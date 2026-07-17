@@ -2,6 +2,7 @@
   "id": "darma-custom-236",
   "name": "Corner Slide Stack",
   "category": "creative",
+  "sourceId": "darma-custom",
   "tags": [
     "corner",
     "slide",
@@ -26,7 +27,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-236 corner slide stack creative corner slide stack tiles geometric creative loader css-only single-element batch-05 html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-236 corner slide stack creative darma-custom darma custom corner slide stack tiles geometric creative loader css-only single-element batch-05 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-236\"></div>",
   "previewCss": ".darma-loader-darma-custom-236 {\n  color: var(--loader-color, #16a34a);\n  width: 60px;\n  aspect-ratio: 1;\n  --g: conic-gradient(from -90deg at 10px 10px,currentColor 90deg,#0000 0);\n  background: var(--g), var(--g), var(--g);\n  background-size: 50% 50%;\n  animation: darma-loader-darma-custom-236-l17 1s infinite;\n}\n@keyframes darma-loader-darma-custom-236-l17 {\n   0%   {background-position:0     0, 10px 10px, 20px 20px}\n   33%  {background-position:-30px 0, 10px 10px, 20px 20px}\n   66%  {background-position:-30px 0,-20px 10px, 20px 20px}\n   100% {background-position:-30px 0,-20px 10px,-10px 20px}\n}\n",
   "defaults": {

@@ -2,6 +2,7 @@
   "id": "darma-custom-053",
   "name": "Dotted Linear Fill",
   "category": "progress",
+  "sourceId": "darma-custom",
   "tags": [
     "dotted",
     "linear",
@@ -22,7 +23,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-053 dotted linear fill progress dotted linear mask fill progress batch-02 html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-053 dotted linear fill progress darma-custom darma custom dotted linear mask fill progress batch-02 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-053\"></div>",
   "previewCss": ".darma-loader-darma-custom-053 {\n  width: 120px;\n  height: 20px;\n  -webkit-mask: radial-gradient(circle closest-side, #000 94%, #0000) left/20% 100%;\n  background: linear-gradient(#000 0 0) left/0% 100% no-repeat #ddd;\n  animation: darma-loader-darma-custom-053-l17 2s infinite steps(6);\n}\n@keyframes darma-loader-darma-custom-053-l17 {\n  100% { background-size: 120% 100%; }\n}\n",
   "defaults": {

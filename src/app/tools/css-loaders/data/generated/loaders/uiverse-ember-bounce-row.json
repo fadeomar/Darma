@@ -2,6 +2,7 @@
   "id": "uiverse-ember-bounce-row",
   "name": "Ember Bounce Row",
   "category": "dots",
+  "sourceId": "uiverse-batch-3",
   "tags": [
     "uiverse",
     "ember",
@@ -22,7 +23,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "uiverse-ember-bounce-row ember bounce row dots uiverse ember bounce row dots loader html css react cssonly customizable",
+  "searchText": "uiverse-ember-bounce-row ember bounce row dots uiverse-batch-3 uiverse batch 3 uiverse ember bounce row dots loader html css react cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-uiverse-ember-bounce-row\">\n<div class=\"darma-loader-uiverse-ember-bounce-row__load-row\">\n    <span></span>\n    <span></span>\n    <span></span>\n    <span></span>\n</div>\n</div>",
   "previewCss": ".darma-loader-uiverse-ember-bounce-row {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-ember-bounce-row__load-row {\n  width: 100px;\n  height: 50px;\n  line-height: 50px;\n  text-align: center;\n}\n\n.darma-loader-uiverse-ember-bounce-row__load-row span {\ndisplay: inline-block;\nwidth: 10px;\nheight: 10px;\nbackground: #f76002;\nborder-radius: 50px;\nanimation: darma-loader-uiverse-ember-bounce-row-up-down6 0.5s ease-in infinite alternate;\n}\n\n.darma-loader-uiverse-ember-bounce-row__load-row span:nth-child(2) {\nbackground: #e85b04c4;\nanimation-delay: 0.16s;\n}\n\n.darma-loader-uiverse-ember-bounce-row__load-row span:nth-child(3) {\nbackground: #e85b0491;\nanimation-delay: 0.32s;\n}\n\n.darma-loader-uiverse-ember-bounce-row__load-row span:nth-child(4) {\nbackground: #e85b0456;\nanimation-delay: 0.48s;\n}\n\n@keyframes darma-loader-uiverse-ember-bounce-row-up-down6 {\n0% {\ntransform: translateY(-10px);\n}\n\n100% {\ntransform: translateY(10px);\n}\n}",
   "defaults": {

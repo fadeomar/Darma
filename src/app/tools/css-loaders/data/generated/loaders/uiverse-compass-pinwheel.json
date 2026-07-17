@@ -2,6 +2,7 @@
   "id": "uiverse-compass-pinwheel",
   "name": "Compass Pinwheel",
   "category": "spinners",
+  "sourceId": "uiverse-batch-4",
   "tags": [
     "compass",
     "dots",
@@ -21,7 +22,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "uiverse-compass-pinwheel compass pinwheel spinners compass dots pinwheel minimal uiverse html css react singleelement cssonly customizable",
+  "searchText": "uiverse-compass-pinwheel compass pinwheel spinners uiverse-batch-4 uiverse batch 4 compass dots pinwheel minimal uiverse html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-uiverse-compass-pinwheel darma-loader-uiverse-compass-pinwheel__traffic-loader\"></div>",
   "previewCss": ".darma-loader-uiverse-compass-pinwheel { display: inline-flex; align-items: center; justify-content: center; position: relative; }\n.darma-loader-uiverse-compass-pinwheel__traffic-loader {\n  width: 50px;\n  height: 50px;\n  --c: radial-gradient(farthest-side, #fff 92%, #0000);\n  background: var(--c) 50% 0, var(--c) 50% 100%, var(--c) 100% 50%,\n    var(--c) 0 50%;\n  background-size: 10px 10px;\n  background-repeat: no-repeat;\n  animation: darma-loader-uiverse-compass-pinwheel-s8 1s infinite;\n  position: relative;\n}\n\n.darma-loader-uiverse-compass-pinwheel__traffic-loader::before {\ncontent: \"\";\nposition: absolute;\ninset: 0;\nmargin: 3px;\nbackground: repeating-conic-gradient(#0000 0 35deg, #fff 0 90deg);\n-webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 3px), #000 0);\nborder-radius: 50%;\n}\n\n@keyframes darma-loader-uiverse-compass-pinwheel-s8 {\n100% {\ntransform: rotate(0.5turn);\n}\n}",
   "defaults": {

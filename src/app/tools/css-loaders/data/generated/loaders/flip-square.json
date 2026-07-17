@@ -2,6 +2,7 @@
   "id": "flip-square",
   "name": "Flip Square",
   "category": "fun",
+  "sourceId": "darma",
   "tags": [
     "fun",
     "flip",
@@ -19,7 +20,7 @@
     "customizable": true,
     "singleElement": true
   },
-  "searchText": "flip-square flip square fun fun flip square playful html css react popular cssonly customizable singleelement",
+  "searchText": "flip-square flip square fun darma darma originals fun flip square playful html css react popular cssonly customizable singleelement",
   "previewHtml": "<span class=\"darma-loader-flip-square\"></span>",
   "previewCss": ".darma-loader-flip-square {\n  display: inline-block;\n  width: 48px;\n  height: 48px;\n  border-radius: 14px;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-flip-square-flip 1.15s cubic-bezier(.7,.02,.26,.99) infinite;\n}\n@keyframes darma-loader-flip-square-flip {\n  0% { transform: perspective(120px) rotateX(0) rotateY(0); }\n  50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); }\n  100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); }\n}\n",
   "defaults": {

@@ -2,6 +2,7 @@
   "id": "darma-custom-223",
   "name": "Cross Stripe Rail",
   "category": "progress",
+  "sourceId": "darma-custom",
   "tags": [
     "cross",
     "stripe",
@@ -27,7 +28,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-223 cross stripe rail progress cross stripe rail progress bar track linear loader css-only single-element batch-05 html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-223 cross stripe rail progress darma-custom darma custom cross stripe rail progress bar track linear loader css-only single-element batch-05 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-223\"></div>",
   "previewCss": ".darma-loader-darma-custom-223 {\n  color: var(--loader-color, #f97316);\n  width: calc(72px / cos(45deg));\n  height: 14px;\n  --c: currentColor 0 15px,#0000 0 20px;\n  background: \n    repeating-linear-gradient(135deg,var(--c)) left top,\n    repeating-linear-gradient( 45deg,var(--c)) left bottom;\n  background-size:  200% 50%;\n  background-repeat: no-repeat;\n  animation: darma-loader-darma-custom-223-l4 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-223-l4 {\n    100% {background-position:top right,bottom right}\n}\n",
   "defaults": {

@@ -2,6 +2,7 @@
   "id": "uiverse-crimson-halo-ring",
   "name": "Crimson Halo Ring",
   "category": "spinners",
+  "sourceId": "uiverse-batch-4",
   "tags": [
     "ring",
     "red",
@@ -21,7 +22,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "uiverse-crimson-halo-ring crimson halo ring spinners ring red glow halo uiverse html css react singleelement cssonly customizable",
+  "searchText": "uiverse-crimson-halo-ring crimson halo ring spinners uiverse-batch-4 uiverse batch 4 ring red glow halo uiverse html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-uiverse-crimson-halo-ring\"></div>",
   "previewCss": "/*View in dark mode for good effects*/\n.darma-loader-uiverse-crimson-halo-ring {\n  border: 4px solid red;\n  width: 100px;\n  height: 100px;\n  border-radius: 50%;\n  border-right-color: transparent;\n  animation: darma-loader-uiverse-crimson-halo-ring-rot 1s linear infinite;\n  box-shadow: 0px 0px 20px red inset;\n}\n\n@keyframes darma-loader-uiverse-crimson-halo-ring-rot {\n100% {\ntransform: rotate(360deg);\n}\n}",
   "defaults": {

@@ -2,6 +2,7 @@
   "id": "open-liquid-blob",
   "name": "Open Liquid Blob",
   "category": "fun",
+  "sourceId": "open-pack-2026",
   "tags": [
     "open-source",
     "open-pack-2026",
@@ -20,7 +21,7 @@
     "popular": true,
     "singleElement": true
   },
-  "searchText": "open-liquid-blob open liquid blob fun open-source open-pack-2026 liquid blob organic html css react cssonly customizable popular singleelement",
+  "searchText": "open-liquid-blob open liquid blob fun open-pack-2026 open pack 2026 open-source open-pack-2026 liquid blob organic html css react cssonly customizable popular singleelement",
   "previewHtml": "<span class=\"darma-loader-open-liquid-blob__darma-loader-open-liquid-blob\"></span>",
   "previewCss": ".darma-loader-open-liquid-blob__darma-loader-open-liquid-blob{display:inline-block;width:64px;height:64px;border-radius:38% 62% 55% 45%/45% 39% 61% 55%;background:radial-gradient(circle at 28% 28%,color-mix(in srgb,var(--loader-secondary-color,#8b5cf6) 85%,white),transparent 23%),linear-gradient(135deg,var(--loader-color,#14b8a6),var(--loader-secondary-color,#8b5cf6));box-shadow:0 16px 36px color-mix(in srgb,var(--loader-color,#14b8a6) 34%,transparent);animation:darma-loader-open-liquid-blob-darma-loader-open-liquid-blob-morph var(--loader-speed,1.8s) ease-in-out infinite}@keyframes darma-loader-open-liquid-blob-darma-loader-open-liquid-blob-morph{0%,100%{border-radius:38% 62% 55% 45%/45% 39% 61% 55%;transform:rotate(0) scale(1)}50%{border-radius:58% 42% 36% 64%/62% 45% 55% 38%;transform:rotate(14deg) scale(1.05)}}",
   "defaults": {

@@ -27,11 +27,7 @@ export type LoaderSourceGroupId =
   | "uiverse-batch-3"
   | "uiverse-batch-4"
   | "uiverse-batch-5"
-  | "three-dots"
-  | "load-awesome"
-  | "csspin"
-  | "sam-herbert-svg"
-  | "ldrs-adapted";
+  | "three-dots";
 
 export type LoaderSourceGroup = {
   /** Matches the directory name under `data/source/loaders/`. */
@@ -139,58 +135,6 @@ export const LOADER_SOURCE_GROUPS: readonly LoaderSourceGroup[] = [
     license: "MIT",
     licenseUrl: "https://github.com/nzbin/three-dots/blob/master/LICENSE",
     attribution: "Copyright (c) 2018 Zongbin. Loaders adapted from three-dots (MIT).",
-    isOriginal: false,
-    licenseVerified: true,
-  },
-  {
-    id: "load-awesome",
-    name: "Load Awesome",
-    description: "Ball, grid, line, and shape loaders adapted from Daniel Cardoso's Load Awesome collection.",
-    author: "Daniel Cardoso",
-    homepage: "https://github.danielcardoso.net/load-awesome/",
-    repository: "https://github.com/danielcardoso/load-awesome",
-    license: "MIT",
-    licenseUrl: "https://github.com/danielcardoso/load-awesome/blob/master/LICENSE",
-    attribution: "Copyright (c) 2015 DanielCardoso.net. Loaders adapted from Load Awesome (MIT).",
-    isOriginal: false,
-    licenseVerified: true,
-  },
-  {
-    id: "csspin",
-    name: "CSSPIN",
-    description: "Minimal single-element spinners adapted from Webkul's CSSPIN collection.",
-    author: "Webkul",
-    homepage: "https://webkul.github.io/csspin/",
-    repository: "https://github.com/webkul/csspin",
-    license: "MIT",
-    licenseUrl: "https://github.com/webkul/csspin/blob/master/LICENSE.md",
-    attribution: "Loaders adapted from CSSPIN by Webkul (MIT).",
-    isOriginal: false,
-    licenseVerified: true,
-  },
-  {
-    id: "sam-herbert-svg",
-    name: "Sam Herbert SVG",
-    description: "Inline SVG loaders adapted from Sam Herbert's SVG-Loaders, embedded locally with namespaced ids.",
-    author: "Sam Herbert",
-    repository: "https://github.com/SamHerbert/SVG-Loaders",
-    license: "MIT",
-    licenseUrl: "https://github.com/SamHerbert/SVG-Loaders/blob/master/LICENSE.md",
-    attribution: "Copyright (c) 2014 Sam Herbert. Loaders adapted from SVG-Loaders (MIT).",
-    isOriginal: false,
-    licenseVerified: true,
-  },
-  {
-    id: "ldrs-adapted",
-    name: "LDRS Adapted",
-    description:
-      "Designs adapted from Griffin Johnston's LDRS into Darma-native HTML/CSS. The LDRS custom-element runtime is not a dependency.",
-    author: "Griffin Johnston",
-    homepage: "https://uiball.com/ldrs/",
-    repository: "https://github.com/GriffinJohnston/ldrs",
-    license: "MIT",
-    licenseUrl: "https://github.com/GriffinJohnston/ldrs/blob/main/LICENSE",
-    attribution: "Copyright (c) 2022 Griffin Johnston. Designs adapted from LDRS (MIT).",
     isOriginal: false,
     licenseVerified: true,
   },

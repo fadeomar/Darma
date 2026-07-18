@@ -21,6 +21,7 @@ import { TypingSpeedGame } from "../playables/typing-speed";
 import { StaticGameEmbed } from "../playables/static-embed";
 import { PacmanCanvasGame } from "../playables/pacman-canvas";
 import { EndlessRunnerGame } from "../playables/endless-runner";
+import { NeonCoreDefenseGame } from "../playables/neon-core-defense";
 
 /**
  * Polished player area. Real game components can be lazy-loaded later and passed
@@ -139,6 +140,10 @@ export function GamePlayerShell({
 
   if (game.slug === "endless-runner") {
     return <EndlessRunnerGame game={game} />;
+  }
+
+  if (game.slug === "neon-core-defense") {
+    return <NeonCoreDefenseGame game={game} />;
   }
 
   return (

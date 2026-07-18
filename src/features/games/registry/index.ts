@@ -460,6 +460,32 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     createdAt: "2026-06-30",
   },
   {
+    id: "neon-core-defense",
+    slug: "neon-core-defense",
+    title: "Neon Core Defense",
+    description: "Defend a glowing core through escalating waves of drones.",
+    longDescription:
+      "Neon Core Defense is a fast arcade shooter built around one simple idea: your core never moves, and everything else comes to you. Waves of drones spawn at the edges of the arena and converge on the centre — quick darts, armoured hulks, and splitters that break in two when destroyed. Click or tap in their direction and the core fires along that line, and switch between the Pulse, Rapid, and Heavy weapons to match what's inbound. Every edge flash warns you where the next drone lands. Kills sometimes drop power-ups — shields, slow fields, multi-shot, explosive rounds — that you collect by shooting them. Chain kills without taking damage to build a combo and multiply your score, and every third wave you pick a permanent upgrade for the rest of the run. Between runs you level up, earn cores, and spend them in a store on new weapons, passive modifiers, and themes, while chasing achievements, missions, and three daily challenges.",
+    href: "/games/neon-core-defense",
+    categories: ["arcade", "quick-break", "casual", "mobile-friendly"],
+    tags: ["shooter", "survival", "waves", "reflex", "canvas", "neon", "arcade", "high score", "combo", "power-ups", "upgrades"],
+    thumbnail: "🎯",
+    thumbnailType: "gradient",
+    accent: "cyan",
+    isNew: true,
+    difficulty: "medium",
+    playTime: "5 min",
+    input: ["mouse", "touch", "keyboard"],
+    devices: ["desktop", "tablet", "mobile"],
+    controls:
+      "Click or tap anywhere in the arena to fire from the core toward that point. Use 1, 2, and 3 (or the weapon buttons) to switch weapons, and the same keys to pick an upgrade between waves. Press Enter to start or restart, and P or Esc to pause. Your best score, best wave, highest combo, and favourite weapon are saved on this device.",
+    privacyNote: PRIVACY_NOTE,
+    seoTitle: "Play Neon Core Defense Online Free | Darma Games",
+    seoDescription:
+      "Play Neon Core Defense free in your browser. Defend a stationary neon core through escalating waves of drones, build combos for a bigger multiplier, and chase your best score. No signup, mobile-friendly.",
+    createdAt: "2026-07-17",
+  },
+  {
     id: "pacman-canvas",
     slug: "pacman-canvas",
     title: "Pacman Canvas",

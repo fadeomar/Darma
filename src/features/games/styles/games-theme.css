@@ -8457,3 +8457,1584 @@ html.rtp-gameplay-active body {
   background-size: 18px 18px;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent 92%);
 }
+
+/* ========================================================================== */
+/* Neon Core Defense (arcade shooter) — `dncd-` namespace                      */
+/* ========================================================================== */
+.dncd-shell {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-default);
+  background: var(--color-surface-overlay);
+  box-shadow: var(--shadow-card);
+}
+
+.dncd-topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.dncd-eyebrow {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+.dncd-topbar-title {
+  margin-top: 0.1rem;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+}
+
+.dncd-topbar-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dncd-stage {
+  position: relative;
+  isolation: isolate;
+  padding: clamp(1rem, 3vw, 1.6rem);
+  background:
+    radial-gradient(circle at 50% -10%, rgba(56, 189, 248, 0.24), transparent 22rem),
+    linear-gradient(160deg, #0d1226, #090d1c 60%, #07050f);
+}
+
+.dncd-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 17rem;
+  gap: 1rem;
+  align-items: start;
+}
+
+.dncd-board-wrap {
+  min-width: 0;
+}
+
+/* The arena is the canvas: a fixed aspect box that the simulation measures. */
+.dncd-board {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(125, 211, 252, 0.22);
+  background: #07050f;
+  box-shadow: inset 0 0 60px rgba(56, 189, 248, 0.09);
+}
+
+.dncd-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.dncd-canvas:focus-visible {
+  outline: 2px solid rgba(125, 211, 252, 0.8);
+  outline-offset: -2px;
+}
+
+/* In-arena HUD ------------------------------------------------------------- */
+.dncd-hud {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.75rem;
+  left: 0.75rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  pointer-events: none;
+}
+
+.dncd-hud-score {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.dncd-hud-score-value {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 1.6rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #fff;
+  text-shadow: 0 0 18px rgba(56, 189, 248, 0.65);
+}
+
+.dncd-hud-combo {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #fde68a;
+  text-shadow: 0 0 12px rgba(250, 204, 21, 0.5);
+}
+
+.dncd-hud-health {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(7, 5, 15, 0.6);
+  color: #7dd3fc;
+  backdrop-filter: blur(4px);
+}
+
+.dncd-hud-health--warn {
+  color: #fbbf24;
+  border-color: rgba(251, 191, 36, 0.4);
+}
+
+.dncd-hud-health--critical {
+  color: #fb7185;
+  border-color: rgba(251, 113, 133, 0.5);
+}
+
+.dncd-health-track {
+  width: 5.5rem;
+  height: 0.4rem;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.dncd-health-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: currentColor;
+  transition: width 180ms ease;
+}
+
+.dncd-hud-health-value {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.66rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Active power-up chips ---------------------------------------------------- */
+.dncd-effects {
+  position: absolute;
+  top: 3.4rem;
+  left: 0.75rem;
+  z-index: 1;
+  display: grid;
+  gap: 0.3rem;
+  pointer-events: none;
+}
+
+.dncd-effect {
+  display: grid;
+  gap: 0.2rem;
+  min-width: 8.5rem;
+  padding: 0.3rem 0.45rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(7, 5, 15, 0.66);
+  backdrop-filter: blur(4px);
+}
+
+.dncd-effect-head {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.64rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.dncd-effect-head strong {
+  margin-left: auto;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-weight: 900;
+}
+
+.dncd-effect-track {
+  height: 0.22rem;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.dncd-effect-fill {
+  display: block;
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: currentColor;
+  transition: width 140ms linear;
+}
+
+/* Hues mirror the per-power-up `hue` values in `neonCoreEngine.ts`. */
+.dncd-effect--shield {
+  color: hsl(150, 90%, 60%);
+  border-color: hsla(150, 90%, 60%, 0.45);
+}
+
+.dncd-effect--slowTime {
+  color: hsl(210, 90%, 65%);
+  border-color: hsla(210, 90%, 65%, 0.45);
+}
+
+.dncd-effect--multiShot {
+  color: hsl(45, 95%, 60%);
+  border-color: hsla(45, 95%, 60%, 0.45);
+}
+
+.dncd-effect--explosive {
+  color: hsl(15, 95%, 62%);
+  border-color: hsla(15, 95%, 62%, 0.45);
+}
+
+/* Between-wave banner ------------------------------------------------------ */
+.dncd-wave-banner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.6rem 1.2rem;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  text-align: center;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(125, 211, 252, 0.3);
+  background: rgba(7, 5, 15, 0.62);
+  backdrop-filter: blur(4px);
+}
+
+.dncd-wave-banner-title {
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.dncd-wave-banner-sub {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(125, 211, 252, 0.92);
+}
+
+/* Overlays ----------------------------------------------------------------- */
+.dncd-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(7, 5, 15, 0.72);
+  backdrop-filter: blur(6px);
+}
+
+.dncd-overlay-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  width: min(100%, 30rem);
+  padding: clamp(1rem, 3vw, 1.6rem);
+  text-align: center;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(125, 211, 252, 0.24);
+  background: rgba(13, 18, 38, 0.9);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+.dncd-overlay-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(125, 211, 252, 0.92);
+}
+
+.dncd-overlay-title {
+  font-size: clamp(1.3rem, 4vw, 1.9rem);
+  font-weight: 950;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+.dncd-overlay-text {
+  max-width: 26rem;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.dncd-overlay-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.2rem;
+}
+
+.dncd-overlay-hint {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.dncd-record {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(250, 204, 21, 0.5);
+  background: rgba(250, 204, 21, 0.14);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #fde68a;
+}
+
+.dncd-overlay-card--wide {
+  width: min(100%, 38rem);
+}
+
+.dncd-result-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.5rem;
+  width: 100%;
+  margin-top: 0.3rem;
+}
+
+@media (max-width: 640px) {
+  .dncd-result-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.dncd-result-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.6rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dncd-result-stat--highlight {
+  border-color: rgba(56, 189, 248, 0.5);
+  background: rgba(56, 189, 248, 0.14);
+}
+
+.dncd-result-value {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+/* Upgrade choice ----------------------------------------------------------- */
+.dncd-upgrade-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+  width: 100%;
+  margin-top: 0.3rem;
+}
+
+@media (max-width: 640px) {
+  .dncd-upgrade-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.dncd-upgrade-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  width: 100%;
+  height: 100%;
+  padding: 0.75rem;
+  text-align: left;
+  cursor: pointer;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  transition: transform 150ms ease, border-color 150ms ease, background 150ms ease, box-shadow 150ms ease;
+}
+
+.dncd-upgrade-card:hover,
+.dncd-upgrade-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(125, 211, 252, 0.6);
+  background: rgba(56, 189, 248, 0.14);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.16);
+}
+
+.dncd-upgrade-key {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.6rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.dncd-upgrade-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(125, 211, 252, 0.3);
+  background: rgba(56, 189, 248, 0.14);
+  color: #7dd3fc;
+}
+
+.dncd-upgrade-title {
+  font-size: 0.9rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+
+.dncd-upgrade-blurb {
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.dncd-upgrade-level {
+  margin-top: auto;
+  padding-top: 0.3rem;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: rgba(125, 211, 252, 0.9);
+}
+
+/* Weapon bar --------------------------------------------------------------- */
+.dncd-weapons {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+}
+
+.dncd-weapon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  /* Comfortable touch target on phones. */
+  min-height: 3rem;
+  padding: 0.5rem 0.6rem;
+  text-align: left;
+  cursor: pointer;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.72);
+  transition: transform 150ms ease, border-color 150ms ease, background 150ms ease, color 150ms ease;
+}
+
+.dncd-weapon:hover,
+.dncd-weapon:focus-visible {
+  transform: translateY(-1px);
+  outline: none;
+  color: #fff;
+}
+
+.dncd-weapon-key {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.62rem;
+  font-weight: 900;
+}
+
+.dncd-weapon-body {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.05rem;
+}
+
+.dncd-weapon-body strong {
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+.dncd-weapon-blurb {
+  font-size: 0.64rem;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Each weapon owns an accent that matches its projectile hue on the canvas. */
+.dncd-weapon--pulse.dncd-weapon--active {
+  border-color: hsla(195, 100%, 65%, 0.8);
+  background: hsla(195, 100%, 60%, 0.16);
+  box-shadow: 0 0 0 3px hsla(195, 100%, 60%, 0.14);
+  color: #fff;
+}
+
+.dncd-weapon--rapid.dncd-weapon--active {
+  border-color: hsla(60, 100%, 60%, 0.8);
+  background: hsla(60, 100%, 55%, 0.16);
+  box-shadow: 0 0 0 3px hsla(60, 100%, 55%, 0.14);
+  color: #fff;
+}
+
+.dncd-weapon--heavy.dncd-weapon--active {
+  border-color: hsla(320, 100%, 68%, 0.8);
+  background: hsla(320, 100%, 62%, 0.16);
+  box-shadow: 0 0 0 3px hsla(320, 100%, 62%, 0.14);
+  color: #fff;
+}
+
+@media (max-width: 520px) {
+  .dncd-weapon-blurb {
+    display: none;
+  }
+}
+
+/* Side panel --------------------------------------------------------------- */
+.dncd-panel {
+  display: grid;
+  gap: 0.7rem;
+  align-content: start;
+}
+
+.dncd-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.dncd-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.55rem 0.6rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dncd-stat--highlight {
+  border-color: rgba(56, 189, 248, 0.5);
+  background: rgba(56, 189, 248, 0.14);
+}
+
+.dncd-stat-label {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.dncd-stat-value {
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.dncd-panel-card {
+  display: grid;
+  gap: 0.4rem;
+  padding: 0.75rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.dncd-panel-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(125, 211, 252, 0.92);
+}
+
+/* Personal bests + enemy legend ------------------------------------------- */
+.dncd-best-list,
+.dncd-enemy-list {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.dncd-best-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.dncd-best-item svg {
+  color: rgba(125, 211, 252, 0.9);
+}
+
+.dncd-best-item strong {
+  margin-left: auto;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-weight: 900;
+  color: #fff;
+}
+
+.dncd-enemy-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+}
+
+.dncd-enemy-dot {
+  flex-shrink: 0;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-top: 0.2rem;
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 8px currentColor;
+}
+
+/* Hues mirror the per-type `hue` values in `neonCoreEngine.ts`. */
+.dncd-enemy-dot--basic {
+  background: hsl(190, 90%, 60%);
+  color: hsla(190, 90%, 60%, 0.6);
+}
+
+.dncd-enemy-dot--fast {
+  background: hsl(55, 90%, 60%);
+  color: hsla(55, 90%, 60%, 0.6);
+}
+
+.dncd-enemy-dot--tank {
+  background: hsl(320, 90%, 60%);
+  color: hsla(320, 90%, 60%, 0.6);
+}
+
+.dncd-enemy-dot--splitter {
+  background: hsl(275, 90%, 65%);
+  color: hsla(275, 90%, 65%, 0.6);
+}
+
+/* Power-up legend dots, sharing `.dncd-enemy-dot`'s shape. */
+.dncd-power-dot--shield {
+  background: hsl(150, 90%, 60%);
+  color: hsla(150, 90%, 60%, 0.6);
+}
+
+.dncd-power-dot--slowTime {
+  background: hsl(210, 90%, 65%);
+  color: hsla(210, 90%, 65%, 0.6);
+}
+
+.dncd-power-dot--multiShot {
+  background: hsl(45, 95%, 60%);
+  color: hsla(45, 95%, 60%, 0.6);
+}
+
+.dncd-power-dot--explosive {
+  background: hsl(15, 95%, 62%);
+  color: hsla(15, 95%, 62%, 0.6);
+}
+
+.dncd-enemy-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
+.dncd-enemy-copy strong {
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.dncd-enemy-wave {
+  margin-left: auto;
+  flex-shrink: 0;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.6rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.dncd-guide-list {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.dncd-guide-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dncd-kbd {
+  flex-shrink: 0;
+  min-width: 5.5rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.66rem;
+  font-weight: 800;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dncd-guide {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1rem;
+  border-top: 1px solid var(--color-border-subtle);
+  background: var(--color-surface-base);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.dncd-guide-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 900;
+  color: var(--color-text-primary);
+}
+
+@media (max-width: 900px) {
+  .dncd-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dncd-board {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dncd-canvas {
+    /* Motion is already reduced inside the render loop; nothing to animate here. */
+    transition: none;
+  }
+}
+
+/* Neon Core Defense — Phase 4 progression, store, and rewards ---------------- */
+.dncd-weapon--locked {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.dncd-weapon--locked:hover,
+.dncd-weapon--locked:focus-visible {
+  transform: none;
+}
+
+.dncd-level-bar {
+  height: 0.4rem;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.dncd-level-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, #7dd3fc, #a855f7);
+  transition: width 200ms ease;
+}
+
+/* Run-end reward summary */
+.dncd-reward {
+  display: grid;
+  gap: 0.35rem;
+  width: 100%;
+  margin-top: 0.3rem;
+  padding: 0.6rem 0.7rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(125, 211, 252, 0.24);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.dncd-reward-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.dncd-reward-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.dncd-reward-chip--hot {
+  border-color: rgba(250, 204, 21, 0.5);
+  background: rgba(250, 204, 21, 0.16);
+  color: #fde68a;
+}
+
+.dncd-reward-line {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* Progression screen ------------------------------------------------------- */
+.dncd-prog-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: clamp(0.5rem, 2vw, 1.25rem);
+  background: rgba(4, 3, 10, 0.82);
+  backdrop-filter: blur(8px);
+}
+
+.dncd-prog {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 60rem);
+  max-height: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(125, 211, 252, 0.24);
+  background: linear-gradient(160deg, #0d1226, #0a0d1e 60%, #07050f);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+.dncd-prog-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dncd-prog-identity {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.dncd-prog-level {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(125, 211, 252, 0.4);
+  background: rgba(56, 189, 248, 0.16);
+  font-weight: 900;
+  color: #fff;
+}
+
+.dncd-prog-xp {
+  display: grid;
+  gap: 0.2rem;
+  min-width: 0;
+  flex: 1;
+  max-width: 22rem;
+}
+
+.dncd-prog-xp-track {
+  height: 0.4rem;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.dncd-prog-xp-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, #7dd3fc, #a855f7);
+}
+
+.dncd-prog-xp-label {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dncd-prog-head-right {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.dncd-prog-cores {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(250, 204, 21, 0.4);
+  background: rgba(250, 204, 21, 0.12);
+  font-weight: 900;
+  color: #fde68a;
+}
+
+.dncd-prog-tabs {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.5rem 0.75rem 0;
+  overflow-x: auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dncd-prog-tab {
+  flex-shrink: 0;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: none;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.55);
+  transition: color 140ms ease, border-color 140ms ease;
+}
+
+.dncd-prog-tab:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dncd-prog-tab--active {
+  color: #fff;
+  border-bottom-color: #7dd3fc;
+}
+
+.dncd-prog-body {
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.dncd-prog-section {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.dncd-prog-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+
+.dncd-prog-section-title--spaced {
+  margin-top: 0.8rem;
+}
+
+.dncd-prog-count {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: rgba(125, 211, 252, 0.9);
+}
+
+.dncd-prog-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dncd-prog-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+  gap: 0.5rem;
+}
+
+.dncd-prog-stat {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.55rem 0.65rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.dncd-prog-stat-value {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #fff;
+}
+
+.dncd-prog-list {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.dncd-prog-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.65rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.dncd-prog-row--done {
+  border-color: rgba(74, 222, 128, 0.4);
+  background: rgba(74, 222, 128, 0.1);
+}
+
+.dncd-prog-row-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dncd-prog-row--done .dncd-prog-row-icon {
+  color: #4ade80;
+  border-color: rgba(74, 222, 128, 0.5);
+}
+
+.dncd-prog-row-copy {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.dncd-prog-row-copy strong {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.dncd-prog-row-copy span {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.dncd-prog-row-copy--wide {
+  flex: 1;
+}
+
+.dncd-prog-bar {
+  height: 0.3rem;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.dncd-prog-bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: #7dd3fc;
+}
+
+.dncd-prog-bar-label {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.62rem !important;
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+
+.dncd-prog-row-reward {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-shrink: 0;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #fde68a;
+}
+
+.dncd-prog-row-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3rem;
+  flex-shrink: 0;
+}
+
+.dncd-prog-claimed {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #4ade80;
+}
+
+.dncd-prog-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  gap: 0.5rem;
+}
+
+.dncd-store-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.7rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.dncd-store-card--equipped {
+  border-color: rgba(125, 211, 252, 0.55);
+  background: rgba(56, 189, 248, 0.12);
+}
+
+.dncd-store-swatch {
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.dncd-store-title {
+  font-size: 0.86rem;
+  font-weight: 900;
+  color: #fff;
+}
+
+.dncd-store-blurb {
+  flex: 1;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.dncd-prog-textarea {
+  width: 100%;
+  padding: 0.6rem;
+  resize: vertical;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.35);
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.7rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dncd-prog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dncd-prog-ok {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #4ade80;
+}
+
+.dncd-prog-error {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #fb7185;
+}
+
+/* Neon Core Defense — Phase 5 feel, accessibility, fullscreen -------------- */
+
+/* Visible focus states for every interactive control (never colour-only). */
+.dncd-shell button:focus-visible,
+.dncd-shell [role="switch"]:focus-visible,
+.dncd-shell [role="tab"]:focus-visible,
+.dncd-shell input[type="range"]:focus-visible,
+.dncd-canvas:focus-visible {
+  outline: 3px solid var(--color-primary, #7dd3fc);
+  outline-offset: 2px;
+}
+
+/* Fullscreen / focus mode: the shell root is the fullscreen element. */
+.dncd-shell:fullscreen,
+.dncd-shell--fullscreen {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface-base, #07050f);
+}
+
+.dncd-shell:fullscreen .dncd-stage,
+.dncd-shell--fullscreen .dncd-stage {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.dncd-shell:fullscreen .dncd-board,
+.dncd-shell--fullscreen .dncd-board {
+  aspect-ratio: auto;
+  min-height: min(64vh, 640px);
+}
+
+/* On short landscape screens (phones in fullscreen), keep the arena dominant. */
+@media (orientation: landscape) and (max-height: 560px) {
+  .dncd-shell:fullscreen .dncd-layout,
+  .dncd-shell--fullscreen .dncd-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .dncd-shell:fullscreen .dncd-panel,
+  .dncd-shell--fullscreen .dncd-panel {
+    display: none;
+  }
+}
+
+/* Notifications ------------------------------------------------------------ */
+.dncd-notices {
+  position: absolute;
+  top: 3.6rem;
+  left: 50%;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  transform: translateX(-50%);
+  pointer-events: none;
+  width: max-content;
+  max-width: 90%;
+}
+
+.dncd-notice {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(7, 5, 15, 0.82);
+  backdrop-filter: blur(6px);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  animation: dncd-notice-in 200ms ease;
+}
+
+@keyframes dncd-notice-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dncd-notice {
+    animation: none;
+  }
+}
+
+.dncd-notice--wave {
+  border-color: rgba(125, 211, 252, 0.5);
+  color: #bae6fd;
+}
+
+.dncd-notice--danger {
+  border-color: rgba(251, 113, 133, 0.6);
+  background: rgba(60, 10, 20, 0.86);
+  color: #fecdd3;
+}
+
+.dncd-notice--reward {
+  border-color: rgba(250, 204, 21, 0.55);
+  color: #fde68a;
+}
+
+/* Topbar: drop button text on very small screens, keeping the icons. */
+@media (max-width: 560px) {
+  .dncd-btn-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+/* Settings panel ----------------------------------------------------------- */
+.dncd-settings {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 34rem);
+  max-height: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(125, 211, 252, 0.24);
+  background: linear-gradient(160deg, #0d1226, #0a0d1e 60%, #07050f);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+.dncd-settings-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dncd-settings-title {
+  font-size: 1rem;
+  font-weight: 900;
+  color: #fff;
+}
+
+.dncd-settings-body {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.dncd-settings-group {
+  display: grid;
+  gap: 0.6rem;
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+.dncd-settings-legend {
+  padding: 0;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.64rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(125, 211, 252, 0.9);
+}
+
+.dncd-slider {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.dncd-slider--disabled {
+  opacity: 0.5;
+}
+
+.dncd-slider-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dncd-slider-value {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-weight: 900;
+  color: #7dd3fc;
+}
+
+.dncd-slider input[type="range"] {
+  width: 100%;
+  accent-color: var(--color-primary, #7dd3fc);
+}
+
+.dncd-settings-toggles {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.dncd-settings-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.7rem;
+  text-align: left;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.8);
+  transition: border-color 140ms ease, background 140ms ease;
+}
+
+.dncd-settings-toggle:hover {
+  border-color: rgba(125, 211, 252, 0.4);
+}
+
+.dncd-settings-toggle--on {
+  border-color: rgba(125, 211, 252, 0.55);
+  background: rgba(56, 189, 248, 0.12);
+  color: #fff;
+}
+
+.dncd-settings-toggle-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dncd-settings-toggle--on .dncd-settings-toggle-icon {
+  color: #7dd3fc;
+  border-color: rgba(125, 211, 252, 0.5);
+}
+
+.dncd-settings-toggle-copy {
+  display: grid;
+  gap: 0.1rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.dncd-settings-toggle-copy strong {
+  font-size: 0.84rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.dncd-settings-toggle-copy span {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dncd-settings-state {
+  flex-shrink: 0;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.64rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.dncd-settings-state--on {
+  border-color: rgba(74, 222, 128, 0.5);
+  background: rgba(74, 222, 128, 0.14);
+  color: #4ade80;
+}
+
+/* Slightly larger touch targets for the weapon bar on coarse pointers. */
+@media (pointer: coarse) {
+  .dncd-weapon {
+    min-height: 3.4rem;
+  }
+}
+
+/* Neon Core Defense — arena fits the viewport on short/landscape screens.
+   The small-screen `4 / 5` portrait aspect above is right for phones held
+   upright, but on a short or landscape viewport it makes the arena taller than
+   the screen and forces the player to scroll. Clamp the height instead. */
+@media (max-width: 900px) {
+  .dncd-board {
+    max-height: 78dvh;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 620px) {
+  .dncd-board {
+    aspect-ratio: 16 / 10;
+    max-height: 68dvh;
+    min-height: 200px;
+  }
+
+  /* Keep the arena the focus; the reference panels move below it. */
+  .dncd-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

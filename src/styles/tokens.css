@@ -14,7 +14,10 @@
   /* === Text === */
   --color-text-primary: #191817;
   --color-text-secondary: #34312d;
-  --color-text-tertiary: #7a7368;
+  /* Darkened from #7a7368 (4.01:1 on --color-surface-subtle) to clear 4.5:1 on
+     every light surface. Tertiary is used for 10-11px labels, which get no
+     large-text exemption. */
+  --color-text-tertiary: #6b6456;
   --color-text-inverse: #ffffff;
 
   /* === Borders === */
@@ -22,11 +25,15 @@
   --color-border-default: #ded8ca;
   --color-border-strong: #c9bfad;
 
-  /* === Primary (workshop orange) === */
-  --color-primary: #f05a28;
-  --color-primary-hover: #d9461d;
-  --color-primary-soft: rgba(240, 90, 40, 0.11);
-  --color-primary-border: rgba(240, 90, 40, 0.28);
+  /* === Primary (workshop orange) ===
+     Deepened from #f05a28 so white button labels clear 4.5:1 (was 3.39:1) and
+     so the focus ring clears the 3:1 non-text threshold against every light
+     surface (was 1.14:1). Same hue family — this is a shade change, not a
+     palette change. */
+  --color-primary: #cc4715;
+  --color-primary-hover: #b23c10;
+  --color-primary-soft: rgba(204, 71, 21, 0.12);
+  --color-primary-border: rgba(204, 71, 21, 0.30);
   --color-primary-text: #ffffff;
 
   /* === Accent (developer teal) === */
@@ -130,6 +137,8 @@
   --container-page: 1180px;
   --container-wide: 1380px;
   --tool-preview-min-height: 420px;
+  /* Width of the ToolPage header profile aside when it has content to show. */
+  --tool-profile-width: 360px;
 
   /* === Motion === */
   --duration-fast: 150ms;
@@ -143,8 +152,13 @@
   --z-modal: 70;
   --z-toast: 90;
 
-  /* === Focus === */
-  --focus-ring: 0 0 0 3px var(--color-primary-soft);
+  /* === Focus ===
+     Two-layer ring: an inner surface-coloured separator so the ring never
+     merges into the control's own border, then a solid primary ring. The old
+     single 3px layer used --color-primary-soft at 11% alpha and measured
+     ~1.14:1 against its own surface — effectively invisible, and the only
+     focus affordance since base.css removes the UA outline. */
+  --focus-ring: 0 0 0 2px var(--color-surface-base), 0 0 0 4px var(--color-primary);
 
   /* === Backward-compatible aliases remapped to semantic tokens === */
   --color-bg: var(--color-app-bg);

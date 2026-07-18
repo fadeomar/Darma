@@ -29,11 +29,14 @@ export default function SiteHeader() {
   return (
     <header className="sticky top-0 z-[var(--z-header)] border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-6">
-          <Link href="/" className="text-xl font-black tracking-tight text-[var(--color-text-primary)]">
+        {/* min-w-0 lets this cluster shrink so the nav can scroll inside itself
+            rather than pushing the page wider than the viewport. The nine nav
+            items need ~1086px but the desktop nav appears at md (768px). */}
+        <div className="flex min-w-0 items-center gap-6">
+          <Link href="/" className="shrink-0 text-xl font-black tracking-tight text-[var(--color-text-primary)]">
             Darma
           </Link>
-          <nav className="hidden items-center gap-1 md:flex">
+          <nav className="darma-scroll-strip hidden min-w-0 items-center gap-1 overflow-x-auto md:flex">
             {NAV_ITEMS.map((item) => {
               const active = activeHref === item.href;
               return (
@@ -41,7 +44,9 @@ export default function SiteHeader() {
                   key={item.href}
                   href={item.href}
                   className={[
-                    "rounded-[var(--radius-full)] px-4 py-2 text-sm font-semibold transition",
+                    // shrink-0 + nowrap: inside a scroller, labels must keep
+                    // their width instead of compressing into narrow columns.
+                    "shrink-0 whitespace-nowrap rounded-[var(--radius-full)] px-4 py-2 text-sm font-semibold transition",
                     active
                       ? "bg-[var(--color-primary)] text-[var(--color-primary-text)]"
                       : "text-[var(--color-text-secondary)] hover:bg-[var(--color-control-hover)] hover:text-[var(--color-text-primary)]",
@@ -53,7 +58,7 @@ export default function SiteHeader() {
             })}
           </nav>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex shrink-0 items-center gap-3">
           <GlobalSearchButton className="hidden md:inline-flex" />
           <ThemeToggle />
         </div>

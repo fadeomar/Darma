@@ -1,5 +1,6 @@
 import { type ReactNode } from "react";
 import { ActionBar } from "@/components/ui";
+import { cn } from "@/lib/cn";
 
 export function ToolLayoutTextWorkbench({
   inputSlot,
@@ -26,9 +27,20 @@ export function ToolLayoutTextWorkbench({
       {actionsSlot ? <ActionBar align="between">{actionsSlot}</ActionBar> : null}
 
       {(optionsSlot || statsSlot) ? (
-        <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(280px,360px)] lg:items-start">
-          {optionsSlot ? <section className="min-w-0">{optionsSlot}</section> : <div className="hidden lg:block" />}
-          {statsSlot ? <aside className="min-w-0 lg:sticky lg:top-24">{statsSlot}</aside> : null}
+        // Two columns only when both slots are filled. With one slot the grid
+        // stays single-column instead of padding the row with an empty cell.
+        <div
+          className={cn(
+            "grid gap-5",
+            optionsSlot && statsSlot && "lg:grid-cols-[minmax(0,1fr)_minmax(280px,360px)] lg:items-start",
+          )}
+        >
+          {optionsSlot ? <section className="min-w-0">{optionsSlot}</section> : null}
+          {statsSlot ? (
+            // Sticky only helps when there is a taller sibling column to
+            // scroll past.
+            <aside className={cn("min-w-0", optionsSlot && "lg:sticky lg:top-24")}>{statsSlot}</aside>
+          ) : null}
         </div>
       ) : null}
 

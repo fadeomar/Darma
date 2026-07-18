@@ -1,0 +1,28 @@
+{
+  "id": "spinning-top",
+  "name": "Spinning Top",
+  "category": "fun",
+  "tags": [
+    "top",
+    "spin",
+    "wobble",
+    "toy",
+    "precession"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader {\n  position: relative;\n  width: 34px;\n  height: 44px;\n  transform-origin: bottom center;\n  animation: wob 1.2s ease-in-out infinite;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  top: 8px;\n  left: 50%;\n  width: 30px;\n  height: 32px;\n  margin-left: -15px;\n  background: #6366f1;\n  clip-path: polygon(0 0, 100% 0, 50% 100%);\n}\n.loader::after {\n  content: \"\";\n  position: absolute;\n  top: 3px;\n  left: 50%;\n  width: 30px;\n  height: 11px;\n  margin-left: -15px;\n  border-radius: 50%;\n  background: #4338ca;\n}\n@keyframes wob {\n  0%, 100% { transform: rotate(-11deg); }\n  50% { transform: rotate(11deg); }\n}",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

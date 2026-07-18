@@ -1,0 +1,28 @@
+{
+  "id": "barcode-scanner",
+  "name": "Barcode Scanner",
+  "category": "creative",
+  "tags": [
+    "barcode",
+    "scan",
+    "bars",
+    "checkout",
+    "line"
+  ],
+  "html": "<span class=\"loader\"><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 50px;\n  height: 40px;\n  background: repeating-linear-gradient(90deg, #6366f1 0 3px, transparent 3px 5px, #6366f1 5px 6px, transparent 6px 9px, #6366f1 9px 12px, transparent 12px 14px);\n}\n.loader i {\n  position: absolute;\n  top: -3px;\n  bottom: -3px;\n  left: 0;\n  width: 3px;\n  background: #4338ca;\n  box-shadow: 0 0 6px 1px #4338ca;\n  animation: sweep 1.4s ease-in-out infinite;\n}\n@keyframes sweep {\n  0% { left: 0; }\n  50% { left: calc(100% - 3px); }\n  100% { left: 0; }\n}",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

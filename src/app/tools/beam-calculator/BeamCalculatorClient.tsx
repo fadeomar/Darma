@@ -1,7 +1,19 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { Download, FileText, FolderOpen, RotateCcw, Shapes, Share2 } from "lucide-react";
+import {
+  Download,
+  FileArchive,
+  FileSpreadsheet,
+  FileText,
+  FolderOpen,
+  ImageDown,
+  Loader2,
+  RotateCcw,
+  Shapes,
+  Share2,
+  ShieldCheck,
+} from "lucide-react";
 import { Button, CopyButton } from "@/components/ui";
 import { WarningPanel, type WarningMessage } from "@/features/tools/components";
 import { analyzeBeam } from "./lib/beamAnalysis";
@@ -14,7 +26,12 @@ import {
   type Support,
   type SupportType,
 } from "./lib/beamTypes";
-import { deriveBeamMode, isGuidedMode, supportsForMode, type BeamMode } from "./lib/beamMode";
+import {
+  deriveBeamMode,
+  isGuidedMode,
+  supportsForMode,
+  type BeamMode,
+} from "./lib/beamMode";
 import {
   BEAM_PRESETS,
   DEFAULT_PRESET_ID,
@@ -24,12 +41,21 @@ import {
 } from "./lib/beamPresets";
 import {
   buildClipboardSummary,
-  buildReport,
   parseConfig,
   serializeConfig,
   serializeResultsJson,
 } from "./lib/beamExport";
 import { roundTo } from "./lib/beamFormatting";
+import {
+  MAX_BEAM_PROJECT_BYTES,
+  buildBeamAuditMarkdown,
+  buildBeamDiagramsSvg,
+  buildStationsCsv,
+  createBeamAudit,
+  createBeamProductionPack,
+  createBeamStudioSummary,
+  type BeamAuditSeverity,
+} from "./lib/studio";
 import { BeamInputs } from "./components/BeamInputs";
 import { BeamCanvas } from "./components/BeamCanvas";
 import { BeamDiagram } from "./components/BeamDiagram";
@@ -40,6 +66,7 @@ import { BeamHowTo } from "./components/BeamHowTo";
 const STORAGE_KEY = "darma-beam-calculator:v2";
 
 type LoadKind = "point" | "udl" | "moment";
+type Notice = { message: string; severity: "success" | "danger" | "info" };
 
 function defaultModel(): BeamModel {
   return clonePresetModel(getPreset(DEFAULT_PRESET_ID)!);
@@ -47,7 +74,8 @@ function defaultModel(): BeamModel {
 
 function nextSupportId(supports: Support[]): string {
   const used = new Set(supports.map((s) => s.id));
-  for (const letter of "ABCDEFGHIJKLMNOPQRSTUVWXYZ") if (!used.has(letter)) return letter;
+  for (const letter of "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+    if (!used.has(letter)) return letter;
   let i = 1;
   while (used.has(`S${i}`)) i += 1;
   return `S${i}`;
@@ -60,7 +88,7 @@ function nextLoadId(loads: BeamLoad[], prefix: string): string {
   return `${prefix}${i}`;
 }
 
-function download(filename: string, content: string, type: string) {
+function download(filename: string, content: BlobPart, type: string) {
   const blob = new Blob([content], { type });
   const url = URL.createObjectURL(blob);
   const anchor = document.createElement("a");
@@ -70,12 +98,52 @@ function download(filename: string, content: string, type: string) {
   URL.revokeObjectURL(url);
 }
 
+function SummaryCard({
+  label,
+  value,
+  detail,
+}: {
+  label: string;
+  value: string;
+  detail: string;
+}) {
+  return (
+    <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-3 shadow-[var(--shadow-xs)]">
+      <div className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+        {label}
+      </div>
+      <div
+        className="mt-1 truncate text-base font-black text-[var(--color-text-primary)]"
+        title={value}
+      >
+        {value}
+      </div>
+      <div className="mt-1 line-clamp-2 text-[11px] leading-4 text-[var(--color-text-secondary)]">
+        {detail}
+      </div>
+    </div>
+  );
+}
+
+function auditSeverityToWarning(
+  severity: BeamAuditSeverity,
+): WarningMessage["severity"] {
+  if (severity === "error") return "danger";
+  if (severity === "pass") return "success";
+  return severity;
+}
+
 export default function BeamCalculatorClient() {
   const [model, setModel] = useState<BeamModel>(defaultModel);
-  const [beamMode, setBeamMode] = useState<BeamMode>(() => deriveBeamMode(defaultModel()));
+  const [beamMode, setBeamMode] = useState<BeamMode>(() =>
+    deriveBeamMode(defaultModel()),
+  );
   const [selected, setSelected] = useState<SelectedItem | null>(null);
-  const [activePresetId, setActivePresetId] = useState<string | undefined>(DEFAULT_PRESET_ID);
-  const [notice, setNotice] = useState<string | null>(null);
+  const [activePresetId, setActivePresetId] = useState<string | undefined>(
+    DEFAULT_PRESET_ID,
+  );
+  const [notice, setNotice] = useState<Notice | null>(null);
+  const [exportingPack, setExportingPack] = useState(false);
   const [hydrated, setHydrated] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -116,17 +184,24 @@ export default function BeamCalculatorClient() {
 
   const units = UNIT_SYSTEMS[model.unitSystem];
   const validation = useMemo(() => validateBeam(model), [model]);
-  const result = useMemo(() => (validation.ok ? analyzeBeam(model) : null), [model, validation.ok]);
+  const result = useMemo(
+    () => (validation.ok ? analyzeBeam(model) : null),
+    [model, validation.ok],
+  );
 
   const fieldErrors = useMemo(() => {
     const map = new Map<string, string>();
     for (const issue of validation.errors) {
-      if (issue.target?.id && !map.has(issue.target.id)) map.set(issue.target.id, issue.message);
+      if (issue.target?.id && !map.has(issue.target.id))
+        map.set(issue.target.id, issue.message);
     }
     return map;
   }, [validation.errors]);
 
-  const beamLengthError = useMemo(() => validation.errors.find((e) => e.id === "beam-length")?.message, [validation.errors]);
+  const beamLengthError = useMemo(
+    () => validation.errors.find((e) => e.id === "beam-length")?.message,
+    [validation.errors],
+  );
 
   // ---- Mutators ----
   const markCustom = useCallback(() => setActivePresetId(undefined), []);
@@ -136,7 +211,9 @@ export default function BeamCalculatorClient() {
       setModel((prev) => {
         const L = roundTo(Math.max(0.1, length), 4);
         // Guided modes keep their supports pinned to the beam ends.
-        const supports = isGuidedMode(beamMode) ? supportsForMode(beamMode, L) : prev.supports;
+        const supports = isGuidedMode(beamMode)
+          ? supportsForMode(beamMode, L)
+          : prev.supports;
         return { ...prev, length: L, supports };
       });
       markCustom();
@@ -149,9 +226,15 @@ export default function BeamCalculatorClient() {
       setBeamMode(mode);
       setSelected(null);
       if (mode !== "advanced") {
-        setModel((prev) => ({ ...prev, supports: supportsForMode(mode, prev.length) }));
+        setModel((prev) => ({
+          ...prev,
+          supports: supportsForMode(mode, prev.length),
+        }));
         markCustom();
-        setNotice(`Beam type: ${mode.replace("-", " ")}`);
+        setNotice({
+          message: `Beam type: ${mode.replace("-", " ")}`,
+          severity: "info",
+        });
       }
     },
     [markCustom],
@@ -159,7 +242,12 @@ export default function BeamCalculatorClient() {
 
   const updateSupport = useCallback(
     (id: string, patch: Partial<Support>) => {
-      setModel((prev) => ({ ...prev, supports: prev.supports.map((s) => (s.id === id ? { ...s, ...patch } : s)) }));
+      setModel((prev) => ({
+        ...prev,
+        supports: prev.supports.map((s) =>
+          s.id === id ? { ...s, ...patch } : s,
+        ),
+      }));
       markCustom();
     },
     [markCustom],
@@ -167,7 +255,10 @@ export default function BeamCalculatorClient() {
 
   const removeSupport = useCallback(
     (id: string) => {
-      setModel((prev) => ({ ...prev, supports: prev.supports.filter((s) => s.id !== id) }));
+      setModel((prev) => ({
+        ...prev,
+        supports: prev.supports.filter((s) => s.id !== id),
+      }));
       markCustom();
     },
     [markCustom],
@@ -177,7 +268,14 @@ export default function BeamCalculatorClient() {
     (type: SupportType) => {
       setModel((prev) => ({
         ...prev,
-        supports: [...prev.supports, { id: nextSupportId(prev.supports), type, x: roundTo(prev.length / 2, 2) }],
+        supports: [
+          ...prev.supports,
+          {
+            id: nextSupportId(prev.supports),
+            type,
+            x: roundTo(prev.length / 2, 2),
+          },
+        ],
       }));
       markCustom();
     },
@@ -186,7 +284,12 @@ export default function BeamCalculatorClient() {
 
   const updateLoad = useCallback(
     (id: string, patch: Partial<BeamLoad>) => {
-      setModel((prev) => ({ ...prev, loads: prev.loads.map((l) => (l.id === id ? ({ ...l, ...patch } as BeamLoad) : l)) }));
+      setModel((prev) => ({
+        ...prev,
+        loads: prev.loads.map((l) =>
+          l.id === id ? ({ ...l, ...patch } as BeamLoad) : l,
+        ),
+      }));
       markCustom();
     },
     [markCustom],
@@ -194,7 +297,10 @@ export default function BeamCalculatorClient() {
 
   const removeLoad = useCallback(
     (id: string) => {
-      setModel((prev) => ({ ...prev, loads: prev.loads.filter((l) => l.id !== id) }));
+      setModel((prev) => ({
+        ...prev,
+        loads: prev.loads.filter((l) => l.id !== id),
+      }));
       setSelected((sel) => (sel && sel.id === id ? null : sel));
       markCustom();
     },
@@ -208,17 +314,41 @@ export default function BeamCalculatorClient() {
         let load: BeamLoad;
         if (kind === "point") {
           newId = nextLoadId(prev.loads, "P");
-          load = { id: newId, kind: "point", x: roundTo(prev.length / 2, 2), magnitude: 10, direction: "down" };
+          load = {
+            id: newId,
+            kind: "point",
+            x: roundTo(prev.length / 2, 2),
+            magnitude: 10,
+            direction: "down",
+          };
         } else if (kind === "udl") {
           newId = nextLoadId(prev.loads, "W");
-          load = { id: newId, kind: "udl", start: 0, end: prev.length, magnitude: 5, direction: "down" };
+          load = {
+            id: newId,
+            kind: "udl",
+            start: 0,
+            end: prev.length,
+            magnitude: 5,
+            direction: "down",
+          };
         } else {
           newId = nextLoadId(prev.loads, "M");
-          load = { id: newId, kind: "moment", x: roundTo(prev.length / 2, 2), magnitude: 10, rotation: "ccw" };
+          load = {
+            id: newId,
+            kind: "moment",
+            x: roundTo(prev.length / 2, 2),
+            magnitude: 10,
+            rotation: "ccw",
+          };
         }
         return { ...prev, loads: [...prev.loads, load] };
       });
-      if (newId) setSelected(kind === "udl" ? { kind: "udl-body", id: newId } : { kind, id: newId });
+      if (newId)
+        setSelected(
+          kind === "udl"
+            ? { kind: "udl-body", id: newId }
+            : { kind, id: newId },
+        );
       markCustom();
     },
     [markCustom],
@@ -234,7 +364,10 @@ export default function BeamCalculatorClient() {
   const applyPreset = useCallback(
     (preset: BeamPreset) => {
       loadModel(clonePresetModel(preset), preset.id);
-      setNotice(`Loaded preset: ${preset.name}`);
+      setNotice({
+        message: `Loaded preset: ${preset.name}`,
+        severity: "success",
+      });
     },
     [loadModel],
   );
@@ -242,69 +375,141 @@ export default function BeamCalculatorClient() {
   const reset = useCallback(() => {
     const preset = getPreset(DEFAULT_PRESET_ID)!;
     loadModel(clonePresetModel(preset), preset.id);
-    setNotice("Reset to default beam");
+    setNotice({ message: "Reset to default beam", severity: "success" });
   }, [loadModel]);
 
   const loadExample = useCallback(() => {
-    const examples = BEAM_PRESETS.filter((p) => p.id !== "custom-blank" && p.id !== activePresetId);
-    const pick = examples[Math.floor(Math.random() * examples.length)] ?? BEAM_PRESETS[1];
+    const examples = BEAM_PRESETS.filter(
+      (p) => p.id !== "custom-blank" && p.id !== activePresetId,
+    );
+    const pick =
+      examples[Math.floor(Math.random() * examples.length)] ?? BEAM_PRESETS[1];
     applyPreset(pick);
   }, [activePresetId, applyPreset]);
 
-  const handleImportClick = useCallback(() => fileInputRef.current?.click(), []);
+  const handleImportClick = useCallback(
+    () => fileInputRef.current?.click(),
+    [],
+  );
 
   const handleImportFile = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
+    async (event: React.ChangeEvent<HTMLInputElement>) => {
       const file = event.target.files?.[0];
       event.target.value = "";
       if (!file) return;
-      const reader = new FileReader();
-      reader.onload = () => {
-        const parsed = parseConfig(String(reader.result ?? ""));
+      if (file.size === 0) {
+        setNotice({
+          message: "The selected project file is empty.",
+          severity: "danger",
+        });
+        return;
+      }
+      if (file.size > MAX_BEAM_PROJECT_BYTES) {
+        setNotice({
+          message: "Beam project files must be 1 MB or smaller.",
+          severity: "danger",
+        });
+        return;
+      }
+      try {
+        const parsed = parseConfig(await file.text());
         if (parsed) {
           loadModel(parsed, undefined);
-          setNotice("Imported beam configuration");
+          setNotice({
+            message: "Imported beam configuration",
+            severity: "success",
+          });
         } else {
-          setNotice("Could not read that file as a beam configuration");
+          setNotice({
+            message:
+              "Invalid project: check the tool, version, unique IDs, and load magnitudes.",
+            severity: "danger",
+          });
         }
-      };
-      reader.readAsText(file);
+      } catch {
+        setNotice({
+          message: "Could not read that project file.",
+          severity: "danger",
+        });
+      }
     },
     [loadModel],
   );
 
   // ---- One-click fixes for common validation errors ----
   const quickFixes = useCallback(
-    (issueId: string, targetId?: string): { label: string; run: () => void }[] => {
+    (
+      issueId: string,
+      targetId?: string,
+    ): { label: string; run: () => void }[] => {
       if (issueId === "support-config") {
         return [
-          { label: "Use simply supported", run: () => changeMode("simply-supported") },
+          {
+            label: "Use simply supported",
+            run: () => changeMode("simply-supported"),
+          },
           { label: "Use cantilever", run: () => changeMode("cantilever-left") },
         ];
       }
       if (issueId === "support-duplicate") {
-        return [{ label: "Spread supports", run: () => changeMode("simply-supported") }];
+        return [
+          {
+            label: "Spread supports",
+            run: () => changeMode("simply-supported"),
+          },
+        ];
       }
       if (targetId && issueId.includes("-x-range")) {
         return [
-          { label: "Move to end", run: () => updateLoad(targetId, { x: model.length }) },
-          { label: "Move to center", run: () => updateLoad(targetId, { x: roundTo(model.length / 2, 2) }) },
+          {
+            label: "Move to end",
+            run: () => updateLoad(targetId, { x: model.length }),
+          },
+          {
+            label: "Move to center",
+            run: () =>
+              updateLoad(targetId, { x: roundTo(model.length / 2, 2) }),
+          },
         ];
       }
       if (targetId && issueId.includes("-range-order")) {
         return [
-          { label: "Swap start/end", run: () => {
-            const load = model.loads.find((l) => l.id === targetId);
-            if (load && load.kind === "udl") updateLoad(targetId, { start: Math.min(load.start, load.end), end: Math.max(load.start, load.end) });
-          } },
-          { label: "Use full span", run: () => updateLoad(targetId, { start: 0, end: model.length }) },
+          {
+            label: "Swap start/end",
+            run: () => {
+              const load = model.loads.find((l) => l.id === targetId);
+              if (load && load.kind === "udl")
+                updateLoad(targetId, {
+                  start: Math.min(load.start, load.end),
+                  end: Math.max(load.start, load.end),
+                });
+            },
+          },
+          {
+            label: "Use full span",
+            run: () => updateLoad(targetId, { start: 0, end: model.length }),
+          },
         ];
       }
       if (targetId && issueId.includes("-range-bounds")) {
-        return [{ label: "Use full span", run: () => updateLoad(targetId, { start: 0, end: model.length }) }];
+        return [
+          {
+            label: "Use full span",
+            run: () => updateLoad(targetId, { start: 0, end: model.length }),
+          },
+        ];
       }
-      if (targetId && issueId.startsWith("support-") && issueId.includes("-x-range")) {
-        return [{ label: "Move to end", run: () => updateSupport(targetId, { x: model.length }) }];
+      if (
+        targetId &&
+        issueId.startsWith("support-") &&
+        issueId.includes("-x-range")
+      ) {
+        return [
+          {
+            label: "Move to end",
+            run: () => updateSupport(targetId, { x: model.length }),
+          },
+        ];
       }
       return [];
     },
@@ -313,6 +518,52 @@ export default function BeamCalculatorClient() {
 
   const resultsText = result ? buildClipboardSummary(model, result) : "";
   const configText = useMemo(() => serializeConfig(model), [model]);
+  const productionChecks = useMemo(
+    () => createBeamAudit(model, validation, result),
+    [model, result, validation],
+  );
+  const studioSummary = useMemo(
+    () => createBeamStudioSummary(model, result, productionChecks),
+    [model, productionChecks, result],
+  );
+  const productionMessages: WarningMessage[] = useMemo(
+    () =>
+      productionChecks.map((check) => ({
+        id: check.id,
+        severity: auditSeverityToWarning(check.severity),
+        title: check.title,
+        message: check.message,
+      })),
+    [productionChecks],
+  );
+
+  const downloadProductionPack = useCallback(async () => {
+    if (!result || exportingPack) return;
+    setExportingPack(true);
+    try {
+      const bytes = await createBeamProductionPack(
+        model,
+        result,
+        productionChecks,
+      );
+      download(
+        "beam-production-pack.zip",
+        Uint8Array.from(bytes).buffer,
+        "application/zip",
+      );
+      setNotice({
+        message: "Downloaded the production pack",
+        severity: "success",
+      });
+    } catch {
+      setNotice({
+        message: "Could not create the production pack.",
+        severity: "danger",
+      });
+    } finally {
+      setExportingPack(false);
+    }
+  }, [exportingPack, model, productionChecks, result]);
 
   const warningMessages: WarningMessage[] = useMemo(() => {
     const renderActions = (fixes: { label: string; run: () => void }[]) =>
@@ -347,13 +598,21 @@ export default function BeamCalculatorClient() {
       });
     }
     for (const issue of validation.warnings) {
-      messages.push({ id: issue.id, severity: "warning", message: issue.message });
+      messages.push({
+        id: issue.id,
+        severity: "warning",
+        message: issue.message,
+      });
     }
     return messages;
   }, [validation, quickFixes]);
 
-  const suggestionPresetId = validation.errors.find((e) => e.suggestionPresetId)?.suggestionPresetId;
-  const noResultsHint = result ? undefined : "Fix the highlighted issues to enable export";
+  const suggestionPresetId = validation.errors.find(
+    (e) => e.suggestionPresetId,
+  )?.suggestionPresetId;
+  const noResultsHint = result
+    ? undefined
+    : "Fix the highlighted issues to enable export";
 
   return (
     <div className="space-y-5">
@@ -372,35 +631,192 @@ export default function BeamCalculatorClient() {
         ]}
       />
 
+      <section
+        className="grid grid-cols-2 gap-2.5 lg:grid-cols-4"
+        aria-label="Beam analysis summary"
+      >
+        <SummaryCard
+          label="Beam type"
+          value={studioSummary.beamType}
+          detail={`${model.length} ${units.length} analysis span`}
+        />
+        <SummaryCard
+          label="Applied loads"
+          value={`${model.loads.length}`}
+          detail={studioSummary.loadSummary}
+        />
+        <SummaryCard
+          label="Max |moment|"
+          value={studioSummary.maxMoment}
+          detail={
+            result
+              ? `at x = ${roundTo(result.maxAbsMoment.x, 3)} ${units.length}`
+              : "Solve the configuration to calculate"
+          }
+        />
+        <SummaryCard
+          label="Readiness"
+          value={
+            studioSummary.readiness === "ready"
+              ? "Ready"
+              : studioSummary.readiness === "review"
+                ? "Review"
+                : "Blocked"
+          }
+          detail="Input, equilibrium, complexity, and scope audit"
+        />
+      </section>
+
       {/* Action bar */}
       <div className="flex flex-wrap items-center gap-2">
-        <Button variant="primary" size="sm" leftIcon={<Shapes className="h-4 w-4" />} onClick={loadExample}>
+        <Button
+          variant="primary"
+          size="sm"
+          leftIcon={<Shapes className="h-4 w-4" />}
+          onClick={loadExample}
+        >
           Load example
         </Button>
-        <Button variant="secondary" size="sm" leftIcon={<RotateCcw className="h-4 w-4" />} onClick={reset}>
+        <Button
+          variant="secondary"
+          size="sm"
+          leftIcon={<RotateCcw className="h-4 w-4" />}
+          onClick={reset}
+        >
           Reset
         </Button>
         <div className="mx-1 hidden h-5 w-px bg-[var(--color-border-default)] sm:block" />
-        <CopyButton variant="secondary" size="sm" text={resultsText} disabled={!result} title={noResultsHint}>
+        <CopyButton
+          variant="secondary"
+          size="sm"
+          text={resultsText}
+          disabled={!result}
+          title={noResultsHint}
+        >
           Copy results
         </CopyButton>
-        <Button variant="secondary" size="sm" leftIcon={<Download className="h-4 w-4" />} disabled={!result} title={noResultsHint} onClick={() => result && download("beam-results.json", serializeResultsJson(model, result), "application/json")}>
-          JSON
+        <Button
+          variant="secondary"
+          size="sm"
+          leftIcon={<Download className="h-4 w-4" />}
+          disabled={!result}
+          title={noResultsHint}
+          onClick={() =>
+            result &&
+            download(
+              "beam-results.json",
+              serializeResultsJson(model, result),
+              "application/json",
+            )
+          }
+        >
+          Results JSON
         </Button>
-        <Button variant="secondary" size="sm" leftIcon={<FileText className="h-4 w-4" />} disabled={!result} title={noResultsHint} onClick={() => result && download("beam-report.md", buildReport(model, result), "text/markdown")}>
+        <Button
+          variant="secondary"
+          size="sm"
+          leftIcon={<FileText className="h-4 w-4" />}
+          disabled={!result}
+          title={noResultsHint}
+          onClick={() =>
+            result &&
+            download(
+              "beam-report.md",
+              buildBeamAuditMarkdown(model, result, productionChecks),
+              "text/markdown",
+            )
+          }
+        >
           Report
         </Button>
+        <Button
+          variant="secondary"
+          size="sm"
+          leftIcon={<FileSpreadsheet className="h-4 w-4" />}
+          disabled={!result}
+          title={noResultsHint}
+          onClick={() =>
+            result &&
+            download(
+              "beam-stations.csv",
+              buildStationsCsv(model, result),
+              "text/csv;charset=utf-8",
+            )
+          }
+        >
+          CSV
+        </Button>
+        <Button
+          variant="secondary"
+          size="sm"
+          leftIcon={<ImageDown className="h-4 w-4" />}
+          disabled={!result}
+          title={noResultsHint}
+          onClick={() =>
+            result &&
+            download(
+              "beam-diagrams.svg",
+              buildBeamDiagramsSvg(model, result),
+              "image/svg+xml",
+            )
+          }
+        >
+          SVG
+        </Button>
+        <Button
+          variant="soft"
+          size="sm"
+          leftIcon={
+            exportingPack ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : (
+              <FileArchive className="h-4 w-4" />
+            )
+          }
+          disabled={!result || exportingPack}
+          title={noResultsHint}
+          onClick={() => void downloadProductionPack()}
+        >
+          {exportingPack ? "Packing…" : "ZIP pack"}
+        </Button>
         <div className="mx-1 hidden h-5 w-px bg-[var(--color-border-default)] sm:block" />
-        <CopyButton variant="ghost" size="sm" text={configText} copiedLabel="Copied config">
+        <CopyButton
+          variant="ghost"
+          size="sm"
+          text={configText}
+          copiedLabel="Copied config"
+        >
           Copy config
         </CopyButton>
-        <Button variant="ghost" size="sm" leftIcon={<FolderOpen className="h-4 w-4" />} onClick={handleImportClick}>
+        <Button
+          variant="ghost"
+          size="sm"
+          leftIcon={<FolderOpen className="h-4 w-4" />}
+          onClick={handleImportClick}
+        >
           Import
         </Button>
-        <input ref={fileInputRef} type="file" accept="application/json,.json" onChange={handleImportFile} className="hidden" aria-hidden tabIndex={-1} />
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="application/json,.json"
+          onChange={handleImportFile}
+          className="hidden"
+          aria-hidden
+          tabIndex={-1}
+        />
         {notice ? (
-          <span className="ml-auto inline-flex items-center gap-1.5 rounded-[var(--radius-full)] border border-[var(--color-success-border)] bg-[var(--color-success-bg)] px-3 py-1 text-xs font-semibold text-[var(--color-success-text)]" role="status">
-            <Share2 className="h-3.5 w-3.5" /> {notice}
+          <span
+            className={
+              notice.severity === "danger"
+                ? "ml-auto inline-flex items-center gap-1.5 rounded-[var(--radius-full)] border border-[var(--color-danger-border)] bg-[var(--color-danger-bg)] px-3 py-1 text-xs font-semibold text-[var(--color-danger-text)]"
+                : notice.severity === "info"
+                  ? "ml-auto inline-flex items-center gap-1.5 rounded-[var(--radius-full)] border border-[var(--color-info-border)] bg-[var(--color-info-bg)] px-3 py-1 text-xs font-semibold text-[var(--color-info-text)]"
+                  : "ml-auto inline-flex items-center gap-1.5 rounded-[var(--radius-full)] border border-[var(--color-success-border)] bg-[var(--color-success-bg)] px-3 py-1 text-xs font-semibold text-[var(--color-success-text)]"
+            }
+            role={notice.severity === "danger" ? "alert" : "status"}
+          >
+            <Share2 className="h-3.5 w-3.5" /> {notice.message}
           </span>
         ) : null}
       </div>
@@ -427,8 +843,12 @@ export default function BeamCalculatorClient() {
             onLoadAdd={addLoad}
           />
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
-            <h2 className="mb-1 text-sm font-bold text-[var(--color-text-primary)]">Presets</h2>
-            <p className="mb-3 text-xs text-[var(--color-text-tertiary)]">Start from a valid scenario, then tweak it.</p>
+            <h2 className="mb-1 text-sm font-bold text-[var(--color-text-primary)]">
+              Presets
+            </h2>
+            <p className="mb-3 text-xs text-[var(--color-text-tertiary)]">
+              Start from a valid scenario, then tweak it.
+            </p>
             <BeamPresetCards activeId={activePresetId} onSelect={applyPreset} />
           </section>
         </div>
@@ -437,8 +857,13 @@ export default function BeamCalculatorClient() {
         <div className="space-y-5 lg:sticky lg:top-24 lg:self-start">
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
             <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
-              <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Beam preview</h2>
-              <p className="text-[11px] text-[var(--color-text-tertiary)]">Drag the orange handles, or select an item and click the beam to place it.</p>
+              <h2 className="text-sm font-bold text-[var(--color-text-primary)]">
+                Beam preview
+              </h2>
+              <p className="text-[11px] text-[var(--color-text-tertiary)]">
+                Drag the orange handles, or select an item and click the beam to
+                place it.
+              </p>
             </div>
             <BeamCanvas
               model={model}
@@ -452,7 +877,27 @@ export default function BeamCalculatorClient() {
             />
           </section>
 
-          {warningMessages.length > 0 ? <WarningPanel messages={warningMessages} /> : null}
+          {warningMessages.length > 0 ? (
+            <WarningPanel messages={warningMessages} />
+          ) : null}
+
+          <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
+            <div className="mb-3 flex items-start gap-3">
+              <span className="grid size-9 shrink-0 place-items-center rounded-[var(--radius-md)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]">
+                <ShieldCheck className="h-4 w-4" />
+              </span>
+              <div>
+                <h2 className="text-sm font-bold text-[var(--color-text-primary)]">
+                  Production checks
+                </h2>
+                <p className="mt-0.5 text-xs leading-5 text-[var(--color-text-secondary)]">
+                  Separate solver validity from handoff quality and the limits
+                  of preliminary statics.
+                </p>
+              </div>
+            </div>
+            <WarningPanel messages={productionMessages} />
+          </section>
 
           {result ? (
             <>
@@ -476,7 +921,12 @@ export default function BeamCalculatorClient() {
                   lengthUnit={units.length}
                   valueUnit={units.moment}
                   extreme={result.maxAbsMoment}
-                  secondaryExtreme={result.maxPositiveMoment.value > 1e-9 && result.maxNegativeMoment.value < -1e-9 ? result.maxPositiveMoment : undefined}
+                  secondaryExtreme={
+                    result.maxPositiveMoment.value > 1e-9 &&
+                    result.maxNegativeMoment.value < -1e-9
+                      ? result.maxPositiveMoment
+                      : undefined
+                  }
                 />
               </section>
 
@@ -486,8 +936,13 @@ export default function BeamCalculatorClient() {
             </>
           ) : (
             <section className="rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-8 text-center">
-              <h2 className="text-sm font-bold text-[var(--color-text-primary)]">No results yet</h2>
-              <p className="mx-auto mt-2 max-w-md text-sm text-[var(--color-text-secondary)]">The current configuration can&apos;t be solved. Use a one-click fix above, or start from a working preset.</p>
+              <h2 className="text-sm font-bold text-[var(--color-text-primary)]">
+                No results yet
+              </h2>
+              <p className="mx-auto mt-2 max-w-md text-sm text-[var(--color-text-secondary)]">
+                The current configuration can&apos;t be solved. Use a one-click
+                fix above, or start from a working preset.
+              </p>
               {suggestionPresetId ? (
                 <Button
                   className="mt-4"

@@ -1,0 +1,28 @@
+{
+  "id": "vinyl-record",
+  "name": "Vinyl Record",
+  "category": "creative",
+  "tags": [
+    "vinyl",
+    "record",
+    "disc",
+    "spin",
+    "music"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader {\n  position: relative;\n  width: 56px;\n  height: 56px;\n  border-radius: 50%;\n  background:\n    radial-gradient(circle, #6366f1 0 30%, transparent 31%),\n    repeating-radial-gradient(circle, #111827 0 2px, #1f2937 2px 4px);\n  animation: spin 1.6s linear infinite;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  top: 12px;\n  left: 50%;\n  width: 5px;\n  height: 5px;\n  margin-left: -2.5px;\n  border-radius: 50%;\n  background: #ffffff;\n}\n.loader::after {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 4px;\n  height: 4px;\n  margin: -2px 0 0 -2px;\n  border-radius: 50%;\n  background: #111827;\n  box-shadow: 0 0 0 2px #ffffff;\n}\n@keyframes spin { to { transform: rotate(360deg); } }",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

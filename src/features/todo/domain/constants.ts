@@ -3,7 +3,9 @@ import type { BoardColumn, PrintOptions, TaskPriority, TaskStatus, TemplateCateg
 export const TODO_DB_NAME = "darma-todo";
 export const TODO_DB_VERSION = 1;
 export const TODO_UI_STORAGE_KEY = "darma-todo-ui:v1";
-export const TODO_EXPORT_VERSION = 1;
+export const TODO_EXPORT_VERSION = 2;
+export const TODO_EXPORT_TOOL = "darma-tasks" as const;
+export const TODO_IMPORT_MAX_BYTES = 2 * 1024 * 1024;
 
 export const PRIORITY_ORDER: Record<TaskPriority, number> = {
   none: 0,

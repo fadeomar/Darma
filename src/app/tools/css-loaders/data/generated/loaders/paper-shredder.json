@@ -1,0 +1,41 @@
+{
+  "id": "paper-shredder",
+  "name": "Paper Shredder",
+  "category": "fun",
+  "tags": [
+    "shredder",
+    "paper",
+    "strips",
+    "document",
+    "cut"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "paper-shredder paper shredder fun shredder paper strips document cut html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-paper-shredder\"><i></i></span>",
+  "previewCss": ".darma-loader-paper-shredder {\n  position: relative;\n  width: 46px;\n  height: 52px;\n}\n.darma-loader-paper-shredder i {\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 26px;\n  height: 18px;\n  margin-left: -13px;\n  border: 1px solid #c7d2fe;\n  box-sizing: border-box;\n  background-color: #eef2ff;\n  background-image: repeating-linear-gradient(#c7d2fe 0 1px, transparent 1px 4px);\n  background-repeat: no-repeat;\n  animation: darma-loader-paper-shredder-feed 1.6s ease-in-out infinite;\n}\n.darma-loader-paper-shredder::before {\n  content: \"\";\n  position: absolute;\n  top: 20px;\n  left: 2px;\n  right: 2px;\n  height: 10px;\n  border-radius: 2px;\n  background: var(--loader-color, #6366f1);\n  z-index: 2;\n}\n.darma-loader-paper-shredder::after {\n  content: \"\";\n  position: absolute;\n  top: 32px;\n  left: 8px;\n  width: 30px;\n  height: 20px;\n  background: repeating-linear-gradient(90deg, var(--loader-color, #6366f1) 0 3px, transparent 3px 5px);\n  animation: darma-loader-paper-shredder-strips 1.6s ease-in-out infinite;\n}\n@keyframes darma-loader-paper-shredder-feed {\n  0% { top: 0; }\n  55% { top: 16px; }\n  100% { top: 16px; }\n}\n@keyframes darma-loader-paper-shredder-strips {\n  0%, 45% { opacity: 0; transform: translateY(-4px); }\n  60% { opacity: 1; }\n  100% { opacity: 1; transform: translateY(4px); }\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-paper-shredder\"><i></i></span>",
+    "css": ".darma-loader-paper-shredder {\n  position: relative;\n  width: 46px;\n  height: 52px;\n}\n.darma-loader-paper-shredder i {\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 26px;\n  height: 18px;\n  margin-left: -13px;\n  border: 1px solid #c7d2fe;\n  box-sizing: border-box;\n  background-color: #eef2ff;\n  background-image: repeating-linear-gradient(#c7d2fe 0 1px, transparent 1px 4px);\n  background-repeat: no-repeat;\n  animation: darma-loader-paper-shredder-feed 1.6s ease-in-out infinite;\n}\n.darma-loader-paper-shredder::before {\n  content: \"\";\n  position: absolute;\n  top: 20px;\n  left: 2px;\n  right: 2px;\n  height: 10px;\n  border-radius: 2px;\n  background: var(--loader-color, #6366f1);\n  z-index: 2;\n}\n.darma-loader-paper-shredder::after {\n  content: \"\";\n  position: absolute;\n  top: 32px;\n  left: 8px;\n  width: 30px;\n  height: 20px;\n  background: repeating-linear-gradient(90deg, var(--loader-color, #6366f1) 0 3px, transparent 3px 5px);\n  animation: darma-loader-paper-shredder-strips 1.6s ease-in-out infinite;\n}\n@keyframes darma-loader-paper-shredder-feed {\n  0% { top: 0; }\n  55% { top: 16px; }\n  100% { top: 16px; }\n}\n@keyframes darma-loader-paper-shredder-strips {\n  0%, 45% { opacity: 0; transform: translateY(-4px); }\n  60% { opacity: 1; }\n  100% { opacity: 1; transform: translateY(4px); }\n}",
+    "react": "export default function PaperShredderLoader() {\n  return (\n    <span className=\"darma-loader-paper-shredder\"><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

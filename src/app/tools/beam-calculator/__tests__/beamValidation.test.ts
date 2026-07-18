@@ -10,7 +10,9 @@ function model(partial: Partial<BeamModel>): BeamModel {
       { id: "A", type: "pin", x: 0 },
       { id: "B", type: "roller", x: 10 },
     ],
-    loads: [{ id: "P1", kind: "point", x: 5, magnitude: 10, direction: "down" }],
+    loads: [
+      { id: "P1", kind: "point", x: 5, magnitude: 10, direction: "down" },
+    ],
     ...partial,
   };
 }
@@ -29,21 +31,57 @@ describe("validateBeam", () => {
   });
 
   it("rejects a load positioned outside the beam", () => {
-    const result = validateBeam(model({ loads: [{ id: "P1", kind: "point", x: 15, magnitude: 10, direction: "down" }] }));
+    const result = validateBeam(
+      model({
+        loads: [
+          { id: "P1", kind: "point", x: 15, magnitude: 10, direction: "down" },
+        ],
+      }),
+    );
     expect(result.ok).toBe(false);
     expect(result.errors.some((e) => e.target?.id === "P1")).toBe(true);
   });
 
   it("rejects a UDL whose start is not less than its end", () => {
-    const result = validateBeam(model({ loads: [{ id: "W1", kind: "udl", start: 6, end: 4, magnitude: 2, direction: "down" }] }));
+    const result = validateBeam(
+      model({
+        loads: [
+          {
+            id: "W1",
+            kind: "udl",
+            start: 6,
+            end: 4,
+            magnitude: 2,
+            direction: "down",
+          },
+        ],
+      }),
+    );
     expect(result.ok).toBe(false);
-    expect(result.errors.some((e) => e.id === "load-W1-range-order")).toBe(true);
+    expect(result.errors.some((e) => e.id === "load-W1-range-order")).toBe(
+      true,
+    );
   });
 
   it("rejects a UDL range outside the beam", () => {
-    const result = validateBeam(model({ loads: [{ id: "W1", kind: "udl", start: 0, end: 20, magnitude: 2, direction: "down" }] }));
+    const result = validateBeam(
+      model({
+        loads: [
+          {
+            id: "W1",
+            kind: "udl",
+            start: 0,
+            end: 20,
+            magnitude: 2,
+            direction: "down",
+          },
+        ],
+      }),
+    );
     expect(result.ok).toBe(false);
-    expect(result.errors.some((e) => e.id === "load-W1-range-bounds")).toBe(true);
+    expect(result.errors.some((e) => e.id === "load-W1-range-bounds")).toBe(
+      true,
+    );
   });
 
   it("rejects duplicate support positions", () => {
@@ -60,7 +98,9 @@ describe("validateBeam", () => {
   });
 
   it("flags an unsupported support combination with a suggestion", () => {
-    const result = validateBeam(model({ supports: [{ id: "A", type: "pin", x: 0 }] }));
+    const result = validateBeam(
+      model({ supports: [{ id: "A", type: "pin", x: 0 }] }),
+    );
     expect(result.ok).toBe(false);
     const issue = result.errors.find((e) => e.id === "support-config");
     expect(issue).toBeDefined();
@@ -74,7 +114,64 @@ describe("validateBeam", () => {
   });
 
   it("treats NaN magnitudes as errors", () => {
-    const result = validateBeam(model({ loads: [{ id: "P1", kind: "point", x: 5, magnitude: NaN, direction: "down" }] }));
+    const result = validateBeam(
+      model({
+        loads: [
+          { id: "P1", kind: "point", x: 5, magnitude: NaN, direction: "down" },
+        ],
+      }),
+    );
     expect(result.ok).toBe(false);
+  });
+});
+
+describe("negative load magnitude guard", () => {
+  it("rejects negative point-load magnitudes", () => {
+    const model = {
+      length: 10,
+      unitSystem: "metric" as const,
+      supports: [
+        { id: "A", type: "pin" as const, x: 0 },
+        { id: "B", type: "roller" as const, x: 10 },
+      ],
+      loads: [
+        {
+          id: "P1",
+          kind: "point" as const,
+          x: 5,
+          magnitude: -10,
+          direction: "down" as const,
+        },
+      ],
+    };
+    const validation = validateBeam(model);
+    expect(
+      validation.errors.some((issue) => issue.id === "load-P1-mag-negative"),
+    ).toBe(true);
+  });
+
+  it("rejects negative UDL intensities", () => {
+    const model = {
+      length: 10,
+      unitSystem: "metric" as const,
+      supports: [
+        { id: "A", type: "pin" as const, x: 0 },
+        { id: "B", type: "roller" as const, x: 10 },
+      ],
+      loads: [
+        {
+          id: "W1",
+          kind: "udl" as const,
+          start: 0,
+          end: 10,
+          magnitude: -2,
+          direction: "down" as const,
+        },
+      ],
+    };
+    const validation = validateBeam(model);
+    expect(
+      validation.errors.some((issue) => issue.id === "load-W1-mag-negative"),
+    ).toBe(true);
   });
 });

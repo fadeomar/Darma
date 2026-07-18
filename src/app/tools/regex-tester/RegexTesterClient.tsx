@@ -1,13 +1,16 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import {
   AlertTriangle,
   Braces,
   CheckCircle2,
   Code2,
   Download,
+  FileArchive,
   FileJson,
+  FileText,
+  FileUp,
   Highlighter,
   ListChecks,
   RefreshCcw,
@@ -19,18 +22,11 @@ import {
 import { Button, CopyButton, Input, Tabs, Textarea } from "@/components/ui";
 import { downloadText } from "../_shared/clientUtils";
 import {
-  assessRegexRisk,
   buildHighlightSegments,
   buildJavaScriptSnippet,
-  buildProductionChecks,
-  buildRegex,
   buildTypeScriptSnippet,
-  calculateCoverage,
-  findMatches,
   getPatternStats,
   REGEX_INPUT_LIMIT,
-  REGEX_RISK_INPUT_LIMIT,
-  replaceMatches,
 } from "./regex";
 import {
   CHEATSHEET,
@@ -42,6 +38,18 @@ import {
   SAMPLE_TEXT,
 } from "./presets";
 import type { RegexExample, RegexProductionCheck, RegexTab } from "./types";
+import {
+  analyzeRegexStudio,
+  buildRegexJavaScriptModule,
+  buildRegexMarkdownReport,
+  buildRegexMatchesCsv,
+  buildRegexProductionPack,
+  buildRegexProjectJson,
+  buildRegexTypeScriptModule,
+  parseRegexProjectJson,
+  REGEX_PROJECT_FILE_LIMIT,
+  type RegexStudioState,
+} from "./studio";
 
 const CHECK_STYLES: Record<RegexProductionCheck["severity"], string> = {
   success: "border-[var(--color-success-border)] bg-[var(--color-success-bg)] text-[var(--color-success-text)]",
@@ -52,6 +60,17 @@ const CHECK_STYLES: Record<RegexProductionCheck["severity"], string> = {
 
 function countLines(value: string) {
   return value ? value.split(/\r\n|\r|\n/).length : 0;
+}
+
+function downloadBlob(filename: string, blob: Blob) {
+  const url = URL.createObjectURL(blob);
+  const anchor = document.createElement("a");
+  anchor.href = url;
+  anchor.download = filename;
+  document.body.appendChild(anchor);
+  anchor.click();
+  anchor.remove();
+  URL.revokeObjectURL(url);
 }
 
 function SummaryCard({ label, value, hint }: { label: string; value: string; hint: string }) {
@@ -79,27 +98,23 @@ export default function RegexTesterClient() {
   const [selectedPreset, setSelectedPreset] = useState("");
   const [activeTab, setActiveTab] = useState<RegexTab>("highlight");
   const [selectedMatch, setSelectedMatch] = useState(0);
+  const [importStatus, setImportStatus] = useState<{ tone: "success" | "danger"; message: string } | null>(null);
+  const [packBusy, setPackBusy] = useState(false);
+  const importInputRef = useRef<HTMLInputElement>(null);
 
-  const built = useMemo(() => buildRegex(pattern, flags), [pattern, flags]);
-  const risk = useMemo(() => assessRegexRisk(pattern), [pattern]);
-  const executionBlocked = risk.blocksLongInput && text.length > REGEX_RISK_INPUT_LIMIT;
-  const matches = useMemo(
-    () => (built instanceof RegExp && !executionBlocked ? findMatches(pattern, flags, text) : []),
-    [built, executionBlocked, flags, pattern, text],
-  );
-  const replaced = useMemo(
-    () => (built instanceof RegExp && !executionBlocked ? replaceMatches(pattern, flags, text, replacement) : text),
-    [built, executionBlocked, flags, pattern, replacement, text],
-  );
+  const studioState = useMemo<RegexStudioState>(() => ({ pattern, flags, text, replacement }), [flags, pattern, replacement, text]);
+  const analysis = useMemo(() => analyzeRegexStudio(studioState), [studioState]);
+  const { built, risk, executionBlocked, matches, output: replaced, checks, metrics } = analysis;
   const segments = useMemo(() => buildHighlightSegments(text, matches), [matches, text]);
   const patternStats = useMemo(() => getPatternStats(pattern), [pattern]);
-  const coverage = useMemo(() => calculateCoverage(matches, text.length), [matches, text.length]);
-  const checks = useMemo(
-    () => buildProductionChecks({ pattern, flags, text, replacement, built, matches, risk }),
-    [built, flags, matches, pattern, replacement, risk, text],
-  );
+  const coverage = metrics.coveragePercent;
   const javascriptSnippet = useMemo(() => buildJavaScriptSnippet(pattern, flags, replacement), [flags, pattern, replacement]);
   const typescriptSnippet = useMemo(() => buildTypeScriptSnippet(pattern, flags, replacement), [flags, pattern, replacement]);
+  const projectJson = useMemo(() => buildRegexProjectJson(studioState), [studioState]);
+  const markdownReport = useMemo(() => buildRegexMarkdownReport(studioState, analysis), [analysis, studioState]);
+  const matchesCsv = useMemo(() => buildRegexMatchesCsv(studioState, analysis), [analysis, studioState]);
+  const javascriptModule = useMemo(() => buildRegexJavaScriptModule(studioState), [studioState]);
+  const typescriptModule = useMemo(() => buildRegexTypeScriptModule(studioState), [studioState]);
   const reportJson = useMemo(
     () => JSON.stringify({
       engine: "JavaScript RegExp",
@@ -111,7 +126,7 @@ export default function RegexTesterClient() {
         matches: matches.length,
         captureGroups: patternStats.captureGroups,
         namedGroups: patternStats.namedGroups,
-        coveragePercent: Number(coverage.toFixed(2)),
+        coveragePercent: coverage,
         inputCharacters: text.length,
         riskLevel: risk.level,
         executionBlocked,
@@ -134,7 +149,7 @@ export default function RegexTesterClient() {
   const statusHint = !(built instanceof RegExp)
     ? "Fix the pattern syntax"
     : executionBlocked
-      ? `Risky pattern + ${REGEX_RISK_INPUT_LIMIT.toLocaleString()}+ chars`
+      ? risk.level === "high" ? "High-risk preview blocked" : "Risky pattern + long sample"
       : risk.level === "low"
         ? "JavaScript RegExp ready"
         : `${risk.level} backtracking risk`;
@@ -180,15 +195,48 @@ export default function RegexTesterClient() {
     setSelectedPreset("");
     setSelectedMatch(0);
     setActiveTab("highlight");
+    setImportStatus(null);
+  }
+
+  async function importProject(file: File) {
+    if (file.size > REGEX_PROJECT_FILE_LIMIT) {
+      setImportStatus({ tone: "danger", message: `Project files must be smaller than ${(REGEX_PROJECT_FILE_LIMIT / 1_000_000).toFixed(0)} MB.` });
+      return;
+    }
+
+    try {
+      const project = parseRegexProjectJson(await file.text());
+      setPattern(project.pattern);
+      setFlags(project.flags);
+      setText(project.text);
+      setReplacement(project.replacement);
+      setSelectedPreset("");
+      setSelectedMatch(0);
+      setActiveTab("highlight");
+      setImportStatus({ tone: "success", message: `Imported ${file.name}. Review the production checks before exporting.` });
+    } catch (error) {
+      setImportStatus({ tone: "danger", message: error instanceof Error ? error.message : "Could not import this regex project." });
+    }
+  }
+
+  async function downloadProductionPack() {
+    setPackBusy(true);
+    try {
+      const bytes = await buildRegexProductionPack(studioState);
+      const buffer = bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength) as ArrayBuffer;
+      downloadBlob("darma-regex-production-pack.zip", new Blob([buffer], { type: "application/zip" }));
+    } finally {
+      setPackBusy(false);
+    }
   }
 
   return (
     <div className="space-y-4">
       <section className="grid grid-cols-2 gap-2 lg:grid-cols-4" aria-label="Regex summary">
         <SummaryCard label="Status" value={status} hint={statusHint} />
-        <SummaryCard label="Matches" value={matches.length.toLocaleString()} hint={flags.includes("g") ? "Global search enabled" : "First match behavior"} />
-        <SummaryCard label="Captures" value={patternStats.captureGroups.toLocaleString()} hint={patternStats.namedGroups.length ? `${patternStats.namedGroups.length} named group(s)` : "No named groups"} />
-        <SummaryCard label="Coverage" value={`${coverage.toFixed(1)}%`} hint={`${text.length.toLocaleString()} input characters`} />
+        <SummaryCard label="Matches" value={matches.length.toLocaleString()} hint={`${patternStats.captureGroups} capture group(s) · ${coverage.toFixed(1)}% coverage`} />
+        <SummaryCard label="Backtracking" value={risk.level[0].toUpperCase() + risk.level.slice(1)} hint={executionBlocked ? "Browser preview guarded" : "Preview within guardrails"} />
+        <SummaryCard label="Readiness" value={`${metrics.readinessScore}/100`} hint={`${metrics.dangerChecks} blocking · ${metrics.warningChecks} warning(s)`} />
       </section>
 
       <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
@@ -216,6 +264,46 @@ export default function RegexTesterClient() {
               <span className="mt-1 line-clamp-2 block text-[11px] leading-4 text-[var(--color-text-secondary)]">{preset.description}</span>
             </button>
           ))}
+        </div>
+      </section>
+
+      <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
+        <div className="flex flex-col gap-3 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3 lg:flex-row lg:items-center lg:justify-between">
+          <div className="min-w-0">
+            <div className="flex items-center gap-2">
+              <FileArchive className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+              <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Project and production handoff</h2>
+            </div>
+            <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Reopen the exact pattern later or export code, evidence, and audit files together.</p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <input
+              ref={importInputRef}
+              type="file"
+              accept="application/json,.json"
+              className="hidden"
+              onChange={(event) => {
+                const file = event.target.files?.[0];
+                if (file) void importProject(file);
+                event.target.value = "";
+              }}
+            />
+            <Button size="sm" variant="secondary" leftIcon={<FileUp className="h-3.5 w-3.5" />} onClick={() => importInputRef.current?.click()}>Import project</Button>
+            <Button size="sm" variant="secondary" leftIcon={<FileJson className="h-3.5 w-3.5" />} onClick={() => downloadText("regex-project.json", projectJson, "application/json;charset=utf-8")}>Project JSON</Button>
+            <Button size="sm" variant="secondary" leftIcon={<FileText className="h-3.5 w-3.5" />} onClick={() => downloadText("regex-report.md", markdownReport, "text/markdown;charset=utf-8")}>Audit</Button>
+            <Button size="sm" variant="secondary" leftIcon={<Download className="h-3.5 w-3.5" />} onClick={() => downloadText("regex-matches.csv", matchesCsv, "text/csv;charset=utf-8")}>CSV</Button>
+            <Button size="sm" variant="primary" leftIcon={<FileArchive className="h-3.5 w-3.5" />} loading={packBusy} disabled={!metrics.valid} onClick={() => void downloadProductionPack()}>Production ZIP</Button>
+          </div>
+        </div>
+        {importStatus ? (
+          <div role="status" className={`border-b px-4 py-2 text-xs font-semibold ${importStatus.tone === "success" ? "border-[var(--color-success-border)] bg-[var(--color-success-bg)] text-[var(--color-success-text)]" : "border-[var(--color-danger-border)] bg-[var(--color-danger-bg)] text-[var(--color-danger-text)]"}`}>
+            {importStatus.message}
+          </div>
+        ) : null}
+        <div className="grid gap-2 p-3 text-xs text-[var(--color-text-secondary)] sm:grid-cols-3">
+          <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3"><strong className="block text-[var(--color-text-primary)]">Portable project</strong><span className="mt-1 block leading-5">Includes pattern, flags, replacement, and test text. Maximum import size: 1 MB.</span></div>
+          <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3"><strong className="block text-[var(--color-text-primary)]">Developer modules</strong><span className="mt-1 block leading-5">The ZIP includes standalone JavaScript and typed TypeScript modules.</span></div>
+          <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3"><strong className="block text-[var(--color-text-primary)]">Privacy review</strong><span className="mt-1 block leading-5">Exports contain the sample input and replacement output. Remove real credentials first.</span></div>
         </div>
       </section>
 
@@ -344,7 +432,9 @@ export default function RegexTesterClient() {
           <div className="flex min-h-[520px] flex-1 flex-col p-3.5 sm:p-4">
             {executionBlocked ? (
               <div className="mb-3 rounded-[var(--radius-md)] border border-[var(--color-warning-border)] bg-[var(--color-warning-bg)] p-3 text-xs leading-5 text-[var(--color-warning-text)]">
-                Preview execution was paused because this pattern has a backtracking warning and the test text exceeds {REGEX_RISK_INPUT_LIMIT.toLocaleString()} characters. Shorten the sample or simplify the expression.
+                {risk.level === "high"
+                  ? "Preview execution is blocked because multiple backtracking-risk heuristics were detected. Simplify the expression before running it in the browser."
+                  : "Preview execution is paused because a risky pattern is being tested against more than 128 characters. Shorten the sample or simplify the expression."}
               </div>
             ) : null}
 
@@ -438,8 +528,8 @@ export default function RegexTesterClient() {
                   <pre className="max-h-72 overflow-auto whitespace-pre-wrap p-4 font-mono text-xs leading-6 text-[var(--color-code-text)]"><code>{typescriptSnippet}</code></pre>
                 </div>
                 <div className="grid gap-2 sm:grid-cols-2">
-                  <Button variant="secondary" leftIcon={<FileJson className="h-4 w-4" />} onClick={() => downloadText("regex-report.json", reportJson, "application/json;charset=utf-8")}>Download JSON report</Button>
-                  <Button variant="secondary" leftIcon={<Download className="h-4 w-4" />} onClick={() => downloadText("regex-snippets.txt", `JavaScript\n==========\n${javascriptSnippet}\n\nTypeScript\n==========\n${typescriptSnippet}`)}>Download code snippets</Button>
+                  <Button variant="secondary" leftIcon={<Download className="h-4 w-4" />} disabled={!metrics.valid} onClick={() => downloadText("regex.mjs", javascriptModule, "text/javascript;charset=utf-8")}>Download JavaScript</Button>
+                  <Button variant="secondary" leftIcon={<Download className="h-4 w-4" />} disabled={!metrics.valid} onClick={() => downloadText("regex.ts", typescriptModule, "text/typescript;charset=utf-8")}>Download TypeScript</Button>
                 </div>
               </div>
             ) : null}

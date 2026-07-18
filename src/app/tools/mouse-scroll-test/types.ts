@@ -4,11 +4,13 @@ export type ScrollDirection = "Down" | "Up" | "Right" | "Left" | "Mixed" | "None
 
 export type ScrollInputMethod = "Wheel" | "Touch" | "Mixed" | "None";
 
+export type ScrollSampleSource = "wheel" | "touch";
+
 export type ScrollSample = {
   time: number;
   dx: number;
   dy: number;
-  source: "wheel" | "touch";
+  source: ScrollSampleSource;
 };
 
 export type ScrollStats = {
@@ -29,5 +31,7 @@ export type ScrollAttempt = {
   id: string;
   createdAt: string;
   mode: ScrollTestMode;
+  elapsedMs: number;
   stats: ScrollStats;
+  samples: ScrollSample[];
 };

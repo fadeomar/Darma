@@ -1,0 +1,28 @@
+{
+  "id": "abacus-slide",
+  "name": "Abacus Slide",
+  "category": "creative",
+  "tags": [
+    "abacus",
+    "beads",
+    "slide",
+    "rods",
+    "count"
+  ],
+  "html": "<span class=\"loader\"><i></i><i></i><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 52px;\n  height: 38px;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 7px;\n  height: 2px;\n  border-radius: 2px;\n  background: #c7d2fe;\n  box-shadow: 0 12px 0 #c7d2fe, 0 24px 0 #c7d2fe;\n}\n.loader i {\n  position: absolute;\n  left: 0;\n  width: 12px;\n  height: 12px;\n  border-radius: 50%;\n  background: #6366f1;\n  animation: slide 1.3s ease-in-out infinite;\n}\n.loader i:nth-child(1) { top: 2px; animation-delay: 0s; }\n.loader i:nth-child(2) { top: 14px; animation-delay: 0.2s; animation-direction: reverse; }\n.loader i:nth-child(3) { top: 26px; animation-delay: 0.4s; }\n@keyframes slide {\n  0%, 100% { left: 0; }\n  50% { left: calc(100% - 12px); }\n}",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

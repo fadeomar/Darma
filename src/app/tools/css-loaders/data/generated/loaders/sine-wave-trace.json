@@ -1,0 +1,41 @@
+{
+  "id": "sine-wave-trace",
+  "name": "Sine Wave Trace",
+  "category": "creative",
+  "tags": [
+    "sine",
+    "wave",
+    "trace",
+    "oscillate",
+    "signal"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "sine-wave-trace sine wave trace creative sine wave trace oscillate signal html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-sine-wave-trace\"><i></i></span>",
+  "previewCss": ".darma-loader-sine-wave-trace {\n  position: relative;\n  width: 52px;\n  height: 36px;\n}\n.darma-loader-sine-wave-trace::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 0;\n  right: 0;\n  height: 2px;\n  margin-top: -1px;\n  border-radius: 2px;\n  background: #c7d2fe;\n}\n.darma-loader-sine-wave-trace i {\n  position: absolute;\n  top: 50%;\n  left: 0;\n  width: 10px;\n  height: 10px;\n  margin-top: -5px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-sine-wave-trace-sx 1.6s linear infinite alternate, darma-loader-sine-wave-trace-sy 0.8s ease-in-out infinite;\n}\n@keyframes darma-loader-sine-wave-trace-sx {\n  from { left: 0; }\n  to { left: calc(100% - 10px); }\n}\n@keyframes darma-loader-sine-wave-trace-sy {\n  0%, 100% { transform: translateY(-11px); }\n  50% { transform: translateY(11px); }\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-sine-wave-trace\"><i></i></span>",
+    "css": ".darma-loader-sine-wave-trace {\n  position: relative;\n  width: 52px;\n  height: 36px;\n}\n.darma-loader-sine-wave-trace::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 0;\n  right: 0;\n  height: 2px;\n  margin-top: -1px;\n  border-radius: 2px;\n  background: #c7d2fe;\n}\n.darma-loader-sine-wave-trace i {\n  position: absolute;\n  top: 50%;\n  left: 0;\n  width: 10px;\n  height: 10px;\n  margin-top: -5px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-sine-wave-trace-sx 1.6s linear infinite alternate, darma-loader-sine-wave-trace-sy 0.8s ease-in-out infinite;\n}\n@keyframes darma-loader-sine-wave-trace-sx {\n  from { left: 0; }\n  to { left: calc(100% - 10px); }\n}\n@keyframes darma-loader-sine-wave-trace-sy {\n  0%, 100% { transform: translateY(-11px); }\n  50% { transform: translateY(11px); }\n}",
+    "react": "export default function SineWaveTraceLoader() {\n  return (\n    <span className=\"darma-loader-sine-wave-trace\"><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

@@ -4,30 +4,50 @@ import { ToolFaq } from "@/features/tools/content/ToolFaq";
 export default function Article() {
   return (
     <div className="space-y-6 text-sm leading-7 text-[var(--color-text-secondary)]">
-      <ToolArticleSection title="What this OG image generator creates">
+      <ToolArticleSection title="What the production studio creates">
         <p>
-          Social preview images are the large cards shown when a page is shared on social networks, chat apps, and collaboration tools. This tool creates the image assets and metadata snippets needed for Open Graph and Twitter/X cards.
+          Open Graph images are the large visual cards shown when a page is shared in social networks,
+          chat applications, documentation tools, and team workspaces. The studio renders the image,
+          prepares HTML and Next.js metadata, checks the handoff, and packages the files locally.
         </p>
         <p>
-          The default canvas is 1200×630 because that size works well as a general-purpose Open Graph image and keeps a practical 1.91:1 social-card ratio.
-        </p>
-      </ToolArticleSection>
-
-      <ToolArticleSection title="Open Graph vs Twitter cards">
-        <p>
-          Open Graph metadata is used by many platforms, including Facebook-style cards, LinkedIn, Discord, Slack, and other unfurl systems. Twitter/X uses its own <code>twitter:card</code> tags, but the same image can usually be reused.
+          The primary canvas is 1200×630, a practical 1.91:1 preview size. Additional platform-named
+          variants depend on the selected export pack.
         </p>
       </ToolArticleSection>
 
-      <ToolArticleSection title="Next.js App Router setup">
+      <ToolArticleSection title="Use the four production signals">
         <p>
-          In Next.js App Router projects, you can place <code>opengraph-image.png</code> and <code>twitter-image.png</code> inside a route segment such as <code>src/app</code>. The Next.js export pack also includes a metadata snippet when you want explicit titles, descriptions, image alt text, and URL metadata.
+          The summary cards expose the selected template, title length, main text contrast, and package
+          readiness before the detailed previews. Production checks then explain blocking errors,
+          warnings, manual image-background reviews, safe-area guidance, and whether the generated files
+          still match the visible design.
         </p>
       </ToolArticleSection>
 
-      <ToolArticleSection title="Common mistakes">
+      <ToolArticleSection title="Save and reopen design settings">
         <p>
-          The most common problems are cropped text, low contrast, using a non-absolute image URL in metadata, missing alt text, uploading an image that is too small, and forgetting to refresh social platform caches after a deploy.
+          Export a versioned JSON project when you need to revisit the design or share its settings with
+          another browser. The project deliberately excludes uploaded logo and background image data so
+          the file stays compact and does not duplicate private binary assets. Reattach those source files
+          after importing.
+        </p>
+      </ToolArticleSection>
+
+      <ToolArticleSection title="Open Graph, Twitter/X, and Next.js">
+        <p>
+          Open Graph metadata is used by many link-preview systems, while Twitter/X also reads its own
+          card tags. A 1200×630 image can usually serve both. In Next.js App Router projects,
+          <code>opengraph-image.png</code> and <code>twitter-image.png</code> can be placed inside a route
+          segment, and the generated TypeScript snippet supplies explicit metadata when needed.
+        </p>
+      </ToolArticleSection>
+
+      <ToolArticleSection title="What the ZIP adds">
+        <p>
+          In addition to image assets and install snippets, the production pack includes a settings-only
+          project file, a Markdown audit, CSV metrics, an asset manifest, a local HTML preview, and a QA
+          checklist. Validate the deployed URL and refresh each platform cache after publishing.
         </p>
       </ToolArticleSection>
 
@@ -35,19 +55,23 @@ export default function Article() {
         items={[
           {
             question: "Can I use the same image for every platform?",
-            answer: "Usually yes. A 1200×630 image works well for broad social sharing. The social export pack also generates platform-named variants for teams that want clearer asset organization.",
+            answer: "Usually yes. A 1200×630 image works well for broad sharing. Platform-named variants are also included in larger export packs for clearer team handoff.",
           },
           {
-            question: "Does Darma upload my images?",
-            answer: "No. The canvas rendering, preview, ZIP generation, and validation all run locally in your browser.",
+            question: "Does Darma upload my images or project?",
+            answer: "No. Rendering, validation, JSON import, report generation, and ZIP creation all run locally in the browser.",
           },
           {
-            question: "Should I include text inside the image?",
-            answer: "Yes, but keep it short. Social cards are often viewed on mobile, so the title should be large and readable with enough contrast.",
+            question: "Why are uploaded images missing after project import?",
+            answer: "Project JSON intentionally stores settings only. This keeps backups small and prevents embedded logo or background data from being copied unintentionally. Reattach the original local files after import.",
           },
           {
-            question: "Why does a social platform still show my old image?",
-            answer: "Most platforms cache preview images. After changing metadata or images, use that platform’s sharing/debugger tool to refresh its cache.",
+            question: "Why is contrast marked for manual review?",
+            answer: "A single ratio cannot reliably describe text over every part of a photographic background. Review all platform previews and reposition or darken the image overlay when necessary.",
+          },
+          {
+            question: "Why does a platform still show my previous image?",
+            answer: "Social platforms cache metadata and image responses. Confirm the deployed image URL, then use that platform's sharing debugger or cache refresh workflow.",
           },
         ]}
       />

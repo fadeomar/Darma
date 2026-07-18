@@ -10,10 +10,12 @@ import { copyTextToClipboard } from "@/lib/copy-to-clipboard";
 import { cn } from "@/lib/cn";
 import { fileToDataUrl, loadImageFromDataUrl, renderMockupDataUrl } from "./canvas";
 import { createReadme, generateMockupAssets, revokeMockupAssetUrls } from "./generator";
+import MockupProductionPanel from "./components/MockupProductionPanel";
 import { DEFAULT_MOCKUP_INPUT, DEVICE_OPTIONS, EXPORT_PACKS, MAX_UPLOAD_BYTES, QUICK_PRESETS } from "./presets";
 import { createCssSnippet, createCssVariablesSnippet, createDesignTokenSnippet, createHtmlFigureSnippet, createNextImageSnippet, createResponsivePictureSnippet } from "./snippets";
 import type { GeneratedMockupAsset, MockupAlignment, MockupBackgroundMode, MockupDevice, MockupExportPackId, MockupFitMode, MockupInput, MockupOrientation, MockupShadowStyle, MockupWarning, PackageCheckResult } from "./types";
 import { createReadinessChecks, scoreReadiness, validateExistingPackage, validateGeneratedAssets, validateMockupInput } from "./validation";
+import { MAX_MOCKUP_PROJECT_BYTES, createMockupFingerprint, createMockupMarkdownReport, createMockupMetricsCsv, createMockupProjectJson, parseMockupProjectJson, summarizeMockupProduction } from "./studio";
 import { createZipArchive } from "./zip";
 
 type Status = "idle" | "generating" | "ready" | "error";
@@ -509,7 +511,7 @@ function ReadinessPanel({ input, assets }: { input: MockupInput; assets: Generat
   );
 }
 
-function GeneratedFilesPanel({ assets, checks, onDownload }: { assets: GeneratedMockupAsset[]; checks: PackageCheckResult[]; onDownload: (asset: GeneratedMockupAsset) => void }) {
+function GeneratedFilesPanel({ assets, checks, downloadsEnabled, onDownload }: { assets: GeneratedMockupAsset[]; checks: PackageCheckResult[]; downloadsEnabled: boolean; onDownload: (asset: GeneratedMockupAsset) => void }) {
   return (
     <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(260px,0.7fr)]">
       <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] p-4 shadow-[var(--shadow-xs)]">
@@ -525,13 +527,14 @@ function GeneratedFilesPanel({ assets, checks, onDownload }: { assets: Generated
                   <p className="truncate text-sm font-bold text-[var(--color-text-primary)]">{asset.filename}</p>
                   <p className="text-xs text-[var(--color-text-tertiary)]">{asset.width}×{asset.height} · {formatBytes(asset.blob.size)}</p>
                 </div>
-                <Button size="sm" variant="secondary" leftIcon={<Download className="h-3.5 w-3.5" />} onClick={() => onDownload(asset)}>Download</Button>
+                <Button size="sm" variant="secondary" leftIcon={<Download className="h-3.5 w-3.5" />} onClick={() => onDownload(asset)} disabled={!downloadsEnabled}>Download</Button>
               </div>
             ))}
           </div>
         ) : (
           <p className="rounded-[var(--radius-md)] border border-dashed border-[var(--color-border-subtle)] p-4 text-sm text-[var(--color-text-secondary)]">Generate an export pack to see downloadable PNG files.</p>
         )}
+        {assets.length && !downloadsEnabled ? <p className="mt-3 rounded-[var(--radius-md)] border border-[var(--color-warning-border)] bg-[var(--color-warning-bg)] p-3 text-xs font-semibold text-[var(--color-warning-text)]">These PNGs were generated from older settings. Regenerate the pack before downloading.</p> : null}
       </div>
       <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] p-4 shadow-[var(--shadow-xs)]">
         <MiniLabel>Package check</MiniLabel>
@@ -647,6 +650,8 @@ export default function AppScreenshotMockupClient() {
   const [status, setStatus] = useState<Status>("idle");
   const [statusMessage, setStatusMessage] = useState("Ready.");
   const [checkerResults, setCheckerResults] = useState<PackageCheckResult[]>([]);
+  const [generatedFingerprint, setGeneratedFingerprint] = useState("");
+  const [projectMessage, setProjectMessage] = useState("");
 
   useEffect(() => {
     let cancelled = false;
@@ -677,6 +682,9 @@ export default function AppScreenshotMockupClient() {
   const cssSnippet = useMemo(() => createCssSnippet(), []);
   const cssVariablesSnippet = useMemo(() => createCssVariablesSnippet(input), [input]);
   const tokenSnippet = useMemo(() => createDesignTokenSnippet(input, assets), [input, assets]);
+  const currentFingerprint = useMemo(() => createMockupFingerprint(input), [input]);
+  const productionSummary = useMemo(() => summarizeMockupProduction(input, assets, generatedFingerprint), [input, assets, generatedFingerprint]);
+  const packageIsFresh = assets.length > 0 && generatedFingerprint === currentFingerprint && productionSummary.isFresh;
 
   async function generateAssets() {
     setStatus("generating");
@@ -685,6 +693,7 @@ export default function AppScreenshotMockupClient() {
       const nextAssets = await generateMockupAssets(input);
       revokeMockupAssetUrls(assets);
       setAssets(nextAssets);
+      setGeneratedFingerprint(createMockupFingerprint(input));
       setStatus("ready");
       setStatusMessage(`Generated ${nextAssets.length} PNG files.`);
     } catch (error) {
@@ -694,19 +703,76 @@ export default function AppScreenshotMockupClient() {
   }
 
   async function downloadZip() {
-    const currentAssets = assets.length ? assets : await generateMockupAssets(input);
-    if (!assets.length) setAssets(currentAssets);
+    if (!packageIsFresh) {
+      setStatusMessage("Regenerate the export pack before downloading the ZIP.");
+      return;
+    }
     const zip = await createZipArchive([
-      ...currentAssets.map((asset) => ({ filename: asset.filename, data: asset.blob, mimeType: asset.mimeType })),
-      { filename: "README.md", data: createReadme(input, currentAssets), mimeType: "text/markdown" },
-      { filename: "html-figure-snippet.html", data: createHtmlFigureSnippet(input, currentAssets[0]), mimeType: "text/html" },
-      { filename: "next-image-snippet.tsx", data: createNextImageSnippet(input, currentAssets[0]), mimeType: "text/plain" },
-      { filename: "responsive-picture-snippet.html", data: createResponsivePictureSnippet(input, currentAssets), mimeType: "text/html" },
+      ...assets.map((asset) => ({ filename: asset.filename, data: asset.blob, mimeType: asset.mimeType })),
+      { filename: "README.md", data: createReadme(input, assets), mimeType: "text/markdown" },
+      { filename: "html-figure-snippet.html", data: createHtmlFigureSnippet(input, assets[0]), mimeType: "text/html" },
+      { filename: "next-image-snippet.tsx", data: createNextImageSnippet(input, assets[0]), mimeType: "text/plain" },
+      { filename: "responsive-picture-snippet.html", data: createResponsivePictureSnippet(input, assets), mimeType: "text/html" },
       { filename: "mockup-styles.css", data: createCssSnippet(), mimeType: "text/css" },
       { filename: "mockup-variables.css", data: createCssVariablesSnippet(input), mimeType: "text/css" },
-      { filename: "mockup.tokens.json", data: createDesignTokenSnippet(input, currentAssets), mimeType: "application/json" },
+      { filename: "mockup.tokens.json", data: createDesignTokenSnippet(input, assets), mimeType: "application/json" },
+      { filename: "mockup-project.json", data: createMockupProjectJson(input), mimeType: "application/json" },
+      { filename: "production-report.md", data: createMockupMarkdownReport(input, assets, generatedFingerprint), mimeType: "text/markdown" },
+      { filename: "production-metrics.csv", data: createMockupMetricsCsv(input, assets, generatedFingerprint), mimeType: "text/csv" },
     ]);
     downloadBlobFile({ blob: zip, filename: `${input.filePrefix || "app-mockup"}-mockup-pack.zip` });
+  }
+
+  function downloadTextFile(filename: string, content: string, type: string) {
+    downloadBlobFile({ blob: new Blob([content], { type }), filename });
+  }
+
+  function exportProject() {
+    downloadTextFile(`${input.filePrefix || "app-mockup"}-project.json`, createMockupProjectJson(input), "application/json;charset=utf-8");
+    setProjectMessage("Project JSON downloaded without uploaded image bytes.");
+  }
+
+  function exportReport() {
+    downloadTextFile(`${input.filePrefix || "app-mockup"}-production-report.md`, createMockupMarkdownReport(input, assets, generatedFingerprint), "text/markdown;charset=utf-8");
+    setProjectMessage("Production report downloaded.");
+  }
+
+  function exportCsv() {
+    downloadTextFile(`${input.filePrefix || "app-mockup"}-production-metrics.csv`, createMockupMetricsCsv(input, assets, generatedFingerprint), "text/csv;charset=utf-8");
+    setProjectMessage("Production metrics downloaded.");
+  }
+
+  async function importProject(file: File) {
+    if (!file.size) {
+      setProjectMessage("The selected project file is empty.");
+      return;
+    }
+    if (file.size > MAX_MOCKUP_PROJECT_BYTES) {
+      setProjectMessage("Project files must be 1 MB or smaller.");
+      return;
+    }
+    try {
+      const project = parseMockupProjectJson(await file.text());
+      revokeMockupAssetUrls(assets);
+      setAssets([]);
+      setGeneratedFingerprint("");
+      setCheckerResults([]);
+      setInput(project.input);
+      setStatusMessage("Project settings imported. Reattach the screenshot and optional background image.");
+      setProjectMessage(project.sourceReferences.screenshotName ? `Imported settings from ${project.sourceReferences.screenshotName}; local image bytes were not embedded.` : "Project settings imported. Reattach local images before final export.");
+    } catch (error) {
+      setProjectMessage(error instanceof Error ? error.message : "Could not import that project file.");
+    }
+  }
+
+  function resetProject() {
+    revokeMockupAssetUrls(assets);
+    setAssets([]);
+    setGeneratedFingerprint("");
+    setCheckerResults([]);
+    setInput(DEFAULT_MOCKUP_INPUT);
+    setStatusMessage("Settings reset.");
+    setProjectMessage("Project reset to the default preset.");
   }
 
   function downloadCodeFile(tab: { code: string; filename?: string }) {
@@ -728,13 +794,13 @@ export default function AppScreenshotMockupClient() {
     <>
       <div className="flex min-w-0 flex-col gap-1 text-xs text-[var(--color-text-secondary)]">
         <span className="font-bold text-[var(--color-text-primary)]">{statusMessage}</span>
-        <span>{assets.length ? `${assets.length} generated files · ${formatBytes(assets.reduce((sum, asset) => sum + asset.blob.size, 0))}` : "Generate a pack when the preview looks right."}</span>
+        <span>{assets.length ? `${assets.length} generated files · ${formatBytes(assets.reduce((sum, asset) => sum + asset.blob.size, 0))}${packageIsFresh ? " · current" : " · stale"}` : "Generate a pack when the preview looks right."}</span>
       </div>
       <div className="flex flex-wrap items-center gap-2">
         <Button variant="secondary" leftIcon={status === "generating" ? <Loader2 className="h-4 w-4 animate-spin" /> : <ImageIcon className="h-4 w-4" />} onClick={generateAssets} disabled={status === "generating"}>
           Generate pack
         </Button>
-        <Button variant="primary" leftIcon={<FileArchive className="h-4 w-4" />} onClick={downloadZip} disabled={status === "generating"}>
+        <Button variant="primary" leftIcon={<FileArchive className="h-4 w-4" />} onClick={downloadZip} disabled={status === "generating" || !packageIsFresh}>
           Download ZIP
         </Button>
       </div>
@@ -759,9 +825,20 @@ export default function AppScreenshotMockupClient() {
       codeSlot={
         <div className="space-y-5">
           {warnings.length ? <WarningPanel title="Mockup readiness warnings" messages={mapWarnings(warnings)} /> : null}
+          <MockupProductionPanel
+            input={input}
+            assets={assets}
+            generatedFingerprint={generatedFingerprint}
+            message={projectMessage}
+            onExportProject={exportProject}
+            onImportProject={importProject}
+            onExportReport={exportReport}
+            onExportCsv={exportCsv}
+            onReset={resetProject}
+          />
           <ProductionHandoffPanel input={input} assets={assets} warnings={warnings} />
-          <ReadinessPanel input={input} assets={assets} />
-          <GeneratedFilesPanel assets={assets} checks={checkerResults.length ? checkerResults : generatedChecks} onDownload={(asset) => downloadBlobFile({ blob: asset.blob, filename: asset.filename })} />
+          <ReadinessPanel input={input} assets={packageIsFresh ? assets : []} />
+          <GeneratedFilesPanel assets={assets} checks={checkerResults.length ? checkerResults : generatedChecks} downloadsEnabled={packageIsFresh} onDownload={(asset) => downloadBlobFile({ blob: asset.blob, filename: asset.filename })} />
           <CodeOutputPanel title="Install snippets" description="Copy the generated mockup into a landing page, documentation page, or Next.js component." tabs={codeTabs} onDownload={downloadCodeFile} actions={<CopyInlineButton value={assets.map((asset) => asset.filename).join("\n") || input.filePrefix} />} />
         </div>
       }

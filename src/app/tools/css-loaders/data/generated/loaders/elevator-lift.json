@@ -1,0 +1,41 @@
+{
+  "id": "elevator-lift",
+  "name": "Elevator Lift",
+  "category": "fun",
+  "tags": [
+    "elevator",
+    "lift",
+    "shaft",
+    "floors",
+    "rise"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "elevator-lift elevator lift fun elevator lift shaft floors rise html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-elevator-lift\"><i></i></span>",
+  "previewCss": ".darma-loader-elevator-lift {\n  position: relative;\n  width: 30px;\n  height: 52px;\n  border: 2px solid #c7d2fe;\n  border-radius: 4px;\n  box-sizing: border-box;\n  overflow: hidden;\n  background: repeating-linear-gradient(transparent 0 12px, #c7d2fe 12px 13px);\n}\n.darma-loader-elevator-lift i {\n  position: absolute;\n  left: 4px;\n  right: 4px;\n  top: 4px;\n  height: 12px;\n  border-radius: 2px;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-elevator-lift-elev 1.8s ease-in-out infinite;\n}\n.darma-loader-elevator-lift i::before {\n  content: \"\";\n  position: absolute;\n  top: 2px;\n  bottom: 2px;\n  left: 50%;\n  width: 1px;\n  background: #e0e7ff;\n}\n@keyframes darma-loader-elevator-lift-elev {\n  0%, 100% { top: 4px; }\n  50% { top: calc(100% - 16px); }\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-elevator-lift\"><i></i></span>",
+    "css": ".darma-loader-elevator-lift {\n  position: relative;\n  width: 30px;\n  height: 52px;\n  border: 2px solid #c7d2fe;\n  border-radius: 4px;\n  box-sizing: border-box;\n  overflow: hidden;\n  background: repeating-linear-gradient(transparent 0 12px, #c7d2fe 12px 13px);\n}\n.darma-loader-elevator-lift i {\n  position: absolute;\n  left: 4px;\n  right: 4px;\n  top: 4px;\n  height: 12px;\n  border-radius: 2px;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-elevator-lift-elev 1.8s ease-in-out infinite;\n}\n.darma-loader-elevator-lift i::before {\n  content: \"\";\n  position: absolute;\n  top: 2px;\n  bottom: 2px;\n  left: 50%;\n  width: 1px;\n  background: #e0e7ff;\n}\n@keyframes darma-loader-elevator-lift-elev {\n  0%, 100% { top: 4px; }\n  50% { top: calc(100% - 16px); }\n}",
+    "react": "export default function ElevatorLiftLoader() {\n  return (\n    <span className=\"darma-loader-elevator-lift\"><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

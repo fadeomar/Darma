@@ -12,7 +12,7 @@ const faqs: { q: string; a: string }[] = [
   },
   {
     q: "Can I export my tasks?",
-    a: "Yes. From the Data menu you can export all your data or just the current list as JSON, copy a list as Markdown or plain text, and download it as a .txt or .md file. Exported JSON can be imported again later.",
+    a: "Yes. Export all data or one list as JSON, copy or download Markdown/plain text, or create a production ZIP with a restorable backup, workspace audit, safe CSV snapshot, and README. Complete backups include archived lists.",
   },
   {
     q: "Can I print my to-do list?",
@@ -98,6 +98,22 @@ export default function TodoListArticle() {
           meeting agenda, YouTube publishing and content calendar checklists, proposal and donor
           checklists, and grocery, travel-packing, and home-cleaning lists. Preview the tasks first,
           then create a new list in one click — the original template is never modified.
+        </p>
+      </section>
+
+      <section>
+        <h2 className={sectionTitle}>Data safety and production backups</h2>
+        <p>
+          Darma Tasks stores its working database in IndexedDB. The workspace-health panel checks
+          record relationships, duplicate IDs, task completion consistency, overdue work, archived
+          lists, and browser-local scale before you create a backup. A production ZIP contains a
+          restorable JSON bundle, a Markdown audit, a spreadsheet-friendly CSV snapshot, and a README.
+        </p>
+        <p className="mt-3">
+          Complete backups include archived lists, and replace imports run in one atomic IndexedDB
+          transaction: either the validated workspace is written successfully or the previous data is
+          preserved. Imported files are limited to 2 MB and are rejected when IDs, list references,
+          parent-task links, cycles, dates, or schema metadata are unsafe.
         </p>
       </section>
 

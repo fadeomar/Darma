@@ -1,0 +1,41 @@
+{
+  "id": "rocket-launch",
+  "name": "Rocket Launch",
+  "category": "fun",
+  "tags": [
+    "rocket",
+    "launch",
+    "flame",
+    "space",
+    "hover"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "rocket-launch rocket launch fun rocket launch flame space hover html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-rocket-launch\"><i></i></span>",
+  "previewCss": ".darma-loader-rocket-launch {\n  position: relative;\n  width: 34px;\n  height: 52px;\n  animation: darma-loader-rocket-launch-lift 1.6s ease-in-out infinite;\n}\n.darma-loader-rocket-launch::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 16px;\n  height: 30px;\n  margin-left: -8px;\n  border-radius: 50% 50% 40% 40%;\n  background: var(--loader-color, #6366f1);\n  box-shadow: inset 0 0 0 3px #4338ca, inset 0 6px 0 -3px #e0e7ff;\n}\n.darma-loader-rocket-launch i {\n  position: absolute;\n  top: 30px;\n  left: 50%;\n  width: 10px;\n  height: 14px;\n  margin-left: -5px;\n  background: #f59e0b;\n  clip-path: polygon(0 0, 100% 0, 50% 100%);\n  transform-origin: top center;\n  animation: darma-loader-rocket-launch-flame 0.18s linear infinite alternate;\n}\n@keyframes darma-loader-rocket-launch-lift {\n  0%, 100% { transform: translateY(4px); }\n  50% { transform: translateY(-4px); }\n}\n@keyframes darma-loader-rocket-launch-flame {\n  from { transform: scaleY(0.7); opacity: 0.8; }\n  to { transform: scaleY(1.15); opacity: 1; }\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-rocket-launch\"><i></i></span>",
+    "css": ".darma-loader-rocket-launch {\n  position: relative;\n  width: 34px;\n  height: 52px;\n  animation: darma-loader-rocket-launch-lift 1.6s ease-in-out infinite;\n}\n.darma-loader-rocket-launch::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 16px;\n  height: 30px;\n  margin-left: -8px;\n  border-radius: 50% 50% 40% 40%;\n  background: var(--loader-color, #6366f1);\n  box-shadow: inset 0 0 0 3px #4338ca, inset 0 6px 0 -3px #e0e7ff;\n}\n.darma-loader-rocket-launch i {\n  position: absolute;\n  top: 30px;\n  left: 50%;\n  width: 10px;\n  height: 14px;\n  margin-left: -5px;\n  background: #f59e0b;\n  clip-path: polygon(0 0, 100% 0, 50% 100%);\n  transform-origin: top center;\n  animation: darma-loader-rocket-launch-flame 0.18s linear infinite alternate;\n}\n@keyframes darma-loader-rocket-launch-lift {\n  0%, 100% { transform: translateY(4px); }\n  50% { transform: translateY(-4px); }\n}\n@keyframes darma-loader-rocket-launch-flame {\n  from { transform: scaleY(0.7); opacity: 0.8; }\n  to { transform: scaleY(1.15); opacity: 1; }\n}",
+    "react": "export default function RocketLaunchLoader() {\n  return (\n    <span className=\"darma-loader-rocket-launch\"><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "helicopter",
+  "name": "Helicopter",
+  "category": "fun",
+  "tags": [
+    "helicopter",
+    "rotor",
+    "fly",
+    "hover",
+    "chopper"
+  ],
+  "html": "<span class=\"loader\"><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 52px;\n  height: 40px;\n  animation: hover 1.4s ease-in-out infinite;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  bottom: 8px;\n  left: 6px;\n  width: 30px;\n  height: 16px;\n  background: #6366f1;\n  border-radius: 12px 8px 8px 12px;\n}\n.loader::after {\n  content: \"\";\n  position: absolute;\n  top: 16px;\n  left: 34px;\n  width: 16px;\n  height: 4px;\n  background: #6366f1;\n  border-radius: 2px;\n}\n.loader i {\n  position: absolute;\n  top: 8px;\n  left: 19px;\n  width: 4px;\n  height: 10px;\n  background: #4338ca;\n}\n.loader i::before {\n  content: \"\";\n  position: absolute;\n  top: -3px;\n  left: 50%;\n  width: 44px;\n  height: 3px;\n  margin-left: -22px;\n  border-radius: 2px;\n  background: #6366f1;\n  transform-origin: center;\n  animation: spin 0.18s linear infinite;\n}\n@keyframes hover {\n  0%, 100% { transform: translateY(0); }\n  50% { transform: translateY(-3px); }\n}\n@keyframes spin { to { transform: rotate(360deg); } }",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

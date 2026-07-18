@@ -1,0 +1,28 @@
+{
+  "id": "thermometer-fill",
+  "name": "Thermometer Fill",
+  "category": "progress",
+  "tags": [
+    "thermometer",
+    "temperature",
+    "mercury",
+    "fill",
+    "gauge"
+  ],
+  "html": "<span class=\"loader\"><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 16px;\n  height: 52px;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 10px;\n  height: 42px;\n  margin-left: -5px;\n  border: 2px solid #c7d2fe;\n  border-radius: 6px;\n  box-sizing: border-box;\n}\n.loader::after {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 50%;\n  width: 16px;\n  height: 16px;\n  margin-left: -8px;\n  border-radius: 50%;\n  background: #6366f1;\n}\n.loader i {\n  position: absolute;\n  bottom: 6px;\n  left: 50%;\n  width: 6px;\n  margin-left: -3px;\n  border-radius: 3px;\n  background: #6366f1;\n  animation: merc 1.6s ease-in-out infinite;\n}\n@keyframes merc {\n  0%, 100% { height: 8px; }\n  50% { height: 36px; }\n}",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

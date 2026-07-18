@@ -1,0 +1,41 @@
+{
+  "id": "hot-air-balloon",
+  "name": "Hot Air Balloon",
+  "category": "fun",
+  "tags": [
+    "balloon",
+    "float",
+    "rise",
+    "sky",
+    "bob"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "hot-air-balloon hot air balloon fun balloon float rise sky bob html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-hot-air-balloon\"><i></i></span>",
+  "previewCss": ".darma-loader-hot-air-balloon {\n  position: relative;\n  width: 34px;\n  height: 50px;\n  animation: darma-loader-hot-air-balloon-float 1.8s ease-in-out infinite;\n}\n.darma-loader-hot-air-balloon::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 30px;\n  height: 34px;\n  margin-left: -15px;\n  border-radius: 50% 50% 46% 46%;\n  background: var(--loader-color, #6366f1);\n}\n.darma-loader-hot-air-balloon i {\n  position: absolute;\n  top: 37px;\n  left: 50%;\n  width: 12px;\n  height: 9px;\n  margin-left: -6px;\n  border-radius: 0 0 3px 3px;\n  background: #4338ca;\n}\n.darma-loader-hot-air-balloon i::before {\n  content: \"\";\n  position: absolute;\n  top: -6px;\n  left: 1px;\n  width: 1px;\n  height: 6px;\n  background: #4338ca;\n  box-shadow: 8px 0 0 #4338ca;\n}\n@keyframes darma-loader-hot-air-balloon-float {\n  0%, 100% { transform: translateY(3px) rotate(-4deg); }\n  50% { transform: translateY(-5px) rotate(4deg); }\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-hot-air-balloon\"><i></i></span>",
+    "css": ".darma-loader-hot-air-balloon {\n  position: relative;\n  width: 34px;\n  height: 50px;\n  animation: darma-loader-hot-air-balloon-float 1.8s ease-in-out infinite;\n}\n.darma-loader-hot-air-balloon::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 30px;\n  height: 34px;\n  margin-left: -15px;\n  border-radius: 50% 50% 46% 46%;\n  background: var(--loader-color, #6366f1);\n}\n.darma-loader-hot-air-balloon i {\n  position: absolute;\n  top: 37px;\n  left: 50%;\n  width: 12px;\n  height: 9px;\n  margin-left: -6px;\n  border-radius: 0 0 3px 3px;\n  background: #4338ca;\n}\n.darma-loader-hot-air-balloon i::before {\n  content: \"\";\n  position: absolute;\n  top: -6px;\n  left: 1px;\n  width: 1px;\n  height: 6px;\n  background: #4338ca;\n  box-shadow: 8px 0 0 #4338ca;\n}\n@keyframes darma-loader-hot-air-balloon-float {\n  0%, 100% { transform: translateY(3px) rotate(-4deg); }\n  50% { transform: translateY(-5px) rotate(4deg); }\n}",
+    "react": "export default function HotAirBalloonLoader() {\n  return (\n    <span className=\"darma-loader-hot-air-balloon\"><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

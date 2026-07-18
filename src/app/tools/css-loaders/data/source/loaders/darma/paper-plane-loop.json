@@ -1,0 +1,28 @@
+{
+  "id": "paper-plane-loop",
+  "name": "Paper Plane Loop",
+  "category": "fun",
+  "tags": [
+    "paper",
+    "plane",
+    "fly",
+    "trail",
+    "send"
+  ],
+  "html": "<span class=\"loader\"><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 56px;\n  height: 46px;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  left: 4px;\n  bottom: 10px;\n  width: 46px;\n  height: 0;\n  border-top: 2px dashed #c7d2fe;\n  transform: rotate(-20deg);\n  transform-origin: left center;\n}\n.loader i {\n  position: absolute;\n  width: 16px;\n  height: 16px;\n  background: #6366f1;\n  clip-path: polygon(0 0, 100% 50%, 0 100%, 26% 50%);\n  animation: fly 1.8s ease-in-out infinite;\n}\n@keyframes fly {\n  0% { transform: translate(0, 30px) rotate(-12deg); opacity: 0; }\n  15% { opacity: 1; }\n  85% { opacity: 1; }\n  100% { transform: translate(42px, -4px) rotate(8deg); opacity: 0; }\n}",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

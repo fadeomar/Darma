@@ -1,0 +1,42 @@
+{
+  "id": "burger-stack",
+  "name": "Burger Stack",
+  "category": "fun",
+  "tags": [
+    "burger",
+    "stack",
+    "food",
+    "assemble",
+    "layers"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "popular": true
+  },
+  "searchText": "burger-stack burger stack fun burger stack food assemble layers html css react cssonly customizable popular",
+  "previewHtml": "<span class=\"darma-loader-burger-stack\"><i></i><i></i><i></i></span>",
+  "previewCss": ".darma-loader-burger-stack {\n  position: relative;\n  width: 44px;\n  height: 44px;\n}\n.darma-loader-burger-stack i {\n  position: absolute;\n  left: 50%;\n  animation: darma-loader-burger-stack-drop 1.4s ease-in-out infinite;\n}\n.darma-loader-burger-stack i:nth-child(1) {\n  bottom: 24px;\n  width: 30px;\n  height: 14px;\n  margin-left: -15px;\n  border-radius: 14px 14px 4px 4px;\n  background: var(--loader-color, #6366f1);\n  animation-delay: 0s;\n}\n.darma-loader-burger-stack i:nth-child(2) {\n  bottom: 16px;\n  width: 34px;\n  height: 8px;\n  margin-left: -17px;\n  border-radius: 3px;\n  background: #4338ca;\n  animation-delay: 0.15s;\n}\n.darma-loader-burger-stack i:nth-child(3) {\n  bottom: 6px;\n  width: 30px;\n  height: 10px;\n  margin-left: -15px;\n  border-radius: 4px 4px 10px 10px;\n  background: var(--loader-color, #6366f1);\n  animation-delay: 0.3s;\n}\n@keyframes darma-loader-burger-stack-drop {\n  0% { transform: translateY(-18px); opacity: 0; }\n  20% { opacity: 1; }\n  55% { transform: translateY(0); }\n  85% { transform: translateY(0); opacity: 1; }\n  100% { transform: translateY(-18px); opacity: 0; }\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-burger-stack\"><i></i><i></i><i></i></span>",
+    "css": ".darma-loader-burger-stack {\n  position: relative;\n  width: 44px;\n  height: 44px;\n}\n.darma-loader-burger-stack i {\n  position: absolute;\n  left: 50%;\n  animation: darma-loader-burger-stack-drop 1.4s ease-in-out infinite;\n}\n.darma-loader-burger-stack i:nth-child(1) {\n  bottom: 24px;\n  width: 30px;\n  height: 14px;\n  margin-left: -15px;\n  border-radius: 14px 14px 4px 4px;\n  background: var(--loader-color, #6366f1);\n  animation-delay: 0s;\n}\n.darma-loader-burger-stack i:nth-child(2) {\n  bottom: 16px;\n  width: 34px;\n  height: 8px;\n  margin-left: -17px;\n  border-radius: 3px;\n  background: #4338ca;\n  animation-delay: 0.15s;\n}\n.darma-loader-burger-stack i:nth-child(3) {\n  bottom: 6px;\n  width: 30px;\n  height: 10px;\n  margin-left: -15px;\n  border-radius: 4px 4px 10px 10px;\n  background: var(--loader-color, #6366f1);\n  animation-delay: 0.3s;\n}\n@keyframes darma-loader-burger-stack-drop {\n  0% { transform: translateY(-18px); opacity: 0; }\n  20% { opacity: 1; }\n  55% { transform: translateY(0); }\n  85% { transform: translateY(0); opacity: 1; }\n  100% { transform: translateY(-18px); opacity: 0; }\n}",
+    "react": "export default function BurgerStackLoader() {\n  return (\n    <span className=\"darma-loader-burger-stack\"><i></i><i></i><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

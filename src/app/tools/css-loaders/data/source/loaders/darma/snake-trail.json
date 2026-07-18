@@ -1,0 +1,28 @@
+{
+  "id": "snake-trail",
+  "name": "Snake Trail",
+  "category": "fun",
+  "tags": [
+    "snake",
+    "trail",
+    "loop",
+    "chase",
+    "square"
+  ],
+  "html": "<span class=\"loader\"><i></i><i></i><i></i><i></i><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 48px;\n  height: 48px;\n}\n.loader i {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 10px;\n  height: 10px;\n  border-radius: 50%;\n  background: #6366f1;\n  animation: track 2s linear infinite;\n}\n.loader i:nth-child(1) { animation-delay: 0s; opacity: 1; }\n.loader i:nth-child(2) { animation-delay: -0.14s; opacity: 0.82; }\n.loader i:nth-child(3) { animation-delay: -0.28s; opacity: 0.64; }\n.loader i:nth-child(4) { animation-delay: -0.42s; opacity: 0.46; }\n.loader i:nth-child(5) { animation-delay: -0.56s; opacity: 0.3; }\n@keyframes track {\n  0% { top: 0; left: 0; }\n  25% { top: 0; left: calc(100% - 10px); }\n  50% { top: calc(100% - 10px); left: calc(100% - 10px); }\n  75% { top: calc(100% - 10px); left: 0; }\n  100% { top: 0; left: 0; }\n}",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

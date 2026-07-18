@@ -1,0 +1,28 @@
+{
+  "id": "horseshoe-magnet",
+  "name": "Horseshoe Magnet",
+  "category": "creative",
+  "tags": [
+    "magnet",
+    "horseshoe",
+    "field",
+    "attract",
+    "pulse"
+  ],
+  "html": "<span class=\"loader\"><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 44px;\n  height: 48px;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  bottom: 4px;\n  left: 50%;\n  width: 30px;\n  height: 30px;\n  margin-left: -15px;\n  border: 8px solid #6366f1;\n  border-top: 0;\n  border-radius: 0 0 16px 16px;\n  box-sizing: border-box;\n}\n.loader::after {\n  content: \"\";\n  position: absolute;\n  top: 6px;\n  left: 50%;\n  margin-left: -15px;\n  width: 8px;\n  height: 6px;\n  background: #4338ca;\n  box-shadow: 22px 0 0 #4338ca;\n  border-radius: 2px 2px 0 0;\n}\n.loader i {\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 26px;\n  height: 12px;\n  margin-left: -13px;\n  border: 2px solid #6366f1;\n  border-bottom: 0;\n  border-radius: 16px 16px 0 0;\n  box-sizing: border-box;\n  transform-origin: bottom center;\n  animation: field 1.2s ease-in-out infinite;\n}\n@keyframes field {\n  0%, 100% { opacity: 0.2; transform: scale(0.8); }\n  50% { opacity: 1; transform: scale(1.15); }\n}",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

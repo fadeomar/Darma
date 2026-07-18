@@ -13,7 +13,9 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const BmiCalculatorClient = dynamic(() => import("./BmiCalculatorClient"), {
-  loading: () => <div className="h-[420px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />,
+  loading: () => (
+    <div className="h-[520px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)]" />
+  ),
 });
 const Article = dynamic(() => import("./Article"));
 
@@ -28,18 +30,27 @@ export default function BmiCalculatorPage() {
       tool={tool}
       maxWidth="wide"
       intro={
-        <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Calculate BMI from metric or imperial measurements, add waist and target weight context, save local history, and export a private health snapshot — all in your browser.
+        <p className="max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
+          Calculate an adult BMI screening snapshot, add optional waist and
+          target context, verify whether standard adult interpretation is
+          applicable, preserve measurements when changing units, and export a
+          private report pack locally.
         </p>
       }
       article={
-        <ToolContentCard title="About BMI">
+        <ToolContentCard title="BMI screening method, limits, and privacy">
           <Article />
         </ToolContentCard>
       }
     >
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Body Health Snapshot" description="BMI, adult category, visual scale, healthy range, waist-to-height ratio, target planner, and local history — calculated in your browser with no data sent to a server.">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ToolContentCard
+        title="BMI Screening Studio"
+        description="Adult BMI, waist-to-height context, applicability checks, local history, validated JSON import, and private report exports."
+      >
         <BmiCalculatorClient />
       </ToolContentCard>
     </ToolPage>

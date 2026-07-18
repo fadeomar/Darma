@@ -1,0 +1,41 @@
+{
+  "id": "balance-scale",
+  "name": "Balance Scale",
+  "category": "fun",
+  "tags": [
+    "balance",
+    "scale",
+    "weigh",
+    "justice",
+    "tilt"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "balance-scale balance scale fun balance scale weigh justice tilt html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-balance-scale\"><i></i></span>",
+  "previewCss": ".darma-loader-balance-scale {\n  position: relative;\n  width: 52px;\n  height: 48px;\n}\n.darma-loader-balance-scale::before {\n  content: \"\";\n  position: absolute;\n  bottom: 4px;\n  left: 50%;\n  width: 4px;\n  height: 34px;\n  margin-left: -2px;\n  border-radius: 2px;\n  background: #4338ca;\n}\n.darma-loader-balance-scale::after {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 50%;\n  width: 24px;\n  height: 5px;\n  margin-left: -12px;\n  border-radius: 2px;\n  background: #4338ca;\n}\n.darma-loader-balance-scale i {\n  position: absolute;\n  top: 8px;\n  left: 50%;\n  width: 40px;\n  height: 4px;\n  margin-left: -20px;\n  border-radius: 2px;\n  background: var(--loader-color, #6366f1);\n  transform-origin: center;\n  animation: darma-loader-balance-scale-tip 2s ease-in-out infinite;\n}\n.darma-loader-balance-scale i::before {\n  content: \"\";\n  position: absolute;\n  top: 2px;\n  left: -4px;\n  width: 14px;\n  height: 8px;\n  border: 2px solid var(--loader-color, #6366f1);\n  border-top: 0;\n  border-radius: 0 0 40% 40%;\n  box-sizing: border-box;\n}\n.darma-loader-balance-scale i::after {\n  content: \"\";\n  position: absolute;\n  top: 2px;\n  right: -4px;\n  width: 14px;\n  height: 8px;\n  border: 2px solid var(--loader-color, #6366f1);\n  border-top: 0;\n  border-radius: 0 0 40% 40%;\n  box-sizing: border-box;\n}\n@keyframes darma-loader-balance-scale-tip {\n  0%, 100% { transform: rotate(-9deg); }\n  50% { transform: rotate(9deg); }\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-balance-scale\"><i></i></span>",
+    "css": ".darma-loader-balance-scale {\n  position: relative;\n  width: 52px;\n  height: 48px;\n}\n.darma-loader-balance-scale::before {\n  content: \"\";\n  position: absolute;\n  bottom: 4px;\n  left: 50%;\n  width: 4px;\n  height: 34px;\n  margin-left: -2px;\n  border-radius: 2px;\n  background: #4338ca;\n}\n.darma-loader-balance-scale::after {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 50%;\n  width: 24px;\n  height: 5px;\n  margin-left: -12px;\n  border-radius: 2px;\n  background: #4338ca;\n}\n.darma-loader-balance-scale i {\n  position: absolute;\n  top: 8px;\n  left: 50%;\n  width: 40px;\n  height: 4px;\n  margin-left: -20px;\n  border-radius: 2px;\n  background: var(--loader-color, #6366f1);\n  transform-origin: center;\n  animation: darma-loader-balance-scale-tip 2s ease-in-out infinite;\n}\n.darma-loader-balance-scale i::before {\n  content: \"\";\n  position: absolute;\n  top: 2px;\n  left: -4px;\n  width: 14px;\n  height: 8px;\n  border: 2px solid var(--loader-color, #6366f1);\n  border-top: 0;\n  border-radius: 0 0 40% 40%;\n  box-sizing: border-box;\n}\n.darma-loader-balance-scale i::after {\n  content: \"\";\n  position: absolute;\n  top: 2px;\n  right: -4px;\n  width: 14px;\n  height: 8px;\n  border: 2px solid var(--loader-color, #6366f1);\n  border-top: 0;\n  border-radius: 0 0 40% 40%;\n  box-sizing: border-box;\n}\n@keyframes darma-loader-balance-scale-tip {\n  0%, 100% { transform: rotate(-9deg); }\n  50% { transform: rotate(9deg); }\n}",
+    "react": "export default function BalanceScaleLoader() {\n  return (\n    <span className=\"darma-loader-balance-scale\"><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

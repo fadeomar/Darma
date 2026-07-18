@@ -1,0 +1,41 @@
+{
+  "id": "dvd-bounce",
+  "name": "DVD Bounce",
+  "category": "fun",
+  "tags": [
+    "dvd",
+    "bounce",
+    "logo",
+    "screensaver",
+    "corner"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "dvd-bounce dvd bounce fun dvd bounce logo screensaver corner html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-dvd-bounce\"><i></i></span>",
+  "previewCss": ".darma-loader-dvd-bounce {\n  position: relative;\n  width: 56px;\n  height: 40px;\n  border: 2px solid #c7d2fe;\n  border-radius: 4px;\n  box-sizing: border-box;\n  overflow: hidden;\n}\n.darma-loader-dvd-bounce i {\n  position: absolute;\n  top: 4px;\n  left: 4px;\n  width: 16px;\n  height: 10px;\n  border-radius: 3px;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-dvd-bounce-bx 1.3s linear infinite alternate, darma-loader-dvd-bounce-by 1.05s linear infinite alternate;\n}\n@keyframes darma-loader-dvd-bounce-bx {\n  from { left: 3px; }\n  to { left: calc(100% - 19px); }\n}\n@keyframes darma-loader-dvd-bounce-by {\n  from { top: 3px; }\n  to { top: calc(100% - 13px); }\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-dvd-bounce\"><i></i></span>",
+    "css": ".darma-loader-dvd-bounce {\n  position: relative;\n  width: 56px;\n  height: 40px;\n  border: 2px solid #c7d2fe;\n  border-radius: 4px;\n  box-sizing: border-box;\n  overflow: hidden;\n}\n.darma-loader-dvd-bounce i {\n  position: absolute;\n  top: 4px;\n  left: 4px;\n  width: 16px;\n  height: 10px;\n  border-radius: 3px;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-dvd-bounce-bx 1.3s linear infinite alternate, darma-loader-dvd-bounce-by 1.05s linear infinite alternate;\n}\n@keyframes darma-loader-dvd-bounce-bx {\n  from { left: 3px; }\n  to { left: calc(100% - 19px); }\n}\n@keyframes darma-loader-dvd-bounce-by {\n  from { top: 3px; }\n  to { top: calc(100% - 13px); }\n}",
+    "react": "export default function DvdBounceLoader() {\n  return (\n    <span className=\"darma-loader-dvd-bounce\"><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

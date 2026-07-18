@@ -1,237 +1,164 @@
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 import {
+  buildBatchCsv,
+  buildJavaScriptStarter,
+  buildMarkdownReport,
+  buildTimeZoneRows,
+  buildTimestampChecks,
+  buildTimestampReport,
+  convertDateInput,
   convertTimestampInput,
   formatRelativeTime,
-  formatTimezoneOffset,
   formatTimestampDate,
-  convertDateInputs,
+  parseBatchTimestamps,
   toDateTimeLocalValue,
 } from "./timestamp";
+import type { TimestampResult } from "./types";
 
-// ─── convertTimestampInput ────────────────────────────────────────────────────
+const NOW = new Date("2026-01-01T00:00:00.000Z");
 
-describe("convertTimestampInput – empty input", () => {
-  it("returns status empty for blank string", () => {
-    const result = convertTimestampInput("", "auto");
-    expect(result.ok).toBe(true);
-    expect(result.status).toBe("empty");
+describe("convertTimestampInput", () => {
+  it("auto-detects Unix seconds", () => {
+    const result = convertTimestampInput("1700000000", "auto", NOW);
+    expect(result.ok && result.status === "valid" && result.unit).toBe("seconds");
+    expect(result.ok && result.status === "valid" && result.formats.iso).toBe("2023-11-14T22:13:20.000Z");
   });
 
-  it("returns status empty for whitespace-only string", () => {
-    const result = convertTimestampInput("   ", "auto");
-    expect(result.ok).toBe(true);
-    expect(result.status).toBe("empty");
-  });
-});
-
-describe("convertTimestampInput – valid 10-digit (seconds)", () => {
-  it("auto-detects seconds for a 10-digit timestamp", () => {
-    const result = convertTimestampInput("1700000000", "auto");
-    expect(result.ok).toBe(true);
-    expect(result.status).toBe("valid");
-    if (result.ok && result.status === "valid") {
-      expect(result.unit).toBe("seconds");
-      expect(result.date).toBeInstanceOf(Date);
-    }
+  it("auto-detects JavaScript milliseconds", () => {
+    const result = convertTimestampInput("1700000000000", "auto", NOW);
+    expect(result.ok && result.status === "valid" && result.unit).toBe("milliseconds");
   });
 
-  it("returns an ISO string in formats", () => {
-    const result = convertTimestampInput("0", "auto");
-    expect(result.ok).toBe(true);
-    if (result.ok && result.status === "valid") {
-      expect(result.formats.iso).toBe("1970-01-01T00:00:00.000Z");
-    }
-  });
-});
-
-describe("convertTimestampInput – valid 13-digit (milliseconds)", () => {
-  it("auto-detects milliseconds for a 13-digit timestamp", () => {
-    const result = convertTimestampInput("1700000000000", "auto");
-    expect(result.ok).toBe(true);
-    if (result.ok && result.status === "valid") {
-      expect(result.unit).toBe("milliseconds");
-    }
+  it("auto-detects microseconds", () => {
+    const result = convertTimestampInput("1700000000123456", "auto", NOW);
+    expect(result.ok && result.status === "valid" && result.unit).toBe("microseconds");
+    expect(result.ok && result.status === "valid" && result.formats.iso).toBe("2023-11-14T22:13:20.123Z");
   });
 
-  it("unix seconds in formats equals timestamp / 1000", () => {
-    const result = convertTimestampInput("1700000000000", "auto");
-    if (result.ok && result.status === "valid") {
-      expect(result.formats.unixSeconds).toBe("1700000000");
-    }
-  });
-});
-
-describe("convertTimestampInput – manual mode", () => {
-  it("respects explicit seconds mode", () => {
-    const result = convertTimestampInput("1700000000", "seconds");
-    expect(result.ok).toBe(true);
-    if (result.ok && result.status === "valid") {
-      expect(result.unit).toBe("seconds");
-    }
+  it("auto-detects nanoseconds without requiring BigInt", () => {
+    const result = convertTimestampInput("1700000000123456789", "auto", NOW);
+    expect(result.ok && result.status === "valid" && result.unit).toBe("nanoseconds");
+    expect(result.ok && result.status === "valid" && result.formats.iso).toBe("2023-11-14T22:13:20.123Z");
   });
 
-  it("respects explicit milliseconds mode", () => {
-    const result = convertTimestampInput("1700000000000", "milliseconds");
-    expect(result.ok).toBe(true);
-    if (result.ok && result.status === "valid") {
-      expect(result.unit).toBe("milliseconds");
-    }
+  it("supports fractional seconds", () => {
+    const result = convertTimestampInput("1700000000.5", "seconds", NOW);
+    expect(result.ok && result.status === "valid" && result.formats.iso).toBe("2023-11-14T22:13:20.500Z");
   });
-});
 
-describe("convertTimestampInput – invalid input", () => {
-  it("rejects non-integer input", () => {
-    const result = convertTimestampInput("not-a-number", "auto");
+  it("reports precision loss below one millisecond", () => {
+    const result = convertTimestampInput("1700000000123456", "microseconds", NOW);
+    expect(result.ok && result.status === "valid" && result.precisionLoss).toBe(true);
+  });
+
+  it("rejects malformed input", () => {
+    const result = convertTimestampInput("1e9", "seconds", NOW);
     expect(result.ok).toBe(false);
-    expect(result).toHaveProperty("error.code", "invalid-format");
+    if (!result.ok) expect((result as Extract<TimestampResult, { ok: false }>).error.code).toBe("invalid-format");
   });
 
-  it("rejects floating point input", () => {
-    const result = convertTimestampInput("1700000000.5", "auto");
+  it("rejects manual values outside the Date range", () => {
+    const result = convertTimestampInput("999999999999999999", "seconds", NOW);
     expect(result.ok).toBe(false);
-    expect(result).toHaveProperty("error.code", "invalid-format");
+    if (!result.ok) expect((result as Extract<TimestampResult, { ok: false }>).error.code).toBe("out-of-range");
   });
 
-  it("rejects an unsafe integer (too many digits)", () => {
-    const result = convertTimestampInput("99999999999999999999", "auto");
+  it("supports negative pre-epoch values", () => {
+    const result = convertTimestampInput("-1", "seconds", NOW);
+    expect(result.ok && result.status === "valid" && result.formats.iso).toBe("1969-12-31T23:59:59.000Z");
+  });
+});
+
+describe("date input conversion", () => {
+  it("parses ISO input with an explicit offset", () => {
+    const result = convertDateInput("2026-01-01T02:00:00+02:00", "iso", NOW);
+    expect(result.ok && result.status === "valid" && result.formats.iso).toBe("2026-01-01T00:00:00.000Z");
+  });
+
+  it("rejects ISO input without an explicit timezone", () => {
+    const result = convertDateInput("2026-01-01T02:00:00", "iso", NOW);
     expect(result.ok).toBe(false);
-    expect(result).toHaveProperty("error.code", "out-of-range");
-  });
-});
-
-// ─── formatRelativeTime ───────────────────────────────────────────────────────
-
-describe("formatRelativeTime", () => {
-  const now = new Date("2026-01-01T12:00:00Z");
-
-  it("formats past days", () => {
-    const date = new Date("2025-12-29T12:00:00Z"); // 3 days ago
-    expect(formatRelativeTime(date, now)).toBe("3 days ago");
   });
 
-  it("formats singular past day", () => {
-    const date = new Date("2025-12-31T12:00:00Z");
-    expect(formatRelativeTime(date, now)).toBe("1 day ago");
-  });
-
-  it("formats future days", () => {
-    const date = new Date("2026-01-04T12:00:00Z");
-    expect(formatRelativeTime(date, now)).toBe("in 3 days");
-  });
-
-  it("formats past hours", () => {
-    const date = new Date("2026-01-01T10:00:00Z");
-    expect(formatRelativeTime(date, now)).toBe("2 hours ago");
-  });
-
-  it("formats singular past hour", () => {
-    const date = new Date("2026-01-01T11:00:00Z");
-    expect(formatRelativeTime(date, now)).toBe("1 hour ago");
-  });
-
-  it("formats past minutes", () => {
-    const date = new Date("2026-01-01T11:55:00Z");
-    expect(formatRelativeTime(date, now)).toBe("5 minutes ago");
-  });
-
-  it("formats past seconds", () => {
-    const date = new Date("2026-01-01T11:59:30Z");
-    expect(formatRelativeTime(date, now)).toBe("30 seconds ago");
-  });
-
-  it("returns 'now' for very recent timestamps", () => {
-    const date = new Date("2026-01-01T12:00:00.500Z");
-    expect(formatRelativeTime(date, now)).toBe("now");
-  });
-});
-
-// ─── formatTimezoneOffset ────────────────────────────────────────────────────
-
-describe("formatTimezoneOffset", () => {
-  it("returns a UTC+HH:MM string", () => {
-    // The result depends on the test environment's timezone, so validate the pattern
-    const result = formatTimezoneOffset(new Date());
-    expect(result).toMatch(/^UTC[+-]\d{2}:\d{2}$/);
-  });
-});
-
-// ─── formatTimestampDate ─────────────────────────────────────────────────────
-
-describe("formatTimestampDate", () => {
-  it("returns all expected format keys", () => {
-    const date = new Date("2026-01-01T00:00:00.000Z");
-    const now = new Date("2026-01-01T00:00:00.000Z");
-    const formats = formatTimestampDate(date, now);
-    expect(formats).toHaveProperty("iso");
-    expect(formats).toHaveProperty("utc");
-    expect(formats).toHaveProperty("local");
-    expect(formats).toHaveProperty("unixSeconds");
-    expect(formats).toHaveProperty("unixMilliseconds");
-    expect(formats).toHaveProperty("timezoneOffset");
-    expect(formats).toHaveProperty("relative");
-  });
-
-  it("iso format is valid ISO 8601", () => {
-    const date = new Date("2026-06-15T10:30:00.000Z");
-    const formats = formatTimestampDate(date, date);
-    expect(formats.iso).toBe("2026-06-15T10:30:00.000Z");
-  });
-
-  it("unixSeconds is string representation of Math.floor(ms/1000)", () => {
-    const date = new Date("2026-01-01T00:00:00.000Z");
-    const formats = formatTimestampDate(date, date);
-    expect(formats.unixSeconds).toBe(String(Math.floor(date.getTime() / 1000)));
-  });
-});
-
-// ─── convertDateInputs ────────────────────────────────────────────────────────
-
-describe("convertDateInputs – ISO input", () => {
-  it("parses a valid ISO datetime with Z timezone", () => {
-    const result = convertDateInputs("", "2026-01-01T00:00:00.000Z");
-    expect(result.ok).toBe(true);
-    if (result.ok && result.status === "valid") {
-      expect(result.source).toBe("iso");
-      expect(result.date.toISOString()).toBe("2026-01-01T00:00:00.000Z");
-    }
-  });
-
-  it("rejects ISO without timezone", () => {
-    const result = convertDateInputs("", "2026-01-01T00:00:00");
+  it("rejects impossible local dates", () => {
+    const result = convertDateInput("2026-02-30T12:00:00", "local", NOW);
     expect(result.ok).toBe(false);
-    expect(result).toHaveProperty("error.code", "invalid-format");
   });
 
-  it("returns empty when both inputs are empty", () => {
-    const result = convertDateInputs("", "");
-    expect(result.ok).toBe(true);
-    expect(result.status).toBe("empty");
+  it("formats datetime-local values with seconds", () => {
+    const date = new Date(2026, 0, 2, 3, 4, 5);
+    expect(toDateTimeLocalValue(date)).toBe("2026-01-02T03:04:05");
   });
 });
 
-describe("convertDateInputs – local datetime input", () => {
-  it("parses a valid local datetime string", () => {
-    const result = convertDateInputs("2026-03-15T14:30", "");
-    expect(result.ok).toBe(true);
-    if (result.ok && result.status === "valid") {
-      expect(result.source).toBe("local");
-    }
+describe("formatting and time zones", () => {
+  it("creates all epoch formats", () => {
+    const formats = formatTimestampDate(new Date("2023-11-14T22:13:20.123Z"), NOW);
+    expect(formats.unixSeconds).toBe("1700000000.123");
+    expect(formats.unixMilliseconds).toBe("1700000000123");
+    expect(formats.unixMicroseconds).toBe("1700000000123000");
+    expect(formats.unixNanoseconds).toBe("1700000000123000000");
   });
 
-  it("rejects malformed local datetime", () => {
-    const result = convertDateInputs("not-a-date", "");
-    expect(result.ok).toBe(false);
-    expect(result).toHaveProperty("error.code", "invalid-format");
+  it("formats relative future time", () => {
+    expect(formatRelativeTime(new Date("2026-01-03T00:00:00Z"), NOW)).toBe("in 2 days");
+  });
+
+  it("formats UTC as a valid time-zone row", () => {
+    const rows = buildTimeZoneRows(new Date("2026-01-01T12:00:00Z"), [{ id: "utc", label: "UTC", zone: "UTC" }]);
+    expect(rows[0]).toMatchObject({ valid: true, time: "12:00:00", offset: "UTC+00:00" });
   });
 });
 
-// ─── toDateTimeLocalValue ────────────────────────────────────────────────────
+describe("batch conversion", () => {
+  it("converts mixed explicit units", () => {
+    const rows = parseBatchTimestamps("1700000000 s\n1700000000000 ms\n1700000000123456 us\n1700000000123456789 ns", "auto", NOW);
+    expect(rows).toHaveLength(4);
+    expect(rows.every((row) => row.ok)).toBe(true);
+    expect(rows.map((row) => row.detectedUnit)).toEqual(["seconds", "milliseconds", "microseconds", "nanoseconds"]);
+  });
 
-describe("toDateTimeLocalValue", () => {
-  it("formats a Date as YYYY-MM-DDTHH:mm:ss", () => {
-    // Use a known local time by constructing with local date parts
-    const date = new Date(2026, 0, 1, 14, 30, 45); // local Jan 1 2026 14:30:45
-    const result = toDateTimeLocalValue(date);
-    expect(result).toBe("2026-01-01T14:30:45");
+  it("keeps invalid rows visible", () => {
+    const rows = parseBatchTimestamps("1700000000\ninvalid\n1700000000 parsecs", "auto", NOW);
+    expect(rows).toHaveLength(3);
+    expect(rows.filter((row) => !row.ok)).toHaveLength(2);
+  });
+
+  it("builds a CSV with valid and invalid rows", () => {
+    const rows = parseBatchTimestamps("1700000000 seconds\ninvalid", "auto", NOW);
+    const csv = buildBatchCsv(rows);
+    expect(csv).toContain("requested_unit");
+    expect(csv).toContain("2023-11-14T22:13:20.000Z");
+    expect(csv).toContain("Enter a numeric epoch value");
+  });
+});
+
+describe("checks and exports", () => {
+  it("warns when sub-millisecond precision is truncated", () => {
+    const result = convertTimestampInput("1700000000123456", "microseconds", NOW);
+    const checks = buildTimestampChecks({ inputMode: "epoch", timestampResult: result, batchRows: [], zoneRows: [] });
+    expect(checks.some((check) => check.id === "precision-loss")).toBe(true);
+  });
+
+  it("builds a redaction-free audit report and markdown", () => {
+    const result = convertTimestampInput("1700000000", "seconds", NOW);
+    const checks = buildTimestampChecks({ inputMode: "epoch", timestampResult: result, batchRows: [], zoneRows: [] });
+    const report = buildTimestampReport({
+      inputMode: "epoch",
+      sourceValue: "1700000000",
+      requestedUnit: "seconds",
+      result,
+      zoneRows: [],
+      batchRows: [],
+      checks,
+    });
+    expect(report.result.iso).toBe("2023-11-14T22:13:20.000Z");
+    expect(buildMarkdownReport(report)).toContain("Timestamp conversion report");
+  });
+
+  it("generates a JavaScript starter", () => {
+    const output = buildJavaScriptStarter("microseconds");
+    expect(output).toContain("timestampToIso");
+    expect(output).toContain('const DEFAULT_UNIT = "microseconds"');
   });
 });

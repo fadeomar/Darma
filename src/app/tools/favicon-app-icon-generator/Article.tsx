@@ -26,14 +26,21 @@ export default function Article() {
         </div>
       </ToolArticleSection>
 
-      <ToolArticleSection title="Recommended workflow">
+      <ToolArticleSection title="Recommended production workflow">
         <ol className="space-y-1 pl-5 [&>li]:list-decimal">
-          <li>Start with a square image or SVG when possible and keep important artwork centered.</li>
+          <li>Start with a square image or safe SVG when possible and keep important artwork centered.</li>
           <li>Add enough padding to protect artwork when adaptive launchers crop maskable icons.</li>
-          <li>Check the 16px, 32px, and home-screen previews before exporting.</li>
-          <li>Choose the export pack and install snippet that match your project.</li>
+          <li>Check the 16px, 32px, browser, iOS, Android, and maskable previews before exporting.</li>
+          <li>Review the production cards and resolve stale-package, contrast, PWA, and install warnings.</li>
+          <li>Export a JSON project if the design must be reopened or handed to another developer.</li>
           <li>Download the ZIP, preserve its folder structure, and place the files in the appropriate public or app folder.</li>
         </ol>
+      </ToolArticleSection>
+
+      <ToolArticleSection title="Project backups and production handoff">
+        <p>The versioned JSON project stores design, manifest, source-transform, target-project, and export-pack settings. Uploaded raster images are deliberately excluded so a backup does not silently contain a large or private logo file.</p>
+        <p>Safe SVG markup is embedded only below the project limit. If the source is excluded, import restores every other setting and asks you to reattach the local artwork.</p>
+        <p>Each production ZIP also includes <code>favicon-project.json</code>, <code>production-audit.md</code>, and <code>production-metrics.csv</code> beside the generated icons, manifests, snippets, and install notes.</p>
       </ToolArticleSection>
 
       <ToolArticleSection title="Web, iOS, Android, and PWA icons">
@@ -47,8 +54,9 @@ export default function Article() {
         <p>Projects can also keep assets such as manifest icons in <code>public</code>—for example <code>public/icon-192.png</code>—and reference them from a manifest or from metadata in <code>app/layout.tsx</code>. Use the generated snippet as a starting point and match its paths to your chosen folder structure.</p>
       </ToolArticleSection>
 
-      <ToolArticleSection title="Privacy">
-        <p>Icon rendering, package generation, and validation run locally in your browser. Uploaded artwork is not sent to a server by this tool.</p>
+      <ToolArticleSection title="Privacy and stale-package protection">
+        <p>Icon rendering, project parsing, package generation, and validation run locally in your browser. Uploaded artwork is not sent to a server by this tool.</p>
+        <p>After any setting changes, Darma invalidates the previous generated package immediately. Downloads are re-enabled only after the regenerated files match the current design fingerprint, preventing an older ZIP from being handed off accidentally.</p>
       </ToolArticleSection>
 
       <ToolFaq
@@ -58,7 +66,8 @@ export default function Article() {
           { question: "Why does a transparent background look wrong on mobile?", answer: "Some mobile and launcher surfaces supply their own background or expect an opaque icon. Use a solid background for more predictable Apple, Android, and PWA results." },
           { question: "Why is my Apple icon not updating?", answer: "Confirm the apple-touch-icon path, remove and add the home-screen shortcut again, and allow for aggressive device caching." },
           { question: "Why does the browser still show my old favicon?", answer: "Favicons are cached aggressively. Verify the deployed URL, clear site data, try a private window, or temporarily use a cache-busting filename while testing." },
-          { question: "Which files should I upload to my project?", answer: "Use the files in your selected export pack. A typical site needs favicon.ico, small PNG favicons, an Apple touch icon, 192px and 512px icons, the manifest, and the matching HTML or framework setup." },
+          { question: "Which files should I upload to my project?", answer: "Use the files in your selected export pack. A typical site needs favicon.ico, small PNG favicons, an Apple touch icon, 192px and 512px icons, the manifest, and the matching HTML or framework setup. The audit, metrics, and Darma project files are handoff documentation and do not need to be deployed publicly." },
+          { question: "Does the JSON project contain my uploaded logo?", answer: "No. Raster image data is intentionally excluded. Safe SVG markup is included only below 256 KB; otherwise reattach the source after importing the project." },
           { question: "Why do I need manifest icons?", answer: "The web manifest tells browsers which icons to use for PWA installation, app launchers, and other installed experiences. It commonly references 192×192 and 512×512 images plus maskable variants." },
         ]}
       />

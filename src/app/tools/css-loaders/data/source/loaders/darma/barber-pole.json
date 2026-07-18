@@ -1,0 +1,31 @@
+{
+  "id": "barber-pole",
+  "name": "Barber Pole",
+  "category": "creative",
+  "tags": [
+    "barber",
+    "pole",
+    "stripes",
+    "diagonal",
+    "roll"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader {\n  width: 20px;\n  height: 52px;\n  border-radius: 10px;\n  box-sizing: border-box;\n  background: repeating-linear-gradient(45deg, #6366f1 0 8px, #eef2ff 8px 16px);\n  background-size: 100% 200%;\n  box-shadow: inset 3px 0 5px rgba(0, 0, 0, 0.15), inset -3px 0 5px rgba(0, 0, 0, 0.15);\n  animation: roll 0.9s linear infinite;\n}\n@keyframes roll {\n  from { background-position: 0 0; }\n  to { background-position: 0 -22.63px; }\n}",
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "secondaryColor": "#eef2ff",
+    "size": 52,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": true
+  }
+}

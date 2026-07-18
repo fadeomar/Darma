@@ -10,7 +10,9 @@ import {
   Download,
   Eraser,
   Eye,
+  FileArchive,
   FileInput,
+  FileJson,
   Grid3X3,
   Keyboard,
   Layers,
@@ -21,8 +23,10 @@ import {
   Scissors,
   Search,
   ScanSearch,
+  ShieldCheck,
   Star,
   Undo2,
+  Upload,
   Wand2,
   ZoomIn,
   ZoomOut,
@@ -31,6 +35,17 @@ import { Point, SvgItem, SvgPath, SvgPoint } from "./lib/svg";
 import { optimizePath } from "./lib/optimize-path";
 import { reversePath } from "./lib/reverse-path";
 import type { SvgCommandTypeAny } from "./lib/svg-command-types";
+import {
+  analyzePath,
+  buildCssMaskSnippet,
+  buildJsonManifest,
+  buildMarkdownReport,
+  buildProductionChecks,
+  buildReactComponent,
+  buildSvgMarkup,
+  calculatePathBounds,
+  extractSvgPaths,
+} from "./lib/studio";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
@@ -129,35 +144,6 @@ function safeNumber(value: string, fallback = 0) {
   return Number.isFinite(next) ? next : fallback;
 }
 
-function extractAllPaths(input: string): string[] {
-  const direct = input.trim();
-  if (!direct.includes("<")) return direct ? [direct] : [];
-  const results: string[] = [];
-  // Use dotAll-style match per path tag to handle multiline d attributes
-  const pathTagRegex = /<path\b([\s\S]*?)(?:\/>|>)/gi;
-  let tagMatch: RegExpExecArray | null;
-  while ((tagMatch = pathTagRegex.exec(direct)) !== null) {
-    const attrs = tagMatch[1];
-    const dMatch = attrs.match(/\bd=(["'])([\s\S]*?)\1/i);
-    const d = dMatch?.[2]?.trim().replace(/\s+/g, " ");
-    if (d) results.push(d);
-  }
-  return results;
-}
-
-function computePathBounds(svg: SvgPath): Box | null {
-  const points = svg.path.flatMap((item) => [...item.absolutePoints, ...item.absoluteControlPoints]);
-  if (!points.length) return null;
-  const xs = points.map((p) => p.x);
-  const ys = points.map((p) => p.y);
-  const minX = Math.min(...xs);
-  const minY = Math.min(...ys);
-  const maxX = Math.max(...xs);
-  const maxY = Math.max(...ys);
-  const pad = Math.max((maxX - minX) * 0.14, (maxY - minY) * 0.14, 24);
-  return { x: minX - pad, y: minY - pad, width: maxX - minX + pad * 2, height: maxY - minY + pad * 2 };
-}
-
 function loadSaved(): SavedPath[] {
   try {
     const raw = localStorage.getItem(LS_SAVED_KEY);
@@ -224,6 +210,16 @@ function SectionTitle({ icon, children }: { icon: ReactNode; children: ReactNode
   );
 }
 
+function SummaryCard({ label, value, hint }: { label: string; value: ReactNode; hint: string }) {
+  return (
+    <div className="svg-editor-summary-card">
+      <span>{label}</span>
+      <strong>{value}</strong>
+      <small>{hint}</small>
+    </div>
+  );
+}
+
 function ExampleCard({ example, onLoad }: { example: Example; onLoad: (path: string) => void }) {
   const preview = useMemo(() => {
     try { return new SvgPath(example.path).asString(2, false); } catch { return example.path; }
@@ -284,8 +280,10 @@ export default function SvgPathEditorClient() {
   const [exampleCategory, setExampleCategory] = useState<ExampleCategory | "All">("All");
   const [savedPaths, setSavedPaths] = useState<SavedPath[]>(() => loadSaved());
   const [showShortcuts, setShowShortcuts] = useState(false);
+  const [isPacking, setIsPacking] = useState(false);
 
   const svgRef = useRef<SVGSVGElement | null>(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
   const draftPathRef = useRef(rawPath);
   const toastTimerRef = useRef<number | null>(null);
 
@@ -299,7 +297,23 @@ export default function SvgPathEditorClient() {
   const controls = svg?.controlLocations() ?? [];
   const selectedItem = svg?.path[selectedIndex] ?? null;
   const formattedPath = svg ? svg.asString(decimals, minify) : "";
-  const fullSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${box.x} ${box.y} ${box.width} ${box.height}">\n  <path d="${formattedPath || rawPath}" fill="${fillPreview ? fillColor : "none"}" stroke="${strokeColor}" stroke-width="${strokeWidth}"/>\n</svg>`;
+  const exportOptions = useMemo(() => ({
+    path: formattedPath || rawPath,
+    viewBox: box,
+    fill: fillPreview ? fillColor : "none",
+    stroke: strokeColor,
+    strokeWidth,
+    componentName: "DarmaSvgPath",
+  }), [box, fillColor, fillPreview, formattedPath, rawPath, strokeColor, strokeWidth]);
+  const analysis = useMemo(() => (svg ? analyzePath(svg, formattedPath) : null), [formattedPath, svg]);
+  const productionChecks = useMemo(() => buildProductionChecks(analysis, {
+    hasError: Boolean(error),
+    fillEnabled: fillPreview,
+    minified: minify,
+  }), [analysis, error, fillPreview, minify]);
+  const fullSvg = error ? "" : buildSvgMarkup(exportOptions);
+  const reactComponent = error ? "" : buildReactComponent(exportOptions);
+  const cssMask = error ? "" : buildCssMaskSnippet(exportOptions);
 
   const filteredExamples = useMemo(() => {
     const q = exampleSearch.toLowerCase();
@@ -386,20 +400,84 @@ export default function SvgPathEditorClient() {
     } catch { showToast("Copy failed"); }
   }
 
-  function download() {
-    const blob = new Blob([fullSvg], { type: "image/svg+xml" });
+  function downloadBlob(filename: string, content: BlobPart, type: string) {
+    const blob = new Blob([content], { type });
     const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "darma-svg-path.svg";
-    a.click();
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = filename;
+    anchor.hidden = true;
+    document.body.append(anchor);
+    anchor.click();
+    anchor.remove();
     window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
+  function downloadSvg() {
+    downloadBlob("darma-svg-path.svg", fullSvg, "image/svg+xml;charset=utf-8");
+  }
+
+  function downloadJson() {
+    if (!analysis) return;
+    downloadBlob(
+      "darma-svg-path.json",
+      buildJsonManifest(exportOptions, analysis),
+      "application/json;charset=utf-8",
+    );
+  }
+
+  async function downloadProductionPack() {
+    if (!analysis || error || isPacking) return;
+    setIsPacking(true);
+    try {
+      const { default: JSZip } = await import("jszip");
+      const zip = new JSZip();
+      zip.file("darma-svg-path.svg", fullSvg);
+      zip.file("DarmaSvgPath.tsx", reactComponent);
+      zip.file("darma-svg-path-mask.css", cssMask);
+      zip.file("darma-svg-path.json", buildJsonManifest(exportOptions, analysis));
+      zip.file("README.md", buildMarkdownReport(analysis, productionChecks));
+      const blob = await zip.generateAsync({ type: "blob", compression: "DEFLATE", compressionOptions: { level: 6 } });
+      downloadBlob("darma-svg-path-production-pack.zip", blob, "application/zip");
+      showToast("Production pack downloaded");
+    } catch (packError) {
+      console.error(packError);
+      showToast("ZIP export failed");
+    } finally {
+      setIsPacking(false);
+    }
   }
 
   // ── Import ─────────────────────────────────────────────────────────────────
 
+  async function handleImportFile(file: File | undefined) {
+    if (!file) return;
+    if (file.size > 2 * 1024 * 1024) {
+      showToast("SVG file must be 2 MB or smaller");
+      return;
+    }
+    try {
+      const content = await file.text();
+      setImportRaw(content);
+      const paths = extractSvgPaths(content);
+      if (!paths.length) {
+        setImportPaths([]);
+        showToast("No path d attribute found");
+      } else if (paths.length === 1) {
+        loadPath(paths[0]);
+      } else {
+        setImportPaths(paths);
+        showToast(`${paths.length} paths found`);
+      }
+    } catch {
+      showToast("Could not read the selected file");
+    } finally {
+      if (fileInputRef.current) fileInputRef.current.value = "";
+    }
+  }
+
   function handleImportParse() {
-    const paths = extractAllPaths(importRaw);
+    const paths = extractSvgPaths(importRaw);
     if (!paths.length) { showToast("No path d attribute found"); return; }
     if (paths.length === 1) {
       loadPath(paths[0]);
@@ -413,7 +491,7 @@ export default function SvgPathEditorClient() {
       const parsed = new SvgPath(pathStr);
       commit(parsed.asString(decimals, minify));
       // Auto-fit viewBox to the loaded path
-      const bounds = computePathBounds(parsed);
+      const bounds = calculatePathBounds(parsed);
       if (bounds) setBox(bounds);
       showToast("Path loaded");
       setImportRaw("");
@@ -527,18 +605,9 @@ export default function SvgPathEditorClient() {
     });
   }
 
-  function zoomAtClientPoint(amount: number, clientX: number, clientY: number) {
-    const el = svgRef.current;
-    if (!el) { zoom(amount); return; }
-    const rect = el.getBoundingClientRect();
-    const svgX = box.x + ((clientX - rect.left) / rect.width) * box.width;
-    const svgY = box.y + ((clientY - rect.top) / rect.height) * box.height;
-    zoom(amount, { x: svgX, y: svgY });
-  }
-
   function fitToPath() {
     if (!svg) return;
-    const bounds = computePathBounds(svg);
+    const bounds = calculatePathBounds(svg);
     if (bounds) setBox(bounds);
   }
 
@@ -594,8 +663,7 @@ export default function SvgPathEditorClient() {
     }
     el.addEventListener("wheel", onWheel, { passive: false });
     return () => el.removeEventListener("wheel", onWheel);
-  // re-attach whenever svgRef settles (only once in practice)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // Re-attach whenever the canvas element is mounted.
   }, []);
 
   // ── Grid ───────────────────────────────────────────────────────────────────
@@ -615,7 +683,7 @@ export default function SvgPathEditorClient() {
 
   return (
     <main className="svg-editor-page">
-      {toast ? <div className="svg-editor-toast">{toast}</div> : null}
+      {toast ? <div className="svg-editor-toast" role="status" aria-live="polite">{toast}</div> : null}
 
       {/* Shortcuts modal */}
       {showShortcuts && (
@@ -658,9 +726,20 @@ export default function SvgPathEditorClient() {
           </Button>
           <Button onClick={() => copy("Path copied", formattedPath)} disabled={Boolean(error)}><Clipboard size={15} /> Copy path</Button>
           <Button onClick={() => copy("SVG copied", fullSvg)} disabled={Boolean(error)}><Code2 size={15} /> Copy SVG</Button>
-          <Button onClick={download} disabled={Boolean(error)}><Download size={15} /> Download</Button>
+          <Button onClick={downloadSvg} disabled={Boolean(error)}><Download size={15} /> SVG</Button>
           <Button onClick={() => setShowShortcuts(true)} title="Keyboard shortcuts"><Keyboard size={15} /></Button>
         </div>
+      </section>
+
+      <section className="svg-editor-summary-grid" aria-label="SVG path summary">
+        <SummaryCard label="Commands" value={analysis?.commandCount ?? "—"} hint={`${analysis?.subpathCount ?? 0} subpath${analysis?.subpathCount === 1 ? "" : "s"}`} />
+        <SummaryCard label="Editable points" value={analysis?.editablePointCount ?? "—"} hint={`${analysis?.controlPointCount ?? 0} curve controls`} />
+        <SummaryCard
+          label="Geometry"
+          value={analysis?.bounds ? `${round(analysis.bounds.width)} × ${round(analysis.bounds.height)}` : "—"}
+          hint="Approximate path bounds"
+        />
+        <SummaryCard label="Path payload" value={analysis ? `${analysis.outputBytes.toLocaleString()} B` : "—"} hint={minify ? "Minified output" : "Formatted output"} />
       </section>
 
       {/* Workbench */}
@@ -704,8 +783,16 @@ export default function SvgPathEditorClient() {
                   onChange={(e) => setImportRaw(e.target.value)}
                   spellCheck={false}
                 />
+                <input
+                  ref={fileInputRef}
+                  className="svg-editor-file-input"
+                  type="file"
+                  accept=".svg,image/svg+xml,text/plain"
+                  onChange={(event) => void handleImportFile(event.target.files?.[0])}
+                />
                 <div className="svg-editor-row-gap">
-                  <Button onClick={handleImportParse} disabled={!importRaw.trim()}><FileInput size={14} /> Import</Button>
+                  <Button onClick={() => fileInputRef.current?.click()}><Upload size={14} /> Open file</Button>
+                  <Button onClick={handleImportParse} disabled={!importRaw.trim()}><FileInput size={14} /> Parse text</Button>
                   <Button onClick={() => { setImportRaw(""); setImportPaths([]); }} disabled={!importRaw.trim()}><Eraser size={14} /> Clear</Button>
                 </div>
                 {importPaths.length > 1 && (
@@ -814,7 +901,7 @@ export default function SvgPathEditorClient() {
                         commit(path);
                         // Auto-fit viewBox so the example is always centered and fully visible
                         try {
-                          const bounds = computePathBounds(new SvgPath(path));
+                          const bounds = calculatePathBounds(new SvgPath(path));
                           if (bounds) setBox(bounds);
                         } catch { /* noop */ }
                         showToast(`Loaded: ${ex.label}`);
@@ -1007,11 +1094,30 @@ export default function SvgPathEditorClient() {
           </div>
 
           <div className="svg-editor-section">
-            <SectionTitle icon={<Download size={14} />}>Output</SectionTitle>
+            <SectionTitle icon={<ShieldCheck size={14} />}>Production checks</SectionTitle>
+            <div className="svg-editor-check-list">
+              {productionChecks.map((check) => (
+                <div key={check.id} className={`svg-editor-check is-${check.severity}`}>
+                  <span>{check.severity}</span>
+                  <div>
+                    <strong>{check.title}</strong>
+                    <p>{check.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="svg-editor-section">
+            <SectionTitle icon={<Download size={14} />}>Production exports</SectionTitle>
             <textarea className="svg-editor-output" readOnly value={error ? "" : formattedPath} />
-            <div className="svg-editor-button-grid">
+            <div className="svg-editor-button-grid svg-editor-export-grid">
               <Button onClick={() => copy("Path copied", formattedPath)} disabled={Boolean(error)}>Copy path</Button>
               <Button onClick={() => copy("SVG copied", fullSvg)} disabled={Boolean(error)}>Copy SVG</Button>
+              <Button onClick={() => copy("React copied", reactComponent)} disabled={Boolean(error)}><Code2 size={13} /> React</Button>
+              <Button onClick={() => copy("CSS mask copied", cssMask)} disabled={Boolean(error)}>CSS mask</Button>
+              <Button onClick={downloadJson} disabled={!analysis}><FileJson size={13} /> JSON</Button>
+              <Button onClick={() => void downloadProductionPack()} disabled={!analysis || isPacking}><FileArchive size={13} /> {isPacking ? "Packing…" : "ZIP pack"}</Button>
             </div>
           </div>
 

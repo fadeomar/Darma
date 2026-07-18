@@ -1,0 +1,30 @@
+{
+  "id": "yin-yang-spin",
+  "name": "Yin Yang Spin",
+  "category": "creative",
+  "tags": [
+    "yin",
+    "yang",
+    "balance",
+    "spin",
+    "duotone"
+  ],
+  "html": "<span class=\"loader\"></span>",
+  "css": ".loader {\n  width: 52px;\n  height: 52px;\n  border-radius: 50%;\n  background:\n    radial-gradient(circle at 50% 25%, #e0e7ff 4%, transparent 5%),\n    radial-gradient(circle at 50% 75%, #6366f1 4%, transparent 5%),\n    radial-gradient(circle at 50% 25%, #6366f1 22%, transparent 23%),\n    radial-gradient(circle at 50% 75%, #e0e7ff 22%, transparent 23%),\n    linear-gradient(to right, #e0e7ff 50%, #6366f1 50%);\n  animation: spin 1.4s linear infinite;\n}\n@keyframes spin { to { transform: rotate(360deg); } }",
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "secondaryColor": "#e0e7ff",
+    "size": 52,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

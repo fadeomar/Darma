@@ -2,9 +2,11 @@ export type ClickTestMode = 5 | 10 | 30 | 60 | "manual";
 
 export type ClickInputMethod = "Mouse" | "Touch" | "Pen" | "Mixed" | "None";
 
+export type ClickSampleSource = "mouse" | "touch" | "pen";
+
 export type ClickSample = {
   time: number;
-  source: "mouse" | "touch" | "pen";
+  source: ClickSampleSource;
 };
 
 export type ClickStats = {
@@ -22,5 +24,7 @@ export type ClickAttempt = {
   id: string;
   createdAt: string;
   mode: ClickTestMode;
+  elapsedMs: number;
   stats: ClickStats;
+  samples: ClickSample[];
 };

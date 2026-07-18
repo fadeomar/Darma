@@ -1,0 +1,41 @@
+{
+  "id": "washing-machine",
+  "name": "Washing Machine",
+  "category": "fun",
+  "tags": [
+    "washing",
+    "machine",
+    "drum",
+    "tumble",
+    "spin"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "washing-machine washing machine fun washing machine drum tumble spin html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-washing-machine\"><i></i></span>",
+  "previewCss": ".darma-loader-washing-machine {\n  position: relative;\n  width: 48px;\n  height: 48px;\n  border: 3px solid var(--loader-color, #6366f1);\n  border-radius: 8px;\n  box-sizing: border-box;\n}\n.darma-loader-washing-machine::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 34px;\n  height: 34px;\n  margin: -17px 0 0 -17px;\n  border-radius: 50%;\n  border: 3px solid #c7d2fe;\n  box-sizing: border-box;\n}\n.darma-loader-washing-machine i {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 32px;\n  height: 32px;\n  margin: -16px 0 0 -16px;\n  border-radius: 50%;\n  animation: darma-loader-washing-machine-spin 0.9s linear infinite;\n}\n.darma-loader-washing-machine i::before {\n  content: \"\";\n  position: absolute;\n  top: 2px;\n  left: 50%;\n  width: 8px;\n  height: 8px;\n  margin-left: -4px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n}\n@keyframes darma-loader-washing-machine-spin { to { transform: rotate(360deg); } }",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-washing-machine\"><i></i></span>",
+    "css": ".darma-loader-washing-machine {\n  position: relative;\n  width: 48px;\n  height: 48px;\n  border: 3px solid var(--loader-color, #6366f1);\n  border-radius: 8px;\n  box-sizing: border-box;\n}\n.darma-loader-washing-machine::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 34px;\n  height: 34px;\n  margin: -17px 0 0 -17px;\n  border-radius: 50%;\n  border: 3px solid #c7d2fe;\n  box-sizing: border-box;\n}\n.darma-loader-washing-machine i {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 32px;\n  height: 32px;\n  margin: -16px 0 0 -16px;\n  border-radius: 50%;\n  animation: darma-loader-washing-machine-spin 0.9s linear infinite;\n}\n.darma-loader-washing-machine i::before {\n  content: \"\";\n  position: absolute;\n  top: 2px;\n  left: 50%;\n  width: 8px;\n  height: 8px;\n  margin-left: -4px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n}\n@keyframes darma-loader-washing-machine-spin { to { transform: rotate(360deg); } }",
+    "react": "export default function WashingMachineLoader() {\n  return (\n    <span className=\"darma-loader-washing-machine\"><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

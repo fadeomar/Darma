@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { DEFAULT_QR_FORM, buildQRPayload } from "./qr";
+import { DEFAULT_QR_FORM, buildQRPayload, validateQRForm } from "./qr";
 
 describe("buildQRPayload", () => {
   it("builds URL payloads", () => {
@@ -36,5 +36,37 @@ describe("buildQRPayload", () => {
 
   it("builds SMS payloads", () => {
     expect(buildQRPayload({ ...DEFAULT_QR_FORM, type: "sms", smsPhone: "+1 555 123 4567", smsMessage: "Meet me here" })).toBe("SMSTO:+15551234567:Meet me here");
+  });
+});
+
+describe("validateQRForm", () => {
+  it("requires complete HTTP(S) URLs", () => {
+    expect(validateQRForm({ ...DEFAULT_QR_FORM, type: "url", url: "example.com" })).toContain(
+      "Use a full URL starting with http:// or https://.",
+    );
+  });
+
+  it("validates coordinate ranges", () => {
+    expect(validateQRForm({ ...DEFAULT_QR_FORM, type: "location", latitude: "95", longitude: "20" })).toContain(
+      "Enter valid coordinates.",
+    );
+  });
+
+  it("requires event end times to be after the start", () => {
+    expect(
+      validateQRForm({
+        ...DEFAULT_QR_FORM,
+        type: "event",
+        eventTitle: "Launch",
+        eventStart: "2026-07-14T18:00",
+        eventEnd: "2026-07-14T17:00",
+      }),
+    ).toContain("Event end must be after the start time.");
+  });
+
+  it("warns when payloads exceed the reliable length budget", () => {
+    expect(validateQRForm({ ...DEFAULT_QR_FORM, type: "text", text: "x".repeat(1801) })).toContain(
+      "This QR content is long. Shorten it for more reliable scanning.",
+    );
   });
 });

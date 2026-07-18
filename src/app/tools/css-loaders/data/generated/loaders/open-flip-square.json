@@ -20,8 +20,8 @@
     "singleElement": true
   },
   "searchText": "open-flip-square open flip square minimal open-source open-pack-2026 flip square minimal html css react cssonly customizable singleelement",
-  "previewHtml": "<span class=\"darma-loader-open-flip-square\"></span>",
-  "previewCss": ".darma-loader-open-flip-square{display:inline-block;width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--loader-color,#111827),var(--loader-secondary-color,#6b7280));animation:darma-loader-open-flip-square-flip var(--loader-speed,1.25s) cubic-bezier(.65,0,.35,1) infinite}@keyframes darma-loader-open-flip-square-flip{0%{transform:perspective(140px) rotateX(0) rotateY(0)}50%{transform:perspective(140px) rotateX(-180deg) rotateY(0)}100%{transform:perspective(140px) rotateX(-180deg) rotateY(-180deg)}}",
+  "previewHtml": "<span class=\"darma-loader-open-flip-square__darma-loader-open-flip-square\"></span>",
+  "previewCss": ".darma-loader-open-flip-square__darma-loader-open-flip-square{display:inline-block;width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--loader-color,#111827),var(--loader-secondary-color,#6b7280));animation:darma-loader-open-flip-square-darma-loader-open-flip-square-flip var(--loader-speed,1.25s) cubic-bezier(.65,0,.35,1) infinite}@keyframes darma-loader-open-flip-square-darma-loader-open-flip-square-flip{0%{transform:perspective(140px) rotateX(0) rotateY(0)}50%{transform:perspective(140px) rotateX(-180deg) rotateY(0)}100%{transform:perspective(140px) rotateX(-180deg) rotateY(-180deg)}}",
   "defaults": {
     "color": "#111827",
     "secondaryColor": "#6b7280",
@@ -30,16 +30,16 @@
     "background": "#ffffff"
   },
   "code": {
-    "html": "<span class=\"darma-loader-open-flip-square\"></span>",
-    "css": ".darma-loader-open-flip-square{display:inline-block;width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--loader-color,#111827),var(--loader-secondary-color,#6b7280));animation:darma-loader-open-flip-square-flip var(--loader-speed,1.25s) cubic-bezier(.65,0,.35,1) infinite}@keyframes darma-loader-open-flip-square-flip{0%{transform:perspective(140px) rotateX(0) rotateY(0)}50%{transform:perspective(140px) rotateX(-180deg) rotateY(0)}100%{transform:perspective(140px) rotateX(-180deg) rotateY(-180deg)}}",
-    "react": "export default function OpenFlipSquareLoader() {\n  return (\n    <span className=\"darma-loader-open-flip-square\"></span>\n  );\n}\n"
+    "html": "<span class=\"darma-loader-open-flip-square__darma-loader-open-flip-square\"></span>",
+    "css": ".darma-loader-open-flip-square__darma-loader-open-flip-square{display:inline-block;width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--loader-color,#111827),var(--loader-secondary-color,#6b7280));animation:darma-loader-open-flip-square-darma-loader-open-flip-square-flip var(--loader-speed,1.25s) cubic-bezier(.65,0,.35,1) infinite}@keyframes darma-loader-open-flip-square-darma-loader-open-flip-square-flip{0%{transform:perspective(140px) rotateX(0) rotateY(0)}50%{transform:perspective(140px) rotateX(-180deg) rotateY(0)}100%{transform:perspective(140px) rotateX(-180deg) rotateY(-180deg)}}",
+    "react": "export default function OpenFlipSquareLoader() {\n  return (\n    <span className=\"darma-loader-open-flip-square__darma-loader-open-flip-square\"></span>\n  );\n}\n"
   },
   "controls": {
     "color": true,
-    "secondaryColor": true,
     "size": true,
     "speed": true,
-    "background": false
+    "background": false,
+    "secondaryColor": true
   },
   "source": {
     "name": "SpinKit inspired pattern",

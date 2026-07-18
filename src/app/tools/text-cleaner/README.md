@@ -1,54 +1,79 @@
-# Text Cleaner
+# Text Cleaner Production Studio
 
-Apply case conversions and text-cleaning transforms to any pasted text — instantly, in the browser.
+A browser-local text cleanup workbench with ordered workflows, Arabic normalization, extraction, formatting, result metrics, validated workflow import, and production exports.
 
-## Privacy
+## Privacy model
 
-`local-only` — all transforms run as pure string operations in the browser. No data is transmitted.
+- Transformations run locally in the browser.
+- Workflow JSON contains settings only and excludes input/output text.
+- Markdown and CSV reports contain workflow details and aggregate metrics only.
+- The production ZIP intentionally includes `cleaned-text.txt`; users should review where that archive is stored or shared.
+- No network breach, content, or analytics service is called by the tool.
 
-## Logic
+## Core files
 
-`transforms.ts` exports pure transform functions and two registries:
+- `transforms.ts` — pure transform functions, action registry, pipeline runner, and text statistics.
+- `presets.ts` — practical ordered cleanup workflows.
+- `studio.ts` — workflow schema, import normalization, comparison metrics, production checks, summary cards, reports, JavaScript export, and production-file generation.
+- `TextCleanerClient.tsx` — editors, workflow ordering, import/export controls, audit UI, and ZIP generation.
 
-### Case transforms
+## Workflow schema
 
-| Export | Description |
-|---|---|
-| `toUpperCase` | All caps |
-| `toLowerCase` | All lowercase |
-| `toTitleCase` | Capitalise first letter of every word |
-| `toSentenceCase` | Capitalise the first letter after `.`, `!`, `?` |
-| `capitalizeEachWord` | `\b\w` — every word boundary |
-| `toInverseCase` | Flip the case of every character |
-| `toCamelCase` | `helloWorldTest` — splits on spaces, hyphens, and camelCase boundaries |
-| `toPascalCase` | `HelloWorldTest` |
-| `toSnakeCase` | `hello_world_test` |
-| `toKebabCase` | `hello-world-test` |
+```json
+{
+  "schema": "darma.text-cleaner-workflow",
+  "version": 1,
+  "exportedAt": "2026-07-14T00:00:00.000Z",
+  "workflow": {
+    "actionIds": ["trim-lines", "extra-spaces", "dedupe-lines"],
+    "prefixText": "> ",
+    "suffixText": "."
+  }
+}
+```
 
-### Clean transforms
+Imported workflows:
 
-| Export | Description |
-|---|---|
-| `trimText` | Strip leading and trailing whitespace |
-| `removeExtraSpaces` | Collapse multiple horizontal spaces to one per line |
-| `removeEmptyLines` | Delete all blank / whitespace-only lines |
-| `trimEachLine` | Trim whitespace from the start and end of every line |
-| `normalizeLineBreaks` | Convert `\r\n` and `\r` to `\n` |
-| `collapseBlankLines` | Reduce 3+ consecutive blank lines to 2 |
-| `removeDuplicateLines` | Keep only the first occurrence of each line (trimmed comparison) |
-| `sortLinesAZ` | Locale-insensitive ascending sort |
-| `sortLinesZA` | Locale-insensitive descending sort |
+- accept known action IDs only;
+- remove duplicate steps while preserving order;
+- cap workflows at 40 actions;
+- remove null characters from prefix/suffix settings;
+- cap prefix and suffix settings at 500 characters;
+- reject unrelated schemas and unsupported versions.
 
-### Stats
+## Production checks
 
-`computeStats(text): TextStats` — returns `{ characters, charactersNoSpaces, words, lines, paragraphs, readingTimeSec }`.
+Checks use `error`, `warning`, `info`, and `pass` severities. They cover:
 
-`formatReadingTime(sec): string` — formats as `"45s read"` or `"3 min read"`.
+- empty input or workflow;
+- very large input;
+- stale output;
+- extraction order;
+- competing case or sort actions;
+- round-trip list conversions;
+- redundant blank-line operations;
+- Arabic PDF cleanup overlap;
+- empty or oversized prefix/suffix settings;
+- personal-data-like values in exportable content;
+- destructive transformations and empty output.
 
-### Registries
+## Exports
 
-`CASE_TRANSFORMS` and `CLEAN_TRANSFORMS` are `TransformDef[]` arrays used by the UI to render buttons. Each entry has `{ id, label, title, fn, mono? }`.
+- `cleaned-text.txt`
+- `text-cleaner-workflow.json`
+- `text-cleaner-report.md`
+- `text-cleaner-metrics.csv`
+- `text-cleaner-pipeline.js`
+- `text-cleaner-production-pack.zip`
+
+The JavaScript runner uses CommonJS and exports `{ workflow, cleanText }`.
 
 ## Tests
 
-`transforms.test.ts` — 53 tests covering every transform function, `computeStats`, and `formatReadingTime`.
+```bash
+npm exec vitest run \
+  src/app/tools/text-cleaner/transforms.test.ts \
+  src/app/tools/text-cleaner/studio.test.ts
+```
+
+The existing transform suite covers every pure text operation. The studio suite covers workflow normalization, project import/export, metrics, audit states, reports, JavaScript generation, production files, and workflow execution.

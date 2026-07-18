@@ -1,0 +1,41 @@
+{
+  "id": "jump-rope",
+  "name": "Jump Rope",
+  "category": "fun",
+  "tags": [
+    "jump",
+    "rope",
+    "skip",
+    "swing",
+    "loop"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "jump-rope jump rope fun jump rope skip swing loop html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-jump-rope\"><i></i></span>",
+  "previewCss": ".darma-loader-jump-rope {\n  position: relative;\n  width: 48px;\n  height: 44px;\n}\n.darma-loader-jump-rope::before {\n  content: \"\";\n  position: absolute;\n  top: 6px;\n  left: 6px;\n  width: 6px;\n  height: 6px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n  box-shadow: 30px 0 0 var(--loader-color, #6366f1);\n}\n.darma-loader-jump-rope i {\n  position: absolute;\n  top: 9px;\n  left: 9px;\n  width: 30px;\n  height: 32px;\n  border: 3px solid var(--loader-color, #6366f1);\n  border-radius: 50%;\n  box-sizing: border-box;\n  transform-origin: top center;\n  animation: darma-loader-jump-rope-rope 0.7s ease-in-out infinite;\n}\n@keyframes darma-loader-jump-rope-rope {\n  0%, 100% { transform: scaleY(1); }\n  50% { transform: scaleY(0.12); }\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-jump-rope\"><i></i></span>",
+    "css": ".darma-loader-jump-rope {\n  position: relative;\n  width: 48px;\n  height: 44px;\n}\n.darma-loader-jump-rope::before {\n  content: \"\";\n  position: absolute;\n  top: 6px;\n  left: 6px;\n  width: 6px;\n  height: 6px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n  box-shadow: 30px 0 0 var(--loader-color, #6366f1);\n}\n.darma-loader-jump-rope i {\n  position: absolute;\n  top: 9px;\n  left: 9px;\n  width: 30px;\n  height: 32px;\n  border: 3px solid var(--loader-color, #6366f1);\n  border-radius: 50%;\n  box-sizing: border-box;\n  transform-origin: top center;\n  animation: darma-loader-jump-rope-rope 0.7s ease-in-out infinite;\n}\n@keyframes darma-loader-jump-rope-rope {\n  0%, 100% { transform: scaleY(1); }\n  50% { transform: scaleY(0.12); }\n}",
+    "react": "export default function JumpRopeLoader() {\n  return (\n    <span className=\"darma-loader-jump-rope\"><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

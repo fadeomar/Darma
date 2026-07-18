@@ -193,7 +193,14 @@ function calcEntropy(config: PasswordConfig): number {
   if (config.symbols)   pool += filterSet(SYMBOLS_ALL, config.excludeSimilar, true, config.excludeAmbiguous).length;
 
   if (pool === 0) return 0;
-  return Math.round(config.length * Math.log2(pool));
+
+  // Seed text is user supplied and therefore treated as predictable. Only the
+  // randomly generated portion contributes to the conservative entropy estimate.
+  const seedLength = config.seedText
+    ? config.seedText.replace(/\s/g, "").slice(0, Math.max(0, config.length - 4)).length
+    : 0;
+  const randomLength = Math.max(0, config.length - seedLength);
+  return Math.round(randomLength * Math.log2(pool));
 }
 
 function formatCrackTime(seconds: number): string {

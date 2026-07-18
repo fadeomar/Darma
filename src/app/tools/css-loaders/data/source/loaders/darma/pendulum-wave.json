@@ -1,0 +1,28 @@
+{
+  "id": "pendulum-wave",
+  "name": "Pendulum Wave",
+  "category": "fun",
+  "tags": [
+    "pendulum",
+    "wave",
+    "physics",
+    "swing",
+    "harmonic"
+  ],
+  "html": "<span class=\"loader\"><i></i><i></i><i></i><i></i><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 56px;\n  height: 46px;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 3px;\n  border-radius: 2px;\n  background: #6366f1;\n}\n.loader i {\n  position: absolute;\n  top: 3px;\n  width: 2px;\n  border-radius: 2px;\n  background: #c7d2fe;\n  transform-origin: top center;\n  animation: pend 1s ease-in-out infinite;\n}\n.loader i::after {\n  content: \"\";\n  position: absolute;\n  bottom: -6px;\n  left: 50%;\n  width: 7px;\n  height: 7px;\n  margin-left: -3.5px;\n  border-radius: 50%;\n  background: #6366f1;\n}\n.loader i:nth-child(1) { left: 6px; height: 18px; animation-duration: 1s; }\n.loader i:nth-child(2) { left: 17px; height: 24px; animation-duration: 1.12s; }\n.loader i:nth-child(3) { left: 28px; height: 30px; animation-duration: 1.24s; }\n.loader i:nth-child(4) { left: 39px; height: 24px; animation-duration: 1.36s; }\n.loader i:nth-child(5) { left: 50px; height: 18px; animation-duration: 1.48s; }\n@keyframes pend {\n  0%, 100% { transform: rotate(24deg); }\n  50% { transform: rotate(-24deg); }\n}",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

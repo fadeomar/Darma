@@ -29,17 +29,17 @@ export default function MetaTagGeneratorPage() {
       maxWidth="wide"
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Generate SEO, Open Graph, and Twitter/X card tags with live previews for search snippets and social sharing cards.
+          Build, audit, preview, save, and export SEO, Open Graph, and X/Twitter metadata with browser-local project files and production handoff formats.
         </p>
       }
       article={
-        <ToolContentCard title="About SEO and Open Graph meta tags">
+        <ToolContentCard title="How to ship reliable page metadata">
           <Article />
         </ToolContentCard>
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Meta Tag Generator" description="Create copy-ready head tags locally, preview social cards, and validate common SEO issues.">
+      <ToolContentCard title="Meta Tag Production Studio" description="Create one metadata source, audit release risks, preview copy, and export framework-ready files.">
         <MetaTagClient />
       </ToolContentCard>
     </ToolPage>

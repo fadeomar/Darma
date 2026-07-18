@@ -33,8 +33,7 @@ export default function TodoListPage() {
       headerSize="compact"
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          A fast, private to-do workspace — capture tasks in seconds, organize them into lists, and
-          work them as a checklist or a Kanban board. Everything is saved offline in your browser.
+          A private, offline task workspace with list, table, board, week, checklist, and print views — now with atomic restore, workspace health checks, and production-ready JSON, CSV, Markdown, and ZIP backups.
         </p>
       }
       article={

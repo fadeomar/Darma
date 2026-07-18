@@ -1,0 +1,28 @@
+{
+  "id": "hot-air-balloon",
+  "name": "Hot Air Balloon",
+  "category": "fun",
+  "tags": [
+    "balloon",
+    "float",
+    "rise",
+    "sky",
+    "bob"
+  ],
+  "html": "<span class=\"loader\"><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 34px;\n  height: 50px;\n  animation: float 1.8s ease-in-out infinite;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 30px;\n  height: 34px;\n  margin-left: -15px;\n  border-radius: 50% 50% 46% 46%;\n  background: #6366f1;\n}\n.loader i {\n  position: absolute;\n  top: 37px;\n  left: 50%;\n  width: 12px;\n  height: 9px;\n  margin-left: -6px;\n  border-radius: 0 0 3px 3px;\n  background: #4338ca;\n}\n.loader i::before {\n  content: \"\";\n  position: absolute;\n  top: -6px;\n  left: 1px;\n  width: 1px;\n  height: 6px;\n  background: #4338ca;\n  box-shadow: 8px 0 0 #4338ca;\n}\n@keyframes float {\n  0%, 100% { transform: translateY(3px) rotate(-4deg); }\n  50% { transform: translateY(-5px) rotate(4deg); }\n}",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

@@ -1,27 +1,34 @@
 # QR Code Generator
 
-Generate a scannable QR code from any URL or text and download it as a PNG image.
+A browser-local QR production studio for URLs, text, WhatsApp, email, phone, SMS, WiFi, vCard contacts, map coordinates, and calendar events.
 
-## Privacy
+## Phase 28 capabilities
 
-`server-assisted` — the text is sent to the Darma `/api/generate-qr` route, which uses the `qrcode` library to render the QR image server-side and returns a data URL. Nothing is stored.
+- Live PNG and SVG generation with configurable size, quiet zone, colors, transparency, and error correction.
+- Four summary cards for content, density, contrast, and production readiness.
+- Production checks with error, warning, info, and pass severity levels.
+- Contrast-ratio calculation, quiet-zone review, output-size review, payload-density guidance, and sensitive-data reminders.
+- JSON project import/export with normalization and schema validation.
+- PNG, SVG, HTML, CSS, React TSX, JSON, Markdown, and ZIP production exports.
+- Practical presets for menus, WiFi, WhatsApp orders, classroom links, business contacts, events, and websites.
+- Local processing with no QR payload upload.
 
-## Validation
+## Main files
 
-- **Client-side**: `MAX_QR_LENGTH = 2000` — a live character counter is shown below the input (amber at 90%, red at limit). The form blocks submission when the limit is exceeded.
-- **Server-side**: the API route enforces the same 2 000-character limit before calling the QR library, so the guard cannot be bypassed by skipping the UI.
+- `QRCodeClient.tsx` — responsive production UI and browser export workflow.
+- `qr.ts` — payload builders and content-specific validation.
+- `studio.ts` — project import, normalization, audits, summaries, and developer exports.
+- `qr.test.ts` — payload and validation coverage.
+- `studio.test.ts` — import, audit, contrast, summary, and export coverage.
 
-## Flow
+## Verification
 
-1. User enters text or a URL in `QRCodeClient.tsx`
-2. On submit, `POST /api/generate-qr` with `{ text }` body
-3. Server returns `{ qrCodeUrl: string }` (a base64 data URL)
-4. Client displays the QR image and enables the Download PNG button
+```bash
+npm exec vitest run \
+  src/app/tools/qr-code/qr.test.ts \
+  src/app/tools/qr-code/studio.test.ts
 
-## Files
-
-| File | Role |
-|---|---|
-| `page.tsx` | Server component — `generateMetadata`, dynamic import of client |
-| `QRCodeClient.tsx` | `"use client"` — form, state, fetch, download handler, character counter |
-| `route.ts` (in `/api/generate-qr/`) | API handler — validates length, calls `qrcode.toDataURL` |
+npm run typecheck
+npm run lint
+npm run build
+```

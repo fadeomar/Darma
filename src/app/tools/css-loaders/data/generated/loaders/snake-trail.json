@@ -1,0 +1,41 @@
+{
+  "id": "snake-trail",
+  "name": "Snake Trail",
+  "category": "fun",
+  "tags": [
+    "snake",
+    "trail",
+    "loop",
+    "chase",
+    "square"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "snake-trail snake trail fun snake trail loop chase square html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-snake-trail\"><i></i><i></i><i></i><i></i><i></i></span>",
+  "previewCss": ".darma-loader-snake-trail {\n  position: relative;\n  width: 48px;\n  height: 48px;\n}\n.darma-loader-snake-trail i {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 10px;\n  height: 10px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-snake-trail-track 2s linear infinite;\n}\n.darma-loader-snake-trail i:nth-child(1) { animation-delay: 0s; opacity: 1; }\n.darma-loader-snake-trail i:nth-child(2) { animation-delay: -0.14s; opacity: 0.82; }\n.darma-loader-snake-trail i:nth-child(3) { animation-delay: -0.28s; opacity: 0.64; }\n.darma-loader-snake-trail i:nth-child(4) { animation-delay: -0.42s; opacity: 0.46; }\n.darma-loader-snake-trail i:nth-child(5) { animation-delay: -0.56s; opacity: 0.3; }\n@keyframes darma-loader-snake-trail-track {\n  0% { top: 0; left: 0; }\n  25% { top: 0; left: calc(100% - 10px); }\n  50% { top: calc(100% - 10px); left: calc(100% - 10px); }\n  75% { top: calc(100% - 10px); left: 0; }\n  100% { top: 0; left: 0; }\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-snake-trail\"><i></i><i></i><i></i><i></i><i></i></span>",
+    "css": ".darma-loader-snake-trail {\n  position: relative;\n  width: 48px;\n  height: 48px;\n}\n.darma-loader-snake-trail i {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 10px;\n  height: 10px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-snake-trail-track 2s linear infinite;\n}\n.darma-loader-snake-trail i:nth-child(1) { animation-delay: 0s; opacity: 1; }\n.darma-loader-snake-trail i:nth-child(2) { animation-delay: -0.14s; opacity: 0.82; }\n.darma-loader-snake-trail i:nth-child(3) { animation-delay: -0.28s; opacity: 0.64; }\n.darma-loader-snake-trail i:nth-child(4) { animation-delay: -0.42s; opacity: 0.46; }\n.darma-loader-snake-trail i:nth-child(5) { animation-delay: -0.56s; opacity: 0.3; }\n@keyframes darma-loader-snake-trail-track {\n  0% { top: 0; left: 0; }\n  25% { top: 0; left: calc(100% - 10px); }\n  50% { top: calc(100% - 10px); left: calc(100% - 10px); }\n  75% { top: calc(100% - 10px); left: 0; }\n  100% { top: 0; left: 0; }\n}",
+    "react": "export default function SnakeTrailLoader() {\n  return (\n    <span className=\"darma-loader-snake-trail\"><i></i><i></i><i></i><i></i><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

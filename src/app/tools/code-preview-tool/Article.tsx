@@ -2,30 +2,37 @@ export default function Article() {
   return (
     <div className="space-y-6 text-sm leading-7 text-[var(--color-text-muted)]">
       <section className="space-y-2">
-        <h2 className="text-base font-bold text-[var(--color-text-primary)]">A focused front-end playground</h2>
+        <h2 className="text-base font-bold text-[var(--color-text-primary)]">A browser-local front-end production studio</h2>
         <p>
-          The Code Preview Studio keeps HTML, CSS, and JavaScript in separate source panels while rendering the combined result inside a sandboxed iframe. Use a practical preset to start quickly, switch between desktop, tablet, and mobile previews, then run changes automatically or manually with Ctrl/Command + Enter.
+          Keep HTML, CSS, and JavaScript in separate editors while viewing the combined result inside a sandboxed iframe. Start from a responsive preset, switch between desktop, tablet, and mobile canvases, and run changes automatically or with Ctrl/Command + Enter.
         </p>
       </section>
 
       <section className="space-y-2">
-        <h2 className="text-base font-bold text-[var(--color-text-primary)]">Runtime feedback and production checks</h2>
+        <h2 className="text-base font-bold text-[var(--color-text-primary)]">Save and reopen editable projects</h2>
         <p>
-          Runtime errors and console messages are surfaced next to the preview instead of being hidden in browser developer tools. The production checklist also looks for common issues such as JavaScript syntax errors, unbalanced CSS braces, duplicate IDs, missing image alternatives, unsafe new-tab links, inline event handlers, and buttons without an explicit type.
+          Export a versioned Darma project file that preserves the three source files, selected viewport, and run mode. The same JSON can be imported later after schema, file-size, source-size, and tool-identity validation. Legacy version 1 project files remain supported.
         </p>
       </section>
 
       <section className="space-y-2">
-        <h2 className="text-base font-bold text-[var(--color-text-primary)]">Export formats</h2>
+        <h2 className="text-base font-bold text-[var(--color-text-primary)]">Runtime feedback and production audit</h2>
         <p>
-          Copy or download a self-contained HTML document, export the editable project structure as JSON, or download a ZIP containing index.html, styles.css, script.js, and a Darma project manifest. All editing and preview execution stay in your browser; Darma does not upload your code.
+          Runtime exceptions and console messages appear beside the preview. The production audit separately reports blocking errors, warnings, informational environment notes, and passing checks for JavaScript syntax, CSS structure, duplicate IDs, form labels, image alternatives, unsafe links, inline handlers, credential-like values, source size, and external dependencies.
         </p>
       </section>
 
       <section className="space-y-2">
-        <h2 className="text-base font-bold text-[var(--color-text-primary)]">Sandbox limitations</h2>
+        <h2 className="text-base font-bold text-[var(--color-text-primary)]">Production handoff formats</h2>
         <p>
-          The preview permits scripts and forms but does not grant same-origin access to the Darma application. Features that require a backend, package installation, module bundling, cross-origin credentials, or unrestricted browser APIs should be tested in a full local development environment before production use.
+          Download a standalone HTML document, editable project JSON, Markdown audit, CSV metrics, or a seven-file ZIP containing external HTML, CSS, JavaScript, the reopenable project, audit report, metrics, and setup notes. All source processing stays in the browser.
+        </p>
+      </section>
+
+      <section className="space-y-2">
+        <h2 className="text-base font-bold text-[var(--color-text-primary)]">Sandbox boundaries</h2>
+        <p>
+          Scripts and forms run without same-origin access to the Darma application. This is a front-end smoke-test environment, not a package bundler or backend runtime. Validate dependencies, CSP, accessibility, cross-browser behavior, APIs, and server integration in the target application before deployment.
         </p>
       </section>
     </div>

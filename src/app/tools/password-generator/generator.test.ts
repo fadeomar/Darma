@@ -126,6 +126,19 @@ describe("calculateStrength", () => {
     expect(result.score).toBeGreaterThanOrEqual(0);
     expect(result.score).toBeLessThanOrEqual(100);
   });
+
+  it("treats custom seed text as predictable instead of adding entropy", () => {
+    const withoutSeed = calculateStrength("x".repeat(24), { ...baseConfig, length: 24, symbols: true });
+    const withSeed = calculateStrength("x".repeat(24), {
+      ...baseConfig,
+      length: 24,
+      symbols: true,
+      seedText: "company2026",
+    });
+
+    expect(withSeed.entropy).toBeLessThan(withoutSeed.entropy);
+  });
+
 });
 
 // ─── annotatePassword ─────────────────────────────────────────────────────────

@@ -99,6 +99,27 @@ async function doSeedDatabaseIfEmpty(): Promise<void> {
   });
 }
 
+export async function replaceTodoDatabase(data: { lists: TodoList[]; tasks: Task[]; columns: BoardColumn[] }): Promise<void> {
+  const database = getTodoDb();
+  await database.transaction("rw", database.lists, database.tasks, database.columns, async () => {
+    await database.tasks.clear();
+    await database.columns.clear();
+    await database.lists.clear();
+    await database.lists.bulkPut(data.lists);
+    await database.columns.bulkPut(data.columns);
+    await database.tasks.bulkPut(data.tasks);
+  });
+}
+
+export async function mergeTodoDatabase(data: { lists: TodoList[]; tasks: Task[]; columns: BoardColumn[] }): Promise<void> {
+  const database = getTodoDb();
+  await database.transaction("rw", database.lists, database.tasks, database.columns, async () => {
+    await database.lists.bulkPut(data.lists);
+    await database.columns.bulkPut(data.columns);
+    await database.tasks.bulkPut(data.tasks);
+  });
+}
+
 export async function clearTodoDatabase(): Promise<void> {
   const database = getTodoDb();
   await database.transaction("rw", database.lists, database.tasks, database.columns, async () => {

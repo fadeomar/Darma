@@ -1,0 +1,41 @@
+{
+  "id": "download-tray",
+  "name": "Download Tray",
+  "category": "fun",
+  "tags": [
+    "download",
+    "arrow",
+    "tray",
+    "save",
+    "drop"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "download-tray download tray fun download arrow tray save drop html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-download-tray\"><i></i></span>",
+  "previewCss": ".darma-loader-download-tray {\n  position: relative;\n  width: 40px;\n  height: 48px;\n}\n.darma-loader-download-tray::before {\n  content: \"\";\n  position: absolute;\n  bottom: 2px;\n  left: 2px;\n  right: 2px;\n  height: 12px;\n  border: 3px solid var(--loader-color, #6366f1);\n  border-top: 0;\n  border-radius: 0 0 5px 5px;\n  box-sizing: border-box;\n}\n.darma-loader-download-tray i {\n  position: absolute;\n  top: 2px;\n  left: 50%;\n  width: 5px;\n  height: 16px;\n  margin-left: -2.5px;\n  border-radius: 2px;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-download-tray-dl 1.3s ease-in-out infinite;\n}\n.darma-loader-download-tray i::after {\n  content: \"\";\n  position: absolute;\n  bottom: -6px;\n  left: 50%;\n  width: 14px;\n  height: 12px;\n  margin-left: -7px;\n  background: var(--loader-color, #6366f1);\n  clip-path: polygon(50% 100%, 0 0, 100% 0);\n}\n@keyframes darma-loader-download-tray-dl {\n  0% { top: 2px; opacity: 0; }\n  20% { opacity: 1; }\n  60% { top: 18px; }\n  72% { top: 13px; }\n  100% { top: 18px; opacity: 1; }\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-download-tray\"><i></i></span>",
+    "css": ".darma-loader-download-tray {\n  position: relative;\n  width: 40px;\n  height: 48px;\n}\n.darma-loader-download-tray::before {\n  content: \"\";\n  position: absolute;\n  bottom: 2px;\n  left: 2px;\n  right: 2px;\n  height: 12px;\n  border: 3px solid var(--loader-color, #6366f1);\n  border-top: 0;\n  border-radius: 0 0 5px 5px;\n  box-sizing: border-box;\n}\n.darma-loader-download-tray i {\n  position: absolute;\n  top: 2px;\n  left: 50%;\n  width: 5px;\n  height: 16px;\n  margin-left: -2.5px;\n  border-radius: 2px;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-download-tray-dl 1.3s ease-in-out infinite;\n}\n.darma-loader-download-tray i::after {\n  content: \"\";\n  position: absolute;\n  bottom: -6px;\n  left: 50%;\n  width: 14px;\n  height: 12px;\n  margin-left: -7px;\n  background: var(--loader-color, #6366f1);\n  clip-path: polygon(50% 100%, 0 0, 100% 0);\n}\n@keyframes darma-loader-download-tray-dl {\n  0% { top: 2px; opacity: 0; }\n  20% { opacity: 1; }\n  60% { top: 18px; }\n  72% { top: 13px; }\n  100% { top: 18px; opacity: 1; }\n}",
+    "react": "export default function DownloadTrayLoader() {\n  return (\n    <span className=\"darma-loader-download-tray\"><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

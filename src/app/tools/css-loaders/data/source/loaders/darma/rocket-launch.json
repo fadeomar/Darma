@@ -1,0 +1,28 @@
+{
+  "id": "rocket-launch",
+  "name": "Rocket Launch",
+  "category": "fun",
+  "tags": [
+    "rocket",
+    "launch",
+    "flame",
+    "space",
+    "hover"
+  ],
+  "html": "<span class=\"loader\"><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 34px;\n  height: 52px;\n  animation: lift 1.6s ease-in-out infinite;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 16px;\n  height: 30px;\n  margin-left: -8px;\n  border-radius: 50% 50% 40% 40%;\n  background: #6366f1;\n  box-shadow: inset 0 0 0 3px #4338ca, inset 0 6px 0 -3px #e0e7ff;\n}\n.loader i {\n  position: absolute;\n  top: 30px;\n  left: 50%;\n  width: 10px;\n  height: 14px;\n  margin-left: -5px;\n  background: #f59e0b;\n  clip-path: polygon(0 0, 100% 0, 50% 100%);\n  transform-origin: top center;\n  animation: flame 0.18s linear infinite alternate;\n}\n@keyframes lift {\n  0%, 100% { transform: translateY(4px); }\n  50% { transform: translateY(-4px); }\n}\n@keyframes flame {\n  from { transform: scaleY(0.7); opacity: 0.8; }\n  to { transform: scaleY(1.15); opacity: 1; }\n}",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

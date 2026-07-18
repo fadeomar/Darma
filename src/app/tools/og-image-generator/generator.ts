@@ -2,6 +2,7 @@ import { getExportSizes } from "./presets";
 import { renderOgImagePng } from "./canvas";
 import { createAssetManifest, createHtmlMetaSnippet, createNextInstallGuide, createNextMetadataSnippet, createReadme, createSharePreviewHtml, createValidationChecklist } from "./snippets";
 import type { OgGeneratedAsset, OgImageInput } from "./types";
+import { createInputFingerprint, createOgAuditMarkdown, createOgMetricsCsv, createOgProjectJson } from "./studio";
 
 function textBlob(text: string, mimeType = "text/plain"): Blob {
   return new Blob([text], { type: `${mimeType};charset=utf-8` });
@@ -45,6 +46,10 @@ export async function generateOgAssets(input: OgImageInput): Promise<OgGenerated
   }
 
   const assets = uniqueAssets([...images, ...docs]);
+  const fingerprint = createInputFingerprint(input);
+  assets.push(textAsset("og-project.json", createOgProjectJson(input), "json", "application/json"));
+  assets.push(textAsset("production-audit.md", createOgAuditMarkdown(input, assets, fingerprint), "readme", "text/markdown"));
+  assets.push(textAsset("production-metrics.csv", createOgMetricsCsv(input, assets, fingerprint), "snippet", "text/csv"));
   assets.push(textAsset("asset-manifest.json", createAssetManifest(assets), "json", "application/json"));
   assets.push(textAsset("README.md", createReadme(input, assets), "readme", "text/markdown"));
   return uniqueAssets(assets);

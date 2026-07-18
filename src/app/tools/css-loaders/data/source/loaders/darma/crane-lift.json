@@ -1,0 +1,28 @@
+{
+  "id": "crane-lift",
+  "name": "Crane Lift",
+  "category": "fun",
+  "tags": [
+    "crane",
+    "lift",
+    "construction",
+    "cable",
+    "load"
+  ],
+  "html": "<span class=\"loader\"><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 50px;\n  height: 52px;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 8px;\n  width: 4px;\n  height: 100%;\n  border-radius: 2px;\n  background: #6366f1;\n}\n.loader::after {\n  content: \"\";\n  position: absolute;\n  top: 2px;\n  left: 8px;\n  width: 36px;\n  height: 4px;\n  border-radius: 2px;\n  background: #6366f1;\n}\n.loader i {\n  position: absolute;\n  top: 6px;\n  right: 8px;\n  width: 2px;\n  background: #c7d2fe;\n  animation: cable 1.6s ease-in-out infinite;\n}\n.loader i::after {\n  content: \"\";\n  position: absolute;\n  bottom: -10px;\n  left: 50%;\n  width: 14px;\n  height: 10px;\n  margin-left: -7px;\n  border-radius: 2px;\n  background: #4338ca;\n}\n@keyframes cable {\n  0%, 100% { height: 14px; }\n  50% { height: 34px; }\n}",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

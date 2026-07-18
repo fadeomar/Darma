@@ -1,0 +1,28 @@
+{
+  "id": "metronome-tick",
+  "name": "Metronome Tick",
+  "category": "fun",
+  "tags": [
+    "metronome",
+    "swing",
+    "pendulum",
+    "tick",
+    "music"
+  ],
+  "html": "<span class=\"loader\"><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 46px;\n  height: 52px;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  bottom: 2px;\n  left: 50%;\n  width: 16px;\n  height: 6px;\n  margin-left: -8px;\n  border-radius: 2px;\n  background: #6366f1;\n}\n.loader i {\n  position: absolute;\n  bottom: 6px;\n  left: 50%;\n  width: 4px;\n  height: 40px;\n  margin-left: -2px;\n  border-radius: 2px;\n  background: #6366f1;\n  transform-origin: bottom center;\n  animation: swing 1.2s ease-in-out infinite;\n}\n.loader i::after {\n  content: \"\";\n  position: absolute;\n  top: 2px;\n  left: 50%;\n  width: 11px;\n  height: 11px;\n  margin-left: -5.5px;\n  border-radius: 50%;\n  background: #6366f1;\n}\n@keyframes swing {\n  0%, 100% { transform: rotate(-28deg); }\n  50% { transform: rotate(28deg); }\n}",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

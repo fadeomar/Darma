@@ -1,0 +1,28 @@
+{
+  "id": "sailboat-bob",
+  "name": "Sailboat Bob",
+  "category": "fun",
+  "tags": [
+    "sailboat",
+    "boat",
+    "sail",
+    "rock",
+    "sea"
+  ],
+  "html": "<span class=\"loader\"><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 48px;\n  height: 48px;\n}\n.loader::after {\n  content: \"\";\n  position: absolute;\n  bottom: 6px;\n  left: 0;\n  right: 0;\n  height: 3px;\n  border-radius: 2px;\n  background: #c7d2fe;\n}\n.loader i {\n  position: absolute;\n  bottom: 9px;\n  left: 50%;\n  width: 30px;\n  height: 10px;\n  margin-left: -15px;\n  background: #6366f1;\n  clip-path: polygon(6% 0, 94% 0, 78% 100%, 22% 100%);\n  transform-origin: bottom center;\n  animation: rock 1.8s ease-in-out infinite;\n}\n.loader i::before {\n  content: \"\";\n  position: absolute;\n  bottom: 8px;\n  left: 50%;\n  width: 16px;\n  height: 22px;\n  margin-left: -6px;\n  background: #6366f1;\n  clip-path: polygon(0 0, 0 100%, 100% 100%);\n}\n@keyframes rock {\n  0%, 100% { transform: rotate(-8deg); }\n  50% { transform: rotate(8deg); }\n}",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

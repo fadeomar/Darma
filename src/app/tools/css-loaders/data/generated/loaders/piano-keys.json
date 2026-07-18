@@ -1,0 +1,41 @@
+{
+  "id": "piano-keys",
+  "name": "Piano Keys",
+  "category": "creative",
+  "tags": [
+    "piano",
+    "keys",
+    "music",
+    "press",
+    "play"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "piano-keys piano keys creative piano keys music press play html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-piano-keys\"><i></i><i></i><i></i><i></i></span>",
+  "previewCss": ".darma-loader-piano-keys {\n  display: flex;\n  gap: 2px;\n  width: 54px;\n  height: 40px;\n}\n.darma-loader-piano-keys i {\n  width: 12px;\n  height: 40px;\n  border: 1px solid #c7d2fe;\n  border-radius: 0 0 3px 3px;\n  box-sizing: border-box;\n  background: #eef2ff;\n  transform-origin: top center;\n  animation: darma-loader-piano-keys-press 1.2s ease-in-out infinite;\n}\n.darma-loader-piano-keys i:nth-child(1) { animation-delay: 0s; }\n.darma-loader-piano-keys i:nth-child(2) { animation-delay: 0.15s; }\n.darma-loader-piano-keys i:nth-child(3) { animation-delay: 0.3s; }\n.darma-loader-piano-keys i:nth-child(4) { animation-delay: 0.45s; }\n@keyframes darma-loader-piano-keys-press {\n  0%, 100% { transform: rotateX(0deg); background: #eef2ff; }\n  15% { transform: rotateX(-22deg); background: var(--loader-color, #6366f1); }\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-piano-keys\"><i></i><i></i><i></i><i></i></span>",
+    "css": ".darma-loader-piano-keys {\n  display: flex;\n  gap: 2px;\n  width: 54px;\n  height: 40px;\n}\n.darma-loader-piano-keys i {\n  width: 12px;\n  height: 40px;\n  border: 1px solid #c7d2fe;\n  border-radius: 0 0 3px 3px;\n  box-sizing: border-box;\n  background: #eef2ff;\n  transform-origin: top center;\n  animation: darma-loader-piano-keys-press 1.2s ease-in-out infinite;\n}\n.darma-loader-piano-keys i:nth-child(1) { animation-delay: 0s; }\n.darma-loader-piano-keys i:nth-child(2) { animation-delay: 0.15s; }\n.darma-loader-piano-keys i:nth-child(3) { animation-delay: 0.3s; }\n.darma-loader-piano-keys i:nth-child(4) { animation-delay: 0.45s; }\n@keyframes darma-loader-piano-keys-press {\n  0%, 100% { transform: rotateX(0deg); background: #eef2ff; }\n  15% { transform: rotateX(-22deg); background: var(--loader-color, #6366f1); }\n}",
+    "react": "export default function PianoKeysLoader() {\n  return (\n    <span className=\"darma-loader-piano-keys\"><i></i><i></i><i></i><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

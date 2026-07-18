@@ -1,0 +1,28 @@
+{
+  "id": "kite-flight",
+  "name": "Kite Flight",
+  "category": "fun",
+  "tags": [
+    "kite",
+    "fly",
+    "wind",
+    "tail",
+    "sway"
+  ],
+  "html": "<span class=\"loader\"><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 44px;\n  height: 52px;\n  transform-origin: center bottom;\n  animation: sway 1.8s ease-in-out infinite;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  top: 2px;\n  left: 50%;\n  width: 24px;\n  height: 24px;\n  margin-left: -12px;\n  border-radius: 4px;\n  background: #6366f1;\n  transform: rotate(45deg);\n}\n.loader i {\n  position: absolute;\n  top: 26px;\n  left: 50%;\n  width: 2px;\n  height: 24px;\n  margin-left: -1px;\n  background: #c7d2fe;\n}\n.loader i::before {\n  content: \"\";\n  position: absolute;\n  top: 6px;\n  left: -4px;\n  width: 10px;\n  height: 5px;\n  border-radius: 50%;\n  background: #4338ca;\n}\n.loader i::after {\n  content: \"\";\n  position: absolute;\n  top: 15px;\n  left: -4px;\n  width: 10px;\n  height: 5px;\n  border-radius: 50%;\n  background: #4338ca;\n}\n@keyframes sway {\n  0%, 100% { transform: rotate(-8deg) translateY(0); }\n  50% { transform: rotate(8deg) translateY(-4px); }\n}",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "jump-rope",
+  "name": "Jump Rope",
+  "category": "fun",
+  "tags": [
+    "jump",
+    "rope",
+    "skip",
+    "swing",
+    "loop"
+  ],
+  "html": "<span class=\"loader\"><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 48px;\n  height: 44px;\n}\n.loader::before {\n  content: \"\";\n  position: absolute;\n  top: 6px;\n  left: 6px;\n  width: 6px;\n  height: 6px;\n  border-radius: 50%;\n  background: #6366f1;\n  box-shadow: 30px 0 0 #6366f1;\n}\n.loader i {\n  position: absolute;\n  top: 9px;\n  left: 9px;\n  width: 30px;\n  height: 32px;\n  border: 3px solid #6366f1;\n  border-radius: 50%;\n  box-sizing: border-box;\n  transform-origin: top center;\n  animation: rope 0.7s ease-in-out infinite;\n}\n@keyframes rope {\n  0%, 100% { transform: scaleY(1); }\n  50% { transform: scaleY(0.12); }\n}",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

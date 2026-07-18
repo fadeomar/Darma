@@ -1,0 +1,28 @@
+{
+  "id": "piano-keys",
+  "name": "Piano Keys",
+  "category": "creative",
+  "tags": [
+    "piano",
+    "keys",
+    "music",
+    "press",
+    "play"
+  ],
+  "html": "<span class=\"loader\"><i></i><i></i><i></i><i></i></span>",
+  "css": ".loader {\n  display: flex;\n  gap: 2px;\n  width: 54px;\n  height: 40px;\n}\n.loader i {\n  width: 12px;\n  height: 40px;\n  border: 1px solid #c7d2fe;\n  border-radius: 0 0 3px 3px;\n  box-sizing: border-box;\n  background: #eef2ff;\n  transform-origin: top center;\n  animation: press 1.2s ease-in-out infinite;\n}\n.loader i:nth-child(1) { animation-delay: 0s; }\n.loader i:nth-child(2) { animation-delay: 0.15s; }\n.loader i:nth-child(3) { animation-delay: 0.3s; }\n.loader i:nth-child(4) { animation-delay: 0.45s; }\n@keyframes press {\n  0%, 100% { transform: rotateX(0deg); background: #eef2ff; }\n  15% { transform: rotateX(-22deg); background: #6366f1; }\n}",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

@@ -1,4 +1,35 @@
-import type { ReactionInputMethod, ReactionSample, ReactionStats, ReactionTestMode } from "./types";
+import type {
+  ReactionDelayProfile,
+  ReactionInputMethod,
+  ReactionSample,
+  ReactionStats,
+  ReactionTestMode,
+} from "./types";
+
+export const REACTION_DELAY_PROFILES: Record<
+  ReactionDelayProfile,
+  { label: string; description: string; minMs: number; maxMs: number }
+> = {
+  quick: {
+    label: "Quick signals",
+    description: "Shorter 1.2–2.8 second waits for fast practice runs.",
+    minMs: 1200,
+    maxMs: 2800,
+  },
+  standard: {
+    label: "Standard random",
+    description: "Balanced 1.4–4.5 second waits that discourage anticipation.",
+    minMs: 1400,
+    maxMs: 4500,
+  },
+  focus: {
+    label: "Focus challenge",
+    description:
+      "Longer 2–6 second waits for attention and consistency practice.",
+    minMs: 2000,
+    maxMs: 6000,
+  },
+};
 
 function round(value: number, decimals = 0) {
   if (!Number.isFinite(value)) return 0;
@@ -28,11 +59,32 @@ function calculateConsistency(samples: ReactionSample[]) {
   const average = values.reduce((sum, value) => sum + value, 0) / values.length;
   if (average <= 0) return 0;
 
-  const variance = values.reduce((sum, value) => sum + (value - average) ** 2, 0) / values.length;
+  const variance =
+    values.reduce((sum, value) => sum + (value - average) ** 2, 0) /
+    values.length;
   const coefficientOfVariation = Math.sqrt(variance) / average;
   const score = 100 - Math.min(100, coefficientOfVariation * 140);
 
   return Math.max(0, Math.min(100, score));
+}
+
+function median(values: number[]) {
+  if (!values.length) return 0;
+  const sorted = [...values].sort((a, b) => a - b);
+  const middle = Math.floor(sorted.length / 2);
+  return sorted.length % 2 === 0
+    ? (sorted[middle - 1] + sorted[middle]) / 2
+    : sorted[middle];
+}
+
+function validSamples(samples: ReactionSample[]) {
+  return samples.filter(
+    (sample) =>
+      Number.isFinite(sample.reactionMs) &&
+      sample.reactionMs > 0 &&
+      Number.isFinite(sample.waitMs) &&
+      sample.waitMs >= 0,
+  );
 }
 
 export function pointerSource(pointerType: string): ReactionSample["source"] {
@@ -41,12 +93,27 @@ export function pointerSource(pointerType: string): ReactionSample["source"] {
   return "mouse";
 }
 
-export function isReactionKey(event: KeyboardEvent) {
-  return event.code === "Space" || event.key === " " || event.key === "Enter" || event.code === "Enter";
+export function isReactionKey(event: Pick<KeyboardEvent, "code" | "key">) {
+  return (
+    event.code === "Space" ||
+    event.key === " " ||
+    event.key === "Enter" ||
+    event.code === "Enter"
+  );
 }
 
-export function randomWaitMs() {
-  return 1400 + Math.floor(Math.random() * 3100);
+export function randomWaitMs(
+  profile: ReactionDelayProfile = "standard",
+  randomValue = Math.random(),
+) {
+  const config = REACTION_DELAY_PROFILES[profile];
+  const safeRandom = Math.max(
+    0,
+    Math.min(0.999999999, Number.isFinite(randomValue) ? randomValue : 0),
+  );
+  return (
+    config.minMs + Math.floor(safeRandom * (config.maxMs - config.minMs + 1))
+  );
 }
 
 export function createEmptyStats(totalRounds = 0): ReactionStats {
@@ -54,29 +121,43 @@ export function createEmptyStats(totalRounds = 0): ReactionStats {
     roundsCompleted: 0,
     totalRounds,
     averageReactionMs: 0,
+    medianReactionMs: 0,
     bestReactionMs: 0,
     slowestReactionMs: 0,
+    spreadReactionMs: 0,
     consistencyScore: 0,
     falseStarts: 0,
     inputMethod: "None",
   };
 }
 
-export function calculateReactionStats(samples: ReactionSample[], totalRounds: number, falseStarts: number): ReactionStats {
-  const reactions = samples.map((sample) => sample.reactionMs);
-  const averageReactionMs = reactions.length ? reactions.reduce((sum, value) => sum + value, 0) / reactions.length : 0;
+export function calculateReactionStats(
+  samples: ReactionSample[],
+  totalRounds: number,
+  falseStarts: number,
+): ReactionStats {
+  const safeSamples = validSamples(samples);
+  const reactions = safeSamples.map((sample) => sample.reactionMs);
+  const averageReactionMs = reactions.length
+    ? reactions.reduce((sum, value) => sum + value, 0) / reactions.length
+    : 0;
   const bestReactionMs = reactions.length ? Math.min(...reactions) : 0;
   const slowestReactionMs = reactions.length ? Math.max(...reactions) : 0;
 
   return {
-    roundsCompleted: samples.length,
+    roundsCompleted: safeSamples.length,
     totalRounds,
     averageReactionMs: round(averageReactionMs),
+    medianReactionMs: round(median(reactions)),
     bestReactionMs: round(bestReactionMs),
     slowestReactionMs: round(slowestReactionMs),
-    consistencyScore: round(calculateConsistency(samples)),
-    falseStarts,
-    inputMethod: resolveInputMethod(samples),
+    spreadReactionMs: round(Math.max(0, slowestReactionMs - bestReactionMs)),
+    consistencyScore: round(calculateConsistency(safeSamples)),
+    falseStarts: Math.max(
+      0,
+      Math.floor(Number.isFinite(falseStarts) ? falseStarts : 0),
+    ),
+    inputMethod: resolveInputMethod(safeSamples),
   };
 }
 
@@ -86,7 +167,8 @@ export function modeLabel(mode: ReactionTestMode) {
 
 export function scoreLabel(averageReactionMs: number) {
   if (averageReactionMs > 0 && averageReactionMs <= 180) return "Elite reflex";
-  if (averageReactionMs <= 230 && averageReactionMs > 0) return "Sharp reaction";
+  if (averageReactionMs <= 230 && averageReactionMs > 0)
+    return "Sharp reaction";
   if (averageReactionMs <= 300 && averageReactionMs > 0) return "Solid timing";
   if (averageReactionMs > 0) return "Warm-up";
   return "No signal yet";
@@ -101,15 +183,23 @@ export function consistencyLabel(score: number) {
 }
 
 export function resultInsight(stats: ReactionStats) {
-  if (stats.roundsCompleted === 0) return "Wait for the signal, then tap as soon as the arena turns green.";
-  if (stats.falseStarts > 0 && stats.roundsCompleted < stats.totalRounds) return "Early tap detected. Wait for green before reacting.";
-  if (stats.averageReactionMs <= 180) return "Excellent reflex speed. Try more rounds to confirm consistency.";
-  if (stats.averageReactionMs <= 230 && stats.consistencyScore >= 65) return "Strong reaction time with a stable rhythm.";
-  if (stats.consistencyScore < 45 && stats.roundsCompleted >= 3) return "Your reactions vary a lot. Relax your hand and keep your eyes on the signal.";
-  if (stats.inputMethod === "Touch") return "Touch input is working. Compare results on the same device for fairness.";
+  if (stats.roundsCompleted === 0)
+    return "Wait for the signal, then tap as soon as the arena turns green.";
+  if (stats.falseStarts > 0 && stats.roundsCompleted < stats.totalRounds)
+    return "Early tap detected. Wait for green before reacting.";
+  if (stats.averageReactionMs <= 180)
+    return "Excellent reflex speed. Try more rounds to confirm consistency.";
+  if (stats.averageReactionMs <= 230 && stats.consistencyScore >= 65)
+    return "Strong reaction time with a stable rhythm.";
+  if (stats.consistencyScore < 45 && stats.roundsCompleted >= 3)
+    return "Your reactions vary a lot. Relax your hand and keep your eyes on the signal.";
+  if (stats.inputMethod === "Touch")
+    return "Touch input is working. Compare results on the same device for fairness.";
   return "Nice run. Reaction results vary with device latency, browser timing, and focus.";
 }
 
 export function formatNumber(value: number, maximumFractionDigits = 0) {
-  return new Intl.NumberFormat("en-US", { maximumFractionDigits }).format(value);
+  return new Intl.NumberFormat("en-US", { maximumFractionDigits }).format(
+    value,
+  );
 }

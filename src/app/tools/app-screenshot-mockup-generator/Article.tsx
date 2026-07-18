@@ -9,7 +9,7 @@ export default function Article() {
           Turn a raw app or website screenshot into a polished PNG with a phone, tablet, laptop, desktop, browser, or clean card frame. Add a solid, gradient, mesh, or image background; optional marketing copy; and export-safe guides before downloading one file or a complete ZIP.
         </p>
         <p>
-          The tool is useful for developers documenting a release, designers presenting interface work, creators making launch graphics, students preparing portfolios, marketers building campaign assets, and anyone who wants a cleaner screenshot without opening a full design application. The updated workflow also includes production handoff checks, responsive snippets, CSS variables, and JSON tokens for teams that need to move the exported image into a real product page.
+          The tool is useful for developers documenting a release, designers presenting interface work, creators making launch graphics, students preparing portfolios, and marketers building campaign assets. The production workflow adds a reopenable settings project, design fingerprints, severity-based checks, responsive snippets, reports, CSV metrics, CSS variables, and JSON tokens for teams moving assets into real product pages.
         </p>
       </ToolArticleSection>
 
@@ -19,7 +19,7 @@ export default function Article() {
           <li>Choose a quick preset or select the frame that best matches the product.</li>
           <li>Use Cover for an edge-to-edge crop or Contain when every part of the screenshot must remain visible.</li>
           <li>Choose an export pack, then adjust the background, copy, spacing, and optional frame details.</li>
-          <li>Review the live preview, crop summary, production handoff checks, and readiness warnings. Generate the pack, download individual PNGs, or download the ZIP with code snippets and design tokens.</li>
+          <li>Review the live preview, crop summary, four production signals, and severity-based audit. Generate the pack after the final design change, then download current PNGs or the ZIP with code snippets, project settings, reports, metrics, and design tokens.</li>
         </ol>
       </ToolArticleSection>
 
@@ -44,17 +44,33 @@ export default function Article() {
       </ToolArticleSection>
 
 
+
+      <ToolArticleSection title="Save settings and prevent stale exports">
+        <p>
+          Export a versioned project JSON file when you need to pause or share the design settings. Uploaded screenshot and background bytes are excluded deliberately, keeping the project compact and preventing private interface imagery from being copied into a settings backup. Reattach those local files after importing.
+        </p>
+        <p>
+          Every generated PNG pack is tied to a fingerprint of the active design and attached sources. Changing copy, colors, frame settings, export pack, screenshot, or background immediately marks the old files as stale and disables their downloads until regeneration finishes.
+        </p>
+      </ToolArticleSection>
+
+      <ToolArticleSection title="Understand the production audit">
+        <p>
+          Errors block final handoff, warnings identify quality or naming risks, information items document manual checks, and passing checks confirm usable parts of the project. The audit reviews source availability and resolution, image-background attachment, title length, filename portability, output completeness, duplicate filenames, payload size, marketplace verification, privacy, and package freshness.
+        </p>
+      </ToolArticleSection>
+
       <ToolArticleSection title="Production handoff tips">
         <ul className="list-disc space-y-2 pl-5">
           <li>Use the preview canvas controls to test the composition before generating the full pack.</li>
           <li>Generate the ZIP when the selected export pack matches the campaign channel, then use the individual PNG download only for quick iterations.</li>
           <li>Use the responsive picture snippet when several generated sizes are shipped together.</li>
-          <li>Use the JSON token export to document the chosen frame, canvas, colors, and generated asset dimensions.</li>
+          <li>Use the JSON token export to document frame and color decisions, the project JSON to reopen settings, and the Markdown/CSV files to preserve production evidence.</li>
         </ul>
       </ToolArticleSection>
 
       <ToolArticleSection title="Privacy and local processing">
-        <p>Your screenshot and optional background image stay in the browser. Preview rendering, package checks, PNG generation, snippets, and ZIP creation use local browser APIs; Darma does not send these files to a server. Closing or refreshing the page clears the current working state.</p>
+        <p>Your screenshot and optional background image stay in the browser. Preview rendering, project validation, package checks, PNG generation, snippets, reports, and ZIP creation use local browser APIs; Darma does not send these files to a server. Export project JSON before refreshing when you need to preserve settings.</p>
       </ToolArticleSection>
 
       <ToolArticleSection title="Troubleshooting">
@@ -75,7 +91,9 @@ export default function Article() {
           { question: "Can I remove the device frame?", answer: "Yes. Choose Card for a clean framed image, or turn off chrome on supported device frames." },
           { question: "Why is part of my screenshot missing?", answer: "Cover fills the frame by cropping edges when aspect ratios differ. Switch to Contain to preserve the whole screenshot." },
           { question: "Can I use my own background image?", answer: "Yes. Select Image background mode and use the background upload shown there. It remains local to the browser." },
-          { question: "What is included in the ZIP?", answer: "The ZIP contains the selected PNG export pack, a README, HTML and Next.js examples, a responsive picture snippet, CSS, CSS variables, and a JSON token file for handoff." },
+          { question: "What is included in the ZIP?", answer: "The ZIP contains the selected PNG export pack, README, HTML and Next.js examples, a responsive picture snippet, CSS, CSS variables, design tokens, settings-only project JSON, a Markdown audit, and CSV metrics." },
+          { question: "Does project JSON contain my uploaded screenshot?", answer: "No. Uploaded screenshot and background bytes are deliberately excluded. Reattach the local images after importing the settings project." },
+          { question: "Why are my PNG download buttons disabled?", answer: "The design changed after the last generation. Regenerate the pack so the PNGs and ZIP match the current fingerprint." },
           { question: "Why does the preview show a placeholder?", answer: "The generator supports placeholder previews so you can explore the controls first. Upload a screenshot before producing final assets." },
         ]}
       />

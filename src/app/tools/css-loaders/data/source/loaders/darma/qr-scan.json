@@ -1,0 +1,28 @@
+{
+  "id": "qr-scan",
+  "name": "QR Scan",
+  "category": "creative",
+  "tags": [
+    "qr",
+    "code",
+    "scan",
+    "grid",
+    "read"
+  ],
+  "html": "<span class=\"loader\"><i></i></span>",
+  "css": ".loader {\n  position: relative;\n  width: 46px;\n  height: 46px;\n  border-radius: 4px;\n  overflow: hidden;\n  background-color: #eef2ff;\n  background-image:\n    linear-gradient(#6366f1 0 0),\n    linear-gradient(#6366f1 0 0),\n    linear-gradient(#6366f1 0 0),\n    conic-gradient(from 0deg, #6366f1 25%, transparent 0 50%, #6366f1 0 75%, transparent 0);\n  background-repeat: no-repeat, no-repeat, no-repeat, repeat;\n  background-size: 12px 12px, 12px 12px, 12px 12px, 10px 10px;\n  background-position: 0 0, 100% 0, 0 100%, 0 0;\n}\n.loader i {\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  height: 4px;\n  background: #6366f1;\n  box-shadow: 0 0 6px 1px #6366f1;\n  animation: qscan 1.6s ease-in-out infinite;\n}\n@keyframes qscan {\n  0% { top: 0; }\n  50% { top: calc(100% - 4px); }\n  100% { top: 0; }\n}",
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  }
+}

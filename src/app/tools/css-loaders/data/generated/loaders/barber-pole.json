@@ -1,0 +1,43 @@
+{
+  "id": "barber-pole",
+  "name": "Barber Pole",
+  "category": "creative",
+  "tags": [
+    "barber",
+    "pole",
+    "stripes",
+    "diagonal",
+    "roll"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": true
+  },
+  "searchText": "barber-pole barber pole creative barber pole stripes diagonal roll html css react cssonly customizable singleelement",
+  "previewHtml": "<span class=\"darma-loader-barber-pole\"></span>",
+  "previewCss": ".darma-loader-barber-pole {\n  width: 20px;\n  height: 52px;\n  border-radius: 10px;\n  box-sizing: border-box;\n  background: repeating-linear-gradient(45deg, var(--loader-color, #6366f1) 0 8px, var(--loader-secondary-color, #eef2ff) 8px 16px);\n  background-size: 100% 200%;\n  box-shadow: inset 3px 0 5px rgba(0, 0, 0, 0.15), inset -3px 0 5px rgba(0, 0, 0, 0.15);\n  animation: darma-loader-barber-pole-roll 0.9s linear infinite;\n}\n@keyframes darma-loader-barber-pole-roll {\n  from { background-position: 0 0; }\n  to { background-position: 0 -22.63px; }\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "secondaryColor": "#eef2ff",
+    "size": 52,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-barber-pole\"></span>",
+    "css": ".darma-loader-barber-pole {\n  width: 20px;\n  height: 52px;\n  border-radius: 10px;\n  box-sizing: border-box;\n  background: repeating-linear-gradient(45deg, var(--loader-color, #6366f1) 0 8px, var(--loader-secondary-color, #eef2ff) 8px 16px);\n  background-size: 100% 200%;\n  box-shadow: inset 3px 0 5px rgba(0, 0, 0, 0.15), inset -3px 0 5px rgba(0, 0, 0, 0.15);\n  animation: darma-loader-barber-pole-roll 0.9s linear infinite;\n}\n@keyframes darma-loader-barber-pole-roll {\n  from { background-position: 0 0; }\n  to { background-position: 0 -22.63px; }\n}",
+    "react": "export default function BarberPoleLoader() {\n  return (\n    <span className=\"darma-loader-barber-pole\"></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  }
+}

@@ -37,7 +37,10 @@ function validateSupport(support: Support, length: number): ValidationIssue[] {
     });
     return issues;
   }
-  if (support.x < -POSITION_TOLERANCE || support.x > length + POSITION_TOLERANCE) {
+  if (
+    support.x < -POSITION_TOLERANCE ||
+    support.x > length + POSITION_TOLERANCE
+  ) {
     issues.push({
       id: `support-${support.id}-x-range`,
       severity: "error",
@@ -53,33 +56,100 @@ function validateLoad(load: BeamLoad, length: number): ValidationIssue[] {
 
   if (load.kind === "point" || load.kind === "moment") {
     if (!isFiniteNumber(load.x)) {
-      issues.push({ id: `load-${load.id}-x-nan`, severity: "error", message: `Load ${load.id} has an invalid position.`, target: { kind: "load", id: load.id } });
-    } else if (load.x < -POSITION_TOLERANCE || load.x > length + POSITION_TOLERANCE) {
-      issues.push({ id: `load-${load.id}-x-range`, severity: "error", message: `Load ${load.id} at ${load.x} is outside the beam (0 to ${length}).`, target: { kind: "load", id: load.id } });
+      issues.push({
+        id: `load-${load.id}-x-nan`,
+        severity: "error",
+        message: `Load ${load.id} has an invalid position.`,
+        target: { kind: "load", id: load.id },
+      });
+    } else if (
+      load.x < -POSITION_TOLERANCE ||
+      load.x > length + POSITION_TOLERANCE
+    ) {
+      issues.push({
+        id: `load-${load.id}-x-range`,
+        severity: "error",
+        message: `Load ${load.id} at ${load.x} is outside the beam (0 to ${length}).`,
+        target: { kind: "load", id: load.id },
+      });
     }
     if (!isFiniteNumber(load.magnitude)) {
-      issues.push({ id: `load-${load.id}-mag-nan`, severity: "error", message: `Load ${load.id} has an invalid magnitude.`, target: { kind: "load", id: load.id } });
+      issues.push({
+        id: `load-${load.id}-mag-nan`,
+        severity: "error",
+        message: `Load ${load.id} has an invalid magnitude.`,
+        target: { kind: "load", id: load.id },
+      });
+    } else if (load.magnitude < 0) {
+      issues.push({
+        id: `load-${load.id}-mag-negative`,
+        severity: "error",
+        message: `Load ${load.id} magnitude must be zero or greater. Use the direction control to reverse it.`,
+        target: { kind: "load", id: load.id },
+      });
     } else if (load.magnitude === 0) {
-      issues.push({ id: `load-${load.id}-mag-zero`, severity: "warning", message: `Load ${load.id} has zero magnitude and will not affect results.`, target: { kind: "load", id: load.id } });
+      issues.push({
+        id: `load-${load.id}-mag-zero`,
+        severity: "warning",
+        message: `Load ${load.id} has zero magnitude and will not affect results.`,
+        target: { kind: "load", id: load.id },
+      });
     }
     return issues;
   }
 
   // UDL
   if (!isFiniteNumber(load.start) || !isFiniteNumber(load.end)) {
-    issues.push({ id: `load-${load.id}-range-nan`, severity: "error", message: `UDL ${load.id} has an invalid range.`, target: { kind: "load", id: load.id } });
+    issues.push({
+      id: `load-${load.id}-range-nan`,
+      severity: "error",
+      message: `UDL ${load.id} has an invalid range.`,
+      target: { kind: "load", id: load.id },
+    });
     return issues;
   }
-  if (load.start < -POSITION_TOLERANCE || load.end > length + POSITION_TOLERANCE || load.start < 0 || load.end < 0) {
-    issues.push({ id: `load-${load.id}-range-bounds`, severity: "error", message: `UDL ${load.id} range must stay within the beam (0 to ${length}).`, target: { kind: "load", id: load.id } });
+  if (
+    load.start < -POSITION_TOLERANCE ||
+    load.end > length + POSITION_TOLERANCE ||
+    load.start < 0 ||
+    load.end < 0
+  ) {
+    issues.push({
+      id: `load-${load.id}-range-bounds`,
+      severity: "error",
+      message: `UDL ${load.id} range must stay within the beam (0 to ${length}).`,
+      target: { kind: "load", id: load.id },
+    });
   }
   if (load.start >= load.end - POSITION_TOLERANCE) {
-    issues.push({ id: `load-${load.id}-range-order`, severity: "error", message: `UDL ${load.id} start (${load.start}) must be less than end (${load.end}).`, target: { kind: "load", id: load.id } });
+    issues.push({
+      id: `load-${load.id}-range-order`,
+      severity: "error",
+      message: `UDL ${load.id} start (${load.start}) must be less than end (${load.end}).`,
+      target: { kind: "load", id: load.id },
+    });
   }
   if (!isFiniteNumber(load.magnitude)) {
-    issues.push({ id: `load-${load.id}-mag-nan`, severity: "error", message: `UDL ${load.id} has an invalid intensity.`, target: { kind: "load", id: load.id } });
+    issues.push({
+      id: `load-${load.id}-mag-nan`,
+      severity: "error",
+      message: `UDL ${load.id} has an invalid intensity.`,
+      target: { kind: "load", id: load.id },
+    });
+  } else if (load.magnitude < 0) {
+    issues.push({
+      id: `load-${load.id}-mag-negative`,
+      severity: "error",
+      message: `UDL ${load.id} intensity must be zero or greater. Use the direction control to reverse it.`,
+      target: { kind: "load", id: load.id },
+    });
   } else if (load.magnitude === 0) {
-    issues.push({ id: `load-${load.id}-mag-zero`, severity: "warning", message: `UDL ${load.id} has zero intensity and will not affect results.`, target: { kind: "load", id: load.id } });
+    issues.push({
+      id: `load-${load.id}-mag-zero`,
+      severity: "warning",
+      message: `UDL ${load.id} has zero intensity and will not affect results.`,
+      target: { kind: "load", id: load.id },
+    });
   }
   return issues;
 }
@@ -89,13 +159,21 @@ export function validateBeam(model: BeamModel): ValidationResult {
 
   // Beam length.
   if (!isFiniteNumber(model.length) || model.length <= 0) {
-    issues.push({ id: "beam-length", severity: "error", message: "Beam length must be a positive number.", target: { kind: "beam" } });
+    issues.push({
+      id: "beam-length",
+      severity: "error",
+      message: "Beam length must be a positive number.",
+      target: { kind: "beam" },
+    });
   }
 
-  const safeLength = isFiniteNumber(model.length) && model.length > 0 ? model.length : 0;
+  const safeLength =
+    isFiniteNumber(model.length) && model.length > 0 ? model.length : 0;
 
-  for (const support of model.supports) issues.push(...validateSupport(support, safeLength));
-  for (const load of model.loads) issues.push(...validateLoad(load, safeLength));
+  for (const support of model.supports)
+    issues.push(...validateSupport(support, safeLength));
+  for (const load of model.loads)
+    issues.push(...validateLoad(load, safeLength));
 
   // Duplicate support positions.
   const positions = new Map<number, number>();
@@ -105,12 +183,20 @@ export function validateBeam(model: BeamModel): ValidationResult {
     positions.set(key, (positions.get(key) ?? 0) + 1);
   }
   if ([...positions.values()].some((count) => count > 1)) {
-    issues.push({ id: "support-duplicate", severity: "error", message: "Two supports cannot share the same position.", target: { kind: "beam" }, suggestionPresetId: "ss-center-point" });
+    issues.push({
+      id: "support-duplicate",
+      severity: "error",
+      message: "Two supports cannot share the same position.",
+      target: { kind: "beam" },
+      suggestionPresetId: "ss-center-point",
+    });
   }
 
   // Support configuration must be one we can solve. Only flag this when the
   // individual supports are otherwise valid, so the user sees the precise issue.
-  const hasSupportLevelError = issues.some((issue) => issue.severity === "error" && issue.target?.kind !== "load");
+  const hasSupportLevelError = issues.some(
+    (issue) => issue.severity === "error" && issue.target?.kind !== "load",
+  );
   if (!hasSupportLevelError) {
     const config = classifySupports(model.supports);
     if (!config) {
@@ -127,7 +213,13 @@ export function validateBeam(model: BeamModel): ValidationResult {
 
   // Empty loads is not an error, just a gentle nudge.
   if (model.loads.length === 0) {
-    issues.push({ id: "loads-empty", severity: "warning", message: "No loads added yet. Add a point load, UDL, or applied moment to see results.", target: { kind: "beam" } });
+    issues.push({
+      id: "loads-empty",
+      severity: "warning",
+      message:
+        "No loads added yet. Add a point load, UDL, or applied moment to see results.",
+      target: { kind: "beam" },
+    });
   }
 
   const errors = issues.filter((issue) => issue.severity === "error");

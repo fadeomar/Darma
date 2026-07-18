@@ -1,0 +1,42 @@
+{
+  "id": "yin-yang-spin",
+  "name": "Yin Yang Spin",
+  "category": "creative",
+  "tags": [
+    "yin",
+    "yang",
+    "balance",
+    "spin",
+    "duotone"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "yin-yang-spin yin yang spin creative yin yang balance spin duotone html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-yin-yang-spin\"></span>",
+  "previewCss": ".darma-loader-yin-yang-spin {\n  width: 52px;\n  height: 52px;\n  border-radius: 50%;\n  background:\n    radial-gradient(circle at 50% 25%, var(--loader-secondary-color, #e0e7ff) 4%, transparent 5%),\n    radial-gradient(circle at 50% 75%, var(--loader-color, #6366f1) 4%, transparent 5%),\n    radial-gradient(circle at 50% 25%, var(--loader-color, #6366f1) 22%, transparent 23%),\n    radial-gradient(circle at 50% 75%, var(--loader-secondary-color, #e0e7ff) 22%, transparent 23%),\n    linear-gradient(to right, var(--loader-secondary-color, #e0e7ff) 50%, var(--loader-color, #6366f1) 50%);\n  animation: darma-loader-yin-yang-spin-spin 1.4s linear infinite;\n}\n@keyframes darma-loader-yin-yang-spin-spin { to { transform: rotate(360deg); } }",
+  "defaults": {
+    "color": "#6366f1",
+    "secondaryColor": "#e0e7ff",
+    "size": 52,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-yin-yang-spin\"></span>",
+    "css": ".darma-loader-yin-yang-spin {\n  width: 52px;\n  height: 52px;\n  border-radius: 50%;\n  background:\n    radial-gradient(circle at 50% 25%, var(--loader-secondary-color, #e0e7ff) 4%, transparent 5%),\n    radial-gradient(circle at 50% 75%, var(--loader-color, #6366f1) 4%, transparent 5%),\n    radial-gradient(circle at 50% 25%, var(--loader-color, #6366f1) 22%, transparent 23%),\n    radial-gradient(circle at 50% 75%, var(--loader-secondary-color, #e0e7ff) 22%, transparent 23%),\n    linear-gradient(to right, var(--loader-secondary-color, #e0e7ff) 50%, var(--loader-color, #6366f1) 50%);\n  animation: darma-loader-yin-yang-spin-spin 1.4s linear infinite;\n}\n@keyframes darma-loader-yin-yang-spin-spin { to { transform: rotate(360deg); } }",
+    "react": "export default function YinYangSpinLoader() {\n  return (\n    <span className=\"darma-loader-yin-yang-spin\"></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  }
+}

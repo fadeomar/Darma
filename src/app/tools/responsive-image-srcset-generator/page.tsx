@@ -29,7 +29,7 @@ export default function ResponsiveImageSrcsetGeneratorPage() {
       maxWidth="wide"
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] dark:text-[var(--color-text-secondary)]">
-          Generate responsive image markup with srcset, sizes, picture sources, and Next.js Image snippets while previewing the slot width and estimated browser candidate choice.
+          Plan, audit, save, reopen, and export responsive image delivery for HTML, picture, and Next.js workflows with live slot and DPR analysis.
         </p>
       }
       article={
@@ -39,7 +39,7 @@ export default function ResponsiveImageSrcsetGeneratorPage() {
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Responsive Image srcset Generator" description="Build image candidates, sizes rules, picture fallbacks, Next.js Image snippets, and CSS helpers in a browser-only Image Delivery Studio.">
+      <ToolContentCard title="Responsive Image Delivery Studio" description="Build candidate plans, sizes rules, picture fallbacks, loading hints, production checks, and complete browser-local delivery packs.">
         <ResponsiveImageSrcsetClient />
       </ToolContentCard>
     </ToolPage>

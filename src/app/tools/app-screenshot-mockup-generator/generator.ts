@@ -52,9 +52,18 @@ export function createReadme(input: MockupInput, assets: GeneratedMockupAsset[])
     "",
     ...assets.map((asset) => `- ${asset.filename} — ${asset.width}×${asset.height}`),
     "",
+    "## Production handoff files",
+    "",
+    "- mockup-project.json — reopenable settings without uploaded image bytes",
+    "- production-report.md — severity-based audit and generated asset manifest",
+    "- production-metrics.csv — compact production metrics",
+    "- html-figure-snippet.html and responsive-picture-snippet.html — browser markup examples",
+    "- next-image-snippet.tsx — Next.js Image example",
+    "- mockup-styles.css, mockup-variables.css, and mockup.tokens.json — implementation handoff",
+    "",
     "## Usage tips",
     "",
-    "Use landing-page exports for hero sections, social exports for launch posts, app-store exports as draft marketing screenshots, and documentation exports for README/support articles.",
+    "Use landing-page exports for hero sections, social exports for launch posts, app-store exports as draft marketing screenshots, and documentation exports for README/support articles. Regenerate the PNG pack after every design or source-image change so downloads match the current fingerprint.",
   ];
   return lines.join("\n");
 }

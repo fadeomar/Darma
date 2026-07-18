@@ -79,14 +79,14 @@ export function TodoImportDialog({ open, summary, busy, onClose, onImport }: Pro
           </label>
           <label className="todo-import-option todo-import-option--danger">
             <input type="radio" name="todo-import-mode" checked={mode === "replace"} onChange={() => setMode("replace")} />
-            <span><strong>Replace everything</strong><small>Deletes current Darma Tasks data, then imports this file.</small></span>
+            <span><strong>Replace everything</strong><small>Validates the full backup, then replaces IndexedDB in one atomic transaction.</small></span>
           </label>
         </div>
 
         {mode === "replace" && (
           <label className="todo-import-ack">
             <input type="checkbox" checked={replaceAck} onChange={(e) => setReplaceAck(e.target.checked)} />
-            <span>I understand this replaces all current Darma Tasks data.</span>
+            <span>I understand this atomically replaces all current Darma Tasks data.</span>
           </label>
         )}
 

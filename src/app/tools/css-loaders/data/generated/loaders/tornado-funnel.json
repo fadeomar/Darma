@@ -1,0 +1,41 @@
+{
+  "id": "tornado-funnel",
+  "name": "Tornado Funnel",
+  "category": "creative",
+  "tags": [
+    "tornado",
+    "funnel",
+    "swirl",
+    "storm",
+    "vortex"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true
+  },
+  "searchText": "tornado-funnel tornado funnel creative tornado funnel swirl storm vortex html css react cssonly customizable",
+  "previewHtml": "<span class=\"darma-loader-tornado-funnel\"><i></i><i></i><i></i><i></i></span>",
+  "previewCss": ".darma-loader-tornado-funnel {\n  position: relative;\n  width: 48px;\n  height: 52px;\n}\n.darma-loader-tornado-funnel i {\n  position: absolute;\n  left: 50%;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-tornado-funnel-swirl 1s ease-in-out infinite;\n}\n.darma-loader-tornado-funnel i:nth-child(1) { top: 2px; width: 44px; height: 10px; margin-left: -22px; animation-delay: 0s; opacity: 0.9; }\n.darma-loader-tornado-funnel i:nth-child(2) { top: 16px; width: 32px; height: 9px; margin-left: -16px; animation-delay: 0.1s; opacity: 0.8; }\n.darma-loader-tornado-funnel i:nth-child(3) { top: 29px; width: 20px; height: 8px; margin-left: -10px; animation-delay: 0.2s; opacity: 0.7; }\n.darma-loader-tornado-funnel i:nth-child(4) { top: 41px; width: 10px; height: 7px; margin-left: -5px; animation-delay: 0.3s; opacity: 0.6; }\n@keyframes darma-loader-tornado-funnel-swirl {\n  0%, 100% { transform: translateX(-4px) scaleX(0.85); }\n  50% { transform: translateX(4px) scaleX(1); }\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-tornado-funnel\"><i></i><i></i><i></i><i></i></span>",
+    "css": ".darma-loader-tornado-funnel {\n  position: relative;\n  width: 48px;\n  height: 52px;\n}\n.darma-loader-tornado-funnel i {\n  position: absolute;\n  left: 50%;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-tornado-funnel-swirl 1s ease-in-out infinite;\n}\n.darma-loader-tornado-funnel i:nth-child(1) { top: 2px; width: 44px; height: 10px; margin-left: -22px; animation-delay: 0s; opacity: 0.9; }\n.darma-loader-tornado-funnel i:nth-child(2) { top: 16px; width: 32px; height: 9px; margin-left: -16px; animation-delay: 0.1s; opacity: 0.8; }\n.darma-loader-tornado-funnel i:nth-child(3) { top: 29px; width: 20px; height: 8px; margin-left: -10px; animation-delay: 0.2s; opacity: 0.7; }\n.darma-loader-tornado-funnel i:nth-child(4) { top: 41px; width: 10px; height: 7px; margin-left: -5px; animation-delay: 0.3s; opacity: 0.6; }\n@keyframes darma-loader-tornado-funnel-swirl {\n  0%, 100% { transform: translateX(-4px) scaleX(0.85); }\n  50% { transform: translateX(4px) scaleX(1); }\n}",
+    "react": "export default function TornadoFunnelLoader() {\n  return (\n    <span className=\"darma-loader-tornado-funnel\"><i></i><i></i><i></i><i></i></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  }
+}

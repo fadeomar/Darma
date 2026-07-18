@@ -25,11 +25,11 @@ export default function Page() {
       maxWidth="full"
       intro={
         <p className="max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)]">
-          Build and test responsive HTML, CSS, and JavaScript in a compact browser-local studio with practical presets, device previews, runtime logs, production checks, and export-ready files.
+          Build, audit, save, reopen, and export responsive HTML, CSS, and JavaScript projects in a compact browser-local studio with sandboxed device previews and production handoff files.
         </p>
       }
       article={
-        <ToolContentCard title="How to use the code preview studio">
+        <ToolContentCard title="How to use the Code Preview Production Studio">
           <Article />
         </ToolContentCard>
       }

@@ -43,6 +43,29 @@ export function GameThumbnail({
   const motifSize =
     size === "lg" ? "text-5xl sm:text-6xl" : "text-4xl sm:text-5xl";
 
+  if (game.slug === "gridland") {
+    return (
+      <div
+        className={cn(
+          "gridland-thumbnail relative w-full overflow-hidden bg-[#eee9dc]",
+          aspectClass,
+          className,
+        )}
+      >
+        <div className="gridland-thumbnail-grid pointer-events-none absolute inset-0" aria-hidden />
+        <Image
+          src={game.thumbnail}
+          alt=""
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-contain p-[12%] transition duration-500 group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+          style={{ imageRendering: "pixelated" }}
+          priority={priority}
+        />
+      </div>
+    );
+  }
+
   if (game.slug === "floppy-bird") {
     return (
       <div

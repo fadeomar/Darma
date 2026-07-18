@@ -2,6 +2,7 @@
   "id": "uiverse-seesaw-marble",
   "name": "Seesaw Marble",
   "category": "fun",
+  "sourceId": "uiverse-batch-2",
   "tags": [
     "uiverse",
     "seesaw",
@@ -23,7 +24,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "uiverse-seesaw-marble seesaw marble fun uiverse seesaw marble balance ball fun loader html css react cssonly customizable",
+  "searchText": "uiverse-seesaw-marble seesaw marble fun uiverse-batch-2 uiverse batch 2 uiverse seesaw marble balance ball fun loader html css react cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-uiverse-seesaw-marble\">\n<div class=\"darma-loader-uiverse-seesaw-marble__bar\">\n    <div class=\"darma-loader-uiverse-seesaw-marble__ball\"></div>\n</div>\n</div>",
   "previewCss": ".darma-loader-uiverse-seesaw-marble {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-seesaw-marble__ball {\n  position: relative;\n  bottom: 50px;\n  left: calc(100% - 20px);\n  width: 50px;\n  height: 50px;\n  background: #fff;\n  border-radius: 50%;\n  animation: darma-loader-uiverse-seesaw-marble-ball-move8234 3s ease-in-out 1s infinite alternate;\n}\n\n.darma-loader-uiverse-seesaw-marble__ball::after {\nposition: absolute;\ncontent: '';\ntop: 25px;\nright: 5px;\nwidth: 5px;\nheight: 5px;\nbackground: #000;\nborder-radius: 50%;\n}\n\n.darma-loader-uiverse-seesaw-marble__bar {\nwidth: 200px;\nheight: 12.5px;\nbackground: #FFDAAF;\nborder-radius: 30px;\ntransform: rotate(-15deg);\nanimation: darma-loader-uiverse-seesaw-marble-up-down6123 3s ease-in-out 1s infinite alternate;\n}\n\n@keyframes darma-loader-uiverse-seesaw-marble-up-down6123 {\nfrom {\ntransform: rotate(-15deg);\n}\n\nto {\ntransform: rotate(15deg);\n}\n}\n\n@keyframes darma-loader-uiverse-seesaw-marble-ball-move8234 {\nfrom {\nleft: calc(100% - 40px);\ntransform: rotate(360deg);\n}\n\nto {\nleft: calc(0% - 20px);\ntransform: rotate(0deg);\n}\n}",
   "defaults": {

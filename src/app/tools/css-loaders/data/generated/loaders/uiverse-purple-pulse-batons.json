@@ -2,6 +2,7 @@
   "id": "uiverse-purple-pulse-batons",
   "name": "Purple Pulse Batons",
   "category": "dots",
+  "sourceId": "uiverse-batch-3",
   "tags": [
     "uiverse",
     "pulse",
@@ -22,7 +23,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "uiverse-purple-pulse-batons purple pulse batons dots uiverse pulse batons dots purple loader html css react cssonly customizable",
+  "searchText": "uiverse-purple-pulse-batons purple pulse batons dots uiverse-batch-3 uiverse batch 3 uiverse pulse batons dots purple loader html css react cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-uiverse-purple-pulse-batons__container\">\n  <div class=\"darma-loader-uiverse-purple-pulse-batons__dot\"></div>\n  <div class=\"darma-loader-uiverse-purple-pulse-batons__dot\"></div>\n  <div class=\"darma-loader-uiverse-purple-pulse-batons__dot\"></div>\n  <div class=\"darma-loader-uiverse-purple-pulse-batons__dot\"></div>\n</div>\n\n/* mini loader component */",
   "previewCss": ".darma-loader-uiverse-purple-pulse-batons__container {\ndisplay: flex;\nalign-items: center;\njustify-content: center;\nwidth: 3.75em; /* 60px */\n}\n\n.darma-loader-uiverse-purple-pulse-batons__dot {\nheight: 0.8125em; /* 13px */\nwidth: 1.25em; /* 20px */\nmargin-right: 0.625em; /* 10px */\nborder-radius: 0.625em; /* 10px */\nbackground-color: #721a8f;\nanimation: darma-loader-uiverse-purple-pulse-batons-loaderpulse 1.5s infinite ease-in-out;\n}\n\n.darma-loader-uiverse-purple-pulse-batons__dot:last-child {\nmargin-right: 0;\n}\n\n.darma-loader-uiverse-purple-pulse-batons__dot:nth-child(1) {\nanimation-delay: -0.1875s; /* -0.3s */\n}\n\n.darma-loader-uiverse-purple-pulse-batons__dot:nth-child(2) {\nanimation-delay: -0.0625s; /* -0.1s */\n}\n\n.darma-loader-uiverse-purple-pulse-batons__dot:nth-child(3) {\nanimation-delay: 0.0625s; /* 0.1s */\n}\n\n@keyframes darma-loader-uiverse-purple-pulse-batons-loaderpulse {\n0% {\ntransform: scale(0.8);\nbackground-color: #d7b3fc;\nbox-shadow: 0 0 0 0 rgb(196 178 252 / 70%);\n}\n\n50% {\ntransform: scale(1.2);\nbackground-color: #70198e;\nbox-shadow: 0 0 0 0.625em rgba(178, 212, 252, 0); /* 10px */\n}\n\n100% {\ntransform: scale(0.8);\nbackground-color: #d7b3fc;\nbox-shadow: 0 0 0 0 rgb(196 178 252 / 70%);\n}\n}\n/* mini loader component end */",
   "defaults": {

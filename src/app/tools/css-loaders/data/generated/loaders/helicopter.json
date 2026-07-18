@@ -2,6 +2,7 @@
   "id": "helicopter",
   "name": "Helicopter",
   "category": "fun",
+  "sourceId": "darma",
   "tags": [
     "helicopter",
     "rotor",
@@ -18,7 +19,7 @@
     "cssOnly": true,
     "customizable": true
   },
-  "searchText": "helicopter helicopter fun helicopter rotor fly hover chopper html css react cssonly customizable",
+  "searchText": "helicopter helicopter fun darma darma originals helicopter rotor fly hover chopper html css react cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-helicopter\"><i></i></span>",
   "previewCss": ".darma-loader-helicopter {\n  position: relative;\n  width: 52px;\n  height: 40px;\n  animation: darma-loader-helicopter-hover 1.4s ease-in-out infinite;\n}\n.darma-loader-helicopter::before {\n  content: \"\";\n  position: absolute;\n  bottom: 8px;\n  left: 6px;\n  width: 30px;\n  height: 16px;\n  background: var(--loader-color, #6366f1);\n  border-radius: 12px 8px 8px 12px;\n}\n.darma-loader-helicopter::after {\n  content: \"\";\n  position: absolute;\n  top: 16px;\n  left: 34px;\n  width: 16px;\n  height: 4px;\n  background: var(--loader-color, #6366f1);\n  border-radius: 2px;\n}\n.darma-loader-helicopter i {\n  position: absolute;\n  top: 8px;\n  left: 19px;\n  width: 4px;\n  height: 10px;\n  background: #4338ca;\n}\n.darma-loader-helicopter i::before {\n  content: \"\";\n  position: absolute;\n  top: -3px;\n  left: 50%;\n  width: 44px;\n  height: 3px;\n  margin-left: -22px;\n  border-radius: 2px;\n  background: var(--loader-color, #6366f1);\n  transform-origin: center;\n  animation: darma-loader-helicopter-spin 0.18s linear infinite;\n}\n@keyframes darma-loader-helicopter-hover {\n  0%, 100% { transform: translateY(0); }\n  50% { transform: translateY(-3px); }\n}\n@keyframes darma-loader-helicopter-spin { to { transform: rotate(360deg); } }",
   "defaults": {

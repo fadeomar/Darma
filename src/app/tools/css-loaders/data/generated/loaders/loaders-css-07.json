@@ -2,6 +2,7 @@
   "id": "loaders-css-07",
   "name": "Square Spin 07",
   "category": "creative",
+  "sourceId": "loaders-css",
   "tags": [
     "loaders-css",
     "square",
@@ -21,7 +22,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "loaders-css-07 square spin 07 creative loaders-css square spin creative loader html css react popular singleelement cssonly customizable",
+  "searchText": "loaders-css-07 square spin 07 creative loaders-css loaders.css loaders-css square spin creative loader html css react popular singleelement cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-loaders-css-07\"></span>",
   "previewCss": ".darma-loader-loaders-css-07 {\n  display: inline-block;\n  width: 55px;\n  height: 55px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color, #06b6d4), var(--loader-secondary-color, #bae6fd));\n  animation: darma-loader-loaders-css-07-squareFlip 1.0s cubic-bezier(.55,.08,.38,.97) infinite;\n}\n@keyframes darma-loader-loaders-css-07-squareFlip { 0% { transform: perspective(120px) rotateX(0) rotateY(0); } 50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); } 100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); } }\n",
   "defaults": {

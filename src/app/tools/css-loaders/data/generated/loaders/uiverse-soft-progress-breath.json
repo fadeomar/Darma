@@ -2,6 +2,7 @@
   "id": "uiverse-soft-progress-breath",
   "name": "Soft Progress Breath",
   "category": "progress",
+  "sourceId": "uiverse-batch-3",
   "tags": [
     "uiverse",
     "soft",
@@ -22,7 +23,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "uiverse-soft-progress-breath soft progress breath progress uiverse soft progress breath bar loader html css react cssonly customizable",
+  "searchText": "uiverse-soft-progress-breath soft progress breath progress uiverse-batch-3 uiverse batch 3 uiverse soft progress breath bar loader html css react cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-uiverse-soft-progress-breath\">\n<div class=\"darma-loader-uiverse-soft-progress-breath__progress-loader\">\n  <div class=\"darma-loader-uiverse-soft-progress-breath__progress\"></div>\n</div>\n</div>",
   "previewCss": ".darma-loader-uiverse-soft-progress-breath {\n  width: fit-content;\n  height: fit-content;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n}\n\n.darma-loader-uiverse-soft-progress-breath__progress-loader {\n  position: relative;\n  width: 150px;\n  background: rgba(236, 236, 238, 0.253);\n  height: 10px;\n  border-radius: 7px;\n  overflow: hidden;\n}\n\n.darma-loader-uiverse-soft-progress-breath__progress {\nwidth: 1px;\nheight: 10px;\nborder-radius: 7px;\nbackground: rgb(255, 255, 255);\ntransition: 0.5s;\nanimation: darma-loader-uiverse-soft-progress-breath-loading_44 5s cubic-bezier(0.4, 1.01, 1, 1) infinite;\n}\n\n@keyframes darma-loader-uiverse-soft-progress-breath-loading_44 {\n0% {\nwidth: 0%;\n}\n\n50% {\nwidth: 100%;\n}\n\n100% {\nwidth: 0%;\n}\n}",
   "defaults": {

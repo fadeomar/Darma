@@ -2,6 +2,7 @@
   "id": "button-spinner",
   "name": "Button Spinner",
   "category": "button",
+  "sourceId": "darma",
   "tags": [
     "button",
     "spinner",
@@ -19,7 +20,7 @@
     "customizable": true,
     "singleElement": true
   },
-  "searchText": "button-spinner button spinner button button spinner inline submit html css react popular cssonly customizable singleelement",
+  "searchText": "button-spinner button spinner button darma darma originals button spinner inline submit html css react popular cssonly customizable singleelement",
   "previewHtml": "<span class=\"darma-loader-button-spinner\"></span>",
   "previewCss": ".darma-loader-button-spinner {\n  display: inline-block;\n  width: 26px;\n  height: 26px;\n  border-radius: 50%;\n  border: 3px solid color-mix(in srgb, var(--loader-color, #6366f1) 20%, transparent);\n  border-right-color: var(--loader-color, #6366f1);\n  animation: darma-loader-button-spinner-spin 0.7s linear infinite;\n}\n@keyframes darma-loader-button-spinner-spin { to { transform: rotate(360deg); } }\n",
   "defaults": {

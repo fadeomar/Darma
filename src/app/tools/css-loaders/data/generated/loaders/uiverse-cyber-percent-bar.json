@@ -2,6 +2,7 @@
   "id": "uiverse-cyber-percent-bar",
   "name": "Cyber Percent Bar",
   "category": "progress",
+  "sourceId": "uiverse-batch-5",
   "tags": [
     "percentage",
     "bar",
@@ -22,7 +23,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "uiverse-cyber-percent-bar cyber percent bar progress percentage bar cyber progress uiverse batch-5 html css react singleelement cssonly customizable",
+  "searchText": "uiverse-cyber-percent-bar cyber percent bar progress uiverse-batch-5 uiverse batch 5 percentage bar cyber progress uiverse batch-5 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-uiverse-cyber-percent-bar\"></div>\n",
   "previewCss": ".darma-loader-uiverse-cyber-percent-bar {\n  display: block;\n  position: relative;\n  height: 32px;\n  width: 200px;\n  background: #ffffff;\n  border: 2px solid #ffffff;\n  color: var(--loader-color, #df3c3c);\n  overflow: hidden;\n}\n.darma-loader-uiverse-cyber-percent-bar::before {\n  content: \"\";\n  background: var(--loader-color, #df3c3c);\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 0;\n  height: 100%;\n  animation: darma-loader-uiverse-cyber-percent-bar-cyberFill 10s linear infinite;\n}\n.darma-loader-uiverse-cyber-percent-bar::after {\n  content: \"Loading\";\n  position: absolute;\n  inset: 0;\n  text-align: center;\n  font-size: 18px;\n  line-height: 32px;\n  color: var(--loader-secondary-color, #00ffff);\n  mix-blend-mode: difference;\n  animation: darma-loader-uiverse-cyber-percent-bar-cyberText 10s linear infinite;\n}\n@keyframes darma-loader-uiverse-cyber-percent-bar-cyberFill { to { width: 100%; } }\n@keyframes darma-loader-uiverse-cyber-percent-bar-cyberText {\n  0% { content: \"0%\"; } 25% { content: \"25%\"; } 50% { content: \"50%\"; } 75% { content: \"75%\"; } 100% { content: \"100%\"; }\n}\n",
   "defaults": {

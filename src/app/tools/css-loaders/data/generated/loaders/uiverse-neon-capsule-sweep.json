@@ -2,6 +2,7 @@
   "id": "uiverse-neon-capsule-sweep",
   "name": "Neon Capsule Sweep",
   "category": "progress",
+  "sourceId": "uiverse-batch-3",
   "tags": [
     "uiverse",
     "neon",
@@ -23,7 +24,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "uiverse-neon-capsule-sweep neon capsule sweep progress uiverse neon capsule sweep progress glow loader html css react cssonly customizable",
+  "searchText": "uiverse-neon-capsule-sweep neon capsule sweep progress uiverse-batch-3 uiverse batch 3 uiverse neon capsule sweep progress glow loader html css react cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-uiverse-neon-capsule-sweep\"></div>\n/* HTML: <div class=\"darma-loader-uiverse-neon-capsule-sweep\"></div> */",
   "previewCss": ".darma-loader-uiverse-neon-capsule-sweep {\n  width: 120px;\n  height: 22px;\n  border-radius: 40px;\n  color: #10ffa4;\n  border: 2px solid;\n  position: relative;\n  overflow: hidden;\n}\n.darma-loader-uiverse-neon-capsule-sweep::before {\n  content: \"\";\n  position: absolute;\n  margin: 2px;\n  width: 14px;\n  top: 0;\n  bottom: 0;\n  left: -20px;\n  border-radius: inherit;\n  background: currentColor;\n  box-shadow: -10px 0 12px 3px currentColor;\n  clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 95%, -30px 50%);\n  animation: darma-loader-uiverse-neon-capsule-sweep-l14 1s infinite linear;\n}\n@keyframes darma-loader-uiverse-neon-capsule-sweep-l14 {\n  100% {\n    left: calc(100% + 20px);\n  }\n}",
   "defaults": {

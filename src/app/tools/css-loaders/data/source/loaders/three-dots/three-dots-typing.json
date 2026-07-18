@@ -1,0 +1,39 @@
+{
+  "id": "three-dots-typing",
+  "name": "Typing Dots",
+  "category": "dots",
+  "tags": [
+    "dots",
+    "typing",
+    "chat",
+    "bounce",
+    "three-dots"
+  ],
+  "html": "<span class=\"loader\"><i></i><i></i><i></i></span>",
+  "css": ".loader{\n  --td-dot: calc(var(--loader-size, 56px) / 5.6);\n  --td-gap: calc(var(--loader-size, 56px) / 12);\n  display:inline-flex;\n  align-items:center;\n  justify-content:center;\n  gap:var(--td-gap);\n  width:var(--loader-size, 56px);\n  height:var(--loader-size, 56px);\n}\n.loader i{\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:var(--loader-color, #6366f1);\n}\n.loader i{animation:td-typing var(--loader-speed, 1.5s) infinite linear}\n.loader i:nth-child(2){animation-delay:calc(var(--loader-speed, 1.5s) / 6)}\n.loader i:nth-child(3){animation-delay:calc(var(--loader-speed, 1.5s) / 3)}\n@keyframes td-typing{\n  0%,60%,100%{transform:translateY(0)}\n  30%{transform:translateY(calc(var(--td-dot) * -1.1))}\n}",
+  "source": {
+    "name": "three-dots",
+    "author": "Zongbin (nzbin)",
+    "license": "MIT",
+    "url": "https://github.com/nzbin/three-dots"
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": false,
+    "size": true,
+    "speed": true,
+    "background": false
+  },
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1.5,
+    "background": "#ffffff"
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": false,
+    "popular": false
+  }
+}

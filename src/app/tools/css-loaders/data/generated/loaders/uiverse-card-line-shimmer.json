@@ -2,6 +2,7 @@
   "id": "uiverse-card-line-shimmer",
   "name": "Card Line Shimmer",
   "category": "skeleton",
+  "sourceId": "uiverse",
   "tags": [
     "uiverse",
     "card",
@@ -21,7 +22,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "uiverse-card-line-shimmer card line shimmer skeleton uiverse card shimmer skeleton loader html css react singleelement cssonly customizable",
+  "searchText": "uiverse-card-line-shimmer card line shimmer skeleton uiverse uiverse uiverse card shimmer skeleton loader html css react singleelement cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-uiverse-card-line-shimmer\"></span>",
   "previewCss": ".darma-loader-uiverse-card-line-shimmer {\n  display: inline-block;\n  width: 104px;\n  height: 14px;\n  border-radius: 999px;\n  background: linear-gradient(90deg, color-mix(in srgb, var(--loader-color, #f59e0b) 12%, transparent), color-mix(in srgb, var(--loader-color, #f59e0b) 35%, transparent), color-mix(in srgb, var(--loader-color, #f59e0b) 12%, transparent));\n  background-size: 220% 100%;\n  animation: darma-loader-uiverse-card-line-shimmer-skeletonShimmer 1.05s linear infinite;\n}\n@keyframes darma-loader-uiverse-card-line-shimmer-skeletonShimmer { to { background-position: -220% 0; } }\n",
   "defaults": {

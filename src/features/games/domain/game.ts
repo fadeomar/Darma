@@ -41,6 +41,25 @@ export type GameAccent =
   | "lime"
   | "teal";
 
+/**
+ * Attribution for a game Darma did not create, such as a preserved third-party
+ * runtime. Darma is the integrator here, never the credited author.
+ */
+export type GameCredits = {
+  /** Original author(s), exactly as they credit themselves. */
+  author: string;
+  /** Where the original work lives. */
+  authorUrl?: string;
+  /** Additional creators, e.g. a separate composer. */
+  additional?: { role: string; name: string }[];
+  /** Licence short name, e.g. "MPL 2.0". */
+  license: string;
+  /** Link to the licence text shipped with the runtime. */
+  licenseUrl?: string;
+  /** Plain statement of what Darma changed, and what it did not. */
+  integrationNote: string;
+};
+
 export type GameDefinition = {
   id: GameId;
   slug: GameSlug;
@@ -70,6 +89,8 @@ export type GameDefinition = {
   seoTitle: string;
   seoDescription: string;
   visibility?: GameVisibility;
+  /** Present only for preserved third-party games that require attribution. */
+  credits?: GameCredits;
   /** Lower numbers surface first within "featured first" sorting. */
   pinned?: number;
   createdAt?: string;

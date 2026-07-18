@@ -41,7 +41,10 @@ function resizeCanvas(canvas: HTMLCanvasElement): { width: number; height: numbe
 export function GameCanvasStageBase({ reducedMotion, draw, onReady, className, ...props }: GameCanvasStageBaseProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const drawRef: MutableRefObject<GameCanvasStageBaseProps["draw"]> = useRef(draw);
-  drawRef.current = draw;
+
+  useEffect(() => {
+    drawRef.current = draw;
+  }, [draw]);
 
   useEffect(() => {
     const canvas = canvasRef.current;

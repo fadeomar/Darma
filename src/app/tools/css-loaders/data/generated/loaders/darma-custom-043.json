@@ -2,6 +2,7 @@
   "id": "darma-custom-043",
   "name": "Dotted Capsule Fill",
   "category": "progress",
+  "sourceId": "darma-custom",
   "tags": [
     "dotted",
     "capsule",
@@ -22,7 +23,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-043 dotted capsule fill progress dotted capsule mask linear progress batch-02 html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-043 dotted capsule fill progress darma-custom darma custom dotted capsule mask linear progress batch-02 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-043\"></div>",
   "previewCss": ".darma-loader-darma-custom-043 {\n  width: 120px;\n  height: 24px;\n  -webkit-mask:\n    radial-gradient(circle closest-side, #000 94%, #0000) 0 0/25% 100%,\n    linear-gradient(#000 0 0) center/calc(100% - 12px) calc(100% - 12px) no-repeat;\n  background:\n    linear-gradient(var(--loader-color, #25b09b) 0 0) 0/0% no-repeat\n    #ddd;\n  animation: darma-loader-darma-custom-043-l7 2s infinite linear;\n}\n@keyframes darma-loader-darma-custom-043-l7 {\n  100% { background-size: 100%; }\n}\n",
   "defaults": {

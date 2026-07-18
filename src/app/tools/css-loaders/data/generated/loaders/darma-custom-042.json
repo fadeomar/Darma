@@ -2,6 +2,7 @@
   "id": "darma-custom-042",
   "name": "Outline Pill Fill",
   "category": "progress",
+  "sourceId": "darma-custom",
   "tags": [
     "outline",
     "pill",
@@ -21,7 +22,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-042 outline pill fill progress outline pill fill progress batch-02 html css react popular singleelement cssonly customizable",
+  "searchText": "darma-custom-042 outline pill fill progress darma-custom darma custom outline pill fill progress batch-02 html css react popular singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-042\"></div>",
   "previewCss": ".darma-loader-darma-custom-042 {\n  width: 120px;\n  height: 22px;\n  border-radius: 20px;\n  color: var(--loader-color, #514b82);\n  border: 2px solid;\n  position: relative;\n}\n.darma-loader-darma-custom-042::before {\n  content: \"\";\n  position: absolute;\n  margin: 2px;\n  inset: 0 100% 0 0;\n  border-radius: inherit;\n  background: currentColor;\n  animation: darma-loader-darma-custom-042-l6 2s infinite;\n}\n@keyframes darma-loader-darma-custom-042-l6 {\n  100% { inset: 0; }\n}\n",
   "defaults": {

@@ -2,6 +2,7 @@
   "id": "cssloaders-github-26",
   "name": "CSSLoaders Pattern 26",
   "category": "pulse",
+  "sourceId": "cssloaders-github",
   "tags": [
     "cssloaders",
     "pulse",
@@ -20,7 +21,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "cssloaders-github-26 cssloaders pattern 26 pulse cssloaders pulse circle loader html css react singleelement cssonly customizable",
+  "searchText": "cssloaders-github-26 cssloaders pattern 26 pulse cssloaders-github css loaders cssloaders pulse circle loader html css react singleelement cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-cssloaders-github-26\"></span>",
   "previewCss": ".darma-loader-cssloaders-github-26 {\n  display: inline-block;\n  width: 43px;\n  height: 43px;\n  border-radius: 50%;\n  background: var(--loader-color, #ef4444);\n  box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #ef4444) 45%, transparent);\n  animation: darma-loader-cssloaders-github-26-softPulse 1.1400000000000001s ease-out infinite;\n}\n@keyframes darma-loader-cssloaders-github-26-softPulse { 0% { transform: scale(.82); box-shadow: 0 0 0 0 color-mix(in srgb, var(--loader-color, #ef4444) 45%, transparent); } 70% { transform: scale(1); box-shadow: 0 0 0 22px transparent; } 100% { transform: scale(.82); box-shadow: 0 0 0 0 transparent; } }\n",
   "defaults": {

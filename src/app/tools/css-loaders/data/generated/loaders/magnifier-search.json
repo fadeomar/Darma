@@ -2,6 +2,7 @@
   "id": "magnifier-search",
   "name": "Magnifier Search",
   "category": "fun",
+  "sourceId": "darma",
   "tags": [
     "magnifier",
     "search",
@@ -18,7 +19,7 @@
     "cssOnly": true,
     "customizable": true
   },
-  "searchText": "magnifier-search magnifier search fun magnifier search scan loupe find html css react cssonly customizable",
+  "searchText": "magnifier-search magnifier search fun darma darma originals magnifier search scan loupe find html css react cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-magnifier-search\"><i></i></span>",
   "previewCss": ".darma-loader-magnifier-search {\n  position: relative;\n  width: 52px;\n  height: 52px;\n}\n.darma-loader-magnifier-search i {\n  position: absolute;\n  top: 6px;\n  left: 6px;\n  width: 20px;\n  height: 20px;\n  border-radius: 50%;\n  border: 4px solid var(--loader-color, #6366f1);\n  box-sizing: border-box;\n  animation: darma-loader-magnifier-search-scan 2s ease-in-out infinite;\n}\n.darma-loader-magnifier-search i::after {\n  content: \"\";\n  position: absolute;\n  bottom: -9px;\n  right: -3px;\n  width: 4px;\n  height: 12px;\n  border-radius: 2px;\n  background: var(--loader-color, #6366f1);\n  transform: rotate(-45deg);\n}\n@keyframes darma-loader-magnifier-search-scan {\n  0%, 100% { transform: translate(0, 0); }\n  25% { transform: translate(20px, 2px); }\n  50% { transform: translate(18px, 20px); }\n  75% { transform: translate(2px, 18px); }\n}",
   "defaults": {

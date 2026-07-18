@@ -2,6 +2,7 @@
   "id": "darma-custom-242",
   "name": "Chevron Center Reveal",
   "category": "progress",
+  "sourceId": "darma-custom",
   "tags": [
     "chevron",
     "center",
@@ -26,7 +27,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-242 chevron center reveal progress chevron center reveal progress track steps loader css-only single-element batch-05 html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-242 chevron center reveal progress darma-custom darma custom chevron center reveal progress track steps loader css-only single-element batch-05 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-242\"></div>",
   "previewCss": ".darma-loader-darma-custom-242 {\n  color: var(--loader-color, #db2777);\n  height: 27px;\n  aspect-ratio: 5;\n  --c: currentColor 90deg,#0000 0;\n  background:\n   conic-gradient(from 135deg at top   ,var(--c)),\n   conic-gradient(from -45deg at bottom,var(--c)) 12.5% 100%;\n  background-size: 20% 50%;\n  background-repeat: repeat-x;\n  clip-path: inset(0 50%);\n  animation: darma-loader-darma-custom-242-l3 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-242-l3{\n  90%,to {clip-path: inset(0)}\n}\n",
   "defaults": {

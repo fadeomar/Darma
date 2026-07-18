@@ -2,6 +2,7 @@
   "id": "darma-custom-444",
   "name": "Dot Orbit 05",
   "category": "spinners",
+  "sourceId": "darma-custom",
   "tags": [
     "dot",
     "orbit",
@@ -28,7 +29,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-444 dot orbit 05 spinners dot orbit 05 dots ring spinner outline spinners loader css-only single-element batch-07 html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-444 dot orbit 05 spinners darma-custom darma custom dot orbit 05 dots ring spinner outline spinners loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-444\"></div>",
   "previewCss": ".darma-loader-darma-custom-444 {color: var(--loader-color, #f97316);\n  --loader-secondary-color: var(--loader-secondary-color, #facc15);\n  --loader-bg: var(--loader-bg, #ffffff);\n   width: 65px;\n   aspect-ratio: 1;\n   position: relative;\n}\n.darma-loader-darma-custom-444:before, .darma-loader-darma-custom-444:after  {\n  content: \"\";\n   position: absolute;\n   inset: 0 auto auto 0;\n   aspect-ratio: 1;\n   border-radius: 50px;\n   box-shadow: 0 0 0 3px inset currentColor;\n   animation: darma-loader-darma-custom-444-l5 1s infinite linear alternate;\n}\n.darma-loader-darma-custom-444:after  {\n  inset: auto 0 0 auto;\n   animation-delay: -1s;\n}\n@keyframes darma-loader-darma-custom-444-l5  {\n  0%  {\n  width: 20px;\n}\n100%  {\n  width: 50px;\n}\n}\n",
   "defaults": {

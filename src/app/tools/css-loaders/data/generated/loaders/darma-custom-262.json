@@ -2,6 +2,7 @@
   "id": "darma-custom-262",
   "name": "Wave Center Reveal",
   "category": "progress",
+  "sourceId": "darma-custom",
   "tags": [
     "wave",
     "center",
@@ -26,7 +27,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-262 wave center reveal progress wave center reveal progress track mask loader css-only single-element batch-05 html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-262 wave center reveal progress darma-custom darma custom wave center reveal progress track mask loader css-only single-element batch-05 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-262\"></div>",
   "previewCss": ".darma-loader-darma-custom-262 {\n  color: var(--loader-color, #4f46e5);\n  height: 30px;\n  aspect-ratio: 6;\n  --c: #0000 64%,currentColor 66% 98%,#0000 101%;\n  background:\n    radial-gradient(35% 146% at 50% 159%,var(--c)) 0 0,\n    radial-gradient(35% 146% at 50% -59%,var(--c)) 25% 100%;\n  background-size: calc(100%/3) 50%;\n  background-repeat: repeat-x;\n  clip-path: inset(0 50%);\n  animation: darma-loader-darma-custom-262-l3 1s infinite linear;\n}\n@keyframes darma-loader-darma-custom-262-l3{\n  90%,to {clip-path: inset(0)}\n}\n",
   "defaults": {

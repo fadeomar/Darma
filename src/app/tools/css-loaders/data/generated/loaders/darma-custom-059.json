@@ -2,6 +2,7 @@
   "id": "darma-custom-059",
   "name": "Isometric Cube Squash",
   "category": "pulse",
+  "sourceId": "darma-custom",
   "tags": [
     "isometric",
     "cube",
@@ -24,7 +25,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-059 isometric cube squash pulse isometric cube squash pulse expand css-only single-element batch-03 html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-059 isometric cube squash pulse darma-custom darma custom isometric cube squash pulse expand css-only single-element batch-03 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-059\"></div>",
   "previewCss": ".darma-loader-darma-custom-059 {\n  --s: 25px;\n  --_d: calc(0.353*var(--s));\n  \n  height: calc(var(--s) + var(--_d));\n  aspect-ratio: 1;\n  display: grid;\n}\n.darma-loader-darma-custom-059:before {\n  content: \"\";\n  height: 100%;\n  margin: auto 0;\n  clip-path: polygon(var(--_d) 0,100% 0,100% calc(100% - var(--_d)),calc(100% - var(--_d)) 100%,0 100%,0 var(--_d));\n  background:\n    conic-gradient(from -90deg at var(--s) var(--_d),\n     var(--loader-secondary-color, #fff) 135deg,var(--loader-color, #666) 0 270deg,#aaa 0);\n  animation: darma-loader-darma-custom-059-l3 .8s infinite alternate;\n}\n@keyframes darma-loader-darma-custom-059-l3{\n  100% {height:40%}\n}\n",
   "defaults": {

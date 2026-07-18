@@ -2,6 +2,7 @@
   "id": "darma-custom-387",
   "name": "Shimmer Bar 04",
   "category": "progress",
+  "sourceId": "darma-custom",
   "tags": [
     "shimmer",
     "bar",
@@ -26,7 +27,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-387 shimmer bar 04 progress shimmer bar 04 progress track linear loader css-only single-element batch-06 html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-387 shimmer bar 04 progress darma-custom darma custom shimmer bar 04 progress track linear loader css-only single-element batch-06 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-387\"></div>",
   "previewCss": ".darma-loader-darma-custom-387 {color: var(--loader-color, #0f766e);\n  --loader-secondary-color: var(--loader-secondary-color, #5eead4);\n  --loader-bg: var(--loader-bg, #ffffff);\n  width: 120px;\n  height: 20px;\n  background:radial-gradient(circle 10px,currentColor 95%,#0000 ) right /calc(200% + 20px) 100%,linear-gradient(currentColor 0 0) center/100% 6px;\n  background-repeat: no-repeat;\n  -webkit-mask: radial-gradient(circle 4px,#0000 93%,currentColor ) right/calc(200% + 20px) 100%;\n  animation: darma-loader-darma-custom-387-l6 1s infinite linear;\n}@keyframes darma-loader-darma-custom-387-l6 {100% {background-position: left;\n  -webkit-mask-position:left}}\n",
   "defaults": {

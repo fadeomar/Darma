@@ -2,6 +2,7 @@
   "id": "coin-flip",
   "name": "Coin Flip",
   "category": "creative",
+  "sourceId": "darma",
   "tags": [
     "coin",
     "flip",
@@ -18,7 +19,7 @@
     "cssOnly": true,
     "customizable": true
   },
-  "searchText": "coin-flip coin flip creative coin flip toss spin money html css react cssonly customizable",
+  "searchText": "coin-flip coin flip creative darma darma originals coin flip toss spin money html css react cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-coin-flip\"></span>",
   "previewCss": ".darma-loader-coin-flip {\n  width: 44px;\n  height: 44px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n  box-shadow: inset 0 0 0 4px #4338ca;\n  animation: darma-loader-coin-flip-flip 1s ease-in-out infinite;\n}\n@keyframes darma-loader-coin-flip-flip {\n  0%, 100% { transform: scaleX(1); background: var(--loader-color, #6366f1); }\n  25% { transform: scaleX(0.1); }\n  26% { background: #a5b4fc; }\n  50% { transform: scaleX(1); background: #a5b4fc; }\n  75% { transform: scaleX(0.1); }\n  76% { background: var(--loader-color, #6366f1); }\n}",
   "defaults": {

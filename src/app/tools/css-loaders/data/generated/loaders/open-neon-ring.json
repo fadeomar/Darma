@@ -2,6 +2,7 @@
   "id": "open-neon-ring",
   "name": "Open Neon Ring",
   "category": "spinners",
+  "sourceId": "open-pack-2026",
   "tags": [
     "open-source",
     "open-pack-2026",
@@ -19,7 +20,7 @@
     "customizable": true,
     "singleElement": true
   },
-  "searchText": "open-neon-ring open neon ring spinners open-source open-pack-2026 neon ring glow html css react cssonly customizable singleelement",
+  "searchText": "open-neon-ring open neon ring spinners open-pack-2026 open pack 2026 open-source open-pack-2026 neon ring glow html css react cssonly customizable singleelement",
   "previewHtml": "<span class=\"darma-loader-open-neon-ring__darma-loader-open-neon-ring\"></span>",
   "previewCss": ".darma-loader-open-neon-ring__darma-loader-open-neon-ring{position:relative;display:inline-block;width:68px;height:68px;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 18%,var(--loader-color,#22d3ee) 34%,var(--loader-secondary-color,#a855f7) 54%,transparent 72% 100%);animation:darma-loader-open-neon-ring-darma-loader-open-neon-ring-spin var(--loader-speed,1.05s) linear infinite;box-shadow:0 0 24px color-mix(in srgb,var(--loader-color,#22d3ee) 42%,transparent)}.darma-loader-open-neon-ring__darma-loader-open-neon-ring:after{content:\"\";position:absolute;inset:8px;border-radius:inherit;background:var(--loader-bg,#020617)}@keyframes darma-loader-open-neon-ring-darma-loader-open-neon-ring-spin{to{transform:rotate(360deg)}}",
   "defaults": {

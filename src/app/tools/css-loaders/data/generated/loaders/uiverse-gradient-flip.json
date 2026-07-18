@@ -2,6 +2,7 @@
   "id": "uiverse-gradient-flip",
   "name": "Gradient Flip Tile",
   "category": "creative",
+  "sourceId": "uiverse",
   "tags": [
     "uiverse",
     "gradient",
@@ -21,7 +22,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "uiverse-gradient-flip gradient flip tile creative uiverse gradient flip creative loader html css react singleelement cssonly customizable",
+  "searchText": "uiverse-gradient-flip gradient flip tile creative uiverse uiverse uiverse gradient flip creative loader html css react singleelement cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-uiverse-gradient-flip\"></span>",
   "previewCss": ".darma-loader-uiverse-gradient-flip {\n  display: inline-block;\n  width: 52px;\n  height: 52px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color, #6366f1), var(--loader-secondary-color, #a5b4fc));\n  animation: darma-loader-uiverse-gradient-flip-squareFlip 0.96s cubic-bezier(.55,.08,.38,.97) infinite;\n}\n@keyframes darma-loader-uiverse-gradient-flip-squareFlip { 0% { transform: perspective(120px) rotateX(0) rotateY(0); } 50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); } 100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); } }\n",
   "defaults": {

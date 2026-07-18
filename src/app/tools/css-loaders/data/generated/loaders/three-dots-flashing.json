@@ -1,0 +1,52 @@
+{
+  "id": "three-dots-flashing",
+  "name": "Flashing Dots",
+  "category": "dots",
+  "sourceId": "three-dots",
+  "tags": [
+    "dots",
+    "flashing",
+    "colour",
+    "single-element",
+    "three-dots"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "singleElement": true,
+    "popular": false
+  },
+  "searchText": "three-dots-flashing flashing dots dots three-dots three dots dots flashing colour single-element three-dots html css react cssonly customizable singleelement",
+  "previewHtml": "<span class=\"darma-loader-three-dots-flashing\"></span>",
+  "previewCss": ".darma-loader-three-dots-flashing{\n  --td-dot: calc(var(--loader-size, 56px) / 5.6);\n  --td-gap: calc(var(--loader-size, 56px) / 3.7);\n  position:relative;\n  display:inline-block;\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:var(--loader-color, #6366f1);\n  animation:darma-loader-three-dots-flashing-td-flash var(--loader-speed, 1s) infinite linear alternate;animation-delay:calc(var(--loader-speed, 1s) / 2);\n}\n.darma-loader-three-dots-flashing::before,\n.darma-loader-three-dots-flashing::after{\n  content:\"\";\n  position:absolute;\n  top:0;\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:inherit;\n}\n.darma-loader-three-dots-flashing::before{left:calc(var(--td-gap) * -1);}\n.darma-loader-three-dots-flashing::after{left:var(--td-gap);}\n.darma-loader-three-dots-flashing::before{animation:darma-loader-three-dots-flashing-td-flash var(--loader-speed, 1s) infinite linear alternate;animation-delay:0s;background-color:var(--loader-color, #6366f1)}\n.darma-loader-three-dots-flashing::after{animation:darma-loader-three-dots-flashing-td-flash var(--loader-speed, 1s) infinite linear alternate;animation-delay:var(--loader-speed, 1s);background-color:var(--loader-color, #6366f1)}\n@keyframes darma-loader-three-dots-flashing-td-flash{\n  0%{background-color:var(--loader-color, #6366f1)}\n  50%,100%{background-color:var(--loader-secondary-color, #a5b4fc)}\n}",
+  "defaults": {
+    "color": "#6366f1",
+    "secondaryColor": "#a5b4fc",
+    "size": 56,
+    "speed": 1,
+    "background": "#ffffff"
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-three-dots-flashing\"></span>",
+    "css": ".darma-loader-three-dots-flashing{\n  --td-dot: calc(var(--loader-size, 56px) / 5.6);\n  --td-gap: calc(var(--loader-size, 56px) / 3.7);\n  position:relative;\n  display:inline-block;\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:var(--loader-color, #6366f1);\n  animation:darma-loader-three-dots-flashing-td-flash var(--loader-speed, 1s) infinite linear alternate;animation-delay:calc(var(--loader-speed, 1s) / 2);\n}\n.darma-loader-three-dots-flashing::before,\n.darma-loader-three-dots-flashing::after{\n  content:\"\";\n  position:absolute;\n  top:0;\n  width:var(--td-dot);\n  height:var(--td-dot);\n  border-radius:50%;\n  background-color:inherit;\n}\n.darma-loader-three-dots-flashing::before{left:calc(var(--td-gap) * -1);}\n.darma-loader-three-dots-flashing::after{left:var(--td-gap);}\n.darma-loader-three-dots-flashing::before{animation:darma-loader-three-dots-flashing-td-flash var(--loader-speed, 1s) infinite linear alternate;animation-delay:0s;background-color:var(--loader-color, #6366f1)}\n.darma-loader-three-dots-flashing::after{animation:darma-loader-three-dots-flashing-td-flash var(--loader-speed, 1s) infinite linear alternate;animation-delay:var(--loader-speed, 1s);background-color:var(--loader-color, #6366f1)}\n@keyframes darma-loader-three-dots-flashing-td-flash{\n  0%{background-color:var(--loader-color, #6366f1)}\n  50%,100%{background-color:var(--loader-secondary-color, #a5b4fc)}\n}",
+    "react": "export default function ThreeDotsFlashingLoader() {\n  return (\n    <span className=\"darma-loader-three-dots-flashing\"></span>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "three-dots",
+    "author": "Zongbin (nzbin)",
+    "license": "MIT",
+    "url": "https://github.com/nzbin/three-dots"
+  }
+}

@@ -2,6 +2,7 @@
   "id": "zipper-merge",
   "name": "Zipper Merge",
   "category": "creative",
+  "sourceId": "darma",
   "tags": [
     "zipper",
     "teeth",
@@ -18,7 +19,7 @@
     "cssOnly": true,
     "customizable": true
   },
-  "searchText": "zipper-merge zipper merge creative zipper teeth merge slider close html css react cssonly customizable",
+  "searchText": "zipper-merge zipper merge creative darma darma originals zipper teeth merge slider close html css react cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-zipper-merge\"><i></i></span>",
   "previewCss": ".darma-loader-zipper-merge {\n  position: relative;\n  width: 26px;\n  height: 52px;\n}\n.darma-loader-zipper-merge::before {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  top: 0;\n  bottom: 0;\n  width: 11px;\n  background: repeating-linear-gradient(var(--loader-color, #6366f1) 0 4px, transparent 4px 8px);\n}\n.darma-loader-zipper-merge::after {\n  content: \"\";\n  position: absolute;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  width: 11px;\n  background: repeating-linear-gradient(transparent 0 4px, var(--loader-color, #6366f1) 4px 8px);\n}\n.darma-loader-zipper-merge i {\n  position: absolute;\n  left: 50%;\n  top: 0;\n  width: 10px;\n  height: 9px;\n  margin-left: -5px;\n  border-radius: 2px;\n  background: #4338ca;\n  z-index: 2;\n  animation: darma-loader-zipper-merge-zip 1.5s ease-in-out infinite;\n}\n@keyframes darma-loader-zipper-merge-zip {\n  0% { top: 0; }\n  50% { top: calc(100% - 9px); }\n  100% { top: 0; }\n}",
   "defaults": {

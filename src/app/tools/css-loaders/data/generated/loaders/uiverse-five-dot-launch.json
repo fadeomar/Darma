@@ -2,6 +2,7 @@
   "id": "uiverse-five-dot-launch",
   "name": "Five Dot Launch",
   "category": "dots",
+  "sourceId": "uiverse-batch-4",
   "tags": [
     "dots",
     "jump",
@@ -21,7 +22,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "uiverse-five-dot-launch five dot launch dots dots jump launch cyan uiverse html css react cssonly customizable",
+  "searchText": "uiverse-five-dot-launch five dot launch dots uiverse-batch-4 uiverse batch 4 dots jump launch cyan uiverse html css react cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-uiverse-five-dot-launch\">\n  <div class=\"darma-loader-uiverse-five-dot-launch__dot\"></div>\n  <div class=\"darma-loader-uiverse-five-dot-launch__dot\"></div>\n  <div class=\"darma-loader-uiverse-five-dot-launch__dot\"></div>\n  <div class=\"darma-loader-uiverse-five-dot-launch__dot\"></div>\n  <div class=\"darma-loader-uiverse-five-dot-launch__dot\"></div>\n</div>",
   "previewCss": ".darma-loader-uiverse-five-dot-launch {\n  display: flex;\n  align-items: flex-end;\n  justify-content: center;\n  gap: 8px;\n  min-height: 96px;\n}\n\n.darma-loader-uiverse-five-dot-launch .darma-loader-uiverse-five-dot-launch__dot {\n  width: 20px;\n  height: 20px;\n  border: 2px solid #e8e8e8;\n  border-radius: 50%;\n  background: var(--loader-color, #16b0c1);\n  animation: darma-loader-uiverse-five-dot-launch-jump 0.8s ease-in-out infinite alternate;\n}\n\n.darma-loader-uiverse-five-dot-launch .darma-loader-uiverse-five-dot-launch__dot:nth-child(1) {\n  animation-delay: 0.1s;\n}\n\n.darma-loader-uiverse-five-dot-launch .darma-loader-uiverse-five-dot-launch__dot:nth-child(2) {\n  animation-delay: 0.2s;\n}\n\n.darma-loader-uiverse-five-dot-launch .darma-loader-uiverse-five-dot-launch__dot:nth-child(3) {\n  animation-delay: 0.3s;\n}\n\n.darma-loader-uiverse-five-dot-launch .darma-loader-uiverse-five-dot-launch__dot:nth-child(4) {\n  animation-delay: 0.4s;\n}\n\n.darma-loader-uiverse-five-dot-launch .darma-loader-uiverse-five-dot-launch__dot:nth-child(5) {\n  animation-delay: 0.5s;\n}\n\n@keyframes darma-loader-uiverse-five-dot-launch-jump {\n  100% {\n    background: var(--loader-secondary-color, #661e92);\n    transform: translateY(-3rem) scale(1.9);\n  }\n}",
   "defaults": {

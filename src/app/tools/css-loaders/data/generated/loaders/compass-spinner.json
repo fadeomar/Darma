@@ -2,6 +2,7 @@
   "id": "compass-spinner",
   "name": "Compass Spinner",
   "category": "spinners",
+  "sourceId": "darma",
   "tags": [
     "spinner",
     "compass",
@@ -18,7 +19,7 @@
     "cssOnly": true,
     "customizable": true
   },
-  "searchText": "compass-spinner compass spinner spinners spinner compass needle map html css react cssonly customizable",
+  "searchText": "compass-spinner compass spinner spinners darma darma originals spinner compass needle map html css react cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-compass-spinner\"></span>",
   "previewCss": ".darma-loader-compass-spinner {\n  position: relative;\n  display: inline-block;\n  width: 58px;\n  height: 58px;\n  border: 2px solid color-mix(in srgb, var(--loader-color, #6366f1) 22%, transparent);\n  border-radius: 50%;\n}\n.darma-loader-compass-spinner::before {\n  content: \"\";\n  position: absolute;\n  inset: 9px 25px;\n  border-radius: 999px;\n  background: var(--loader-color, #6366f1);\n  transform-origin: 50% 20px;\n  animation: darma-loader-compass-spinner-spin 1s cubic-bezier(.6,.2,.4,.8) infinite;\n}\n.darma-loader-compass-spinner::after {\n  content: \"\";\n  position: absolute;\n  inset: 24px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n}\n@keyframes darma-loader-compass-spinner-spin { to { transform: rotate(360deg); } }\n",
   "defaults": {

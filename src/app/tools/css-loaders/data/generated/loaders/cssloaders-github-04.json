@@ -2,6 +2,7 @@
   "id": "cssloaders-github-04",
   "name": "CSSLoaders Pattern 04",
   "category": "creative",
+  "sourceId": "cssloaders-github",
   "tags": [
     "cssloaders",
     "square",
@@ -21,7 +22,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "cssloaders-github-04 cssloaders pattern 04 creative cssloaders square flip creative loader html css react popular singleelement cssonly customizable",
+  "searchText": "cssloaders-github-04 cssloaders pattern 04 creative cssloaders-github css loaders cssloaders square flip creative loader html css react popular singleelement cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-cssloaders-github-04\"></span>",
   "previewCss": ".darma-loader-cssloaders-github-04 {\n  display: inline-block;\n  width: 56px;\n  height: 56px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, var(--loader-color, #14b8a6), var(--loader-secondary-color, #99f6e4));\n  animation: darma-loader-cssloaders-github-04-squareFlip 0.85s cubic-bezier(.55,.08,.38,.97) infinite;\n}\n@keyframes darma-loader-cssloaders-github-04-squareFlip { 0% { transform: perspective(120px) rotateX(0) rotateY(0); } 50% { transform: perspective(120px) rotateX(-180deg) rotateY(0); } 100% { transform: perspective(120px) rotateX(-180deg) rotateY(-180deg); } }\n",
   "defaults": {

@@ -2,6 +2,7 @@
   "id": "loaders-css-04",
   "name": "Ball Scale 04",
   "category": "spinners",
+  "sourceId": "loaders-css",
   "tags": [
     "loaders-css",
     "clip",
@@ -21,7 +22,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "loaders-css-04 ball scale 04 spinners loaders-css clip rotate spinners loader html css react popular singleelement cssonly customizable",
+  "searchText": "loaders-css-04 ball scale 04 spinners loaders-css loaders.css loaders-css clip rotate spinners loader html css react popular singleelement cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-loaders-css-04\"></span>",
   "previewCss": ".darma-loader-loaders-css-04 {\n  display: inline-block;\n  width: 62px;\n  height: 62px;\n  border-radius: 50%;\n  border: 4px solid color-mix(in srgb, var(--loader-color, #ef4444) 18%, transparent);\n  border-top-color: var(--loader-color, #ef4444);\n  animation: darma-loader-loaders-css-04-spin 1.1099999999999999s linear infinite;\n}\n@keyframes darma-loader-loaders-css-04-spin { to { transform: rotate(360deg); } }\n",
   "defaults": {

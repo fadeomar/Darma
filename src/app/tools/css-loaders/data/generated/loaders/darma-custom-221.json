@@ -2,6 +2,7 @@
   "id": "darma-custom-221",
   "name": "Dot Conveyor",
   "category": "progress",
+  "sourceId": "darma-custom",
   "tags": [
     "dot",
     "conveyor",
@@ -26,7 +27,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-221 dot conveyor progress dot conveyor progress bar track linear loader css-only single-element batch-05 html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-221 dot conveyor progress darma-custom darma custom dot conveyor progress bar track linear loader css-only single-element batch-05 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-221\"></div>",
   "previewCss": ".darma-loader-darma-custom-221 {\n  color: var(--loader-color, #7c3aed);\n  width: 90px;\n  height: 14px;\n  background: radial-gradient(circle closest-side,currentColor 92%,#0000) calc(100%/3) 0/calc(100%/4) 100%;\n  animation: darma-loader-darma-custom-221-l2 0.5s infinite linear;\n}\n@keyframes darma-loader-darma-custom-221-l2 {\n    100% {background-position: 0 0}\n}\n",
   "defaults": {

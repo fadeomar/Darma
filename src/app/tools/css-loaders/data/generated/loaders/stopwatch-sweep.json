@@ -2,6 +2,7 @@
   "id": "stopwatch-sweep",
   "name": "Stopwatch Sweep",
   "category": "fun",
+  "sourceId": "darma",
   "tags": [
     "stopwatch",
     "timer",
@@ -18,7 +19,7 @@
     "cssOnly": true,
     "customizable": true
   },
-  "searchText": "stopwatch-sweep stopwatch sweep fun stopwatch timer sweep hand time html css react cssonly customizable",
+  "searchText": "stopwatch-sweep stopwatch sweep fun darma darma originals stopwatch timer sweep hand time html css react cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-stopwatch-sweep\"><i></i></span>",
   "previewCss": ".darma-loader-stopwatch-sweep {\n  position: relative;\n  width: 46px;\n  height: 52px;\n}\n.darma-loader-stopwatch-sweep::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 50%;\n  width: 8px;\n  height: 6px;\n  margin-left: -4px;\n  border-radius: 2px 2px 0 0;\n  background: #4338ca;\n}\n.darma-loader-stopwatch-sweep::after {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 50%;\n  width: 44px;\n  height: 44px;\n  margin-left: -22px;\n  border-radius: 50%;\n  border: 3px solid var(--loader-color, #6366f1);\n  box-sizing: border-box;\n}\n.darma-loader-stopwatch-sweep i {\n  position: absolute;\n  left: 50%;\n  bottom: 22px;\n  width: 2px;\n  height: 18px;\n  margin-left: -1px;\n  border-radius: 2px;\n  background: var(--loader-color, #6366f1);\n  transform-origin: bottom center;\n  animation: darma-loader-stopwatch-sweep-spin 1.2s linear infinite;\n}\n.darma-loader-stopwatch-sweep i::after {\n  content: \"\";\n  position: absolute;\n  bottom: -3px;\n  left: 50%;\n  width: 6px;\n  height: 6px;\n  margin-left: -3px;\n  border-radius: 50%;\n  background: #4338ca;\n}\n@keyframes darma-loader-stopwatch-sweep-spin { to { transform: rotate(360deg); } }",
   "defaults": {

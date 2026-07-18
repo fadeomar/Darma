@@ -21,6 +21,7 @@ import { TypingSpeedGame } from "../playables/typing-speed";
 import { StaticGameEmbed } from "../playables/static-embed";
 import { PacmanCanvasGame } from "../playables/pacman-canvas";
 import { EndlessRunnerGame } from "../playables/endless-runner";
+import { NeonCoreDefenseGame } from "../playables/neon-core-defense";
 
 /**
  * Polished player area. Real game components can be lazy-loaded later and passed
@@ -33,6 +34,23 @@ export function GamePlayerShell({
   game: GameDefinition;
   children?: ReactNode;
 }) {
+
+  if (game.slug === "gridland") {
+    return (
+      <StaticGameEmbed
+        game={game}
+        src="/darma-games/gridland/index.html"
+        minHeight={760}
+        variant="immersive"
+        bridge={{
+          source: "darma-gridland-runtime",
+          gameId: "gridland",
+          version: 1,
+        }}
+        focusHint="Match tiles to gather resources by day and survive at night. The original game menu controls sound, saves, and import/export."
+      />
+    );
+  }
 
   if (game.slug === "2048") {
     return (
@@ -122,6 +140,10 @@ export function GamePlayerShell({
 
   if (game.slug === "endless-runner") {
     return <EndlessRunnerGame game={game} />;
+  }
+
+  if (game.slug === "neon-core-defense") {
+    return <NeonCoreDefenseGame game={game} />;
   }
 
   return (

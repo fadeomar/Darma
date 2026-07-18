@@ -2,6 +2,7 @@
   "id": "uiverse-redirect-progress-card",
   "name": "Redirect Progress Card",
   "category": "progress",
+  "sourceId": "uiverse-batch-3",
   "tags": [
     "uiverse",
     "redirect",
@@ -22,7 +23,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "uiverse-redirect-progress-card redirect progress card progress uiverse redirect card progress text loader html css react cssonly customizable",
+  "searchText": "uiverse-redirect-progress-card redirect progress card progress uiverse-batch-3 uiverse batch 3 uiverse redirect card progress text loader html css react cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-uiverse-redirect-progress-card\">\n  <label>Redirecting...</label>\n  <div class=\"darma-loader-uiverse-redirect-progress-card__loading\"></div>\n</div>",
   "previewCss": ".darma-loader-uiverse-redirect-progress-card {\n  width: 240px;\n  height: 130px;\n  border-radius: 10px;\n  background: #fff;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: space-evenly;\n  padding: 30px;\n  box-shadow: 2px 2px 10px -5px lightgrey;\n}\n.darma-loader-uiverse-redirect-progress-card__loading {\n  width: 100%;\n  height: 10px;\n  background: lightgrey;\n  border-radius: 10px;\n  position: relative;\n}\n.darma-loader-uiverse-redirect-progress-card__loading::after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 50%;\n  height: 10px;\n  background: #002;\n  border-radius: 10px;\n  z-index: 1;\n  animation: darma-loader-uiverse-redirect-progress-card-loading 0.6s alternate infinite;\n}\n.darma-loader-uiverse-redirect-progress-card label {\n  color: #002;\n  font-size: 18px;\n  animation: darma-loader-uiverse-redirect-progress-card-bit 0.6s alternate infinite;\n}\n\n@keyframes darma-loader-uiverse-redirect-progress-card-bit {\nfrom {\nopacity: 0.3;\n}\nto {\nopacity: 1;\n}\n}\n\n@keyframes darma-loader-uiverse-redirect-progress-card-loading {\n0% {\nleft: 25%;\n}\n100% {\nleft: 50%;\n}\n0% {\nleft: 0%;\n}\n}",
   "defaults": {

@@ -5,6 +5,45 @@ const PRIVACY_NOTE =
 
 const GAME_DEFINITIONS: GameDefinition[] = [
   {
+    id: "gridland",
+    slug: "gridland",
+    title: "Gridland",
+    description: "Match resources by day, build your settlement, and survive the creatures that emerge at night.",
+    longDescription:
+      "Gridland is the original match-and-build survival game preserved inside Darma. Daytime matches gather resources and grow your settlement; nighttime matches become weapons, shields, and monsters. This integration keeps the original visual language, game flow, CSS animations, local saves, music, and sound effects while self-hosting the runtime and assets in an isolated browser frame.",
+    href: "/games/gridland",
+    categories: ["puzzle", "brain", "classic", "mobile-friendly"],
+    tags: ["match-3", "strategy", "survival", "building", "resources", "day and night", "original"],
+    thumbnail: "/darma-games/gridland/img/badge.png",
+    thumbnailType: "image",
+    accent: "amber",
+    featured: true,
+    popular: true,
+    isNew: true,
+    difficulty: "hard",
+    playTime: "15 min",
+    input: ["mouse", "touch"],
+    devices: ["desktop", "tablet", "mobile"],
+    controls:
+      "Swap adjacent tiles to make groups of three or more. Gather and build during the day; create weapons and shields at night. Use the in-game menu for sound, save export/import, and other options.",
+    privacyNote:
+      "Gridland runs entirely in your browser with self-hosted assets. Progress and settings stay in namespaced local storage on this device; no signup is required.",
+    seoTitle: "Play Gridland Online Free | Darma Games",
+    seoDescription:
+      "Play Gridland in your browser: match resources, build by day, and survive monsters at night. Original visuals, music, local saves, and no signup.",
+    credits: {
+      author: "Michael Townsend (Doublespeak Games)",
+      authorUrl: "https://www.doublespeakgames.com",
+      additional: [{ role: "Music", name: "Vince Nitro" }],
+      license: "MPL 2.0",
+      licenseUrl: "/darma-games/gridland/LICENSE",
+      integrationNote:
+        "Gridland was created by Doublespeak Games, not by Darma. Darma self-hosts the original runtime, artwork, and audio unchanged, and adds only the surrounding player shell, namespaced saves, and a read-only status bridge.",
+    },
+    pinned: 0,
+    createdAt: "2026-07-16",
+  },
+  {
     id: "2048",
     slug: "2048",
     title: "2048 Classic",
@@ -419,6 +458,32 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     seoDescription:
       "Play Math Sprint free in your browser. Fast arithmetic practice with addition, subtraction, multiplication, division, and decimals — Practice, 60-second Sprint, and Kids modes. No signup, mobile-friendly.",
     createdAt: "2026-06-30",
+  },
+  {
+    id: "neon-core-defense",
+    slug: "neon-core-defense",
+    title: "Neon Core Defense",
+    description: "Defend a glowing core through escalating waves of drones.",
+    longDescription:
+      "Neon Core Defense is a fast arcade shooter built around one simple idea: your core never moves, and everything else comes to you. Waves of drones spawn at the edges of the arena and converge on the centre — quick darts, armoured hulks, and splitters that break in two when destroyed. Click or tap in their direction and the core fires along that line, and switch between the Pulse, Rapid, and Heavy weapons to match what's inbound. Every edge flash warns you where the next drone lands. Kills sometimes drop power-ups — shields, slow fields, multi-shot, explosive rounds — that you collect by shooting them. Chain kills without taking damage to build a combo and multiply your score, and every third wave you pick a permanent upgrade for the rest of the run. Between runs you level up, earn cores, and spend them in a store on new weapons, passive modifiers, and themes, while chasing achievements, missions, and three daily challenges.",
+    href: "/games/neon-core-defense",
+    categories: ["arcade", "quick-break", "casual", "mobile-friendly"],
+    tags: ["shooter", "survival", "waves", "reflex", "canvas", "neon", "arcade", "high score", "combo", "power-ups", "upgrades"],
+    thumbnail: "🎯",
+    thumbnailType: "gradient",
+    accent: "cyan",
+    isNew: true,
+    difficulty: "medium",
+    playTime: "5 min",
+    input: ["mouse", "touch", "keyboard"],
+    devices: ["desktop", "tablet", "mobile"],
+    controls:
+      "Click or tap anywhere in the arena to fire from the core toward that point. Use 1, 2, and 3 (or the weapon buttons) to switch weapons, and the same keys to pick an upgrade between waves. Press Enter to start or restart, and P or Esc to pause. Your best score, best wave, highest combo, and favourite weapon are saved on this device.",
+    privacyNote: PRIVACY_NOTE,
+    seoTitle: "Play Neon Core Defense Online Free | Darma Games",
+    seoDescription:
+      "Play Neon Core Defense free in your browser. Defend a stationary neon core through escalating waves of drones, build combos for a bigger multiplier, and chase your best score. No signup, mobile-friendly.",
+    createdAt: "2026-07-17",
   },
   {
     id: "pacman-canvas",

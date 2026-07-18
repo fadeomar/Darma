@@ -2,6 +2,7 @@
   "id": "darma-custom-315",
   "name": "Twin Ping Box",
   "category": "fun",
+  "sourceId": "darma-custom",
   "tags": [
     "twin",
     "ping",
@@ -27,7 +28,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-315 twin ping box fun twin ping box bounce ball fun motion loader css-only single-element batch-05 html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-315 twin ping box fun darma-custom darma custom twin ping box bounce ball fun motion loader css-only single-element batch-05 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-315\"></div>",
   "previewCss": ".darma-loader-darma-custom-315 {\n  color: var(--loader-color, #0284c7);\n  height: 54px;\n  aspect-ratio: 1;\n  border: 3px solid var(--loader-secondary-color, #7dd3fc);\n  position: relative;\n}\n.darma-loader-darma-custom-315:before,\n.darma-loader-darma-custom-315:after {\n  content: \"\";\n  position: absolute;\n  width: 20%;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: var(--loader-color, #0284c7);\n  animation: \n    darma-loader-darma-custom-315-l8-0 .57s infinite alternate linear -.13s,\n    darma-loader-darma-custom-315-l8-1 .35s infinite alternate linear -.23s;\n}\n.darma-loader-darma-custom-315:after {\n  background: var(--loader-secondary-color, #7dd3fc);\n  animation: \n    darma-loader-darma-custom-315-l8-0 .29s infinite alternate linear -.11s,\n    darma-loader-darma-custom-315-l8-1 .51s infinite alternate linear -.34s;\n}\n@keyframes darma-loader-darma-custom-315-l8-0 {\n  0%,5%  {bottom: 0%}\n  95%,to {bottom: 80%}\n}\n@keyframes darma-loader-darma-custom-315-l8-1 {\n  0%,5%  {left: 0%}\n  95%,to {left: 80%}\n}\n",
   "defaults": {

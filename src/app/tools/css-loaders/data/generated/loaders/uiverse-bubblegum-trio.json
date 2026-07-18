@@ -2,6 +2,7 @@
   "id": "uiverse-bubblegum-trio",
   "name": "Bubblegum Trio",
   "category": "dots",
+  "sourceId": "uiverse-batch-4",
   "tags": [
     "bubble",
     "trio",
@@ -21,7 +22,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "uiverse-bubblegum-trio bubblegum trio dots bubble trio gradient soft uiverse html css react cssonly customizable",
+  "searchText": "uiverse-bubblegum-trio bubblegum trio dots uiverse-batch-4 uiverse batch 4 bubble trio gradient soft uiverse html css react cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-uiverse-bubblegum-trio\">\n  <div class=\"darma-loader-uiverse-bubblegum-trio__bubble\"></div>\n  <div class=\"darma-loader-uiverse-bubblegum-trio__bubble\"></div>\n  <div class=\"darma-loader-uiverse-bubblegum-trio__bubble\"></div>\n</div>",
   "previewCss": ".darma-loader-uiverse-bubblegum-trio {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 100%;\n}\n\n.darma-loader-uiverse-bubblegum-trio__bubble {\nwidth: 20px;\nheight: 20px;\nborder-radius: 50%;\nbackground-image: linear-gradient(to right, var(--loader-color, #ff6b81), var(--loader-secondary-color, #ff9a44));\nmargin: 0 5px;\nanimation: darma-loader-uiverse-bubblegum-trio-bubbleAnimation 1.5s ease-in-out infinite;\n}\n\n@keyframes darma-loader-uiverse-bubblegum-trio-bubbleAnimation {\n0%,\n100% {\ntransform: scale(1);\nopacity: 1;\n}\n50% {\ntransform: scale(2);\nopacity: 0.5;\n}\n}",
   "defaults": {

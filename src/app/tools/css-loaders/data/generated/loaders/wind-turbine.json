@@ -2,6 +2,7 @@
   "id": "wind-turbine",
   "name": "Wind Turbine",
   "category": "creative",
+  "sourceId": "darma",
   "tags": [
     "wind",
     "turbine",
@@ -18,7 +19,7 @@
     "cssOnly": true,
     "customizable": true
   },
-  "searchText": "wind-turbine wind turbine creative wind turbine blades energy spin html css react cssonly customizable",
+  "searchText": "wind-turbine wind turbine creative darma darma originals wind turbine blades energy spin html css react cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-wind-turbine\"><i></i></span>",
   "previewCss": ".darma-loader-wind-turbine {\n  position: relative;\n  width: 48px;\n  height: 56px;\n}\n.darma-loader-wind-turbine::before {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 50%;\n  width: 6px;\n  height: 40px;\n  margin-left: -3px;\n  background: var(--loader-color, #6366f1);\n  clip-path: polygon(30% 0, 70% 0, 100% 100%, 0 100%);\n}\n.darma-loader-wind-turbine i {\n  position: absolute;\n  top: -3px;\n  left: 50%;\n  width: 38px;\n  height: 38px;\n  margin-left: -19px;\n  border-radius: 50%;\n  background: conic-gradient(from 0deg, var(--loader-color, #6366f1) 0 12deg, transparent 12deg 120deg, var(--loader-color, #6366f1) 120deg 132deg, transparent 132deg 240deg, var(--loader-color, #6366f1) 240deg 252deg, transparent 252deg 360deg);\n  animation: darma-loader-wind-turbine-spin 0.9s linear infinite;\n}\n.darma-loader-wind-turbine i::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 9px;\n  height: 9px;\n  margin: -4.5px 0 0 -4.5px;\n  border-radius: 50%;\n  background: #4338ca;\n}\n@keyframes darma-loader-wind-turbine-spin { to { transform: rotate(360deg); } }",
   "defaults": {

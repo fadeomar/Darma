@@ -2,6 +2,7 @@
   "id": "uiverse-blue-ripple-rings",
   "name": "Blue Ripple Rings",
   "category": "pulse",
+  "sourceId": "uiverse-batch-4",
   "tags": [
     "ripple",
     "rings",
@@ -21,7 +22,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "uiverse-blue-ripple-rings blue ripple rings pulse ripple rings pulse blue uiverse html css react singleelement cssonly customizable",
+  "searchText": "uiverse-blue-ripple-rings blue ripple rings pulse uiverse-batch-4 uiverse batch 4 ripple rings pulse blue uiverse html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-uiverse-blue-ripple-rings\"></div>",
   "previewCss": ".darma-loader-uiverse-blue-ripple-rings {\n  position: relative;\n  width: 8em;\n  height: 8em;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.darma-loader-uiverse-blue-ripple-rings::before,\n.darma-loader-uiverse-blue-ripple-rings::after {\nposition: absolute;\nbox-sizing: border-box;\ncontent: \"\";\nheight: 8em;\nwidth: 8em;\nborder: 1em solid var(--loader-color, #0060fa);\nborder-radius: 50%;\nanimation: darma-loader-uiverse-blue-ripple-rings-loader_79178 2s linear infinite;\n}\n\n.darma-loader-uiverse-blue-ripple-rings::after {\nopacity: 0;\nanimation-delay: 1s;\n}\n\n@keyframes darma-loader-uiverse-blue-ripple-rings-loader_79178 {\n0% {\nborder: 1em solid var(--loader-color, #0060fa);\ntransform: scale(0);\nopacity: 1;\n}\n\n100% {\nborder: 0 solid var(--loader-color, #0060fa);\ntransform: scale(1);\nopacity: 0;\n}\n}",
   "defaults": {

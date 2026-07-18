@@ -2,6 +2,7 @@
   "id": "gift-box",
   "name": "Gift Box",
   "category": "fun",
+  "sourceId": "darma",
   "tags": [
     "gift",
     "box",
@@ -18,7 +19,7 @@
     "cssOnly": true,
     "customizable": true
   },
-  "searchText": "gift-box gift box fun gift box present lid surprise html css react cssonly customizable",
+  "searchText": "gift-box gift box fun darma darma originals gift box present lid surprise html css react cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-gift-box\"><i></i></span>",
   "previewCss": ".darma-loader-gift-box {\n  position: relative;\n  width: 44px;\n  height: 48px;\n}\n.darma-loader-gift-box::before {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 50%;\n  width: 34px;\n  height: 28px;\n  margin-left: -17px;\n  background: var(--loader-color, #6366f1);\n  border-radius: 0 0 3px 3px;\n}\n.darma-loader-gift-box::after {\n  content: \"\";\n  position: absolute;\n  bottom: 0;\n  left: 50%;\n  width: 6px;\n  height: 28px;\n  margin-left: -3px;\n  background: #4338ca;\n}\n.darma-loader-gift-box i {\n  position: absolute;\n  bottom: 26px;\n  left: 50%;\n  width: 40px;\n  height: 12px;\n  margin-left: -20px;\n  background: #4338ca;\n  border-radius: 3px;\n  transform-origin: center;\n  animation: darma-loader-gift-box-pop 1.2s ease-in-out infinite;\n}\n.darma-loader-gift-box i::before {\n  content: \"\";\n  position: absolute;\n  top: -8px;\n  left: 50%;\n  width: 8px;\n  height: 8px;\n  margin-left: -4px;\n  border: 3px solid #4338ca;\n  border-radius: 50%;\n  box-sizing: border-box;\n  box-shadow: -7px 0 0 -1px #4338ca, 7px 0 0 -1px #4338ca;\n}\n@keyframes darma-loader-gift-box-pop {\n  0%, 100% { transform: translateY(0) scaleX(1); }\n  50% { transform: translateY(-8px) scaleX(1.05); }\n}",
   "defaults": {

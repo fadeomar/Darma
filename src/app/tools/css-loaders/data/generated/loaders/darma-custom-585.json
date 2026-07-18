@@ -2,6 +2,7 @@
   "id": "darma-custom-585",
   "name": "Color Geometry 12",
   "category": "creative",
+  "sourceId": "darma-custom",
   "tags": [
     "color",
     "geometry",
@@ -26,7 +27,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-585 color geometry 12 creative color geometry 12 motion creative tiles loader css-only single-element batch-07 html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-585 color geometry 12 creative darma-custom darma custom color geometry 12 motion creative tiles loader css-only single-element batch-07 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-585\"></div>",
   "previewCss": ".darma-loader-darma-custom-585 {color: var(--loader-color, #16a34a);\n  --loader-secondary-color: var(--loader-secondary-color, #86efac);\n  --loader-bg: var(--loader-bg, #ffffff);\n   height: 40px;\n   aspect-ratio: .866;\n   display: grid;\n   background: conic-gradient(from -121deg at right,#0000, #BF1E62 1deg 60deg,#0000 61deg);\n   animation: darma-loader-darma-custom-585-l12 2s infinite linear;\n   transform-origin: 33% 50%;\n}\n.darma-loader-darma-custom-585:before, .darma-loader-darma-custom-585:after  {\n  content: \"\";\n   grid-area: 1/1;\n   background: conic-gradient(from -121deg at right,#0000, #FFA588 1deg 60deg,#0000 61deg);\n   transform-origin: inherit;\n   animation: inherit;\n}\n.darma-loader-darma-custom-585:after  {\n  background: conic-gradient(from -121deg at right,#0000, #027B7F 1deg 60deg,#0000 61deg);\n   animation-duration: 3s;\n}\n@keyframes darma-loader-darma-custom-585-l12 {\n  100% {transform: rotate(1turn)}\n}\n",
   "defaults": {

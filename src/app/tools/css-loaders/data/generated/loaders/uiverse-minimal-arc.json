@@ -2,6 +2,7 @@
   "id": "uiverse-minimal-arc",
   "name": "Minimal Arc Spinner",
   "category": "minimal",
+  "sourceId": "uiverse",
   "tags": [
     "uiverse",
     "minimal",
@@ -20,7 +21,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "uiverse-minimal-arc minimal arc spinner minimal uiverse minimal arc loader html css react singleelement cssonly customizable",
+  "searchText": "uiverse-minimal-arc minimal arc spinner minimal uiverse uiverse uiverse minimal arc loader html css react singleelement cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-uiverse-minimal-arc\"></span>",
   "previewCss": ".darma-loader-uiverse-minimal-arc {\n  display: inline-block;\n  width: 38px;\n  height: 38px;\n  border-radius: 50%;\n  border: 3px solid color-mix(in srgb, var(--loader-color, #ef4444) 18%, transparent);\n  border-left-color: var(--loader-color, #ef4444);\n  animation: darma-loader-uiverse-minimal-arc-spin 0.7s linear infinite;\n}\n@keyframes darma-loader-uiverse-minimal-arc-spin { to { transform: rotate(360deg); } }\n",
   "defaults": {

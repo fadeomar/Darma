@@ -85,6 +85,8 @@ export type LoaderIndexItem = {
   id: string;
   name: string;
   category: string;
+  /** Source group id, derived by the generator from the source directory name. */
+  sourceId: string;
   tags: string[];
   formats: LoaderFormat[];
   flags: LoaderFlags;

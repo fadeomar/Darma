@@ -2,6 +2,7 @@
   "id": "barcode-scanner",
   "name": "Barcode Scanner",
   "category": "creative",
+  "sourceId": "darma",
   "tags": [
     "barcode",
     "scan",
@@ -18,7 +19,7 @@
     "cssOnly": true,
     "customizable": true
   },
-  "searchText": "barcode-scanner barcode scanner creative barcode scan bars checkout line html css react cssonly customizable",
+  "searchText": "barcode-scanner barcode scanner creative darma darma originals barcode scan bars checkout line html css react cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-barcode-scanner\"><i></i></span>",
   "previewCss": ".darma-loader-barcode-scanner {\n  position: relative;\n  width: 50px;\n  height: 40px;\n  background: repeating-linear-gradient(90deg, var(--loader-color, #6366f1) 0 3px, transparent 3px 5px, var(--loader-color, #6366f1) 5px 6px, transparent 6px 9px, var(--loader-color, #6366f1) 9px 12px, transparent 12px 14px);\n}\n.darma-loader-barcode-scanner i {\n  position: absolute;\n  top: -3px;\n  bottom: -3px;\n  left: 0;\n  width: 3px;\n  background: #4338ca;\n  box-shadow: 0 0 6px 1px #4338ca;\n  animation: darma-loader-barcode-scanner-sweep 1.4s ease-in-out infinite;\n}\n@keyframes darma-loader-barcode-scanner-sweep {\n  0% { left: 0; }\n  50% { left: calc(100% - 3px); }\n  100% { left: 0; }\n}",
   "defaults": {

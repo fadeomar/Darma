@@ -2,6 +2,7 @@
   "id": "uiverse-indigo-dot-rotor",
   "name": "Indigo Dot Rotor",
   "category": "spinners",
+  "sourceId": "uiverse-batch-5",
   "tags": [
     "dots",
     "rotor",
@@ -22,7 +23,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "uiverse-indigo-dot-rotor indigo dot rotor spinners dots rotor indigo radial uiverse batch-5 html css react singleelement cssonly customizable",
+  "searchText": "uiverse-indigo-dot-rotor indigo dot rotor spinners uiverse-batch-5 uiverse batch 5 dots rotor indigo radial uiverse batch-5 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-uiverse-indigo-dot-rotor darma-loader-uiverse-indigo-dot-rotor__spinner\"></div>\n",
   "previewCss": ".darma-loader-uiverse-indigo-dot-rotor__spinner {\n  --R: 28px;\n  --g1: var(--loader-color, #004dff) 96%, transparent;\n  --g2: var(--loader-secondary-color, #d6d6fc) 96%, transparent;\n  width: calc(2 * var(--R));\n  height: calc(2 * var(--R));\n  border-radius: 50%;\n  display: grid;\n  -webkit-mask: linear-gradient(#000 0 0);\n  animation: darma-loader-uiverse-indigo-dot-rotor-indigoRotor 2s infinite linear;\n}\n.darma-loader-uiverse-indigo-dot-rotor__spinner::before,\n.darma-loader-uiverse-indigo-dot-rotor__spinner::after {\n  content: \"\";\n  grid-area: 1 / 1;\n  width: 50%;\n  background:\n    radial-gradient(farthest-side, var(--g1)) calc(var(--R) + .866 * var(--R) - var(--R)) calc(var(--R) - .5 * var(--R) - var(--R)),\n    radial-gradient(farthest-side, var(--g2)) calc(var(--R) + .5 * var(--R) - var(--R)) calc(var(--R) - .866 * var(--R) - var(--R)),\n    radial-gradient(farthest-side, var(--g1)) 0 calc(-1 * var(--R)),\n    radial-gradient(farthest-side, var(--g2)) calc(-1 * var(--R)) 0;\n  background-size: calc(2 * var(--R)) calc(2 * var(--R));\n  background-repeat: no-repeat;\n}\n.darma-loader-uiverse-indigo-dot-rotor__spinner::after { transform: rotate(180deg); transform-origin: right; }\n@keyframes darma-loader-uiverse-indigo-dot-rotor-indigoRotor { to { transform: rotate(-1turn); } }\n",
   "defaults": {

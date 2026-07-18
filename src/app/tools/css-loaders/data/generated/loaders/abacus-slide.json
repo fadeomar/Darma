@@ -2,6 +2,7 @@
   "id": "abacus-slide",
   "name": "Abacus Slide",
   "category": "creative",
+  "sourceId": "darma",
   "tags": [
     "abacus",
     "beads",
@@ -18,7 +19,7 @@
     "cssOnly": true,
     "customizable": true
   },
-  "searchText": "abacus-slide abacus slide creative abacus beads slide rods count html css react cssonly customizable",
+  "searchText": "abacus-slide abacus slide creative darma darma originals abacus beads slide rods count html css react cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-abacus-slide\"><i></i><i></i><i></i></span>",
   "previewCss": ".darma-loader-abacus-slide {\n  position: relative;\n  width: 52px;\n  height: 38px;\n}\n.darma-loader-abacus-slide::before {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 7px;\n  height: 2px;\n  border-radius: 2px;\n  background: #c7d2fe;\n  box-shadow: 0 12px 0 #c7d2fe, 0 24px 0 #c7d2fe;\n}\n.darma-loader-abacus-slide i {\n  position: absolute;\n  left: 0;\n  width: 12px;\n  height: 12px;\n  border-radius: 50%;\n  background: var(--loader-color, #6366f1);\n  animation: darma-loader-abacus-slide-slide 1.3s ease-in-out infinite;\n}\n.darma-loader-abacus-slide i:nth-child(1) { top: 2px; animation-delay: 0s; }\n.darma-loader-abacus-slide i:nth-child(2) { top: 14px; animation-delay: 0.2s; animation-direction: reverse; }\n.darma-loader-abacus-slide i:nth-child(3) { top: 26px; animation-delay: 0.4s; }\n@keyframes darma-loader-abacus-slide-slide {\n  0%, 100% { left: 0; }\n  50% { left: calc(100% - 12px); }\n}",
   "defaults": {

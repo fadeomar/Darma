@@ -2,6 +2,7 @@
   "id": "darma-custom-646",
   "name": "Rising Push",
   "category": "pulse",
+  "sourceId": "darma-custom",
   "tags": [
     "rich",
     "pulse",
@@ -26,7 +27,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-646 rising push pulse rich pulse push circles minimal single-element loader html-css customizable rich-batch-01 html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-646 rising push pulse darma-custom darma custom rich pulse push circles minimal single-element loader html-css customizable rich-batch-01 html css react singleelement cssonly customizable",
   "previewHtml": "<span class=\"darma-loader-darma-custom-646\"></span>",
   "previewCss": ".darma-loader-darma-custom-646 {color: var(--loader-color, #f8fafc);\n  --loader-secondary-color: var(--loader-secondary-color, #94a3b8);\n  --loader-bg: var(--loader-bg, #111827);\n  \n  display: block;\n  width: 84px;\n  height: 84px;\n  position: relative;\n}\n\n.darma-loader-darma-custom-646:before , .darma-loader-darma-custom-646:after {\n  content: \"\";\n  position: absolute;\n  left: 50%;\n  bottom: 0;\n  width: 64px;\n  height: 64px;\n  border-radius: 50%;\n  background: currentColor;\n  transform: translate(-50% , -100%)  scale(0);\n  animation: darma-loader-darma-custom-646-push_401 2s infinite linear;\n}\n\n.darma-loader-darma-custom-646:after {\n  animation-delay: 1s;\n}\n\n@keyframes darma-loader-darma-custom-646-push_401 {\n  0% , 50% {\n    transform: translate(-50% , 0%)  scale(1)\n  }\n\n  100% {\n    transform: translate(-50%, -100%) scale(0)\n  }\n}\n",
   "defaults": {

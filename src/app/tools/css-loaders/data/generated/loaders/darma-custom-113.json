@@ -2,6 +2,7 @@
   "id": "darma-custom-113",
   "name": "Three Bars Rotate",
   "category": "bars",
+  "sourceId": "darma-custom",
   "tags": [
     "three",
     "bars",
@@ -23,7 +24,7 @@
     "tailwind": false,
     "customizable": true
   },
-  "searchText": "darma-custom-113 three bars rotate bars three bars rotate linear css-only single-element batch-03 html css react singleelement cssonly customizable",
+  "searchText": "darma-custom-113 three bars rotate bars darma-custom darma custom three bars rotate linear css-only single-element batch-03 html css react singleelement cssonly customizable",
   "previewHtml": "<div class=\"darma-loader-darma-custom-113\"></div>",
   "previewCss": ".darma-loader-darma-custom-113 {\n  height: 45px;\n  --c:no-repeat linear-gradient(var(--loader-color, #514b82) 0 0);\n  background: \n    var(--c) left,\n    var(--c) center,\n    var(--c) right;\n  background-size: 16px 100%;\n  animation: \n    darma-loader-darma-custom-113-l33-1 1.5s infinite,\n    darma-loader-darma-custom-113-l33-2 1.5s infinite;\n}\n@keyframes darma-loader-darma-custom-113-l33-1 {\n  0%,100% {width:45px}\n  35%,65% {width:65px}\n}\n@keyframes darma-loader-darma-custom-113-l33-2 {\n  0%,40%  {transform: rotate(0) }\n  60%,100%{transform: rotate(90deg) }\n}\n",
   "defaults": {

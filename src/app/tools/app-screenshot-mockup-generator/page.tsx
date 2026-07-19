@@ -39,7 +39,7 @@ export default function AppScreenshotMockupGeneratorPage() {
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="App Screenshot Mockup Production Studio" description="Upload a screenshot, design a responsive device mockup, save reopenable settings, audit package freshness, and export verified PNG, code, report, token, CSV, and ZIP handoffs.">
+      <ToolContentCard title="App Screenshot Mockup Studio" description="Upload a screenshot, design a responsive device mockup, save reopenable settings, audit package freshness, and export verified PNG, code, report, token, CSV, and ZIP handoffs.">
         <AppScreenshotMockupClient />
       </ToolContentCard>
     </ToolPage>

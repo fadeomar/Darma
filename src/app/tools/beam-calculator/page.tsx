@@ -31,7 +31,7 @@ export default function BeamCalculatorPage() {
         </p>
       }
       article={
-        <ToolContentCard title="About Beam Calculator Production Studio">
+        <ToolContentCard title="About Beam Calculator Studio">
           <Article />
         </ToolContentCard>
       }

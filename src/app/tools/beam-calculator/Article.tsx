@@ -6,7 +6,7 @@ export default function BeamCalculatorArticle() {
           What this tool calculates
         </h2>
         <p>
-          Beam Calculator Production Studio solves statically determinate beams
+          Beam Calculator Studio solves statically determinate beams
           for support reactions, shear force, and bending moment, then draws the
           shear force diagram (SFD) and bending moment diagram (BMD). It reports
           the maximum shear, maximum sagging and hogging moments, fixed-end

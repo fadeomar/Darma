@@ -39,7 +39,7 @@ export default function FaviconAppIconGeneratorPage() {
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Favicon & App Icon Production Studio" description="Create a launch-ready icon package, portable settings project, production audit, metrics report, and install handoff from an image, SVG, initials, or emoji.">
+      <ToolContentCard title="Favicon & App Icon Studio" description="Create a launch-ready icon package, portable settings project, production audit, metrics report, and install handoff from an image, SVG, initials, or emoji.">
         <FaviconAppIconClient />
       </ToolContentCard>
     </ToolPage>

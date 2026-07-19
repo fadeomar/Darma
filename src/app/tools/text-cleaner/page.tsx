@@ -54,7 +54,7 @@ export default function TextCleanerPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <ToolContentCard
-        title="Text Cleaner Production Studio"
+        title="Text Cleaner Studio"
         description="Ordered cleanup pipelines, Arabic normalization, extraction, diff-aware metrics, validated workflow import, and local production exports."
       >
         <TextCleanerClient tool={{ id: tool.id, title: tool.title }} />

@@ -274,8 +274,13 @@ export default function CssClampClient() {
         </div>
       )}
 
+      {/* min-w-0 on both children is required, not decorative: below `xl` this
+          grid collapses to a single auto-sized track, and grid items default to
+          `min-width: auto`. Without it the track resolves to the children's
+          min-content width (383px at a 390px viewport) and the page scrolls
+          sideways. Same pattern as beam-calculator. */}
       <div className="grid gap-5 xl:grid-cols-[minmax(0,0.95fr)_minmax(420px,1.05fr)]">
-        <div className="space-y-5">
+        <div className="min-w-0 space-y-5">
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-4 shadow-[var(--shadow-soft)]">
             <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
               <div>
@@ -354,7 +359,7 @@ export default function CssClampClient() {
           )}
         </div>
 
-        <div className="space-y-5 xl:sticky xl:top-24 xl:self-start">
+        <div className="min-w-0 space-y-5 xl:sticky xl:top-24 xl:self-start">
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-4 shadow-[var(--shadow-soft)]">
             <div className="mb-3 flex flex-wrap items-start justify-between gap-3">
               <div>

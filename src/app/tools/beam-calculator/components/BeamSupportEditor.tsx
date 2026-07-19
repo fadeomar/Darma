@@ -52,20 +52,20 @@ export function BeamSupportEditor({ supports, length, units, errors, editable, s
     <ControlSection
       title="Supports"
       description="Advanced: place supports manually. Use one fixed, or two pin/roller supports."
-      action={
-        <div className="flex flex-wrap gap-1.5">
-          <Button size="sm" variant="secondary" leftIcon={<Plus className="h-3.5 w-3.5" />} onClick={() => onAdd("pin")} aria-label="Add pin support">
-            Pin
-          </Button>
-          <Button size="sm" variant="secondary" leftIcon={<Plus className="h-3.5 w-3.5" />} onClick={() => onAdd("roller")} aria-label="Add roller support">
-            Roller
-          </Button>
-          <Button size="sm" variant="secondary" leftIcon={<Plus className="h-3.5 w-3.5" />} onClick={() => onAdd("fixed")} aria-label="Add fixed support">
-            Fixed
-          </Button>
-        </div>
-      }
     >
+      {/* Body row, not the header `action` slot — same squeeze as BeamLoadEditor:
+          a ~254px toolbar beside the description collapsed the prose column. */}
+      <div className="flex flex-wrap gap-1.5">
+        <Button size="sm" variant="secondary" leftIcon={<Plus className="h-3.5 w-3.5" />} onClick={() => onAdd("pin")} aria-label="Add pin support">
+          Pin
+        </Button>
+        <Button size="sm" variant="secondary" leftIcon={<Plus className="h-3.5 w-3.5" />} onClick={() => onAdd("roller")} aria-label="Add roller support">
+          Roller
+        </Button>
+        <Button size="sm" variant="secondary" leftIcon={<Plus className="h-3.5 w-3.5" />} onClick={() => onAdd("fixed")} aria-label="Add fixed support">
+          Fixed
+        </Button>
+      </div>
       {supports.length === 0 ? (
         <p className="rounded-[var(--radius-md)] border border-dashed border-[var(--color-border-default)] px-3 py-4 text-center text-xs text-[var(--color-text-tertiary)]">
           No supports yet. Add a fixed support for a cantilever, or two pin/roller supports for a simply supported beam.

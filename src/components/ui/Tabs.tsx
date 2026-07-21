@@ -15,12 +15,15 @@ export function Tabs<T extends string>({
   onChange,
   className,
   ariaLabel,
+  fullWidth = false,
 }: {
   items: TabItem<T>[];
   value: T;
   onChange: (value: T) => void;
   className?: string;
   ariaLabel?: string;
+  /** Stretch the strip to fill its container, distributing tabs evenly. */
+  fullWidth?: boolean;
 }) {
   const listRef = useRef<HTMLDivElement | null>(null);
   const activeRef = useRef<HTMLButtonElement | null>(null);
@@ -88,7 +91,8 @@ export function Tabs<T extends string>({
         // `p-1` is required, not cosmetic: `overflow-x:auto` forces overflow-y
         // to a scrolling value, so without 4px of inset the 4px focus ring on a
         // tab gets clipped by this container. Matches SegmentedControl.
-        "darma-tab-strip inline-flex max-w-full snap-x overflow-x-auto overflow-y-hidden rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-control-track)] p-1",
+        "darma-tab-strip snap-x overflow-x-auto overflow-y-hidden rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-control-track)] p-1",
+        fullWidth ? "flex w-full" : "inline-flex max-w-full",
         className,
       )}
     >
@@ -108,6 +112,7 @@ export function Tabs<T extends string>({
               // `shrink-0` and `whitespace-nowrap` stop labels collapsing into
               // vertical character columns once the strip is scrollable.
               "min-h-[38px] shrink-0 snap-start whitespace-nowrap rounded-[var(--radius-full)] px-3 font-mono text-[11px] font-bold uppercase tracking-[0.06em] text-[var(--color-text-secondary)] transition disabled:opacity-45",
+              fullWidth && "flex-1 basis-0 text-center",
               selected
                 ? "bg-[var(--color-surface-raised)] text-[var(--color-text-primary)]"
                 : "hover:bg-[var(--color-control-hover)] hover:text-[var(--color-text-primary)]",

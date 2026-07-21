@@ -7,20 +7,20 @@ import { ToolPage } from "@/features/tools/layouts";
 import ToolContentCard from "@/features/tools/ui/ToolContentCard";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const tool = getToolRegistry().getById("clip-path-generator");
+  const tool = getToolRegistry().getById("photo-filter-editor");
   if (!tool) return {};
   return buildToolMetadata(tool);
 }
 
-const ClipPathGeneratorClient = dynamic(() => import("./ClipPathGeneratorClient"), {
+const PhotoFilterEditorClient = dynamic(() => import("./PhotoFilterEditorClient"), {
   loading: () => (
-    <div className="h-[720px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)] dark:bg-[var(--color-code-surface)]" />
+    <div className="h-[640px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)] dark:bg-[var(--color-code-surface)]" />
   ),
 });
 const Article = dynamic(() => import("./Article"));
 
-export default function ClipPathGeneratorPage() {
-  const tool = getToolRegistry().getById("clip-path-generator");
+export default function PhotoFilterEditorPage() {
+  const tool = getToolRegistry().getById("photo-filter-editor");
   if (!tool) notFound();
 
   const jsonLd = buildToolJsonLd(tool);
@@ -28,25 +28,25 @@ export default function ClipPathGeneratorPage() {
   return (
     <ToolPage
       tool={tool}
-      maxWidth="full"
+      maxWidth="wide"
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)]">
-          Draw CSS <code>clip-path</code> polygons visually — drag points, pick presets, preview on your own image,
-          and copy production-ready CSS. Everything runs locally in your browser.
+          Adjust brightness, contrast, saturation, and creative filters, then export a real filtered image —
+          all locally in your browser.
         </p>
       }
       article={
-        <ToolContentCard title="About CSS clip-path polygons">
+        <ToolContentCard title="About CSS photo filters">
           <Article />
         </ToolContentCard>
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <ToolContentCard
-        title="CSS Clip Path Generator"
-        description="Design polygon clip-path shapes with draggable points, presets, image preview, keyboard editing, and copy-ready CSS, Tailwind, or React output."
+        title="Photo Filter Editor"
+        description="Apply CSS filters and orientation to an image with live preview, presets, and a baked PNG, JPEG, or WebP export."
       >
-        <ClipPathGeneratorClient />
+        <PhotoFilterEditorClient />
       </ToolContentCard>
     </ToolPage>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Check } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { CSP_SERVICES, type CspServiceCategory } from "../services";
@@ -23,7 +23,27 @@ export function CspServicesStep({
   onToggle: (id: string) => void;
 }) {
   const [category, setCategory] = useState<"all" | CspServiceCategory>("all");
+  const listRef = useRef<HTMLDivElement>(null);
   const enabledSet = useMemo(() => new Set(enabled), [enabled]);
+
+  // role="tablist" promises roving arrow-key navigation; the tabs are plain
+  // buttons, so wire ArrowLeft/ArrowRight/Home/End with focus following
+  // selection (mirrors the shared Tabs semantics).
+  function onCategoryKeyDown(event: React.KeyboardEvent<HTMLDivElement>) {
+    const keys = ["ArrowLeft", "ArrowRight", "Home", "End"];
+    if (!keys.includes(event.key)) return;
+    event.preventDefault();
+    const count = CATEGORY_META.length;
+    const current = CATEGORY_META.findIndex((item) => item.id === category);
+    let next = current;
+    if (event.key === "ArrowLeft") next = (current - 1 + count) % count;
+    else if (event.key === "ArrowRight") next = (current + 1) % count;
+    else if (event.key === "Home") next = 0;
+    else if (event.key === "End") next = count - 1;
+    setCategory(CATEGORY_META[next].id);
+    const buttons = listRef.current?.querySelectorAll<HTMLButtonElement>('[role="tab"]');
+    buttons?.[next]?.focus();
+  }
   const visibleServices = useMemo(
     () => CSP_SERVICES.filter((service) => category === "all" || service.category === category),
     [category],
@@ -33,7 +53,7 @@ export function CspServicesStep({
   return (
     <div className="space-y-3">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <div className="flex flex-wrap gap-1.5" role="tablist" aria-label="Service categories">
+        <div ref={listRef} onKeyDown={onCategoryKeyDown} className="flex flex-wrap gap-1.5" role="tablist" aria-label="Service categories">
           {CATEGORY_META.map((item) => {
             const active = item.id === category;
             const count = item.id === "all" ? CSP_SERVICES.length : CSP_SERVICES.filter((service) => service.category === item.id).length;
@@ -43,6 +63,7 @@ export function CspServicesStep({
                 type="button"
                 role="tab"
                 aria-selected={active}
+                tabIndex={active ? 0 : -1}
                 onClick={() => setCategory(item.id)}
                 className={cn(
                   "rounded-[var(--radius-full)] border px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.08em] transition",

@@ -7,20 +7,20 @@ import { ToolPage } from "@/features/tools/layouts";
 import ToolContentCard from "@/features/tools/ui/ToolContentCard";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const tool = getToolRegistry().getById("clip-path-generator");
+  const tool = getToolRegistry().getById("scrabble-word-finder");
   if (!tool) return {};
   return buildToolMetadata(tool);
 }
 
-const ClipPathGeneratorClient = dynamic(() => import("./ClipPathGeneratorClient"), {
+const ScrabbleWordFinderClient = dynamic(() => import("./ScrabbleWordFinderClient"), {
   loading: () => (
-    <div className="h-[720px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)] dark:bg-[var(--color-code-surface)]" />
+    <div className="h-[560px] animate-pulse rounded-[var(--radius-lg)] bg-[var(--color-surface-subtle)] dark:bg-[var(--color-code-surface)]" />
   ),
 });
 const Article = dynamic(() => import("./Article"));
 
-export default function ClipPathGeneratorPage() {
-  const tool = getToolRegistry().getById("clip-path-generator");
+export default function ScrabbleWordFinderPage() {
+  const tool = getToolRegistry().getById("scrabble-word-finder");
   if (!tool) notFound();
 
   const jsonLd = buildToolJsonLd(tool);
@@ -28,25 +28,25 @@ export default function ClipPathGeneratorPage() {
   return (
     <ToolPage
       tool={tool}
-      maxWidth="full"
+      maxWidth="wide"
       intro={
         <p className="max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)]">
-          Draw CSS <code>clip-path</code> polygons visually — drag points, pick presets, preview on your own image,
-          and copy production-ready CSS. Everything runs locally in your browser.
+          Find every word you can play from your rack, scored with standard Scrabble values. Supports blank
+          tiles and your own dictionary — all in your browser.
         </p>
       }
       article={
-        <ToolContentCard title="About CSS clip-path polygons">
+        <ToolContentCard title="About the Scrabble word finder">
           <Article />
         </ToolContentCard>
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <ToolContentCard
-        title="CSS Clip Path Generator"
-        description="Design polygon clip-path shapes with draggable points, presets, image preview, keyboard editing, and copy-ready CSS, Tailwind, or React output."
+        title="Scrabble Word Finder"
+        description="Enter your rack (use ? for blanks) to find scored, playable words with filters, sorting, and optional custom dictionaries."
       >
-        <ClipPathGeneratorClient />
+        <ScrabbleWordFinderClient />
       </ToolContentCard>
     </ToolPage>
   );

@@ -53,6 +53,7 @@ import {
 import { usePointHistory } from "./hooks/usePointHistory";
 import { MAX_ZOOM, MIN_ZOOM, useViewport } from "./hooks/useViewport";
 import { findMatchingPresetId, getPresetById } from "./presets";
+import { SAMPLE_BACKGROUNDS } from "./sampleImages";
 import {
   createSavedShape,
   MAX_SAVED_SHAPES,
@@ -114,15 +115,40 @@ function isEditableTarget(target: EventTarget | null): boolean {
   return target.matches("input, textarea, select") || target.isContentEditable || Boolean(target.closest("[contenteditable='true']"));
 }
 
-async function decodeImage(url: string): Promise<{ width: number; height: number }> {
+async function decodeImage(url: string, timeoutMs?: number): Promise<{ width: number; height: number }> {
   const image = new Image();
   await new Promise<void>((resolve, reject) => {
-    image.onload = () => resolve();
-    image.onerror = () => reject(new Error("decode"));
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const done = (fn: () => void) => {
+      if (timer) clearTimeout(timer);
+      fn();
+    };
+    image.onload = () => done(resolve);
+    image.onerror = () => done(() => reject(new Error("decode")));
+    if (timeoutMs) timer = setTimeout(() => reject(new Error("timeout")), timeoutMs);
     image.src = url;
   });
-  if (typeof image.decode === "function") await image.decode();
+  // `decode()` can reject for cross-origin images even after a successful load,
+  // so treat it as best-effort — `naturalWidth`/`Height` are already reliable.
+  if (typeof image.decode === "function") {
+    try {
+      await image.decode();
+    } catch {
+      // ignore: dimensions below still come from the loaded image
+    }
+  }
   return { width: image.naturalWidth, height: image.naturalHeight };
+}
+
+const REMOTE_IMAGE_TIMEOUT_MS = 15_000;
+
+function isSupportedImageUrl(value: string): boolean {
+  try {
+    const parsed = new URL(value);
+    return parsed.protocol === "http:" || parsed.protocol === "https:" || parsed.protocol === "data:";
+  } catch {
+    return false;
+  }
 }
 
 function createLocalId(): string {
@@ -439,6 +465,54 @@ export default function ClipPathGeneratorClient() {
     [replaceImageUrl],
   );
 
+  // Load an already-addressable image source (a built-in sample data URI or a
+  // remote URL). Unlike loadImageFile there is no object URL to manage.
+  const loadImageSrc = useCallback(
+    async (src: string, label: string, options?: { remote?: boolean }) => {
+      const requestId = ++imageLoadRequestRef.current;
+      try {
+        const { width, height } = await decodeImage(src, options?.remote ? REMOTE_IMAGE_TIMEOUT_MS : undefined);
+        if (requestId !== imageLoadRequestRef.current) return;
+        if (width <= 0 || height <= 0) throw new Error("dimensions");
+        if (width * height > MAX_IMAGE_PIXELS) {
+          setStatus({ tone: "error", message: "The image dimensions are too large to preview safely." });
+          return;
+        }
+        replaceImageUrl(src);
+        setPreviewShape("image");
+        setStatus({ tone: "success", message: `Loaded ${label}.` });
+      } catch {
+        if (requestId !== imageLoadRequestRef.current) return;
+        setStatus({
+          tone: "error",
+          message: options?.remote
+            ? "That image URL could not be loaded. Check the link, or the host may block cross-origin images."
+            : "The image could not be loaded.",
+        });
+      }
+    },
+    [replaceImageUrl],
+  );
+
+  const loadSample = useCallback(
+    (dataUri: string, label: string) => void loadImageSrc(dataUri, label),
+    [loadImageSrc],
+  );
+
+  const loadImageUrl = useCallback(
+    (rawUrl: string) => {
+      const url = rawUrl.trim();
+      if (!url) return;
+      if (!isSupportedImageUrl(url)) {
+        setStatus({ tone: "error", message: "Enter a valid image URL starting with https://, http://, or data:." });
+        return;
+      }
+      setStatus({ tone: "info", message: "Loading image from URL…" });
+      void loadImageSrc(url, "the image from that URL", { remote: true });
+    },
+    [loadImageSrc],
+  );
+
   const handleDrop = useCallback(
     (event: React.DragEvent<HTMLDivElement>) => {
       event.preventDefault();
@@ -745,7 +819,7 @@ export default function ClipPathGeneratorClient() {
         <Button size="icon" variant="ghost" onClick={() => setHelpOpen(true)} aria-label="Open keyboard shortcut help" title="Keyboard shortcuts"><HelpCircle className="h-4 w-4" /></Button>
       </div>
 
-      <div className="grid min-w-0 gap-4 xl:grid-cols-[280px_minmax(0,1fr)_360px] xl:items-start">
+      <div className="grid min-w-0 gap-4 xl:grid-cols-[256px_minmax(0,1fr)_320px] xl:items-start">
         <aside className={`order-2 min-w-0 space-y-4 ${panelVisibility("shapes")} xl:order-1 xl:block`} aria-label="Shapes and project controls">
           <ProjectControls
             canUndo={canUndo}
@@ -866,7 +940,10 @@ export default function ClipPathGeneratorClient() {
             <PreviewControls
               imageUrl={imageUrl}
               settings={settings}
+              samples={SAMPLE_BACKGROUNDS}
               onUpload={() => fileInputRef.current?.click()}
+              onSelectSample={loadSample}
+              onLoadUrl={loadImageUrl}
               onRemoveImage={removeImage}
               onSettingsChange={updateSettings}
             />

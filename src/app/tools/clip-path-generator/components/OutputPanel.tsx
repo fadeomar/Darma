@@ -58,8 +58,8 @@ export function OutputPanel({
         Class name
         <Input className="mt-1" value={className} onChange={(event) => onClassNameChange(event.target.value)} spellCheck={false} />
       </label>
-      <Tabs className="mt-3 min-w-0" items={FORMAT_ITEMS} value={outputFormat} onChange={onOutputFormatChange} ariaLabel="Output format" />
-      <pre className="mt-3 max-h-56 max-w-full overflow-auto whitespace-pre-wrap break-words rounded-[var(--radius-md)] bg-[var(--color-code-surface)] p-3 text-xs leading-relaxed text-[var(--color-text-primary)]"><code>{validShape ? output : "Fix the blocking polygon validation errors to generate export-ready code."}</code></pre>
+      <Tabs className="mt-3 min-w-0" fullWidth items={FORMAT_ITEMS} value={outputFormat} onChange={onOutputFormatChange} ariaLabel="Output format" />
+      <pre className="mt-3 max-h-56 max-w-full overflow-auto whitespace-pre-wrap break-words rounded-[var(--radius-md)] bg-[var(--color-code-surface)] p-3 text-xs leading-relaxed text-[var(--color-code-text)]"><code>{validShape ? output : "Fix the blocking polygon validation errors to generate export-ready code."}</code></pre>
       <label className="mt-3 flex items-center gap-2 text-sm text-[var(--color-text-secondary)]">
         <input type="checkbox" checked={webkitFallback} onChange={(event) => onWebkitFallbackChange(event.target.checked)} /> Include <code>-webkit-clip-path</code>
       </label>

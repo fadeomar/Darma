@@ -76,7 +76,7 @@ export function ResponsiveImageControls({
       </ControlSection>
 
       <ControlSection title="Candidates" meta={`${state.candidates.length}/12`} action={<Button size="sm" variant="secondary" leftIcon={<Plus className="h-3.5 w-3.5" aria-hidden />} onClick={onAddCandidate}>Add</Button>}>
-        <div className="flex gap-2"><Input size="sm" value={state.urlPattern} onChange={(event) => onPatch({ urlPattern: event.target.value })} aria-label="Candidate URL pattern" placeholder="/images/card-{width}.jpg" /><Button size="icon" variant="secondary" onClick={onRegenerateCandidates}><RefreshCw className="h-4 w-4" aria-hidden />Regenerate candidates</Button></div>
+        <div className="flex gap-2"><Input size="sm" value={state.urlPattern} onChange={(event) => onPatch({ urlPattern: event.target.value })} aria-label="Candidate URL pattern" placeholder="/images/card-{width}.jpg" /><Button size="icon" variant="secondary" onClick={onRegenerateCandidates} leftIcon={<RefreshCw className="h-4 w-4" aria-hidden />}>Regenerate candidates</Button></div>
         <div className="space-y-2">{state.candidates.map((candidate) => <CandidateRow key={candidate.id} candidate={candidate} canRemove={state.candidates.length > 1} onUpdate={(patch) => onUpdateCandidate(candidate.id, patch)} onRemove={() => onRemoveCandidate(candidate.id)} />)}</div>
       </ControlSection>
 
@@ -113,7 +113,7 @@ export function ResponsiveImageControls({
 function CandidateRow({ candidate, canRemove, onUpdate, onRemove }: { candidate: ImageCandidate; canRemove: boolean; onUpdate: (patch: Partial<ImageCandidate>) => void; onRemove: () => void }) {
   return (
     <div className="space-y-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-2.5">
-      <div className="flex gap-2"><Input size="sm" value={candidate.url} onChange={(event) => onUpdate({ url: event.target.value })} aria-label={`Candidate ${candidate.width} URL`} /><Button size="icon" variant="ghost" disabled={!canRemove} onClick={onRemove}><Trash2 className="h-4 w-4" aria-hidden />Remove candidate</Button></div>
+      <div className="flex gap-2"><Input size="sm" value={candidate.url} onChange={(event) => onUpdate({ url: event.target.value })} aria-label={`Candidate ${candidate.width} URL`} /><Button size="icon" variant="ghost" disabled={!canRemove} onClick={onRemove} leftIcon={<Trash2 className="h-4 w-4" aria-hidden />}>Remove candidate</Button></div>
       <div className="grid grid-cols-[minmax(0,1fr)_7rem] gap-2"><NumberField label="Width" value={candidate.width} min={16} max={8000} unit="w" onChange={(width) => onUpdate({ width })} /><label className="space-y-1 text-[11px] font-bold text-[var(--color-text-tertiary)]">Format<Select size="sm" value={candidate.format} onChange={(event) => onUpdate({ format: event.target.value as ImageCandidate["format"] })}><option value="jpg">JPG</option><option value="png">PNG</option><option value="webp">WebP</option><option value="avif">AVIF</option><option value="custom">Custom</option></Select></label></div>
     </div>
   );

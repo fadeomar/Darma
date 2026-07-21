@@ -1,22 +1,39 @@
 "use client";
 
-import { Eye, EyeOff, ImageOff, Upload } from "lucide-react";
+import { useState } from "react";
+import { Eye, EyeOff, ImageOff, Link2, Upload } from "lucide-react";
 import { Button, Input, Select } from "@/components/ui";
+import { cn } from "@/lib/cn";
+import type { SampleBackground } from "../sampleImages";
 import type { ClipPathStudioSettings, PreviewObjectFit, PreviewObjectPosition } from "../types";
 
 export function PreviewControls({
   imageUrl,
   settings,
+  samples,
   onUpload,
+  onSelectSample,
+  onLoadUrl,
   onRemoveImage,
   onSettingsChange,
 }: {
   imageUrl: string | null;
   settings: ClipPathStudioSettings;
+  samples: SampleBackground[];
   onUpload: () => void;
+  onSelectSample: (dataUri: string, label: string) => void;
+  onLoadUrl: (url: string) => void;
   onRemoveImage: () => void;
   onSettingsChange: (next: Partial<ClipPathStudioSettings>) => void;
 }) {
+  const [urlDraft, setUrlDraft] = useState("");
+
+  const submitUrl = () => {
+    const value = urlDraft.trim();
+    if (!value) return;
+    onLoadUrl(value);
+  };
+
   return (
     <section aria-labelledby="preview-controls-title" className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
       <div className="flex items-center justify-between gap-2">
@@ -31,6 +48,57 @@ export function PreviewControls({
       <div className="mt-3 flex flex-wrap gap-2">
         <Button size="sm" variant="secondary" leftIcon={<Upload className="h-4 w-4" />} onClick={onUpload}>{imageUrl ? "Replace image" : "Upload image"}</Button>
         {imageUrl ? <Button size="sm" variant="ghost" leftIcon={<ImageOff className="h-4 w-4" />} onClick={onRemoveImage}>Remove</Button> : null}
+      </div>
+
+      <div className="mt-3">
+        <p className="text-xs font-bold text-[var(--color-text-secondary)]">Sample backgrounds</p>
+        <div className="mt-1.5 grid grid-cols-5 gap-1.5">
+          {samples.map((sample) => {
+            const active = imageUrl === sample.dataUri;
+            return (
+              <button
+                key={sample.id}
+                type="button"
+                onClick={() => onSelectSample(sample.dataUri, sample.label)}
+                aria-pressed={active}
+                title={`Use “${sample.label}” as the preview background`}
+                className={cn(
+                  "aspect-[4/3] overflow-hidden rounded-[var(--radius-sm)] border bg-cover bg-center transition duration-[var(--duration-fast)]",
+                  active
+                    ? "border-[var(--color-primary)] shadow-[var(--focus-ring)]"
+                    : "border-[var(--color-border-subtle)] hover:border-[var(--color-border-strong)]",
+                )}
+                style={{ backgroundImage: `url("${sample.dataUri}")` }}
+              >
+                <span className="sr-only">{sample.label}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="mt-3">
+        <label htmlFor="clip-path-image-url" className="text-xs font-bold text-[var(--color-text-secondary)]">Load image from URL</label>
+        <div className="mt-1.5 flex gap-2">
+          <Input
+            id="clip-path-image-url"
+            type="url"
+            size="sm"
+            inputMode="url"
+            autoComplete="off"
+            spellCheck={false}
+            placeholder="https://example.com/photo.jpg"
+            value={urlDraft}
+            onChange={(event) => setUrlDraft(event.target.value)}
+            onKeyDown={(event) => {
+              if (event.key === "Enter") {
+                event.preventDefault();
+                submitUrl();
+              }
+            }}
+          />
+          <Button size="sm" variant="secondary" leftIcon={<Link2 className="h-4 w-4" />} onClick={submitUrl} disabled={!urlDraft.trim()}>Load</Button>
+        </div>
       </div>
 
       <div className="mt-3 grid grid-cols-2 gap-2">

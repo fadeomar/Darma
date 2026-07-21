@@ -90,28 +90,28 @@ export function EditorStage({
   const imageStyle = { objectFit: settings.objectFit, objectPosition: settings.objectPosition } as const;
   const solidFill = "linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%)";
   const responsiveArtboardWidth = aspectRatio
-    ? `min(100%, min(820px, calc(72vh * ${aspectRatio})))`
-    : "min(100%, 820px)";
+    ? `min(100%, min(1200px, calc(80vh * ${aspectRatio})))`
+    : "min(100%, 1200px)";
 
   return (
     <section className="min-w-0" aria-label="Editing stage">
       <div className="mb-3 flex flex-wrap items-center justify-between gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-2">
         <div className="flex flex-wrap gap-1">
-          <Button size="icon" variant="ghost" onClick={onZoomOut} disabled={!canZoomOut} aria-label="Zoom out" title="Zoom out">
+          <Button size="icon" variant="outline" onClick={onZoomOut} disabled={!canZoomOut} aria-label="Zoom out" title="Zoom out">
             <ZoomOut className="h-4 w-4" />
           </Button>
           <span className="flex min-w-14 items-center justify-center text-xs font-bold text-[var(--color-text-secondary)]" aria-label={`Zoom ${Math.round(zoom * 100)} percent`}>
             {Math.round(zoom * 100)}%
           </span>
-          <Button size="icon" variant="ghost" onClick={onZoomIn} disabled={!canZoomIn} aria-label="Zoom in" title="Zoom in">
+          <Button size="icon" variant="outline" onClick={onZoomIn} disabled={!canZoomIn} aria-label="Zoom in" title="Zoom in">
             <ZoomIn className="h-4 w-4" />
           </Button>
-          <Button size="icon" variant="ghost" onClick={onResetView} aria-label="Reset view" title="Reset view">
+          <Button size="icon" variant="outline" onClick={onResetView} aria-label="Reset view" title="Reset view">
             <Maximize2 className="h-4 w-4" />
           </Button>
           <Button
             size="icon"
-            variant={panMode ? "soft" : "ghost"}
+            variant={panMode ? "soft" : "outline"}
             onClick={onTogglePanMode}
             disabled={zoom <= 1}
             aria-pressed={panMode}
@@ -122,10 +122,10 @@ export function EditorStage({
           </Button>
         </div>
         <div className="flex flex-wrap gap-1">
-          <Button size="icon" variant={settings.showGrid ? "soft" : "ghost"} onClick={onToggleGrid} aria-pressed={settings.showGrid} aria-label="Toggle grid" title="Toggle grid">
+          <Button size="icon" variant={settings.showGrid ? "soft" : "outline"} onClick={onToggleGrid} aria-pressed={settings.showGrid} aria-label="Toggle grid" title="Toggle grid">
             <Grid3X3 className="h-4 w-4" />
           </Button>
-          <Button size="icon" variant={settings.snapEnabled ? "soft" : "ghost"} onClick={onToggleSnap} aria-pressed={settings.snapEnabled} aria-label="Toggle snapping" title="Toggle snapping">
+          <Button size="icon" variant={settings.snapEnabled ? "soft" : "outline"} onClick={onToggleSnap} aria-pressed={settings.snapEnabled} aria-label="Toggle snapping" title="Toggle snapping">
             <Magnet className="h-4 w-4" />
           </Button>
           <span className="hidden items-center gap-1 px-2 text-xs text-[var(--color-text-tertiary)] sm:flex">
@@ -159,7 +159,7 @@ export function EditorStage({
           aria-label="Clip path editing canvas. Select a point and use arrow keys to move it, or Delete to remove it."
           aria-describedby="clip-selected-point-description"
           onKeyDown={onStageKeyDown}
-          className={`relative max-h-[72vh] max-w-full shrink-0 overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-border-default)] shadow-[var(--shadow-md)] outline-none focus-visible:shadow-[var(--focus-ring)] ${settings.aspectRatio === "free" ? "h-[clamp(300px,55vh,620px)]" : ""}`}
+          className={`relative max-h-[80vh] max-w-full shrink-0 overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-border-default)] shadow-[var(--shadow-md)] outline-none focus-visible:shadow-[var(--focus-ring)] ${settings.aspectRatio === "free" ? "h-[clamp(320px,64vh,760px)]" : ""}`}
           style={{
             aspectRatio: aspectRatio ?? undefined,
             width: responsiveArtboardWidth,

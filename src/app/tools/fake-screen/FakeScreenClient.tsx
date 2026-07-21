@@ -11,7 +11,7 @@ import {
 } from "react";
 import { useSearchParams } from "next/navigation";
 import { Check, Copy, Link2, Maximize2, RotateCcw, SkipBack, SkipForward } from "lucide-react";
-import { enterFullscreen } from "@/lib/tools/screens/fullscreen";
+import { enterFullscreen, exitFullscreen } from "@/lib/tools/screens/fullscreen";
 import { COLOR_PRESETS, normalizeHex, withBrightness } from "@/lib/tools/screens/colors";
 import { buildShareUrl, copyText } from "@/lib/tools/screens/url-state";
 import { SCREEN_SAFETY_NOTE } from "@/lib/tools/screens/presets";
@@ -154,8 +154,19 @@ function SelectButtons<T extends string>({ options, value, onChange }: { options
   );
 }
 
+// The exit hint doubles as a real tap target: touch devices have no Esc key,
+// so a non-interactive label would strand mobile users inside the fullscreen
+// scene. `exitFullscreen()` is a safe no-op when not currently fullscreen.
 function ExitHint() {
-  return <div className="absolute right-4 top-4 z-30 rounded-full bg-black/55 px-4 py-2 text-xs font-bold text-white shadow-lg backdrop-blur">Press Esc to exit fullscreen</div>;
+  return (
+    <button
+      type="button"
+      onClick={() => void exitFullscreen()}
+      className="absolute right-4 top-4 z-30 rounded-full bg-black/55 px-4 py-2 text-xs font-bold text-white shadow-lg backdrop-blur transition hover:bg-black/70 focus-visible:shadow-[var(--focus-ring)]"
+    >
+      Press Esc or tap to exit
+    </button>
+  );
 }
 
 function WindowsMark({ colorful = false }: { colorful?: boolean }) {

@@ -13,7 +13,8 @@ export default function Article() {
       <p>
         Pick a preset or drag the vertices on the canvas to design your shape. Click any edge to insert a new
         point, select a point and nudge it with the arrow keys for precise control, and copy the generated CSS
-        when you are happy with the result. You can preview the clip on a solid block or on your own image.
+        when you are happy with the result. Preview the clip on a solid block, one of the built-in sample
+        backgrounds, an image you upload or drag in from your device, or any image you paste in by URL.
       </p>
 
       <h2>Does clip-path crop my image?</h2>

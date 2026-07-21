@@ -7,6 +7,7 @@ export type ElementSearchProjection = "preview";
 export type ElementSearchFilters = {
   q?: string;
   exactMatch?: boolean;
+  includeShortDescription?: boolean;
 
   mainCategory?: string[];
   secondaryCategory?: string[];

@@ -29,8 +29,9 @@ export type ElementSearchResult = {
 export interface ElementRepository {
   search(spec: ElementSearchSpec): Promise<ElementSearchResult>;
 
-  // New: public read (used by preview page)
   getById(id: string): Promise<Element | null>;
+  getBySlug(slug: string): Promise<Element | null>;
+  getPublicSecondaryCategories(mainCategory: string): Promise<string[]>;
 }
 
 export type ElementProjection = "preview" | "summary";

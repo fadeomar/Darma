@@ -26,7 +26,36 @@ body {
 
 * {
   box-sizing: border-box;
-  word-break: break-word;
+}
+
+/*
+ * Text wrapping policy.
+ *
+ * `overflow-wrap` is inherited, so setting it on `body` reaches every element
+ * without a universal selector. `break-word` is deliberate: unlike `anywhere`
+ * (which is what the deprecated `word-break: break-word` alias computes to) it
+ * does NOT participate in intrinsic min-content sizing, so flex and grid
+ * children keep their natural minimum width instead of collapsing to a single
+ * character. Words still break rather than overflow the page, but only as a
+ * last resort — normal prose keeps normal word boundaries.
+ *
+ * Technical strings that should break aggressively opt in via
+ * `.darma-break-token`. Code output should scroll inside its own panel instead.
+ */
+body {
+  overflow-wrap: break-word;
+}
+
+/*
+ * Opt-in aggressive breaking for unbroken technical strings: URLs, hashes,
+ * JWTs, UUIDs, base64, SVG path data, generated CSS values. Use this only on
+ * the element that actually holds the string, never on a layout container —
+ * `anywhere` collapses min-content width, which is the whole reason the old
+ * global rule was removed.
+ */
+.darma-break-token {
+  word-break: normal;
+  overflow-wrap: anywhere;
 }
 
 ::selection {
@@ -166,6 +195,23 @@ input[type="number"] {
 
 .darma-slider:focus-visible::-moz-range-thumb {
   box-shadow: 0 0 0 4px var(--color-primary-soft), var(--shadow-sm);
+}
+
+/*
+ * Horizontal scroll strips (tab pills, the header nav). The scrollbar is
+ * suppressed because a 6px track inside a rounded pill reads as a rendering
+ * fault; discoverability comes from the partially-visible next item instead.
+ * Scrolling itself stays fully available to touch, trackpad, and keyboard.
+ */
+.darma-tab-strip,
+.darma-scroll-strip {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.darma-tab-strip::-webkit-scrollbar,
+.darma-scroll-strip::-webkit-scrollbar {
+  display: none;
 }
 
 /* === Scrollbars === */

@@ -39,7 +39,7 @@ export default function MetaTagGeneratorPage() {
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Meta Tag Production Studio" description="Create one metadata source, audit release risks, preview copy, and export framework-ready files.">
+      <ToolContentCard title="Meta Tag Studio" description="Create one metadata source, audit release risks, preview copy, and export framework-ready files.">
         <MetaTagClient />
       </ToolContentCard>
     </ToolPage>

@@ -53,7 +53,7 @@ export default function JsonFormatterPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <ToolContentCard
-        title="JSON Formatter Production Studio"
+        title="JSON Formatter Studio"
         description="Formatting, validation, repair, structured inspection, precision checks, reusable profiles, and developer-ready exports."
       >
         <JsonFormatterClient />

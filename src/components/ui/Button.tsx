@@ -68,7 +68,17 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       {...props}
     >
       {loading ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden /> : leftIcon}
-      {size !== "icon" ? children : <span className="sr-only">{children}</span>}
+      {size !== "icon" ? (
+        children
+      ) : leftIcon ? (
+        // Icon-only button whose glyph came via `leftIcon`: children is just the
+        // accessible label, so keep it screen-reader-only.
+        <span className="sr-only">{children}</span>
+      ) : (
+        // Icon-only button whose glyph was passed as children: render it, or it
+        // would be invisible. Pair with `aria-label` for the accessible name.
+        children
+      )}
       {rightIcon}
     </button>
   ),

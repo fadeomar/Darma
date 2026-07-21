@@ -166,8 +166,7 @@ function LoaderDetailDrawerContent({
             <h2>{displayName}</h2>
             <p>{(loader?.tags ?? loaderSummary?.tags ?? []).map((tag) => `#${tag}`).join("  ")}</p>
           </div>
-          <Button variant="ghost" size="icon" onClick={onClose}>
-            <X className="h-5 w-5" aria-hidden />
+          <Button variant="ghost" size="icon" onClick={onClose} leftIcon={<X className="h-5 w-5" aria-hidden />}>
             Close drawer
           </Button>
         </header>

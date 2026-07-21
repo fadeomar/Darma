@@ -4,7 +4,7 @@ import { getToolRegistry } from "@/features/tools";
 import ToolPageShell from "@/features/tools/ui/ToolPageShell";
 
 export const metadata: Metadata = {
-  title: "Animated Background Production Studio | Darma Tools",
+  title: "Animated Background Studio | Darma Tools",
   description:
     "Design deterministic animated CSS backgrounds, audit motion and performance, import or export editable projects, and download HTML, CSS, React, tokens, reports, and a production ZIP.",
 };

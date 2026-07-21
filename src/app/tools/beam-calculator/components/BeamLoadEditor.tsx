@@ -46,20 +46,21 @@ export function BeamLoadEditor({ loads, length, units, errors, selected, onSelec
     <ControlSection
       title="Loads"
       description="Downward loads are negative; sagging moment is positive. Drag items on the preview to place them."
-      action={
-        <div className="flex flex-wrap gap-1.5">
-          <Button size="sm" variant="secondary" leftIcon={<Plus className="h-3.5 w-3.5" />} onClick={() => onAdd("point")} aria-label="Add point load">
-            Point
-          </Button>
-          <Button size="sm" variant="secondary" leftIcon={<Plus className="h-3.5 w-3.5" />} onClick={() => onAdd("udl")} aria-label="Add distributed load">
-            UDL
-          </Button>
-          <Button size="sm" variant="secondary" leftIcon={<Plus className="h-3.5 w-3.5" />} onClick={() => onAdd("moment")} aria-label="Add applied moment">
-            Moment
-          </Button>
-        </div>
-      }
     >
+      {/* Rendered in the body, not the header `action` slot: this 3-button
+          toolbar is ~254px wide, and beside it the description prose collapsed
+          to a ~80px column inside the ~380px controls track. */}
+      <div className="flex flex-wrap gap-1.5">
+        <Button size="sm" variant="secondary" leftIcon={<Plus className="h-3.5 w-3.5" />} onClick={() => onAdd("point")} aria-label="Add point load">
+          Point
+        </Button>
+        <Button size="sm" variant="secondary" leftIcon={<Plus className="h-3.5 w-3.5" />} onClick={() => onAdd("udl")} aria-label="Add distributed load">
+          UDL
+        </Button>
+        <Button size="sm" variant="secondary" leftIcon={<Plus className="h-3.5 w-3.5" />} onClick={() => onAdd("moment")} aria-label="Add applied moment">
+          Moment
+        </Button>
+      </div>
       {loads.length === 0 ? (
         <p className="rounded-[var(--radius-md)] border border-dashed border-[var(--color-border-default)] px-3 py-4 text-center text-xs text-[var(--color-text-tertiary)]">
           No loads yet. Add a point load, uniformly distributed load (UDL), or an applied moment.

@@ -39,7 +39,7 @@ export default function OGImageGeneratorPage() {
       }
     >
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <ToolContentCard title="Open Graph Image Production Studio" description="Create share-ready 1200×630 previews with project import, contrast and readiness checks, metadata snippets, reports, and complete ZIP export.">
+      <ToolContentCard title="Open Graph Image Studio" description="Create share-ready 1200×630 previews with project import, contrast and readiness checks, metadata snippets, reports, and complete ZIP export.">
         <OGImageGeneratorClient />
       </ToolContentCard>
     </ToolPage>

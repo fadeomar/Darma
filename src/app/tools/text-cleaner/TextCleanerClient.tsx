@@ -365,7 +365,7 @@ export default function TextCleanerClient({
       }
       optionsSlot={
         <ToolControlPanel
-          title="Text Cleaner Production Studio"
+          title="Text Cleaner Studio"
           description="Build an ordered workflow, compare the result, and export a reusable local production pack."
           sticky={false}
         >

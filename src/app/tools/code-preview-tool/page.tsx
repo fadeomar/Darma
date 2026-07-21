@@ -29,7 +29,7 @@ export default function Page() {
         </p>
       }
       article={
-        <ToolContentCard title="How to use the Code Preview Production Studio">
+        <ToolContentCard title="How to use the Code Preview Studio">
           <Article />
         </ToolContentCard>
       }

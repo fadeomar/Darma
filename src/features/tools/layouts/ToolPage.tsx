@@ -6,16 +6,8 @@ import { FavoriteToolButton } from "@/features/tools/components/FavoriteToolButt
 import { RelatedToolsGrid } from "@/features/tools/components/RelatedToolsGrid";
 import { RecentToolTracker } from "@/features/tools/components/RecentToolTracker";
 import type { ToolDefinition } from "@/features/tools/domain/tool";
+import { audienceLabel, formatCategory, resolveToolProfile } from "./toolProfile";
 import { cn } from "@/lib/cn";
-
-const audienceLabels: Record<string, string> = {
-  developer: "Developer",
-  designer: "Designer",
-  student: "Student",
-  creator: "Creator",
-  general: "General",
-  business: "Business",
-};
 
 const maxWidthClass = {
   default: "max-w-[var(--container-page)]",
@@ -31,9 +23,6 @@ function privacyLabel(privacy?: ToolDefinition["privacy"]) {
   return null;
 }
 
-function formatCategory(value: string) {
-  return value.replace(/-/g, " ").replace(/\b\w/g, (char) => char.toUpperCase());
-}
 
 export function ToolPage({
   tool,
@@ -65,6 +54,10 @@ export function ToolPage({
   const relatedContent = related ?? (tool ? <RelatedToolsGrid tool={tool} /> : null);
   const privacy = privacyLabel(tool?.privacy);
   const primaryCategory = tool?.mainCategory?.[0] ?? tool?.secondaryCategory?.[0];
+  const profile = resolveToolProfile(tool);
+  // The aside is opt-out on centered headers, but it is only ever opt-in when
+  // there is actually something to put in it.
+  const showProfile = headerAlign !== "center" && profile.hasMeaningfulContent;
 
   return (
     <div className={cn("mx-auto px-4 py-7 sm:px-6 sm:py-9 lg:px-8", maxWidthClass[maxWidth])}>
@@ -79,8 +72,12 @@ export function ToolPage({
       >
         <div
           className={cn(
-            "relative grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(280px,360px)] lg:items-end",
-            headerAlign === "center" && "lg:grid-cols-1",
+            "relative grid gap-6",
+            // Only reserve the secondary track when the aside will actually be
+            // rendered — otherwise the title and description get the full width.
+            showProfile
+              ? "lg:grid-cols-[minmax(0,1fr)_minmax(260px,var(--tool-profile-width))] lg:items-end"
+              : "lg:grid-cols-1",
           )}
         >
           <div className={cn("min-w-0", headerAlign === "center" && "mx-auto max-w-4xl")}>
@@ -129,24 +126,26 @@ export function ToolPage({
             {intro ? <div className={headerSize === "compact" ? "mt-4" : "mt-5"}>{intro}</div> : null}
           </div>
 
-          {headerAlign !== "center" ? (
-            <aside className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/70 p-4 shadow-[inset_0_1px_0_var(--color-border-subtle)]">
+          {showProfile ? (
+            <aside className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/70 p-4 shadow-[inset_0_1px_0_var(--color-border-subtle)]">
               <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Tool profile</p>
-              <div className="mt-3 flex flex-wrap gap-2">
-                {(tool?.audiences ?? []).map((audience) => (
-                  <Badge key={audience} variant="outline">
-                    {audienceLabels[audience] ?? audience}
-                  </Badge>
-                ))}
-                {(tool?.secondaryCategory ?? []).slice(0, 3).map((category) => (
-                  <Badge key={category} variant="outline">
-                    {formatCategory(category)}
-                  </Badge>
-                ))}
-              </div>
-              {tool?.tags?.length ? (
+              {profile.audiences.length || profile.categories.length ? (
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {profile.audiences.map((audience) => (
+                    <Badge key={audience} variant="outline">
+                      {audienceLabel(audience)}
+                    </Badge>
+                  ))}
+                  {profile.categories.map((category) => (
+                    <Badge key={category} variant="outline">
+                      {formatCategory(category)}
+                    </Badge>
+                  ))}
+                </div>
+              ) : null}
+              {profile.tags.length ? (
                 <p className="mt-3 line-clamp-2 text-xs leading-5 text-[var(--color-text-tertiary)]">
-                  {tool.tags.slice(0, 5).map((tag) => `#${tag}`).join("  ")}
+                  {profile.tags.map((tag) => `#${tag}`).join("  ")}
                 </p>
               ) : null}
             </aside>

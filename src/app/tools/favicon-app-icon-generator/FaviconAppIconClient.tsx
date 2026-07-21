@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useMemo, useRef, useState, type ChangeEvent, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type ChangeEvent, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from "react";
 import type { Theme as EmojiPickerTheme } from "emoji-picker-react";
 import { AlertTriangle, CheckCircle2, Copy, Download, FileArchive, FileCheck2, ImageIcon, Loader2, UploadCloud } from "lucide-react";
 import { ActionBar, Button, Input, Select, Textarea } from "@/components/ui";
@@ -559,8 +559,27 @@ function PreviewModeSwitch({ mode, setMode }: { mode: PreviewMode; setMode: (mod
     { id: "advanced", label: "Advanced", detail: "bookmarks, masks, launcher" },
   ];
 
+  // These stay custom rather than migrating to the shared <Tabs>: each tab is a
+  // two-line label + detail card, which the shared single-line pill strip cannot
+  // express without overriding its own styling. The tabs wrap (never clip), so
+  // the only gap versus the shared component was the arrow-key navigation that
+  // role="tablist" promises — added here.
+  function handleKeyDown(event: ReactKeyboardEvent<HTMLDivElement>) {
+    if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+    const current = options.findIndex((option) => option.id === mode);
+    let next: number;
+    if (event.key === "Home") next = 0;
+    else if (event.key === "End") next = options.length - 1;
+    else next = (current + (event.key === "ArrowRight" ? 1 : -1) + options.length) % options.length;
+    if (next === current) return;
+    event.preventDefault();
+    setMode(options[next].id);
+    const button = event.currentTarget.querySelectorAll<HTMLButtonElement>('[role="tab"]')[next];
+    button?.focus();
+  }
+
   return (
-    <div className="flex flex-wrap gap-2" role="tablist" aria-label="Preview mode">
+    <div className="flex flex-wrap gap-2" role="tablist" aria-label="Preview mode" onKeyDown={handleKeyDown}>
       {options.map((option) => {
         const active = option.id === mode;
         return (
@@ -837,9 +856,13 @@ function FileChecklist({ assets }: { assets: GeneratedAsset[] }) {
     return { image, code };
   }, [assets]);
 
+  // min-w-0 on both sections: below `lg` this grid is a single auto track, and
+  // grid items default to min-width:auto — the track resolved to the sections'
+  // min-content (375px at a 390px viewport) and overflowed the page. Same
+  // pattern fixed in beam-calculator and css-clamp-generator.
   return (
     <div className="grid gap-4 lg:grid-cols-2">
-      <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-xs)]">
+      <section className="min-w-0 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-xs)]">
         <h3 className="font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Generated image files</h3>
         <p className="mb-3 mt-1 text-xs text-[var(--color-text-secondary)]">Ready-to-use favicon and app icon images.</p>
         <div className="max-h-80 space-y-2 overflow-auto pr-1">
@@ -855,7 +878,7 @@ function FileChecklist({ assets }: { assets: GeneratedAsset[] }) {
         </div>
       </section>
 
-      <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-xs)]">
+      <section className="min-w-0 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-xs)]">
         <h3 className="font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Generated docs & snippets</h3>
         <p className="mb-3 mt-1 text-xs text-[var(--color-text-secondary)]">Manifest, setup code, and handoff notes.</p>
         <div className="max-h-80 space-y-2 overflow-auto pr-1">

@@ -58,7 +58,17 @@ export function BeamResults({ model, result, units }: BeamResultsProps) {
         <div className="border-b border-[var(--color-border-subtle)] px-3 py-2">
           <h3 className="text-xs font-bold text-[var(--color-text-primary)]">Key stations</h3>
         </div>
-        <div className="max-h-72 overflow-y-auto">
+        {/* `overflow-auto` (not `overflow-y-auto`) so the 28rem minimum width
+            scrolls inside this container instead of overflowing the page on
+            narrow viewports. Matches the containment pattern already used by
+            the other data tables in the tools tree. `tabIndex` keeps the
+            scrollable region reachable by keyboard. */}
+        <div
+          className="max-h-72 overflow-auto"
+          tabIndex={0}
+          role="region"
+          aria-label="Key stations results table"
+        >
           <table className="w-full min-w-[28rem] border-collapse text-right text-xs">
             <thead className="sticky top-0 bg-[var(--color-surface-subtle)] text-[var(--color-text-tertiary)]">
               <tr>

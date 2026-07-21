@@ -822,9 +822,14 @@ export default function BeamCalculatorClient() {
       </div>
 
       {/* Workspace */}
+      {/* min-w-0 on both children is required, not decorative: below `lg` this
+          grid collapses to a single auto-sized track, and grid items default to
+          `min-width: auto`. Without it the track resolves to the children's
+          min-content width (484px at a 390px viewport) and the whole page
+          scrolls sideways. */}
       <div className="grid gap-6 lg:grid-cols-[minmax(0,380px)_minmax(0,1fr)] lg:items-start">
         {/* Left: inputs + presets */}
-        <div className="space-y-5">
+        <div className="min-w-0 space-y-5">
           <BeamInputs
             model={model}
             units={units}
@@ -854,7 +859,7 @@ export default function BeamCalculatorClient() {
         </div>
 
         {/* Right: preview + diagrams + results (sticky on desktop) */}
-        <div className="space-y-5 lg:sticky lg:top-24 lg:self-start">
+        <div className="min-w-0 space-y-5 lg:sticky lg:top-24 lg:self-start">
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
             <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
               <h2 className="text-sm font-bold text-[var(--color-text-primary)]">

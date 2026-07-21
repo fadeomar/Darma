@@ -404,6 +404,13 @@
   place-items: center;
   pointer-events: none;
   padding: 1rem;
+  /* The modal is rendered inline inside a `space-y-6` wrapper, whose sibling
+     selector applies margin-top: 1.5rem. Fixed-position boxes still honor
+     margins, so with `inset: 0` the root was pushed 24px down and the 100dvh
+     mobile panel lost its bottom 24px past the viewport. `!important` because
+     Tailwind's space-y sibling selector has higher specificity. A margin on a
+     full-viewport fixed overlay is never intended. */
+  margin: 0 !important;
 }
 
 .css-loaders-modal-root.css-loaders-modal-open {

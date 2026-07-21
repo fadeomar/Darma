@@ -1,0 +1,4594 @@
+{
+  "generatedBy": "scripts/ui-audit-static.mjs",
+  "generatedAt": "2026-07-18",
+  "registeredToolCount": 64,
+  "routeDirCount": 64,
+  "excludedNonToolDirs": [
+    "_shared",
+    "audience",
+    "category",
+    "fun",
+    "privacy",
+    "workflows"
+  ],
+  "orphanRouteDirs": [],
+  "layoutFamilies": [
+    "visual-generator",
+    "text-workbench",
+    "directory",
+    "single-utility",
+    "fullscreen-studio",
+    "interactive-challenge"
+  ],
+  "sharedFiles": [
+    {
+      "file": "src/features/tools/layouts/ToolLayoutDirectory.tsx",
+      "loc": 633,
+      "hits": {
+        "absolute-positioning": {
+          "count": 3,
+          "sev": "low",
+          "bucket": "responsive",
+          "lines": [
+            197,
+            198,
+            441
+          ]
+        },
+        "grid-cols-arbitrary": {
+          "count": 3,
+          "sev": "low",
+          "bucket": "spacing",
+          "lines": [
+            199,
+            401,
+            491
+          ]
+        },
+        "raw-rgb-hsl": {
+          "count": 2,
+          "sev": "low",
+          "bucket": "theme",
+          "lines": [
+            197,
+            197
+          ]
+        },
+        "focus-outline-suppressed": {
+          "count": 9,
+          "sev": "med",
+          "bucket": "a11y",
+          "lines": [
+            218,
+            225,
+            244,
+            271,
+            288,
+            459
+          ]
+        },
+        "aria-label": {
+          "count": 1,
+          "sev": "info",
+          "bucket": "a11y-good",
+          "lines": [
+            451
+          ]
+        },
+        "sr-only": {
+          "count": 1,
+          "sev": "info",
+          "bucket": "a11y-good",
+          "lines": [
+            440
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/features/tools/layouts/ToolLayoutFullscreenStudio.tsx",
+      "loc": 49,
+      "hits": {
+        "large-fixed-min-height": {
+          "count": 3,
+          "sev": "med",
+          "bucket": "responsive",
+          "lines": [
+            25,
+            25,
+            25
+          ]
+        },
+        "large-fixed-height": {
+          "count": 3,
+          "sev": "med",
+          "bucket": "responsive",
+          "lines": [
+            25,
+            25,
+            25
+          ]
+        },
+        "grid-cols-arbitrary": {
+          "count": 1,
+          "sev": "low",
+          "bucket": "spacing",
+          "lines": [
+            32
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/features/tools/layouts/ToolLayoutInteractiveChallenge.tsx",
+      "loc": 37,
+      "hits": {
+        "absolute-positioning": {
+          "count": 1,
+          "sev": "low",
+          "bucket": "responsive",
+          "lines": [
+            18
+          ]
+        },
+        "grid-cols-arbitrary": {
+          "count": 1,
+          "sev": "low",
+          "bucket": "spacing",
+          "lines": [
+            21
+          ]
+        },
+        "raw-rgb-hsl": {
+          "count": 1,
+          "sev": "low",
+          "bucket": "theme",
+          "lines": [
+            18
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/features/tools/layouts/ToolLayoutSingleUtility.tsx",
+      "loc": 47,
+      "hits": {
+        "grid-cols-arbitrary": {
+          "count": 1,
+          "sev": "low",
+          "bucket": "spacing",
+          "lines": [
+            37
+          ]
+        },
+        "empty-column-placeholder": {
+          "count": 1,
+          "sev": "high",
+          "bucket": "spacing",
+          "lines": [
+            38
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/features/tools/layouts/ToolLayoutTextWorkbench.tsx",
+      "loc": 39,
+      "hits": {
+        "grid-cols-arbitrary": {
+          "count": 1,
+          "sev": "low",
+          "bucket": "spacing",
+          "lines": [
+            29
+          ]
+        },
+        "empty-column-placeholder": {
+          "count": 1,
+          "sev": "high",
+          "bucket": "spacing",
+          "lines": [
+            30
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/features/tools/layouts/ToolLayoutVisualGenerator.tsx",
+      "loc": 55,
+      "hits": {
+        "large-fixed-min-height": {
+          "count": 3,
+          "sev": "med",
+          "bucket": "responsive",
+          "lines": [
+            28,
+            28,
+            28
+          ]
+        },
+        "large-fixed-height": {
+          "count": 3,
+          "sev": "med",
+          "bucket": "responsive",
+          "lines": [
+            28,
+            28,
+            28
+          ]
+        },
+        "grid-cols-arbitrary": {
+          "count": 1,
+          "sev": "low",
+          "bucket": "spacing",
+          "lines": [
+            26
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/features/tools/layouts/ToolPage.tsx",
+      "loc": 163,
+      "hits": {
+        "absolute-positioning": {
+          "count": 1,
+          "sev": "low",
+          "bucket": "responsive",
+          "lines": [
+            75
+          ]
+        },
+        "grid-cols-arbitrary": {
+          "count": 1,
+          "sev": "low",
+          "bucket": "spacing",
+          "lines": [
+            82
+          ]
+        },
+        "focus-outline-suppressed": {
+          "count": 1,
+          "sev": "med",
+          "bucket": "a11y",
+          "lines": [
+            90
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/features/tools/components/CodeOutputPanel.tsx",
+      "loc": 89,
+      "hits": {
+        "raw-rgb-hsl": {
+          "count": 1,
+          "sev": "low",
+          "bucket": "theme",
+          "lines": [
+            70
+          ]
+        },
+        "hardcoded-white-black-text": {
+          "count": 1,
+          "sev": "med",
+          "bucket": "theme",
+          "lines": [
+            70
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/features/tools/components/ColorField.tsx",
+      "loc": 63,
+      "hits": {
+        "raw-hex-color": {
+          "count": 2,
+          "sev": "low",
+          "bucket": "theme",
+          "lines": [
+            25,
+            56
+          ]
+        },
+        "low-opacity-text": {
+          "count": 1,
+          "sev": "low",
+          "bucket": "theme",
+          "lines": [
+            44
+          ]
+        },
+        "focus-outline-suppressed": {
+          "count": 1,
+          "sev": "med",
+          "bucket": "a11y",
+          "lines": [
+            43
+          ]
+        },
+        "aria-label": {
+          "count": 2,
+          "sev": "info",
+          "bucket": "a11y-good",
+          "lines": [
+            46,
+            53
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/features/tools/components/FavoriteToolButton.tsx",
+      "loc": 47,
+      "hits": {
+        "aria-label": {
+          "count": 1,
+          "sev": "info",
+          "bucket": "a11y-good",
+          "lines": [
+            34
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/features/tools/components/NextToolSuggestions.tsx",
+      "loc": 44,
+      "hits": {
+        "truncate": {
+          "count": 1,
+          "sev": "low",
+          "bucket": "text",
+          "lines": [
+            33
+          ]
+        },
+        "focus-outline-suppressed": {
+          "count": 1,
+          "sev": "med",
+          "bucket": "a11y",
+          "lines": [
+            30
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/features/tools/components/NumberField.tsx",
+      "loc": 79,
+      "hits": {
+        "aria-label": {
+          "count": 1,
+          "sev": "info",
+          "bucket": "a11y-good",
+          "lines": [
+            67
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/features/tools/components/PresetGallery.tsx",
+      "loc": 66,
+      "hits": {
+        "truncate": {
+          "count": 1,
+          "sev": "low",
+          "bucket": "text",
+          "lines": [
+            58
+          ]
+        },
+        "focus-outline-suppressed": {
+          "count": 1,
+          "sev": "med",
+          "bucket": "a11y",
+          "lines": [
+            41
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/features/tools/components/RecentToolsRail.tsx",
+      "loc": 48,
+      "hits": {
+        "fixed-width-px": {
+          "count": 2,
+          "sev": "med",
+          "bucket": "responsive",
+          "lines": [
+            33,
+            33
+          ]
+        },
+        "min-width-px": {
+          "count": 1,
+          "sev": "high",
+          "bucket": "responsive",
+          "lines": [
+            33
+          ]
+        },
+        "focus-outline-suppressed": {
+          "count": 1,
+          "sev": "med",
+          "bucket": "a11y",
+          "lines": [
+            33
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/features/tools/components/RelatedToolsGrid.tsx",
+      "loc": 60,
+      "hits": {
+        "focus-outline-suppressed": {
+          "count": 1,
+          "sev": "med",
+          "bucket": "a11y",
+          "lines": [
+            14
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/features/tools/components/SegmentedControl.tsx",
+      "loc": 73,
+      "hits": {
+        "whitespace-nowrap": {
+          "count": 1,
+          "sev": "low",
+          "bucket": "text",
+          "lines": [
+            58
+          ]
+        },
+        "low-opacity-text": {
+          "count": 1,
+          "sev": "low",
+          "bucket": "theme",
+          "lines": [
+            59
+          ]
+        },
+        "focus-outline-suppressed": {
+          "count": 1,
+          "sev": "med",
+          "bucket": "a11y",
+          "lines": [
+            59
+          ]
+        },
+        "aria-label": {
+          "count": 1,
+          "sev": "info",
+          "bucket": "a11y-good",
+          "lines": [
+            39
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/features/tools/components/SliderNumberField.tsx",
+      "loc": 101,
+      "hits": {
+        "aria-label": {
+          "count": 2,
+          "sev": "info",
+          "bucket": "a11y-good",
+          "lines": [
+            69,
+            85
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/features/tools/components/ToolCoreBridgePanel.tsx",
+      "loc": 98,
+      "hits": {
+        "absolute-positioning": {
+          "count": 1,
+          "sev": "low",
+          "bucket": "responsive",
+          "lines": [
+            27
+          ]
+        },
+        "grid-cols-arbitrary": {
+          "count": 1,
+          "sev": "low",
+          "bucket": "spacing",
+          "lines": [
+            28
+          ]
+        },
+        "aria-label": {
+          "count": 1,
+          "sev": "info",
+          "bucket": "a11y-good",
+          "lines": [
+            22
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/features/tools/components/ToolGrid.tsx",
+      "loc": 41,
+      "hits": {
+        "focus-outline-suppressed": {
+          "count": 1,
+          "sev": "med",
+          "bucket": "a11y",
+          "lines": [
+            25
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/features/tools/ui/ToolPageShell.tsx",
+      "loc": 29,
+      "hits": {
+        "grid-cols-arbitrary": {
+          "count": 1,
+          "sev": "low",
+          "bucket": "spacing",
+          "lines": [
+            19
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/components/ui/Badge.tsx",
+      "loc": 33,
+      "hits": {
+        "whitespace-nowrap": {
+          "count": 1,
+          "sev": "low",
+          "bucket": "text",
+          "lines": [
+            25
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/components/ui/Button.tsx",
+      "loc": 78,
+      "hits": {
+        "low-opacity-text": {
+          "count": 1,
+          "sev": "low",
+          "bucket": "theme",
+          "lines": [
+            61
+          ]
+        },
+        "focus-outline-suppressed": {
+          "count": 1,
+          "sev": "med",
+          "bucket": "a11y",
+          "lines": [
+            61
+          ]
+        },
+        "sr-only": {
+          "count": 1,
+          "sev": "info",
+          "bucket": "a11y-good",
+          "lines": [
+            71
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/components/ui/Field.tsx",
+      "loc": 76,
+      "hits": {
+        "grid-cols-arbitrary": {
+          "count": 1,
+          "sev": "low",
+          "bucket": "spacing",
+          "lines": [
+            38
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/components/ui/Input.tsx",
+      "loc": 49,
+      "hits": {
+        "focus-outline-suppressed": {
+          "count": 1,
+          "sev": "med",
+          "bucket": "a11y",
+          "lines": [
+            33
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/components/ui/Select.tsx",
+      "loc": 50,
+      "hits": {
+        "focus-outline-suppressed": {
+          "count": 1,
+          "sev": "med",
+          "bucket": "a11y",
+          "lines": [
+            33
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/components/ui/Slider.tsx",
+      "loc": 47,
+      "hits": {
+        "focus-outline-suppressed": {
+          "count": 1,
+          "sev": "med",
+          "bucket": "a11y",
+          "lines": [
+            37
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/components/ui/Tabs.tsx",
+      "loc": 53,
+      "hits": {
+        "low-opacity-text": {
+          "count": 1,
+          "sev": "low",
+          "bucket": "theme",
+          "lines": [
+            41
+          ]
+        },
+        "aria-label": {
+          "count": 1,
+          "sev": "info",
+          "bucket": "a11y-good",
+          "lines": [
+            26
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/components/ui/Textarea.tsx",
+      "loc": 45,
+      "hits": {
+        "focus-outline-suppressed": {
+          "count": 1,
+          "sev": "med",
+          "bucket": "a11y",
+          "lines": [
+            29
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/styles/base.css",
+      "loc": 206,
+      "hits": {
+        "global-word-break": {
+          "count": 1,
+          "sev": "high",
+          "bucket": "text",
+          "lines": [
+            25
+          ]
+        },
+        "viewport-height-full": {
+          "count": 1,
+          "sev": "med",
+          "bucket": "responsive",
+          "lines": [
+            14
+          ]
+        },
+        "raw-hex-color": {
+          "count": 4,
+          "sev": "low",
+          "bucket": "theme",
+          "lines": [
+            40,
+            50,
+            55,
+            66
+          ]
+        },
+        "raw-rgb-hsl": {
+          "count": 7,
+          "sev": "low",
+          "bucket": "theme",
+          "lines": [
+            39,
+            49,
+            54,
+            65,
+            196,
+            200
+          ]
+        },
+        "hardcoded-white-black-text": {
+          "count": 4,
+          "sev": "med",
+          "bucket": "theme",
+          "lines": [
+            40,
+            50,
+            55,
+            66
+          ]
+        },
+        "focus-outline-suppressed": {
+          "count": 1,
+          "sev": "med",
+          "bucket": "a11y",
+          "lines": [
+            70
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/styles/themes.css",
+      "loc": 102,
+      "hits": {
+        "raw-hex-color": {
+          "count": 35,
+          "sev": "low",
+          "bucket": "theme",
+          "lines": [
+            5,
+            6,
+            7,
+            10,
+            11,
+            12
+          ]
+        },
+        "raw-rgb-hsl": {
+          "count": 18,
+          "sev": "low",
+          "bucket": "theme",
+          "lines": [
+            14,
+            23,
+            30,
+            31,
+            37,
+            38
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/styles/tokens.css",
+      "loc": 167,
+      "hits": {
+        "large-fixed-min-height": {
+          "count": 1,
+          "sev": "med",
+          "bucket": "responsive",
+          "lines": [
+            132
+          ]
+        },
+        "raw-hex-color": {
+          "count": 35,
+          "sev": "low",
+          "bucket": "theme",
+          "lines": [
+            3,
+            4,
+            5,
+            8,
+            9,
+            10
+          ]
+        },
+        "raw-rgb-hsl": {
+          "count": 22,
+          "sev": "low",
+          "bucket": "theme",
+          "lines": [
+            12,
+            21,
+            28,
+            29,
+            35,
+            36
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/app/globals.css",
+      "loc": 60,
+      "hits": {
+        "raw-hex-color": {
+          "count": 8,
+          "sev": "low",
+          "bucket": "theme",
+          "lines": [
+            13,
+            14,
+            15,
+            16,
+            27,
+            28
+          ]
+        }
+      }
+    },
+    {
+      "file": "src/app/tools/style.css",
+      "loc": 64,
+      "hits": {
+        "absolute-positioning": {
+          "count": 1,
+          "sev": "low",
+          "bucket": "responsive",
+          "lines": [
+            11
+          ]
+        },
+        "raw-hex-color": {
+          "count": 25,
+          "sev": "low",
+          "bucket": "theme",
+          "lines": [
+            17,
+            18,
+            19,
+            20,
+            21,
+            22
+          ]
+        },
+        "animation-no-reduced-motion": {
+          "count": 1,
+          "sev": "low",
+          "bucket": "a11y",
+          "lines": [
+            56
+          ]
+        }
+      }
+    }
+  ],
+  "tools": [
+    {
+      "id": "css-loaders",
+      "title": "CSS Loaders Gallery",
+      "href": "/tools/css-loaders",
+      "layoutType": "directory",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "css",
+        "visual",
+        "devtools"
+      ],
+      "audiences": [
+        "developer",
+        "designer"
+      ],
+      "routeDir": "src/app/tools/css-loaders",
+      "routeDirExists": true,
+      "fileCount": 26,
+      "totalLoc": 6525,
+      "localCssFiles": [
+        {
+          "file": "src/app/tools/css-loaders/styles.css",
+          "loc": 2002
+        }
+      ],
+      "localCssLoc": 2002,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "Tabs",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "truncate": 1,
+        "click-handler-on-div": 1,
+        "aria-label": 42,
+        "absolute-positioning": 9,
+        "raw-hex-color": 21,
+        "overflow-wrap-anywhere": 1,
+        "whitespace-nowrap": 4,
+        "large-fixed-min-height": 17,
+        "min-width-px": 4,
+        "grid-cols-unguarded": 16,
+        "raw-rgb-hsl": 13,
+        "focus-outline-suppressed": 1
+      },
+      "staticRiskScore": 70,
+      "riskBreakdown": {
+        "custom": 16,
+        "responsive": 17.4,
+        "text": 4.8,
+        "css": 15,
+        "spacing": 8.8,
+        "theme": 6.5,
+        "a11y": 1
+      }
+    },
+    {
+      "id": "svg-path-editor",
+      "title": "SVG Path Editor Studio",
+      "href": "/tools/svg-path-editor",
+      "layoutType": "visual-generator",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "local-storage",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "css",
+        "visual",
+        "devtools",
+        "media"
+      ],
+      "audiences": [
+        "developer",
+        "designer",
+        "creator"
+      ],
+      "routeDir": "src/app/tools/svg-path-editor",
+      "routeDirExists": true,
+      "fileCount": 15,
+      "totalLoc": 4233,
+      "localCssFiles": [
+        {
+          "file": "src/app/tools/svg-path-editor/style.css",
+          "loc": 1292
+        }
+      ],
+      "localCssLoc": 1292,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "Tabs",
+        "ToolContentCard",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "absolute-positioning": 7,
+        "raw-hex-color": 8,
+        "large-fixed-min-height": 6,
+        "large-fixed-height": 1,
+        "whitespace-nowrap": 7,
+        "min-width-px": 2,
+        "sticky-fixed-offset": 1,
+        "grid-cols-unguarded": 7,
+        "raw-rgb-hsl": 1,
+        "hardcoded-white-black-text": 3,
+        "focus-outline-suppressed": 3,
+        "animation-no-reduced-motion": 3,
+        "click-handler-on-div": 3,
+        "aria-label": 2
+      },
+      "staticRiskScore": 68,
+      "riskBreakdown": {
+        "custom": 16,
+        "responsive": 15.8,
+        "text": 4.8,
+        "css": 15,
+        "spacing": 8.1,
+        "theme": 5.7,
+        "a11y": 2.8
+      }
+    },
+    {
+      "id": "buttons-css-generator",
+      "title": "Buttons CSS Generator",
+      "href": "/tools/buttons-css-generator",
+      "layoutType": "visual-generator",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "css",
+        "visual"
+      ],
+      "audiences": [
+        "developer",
+        "designer"
+      ],
+      "routeDir": "src/app/tools/buttons-css-generator",
+      "routeDirExists": true,
+      "fileCount": 15,
+      "totalLoc": 2934,
+      "localCssFiles": [
+        {
+          "file": "src/app/tools/buttons-css-generator/style.css",
+          "loc": 724
+        }
+      ],
+      "localCssLoc": 724,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "CodeOutputPanel",
+        "ControlGrid",
+        "ControlSection",
+        "PresetGallery",
+        "PreviewToolbar",
+        "SegmentedControl",
+        "ToolContentCard",
+        "ToolControlPanel",
+        "ToolLayoutVisualGenerator",
+        "ToolPage",
+        "WarningPanel"
+      ],
+      "patternFlags": {
+        "truncate": 2,
+        "large-fixed-min-height": 3,
+        "large-fixed-height": 5,
+        "grid-cols-arbitrary": 1,
+        "raw-hex-color": 178,
+        "aria-label": 1,
+        "whitespace-nowrap": 1,
+        "absolute-positioning": 12,
+        "raw-rgb-hsl": 10,
+        "animation-no-reduced-motion": 1,
+        "fixed-width-px": 3,
+        "min-width-px": 6,
+        "hardcoded-white-black-text": 3,
+        "focus-outline-suppressed": 8
+      },
+      "staticRiskScore": 63,
+      "riskBreakdown": {
+        "custom": 16,
+        "responsive": 18.9,
+        "text": 2.3,
+        "css": 12.1,
+        "spacing": 0.8,
+        "theme": 9.6,
+        "a11y": 3.1
+      }
+    },
+    {
+      "id": "neumorphic-css-generator",
+      "title": "Neumorphic CSS Generator",
+      "href": "/tools/neumorphic-css-generator",
+      "layoutType": "visual-generator",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "css",
+        "visual"
+      ],
+      "audiences": [
+        "developer",
+        "designer"
+      ],
+      "routeDir": "src/app/tools/neumorphic-css-generator",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 1896,
+      "localCssFiles": [
+        {
+          "file": "src/app/tools/neumorphic-css-generator/style.css",
+          "loc": 667
+        }
+      ],
+      "localCssLoc": 667,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "CodeOutputPanel",
+        "ControlGrid",
+        "ControlSection",
+        "PresetGallery",
+        "PreviewToolbar",
+        "SegmentedControl",
+        "ToolContentCard",
+        "ToolControlPanel",
+        "ToolLayoutVisualGenerator",
+        "ToolPage",
+        "WarningPanel"
+      ],
+      "patternFlags": {
+        "raw-hex-color": 90,
+        "truncate": 2,
+        "large-fixed-min-height": 3,
+        "large-fixed-height": 7,
+        "fixed-width-px": 6,
+        "grid-cols-arbitrary": 2,
+        "min-width-px": 8,
+        "absolute-positioning": 11,
+        "hardcoded-white-black-text": 1,
+        "focus-outline-suppressed": 1
+      },
+      "staticRiskScore": 56,
+      "riskBreakdown": {
+        "custom": 13.8,
+        "responsive": 19.4,
+        "text": 1.6,
+        "css": 11.1,
+        "spacing": 1.6,
+        "theme": 8.1,
+        "a11y": 0.5
+      }
+    },
+    {
+      "id": "fake-screen",
+      "title": "Fake Screen Studio",
+      "href": "/tools/fake-screen",
+      "layoutType": "fullscreen-studio",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "screens",
+        "visual",
+        "utilities"
+      ],
+      "audiences": [
+        "general",
+        "creator",
+        "student",
+        "developer",
+        "designer"
+      ],
+      "routeDir": "src/app/tools/fake-screen",
+      "routeDirExists": true,
+      "fileCount": 8,
+      "totalLoc": 2424,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": true,
+      "sharedUiUsed": [
+        "ToolContentCard",
+        "ToolLayoutFullscreenStudio",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "truncate": 1,
+        "whitespace-nowrap": 1,
+        "large-fixed-min-height": 25,
+        "large-fixed-height": 27,
+        "fixed-width-px": 4,
+        "min-width-px": 1,
+        "absolute-positioning": 46,
+        "raw-hex-color": 149,
+        "raw-rgb-hsl": 18,
+        "hardcoded-white-black-text": 28,
+        "low-opacity-text": 2,
+        "focus-outline-suppressed": 2,
+        "animation-no-reduced-motion": 7,
+        "aria-label": 4,
+        "sr-only": 1
+      },
+      "staticRiskScore": 53,
+      "riskBreakdown": {
+        "custom": 20,
+        "responsive": 19.3,
+        "text": 1.6,
+        "css": 0,
+        "spacing": 0,
+        "theme": 9.6,
+        "a11y": 2.3
+      }
+    },
+    {
+      "id": "css-gradient-generator",
+      "title": "CSS HDR Gradient Studio",
+      "href": "/tools/css-gradient-generator",
+      "layoutType": "visual-generator",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "css",
+        "visual",
+        "design"
+      ],
+      "audiences": [
+        "developer",
+        "designer"
+      ],
+      "routeDir": "src/app/tools/css-gradient-generator",
+      "routeDirExists": true,
+      "fileCount": 5,
+      "totalLoc": 3411,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [],
+      "patternFlags": {
+        "fixed-width-px": 3,
+        "focus-outline-suppressed": 1,
+        "whitespace-nowrap": 2,
+        "large-fixed-min-height": 4,
+        "large-fixed-height": 2,
+        "min-width-px": 2,
+        "absolute-positioning": 18,
+        "sticky-fixed-offset": 1,
+        "grid-cols-unguarded": 7,
+        "raw-hex-color": 89,
+        "raw-rgb-hsl": 40,
+        "hardcoded-white-black-text": 2,
+        "click-handler-on-div": 1,
+        "aria-label": 9
+      },
+      "staticRiskScore": 51,
+      "riskBreakdown": {
+        "custom": 16,
+        "responsive": 16.8,
+        "text": 1.6,
+        "css": 0,
+        "spacing": 8.1,
+        "theme": 7.9,
+        "a11y": 1
+      }
+    },
+    {
+      "id": "animated-background-generator",
+      "title": "Animated Background Production Studio",
+      "href": "/tools/animated-background-generator",
+      "layoutType": "visual-generator",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "css",
+        "visual"
+      ],
+      "audiences": [
+        "developer",
+        "designer"
+      ],
+      "routeDir": "src/app/tools/animated-background-generator",
+      "routeDirExists": true,
+      "fileCount": 19,
+      "totalLoc": 1942,
+      "localCssFiles": [
+        {
+          "file": "src/app/tools/animated-background-generator/style.css",
+          "loc": 15
+        }
+      ],
+      "localCssLoc": 15,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "CodeOutputPanel",
+        "ControlGrid",
+        "ControlSection",
+        "PresetGallery",
+        "SegmentedControl",
+        "ToolControlPanel",
+        "ToolLayoutVisualGenerator",
+        "ToolPageShell"
+      ],
+      "patternFlags": {
+        "truncate": 2,
+        "aria-label": 3,
+        "large-fixed-min-height": 12,
+        "large-fixed-height": 10,
+        "raw-hex-color": 87,
+        "fixed-width-px": 1,
+        "absolute-positioning": 12,
+        "grid-cols-arbitrary": 1,
+        "hardcoded-white-black-text": 16,
+        "sr-only": 1,
+        "raw-rgb-hsl": 16,
+        "animation-no-reduced-motion": 8,
+        "viewport-height-full": 1
+      },
+      "staticRiskScore": 47,
+      "riskBreakdown": {
+        "custom": 14.1,
+        "responsive": 19.1,
+        "text": 1.6,
+        "css": 0.3,
+        "spacing": 0.8,
+        "theme": 9.3,
+        "a11y": 1.8
+      }
+    },
+    {
+      "id": "favicon-app-icon-generator",
+      "title": "Favicon & App Icon Production Studio",
+      "href": "/tools/favicon-app-icon-generator",
+      "layoutType": "visual-generator",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "media",
+        "seo",
+        "web",
+        "utilities",
+        "devtools"
+      ],
+      "audiences": [
+        "developer",
+        "designer",
+        "creator",
+        "general"
+      ],
+      "routeDir": "src/app/tools/favicon-app-icon-generator",
+      "routeDirExists": true,
+      "fileCount": 18,
+      "totalLoc": 4712,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": true,
+      "sharedUiUsed": [
+        "ActionBar",
+        "CodeOutputPanel",
+        "ControlSection",
+        "SegmentedControl",
+        "ToolContentCard",
+        "ToolPage",
+        "WarningPanel"
+      ],
+      "patternFlags": {
+        "raw-hex-color": 36,
+        "truncate": 10,
+        "sr-only": 3,
+        "break-all-class": 1,
+        "whitespace-nowrap": 1,
+        "absolute-positioning": 3,
+        "sticky-fixed-offset": 2,
+        "grid-cols-arbitrary": 3,
+        "raw-rgb-hsl": 4,
+        "hardcoded-white-black-text": 6,
+        "focus-outline-suppressed": 1,
+        "aria-label": 4,
+        "large-fixed-height": 1
+      },
+      "staticRiskScore": 46,
+      "riskBreakdown": {
+        "custom": 20,
+        "responsive": 6.4,
+        "text": 7.7,
+        "css": 0,
+        "spacing": 2.3,
+        "theme": 9.4,
+        "a11y": 0.5
+      }
+    },
+    {
+      "id": "regex-tester",
+      "title": "Regex Tester Production Studio",
+      "href": "/tools/regex-tester",
+      "layoutType": "text-workbench",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "devtools",
+        "utilities",
+        "web"
+      ],
+      "audiences": [
+        "developer",
+        "student",
+        "general"
+      ],
+      "routeDir": "src/app/tools/regex-tester",
+      "routeDirExists": true,
+      "fileCount": 10,
+      "totalLoc": 1896,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "Tabs",
+        "ToolContentCard",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "raw-hex-color": 11,
+        "large-fixed-height": 8,
+        "break-all-class": 1,
+        "whitespace-nowrap": 1,
+        "truncate": 6,
+        "large-fixed-min-height": 7,
+        "grid-cols-arbitrary": 2,
+        "raw-rgb-hsl": 1,
+        "focus-outline-suppressed": 5,
+        "aria-label": 3
+      },
+      "staticRiskScore": 44,
+      "riskBreakdown": {
+        "custom": 13.8,
+        "responsive": 16.2,
+        "text": 5.9,
+        "css": 0,
+        "spacing": 1.6,
+        "theme": 4.9,
+        "a11y": 2.1
+      }
+    },
+    {
+      "id": "app-screenshot-mockup-generator",
+      "title": "App Screenshot Mockup Production Studio",
+      "href": "/tools/app-screenshot-mockup-generator",
+      "layoutType": "visual-generator",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "media",
+        "visual",
+        "design",
+        "web",
+        "utilities",
+        "devtools"
+      ],
+      "audiences": [
+        "developer",
+        "designer",
+        "creator",
+        "general",
+        "business"
+      ],
+      "routeDir": "src/app/tools/app-screenshot-mockup-generator",
+      "routeDirExists": true,
+      "fileCount": 16,
+      "totalLoc": 2778,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": true,
+      "sharedUiUsed": [
+        "CodeOutputPanel",
+        "ControlSection",
+        "SegmentedControl",
+        "ToolContentCard",
+        "ToolLayoutVisualGenerator",
+        "ToolPage",
+        "WarningPanel"
+      ],
+      "patternFlags": {
+        "truncate": 6,
+        "large-fixed-min-height": 2,
+        "large-fixed-height": 3,
+        "grid-cols-arbitrary": 1,
+        "focus-outline-suppressed": 1,
+        "sr-only": 3,
+        "raw-hex-color": 32,
+        "raw-rgb-hsl": 15
+      },
+      "staticRiskScore": 42,
+      "riskBreakdown": {
+        "custom": 20,
+        "responsive": 8.5,
+        "text": 4.3,
+        "css": 0,
+        "spacing": 0.8,
+        "theme": 7.6,
+        "a11y": 0.5
+      }
+    },
+    {
+      "id": "og-image-generator",
+      "title": "Open Graph Image Production Studio",
+      "href": "/tools/og-image-generator",
+      "layoutType": "visual-generator",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "media",
+        "seo",
+        "web",
+        "utilities",
+        "devtools"
+      ],
+      "audiences": [
+        "developer",
+        "designer",
+        "creator",
+        "general",
+        "business"
+      ],
+      "routeDir": "src/app/tools/og-image-generator",
+      "routeDirExists": true,
+      "fileCount": 15,
+      "totalLoc": 2656,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": true,
+      "sharedUiUsed": [
+        "CodeOutputPanel",
+        "ControlSection",
+        "SegmentedControl",
+        "ToolContentCard",
+        "ToolLayoutVisualGenerator",
+        "ToolPage",
+        "WarningPanel"
+      ],
+      "patternFlags": {
+        "raw-hex-color": 19,
+        "break-all-class": 1,
+        "truncate": 4,
+        "large-fixed-min-height": 1,
+        "large-fixed-height": 2,
+        "absolute-positioning": 7,
+        "sr-only": 4
+      },
+      "staticRiskScore": 41,
+      "riskBreakdown": {
+        "custom": 20,
+        "responsive": 10.3,
+        "text": 4.3,
+        "css": 0,
+        "spacing": 0,
+        "theme": 6.5,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "box-shadows-generator",
+      "title": "Box Shadows Generator",
+      "href": "/tools/box-shadows-generator",
+      "layoutType": "visual-generator",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "css",
+        "visual"
+      ],
+      "audiences": [
+        "developer",
+        "designer"
+      ],
+      "routeDir": "src/app/tools/box-shadows-generator",
+      "routeDirExists": true,
+      "fileCount": 11,
+      "totalLoc": 1539,
+      "localCssFiles": [
+        {
+          "file": "src/app/tools/box-shadows-generator/styles.css",
+          "loc": 34
+        }
+      ],
+      "localCssLoc": 34,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "CodeOutputPanel",
+        "ControlGrid",
+        "ControlSection",
+        "PreviewToolbar",
+        "SegmentedControl",
+        "ToolContentCard",
+        "ToolControlPanel",
+        "ToolLayoutVisualGenerator",
+        "ToolPage",
+        "WarningPanel"
+      ],
+      "patternFlags": {
+        "absolute-positioning": 3,
+        "aria-label": 4,
+        "break-all-class": 1,
+        "truncate": 6,
+        "large-fixed-min-height": 1,
+        "large-fixed-height": 4,
+        "grid-cols-arbitrary": 4,
+        "raw-hex-color": 19,
+        "hardcoded-white-black-text": 1,
+        "fixed-width-px": 2,
+        "raw-rgb-hsl": 5
+      },
+      "staticRiskScore": 40,
+      "riskBreakdown": {
+        "custom": 11.2,
+        "responsive": 12.2,
+        "text": 5.4,
+        "css": 0.6,
+        "spacing": 3,
+        "theme": 7.2,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "password-generator",
+      "title": "Password Generator & Policy Studio",
+      "href": "/tools/password-generator",
+      "layoutType": "single-utility",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "utilities",
+        "security",
+        "devtools"
+      ],
+      "audiences": [
+        "general",
+        "developer",
+        "business",
+        "student"
+      ],
+      "routeDir": "src/app/tools/password-generator",
+      "routeDirExists": true,
+      "fileCount": 14,
+      "totalLoc": 2623,
+      "localCssFiles": [
+        {
+          "file": "src/app/tools/password-generator/PasswordCharacterLegend.module.css",
+          "loc": 41
+        }
+      ],
+      "localCssLoc": 41,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "ToolContentCard",
+        "ToolPage",
+        "WarningPanel"
+      ],
+      "patternFlags": {
+        "large-fixed-height": 5,
+        "grid-cols-arbitrary": 6,
+        "aria-label": 6,
+        "focus-outline-suppressed": 4,
+        "overflow-wrap-anywhere": 1,
+        "truncate": 1,
+        "large-fixed-min-height": 4,
+        "fixed-width-px": 2,
+        "absolute-positioning": 2
+      },
+      "staticRiskScore": 40,
+      "riskBreakdown": {
+        "custom": 16,
+        "responsive": 14.7,
+        "text": 2.3,
+        "css": 0.7,
+        "spacing": 4.3,
+        "theme": 0,
+        "a11y": 1.8
+      }
+    },
+    {
+      "id": "markdown-previewer",
+      "title": "Markdown Previewer",
+      "href": "/tools/markdown-previewer",
+      "layoutType": "text-workbench",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "devtools",
+        "utilities",
+        "content"
+      ],
+      "audiences": [
+        "developer",
+        "creator",
+        "student",
+        "general"
+      ],
+      "routeDir": "src/app/tools/markdown-previewer",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 1481,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "Tabs",
+        "ToolContentCard",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "raw-hex-color": 24,
+        "raw-rgb-hsl": 1,
+        "truncate": 6,
+        "large-fixed-min-height": 6,
+        "large-fixed-height": 8,
+        "fixed-width-px": 1,
+        "grid-cols-arbitrary": 2,
+        "focus-outline-suppressed": 6,
+        "aria-label": 3
+      },
+      "staticRiskScore": 39,
+      "riskBreakdown": {
+        "custom": 10.8,
+        "responsive": 16.2,
+        "text": 4.3,
+        "css": 0,
+        "spacing": 1.6,
+        "theme": 3.9,
+        "a11y": 2.4
+      }
+    },
+    {
+      "id": "timestamp-converter",
+      "title": "Timestamp Converter Studio",
+      "href": "/tools/timestamp-converter",
+      "layoutType": "text-workbench",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "utilities",
+        "devtools",
+        "time"
+      ],
+      "audiences": [
+        "general",
+        "developer",
+        "student",
+        "business"
+      ],
+      "routeDir": "src/app/tools/timestamp-converter",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 1782,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "SurfaceCard",
+        "ToolContentCard",
+        "ToolPageShell"
+      ],
+      "patternFlags": {
+        "fixed-width-px": 3,
+        "min-width-px": 3,
+        "absolute-positioning": 8,
+        "large-fixed-height": 2,
+        "break-all-class": 1,
+        "whitespace-nowrap": 1,
+        "truncate": 6,
+        "large-fixed-min-height": 1,
+        "grid-cols-arbitrary": 3,
+        "focus-outline-suppressed": 1,
+        "aria-label": 1
+      },
+      "staticRiskScore": 38,
+      "riskBreakdown": {
+        "custom": 13,
+        "responsive": 16,
+        "text": 5.9,
+        "css": 0,
+        "spacing": 2.3,
+        "theme": 0,
+        "a11y": 0.5
+      }
+    },
+    {
+      "id": "image-compressor-resizer",
+      "title": "Image Compressor & Resizer",
+      "href": "/tools/image-compressor-resizer",
+      "layoutType": "single-utility",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "utilities",
+        "media",
+        "web"
+      ],
+      "audiences": [
+        "creator",
+        "designer",
+        "developer",
+        "general",
+        "student"
+      ],
+      "routeDir": "src/app/tools/image-compressor-resizer",
+      "routeDirExists": true,
+      "fileCount": 11,
+      "totalLoc": 2668,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": true,
+      "sharedUiUsed": [
+        "ControlGrid",
+        "ControlSection",
+        "SegmentedControl",
+        "ToolControlPanel",
+        "ToolLayoutSingleUtility",
+        "ToolPage",
+        "WarningPanel"
+      ],
+      "patternFlags": {
+        "truncate": 4,
+        "grid-cols-arbitrary": 3,
+        "low-opacity-text": 2,
+        "focus-outline-suppressed": 5,
+        "sr-only": 3,
+        "large-fixed-min-height": 2,
+        "large-fixed-height": 3,
+        "click-handler-on-div": 1,
+        "aria-label": 1,
+        "raw-hex-color": 1
+      },
+      "staticRiskScore": 38,
+      "riskBreakdown": {
+        "custom": 20,
+        "responsive": 8.5,
+        "text": 3,
+        "css": 0,
+        "spacing": 2.3,
+        "theme": 1.5,
+        "a11y": 2.4
+      }
+    },
+    {
+      "id": "json-formatter",
+      "title": "JSON Formatter Production Studio",
+      "href": "/tools/json-formatter",
+      "layoutType": "text-workbench",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "local-storage",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "devtools",
+        "utilities",
+        "web"
+      ],
+      "audiences": [
+        "developer",
+        "student",
+        "general"
+      ],
+      "routeDir": "src/app/tools/json-formatter",
+      "routeDirExists": true,
+      "fileCount": 12,
+      "totalLoc": 3487,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "Tabs",
+        "ToolContentCard",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "absolute-positioning": 1,
+        "raw-hex-color": 1,
+        "aria-label": 4,
+        "whitespace-nowrap": 2,
+        "truncate": 2,
+        "grid-cols-arbitrary": 3,
+        "focus-outline-suppressed": 1,
+        "sr-only": 1,
+        "large-fixed-min-height": 3,
+        "large-fixed-height": 6,
+        "fixed-width-px": 1,
+        "sticky-fixed-offset": 1
+      },
+      "staticRiskScore": 36,
+      "riskBreakdown": {
+        "custom": 16,
+        "responsive": 14.1,
+        "text": 3,
+        "css": 0,
+        "spacing": 2.3,
+        "theme": 0.5,
+        "a11y": 0.5
+      }
+    },
+    {
+      "id": "click-speed-test",
+      "title": "Click Speed Test & Session Studio",
+      "href": "/tools/click-speed-test",
+      "layoutType": "interactive-challenge",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "local-storage",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "fun",
+        "input",
+        "mouse",
+        "utilities"
+      ],
+      "audiences": [
+        "general",
+        "student",
+        "creator",
+        "developer"
+      ],
+      "routeDir": "src/app/tools/click-speed-test",
+      "routeDirExists": true,
+      "fileCount": 9,
+      "totalLoc": 2578,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "ToolContentCard",
+        "ToolLayoutInteractiveChallenge",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "large-fixed-min-height": 4,
+        "large-fixed-height": 5,
+        "absolute-positioning": 4,
+        "raw-rgb-hsl": 17,
+        "focus-outline-suppressed": 2,
+        "aria-label": 1,
+        "sr-only": 1,
+        "truncate": 1
+      },
+      "staticRiskScore": 36,
+      "riskBreakdown": {
+        "custom": 16,
+        "responsive": 14.1,
+        "text": 0.8,
+        "css": 0,
+        "spacing": 0,
+        "theme": 3.6,
+        "a11y": 1
+      }
+    },
+    {
+      "id": "spacebar-counter",
+      "title": "Spacebar Counter & Session Studio",
+      "href": "/tools/spacebar-counter",
+      "layoutType": "interactive-challenge",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "local-storage",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "fun",
+        "input",
+        "keyboard",
+        "utilities"
+      ],
+      "audiences": [
+        "general",
+        "student",
+        "creator",
+        "developer"
+      ],
+      "routeDir": "src/app/tools/spacebar-counter",
+      "routeDirExists": true,
+      "fileCount": 9,
+      "totalLoc": 2730,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "ToolContentCard",
+        "ToolLayoutInteractiveChallenge",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "truncate": 1,
+        "large-fixed-height": 5,
+        "large-fixed-min-height": 4,
+        "absolute-positioning": 4,
+        "raw-rgb-hsl": 15,
+        "low-opacity-text": 1,
+        "focus-outline-suppressed": 2,
+        "aria-label": 1,
+        "sr-only": 1
+      },
+      "staticRiskScore": 36,
+      "riskBreakdown": {
+        "custom": 16,
+        "responsive": 14.1,
+        "text": 0.8,
+        "css": 0,
+        "spacing": 0,
+        "theme": 3.9,
+        "a11y": 1
+      }
+    },
+    {
+      "id": "reaction-time-test",
+      "title": "Reaction Time Test & Result Studio",
+      "href": "/tools/reaction-time-test",
+      "layoutType": "interactive-challenge",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "local-storage",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "fun",
+        "input",
+        "reflex",
+        "utilities"
+      ],
+      "audiences": [
+        "general",
+        "student",
+        "creator",
+        "developer"
+      ],
+      "routeDir": "src/app/tools/reaction-time-test",
+      "routeDirExists": true,
+      "fileCount": 9,
+      "totalLoc": 2934,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "ToolContentCard",
+        "ToolLayoutInteractiveChallenge",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "truncate": 1,
+        "large-fixed-height": 5,
+        "large-fixed-min-height": 4,
+        "absolute-positioning": 3,
+        "raw-rgb-hsl": 41,
+        "low-opacity-text": 1,
+        "focus-outline-suppressed": 2,
+        "aria-label": 1,
+        "sr-only": 1
+      },
+      "staticRiskScore": 36,
+      "riskBreakdown": {
+        "custom": 16,
+        "responsive": 13.8,
+        "text": 0.8,
+        "css": 0,
+        "spacing": 0,
+        "theme": 3.9,
+        "a11y": 1
+      }
+    },
+    {
+      "id": "lorem-ipsum-generator",
+      "title": "Lorem Ipsum & Placeholder Content Studio",
+      "href": "/tools/lorem-ipsum-generator",
+      "layoutType": "text-workbench",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "devtools",
+        "utilities",
+        "content",
+        "design"
+      ],
+      "audiences": [
+        "creator",
+        "developer",
+        "designer",
+        "general"
+      ],
+      "routeDir": "src/app/tools/lorem-ipsum-generator",
+      "routeDirExists": true,
+      "fileCount": 8,
+      "totalLoc": 2093,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "SurfaceCard",
+        "ToolContentCard",
+        "ToolPageShell"
+      ],
+      "patternFlags": {
+        "raw-hex-color": 10,
+        "raw-rgb-hsl": 1,
+        "aria-label": 1,
+        "truncate": 4,
+        "large-fixed-min-height": 1,
+        "large-fixed-height": 4,
+        "fixed-width-px": 1,
+        "absolute-positioning": 1,
+        "grid-cols-arbitrary": 2,
+        "focus-outline-suppressed": 1
+      },
+      "staticRiskScore": 35,
+      "riskBreakdown": {
+        "custom": 15.2,
+        "responsive": 10.3,
+        "text": 3,
+        "css": 0,
+        "spacing": 1.6,
+        "theme": 3.9,
+        "a11y": 0.5
+      }
+    },
+    {
+      "id": "mouse-scroll-test",
+      "title": "Mouse Scroll Test & Session Studio",
+      "href": "/tools/mouse-scroll-test",
+      "layoutType": "interactive-challenge",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "local-storage",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "fun",
+        "input",
+        "mouse",
+        "utilities"
+      ],
+      "audiences": [
+        "general",
+        "student",
+        "creator",
+        "developer"
+      ],
+      "routeDir": "src/app/tools/mouse-scroll-test",
+      "routeDirExists": true,
+      "fileCount": 9,
+      "totalLoc": 2551,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "ToolContentCard",
+        "ToolLayoutInteractiveChallenge",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "truncate": 1,
+        "large-fixed-min-height": 4,
+        "large-fixed-height": 5,
+        "absolute-positioning": 4,
+        "raw-rgb-hsl": 15,
+        "focus-outline-suppressed": 1,
+        "aria-label": 1,
+        "sr-only": 1
+      },
+      "staticRiskScore": 35,
+      "riskBreakdown": {
+        "custom": 16,
+        "responsive": 14.1,
+        "text": 0.8,
+        "css": 0,
+        "spacing": 0,
+        "theme": 3.6,
+        "a11y": 0.5
+      }
+    },
+    {
+      "id": "color-name-finder",
+      "title": "Color Name Finder",
+      "href": "/tools/color-name-finder",
+      "layoutType": "visual-generator",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "css",
+        "visual",
+        "design"
+      ],
+      "audiences": [
+        "designer",
+        "developer",
+        "creator"
+      ],
+      "routeDir": "src/app/tools/color-name-finder",
+      "routeDirExists": true,
+      "fileCount": 3,
+      "totalLoc": 1208,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "SurfaceCard",
+        "ToolContentCard",
+        "ToolPageShell"
+      ],
+      "patternFlags": {
+        "raw-hex-color": 569,
+        "raw-rgb-hsl": 8,
+        "break-all-class": 1,
+        "whitespace-nowrap": 1,
+        "truncate": 15,
+        "large-fixed-min-height": 1,
+        "large-fixed-height": 2,
+        "grid-cols-arbitrary": 9,
+        "hardcoded-white-black-text": 2,
+        "aria-label": 1
+      },
+      "staticRiskScore": 34,
+      "riskBreakdown": {
+        "custom": 8.8,
+        "responsive": 5.7,
+        "text": 6.9,
+        "css": 0,
+        "spacing": 5.4,
+        "theme": 7.5,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "glassmorphism-generator",
+      "title": "Glassmorphism Generator",
+      "href": "/tools/glassmorphism-generator",
+      "layoutType": "visual-generator",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "css",
+        "visual"
+      ],
+      "audiences": [
+        "developer",
+        "designer"
+      ],
+      "routeDir": "src/app/tools/glassmorphism-generator",
+      "routeDirExists": true,
+      "fileCount": 6,
+      "totalLoc": 1111,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "CodeOutputPanel",
+        "ControlGrid",
+        "ControlSection",
+        "PresetGallery",
+        "PreviewToolbar",
+        "SegmentedControl",
+        "ToolContentCard",
+        "ToolControlPanel",
+        "ToolLayoutVisualGenerator",
+        "ToolPage",
+        "WarningPanel"
+      ],
+      "patternFlags": {
+        "raw-rgb-hsl": 17,
+        "viewport-height-full": 1,
+        "absolute-positioning": 5,
+        "raw-hex-color": 55,
+        "hardcoded-white-black-text": 2,
+        "animation-no-reduced-motion": 2,
+        "truncate": 5,
+        "large-fixed-min-height": 2,
+        "large-fixed-height": 3,
+        "grid-cols-arbitrary": 1,
+        "low-opacity-text": 1
+      },
+      "staticRiskScore": 34,
+      "riskBreakdown": {
+        "custom": 8.1,
+        "responsive": 12.2,
+        "text": 3.6,
+        "css": 0,
+        "spacing": 0.8,
+        "theme": 8.6,
+        "a11y": 0.5
+      }
+    },
+    {
+      "id": "qr-code",
+      "title": "QR Code Production Studio",
+      "href": "/tools/qr-code",
+      "layoutType": "visual-generator",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "utilities",
+        "media",
+        "web",
+        "devtools"
+      ],
+      "audiences": [
+        "general",
+        "creator",
+        "student",
+        "designer",
+        "developer",
+        "business"
+      ],
+      "routeDir": "src/app/tools/qr-code",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 1660,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "ControlGrid",
+        "ControlSection",
+        "ResultPanel",
+        "ToolActionBar",
+        "ToolContentCard",
+        "ToolControlPanel",
+        "ToolLayoutSingleUtility",
+        "ToolPage",
+        "WarningPanel"
+      ],
+      "patternFlags": {
+        "large-fixed-min-height": 2,
+        "large-fixed-height": 3,
+        "truncate": 2,
+        "fixed-width-px": 3,
+        "grid-cols-arbitrary": 2,
+        "raw-hex-color": 16,
+        "focus-outline-suppressed": 2,
+        "aria-label": 1
+      },
+      "staticRiskScore": 34,
+      "riskBreakdown": {
+        "custom": 12.1,
+        "responsive": 11.8,
+        "text": 1.6,
+        "css": 0,
+        "spacing": 1.6,
+        "theme": 5.7,
+        "a11y": 1
+      }
+    },
+    {
+      "id": "url-encoder-decoder",
+      "title": "URL Encoding & Query Studio",
+      "href": "/tools/url-encoder-decoder",
+      "layoutType": "text-workbench",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "devtools",
+        "utilities",
+        "web"
+      ],
+      "audiences": [
+        "developer",
+        "general",
+        "creator",
+        "business"
+      ],
+      "routeDir": "src/app/tools/url-encoder-decoder",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 1493,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "SegmentedControl",
+        "SurfaceCard",
+        "ToolContentCard",
+        "ToolPageShell"
+      ],
+      "patternFlags": {
+        "large-fixed-height": 5,
+        "absolute-positioning": 6,
+        "break-all-class": 3,
+        "truncate": 4,
+        "large-fixed-min-height": 2,
+        "fixed-width-px": 1,
+        "min-width-px": 1,
+        "grid-cols-arbitrary": 2
+      },
+      "staticRiskScore": 34,
+      "riskBreakdown": {
+        "custom": 10.9,
+        "responsive": 15,
+        "text": 6.4,
+        "css": 0,
+        "spacing": 1.6,
+        "theme": 0,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "color-palette-generator",
+      "title": "Color Palette Generator",
+      "href": "/tools/color-palette-generator",
+      "layoutType": "visual-generator",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "css",
+        "visual",
+        "design"
+      ],
+      "audiences": [
+        "designer",
+        "developer",
+        "creator"
+      ],
+      "routeDir": "src/app/tools/color-palette-generator",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 1168,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "CodeOutputPanel",
+        "ControlSection",
+        "PreviewToolbar",
+        "SegmentedControl",
+        "ToolContentCard",
+        "ToolControlPanel",
+        "ToolLayoutVisualGenerator",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "truncate": 7,
+        "large-fixed-min-height": 1,
+        "large-fixed-height": 2,
+        "fixed-width-px": 1,
+        "min-width-px": 1,
+        "grid-cols-arbitrary": 1,
+        "raw-hex-color": 59,
+        "focus-outline-suppressed": 2
+      },
+      "staticRiskScore": 33,
+      "riskBreakdown": {
+        "custom": 8.5,
+        "responsive": 9.1,
+        "text": 4.8,
+        "css": 0,
+        "spacing": 0.8,
+        "theme": 8.3,
+        "a11y": 1
+      }
+    },
+    {
+      "id": "timezone-converter",
+      "title": "Time Zone Planning Studio",
+      "href": "/tools/timezone-converter",
+      "layoutType": "single-utility",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "utilities",
+        "productivity",
+        "time"
+      ],
+      "audiences": [
+        "general",
+        "developer",
+        "creator",
+        "business"
+      ],
+      "routeDir": "src/app/tools/timezone-converter",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 1750,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "ToolContentCard",
+        "ToolPage",
+        "WarningPanel"
+      ],
+      "patternFlags": {
+        "large-fixed-height": 1,
+        "absolute-positioning": 8,
+        "truncate": 12,
+        "fixed-width-px": 2,
+        "min-width-px": 1,
+        "grid-cols-arbitrary": 2,
+        "low-opacity-text": 1,
+        "focus-outline-suppressed": 2,
+        "aria-label": 2
+      },
+      "staticRiskScore": 33,
+      "riskBreakdown": {
+        "custom": 12.7,
+        "responsive": 12.2,
+        "text": 5.4,
+        "css": 0,
+        "spacing": 1.6,
+        "theme": 0.5,
+        "a11y": 1
+      }
+    },
+    {
+      "id": "beam-calculator",
+      "title": "Beam Calculator Production Studio",
+      "href": "/tools/beam-calculator",
+      "layoutType": "visual-generator",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "engineering",
+        "utilities"
+      ],
+      "audiences": [
+        "student",
+        "developer",
+        "general"
+      ],
+      "routeDir": "src/app/tools/beam-calculator",
+      "routeDirExists": true,
+      "fileCount": 31,
+      "totalLoc": 5143,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "ControlSection",
+        "PresetGallery",
+        "SegmentedControl",
+        "ToolContentCard",
+        "ToolControlPanel",
+        "ToolPage",
+        "WarningPanel"
+      ],
+      "patternFlags": {
+        "absolute-positioning": 4,
+        "truncate": 1,
+        "grid-cols-arbitrary": 1,
+        "aria-label": 17,
+        "large-fixed-height": 1,
+        "click-handler-on-div": 1,
+        "sticky-fixed-offset": 1,
+        "focus-outline-suppressed": 1,
+        "fixed-width-px": 1,
+        "min-width-px": 1,
+        "raw-hex-color": 10
+      },
+      "staticRiskScore": 32,
+      "riskBreakdown": {
+        "custom": 16,
+        "responsive": 9.7,
+        "text": 0.8,
+        "css": 0,
+        "spacing": 0.8,
+        "theme": 3.6,
+        "a11y": 1
+      }
+    },
+    {
+      "id": "color-converter",
+      "title": "Color Converter",
+      "href": "/tools/color-converter",
+      "layoutType": "visual-generator",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "css",
+        "visual",
+        "design"
+      ],
+      "audiences": [
+        "designer",
+        "developer"
+      ],
+      "routeDir": "src/app/tools/color-converter",
+      "routeDirExists": true,
+      "fileCount": 5,
+      "totalLoc": 1520,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "SurfaceCard",
+        "ToolContentCard",
+        "ToolPageShell"
+      ],
+      "patternFlags": {
+        "raw-hex-color": 103,
+        "raw-rgb-hsl": 15,
+        "truncate": 4,
+        "large-fixed-min-height": 1,
+        "large-fixed-height": 2,
+        "grid-cols-arbitrary": 3,
+        "hardcoded-white-black-text": 1,
+        "aria-label": 1
+      },
+      "staticRiskScore": 31,
+      "riskBreakdown": {
+        "custom": 11.1,
+        "responsive": 5.7,
+        "text": 3,
+        "css": 0,
+        "spacing": 2.3,
+        "theme": 9.1,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "pomodoro-timer",
+      "title": "Pomodoro Focus Studio",
+      "href": "/tools/pomodoro-timer",
+      "layoutType": "fullscreen-studio",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "local-storage",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "utilities",
+        "productivity"
+      ],
+      "audiences": [
+        "student",
+        "creator",
+        "developer",
+        "business",
+        "general"
+      ],
+      "routeDir": "src/app/tools/pomodoro-timer",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 1489,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "ToolContentCard",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "absolute-positioning": 6,
+        "large-fixed-height": 2,
+        "whitespace-nowrap": 1,
+        "truncate": 6,
+        "fixed-width-px": 2,
+        "min-width-px": 1,
+        "grid-cols-arbitrary": 3,
+        "aria-label": 1
+      },
+      "staticRiskScore": 30,
+      "riskBreakdown": {
+        "custom": 10.8,
+        "responsive": 12.2,
+        "text": 4.8,
+        "css": 0,
+        "spacing": 2.3,
+        "theme": 0,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "border-radius-generator",
+      "title": "Border Radius Generator",
+      "href": "/tools/border-radius-generator",
+      "layoutType": "visual-generator",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "css",
+        "visual"
+      ],
+      "audiences": [
+        "developer",
+        "designer"
+      ],
+      "routeDir": "src/app/tools/border-radius-generator",
+      "routeDirExists": true,
+      "fileCount": 6,
+      "totalLoc": 1069,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "CodeOutputPanel",
+        "ControlGrid",
+        "ControlSection",
+        "PresetGallery",
+        "PreviewToolbar",
+        "SegmentedControl",
+        "ToolContentCard",
+        "ToolControlPanel",
+        "ToolLayoutVisualGenerator",
+        "ToolPage",
+        "WarningPanel"
+      ],
+      "patternFlags": {
+        "raw-hex-color": 16,
+        "raw-rgb-hsl": 11,
+        "animation-no-reduced-motion": 2,
+        "truncate": 2,
+        "large-fixed-min-height": 2,
+        "large-fixed-height": 3,
+        "absolute-positioning": 3,
+        "grid-cols-arbitrary": 1,
+        "hardcoded-white-black-text": 2
+      },
+      "staticRiskScore": 29,
+      "riskBreakdown": {
+        "custom": 7.8,
+        "responsive": 10.3,
+        "text": 1.6,
+        "css": 0,
+        "spacing": 0.8,
+        "theme": 7.8,
+        "a11y": 0.5
+      }
+    },
+    {
+      "id": "css-grid-generator",
+      "title": "CSS Grid Generator",
+      "href": "/tools/css-grid-generator",
+      "layoutType": "visual-generator",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "css",
+        "visual"
+      ],
+      "audiences": [
+        "developer",
+        "designer"
+      ],
+      "routeDir": "src/app/tools/css-grid-generator",
+      "routeDirExists": true,
+      "fileCount": 9,
+      "totalLoc": 1260,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "CodeOutputPanel",
+        "ControlGrid",
+        "ControlSection",
+        "PresetGallery",
+        "PreviewToolbar",
+        "SegmentedControl",
+        "ToolContentCard",
+        "ToolControlPanel",
+        "ToolLayoutVisualGenerator",
+        "ToolPage",
+        "WarningPanel"
+      ],
+      "patternFlags": {
+        "truncate": 5,
+        "large-fixed-min-height": 2,
+        "large-fixed-height": 2,
+        "absolute-positioning": 3,
+        "grid-cols-unguarded": 1,
+        "raw-hex-color": 28
+      },
+      "staticRiskScore": 29,
+      "riskBreakdown": {
+        "custom": 9.2,
+        "responsive": 9.1,
+        "text": 3.6,
+        "css": 0,
+        "spacing": 1.6,
+        "theme": 5.7,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "tip-calculator",
+      "title": "Tip & Bill Split Studio",
+      "href": "/tools/tip-calculator",
+      "layoutType": "text-workbench",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "utilities",
+        "finance"
+      ],
+      "audiences": [
+        "general",
+        "student",
+        "business"
+      ],
+      "routeDir": "src/app/tools/tip-calculator",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 1138,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "ToolContentCard",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "large-fixed-height": 2,
+        "truncate": 7,
+        "large-fixed-min-height": 1,
+        "fixed-width-px": 2,
+        "min-width-px": 2,
+        "grid-cols-arbitrary": 4,
+        "hardcoded-white-black-text": 1,
+        "aria-label": 12
+      },
+      "staticRiskScore": 29,
+      "riskBreakdown": {
+        "custom": 8.3,
+        "responsive": 11.8,
+        "text": 4.8,
+        "css": 0,
+        "spacing": 3,
+        "theme": 1.1,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "container-query-generator",
+      "title": "Container Query Generator",
+      "href": "/tools/container-query-generator",
+      "layoutType": "visual-generator",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "css",
+        "visual"
+      ],
+      "audiences": [
+        "developer",
+        "designer"
+      ],
+      "routeDir": "src/app/tools/container-query-generator",
+      "routeDirExists": true,
+      "fileCount": 10,
+      "totalLoc": 1154,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "CodeOutputPanel",
+        "ControlGrid",
+        "ControlSection",
+        "PresetGallery",
+        "PreviewToolbar",
+        "SegmentedControl",
+        "ToolContentCard",
+        "ToolControlPanel",
+        "ToolLayoutVisualGenerator",
+        "ToolPage",
+        "WarningPanel"
+      ],
+      "patternFlags": {
+        "truncate": 10,
+        "absolute-positioning": 2,
+        "hardcoded-white-black-text": 2,
+        "grid-cols-arbitrary": 1,
+        "aria-label": 5,
+        "large-fixed-min-height": 1,
+        "grid-cols-unguarded": 1,
+        "raw-hex-color": 8,
+        "raw-rgb-hsl": 1,
+        "large-fixed-height": 1
+      },
+      "staticRiskScore": 28,
+      "riskBreakdown": {
+        "custom": 8.4,
+        "responsive": 5.7,
+        "text": 6.4,
+        "css": 0,
+        "spacing": 2.3,
+        "theme": 5.1,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "gpa-calculator",
+      "title": "GPA Analysis Studio",
+      "href": "/tools/gpa-calculator",
+      "layoutType": "single-utility",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "utilities",
+        "education"
+      ],
+      "audiences": [
+        "student",
+        "general"
+      ],
+      "routeDir": "src/app/tools/gpa-calculator",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 1157,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "ToolContentCard",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "truncate": 7,
+        "large-fixed-height": 3,
+        "fixed-width-px": 1,
+        "min-width-px": 1,
+        "sticky-fixed-offset": 1,
+        "grid-cols-arbitrary": 7,
+        "aria-label": 7
+      },
+      "staticRiskScore": 28,
+      "riskBreakdown": {
+        "custom": 8.4,
+        "responsive": 9.7,
+        "text": 4.8,
+        "css": 0,
+        "spacing": 4.8,
+        "theme": 0,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "percentage-calculator",
+      "title": "Percentage Analysis Studio",
+      "href": "/tools/percentage-calculator",
+      "layoutType": "text-workbench",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "utilities",
+        "business",
+        "finance"
+      ],
+      "audiences": [
+        "general",
+        "student",
+        "creator",
+        "business",
+        "developer"
+      ],
+      "routeDir": "src/app/tools/percentage-calculator",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 1339,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "ToolContentCard",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "absolute-positioning": 4,
+        "large-fixed-height": 1,
+        "truncate": 10,
+        "fixed-width-px": 2,
+        "min-width-px": 2,
+        "grid-cols-arbitrary": 1,
+        "aria-label": 3
+      },
+      "staticRiskScore": 28,
+      "riskBreakdown": {
+        "custom": 9.7,
+        "responsive": 11.8,
+        "text": 5.4,
+        "css": 0,
+        "spacing": 0.8,
+        "theme": 0,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "flexbox-generator",
+      "title": "Flexbox Generator",
+      "href": "/tools/flexbox-generator",
+      "layoutType": "visual-generator",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "css",
+        "visual"
+      ],
+      "audiences": [
+        "developer",
+        "designer"
+      ],
+      "routeDir": "src/app/tools/flexbox-generator",
+      "routeDirExists": true,
+      "fileCount": 10,
+      "totalLoc": 1414,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "CodeOutputPanel",
+        "ControlGrid",
+        "ControlSection",
+        "PresetGallery",
+        "PreviewToolbar",
+        "SegmentedControl",
+        "ToolContentCard",
+        "ToolControlPanel",
+        "ToolLayoutVisualGenerator",
+        "ToolPage",
+        "WarningPanel"
+      ],
+      "patternFlags": {
+        "truncate": 5,
+        "absolute-positioning": 5,
+        "hardcoded-white-black-text": 2,
+        "raw-hex-color": 37,
+        "large-fixed-height": 1
+      },
+      "staticRiskScore": 27,
+      "riskBreakdown": {
+        "custom": 10.3,
+        "responsive": 6.4,
+        "text": 3.6,
+        "css": 0,
+        "spacing": 0,
+        "theme": 6.7,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "unit-converter",
+      "title": "Unit Converter Studio",
+      "href": "/tools/unit-converter",
+      "layoutType": "text-workbench",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "utilities"
+      ],
+      "audiences": [
+        "general",
+        "student",
+        "creator",
+        "developer"
+      ],
+      "routeDir": "src/app/tools/unit-converter",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 1492,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "ToolContentCard",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "absolute-positioning": 4,
+        "large-fixed-height": 1,
+        "truncate": 4,
+        "fixed-width-px": 2,
+        "min-width-px": 2,
+        "grid-cols-arbitrary": 2,
+        "aria-label": 8
+      },
+      "staticRiskScore": 27,
+      "riskBreakdown": {
+        "custom": 10.9,
+        "responsive": 11.8,
+        "text": 3,
+        "css": 0,
+        "spacing": 1.6,
+        "theme": 0,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "aspect-ratio-calculator",
+      "title": "Aspect Ratio Studio",
+      "href": "/tools/aspect-ratio-calculator",
+      "layoutType": "visual-generator",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "utilities",
+        "media",
+        "web"
+      ],
+      "audiences": [
+        "creator",
+        "designer",
+        "developer",
+        "general"
+      ],
+      "routeDir": "src/app/tools/aspect-ratio-calculator",
+      "routeDirExists": true,
+      "fileCount": 5,
+      "totalLoc": 988,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "ControlGrid",
+        "ControlSection",
+        "ToolContentCard",
+        "ToolControlPanel",
+        "ToolLayoutTextWorkbench",
+        "ToolPage",
+        "WarningPanel"
+      ],
+      "patternFlags": {
+        "truncate": 4,
+        "large-fixed-min-height": 3,
+        "large-fixed-height": 5,
+        "absolute-positioning": 3,
+        "grid-cols-arbitrary": 2,
+        "raw-rgb-hsl": 3,
+        "aria-label": 12
+      },
+      "staticRiskScore": 26,
+      "riskBreakdown": {
+        "custom": 7.2,
+        "responsive": 13,
+        "text": 3,
+        "css": 0,
+        "spacing": 1.6,
+        "theme": 1.5,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "bmi-calculator",
+      "title": "BMI Screening Studio",
+      "href": "/tools/bmi-calculator",
+      "layoutType": "text-workbench",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "local-storage",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "utilities",
+        "health"
+      ],
+      "audiences": [
+        "general",
+        "student"
+      ],
+      "routeDir": "src/app/tools/bmi-calculator",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 2429,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "ControlGrid",
+        "ControlSection",
+        "SegmentedControl",
+        "ToolContentCard",
+        "ToolControlPanel",
+        "ToolLayoutTextWorkbench",
+        "ToolPage",
+        "WarningPanel"
+      ],
+      "patternFlags": {
+        "large-fixed-min-height": 1,
+        "large-fixed-height": 2,
+        "absolute-positioning": 5,
+        "grid-cols-arbitrary": 1,
+        "sr-only": 1
+      },
+      "staticRiskScore": 26,
+      "riskBreakdown": {
+        "custom": 16,
+        "responsive": 9.1,
+        "text": 0,
+        "css": 0,
+        "spacing": 0.8,
+        "theme": 0,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "css-transform-generator",
+      "title": "CSS Transform Generator",
+      "href": "/tools/css-transform-generator",
+      "layoutType": "visual-generator",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "css",
+        "visual"
+      ],
+      "audiences": [
+        "developer",
+        "designer"
+      ],
+      "routeDir": "src/app/tools/css-transform-generator",
+      "routeDirExists": true,
+      "fileCount": 11,
+      "totalLoc": 1143,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "CodeOutputPanel",
+        "ControlGrid",
+        "ControlSection",
+        "PresetGallery",
+        "PreviewToolbar",
+        "SegmentedControl",
+        "ToolContentCard",
+        "ToolControlPanel",
+        "ToolLayoutVisualGenerator",
+        "ToolPage",
+        "WarningPanel"
+      ],
+      "patternFlags": {
+        "aria-label": 10,
+        "whitespace-nowrap": 1,
+        "low-opacity-text": 2,
+        "truncate": 1,
+        "large-fixed-min-height": 1,
+        "large-fixed-height": 2,
+        "fixed-width-px": 1,
+        "absolute-positioning": 3,
+        "raw-rgb-hsl": 6,
+        "animation-no-reduced-motion": 3,
+        "raw-hex-color": 7,
+        "hardcoded-white-black-text": 1
+      },
+      "staticRiskScore": 26,
+      "riskBreakdown": {
+        "custom": 8.3,
+        "responsive": 9.1,
+        "text": 1.6,
+        "css": 0,
+        "spacing": 0,
+        "theme": 6.1,
+        "a11y": 0.8
+      }
+    },
+    {
+      "id": "date-difference-calculator",
+      "title": "Date Difference & Workday Studio",
+      "href": "/tools/date-difference-calculator",
+      "layoutType": "single-utility",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "utilities",
+        "productivity",
+        "time"
+      ],
+      "audiences": [
+        "general",
+        "student",
+        "developer",
+        "business"
+      ],
+      "routeDir": "src/app/tools/date-difference-calculator",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 1432,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "ToolContentCard",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "absolute-positioning": 6,
+        "break-all-class": 2,
+        "truncate": 3,
+        "fixed-width-px": 1,
+        "min-width-px": 1,
+        "grid-cols-arbitrary": 1,
+        "aria-label": 8,
+        "large-fixed-height": 1
+      },
+      "staticRiskScore": 26,
+      "riskBreakdown": {
+        "custom": 10.4,
+        "responsive": 10.3,
+        "text": 4.8,
+        "css": 0,
+        "spacing": 0.8,
+        "theme": 0,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "html-entity-encoder-decoder",
+      "title": "HTML Entity & Unicode Studio",
+      "href": "/tools/html-entity-encoder-decoder",
+      "layoutType": "text-workbench",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "devtools",
+        "utilities",
+        "web"
+      ],
+      "audiences": [
+        "developer",
+        "creator",
+        "student",
+        "general"
+      ],
+      "routeDir": "src/app/tools/html-entity-encoder-decoder",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 1167,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "SegmentedControl",
+        "ToolContentCard",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "raw-hex-color": 10,
+        "truncate": 4,
+        "large-fixed-height": 3,
+        "fixed-width-px": 1,
+        "min-width-px": 1,
+        "sticky-fixed-offset": 1,
+        "grid-cols-arbitrary": 1
+      },
+      "staticRiskScore": 26,
+      "riskBreakdown": {
+        "custom": 8.5,
+        "responsive": 9.7,
+        "text": 3,
+        "css": 0,
+        "spacing": 0.8,
+        "theme": 4.3,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "slug-generator",
+      "title": "Slug Route Studio",
+      "href": "/tools/slug-generator",
+      "layoutType": "text-workbench",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "devtools",
+        "utilities",
+        "content",
+        "seo",
+        "web"
+      ],
+      "audiences": [
+        "creator",
+        "developer",
+        "general",
+        "business"
+      ],
+      "routeDir": "src/app/tools/slug-generator",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 1186,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "SurfaceCard",
+        "ToolContentCard",
+        "ToolPageShell"
+      ],
+      "patternFlags": {
+        "large-fixed-height": 1,
+        "break-all-class": 2,
+        "whitespace-nowrap": 1,
+        "truncate": 6,
+        "fixed-width-px": 3,
+        "min-width-px": 1,
+        "grid-cols-arbitrary": 1,
+        "aria-label": 2
+      },
+      "staticRiskScore": 25,
+      "riskBreakdown": {
+        "custom": 8.6,
+        "responsive": 9.1,
+        "text": 6.9,
+        "css": 0,
+        "spacing": 0.8,
+        "theme": 0,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "color-shades",
+      "title": "Color Shades",
+      "href": "/tools/color-shades",
+      "layoutType": "visual-generator",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "css",
+        "visual",
+        "design"
+      ],
+      "audiences": [
+        "designer",
+        "developer"
+      ],
+      "routeDir": "src/app/tools/color-shades",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 1341,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "CodeOutputPanel",
+        "SurfaceCard",
+        "Tabs",
+        "ToolContentCard",
+        "ToolLayoutVisualGenerator",
+        "ToolPage",
+        "WarningPanel"
+      ],
+      "patternFlags": {
+        "raw-hex-color": 135,
+        "truncate": 5,
+        "grid-cols-arbitrary": 3,
+        "absolute-positioning": 1,
+        "low-opacity-text": 1
+      },
+      "staticRiskScore": 24,
+      "riskBreakdown": {
+        "custom": 9.8,
+        "responsive": 1.1,
+        "text": 3.6,
+        "css": 0,
+        "spacing": 2.3,
+        "theme": 7.2,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "jwt-decoder",
+      "title": "JWT Decoder & Verification Studio",
+      "href": "/tools/jwt-decoder",
+      "layoutType": "text-workbench",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "devtools",
+        "utilities",
+        "security",
+        "web"
+      ],
+      "audiences": [
+        "developer",
+        "student",
+        "business"
+      ],
+      "routeDir": "src/app/tools/jwt-decoder",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 1067,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "Tabs",
+        "ToolContentCard",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "absolute-positioning": 4,
+        "break-all-class": 3,
+        "truncate": 6,
+        "grid-cols-arbitrary": 3,
+        "focus-outline-suppressed": 1,
+        "aria-label": 2,
+        "large-fixed-height": 1
+      },
+      "staticRiskScore": 24,
+      "riskBreakdown": {
+        "custom": 7.8,
+        "responsive": 5.7,
+        "text": 7.3,
+        "css": 0,
+        "spacing": 2.3,
+        "theme": 0,
+        "a11y": 0.5
+      }
+    },
+    {
+      "id": "responsive-image-srcset-generator",
+      "title": "Responsive Image Delivery Studio",
+      "href": "/tools/responsive-image-srcset-generator",
+      "layoutType": "visual-generator",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "css",
+        "visual",
+        "media",
+        "web",
+        "devtools"
+      ],
+      "audiences": [
+        "developer",
+        "designer",
+        "creator"
+      ],
+      "routeDir": "src/app/tools/responsive-image-srcset-generator",
+      "routeDirExists": true,
+      "fileCount": 15,
+      "totalLoc": 1817,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "CodeOutputPanel",
+        "ControlGrid",
+        "ControlSection",
+        "PresetGallery",
+        "PreviewToolbar",
+        "SegmentedControl",
+        "ToolContentCard",
+        "ToolControlPanel",
+        "ToolLayoutVisualGenerator",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "grid-cols-arbitrary": 2,
+        "aria-label": 14,
+        "truncate": 3,
+        "sr-only": 1,
+        "large-fixed-height": 1,
+        "min-width-px": 1,
+        "viewport-height-full": 1,
+        "raw-hex-color": 1
+      },
+      "staticRiskScore": 24,
+      "riskBreakdown": {
+        "custom": 13.2,
+        "responsive": 6.4,
+        "text": 2.3,
+        "css": 0,
+        "spacing": 1.6,
+        "theme": 0.5,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "csp-generator",
+      "title": "CSP Generator",
+      "href": "/tools/csp-generator",
+      "layoutType": "text-workbench",
+      "status": "in_progress",
+      "visibility": "unlisted",
+      "privacy": "client-only",
+      "completion": 80,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "devtools",
+        "utilities",
+        "security"
+      ],
+      "audiences": [
+        "developer"
+      ],
+      "routeDir": "src/app/tools/csp-generator",
+      "routeDirExists": true,
+      "fileCount": 14,
+      "totalLoc": 1996,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "CodeOutputPanel",
+        "SurfaceCard",
+        "ToolContentCard",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "truncate": 2,
+        "fixed-width-px": 1,
+        "focus-outline-suppressed": 4,
+        "aria-label": 6,
+        "grid-cols-arbitrary": 2,
+        "large-fixed-height": 1
+      },
+      "staticRiskScore": 23,
+      "riskBreakdown": {
+        "custom": 14.5,
+        "responsive": 4,
+        "text": 1.6,
+        "css": 0,
+        "spacing": 1.6,
+        "theme": 0,
+        "a11y": 1.8
+      }
+    },
+    {
+      "id": "loan-calculator",
+      "title": "Loan Analysis Studio",
+      "href": "/tools/loan-calculator",
+      "layoutType": "single-utility",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "utilities"
+      ],
+      "audiences": [
+        "general",
+        "student",
+        "business"
+      ],
+      "routeDir": "src/app/tools/loan-calculator",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 933,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "ToolContentCard",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "truncate": 6,
+        "large-fixed-min-height": 1,
+        "large-fixed-height": 4,
+        "sticky-fixed-offset": 2,
+        "grid-cols-arbitrary": 3,
+        "aria-label": 10
+      },
+      "staticRiskScore": 23,
+      "riskBreakdown": {
+        "custom": 6.8,
+        "responsive": 9.7,
+        "text": 4.3,
+        "css": 0,
+        "spacing": 2.3,
+        "theme": 0,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "meta-tag-generator",
+      "title": "Meta Tag Production Studio",
+      "href": "/tools/meta-tag-generator",
+      "layoutType": "text-workbench",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "devtools",
+        "utilities",
+        "content",
+        "seo"
+      ],
+      "audiences": [
+        "creator",
+        "developer",
+        "business",
+        "general"
+      ],
+      "routeDir": "src/app/tools/meta-tag-generator",
+      "routeDirExists": true,
+      "fileCount": 10,
+      "totalLoc": 1277,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "CodeOutputPanel",
+        "ControlGrid",
+        "ControlSection",
+        "ToolContentCard",
+        "ToolControlPanel",
+        "ToolLayoutSingleUtility",
+        "ToolPage",
+        "WarningPanel"
+      ],
+      "patternFlags": {
+        "truncate": 6,
+        "absolute-positioning": 7,
+        "focus-outline-suppressed": 1,
+        "aria-label": 3,
+        "large-fixed-height": 1
+      },
+      "staticRiskScore": 22,
+      "riskBreakdown": {
+        "custom": 9.3,
+        "responsive": 7.9,
+        "text": 4.3,
+        "css": 0,
+        "spacing": 0,
+        "theme": 0,
+        "a11y": 0.5
+      }
+    },
+    {
+      "id": "readability-score",
+      "title": "Readability Audit Studio",
+      "href": "/tools/readability-score",
+      "layoutType": "text-workbench",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "utilities",
+        "content"
+      ],
+      "audiences": [
+        "creator",
+        "student",
+        "general",
+        "business"
+      ],
+      "routeDir": "src/app/tools/readability-score",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 1039,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "ToolContentCard",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "large-fixed-height": 4,
+        "truncate": 3,
+        "large-fixed-min-height": 1,
+        "fixed-width-px": 1,
+        "min-width-px": 1,
+        "sticky-fixed-offset": 1,
+        "grid-cols-arbitrary": 1,
+        "aria-label": 1
+      },
+      "staticRiskScore": 22,
+      "riskBreakdown": {
+        "custom": 7.6,
+        "responsive": 11.8,
+        "text": 2.3,
+        "css": 0,
+        "spacing": 0.8,
+        "theme": 0,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "robots-txt-generator",
+      "title": "Robots.txt Policy Studio",
+      "href": "/tools/robots-txt-generator",
+      "layoutType": "text-workbench",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "devtools",
+        "utilities",
+        "seo",
+        "web"
+      ],
+      "audiences": [
+        "developer",
+        "creator",
+        "business"
+      ],
+      "routeDir": "src/app/tools/robots-txt-generator",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 1028,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "ToolContentCard",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "large-fixed-height": 3,
+        "absolute-positioning": 3,
+        "break-all-class": 1,
+        "truncate": 4,
+        "grid-cols-arbitrary": 2,
+        "focus-outline-suppressed": 1,
+        "aria-label": 1
+      },
+      "staticRiskScore": 22,
+      "riskBreakdown": {
+        "custom": 7.5,
+        "responsive": 7.9,
+        "text": 4.3,
+        "css": 0,
+        "spacing": 1.6,
+        "theme": 0,
+        "a11y": 0.5
+      }
+    },
+    {
+      "id": "word-counter",
+      "title": "Word Counter Studio",
+      "href": "/tools/word-counter",
+      "layoutType": "text-workbench",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "utilities",
+        "content"
+      ],
+      "audiences": [
+        "creator",
+        "student",
+        "general",
+        "developer"
+      ],
+      "routeDir": "src/app/tools/word-counter",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 1197,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "ToolContentCard",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "large-fixed-height": 4,
+        "truncate": 6,
+        "large-fixed-min-height": 1,
+        "grid-cols-arbitrary": 1,
+        "aria-label": 1
+      },
+      "staticRiskScore": 22,
+      "riskBreakdown": {
+        "custom": 8.7,
+        "responsive": 8.5,
+        "text": 4.3,
+        "css": 0,
+        "spacing": 0.8,
+        "theme": 0,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "base64-encoder-decoder",
+      "title": "Base64 File & Text Studio",
+      "href": "/tools/base64-encoder-decoder",
+      "layoutType": "text-workbench",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "devtools",
+        "utilities",
+        "web"
+      ],
+      "audiences": [
+        "developer",
+        "general",
+        "student"
+      ],
+      "routeDir": "src/app/tools/base64-encoder-decoder",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 1522,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "SegmentedControl",
+        "ToolContentCard",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "break-all-class": 1,
+        "whitespace-nowrap": 1,
+        "truncate": 3,
+        "large-fixed-height": 2,
+        "grid-cols-arbitrary": 1,
+        "aria-label": 1
+      },
+      "staticRiskScore": 20,
+      "riskBreakdown": {
+        "custom": 11.1,
+        "responsive": 4,
+        "text": 4.3,
+        "css": 0,
+        "spacing": 0.8,
+        "theme": 0,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "text-cleaner",
+      "title": "Text Cleaner Production Studio",
+      "href": "/tools/text-cleaner",
+      "layoutType": "text-workbench",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "devtools",
+        "utilities",
+        "content"
+      ],
+      "audiences": [
+        "general",
+        "student",
+        "creator",
+        "developer",
+        "business"
+      ],
+      "routeDir": "src/app/tools/text-cleaner",
+      "routeDirExists": true,
+      "fileCount": 9,
+      "totalLoc": 2472,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "ControlGrid",
+        "ControlSection",
+        "EditorPanel",
+        "SegmentedControl",
+        "ToolActionBar",
+        "ToolContentCard",
+        "ToolControlPanel",
+        "ToolLayoutTextWorkbench",
+        "ToolPage",
+        "WarningPanel"
+      ],
+      "patternFlags": {
+        "large-fixed-height": 1,
+        "truncate": 1,
+        "aria-label": 4,
+        "sr-only": 1
+      },
+      "staticRiskScore": 19,
+      "riskBreakdown": {
+        "custom": 16,
+        "responsive": 2.1,
+        "text": 0.8,
+        "css": 0,
+        "spacing": 0,
+        "theme": 0,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "uuid-generator",
+      "title": "UUID Generator & Inspector",
+      "href": "/tools/uuid-generator",
+      "layoutType": "text-workbench",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "utilities",
+        "devtools"
+      ],
+      "audiences": [
+        "developer",
+        "general"
+      ],
+      "routeDir": "src/app/tools/uuid-generator",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 1163,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "CodeOutputPanel",
+        "ToolContentCard",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "large-fixed-height": 1,
+        "break-all-class": 3,
+        "truncate": 5,
+        "grid-cols-arbitrary": 2
+      },
+      "staticRiskScore": 19,
+      "riskBreakdown": {
+        "custom": 8.5,
+        "responsive": 2.1,
+        "text": 6.9,
+        "css": 0,
+        "spacing": 1.6,
+        "theme": 0,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "image-converter",
+      "title": "Image Converter",
+      "href": "/tools/image-converter",
+      "layoutType": "single-utility",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "utilities",
+        "media",
+        "web"
+      ],
+      "audiences": [
+        "general",
+        "creator",
+        "designer",
+        "developer"
+      ],
+      "routeDir": "src/app/tools/image-converter",
+      "routeDirExists": true,
+      "fileCount": 6,
+      "totalLoc": 920,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": true,
+      "sharedUiUsed": [
+        "ControlGrid",
+        "ControlSection",
+        "ResultPanel",
+        "ToolActionBar",
+        "ToolControlPanel",
+        "ToolLayoutSingleUtility",
+        "ToolPage",
+        "WarningPanel"
+      ],
+      "patternFlags": {
+        "truncate": 3,
+        "large-fixed-min-height": 1,
+        "large-fixed-height": 1,
+        "grid-cols-arbitrary": 2,
+        "raw-hex-color": 1,
+        "focus-outline-suppressed": 2,
+        "sr-only": 1
+      },
+      "staticRiskScore": 18,
+      "riskBreakdown": {
+        "custom": 8.4,
+        "responsive": 4,
+        "text": 2.3,
+        "css": 0,
+        "spacing": 1.6,
+        "theme": 0.5,
+        "a11y": 1
+      }
+    },
+    {
+      "id": "css-clamp-generator",
+      "title": "CSS Clamp Generator",
+      "href": "/tools/css-clamp-generator",
+      "layoutType": "visual-generator",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "css",
+        "visual"
+      ],
+      "audiences": [
+        "developer",
+        "designer"
+      ],
+      "routeDir": "src/app/tools/css-clamp-generator",
+      "routeDirExists": true,
+      "fileCount": 6,
+      "totalLoc": 805,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "Tabs",
+        "ToolContentCard",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "truncate": 4,
+        "absolute-positioning": 1,
+        "grid-cols-arbitrary": 3,
+        "raw-hex-color": 1,
+        "aria-label": 6,
+        "large-fixed-height": 1
+      },
+      "staticRiskScore": 15,
+      "riskBreakdown": {
+        "custom": 5.9,
+        "responsive": 3.1,
+        "text": 3,
+        "css": 0,
+        "spacing": 2.3,
+        "theme": 0.5,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "sitemap-xml-generator",
+      "title": "Sitemap XML Generator",
+      "href": "/tools/sitemap-xml-generator",
+      "layoutType": "text-workbench",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "devtools",
+        "utilities",
+        "seo",
+        "web"
+      ],
+      "audiences": [
+        "developer",
+        "creator",
+        "business"
+      ],
+      "routeDir": "src/app/tools/sitemap-xml-generator",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 350,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "ToolContentCard",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "absolute-positioning": 2,
+        "large-fixed-height": 2,
+        "truncate": 3,
+        "fixed-width-px": 1,
+        "min-width-px": 1,
+        "grid-cols-arbitrary": 1,
+        "focus-outline-suppressed": 1,
+        "aria-label": 1
+      },
+      "staticRiskScore": 15,
+      "riskBreakdown": {
+        "custom": 2.5,
+        "responsive": 9.1,
+        "text": 2.3,
+        "css": 0,
+        "spacing": 0.8,
+        "theme": 0,
+        "a11y": 0.5
+      }
+    },
+    {
+      "id": "statistics-calculator",
+      "title": "Statistics Analysis Studio",
+      "href": "/tools/statistics-calculator",
+      "layoutType": "text-workbench",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "utilities",
+        "data"
+      ],
+      "audiences": [
+        "student",
+        "general",
+        "developer",
+        "business"
+      ],
+      "routeDir": "src/app/tools/statistics-calculator",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 1001,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "ToolContentCard",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "large-fixed-height": 1,
+        "truncate": 6,
+        "sticky-fixed-offset": 1,
+        "grid-cols-arbitrary": 1,
+        "aria-label": 4
+      },
+      "staticRiskScore": 15,
+      "riskBreakdown": {
+        "custom": 7.3,
+        "responsive": 3.1,
+        "text": 4.3,
+        "css": 0,
+        "spacing": 0.8,
+        "theme": 0,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "json-to-typescript",
+      "title": "JSON Contract Studio",
+      "href": "/tools/json-to-typescript",
+      "layoutType": "text-workbench",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "devtools",
+        "utilities",
+        "web"
+      ],
+      "audiences": [
+        "developer",
+        "student",
+        "general"
+      ],
+      "routeDir": "src/app/tools/json-to-typescript",
+      "routeDirExists": true,
+      "fileCount": 7,
+      "totalLoc": 1237,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "EditorPanel",
+        "ToolContentCard",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "truncate": 3,
+        "grid-cols-arbitrary": 1,
+        "large-fixed-height": 1
+      },
+      "staticRiskScore": 14,
+      "riskBreakdown": {
+        "custom": 9,
+        "responsive": 2.1,
+        "text": 2.3,
+        "css": 0,
+        "spacing": 0.8,
+        "theme": 0,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "todo-list",
+      "title": "Darma Tasks — Data-Safe To-Do Studio",
+      "href": "/tools/todo-list",
+      "layoutType": "fullscreen-studio",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "local-storage",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "utilities",
+        "productivity",
+        "workflow"
+      ],
+      "audiences": [
+        "general",
+        "student",
+        "developer",
+        "creator",
+        "business"
+      ],
+      "routeDir": "src/app/tools/todo-list",
+      "routeDirExists": true,
+      "fileCount": 5,
+      "totalLoc": 401,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "ToolContentCard",
+        "ToolPage"
+      ],
+      "patternFlags": {
+        "large-fixed-height": 1,
+        "hardcoded-white-black-text": 2,
+        "grid-cols-arbitrary": 1
+      },
+      "staticRiskScore": 8,
+      "riskBreakdown": {
+        "custom": 2.9,
+        "responsive": 2.1,
+        "text": 0,
+        "css": 0,
+        "spacing": 0.8,
+        "theme": 2,
+        "a11y": 0
+      }
+    },
+    {
+      "id": "code-preview-tool",
+      "title": "Code Preview Production Studio",
+      "href": "/tools/code-preview-tool",
+      "layoutType": "text-workbench",
+      "status": "ready",
+      "visibility": "public",
+      "privacy": "client-only",
+      "completion": 100,
+      "mainCategory": [
+        "tools"
+      ],
+      "secondaryCategory": [
+        "devtools",
+        "web",
+        "utilities"
+      ],
+      "audiences": [
+        "developer",
+        "designer",
+        "student",
+        "creator"
+      ],
+      "routeDir": "src/app/tools/code-preview-tool",
+      "routeDirExists": true,
+      "fileCount": 2,
+      "totalLoc": 83,
+      "localCssFiles": [],
+      "localCssLoc": 0,
+      "hasCanvasOrEditor": false,
+      "sharedUiUsed": [
+        "ToolContentCard",
+        "ToolPage"
+      ],
+      "patternFlags": {},
+      "staticRiskScore": 1,
+      "riskBreakdown": {
+        "custom": 0.6,
+        "responsive": 0,
+        "text": 0,
+        "css": 0,
+        "spacing": 0,
+        "theme": 0,
+        "a11y": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533558199",
+  "title": "dots loading 35",
+  "description": "dots loading 35",
+  "shortDescription": "dots loading 35",
+  "html": "<div id='loader-d-35'></div>",
+  "css": "/* HTML: <div id=\"loader-d-35\"></div> */\n#loader-d-35 {\n  height: 15px;\n  aspect-ratio: 5;\n  display: grid;\n}\n#loader-d-35::before,\n#loader-d-35::after {\n  content: \"\";\n  grid-area: 1/1;\n  height: inherit;\n  --_g: no-repeat radial-gradient(farthest-side,#000 94%,#0000);\n  background:\n    var(--_g) left,\n    var(--_g) right;\n  background-size: 15px 100%;\n  background-repeat: no-repeat;\n  animation: l35 1s infinite linear; \n}\n#loader-d-35::after {\n  margin-left: auto;\n  --s:-1;\n}\n@keyframes l35 {\n  0%   {transform:translateY(calc(var(--s,1)*0px));aspect-ratio: 2.3 }\n  33%  {transform:translateY(calc(var(--s,1)*8px));aspect-ratio: 2.3 }\n  66%  {transform:translateY(calc(var(--s,1)*8px));aspect-ratio: 3.7 }\n  100% {transform:translateY(calc(var(--s,1)*0px));aspect-ratio: 3.7 }\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:19:18.199",
+  "updatedAt": "2026-01-26T08:47:31.631",
+  "reviewed": false,
+  "slug": null
+}

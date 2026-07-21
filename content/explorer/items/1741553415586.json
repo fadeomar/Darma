@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553415586",
+  "title": "thin loading 10",
+  "description": "thin loading 10",
+  "shortDescription": "thin loading 10",
+  "html": "<div id='loader-10'></div>",
+  "css": "#loader-10 {\n  height: 3px;\n  width: 60px;\n  background: linear-gradient(#000 0 0) right/51% 100% no-repeat;\n  display: flex;\n  animation: l10-0 2s linear infinite;\n}\n#loader-10:before,\n#loader-10:after {\n  content: \"\";\n  width: 15px;\n  background: #000;\n  animation: l10-1 2s linear infinite;\n}\n#loader-10:after {\n  animation-delay: -1s;\n  --s:-1;\n}\n@keyframes l10-1 {\n  0%,100%{transform:scaleX(var(--s,1)) rotate(0)}\n  25%,75%   {transform:scaleX(var(--s,1)) rotate(180deg)}\n}\n\n@keyframes l10-0 {\n  0%,49.9%{transform:scaleX( 1)}\n  50%,100%{transform:scaleX(-1)}\n}",
+  "js": "",
+  "tags": [
+    "thin",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "Unique Mechanics",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:50:15.586",
+  "updatedAt": "2026-01-26T08:57:54.837",
+  "reviewed": false,
+  "slug": null
+}

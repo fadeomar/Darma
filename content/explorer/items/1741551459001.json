@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551459001",
+  "title": "continuous loading 4",
+  "description": "continuous loading 4",
+  "shortDescription": "continuous loading 4",
+  "html": "<div id='loader-4'></div>",
+  "css": "#loader-4 {\n  width: 120px;\n  height: 22px;\n  border-radius: 40px;\n  color: #514b82;\n  border: 2px solid;\n  position: relative;\n  overflow: hidden;\n}\n#loader-4::before {\n  content: '';\n  position: absolute;\n  margin: 2px;\n  width: 14px;\n  top: 0;\n  bottom: 0;\n  left: -20px;\n  border-radius: inherit;\n  background: currentColor;\n  box-shadow: -10px 0 12px 3px currentColor;\n  clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 95%, -30px 50%);\n  animation: l14 1s infinite linear;\n}\n@keyframes l14 {\n  100% {left: calc(100% + 20px)}\n}",
+  "js": "",
+  "tags": [
+    "continuous",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:17:39.001",
+  "updatedAt": "2026-01-26T08:53:59.247",
+  "reviewed": false,
+  "slug": null
+}

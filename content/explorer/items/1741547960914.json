@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741547960914",
+  "title": "infinity loading 17",
+  "description": "infinity Loading 17",
+  "shortDescription": "infinity Loading 17",
+  "html": "<div id='infinity-17'></div>",
+  "css": "#infinity-17 {\n  width: 60px;\n  aspect-ratio: 1;\n  --g: conic-gradient(from -90deg at 10px 10px,#fff 90deg,#0000 0);\n  background: var(--g), var(--g), var(--g);\n  background-size: 50% 50%;\n  animation: l17 1s infinite;\n}\n@keyframes l17 {\n   0%   {background-position:0     0, 10px 10px, 20px 20px}\n   33%  {background-position:-30px 0, 10px 10px, 20px 20px}\n   66%  {background-position:-30px 0,-20px 10px, 20px 20px}\n   100% {background-position:-30px 0,-20px 10px,-10px 20px}\n}",
+  "js": "",
+  "tags": [
+    "infinity",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Progress & Status Indicators",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:19:20.914",
+  "updatedAt": "2026-01-26T08:52:25.705",
+  "reviewed": false,
+  "slug": null
+}

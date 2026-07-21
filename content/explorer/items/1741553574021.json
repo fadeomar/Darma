@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553574021",
+  "title": "clones loading 14",
+  "description": "clones loading 14",
+  "shortDescription": "clones loading 14",
+  "html": "<div id='loader-14'></div>",
+  "css": "#loader-14 {\n  width: 40px;\n  aspect-ratio: 1.154;\n  display: grid;\n  background: conic-gradient(from 149deg at top,#0000, #BF1E62 1deg 60deg,#0000 61deg);\n  animation: l14 2s infinite cubic-bezier(0.5,500,0.5,-500);\n  transform-origin: top;\n}\n#loader-14:before,\n#loader-14:after {\n  content: \"\";\n  grid-area: 1/1;\n  background: conic-gradient(from 149deg at top,#0000, #FFA588 1deg 60deg,#0000 61deg);\n  transform-origin: inherit;\n  animation: inherit;\n}\n#loader-14:after {\n  background: conic-gradient(from 149deg at top,#0000, #027B7F 1deg 60deg,#0000 61deg);\n  animation-timing-function: cubic-bezier(0.5,800,0.5,-800);\n}\n@keyframes l14{\n  100% {transform: rotate(0.2deg)}\n}",
+  "js": "",
+  "tags": [
+    "clones",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Unique Mechanics",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:52:54.021",
+  "updatedAt": "2026-01-26T08:58:25.006",
+  "reviewed": false,
+  "slug": null
+}

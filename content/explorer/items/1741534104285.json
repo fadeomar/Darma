@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534104285",
+  "title": "Spinner loading 23",
+  "description": "Spin, spin, spin... Don't stop spinning! spin loading 23",
+  "shortDescription": "Spin, spin, spin... Don't stop spinning! spin loading 23",
+  "html": "<div id='loader-sh-23'></div>",
+  "css": "/* HTML: <div id='loader-sh-23'></div> */\n#loader-sh-23 {\n  width: 36px;\n  aspect-ratio: 1;\n  color: #25b09b;\n  background: linear-gradient(45deg,#0000 24%,currentColor 0 76%,#0000 0);\n  position: relative;\n  animation: l23-0 1.5s infinite;\n}\n#loader-sh-23:before,\n#loader-sh-23:after {\n  content: \"\";\n  position: absolute;\n  width: 50%;\n  height: 50%;\n  background: currentColor; \n  transform-origin: top left;\n  clip-path: polygon(-2px 0,0 -1px,100% 100%,-2px 100%);\n  inset: auto auto 0 0;\n  animation: l23-1 1.5s infinite;\n}\n#loader-sh-23:after {\n  inset:0 0 auto auto;\n  transform-origin: bottom right;\n  clip-path: polygon(0 0,calc(100% + 2px) 0,calc(100% + 2px) 100%,100% calc(100% + 1px));\n}\n@keyframes l23-0 {\n 0% ,50%   {transform:skewX(0)}\n 90%,100%  {transform:skewX(-45deg)}\n}\n@keyframes l23-1 {\n 40%,100%  {transform:rotate(180deg);box-shadow: 0 0 0 3px;}\n}",
+  "js": "",
+  "tags": [
+    "spin",
+    "spinner",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:28:24.285",
+  "updatedAt": "2026-01-26T08:50:15.619",
+  "reviewed": false,
+  "slug": null
+}

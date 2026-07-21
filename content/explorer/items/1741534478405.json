@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534478405",
+  "title": "3d shape loading 2",
+  "description": "3d shape Loading 2",
+  "shortDescription": "3d shape Loading 2",
+  "html": "<div id='loader-2'></div>",
+  "css": "/* HTML: <div id='loader-2'></div> */\n#loader-2 {\n  --s: 25px;\n  --_d: calc(0.353*var(--s));\n  width: calc(var(--s) + var(--_d));\n  aspect-ratio: 1;\n  display: grid;\n  filter: drop-shadow(0 0 0 #fff);\n  animation: l2 0.8s infinite;\n}\n#loader-2:before {\n  content: \"\";\n  clip-path: polygon(var(--_d) 0,100% 0,100% calc(100% - var(--_d)),calc(100% - var(--_d)) 100%,0 100%,0 var(--_d));\n  background:\n    conic-gradient(from -90deg at var(--s) var(--_d),\n     #fff 135deg,#666 0 270deg,#aaa 0);\n}\n@keyframes l2{\n  50% {filter:drop-shadow(0 0 5px #fff)}\n}",
+  "js": "",
+  "tags": [
+    "3d",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "animated-shapes",
+    "3d-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:34:38.405",
+  "updatedAt": "2026-01-26T08:51:07.901",
+  "reviewed": false,
+  "slug": null
+}

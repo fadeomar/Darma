@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552805450",
+  "title": "time loading 5",
+  "description": "time loading 5",
+  "shortDescription": "time loading 5",
+  "html": "<div id='loader-time-5'></div>",
+  "css": "#loader-time-5 {\n  --c1:#673b14;\n  --c2:#f8b13b;\n  width: 40px;\n  height: 80px;\n  border-top: 4px solid var(--c1);\n  border-bottom: 4px solid var(--c1);\n  background: linear-gradient(90deg, var(--c1) 2px, var(--c2) 0 5px,var(--c1) 0) 50%/7px 8px no-repeat;\n  display: grid;\n  overflow: hidden;\n  animation: l5-0 2s infinite linear;\n}\n#loader-time-5::before,\n#loader-time-5::after {\n  content: \"\";\n  grid-area: 1/1;\n  width: 75%;\n  height: calc(50% - 4px);\n  margin: 0 auto;\n  border: 2px solid var(--c1);\n  border-top: 0;\n  box-sizing: content-box;\n  border-radius: 0 0 40% 40%;\n  -webkit-mask: \n    linear-gradient(#000 0 0) bottom/4px 2px no-repeat,\n    linear-gradient(#000 0 0);\n  -webkit-mask-composite: destination-out;\n          mask-composite: exclude;\n  background: \n    linear-gradient(var(--d,0deg),var(--c2) 50%,#0000 0) bottom /100% 205%,\n    linear-gradient(var(--c2) 0 0) center/0 100%;\n  background-repeat: no-repeat;\n  animation: inherit;\n  animation-name: l5-1;\n}\n#loader-time-5::after {\n  transform-origin: 50% calc(100% + 2px);\n  transform: scaleY(-1);\n  --s:3px;\n  --d:180deg;\n}\n@keyframes l5-0 {\n  80%  {transform: rotate(0)}\n  100% {transform: rotate(0.5turn)}\n}\n@keyframes l5-1 {\n  10%,70%  {background-size:100% 205%,var(--s,0) 100%}\n  70%,100% {background-position: top,center}\n}",
+  "js": "",
+  "tags": [
+    "time",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:40:05.45",
+  "updatedAt": "2026-01-26T08:56:16.946",
+  "reviewed": false,
+  "slug": null
+}

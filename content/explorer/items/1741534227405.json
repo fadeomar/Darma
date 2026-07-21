@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534227405",
+  "title": "polygon loading 4",
+  "description": "polygon Loading 4",
+  "shortDescription": "polygon Loading 4",
+  "html": "<div id='loader-4'></div>",
+  "css": "/* HTML: <div id='loader-4'></div> */\n#loader-4 {\n  display: inline-grid;\n  width: 90px;\n  aspect-ratio: 1;\n  transform: rotate(90deg);\n  animation: l4 1s linear infinite;\n}\n#loader-4:before,\n#loader-4:after {\n  content:\"\";\n  grid-area: 1/1;\n}\n#loader-4:before {\n  clip-path: polygon(100% 50%,90.45% 79.39%,65.45% 97.55%,34.55% 97.55%,9.55% 79.39%,0% 50%,9.55% 20.61%,34.55% 2.45%,65.45% 2.45%,90.45% 20.61%,100% 50%,85.6% 24.14%,63.6% 8.15%,36.4% 8.15%,14.4% 24.14%,6% 50%,14.4% 75.86%,36.4% 91.85%,63.6% 91.85%,85.6% 75.86%,94% 50%,85.6% 24.14%);\n  background: #574951;\n}\n#loader-4:after {\n  background: #83988E;\n  clip-path: polygon(100% 50%,65.45% 97.55%,9.55% 79.39%,9.55% 20.61%,65.45% 2.45%);\n  margin: 27%;\n  translate: 46% 0;\n  transform-origin: right;\n  animation: inherit;\n}\n@keyframes l4 {\n  0%{rotate:  18deg}\n  to{rotate: -18deg}\n}",
+  "js": "",
+  "tags": [
+    "spin",
+    "spinner",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:30:27.405",
+  "updatedAt": "2026-01-26T08:50:46.848",
+  "reviewed": false,
+  "slug": null
+}

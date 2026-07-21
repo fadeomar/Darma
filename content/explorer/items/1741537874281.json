@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741537874281",
+  "title": "progress loading 1",
+  "description": "progress Loading 1",
+  "shortDescription": "progress Loading 1",
+  "html": "<div id='loader-1'></div>",
+  "css": "/* HTML: <div id='loader-1'></div> */\n#loader-1 {    \n  --r1: 154%;\n  --r2: 68.5%;\n  width: 60px;\n  aspect-ratio: 1;\n  border-radius: 50%; \n  background:\n    radial-gradient(var(--r1) var(--r2) at top   ,#0000 79.5%,#269af2 80%),\n    radial-gradient(var(--r1) var(--r2) at bottom,#269af2 79.5%,#0000 80%),\n    radial-gradient(var(--r1) var(--r2) at top   ,#0000 79.5%,#269af2 80%),\n    #ccc;\n  background-size: 50.5% 220%;\n  background-position: -100% 0%,0% 0%,100% 0%;\n  background-repeat:no-repeat;\n  animation: l9 2s infinite linear;\n}\n@keyframes l9 {\n    33%  {background-position:    0% 33% ,100% 33% ,200% 33% }\n    66%  {background-position: -100%  66%,0%   66% ,100% 66% }\n    100% {background-position:    0% 100%,100% 100%,200% 100%}\n}",
+  "js": "",
+  "tags": [
+    "progress",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T16:31:14.281",
+  "updatedAt": "2026-01-26T08:51:27.958",
+  "reviewed": false,
+  "slug": null
+}

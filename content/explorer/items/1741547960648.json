@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741547960648",
+  "title": "infinity loading 14",
+  "description": "infinity Loading 14",
+  "shortDescription": "infinity Loading 14",
+  "html": "<div id='infinity-14'></div>",
+  "css": "#infinity-14 {\n  width: 90px;\n  height: 14px;\n  --c:#fff 92%,#0000;\n  background: \n    radial-gradient(circle closest-side,var(--c)) calc(100%/-4) 0,\n    radial-gradient(circle closest-side,var(--c)) calc(100%/4)  0;\n  background-size:calc(100%/2) 100%;\n  animation: l14 1.5s infinite;\n}\n@keyframes l14 {\n    0%   {background-position: calc(100%/-4) 0    ,calc(100%/4) 0}\n    50%  {background-position: calc(100%/-4) -14px,calc(100%/4) 14px}\n    100% {background-position: calc(100%/4)  -14px,calc(3*100%/4) 14px}\n}",
+  "js": "",
+  "tags": [
+    "infinity",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Progress & Status Indicators",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:19:20.648",
+  "updatedAt": "2026-01-26T08:52:24.578",
+  "reviewed": false,
+  "slug": null
+}

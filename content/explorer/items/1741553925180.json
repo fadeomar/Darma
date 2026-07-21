@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553925180",
+  "title": "factory loading 6",
+  "description": "factory loading 6",
+  "shortDescription": "factory loading 6",
+  "html": "<div id='loader-16'></div>",
+  "css": "body {\n background: #000;\n}\n #loader-16 {\n  width: 90px;\n  height: 14px;\n  box-shadow: 0 3px 0 #fff;\n  position: relative;\n  display: grid;\n  clip-path: inset(-60px 0 -5px)\n}\n#loader-16:after {\n  content: \"\";\n  position: relative;\n  background: repeating-linear-gradient(90deg,#0000 0 calc(50% - 8px), #ccc 0 calc(50% + 8px), #0000 0 100%) 0 0/calc(100%/3) 100%;\n  animation: l6-1 1s infinite;\n} \n#loader-16:before {\n  content: \"\";\n  position: absolute;\n  width: 14px;\n  aspect-ratio: 1;\n  left: calc(50% - 7px);\n  bottom: 0;\n  border-radius: 50%;\n  background: lightblue;\n  animation: l6-2 1s infinite;\n}\n@keyframes l6-1 {\n  50%,100% {background-position: calc(100%/2) 0}\n}\n@keyframes l6-2 {\n  0%,50% {transform:translateY(-80px)}\n}",
+  "js": "",
+  "tags": [
+    "factory",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:58:45.18",
+  "updatedAt": "2026-01-26T09:19:19.179",
+  "reviewed": false,
+  "slug": null
+}

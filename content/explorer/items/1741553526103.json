@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553526103",
+  "title": "cut loading 1",
+  "description": "cut loading 1",
+  "shortDescription": "cut loading 1",
+  "html": "<div id='loader-1'></div>",
+  "css": "body {\n background: repeating-linear-gradient(-45deg, #0000 0 10px, #eaeaea 0 20px);\n}\n #loader-1 {\n  width: 70px;\n  height: 26px;\n  background: #d0af03;\n  border-radius: 50px;\n  --c:no-repeat radial-gradient(farthest-side,#000 92%,#0000);\n  --s:18px 18px;\n  -webkit-mask:\n    var(--c) left  4px top 50%,\n    var(--c) center,\n    var(--c) right 4px top 50%,\n    linear-gradient(#000 0 0);\n  -webkit-mask-composite:xor;\n          mask-composite:exclude;\n  animation: l1 1.5s infinite;\n}\n@keyframes l1 {\n  0%    {-webkit-mask-size:0    0  ,0    0  ,0    0  ,auto}\n  16.67%{-webkit-mask-size:var(--s),0    0  ,0    0  ,auto}\n  33.33%{-webkit-mask-size:var(--s),var(--s),0    0  ,auto}\n  50%   {-webkit-mask-size:var(--s),var(--s),var(--s),auto}\n  66.67%{-webkit-mask-size:0    0  ,var(--s),var(--s),auto}\n  83.33%{-webkit-mask-size:0    0  ,0    0  ,var(--s),auto}\n  100%  {-webkit-mask-size:0    0  ,0    0  ,0    0  ,auto}\n}",
+  "js": "",
+  "tags": [
+    "cut",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Unique Mechanics",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:52:06.103",
+  "updatedAt": "2026-01-26T08:57:56.287",
+  "reviewed": false,
+  "slug": null
+}

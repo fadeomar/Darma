@@ -1,0 +1,6 @@
+# Deterministic, LF-normalized Explorer export artifacts and tooling.
+# See docs/migrations/explorer-db-export-report.md. Scoped to the export paths
+# so the rest of the repository keeps its existing behavior.
+content/explorer/**/*.json text eol=lf
+scripts/content/** text eol=lf
+docs/migrations/explorer-db-export-report.md text eol=lf

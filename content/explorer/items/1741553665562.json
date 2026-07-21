@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553665562",
+  "title": "blob loading 8",
+  "description": "blob loading 8",
+  "shortDescription": "blob loading 8",
+  "html": "<div id='loader-38'></div>",
+  "css": "#loader-38 {\n  width: 80px;\n  aspect-ratio: 1;\n  padding: 10px;\n  box-sizing: border-box;\n  background: #fff;\n  display: grid;\n  filter: blur(5px) contrast(15) hue-rotate(250deg);\n  mix-blend-mode: darken;\n}\n#loader-38:before,\n#loader-38:after {\n  content: \"\";\n  margin: 5px;\n  border-radius: 50%;\n  background: #ff00ff;\n  grid-area: 1/1;\n  -webkit-mask-size:100% 20px,100% 100%;\n  -webkit-mask-repeat:no-repeat;\n  -webkit-mask-composite:destination-out;\n  mask-composite:exclude;\n}\n#loader-38:before {\n  -webkit-mask-image:\n    linear-gradient(#000 0 0),\n    linear-gradient(#000 0 0);\n  animation: l8-1 2s infinite;\n}\n#loader-38:after {\n  -webkit-mask-image:\n    linear-gradient(#000 0 0);\n  animation:\n    l8-1 2s  infinite,\n    l8-2 .5s infinite cubic-bezier(0.5,200,0.5,-200);\n}\n@keyframes l8-1{\n  0%   {-webkit-mask-position:0 20% ,0 0}\n  20%  {-webkit-mask-position:0 80% ,0 0}\n  40%  {-webkit-mask-position:0 100%,0 0}\n  60%  {-webkit-mask-position:0 0%  ,0 0}\n  80%  {-webkit-mask-position:0 35% ,0 0}\n  100% {-webkit-mask-position:0 0   ,0 0}\n}\n@keyframes l8-2{\n  100% {transform:translate(0.1px)} \n}",
+  "js": "",
+  "tags": [
+    "blob",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Unique Mechanics",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:54:25.562",
+  "updatedAt": "2026-01-26T08:58:58.203",
+  "reviewed": false,
+  "slug": null
+}

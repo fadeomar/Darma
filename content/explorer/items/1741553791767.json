@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553791767",
+  "title": "maze loading 6",
+  "description": "maze loading 6",
+  "shortDescription": "maze loading 6",
+  "html": "<div id='loader-6'></div>",
+  "css": "body {\n background: #000;\n}\n #loader-6 {\n  width: 70px;\n  aspect-ratio: 2;\n  background:\n    radial-gradient(farthest-side,#000 90%,#0000) 0 0/8px 8px,\n    linear-gradient(#fff 0 0) 100% 0/30px 10px,\n    linear-gradient(#fff 0 0) 0 100%/30px 10px,\n    repeating-linear-gradient(90deg,#fff 0 10px,#0000 0 30px);\n  background-repeat: no-repeat;\n  animation: l6 2s infinite;\n}\n@keyframes l6 {\n  0%    {background-position:left 1px bottom 1px,100% 0,0 100%,0 0}\n  12.5% {background-position:left 50% bottom 1px,100% 0,0 100%,0 0}\n  25%   {background-position:left 50% top 1px,100% 0,0 100%,0 0}\n  37.5% {background-position:right 1px top 1px,100% 0,0 100%,0 0}\n  50%   {background-position:right 1px bottom 1px,0 0,100% 100%,0 0}\n  62.5% {background-position:right 50% bottom 1px,0 0,100% 100%,0 0}\n  75%   {background-position:right 50% top 1px,0 0,100% 100%,0 0}\n  87.5% {background-position:left 1px top 1px,0 0,100% 100%,0 0}\n  100%  {background-position:left 1px bottom 1px,100% 0,0 100%,0 0}\n}",
+  "js": "",
+  "tags": [
+    "maze",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:56:31.766",
+  "updatedAt": "2026-01-26T09:19:08.601",
+  "reviewed": false,
+  "slug": null
+}

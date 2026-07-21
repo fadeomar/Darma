@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551403294",
+  "title": "flipping loading 1",
+  "description": "flipping loading 1",
+  "shortDescription": "flipping loading 1",
+  "html": "<div id='loader-1'></div>",
+  "css": "#loader-1 {\n  width: 40px;\n  aspect-ratio: 1;\n  background: #000;\n  animation: l1 1s infinite;\n}\n@keyframes l1 {\n  0%   {transform: perspective(150px) rotateX(0deg)}\n  100% {transform: perspective(150px) rotateX(180deg)}\n}",
+  "js": "",
+  "tags": [
+    "flipping",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:16:43.294",
+  "updatedAt": "2026-01-26T08:53:52.23",
+  "reviewed": false,
+  "slug": null
+}

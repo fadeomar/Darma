@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741185121376",
+  "title": "🌌 Pulsing Cosmic Shape with JavaScript Canvas ✨",
+  "description": "<p>I’ve crafted a <strong>Pulsing Cosmic Shape</strong> using HTML, CSS, and JavaScript! This project generates a hypnotic, ever-shifting form made of layered, semi-circular lines that pulse and twist over time. Rendered on a black canvas with a glowing purple hue, it’s a mesmerizing blend of math and art! 🎨</p><ul class=\"list-disc pl-6\"><li><p><strong>What’s it about?</strong> A dynamic shape evolves through sine-based oscillations and perspective scaling, creating a 3D-like effect.</p></li><li><p><strong>The result?</strong> A glowing, fluid form that feels alive and otherworldly.</p></li><li><p><strong>Main key of the code:</strong> The <code>generatePoints</code> and <code>calculateZOffset</code> functions use trigonometry <code>Math.sin</code>, <code>Math.cos</code>) to define the shape, while <code>renderShape</code> scales and draws it.</p></li><li><p><strong>How can users benefit?</strong> Use it as a striking visual centerpiece, tweak colors or scale for customization, or explore parametric animation techniques!</p></li></ul>",
+  "shortDescription": "💫 A pulsing, cosmic shape glows and shifts, built with JS Canvas. Perfect for artistic visuals!",
+  "html": "    <canvas></canvas>\r\n",
+  "css": "body {\r\n  background: black; /* Dark background for contrast */\r\n  display: grid; /* Center the canvas */\r\n  place-items: center;\r\n  height: 100vh; /* Full viewport height */\r\n}",
+  "js": "// Get canvas and context\r\nconst canvas = document.querySelector(\"canvas\");\r\nconst ctx = canvas.getContext(\"2d\");\r\n\r\n// Set fixed canvas size\r\ncanvas.width = 400;\r\ncanvas.height = 400;\r\n\r\n// Main animation function\r\nfunction animateShape() {\r\n  const currentTime = new Date().getTime() / 10; // Time for animation in milliseconds\r\n  const heightScale = 0.9 + Math.sin(currentTime / 100) * 0.3; // Pulsing height factor\r\n\r\n  // Clear canvas with solid black\r\n  ctx.globalCompositeOperation = \"source-over\";\r\n  ctx.fillStyle = \"rgb(0, 0, 0)\";\r\n  ctx.fillRect(0, 0, canvas.width, canvas.height);\r\n\r\n  // Set glowing style for shape\r\n  ctx.globalCompositeOperation = \"lighter\"; // Blend mode for glow effect\r\n  ctx.strokeStyle = \"hsla(244, 60%, 60%, 0.3)\"; // Semi-transparent purple\r\n  ctx.fillStyle = \"hsla(244, 60%, 60%, 0.3)\";\r\n\r\n  // Generate and render the shape\r\n  const shapePoints = generatePoints(currentTime, heightScale);\r\n  renderShape(shapePoints, heightScale);\r\n\r\n  // Continue animation\r\n  requestAnimationFrame(animateShape);\r\n}\r\n\r\n// Generate points for the shape\r\nfunction generatePoints(currentTime, heightScale) {\r\n  const pointsArray = [];\r\n\r\n  // Top semi-circle of the shape\r\n  for (let i = 0; i < 180; i++) {\r\n    const ratio = (i + 1) / 180; // Progress from 0 to 1\r\n    const horizontalScale = Math.cos((ratio * Math.PI) / 2); // X scaling\r\n    const verticalScale = Math.sin((ratio * Math.PI) / 2); // Y scaling\r\n    const inverseRatio = 1 - ratio;\r\n\r\n    const segmentPoints = calculatePoints(\r\n      100 * horizontalScale,\r\n      inverseRatio,\r\n      horizontalScale,\r\n      verticalScale,\r\n      heightScale,\r\n      currentTime\r\n    );\r\n    pointsArray.push(segmentPoints);\r\n  }\r\n\r\n  // Bottom arc of the shape\r\n  for (let i = 0; i < 100; i++) {\r\n    const ratio = (i + 1) / 100; // Progress from 0 to 1\r\n    const segmentPoints = calculatePoints(\r\n      100 * ratio,\r\n      ratio,\r\n      ratio,\r\n      0,\r\n      heightScale,\r\n      currentTime\r\n    );\r\n    pointsArray.push(segmentPoints);\r\n  }\r\n\r\n  return pointsArray;\r\n}\r\n\r\n// Calculate points for a segment of the shape\r\nfunction calculatePoints(pointCount, ratio, horizontalScale, verticalScale, heightScale, currentTime) {\r\n  const points = [];\r\n  const angleStep = (Math.PI * 2) / pointCount; // Angle increment per point\r\n\r\n  for (let i = 0; i < pointCount; i++) {\r\n    const angle = i * angleStep;\r\n    let x = Math.cos(angle) * horizontalScale; // Base X position\r\n    let y = Math.sin(angle) * horizontalScale; // Base Y position\r\n    const zOffset = calculateZOffset(angle, ratio, currentTime); // Depth offset\r\n    x -= zOffset * ratio; // Adjust X with depth\r\n\r\n    // Store transformed point [x, y, z]\r\n    points.push([x, y, heightScale + zOffset * ratio + verticalScale]);\r\n  }\r\n  return points;\r\n}\r\n\r\n// Calculate Z offset for wave-like motion\r\nfunction calculateZOffset(angle, ratio, currentTime) {\r\n  return (\r\n    Math.sin(angle * 2 - currentTime / 13 + ratio * 13) / 20 + // First wave\r\n    Math.sin(angle * 5 - currentTime / 17 + ratio * 13) / 20 + // Second wave\r\n    Math.sin(angle * 7 - currentTime / 19 + ratio * 13) / 40   // Third wave\r\n  );\r\n}\r\n\r\n// Render the shape by drawing lines between points\r\nfunction renderShape(pointsArray, heightScale) {\r\n  pointsArray.forEach((points) => {\r\n    const transformedPoints = points.map(([x, y, z]) => {\r\n      const scaleFactor = Math.pow(1.5, y / 2); // Perspective scaling\r\n\r\n      return [\r\n        x * scaleFactor * 150 + 200, // X position centered on canvas\r\n        z * scaleFactor * 200 - heightScale * 200 + 150, // Y position with height adjustment\r\n      ];\r\n    });\r\n\r\n    // Draw the shape outline\r\n    ctx.beginPath();\r\n    transformedPoints.forEach(([x, y]) => {\r\n      ctx.lineTo(x, y);\r\n    });\r\n    ctx.closePath();\r\n    ctx.stroke();\r\n  });\r\n}\r\n\r\n// Start the animation\r\nanimateShape();",
+  "tags": [
+    "Canvas",
+    "CreativeCoding",
+    "WebDesign",
+    "MathArt",
+    "Animation"
+  ],
+  "mainCategory": [
+    "canvas-projects",
+    "shapes"
+  ],
+  "secondaryCategory": [
+    "animations",
+    "visualizers"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-08T11:10:13.965",
+  "updatedAt": "2026-01-26T08:45:36.442",
+  "reviewed": true,
+  "slug": null
+}

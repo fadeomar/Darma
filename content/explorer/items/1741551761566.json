@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551761566",
+  "title": "arcade loading 3",
+  "description": "arcade loading 3",
+  "shortDescription": "arcade loading 3",
+  "html": "<div id='loader-3'></div>",
+  "css": "#loader-3 {\n  width: 80px;\n  height: 70px;\n  border: 5px solid #000;\n  padding: 0 8px;\n  box-sizing: border-box;\n  background: linear-gradient(#fff 0 0) 0 0/8px 20px, linear-gradient(#fff 0 0) 100% 0/8px 20px, radial-gradient(farthest-side, #fff 90%, #0000) 0 5px/8px 8px content-box, #000;\n  background-repeat: no-repeat;\n  animation: l3 2s infinite linear;\n}\n@keyframes l3 {\n  25% {background-position: 0 0, 100% 100%, 100% calc(100% - 5px)}\n  50% {background-position: 0 100%, 100% 100%, 0 calc(100% - 5px)}\n  75% {background-position: 0 100%, 100% 0, 100% 5px}\n}",
+  "js": "",
+  "tags": [
+    "arcade",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:22:41.566",
+  "updatedAt": "2026-01-26T08:54:15.064",
+  "reviewed": false,
+  "slug": null
+}

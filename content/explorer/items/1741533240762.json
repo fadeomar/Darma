@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533240762",
+  "title": "text effect 38",
+  "description": "text effect 38",
+  "shortDescription": "text effect 38",
+  "html": "<div id='loader-c-38'></div>",
+  "css": "/* HTML: <div id=\"loader-c-38\"></div> */\n#loader-c-38 {\n  width: fit-content;\n  font-weight: bold;\n  font-family: monospace;\n  white-space: pre;\n  font-size: 30px;\n  line-height: 1.2em;\n  height: 1.2em;\n  overflow: hidden;\n}\n#loader-c-38:before {\n  content:\"Loading...\\AgodnLai...\\Aoiaglni...\\ALiongad...\\Agindola...\\Analoidg...\";\n  white-space: pre;\n  display:inline-block;\n  animation: l38 1s infinite steps(6);\n}\n\n@keyframes l38 {\n  100%{transform: translateY(-100%)}\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loading-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:14:00.762",
+  "updatedAt": "2026-01-26T08:46:56.83",
+  "reviewed": false,
+  "slug": null
+}

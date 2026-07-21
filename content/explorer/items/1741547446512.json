@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741547446512",
+  "title": "wobbling loading 16",
+  "description": "wobbling Loading 16",
+  "shortDescription": "wobbling Loading 16",
+  "html": "<div id='loader-16'></div>",
+  "css": "#loader-16 {\n    width: 80px;\n    height: 50px;\n    background: \n      radial-gradient(farthest-side,#0000 calc(100% - 15px),#ccc calc(100% - 14px) 99%,#0000) center/50px 100%, \n      linear-gradient(#ccc 0 0) bottom/100% 14px;\n    background-repeat: no-repeat;\n    position: relative;\n    animation: l16-0 2s -0.5s infinite linear;\n}\n#loader-16:before {\n    content: \"\";\n    position: absolute;\n    inset: auto auto 2px 0;\n    width: 10px;\n    height: 10px;\n    border-radius: 50%;\n    background: #f03355;\n    transform-origin:50% -14px;\n    animation: l16-1 .5s infinite linear alternate;\n}\n@keyframes l16-0 { \n    0%,49.99% {transform:scaleX(1)}\n    50%,100%  {transform:scaleX(-1)} \n}\n@keyframes l16-1 {\n  0%   {transform:translate(0) rotate(0) }\n  50%  {transform:translate(34px) rotate(0) }\n  100% {transform:translate(34px) rotate(-180deg) }\n}",
+  "js": "",
+  "tags": [
+    "wobbling",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:10:46.512",
+  "updatedAt": "2026-01-26T08:52:06.522",
+  "reviewed": false,
+  "slug": null
+}

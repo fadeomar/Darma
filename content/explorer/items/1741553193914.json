@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553193914",
+  "title": "moving loading 8",
+  "description": "moving loading 8",
+  "shortDescription": "moving loading 8",
+  "html": "<div id='loader-8'></div>",
+  "css": "body {\n background: #1b2832;\n}\n #loader-8 {\n  height: 60px;\n  aspect-ratio: 2/3;\n  --c:no-repeat linear-gradient(#fff 0 0);\n  background: var(--c), var(--c), var(--c), var(--c);\n  background-size: 50% 33.4%;\n  animation: l8 1.5s infinite linear;\n  background-color: #1b2832;\n}\n@keyframes l8 {\n  0%,\n  5%   {background-position:0 25%,100% 25%,0 75%,100% 75%}\n  33%  {background-position:0 50%,100% 0,0 100%,100% 50%}\n  66%  {background-position:0 50%,0 0,100% 100%,100% 50%}\n  95%,\n  100% {background-position:0 75%,0 25%,100% 75%,100% 25%}\n}",
+  "js": "",
+  "tags": [
+    "moving",
+    "square",
+    "box",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:46:33.914",
+  "updatedAt": "2026-01-26T08:57:08.43",
+  "reviewed": false,
+  "slug": null
+}

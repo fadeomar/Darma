@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553361383",
+  "title": "lines loading 17",
+  "description": "lines loading 17",
+  "shortDescription": "lines loading 17",
+  "html": "<div id='loader-17'></div>",
+  "css": "#loader-17 {\n  width: 50px;\n  aspect-ratio: 1;\n  display: flex;\n}\n#loader-17:before,\n#loader-17:after {\n  content: \"\";\n  flex: 1;\n  margin: 0 0 0 -2px;\n  --c:no-repeat linear-gradient(#046D8B 0 0);\n  background: \n    var(--c) 0    0, \n    var(--c) 100% 0, \n    var(--c) 100% 100%, \n    var(--c) 0    100%, \n    var(--c) 0    50%;\n  animation: l17 1s infinite alternate;\n}\n#loader-17:before {\n  transform: scale(-1);\n  margin:0 -2px 0 0;\n}\n@keyframes l17 {\n  0%,\n  5%   {background-size: 0    4px,4px 0   ,0    4px,4px 0   ,0    4px}\n  20%  {background-size: 100% 4px,4px 0   ,0    4px,4px 0   ,0    4px}\n  40%  {background-size: 100% 4px,4px 100%,0    4px,4px 0   ,0    4px}\n  60%  {background-size: 100% 4px,4px 100%,100% 4px,4px 0   ,0    4px}\n  80%  {background-size: 100% 4px,4px 100%,100% 4px,4px 50% ,0    4px}\n  95%,\n  100% {background-size: 100% 4px,4px 100%,100% 4px,4px 50% ,100% 4px}\n}",
+  "js": "",
+  "tags": [
+    "lines",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:49:21.383",
+  "updatedAt": "2026-01-26T08:57:40.852",
+  "reviewed": false,
+  "slug": null
+}

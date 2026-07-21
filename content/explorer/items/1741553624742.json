@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553624742",
+  "title": "arrow loading 6",
+  "description": "arrow loading 6",
+  "shortDescription": "arrow loading 6",
+  "html": "<div id='loader-26'></div>",
+  "css": "#loader-26 {\n  width: 50px;\n  height: 60px;\n  color: #000;\n  display: grid;\n}\n#loader-26:before,\n#loader-26:after {\n  content: \"\";\n  background:\n    linear-gradient(90deg,currentColor calc(100% - 15px),#0000 0) 0 50%/100% 10px,\n    conic-gradient(from -136deg at 15px 50%,#0000 ,currentColor 1deg 90deg,#0000 91deg) 35px 0/100% 100%;\n  background-repeat: repeat-x;\n  animation: l6 1s infinite;\n}\n#loader-26:after {\n  transform: scaleX(-1);\n}\n@keyframes l6 {\n  80%,100%{background-position: 50px 50%,85px 0}\n}",
+  "js": "",
+  "tags": [
+    "arrow",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:53:44.742",
+  "updatedAt": "2026-01-26T08:58:39.78",
+  "reviewed": false,
+  "slug": null
+}

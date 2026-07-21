@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533559742",
+  "title": "dots loading 43",
+  "description": "dots loading 43",
+  "shortDescription": "dots loading 43",
+  "html": "<div id='loader-d-43'></div>",
+  "css": "/* HTML: <div id=\"loader-d-43\"></div> */\n#loader-d-43 {\n  height: 30px;\n  aspect-ratio: 2.5;\n  --_g: no-repeat radial-gradient(farthest-side,#000 90%,#0000);\n  background:var(--_g), var(--_g), var(--_g), var(--_g);\n  background-size: 20% 50%;\n  animation: l43 1s infinite linear; \n}\n@keyframes l43 {\n  0%     {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n  16.67% {background-position: calc(0*100%/3) 0   ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n  33.33% {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 0   ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n  50%    {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 100%,calc(2*100%/3) 0   ,calc(3*100%/3) 50% }\n  66.67% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 100%,calc(3*100%/3) 0   }\n  83.33% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 100%}\n  100%   {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:19:19.742",
+  "updatedAt": "2026-01-26T08:47:53.113",
+  "reviewed": false,
+  "slug": null
+}

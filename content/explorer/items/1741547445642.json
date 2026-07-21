@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741547445642",
+  "title": "wobbling loading 12",
+  "description": "wobbling Loading 12",
+  "shortDescription": "wobbling Loading 12",
+  "html": "<div id='loader-12'></div>",
+  "css": "#loader-12 {\n  width: 100px;\n  height: 60px;\n  display: flex;\n  animation: l12-0 2s infinite linear;\n}\n#loader-12::before,\n#loader-12::after  {\n  content:\"\";\n  flex:4;\n  background: \n    radial-gradient(at 50% 20%,#0000,#000a) bottom left/20px 20px repeat-x,\n    linear-gradient(red 0 0) bottom/100% 20px no-repeat\n    #ddd;\n  -webkit-mask:\n    repeating-linear-gradient(90deg,#000 0 4px,#0000 0 20px) 8px 0,\n    radial-gradient(farthest-side,#000 90%,#0000) left bottom/20px 20px repeat-x;\n}\n#loader-12::after {\n  flex: 1;\n  transform-origin: top;\n  animation: l12-1 1s cubic-bezier(0,20,1,20) infinite;\n}\n@keyframes l12-0 { \n 0%,49.9% {transform: scaleX(1)}\n 50%,100% {transform: scaleX(-1)}\n}\n@keyframes l12-1 { \n 100% {transform: rotate(-2deg)}\n}",
+  "js": "",
+  "tags": [
+    "wobbling",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:10:45.641",
+  "updatedAt": "2026-01-26T08:51:58.92",
+  "reviewed": false,
+  "slug": null
+}

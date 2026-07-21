@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534107213",
+  "title": "Spinner loading 40",
+  "description": "Spin, spin, spin... Don't stop spinning! spin loading 40",
+  "shortDescription": "Spin, spin, spin... Don't stop spinning! spin loading 40",
+  "html": "<div id='loader-sh-40'></div>",
+  "css": "/* HTML: <div id='loader-sh-40'></div> */\n#loader-sh-40 {\n  width: 50px;\n  aspect-ratio: 1;\n  color: #398EB6;\n  position: relative;\n  animation: l40 .5s infinite alternate;\n}\n#loader-sh-40:before,\n#loader-sh-40:after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  background-size: 25px 25px;\n  background-position: 0 0,100% 0,100% 100%,0 100%;\n  background-repeat: no-repeat;\n}\n#loader-sh-40:before {\n  background-image:\n    radial-gradient(farthest-side at top    left ,currentColor 96%,#0000),\n    radial-gradient(farthest-side at top    right,currentColor 96%,#0000),\n    radial-gradient(farthest-side at bottom right,currentColor 96%,#0000),\n    radial-gradient(farthest-side at bottom left ,currentColor 96%,#0000);\n  animation: l40-1 1s infinite;\n}\n#loader-sh-40:after {\n  background-image: \n    radial-gradient(farthest-side at top    left ,#0000 94%,currentColor 96%),\n    radial-gradient(farthest-side at top    right,#0000 94%,currentColor 96%),\n    radial-gradient(farthest-side at bottom right,#0000 94%,currentColor 96%),\n    radial-gradient(farthest-side at bottom left ,#0000 94%,currentColor 96%);\n  animation: l40-2 1s infinite;\n}\n@keyframes l40-1 {\n  0%,10%,90%,100% {inset:0}\n  40%,60% {inset:-10px}\n}\n@keyframes l40-2 {\n  0%,40%  {transform: rotate(0)}\n  60%,100%{transform: rotate(90deg)}\n}",
+  "js": "",
+  "tags": [
+    "spin",
+    "spinner",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:28:27.213",
+  "updatedAt": "2026-01-26T08:50:38.808",
+  "reviewed": false,
+  "slug": null
+}

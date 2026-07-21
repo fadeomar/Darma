@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551836918",
+  "title": "hypnotic loading 4",
+  "description": "hypnotic loading 4",
+  "shortDescription": "hypnotic loading 4",
+  "html": "<div id='loader-4'></div>",
+  "css": "#loader-4 {\n  width: 50px;\n  aspect-ratio: 1;\n  color: #000;\n  border: 2px solid;\n  box-sizing: border-box;\n  --c: radial-gradient(farthest-side, #0000 calc(100% - 3px), currentColor calc(100% - 2px) 98%, #0000);\n  background: var(--c), var(--c);\n  background-size: 23px 23px;\n  background-position: 0 0, 12px 12px;\n  animation: l4 1s infinite;\n}\n@keyframes l4 {\n  100% {background-position: -23px 0px, 12px 35px}\n}",
+  "js": "",
+  "tags": [
+    "hypnotic",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:23:56.918",
+  "updatedAt": "2026-01-26T08:54:42.363",
+  "reviewed": false,
+  "slug": null
+}

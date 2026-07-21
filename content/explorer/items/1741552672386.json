@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552672386",
+  "title": "nature loading 5",
+  "description": "nature loading 5",
+  "shortDescription": "nature loading 5",
+  "html": "<div id='loader-nature-5'></div>",
+  "css": "#loader-nature-5 {\n  width: 80px;\n  height: 40px;\n  border-radius: 100px 100px 0 0;\n  position: relative;\n  overflow: hidden;\n}\n#loader-nature-5:before {\n  content: \"\";\n  position: absolute;\n  inset: 0 0 -100%;\n  background: \n    radial-gradient(farthest-side,#ffd738 80%,#0000) left 70% top    20%/15px 15px,\n    radial-gradient(farthest-side,#020308 92%,#0000) left 65% bottom 19%/12px 12px,\n    radial-gradient(farthest-side,#ecfefe 92%,#0000) left 70% bottom 20%/15px 15px,\n    linear-gradient(#9eddfe 50%,#020308 0);\n  background-repeat: no-repeat;\n  animation: l5 2s infinite;\n}\n@keyframes l5 {\n  0%,20%   {transform: rotate(0)}\n  40%,60%  {transform: rotate(.5turn)}\n  80%,100% {transform: rotate(1turn)}\n}",
+  "js": "",
+  "tags": [
+    "nature",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:37:52.386",
+  "updatedAt": "2026-01-26T08:55:56.835",
+  "reviewed": false,
+  "slug": null
+}

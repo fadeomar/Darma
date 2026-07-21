@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552844351",
+  "title": "hungry loading 6",
+  "description": "hungry loading 6",
+  "shortDescription": "hungry loading 6",
+  "html": "<div id='loader-6'></div>",
+  "css": "#loader-6 {\n  width: 35px;\n  height: 80px;\n  position: relative;\n}\n#loader-6:before {\n  content: \"\";\n  position: absolute;\n  inset: 0 0 20px;\n  padding: 1px;\n  background:\n    conic-gradient(from -90deg at calc(100% - 3px) 3px,#7e3c26 135deg,#341612 0 270deg,#0000 0),\n    conic-gradient(from   0deg at 3px calc(100% - 3px),#0000 90deg,#341612 0 225deg,#7e3c26 0),\n    #54281f;\n  background-size: 17px 17px;\n  background-clip: content-box;\n  --c:no-repeat linear-gradient(#000 0 0);\n  -webkit-mask:\n      var(--c) 0    0, \n      var(--c) 17px 0, \n      var(--c) 0    17px, \n      var(--c) 17px 17px, \n      var(--c) 0    34px, \n      var(--c) 17px 34px,\n      linear-gradient(#000 0 0);\n  -webkit-mask-composite:xor;\n          mask-composite:exclude;\n  animation: l6 3s infinite ;\n}\n#loader-6:after {\n  content: \"\";\n  position: absolute;\n  inset: 60% 0 0;\n  background: #B21B01;\n  border-top: 5px solid #c9c7c5; \n}\n@keyframes l6 {\n 0%,14%  {-webkit-mask-size: 0 0,0 0,0 0,0 0,0 0,0 0,auto}\n 15%,29% {-webkit-mask-size: 17px 17px,0 0,0 0,0 0,0 0,0 0,auto}\n 30%,44% {-webkit-mask-size: 17px 17px,17px 17px,0 0,0 0,0 0,0 0,auto}\n 45%,59% {-webkit-mask-size: 17px 17px,17px 17px,17px 17px,0 0,0 0,0 0,auto}\n 60%,74% {-webkit-mask-size: 17px 17px,17px 17px,17px 17px,17px 17px,0 0,0 0,auto}\n 75%,89% {-webkit-mask-size: 17px 17px,17px 17px,17px 17px,17px 17px,17px 17px,0 0,auto}\n 90%,\n 100%    {-webkit-mask-size: 17px 17px,17px 17px,17px 17px,17px 17px,17px 17px,17px 17px,auto}\n}",
+  "js": "",
+  "tags": [
+    "hungry",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:40:44.351",
+  "updatedAt": "2026-01-26T08:56:35.014",
+  "reviewed": false,
+  "slug": null
+}

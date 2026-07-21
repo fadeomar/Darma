@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741548510124",
+  "title": "filling text loading 6",
+  "description": "filling text loading 6",
+  "shortDescription": "filling text loading 6",
+  "html": "<div id='filling-6'></div>",
+  "css": "#filling-6 {\n  width: fit-content;\n  font-size: 40px;\n  font-family: system-ui,sans-serif;\n  font-weight: bold;\n  text-transform: uppercase;\n  color: #0000;\n  -webkit-text-stroke: 1px #000;\n  background: \n    conic-gradient(from -135deg at 100% 50%,#000 90deg,#0000 0) text no-repeat,\n    conic-gradient(from -135deg at 1lh  50%,#0000 90deg,#000 0) text no-repeat;\n  animation: l6 2s linear infinite;\n}\n#filling-6:before {\n  content: \"Loading\";\n}\n@keyframes l6 {\n  0%     {background-size: 0                200%;background-position:0 0   ,100% 0   }\n  50%    {background-size: calc(60% + .5lh) 200%;background-position:0 0   ,100% 0   }\n  50.01% {background-size: calc(60% + .5lh) 200%;background-position:0 100%,100% 100%}\n  100%   {background-size: 0                200%;background-position:0 100%,100% 100%}\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Unique Mechanics",
+    "animated-text",
+    "loading-text",
+    "typing"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:28:30.124",
+  "updatedAt": "2026-01-26T08:53:13.65",
+  "reviewed": false,
+  "slug": null
+}

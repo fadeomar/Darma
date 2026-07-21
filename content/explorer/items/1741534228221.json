@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534228221",
+  "title": "polygon loading 12",
+  "description": "polygon Loading 12",
+  "shortDescription": "polygon Loading 12",
+  "html": "<div id='loader-12'></div>",
+  "css": "/* HTML: <div id='loader-12'></div> */\n#loader-12 {\n  display: inline-grid;\n  width: 30px;\n  aspect-ratio: 1;\n  background: #574951;\n  animation: \n    l12-0 4s steps(4) infinite,\n    l12-1 6s linear infinite;\n}\n#loader-12:before,\n#loader-12:after {\n  content: \"\";\n  grid-area: 1/1;\n  background: #83988E;\n  clip-path: polygon(100% 50%,65.45% 97.55%,9.55% 79.39%,9.55% 20.61%,65.45% 2.45%);\n  transform-origin: right;\n  translate: -100% 50%;\n  scale: 1.7;\n  animation: l12-2 1s linear infinite;\n}\n#loader-12:after {\n  clip-path: polygon(90.45% 79.39%,34.55% 97.55%,0% 50%,34.55% 2.45%,90.45% 20.61%);\n  transform-origin: left;\n  translate: 100% -50%;\n}\n@keyframes l12-0 {\n  to{rotate: 1turn}\n}\n@keyframes l12-1 {\n  to{transform: rotate(1turn)}\n}\n@keyframes l12-2 {\n  0%{rotate:  36deg}\n  to{rotate: -126deg}\n}",
+  "js": "",
+  "tags": [
+    "spin",
+    "spinner",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:30:28.221",
+  "updatedAt": "2026-01-26T08:51:05.507",
+  "reviewed": false,
+  "slug": null
+}

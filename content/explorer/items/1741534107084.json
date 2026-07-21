@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534107084",
+  "title": "Spinner loading 38",
+  "description": "Spin, spin, spin... Don't stop spinning! spin loading 38",
+  "shortDescription": "Spin, spin, spin... Don't stop spinning! spin loading 38",
+  "html": "<div id='loader-sh-38'></div>",
+  "css": "/* HTML: <div id='loader-sh-38'></div> */\n#loader-sh-38 {\n  width: 60px;\n  aspect-ratio: 1.154;\n  color: #25b09b;\n  display: grid;\n  animation: l38-0 6s infinite linear;\n}\n#loader-sh-38:before,\n#loader-sh-38:after {\n  content: \"\";\n  grid-area: 1/1;\n}\n#loader-sh-38:before {\n  clip-path: polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);\n  background: conic-gradient(from -30deg,#0000 60deg,currentColor 0);\n}\n#loader-sh-38:after {\n  background: conic-gradient(from -30deg,currentColor 60deg,#0000 0);\n  animation: l38 0.5s infinite alternate;\n}\n@keyframes l38-0 {\n  0%,16.66%     {transform: rotate(0deg)}\n  16.67%,33.33% {transform: rotate(60deg)}\n  33.34%,50%    {transform: rotate(120deg)}\n  50.1%,66.66%  {transform: rotate(180deg)}\n  66.67%,83.33% {transform: rotate(240deg)}\n  83.34%,100%   {transform: rotate(300deg)}\n}\n@keyframes l38 {\n  100%  {transform: translateY(-20px)}\n}",
+  "js": "",
+  "tags": [
+    "spin",
+    "spinner",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:28:27.084",
+  "updatedAt": "2026-01-26T08:50:37.186",
+  "reviewed": false,
+  "slug": null
+}

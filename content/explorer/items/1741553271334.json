@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553271334",
+  "title": "eyes loading 8",
+  "description": "eyes loading 8",
+  "shortDescription": "eyes loading 8",
+  "html": "<div id='loader-8'></div>",
+  "css": "body {\n background: #1b2832;\n}\n #loader-8 {\n  display: inline-flex;\n  gap: 10px;\n  background-color: #1b2832;\n}\n#loader-8:before,\n#loader-8:after {\n  content: \"\";\n  height: 20px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background:\n    linear-gradient(#222 0 0) top/100% 40% no-repeat,\n    radial-gradient(farthest-side,#000 95%,#0000) 50%/8px 8px no-repeat\n    #fff;\n  animation: 2.5s infinite ;\n  animation-name: l8-1, e8-2;\n}\n@keyframes l8-1 {\n  0%,\n  40%,\n  100%{background-size:100% 40%,8px 8px}\n  50%,\n  80% {background-size:100% 0% ,8px 8px}\n}\n@keyframes l8-2 {\n  0%,\n  50% {background-position:top,50% 50%}\n  60%,\n  65%{background-position:top,70% 50%}\n  70%,\n  75%{background-position:top,30% 50%}\n  90%,\n  100%{background-position:top,50% 50%}\n}",
+  "js": "",
+  "tags": [
+    "eyes",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:47:51.334",
+  "updatedAt": "2026-01-26T08:57:18.676",
+  "reviewed": false,
+  "slug": null
+}

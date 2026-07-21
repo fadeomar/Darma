@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "1742348357643",
+  "title": "🌟 CSS Hover Effect Buttons with Animated Text! 🎨✨",
+  "description": "Hey folks! 🎉 I just created some awesome animated buttons using HTML, CSS, and JavaScript! 🚀\nWhen you hover over a button, the text moves up smoothly with a glowing effect. 🔥\n\n✅ Features:\n✔️ Customizable colors 🎨\n✔️ Cool glowing hover effect 💡\n✔️ Smooth text animation 🔠\n✔️ Beginner-friendly 👨‍💻\n\nCheck out the code and let me know what you think! 👀",
+  "shortDescription": "Hey folks! 🎉 I just created some awesome animated buttons using HTML, CSS, and JavaScript! 🚀\nWhen you hover over a button, the text moves up smoothly with a glowing effect. 🔥\n\n✅ Features:\n✔️ Customizable colors 🎨\n✔️ Cool glowing hover effect 💡\n✔️ Smooth text animation 🔠\n✔️ Beginner-friendly 👨‍💻\n\nCheck out the code and let me know what you think! 👀",
+  "html": "<!-- Three Buttons with Different Colors -->\r\n<button class=\"button\" style=\"--color: #007bff\">Hover Me</button>\r\n<button class=\"button\" style=\"--color: #ff0055\">Hover Me</button>\r\n<button class=\"button\" style=\"--color: #b731e5\">Hover Me</button>\r\n",
+  "css": "/* Reset default styles */\r\n* {\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n}\r\n\r\n/* Center buttons on the screen */\r\nbody {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\r\n    min-height: 100vh;\r\n    gap: 30px;\r\n    background: #1c2630;\r\n}\r\n\r\n/* Button styling */\r\n.button {\r\n    position: relative;\r\n    padding: 10px 30px;\r\n    font-size: 1em;\r\n    background: transparent;\r\n    border: 2px solid var(--color);\r\n    font-weight: 500;\r\n    border-radius: 40px;\r\n    cursor: pointer;\r\n    color: var(--color);\r\n    letter-spacing: 0.1em;\r\n    text-transform: uppercase;\r\n    transition: 1s;\r\n    overflow: hidden;\r\n}\r\n\r\n/* Glowing hover effect */\r\n.button:hover {\r\n    background: var(--color);\r\n    box-shadow: 0 0 25px var(--color), 0 0 100px var(--color),\r\n        0 0 150px var(--color);\r\n}\r\n\r\n/* Text animation effect */\r\n.button span {\r\n    position: relative;\r\n    display: inline-block;\r\n    transition: transform 0.5s;\r\n    text-shadow: 0 35px #fff;\r\n    transform: translateY(0px);\r\n}\r\n\r\n/* Move text up on hover */\r\n.button span.hover {\r\n    transform: translateY(-35px);\r\n}\r\n",
+  "js": "// Select all buttons\r\nconst buttons = document.querySelectorAll(\".button\");\r\n\r\n// Loop through each button\r\nbuttons.forEach((button) => {\r\n    const text = button.textContent.trim();\r\n\r\n    // Clear existing text\r\n    button.textContent = \"\";\r\n\r\n    // Split text into span elements\r\n    [...text].forEach((char) => {\r\n        const span = document.createElement(\"span\");\r\n        span.textContent = char === \" \" ? \"\\u00A0\" : char; // Handle spaces\r\n        button.appendChild(span);\r\n    });\r\n\r\n    const spans = button.querySelectorAll(\"span\");\r\n\r\n    // Hover effect for text animation\r\n    button.addEventListener(\"mouseenter\", () => {\r\n        spans.forEach((span, index) => {\r\n            setTimeout(() => span.classList.add(\"hover\"), index * 50);\r\n        });\r\n    });\r\n\r\n    button.addEventListener(\"mouseleave\", () => {\r\n        spans.forEach((span, index) => {\r\n            setTimeout(() => span.classList.remove(\"hover\"), index * 50);\r\n        });\r\n    });\r\n});\r\n",
+  "tags": [
+    "button",
+    "hover"
+  ],
+  "mainCategory": [
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "buttons"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-19T01:39:17.643",
+  "updatedAt": "2026-01-26T09:25:12.242",
+  "reviewed": false,
+  "slug": null
+}

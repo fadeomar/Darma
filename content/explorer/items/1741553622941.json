@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553622941",
+  "title": "arrow loading 1",
+  "description": "arrow loading 1",
+  "shortDescription": "arrow loading 1",
+  "html": "<div id='loader-21'></div>",
+  "css": "#loader-21 {\n  width: 100px;\n  height: 30px;\n  display: flex;\n}\n#loader-21:before {\n  content: \"\";\n  background: #000;\n  width: 15px;\n  clip-path: polygon(0 10px,calc(100% - 15px) 10px,calc(100% - 15px) 0,100% 50%,calc(100% - 15px) 100%,calc(100% - 15px) calc(100% - 10px),0 calc(100% - 10px));\n  animation: l1 1.5s infinite linear;\n}\n@keyframes l1 {\n  90%,100%{flex-grow: 1}\n}",
+  "js": "",
+  "tags": [
+    "arrow",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:53:42.941",
+  "updatedAt": "2026-01-26T08:58:35.433",
+  "reviewed": false,
+  "slug": null
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741548512224",
+  "title": "filling text loading 16",
+  "description": "filling text loading 16",
+  "shortDescription": "filling text loading 16",
+  "html": "<div id='loader-16'></div>",
+  "css": "#loader-16 {\n  width: fit-content;\n  font-size: 40px;\n  font-family: monospace;\n  font-weight: bold;\n  text-transform: uppercase;\n  color: #0000;\n  -webkit-text-stroke: 1px #000;\n  --g:conic-gradient(#000 0 0) no-repeat text;\n  background:var(--g) 0,var(--g) 1ch,var(--g) 2ch,var(--g) 3ch,var(--g) 4ch,var(--g) 5ch,var(--g) 6ch;\n  background-position-y: 100%,0;\n  animation: l16 2s linear infinite alternate;\n}\n#loader-16:before {\n  content: 'Loading';\n}\n@keyframes l16 {\n  0%{background-size: 1ch 0,1ch 0,1ch 0,1ch 0,1ch 0,1ch 0,1ch 0}\n  14.28%{background-size: 1ch 100%,1ch 0,1ch 0,1ch 0,1ch 0,1ch 0,1ch 0}\n  28.57%{background-size: 1ch 100%,1ch 100%,1ch 0,1ch 0,1ch 0,1ch 0,1ch 0}\n  42.85%{background-size: 1ch 100%,1ch 100%,1ch 100%,1ch 0,1ch 0,1ch 0,1ch 0}\n  57.14%{background-size: 1ch 100%,1ch 100%,1ch 100%,1ch 100%,1ch 0,1ch 0,1ch 0}\n  71.43%{background-size: 1ch 100%,1ch 100%,1ch 100%,1ch 100%,1ch 100%,1ch 0,1ch 0}\n  85.71%{background-size: 1ch 100%,1ch 100%,1ch 100%,1ch 100%,1ch 100%,1ch 100%,1ch 0}\n  100%{background-size: 1ch 100%,1ch 100%,1ch 100%,1ch 100%,1ch 100%,1ch 100%,1ch 100%}\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Unique Mechanics",
+    "animated-text",
+    "loading-text",
+    "typing"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:28:32.224",
+  "updatedAt": "2026-01-26T08:53:24.367",
+  "reviewed": false,
+  "slug": null
+}

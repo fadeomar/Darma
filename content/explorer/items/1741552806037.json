@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552806037",
+  "title": "time loading 3",
+  "description": "time loading 3",
+  "shortDescription": "time loading 3",
+  "html": "<div id='loader-time-3'></div>",
+  "css": "#loader-time-3 {\n  display: inline-flex;\n  border: 2px solid #000;\n  --c:no-repeat linear-gradient(#000 0 0) 50%;\n  background:\n    var(--c) calc(50% - 5px)/5px 5px,\n    var(--c) calc(50% + 5px)/5px 5px;\n}\n#loader-time-3::before,\n#loader-time-3::after {\n  content: \"12 00 23 40 31 45 60 17 45 32 29 42 50 08 14 07 46 11 03 55\";\n  font-size: 30px;\n  font-family: monospace;\n  font-weight: bold;\n  line-height: 1em;\n  height: 1em;\n  width: 2ch;\n  color: #0000;\n  text-shadow: 0 0 0 #000;\n  overflow: hidden;\n  margin: 5px 10px;\n  animation: l3 1s steps(20) infinite;\n}\n#loader-time-3::before {\n  animation-duration: 1.5s;\n}\n@keyframes l3 {\n  100% {text-shadow: 0 -20em 0 #000}\n}",
+  "js": "",
+  "tags": [
+    "time",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:40:06.036",
+  "updatedAt": "2026-01-26T08:56:18.238",
+  "reviewed": false,
+  "slug": null
+}

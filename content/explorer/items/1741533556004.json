@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533556004",
+  "title": "dots loading 16",
+  "description": "dots loading 16",
+  "shortDescription": "dots loading 16",
+  "html": "<div id='loader-d-16'></div>",
+  "css": "/* HTML: <div id=\"loader-d-16\"></div> */\n#loader-d-16 {\n  width: 40px;\n  aspect-ratio: 1.154;\n  --_g: no-repeat radial-gradient(farthest-side,#000 90%,#0000);\n  background: \n    var(--_g) 50%  0,\n    var(--_g) 0    100%,\n    var(--_g) 100% 100%;\n  background-size: 35% calc(35%*1.154);\n  animation: l16 1s infinite;\n}\n@keyframes l16{ \n    50%,100% {background-position: 100% 100%,50% 0,0 100%} \n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:19:16.004",
+  "updatedAt": "2026-01-26T08:47:12.924",
+  "reviewed": false,
+  "slug": null
+}

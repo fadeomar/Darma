@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534106326",
+  "title": "Spinner loading 35",
+  "description": "Spin, spin, spin... Don't stop spinning! spin loading 35",
+  "shortDescription": "Spin, spin, spin... Don't stop spinning! spin loading 35",
+  "html": "<div id='loader-sh-35'></div>",
+  "css": "/* HTML: <div id='loader-sh-35'></div> */\n#loader-sh-35 {\n  width: 50px;\n  aspect-ratio: 1;\n  display: grid;\n}\n#loader-sh-35:before,\n#loader-sh-35:after {\n  content: \"\";\n  grid-area: 1/1;\n  border-radius: 50%;\n  background: #f03355;\n  -webkit-mask:repeating-linear-gradient(#000 0 5px,#0000 0 10px);\n  animation: l35 1.5s infinite;\n}\n#loader-sh-35:after {\n  -webkit-mask:repeating-linear-gradient(#0000 0 5px,#000 0 10px);\n  --s:-1;\n}\n@keyframes l35 {\n  0%,\n  10% {transform: translate(0) rotate(0)}\n  35% {transform: translate(calc(var(--s,1)*50%)) rotate(0)}\n  66% {transform: translate(calc(var(--s,1)*50%)) rotate(calc(var(--s,1)*180deg))}\n  90%,\n  100% {transform: translate(0) rotate(calc(var(--s,1)*180deg))}\n}",
+  "js": "",
+  "tags": [
+    "spin",
+    "spinner",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:28:26.326",
+  "updatedAt": "2026-01-26T08:50:32.364",
+  "reviewed": false,
+  "slug": null
+}

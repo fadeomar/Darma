@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552511563",
+  "title": "colorful loading 1",
+  "description": "colorful loading 1",
+  "shortDescription": "colorful loading 1",
+  "html": "<div id='loader-1'></div>",
+  "css": "#loader-1 {\n  width: 40px;\n  aspect-ratio: 1;\n  background: linear-gradient(#00AAFF 0 0), linear-gradient(#FF00AA 0 0), #00AAFF;\n  background-repeat: no-repeat;\n  animation: l1 1.5s infinite;\n}\n@keyframes l1 {\n  0%   {background-size: 100% 0, 0 100%}\n  30%, 50%  {background-size: 100% 0, 100% 100%}\n  80%, 100% {background-size: 100% 100%, 100% 100%}\n}",
+  "js": "",
+  "tags": [
+    "colorful",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:35:11.563",
+  "updatedAt": "2026-01-26T08:55:38.232",
+  "reviewed": false,
+  "slug": null
+}

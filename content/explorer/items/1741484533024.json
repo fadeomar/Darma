@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "1741484533024",
+  "title": "Dots vs. Bars 14",
+  "description": "Dots vs. Bars 14",
+  "shortDescription": "Dots vs. Bars 14",
+  "html": "<div id='loader14'></div>",
+  "css": "/* HTML: <div id='loader14'></div> */\n#loader14 {\n  width: 40px;\n  aspect-ratio: 1;\n   --c: linear-gradient(#000 0 0);\n   --m: radial-gradient(farthest-side,#000 92%,#0000);\n  background: \n    var(--c),var(--m),\n    var(--c),var(--m), \n    var(--c),var(--m);\n  background-size: 8px 15px,8px 8px;\n  background-repeat: no-repeat;\n  animation: l14 1s infinite alternate;\n}\n@keyframes l14 {\n  0%,\n  10% {background-position: 0 0   ,0 100%,50% 0   ,50% 100%,100% 0   ,100% 100%}\n  33% {background-position: 0 100%,0 0   ,50% 0   ,50% 100%,100% 0   ,100% 100%}\n  66% {background-position: 0 100%,0 0   ,50% 100%,50% 0   ,100% 0   ,100% 100%}\n  90%,\n  100%{background-position: 0 100%,0 0   ,50% 100%,50% 0   ,100% 100%,100% 0   }\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "bars",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T01:42:13.024",
+  "updatedAt": "2026-01-26T08:45:51.71",
+  "reviewed": false,
+  "slug": null
+}

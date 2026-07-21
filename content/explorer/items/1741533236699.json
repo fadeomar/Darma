@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533236699",
+  "title": "text effect 11",
+  "description": "text effect 11",
+  "shortDescription": "text effect 11",
+  "html": "<div id='loader-c-15'></div>",
+  "css": "#loader-c-15 {\n  font-weight: bold;\n  font-family: monospace;\n  font-size: 30px;\n  display: inline-grid;\n}\n#loader-c-15:before,\n#loader-c-15:after {\n  content: \"Loading...\";\n  grid-area: 1/1;\n  -webkit-mask: linear-gradient(90deg, #000 50%, #0000 0) 0 50%/2ch 100%;\n  animation: l11 1s infinite cubic-bezier(0.5, 220, 0.5, -220);\n}\n#loader-c-15:after {\n  -webkit-mask-position: 1ch 50%;\n  --s: -1;\n}\n@keyframes l11 {\n  100% {\n    transform: translateY(calc(var(--s, 1) * 0.1%));\n  }\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loading-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:13:56.699",
+  "updatedAt": "2026-01-26T08:46:21.831",
+  "reviewed": false,
+  "slug": null
+}

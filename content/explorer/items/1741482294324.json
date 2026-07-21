@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741482294324",
+  "title": "⏳ Minimal Text Fade Loader with CSS Animation ✨",
+  "description": "<p>It's <strong>Minimal Text Fade Loader</strong> using HTML and CSS! This lightweight project features a bold \"Loading...\" text that fades in and out smoothly, perfect for adding a simple yet elegant loading indicator to any webpage. No JavaScript needed—just pure CSS magic! 🌟</p><ul class=\"list-disc pl-6\"><li><p><strong>What’s it about?</strong> A text-based loader that uses CSS keyframes to animate opacity for a fading effect.</p></li><li><p><strong>The result?</strong> A clean, looping animation that signals loading in style.</p></li><li><p><strong>Main key of the code:</strong> The @keyframes rule drives the opacity change, paired with animation properties for infinite alternation.</p></li><li><p><strong>How can users benefit?</strong> Drop it into your site as a quick loading indicator, customize the text, font, or timing to match your design, or learn basic CSS animation!</p></li></ul>",
+  "shortDescription": "💡 A fading \"Loading...\" text animation, built with pure CSS. Simple and sleek!",
+  "html": "<div class=\"text-loader\"></div>",
+  "css": "/* Style the text loader element */\r\n.text-loader {\r\n  font-weight: bold; /* Bold text for emphasis */\r\n  font-family: sans-serif; /* Clean, modern font */\r\n  font-size: 30px; /* Readable size */\r\n  animation: fadeEffect 1s linear infinite alternate; /* Fade animation */\r\n}\r\n\r\n/* Add the \"Loading...\" text via pseudo-element */\r\n.text-loader::before {\r\n  content: \"Loading...\"; /* Default text content */\r\n}\r\n\r\n/* Define the fade animation */\r\n@keyframes fadeEffect {\r\n  to { opacity: 0; } /* Fade out at the end of the cycle */\r\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "typing",
+    "animated-text",
+    "loading-text",
+    "Basic Shapes & Styles"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T01:04:54.324",
+  "updatedAt": "2026-01-26T08:45:38.304",
+  "reviewed": true,
+  "slug": null
+}

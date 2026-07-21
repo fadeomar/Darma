@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533650405",
+  "title": "bar loading 20",
+  "description": "bar loading 20",
+  "shortDescription": "bar loading 20",
+  "html": "<div id='loader-b-20'></div>",
+  "css": "/* HTML: <div id=\"loader-b-20\"></div> */\n#loader-b-20 {\n  width: 45px;\n  aspect-ratio: 1;\n  --c: conic-gradient(from -90deg,#000 90deg,#0000 0);\n  background: var(--c), var(--c);\n  background-size: 40% 40%;\n  animation: l20 1.5s infinite;\n}\n@keyframes l20 {\n 0%,\n 20%  {background-position: 0 0           ,0            calc(100%/3)}\n 33%  {background-position: 0 0           ,calc(100%/3) calc(100%/3)}\n 66%  {background-position: 0 calc(100%/3),calc(100%/3) 0  }\n 80%,\n 100% {background-position: 0 calc(100%/3),0            0  }\n}",
+  "js": "",
+  "tags": [
+    "bars",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:20:50.405",
+  "updatedAt": "2026-01-26T08:48:15.74",
+  "reviewed": false,
+  "slug": null
+}

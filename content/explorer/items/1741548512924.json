@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741548512924",
+  "title": "filling text loading 20",
+  "description": "filling text loading 20",
+  "shortDescription": "filling text loading 20",
+  "html": "<div id='loader-20'></div>",
+  "css": "#loader-20 {\n  width: fit-content;\n  font-size: 40px;\n  font-family: monospace;\n  font-weight: bold;\n  text-transform: uppercase;\n  color: #0000;\n  -webkit-text-stroke: 1px #000;\n  --g:conic-gradient(#000 0 0) no-repeat text;\n  background:var(--g) 0,var(--g) 1ch,var(--g) 2ch,var(--g) 3ch,var(--g) 4ch,var(--g) 5ch,var(--g) 6ch;\n  animation: l20-0 1.5s linear infinite alternate,\n    l20-1 3s linear infinite;\n}\n#loader-20:before {\n  content: 'Loading';\n}\n@keyframes l20-0 {\n  0%{background-size: 1ch 0,1ch 0,1ch 0,1ch 0,1ch 0,1ch 0,1ch 0}\n  25%{background-size: 1ch 100%,1ch 50%,1ch 0,1ch 0,1ch 0,1ch 50%,1ch 100%}\n  50%{background-size: 1ch 100%,1ch 100%,1ch 50%,1ch 0,1ch 50%,1ch 100%,1ch 100%}\n  75%{background-size: 1ch 100%,1ch 100%,1ch 100%,1ch 50%,1ch 100%,1ch 100%,1ch 100%}\n  to{background-size: 1ch 100%,1ch 100%,1ch 100%,1ch 100%,1ch 100%,1ch 100%,1ch 100%}\n}\n@keyframes l20-1 {\n  0%,50%{background-position-y: 100%}\n  50.01%,to{background-position-y: 0}\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Unique Mechanics",
+    "animated-text",
+    "loading-text",
+    "typing"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:28:32.924",
+  "updatedAt": "2026-01-26T08:53:26.513",
+  "reviewed": false,
+  "slug": null
+}

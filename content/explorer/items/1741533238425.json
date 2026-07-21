@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533238425",
+  "title": "text effect 24",
+  "description": "text effect 24",
+  "shortDescription": "text effect 24",
+  "html": "<div id='loader-c-24'></div>",
+  "css": "/* HTML: <div id=\"loader-c-24\"></div> */\n#loader-c-24 {\n  width: fit-content;\n  font-weight: bold;\n  font-family: monospace;\n  font-size: 30px;\n  background: radial-gradient(circle closest-side,#000 94%,#0000) right/calc(200% - 1em) 100%;\n  animation: l24 1s infinite alternate linear;\n}\n#loader-c-24::before {\n  content: \"Loading...\";\n  line-height: 1em;\n  color: #0000;\n  background: inherit;\n  background-image: radial-gradient(circle closest-side,#fff 94%,#000);\n  -webkit-background-clip:text;\n          background-clip:text;\n}\n\n@keyframes l24{\n  100%{background-position: left}\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loading-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:13:58.425",
+  "updatedAt": "2026-01-26T08:46:36.192",
+  "reviewed": false,
+  "slug": null
+}

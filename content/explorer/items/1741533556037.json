@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533556037",
+  "title": "dots loading 17",
+  "description": "dots loading 17",
+  "shortDescription": "dots loading 17",
+  "html": "<div id='loader-d-17'></div>",
+  "css": "/* HTML: <div id=\"loader-d-17\"></div> */\n#loader-d-17 {\n  width: 60px;\n  aspect-ratio: 1;\n  --_g: no-repeat radial-gradient(farthest-side,#000 90%,#0000);\n  background: var(--_g), var(--_g), var(--_g);\n  background-size: 25% 25%;\n  animation: l17 1s infinite;\n}\n@keyframes l17{ \n  0%     {background-position: 0% -100%,50% -100%,100% -100%}\n  16.67% {background-position: 0%   50%,50% -100%,100% -100%}\n  33.33% {background-position: 0%   50%,50%   50%,100% -100%}\n  45%,55%{background-position: 0%   50%,50%   50%,100%   50%}\n  66.67% {background-position: 0%  200%,50%   50%,100%   50%}\n  83.33% {background-position: 0%  200%,50%  200%,100%   50%}\n  100%   {background-position: 0%  200%,50%  200%,100%  200%}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:19:16.037",
+  "updatedAt": "2026-01-26T08:47:13.828",
+  "reviewed": false,
+  "slug": null
+}

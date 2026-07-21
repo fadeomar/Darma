@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "1741532547687",
+  "title": "Dots vs. Bars 1",
+  "description": "Dots vs. Bars 1",
+  "shortDescription": "Dots vs. Bars 1",
+  "html": "<div id='loader1'></div>",
+  "css": "/* HTML: <div id='loader1'></div> */\n#loader1 {\n  width: 40px;\n  aspect-ratio: 1;\n  --c: linear-gradient(#000 0 0);\n  --r1: radial-gradient(farthest-side at bottom,#000 93%,#0000);\n  --r2: radial-gradient(farthest-side at top   ,#000 93%,#0000);\n  background: \n    var(--c) ,var(--r1),var(--r2),\n    var(--c) ,var(--r1),var(--r2),\n    var(--c) ,var(--r1),var(--r2);\n  background-repeat: no-repeat;\n  animation: l1 1s infinite alternate;\n}\n@keyframes l1 {\n  0%,10% {\n    background-size: 8px 0,8px 4px,8px 4px;\n    background-position: 0 50%,0 calc(50% - 2px),0 calc(50% + 2px),50% 50%,50% calc(50% - 2px),50% calc(50% + 2px),100% 50%,100% calc(50% - 2px),100% calc(50% + 2px);\n }\n 90%,100% {\n    background-size: 8px 100%,8px 4px, 8px 4px;\n    background-position: 0 50%,0 -2px,0 calc(100% + 2px),50% 50%,50% -2px,50% calc(100% + 2px),100% 50%,100% -2px,100% calc(100% + 2px);\n }\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "bars",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:02:27.687",
+  "updatedAt": "2026-01-26T08:45:59.55",
+  "reviewed": false,
+  "slug": null
+}

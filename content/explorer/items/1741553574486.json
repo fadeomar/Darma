@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553574486",
+  "title": "clones loading 15",
+  "description": "clones loading 15",
+  "shortDescription": "clones loading 15",
+  "html": "<div id='loader-15'></div>",
+  "css": "#loader-15 {\n  width: 32px;\n  height: 64px;\n  background: \n    radial-gradient(farthest-side at bottom,#F10C49 90%,#0000),\n    radial-gradient(farthest-side at top   ,#F10C49 90%,#0000),\n    radial-gradient(farthest-side at bottom,#f4dd51 90%,#0000),\n    radial-gradient(farthest-side at top   ,#f4dd51 90%,#0000),\n    radial-gradient(farthest-side at bottom,#e3aad6 90%,#0000),\n    radial-gradient(farthest-side at top   ,#e3aad6 90%,#0000);\n  background-size: 100% 25%;\n  background-repeat: no-repeat;\n  animation: l15 2s infinite;\n}\n@keyframes l15{\n  0%     {background-position:0 calc(1*100%/3),0 calc(2*100%/3),0 calc(1*100%/3),0 calc(2*100%/3),0 calc(1*100%/3),0 calc(2*100%/3)}\n  16.67% {background-position:0 calc(0*100%/3),0 calc(3*100%/3),0 calc(1*100%/3),0 calc(2*100%/3),0 calc(1*100%/3),0 calc(2*100%/3)}\n  33.33% {background-position:0 calc(0*100%/3),0 calc(3*100%/3),0 calc(0*100%/3),0 calc(3*100%/3),0 calc(1*100%/3),0 calc(2*100%/3)}\n  50%    {background-position:0 calc(0*100%/3),0 calc(3*100%/3),0 calc(0*100%/3),0 calc(3*100%/3),0 calc(0*100%/3),0 calc(3*100%/3)}\n  66.67% {background-position:0 calc(1*100%/3),0 calc(2*100%/3),0 calc(0*100%/3),0 calc(3*100%/3),0 calc(0*100%/3),0 calc(3*100%/3)}\n  83.33% {background-position:0 calc(1*100%/3),0 calc(2*100%/3),0 calc(1*100%/3),0 calc(2*100%/3),0 calc(0*100%/3),0 calc(3*100%/3)}\n  100%   {background-position:0 calc(1*100%/3),0 calc(2*100%/3),0 calc(1*100%/3),0 calc(2*100%/3),0 calc(1*100%/3),0 calc(2*100%/3)}\n}",
+  "js": "",
+  "tags": [
+    "clones",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Unique Mechanics",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:52:54.486",
+  "updatedAt": "2026-01-26T08:58:26.053",
+  "reviewed": false,
+  "slug": null
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551404676",
+  "title": "flipping loading 7",
+  "description": "flipping loading 7",
+  "shortDescription": "flipping loading 7",
+  "html": "<div id='loader-7'></div>",
+  "css": "#loader-7 {\n  width: 60px;\n  aspect-ratio: 1;\n  color: #ffa516;\n  background: linear-gradient(currentColor 0 0) 100% 0, linear-gradient(currentColor 0 0) 0 100%;\n  background-size: 50.1% 50.1%;\n  background-repeat: no-repeat;\n  animation: l7-0 1s infinite steps(1);\n}\n#loader-7::before,\n#loader-7::after {\n  content: '';\n  position: absolute;\n  inset: 0 50% 50% 0;\n  background: currentColor;\n  transform: scale(var(--s, 1)) perspective(150px) rotateY(0deg);\n  transform-origin: bottom right;\n  animation: l7-1 0.5s infinite linear alternate;\n}\n#loader-7::after {\n  --s: -1, -1;\n}\n@keyframes l7-0 {\n  0%  {transform: scaleX(1) rotate(0deg)}\n  50% {transform: scaleX(-1) rotate(-90deg)}\n}\n@keyframes l7-1 {\n  49.99% {transform: scale(var(--s, 1)) perspective(150px) rotateX(-90deg); filter: grayscale(0)}\n  50%    {transform: scale(var(--s, 1)) perspective(150px) rotateX(-90deg); filter: grayscale(0.8)}\n  100%   {transform: scale(var(--s, 1)) perspective(150px) rotateX(-180deg); filter: grayscale(0.8)}\n}",
+  "js": "",
+  "tags": [
+    "flipping",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:16:44.676",
+  "updatedAt": "2026-01-26T08:53:57.512",
+  "reviewed": false,
+  "slug": null
+}

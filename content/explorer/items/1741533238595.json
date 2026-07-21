@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533238595",
+  "title": "text effect 26",
+  "description": "text effect 26",
+  "shortDescription": "text effect 26",
+  "html": "<div id='loader-c-26'></div>",
+  "css": "/* HTML: <div id=\"loader-c-26\"></div> */\n#loader-c-26 {\n  width: fit-content;\n  font-weight: bold;\n  font-family: monospace;\n  font-size: 30px;\n  animation: l26 2s infinite;\n}\n#loader-c-26::before {\n  content:\"Loading...\";\n}\n\n@keyframes l26{\n   0%,10%  {transform:perspective(200px) rotateX(0)      rotateY(0)      scale(1)}\n   30%,36% {transform:perspective(200px) rotateX(180deg) rotateY(0)      scale(1)}\n   63%,69% {transform:perspective(200px) rotateX(180deg) rotateY(180deg) scale(1)}\n   90%,100%{transform:perspective(200px) rotateX(180deg) rotateY(180deg) scale(-1)}\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loading-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:13:58.595",
+  "updatedAt": "2026-01-26T08:46:37.852",
+  "reviewed": false,
+  "slug": null
+}

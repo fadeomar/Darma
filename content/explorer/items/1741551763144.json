@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551763144",
+  "title": "arcade loading 6",
+  "description": "arcade loading 6",
+  "shortDescription": "arcade loading 6",
+  "html": "<div id='loader-6'></div>",
+  "css": "#loader-6 {\n  width: 80px;\n  height: 60px;\n  box-sizing: border-box;\n  background: linear-gradient(#fff 0 0) left /calc(50% - 15px) 8px no-repeat, linear-gradient(#fff 0 0) right/calc(50% - 15px) 8px no-repeat, conic-gradient(from 135deg at top, #0000, red 1deg 90deg, #0000 91deg) bottom/14px 8px repeat-x, #000;\n  border-bottom: 2px solid red;\n  position: relative;\n  overflow: hidden;\n  animation: l6-0 1s infinite linear;\n}\n#loader-6::before {\n  content: \"\";\n  position: absolute;\n  width: 10px;\n  height: 14px;\n  background: lightblue;\n  left: -5px;\n  animation: l6-1 2s infinite cubic-bezier(0, 100, 1, 100), l6-2 2s infinite linear;\n}\n@keyframes l6-0 {\n  50% {background-position: left, right, bottom -2px left -4px}\n}\n@keyframes l6-1 {\n  0%, 27% {bottom: calc(50% + 4px)}\n  65%, 100% {bottom: calc(50% + 4.1px)}\n}\n@keyframes l6-2 {\n  100% {left: 100%}\n}",
+  "js": "",
+  "tags": [
+    "arcade",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:22:43.144",
+  "updatedAt": "2026-01-26T08:54:18.566",
+  "reviewed": false,
+  "slug": null
+}

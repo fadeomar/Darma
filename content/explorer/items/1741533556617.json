@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533556617",
+  "title": "dots loading 19",
+  "description": "dots loading 19",
+  "shortDescription": "dots loading 19",
+  "html": "<div id='loader-d-19'></div>",
+  "css": "/* HTML: <div id=\"loader-d-19\"></div> */\n#loader-d-19 {\n  width: 15px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  clip-path: inset(-45px);\n  box-shadow: -60px 15px,-60px 15px,-60px 15px;\n  transform: translateY(-15px);\n  animation: l19 1s infinite linear;\n}\n@keyframes l19{ \n  16.67% {box-shadow:-60px 15px,-60px 15px,19px 15px}\n  33.33% {box-shadow:-60px 15px,  0px 15px,19px 15px}\n  40%,60%{box-shadow:-19px 15px,  0px 15px,19px 15px}\n  66.67% {box-shadow:-19px 15px,  0px 15px,60px 15px}\n  83.33% {box-shadow:-19px 15px, 60px 15px,60px 15px}\n  100%   {box-shadow: 60px 15px, 60px 15px,60px 15px}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:19:16.617",
+  "updatedAt": "2026-01-26T08:47:15.911",
+  "reviewed": false,
+  "slug": null
+}

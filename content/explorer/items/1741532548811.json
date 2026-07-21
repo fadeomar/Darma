@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "1741532548811",
+  "title": "Dots vs. Bars 13",
+  "description": "Dots vs. Bars 13",
+  "shortDescription": "Dots vs. Bars 13",
+  "html": "<div id='loader13'></div>",
+  "css": "/* HTML: <div id='loader13'></div> */\n#loader13 {\n  width: 40px;\n  aspect-ratio: 1;\n   --c: linear-gradient(#000 0 0);\n   --m: radial-gradient(farthest-side,#000 92%,#0000);\n  background: \n    var(--c),var(--m),\n    var(--c),var(--m), \n    var(--c),var(--m);\n  background-size: 8px 12px,8px 8px;\n  background-repeat: no-repeat;\n  animation: l13 1s infinite alternate;\n}\n@keyframes l13 {\n  0%,\n  100%  {background-position: 0 0              ,0 100%           ,50% 0              ,50% 100%           ,100% 0              ,100% 100%}\n  20%   {background-position: 0 calc(50% - 6px),0 calc(50% + 4px),50% 0              ,50% 100%           ,100% 0              ,100% 100%}\n  40%   {background-position: 0 calc(50% - 6px),0 calc(50% + 4px),50% calc(50% - 6px),50% calc(50% + 4px),100% 0              ,100% 100%}\n  60%   {background-position: 0 0              ,0 100%           ,50% calc(50% - 6px),50% calc(50% + 4px),100% calc(50% - 6px),100% calc(50% + 4px)}\n  80%   {background-position: 0 0              ,0 100%           ,50% 0              ,50% 100%           ,100% calc(50% - 6px),100% calc(50% + 4px)}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "bars",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:02:28.811",
+  "updatedAt": "2026-01-26T08:46:08.901",
+  "reviewed": false,
+  "slug": null
+}

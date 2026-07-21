@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533236427",
+  "title": "text effect 9",
+  "description": "text effect 9",
+  "shortDescription": "text effect 9",
+  "html": "<div id='loader-c-9'></div>",
+  "css": "#loader-c-9 {\n  width: fit-content;\n  font-weight: bold;\n  font-family: monospace;\n  font-size: 30px;\n  color: #0000;\n  overflow: hidden;\n  animation: l9 5s infinite cubic-bezier(0.3, 1, 0, 1);\n}\n#loader-c-9:before {\n  content: \"Loading...\";\n}\n@keyframes l9 {\n  0% {\n    text-shadow: 0 0 #000, 11ch 0 #8A9B0F, 22ch 0 #C02942, 33ch 0 #00A0B0, 44ch 0 #000;\n  }\n  25% {\n    text-shadow: -11ch 0 #000, 0ch 0 #8A9B0F, 11ch 0 #C02942, 22ch 0 #00A0B0, 33ch 0 #000;\n  }\n  50% {\n    text-shadow: -22ch 0 #000, -11ch 0 #8A9B0F, 0ch 0 #C02942, 11ch 0 #00A0B0, 22ch 0 #000;\n  }\n  75% {\n    text-shadow: -33ch 0 #000, -22ch 0 #8A9B0F, -11ch 0 #C02942, 0ch 0 #00A0B0, 11ch 0 #000;\n  }\n  100% {\n    text-shadow: -44ch 0 #000, -33ch 0 #8A9B0F, -22ch 0 #C02942, -11ch 0 #00A0B0, 0ch 0 #000;\n  }\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loading-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:13:56.427",
+  "updatedAt": "2026-01-26T08:46:20.584",
+  "reviewed": false,
+  "slug": null
+}

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741547445409",
+  "title": "wobbling loading 9",
+  "description": "wobbling Loading 9",
+  "shortDescription": "wobbling Loading 9",
+  "html": "<div id='loader-9'></div>",
+  "css": "#loader-9 {\n  width: 80px;\n  height: 20px;\n  color: #514b82;\n  background:\n    radial-gradient(farthest-side,currentColor 98%,#0000) left  /20px 20px,\n    radial-gradient(farthest-side,currentColor 98%,#0000) right /20px 20px,\n    radial-gradient(farthest-side,#000 98%,#0000) center/5px 5px,\n    linear-gradient(currentColor 0 0) center/100% 2px;\n  background-repeat: no-repeat;\n  animation: l9 1s cubic-bezier(.5,-150,.5,150) infinite;\n}\n@keyframes l9 { \n    100% { transform:rotate(1deg)} \n}",
+  "js": "",
+  "tags": [
+    "wobbling",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:10:45.409",
+  "updatedAt": "2026-01-26T08:51:36.51",
+  "reviewed": false,
+  "slug": null
+}

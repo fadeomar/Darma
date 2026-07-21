@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551487027",
+  "title": "continuous loading 3",
+  "description": "continuous loading 3",
+  "shortDescription": "continuous loading 3",
+  "html": "<div id='loader-3'></div>",
+  "css": "#loader-3 {\n  width: 120px;\n  height: 20px;\n  transform: skewX(-45deg);\n  background: linear-gradient(#f03355 0 0) left -30px top 0/30px 20px no-repeat #ccc;\n  animation: l3 1s infinite linear;\n}\n@keyframes l3 {\n  100% {background-position: right -30px top 0}\n}",
+  "js": "",
+  "tags": [
+    "continuous",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:18:07.027",
+  "updatedAt": "2026-01-26T08:54:05.034",
+  "reviewed": false,
+  "slug": null
+}

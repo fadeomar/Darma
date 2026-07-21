@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533557290",
+  "title": "dots loading 26",
+  "description": "dots loading 26",
+  "shortDescription": "dots loading 26",
+  "html": "<div id='loader-d-26'></div>",
+  "css": "/* HTML: <div id=\"loader-d-26\"></div> */\n#loader-d-26 {\n  width: 4px;\n  color: #000;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  box-shadow: \n    19px -19px 0 0px, 38px -19px 0 0px, 57px -19px 0 0px,\n    19px 0     0 5px, 38px 0     0 5px, 57px 0     0 5px,\n    19px 19px  0 0px, 38px 19px  0 0px, 57px 19px  0 0px;\n  transform: translateX(-38px);\n  animation: l26 2s infinite linear;\n}\n@keyframes l26 {\n  12.5% {box-shadow: \n    19px -19px 0 0px, 38px -19px 0 0px, 57px -19px 0 5px,\n    19px 0     0 5px, 38px 0     0 0px, 57px 0     0 5px,\n    19px 19px  0 0px, 38px 19px  0 0px, 57px 19px  0 0px}\n  25%   {box-shadow: \n    19px -19px 0 5px, 38px -19px 0 0px, 57px -19px 0 5px,\n    19px 0     0 0px, 38px 0     0 0px, 57px 0     0 0px,\n    19px 19px  0 0px, 38px 19px  0 5px, 57px 19px  0 0px}\n  50%   {box-shadow: \n    19px -19px 0 5px, 38px -19px 0 5px, 57px -19px 0 0px,\n    19px 0     0 0px, 38px 0     0 0px, 57px 0     0 0px,\n    19px 19px  0 0px, 38px 19px  0 0px, 57px 19px  0 5px}\n  62.5% {box-shadow: \n    19px -19px 0 0px, 38px -19px 0 0px, 57px -19px 0 0px,\n    19px 0     0 5px, 38px 0     0 0px, 57px 0     0 0px,\n    19px 19px  0 0px, 38px 19px  0 5px, 57px 19px  0 5px}\n  75%   {box-shadow: \n    19px -19px 0 0px, 38px -19px 0 5px, 57px -19px 0 0px,\n    19px 0     0 0px, 38px 0     0 0px, 57px 0     0 5px,\n    19px 19px  0 0px, 38px 19px  0 0px, 57px 19px  0 5px}\n  87.5% {box-shadow: \n    19px -19px 0 0px, 38px -19px 0 5px, 57px -19px 0 0px,\n    19px 0     0 0px, 38px 0     0 5px, 57px 0     0 0px,\n    19px 19px  0 5px, 38px 19px  0 0px, 57px 19px  0 0px}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:19:17.29",
+  "updatedAt": "2026-01-26T08:47:25.191",
+  "reviewed": false,
+  "slug": null
+}

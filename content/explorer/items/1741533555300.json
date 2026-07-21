@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533555300",
+  "title": "dots loading 10",
+  "description": "dots loading 10",
+  "shortDescription": "dots loading 10",
+  "html": "<div id='loader-d-10'></div>",
+  "css": "/* HTML: <div id=\"loader-d-10\"></div> */\n#loader-d-10 {\n  width: 15px;\n  aspect-ratio: 1;\n  position: relative;\n}\n#loader-d-10::before,\n#loader-d-10::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  border-radius: 50%;\n  background: #000;\n}\n#loader-d-10::before {\n  box-shadow: -26px 0;\n  animation: l10-1 1.5s infinite linear;\n}\n#loader-d-10::after {\n  transform: rotate(0deg) translateX(26px);\n  animation: l10-2 1.5s infinite linear;\n}\n@keyframes l10-1 {\n    50%{transform:translateX(26px)}\n}\n@keyframes l10-2 {\n    100%{transform:rotate(-360deg) translateX(26px)}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:19:15.299",
+  "updatedAt": "2026-01-26T08:47:06.623",
+  "reviewed": false,
+  "slug": null
+}

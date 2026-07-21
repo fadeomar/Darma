@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551763638",
+  "title": "arcade loading 8",
+  "description": "arcade loading 8",
+  "shortDescription": "arcade loading 8",
+  "html": "<div id='loader-8'></div>",
+  "css": "#loader-8 {\n  width: fit-content;\n  font-size: 17px;\n  font-family: monospace;\n  line-height: 1.4;\n  font-weight: bold;\n  --c: no-repeat linear-gradient(#000 0 0);\n  background: var(--c), var(--c), var(--c), var(--c), var(--c), var(--c), var(--c);\n  background-size: calc(1ch + 1px) 100%;\n  border-bottom: 10px solid #0000;\n  position: relative;\n  animation: l8-0 3s infinite linear;\n  clip-path: inset(-20px 0);\n}\n#loader-8::before {\n  content: \"Loading\";\n}\n#loader-8::after {\n  content: \"\";\n  position: absolute;\n  width: 10px;\n  height: 14px;\n  background: #25adda;\n  left: -10px;\n  bottom: 100%;\n  animation: l8-1 3s infinite linear;\n}\n@keyframes l8-0 {\n  0%, 12.5% {background-position: calc(0*100%/6) 0, calc(1*100%/6) 0, calc(2*100%/6) 0, calc(3*100%/6) 0, calc(4*100%/6) 0, calc(5*100%/6) 0, calc(6*100%/6) 0}\n  25% {background-position: calc(0*100%/6) 40px, calc(1*100%/6) 0, calc(2*100%/6) 0, calc(3*100%/6) 0, calc(4*100%/6) 0, calc(5*100%/6) 0, calc(6*100%/6) 0}\n  37.5% {background-position: calc(0*100%/6) 40px, calc(1*100%/6) 40px, calc(2*100%/6) 0, calc(3*100%/6) 0, calc(4*100%/6) 0, calc(5*100%/6) 0, calc(6*100%/6) 0}\n  50% {background-position: calc(0*100%/6) 40px, calc(1*100%/6) 40px, calc(2*100%/6) 40px, calc(3*100%/6) 0, calc(4*100%/6) 0, calc(5*100%/6) 0, calc(6*100%/6) 0}\n  62.5% {background-position: calc(0*100%/6) 40px, calc(1*100%/6) 40px, calc(2*100%/6) 40px, calc(3*100%/6) 40px, calc(4*100%/6) 0, calc(5*100%/6) 0, calc(6*100%/6) 0}\n  75% {background-position: calc(0*100%/6) 40px, calc(1*100%/6) 40px, calc(2*100%/6) 40px, calc(3*100%/6) 40px, calc(4*100%/6) 40px, calc(5*100%/6) 0, calc(6*100%/6) 0}\n  87.4% {background-position: calc(0*100%/6) 40px, calc(1*100%/6) 40px, calc(2*100%/6) 40px, calc(3*100%/6) 40px, calc(4*100%/6) 40px, calc(5*100%/6) 40px, calc(6*100%/6) 0}\n  100% {background-position: calc(0*100%/6) 40px, calc(1*100%/6) 40px, calc(2*100%/6) 40px, calc(3*100%/6) 40px, calc(4*100%/6) 40px, calc(5*100%/6) 40px, calc(6*100%/6) 40px}\n}\n@keyframes l8-1 {\n  100% {left: 115%}\n}",
+  "js": "",
+  "tags": [
+    "arcade",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:22:43.638",
+  "updatedAt": "2026-01-26T08:54:19.823",
+  "reviewed": false,
+  "slug": null
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553574620",
+  "title": "clones loading 16",
+  "description": "clones loading 16",
+  "shortDescription": "clones loading 16",
+  "html": "<div id='loader-16'></div>",
+  "css": "#loader-16 {\n  width: 64px;\n  aspect-ratio: 1;\n  background: \n    radial-gradient(farthest-side at bottom right,#F10C49 90%,#0000),\n    radial-gradient(farthest-side at bottom left ,#F10C49 90%,#0000),\n    radial-gradient(farthest-side at top    right,#F10C49 90%,#0000),\n    radial-gradient(farthest-side at top    left ,#F10C49 90%,#0000),\n    radial-gradient(farthest-side at bottom right,#f4dd51 90%,#0000),\n    radial-gradient(farthest-side at bottom left ,#f4dd51 90%,#0000),\n    radial-gradient(farthest-side at top    right,#f4dd51 90%,#0000),\n    radial-gradient(farthest-side at top    left ,#f4dd51 90%,#0000),\n    radial-gradient(farthest-side at bottom right,#e3aad6 90%,#0000),\n    radial-gradient(farthest-side at bottom left ,#e3aad6 90%,#0000),\n    radial-gradient(farthest-side at top    right,#e3aad6 90%,#0000),\n    radial-gradient(farthest-side at top    left ,#e3aad6 90%,#0000);\n  background-size: 25% 25%;\n  background-repeat: no-repeat;\n  animation: l16 2s infinite;\n}\n@keyframes l16{\n  0% {background-position: \n        calc(1*100%/3) calc(1*100%/3), calc(2*100%/3) calc(1*100%/3), calc(1*100%/3) calc(2*100%/3), calc(2*100%/3) calc(2*100%/3),\n        calc(1*100%/3) calc(1*100%/3), calc(2*100%/3) calc(1*100%/3), calc(1*100%/3) calc(2*100%/3), calc(2*100%/3) calc(2*100%/3),\n        calc(1*100%/3) calc(1*100%/3), calc(2*100%/3) calc(1*100%/3), calc(1*100%/3) calc(2*100%/3), calc(2*100%/3) calc(2*100%/3)}\n  16.67% {background-position: \n        calc(0*100%/3) calc(0*100%/3), calc(3*100%/3) calc(0*100%/3), calc(0*100%/3) calc(3*100%/3), calc(3*100%/3) calc(3*100%/3),\n        calc(1*100%/3) calc(1*100%/3), calc(2*100%/3) calc(1*100%/3), calc(1*100%/3) calc(2*100%/3), calc(2*100%/3) calc(2*100%/3),\n        calc(1*100%/3) calc(1*100%/3), calc(2*100%/3) calc(1*100%/3), calc(1*100%/3) calc(2*100%/3), calc(2*100%/3) calc(2*100%/3)}\n  33.33% {background-position: \n        calc(0*100%/3) calc(0*100%/3), calc(3*100%/3) calc(0*100%/3), calc(0*100%/3) calc(3*100%/3), calc(3*100%/3) calc(3*100%/3),\n        calc(0*100%/3) calc(0*100%/3), calc(3*100%/3) calc(0*100%/3), calc(0*100%/3) calc(3*100%/3), calc(3*100%/3) calc(3*100%/3),\n        calc(1*100%/3) calc(1*100%/3), calc(2*100%/3) calc(1*100%/3), calc(1*100%/3) calc(2*100%/3), calc(2*100%/3) calc(2*100%/3)}\n  50% {background-position: \n        calc(0*100%/3) calc(0*100%/3), calc(3*100%/3) calc(0*100%/3), calc(0*100%/3) calc(3*100%/3), calc(3*100%/3) calc(3*100%/3),\n        calc(0*100%/3) calc(0*100%/3), calc(3*100%/3) calc(0*100%/3), calc(0*100%/3) calc(3*100%/3), calc(3*100%/3) calc(3*100%/3),\n        calc(0*100%/3) calc(0*100%/3), calc(3*100%/3) calc(0*100%/3), calc(0*100%/3) calc(3*100%/3), calc(3*100%/3) calc(3*100%/3)}\n  66.67% {background-position: \n        calc(1*100%/3) calc(1*100%/3), calc(2*100%/3) calc(1*100%/3), calc(1*100%/3) calc(2*100%/3), calc(2*100%/3) calc(2*100%/3),\n        calc(0*100%/3) calc(0*100%/3), calc(3*100%/3) calc(0*100%/3), calc(0*100%/3) calc(3*100%/3), calc(3*100%/3) calc(3*100%/3),\n        calc(0*100%/3) calc(0*100%/3), calc(3*100%/3) calc(0*100%/3), calc(0*100%/3) calc(3*100%/3), calc(3*100%/3) calc(3*100%/3)}\n  83.33% {background-position: \n        calc(1*100%/3) calc(1*100%/3), calc(2*100%/3) calc(1*100%/3), calc(1*100%/3) calc(2*100%/3), calc(2*100%/3) calc(2*100%/3),\n        calc(1*100%/3) calc(1*100%/3), calc(2*100%/3) calc(1*100%/3), calc(1*100%/3) calc(2*100%/3), calc(2*100%/3) calc(2*100%/3),\n        calc(0*100%/3) calc(0*100%/3), calc(3*100%/3) calc(0*100%/3), calc(0*100%/3) calc(3*100%/3), calc(3*100%/3) calc(3*100%/3)}\n  100% {background-position: \n        calc(1*100%/3) calc(1*100%/3), calc(2*100%/3) calc(1*100%/3), calc(1*100%/3) calc(2*100%/3), calc(2*100%/3) calc(2*100%/3),\n        calc(1*100%/3) calc(1*100%/3), calc(2*100%/3) calc(1*100%/3), calc(1*100%/3) calc(2*100%/3), calc(2*100%/3) calc(2*100%/3),\n        calc(1*100%/3) calc(1*100%/3), calc(2*100%/3) calc(1*100%/3), calc(1*100%/3) calc(2*100%/3), calc(2*100%/3) calc(2*100%/3)}\n}",
+  "js": "",
+  "tags": [
+    "clones",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Unique Mechanics",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:52:54.62",
+  "updatedAt": "2026-01-26T08:58:27.414",
+  "reviewed": false,
+  "slug": null
+}

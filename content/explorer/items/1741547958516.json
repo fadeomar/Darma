@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741547958516",
+  "title": "infinity loading 3",
+  "description": "infinity Loading 3",
+  "shortDescription": "infinity Loading 3",
+  "html": "<div id='infinity-3'></div>",
+  "css": "#infinity-3 {\n  width: calc(80px / cos(45deg));\n  height: 14px;\n  background: repeating-linear-gradient(-45deg,#000 0 15px,#0000 0 20px) left/200% 100%;\n  animation: l3 2s infinite linear;\n}\n@keyframes l3 {\n    100% {background-position:right}\n}",
+  "js": "",
+  "tags": [
+    "infinity",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Progress & Status Indicators",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:19:18.516",
+  "updatedAt": "2026-01-26T08:52:12.495",
+  "reviewed": false,
+  "slug": null
+}

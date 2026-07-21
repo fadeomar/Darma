@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552806599",
+  "title": "time loading 6",
+  "description": "time loading 6",
+  "shortDescription": "time loading 6",
+  "html": "<div id='loader-time-6'></div>",
+  "css": "#loader-time-6 {\n  width: 60px;\n  aspect-ratio: 1;\n  color: #000;\n  border: 10px solid;\n  box-sizing: border-box;\n  border-radius: 50%;\n  animation: l6 2s infinite linear;\n  position: relative;\n}\n#loader-time-6:before {\n  content: \"\";\n  position: absolute;\n  height: 20px;\n  inset: auto calc(50% - 10px) 100%;\n  border-radius: 5px 5px 0 0;\n  background: \n    linear-gradient(currentColor 0 0) top/100% 30%,\n    linear-gradient(currentColor 0 0) top/50% 100%;\n  background-repeat: no-repeat;\n}\n#loader-time-6:after {\n  content: \"\";\n  position: absolute;\n  inset: -8px -10px auto;\n  height: 15px;\n  background: \n    radial-gradient(farthest-side,currentColor 94%,#0000) left,\n    radial-gradient(farthest-side,currentColor 94%,#0000) right;\n  background-size: 15px 15px;\n  background-repeat: no-repeat;\n}\n@keyframes l6 {\n  0%   {background: conic-gradient(#77a4bd 0     ,#0000 0)}\n  12.5%{background: conic-gradient(#77a4bd 45deg ,#0000 46deg)}\n  25%  {background: conic-gradient(#77a4bd 90deg ,#0000 91deg)}\n  37.5%{background: conic-gradient(#77a4bd 135deg,#0000 136deg)}\n  50%  {background: conic-gradient(#77a4bd 180deg,#0000 181deg)}\n  62.5%{background: conic-gradient(#77a4bd 225deg,#0000 226deg)}\n  75%  {background: conic-gradient(#77a4bd 270deg,#0000 271deg)}\n  87.5%{background: conic-gradient(#77a4bd 315deg,#0000 316deg)}\n  100% {background: conic-gradient(#77a4bd 360deg,#0000 360deg)}\n}",
+  "js": "",
+  "tags": [
+    "time",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:40:06.599",
+  "updatedAt": "2026-01-26T08:56:20.167",
+  "reviewed": false,
+  "slug": null
+}

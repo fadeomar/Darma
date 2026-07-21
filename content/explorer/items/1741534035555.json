@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534035555",
+  "title": "Spinner loading 27",
+  "description": "Spin, spin, spin... Don't stop spinning! spin loading 27",
+  "shortDescription": "Spin, spin, spin... Don't stop spinning! spin loading 27",
+  "html": "<div id='loader27'></div>",
+  "css": "/* HTML: <div id='loader27'></div> */\n#loader27 {\n  --d:22px;\n  width: 4px;\n  height: 4px;\n  border-radius: 50%;\n  color: #25b09b;\n  box-shadow: \n    calc(1*var(--d))      calc(0*var(--d))     0 0,\n    calc(0.707*var(--d))  calc(0.707*var(--d)) 0 1px,\n    calc(0*var(--d))      calc(1*var(--d))     0 2px,\n    calc(-0.707*var(--d)) calc(0.707*var(--d)) 0 3px,\n    calc(-1*var(--d))     calc(0*var(--d))     0 4px,\n    calc(-0.707*var(--d)) calc(-0.707*var(--d))0 5px,\n    calc(0*var(--d))      calc(-1*var(--d))    0 6px;\n  animation: l27 1s infinite steps(8);\n}\n@keyframes l27 {\n  100% {transform: rotate(1turn)}\n}",
+  "js": "",
+  "tags": [
+    "spin",
+    "spinner",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:27:15.555",
+  "updatedAt": "2026-01-26T08:49:16.133",
+  "reviewed": false,
+  "slug": null
+}

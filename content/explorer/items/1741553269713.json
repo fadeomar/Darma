@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553269713",
+  "title": "eyes loading 2",
+  "description": "eyes loading 2",
+  "shortDescription": "eyes loading 2",
+  "html": "<div id='loader-2'></div>",
+  "css": "body {\n background: #1b2832;\n}\n #loader-2 {\n  height: 30px;\n  aspect-ratio: 2;\n  display: grid;\n  background:\n    radial-gradient(farthest-side,#000 15%,#0000 18%)0 0/50% 100%,\n    radial-gradient(50% 100% at 50% 160%,#fff 95%,#0000) 0 0   /50% 50%,\n    radial-gradient(50% 100% at 50% -60%,#fff 95%,#0000) 0 100%/50% 50%;\n  background-repeat: repeat-x;\n  animation: l2 1.5s infinite linear;\n  background-color: #1b2832;\n}\n@keyframes l2 {\n  0%,\n  15% {background-position:0   0,0 0,0 100%}\n  20%,\n  40% {background-position:5px 0,0 0,0 100%}\n  45%,\n  55% {background-position:0   0,0 0,0 100%}\n  60%,\n  80%{background-position:-5px 0,0 0,0 100%}\n  85%,\n  100% {background-position:0   0,0 0,0 100%}\n}",
+  "js": "",
+  "tags": [
+    "eyes",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:47:49.713",
+  "updatedAt": "2026-01-26T08:57:11.714",
+  "reviewed": false,
+  "slug": null
+}

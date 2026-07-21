@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552675113",
+  "title": "nature loading 12",
+  "description": "nature loading 12",
+  "shortDescription": "nature loading 12",
+  "html": "<div id='loader-nature-12'></div>",
+  "css": "#loader-nature-12 {\n  width: calc(6*30px);\n  height: 50px;\n  display: flex;\n  color: #8d7958;\n  filter: drop-shadow(30px 25px 0 currentColor) drop-shadow(60px 0 0 currentColor) drop-shadow(120px 0 0 currentColor);\n  clip-path: inset(0 100% 0 0);\n  animation: l12 2s infinite steps(7);\n}\n#loader-nature-12:before {\n  content: \"\";\n  width: 30px;\n  height: 25px;\n  --c:no-repeat radial-gradient(farthest-side,currentColor 92%,#0000);\n  background: \n    var(--c) left /70% 70%,\n    var(--c) right/20% 20%,\n    var(--c) top    0 right 15%/20% 20%,\n    var(--c) bottom 0 right 15%/20% 20%;\n}\n@keyframes l12 {\n  100% {clip-path: inset(0 -30px 0 0)}\n}",
+  "js": "",
+  "tags": [
+    "nature",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:37:55.113",
+  "updatedAt": "2026-01-26T08:56:08.899",
+  "reviewed": false,
+  "slug": null
+}

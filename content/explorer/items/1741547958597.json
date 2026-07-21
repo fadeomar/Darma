@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741547958597",
+  "title": "infinity loading 5",
+  "description": "infinity Loading 5",
+  "shortDescription": "infinity Loading 5",
+  "html": "<div id='infinity-5'></div>",
+  "css": "#infinity-5 {\n  width: 90px;\n  height: 14px;\n  color: #000;\n  background: \n    radial-gradient(circle 10px at right 7px top 50%,#0000 92%,currentColor),\n    radial-gradient(circle 10px at right 0   top 50%,currentColor 92%,#0000);\n  background-size: calc(100%/3) 100%; \n  background-position: 50% 0%;\n  animation: l5 .5s infinite linear;\n}\n@keyframes l5 {\n    100% {background-position: 0% 0%}\n}",
+  "js": "",
+  "tags": [
+    "infinity",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Progress & Status Indicators",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:19:18.595",
+  "updatedAt": "2026-01-26T08:52:13.295",
+  "reviewed": false,
+  "slug": null
+}

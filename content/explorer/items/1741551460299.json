@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551460299",
+  "title": "continuous loading 6",
+  "description": "continuous loading 6",
+  "shortDescription": "continuous loading 6",
+  "html": "<div id='loader-6'></div>",
+  "css": "#loader-6 {\n  width: 120px;\n  height: 20px;\n  background: radial-gradient(circle 10px, #000 95%, #0000) right/calc(200% + 20px) 100%, linear-gradient(#000 0 0) center/100% 6px;\n  background-repeat: no-repeat;\n  -webkit-mask: radial-gradient(circle 4px, #0000 93%, #000) right/calc(200% + 20px) 100%;\n  animation: l6 1s infinite linear;\n}\n@keyframes l6 {\n  100% {background-position: left; -webkit-mask-position: left}\n}",
+  "js": "",
+  "tags": [
+    "continuous",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:17:40.299",
+  "updatedAt": "2026-01-26T08:54:03.822",
+  "reviewed": false,
+  "slug": null
+}

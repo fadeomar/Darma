@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741570208845",
+  "title": "Seamless Geometric Pattern Background using Pure CSS",
+  "description": "Create a beautiful seamless geometric pattern background using only CSS. This design features a repeating hexagonal tile effect with smooth gradients and precise positioning, giving it a modern and aesthetic look. Perfect for website backgrounds, UI elements, or creative web designs. The pattern is fully responsive and does not require images, making it lightweight and efficient.",
+  "shortDescription": "Create a beautiful seamless geometric pattern background using only CSS. This design features a repeating hexagonal tile effect with smooth gradients and precise positioning, giving it a modern and aesthetic look. Perfect for website backgrounds, UI elements, or creative web designs. The pattern is fully responsive and does not require images, making it lightweight and efficient.",
+  "html": "<div></div>",
+  "css": "body {\r\n  background:\r\n    43.3px 50px/86.6px 150px radial-gradient(1% 66% at 0 100%, tan 99%, transparent 0),\r\n    43.3px 100px/86.6px 150px radial-gradient(1% 66% at 100% 0, tan 99%, transparent 0),\r\n    0 25px/86.6px 150px radial-gradient(1% 66% at 100% 0, tan 99%, transparent 0),\r\n    0 125px/86.6px 150px radial-gradient(1% 66% at 0 100%, tan 99%, transparent 0),\r\n    0 100px/86.6px 150px linear-gradient(30deg, white 2.5%, tan 0 7.5%, white 0 12%, tan 0 13%, transparent 0),\r\n    0 125px/86.6px 150px linear-gradient(30deg, white 5%, tan 0 10%, white 0 12.5%, transparent 0),\r\n    43.3px 100px/86.6px 150px linear-gradient(210deg, white 5%, tan 0 10%, white 0 12.5%, transparent 0),\r\n    43.3px 125px/86.6px 150px linear-gradient(210deg, white 2.5%, tan 0 7.5%, white 0 12%, tan 0 13%, transparent 0),\r\n    43.3px 25px/86.6px 150px linear-gradient(30deg, white 2.5%, tan 0 7.5%, white 0 12%, tan 0 13%, transparent 0),\r\n    43.3px 50px/86.6px 150px linear-gradient(30deg, white 5%, tan 0 10%, white 0 12.5%, transparent 0),\r\n    0 25px/86.6px 150px linear-gradient(210deg, white 5%, tan 0 10%, white 0 12.5%, transparent 0),\r\n    0 50px/86.6px 150px linear-gradient(210deg, white 2.5%, tan 0 7.5%, white 0 12%, tan 0 13%, transparent 0),\r\n    43.3px 75px/86.6px 150px linear-gradient(150deg, transparent 37%, tan 0 38%, white 0 42.5%, tan 0 47.5%, white 0 52.5%, tan 0 57.5%, white 0 62%, tan 0 63%, transparent 0),\r\n    0 0/86.6px 150px linear-gradient(150deg, transparent 37%,tan 0 38%, white 0 42.5%, tan 0 47.5%, white 0 52.5%, tan 0 57.5%, white 0 62%, tan 0 63%, transparent 0),\r\n    0 0/86.6px 150px linear-gradient(90deg, tan 1%, white 0 10%, tan 0 20%, white 0 30%, tan 0 40%, white 0 49%, tan 0 51%, white 0 60%, tan 0 70%, white 0 80%, tan 0 90%, white 0 99%, tan 0);\r\n}",
+  "js": "",
+  "tags": [
+    "css",
+    "background",
+    "pure",
+    "pattern"
+  ],
+  "mainCategory": [
+    "backgrounds"
+  ],
+  "secondaryCategory": [
+    "interactive"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-10T01:30:08.845",
+  "updatedAt": "2026-01-26T09:20:12.089",
+  "reviewed": false,
+  "slug": null
+}

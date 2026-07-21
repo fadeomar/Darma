@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551209765",
+  "title": "bounce loading 4",
+  "description": "bounce loading 4",
+  "shortDescription": "bounce loading 4",
+  "html": "<div id='loader-24'></div>",
+  "css": "#loader-24 {\n  display: inline-grid;\n  width: 80px;\n  aspect-ratio: 2;\n  overflow: hidden;\n  border-image: 1 0/0 0 8px/0 0 8px repeating-linear-gradient(90deg,#0B486B 0 26%,#C02942 0 52%);\n}\n#loader-24:before {\n  content: '';\n  margin: 0 25%;\n  border-radius: 50%;\n  background: repeating-conic-gradient(#C02942 0 60deg,#0B486B 0 120deg);\n  transform: translate(-154%,0) rotate(0turn);\n  animation: l4 3s linear infinite;\n}\n@keyframes l4 {\n  to{transform: translate(160%,0) rotate(1turn)}\n}",
+  "js": "",
+  "tags": [
+    "rolling",
+    "ball",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:13:29.765",
+  "updatedAt": "2026-01-26T08:53:41.324",
+  "reviewed": false,
+  "slug": null
+}

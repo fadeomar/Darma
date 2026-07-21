@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553192714",
+  "title": "moving loading 4",
+  "description": "moving loading 4",
+  "shortDescription": "moving loading 4",
+  "html": "<div id='loader-4'></div>",
+  "css": "body {\n background: #1b2832;\n}\n #loader-4 {\n  height: 80px;\n  aspect-ratio: 1;\n  display: grid;\n  background-color: #1b2832;\n}\n#loader-4:before,\n#loader-4:after {\n  content: \"\";\n  --c:no-repeat linear-gradient(#fff 0 0);\n  background: var(--c), var(--c);\n  background-size: 25% 50%;\n  animation: l4 1.5s infinite linear;\n}\n#loader-4:after {\n  transform: scale(-1);\n}\n@keyframes l4 {\n  0%,\n  10%  {background-position:33.4% 100%,66.6% 100%}\n  40%  {background-position:33.4% 0,100% 100%}\n  70%  {background-position:0 100%,66.6% 0}\n  100% {background-position:33.4% 100%,66.6% 100%}\n}",
+  "js": "",
+  "tags": [
+    "moving",
+    "square",
+    "box",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:46:32.714",
+  "updatedAt": "2026-01-26T08:56:58.583",
+  "reviewed": false,
+  "slug": null
+}

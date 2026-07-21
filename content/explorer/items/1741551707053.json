@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551707053",
+  "title": "pulsing loading 8",
+  "description": "pulsing loading 8",
+  "shortDescription": "pulsing loading 8",
+  "html": "<div id='loader-8'></div>",
+  "css": "#loader-8 {\n  width: 65px;\n  height: 117px;\n  position: relative;\n}\n#loader-8::before,\n#loader-8::after {\n  content: '';\n  position: absolute;\n  inset: 0;\n  background: #ff8001;\n  box-shadow: 0 0 0 50px;\n  clip-path: polygon(100% 0, 23% 46%, 46% 44%, 15% 69%, 38% 67%, 0 100%, 76% 57%, 53% 58%, 88% 33%, 60% 37%);\n}\n#loader-8::after {\n  animation: l8 1s infinite;\n  transform: perspective(300px) translateZ(0px);\n}\n@keyframes l8 {\n  to {transform: perspective(300px) translateZ(180px); opacity: 0}\n}",
+  "js": "",
+  "tags": [
+    "pulsing",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:21:47.053",
+  "updatedAt": "2026-01-26T08:54:12.197",
+  "reviewed": false,
+  "slug": null
+}

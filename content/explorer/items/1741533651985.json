@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533651985",
+  "title": "bar loading 30",
+  "description": "bar loading 30",
+  "shortDescription": "bar loading 30",
+  "html": "<div id='loader-b-30'></div>",
+  "css": "/* HTML: <div id=\"loader-b-30\"></div> */\n#loader-b-30 {\n  width:9px;\n  height: 9px;\n  background: #000;\n  color: #000;\n  box-shadow: \n    -18px -9px,0 -9px,18px -9px,\n    -18px  0  ,       18px  0  ,\n    -18px  9px,0  9px,18px  9px,\n    -18px 18px,0 18px,18px 18px;\n  animation: l30 2s infinite;\n}\n@keyframes l30 {\n  10% {\n   box-shadow: \n     -18px -9px,0 -9px,18px -9px,\n     -18px  0  ,       18px  0  ,\n     -18px  9px 0 2px,0  9px,18px  9px 0 2px,\n     -18px 18px,0 18px,18px 18px;\n  }\n  20% {\n   box-shadow: \n     -18px -9px,0 -9px,18px -9px,\n     -18px  0  ,       18px  0  ,\n     -18px  9px,0  9px,18px  9px 0 2px,\n     -18px 18px 0 2px,0 18px,18px 18px;\n  }\n  30% {\n   box-shadow: \n     -18px -9px,0 -9px,18px -9px,\n     -18px  0   0 2px,       18px  0  ,\n     -18px  9px,0  9px 0 2px,18px  9px,\n     -18px 18px 0 2px,0 18px,18px 18px 0 2px;\n  }\n  40% {\n   box-shadow: \n     -18px -9px,0 -9px ,18px -9px,\n     -18px  0  0 2px,       18px  0 0 2px,\n     -18px  9px,0  9px,18px  9px,\n     -18px 18px,0 18px,18px 18px  0 2px;\n  }\n  50% {\n   box-shadow: \n     -18px -9px,0 -9px,18px -9px,\n     -18px  0  ,       18px  0  0 2px,\n     -18px  9px 0 2px,0  9px,18px  9px,\n     -18px 18px,0 18px,18px 18px;\n  }\n  60% {\n   box-shadow: \n     -18px -9px,0 -9px 0 2px,18px -9px,\n     -18px  0  ,       18px  0  ,\n     -18px  9px 0 2px,0  9px,18px  9px,\n     -18px 18px 0 2px,0 18px,18px 18px;\n  }\n  70% {\n   box-shadow: \n     -18px -9px,0 -9px 0 2px,18px -9px 0 2px,\n     -18px  0  ,       18px  0  ,\n     -18px  9px,0  9px,18px  9px,\n     -18px 18px 0 2px,0 18px,18px 18px;\n  }\n  80% {\n   box-shadow: \n     -18px -9px 0 2px,0 -9px,18px -9px,\n     -18px  0  ,       18px  0  ,\n     -18px  9px,0  9px,18px  9px,\n     -18px 18px,0 18px,18px 18px 0 2px;\n  }\n  90% {\n   box-shadow: \n     -18px -9px 0 2px,0 -9px,18px -9px,\n     -18px  0  ,       18px  0  ,\n     -18px  9px,0  9px 0 2px,18px  9px,\n     -18px 18px,0 18px,18px 18px 0 2px;\n  }\n}",
+  "js": "",
+  "tags": [
+    "bars",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:20:51.985",
+  "updatedAt": "2026-01-26T08:48:19.831",
+  "reviewed": false,
+  "slug": null
+}

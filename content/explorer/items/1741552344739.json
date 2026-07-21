@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552344739",
+  "title": "square VS circle loading 9",
+  "description": "square VS circle loading 9",
+  "shortDescription": "square VS circle loading 9",
+  "html": "<div id='loader-9'></div>",
+  "css": "body {\n background: #333;\n}\n /* HTML: <div id=\"loader-9\"></div> */\r\n#loader-9 {\r\n  width: 75px;\r\n  aspect-ratio: 1;\r\n  --g1:conic-gradient(from  90deg at 2px  2px ,#0000 90deg,#fff 0);\r\n  --g2:conic-gradient(from -90deg at 13px 13px,#0000 90deg,#fff 0);\r\n  background:\r\n    var(--g1),var(--g1),var(--g1),var(--g1),var(--g1),var(--g1),var(--g1),var(--g1),\r\n    var(--g2),var(--g2),var(--g2),var(--g2),var(--g2),var(--g2),var(--g2),var(--g2);\r\n  background-size: 15px 15px;\r\n  background-repeat: no-repeat;\r\n  animation: l9 1s infinite alternate linear;\r\n}\r\n@keyframes l9 {\r\n  0%,30% {background-position:0 0,50% 0,100% 0,0 50%,100% 50%,0 100%,50% 100%,100% 100%}\r\n  70%,100% {background-position:15% 15%,50% 0,85% 15%,0 50%,100% 50%,15% 85%,50% 100%,85% 85%}\r\n}",
+  "js": "",
+  "tags": [
+    "square VS circle",
+    "circle",
+    "square",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:32:24.739",
+  "updatedAt": "2026-01-26T08:55:36.564",
+  "reviewed": false,
+  "slug": null
+}

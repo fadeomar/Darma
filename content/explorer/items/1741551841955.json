@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551841955",
+  "title": "hypnotic loading 18",
+  "description": "hypnotic loading 18",
+  "shortDescription": "hypnotic loading 18",
+  "html": "<div id='loader-18'></div>",
+  "css": "#loader-18 {\n  width: 25px;\n  height: 50px;\n  display: grid;\n  color: #000;\n  background:\n    linear-gradient(currentColor 0 0) top / 100% 2px,\n    radial-gradient(farthest-side at top, #0000 calc(100% - 2px), currentColor calc(100% - 1px), #0000) top,\n    linear-gradient(currentColor 0 0) bottom / 100% 2px,\n    radial-gradient(farthest-side at bottom, #0000 calc(100% - 2px), currentColor calc(100% - 1px), #0000) bottom;\n  background-size: 100% 1px, 100% 50%;\n  background-repeat: no-repeat;\n  animation: l18 4s infinite linear;\n}\n#loader-18::before,\n#loader-18::after {\n  content: \"\";\n  grid-area: 1/1;\n  background: inherit;\n  border: inherit;\n  animation: inherit;\n}\n#loader-18::after {\n  animation-duration: 2s;\n}\n@keyframes l18 {\n  100% {transform: rotate(1turn)}\n}",
+  "js": "",
+  "tags": [
+    "hypnotic",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:24:01.955",
+  "updatedAt": "2026-01-26T08:54:53.823",
+  "reviewed": false,
+  "slug": null
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551707528",
+  "title": "pulsing loading 10",
+  "description": "pulsing loading 10",
+  "shortDescription": "pulsing loading 10",
+  "html": "<div id='loader-10'></div>",
+  "css": "#loader-10 {\n  display: inline-grid;\n  font-size: 50px;\n}\n#loader-10::before,\n#loader-10::after {\n  content: '💯';\n  grid-area: 1/1;\n}\n#loader-10::after {\n  animation: l10 1s infinite;\n}\n@keyframes l10 {\n  to {transform: scale(1.8); opacity: 0}\n}",
+  "js": "",
+  "tags": [
+    "pulsing",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:21:47.527",
+  "updatedAt": "2026-01-26T08:54:12.913",
+  "reviewed": false,
+  "slug": null
+}

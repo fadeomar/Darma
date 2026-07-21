@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553412540",
+  "title": "thin loading 1",
+  "description": "thin loading 1",
+  "shortDescription": "thin loading 1",
+  "html": "<div id='loader-1'></div>",
+  "css": "#loader-1 {\n  height: 9px;\n  width: 60px;\n  --c:no-repeat linear-gradient(#000 0 0);\n  background: var(--c), var(--c), var(--c), var(--c);\n  background-size: 26% 3px;\n  animation: l1 1s infinite;\n}\n@keyframes l1 {\n  0%,\n  70%,\n  100%   {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n  11.67% {background-position: calc(0*100%/3) 0   ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n  23.33% {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 0   ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }\n  35%    {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 100%,calc(2*100%/3) 0   ,calc(3*100%/3) 50% }\n  46.67% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 100%,calc(3*100%/3) 0   }\n  58.34% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 100%}\n}",
+  "js": "",
+  "tags": [
+    "thin",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "Unique Mechanics",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:50:12.54",
+  "updatedAt": "2026-01-26T08:57:45.353",
+  "reviewed": false,
+  "slug": null
+}

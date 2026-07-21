@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533554829",
+  "title": "dots loading 2",
+  "description": "dots loading 2",
+  "shortDescription": "dots loading 2",
+  "html": "<div id='loader-d-2'></div>",
+  "css": "/* HTML: <div id=\"loader-d-2\"></div> */\n#loader-d-2 {\n  width: 60px;\n  aspect-ratio: 4;\n  background: radial-gradient(circle closest-side,#000 90%,#0000) 0/calc(100%/3) 100% no-repeat;\n  animation: l2 1s steps(3) infinite;\n}\n@keyframes l2 {to{background-position: 150%}}",
+  "js": "",
+  "tags": [
+    "dots",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:19:14.829",
+  "updatedAt": "2026-01-26T08:47:02.42",
+  "reviewed": false,
+  "slug": null
+}

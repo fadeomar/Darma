@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534104004",
+  "title": "Spinner loading 19",
+  "description": "Spin, spin, spin... Don't stop spinning! spin loading 19",
+  "shortDescription": "Spin, spin, spin... Don't stop spinning! spin loading 19",
+  "html": "<div id='loader-sh-19'></div>",
+  "css": "/* HTML: <div id='loader-sh-19'></div> */\n#loader-sh-19 {\n  width: 40px;\n  height: 20px;\n  background: orange;\n  position: relative;\n  animation: l19-0 1.5s infinite linear;\n}\n#loader-sh-19:before,\n#loader-sh-19:after {\n   content:\"\";\n   position: absolute;\n   background: inherit; \n   bottom: 100%;\n   width: 50%;\n   height: 100%;\n   animation: inherit;\n   animation-name: l19-1;\n}\n#loader-sh-19:before {\n  left:0;\n  --s:-1,1;\n}\n#loader-sh-19:after {\n  right:0;\n}\n@keyframes l19-0 {\n   0%,30%   {transform:translateY(0)     scaleY(1)}\n   49.99%   {transform:translateY(-50%)  scaleY(1)}\n   50%      {transform:translateY(-50%)  scaleY(-1)}\n   70%,100% {transform:translateY(-100%) scaleY(-1)}\n}\n@keyframes l19-1 {\n   0%,10%,90%,100% {transform: scale(var(--s,1)) translate(0)}\n   30%,70%         {transform: scale(var(--s,1)) translate(20px)}\n   50%             {transform: scale(var(--s,1)) translate(20px,20px)}\n}",
+  "js": "",
+  "tags": [
+    "spin",
+    "spinner",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:28:24.004",
+  "updatedAt": "2026-01-26T08:49:59.183",
+  "reviewed": false,
+  "slug": null
+}

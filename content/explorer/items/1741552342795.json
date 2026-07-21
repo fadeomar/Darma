@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552342795",
+  "title": "square VS circle loading 1",
+  "description": "square VS circle loading 1",
+  "shortDescription": "square VS circle loading 1",
+  "html": "<div id='loader-1'></div>",
+  "css": "body {\n background: #333;\n}\n #loader-1 {\n  width: 35px;\n  aspect-ratio: 1;\n  border: 3px solid #fff;\n  animation: l1 2s infinite;\n  background: darkgray;\n}\n@keyframes l1 {\n  0%   {border-radius: 50% 50% 0 0}\n  25%  {border-radius: 0 50% 50% 0}\n  50%  {border-radius: 0 0 50% 50%}\n  75%  {border-radius: 50% 0 0 50%}\n  100% {border-radius: 50% 50% 0 0}\n}",
+  "js": "",
+  "tags": [
+    "square VS circle",
+    "circle",
+    "square",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:32:22.795",
+  "updatedAt": "2026-01-26T08:55:28.701",
+  "reviewed": false,
+  "slug": null
+}

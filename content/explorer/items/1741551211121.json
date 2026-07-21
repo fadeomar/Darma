@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551211121",
+  "title": "bounce loading 8",
+  "description": "bounce loading 8",
+  "shortDescription": "bounce loading 8",
+  "html": "<div id='loader-28'></div>",
+  "css": "#loader-28 {\n  display: inline-grid;\n  width: 80px;\n  aspect-ratio: 2;\n  box-sizing: content-box;\n  border-bottom: 8px solid #0000;\n  background: linear-gradient(90deg,#0B486B 50%,#C02942 0) 50% 100%/52% 8px border-box repeat-x;\n  animation: l8-0 1s linear infinite;\n}\n#loader-28:before {\n  content: '';\n  margin: 0 25%;\n  border-radius: 50%;\n  background: repeating-conic-gradient(#C02942 0 60deg,#0B486B 0 120deg);\n  animation: l8-1 1s linear infinite;\n}\n@keyframes l8-0 {\n  to{background-position: -58% 100%}\n}\n@keyframes l8-1 {\n  to{rotate: 120deg}\n}",
+  "js": "",
+  "tags": [
+    "rolling",
+    "ball",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:13:31.121",
+  "updatedAt": "2026-01-26T08:53:47.082",
+  "reviewed": false,
+  "slug": null
+}

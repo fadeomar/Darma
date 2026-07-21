@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "cm8hq7bmz0000ccs4ce9nh2v4",
+  "title": "Modern Digital Alarm Clock with Gradient Design",
+  "description": "This project is a sleek and modern digital alarm clock built using HTML, CSS, and JavaScript. It features a gradient-style clock display, a user-friendly interface for setting and clearing alarms, and a soothing alarm sound. The clock updates in real-time, and users can set an alarm by selecting a specific date and time. The alarm will trigger at the specified time, and users can clear it at any point. The design is responsive and visually appealing, with a dark theme and vibrant gradients.",
+  "shortDescription": "A stylish digital alarm clock with real-time updates, gradient design, and alarm functionality.",
+  "html": "  <section class=\"container\">\r\n        <div id=\"clock\"></div>\r\n        <input onchange=\"setAlarmTime(this.value)\" name=\"alarmTime\" type=\"datetime-local\">\r\n        <div class=\"controls\">\r\n            <button onclick=\"setAlarm()\" class=\"button set-alarm\">Set alarm</button>\r\n            <button onclick=\"clearAlarm()\" class=\"button clear-alarm\">Clear alarm</button>\r\n        </div>\r\n    </section>",
+  "css": "body,html {\r\n    margin: 0;\r\n    padding: 0;\r\n    background-color: #12181B;\r\n}\r\n* {\r\n    box-sizing: border-box;\r\n}\r\n\r\n.container {\r\n    min-height: 100vh;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n#clock {\r\n    font-family: 'Orbitron', sans-serif;\r\n    font-size: 15vw;\r\n    background-image: linear-gradient(180deg,\r\n        rgba(99,253,136,1) 0%,\r\n        rgba(51,197,142,1) 50%,\r\n        rgba(39,97,116,1) 100%);\r\n    background-clip: text;\r\n    -webkit-background-clip: text;\r\n    -moz-background-clip: text;\r\n    -webkit-text-fill-color: transparent; \r\n    -moz-text-fill-color: transparent;\r\n}\r\n\r\n.controls {\r\n    margin-top: 16px;\r\n}\r\n\r\n.button {\r\n    font-weight: bold;\r\n    border-radius: 5px;\r\n    border: none;\r\n    color: white;\r\n    padding: 4px 8px;\r\n    margin-left: 4px;\r\n    cursor: pointer;\r\n}\r\n\r\n.set-alarm {\r\n    background-color: #498AFB;\r\n}\r\n\r\n.clear-alarm {\r\n    background-color: #FF3860;\r\n}",
+  "js": "const display = document.getElementById('clock');\r\nconst audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3');\r\naudio.loop = true;\r\nlet alarmTime = null;\r\nlet alarmTimeout = null;\r\n\r\nfunction updateTime() {\r\n    const date = new Date();\r\n\r\n    const hour = formatTime(date.getHours());\r\n    const minutes = formatTime(date.getMinutes());\r\n    const seconds = formatTime(date.getSeconds());\r\n\r\n\r\n\r\n    display.innerText=`${hour} : ${minutes} : ${seconds}`\r\n}\r\n\r\nfunction formatTime(time) {\r\n    if ( time < 10 ) {\r\n        return '0' + time;\r\n    }\r\n    return time;\r\n}\r\n\r\nfunction setAlarmTime(value) {\r\n    alarmTime = value;\r\n}\r\n\r\nfunction setAlarm() {\r\n    if(alarmTime) {\r\n        const current = new Date();\r\n        const timeToAlarm = new Date(alarmTime);\r\n\r\n        if (timeToAlarm > current) {\r\n            const timeout = timeToAlarm.getTime() - current.getTime();\r\n            alarmTimeout = setTimeout(() => audio.play(), timeout);\r\n            alert('Alarm set');\r\n        }\r\n    }\r\n}\r\n\r\nfunction clearAlarm() {\r\n    audio.pause();\r\n    if (alarmTimeout) {\r\n        clearTimeout(alarmTimeout);\r\n        alert('Alarm cleared');\r\n    }\r\n}\r\n\r\nsetInterval(updateTime, 1000);",
+  "tags": [
+    "Clock",
+    "Alarm",
+    "Gradient"
+  ],
+  "mainCategory": [
+    "Apps"
+  ],
+  "secondaryCategory": [
+    "basic",
+    "generators"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-20T19:10:05.484",
+  "updatedAt": "2026-06-21T14:33:47.28",
+  "reviewed": true,
+  "slug": null
+}

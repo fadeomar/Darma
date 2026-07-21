@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741547961652",
+  "title": "infinity loading 20",
+  "description": "infinity Loading 20",
+  "shortDescription": "infinity Loading 20",
+  "html": "<div id='infinity-20'></div>",
+  "css": "#infinity-20 {\n  width: 60px;\n  display: flex;\n  align-items: flex-start;\n  aspect-ratio: 1;\n}\n#infinity-20:before,\n#infinity-20:after {\n  content: \"\";\n  flex: 1;\n  aspect-ratio: 1;\n  --g: conic-gradient(from -90deg at 10px 10px,#fff 90deg,#0000 0);\n  background: var(--g), var(--g), var(--g);\n  filter: drop-shadow(30px 30px 0 #fff);\n  animation: l20 1s infinite;\n}\n#infinity-20:after {\n  transform: scaleX(-1);\n}\n@keyframes l20 {\n   0%   {background-position:0     0, 10px 10px, 20px 20px}\n   33%  {background-position:10px  10px}\n   66%  {background-position:0    20px,10px 10px,20px 0   }\n   100% {background-position:0     0, 10px 10px, 20px 20px}\n}",
+  "js": "",
+  "tags": [
+    "infinity",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Progress & Status Indicators",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:19:21.652",
+  "updatedAt": "2026-01-26T08:52:28.112",
+  "reviewed": false,
+  "slug": null
+}

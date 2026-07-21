@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552938015",
+  "title": "shuriken loading 2",
+  "description": "shuriken loading 2",
+  "shortDescription": "shuriken loading 2",
+  "html": "<div id='loader-10'></div>",
+  "css": "#loader-10 {\n  width: 80px;\n  aspect-ratio: 1;\n  background: #8d7958;\n  clip-path: polygon(100.00% 50.00%,68.48% 57.65%,85.36% 85.36%,57.65% 68.48%,50.00% 100.00%,42.35% 68.48%,14.64% 85.36%,31.52% 57.65%,0.00% 50.00%,31.52% 42.35%,14.64% 14.64%,42.35% 31.52%,50.00% 0.00%,57.65% 31.52%,85.36% 14.64%,68.48% 42.35%);\n  -webkit-mask: radial-gradient(circle 5px,#0000 90%,#000);\n  animation: l2 1.5s infinite linear;\n}\n@keyframes l2{ \n  100%{transform: rotate(1turn)}\n}",
+  "js": "",
+  "tags": [
+    "shuriken",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:42:18.015",
+  "updatedAt": "2026-01-26T08:56:38.81",
+  "reviewed": false,
+  "slug": null
+}

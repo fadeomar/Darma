@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553670115",
+  "title": "blob loading 20",
+  "description": "blob loading 20",
+  "shortDescription": "blob loading 20",
+  "html": "<div id='loader-50'></div>",
+  "css": "#loader-50 {\n  height: 80px;\n  width: 50px;\n  border: 10px solid #000;\n  box-sizing: border-box;\n  background: \n    conic-gradient(from 160deg at top,#fff 40deg,#0000 0) top,\n    conic-gradient(from -20deg at bottom,#fff 40deg,#0000 0) bottom,\n    radial-gradient(farthest-side,#fff 98%,#0000) bottom/100% 50%,\n    #000;\n  background-size:100% 50%;\n  background-repeat: no-repeat;\n  filter: blur(4px) contrast(10); \n  animation: l20 1s infinite alternate;\n}\n@keyframes l20 {\n  0%,30%   {background-position:top,bottom,bottom}\n  70%,100% {background-position:top,bottom,top}\n}",
+  "js": "",
+  "tags": [
+    "blob",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Unique Mechanics",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:54:30.115",
+  "updatedAt": "2026-01-26T09:19:03.929",
+  "reviewed": false,
+  "slug": null
+}

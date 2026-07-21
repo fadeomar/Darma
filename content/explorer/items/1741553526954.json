@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553526954",
+  "title": "cut loading 6",
+  "description": "cut loading 6",
+  "shortDescription": "cut loading 6",
+  "html": "<div id='loader-6'></div>",
+  "css": "body {\n background: repeating-linear-gradient(-45deg, #0000 0 10px, #eaeaea 0 20px);\n}\n #loader-6 {\n  width: 74px;\n  height: calc(27px*0.866 + 6px);\n  display: grid;\n}\n#loader-6:before,\n#loader-6:after {\n  content: \"\";\n  grid-area: 1/1;\n  background:#FD135A;\n  --c1:conic-gradient(from 150deg at top   ,#000 60deg,#0000 0);\n  --c2:conic-gradient(from -30deg at bottom,#000 60deg,#0000 0);\n  --s:27px calc(27px*0.866);\n  clip-path: polygon(17px 0,calc(100% - 17px) 0,100% 100%,0 100%);\n  -webkit-mask:\n    var(--c1) left  6px top 4px,\n    var(--c2) center,\n    var(--c1) right 6px top 4px,\n    linear-gradient(#000 0 0);\n  -webkit-mask-composite:xor;\n  mask-composite:exclude;\n  -webkit-mask-repeat:no-repeat;\n  animation: l6 2s infinite both;\n}\n#loader-6:after {\n  transform: rotate(180deg);\n  transform-origin: 50% 99%;\n  animation-delay: 0.5s;\n}\n@keyframes l6 {\n  0%    {-webkit-mask-size:0    0  ,0    0  ,0    0  ,auto}\n  8.33% {-webkit-mask-size:var(--s),0    0  ,0    0  ,auto}\n  16.67%{-webkit-mask-size:var(--s),var(--s),0    0  ,auto}\n  25%,\n  50%   {-webkit-mask-size:var(--s),var(--s),var(--s),auto}\n  58.33%{-webkit-mask-size:0    0  ,var(--s),var(--s),auto}\n  66.67%{-webkit-mask-size:0    0  ,0    0  ,var(--s),auto}\n  75%,\n  100%  {-webkit-mask-size:0    0  ,0    0  ,0    0  ,auto}\n}",
+  "js": "",
+  "tags": [
+    "cut",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Unique Mechanics",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:52:06.954",
+  "updatedAt": "2026-01-26T08:58:02.647",
+  "reviewed": false,
+  "slug": null
+}

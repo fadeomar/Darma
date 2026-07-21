@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741548046464",
+  "title": "Zig-Zag loading 7",
+  "description": "Zig-Zag Loading 7",
+  "shortDescription": "Zig-Zag Loading 7",
+  "html": "<div id='zig-zag-7'></div>",
+  "css": "#zig-zag-7 {\n  display: inline-grid;\n}\n#zig-zag-7:before,\n#zig-zag-7:after {\n  content: \"\";\n  height: 27px;\n  aspect-ratio: 5;\n  --c: #000 90deg,#0000 0;\n  background:\n   conic-gradient(from 135deg at top   ,var(--c)),\n   conic-gradient(from -45deg at bottom,var(--c)) 12.5% 100%;\n  background-size: 20% 50%;\n  background-repeat: repeat-x;\n  clip-path: inset(0 60% 0 0);\n  animation: l7 .8s infinite linear alternate;\n}\n#zig-zag-7:after {\n  animation-direction: alternate-reverse;\n}\n@keyframes l7{\n  to {clip-path: inset(0 0 0 60%)}\n}",
+  "js": "",
+  "tags": [
+    "Zig-Zag",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:20:46.464",
+  "updatedAt": "2026-01-26T08:52:34.749",
+  "reviewed": false,
+  "slug": null
+}

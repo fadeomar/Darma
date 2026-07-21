@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553528186",
+  "title": "cut loading 10",
+  "description": "cut loading 10",
+  "shortDescription": "cut loading 10",
+  "html": "<div id='loader-10'></div>",
+  "css": "body {\n background: repeating-linear-gradient(-45deg, #0000 0 10px, #eaeaea 0 20px);\n}\n #loader-10 {\n  width: 70px;\n  height: 70px;\n  background: #398EB6;\n  border-radius: 50px;\n  -webkit-mask:\n    radial-gradient(circle 31px at 50% calc(100% + 13px),#000 95%,#0000) top 4px left 50%,\n    radial-gradient(circle 31px,#000 95%,#0000) center,\n    radial-gradient(circle 31px at 50% -13px,#000 95%,#0000) bottom 4px left 50%,\n    linear-gradient(#000 0 0);\n  -webkit-mask-composite:xor;\n         mask-composite:exclude;\n  -webkit-mask-repeat:no-repeat;\n  animation: l10 1.5s infinite;\n}\n@keyframes l10 {\n  0%    {-webkit-mask-size:0    18px,0    18px,0    18px,auto}\n  16.67%{-webkit-mask-size:100% 18px,0    18px,0    18px,auto}\n  33.33%{-webkit-mask-size:100% 18px,100% 18px,0    18px,auto}\n  50%   {-webkit-mask-size:100% 18px,100% 18px,100% 18px,auto}\n  66.67%{-webkit-mask-size:0    18px,100% 18px,100% 18px,auto}\n  83.33%{-webkit-mask-size:0    18px,0    18px,100% 18px,auto}\n  100%  {-webkit-mask-size:0    18px,0    18px,0    18px,auto}\n}",
+  "js": "",
+  "tags": [
+    "cut",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Unique Mechanics",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:52:08.186",
+  "updatedAt": "2026-01-26T08:58:08.7",
+  "reviewed": false,
+  "slug": null
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553665830",
+  "title": "blob loading 10",
+  "description": "blob loading 10",
+  "shortDescription": "blob loading 10",
+  "html": "<div id='loader-40'></div>",
+  "css": "#loader-40 {\n  width: 100px;\n  aspect-ratio: 1;\n  padding: 10px;\n  box-sizing: border-box;\n  display: grid;\n  background: #fff;\n  filter: blur(5px) contrast(10);\n  mix-blend-mode: darken;\n}\n#loader-40:before,\n#loader-40:after{\n  content: \"\";\n  grid-area: 1/1;\n  background:\n    linear-gradient(#000 0 0) left,\n    linear-gradient(#000 0 0) right;\n  background-size: 20px 40px;\n  background-origin: content-box;\n  background-repeat: no-repeat;\n}\n#loader-40:after {\n  height: 20px;\n  width:  20px;\n  margin: auto 0;\n  border-radius: 50%;\n  background: #000;\n  animation: l10 1s infinite;\n}\n@keyframes l10{\n  90%,100% {transform: translate(300%)}\n}",
+  "js": "",
+  "tags": [
+    "blob",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Unique Mechanics",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:54:25.83",
+  "updatedAt": "2026-01-26T08:58:59.892",
+  "reviewed": false,
+  "slug": null
+}

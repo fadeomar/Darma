@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533238493",
+  "title": "text effect 25",
+  "description": "text effect 25",
+  "shortDescription": "text effect 25",
+  "html": "<div id='loader-c-25'></div>",
+  "css": "/* HTML: <div id=\"loader-c-25\"></div> */\n#loader-c-25  {\n  width: fit-content;\n  font-weight: bold;\n  font-family: monospace;\n  font-size: 30px;\n  animation: l25 1s infinite;\n}\n#loader-c-25::before {\n  content:\"Loading...\";\n}\n\n@keyframes l25{\n  0%,12.5% {transform: translate(10px,0)}\n  13%,25%  {transform: translate(4px,-4px)}\n  26%,37.5%{transform: translate(2px,8px)}\n  38%,50%  {transform: translate(12px,-6px)}\n  51%,62.5%{transform: translate(0,12px)}\n  63%,75%  {transform: translate(-8px,-4px)}\n  76%,86.5%{transform: translate(-12px,6px)}\n  87%,100% {transform: translate(6px,0)}\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loading-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:13:58.493",
+  "updatedAt": "2026-01-26T08:46:36.708",
+  "reviewed": false,
+  "slug": null
+}

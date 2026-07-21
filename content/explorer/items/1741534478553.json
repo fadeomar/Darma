@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534478553",
+  "title": "3d shape loading 4",
+  "description": "3d shape Loading 4",
+  "shortDescription": "3d shape Loading 4",
+  "html": "<div id='loader-4'></div>",
+  "css": "/* HTML: <div id='loader-4'></div> */\n#loader-4 {\n  --s: 25px;\n  --_d: calc(0.353*var(--s));\n  width: calc(var(--s) + var(--_d));\n  aspect-ratio: 1;\n  display: grid;\n}\n#loader-4:before,\n#loader-4:after {\n  content:\"\";\n  clip-path:polygon(var(--_d) 0,100% 0,100% calc(100% - var(--_d)),calc(100% - var(--_d)) 100%,0 100%,0 var(--_d));\n  background:\n    conic-gradient(from -90deg at var(--s) var(--_d),\n     #fff 135deg,#666 0 270deg,#aaa 0);\n  animation: l4 1.2s infinite;\n}\n#loader-4:before {\n  z-index: 1;\n  margin-bottom: calc(var(--_d)/-2 - 1px);\n}\n#loader-4:after {\n  margin-top: calc(var(--_d)/-2 - 1px);\n  animation-delay: 0.6s\n}\n@keyframes l4{\n  0%     {transform: translate(0)}\n  16.67% {transform: translate(-10px)}\n  33.33% {transform: translate(10px)}\n  50%,\n  100%   {transform: translate(0)}\n}",
+  "js": "",
+  "tags": [
+    "3d",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "animated-shapes",
+    "3d-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:34:38.553",
+  "updatedAt": "2026-01-26T08:51:12.927",
+  "reviewed": false,
+  "slug": null
+}

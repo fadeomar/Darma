@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553194568",
+  "title": "moving loading 10",
+  "description": "moving loading 10",
+  "shortDescription": "moving loading 10",
+  "html": "<div id='loader-10'></div>",
+  "css": "body {\n background: #1b2832;\n}\n #loader-10 {\n  height: 40px;\n  aspect-ratio: 1.5;\n  display: grid;\n  background-color: #1b2832;\n}\n#loader-10:before,\n#loader-10:after {\n  content: \"\";\n  background: #fff;\n  border-radius: 80px 80px 0 0;\n  animation: l10 1s infinite alternate both;\n}\n#loader-10:after {\n  transform: scale(-1);\n  animation-delay: 0.2s;\n}\n@keyframes l10 {\n  0%,\n  10% {margin-inline:0 33%}\n  50% {margin-inline:0 0}\n  90%,\n  100%{margin-inline:33% 0}\n}",
+  "js": "",
+  "tags": [
+    "moving",
+    "square",
+    "box",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:46:34.568",
+  "updatedAt": "2026-01-26T08:57:09.653",
+  "reviewed": false,
+  "slug": null
+}

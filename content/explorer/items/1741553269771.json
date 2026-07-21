@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553269771",
+  "title": "eyes loading 4",
+  "description": "eyes loading 4",
+  "shortDescription": "eyes loading 4",
+  "html": "<div id='loader-4'></div>",
+  "css": "body {\n background: #1b2832;\n}\n #loader-4 {\n  height: 60px;\n  aspect-ratio: 1;\n  display: grid;\n  background-color: #1b2832;\n}\n#loader-4:before,\n#loader-4:after {\n  content: \"\";\n  background:\n    radial-gradient(farthest-side,#000 15%,#0000 18%)0 0/50% 100%,\n    radial-gradient(50% 100% at 50% 160%,#fff 95%,#0000) 0 0   /50% 50%,\n    radial-gradient(50% 100% at 50% -60%,#fff 95%,#0000) 0 100%/50% 50%;\n  background-repeat: repeat-x;\n  -webkit-mask: radial-gradient(50% 100%,#000 95%,#0000) 0 100%/50% 0% repeat-x;\n  animation: l4 1s infinite alternate ease-in;\n}\n#loader-4:after {\n  animation-duration: .7s;\n}\n@keyframes l4 {\n  0%,\n  70% {-webkit-mask-size:50% 100%}\n  85% {-webkit-mask-size:50% 0}\n  100% {-webkit-mask-size:50% 100%}\n}",
+  "js": "",
+  "tags": [
+    "eyes",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:47:49.771",
+  "updatedAt": "2026-01-26T08:57:13.393",
+  "reviewed": false,
+  "slug": null
+}

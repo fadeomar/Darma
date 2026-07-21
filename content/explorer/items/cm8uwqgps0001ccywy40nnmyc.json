@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "cm8uwqgps0001ccywy40nnmyc",
+  "title": "🔥 Stunning Text Effect with Animated GIF Background Using Pure CSS! 🚀",
+  "description": "<p>💡 <strong>Want to create an eye-catching text effect?</strong> This project showcases a <strong>beautiful text animation</strong> using <code>background-clip: text</code> and a <strong>moving GIF background!</strong> 🎨✨</p><p>✔ <strong>Features:</strong><br>✅ Pure <strong>HTML &amp; CSS</strong> – No JavaScript needed! ⚡<br>✅ <strong>Background Clip Text Effect</strong> for an awesome <strong>see-through GIF</strong> effect. 🔥<br>✅ <strong>Fully Responsive &amp; Cross-Browser Compatible</strong> 🌍<br>✅ <strong>Gradient Background</strong> for a clean and modern look. 🎨<br>✅ <strong>Optimized &amp; Clean Code</strong> with comments for easy understanding. 📝</p><p>🚀 <strong>Perfect for:</strong><br>✔ Web designers &amp; developers looking for cool UI effects.<br>✔ Anyone wanting to enhance their CSS animation skills.<br>✔ Creative projects that need <strong>animated text magic!</strong> ✨</p><p>📌 <strong>Let me know what you think!</strong> Drop a comment &amp; don't forget to <strong>LIKE &amp; SUBSCRIBE!</strong> 👍</p><hr><h3></h3>",
+  "shortDescription": "🔥 Learn how to create a stunning text effect with an animated GIF background using only CSS! 💥 No JavaScript required! 🚀",
+  "html": "<main>\r\n  <div class=\"clip-text\">\r\n    Hello World\r\n  </div>\r\n</main>\r\n\r\n</div>",
+  "css": "/* Reset box-sizing for all elements */\r\n* {\r\n  box-sizing: border-box;\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n\r\n/* Make sure the entire page takes full height */\r\nhtml, body {\r\n  height: 100%;\r\n}\r\n\r\n/* Center everything in the viewport */\r\nbody {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  background: linear-gradient(to top, #116bb2 0%, #68d0e0 100%);\r\n  font-family: sans-serif;\r\n}\r\n\r\n/* Main container holding the text */\r\nmain {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  width: 480px;\r\n  height: 480px;\r\n  background: #fff;\r\n  border-radius: 12px; /* Slight rounding for a softer look */\r\n  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Adds depth */\r\n}\r\n\r\n/* Styled text with background clipping */\r\n.clip-text {\r\n  font-size: 7rem;\r\n  font-weight: 700;\r\n  text-align: center;\r\n  color: #68d0e0; /* Fallback color */\r\n}\r\n\r\n/* Apply background image inside text */\r\n@supports (background-clip: text) or (-webkit-background-clip: text) {\r\n  .clip-text {\r\n    color: transparent;\r\n    background-clip: text;\r\n    -webkit-background-clip: text;\r\n    background-image: url(https://media.giphy.com/media/xULW8Fw2ZhznUptrYA/giphy.gif);\r\n    background-size: cover;\r\n    background-position: center;\r\n  }\r\n}\r\n\r\n/* Optional heading styles */\r\nh1 {\r\n  color: #fff;\r\n  text-align: center;\r\n}\r\n\r\n/* Styling for code blocks */\r\nh1 pre span {\r\n  background-color: rgba(0, 0, 0, 0.15);\r\n  padding: 0.3rem;\r\n  border-radius: 6px;\r\n}\r\n\r\n/* Links section */\r\n.links {\r\n  text-align: center;\r\n  margin-top: 1rem;\r\n}\r\n\r\n.links a {\r\n  color: #fff;\r\n  font-size: 0.8rem;\r\n  text-decoration: none;\r\n  transition: 0.3s ease-in-out;\r\n}\r\n\r\n.links a:hover {\r\n  text-decoration: underline;\r\n}\r\n",
+  "js": "",
+  "tags": [
+    "TextEffect",
+    "AnimatedText",
+    "BackgroundClip"
+  ],
+  "mainCategory": [
+    "text-effects"
+  ],
+  "secondaryCategory": [
+    "animated-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-30T00:33:54.835",
+  "updatedAt": "2026-01-26T09:28:26.656",
+  "reviewed": true,
+  "slug": null
+}

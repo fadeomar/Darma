@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533558087",
+  "title": "dots loading 31",
+  "description": "dots loading 31",
+  "shortDescription": "dots loading 31",
+  "html": "<div id='loader-d-31'></div>",
+  "css": "/* HTML: <div id=\"loader-d-31\"></div> */\n#loader-d-31 {\n  height: 15px;\n  aspect-ratio: 4;\n  display: grid;\n  animation: l31-0 1s infinite; \n}\n#loader-d-31::before,\n#loader-d-31::after {\n  content: \"\";\n  grid-area: 1/1;\n  --_g: no-repeat radial-gradient(farthest-side,#000 94%,#0000);\n  background:\n    var(--_g) left,\n    var(--_g) right;\n  background-size: 25% 100%;\n}\n#loader-d-31::after {\n  transform: rotate(0) translate(37.5%) rotate(0);\n  animation: inherit;\n  animation-name: l31-1; \n}\n@keyframes l31-0 {\n  100% {transform:translate(37.5%)}\n}\n@keyframes l31-1 {\n  100% {transform:rotate(-.5turn) translate(37.5%) rotate(.5turn)}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:19:18.087",
+  "updatedAt": "2026-01-26T08:47:29.277",
+  "reviewed": false,
+  "slug": null
+}

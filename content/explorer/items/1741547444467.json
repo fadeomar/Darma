@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741547444467",
+  "title": "wobbling loading 5",
+  "description": "wobbling Loading 5",
+  "shortDescription": "wobbling Loading 5",
+  "html": "<div id='loader-5'></div>",
+  "css": "#loader-5 {\n  width: 120px;\n  height: 20px;\n  clip-path: polygon(10px 0,calc(100% - 10px) 0,100% 50%,calc(100% - 10px) 100%,10px 100%,0 50%);\n  background:\n   conic-gradient(from 135deg at top   ,#f03355 90deg,#0000 0) top    left,\n   conic-gradient(from -45deg at bottom,#f03355 90deg,#0000 0) bottom left,\n   #ccc;\n  background-size: 20px 50%;\n  background-repeat: no-repeat;\n  animation: l5 1s infinite linear;\n}\n@keyframes l5 {\n    50% {background-position:top right,bottom right }\n}",
+  "js": "",
+  "tags": [
+    "wobbling",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:10:44.467",
+  "updatedAt": "2026-01-26T08:51:48.226",
+  "reviewed": false,
+  "slug": null
+}

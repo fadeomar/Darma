@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553668323",
+  "title": "blob loading 17",
+  "description": "blob loading 17",
+  "shortDescription": "blob loading 17",
+  "html": "<div id='loader-47'></div>",
+  "css": "#loader-47 {\n  width: 80px;\n  aspect-ratio: 1;\n  border: 10px solid #000;\n  box-sizing: border-box;\n  background: \n    radial-gradient(farthest-side,#fff 98%,#0000) 50%/20px 20px,\n    radial-gradient(farthest-side,#fff 98%,#0000) 50%/20px 20px,\n    radial-gradient(farthest-side,#fff 98%,#0000) 50%/20px 20px,\n    radial-gradient(farthest-side,#fff 98%,#0000) 50%/20px 20px,\n    radial-gradient(farthest-side,#fff 98%,#0000) 50%/80% 80%,\n    #000;\n  background-repeat: no-repeat;\n  filter: blur(4px) contrast(10); \n  animation: l17 1s infinite alternate;\n}\n@keyframes l17 {\n  0%   {background-position:50%,50%,50%,50%,50%,50%,50%}\n  25%  {background-position:0 0,50%,50%,50%,50%,50%,50%}\n  50%  {background-position:0 0,100% 0,50%,50%,50%,50%,50%}\n  75%  {background-position:0 0,100% 0,100% 100%,50%,50%,50%,50%}\n  100% {background-position:0 0,100% 0,100% 100%,0 100%,50%,50%,50%}\n}",
+  "js": "",
+  "tags": [
+    "blob",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Unique Mechanics",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:54:28.323",
+  "updatedAt": "2026-01-26T09:19:00.719",
+  "reviewed": false,
+  "slug": null
+}

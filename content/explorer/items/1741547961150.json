@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741547961150",
+  "title": "infinity loading 16",
+  "description": "infinity Loading 16",
+  "shortDescription": "infinity Loading 16",
+  "html": "<div id='infinity-16'></div>",
+  "css": "#infinity-16 {\n  width: 60px;\n  aspect-ratio: 1;\n  --g: conic-gradient(from -90deg at 10px 10px,#fff 90deg,#0000 0);\n  background: var(--g), var(--g), var(--g);\n  background-size: 50% 50%;\n  animation: l16 1s infinite;\n}\n@keyframes l16 {\n   0%   {background-position:0    0   ,10px 10px,20px 20px} \n   50%  {background-position:0    20px,10px 10px,20px 0   } \n   100% {background-position:20px 20px,10px 10px,0    0   } \n}",
+  "js": "",
+  "tags": [
+    "infinity",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Progress & Status Indicators",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:19:21.15",
+  "updatedAt": "2026-01-26T08:52:26.597",
+  "reviewed": false,
+  "slug": null
+}

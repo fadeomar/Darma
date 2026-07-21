@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741548045925",
+  "title": "Zig-Zag loading 3",
+  "description": "Zig-Zag Loading 3",
+  "shortDescription": "Zig-Zag Loading 3",
+  "html": "<div id='zig-zag-3'></div>",
+  "css": "#zig-zag-3 {\n  height: 27px;\n  aspect-ratio: 5;\n  --c: #000 90deg,#0000 0;\n  background:\n   conic-gradient(from 135deg at top   ,var(--c)),\n   conic-gradient(from -45deg at bottom,var(--c)) 12.5% 100%;\n  background-size: 20% 50%;\n  background-repeat: repeat-x;\n  clip-path: inset(0 50%);\n  animation: l3 1s infinite linear;\n}\n@keyframes l3{\n  90%,to {clip-path: inset(0)}\n}",
+  "js": "",
+  "tags": [
+    "Zig-Zag",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:20:45.925",
+  "updatedAt": "2026-01-26T08:52:31.094",
+  "reviewed": false,
+  "slug": null
+}

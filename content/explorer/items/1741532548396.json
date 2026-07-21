@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "1741532548396",
+  "title": "Dots vs. Bars 12",
+  "description": "Dots vs. Bars 12",
+  "shortDescription": "Dots vs. Bars 12",
+  "html": "<div id='loader12'></div>",
+  "css": "/* HTML: <div id='loader12'></div> */\n#loader12 {\n  width: 40px;\n  aspect-ratio: 1;\n   --c:no-repeat linear-gradient(#000 0 0);\n   --m:no-repeat radial-gradient(circle closest-side,#0000 92%,#000);\n  background: \n    var(--c) 0    50%,\n    var(--c) 50%  50%, \n    var(--c) 100% 50%;\n  background-size: 8px calc(50% + 8px);\n  -webkit-mask: var(--m),var(--m),var(--m);\n  -webkit-mask-size: 8px 150%;\n  animation: l12 1s infinite alternate;\n}\n@keyframes l12 {\n  0%,\n  100% {-webkit-mask-position: 0 50% ,50% 50% ,100% 50% }\n  20%  {-webkit-mask-position: 0 100%,50% 50% ,100% 50% }\n  40%  {-webkit-mask-position: 0 0   ,50% 100%,100% 50% }\n  60%  {-webkit-mask-position: 0 50% ,50% 0   ,100% 100%}\n  80%  {-webkit-mask-position: 0 50% ,50% 50% ,100% 0   }\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "bars",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:02:28.396",
+  "updatedAt": "2026-01-26T08:46:07.643",
+  "reviewed": false,
+  "slug": null
+}

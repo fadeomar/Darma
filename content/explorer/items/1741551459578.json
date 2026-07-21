@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551459578",
+  "title": "continuous loading 5",
+  "description": "continuous loading 5",
+  "shortDescription": "continuous loading 5",
+  "html": "<div id='loader-5'></div>",
+  "css": "#loader-5 {\n  width: 120px;\n  height: 20px;\n  background: linear-gradient(#25b09b 0 0) left -40px top 0/40px 20px, linear-gradient(#ddd 0 0) center/100% 50%;\n  background-repeat: no-repeat;\n  animation: l5 1s infinite linear;\n}\n@keyframes l5 {\n  100% {background-position: right -40px top 0, center}\n}",
+  "js": "",
+  "tags": [
+    "continuous",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:17:39.578",
+  "updatedAt": "2026-01-26T08:53:22.8",
+  "reviewed": false,
+  "slug": null
+}

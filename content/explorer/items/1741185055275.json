@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "1741185055275",
+  "title": "🌊 Wavy Particle Flow with JavaScript Canvas 🖱️",
+  "description": "<p>I’ve built a mesmerizing <strong>Wavy Particle Flow</strong> using HTML, CSS, and JavaScript! This project creates a series of wave-like patterns made of glowing blue circles that ripple across the screen, reacting to your mouse with a subtle push effect. It’s a blend of math and interactivity that looks stunning! ✨</p><ul class=\"list-disc pl-6\"><li><p><strong>What’s it about?</strong> Waves of particles move in a sinusoidal pattern, shifting with perspective and distorting near the mouse cursor.</p></li><li><p><strong>The result?</strong> A fluid, wave-like animation that feels dynamic and responsive.</p></li><li><p><strong>Main key of the code:</strong> The animate function uses <code>Math.sin</code> for wave motion and calculates mouse-driven offsets, while perspective scaling adds depth.</p></li><li><p><strong>How can users benefit?</strong> Perfect as a unique background, tweak wave count, amplitude, or colors to fit your project, or study it for wave-based animations!</p></li></ul>",
+  "shortDescription": "💧 Waves of particles ripple and react to your mouse, crafted with JS Canvas. Ideal for fluid visuals!",
+  "html": "    <canvas id=\"canvas\"></canvas>\r\n",
+  "css": "body {\r\n  overflow: hidden; /* Prevent scrolling */\r\n  height: 100vh; /* Full viewport height */\r\n}",
+  "js": "// Get canvas and context\r\nconst canvas = document.querySelector(\"#canvas\");\r\nconst ctx = canvas.getContext(\"2d\");\r\n\r\n// Set initial canvas size\r\ncanvas.width = window.innerWidth;\r\ncanvas.height = window.innerHeight;\r\n\r\n// Wave settings\r\nconst WAVES = [];\r\nconst WAVE_COUNT = 12;\r\nconst PERSPECTIVE = 300; // Depth effect factor\r\nconst MAX_CIRCLE_RADIUS = 12; // Maximum radius of particles\r\nconst POINT_SPACING = 20; // Distance between particles in a wave\r\n\r\n// Mouse position\r\nlet mousePosX = canvas.width / 2;\r\nlet mousePosY = canvas.height / 2;\r\n\r\n// Initialize waves with random properties\r\nfor (let i = 0; i < WAVE_COUNT; i++) {\r\n  WAVES.push({\r\n    baseY: canvas.height / 2 - 200 + Math.random() * 400, // Base Y position\r\n    waveLength: 0.002 + Math.random() * 0.008, // Wave horizontal stretch\r\n    amplitude: 50 + Math.random() * 0.015, // Wave height\r\n    phase: Math.random() * PERSPECTIVE, // Wave starting phase\r\n    posY: 0, // Current Y position (updated later)\r\n    radiusOffset: Math.random() * MAX_CIRCLE_RADIUS, // Random size variation\r\n    depthZ: Math.random() * MAX_CIRCLE_RADIUS, // Z-depth for perspective\r\n    frequency: 0.005 + Math.random() * 0.015, // Speed of phase change\r\n  });\r\n  WAVES[i].posY = WAVES[i].baseY; // Set initial Y to baseY\r\n}\r\n\r\nlet time = 0; // Animation time counter\r\n\r\n// Update mouse position on movement\r\ncanvas.addEventListener(\"mousemove\", (event) => {\r\n  mousePosX = event.clientX;\r\n  mousePosY = event.clientY;\r\n});\r\n\r\n// Animation loop\r\nfunction animate() {\r\n  requestAnimationFrame(animate);\r\n\r\n  // Semi-transparent white background for fade effect\r\n  ctx.fillStyle = `rgba(255, 255, 255, 0.1)`;\r\n  ctx.fillRect(0, 0, canvas.width, canvas.height);\r\n\r\n  WAVES.forEach((wave, index) => {\r\n    ctx.lineWidth = 2;\r\n    const scale = PERSPECTIVE / (PERSPECTIVE + wave.depthZ); // Perspective scaling\r\n    wave.posY = wave.baseY + Math.sin(time * 0.001 + wave.depthZ) * 20; // Vertical oscillation\r\n    const scaledY = wave.posY * scale + (canvas.height / 2) * (1 - scale); // Adjusted Y with perspective\r\n\r\n    // Draw particles along the wave\r\n    for (let x = 0; x < canvas.width; x += POINT_SPACING) {\r\n      const deltaX = mousePosX - x;\r\n      const waveY =\r\n        scaledY +\r\n        Math.sin(x * wave.waveLength + wave.phase) *\r\n          wave.amplitude *\r\n          Math.sin(wave.phase) *\r\n          scale;\r\n      const deltaY = mousePosY - waveY;\r\n      const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY); // Distance from mouse\r\n\r\n      // Pulsing radius effect\r\n      const circleRadius =\r\n        MAX_CIRCLE_RADIUS -\r\n        Math.abs(Math.sin(time * 0.01 + index)) * MAX_CIRCLE_RADIUS;\r\n\r\n      // Mouse interaction: push particles away\r\n      const newX = x + (deltaX / distance) * Math.min(50, 1000 / distance);\r\n      const newY = waveY + (deltaY / distance) * Math.min(50, 1000 / distance);\r\n\r\n      // Draw particle\r\n      ctx.beginPath();\r\n      ctx.arc(newX, newY, circleRadius + wave.radiusOffset, 0, 2 * Math.PI);\r\n      ctx.fillStyle = `rgba(0, 150, 255, 1)`; // Bright blue color\r\n      ctx.fill();\r\n    }\r\n\r\n    wave.phase += wave.frequency; // Increment phase for wave motion\r\n  });\r\n\r\n  time++; // Advance time for animation\r\n}\r\n\r\n// Start animation\r\nanimate();\r\n\r\n// Resize handler to adjust canvas and wave positions\r\nwindow.addEventListener(\"resize\", () => {\r\n  canvas.width = window.innerWidth;\r\n  canvas.height = window.innerHeight;\r\n  WAVES.forEach((wave) => {\r\n    wave.baseY = canvas.height / 2 - 200 + Math.random() * 400; // Recalculate base Y\r\n    wave.posY = wave.baseY; // Reset current Y\r\n  });\r\n});",
+  "tags": [
+    "Canvas",
+    "Animation",
+    "Mouse",
+    "WaveEffect",
+    "CreativeCoding"
+  ],
+  "mainCategory": [
+    "canvas-projects"
+  ],
+  "secondaryCategory": [
+    "particles"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-08T11:09:24.613",
+  "updatedAt": "2026-01-26T08:45:34.696",
+  "reviewed": true,
+  "slug": null
+}

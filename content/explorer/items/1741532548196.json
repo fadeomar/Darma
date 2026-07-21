@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "1741532548196",
+  "title": "Dots vs. Bars 8",
+  "description": "Dots vs. Bars 8",
+  "shortDescription": "Dots vs. Bars 8",
+  "html": "<div id='loader8'></div>",
+  "css": "/* HTML: <div id='loader8'></div> */\n#loader8 {\n  width: 40px;\n  aspect-ratio: 1;\n  --c:no-repeat linear-gradient(#000 0 0);\n  background: \n    var(--c) 0    0,\n    var(--c) 0    100%, \n    var(--c) 50%  0,  \n    var(--c) 50%  100%, \n    var(--c) 100% 0, \n    var(--c) 100% 100%;\n  background-size: 8px 50%;\n  animation: l8-0 2s infinite;\n  position: relative;\n  overflow: hidden;\n}\n#loader8:before {\n  content: \"\";\n  position: absolute;\n  width: 8px;\n  height: 8px;\n  border-radius: 50%;\n  background: #000;\n  top: calc(50% - 4px);\n  left: -8px;\n  animation: inherit;\n  animation-name: l8-1;\n}\n@keyframes l8-0 {\n 16.67% {background-size:8px 30%, 8px 30%, 8px 50%, 8px 50%, 8px 50%, 8px 50%}\n 33.33% {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n 50%    {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n 66.67% {background-size:8px 50%, 8px 50%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n 83.33% {background-size:8px 50%, 8px 50%, 8px 50%, 8px 50%, 8px 50%, 8px 50%}\n}\n@keyframes l8-1 {\n 20%      {left:0px}\n 40%,100% {left:calc(50% - 4px)}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "bars",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:02:28.196",
+  "updatedAt": "2026-01-26T08:46:04.607",
+  "reviewed": false,
+  "slug": null
+}

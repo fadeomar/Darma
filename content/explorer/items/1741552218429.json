@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552218429",
+  "title": "circle loading 5",
+  "description": "circle loading 5",
+  "shortDescription": "circle loading 5",
+  "html": "<div id='loader-5'></div>",
+  "css": "body {\n background: #333;\n}\n #loader-5 {\n  width: 65px;\n  aspect-ratio: 1;\n  position: relative;\n}\n#loader-5:before,\n#loader-5:after {\n  content: \"\";\n  position: absolute;\n  inset: 0 auto auto 0;\n  aspect-ratio: 1;\n  border-radius: 50px;\n  box-shadow: 0 0 0 3px inset #fff;\n  animation: l5 1s infinite linear alternate;\n}\n#loader-5:after {\n  inset: auto 0 0 auto;\n  animation-delay: -1s;\n}\n@keyframes l5 {\n  0% {\n    width: 20px;\n  }\n  100% {\n    width: 50px;\n  }\n}",
+  "js": "",
+  "tags": [
+    "circle",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:30:18.429",
+  "updatedAt": "2026-01-26T08:55:20.033",
+  "reviewed": false,
+  "slug": null
+}

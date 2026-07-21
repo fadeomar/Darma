@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552843792",
+  "title": "hungry loading 5",
+  "description": "hungry loading 5",
+  "shortDescription": "hungry loading 5",
+  "html": "<div id='loader-5'></div>",
+  "css": "#loader-5 {\n  width: 80px;\n  height: 75px;\n  --c:no-repeat radial-gradient(farthest-side, #f7b261 85%,#b97850,#0000);\n  --b:no-repeat radial-gradient(farthest-side, #734b46 94%,#0000);\n  --s:8px 8px,8px 8px,8px 8px,40px 40px;\n  --e:0 0, 0 0,0 0, 0 0;\n  background:\n    var(--b) 55% 47%,\n    var(--b) 60% 66%,\n    var(--b) 37% 43%,\n    var(--c) 50% 50%,\n    var(--b) 15px 4px,\n    var(--b) 4px  14px,\n    var(--b) 27px 18px,\n    var(--c) 0    0,\n    var(--b) calc(100% - 15px)  4px,\n    var(--b) calc(100% - 4px)  14px,\n    var(--b) calc(100% - 27px) 18px,\n    var(--c) 100% 0/40px 40px,\n    var(--b) 24px 47px,\n    var(--b) 50%  43px,\n    var(--b) 60%  58px,\n    var(--c) 50%  100%;\n  animation: l5 3s infinite;\n}\n@keyframes l5 {\n  0%    ,20% {background-size: var(--s),var(--s),var(--s),var(--s)}\n  20.01%,40% {background-size: var(--e),var(--s),var(--s),var(--s)}\n  40.01%,60% {background-size: var(--e),var(--e),var(--s),var(--s)}\n  60.01%,80% {background-size: var(--e),var(--e),var(--e),var(--s)}\n  80.01%,100%{background-size: var(--e),var(--e),var(--e),var(--e)}\n}",
+  "js": "",
+  "tags": [
+    "hungry",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:40:43.792",
+  "updatedAt": "2026-01-26T08:56:31.18",
+  "reviewed": false,
+  "slug": null
+}

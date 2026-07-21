@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533238073",
+  "title": "text effect 21",
+  "description": "text effect 21",
+  "shortDescription": "text effect 21",
+  "html": "<div id='loader-c-21'></div>",
+  "css": "/* HTML: <div id=\"loader-c-21\"></div> */\n#loader-c-21 {\n  width: fit-content;\n  font-weight: bold;\n  font-family: monospace;\n  font-size: 30px;\n  background:linear-gradient(90deg,#000 50%,#0000 0) right/200% 100%;\n  animation: l21 2s infinite linear;\n}\n#loader-c-21::before {\n  content :\"Loading...\";\n  color: #0000;\n  padding: 0 5px;\n  background: inherit;\n  background-image: linear-gradient(90deg,#fff 50%,#000 0);\n  -webkit-background-clip:text;\n          background-clip:text;\n}\n\n@keyframes l21{\n  100%{background-position: left}\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loading-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:13:58.073",
+  "updatedAt": "2026-01-26T08:46:34.98",
+  "reviewed": false,
+  "slug": null
+}

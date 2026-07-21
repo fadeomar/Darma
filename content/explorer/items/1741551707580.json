@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551707580",
+  "title": "pulsing loading 9",
+  "description": "pulsing loading 9",
+  "shortDescription": "pulsing loading 9",
+  "html": "<div id='loader-9'></div>",
+  "css": "#loader-9 {\n  width: 100px;\n  height: 45px;\n  position: relative;\n}\n#loader-9::before,\n#loader-9::after {\n  content: '';\n  position: absolute;\n  inset: 0;\n  background: #000;\n  box-shadow: 0 0 0 50px;\n  clip-path: polygon(-50px -20px, 10% -12px, 20% 0, calc(50% - 15px) 0, calc(50% - 10px) -20px, calc(50% - 8px) -15px, calc(50% + 8px) -15px, calc(50% + 10px) -20px, calc(50% + 15px) 0, 80% 0, 90% -12px, calc(100% + 50px) -20px, 100% 80%, calc(100% + 10px) calc(100% + 10px), 60% 100%, 50% calc(100% + 15px), 40% 100%, -10px calc(100% + 10px), 0 80%);\n}\n#loader-9::after {\n  animation: l9 1s infinite;\n  transform: perspective(300px) translateZ(0px);\n}\n@keyframes l9 {\n  to {transform: perspective(300px) translateZ(100px); opacity: 0}\n}",
+  "js": "",
+  "tags": [
+    "pulsing",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:21:47.58",
+  "updatedAt": "2026-01-26T08:54:13.245",
+  "reviewed": false,
+  "slug": null
+}

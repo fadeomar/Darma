@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741483966879",
+  "title": "🎉 Dashed Underline Loader with CSS Animation 🚀",
+  "description": "<p>I’ve built a <strong>Dashed Underline Loader</strong> using HTML and CSS! This cool project displays a bold \"Loading...\" text with a dashed underline that slides smoothly from right to left in an infinite loop. It’s a fun, stylish way to indicate loading progress, all without JavaScript! 🌟</p><ul class=\"list-disc pl-6\"><li><p><strong>What’s it about?</strong> A text loader with a dashed underline that animates using a repeating gradient and background-position shift.</p></li><li><p><strong>The result?</strong> A playful, dynamic loading effect with a modern dashed-line vibe.</p></li><li><p><strong>Main key of the code:</strong> The @keyframes animation moves the background-position of a repeating-linear-gradient, with steps() timing for a choppy, dashed look.</p></li><li><p><strong>How can users benefit?</strong> Use it as a quirky loading indicator, adjust the dash pattern or speed to your taste, or dive into CSS gradient animations!</p></li></ul>",
+  "shortDescription": "✨ A \"Loading...\" text with a sliding dashed underline, crafted with CSS. Fun and fresh!",
+  "html": "<div class=\"text-loader\"></div>",
+  "css": "/* Style the text loader with a sliding dashed underline */\r\n.text-loader {\r\n  width: fit-content; /* Adjust width to content size */\r\n  font-weight: bold; /* Bold text for emphasis */\r\n  font-family: sans-serif; /* Clean, modern font */\r\n  font-size: 30px; /* Readable size */\r\n  padding: 0 5px 8px 0; /* Space for underline and slight right padding */\r\n  background: repeating-linear-gradient(\r\n    90deg,\r\n    currentColor 0 8%, /* Dash segment */\r\n    #0000 0 10% /* Transparent gap */\r\n  ) 200% 100% / 200% 3px no-repeat; /* Double-width dashed pattern, starts off-screen */\r\n  animation: slideDashes 2s steps(6) infinite; /* Slide animation with stepped timing */\r\n}\r\n\r\n/* Add the \"Loading...\" text via pseudo-element */\r\n.text-loader::before {\r\n  content: \"Loading...\"; /* Default text content */\r\n}\r\n\r\n/* Define the dashed underline slide animation */\r\n@keyframes slideDashes {\r\n  to { background-position: 80% 100%; } /* Slide dashes to the left */\r\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loading-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T01:32:46.879",
+  "updatedAt": "2026-01-26T09:18:53.196",
+  "reviewed": true,
+  "slug": null
+}

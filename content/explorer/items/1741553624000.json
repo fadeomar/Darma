@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553624000",
+  "title": "arrow loading 4",
+  "description": "arrow loading 4",
+  "shortDescription": "arrow loading 4",
+  "html": "<div id='loader-24'></div>",
+  "css": "#loader-24 {\n  width: 40px;\n  height: 30px;\n  display: grid;\n}\n#loader-24:before,\n#loader-24:after {\n  content: \"\";\n  grid-area: 1/1;\n  background: #000;\n  clip-path: polygon(0 10px,calc(100% - 15px) 10px,calc(100% - 15px) 0,100% 50%,calc(100% - 15px) 100%,calc(100% - 15px) calc(100% - 10px),0 calc(100% - 10px));\n  animation: l4 .5s infinite alternate;\n}\n#loader-24:after {\n  --s:-1;\n}\n@keyframes l4 {\n  0%  {transform: scale(var(--s,1)) translate(12px,-6px) translate(4px)}\n  100%{transform: scale(var(--s,1)) translate(12px,-6px) translate(-4px)}\n}",
+  "js": "",
+  "tags": [
+    "arrow",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:53:44",
+  "updatedAt": "2026-01-26T08:58:38.284",
+  "reviewed": false,
+  "slug": null
+}

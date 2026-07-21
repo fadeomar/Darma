@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533240528",
+  "title": "text effect 35",
+  "description": "text effect 35",
+  "shortDescription": "text effect 35",
+  "html": "<div id='loader-c-35'></div>",
+  "css": "/* HTML: <div id=\"loader-c-35\"></div> */\n#loader-c-35 {\n  font-weight: bold;\n  font-family: monospace;\n  display: inline-grid;\n  font-size: 30px;\n}\n#loader-c-35:before,\n#loader-c-35:after {\n  content:\"Loading...\";\n  grid-area: 1/1;\n  -webkit-mask-size: 100% 5px,100% 100%;\n  -webkit-mask-repeat: no-repeat;\n  -webkit-mask-composite: xor;\n          mask-composite: exclude;\n  animation: l35-1 1s infinite;\n}\n#loader-c-35:before {\n  -webkit-mask-image:\n    linear-gradient(#000 0 0),\n    linear-gradient(#000 0 0);\n}\n#loader-c-35:after {\n  -webkit-mask-image:\n    linear-gradient(#000 0 0);\n  animation:\n    l35-1  1s infinite,\n    l35-2 .2s infinite cubic-bezier(0.5,200,0.5,-200);\n}\n\n@keyframes l35-1{\n  0%   {-webkit-mask-position:0 20px,0 0}\n  20%  {-webkit-mask-position:0 8px ,0 0}\n  40%  {-webkit-mask-position:0 100%,0 0}\n  60%  {-webkit-mask-position:0 3px ,0 0}\n  80%  {-webkit-mask-position:0 15px,0 0}\n  100% {-webkit-mask-position:0 0   ,0 0}\n}\n@keyframes l35-2{\n  100% {transform:translate(0.1px)} \n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loading-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:14:00.528",
+  "updatedAt": "2026-01-26T08:46:50.666",
+  "reviewed": false,
+  "slug": null
+}

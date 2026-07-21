@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534105617",
+  "title": "Spinner loading 30",
+  "description": "Spin, spin, spin... Don't stop spinning! spin loading 30",
+  "shortDescription": "Spin, spin, spin... Don't stop spinning! spin loading 30",
+  "html": "<div id='loader-sh-30'></div>",
+  "css": "/* HTML: <div id='loader-sh-30'></div> */\n#loader-sh-30 {\n  width: 40px;\n  aspect-ratio: 1;\n  display: grid;\n  animation: l30-0 1.5s infinite linear;\n}\n#loader-sh-30:before,\n#loader-sh-30:after {\n  content: \"\";\n  grid-area: 1/1;\n  background: #25b09b;\n  animation: inherit;\n  animation-name: l30-1\n}\n#loader-sh-30:after {\n  transform-origin: bottom right;\n  --s:1;\n}\n@keyframes l30-0 {\n  0%,66%      {transform:scaleY(1)}\n  66.01%,100% {transform:scaleY(-1)}\n}\n@keyframes l30-1 {\n  0%,\n  10%   {transform:scaleX(calc(var(--s,-1)*-1)) rotate(calc(var(--s,0)*90deg));clip-path: polygon(0 0,0 100%,100% 100%)}\n  33%   {transform:scaleX(calc(var(--s,-1)*-1)) rotate(calc(var(--s,0)*0deg)); clip-path: polygon(0 0,0 100%,100% 100%)}\n  66%   {transform:scaleX(calc(var(--s,-1)*-1)) rotate(calc(var(--s,0)*0deg)); clip-path: polygon(0 0,0 100%,100% 0)}\n  66.01%{transform:scaleX(calc(var(--s,-1)*-1)) rotate(calc(var(--s,0)*0deg)); clip-path: polygon(0 0,0 100%,100% 100%)}\n  90%,\n  100%  {transform:scaleX(calc(var(--s,-1)*-1)) rotate(calc(var(--s,0)*90deg));clip-path: polygon(0 0,0 100%,100% 100%)}\n}",
+  "js": "",
+  "tags": [
+    "spin",
+    "spinner",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:28:25.617",
+  "updatedAt": "2026-01-26T08:50:29.025",
+  "reviewed": false,
+  "slug": null
+}

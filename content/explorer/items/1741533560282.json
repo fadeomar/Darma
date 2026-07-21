@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533560282",
+  "title": "dots loading 48",
+  "description": "dots loading 48",
+  "shortDescription": "dots loading 48",
+  "html": "<div id='loader-d-48'></div>",
+  "css": "/* HTML: <div id=\"loader-d-48\"></div> */\n#loader-d-48 {\n  height: 15px;\n  aspect-ratio: 5;\n  -webkit-mask: linear-gradient(90deg,#0000 ,#000 20% 80%,#0000);\n  background: radial-gradient(closest-side at 37.5% 50%,#000 94%,#0000) 0/calc(80%/3) 100%;\n  animation: l48 .75s infinite linear;\n}\n@keyframes l48 {\n  100% {background-position: 36.36%}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:19:20.282",
+  "updatedAt": "2026-01-26T08:47:59.938",
+  "reviewed": false,
+  "slug": null
+}

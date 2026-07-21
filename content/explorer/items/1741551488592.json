@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551488592",
+  "title": "continuous loading 9",
+  "description": "continuous loading 9",
+  "shortDescription": "continuous loading 9",
+  "html": "<div id='loader-9'></div>",
+  "css": "#loader-9 {\n  width: 120px;\n  height: 20px;\n  background: radial-gradient(circle closest-side, #f03355 94%, #0000) 50% 50%/calc(50% + 10px) 70% repeat-x #ccc;\n  animation: l9 1s infinite cubic-bezier(0.3, 1, 0, 1);\n}\n@keyframes l9 {\n  100% {background-position: calc(200% - 5px)}\n}",
+  "js": "",
+  "tags": [
+    "continuous",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:18:08.592",
+  "updatedAt": "2026-01-26T08:54:05.945",
+  "reviewed": false,
+  "slug": null
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553362403",
+  "title": "lines loading 18",
+  "description": "lines loading 18",
+  "shortDescription": "lines loading 18",
+  "html": "<div id='loader-18'></div>",
+  "css": "#loader-18 {\n  width: 60px;\n  aspect-ratio: 1;\n  padding: 10px;\n  box-sizing: border-box;\n  display: grid;\n}\n#loader-18,\n#loader-18:before,\n#loader-18:after {\n  --c:no-repeat linear-gradient(#046D8B 0 0);\n  background: var(--c), var(--c), var(--c), var(--c);\n  animation: l18-1 1.5s infinite  cubic-bezier(0,0,1,1), l18-2 1.5s infinite;\n}\n#loader-18:before,\n#loader-18:after {\n  content: \"\";\n  grid-area: 1/1;\n  animation-timing-function: cubic-bezier(0,0.2,1,1),linear;\n}\n#loader-18:after {\n  margin: 10px;\n  animation-timing-function: cubic-bezier(0,0.4,1,1),linear;\n}\n@keyframes l18-1 {\n  0%,\n  10%   {background-size: 0    4px,4px 0 }\n  40%,\n  60%   {background-size: 100% 4px,4px 100%}\n  90%,\n  100%  {background-size: 0    4px,4px 0  }\n}\n@keyframes l18-2 {\n  0%,49.9%{background-position: 0    0,0    0,100% 100%,100% 100%}\n  50%,100%{background-position: 100% 0,0 100%,0    100%,100% 0}\n}",
+  "js": "",
+  "tags": [
+    "lines",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:49:22.403",
+  "updatedAt": "2026-01-26T08:57:41.626",
+  "reviewed": false,
+  "slug": null
+}

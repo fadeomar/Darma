@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741537874203",
+  "title": "progress loading 5",
+  "description": "progress Loading 5",
+  "shortDescription": "progress Loading 5",
+  "html": "<div id='loader-5'></div>",
+  "css": "/* HTML: <div id='loader-5'></div> */\n#loader-5 {\n  width: 80px;\n  height: 40px;\n  color: #000;\n  border: 2px solid currentColor;\n  border-right-color: transparent;\n  padding: 3px;\n  background: \n    repeating-linear-gradient(90deg,currentColor 0 10px,#0000 0 15px) \n    0/0% no-repeat content-box content-box;\n  position: relative;\n  box-sizing: border-box;\n  animation: l5 2s infinite steps(6);\n}\n#loader-5::before {\n  content: \"\";\n  position: absolute;\n  top: -2px;\n  bottom: -2px;\n  left: 100%;\n  width: 10px;\n  background:\n    linear-gradient(\n        #0000   calc(50% - 7px),currentColor 0 calc(50% - 5px),\n        #0000 0 calc(50% + 5px),currentColor 0 calc(50% + 7px),#0000 0) left /100% 100%,\n    linear-gradient(currentColor calc(50% - 5px),#0000        0 calc(50% + 5px),currentColor 0) left /2px 100%,\n    linear-gradient(#0000        calc(50% - 5px),currentColor 0 calc(50% + 5px),#0000        0) right/2px 100%;\n  background-repeat:no-repeat;\n}\n@keyframes l5 {\n    100% {background-size:120%}\n}",
+  "js": "",
+  "tags": [
+    "progress",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T16:31:14.203",
+  "updatedAt": "2026-01-26T08:51:25.587",
+  "reviewed": false,
+  "slug": null
+}

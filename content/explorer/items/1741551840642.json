@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551840642",
+  "title": "hypnotic loading 15",
+  "description": "hypnotic loading 15",
+  "shortDescription": "hypnotic loading 15",
+  "html": "<div id='loader-15'></div>",
+  "css": "#loader-15 {\n  width: 50px;\n  aspect-ratio: 1;\n  border: 2px solid;\n  box-sizing: border-box;\n  --c: conic-gradient(from 180deg at 50% calc(100% - 2px), #000 90deg, #0000 0);\n  background: var(--c), var(--c);\n  background-position: 0 0, 8px 0;\n  background-size: 16px 9.6px;\n  animation: l15 1s infinite;\n}\n@keyframes l15 {\n  100% {background-position: 0 -9.6px, 8px 9.6px}\n}",
+  "js": "",
+  "tags": [
+    "hypnotic",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:24:00.642",
+  "updatedAt": "2026-01-26T08:54:51.544",
+  "reviewed": false,
+  "slug": null
+}

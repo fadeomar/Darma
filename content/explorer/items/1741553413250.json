@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553413250",
+  "title": "thin loading 3",
+  "description": "thin loading 3",
+  "shortDescription": "thin loading 3",
+  "html": "<div id='loader-3'></div>",
+  "css": "#loader-3 {\n  height: 9px;\n  width: 60px;\n  --c:no-repeat linear-gradient(#000 0 0);\n  background: var(--c), var(--c), var(--c), var(--c);\n  background-size: 26% 3px;\n  animation: l3 1s infinite;\n}\n@keyframes l3 {\n  0%,\n  10%   {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 100%,calc(2*100%/3) 100%,calc(3*100%/3) 100%}\n  17.5% {background-position: calc(0*100%/3) 0   ,calc(1*100%/3) 100%,calc(2*100%/3) 100%,calc(3*100%/3) 100%}\n  25%   {background-position: calc(0*100%/3) 0   ,calc(1*100%/3) 0   ,calc(2*100%/3) 100%,calc(3*100%/3) 100%}\n  32.5% {background-position: calc(0*100%/3) 0   ,calc(1*100%/3) 0   ,calc(2*100%/3) 0   ,calc(3*100%/3) 100%}\n  40%,\n  60%   {background-position: calc(0*100%/3) 0   ,calc(1*100%/3) 0   ,calc(2*100%/3) 0   ,calc(3*100%/3) 0   }\n  67.5% {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 0   ,calc(2*100%/3) 0   ,calc(3*100%/3) 0   }\n  75%   {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 100%,calc(2*100%/3) 0   ,calc(3*100%/3) 0   }\n  82.5% {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 100%,calc(2*100%/3) 100%,calc(3*100%/3) 0   }\n  90%,\n  100%  {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 100%,calc(2*100%/3) 100%,calc(3*100%/3) 100%}\n}",
+  "js": "",
+  "tags": [
+    "thin",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "Unique Mechanics",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:50:13.25",
+  "updatedAt": "2026-01-26T08:57:48.3",
+  "reviewed": false,
+  "slug": null
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553356345",
+  "title": "lines loading 5",
+  "description": "lines loading 5",
+  "shortDescription": "lines loading 5",
+  "html": "<div id='loader-5'></div>",
+  "css": "#loader-5 {\n  width: 40px;\n  aspect-ratio: 1;\n  --c:no-repeat linear-gradient(#046D8B 0 0);\n  background: var(--c) 0 50%, var(--c) right 0 bottom 20px, var(--c) 100% 0, var(--c) 50% 0, var(--c) right 20px bottom 0, var(--c) 0 100%;\n  animation: l5 1.5s infinite alternate;\n}\n@keyframes l5 {\n  0%     {background-size: 0    4px,4px 0  ,0   4px,4px 0   ,0    4px,4px 0   }\n  16.67% {background-size: 100% 4px,4px 0  ,0   4px,4px 0   ,0    4px,4px 0   }\n  33.33% {background-size: 100% 4px,4px 50%,0   4px,4px 0   ,0    4px,4px 0   }\n  50%    {background-size: 100% 4px,4px 50%,50% 4px,4px 0   ,0    4px,4px 0   }\n  66.67% {background-size: 100% 4px,4px 50%,50% 4px,4px 100%,0    4px,4px 0   }\n  83.33% {background-size: 100% 4px,4px 50%,50% 4px,4px 100%,50%  4px,4px 0   }\n  95%,\n  100%   {background-size: 100% 4px,4px 50%,50% 4px,4px 100%,50%  4px,4px 50% }\n}",
+  "js": "",
+  "tags": [
+    "lines",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:49:16.345",
+  "updatedAt": "2026-01-26T08:57:23.564",
+  "reviewed": false,
+  "slug": null
+}

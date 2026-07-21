@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551403534",
+  "title": "flipping loading 5",
+  "description": "flipping loading 5",
+  "shortDescription": "flipping loading 5",
+  "html": "<div id='loader-5'></div>",
+  "css": "#loader-5 {\n  width: 60px;\n  aspect-ratio: 1;\n  animation: l5-0 1s infinite steps(1);\n}\n#loader-5::before,\n#loader-5::after {\n  content: '';\n  position: absolute;\n  inset: 0 50% 50% 0;\n  transform-origin: bottom right;\n  animation: l5-1 0.5s infinite linear alternate, l5-2 0.5s infinite steps(1) alternate;\n}\n#loader-5::after {\n  --s: -1, -1;\n}\n@keyframes l5-0 {\n  0%  {transform: scale(1, 1) rotate(0deg)}\n  50% {transform: scale(1, -1) rotate(90deg)}\n}\n@keyframes l5-1 {\n  0%   {transform: scale(var(--s, 1)) perspective(150px) rotateX(0deg)}\n  100% {transform: scale(var(--s, 1)) perspective(150px) rotateX(180deg)}\n}\n@keyframes l5-2 {\n  0% {background: #25b09b}\n  50% {background: #514b82}\n}",
+  "js": "",
+  "tags": [
+    "flipping",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:16:43.534",
+  "updatedAt": "2026-01-26T08:53:54.569",
+  "reviewed": false,
+  "slug": null
+}

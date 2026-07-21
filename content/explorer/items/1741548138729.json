@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741548138729",
+  "title": "Wavy loading 9",
+  "description": "If you are not team Zig-Zag, then you are team Wavy!\n\n Loading 9",
+  "shortDescription": "If you are not team Zig-Zag, then you are team Wavy!\n\n Loading 9",
+  "html": "<div id='wavy-9'></div>",
+  "css": "#wavy-9 {\n  display: inline-grid;\n}\n#wavy-9:before,\n#wavy-9:after {\n  content: \"\";\n  grid-area: 1/1;\n  height: 30px;\n  aspect-ratio: 6;\n  --c: #0000 64%,#000 66% 98%,#0000 101%;\n  background:\n    radial-gradient(35% 146% at 50% 159%,var(--c)) 0 0,\n    radial-gradient(35% 146% at 50% -59%,var(--c)) 25% 100%;\n  background-size: calc(100%/3) 50%;\n  background-repeat: repeat-x;\n  -webkit-mask: repeating-linear-gradient(90deg,#000 0 15%,#0000 0 50%) 0 0/200%;\n  animation: l9 .8s infinite linear;\n}\n#wavy-9:after {\n  scale: 1 -1;\n  animation-delay: -.2s;\n}\n@keyframes l9{\n  to {-webkit-mask-position:-100% 0}\n}",
+  "js": "",
+  "tags": [
+    "wavy",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:22:18.729",
+  "updatedAt": "2026-01-26T08:52:51.5",
+  "reviewed": false,
+  "slug": null
+}

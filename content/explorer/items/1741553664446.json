@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553664446",
+  "title": "blob loading 3",
+  "description": "blob loading 3",
+  "shortDescription": "blob loading 3",
+  "html": "<div id='loader-33'></div>",
+  "css": "#loader-33 {\n  width: 120px;\n  height: 60px;\n  padding: 10px;\n  box-sizing: border-box;\n  display: flex;\n  justify-content: space-between;\n  background: #fff;\n  filter: blur(5px) contrast(10) hue-rotate(60deg);\n  mix-blend-mode: darken;\n}\n#loader-33:before,\n#loader-33:after {\n  content: \"\";\n  width: 40px;\n  border-radius: 50%;\n  background: #ff00ff;\n  animation: l3 1s infinite alternate;\n}\n#loader-33:after {\n  --s:-1;\n}\n@keyframes l3{\n  90%,100% {transform: translate(calc(var(--s,1)*30px))}\n}",
+  "js": "",
+  "tags": [
+    "blob",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Unique Mechanics",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:54:24.446",
+  "updatedAt": "2026-01-26T08:58:55.406",
+  "reviewed": false,
+  "slug": null
+}

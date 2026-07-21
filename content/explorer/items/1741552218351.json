@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552218351",
+  "title": "circle loading 2",
+  "description": "circle loading 2",
+  "shortDescription": "circle loading 2",
+  "html": "<div id='loader-2'></div>",
+  "css": "body {\n background: #333;\n}\n #loader-2 {\n  width: 100px;\n  display: grid;\n  background: radial-gradient(farthest-side, #fff 98%, #0000) center / 30px 100% no-repeat;\n  --mask: \n    radial-gradient(12px at left 15px top 50%, #0000 95%, #000),\n    radial-gradient(12px at center, #0000 95%, #000),\n    radial-gradient(12px at right 15px top 50%, #0000 95%, #000);\n  -webkit-mask: var(--mask);\n  mask: var(--mask);\n  -webkit-mask-composite: source-in;\n  mask-composite: intersect;\n  animation: l2 1s infinite alternate;\n}\n#loader-2:before,\n#loader-2:after {\n  content: \"\";\n  grid-area: 1/1;\n  height: 30px;\n  aspect-ratio: 1;\n  background: #fff;\n  border-radius: 50%;\n}\n#loader-2:after {\n  margin-left: auto;\n}\n@keyframes l2 {\n  to {\n    width: 50px;\n  }\n}",
+  "js": "",
+  "tags": [
+    "circle",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:30:18.351",
+  "updatedAt": "2026-01-26T08:55:17.543",
+  "reviewed": false,
+  "slug": null
+}

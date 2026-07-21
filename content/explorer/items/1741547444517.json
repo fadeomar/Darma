@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741547444517",
+  "title": "wobbling loading 3",
+  "description": "wobbling Loading 3",
+  "shortDescription": "wobbling Loading 3",
+  "html": "<div id='loader-3'></div>",
+  "css": "/* HTML: <div id='loader-3'></div> */\n/* HTML: <div id=\"loader-3\"></div> */\n#loader-3 {\n  width: 120px;\n  height: 22px;\n  border-radius: 40px;\n  color: #514b82;\n  border: 2px solid;\n  position: relative;\n}\n#loader-3::before {\n  content: \"\";\n  position: absolute;\n  margin: 2px;\n  width: 25%;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  border-radius: inherit;\n  background: currentColor;\n  animation: l3 1s infinite linear;\n}\n@keyframes l3 {\n    50% {left:100%;transform: translateX(calc(-100% - 4px))}\n}",
+  "js": "",
+  "tags": [
+    "wobbling",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:10:44.516",
+  "updatedAt": "2026-01-26T08:51:48.849",
+  "reviewed": false,
+  "slug": null
+}

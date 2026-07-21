@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534101347",
+  "title": "Spinner loading 4",
+  "description": "Spin, spin, spin... Don't stop spinning! spin loading 4",
+  "shortDescription": "Spin, spin, spin... Don't stop spinning! spin loading 4",
+  "html": "<div id='loader-sh-4'></div>",
+  "css": "/* HTML: <div id='loader-sh-4'></div> */\n#loader-sh-4 {\n  width: 40px;\n  height: 40px;\n  color: #f03355;\n  background:\n    conic-gradient(from  -45deg at top    20px left 50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg),\n    conic-gradient(from   45deg at right  20px top  50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg),\n    conic-gradient(from  135deg at bottom 20px left 50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg),\n    conic-gradient(from -135deg at left   20px top  50% ,#0000 ,currentColor 1deg 90deg,#0000 91deg);\n  animation: l4 1.5s infinite cubic-bezier(0.3,1,0,1);\n}\n@keyframes l4 {\n   50%  {width:60px;height: 60px;transform: rotate(180deg)}\n   100% {transform: rotate(360deg)}\n}",
+  "js": "",
+  "tags": [
+    "spin",
+    "spinner",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:28:21.347",
+  "updatedAt": "2026-01-26T08:49:25.616",
+  "reviewed": false,
+  "slug": null
+}

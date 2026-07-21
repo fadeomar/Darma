@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741548511922",
+  "title": "filling text loading 13",
+  "description": "filling text loading 13",
+  "shortDescription": "filling text loading 13",
+  "html": "<div id='filling-13'></div>",
+  "css": "#filling-13 {\n  width: fit-content;\n  font-size: 40px;\n  font-family: monospace;\n  font-weight: bold;\n  text-transform: uppercase;\n  color: #0000;\n  -webkit-text-stroke: 1px #000;\n  background: conic-gradient(#000 0 0) -1ch/1ch 100% no-repeat text;\n  animation: l13 2s steps(8,jump-none) infinite;\n}\n#filling-13:before {\n  content: \"Loading\";\n}\n@keyframes l13 {\n  to {background-position: 100%}\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Unique Mechanics",
+    "animated-text",
+    "loading-text",
+    "typing"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:28:31.922",
+  "updatedAt": "2026-01-26T08:53:22.234",
+  "reviewed": false,
+  "slug": null
+}

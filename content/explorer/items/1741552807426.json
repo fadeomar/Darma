@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552807426",
+  "title": "time loading 8",
+  "description": "time loading 8",
+  "shortDescription": "time loading 8",
+  "html": "<div id='loader-time-8'></div>",
+  "css": "#loader-time-8 {\n  width: fit-content;\n  background: #000;\n  padding: 0 8px;\n  font-size: 30px;\n  font-family: monospace;\n  color: #fff;\n  font-weight: bold;\n  border-radius: 8px;\n  position: relative;\n}\n#loader-time-8::before{\n  content: \"08:00\";\n  white-space: pre;\n  animation: l8 .5s infinite;\n}\n#loader-time-8::after{\n  content: \"\";\n  position: absolute;\n  inset: auto auto 100% 10px;\n  height: 5px;\n  width: 40%;\n  background: linear-gradient(90deg,red 40%,#0000 0 60%,#444 0);\n}\n@keyframes l8 {\n  100% {content: \"  :  \"}\n}",
+  "js": "",
+  "tags": [
+    "time",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:40:07.426",
+  "updatedAt": "2026-01-26T08:56:26.406",
+  "reviewed": false,
+  "slug": null
+}

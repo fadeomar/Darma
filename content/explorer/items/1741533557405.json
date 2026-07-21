@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533557405",
+  "title": "dots loading 29",
+  "description": "dots loading 29",
+  "shortDescription": "dots loading 29",
+  "html": "<div id='loader-d-29'></div>",
+  "css": "/* HTML: <div id=\"loader-d-29\"></div> */\n#loader-d-29 {\n  --s: 15px;\n  width: calc(var(--s)*2.33);\n  aspect-ratio: 1;\n  display: flex;\n  justify-content: space-between;\n  animation: l29-0 1s infinite;\n}\n#loader-d-29::before,\n#loader-d-29::after {\n  content: \"\";\n  width: var(--s);\n  --_g: no-repeat radial-gradient(farthest-side,#000 94%,#0000);\n  background:\n    var(--_g) top,\n    var(--_g) bottom;\n  background-size: 100% var(--s);\n  transform-origin: 50% calc(100% - var(--s)/2);\n  animation: inherit;\n  animation-name: l29-1;\n}\n#loader-d-29::after {\n  --_s:-1;\n}\n@keyframes l29-0 {\n    100% {transform:translateY(calc(var(--s) - 100%))}\n}\n@keyframes l29-1 {\n    100% {transform:rotate(calc(var(--_s,1)*-180deg))}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:19:17.405",
+  "updatedAt": "2026-01-26T08:47:27.943",
+  "reviewed": false,
+  "slug": null
+}

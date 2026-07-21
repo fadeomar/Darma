@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741548510850",
+  "title": "filling text loading 7",
+  "description": "filling text loading 7",
+  "shortDescription": "filling text loading 7",
+  "html": "<div id='filling-7'></div>",
+  "css": "#filling-7 {\n  width: fit-content;\n  font-size: 40px;\n  font-family: system-ui,sans-serif;\n  font-weight: bold;\n  text-transform: uppercase;\n  color: #0000;\n  -webkit-text-stroke: 1px #000;\n  --l:#0000 45%,#000 0 55%,#0000 0;\n  --g:0/300% 100% no-repeat text;\n  background: \n    linear-gradient(-60deg,var(--l)) var(--g),\n    linear-gradient( 60deg,var(--l)) var(--g);\n  animation: l7 4s linear infinite;\n}\n#filling-7:before {\n  content: \"Loading\";\n}\n@keyframes l7 {\n  0%  {background-position: 100%,0   }\n  50% {background-position: 0   ,0   }\n  to  {background-position: 0   ,100%}\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Unique Mechanics",
+    "animated-text",
+    "loading-text",
+    "typing"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:28:30.85",
+  "updatedAt": "2026-01-26T08:53:15.344",
+  "reviewed": false,
+  "slug": null
+}

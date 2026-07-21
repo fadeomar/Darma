@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741547959398",
+  "title": "infinity loading 7",
+  "description": "infinity Loading 7",
+  "shortDescription": "infinity Loading 7",
+  "html": "<div id='infinity-7'></div>",
+  "css": "#infinity-7 {\n  width: 90px;\n  height: 14px;\n  color: #000;\n  background: \n    linear-gradient(90deg,currentColor 50%,#0000 0) repeat-x,\n    conic-gradient(from 45deg at right 7px top  50%,currentColor 90deg,#0000 0);\n  background-position: calc(100%/3) 50%;\n  background-size:calc(100%/4) 60%,calc(100%/4) 100%;\n  animation: l7 0.5s infinite linear;\n}\n@keyframes l7 {\n    100% {background-position: 0 50%}\n}",
+  "js": "",
+  "tags": [
+    "infinity",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Progress & Status Indicators",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:19:19.398",
+  "updatedAt": "2026-01-26T08:52:15.102",
+  "reviewed": false,
+  "slug": null
+}

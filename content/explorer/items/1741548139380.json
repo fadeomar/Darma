@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741548139380",
+  "title": "Wavy loading 13",
+  "description": "If you are not team Zig-Zag, then you are team Wavy!\n\n Loading 13",
+  "shortDescription": "If you are not team Zig-Zag, then you are team Wavy!\n\n Loading 13",
+  "html": "<div id='wavy-13'></div>",
+  "css": "#wavy-13 {\n  display: inline-grid;\n  padding: 5px;\n  background: #fff;\n  filter: blur(4px) contrast(12);\n}\n#wavy-13:before,\n#wavy-13:after {\n  content: \"\";\n  grid-area: 1/1;\n  height: 40px;\n  aspect-ratio: 3;\n  --c: #0000 64%,#000 66% 98%,#0000 101%;\n  background:\n    radial-gradient(35% 146% at 50% 159%,var(--c)) 0 0,\n    radial-gradient(35% 146% at 50% -59%,var(--c)) 100% 100%;\n  background-size: calc(200%/3) 50%;\n  background-repeat: repeat-x;\n}\n#wavy-13:before {\n  -webkit-mask: repeating-linear-gradient(90deg,#000 0 8%,#0000 0 15%);\n}\n#wavy-13:after {\n  clip-path: inset(0 100% 0 0);\n  animation: l13 1.5s infinite linear;\n}\n@keyframes l13{\n  50% {clip-path: inset(0)}\n  to {clip-path: inset(0 0 0 100%)}\n}",
+  "js": "",
+  "tags": [
+    "wavy",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:22:19.38",
+  "updatedAt": "2026-01-26T08:52:56.044",
+  "reviewed": false,
+  "slug": null
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552156113",
+  "title": "square loading 7",
+  "description": "square loading 7",
+  "shortDescription": "square loading 7",
+  "html": "<div id='loader-7'></div>",
+  "css": "body {\n background: #333;\n}\n #loader-7 {\n  width: 55px;\n  aspect-ratio: 1;\n  --g1: conic-gradient(from 90deg at 3px 3px, #0000 90deg, #fff 0);\n  --g2: conic-gradient(from -90deg at 22px 22px, #0000 90deg, #fff 0);\n  background: var(--g1), var(--g1), var(--g1), var(--g2), var(--g2), var(--g2);\n  background-size: 25px 25px;\n  background-repeat: no-repeat;\n  animation: l7 1.5s infinite;\n}\n@keyframes l7 {\n  0%   {background-position: 0 0, 0 100%, 100% 100%}\n  25%  {background-position: 100% 0, 0 100%, 100% 100%}\n  50%  {background-position: 100% 0, 0 0, 100% 100%}\n  75%  {background-position: 100% 0, 0 0, 0 100%}\n  100% {background-position: 100% 100%, 0 0, 0 100%}\n}",
+  "js": "",
+  "tags": [
+    "square",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:29:16.112",
+  "updatedAt": "2026-01-26T08:55:07.213",
+  "reviewed": false,
+  "slug": null
+}

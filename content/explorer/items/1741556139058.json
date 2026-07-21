@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741556139058",
+  "title": "factory loading 8",
+  "description": "factory loading 8",
+  "shortDescription": "factory loading 8",
+  "html": "<div id='loader-18'></div>",
+  "css": "body {\n background: #000;\n}\n #loader-18 {\n  width: 90px;\n  height: 30px;\n  box-shadow: 0 3px 0 #fff;\n  --g:repeat-x repeating-linear-gradient(90deg,#ccc 0 16px,#0000 0 18px,#ccc 0 34px,#0000 0 100%);\n  background: var(--g),var(--g);\n  background-size: 60px 14px,60px 14px;\n  animation: l8 1s infinite linear;\n}\n@keyframes l8 {\n  0%   {background-position:0    0,0    100%}\n  100% {background-position:60px 0,60px 100%}\n}",
+  "js": "",
+  "tags": [
+    "factory",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T21:35:39.058",
+  "updatedAt": "2026-01-26T09:20:07.25",
+  "reviewed": false,
+  "slug": null
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1742434589840",
+  "title": "🟢 Create a Stunning Matrix Digital Rain Effect with HTML, CSS & JavaScript! 💻💚",
+  "description": "Want to recreate the iconic Matrix digital rain effect? 🟢✨ In this tutorial, I'll show you how to build this mesmerizing animation using HTML, CSS, and JavaScript. We'll use the canvas API to render falling green symbols in real time, just like in the Matrix movies! 🎥💻\n\n🔹 What you'll learn:\n✅ How to use the HTML5 Canvas API 🎨\n✅ Creating randomized falling characters in JavaScript 🖥️\n✅ Adding a cool glowing green effect with CSS 💚\n✅ Making the rain effect smooth and dynamic\n\n🚀 Perfect for beginners and advanced coders alike! Don't forget to like, comment, and subscribe for more awesome coding projects. 🔥\n\n#MatrixEffect #JavaScriptAnimation #HTMLCanvas #CSSEffects #WebDevelopment #CodingTutorial",
+  "shortDescription": "Want to recreate the iconic Matrix digital rain effect? 🟢✨ In this tutorial, I'll show you how to build this mesmerizing animation using HTML, CSS, and JavaScript. We'll use the canvas API to render falling green symbols in real time, just like in the Matrix movies! 🎥💻\n\n🔹 What you'll learn:\n✅ How to use the HTML5 Canvas API 🎨\n✅ Creating randomized falling characters in JavaScript 🖥️\n✅ Adding a cool glowing green effect with CSS 💚\n✅ Making the rain effect smooth and dynamic\n\n🚀 Perfect for beginners and advanced coders alike! Don't forget to like, comment, and subscribe for more awesome coding projects. 🔥\n\n#MatrixEffect #JavaScriptAnimation #HTMLCanvas #CSSEffects #WebDevelopment #CodingTutorial",
+  "html": "    <canvas id=\"Matrix\"></canvas>\r\n",
+  "css": "html {\r\n  background: black;\r\n  height: 100%;\r\n  overflow: hidden;\r\n}\r\n\r\nbody {\r\n  margin: 0;\r\n  padding: 0;\r\n  height: 100%;\r\n}\r\n",
+  "js": "const canvas = document.getElementById(\"Matrix\");\r\n\r\nconst context = canvas.getContext(\"2d\");\r\n\r\ncanvas.width = window.innerWidth;\r\ncanvas.height = window.innerHeight;\r\n\r\nconst katakana =\r\n  \"アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン\";\r\nconst latin = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\";\r\nconst nums = \"0123456789\";\r\n\r\nconst alphabet = katakana + latin + nums;\r\n\r\nconst fontSize = 16;\r\nconst columns = canvas.width / fontSize;\r\n\r\nconst rainDrops = [];\r\n\r\nfor (let x = 0; x < columns; x++) {\r\n  rainDrops[x] = 1;\r\n}\r\n\r\nconst draw = () => {\r\n  context.fillStyle = \"rgba(0, 0, 0, 0.05)\";\r\n  context.fillRect(0, 0, canvas.width, canvas.height);\r\n\r\n  context.fillStyle = \"#0F0\";\r\n  context.font = fontSize + \"px monospace\";\r\n\r\n  for (let i = 0; i < rainDrops.length; i++) {\r\n    const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));\r\n    context.fillText(text, i * fontSize, rainDrops[i] * fontSize);\r\n\r\n    if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {\r\n      rainDrops[i] = 0;\r\n    }\r\n    rainDrops[i]++;\r\n  }\r\n};\r\n\r\nsetInterval(draw, 30);\r\n",
+  "tags": [
+    "Digital",
+    "Rain",
+    "Matrix",
+    "bg",
+    "background"
+  ],
+  "mainCategory": [
+    "backgrounds"
+  ],
+  "secondaryCategory": [
+    "interactive",
+    "animated-bg"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-20T01:36:29.84",
+  "updatedAt": "2026-06-21T14:58:26.635",
+  "reviewed": true,
+  "slug": null
+}

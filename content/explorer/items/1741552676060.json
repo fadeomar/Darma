@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552676060",
+  "title": "nature loading 15",
+  "description": "nature loading 15",
+  "shortDescription": "nature loading 15",
+  "html": "<div id='loader-nature-15'></div>",
+  "css": "#loader-nature-15 {\n  width: 80px;\n  height: 40px;\n  background: #83def1;\n  position: relative;\n  overflow: hidden;\n}\n#loader-nature-15:before {\n  content: \"\";\n  position: absolute;\n  top: 10px;\n  left: 0;\n  height: 20px;\n  width: 30px;\n  background: \n    radial-gradient(farthest-side,#000 50%,#fff 52% 80%,#0000) 78% 22%/5px 5px, \n    radial-gradient(farthest-side, #fb4f05 92%,#0000) right/80% 100%, \n    radial-gradient(farthest-side at left,#fb4f05 92%,#0000) left/35% 80%;\n  background-repeat: no-repeat;\n  clip-path: polygon(0 0,100% 0,100% 40%,81% 50%,100% 60%,100% 100%,0 100%,20% 50%);\n  animation: l15 1.5s infinite;\n}\n@keyframes l15 {\n  0%   {transform: translate(-100%)}\n  40%  {transform: translate(15px)}\n  80%,\n  100% {transform: translate(100px)}\n}",
+  "js": "",
+  "tags": [
+    "nature",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:37:56.06",
+  "updatedAt": "2026-01-26T08:56:14.431",
+  "reviewed": false,
+  "slug": null
+}

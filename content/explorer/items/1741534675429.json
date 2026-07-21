@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534675429",
+  "title": "3d shape loading 11",
+  "description": "3d shape loading 11",
+  "shortDescription": "3d shape loading 11",
+  "html": "<div class=\"loader\"></div>",
+  "css": "body {\r\n  display: grid;\r\n  place-items: center;\r\n  height: 100dvh;\r\n  overflow: hidden;\r\n  background: #1b2832;\r\n}\r\n\r\n.loader {\r\n  --s: 40px;\r\n  --g: 5px;\r\n\r\n  height: calc(var(--s) + var(--g));\r\n  aspect-ratio: 3;\r\n  background:\r\n    radial-gradient(calc(var(--s)/sqrt(2)) at calc(50% - .1*var(--s)) calc(50% - .2*var(--s)), #0000 5%, 60%, #111 98%),\r\n    linear-gradient(#FE4365 0 0) no-repeat #fff;\r\n  background-size: calc(100%/3) 100%;\r\n  mask: radial-gradient(calc(var(--s)/2), #000 calc(100% - 1px), #0000) 0/calc(100%/3) 100%;\r\n  animation: l11 steps(3) 1.5s infinite;\r\n}\r\n\r\n@keyframes l11 {\r\n  to {\r\n    background-position: 0, 150%\r\n  }\r\n}",
+  "js": "",
+  "tags": [
+    "3d",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "3d-shapes",
+    "Basic Shapes & Styles",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:37:55.429",
+  "updatedAt": "2026-01-26T08:51:22.967",
+  "reviewed": false,
+  "slug": null
+}

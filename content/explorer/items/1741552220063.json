@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552220063",
+  "title": "circle loading 8",
+  "description": "circle loading 8",
+  "shortDescription": "circle loading 8",
+  "html": "<div id='loader-8'></div>",
+  "css": "body {\n background: #333;\n}\n #loader-8 {\n  width: 50px;\n  aspect-ratio: 1;\n  box-shadow: 0 0 0 3px #fff inset;\n  border-radius: 50%;\n  position: relative;\n  animation: l8-0 1.5s linear infinite;\n}\n#loader-8:before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: calc(100% + 2px);\n  box-shadow: inherit;\n  width: 25px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  animation: l8-1 1.5s linear infinite;\n}\n@keyframes l8-1 {\n  0% {\n    transform-origin: -27px 50%;\n    width: 20px;\n    transform: translateY(-50%) rotate(0);\n  }\n  100% {\n    transform-origin: -12px 50%;\n    width: 50px;\n    transform: translateY(-50%) rotate(180deg);\n  }\n}\n@keyframes l8-0 {\n  0% {\n    width: 50px;\n    transform: translate(0);\n  }\n  100% {\n    width: 20px;\n    transform: translate(37px);\n  }\n}",
+  "js": "",
+  "tags": [
+    "circle",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:30:20.063",
+  "updatedAt": "2026-01-26T08:55:24.572",
+  "reviewed": false,
+  "slug": null
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534102823",
+  "title": "Spinner loading 13",
+  "description": "Spin, spin, spin... Don't stop spinning! spin loading 13",
+  "shortDescription": "Spin, spin, spin... Don't stop spinning! spin loading 13",
+  "html": "<div id='loader-sh-13'></div>",
+  "css": "/* HTML: <div id='loader-sh-13'></div> */\n#loader-sh-13 {\n  width: 40px;\n  aspect-ratio: 1;\n  display: grid;\n}\n#loader-sh-13::before,\n#loader-sh-13::after {\n  content: \"\";\n  grid-area: 1/1;\n  background: orange;\n  clip-path: polygon(0 0,101% 0, 0 100%);\n  animation: l13 2s infinite;\n}\n#loader-sh-13::after {\n  --s:-1,-1;\n}\n@keyframes l13 {\n    0%,\n    10%  {transform:scale(var(--s,1)) translate(0,0)        rotate(0deg)}\n    33%  {transform:scale(var(--s,1)) translate(20px,-20px) rotate(0deg)}\n    66%  {transform:scale(var(--s,1)) translate(20px,-20px) rotate(180deg)}\n    90%,\n    100% {transform:scale(var(--s,1)) translate(0px,0px)    rotate(180deg)}\n}",
+  "js": "",
+  "tags": [
+    "spin",
+    "spinner",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:28:22.823",
+  "updatedAt": "2026-01-26T08:49:49.239",
+  "reviewed": false,
+  "slug": null
+}

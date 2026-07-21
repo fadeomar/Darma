@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533558119",
+  "title": "dots loading 32",
+  "description": "dots loading 32",
+  "shortDescription": "dots loading 32",
+  "html": "<div id='loader-d-32'></div>",
+  "css": "/* HTML: <div id=\"loader-d-32\"></div> */\n#loader-d-32 {\n  height: 15px;\n  aspect-ratio: 5;\n  display: grid;\n  --_g: no-repeat radial-gradient(farthest-side,#000 94%,#0000);\n}\n#loader-d-32::before,\n#loader-d-32::after {\n  content: \"\";\n  grid-area: 1/1;\n  background:\n    var(--_g) left,\n    var(--_g) right;\n  background-size: 20% 100%;\n  animation: l32 1s infinite; \n}\n#loader-d-32::after { \n  background:\n    var(--_g) calc(1*100%/3),\n    var(--_g) calc(2*100%/3);\n  background-size: 20% 100%;\n  animation-direction: reverse;\n}\n@keyframes l32 {\n  80%,100% {transform:rotate(.5turn)}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:19:18.119",
+  "updatedAt": "2026-01-26T08:47:23.84",
+  "reviewed": false,
+  "slug": null
+}

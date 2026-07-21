@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552218523",
+  "title": "circle loading 3",
+  "description": "circle loading 3",
+  "shortDescription": "circle loading 3",
+  "html": "<div id='loader-3'></div>",
+  "css": "body {\n background: #333;\n}\n #loader-3 {\n  width: 65px;\n  height: 30px;\n  position: relative;\n}\n#loader-3:before {\n  content: \"\";\n  position: absolute;\n  border-radius: 50px;\n  box-shadow: 0 0 0 3px inset #fff;\n  animation: l3 0.75s infinite alternate;\n}\n@keyframes l3 {\n  0% {\n    inset: 0 35px 0 0;\n  }\n  50% {\n    inset: 0 0 0 0;\n  }\n  100% {\n    inset: 0 0 0 35px;\n  }\n}",
+  "js": "",
+  "tags": [
+    "circle",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:30:18.523",
+  "updatedAt": "2026-01-26T08:55:20.387",
+  "reviewed": false,
+  "slug": null
+}

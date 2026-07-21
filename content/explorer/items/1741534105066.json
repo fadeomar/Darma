@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534105066",
+  "title": "Spinner loading 26",
+  "description": "Spin, spin, spin... Don't stop spinning! spin loading 26",
+  "shortDescription": "Spin, spin, spin... Don't stop spinning! spin loading 26",
+  "html": "<div id='loader-sh-26'></div>",
+  "css": "/* HTML: <div id='loader-sh-26'></div> */\n#loader-sh-26 {\n  width: 60px;\n  aspect-ratio: 1;\n  color: #514b82;\n  position: relative;\n}\n#loader-sh-26::before,\n#loader-sh-26::after {\n  content: \"\";\n  position: absolute;\n  inset:0;\n  background:\n    linear-gradient(currentColor 0 0) 0 calc(var(--s,0)*-100%)/100% calc(100%/3),\n    repeating-linear-gradient(90deg,currentColor 0 25%,#0000 0 50%) calc(var(--s,0)*100%) 50%/calc(4*100%/3) calc(100%/3);\n  background-repeat: no-repeat;\n  animation: l26 2s infinite;\n}\n#loader-sh-26::after {\n  --s:-1;\n}\n@keyframes l26 {\n    0%,\n    10%  {transform:translateY(calc(var(--s,1)*0));   background-position: 0 calc(var(--s,0)*-100%),calc(var(--s,0)*100%) 50%}\n    33%  {transform:translateY(calc(var(--s,1)*-20%));background-position: 0 calc(var(--s,0)*-100%),calc(var(--s,0)*100%) 50%}\n    66%  {transform:translateY(calc(var(--s,1)*-20%));background-position: 0 calc(var(--s,0)*-100%),calc(var(--s,0)*100% + 100%) 50%}\n    90%,\n    100%  {transform:translateY(calc(var(--s,1)*0));  background-position: 0 calc(var(--s,0)*-100%),calc(var(--s,0)*100% + 100%) 50%}\n}",
+  "js": "",
+  "tags": [
+    "spin",
+    "spinner",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:28:25.066",
+  "updatedAt": "2026-01-26T08:50:22.011",
+  "reviewed": false,
+  "slug": null
+}

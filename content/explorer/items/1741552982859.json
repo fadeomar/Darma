@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552982859",
+  "title": "dancers loading 5",
+  "description": "dancers loading 5",
+  "shortDescription": "dancers loading 5",
+  "html": "<div id='loader-33'></div>",
+  "css": "#loader-33 {\n  width: 16px;\n  aspect-ratio: 1;\n  background: #3FB8AF;\n  position: relative;\n  animation: l5-0 2s infinite linear;\n}\n#loader-33:before {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  background: #FF3D7F;\n  transform: translate(30px) rotate(0);\n  animation: l5-1 .5s infinite \n}\n@keyframes l5-0 {\n   100% {transform: rotate(1turn)}\n}\n@keyframes l5-1 {\n   100% {transform: translate(30px) rotate(.25turn)}\n}",
+  "js": "",
+  "tags": [
+    "dancers",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:43:02.859",
+  "updatedAt": "2026-01-26T08:56:48.324",
+  "reviewed": false,
+  "slug": null
+}

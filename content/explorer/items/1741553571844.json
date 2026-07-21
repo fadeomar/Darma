@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553571844",
+  "title": "clones loading 7",
+  "description": "clones loading 7",
+  "shortDescription": "clones loading 7",
+  "html": "<div id='loader-7'></div>",
+  "css": "#loader-7 {\n  width: 28px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: #F10C49;\n  animation: l7 2s infinite;\n}\n@keyframes l7 {\n  0%,\n  100%  {transform:translate(-30px,-30px);box-shadow:  0     0 #F4DD51, 0     0 #E3AAD6}\n  12.5% {transform:translate( 30px,-30px);box-shadow: -15px  0 #F4DD51,-30px  0 #E3AAD6}\n  25%   {transform:translate( 30px,-30px);box-shadow:  0     0 #F4DD51, 0     0 #E3AAD6}\n  37.5% {transform:translate( 30px, 30px);box-shadow:  0 -15px #F4DD51, 0 -30px #E3AAD6}\n  50%   {transform:translate( 30px, 30px);box-shadow:  0     0 #F4DD51, 0     0 #E3AAD6}\n  62.5% {transform:translate(-30px, 30px);box-shadow:  15px  0 #F4DD51, 30px  0 #E3AAD6}\n  75%   {transform:translate(-30px, 30px);box-shadow:  0     0 #F4DD51, 0     0 #E3AAD6}\n  87.5% {transform:translate(-30px,-30px);box-shadow:  0  15px #F4DD51, 0  30px #E3AAD6}\n}",
+  "js": "",
+  "tags": [
+    "clones",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Unique Mechanics",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:52:51.844",
+  "updatedAt": "2026-01-26T08:58:18.296",
+  "reviewed": false,
+  "slug": null
+}

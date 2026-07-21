@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534101153",
+  "title": "Spinner loading 1",
+  "description": "Spin, spin, spin... Don't stop spinning! spin loading 1",
+  "shortDescription": "Spin, spin, spin... Don't stop spinning! spin loading 1",
+  "html": "<div id='loader-sh-1'></div>",
+  "css": "/* HTML: <div id='loader-sh-1'></div> */\n#loader-sh-1 {\n  width: 40px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: #f03355;\n  clip-path: polygon(0 0,100% 0,100% 100%,0 100%);\n  animation: l1 2s infinite cubic-bezier(0.3,1,0,1);\n}\n@keyframes l1 {\n  33% {border-radius: 0;background: #514b82 ;clip-path: polygon(0 0,100% 0,100% 100%,0 100%)}\n  66% {border-radius: 0;background: #ffa516 ;clip-path: polygon(50% 0,50% 0,100% 100%,0 100%)}\n}",
+  "js": "",
+  "tags": [
+    "spin",
+    "spinner",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:28:21.153",
+  "updatedAt": "2026-01-26T08:49:19.105",
+  "reviewed": false,
+  "slug": null
+}

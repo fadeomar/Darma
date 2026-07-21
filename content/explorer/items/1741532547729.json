@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "1741532547729",
+  "title": "Dots vs. Bars 4",
+  "description": "Dots vs. Bars 4",
+  "shortDescription": "Dots vs. Bars 4",
+  "html": "<div id='loader4'></div>",
+  "css": "/* HTML: <div id='loader4'></div> */\n#loader4 {\n  width: 40px;\n  height: 20px;\n  --c:no-repeat radial-gradient(farthest-side,#000 93%,#0000);\n  background:\n    var(--c) 0    0,\n    var(--c) 50%  0,\n    var(--c) 100% 0;\n  background-size: 8px 8px;\n  position: relative;\n  animation: l4-0 1s linear infinite alternate;\n}\n#loader4:before {\n  content: \"\";\n  position: absolute;\n  width: 8px;\n  height: 12px;\n  background: #000;\n  left: 0;\n  top: 0;\n  animation: \n    l4-1 1s  linear infinite alternate,\n    l4-2 0.5s cubic-bezier(0,200,.8,200) infinite;\n}\n@keyframes l4-0 {\n  0%      {background-position: 0  100%,50% 0   ,100% 0}\n  8%,42%  {background-position: 0  0   ,50% 0   ,100% 0}\n  50%     {background-position: 0  0   ,50% 100%,100% 0}\n  58%,92% {background-position: 0  0   ,50% 0   ,100% 0}\n  100%    {background-position: 0  0   ,50% 0   ,100% 100%}\n}\n@keyframes l4-1 {\n  100% {left:calc(100% - 8px)}\n}\n@keyframes l4-2 {\n  100% {top:-0.1px}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "bars",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:02:27.729",
+  "updatedAt": "2026-01-26T08:46:00.993",
+  "reviewed": false,
+  "slug": null
+}

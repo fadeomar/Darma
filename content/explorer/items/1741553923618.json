@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553923618",
+  "title": "factory loading 4",
+  "description": "factory loading 4",
+  "shortDescription": "factory loading 4",
+  "html": "<div id='loader-14'></div>",
+  "css": "body {\n background: #000;\n}\n #loader-14 {\n  width: 90px;\n  height: 14px;\n  box-shadow: 0 3px 0 #fff;\n  display: grid;\n}\n#loader-14:before,\n#loader-14:after{\n  content: \"\";\n  grid-area: 1/1;\n  background: radial-gradient(circle closest-side,var(--c,red) 92%,#0000) 0 0/calc(100%/4) 100%;\n  animation: l4 1s infinite linear;\n}\n#loader-14:after{\n  --c: #000; \n  background-color: #fff;\n  box-shadow: 0 -2px 0 0 #fff;\n  clip-path: inset(-2px calc(50% - 10px));\n}\n@keyframes l4 {\n    100% {background-position: calc(100%/3) 0}\n}",
+  "js": "",
+  "tags": [
+    "factory",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:58:43.618",
+  "updatedAt": "2026-01-26T09:19:16.051",
+  "reviewed": false,
+  "slug": null
+}

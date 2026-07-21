@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552516632",
+  "title": "colorful loading 19",
+  "description": "colorful loading 19",
+  "shortDescription": "colorful loading 19",
+  "html": "<div id='loader-19'></div>",
+  "css": "#loader-19 {\n  width: 40px;\n  aspect-ratio: .577;\n  clip-path: polygon(0 0,100% 100%,0 100%,100% 0);\n  position: relative;\n  animation: l19 2s infinite linear; \n  overflow: hidden;\n}\n#loader-19:before{\n  content: \"\";\n  position: absolute;\n  inset: -150% -150%;\n  background: repeating-conic-gradient(from 30deg,#FFABAB 0 60deg,#ABE4FF 0 120deg,#FF7373 0 180deg);\n  animation: inherit;\n  animation-direction: reverse; \n}\n@keyframes l19 {\n  100% {transform: rotate(360deg)}\n}",
+  "js": "",
+  "tags": [
+    "colorful",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:35:16.632",
+  "updatedAt": "2026-01-26T08:55:54.753",
+  "reviewed": false,
+  "slug": null
+}

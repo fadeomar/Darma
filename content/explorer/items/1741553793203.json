@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553793203",
+  "title": "maze loading 7",
+  "description": "maze loading 7",
+  "shortDescription": "maze loading 7",
+  "html": "<div id='loader-7'></div>",
+  "css": "body {\n background: #000;\n}\n #loader-7 {\n  width: 40px;\n  aspect-ratio: 1;\n  background:\n    radial-gradient(farthest-side,#000 90%,#0000) 50%/8px 8px no-repeat,\n    conic-gradient(from -90deg at 15px 15px,#0000 90deg,#fff 0) 0 0/25px 25px;\n  animation: l7 1s infinite;\n}\n@keyframes l7 {\n  0%   {background-position:50%,0 0}\n  50%  {background-position:50%,25px 0}\n  100% {background-position:50%,25px 25px}\n}",
+  "js": "",
+  "tags": [
+    "maze",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:56:33.202",
+  "updatedAt": "2026-01-26T08:55:16.098",
+  "reviewed": false,
+  "slug": null
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552513583",
+  "title": "colorful loading 11",
+  "description": "colorful loading 11",
+  "shortDescription": "colorful loading 11",
+  "html": "<div id='loader-11'></div>",
+  "css": "#loader-11 {\n  width: 50px;\n  aspect-ratio: 1;\n  display: flex;\n  --c:linear-gradient(90deg,#FFD412 25%,#ABD406 0 50%,#FF821C 0 75%,#FFD412 0);\n}\n#loader-11:before,\n#loader-11:after {\n  content: \"\";\n  flex:1;\n  background:var(--c), var(--c), var(--c), var(--c);\n  background-size: 400% 26%;\n  background-repeat: no-repeat;\n  animation: l11 2s infinite; \n}\n#loader-11:after {\n  transform: scaleX(-1);\n}\n@keyframes l11 {\n  0%     {background-position: calc(3*100%/3) calc(0*100%/3),calc(3*100%/3) calc(1*100%/3),calc(3*100%/3) calc(2*100%/3),calc(3*100%/3) calc(3*100%/3)}\n  8.33%  {background-position: calc(2*100%/3) calc(0*100%/3),calc(3*100%/3) calc(1*100%/3),calc(3*100%/3) calc(2*100%/3),calc(3*100%/3) calc(3*100%/3)}\n  16.67% {background-position: calc(2*100%/3) calc(0*100%/3),calc(2*100%/3) calc(1*100%/3),calc(3*100%/3) calc(2*100%/3),calc(3*100%/3) calc(3*100%/3)}\n  25%    {background-position: calc(2*100%/3) calc(0*100%/3),calc(2*100%/3) calc(1*100%/3),calc(2*100%/3) calc(2*100%/3),calc(3*100%/3) calc(3*100%/3)}\n  30%,\n  33.33% {background-position: calc(2*100%/3) calc(0*100%/3),calc(2*100%/3) calc(1*100%/3),calc(2*100%/3) calc(2*100%/3),calc(2*100%/3) calc(3*100%/3)}\n  41.67% {background-position: calc(1*100%/3) calc(0*100%/3),calc(2*100%/3) calc(1*100%/3),calc(2*100%/3) calc(2*100%/3),calc(2*100%/3) calc(3*100%/3)}\n  50%    {background-position: calc(1*100%/3) calc(0*100%/3),calc(1*100%/3) calc(1*100%/3),calc(2*100%/3) calc(2*100%/3),calc(2*100%/3) calc(3*100%/3)}\n  58.33% {background-position: calc(1*100%/3) calc(0*100%/3),calc(1*100%/3) calc(1*100%/3),calc(1*100%/3) calc(2*100%/3),calc(2*100%/3) calc(3*100%/3)}\n  63%,\n  66.67% {background-position: calc(1*100%/3) calc(0*100%/3),calc(1*100%/3) calc(1*100%/3),calc(1*100%/3) calc(2*100%/3),calc(1*100%/3) calc(3*100%/3)}\n  75%    {background-position: calc(0*100%/3) calc(0*100%/3),calc(1*100%/3) calc(1*100%/3),calc(1*100%/3) calc(2*100%/3),calc(1*100%/3) calc(3*100%/3)}\n  83.33% {background-position: calc(0*100%/3) calc(0*100%/3),calc(0*100%/3) calc(1*100%/3),calc(1*100%/3) calc(2*100%/3),calc(1*100%/3) calc(3*100%/3)}\n  91.67% {background-position: calc(0*100%/3) calc(0*100%/3),calc(0*100%/3) calc(1*100%/3),calc(0*100%/3) calc(2*100%/3),calc(1*100%/3) calc(3*100%/3)}\n  97%,\n  100%   {background-position: calc(0*100%/3) calc(0*100%/3),calc(0*100%/3) calc(1*100%/3),calc(0*100%/3) calc(2*100%/3),calc(0*100%/3) calc(3*100%/3)}\n}",
+  "js": "",
+  "tags": [
+    "colorful",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:35:13.583",
+  "updatedAt": "2026-01-26T08:55:45.648",
+  "reviewed": false,
+  "slug": null
+}

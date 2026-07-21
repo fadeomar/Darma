@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552513160",
+  "title": "colorful loading 8",
+  "description": "colorful loading 8",
+  "shortDescription": "colorful loading 8",
+  "html": "<div id='loader-8'></div>",
+  "css": "#loader-8 {\n  width: 50px;\n  aspect-ratio: 1.154;\n  clip-path: polygon(50% 0, 100% 100%, 0 100%);\n  display: grid;\n  background: conic-gradient(from 0deg at 50% 60%, #3A89C9 120deg, #0000 0), conic-gradient(from 120deg at 50% 60%, #3A89C9 120deg, #0000 0), conic-gradient(from 240deg at 50% 60%, #3A89C9 120deg, #0000 0), conic-gradient(from 0deg at 50% 60%, #9CC4E4 120deg, #0000 0), conic-gradient(from 120deg at 50% 60%, #9CC4E4 120deg, #0000 0), conic-gradient(from 240deg at 50% 60%, #9CC4E4 120deg, #0000 0), #3A89C9;\n  background-size: 200% 200%;\n  background-repeat: no-repeat;\n  animation: l8 1.5s infinite;\n}\n@keyframes l8 {\n  0%   {background-position: left, top, right}\n  30%, 50%  {background-position: left, top, right, center, center, center}\n  80%, 100% {background-position: center}\n}",
+  "js": "",
+  "tags": [
+    "colorful",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:35:13.16",
+  "updatedAt": "2026-01-26T08:55:44.726",
+  "reviewed": false,
+  "slug": null
+}

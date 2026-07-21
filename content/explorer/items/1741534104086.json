@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534104086",
+  "title": "Spinner loading 21",
+  "description": "Spin, spin, spin... Don't stop spinning! spin loading 21",
+  "shortDescription": "Spin, spin, spin... Don't stop spinning! spin loading 21",
+  "html": "<div id='loader-sh-21'></div>",
+  "css": "/* HTML: <div id='loader-sh-21'></div> */\n#loader-sh-21 {\n  width: 40px;\n  aspect-ratio: 1;\n  display: flex;\n}\n#loader-sh-21:before,\n#loader-sh-21:after {\n  content: \"\";\n  flex: 1;\n  background: #f03355;\n  animation: l21 2s infinite;\n  border-radius: 100px 0 0 100px;\n  transform-origin: top right;\n  transform: translateY(calc(var(--s,1)*0%)) rotate(0);\n}\n#loader-sh-21:after {\n  transform-origin: bottom left;\n  border-radius: 0 100px 100px 0;\n  --s:-1;\n}\n@keyframes l21 {\n  33%  {transform: translate(0,calc(var(--s,1)*50%)) rotate(0)}\n  66%  {transform: translate(0,calc(var(--s,1)*50%)) rotate(-90deg)}\n  90%,\n  100% {transform: translate(calc(var(--s,1)*-100%),calc(var(--s,1)*50%))  rotate(-90deg)}\n}",
+  "js": "",
+  "tags": [
+    "spin",
+    "spinner",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:28:24.086",
+  "updatedAt": "2026-01-26T08:50:08.929",
+  "reviewed": false,
+  "slug": null
+}

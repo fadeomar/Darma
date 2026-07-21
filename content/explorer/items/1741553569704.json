@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553569704",
+  "title": "clones loading 4",
+  "description": "clones loading 4",
+  "shortDescription": "clones loading 4",
+  "html": "<div id='loader-4'></div>",
+  "css": "#loader-4 {\n  width: 30px;\n  aspect-ratio: 1;\n  background: #554236;\n  display: grid;\n  animation: l4-0 1s infinite linear;\n}\n#loader-4::before,\n#loader-4::after {\n  content: \"\";\n  grid-area: 1/1;\n  background:#f77825;\n  animation: inherit;\n  animation-name: l4-1;\n}\n#loader-4::after {\n  background: #60B99A;\n  --s: 60deg;\n}\n@keyframes l4-0 {\n  0%,20% {transform: rotate(0)}\n  100%   {transform: rotate(90deg)}\n}\n@keyframes l4-1 {\n  50% {transform: rotate(var(--s,30deg))}\n  100% {transform: rotate(0)}\n}",
+  "js": "",
+  "tags": [
+    "clones",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Unique Mechanics",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:52:49.704",
+  "updatedAt": "2026-01-26T08:58:11.154",
+  "reviewed": false,
+  "slug": null
+}

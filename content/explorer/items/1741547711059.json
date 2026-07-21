@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741547711059",
+  "title": "wobbling loading 20",
+  "description": "wobbling loading 20",
+  "shortDescription": "wobbling loading 20",
+  "html": "<div class=\"loader\"></div>",
+  "css": "body {\r\n    background: gray;\r\n    display: grid;\r\n    place-items: center;\r\n    height: 100dvh;\r\n    overflow: hidden;\r\n}\r\n\r\n.loader {\r\n    height: 60px;\r\n    aspect-ratio: 1;\r\n    position: relative;\r\n}\r\n\r\n.loader::before,\r\n.loader::after {\r\n    content: \"\";\r\n    position: absolute;\r\n    inset: 0;\r\n    border-radius: 50%;\r\n    transform-origin: bottom;\r\n}\r\n\r\n.loader::after {\r\n    background:\r\n        radial-gradient(at 75% 15%, #fffb, #0000 35%),\r\n        radial-gradient(at 80% 40%, #0000, #0008),\r\n        radial-gradient(circle 5px, #fff 94%, #0000),\r\n        radial-gradient(circle 10px, #000 94%, #0000),\r\n        linear-gradient(#F93318 0 0) top /100% calc(50% - 5px),\r\n        linear-gradient(#fff 0 0) bottom/100% calc(50% - 5px) #000;\r\n    background-repeat: no-repeat;\r\n    animation: l20 1s infinite cubic-bezier(0.5, 120, 0.5, -120);\r\n}\r\n\r\n.loader::before {\r\n    background: #ddd;\r\n    filter: blur(8px);\r\n    transform: scaleY(0.4) translate(-13px, 0px);\r\n}\r\n\r\n@keyframes l20 {\r\n\r\n    30%,\r\n    70% {\r\n        transform: rotate(0deg)\r\n    }\r\n\r\n    49.99% {\r\n        transform: rotate(0.2deg)\r\n    }\r\n\r\n    50% {\r\n        transform: rotate(-0.2deg)\r\n    }\r\n}",
+  "js": "",
+  "tags": [
+    "wobbling",
+    "loading",
+    "loop",
+    "animated"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Progress & Status Indicators",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:15:11.059",
+  "updatedAt": "2026-01-26T08:52:07.864",
+  "reviewed": false,
+  "slug": null
+}

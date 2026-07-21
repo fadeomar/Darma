@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741537876456",
+  "title": "progress loading 19",
+  "description": "progress Loading 19",
+  "shortDescription": "progress Loading 19",
+  "html": "<div id='loader-19'></div>",
+  "css": "/* HTML: <div id='loader-19'></div> */\n#loader-19 {\n  width: 60px;\n  aspect-ratio: 1;\n  background: linear-gradient(#dc1818 0 0) bottom/100% 0% no-repeat #ccc;\n  -webkit-mask: \n    radial-gradient(circle at 60% 65%, #000 62%, #0000 65%) top left, \n    radial-gradient(circle at 40% 65%, #000 62%, #0000 65%) top right, \n    linear-gradient(to bottom left, #000 42%,#0000 43%) bottom left , \n    linear-gradient(to bottom right,#000 42%,#0000 43%) bottom right;\n  -webkit-mask-size: 50% 50%;\n  -webkit-mask-repeat: no-repeat;\n  animation: l19 2s infinite linear;\n}\n@keyframes l19 {\n    90%,100% {background-size:100% 100%}\n}",
+  "js": "",
+  "tags": [
+    "progress",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T16:31:16.456",
+  "updatedAt": "2026-01-26T08:49:50.284",
+  "reviewed": false,
+  "slug": null
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552674435",
+  "title": "nature loading 9",
+  "description": "nature loading 9",
+  "shortDescription": "nature loading 9",
+  "html": "<div id='loader-nature-9'></div>",
+  "css": "#loader-nature-9 {\n  width: 80px;\n  height: 40px;\n  background: #4dbefa;\n  position: relative;\n  overflow: hidden;\n  animation: l9-0 1.5s infinite steps(10);\n}\n#loader-nature-9:before,\n#loader-nature-9:after {\n  content: \"\";\n  position: absolute;\n  inset: -50%;\n  --rad: radial-gradient(1px 4px,#eee 92%,#0000);\n  background: var(--rad) 20% 0, var(--rad) 70% 7%;\n  background-size: var(--w,20px) var(--h,18px);\n  animation: l9-1 0.2s linear infinite;\n  transform: skew(-10deg);\n}\n#loader-nature-9:after {\n  --h: 12px;\n  --w: 16px;\n  animation-duration: 0.3s;\n}\n@keyframes l9-0 {\n  0%,15%,20%,30%,100% {background:#4dbefa}\n  10%,22% {background:#7accf7}\n}\n@keyframes l9-1 {\n  100% {transform:skew(-10deg) translateY(var(--h,18px))}\n}",
+  "js": "",
+  "tags": [
+    "nature",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:37:54.435",
+  "updatedAt": "2026-01-26T08:56:07.671",
+  "reviewed": false,
+  "slug": null
+}

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534478376",
+  "title": "3d shape loading 1",
+  "description": "3d shape Loading 1",
+  "shortDescription": "3d shape Loading 1",
+  "html": "<div id='loader-1'></div>",
+  "css": "/* HTML: <div id='loader-1'></div> */\n#loader-1 {\n  --s: 25px;\n  --_d: calc(0.353*var(--s));\n  width: calc(var(--s) + var(--_d));\n  aspect-ratio: 1;\n  clip-path: polygon(var(--_d) 0,100% 0,100% calc(100% - var(--_d)),calc(100% - var(--_d)) 100%,0 100%,0 var(--_d));\n  background:\n    conic-gradient(from -90deg at var(--s) var(--_d),\n     #fff 135deg,#666 0 270deg,#aaa 0);\n  animation: l1 1s infinite cubic-bezier(0.5,300,0.5,-300);\n}\n@keyframes l1{\n  50%,100% {transform:translateY(0.1px)}\n}",
+  "js": "",
+  "tags": [
+    "3d",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "animated-shapes",
+    "3d-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:34:38.376",
+  "updatedAt": "2026-01-26T08:51:06.886",
+  "reviewed": false,
+  "slug": null
+}

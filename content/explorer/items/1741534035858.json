@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534035858",
+  "title": "Spinner loading 30",
+  "description": "Spin, spin, spin... Don't stop spinning! spin loading 30",
+  "shortDescription": "Spin, spin, spin... Don't stop spinning! spin loading 30",
+  "html": "<div id='loader30'></div>",
+  "css": "/* HTML: <div id='loader30'></div> */\n#loader30 {\n  --R: 30px;\n  --g1: #514b82 96%, #0000;\n  --g2: #eeeeee 96%, #0000;\n  width: calc(2*var(--R));\n  aspect-ratio: 1;\n  border-radius: 50%;\n  display: grid;\n  -webkit-mask: linear-gradient(#000 0 0);\n  animation: l30 2s infinite linear;\n}\n#loader30::before,\n#loader30::after{\n  content:\"\";\n  grid-area: 1/1;\n  width: 50%;\n  background:\n    radial-gradient(farthest-side,var(--g1)) calc(var(--R) + 0.866*var(--R) - var(--R)) calc(var(--R) - 0.5*var(--R)   - var(--R)),\n    radial-gradient(farthest-side,var(--g1)) calc(var(--R) + 0.866*var(--R) - var(--R)) calc(var(--R) - 0.5*var(--R)   - var(--R)),\n    radial-gradient(farthest-side,var(--g2)) calc(var(--R) + 0.5*var(--R)   - var(--R)) calc(var(--R) - 0.866*var(--R) - var(--R)),\n    radial-gradient(farthest-side,var(--g1)) 0 calc(-1*var(--R)),\n    radial-gradient(farthest-side,var(--g2)) calc(var(--R) - 0.5*var(--R)   - var(--R)) calc(var(--R) - 0.866*var(--R) - var(--R)),\n    radial-gradient(farthest-side,var(--g1)) calc(var(--R) - 0.866*var(--R) - var(--R)) calc(var(--R) - 0.5*var(--R)   - var(--R)),\n    radial-gradient(farthest-side,var(--g2)) calc(-1*var(--R))  0,\n    radial-gradient(farthest-side,var(--g1)) calc(var(--R) - 0.866*var(--R) - var(--R)) calc(var(--R) + 0.5*var(--R)   - var(--R));\n   background-size: calc(2*var(--R)) calc(2*var(--R));\n   background-repeat :no-repeat;\n}\n#loader30::after {\n transform: rotate(180deg);\n transform-origin: right;\n}\n@keyframes l30 {\n  100% {transform: rotate(-1turn)}\n}",
+  "js": "",
+  "tags": [
+    "spin",
+    "spinner",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:27:15.858",
+  "updatedAt": "2026-01-26T08:49:18.217",
+  "reviewed": false,
+  "slug": null
+}

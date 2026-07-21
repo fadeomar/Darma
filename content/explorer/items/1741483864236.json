@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "1741483864236",
+  "title": "🌈 Animated Underline Loader with CSS Magic ✨",
+  "description": "<p>I’ve created an <strong>Animated Underline Loader</strong> using HTML and CSS! This sleek project features a bold \"Loading...\" text with a colorful underline that grows from left to right in a smooth, infinite loop. It’s a stylish, lightweight way to show loading progress without JavaScript! 🚀</p><ul class=\"list-disc pl-6\"><li><p><strong>What’s it about?</strong> A text loader with a dynamic underline that animates using a CSS gradient and background-size trick.</p></li><li><p><strong>The result?</strong> A modern, eye-catching loading effect that feels polished and lively.</p></li><li><p><strong>Main key of the code:</strong> The <code>@keyframes</code> animation expands the <code>background-size</code> of a gradient underline, paired with <code>linear-gradient</code> for a clean look.</p></li><li><p><strong>How can users benefit?</strong> Add it as a chic loading indicator, tweak the timing, colors, or text to suit your site, or learn CSS animation basics!</p></li></ul>",
+  "shortDescription": "💡 A \"Loading...\" text with a growing underline, built with pure CSS. Sleek and simple!",
+  "html": "<div class=\"text-loader\"></div>",
+  "css": "/* Style the text loader with an animated underline */\r\n.text-loader {\r\n  width: fit-content; /* Adjust width to content size */\r\n  font-weight: bold; /* Bold text for emphasis */\r\n  font-family: sans-serif; /* Clean, modern font */\r\n  font-size: 30px; /* Readable size */\r\n  padding-bottom: 8px; /* Space for the underline */\r\n  background: linear-gradient(currentColor 0 0) 0 100% / 0% 3px no-repeat; /* Gradient underline, starts at 0% width */\r\n  animation: expandUnderline 2s linear infinite; /* Animate underline growth */\r\n}\r\n\r\n/* Add the \"Loading...\" text via pseudo-element */\r\n.text-loader::before {\r\n  content: \"Loading...\"; /* Default text content */\r\n}\r\n\r\n/* Define the underline expansion animation */\r\n@keyframes expandUnderline {\r\n  to { background-size: 100% 3px; } /* Grow underline to full width */\r\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "typing",
+    "Basic Shapes & Styles",
+    "loading-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T01:31:04.236",
+  "updatedAt": "2026-01-26T09:18:52.658",
+  "reviewed": true,
+  "slug": null
+}

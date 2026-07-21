@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552156011",
+  "title": "square loading 6",
+  "description": "square loading 6",
+  "shortDescription": "square loading 6",
+  "html": "<div id='loader-6'></div>",
+  "css": "body {\n background: #333;\n}\n #loader-6 {\n  width: 85px;\n  height: 35px;\n  --g1: conic-gradient(from 90deg at 3px 3px, #0000 90deg, #fff 0);\n  --g2: conic-gradient(from -90deg at 22px 22px, #0000 90deg, #fff 0);\n  background: var(--g1), var(--g1), var(--g1), var(--g2), var(--g2), var(--g2);\n  background-size: 25px 25px;\n  background-repeat: no-repeat;\n  animation: l6 1s infinite alternate;\n}\n@keyframes l6 {\n  0%   {background-position: 0 50%, 50% 50%, 100% 50%}\n  20%  {background-position: 0 0, 50% 50%, 100% 50%}\n  40%  {background-position: 0 100%, 50% 0, 100% 50%}\n  60%  {background-position: 0 50%, 50% 100%, 100% 0}\n  80%  {background-position: 0 50%, 50% 50%, 100% 100%}\n  100% {background-position: 0 50%, 50% 50%, 100% 50%}\n}",
+  "js": "",
+  "tags": [
+    "square",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:29:16.011",
+  "updatedAt": "2026-01-26T08:55:06.468",
+  "reviewed": false,
+  "slug": null
+}

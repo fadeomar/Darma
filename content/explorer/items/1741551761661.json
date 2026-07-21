@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551761661",
+  "title": "arcade loading 4",
+  "description": "arcade loading 4",
+  "shortDescription": "arcade loading 4",
+  "html": "<div id='loader-4'></div>",
+  "css": "#loader-4 {\n  width: 50px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: radial-gradient(farthest-side, #000 98%, #0000) 55% 20%/8px 8px no-repeat, #ffcc00;\n  box-shadow: 2px -6px 12px 0px inset rgba(0, 0, 0, 0.7);\n  animation: l4 .5s infinite steps(5) alternate;\n}\n@keyframes l4 {\n  0% {clip-path: polygon(50% 50%, 100% 0, 100% 0, 0 0, 0 100%, 100% 100%, 100% 100%)}\n  100% {clip-path: polygon(50% 50%, 100% 65%, 100% 0, 0 0, 0 100%, 100% 100%, 100% 35%)}\n}",
+  "js": "",
+  "tags": [
+    "arcade",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:22:41.66",
+  "updatedAt": "2026-01-26T08:54:15.616",
+  "reviewed": false,
+  "slug": null
+}

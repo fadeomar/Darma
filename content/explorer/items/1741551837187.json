@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551837187",
+  "title": "hypnotic loading 6",
+  "description": "hypnotic loading 6",
+  "shortDescription": "hypnotic loading 6",
+  "html": "<div id='loader-6'></div>",
+  "css": "#loader-6 {\n  width: 50px;\n  aspect-ratio: 1;\n  display: grid;\n  color: #000;\n  background:\n    linear-gradient(90deg, currentColor 2px, #0000 0 calc(100% - 2px), currentColor 0) center/100% 14px,\n    linear-gradient(0deg, currentColor 2px, #0000 0 calc(100% - 2px), currentColor 0) center/14px 100%,\n    linear-gradient(currentColor 0 0) center/100% 2px,\n    linear-gradient(currentColor 0 0) center/2px 100%;\n  background-repeat: no-repeat;\n  animation: l6 4s infinite linear;\n}\n#loader-6::before,\n#loader-6::after {\n  content: \"\";\n  grid-area: 1/1;\n  background: inherit;\n  transform-origin: inherit;\n  animation: inherit;\n}\n#loader-6::after {\n  animation-duration: 2s;\n}\n@keyframes l6 {\n  100% {transform: rotate(1turn)}\n}",
+  "js": "",
+  "tags": [
+    "hypnotic",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:23:57.187",
+  "updatedAt": "2026-01-26T08:54:43.523",
+  "reviewed": false,
+  "slug": null
+}

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533236732",
+  "title": "text effect 13",
+  "description": "text effect 13",
+  "shortDescription": "text effect 13",
+  "html": "<div id='loader-c-13'></div>",
+  "css": "#loader-c-13 {\n  font-weight: bold;\n  font-family: monospace;\n  font-size: 30px;\n  display: inline-grid;\n  overflow: hidden;\n}\n#loader-c-13:before,\n#loader-c-13:after {\n  content: \"Loading...\";\n  grid-area: 1/1;\n  clip-path: inset(0 -200% 50%);\n  text-shadow: -10ch 0 0;\n  animation: l130 2s infinite;\n}\n#loader-c-13:after {\n  clip-path: inset(50% -200% 0%);\n  text-shadow: 10ch 0 0;\n  --s: -1;\n  animation-delay: 1s;\n}\n@keyframes l130 {\n  25%, 100% {\n    transform: translateX(calc(var(--s, 1) * 100%));\n  }\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loading-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:13:56.732",
+  "updatedAt": "2026-01-26T08:46:22.719",
+  "reviewed": false,
+  "slug": null
+}

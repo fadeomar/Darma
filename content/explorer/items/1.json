@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "1",
+  "title": "Beautiful Button Hover Effect Nice",
+  "description": "<p>A button with a hover effect using CSS. cool</p>",
+  "shortDescription": "A button with a hover effect using CSS.",
+  "html": "<button class='btn'>Hover Me</button>",
+  "css": ".btn { padding: 10px; } .btn:hover { background: #00f; }",
+  "js": "",
+  "tags": [
+    "button",
+    "hover",
+    "CSS"
+  ],
+  "mainCategory": [
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "buttons"
+  ],
+  "deleted": true,
+  "createdAt": "2025-03-06T19:54:35.002",
+  "updatedAt": "2026-01-26T09:18:39.83",
+  "reviewed": false,
+  "slug": null
+}

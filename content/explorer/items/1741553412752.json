@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553412752",
+  "title": "thin loading 4",
+  "description": "thin loading 4",
+  "shortDescription": "thin loading 4",
+  "html": "<div id='loader-4'></div>",
+  "css": "#loader-4 {\n  height: 15px;\n  width: 60px;\n  --c:no-repeat repeating-linear-gradient(#0000 0 6px,#000 0 9px,#0000 0 15px);\n  background: var(--c), var(--c), var(--c), var(--c);\n  background-size: 26% 200%;\n  animation: l4 1.5s infinite linear;\n}\n@keyframes l4 {\n  0%,\n  70%,\n  100%  {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 100%,calc(2*100%/3) 100%,calc(3*100%/3) 100%}\n  17.5% {background-position: calc(0*100%/3) 0   ,calc(1*100%/3) 100%,calc(2*100%/3) 100%,calc(3*100%/3) 100%}\n  35%   {background-position: calc(0*100%/3) 0   ,calc(1*100%/3) 0   ,calc(2*100%/3) 100%,calc(3*100%/3) 100%}\n  52.5% {background-position: calc(0*100%/3) 0   ,calc(1*100%/3) 0   ,calc(2*100%/3) 0   ,calc(3*100%/3) 100%}\n  69.99%{background-position: calc(0*100%/3) 0   ,calc(1*100%/3) 0   ,calc(2*100%/3) 0   ,calc(3*100%/3) 0   }\n}",
+  "js": "",
+  "tags": [
+    "thin",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "Unique Mechanics",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:50:12.752",
+  "updatedAt": "2026-01-26T08:57:47.173",
+  "reviewed": false,
+  "slug": null
+}

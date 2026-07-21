@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533560533",
+  "title": "dots loading 50",
+  "description": "dots loading 50",
+  "shortDescription": "dots loading 50",
+  "html": "<div id='loader-d-50'></div>",
+  "css": "/* HTML: <div id=\"loader-d-50\"></div> */\n#loader-d-50 {\n  height: 15px;\n  aspect-ratio: 4;\n  --_g: no-repeat radial-gradient(farthest-side,#000 90%,#0000);\n  background: \n    var(--_g) left, \n    var(--_g) right;\n  background-size: 25% 100%;\n  display: flex;\n}\n#loader-d-50::before{\n  content: \"\";\n  flex: 1;\n  background: inherit;\n  animation: l50 2s infinite;\n}\n@keyframes l50 {\n  0%    {transform: translate( 37.5%) rotate(0)     }\n  16.67%{transform: translate( 37.5%) rotate(90deg) }\n  33.33%{transform: translate(-37.5%) rotate(90deg) }\n  50%   {transform: translate(-37.5%) rotate(180deg)}\n  66.67%{transform: translate(-37.5%) rotate(270deg)}\n  83.33%{transform: translate( 37.5%) rotate(270deg)}\n  100%  {transform: translate( 37.5%) rotate(360deg)}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:19:20.533",
+  "updatedAt": "2026-01-26T08:48:01.851",
+  "reviewed": false,
+  "slug": null
+}

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741547958388",
+  "title": "infinity loading 2",
+  "description": "infinity Loading 2",
+  "shortDescription": "infinity Loading 2",
+  "html": "<div id='infinity-2'></div>",
+  "css": "#infinity-2 {\n  width: 90px;\n  height: 14px;\n  background: radial-gradient(circle closest-side,#000 92%,#0000) calc(100%/3) 0/calc(100%/4) 100%;\n  animation: l2 0.5s infinite linear;\n}\n@keyframes l2 {\n    100% {background-position: 0 0}\n}",
+  "js": "",
+  "tags": [
+    "infinity",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Progress & Status Indicators",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:19:18.388",
+  "updatedAt": "2026-01-26T08:52:08.804",
+  "reviewed": false,
+  "slug": null
+}

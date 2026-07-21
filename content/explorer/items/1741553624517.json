@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553624517",
+  "title": "arrow loading 5",
+  "description": "arrow loading 5",
+  "shortDescription": "arrow loading 5",
+  "html": "<div id='loader-25'></div>",
+  "css": "#loader-25 {\n  width: 50px;\n  height: 30px;\n  display: grid;\n  overflow: hidden;\n}\n#loader-25:before,\n#loader-25:after {\n  content: \"\";\n  grid-area: 1/1;\n  background: #000;\n  clip-path: polygon(0 10px,calc(100% - 15px) 10px,calc(100% - 15px) 0,100% 50%,calc(100% - 15px) 100%,calc(100% - 15px) calc(100% - 10px),0 calc(100% - 10px));\n  animation: l5 1s infinite;\n  transform: translate(calc(0% + var(--s,0%)));\n}\n#loader-25:after {\n  --s:-100%;\n}\n@keyframes l5 {\n  80%,100%{transform: translate(calc(100% + var(--s,0%)))}\n}",
+  "js": "",
+  "tags": [
+    "arrow",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:53:44.517",
+  "updatedAt": "2026-01-26T08:58:39.334",
+  "reviewed": false,
+  "slug": null
+}

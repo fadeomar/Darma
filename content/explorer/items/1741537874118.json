@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741537874118",
+  "title": "progress loading 2",
+  "description": "progress Loading 2",
+  "shortDescription": "progress Loading 2",
+  "html": "<div id='loader-2'></div>",
+  "css": "/* HTML: <div id='loader-2'></div> */\n#loader-2 {\n  width: 120px;\n  height: 20px;\n  border-radius: 20px;\n  background:\n   linear-gradient(orange 0 0) 0/0% no-repeat\n   lightblue;\n  animation: l2 2s infinite steps(10);\n}\n@keyframes l2 {\n    100% {background-size:110%}\n}",
+  "js": "",
+  "tags": [
+    "progress",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T16:31:14.118",
+  "updatedAt": "2026-01-26T08:51:24.417",
+  "reviewed": false,
+  "slug": null
+}

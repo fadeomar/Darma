@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "1741532548250",
+  "title": "Dots vs. Bars 10",
+  "description": "Dots vs. Bars 10",
+  "shortDescription": "Dots vs. Bars 10",
+  "html": "<div id='loader10'></div>",
+  "css": "/* HTML: <div id='loader10'></div> */\n#loader10 {\n  width: 70px;\n  height: 30px;\n  overflow: hidden;\n  position: relative;\n}\n#loader10:before {\n  content: \"\";\n  position: absolute;\n  width: 8px;\n  height: 8px;\n  border-radius:50%;\n  inset:0;\n  margin:auto; \n  background: #000;\n  transform-origin: bottom;\n  animation: l10-1 3s infinite;\n}\n#loader10:after {\n  content: \"\";\n  position: absolute;\n  width:8px;\n  height:14px;\n  bottom:calc(50% - 4px);\n  background: #000;\n  animation: l10-2 3s infinite;\n}\n@keyframes l10-1 {\n 0%,\n 10% {transform:translate(0)     scale(1)  ;box-shadow: 60px 0 ,60px 0}\n 20%,\n 40% {transform:translate(20px)  scale(1)  ;box-shadow: 60px 0 ,60px 0}\n 48% {transform:translate(20px)  scale(1)  ;box-shadow: 8px  0 ,60px 0}\n 50% {transform:translate(20px)  scale(1.5);box-shadow: 0    0 ,60px 0}\n 58% {transform:translate(20px)  scale(1.5);box-shadow: 0    0 ,8px  0}\n 60%,\n 70% {transform:translate(20px)  scale(2)  ;box-shadow: 0    0 ,0    0}\n 85% {transform:translate(-50px) scale(2)  ;box-shadow: 0    0 ,0    0}\n 87% {transform:translate(-50px) scale(1)  ;box-shadow: 0    0 ,0    0}\n 100%{transform:translate(0)     scale(1)  ;box-shadow: 0    0 ,0    0}\n}\n@keyframes l10-2 {\n 20%,70% {left:50%}\n 0%,10%,85%,100% {left:-25px}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "bars",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:02:28.25",
+  "updatedAt": "2026-01-26T08:46:06.695",
+  "reviewed": false,
+  "slug": null
+}

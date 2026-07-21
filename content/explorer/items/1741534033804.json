@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534033804",
+  "title": "Spinner loading 13",
+  "description": "Spin, spin, spin... Don't stop spinning! spin loading 13",
+  "shortDescription": "Spin, spin, spin... Don't stop spinning! spin loading 13",
+  "html": "<div id='loader13'></div>",
+  "css": "/* HTML: <div id='loader13'></div> */\n#loader13 {\n  width: 50px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: \n    radial-gradient(farthest-side,#ffa516 94%,#0000) top/8px 8px no-repeat,\n    conic-gradient(#0000 30%,#ffa516);\n  -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);\n  animation: l13 1s infinite linear;\n}\n@keyframes l13{ \n  100%{transform: rotate(1turn)}\n}",
+  "js": "",
+  "tags": [
+    "spin",
+    "spinner",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:27:13.804",
+  "updatedAt": "2026-01-26T08:48:51.964",
+  "reviewed": false,
+  "slug": null
+}

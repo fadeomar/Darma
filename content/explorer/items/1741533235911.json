@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533235911",
+  "title": "text effect 7",
+  "description": "text effect 7",
+  "shortDescription": "text effect 7",
+  "html": "<div id='loader-c-7'></div>",
+  "css": "#loader-c-7 {\n  width: fit-content;\n  font-weight: bold;\n  font-family: monospace;\n  font-size: 30px;\n  color: #0000;\n  background: linear-gradient(90deg, #C02942 calc(50% + 0.5ch), #000 0) right/calc(200% + 1ch) 100%;\n  -webkit-background-clip: text;\n  background-clip: text;\n  animation: l7 2s infinite steps(11);\n}\n#loader-c-7:before {\n  content: \"Loading...\";\n}\n@keyframes l7 {\n  to {\n    background-position: left;\n  }\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loading-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:13:55.911",
+  "updatedAt": "2026-01-26T08:46:18.574",
+  "reviewed": false,
+  "slug": null
+}

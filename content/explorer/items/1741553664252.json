@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553664252",
+  "title": "blob loading 1",
+  "description": "blob loading 1",
+  "shortDescription": "blob loading 1",
+  "html": "<div id='loader-31'></div>",
+  "css": "#loader-31 {\n  width: 50px;\n  aspect-ratio: 1;\n  background: #006cff;\n  border-radius: 50%;\n  animation: l1 3s infinite linear;\n}\n@keyframes l1{\n  12.5% {border-radius: 37% 63% 70% 30% / 30% 62% 38% 70%}\n  25%   {border-radius: 50% 50% 70% 30% / 52% 62% 38% 48%}\n  37.5% {border-radius: 33% 67% 18% 82% / 52% 75% 25% 48%}\n  50%   {border-radius: 73% 27% 18% 82% / 52% 32% 68% 48%}\n  62.5% {border-radius: 73% 27% 74% 26% / 64% 32% 68% 36%}\n  75%   {border-radius: 84% 16% 15% 85% / 55% 79% 21% 45%}\n  87.5% {border-radius: 12% 88% 69% 31% / 10% 66% 34% 90%}\n}",
+  "js": "",
+  "tags": [
+    "blob",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Unique Mechanics",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:54:24.252",
+  "updatedAt": "2026-01-26T08:58:48.325",
+  "reviewed": false,
+  "slug": null
+}

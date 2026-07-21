@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552515012",
+  "title": "colorful loading 13",
+  "description": "colorful loading 13",
+  "shortDescription": "colorful loading 13",
+  "html": "<div id='loader-13'></div>",
+  "css": "#loader-13 {\n  width: 50px;\n  aspect-ratio: 1;\n  display: grid;\n  --c:#CFF09E 25%,#79BD9A 0 50%,#0B486B 0 75%,#CFF09E 0;\n}\n#loader-13:before,\n#loader-13:after {\n  content: \"\";\n  background:\n    linear-gradient( 90deg,var(--c)),\n    linear-gradient(-90deg,var(--c));\n  background-size: 400% 52%;\n  background-repeat: no-repeat;\n  animation: l13 2s infinite; \n}\n@keyframes l13 {\n  0%       {background-position:calc(3*100%/3) 0,calc(0*100%/3) 100%}\n  23%,33%  {background-position:calc(2*100%/3) 0,calc(1*100%/3) 100%}\n  56%,66%  {background-position:calc(1*100%/3) 0,calc(2*100%/3) 100%}\n  90%,100% {background-position:calc(0*100%/3) 0,calc(3*100%/3) 100%}\n}",
+  "js": "",
+  "tags": [
+    "colorful",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:35:15.011",
+  "updatedAt": "2026-01-26T08:55:49.55",
+  "reviewed": false,
+  "slug": null
+}

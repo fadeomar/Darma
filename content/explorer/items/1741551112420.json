@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551112420",
+  "title": "bounce loading 9",
+  "description": "bounce loading 9",
+  "shortDescription": "bounce loading 9",
+  "html": "<div id='loader-29'></div>",
+  "css": "#loader-29 {\n  display: inline-grid;\n  width: 40px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: repeating-conic-gradient(from 30deg,#C02942 0 60deg,#0B486B 0 120deg);\n  animation: l9-0 3s linear infinite;\n}\n#loader-29:before,\n#loader-29:after {\n  content: '';\n  grid-area: 1/1;\n  border-radius: 50%;\n  background: inherit;\n  transform: rotate(0turn) translate(100%,0);\n  animation: l9-1 3s linear infinite;\n}\n#loader-29:after {\n  animation-delay: -1.5s;\n}\n@keyframes l9-0 {\n  to{rotate: -1turn}\n}\n@keyframes l9-1 {\n  to{transform: rotate(1turn) translate(100%,0) rotate(1turn)}\n}",
+  "js": "",
+  "tags": [
+    "rolling",
+    "ball",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:11:52.42",
+  "updatedAt": "2026-01-26T08:53:39.33",
+  "reviewed": false,
+  "slug": null
+}

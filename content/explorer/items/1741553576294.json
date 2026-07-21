@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553576294",
+  "title": "clones loading 19",
+  "description": "clones loading 19",
+  "shortDescription": "clones loading 19",
+  "html": "<div id='loader-19'></div>",
+  "css": "#loader-19 {\n  width: 60px;\n  aspect-ratio: 1;\n  background: \n    linear-gradient(#60B99A 0 0) calc(1*100%/3) 50%/25% 50%,\n    linear-gradient(#60B99A 0 0) calc(2*100%/3) 50%/25% 50%,\n    linear-gradient(#f77825 0 0) 50% calc(1*100%/3)/50% 25%,\n    linear-gradient(#f77825 0 0) 50% calc(2*100%/3)/50% 25%,\n    linear-gradient(#554236 0 0) calc(1*100%/3) calc(1*100%/3)/25% 25%,\n    linear-gradient(#554236 0 0) calc(2*100%/3) calc(1*100%/3)/25% 25%,\n    linear-gradient(#554236 0 0) calc(1*100%/3) calc(2*100%/3)/25% 25%,\n    linear-gradient(#554236 0 0) calc(2*100%/3) calc(2*100%/3)/25% 25%;\n  background-repeat: no-repeat;\n  animation: l19 1s infinite alternate;\n}\n@keyframes l19 {\n  90%,100%{background-position: 0 50%,100% 50%,50% 0,50% 100%,0 0,100% 0,0 100%,100% 100%}\n}",
+  "js": "",
+  "tags": [
+    "clones",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Unique Mechanics",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:52:56.294",
+  "updatedAt": "2026-01-26T08:58:31.883",
+  "reviewed": false,
+  "slug": null
+}

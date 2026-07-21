@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553668974",
+  "title": "blob loading 18",
+  "description": "blob loading 18",
+  "shortDescription": "blob loading 18",
+  "html": "<div id='loader-48'></div>",
+  "css": "#loader-48 {\n  width: 80px;\n  aspect-ratio: 1;\n  border: 10px solid #000;\n  box-sizing: border-box;\n  background: \n    radial-gradient(farthest-side at right,#fff 98%,#0000) 20% 50%/40% 80%,\n    radial-gradient(farthest-side at left ,#fff 98%,#0000) 80% 50%/40% 80%,\n    #000;\n  background-repeat: no-repeat;\n  filter: blur(4px) contrast(10); \n  animation: l18 0.8s infinite alternate;\n}\n@keyframes l18 {\n  0%,20% {background-position:20% 50%,80% 50%}\n  100%   {background-position:80% 50%,20% 50%}\n}",
+  "js": "",
+  "tags": [
+    "blob",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Unique Mechanics",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:54:28.974",
+  "updatedAt": "2026-01-26T09:19:02.011",
+  "reviewed": false,
+  "slug": null
+}

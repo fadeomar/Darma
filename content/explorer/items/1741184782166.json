@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741184782166",
+  "title": "💖 Pulsing Heart Pattern with JavaScript Canvas 🎉",
+  "description": "<p>Check out my latest creation: a <strong>Pulsing Heart Pattern</strong> built with HTML, CSS, and JavaScript! This project draws a vibrant, animated heart shape that pulses and spins, surrounded by a dynamic, colorful pattern. It’s a fun way to experiment with math and canvas animations! 🌈</p><ul class=\"list-disc pl-6\"><li><p><strong>What’s it about?</strong> A heart-shaped animation that oscillates in size and rotates, with a mesmerizing circular pattern around it, all drawn on a canvas.</p></li><li><p><strong>The result?</strong> A lively, colorful heart that feels like it’s beating, perfect for a playful visual effect.</p></li><li><p><strong>Main key of the code:</strong> Parametric equations <code>Math.sin</code>, <code>Math.cos</code>) define the heart’s shape, while a looping pattern adds flair, driven by <code>requestAnimationFrame</code>.</p></li><li><p><strong>How can users benefit?</strong> Use it as a decorative element, tweak the colors, frequency, or speed for customization, or learn from it to create your own parametric art!</p></li></ul>",
+  "shortDescription": "✨ A pulsing, spinning heart with a colorful pattern, crafted with JS Canvas. Ideal for fun visuals or learning!",
+  "html": "    <canvas></canvas>\r\n",
+  "css": "body {\r\n  height: 100vh; /* Full viewport height */\r\n  overflow: hidden; /* Prevent scrolling */\r\n  display: flex; /* Center the canvas */\r\n  justify-content: center;\r\n  align-items: center;\r\n}",
+  "js": "// Select canvas element and get 2D context\r\nconst canvas = document.querySelector(\"canvas\");\r\nconst ctx = canvas.getContext(\"2d\");\r\n\r\n// Set fixed canvas dimensions\r\nconst CANVAS_WIDTH = 500;\r\nconst CANVAS_HEIGHT = 500;\r\ncanvas.width = CANVAS_WIDTH;\r\ncanvas.height = CANVAS_HEIGHT;\r\n\r\n// Animation variables\r\nlet currentAngle = 0.04; // Starting angle for heart shape\r\nlet angleIncrement = -0.07; // Speed and direction of angle change\r\nlet patternFrequency = 5; // Frequency of the surrounding pattern\r\nlet isClockwise = true; // Direction of rotation\r\n\r\n// Function to draw and animate the heart\r\nfunction drawHeart() {\r\n  // Update angle for animation\r\n  currentAngle += angleIncrement;\r\n\r\n  // Calculate heart's center point using parametric equations\r\n  const heartX =\r\n    CANVAS_WIDTH / 2 +\r\n    ((CANVAS_WIDTH - 25) / 2) * Math.pow(Math.sin(currentAngle), 3);\r\n  const heartY =\r\n    CANVAS_HEIGHT / 2 -\r\n    13 *\r\n      (13 * Math.cos(currentAngle) -\r\n        5 * Math.cos(2 * currentAngle) -\r\n        2 * Math.cos(3 * currentAngle));\r\n\r\n  // Start drawing the pattern around the heart\r\n  ctx.beginPath();\r\n  ctx.moveTo(heartX, heartY);\r\n\r\n  // Set random color for the stroke\r\n  const randomHue = Math.random() * 360;\r\n  ctx.strokeStyle = `hsl(${randomHue}, 100%, 50%)`; // Vibrant, random color\r\n\r\n  // Draw the circular pattern around the heart\r\n  for (let t = 0; t < 2 * Math.PI; t += 0.01) {\r\n    const offsetX = heartX + 8 * Math.cos(patternFrequency * t) * Math.cos(t);\r\n    const offsetY = heartY + 8 * Math.cos(patternFrequency * t) * Math.sin(t);\r\n    ctx.lineTo(offsetX, offsetY);\r\n  }\r\n  ctx.stroke();\r\n  ctx.closePath();\r\n\r\n  // Draw a line from canvas center to heart position\r\n  ctx.beginPath();\r\n  ctx.moveTo(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2); // Center of canvas\r\n  ctx.lineTo(heartX, heartY); // Heart's current position\r\n  ctx.stroke();\r\n  ctx.closePath();\r\n\r\n  // Reverse direction when angle exceeds bounds\r\n  if (currentAngle < -Math.PI * 2 || currentAngle > Math.PI * 2) {\r\n    isClockwise = !isClockwise; // Toggle direction\r\n    angleIncrement = isClockwise ? 0.05 : -0.07; // Adjust speed based on direction\r\n    currentAngle = 0.04; // Reset angle\r\n  }\r\n\r\n  // Continue animation\r\n  requestAnimationFrame(drawHeart);\r\n}\r\n\r\n// Start the animation\r\nrequestAnimationFrame(drawHeart);",
+  "tags": [
+    "Canvas",
+    "Animation",
+    "MathArt",
+    "CreativeCoding"
+  ],
+  "mainCategory": [
+    "canvas-projects",
+    "shapes"
+  ],
+  "secondaryCategory": [
+    "drawing",
+    "animated-shapes",
+    "animations"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-08T11:06:55.509",
+  "updatedAt": "2026-01-26T08:45:30.453",
+  "reviewed": true,
+  "slug": null
+}

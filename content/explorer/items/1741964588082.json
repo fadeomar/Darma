@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "1741964588082",
+  "title": "Fun Animated Grid with Color TransitionsGrid with Color Transitions",
+  "description": "Fun Animated Grid with Color Transitions",
+  "shortDescription": "Fun Animated Grid with Color Transitions",
+  "html": "<div id='Fun_Animated_Grid'>\r\n    <h1>Fun Animated Grid with Color Transitions</h1>\r\n</div>",
+  "css": " #Fun_Animated_Grid {\r\n     --grid-size: 25vmin;\r\n     --half-grid: calc(var(--grid-size) / 2);\r\n     --primary-color: pink;\r\n     --secondary-color: dodgerblue;\r\n     --background-color: white;\r\n     --animation-duration: 4000ms;\r\n     --animation-timing: cubic-bezier(0.76, 0, 0.24, 1);\r\n\r\n     background-color: var(--background-color);\r\n     background-image: linear-gradient(45deg,\r\n             var(--primary-color) 25%,\r\n             transparent 25%),\r\n         linear-gradient(-45deg, var(--primary-color) 25%, transparent 25%),\r\n         linear-gradient(45deg, transparent 75%, var(--secondary-color) 75%),\r\n         linear-gradient(-45deg, transparent 75%, var(--secondary-color) 75%);\r\n     background-size: var(--grid-size) var(--grid-size);\r\n     background-position: calc(var(--half-grid) * 1) calc(var(--half-grid) * 0),\r\n         calc(var(--half-grid) * -1) calc(var(--half-grid) * 1),\r\n         calc(var(--half-grid) * 1) calc(var(--half-grid) * -1),\r\n         calc(var(--half-grid) * -1) calc(var(--half-grid) * 0);\r\n     animation: bgChange var(--animation-duration) var(--animation-timing) infinite,\r\n         bgPositionChange var(--animation-duration) var(--animation-timing) infinite;\r\n     overflow: hidden;\r\n     width: 100%;\r\n     height: 100vh;\r\n     position: relative;\r\n }\r\n\r\n @keyframes bgChange {\r\n\r\n     0%,\r\n     25% {\r\n         --background-color: var(--background-color);\r\n     }\r\n\r\n     26%,\r\n     50% {\r\n         --background-color: var(--primary-color);\r\n     }\r\n\r\n     51%,\r\n     75% {\r\n         --background-color: var(--background-color);\r\n     }\r\n\r\n     76%,\r\n     100% {\r\n         --background-color: var(--secondary-color);\r\n     }\r\n }\r\n\r\n @keyframes bgPositionChange {\r\n     0% {\r\n         background-position: calc(var(--half-grid) * 1) calc(var(--half-grid) * 0),\r\n             calc(var(--half-grid) * -1) calc(var(--half-grid) * 1),\r\n             calc(var(--half-grid) * 1) calc(var(--half-grid) * -1),\r\n             calc(var(--half-grid) * -1) calc(var(--half-grid) * 0);\r\n     }\r\n\r\n     25% {\r\n         background-position: calc(var(--half-grid) * 1) calc(var(--half-grid) * 4),\r\n             calc(var(--half-grid) * -1) calc(var(--half-grid) * 5),\r\n             calc(var(--half-grid) * 1) calc(var(--half-grid) * 3),\r\n             calc(var(--half-grid) * -1) calc(var(--half-grid) * 4);\r\n     }\r\n\r\n     50% {\r\n         background-position: calc(var(--half-grid) * 3) calc(var(--half-grid) * 8),\r\n             calc(var(--half-grid) * -3) calc(var(--half-grid) * 9),\r\n             calc(var(--half-grid) * 2) calc(var(--half-grid) * 7),\r\n             calc(var(--half-grid) * -2) calc(var(--half-grid) * 8);\r\n     }\r\n\r\n     75% {\r\n         background-position: calc(var(--half-grid) * 3) calc(var(--half-grid) * 12),\r\n             calc(var(--half-grid) * -3) calc(var(--half-grid) * 13),\r\n             calc(var(--half-grid) * 2) calc(var(--half-grid) * 11),\r\n             calc(var(--half-grid) * -2) calc(var(--half-grid) * 12);\r\n     }\r\n\r\n     100% {\r\n         background-position: calc(var(--half-grid) * 6) calc(var(--half-grid) * 16),\r\n             calc(var(--half-grid) * -5) calc(var(--half-grid) * 17),\r\n             calc(var(--half-grid) * 5) calc(var(--half-grid) * 15),\r\n             calc(var(--half-grid) * -5) calc(var(--half-grid) * 16);\r\n     }\r\n }\r\n\r\n #Fun_Animated_Grid h1 {\r\n     position: absolute;\r\n     font-family: cursive;\r\n     font-size: 40px;\r\n     top: 120px;\r\n     text-align: center;\r\n     width: 100%;\r\n }",
+  "js": "",
+  "tags": [
+    "Animated",
+    "Color",
+    "Transitions",
+    "background",
+    "bg"
+  ],
+  "mainCategory": [
+    "backgrounds"
+  ],
+  "secondaryCategory": [
+    "animated-bg"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-14T15:03:08.081",
+  "updatedAt": "2026-01-26T09:25:05.314",
+  "reviewed": false,
+  "slug": null
+}

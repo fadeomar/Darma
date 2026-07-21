@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551705957",
+  "title": "pulsing loading 5",
+  "description": "pulsing loading 5",
+  "shortDescription": "pulsing loading 5",
+  "html": "<div id='loader-5'></div>",
+  "css": "#loader-5 {\n  width: 80px;\n  aspect-ratio: 1;\n  position: relative;\n}\n#loader-5::before,\n#loader-5::after {\n  content: '';\n  position: absolute;\n  inset: 0;\n  background: #ffb940;\n  box-shadow: 0 0 0 50px;\n  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);\n}\n#loader-5::after {\n  animation: l5 1s infinite;\n  transform: perspective(300px) translateZ(0px);\n}\n@keyframes l5 {\n  to {transform: perspective(300px) translateZ(150px); opacity: 0}\n}",
+  "js": "",
+  "tags": [
+    "pulsing",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:21:45.957",
+  "updatedAt": "2026-01-26T08:54:10.084",
+  "reviewed": false,
+  "slug": null
+}

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533237224",
+  "title": "text effect 15",
+  "description": "text effect 15",
+  "shortDescription": "text effect 15",
+  "html": "<div id='loader-c-15'></div>",
+  "css": "#loader-c-15 {\n  font-weight: bold;\n  font-family: monospace;\n  font-size: 30px;\n  line-height: 1.2em;\n  display: inline-grid;\n}\n#loader-c-15:before,\n#loader-c-15:after {\n  content: \"Loading...\";\n  grid-area: 1/1;\n  -webkit-mask: linear-gradient(90deg, #000 50%, #0000 0) 0 50%/2ch 100%;\n  color: #0000;\n  text-shadow: 0 0 0 #000, 0 calc(var(--s, 1) * 1.2em) 0 #000;\n  animation: l15 1s infinite;\n}\n#loader-c-15:after {\n  -webkit-mask-position: 1ch 50%;\n  --s: -1;\n}\n@keyframes l15 {\n  80%, 100% {\n    text-shadow: 0 calc(var(--s, 1) * -1.2em) 0 #000, 0 0 0 #000;\n  }\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loading-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:13:57.224",
+  "updatedAt": "2026-01-26T08:46:25.162",
+  "reviewed": false,
+  "slug": null
+}

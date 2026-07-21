@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741547959647",
+  "title": "infinity loading 10",
+  "description": "infinity Loading 10",
+  "shortDescription": "infinity Loading 10",
+  "html": "<div id='infinity-10'></div>",
+  "css": "#infinity-10 {\n  width: 90px;\n  height: 12px;\n  --c:#000 50%,#0000 0;\n  background: \n    linear-gradient( 90deg,var(--c)) 0 0,\n    linear-gradient(-90deg,var(--c)) 0 0;\n  background-size: 20px 100%;\n  background-repeat: repeat-x;\n  animation: l10 1s infinite linear;\n}\n@keyframes l10 {\n    100% {background-position: -20px 0,20px 0}\n}",
+  "js": "",
+  "tags": [
+    "infinity",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Progress & Status Indicators",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:19:19.646",
+  "updatedAt": "2026-01-26T08:52:19.294",
+  "reviewed": false,
+  "slug": null
+}

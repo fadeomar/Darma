@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741547444642",
+  "title": "wobbling loading 6",
+  "description": "wobbling Loading 6",
+  "shortDescription": "wobbling Loading 6",
+  "html": "<div id='loader-6'></div>",
+  "css": "#loader-6 {\n  width: 120px;\n  height: 21px;\n  background:\n   linear-gradient(#000 0 0) left/10px 100% no-repeat\n   #ddd;\n  animation: l6 1s infinite cubic-bezier(0,0.2,1,1);\n  position: relative;\n}\n#loader-6:before,\n#loader-6:after {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  right: 0;\n  height: 7px;\n  background:\n    linear-gradient(#000 0 0) left/10px 100% no-repeat\n    #ddd;\n  animation: inherit;\n}\n#loader-6:before {\n  top: 0;\n  animation-timing-function: cubic-bezier(0,0,1,1);\n}\n#loader-6:after {\n  bottom: 0;\n  animation-timing-function: cubic-bezier(0,0.4,1,1);\n}\n@keyframes l6 {\n    50% {background-position: right }\n}",
+  "js": "",
+  "tags": [
+    "wobbling",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:10:44.642",
+  "updatedAt": "2026-01-26T08:51:51.758",
+  "reviewed": false,
+  "slug": null
+}

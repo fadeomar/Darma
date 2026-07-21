@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741547445567",
+  "title": "wobbling loading 11",
+  "description": "wobbling Loading 11",
+  "shortDescription": "wobbling Loading 11",
+  "html": "<div id='loader-11'></div>",
+  "css": "#loader-11 {\n  width: 30px;\n  aspect-ratio: 1;\n  display: grid;\n  transform: translateY(100%);\n}\n#loader-11::before,\n#loader-11::after {\n  content: \"\";\n  grid-area: 1/1;\n  border-radius: 50%;\n  transform-origin: bottom;\n  position: relative;\n}\n#loader-11::before {\n  background: radial-gradient(at 30% 30%,#0000,#000a) red;\n  transform: scaleY(0.65);\n  top: 0;\n  animation: l11-1, l11-2;\n  animation-duration: 2s;\n  animation-timing-function: cubic-bezier(0,400,1,400),ease;\n  animation-iteration-count: infinite;\n}\n#loader-11::after {\n  background: #ccc;\n  filter: blur(8px);\n  transform: scaleY(0.3) translate(0px,0px);\n  left: 0;\n  animation: l11-3 2s cubic-bezier(0,400,1,400) infinite;\n}\n@keyframes l11-1 {\n  100% {top:-0.2px}\n}\n@keyframes l11-2 {\n  4%,96% {transform: scaleY(1)}\n}\n@keyframes l11-3 {\n  100% {transform: scaleY(0.3) translate(0.1px,-0.1px)}\n}",
+  "js": "",
+  "tags": [
+    "wobbling",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:10:45.567",
+  "updatedAt": "2026-01-26T08:51:57.648",
+  "reviewed": false,
+  "slug": null
+}

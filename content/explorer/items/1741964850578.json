@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741964850578",
+  "title": "🚀 Futuristic 3D Rotating Glowing Cube with Pure CSS! 🔥✨",
+  "description": "Create an eye-catching 3D rotating cube with a glowing neon effect using just HTML & CSS! 🎨✨ This futuristic animation includes:",
+  "shortDescription": "Create an eye-catching 3D rotating cube with a glowing neon effect using just HTML & CSS! 🎨✨ This futuristic animation includes:",
+  "html": "<div id='Futuristic_Cube'>\r\n  <h1>Futuristic Rotating Glowing Cube</h1>\r\n  <div class='container'>\r\n    <div class='box'>\r\n      <div class='cube'></div>\r\n    </div>\r\n  </div>\r\n</div>",
+  "css": "#Futuristic_Cube * {\r\n    box-sizing: border-box;\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n\r\n#Futuristic_Cube {\r\n    aspect-ratio: 1;\r\n    height: 100vh;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    background: linear-gradient(to bottom, #000 0%, #999 100%);\r\n}\r\n\r\n#Futuristic_Cube .container {\r\n    position: relative;\r\n    width: 100%;\r\n    transform: rotate(-35deg);\r\n}\r\n\r\n#Futuristic_Cube .container .box {\r\n    position: relative;\r\n    left: -200px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    width: calc(100% + 400px);\r\n    -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);\r\n    animation: animateSurface 1.5s ease-in-out infinite;\r\n}\r\n\r\n@keyframes animateSurface {\r\n    0% {\r\n        transform: translateX(0px);\r\n    }\r\n\r\n    100% {\r\n        transform: translateX(-200px);\r\n    }\r\n}\r\n\r\n#Futuristic_Cube .container .box .cube {\r\n    position: relative;\r\n    width: 200px;\r\n    height: 200px;\r\n    background: #03e9f4;\r\n    box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 100px #03e9f4, 0 0 200px #03e9f4, 0 0 300px #03e9f4;\r\n    animation: animate 1.5s ease-in-out infinite;\r\n    transform-origin: bottom right;\r\n}\r\n\r\n@keyframes animate {\r\n    0% {\r\n        transform: rotate(0deg);\r\n    }\r\n\r\n    60% {\r\n        transform: rotate(90deg);\r\n    }\r\n\r\n    70% {\r\n        transform: rotate(85deg);\r\n    }\r\n\r\n    75% {\r\n        transform: rotate(87.5deg);\r\n    }\r\n\r\n    80%,\r\n    100% {\r\n        transform: rotate(90deg);\r\n    }\r\n}\r\n\r\n#Futuristic_Cube h1 {\r\n    position: absolute;\r\n    top: 100px;\r\n    color: white;\r\n    font-family: cursive;\r\n}",
+  "js": "",
+  "tags": [
+    "box",
+    "animation",
+    "3d",
+    "cube",
+    "pure-css"
+  ],
+  "mainCategory": [
+    "shapes"
+  ],
+  "secondaryCategory": [
+    "3d-shapes",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-14T15:07:30.578",
+  "updatedAt": "2026-01-26T09:25:07.253",
+  "reviewed": false,
+  "slug": null
+}

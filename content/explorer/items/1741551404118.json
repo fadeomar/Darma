@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551404118",
+  "title": "flipping loading 6",
+  "description": "flipping loading 6",
+  "shortDescription": "flipping loading 6",
+  "html": "<div id='loader-6'></div>",
+  "css": "#loader-6 {\n  width: 60px;\n  aspect-ratio: 1;\n  display: grid;\n  grid: 50%/50%;\n  color: #25b09b;\n  --_g: no-repeat linear-gradient(currentColor 0 0);\n  background: var(--_g), var(--_g), var(--_g);\n  background-size: 50.1% 50.1%;\n  animation: l6-0 1.5s infinite steps(1) alternate, l6-0-0 3s infinite steps(1);\n}\n#loader-6::before {\n  content: '';\n  background: currentColor;\n  transform: perspective(150px) rotateY(0deg) rotateX(0deg);\n  transform-origin: bottom right;\n  animation: l6-1 1.5s infinite linear alternate;\n}\n@keyframes l6-0 {\n  0%  {background-position: 0 100%, 100% 100%, 100% 0}\n  33% {background-position: 100% 100%, 100% 100%, 100% 0}\n  66% {background-position: 100% 0, 100% 0, 100% 0}\n}\n@keyframes l6-0-0 {\n  0%  {transform: scaleX(1) rotate(0deg)}\n  50% {transform: scaleX(-1) rotate(-90deg)}\n}\n@keyframes l6-1 {\n  16.5% {transform: perspective(150px) rotateX(-90deg) rotateY(0deg) rotateX(0deg); filter: grayscale(0.8)}\n  33%  {transform: perspective(150px) rotateX(-180deg) rotateY(0deg) rotateX(0deg)}\n  66%  {transform: perspective(150px) rotateX(-180deg) rotateY(-180deg) rotateX(0deg)}\n  100% {transform: perspective(150px) rotateX(-180deg) rotateY(-180deg) rotateX(-180deg); filter: grayscale(0.8)}\n}",
+  "js": "",
+  "tags": [
+    "flipping",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:16:44.118",
+  "updatedAt": "2026-01-26T08:53:56.245",
+  "reviewed": false,
+  "slug": null
+}

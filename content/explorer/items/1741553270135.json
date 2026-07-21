@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553270135",
+  "title": "eyes loading 6",
+  "description": "eyes loading 6",
+  "shortDescription": "eyes loading 6",
+  "html": "<div id='loader-6'></div>",
+  "css": "body {\n background: #1b2832;\n}\n #loader-6 {\n  display: inline-flex;\n  gap: 10px;\n  background-color: #1b2832;\n}\n#loader-6:before,\n#loader-6:after {\n  content: \"\";\n  height: 20px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background:\n    radial-gradient(farthest-side,#000 95%,#0000) 35% 35%/6px 6px no-repeat\n    #fff;\n  transform: scaleX(var(--s,1)) rotate(0deg);\n  animation: l6 1s infinite linear;\n}\n#loader-6:after {\n  --s: -1;\n  animation-delay:-0.1s;\n}\n@keyframes l6 {\n  100% {transform:scaleX(var(--s,1)) rotate(360deg);}\n}",
+  "js": "",
+  "tags": [
+    "eyes",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:47:50.135",
+  "updatedAt": "2026-01-26T08:57:15.792",
+  "reviewed": false,
+  "slug": null
+}

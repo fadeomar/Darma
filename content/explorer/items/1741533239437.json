@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533239437",
+  "title": "text effect 28",
+  "description": "text effect 28",
+  "shortDescription": "text effect 28",
+  "html": "<div id='loader-c-28'></div>",
+  "css": "/* HTML: <div id=\"loader-c-28\"></div> */\n#loader-c-28  {\n  width: fit-content;\n  font-weight: bold;\n  font-family: monospace;\n  font-size: 30px;\n  overflow: hidden;\n  animation: l28 2s infinite;\n}\n#loader-c-28::before {\n  content:\"Loading...\";\n}\n\n@keyframes l28{\n   0%,10%  {transform:perspective(300px) rotate(0)      rotateY(0)      rotateX(0)} \n   30%,36% {transform:perspective(300px) rotate(.5turn) rotateY(0)      rotateX(0)}\n   63%,69% {transform:perspective(300px) rotate(.5turn) rotateY(180deg) rotateX(0)}\n   90%,100%{transform:perspective(300px) rotate(.5turn) rotateY(180deg) rotateX(180deg)}\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loading-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:13:59.437",
+  "updatedAt": "2026-01-26T08:46:39.889",
+  "reviewed": false,
+  "slug": null
+}

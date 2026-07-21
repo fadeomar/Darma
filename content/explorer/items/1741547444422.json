@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741547444422",
+  "title": "wobbling loading 4",
+  "description": "wobbling Loading 4",
+  "shortDescription": "wobbling Loading 4",
+  "html": "<div id='loader-4'></div>",
+  "css": "#loader-4 {\n  width: 20px;\n  aspect-ratio: 1;\n  background: #25b09b;\n  box-shadow: 0 0 60px 15px #25b09b;\n  transform: translate(-80px);\n  clip-path: inset(0);\n  animation:\n    l4-1 0.5s ease-in-out infinite alternate,\n    l4-2 1s   ease-in-out infinite;\n}\n@keyframes l4-1 {\n  100% {transform: translateX(80px)}\n}\n@keyframes l4-2 {\n   33% {clip-path: inset(0 0 0 -100px)}\n   50% {clip-path: inset(0 0 0 0)     }\n   83% {clip-path: inset(0 -100px 0 0)}\n}",
+  "js": "",
+  "tags": [
+    "wobbling",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:10:44.422",
+  "updatedAt": "2026-01-26T08:51:47.459",
+  "reviewed": false,
+  "slug": null
+}

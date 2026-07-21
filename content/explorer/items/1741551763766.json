@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551763766",
+  "title": "arcade loading 9",
+  "description": "arcade loading 9",
+  "shortDescription": "arcade loading 9",
+  "html": "<div id='loader-9'></div>",
+  "css": "#loader-9 {\n  width: fit-content;\n  font-size: 17px;\n  font-family: monospace;\n  line-height: 1.4;\n  font-weight: bold;\n  background: linear-gradient(#000 0 0) left, linear-gradient(#000 0 0) right;\n  background-repeat: no-repeat;\n  border-right: 5px solid #0000;\n  border-left: 5px solid #0000;\n  background-origin: border-box;\n  position: relative;\n  animation: l9-0 2s infinite;\n}\n#loader-9::before {\n  content: \"Loading\";\n}\n#loader-9::after {\n  content: \"\";\n  position: absolute;\n  top: 100%;\n  left: 0;\n  width: 22px;\n  height: 60px;\n  background: linear-gradient(90deg, #000 4px, #0000 0 calc(100% - 4px), #000 0) bottom /22px 20px, linear-gradient(90deg, red 4px, #0000 0 calc(100% - 4px), red 0) bottom 10px left 0/22px 6px, linear-gradient(#000 0 0) bottom 3px left 0 /22px 8px, linear-gradient(#000 0 0) bottom 0 left 50%/8px 16px;\n  background-repeat: no-repeat;\n  animation: l9-1 2s infinite;\n}\n@keyframes l9-0 {\n  0%, 25% {background-size: 50% 100%}\n  25.1%, 75% {background-size: 0 0, 50% 100%}\n  75.1%, 100% {background-size: 0 0, 0 0}\n}\n@keyframes l9-1 {\n  25% {background-position: bottom, bottom 54px left 0, bottom 3px left 0, bottom 0 left 50%; left: 0}\n  25.1% {background-position: bottom, bottom 10px left 0, bottom 3px left 0, bottom 0 left 50%; left: 0}\n  50% {background-position: bottom, bottom 10px left 0, bottom 3px left 0, bottom 0 left 50%; left: calc(100% - 22px)}\n  75% {background-position: bottom, bottom 54px left 0, bottom 3px left 0, bottom 0 left 50%; left: calc(100% - 22px)}\n  75.1% {background-position: bottom, bottom 10px left 0, bottom 3px left 0, bottom 0 left 50%; left: calc(100% - 22px)}\n}",
+  "js": "",
+  "tags": [
+    "arcade",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:22:43.766",
+  "updatedAt": "2026-01-26T08:54:22.204",
+  "reviewed": false,
+  "slug": null
+}

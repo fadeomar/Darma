@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741537875863",
+  "title": "progress loading 13",
+  "description": "progress Loading 13",
+  "shortDescription": "progress Loading 13",
+  "html": "<div id='loader-13'></div>",
+  "css": "/* HTML: <div id='loader-13'></div> */\n#loader-13 {\n  width: 124px;\n  height: 24px;\n  -webkit-mask: \n    conic-gradient(from 135deg at top   ,#0000,#000 .5deg 90deg,#0000 90.5deg) 0 0   ,\n    conic-gradient(from -45deg at bottom,#0000,#000 .5deg 90deg,#0000 90.5deg) 0 100%;\n  -webkit-mask-size:25% 50%;\n  -webkit-mask-repeat:repeat-x;\n  background: linear-gradient(#25b09b 0 0) left/0% 100% no-repeat #ddd;\n  animation: l13 2s infinite linear;\n}\n@keyframes l13 {\n  100% {background-size: 100% 100%}\n}",
+  "js": "",
+  "tags": [
+    "progress",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T16:31:15.862",
+  "updatedAt": "2026-01-26T08:51:40.589",
+  "reviewed": false,
+  "slug": null
+}

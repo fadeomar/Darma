@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551842450",
+  "title": "hypnotic loading 19",
+  "description": "hypnotic loading 19",
+  "shortDescription": "hypnotic loading 19",
+  "html": "<div id='loader-19'></div>",
+  "css": "#loader-19 {\n  width: 50px;\n  aspect-ratio: 1;\n  display: grid;\n}\n#loader-19::before,\n#loader-19::after {\n  content: \"\";\n  grid-area: 1/1;\n  border-radius: 50%;\n  background: repeating-radial-gradient(farthest-side, #0000 0%, #000 1% 10%, #0000 11% 30%);\n  -webkit-mask: repeating-conic-gradient(#000 0 36deg, #0000 0 72deg);\n  animation: l19 4s infinite linear;\n}\n#loader-19::after {\n  -webkit-mask: repeating-conic-gradient(#0000 0 36deg, #000 0 72deg);\n  animation-direction: reverse;\n}\n@keyframes l19 {\n  100% {transform: rotate(1turn)}\n}",
+  "js": "",
+  "tags": [
+    "hypnotic",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:24:02.45",
+  "updatedAt": "2026-01-26T08:54:55.373",
+  "reviewed": false,
+  "slug": null
+}

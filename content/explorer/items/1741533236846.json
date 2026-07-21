@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533236846",
+  "title": "text effect 14",
+  "description": "text effect 14",
+  "shortDescription": "text effect 14",
+  "html": "<div id='loader-c-14'></div>",
+  "css": "#loader-c-14 {\n  width: fit-content;\n  padding-bottom: 5px;\n  font-weight: bold;\n  font-family: monospace;\n  font-size: 30px;\n  overflow: hidden;\n  color: #0000;\n  text-shadow: 0 0 0 #000, 10ch 0 0 #000;\n  background: linear-gradient(#000 0 0) bottom left/0% 3px no-repeat;\n  animation: l14 1.5s infinite;\n}\n#loader-c-14:before {\n  content: \"Loading...\";\n}\n@keyframes l14 {\n  80% {\n    text-shadow: 0 0 0 #000, 10ch 0 0 #000;\n    background-size: 100% 3px;\n  }\n  100% {\n    text-shadow: -10ch 0 0 #000, 0 0 0 #000;\n  }\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loading-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:13:56.846",
+  "updatedAt": "2026-01-26T08:46:23.46",
+  "reviewed": false,
+  "slug": null
+}

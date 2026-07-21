@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533651495",
+  "title": "bar loading 28",
+  "description": "bar loading 28",
+  "shortDescription": "bar loading 28",
+  "html": "<div id='loader-b-28'></div>",
+  "css": "/* HTML: <div id=\"loader-b-28\"></div> */\n#loader-b-28 {\n  height: 45px;    \n  aspect-ratio: 1.4;\n  --c:no-repeat repeating-linear-gradient(90deg,#000 0 20%,#0000 0 40%);\n  background: var(--c),var(--c),var(--c),var(--c);\n  background-size: 72% 26%;\n  animation: l28 1s infinite;\n}\n@keyframes l28 {\n 0%,\n 20%  {background-position:50% calc(0*100%/3),50%  calc(1*100%/3),50%  calc(2*100%/3),50% calc(3*100%/3)}\n 40%  {background-position:50% calc(0*100%/3),100% calc(1*100%/3),0    calc(2*100%/3),50% calc(3*100%/3)}\n 60%  {background-position:50% calc(0*100%/3),0    calc(1*100%/3),100% calc(2*100%/3),50% calc(3*100%/3)}\n 80%,\n 100% {background-position:50% calc(0*100%/3),50%  calc(1*100%/3),50%  calc(2*100%/3),50% calc(3*100%/3)}\n}",
+  "js": "",
+  "tags": [
+    "bars",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:20:51.495",
+  "updatedAt": "2026-01-26T08:48:35.568",
+  "reviewed": false,
+  "slug": null
+}

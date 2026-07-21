@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553360443",
+  "title": "lines loading 15",
+  "description": "lines loading 15",
+  "shortDescription": "lines loading 15",
+  "html": "<div id='loader-15'></div>",
+  "css": "#loader-15 {\n  width: 60px;\n  height: 20px;\n  display: grid;\n  color: #046D8B;\n}\n#loader-15:before,\n#loader-15:after {\n  content: \"\";\n  grid-area: 1/1;\n  --c:#0000 calc(100%/3),#046D8B 0 calc(2*100%/3),#0000 0;\n  --c1:linear-gradient(90deg,var(--c));\n  --c2:linear-gradient( 0deg,var(--c));\n  background: var(--c1),var(--c2),var(--c1),var(--c2);\n  background-size: 300% 4px,4px 300%;\n  background-repeat: no-repeat;\n  animation: l15 1.5s infinite;\n}\n#loader-15:after {\n  animation-delay: -.75s;\n}\n@keyframes l15 {\n  0%   {background-position: 50%  0,100% 100%,0    100%,0 0}\n  25%  {background-position: 0    0,100% 50% ,0    100%,0 0}\n  50%  {background-position: 0    0,100% 0   ,50%  100%,0 0}\n  75%  {background-position: 0    0,100% 0   ,100% 100%,0 50%}\n 75.01%{background-position: 100% 0,100% 0   ,100% 100%,0 50%}\n  100% {background-position: 50%  0,100% 0   ,100% 100%,0 100%}\n}",
+  "js": "",
+  "tags": [
+    "lines",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:49:20.443",
+  "updatedAt": "2026-01-26T08:57:39.009",
+  "reviewed": false,
+  "slug": null
+}

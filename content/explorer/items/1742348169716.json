@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "1742348169716",
+  "title": "🚀 Smooth Expanding Navigation Menu with Animation | HTML, CSS & JS",
+  "description": "Hey devs! 👋 I just built a beautiful expanding navigation menu using HTML, CSS, and JavaScript! 🏗️✨ This menu starts as a compact button and smoothly expands to reveal links with a cool rotating effect. 🔄\n\n🔹 Smooth width transition for expansion\n🔹 Rotating link effect when opening\n🔹 Minimal and modern design\n🔹 Pure CSS animation with JavaScript toggle",
+  "shortDescription": "Hey devs! 👋 I just built a beautiful expanding navigation menu using HTML, CSS, and JavaScript! 🏗️✨ This menu starts as a compact button and smoothly expands to reveal links with a cool rotating effect. 🔄\n\n🔹 Smooth width transition for expansion\n🔹 Rotating link effect when opening\n🔹 Minimal and modern design\n🔹 Pure CSS animation with JavaScript toggle",
+  "html": "    <!-- Navigation Menu -->\r\n    <nav id=\"nav\" class=\"active\">\r\n        <ul class=\"container\">\r\n            <li class=\"item\"><a href=\"#\" class=\"nav_link\">Home</a></li>\r\n            <li class=\"item\"><a href=\"#\" class=\"nav_link\">Works</a></li>\r\n            <li class=\"item\"><a href=\"#\" class=\"nav_link\">About</a></li>\r\n            <li class=\"item\"><a href=\"#\" class=\"nav_link\">Contact</a></li>\r\n        </ul>\r\n\r\n        <!-- Toggle Button -->\r\n        <button type=\"button\" id=\"toggle\" class=\"icon\">\r\n            <div class=\"line line1\"></div>\r\n            <div class=\"line line2\"></div>\r\n        </button>\r\n    </nav>",
+  "css": "body {\r\n    font-family: \"Gill Sans\", sans-serif;\r\n    height: 100vh;\r\n    overflow: hidden;\r\n    background: linear-gradient(to bottom, #fff 0%, #fff 50%, #5290f9);\r\n    display: grid;\r\n    place-items: center;\r\n}\r\n\r\n/* Navigation container */\r\nnav {\r\n    background-color: #fff;\r\n    padding: 20px;\r\n    width: 80px; /* Default width when collapsed */\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    border-radius: 3px;\r\n    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);\r\n    transition: width 0.6s linear;\r\n    overflow-x: hidden;\r\n}\r\n\r\n/* Expanded navigation */\r\nnav.active {\r\n    width: 350px;\r\n}\r\n\r\n/* Menu container */\r\nnav .container {\r\n    display: flex;\r\n    list-style-type: none;\r\n    width: 0; /* Hidden by default */\r\n    transition: width 0.6s linear;\r\n}\r\n\r\n/* Show container when active */\r\nnav.active .container {\r\n    width: 100%;\r\n}\r\n\r\n/* Menu items */\r\nnav .container .item {\r\n    transform: rotateY(0deg);\r\n    opacity: 0;\r\n    transition: transform 0.6s linear, opacity 0.6s linear;\r\n}\r\n\r\n/* Rotate links when active */\r\nnav.active .container .item {\r\n    opacity: 1;\r\n    transform: rotateY(360deg);\r\n}\r\n\r\n/* Navigation links */\r\nnav .container .nav_link {\r\n    text-decoration: none;\r\n    position: relative;\r\n    color: #000;\r\n    margin: 0 10px;\r\n}\r\n\r\n/* Toggle button */\r\n.icon {\r\n    background-color: #fff;\r\n    border: none;\r\n    cursor: pointer;\r\n    position: relative;\r\n    height: 30px;\r\n    width: 30px;\r\n}\r\n\r\n/* Remove button outline on focus */\r\n.icon:focus {\r\n    outline: none;\r\n}\r\n\r\n/* Menu button lines */\r\n.icon .line {\r\n    background-color: #5290f9;\r\n    height: 2px;\r\n    width: 20px;\r\n    position: absolute;\r\n    top: 10px;\r\n    left: 5px;\r\n    transition: transform 0.6s linear;\r\n}\r\n\r\n/* Adjust bottom line position */\r\n.icon .line2 {\r\n    top: auto;\r\n    bottom: 10px;\r\n}\r\n\r\n/* Animate menu button to an 'X' */\r\nnav.active .icon .line1 {\r\n    transform: rotate(-765deg) translateY(5.5px);\r\n}\r\n\r\nnav.active .icon .line2 {\r\n    transform: rotate(765deg) translateY(-5.5px);\r\n}",
+  "js": "// Select the toggle button and navigation menu\r\nconst toggle = document.querySelector(\"#toggle\");\r\nconst nav = document.querySelector(\"#nav\");\r\n\r\n// Toggle the 'active' class on click\r\ntoggle.addEventListener(\"click\", () => {\r\n    nav.classList.toggle(\"active\");\r\n});",
+  "tags": [
+    "Menu",
+    "Navigation",
+    "Animation"
+  ],
+  "mainCategory": [
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "navigation"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-19T01:36:09.716",
+  "updatedAt": "2026-01-26T09:25:10.473",
+  "reviewed": false,
+  "slug": null
+}

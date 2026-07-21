@@ -15,7 +15,11 @@
     "generate:css-loaders": "tsx scripts/css-loaders/generate-css-loaders.ts",
     "audit:css-loaders": "tsx scripts/css-loaders/generate-css-loaders.ts --audit-duplicates",
     "audit:design": "node scripts/design-refactor-audit.mjs",
-    "favicon:check": "tsx scripts/check-favicon-url.ts"
+    "favicon:check": "tsx scripts/check-favicon-url.ts",
+    "content:export:explorer": "tsx scripts/content/export-explorer-from-db.ts",
+    "content:validate:explorer-export": "tsx scripts/content/validate-explorer-export.ts",
+    "content:scan:explorer-secrets": "tsx scripts/content/scan-explorer-secrets.ts",
+    "content:test:explorer": "vitest run scripts/content"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

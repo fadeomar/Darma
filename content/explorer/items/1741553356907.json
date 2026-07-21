@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553356907",
+  "title": "lines loading 6",
+  "description": "lines loading 6",
+  "shortDescription": "lines loading 6",
+  "html": "<div id='loader-6'></div>",
+  "css": "#loader-6 {\n  width: 40px;\n  aspect-ratio: 1;\n  --c:no-repeat linear-gradient(#046D8B 0 0);\n  background: var(--c),var(--c),var(--c),var(--c),var(--c),var(--c);\n  animation: l6-1 2s infinite, l6-2 2s infinite;\n}\n@keyframes l6-1 {\n  0%     {background-size: 0    4px,4px 0  ,0   4px,4px 0   ,0   4px,4px 0  }\n  8.33%  {background-size: 100% 4px,4px 0  ,0   4px,4px 0   ,0   4px,4px 0  }\n  16.67% {background-size: 100% 4px,4px 50%,0   4px,4px 0   ,0   4px,4px 0  }\n  25%    {background-size: 100% 4px,4px 50%,50% 4px,4px 0   ,0   4px,4px 0  }\n  33.33% {background-size: 100% 4px,4px 50%,50% 4px,4px 100%,0   4px,4px 0  }\n  41.67% {background-size: 100% 4px,4px 50%,50% 4px,4px 100%,50% 4px,4px 0  }\n  48%,\n  52%    {background-size: 100% 4px,4px 50%,50% 4px,4px 100%,50% 4px,4px 50%}\n  58.33% {background-size: 0    4px,4px 50%,50% 4px,4px 100%,50% 4px,4px 50%}\n  66.67% {background-size: 0    4px,4px 0  ,50% 4px,4px 100%,50% 4px,4px 50%}\n  75%    {background-size: 0    4px,4px 0  ,0   4px,4px 100%,50% 4px,4px 50%}\n  83.33% {background-size: 0    4px,4px 0  ,0   4px,4px 0   ,50% 4px,4px 50%}\n  91.67% {background-size: 0    4px,4px 0  ,0   4px,4px 0   ,0   4px,4px 50%}\n  100%   {background-size: 0    4px,4px 0  ,0   4px,4px 0   ,0   4px,4px 0}\n}\n@keyframes l6-2 {\n  0%,49.9% {background-position: 0    50%,right 0 bottom 20px,100% 0,50% 0,right 20px bottom 0,0 100%}\n  50%,100% {background-position: 100% 50%,100% 0,left 20px top 0,50% 100%,0 100%,0 20px}\n}",
+  "js": "",
+  "tags": [
+    "lines",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:49:16.907",
+  "updatedAt": "2026-01-26T08:57:28.005",
+  "reviewed": false,
+  "slug": null
+}

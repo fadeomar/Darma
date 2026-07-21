@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533240474",
+  "title": "text effect 34",
+  "description": "text effect 34",
+  "shortDescription": "text effect 34",
+  "html": "<div id='loader-c-34'></div>",
+  "css": "/* HTML: <div id=\"loader-c-34\"></div> */\n#loader-c-34 {\n  width: fit-content;\n  font-weight: bold;\n  font-family: monospace;\n  white-space: pre;\n  font-size: 30px;\n}\n#loader-c-34:before {\n  content: \"Loading...\";\n  animation: l34 1s infinite alternate;\n}\n\n@keyframes l34{\n  0%,15%,75%,100% {\n   content:\"Loading...\";\n  }\n  20% {content:\"Loading...\"}\n  25% {content:\"Lo ding...\"}\n  30% {content:\"Load ng...\"}\n  35% {content:\" oading...\"}\n  40% {content:\"L ading...\"}\n  45% {content:\"Loadin ...\"}\n  50% {content:\"Loa ing...\"}\n  55% {content:\"Loading  .\"}\n  60% {content:\" oa ing...\"}\n  65% {content:\"L ading...\"}\n  70% {content:\"Load n ...\"}\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loading-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:14:00.474",
+  "updatedAt": "2026-01-26T08:46:48.391",
+  "reviewed": false,
+  "slug": null
+}

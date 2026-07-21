@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "validatedAt": "2026-07-21T13:39:08.168Z",
+  "source": "database",
+  "table": "public.\"Element\"",
+  "counts": {
+    "sourceRows": 778,
+    "perItemFiles": 778,
+    "manifestTotal": 778,
+    "manifestItems": 778,
+    "checksumItems": 778,
+    "rawJsonlRows": 778,
+    "rawJsonRows": 778,
+    "total": 778,
+    "publicApproved": 42,
+    "pending": 734,
+    "deleted": 2,
+    "reviewedAndDeleted": 0
+  },
+  "identity": {
+    "duplicateIds": 0,
+    "missingRecords": 0,
+    "unexpectedRecords": 0
+  },
+  "status": {
+    "source": {
+      "approved": 42,
+      "pending": 734,
+      "deleted": 2,
+      "revDel": 0
+    },
+    "manifest": {
+      "approved": 42,
+      "pending": 734,
+      "deleted": 2,
+      "revDel": 0
+    }
+  },
+  "parity": {
+    "fieldMismatches": 0,
+    "columnMismatches": 0,
+    "htmlHashMismatches": 0,
+    "cssHashMismatches": 0,
+    "jsHashMismatches": 0,
+    "recordHashMismatches": 0
+  },
+  "slugs": {
+    "nullSlugs": 778,
+    "emptySlugs": 0,
+    "duplicateSlugs": [],
+    "duplicateSlugCount": 0,
+    "invalidLookingSlugs": [],
+    "invalidLookingSlugCount": 0
+  },
+  "warnings": [],
+  "errorCount": 0,
+  "pass": true,
+  "environment": {
+    "provider": "neon-postgresql",
+    "postgresServerVersion": "17.10",
+    "pgDumpVersion": "18.3",
+    "pgRestoreVersion": "18.3",
+    "psqlVersion": "18.3",
+    "prismaVersion": "6.5.0",
+    "nodeVersion": "v24.13.0",
+    "npmVersion": "11.12.1",
+    "connectionMode": "Neon DIRECT (unpooled) endpoint for pg_dump and the consistent raw export; Neon pooled (pgbouncer) endpoint for Prisma-based validation. Transaction-pooled endpoint was NOT used for pg_dump."
+  },
+  "columnCount": 15,
+  "columns": [
+    "id",
+    "title",
+    "description",
+    "shortDescription",
+    "html",
+    "css",
+    "js",
+    "tags",
+    "mainCategory",
+    "secondaryCategory",
+    "deleted",
+    "createdAt",
+    "updatedAt",
+    "reviewed",
+    "slug"
+  ],
+  "consistency": {
+    "method": "REPEATABLE READ READ ONLY transaction for the raw export, plus a before/after invariant (count + max(updatedAt) + id-set md5) around the whole backup+export window. Shared pg_export_snapshot() across processes was not used (cross-process coordination limits in this environment); the dataset is static (latest write 2026-06-21), so before==after proves consistency. The restored dump's Element fingerprint also equals the raw export fingerprint.",
+    "before": {
+      "n": 778,
+      "maxUpdatedAt": "2026-06-21 14:59:54.656",
+      "idHash": "0d17e7f2acf6ef03ad7b63293b2f2229"
+    },
+    "after": {
+      "n": 778,
+      "maxUpdatedAt": "2026-06-21 14:59:54.656",
+      "idHash": "0d17e7f2acf6ef03ad7b63293b2f2229"
+    },
+    "result": "PASS"
+  },
+  "backups": {
+    "secureDirectory": "~/darma-secure-backups/explorer-migration-20260721-160512 (outside git, chmod 700)",
+    "artifacts": [
+      {
+        "filename": "darma-full-20260721-160512.dump",
+        "format": "pg_dump custom (--no-owner --no-privileges)",
+        "bytes": 252170,
+        "sha256": "7dc340c7cc25af5c40e7efb67ae5bd77223a21d096aaf9da853a86f8f6a8d059",
+        "createdAt": "2026-07-21T16:12:19+03:00"
+      },
+      {
+        "filename": "darma-full-20260721-160512.sql.gz",
+        "format": "pg_dump plain, gzip (--no-owner --no-privileges)",
+        "bytes": 244364,
+        "sha256": "bc351b2192795747384549a0dc097a0860e258a1b7f625ccc80ec20de04a024c",
+        "createdAt": "2026-07-21T16:15:28+03:00"
+      }
+    ],
+    "supabaseCliDump": "N/A — the database is Neon, not Supabase, so `supabase db dump` does not apply."
+  },
+  "restore": {
+    "pgRestoreList": "PASS (25 TOC entries; TABLE DATA public Element present)",
+    "target": "disposable local PostgreSQL 18.3 cluster (initdb, trust auth, 127.0.0.1:55432); destroyed after verification",
+    "type": "full",
+    "result": "PASS",
+    "restoredElementFingerprint": {
+      "n": 778,
+      "idHash": "0d17e7f2acf6ef03ad7b63293b2f2229",
+      "approved": 42,
+      "pending": 734,
+      "deleted": 2
+    },
+    "note": "Full restore completed with zero errors; no Neon-managed extensions/roles blocked the restore. Restored Element fingerprint is byte-identical to the production snapshot."
+  },
+  "secretScan": {
+    "tool": "custom provider-pattern scanner (gitleaks/trufflehog not installed in this environment)",
+    "filesScanned": 781,
+    "highConfidence": 0,
+    "heuristic": 0,
+    "result": "PASS",
+    "selfTest": "planted AWS access key id + postgres connection-string were both detected and redacted"
+  },
+  "tests": {
+    "vitestContent": "15 passed",
+    "fullSuite": "1415 passed (115 files)",
+    "typecheck": "PASS (tsc --noEmit)",
+    "lint": "PASS (eslint src: 0 errors, 77 pre-existing warnings)",
+    "build": "skipped — content/script-only change; `next build` not required and out of scope"
+  },
+  "finalResult": "PASS"
+}

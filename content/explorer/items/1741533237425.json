@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533237425",
+  "title": "text effect 16",
+  "description": "text effect 16",
+  "shortDescription": "text effect 16",
+  "html": "<div id='loader-c-16'></div>",
+  "css": "#loader-c-16 {\n  --w: 10ch;\n  font-weight: bold;\n  font-family: monospace;\n  font-size: 30px;\n  letter-spacing: var(--w);\n  width: var(--w);\n  overflow: hidden;\n  white-space: nowrap;\n  text-shadow: calc(-1 * var(--w)) 0, calc(-2 * var(--w)) 0, calc(-3 * var(--w)) 0, calc(-4 * var(--w)) 0, calc(-5 * var(--w)) 0, calc(-6 * var(--w)) 0, calc(-7 * var(--w)) 0, calc(-8 * var(--w)) 0, calc(-9 * var(--w)) 0;\n  animation: l16 2s infinite;\n}\n#loader-c-16:before {\n  content: \"Loading...\";\n}\n@keyframes l16 {\n  20% {\n    text-shadow: calc(-1 * var(--w)) 0, calc(-2 * var(--w)) 0 red, calc(-3 * var(--w)) 0, calc(-4 * var(--w)) 0 #ffa516, calc(-5 * var(--w)) 0 #63fff4, calc(-6 * var(--w)) 0, calc(-7 * var(--w)) 0, calc(-8 * var(--w)) 0 green, calc(-9 * var(--w)) 0;\n  }\n  40% {\n    text-shadow: calc(-1 * var(--w)) 0, calc(-2 * var(--w)) 0 red, calc(-3 * var(--w)) 0 #e945e9, calc(-4 * var(--w)) 0, calc(-5 * var(--w)) 0 green, calc(-6 * var(--w)) 0 orange, calc(-7 * var(--w)) 0, calc(-8 * var(--w)) 0 green, calc(-9 * var(--w)) 0;\n  }\n  60% {\n    text-shadow: calc(-1 * var(--w)) 0 lightblue, calc(-2 * var(--w)) 0, calc(-3 * var(--w)) 0 #e945e9, calc(-4 * var(--w)) 0, calc(-5 * var(--w)) 0 green, calc(-6 * var(--w)) 0, calc(-7 * var(--w)) 0 yellow, calc(-8 * var(--w)) 0 #ffa516, calc(-9 * var(--w)) 0 red;\n  }\n  80% {\n    text-shadow: calc(-1 * var(--w)) 0 lightblue, calc(-2 * var(--w)) 0 yellow, calc(-3 * var(--w)) 0 #63fff4, calc(-4 * var(--w)) 0 #ffa516, calc(-5 * var(--w)) 0 red, calc(-6 * var(--w)) 0, calc(-7 * var(--w)) 0 grey, calc(-8 * var(--w)) 0 #63fff4, calc(-9 * var(--w)) 0;\n  }\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loading-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:13:57.425",
+  "updatedAt": "2026-01-26T08:46:25.926",
+  "reviewed": false,
+  "slug": null
+}

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553192534",
+  "title": "moving loading 3",
+  "description": "moving loading 3",
+  "shortDescription": "moving loading 3",
+  "html": "<div id='loader-3'></div>",
+  "css": "body {\n background: #1b2832;\n}\n #loader-3 {\n  height: 40px;\n  aspect-ratio: 1.5;\n  --c:no-repeat linear-gradient(#fff 0 0);\n  background: var(--c), var(--c), var(--c), var(--c);\n  background-size: 33.4% 50%;\n  animation: l3 2s infinite linear;\n  background-color: #1b2832;\n}\n@keyframes l3 {\n  0%    {background-position:0 0,50% 0,0 100%,50% 100%}\n  12.5% {background-position:0 0,100% 0,0 100%,50% 100%}\n  25%   {background-position:50% 0,100% 0,0 100%,50% 100%}\n  37.5% {background-position:50% 0,100% 0,0 100%,100% 100%}\n  50%   {background-position:50% 0,100% 0,50% 100%,100% 100%}\n  62.5% {background-position:0 0,100% 0,50% 100%,100% 100%}\n  75%   {background-position:0 0,50% 0,50% 100%,100% 100%}\n  87.5% {background-position:0 0,50% 0,0 100%,100% 100%}\n  100%  {background-position:0 0,50% 0,0 100%,50% 100%}\n}",
+  "js": "",
+  "tags": [
+    "moving",
+    "square",
+    "box",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:46:32.534",
+  "updatedAt": "2026-01-26T08:56:57.362",
+  "reviewed": false,
+  "slug": null
+}

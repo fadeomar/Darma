@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533235934",
+  "title": "text effect 5",
+  "description": "text effect 5",
+  "shortDescription": "text effect 5",
+  "html": "<div id='loader-c-5'></div>",
+  "css": "#loader-c-5 {\n  width: fit-content;\n  font-weight: bold;\n  font-family: monospace;\n  font-size: 30px;\n  clip-path: inset(0 100% 0 0);\n  animation: l5 2s steps(11) infinite;\n}\n#loader-c-5:before {\n  content: \"Loading...\";\n}\n@keyframes l5 {\n  to {\n    clip-path: inset(0 -1ch 0 0);\n  }\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loading-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:13:55.934",
+  "updatedAt": "2026-01-26T08:46:18.936",
+  "reviewed": false,
+  "slug": null
+}

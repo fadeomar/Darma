@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552344433",
+  "title": "square VS circle loading 7",
+  "description": "square VS circle loading 7",
+  "shortDescription": "square VS circle loading 7",
+  "html": "<div id='loader-7'></div>",
+  "css": "body {\n background: #333;\n}\n #loader-7,\n#loader-7::before,\n#loader-7::after {\n  width: 35px;\n  aspect-ratio: 1;\n  box-shadow: 0 0 0 3px inset #fff;\n  position: relative;\n  animation: 1.5s infinite 0.5s;\n  animation-name: l7-1, l7-2;\n  background: darkgray;\n}\n#loader-7::before,\n#loader-7::after {\n  content: '';\n  position: absolute;\n  left: calc(100% + 5px);\n  animation-delay: 1s, 0s;\n}\n#loader-7::after {\n  left: -40px;\n  animation-delay: 0s, 1s;\n}\n@keyframes l7-1 {\n  0%, 55%, 100% {border-top-left-radius: 0; border-bottom-right-radius: 0}\n  20%, 30% {border-top-left-radius: 50%; border-bottom-right-radius: 50%}\n}\n@keyframes l7-2 {\n  0%, 55%, 100% {border-bottom-left-radius: 0; border-top-right-radius: 0}\n  20%, 30% {border-bottom-left-radius: 50%; border-top-right-radius: 50%}\n}",
+  "js": "",
+  "tags": [
+    "square VS circle",
+    "circle",
+    "square",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:32:24.433",
+  "updatedAt": "2026-01-26T08:55:34.538",
+  "reviewed": false,
+  "slug": null
+}

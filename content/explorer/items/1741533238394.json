@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533238394",
+  "title": "text effect 23",
+  "description": "text effect 23",
+  "shortDescription": "text effect 23",
+  "html": "<div id='loader-c-23'></div>",
+  "css": "/* HTML: <div id=\"loader-c-23\"></div> */\n#loader-c-23 {\n  width: fit-content;\n  font-weight: bold;\n  font-family: monospace;\n  font-size: 30px;\n  overflow: hidden;\n}\n#loader-c-23::before {\n  content: \"Loading...\";\n  color: #0000;\n  text-shadow: 0 0 0 #000,10ch 0 0 #fff,20ch 0 0 #000;\n  background: linear-gradient(90deg,#0000 calc(100%/3),#000 0 calc(2*100%/3),#0000 0) left/300% 100%;\n  animation: l23 2s infinite;\n}\n\n@keyframes l23{\n  50% {background-position: center;text-shadow: -10ch 0 0 #000,    0 0 0 #fff,10ch 0 0 #000}\n  100%{background-position: right ;text-shadow: -20ch 0 0 #000,-10ch 0 0 #fff,   0 0 0 #000}\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loading-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:13:58.394",
+  "updatedAt": "2026-01-26T08:46:35.845",
+  "reviewed": false,
+  "slug": null
+}

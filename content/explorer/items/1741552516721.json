@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552516721",
+  "title": "colorful loading 20",
+  "description": "colorful loading 20",
+  "shortDescription": "colorful loading 20",
+  "html": "<div id='loader-20'></div>",
+  "css": "#loader-20 {\n  width: 70px;\n  aspect-ratio: 1;\n  background: conic-gradient(from -45deg,#8A8780 90deg,#94BA65 0 180deg,#2790B0 0 270deg,#2B4E72 0);\n  animation: l20 2s infinite; \n}\n@keyframes l20 {\n  0%  {clip-path: polygon(0    0   ,100% 0   ,50% 50%)}\n  25% {clip-path: polygon(100% 0   ,100% 100%,50% 50%)}\n  50% {clip-path: polygon(100% 100%,0    100%,50% 50%)}\n  75% {clip-path: polygon(0    100%,0    0   ,50% 50%)}\n  100%{clip-path: polygon(0    0   ,100% 0   ,50% 50%)}\n}",
+  "js": "",
+  "tags": [
+    "colorful",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:35:16.721",
+  "updatedAt": "2026-01-26T08:55:26.575",
+  "reviewed": false,
+  "slug": null
+}

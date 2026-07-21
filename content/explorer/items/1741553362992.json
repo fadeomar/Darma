@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553362992",
+  "title": "lines loading 20",
+  "description": "lines loading 20",
+  "shortDescription": "lines loading 20",
+  "html": "<div id='loader-20'></div>",
+  "css": "#loader-20 {\n  width: 25px;\n  aspect-ratio: 1;\n  display: grid;\n}\n#loader-20,\n#loader-20:before,\n#loader-20:after {\n  --c:no-repeat linear-gradient(#046D8B 0 0);\n  background:var(--c), var(--c), var(--c), var(--c);\n  animation: l20-1 1.5s infinite linear, l20-2 1.5s infinite linear;\n}\n#loader-20:before,\n#loader-20:after {\n  content: \"\";\n  grid-area: 1/1;\n  transform: translate(calc(100% - 4px),calc(4px - 100%)) rotate(90deg);\n}\n#loader-20:after {\n  transform: translate(calc(4px - 100%),calc(100% - 4px)) rotate(-90deg);\n}\n@keyframes l20-1 {\n  0%   {background-size: 0    4px,4px 0   ,0    4px,4px 0   }\n  12.5%{background-size: 100% 4px,4px 0   ,0    4px,4px 0   }\n  25%  {background-size: 100% 4px,4px 100%,0    4px,4px 0   }\n  37.5%{background-size: 100% 4px,4px 100%,100% 4px,4px 0   }\n  43%,\n  57%  {background-size: 100% 4px,4px 100%,100% 4px,4px 100%}\n  62.5%{background-size: 0    4px,4px 100%,100% 4px,4px 100%}\n  75%  {background-size: 0    4px,4px 0   ,100% 4px,4px 100%}\n  87.5%{background-size: 0    4px,4px 0   ,0    4px,4px 100%}\n  100% {background-size: 0    4px,4px 0   ,0    4px,4px 0   }\n}\n\n@keyframes l20-2 {\n  0%,49.9%{background-position: 0 0   ,100% 0   ,100% 100%,0 100%}\n  50%,100%{background-position: 100% 0,100% 100%,0    100%,0 0   }\n}",
+  "js": "",
+  "tags": [
+    "lines",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:49:22.991",
+  "updatedAt": "2026-01-26T08:57:44.243",
+  "reviewed": false,
+  "slug": null
+}

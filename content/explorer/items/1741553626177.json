@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553626177",
+  "title": "arrow loading 9",
+  "description": "arrow loading 9",
+  "shortDescription": "arrow loading 9",
+  "html": "<div id='loader-29'></div>",
+  "css": "#loader-29 {\n  width: 60px;\n  height: 30px;\n  color: #000;\n  display: flex;\n  background: \n    linear-gradient(currentColor 0 0) center/calc(100% - 30px) 10px,\n    conic-gradient(from -136deg at right,#0000 ,currentColor 1deg 90deg,#0000 91deg) right/15px 100%,\n    conic-gradient(from   44deg at left ,#0000 ,currentColor 1deg 90deg,#0000 91deg) left /15px 100%;\n  background-repeat: no-repeat;\n  animation: l9 .5s infinite linear alternate;\n}\n@keyframes l9 {\n  0%   {transform: translate(-30px)}\n  100% {transform: translate( 30px)}\n}",
+  "js": "",
+  "tags": [
+    "arrow",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:53:46.177",
+  "updatedAt": "2026-01-26T08:58:46.066",
+  "reviewed": false,
+  "slug": null
+}

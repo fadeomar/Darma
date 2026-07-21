@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552674324",
+  "title": "nature loading 11",
+  "description": "nature loading 11",
+  "shortDescription": "nature loading 11",
+  "html": "<div id='loader-nature-11'></div>",
+  "css": "#loader-nature-11 {\n  width: calc(6*30px);\n  height: 50px;\n  display: flex;\n  color: #8d7958;\n  filter: drop-shadow(30px 25px 0 currentColor) drop-shadow(60px 0 0 currentColor) drop-shadow(120px 0 0 currentColor);\n  clip-path: inset(0 100% 0 0);\n  animation: l11 2s infinite steps(7);\n}\n#loader-nature-11:before {\n  content: \"\";\n  width: 30px;\n  height: 25px;\n  background: currentColor;\n  clip-path: polygon(0 50%,30% 40%,100% 0,60% 40%,100% 50%,60% 60%,100% 100%,30% 60%);\n}\n@keyframes l11 {\n  100% {clip-path: inset(0 -30px 0 0)}\n}",
+  "js": "",
+  "tags": [
+    "nature",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:37:54.324",
+  "updatedAt": "2026-01-26T08:56:07.317",
+  "reviewed": false,
+  "slug": null
+}

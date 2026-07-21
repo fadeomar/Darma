@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741547958428",
+  "title": "infinity loading 4",
+  "description": "infinity Loading 4",
+  "shortDescription": "infinity Loading 4",
+  "html": "<div id='infinity-4'></div>",
+  "css": "#infinity-4 {\n  width: calc(80px / cos(45deg));\n  height: 14px;\n  --c: #000 0 15px,#0000 0 20px;\n  background: \n    repeating-linear-gradient(135deg,var(--c)) left top,\n    repeating-linear-gradient( 45deg,var(--c)) left bottom;\n  background-size:  200% 50%;\n  background-repeat: no-repeat;\n  animation: l4 2s infinite linear;\n}\n@keyframes l4 {\n    100% {background-position:top right,bottom right}\n}",
+  "js": "",
+  "tags": [
+    "infinity",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Progress & Status Indicators",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:19:18.428",
+  "updatedAt": "2026-01-26T08:52:10.446",
+  "reviewed": false,
+  "slug": null
+}

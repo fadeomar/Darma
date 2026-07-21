@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741548511133",
+  "title": "filling text loading 9",
+  "description": "filling text loading 9",
+  "shortDescription": "filling text loading 9",
+  "html": "<div id='filling-9'></div>",
+  "css": "#filling-9 {\n  width: fit-content;\n  font-size: 40px;\n  line-height: 1.5;\n  font-family: system-ui,sans-serif;\n  font-weight: bold;\n  text-transform: uppercase;\n  color: #0000;\n  -webkit-text-stroke: 1px #000;\n  background:\n    radial-gradient(1.13em at 50% 1.6em,#000 99%,#0000 101%) calc(50% - 1.6em) 0/3.2em 100% text,\n    radial-gradient(1.13em at 50% -0.8em,#0000 99%,#000 101%) 50% .8em/3.2em 100% repeat-x  text;\n  animation: l9 2s linear infinite;\n}\n#filling-9:before {\n  content: \"Loading\";\n}\n@keyframes l9 {\n  to {background-position: calc(50% + 1.6em) 0,calc(50% + 3.2em) .8em}\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Unique Mechanics",
+    "animated-text",
+    "loading-text",
+    "typing"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:28:31.133",
+  "updatedAt": "2026-01-26T08:53:21.052",
+  "reviewed": false,
+  "slug": null
+}

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741548138008",
+  "title": "Wavy loading 3",
+  "description": "If you are not team Zig-Zag, then you are team Wavy!\n\n Loading 3",
+  "shortDescription": "If you are not team Zig-Zag, then you are team Wavy!\n\n Loading 3",
+  "html": "<div id='wavy-3'></div>",
+  "css": "#wavy-3 {\n  height: 30px;\n  aspect-ratio: 6;\n  --c: #0000 64%,#000 66% 98%,#0000 101%;\n  background:\n    radial-gradient(35% 146% at 50% 159%,var(--c)) 0 0,\n    radial-gradient(35% 146% at 50% -59%,var(--c)) 25% 100%;\n  background-size: calc(100%/3) 50%;\n  background-repeat: repeat-x;\n  clip-path: inset(0 50%);\n  animation: l3 1s infinite linear;\n}\n@keyframes l3{\n  90%,to {clip-path: inset(0)}\n}",
+  "js": "",
+  "tags": [
+    "wavy",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:22:18.008",
+  "updatedAt": "2026-01-26T08:52:46.219",
+  "reviewed": false,
+  "slug": null
+}

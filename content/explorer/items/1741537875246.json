@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741537875246",
+  "title": "progress loading 12",
+  "description": "progress Loading 12",
+  "shortDescription": "progress Loading 12",
+  "html": "<div id='loader-12'></div>",
+  "css": "/* HTML: <div id='loader-12'></div> */\n#loader-12 {\n  width: 120px;\n  height: 20px;\n  background: \n    linear-gradient(#000 50%,#0000 0),\n    linear-gradient(#0000 50%,#000 0),\n    linear-gradient(#000 50%,#0000 0),\n    linear-gradient(#0000 50%,#000 0),\n    linear-gradient(#000 50%,#0000 0),\n    linear-gradient(#0000 50%,#000 0)\n    #ddd;\n  background-size: calc(100%/6 + 1px) 200%;\n  background-repeat: no-repeat;\n  animation: l12 2s infinite;\n}\n@keyframes l12 {\n  0%     {background-position: calc(0*100%/5) 100%,calc(1*100%/5)   0%,calc(2*100%/5) 100%,calc(3*100%/5)   0%,calc(4*100%/5) 100%,calc(5*100%/5)   0%}\n  16.67% {background-position: calc(0*100%/5)   0%,calc(1*100%/5)   0%,calc(2*100%/5) 100%,calc(3*100%/5)   0%,calc(4*100%/5) 100%,calc(5*100%/5)   0%}\n  33.33% {background-position: calc(0*100%/5)   0%,calc(1*100%/5) 100%,calc(2*100%/5) 100%,calc(3*100%/5)   0%,calc(4*100%/5) 100%,calc(5*100%/5)   0%}\n  50%    {background-position: calc(0*100%/5)   0%,calc(1*100%/5) 100%,calc(2*100%/5)   0%,calc(3*100%/5)   0%,calc(4*100%/5) 100%,calc(5*100%/5)   0%}\n  66.67% {background-position: calc(0*100%/5)   0%,calc(1*100%/5) 100%,calc(2*100%/5)   0%,calc(3*100%/5) 100%,calc(4*100%/5) 100%,calc(5*100%/5)   0%}\n  83.33% {background-position: calc(0*100%/5)   0%,calc(1*100%/5) 100%,calc(2*100%/5)   0%,calc(3*100%/5) 100%,calc(4*100%/5)   0%,calc(5*100%/5)   0%}\n  100%   {background-position: calc(0*100%/5)   0%,calc(1*100%/5) 100%,calc(2*100%/5)   0%,calc(3*100%/5) 100%,calc(4*100%/5)   0%,calc(5*100%/5) 100%}\n}",
+  "js": "",
+  "tags": [
+    "progress",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T16:31:15.246",
+  "updatedAt": "2026-01-26T08:51:38.345",
+  "reviewed": false,
+  "slug": null
+}

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553415131",
+  "title": "thin loading 9",
+  "description": "thin loading 9",
+  "shortDescription": "thin loading 9",
+  "html": "<div id='loader-9'></div>",
+  "css": "#loader-9 {\n  height: 6px;\n  width: 60px;\n  --c:no-repeat repeating-linear-gradient(90deg,#000 0 3px,#0000 0 6px);\n  background: var(--c), var(--c);\n  background-size: 100% 3px;\n  animation: l9 1s infinite;\n}\n@keyframes l9 {\n  0%,\n  70%,\n  100%   {background-position: 0   50%,3px 50% }\n  23.33% {background-position: 0   0  ,3px 100%}\n  46.67% {background-position: 3px 0  ,0   100%}\n  69.99% {background-position: 3px 50%,0   50% }\n}",
+  "js": "",
+  "tags": [
+    "thin",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "Unique Mechanics",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:50:15.131",
+  "updatedAt": "2026-01-26T08:57:32.893",
+  "reviewed": false,
+  "slug": null
+}

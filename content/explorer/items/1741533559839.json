@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533559839",
+  "title": "dots loading 45",
+  "description": "dots loading 45",
+  "shortDescription": "dots loading 45",
+  "html": "<div id='loader-d-45'></div>",
+  "css": "/* HTML: <div id=\"loader-d-45\"></div> */\n#loader-d-45 {\n  --s: 28px;\n  height: var(--s);\n  aspect-ratio: 2.5;\n  --_g: #000 90%,#0000;\n  --_g0: no-repeat radial-gradient(farthest-side          ,var(--_g));\n  --_g1: no-repeat radial-gradient(farthest-side at top   ,var(--_g));\n  --_g2: no-repeat radial-gradient(farthest-side at bottom,var(--_g));\n  background: var(--_g0), var(--_g1), var(--_g2), var(--_g0), var(--_g1), var(--_g2);\n  background-size: 20% 50%,20% 25%,20% 25%;\n  animation: l45 1s infinite; \n}\n@keyframes l45 {\n  0%   {background-position:calc(0*100%/3) 50%,calc(1*100%/3) calc(50% + calc(var(--s)/8)),calc(1*100%/3) calc(50% - calc(var(--s)/8)), calc(3*100%/3) 50%,calc(2*100%/3) calc(50% + calc(var(--s)/8)),calc(2*100%/3) calc(50% - calc(var(--s)/8))}\n  33%  {background-position:calc(0*100%/3) 50%,calc(1*100%/3) 100%           ,calc(1*100%/3) 0              , calc(3*100%/3) 50%,calc(2*100%/3) 100%           ,calc(2*100%/3) 0              }\n  66%  {background-position:calc(1*100%/3) 50%,calc(0*100%/3) 100%           ,calc(0*100%/3) 0              , calc(2*100%/3) 50%,calc(3*100%/3) 100%           ,calc(3*100%/3) 0              }\n  90%,\n  100% {background-position:calc(1*100%/3) 50%,calc(0*100%/3) calc(50% + calc(var(--s)/8)),calc(0*100%/3) calc(50% - calc(var(--s)/8)), calc(2*100%/3) 50%,calc(3*100%/3) calc(50% + calc(var(--s)/8)),calc(3*100%/3) calc(50% - calc(var(--s)/8))}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:19:19.839",
+  "updatedAt": "2026-01-26T08:47:57.297",
+  "reviewed": false,
+  "slug": null
+}

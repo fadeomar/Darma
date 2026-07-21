@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741547446365",
+  "title": "wobbling loading 13",
+  "description": "wobbling Loading 13",
+  "shortDescription": "wobbling Loading 13",
+  "html": "<div id='loader-13'></div>",
+  "css": "#loader-13 {\n  width: 20px;\n  aspect-ratio: 1;\n  animation: l13-0 2s linear infinite;\n}\n#loader-13::before,\n#loader-13::after {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  border-radius: 50%;\n  background: radial-gradient(at 30% 30%,#0000,#000a) red;\n  animation: l13-1 0.5s cubic-bezier(.5,-500,.5,500) infinite;\n}\n#loader-13::after {\n  animation-delay: -0.15s;\n}\n@keyframes l13-0 { \n  100% { transform:rotate(360deg)} \n}\n@keyframes l13-1 { \n  100% { transform:translate(0.5px)} \n}",
+  "js": "",
+  "tags": [
+    "wobbling",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:10:46.365",
+  "updatedAt": "2026-01-26T08:52:05.362",
+  "reviewed": false,
+  "slug": null
+}

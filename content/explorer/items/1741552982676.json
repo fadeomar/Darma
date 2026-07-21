@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552982676",
+  "title": "dancers loading 2",
+  "description": "dancers loading 2",
+  "shortDescription": "dancers loading 2",
+  "html": "<div id='loader-30'></div>",
+  "css": "#loader-30 {\n  width: 40px;\n  aspect-ratio: 1;\n  position: relative;\n}\n#loader-30:before,\n#loader-30:after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  margin: -8px 0 0 -8px;\n  width: 16px;\n  aspect-ratio: 1;\n  background: #3FB8AF;\n  animation:\n    l2-1 2s  infinite,\n    l2-2 1s infinite ;\n}\n#loader-30:after {\n  background:#FF3D7F;\n  animation-delay: -1s,0s;\n}\n@keyframes l2-1 {\n  0%   {top:0   ;left:0}\n  25%  {top:100%;left:0}\n  50%  {top:100%;left:100%}\n  75%  {top:0   ;left:100%}\n  100% {top:0   ;left:0}\n}\n@keyframes l2-2 {\n   40%,50% {transform: rotate(0.25turn) scale(0.5)}\n   100%    {transform: rotate(0.5turn) scale(1)}\n}",
+  "js": "",
+  "tags": [
+    "dancers",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:43:02.676",
+  "updatedAt": "2026-01-26T08:56:45.908",
+  "reviewed": false,
+  "slug": null
+}

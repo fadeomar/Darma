@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533559581",
+  "title": "dots loading 42",
+  "description": "dots loading 42",
+  "shortDescription": "dots loading 42",
+  "html": "<div id='loader-d-42'></div>",
+  "css": "/* HTML: <div id=\"loader-d-42\"></div> */\n#loader-d-42 {\n  height: 15px;\n  aspect-ratio: 5;\n  display: flex;\n  justify-content: space-between;\n  --_g: no-repeat radial-gradient(farthest-side,#000 95%,#0000);\n  background: var(--_g),var(--_g);\n  background-size: 20% 100%;\n  animation: l42-0 1s infinite;\n}\n#loader-d-42::before,\n#loader-d-42::after {\n  content: \"\";\n  height: inherit;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: #000;\n  animation: l42-1 1s infinite; \n}\n#loader-d-42::after {\n  --s:-1,-1;\n}\n@keyframes l42-0 {\n  0%,\n  60%  {background-position: calc(1*100%/3) 0, calc(2*100%/3) 0}\n  100% {background-position: calc(0*100%/3) 0, calc(3*100%/3) 0}\n}\n@keyframes l42-1 {\n  0%   {transform: scale(var(--s,1)) translate(0           ,0)}\n  33%  {transform: scale(var(--s,1)) translate(0           ,130%)}\n  66%  {transform: scale(var(--s,1)) translate(calc(400%/3),130%)}\n  100% {transform: scale(var(--s,1)) translate(calc(400%/3),0)}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:19:19.581",
+  "updatedAt": "2026-01-26T08:47:51.27",
+  "reviewed": false,
+  "slug": null
+}

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533555872",
+  "title": "dots loading 13",
+  "description": "dots loading 13",
+  "shortDescription": "dots loading 13",
+  "html": "<div id='loader-d-13'></div>",
+  "css": "/* HTML: <div id=\"loader-d-13\"></div> */\n#loader-d-13 {\n  --s: 64px;\n  width: var(--s);\n  aspect-ratio: 2;\n  --_g: #000 90%,#0000;\n  background: \n    radial-gradient(farthest-side at bottom,var(--_g)) 0    calc(50% - var(--s)/16),\n    radial-gradient(farthest-side at top   ,var(--_g)) 0    calc(50% + var(--s)/16),\n    radial-gradient(farthest-side at bottom,var(--_g)) 50%  calc(50% - var(--s)/16),\n    radial-gradient(farthest-side at top   ,var(--_g)) 50%  calc(50% + var(--s)/16),\n    radial-gradient(farthest-side at bottom,var(--_g)) 100% calc(50% - var(--s)/16),\n    radial-gradient(farthest-side at top   ,var(--_g)) 100% calc(50% + var(--s)/16);\n  background-size: 25% 25%;\n  background-repeat: no-repeat;\n  animation: l13 1s infinite linear;\n}\n@keyframes l13 {\n    16.67% {background-position:0 0,0 100%,50% calc(50% - var(--s)/8),50% calc(50% + var(--s)/16),100% calc(50% - var(--s)/16),100% calc(50% + var(--s)/16)}\n    33.33% {background-position:0 0,0 100%,50% 0,50% 100%,100% calc(50% - var(--s)/16),100% calc(50% + var(--s)/16)}\n    50%    {background-position:0 0,0 100%,50% 0,50% 100%,100% 0,100% 100%}\n    66.67% {background-position:0 calc(50% - var(--s)/16),0 calc(50% + var(--s)/16),50% 0,50% 100%,100% 0,100% 100%}\n    83.33% {background-position:0 calc(50% - var(--s)/16),0 calc(50% + var(--s)/16),50% calc(50% - var(--s)/16),50% calc(50% + var(--s)/16),100% 0,100% 100%}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:19:15.872",
+  "updatedAt": "2026-01-26T08:47:09.94",
+  "reviewed": false,
+  "slug": null
+}

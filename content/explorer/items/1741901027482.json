@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "1741901027482",
+  "title": "CSS Path Animation | Smooth Moving Objects Along a Custom Path! 🚀✨",
+  "description": "Want to animate objects along a custom path using pure CSS? 🎯 In this tutorial, I'll show you how to create a smooth looping animation where images follow a predefined SVG path—all without JavaScript! 🚀",
+  "shortDescription": "Want to animate objects along a custom path using pure CSS? 🎯 In this tutorial, I'll show you how to create a smooth looping animation where images follow a predefined SVG path—all without JavaScript! 🚀",
+  "html": "<div class=\"container\">\r\n  <img src=\"https://assets.codepen.io/1480814/image_2.png\">\r\n  <img src=\"https://assets.codepen.io/1480814/image_3.png\">\r\n  <img src=\"https://assets.codepen.io/1480814/image_4.png\">\r\n  <img src=\"https://assets.codepen.io/1480814/image_5.png\">\r\n  <img src=\"https://assets.codepen.io/1480814/image_6.png\">\r\n  <img src=\"https://assets.codepen.io/1480814/image_7.png\">\r\n  <svg viewBox='-152 -75 304 150'><path id=\"path\" fill='none' stroke-width='3' stroke-dasharray='9 4' stroke='#ecdcc0' d='M-150 0 C-130 -150 130 150 150 0 C130 -150 -130 150 -150 0 Z'/></svg>\r\n</div>\r\n\r\n\r\n",
+  "css": "@property --_w {\r\n  syntax: '<length>';\r\n  inherits: true;\r\n  initial-value: min(100vw,200vh);\r\n}\r\n.container {\r\n  display: grid;\r\n  width: 300px;\r\n  aspect-ratio: 2;\r\n  scale: min(tan(atan2(var(--_w),350px)),3); /* for the responsive part */\r\n}\r\n.container > img {\r\n  grid-area: 1/1;\r\n  width: 35px;\r\n  aspect-ratio: 1;\r\n  translate: 150px 75px;\r\n  offset: url(#path) 0% 0deg;\r\n  animation: x 13s linear infinite;\r\n}\r\n@keyframes x { \r\n  to {offset-distance: 100%}\r\n}\r\n.container > :nth-of-type(2) {animation-delay:-1s}\r\n.container > :nth-of-type(3) {animation-delay:-2s}\r\n.container > :nth-of-type(4) {animation-delay:-3s}\r\n.container > :nth-of-type(5) {animation-delay:-4s}\r\n.container > :nth-of-type(6) {animation-delay:-5s}\r\n  \r\n.container > svg {\r\n  grid-area: 1/1;\r\n  margin: 0 -2px;\r\n}\r\n\r\nbody {\r\n  margin: 0;\r\n  min-height: 100vh;\r\n  display: grid;\r\n  place-content: center;\r\n  background: #ffefd5;\r\n}",
+  "js": "",
+  "tags": [
+    "logo",
+    "section",
+    "animation"
+  ],
+  "mainCategory": [
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "buttons"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-13T21:23:47.482",
+  "updatedAt": "2026-01-26T09:25:03.122",
+  "reviewed": false,
+  "slug": null
+}

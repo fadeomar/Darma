@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533240701",
+  "title": "text effect 37",
+  "description": "text effect 37",
+  "shortDescription": "text effect 37",
+  "html": "<div id='loader-c-37'></div>",
+  "css": "/* HTML: <div id=\"loader-c-37\"></div> */\n#loader-c-37 {\n  font-weight: bold;\n  font-family: monospace;\n  display: inline-grid;\n  font-size: 30px;\n}\n#loader-c-37:before,\n#loader-c-37:after {\n  content:\"Loading...\";\n  grid-area: 1/1;\n  -webkit-mask-size: 2ch 100%,100% 100%;\n  -webkit-mask-repeat: no-repeat;\n  -webkit-mask-composite: xor;\n          mask-composite:exclude;\n  animation: l37 1s infinite;\n}\n#loader-c-37:before {\n  -webkit-mask-image:\n    linear-gradient(#000 0 0),\n    linear-gradient(#000 0 0);\n}\n#loader-c-37:after {\n  -webkit-mask-image:linear-gradient(#000 0 0);\n  transform: scaleY(0.5);\n}\n\n@keyframes l37{\n  0%    {-webkit-mask-position:1ch  0,0 0}\n  12.5% {-webkit-mask-position:100% 0,0 0}\n  25%   {-webkit-mask-position:4ch  0,0 0}\n  37.5% {-webkit-mask-position:8ch  0,0 0}\n  50%   {-webkit-mask-position:2ch  0,0 0}\n  62.5% {-webkit-mask-position:100% 0,0 0}\n  75%   {-webkit-mask-position:0ch  0,0 0}\n  87.5% {-webkit-mask-position:6ch  0,0 0}\n  100%  {-webkit-mask-position:3ch  0,0 0}\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loading-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:14:00.701",
+  "updatedAt": "2026-01-26T08:46:56.199",
+  "reviewed": false,
+  "slug": null
+}

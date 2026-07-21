@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741099911237",
+  "title": "🎨 Stylish Radio Buttons with a Unique Glow Effect using HTML and CSS",
+  "description": "<h3>In this tutorial, we'll create <strong>custom radio buttons</strong> with an elegant glow effect using <strong>pure HTML and CSS</strong>. Say goodbye to tedious default radio inputs—this project enhances them with smooth transitions, <strong>gradient backgrounds</strong>, and a <strong>subtle scale effect</strong> on selection.<br></h3><h2>✨ <strong>Features</strong></h2><p>  ✔️ <strong>Fully custom radio buttons</strong> with no default styling.<br>  ✔️ <strong>Smooth transitions</strong> when selecting an option.<br>  ✔️ <strong>Beautiful gradient glow effect</strong> for an interactive feel.<br>  ✔️ <strong>Scaling animation</strong> when clicking for better UX.<br>  ✔️ <strong>Pure CSS implementation</strong> with no JavaScript required!<br><br>🖌️ <strong>Explanation</strong></p><ul><li><p>We <strong>remove the default radio styling</strong> with <code>-webkit-appearance: none</code>.</p></li><li><p>A <strong>radial gradient background</strong> gives a soft glow effect.</p></li><li><p>Clicking the input <strong>scales it up</strong> for a smooth UI response.</p></li><li><p>Checked states are <strong>animated</strong>, creating a seamless selection experience.</p></li><li><p>The entire layout is centered using <strong>Flexbox</strong>.</p></li></ul>",
+  "shortDescription": "This project is a simple yet powerful way to enhance radio buttons in your UI. With just HTML and CSS, we created a modern, animated, and interactive radio button system.",
+  "html": "    <input type=\"radio\" name=\"name\" id=\"name1\" checked />\r\n    <input type=\"radio\" name=\"name\" id=\"name2\" />\r\n    <input type=\"radio\" name=\"name\" id=\"name3\" />\r\n    <input type=\"radio\" name=\"name\" id=\"name4\" />\r\n    <input type=\"radio\" name=\"name\" id=\"name5\" />",
+  "css": "* {\r\n  box-sizing: border-box;\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n\r\nbody {\r\n  height: 100vh;\r\n  background: linear-gradient(to bottom, #000 0%, #999 100%);\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  flex-direction: column;\r\n}\r\n\r\ninput {\r\n  -webkit-appearance: none;\r\n  appearance: none;\r\n  margin: 10px;\r\n  width: 24px;\r\n  height: 24px;\r\n  border-radius: 12px;\r\n  cursor: pointer;\r\n  box-shadow: rgba(255, 255, 255, 0.15) 0 1px 1px, inset rgba(0, 0, 0, 0.5);\r\n  background-color: rgba(0, 0, 0, 0.2);\r\n  background-image: radial-gradient(\r\n    rgb(204, 238, 255) 0%,\r\n    rgb(102, 204, 255) 15%,\r\n    rgba(51, 187, 255, 0.302) 28%,\r\n    rgba(0, 102, 153, 0) 70%\r\n  );\r\n  background-repeat: no-repeat;\r\n  transition: background-position 0.15s ease-in;\r\n  outline: none;\r\n}\r\n\r\ninput:checked {\r\n  transition: 0.2s 0.15s ease-in-out;\r\n}\r\n\r\ninput:active {\r\n  transform: scale(1.5);\r\n}\r\n\r\ninput,\r\ninput:active {\r\n  background-position: 0 24px;\r\n}\r\n\r\ninput:checked {\r\n  background-position: 0 0;\r\n}\r\n\r\ninput:checked ~ input,\r\ninput:checked ~ input:active {\r\n  background-position: 0 -24px;\r\n}\r\n\r\nh1 {\r\n  position: absolute;\r\n  top: 140px;\r\n  color: white;\r\n  font-family: cursive;\r\n  text-align: center;\r\n  margin: 0 250px;\r\n}\r\n",
+  "js": "",
+  "tags": [
+    "button",
+    "element",
+    "component",
+    "WebDesign",
+    "UIUX",
+    "WebDevelopment"
+  ],
+  "mainCategory": [
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "navigation",
+    "buttons"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-08T11:03:48.496",
+  "updatedAt": "2026-01-26T09:18:48.264",
+  "reviewed": true,
+  "slug": null
+}

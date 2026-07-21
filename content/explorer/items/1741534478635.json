@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534478635",
+  "title": "3d shape loading 6",
+  "description": "3d shape Loading 6",
+  "shortDescription": "3d shape Loading 6",
+  "html": "<div id='loader-6'></div>",
+  "css": "/* HTML: <div id='loader-6'></div> */\n#loader-6 {\n  --s: 20px;\n  --_d: calc(0.353*var(--s));\n  width: calc(var(--s) + var(--_d));\n  aspect-ratio: 1;\n  display: grid;\n}\n#loader-6:before,\n#loader-6:after {\n  content: \"\";\n  grid-area: 1/1;\n  clip-path: polygon(var(--_d) 0,100% 0,100% calc(100% - var(--_d)),calc(100% - var(--_d)) 100%,0 100%,0 var(--_d));\n  background:\n    conic-gradient(from -90deg at calc(100% - var(--_d)) var(--_d),\n     #fff 135deg,#666 0 270deg,#aaa 0);\n  animation: l6 2s infinite;\n}\n#loader-6:after {\n  animation-delay:-1s;\n}\n@keyframes l6{\n  0%  {transform:translate(0,0)}\n  25% {transform:translate(30px,0)}\n  50% {transform:translate(30px,30px)}\n  75% {transform:translate(0,30px)}\n  100%{transform:translate(0,0)}\n}",
+  "js": "",
+  "tags": [
+    "3d",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "animated-shapes",
+    "3d-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:34:38.635",
+  "updatedAt": "2026-01-26T08:51:14.815",
+  "reviewed": false,
+  "slug": null
+}

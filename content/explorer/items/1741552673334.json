@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552673334",
+  "title": "nature loading 6",
+  "description": "nature loading 6",
+  "shortDescription": "nature loading 6",
+  "html": "<div id='loader-nature-6'></div>",
+  "css": "#loader-nature-6 {\n  width: 80px;\n  height: 40px;\n  border-radius: 100px 100px 0 0;\n  background: \n    linear-gradient(0deg, #0000,#fff,#0000) 70% 30%,\n    linear-gradient(90deg,#0000,#fff,#0000) 72% 32%,\n    linear-gradient(0deg, #0000,#fff,#0000) 26% 42%,\n    linear-gradient(90deg,#0000,#fff,#0000) 23% 44%,\n    linear-gradient(0deg, #0000,#fff,#0000) 51% 54%,\n    linear-gradient(90deg,#0000,#fff,#0000) 51% 53% \n    #020308;\n  background-size: 2px 10px,10px 2px;\n  background-repeat: no-repeat;\n  position: relative;\n  overflow: hidden;\n}\n#loader-nature-6:before,\n#loader-nature-6:after {\n  content: \"\";\n  position: absolute;\n  inset: 100% auto auto 20px;\n  height: 3px;\n  width: 20px;\n  background: linear-gradient(90deg,#0000,#fff);\n  transform-origin: right;\n  transform: rotate(-20deg) translate(-20px);\n  animation: l6 2s infinite;\n}\n#loader-nature-6:after {\n  inset: 100% auto auto -5px;\n  animation-delay: .75s;\n}\n@keyframes l6 {\n  100% {transform: rotate(-20deg) translate(120px)}\n}",
+  "js": "",
+  "tags": [
+    "nature",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:37:53.334",
+  "updatedAt": "2026-01-26T08:56:01.045",
+  "reviewed": false,
+  "slug": null
+}

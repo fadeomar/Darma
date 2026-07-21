@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534034862",
+  "title": "Spinner loading 23",
+  "description": "Spin, spin, spin... Don't stop spinning! spin loading 23",
+  "shortDescription": "Spin, spin, spin... Don't stop spinning! spin loading 23",
+  "html": "<div id='loader23'></div>",
+  "css": "/* HTML: <div id='loader23'></div> */\n#loader23 {\n  width: 50px;\n  aspect-ratio: 1;\n  display: grid;\n  border-radius: 50%;\n  background:\n    linear-gradient(0deg ,rgb(0 0 0/50%) 30%,#0000 0 70%,rgb(0 0 0/100%) 0) 50%/8% 100%,\n    linear-gradient(90deg,rgb(0 0 0/25%) 30%,#0000 0 70%,rgb(0 0 0/75% ) 0) 50%/100% 8%;\n  background-repeat: no-repeat;\n  animation: l23 1s infinite steps(12);\n}\n#loader23::before,\n#loader23::after {\n   content: \"\";\n   grid-area: 1/1;\n   border-radius: 50%;\n   background: inherit;\n   opacity: 0.915;\n   transform: rotate(30deg);\n}\n#loader23::after {\n   opacity: 0.83;\n   transform: rotate(60deg);\n}\n@keyframes l23 {\n  100% {transform: rotate(1turn)}\n}",
+  "js": "",
+  "tags": [
+    "spin",
+    "spinner",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:27:14.862",
+  "updatedAt": "2026-01-26T08:49:06.657",
+  "reviewed": false,
+  "slug": null
+}

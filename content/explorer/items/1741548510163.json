@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741548510163",
+  "title": "filling text loading 5",
+  "description": "filling text loading 5",
+  "shortDescription": "filling text loading 5",
+  "html": "<div id='filling-5'></div>",
+  "css": "#filling-5 {\n  width: fit-content;\n  font-size: 40px;\n  font-family: system-ui,sans-serif;\n  font-weight: bold;\n  text-transform: uppercase;\n  color: #0000;\n  -webkit-text-stroke: 1px #000;\n  --g:conic-gradient(#000 0 0) no-repeat text;\n  background: var(--g) 0,var(--g) 100%,var(--g) 0 0,var(--g) 0 100%;\n  animation: l5 2s linear infinite;\n}\n#filling-5:before {\n  content: \"Loading\";\n}\n@keyframes l5 {\n  0%,100%{background-size: 0   100%,0   100%,100% 0  ,100% 0  }\n  50%    {background-size: 55% 100%,55% 100%,100% 0  ,100% 0  }\n  50.01% {background-size: 0   100%,0   100%,100% 55%,100% 55%}\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Unique Mechanics",
+    "animated-text",
+    "loading-text",
+    "typing"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:28:30.163",
+  "updatedAt": "2026-01-26T08:53:14.931",
+  "reviewed": false,
+  "slug": null
+}

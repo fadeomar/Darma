@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533648291",
+  "title": "bar loading 3",
+  "description": "bar loading 3",
+  "shortDescription": "bar loading 3",
+  "html": "<div id='loader-b-3'></div>",
+  "css": "/* HTML: <div id=\"loader-b-3\"></div> */\n#loader-b-3 {\n  width: 45px;\n  aspect-ratio: 1;\n  background: \n    linear-gradient(#0000 calc(1*100%/6),#000 0 calc(3*100%/6),#0000 0) left   bottom,\n    linear-gradient(#0000 calc(2*100%/6),#000 0 calc(4*100%/6),#0000 0) center bottom,\n    linear-gradient(#0000 calc(3*100%/6),#000 0 calc(5*100%/6),#0000 0) right  bottom;\n  background-size: 20% 600%;\n  background-repeat: no-repeat;\n  animation: l3 1s infinite linear;\n}\n@keyframes l3 {\n    100% {background-position: left top,center top,right top }\n}",
+  "js": "",
+  "tags": [
+    "bars",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:20:48.291",
+  "updatedAt": "2026-01-26T08:47:29.681",
+  "reviewed": false,
+  "slug": null
+}

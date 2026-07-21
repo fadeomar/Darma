@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "1741532548219",
+  "title": "Dots vs. Bars 9",
+  "description": "Dots vs. Bars 9",
+  "shortDescription": "Dots vs. Bars 9",
+  "html": "<div id='loader9'></div>",
+  "css": "/* HTML: <div id='loader9'></div> */\n#loader9 {\n  width: 40px;\n  height: 40px;\n  --c:no-repeat linear-gradient(#000 0 0);\n  background: \n    var(--c) 0    0,\n    var(--c) 0    100%, \n    var(--c) 50%  0,  \n    var(--c) 50%  100%, \n    var(--c) 100% 0, \n    var(--c) 100% 100%;\n  background-size: 8px 50%;\n  animation: l9-0 2s infinite;\n  position: relative;\n  overflow: hidden;\n}\n#loader9:before {\n  content: \"\";\n  position: absolute;\n  width: 8px;\n  height: 8px;\n  border-radius: 50%;\n  background: #000;\n  top: calc(50% - 4px);\n  left: -8px;\n  animation: inherit;\n  animation-name: l9-1;\n}\n@keyframes l9-0 {\n 16.67% {background-size:8px 30%, 8px 30%, 8px 50%, 8px 50%, 8px 50%, 8px 50%}\n 33.33% {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n 50%    {background-size:8px 30%, 8px 30%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n 66.67% {background-size:8px 50%, 8px 50%, 8px 30%, 8px 30%, 8px 50%, 8px 50%}\n 83.33% {background-size:8px 50%, 8px 50%, 8px 50%, 8px 50%, 8px 50%, 8px 50%}\n}\n@keyframes l9-1 {\n 20%     {left:0px}\n 40%,70% {left:calc(50% - 4px)}\n 80%,85% {left:8px;top:calc(50% - 4px)}\n 100%    {left:8px;top:-8px}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "bars",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:02:28.219",
+  "updatedAt": "2026-01-26T08:46:05.368",
+  "reviewed": false,
+  "slug": null
+}

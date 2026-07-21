@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "1741894233456",
+  "title": "🎨 Dynamic Pixel Grid Animation – A Colorful Canvas with JavaScript & CSS! ✨",
+  "description": "This animated pixel grid brings a stunning randomized color effect to the screen! 🌈✨ Using JavaScript and the HTML5 Canvas API, this project dynamically generates smooth, colorful pixel transitions that respond to window resizing.",
+  "shortDescription": "This animated pixel grid brings a stunning randomized color effect to the screen! 🌈✨ Using JavaScript and the HTML5 Canvas API, this project dynamically generates smooth, colorful pixel transitions that respond to window resizing.",
+  "html": "<div></div>",
+  "css": "#pixelBox {\r\n  display: block;\r\n  margin: auto;\r\n}",
+  "js": "function generateRandomFloat(min, max) {\r\n  return Math.random() * (max - min) + min;\r\n}\r\n\r\nfunction debounce(fn, delay, context) {\r\n  var timer = null;\r\n  return function () {\r\n    var args = arguments;\r\n    clearTimeout(timer);\r\n    timer = setTimeout(function () {\r\n      fn.apply(context, args);\r\n    }, delay);\r\n  };\r\n}\r\n\r\nfunction Pixel() {\r\n  this.animationTick = 0;\r\n  this.windowHeight = 500; // window.innerHeight\r\n  this.windowWidth = 500; // window.innerWidth\r\n  this.boxHeight = 0;\r\n  this.boxWidth = 0;\r\n  this.boxColumns = 0;\r\n  this.boxRows = 0;\r\n  this.config = {\r\n    delay: 0,\r\n    pixelsPerTick: 20,\r\n    boxSize: 25,\r\n    alpha: 0.5,\r\n    colors: [\"#F38181\", \"#FCE38A\", \"#EAFFD0\", \"#95E1D3\"]\r\n  };\r\n  this.canvas = document.createElement(\"canvas\");\r\n  this.canvas.id = \"pixelBox\";\r\n  this.canvas.width = this.windowWidth;\r\n  this.canvas.height = this.windowHeight;\r\n  this.ctx = this.canvas.getContext(\"2d\");\r\n\r\n  this.initialPaint();\r\n  this.initResizeEvent();\r\n  this.render();\r\n}\r\n\r\nPixel.prototype.initResizeEvent = function () {\r\n  var windowResize = debounce(\r\n    function () {\r\n      this.windowWidth = window.innerWidth;\r\n      this.windowHeight = window.innerHeight;\r\n      this.canvas.width = this.windowWidth;\r\n      this.canvas.height = this.windowHeight;\r\n      this.initialPaint();\r\n    },\r\n    500,\r\n    this\r\n  );\r\n\r\n  window.addEventListener(\"resize\", windowResize, false);\r\n};\r\n\r\nPixel.prototype.initialPaint = function () {\r\n  document.body.appendChild(this.canvas);\r\n\r\n  // Make the boxes fit the screen without cuting off at the ends\r\n  var rows = Math.floor(this.windowHeight / this.config.boxSize);\r\n  this.boxHeight = this.windowHeight / rows;\r\n  var columns = Math.floor(this.windowWidth / this.config.boxSize);\r\n  this.boxWidth = this.windowWidth / columns;\r\n\r\n  // Set opacity\r\n  this.ctx.globalAlpha = this.config.alpha;\r\n  this.boxColumns = this.windowWidth / this.boxWidth;\r\n  this.boxRows = this.windowHeight / this.boxHeight;\r\n  for (var i = 0; i < this.boxRows; i++) {\r\n    for (var j = 0; j < this.boxColumns; j++) {\r\n      this.drawPixel(j, i);\r\n    }\r\n  }\r\n};\r\n\r\nPixel.prototype.drawPixel = function (x, y) {\r\n  var randomColorIndex = Math.floor(Math.random() * this.config.colors.length);\r\n  this.ctx.fillStyle = this.config.colors[randomColorIndex];\r\n\r\n  this.ctx.strokeStyle = \"rgba(0, 0, 0, 0.0)\";\r\n  this.ctx.lineWidth = 0.5;\r\n  this.ctx.globalAlpha = generateRandomFloat(0.2, 0.8);\r\n\r\n  var posX = x * this.boxWidth;\r\n  var posY = y * this.boxHeight;\r\n\r\n  this.ctx.fillRect(posX, posY, this.boxWidth, this.boxHeight);\r\n  this.ctx.strokeRect(posX, posY, this.boxWidth, this.boxHeight);\r\n};\r\n\r\nPixel.prototype.render = function () {\r\n  this.animationTick++;\r\n  if (this.animationTick > this.config.delay) {\r\n    this.drawBoxes(this.config.pixelsPerTick);\r\n    this.animationTick = 2;\r\n  }\r\n  requestAnimationFrame(this.render.bind(this));\r\n};\r\n\r\nPixel.prototype.drawBoxes = function (num) {\r\n  for (var i = 0; i < num; i++) {\r\n    var posX = Math.floor(Math.random() * this.boxColumns);\r\n    var posY = Math.floor(Math.random() * this.boxRows);\r\n    this.drawPixel(posX, posY);\r\n  }\r\n};\r\n\r\ndocument.addEventListener(\r\n  \"DOMContentLoaded\",\r\n  function () {\r\n    new Pixel();\r\n  },\r\n  false\r\n);\r\n",
+  "tags": [
+    "Canvas",
+    "js",
+    "Animation",
+    "Pixel"
+  ],
+  "mainCategory": [
+    "canvas-projects"
+  ],
+  "secondaryCategory": [
+    "animations",
+    "particles"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-13T19:30:33.456",
+  "updatedAt": "2026-01-26T09:24:59.514",
+  "reviewed": false,
+  "slug": null
+}

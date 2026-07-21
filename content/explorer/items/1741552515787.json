@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552515787",
+  "title": "colorful loading 17",
+  "description": "colorful loading 17",
+  "shortDescription": "colorful loading 17",
+  "html": "<div id='loader-17'></div>",
+  "css": "#loader-17 {\n  width: 40px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  margin-top: -30px;\n  display: flex;\n  justify-content: center;\n  overflow: hidden;\n  transform-origin: 50% 116.5%;\n  animation: l17 2s infinite linear; \n}\n#loader-17:before {\n  content:\"\";\n  min-width: 233%;\n  height: 233%;\n  background: \n    radial-gradient(farthest-side,#00DA3C 90%,#0000) top,\n    radial-gradient(farthest-side,#00CBE7 90%,#0000) left,\n    radial-gradient(farthest-side,#FD8603 90%,#0000) bottom,\n    radial-gradient(farthest-side,#F4F328 90%,#0000) right;\n  background-size: 43% 43%;\n  background-repeat: no-repeat;\n  animation: inherit;\n  animation-direction: reverse;\n}\n@keyframes l17 {\n  100% {transform: rotate(360deg)}\n}",
+  "js": "",
+  "tags": [
+    "colorful",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:35:15.787",
+  "updatedAt": "2026-01-26T08:55:53.099",
+  "reviewed": false,
+  "slug": null
+}

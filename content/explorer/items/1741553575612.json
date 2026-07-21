@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553575612",
+  "title": "clones loading 17",
+  "description": "clones loading 17",
+  "shortDescription": "clones loading 17",
+  "html": "<div id='loader-17'></div>",
+  "css": "#loader-17 {\n  width: 60px;\n  aspect-ratio: 1;\n  background: \n    linear-gradient(45deg,#60B99A 50%,#0000 0),\n    linear-gradient(45deg,#0000 50%,#60B99A 0),\n    linear-gradient(-45deg,#f77825 50%,#0000 0),\n    linear-gradient(-45deg,#0000 50%,#f77825 0),\n    linear-gradient(#554236 0 0);\n  background-size: 50% 50%;\n  background-repeat: no-repeat;\n  animation: l17 1s infinite alternate;\n}\n@keyframes l17{\n  0%,\n  20%  {background-position:50% 50%,50% 50%,50%  50% ,50% 50%,50% 50%;\n        background-size:50% 50%,50% 50%,50% 50%,50% 50%,50% 50%}\n  80%,\n  100% {background-position:0  100%,100%  0,100% 100%,0   0  ,50% 50%;\n        background-size:50% 50%,50% 50%,50% 50%,50% 50%,100% 100%}\n}",
+  "js": "",
+  "tags": [
+    "clones",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Unique Mechanics",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:52:55.612",
+  "updatedAt": "2026-01-26T08:58:29.543",
+  "reviewed": false,
+  "slug": null
+}

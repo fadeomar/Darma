@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741640432849",
+  "title": "🚀 Pure CSS Animated Background | Floating Circle Animation 🌟",
+  "description": "This project features a pure CSS animated background with floating circles. Using keyframe animations, the circles smoothly rise and rotate while fading out, creating a dynamic visual effect. The background includes a beautiful gradient, making it perfect for website headers, portfolio designs, or creative UI elements. No JavaScript is required, making the animation lightweight and efficient.",
+  "shortDescription": "This project features a pure CSS animated background with floating circles. Using keyframe animations, the circles smoothly rise and rotate while fading out, creating a dynamic visual effect. The background includes a beautiful gradient, making it perfect for website headers, portfolio designs, or creative UI elements. No JavaScript is required, making the animation lightweight and efficient.",
+  "html": "<div class=\"context\">\r\n    <h1>Pure CSS Animated Background</h1>\r\n</div>\r\n\r\n<div class=\"area\">\r\n    <ul class=\"circles\">\r\n        <!-- 10 Animated Circle Elements -->\r\n        <li></li>\r\n        <li></li>\r\n        <li></li>\r\n        <li></li>\r\n        <li></li>\r\n        <li></li>\r\n        <li></li>\r\n        <li></li>\r\n        <li></li>\r\n        <li></li>\r\n    </ul>\r\n</div>",
+  "css": "@import url('https://fonts.googleapis.com/css?family=Exo:400,700');\r\n\r\n/* Global Reset */\r\n* {\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n    font-family: 'Exo', sans-serif;\r\n    overflow: hidden;\r\n}\r\n\r\n/* Title Section */\r\n.context {\r\n    width: 100%;\r\n    position: absolute;\r\n    top: 50vh;\r\n    text-align: center;\r\n}\r\n\r\n.context h1 {\r\n    color: #fff;\r\n    font-size: 50px;\r\n}\r\n\r\n/* Animated Background */\r\n.area {\r\n    width: 100%;\r\n    height: 100vh;\r\n    background: linear-gradient(to left, #8f94fb, #4e54c8);\r\n}\r\n\r\n/* Floating Circles */\r\n.circles {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    overflow: hidden;\r\n}\r\n\r\n.circles li {\r\n    position: absolute;\r\n    display: block;\r\n    list-style: none;\r\n    background: rgba(255, 255, 255, 0.2);\r\n    border-radius: 50%;\r\n    animation: animate 25s linear infinite;\r\n    bottom: -150px;\r\n}\r\n\r\n/* Circle Properties */\r\n.circles li:nth-child(1) {\r\n    left: 25%;\r\n    width: 80px;\r\n    height: 80px;\r\n}\r\n\r\n.circles li:nth-child(2) {\r\n    left: 10%;\r\n    width: 20px;\r\n    height: 20px;\r\n    animation-delay: 2s;\r\n    animation-duration: 12s;\r\n}\r\n\r\n.circles li:nth-child(3) {\r\n    left: 70%;\r\n    width: 20px;\r\n    height: 20px;\r\n    animation-delay: 4s;\r\n}\r\n\r\n.circles li:nth-child(4) {\r\n    left: 40%;\r\n    width: 60px;\r\n    height: 60px;\r\n    animation-duration: 18s;\r\n}\r\n\r\n.circles li:nth-child(5) {\r\n    left: 65%;\r\n    width: 20px;\r\n    height: 20px;\r\n}\r\n\r\n.circles li:nth-child(6) {\r\n    left: 75%;\r\n    width: 110px;\r\n    height: 110px;\r\n    animation-delay: 3s;\r\n}\r\n\r\n.circles li:nth-child(7) {\r\n    left: 35%;\r\n    width: 150px;\r\n    height: 150px;\r\n    animation-delay: 7s;\r\n}\r\n\r\n.circles li:nth-child(8) {\r\n    left: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    animation-delay: 15s;\r\n    animation-duration: 45s;\r\n}\r\n\r\n.circles li:nth-child(9) {\r\n    left: 20%;\r\n    width: 15px;\r\n    height: 15px;\r\n    animation-delay: 2s;\r\n    animation-duration: 35s;\r\n}\r\n\r\n.circles li:nth-child(10) {\r\n    left: 85%;\r\n    width: 150px;\r\n    height: 150px;\r\n    animation-duration: 11s;\r\n}\r\n\r\n/* Circle Animation */\r\n@keyframes animate {\r\n    0% {\r\n        transform: translateY(0) rotate(0deg);\r\n        opacity: 1;\r\n    }\r\n\r\n    100% {\r\n        transform: translateY(-1000px) rotate(720deg);\r\n        opacity: 0;\r\n    }\r\n}",
+  "js": "",
+  "tags": [
+    "CSS",
+    "animated",
+    "background",
+    "animation"
+  ],
+  "mainCategory": [
+    "backgrounds"
+  ],
+  "secondaryCategory": [
+    "animated-bg"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-10T21:00:32.849",
+  "updatedAt": "2026-01-26T09:20:17.254",
+  "reviewed": false,
+  "slug": null
+}

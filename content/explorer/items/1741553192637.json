@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553192637",
+  "title": "moving loading 5",
+  "description": "moving loading 5",
+  "shortDescription": "moving loading 5",
+  "html": "<div id='loader-5'></div>",
+  "css": "body {\n background: #1b2832;\n}\n #loader-5 {\n  height: 80px;\n  aspect-ratio: 1;\n  display: grid;\n  background-color: #1b2832;\n}\n#loader-5:before,\n#loader-5:after {\n  content: \"\";\n  --c:no-repeat linear-gradient(#fff 0 0);\n  background: var(--c), var(--c);\n  background-size: 25% 50%;\n  animation: l5 1.5s infinite linear;\n}\n#loader-5:after {\n  transform: scale(-1);\n}\n@keyframes l5 {\n  0%,\n  5%   {background-position:33.4% 100%,66.6% 100%}\n  25%  {background-position:33.4% 100%,100% 0}\n  50%  {background-position:0 0,100% 0}\n  75%  {background-position:0 0,66.6% 100%}\n  95%,\n  100% {background-position:33.4% 100%,66.6% 100%}\n}",
+  "js": "",
+  "tags": [
+    "moving",
+    "square",
+    "box",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:46:32.637",
+  "updatedAt": "2026-01-26T08:56:58.087",
+  "reviewed": false,
+  "slug": null
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551403456",
+  "title": "flipping loading 2",
+  "description": "flipping loading 2",
+  "shortDescription": "flipping loading 2",
+  "html": "<div id='loader-2'></div>",
+  "css": "#loader-2 {\n  width: 40px;\n  aspect-ratio: 1;\n  animation: l2-1 2s infinite linear, l2-2 1s infinite steps(1) alternate;\n}\n@keyframes l2-1 {\n  0%   {transform: perspective(150px) rotateX(0deg)}\n  100% {transform: perspective(150px) rotateX(360deg)}\n}\n@keyframes l2-2 {\n  0% {background: #ffa516}\n  50% {background: #f03355}\n}",
+  "js": "",
+  "tags": [
+    "flipping",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:16:43.456",
+  "updatedAt": "2026-01-26T08:53:54.066",
+  "reviewed": false,
+  "slug": null
+}

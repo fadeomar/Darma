@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552674188",
+  "title": "nature loading 10",
+  "description": "nature loading 10",
+  "shortDescription": "nature loading 10",
+  "html": "<div id='loader-nature-10'></div>",
+  "css": "#loader-nature-10 {\n  width: 80px;\n  height: 40px;\n  background:\n    radial-gradient(circle 25px at top right, #ffd738 40%,#0000 ),\n    #4dbefa;\n  position: relative;\n  overflow: hidden;\n}\n#loader-nature-10:before,\n#loader-nature-10:after {\n  content: \"\";\n  position: absolute;\n  top: 4px;\n  left: -40px;\n  width: 36px;\n  height: 20px;\n  --c: radial-gradient(farthest-side,#fff 96%,#0000);\n  background: \n    var(--c) 100% 100% /30% 60%,\n    var(--c) 70% 0 /50% 100%,\n    var(--c) 0 100% /36% 68%,\n    var(--c) 27% 18% /26% 40%,\n    linear-gradient(#fff 0 0) bottom/67% 58%;\n  background-repeat: no-repeat;\n  animation: l10 2s linear infinite;\n}\n#loader-nature-10:after {\n  top:15px;\n  --l:200%;\n}\n@keyframes l10 {\n  100% {left:var(--l,105%)}\n}",
+  "js": "",
+  "tags": [
+    "nature",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:37:54.188",
+  "updatedAt": "2026-01-26T08:56:04.009",
+  "reviewed": false,
+  "slug": null
+}

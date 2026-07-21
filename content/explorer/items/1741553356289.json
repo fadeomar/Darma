@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553356289",
+  "title": "lines loading 1",
+  "description": "lines loading 1",
+  "shortDescription": "lines loading 1",
+  "html": "<div id='loader-1'></div>",
+  "css": "#loader-1 {\n  width: 35px;\n  aspect-ratio: 1;\n  --c:no-repeat linear-gradient(#046D8B 0 0);\n  background: var(--c) 0 0, var(--c) 100% 0, var(--c) 100% 100%, var(--c) 0 100%;\n  animation: l1 1.5s infinite alternate;\n}\n@keyframes l1 {\n  0%   {background-size: 0    4px,4px 0   ,0    4px,4px 0   }\n  25%  {background-size: 100% 4px,4px 0   ,0    4px,4px 0   }\n  50%  {background-size: 100% 4px,4px 100%,0    4px,4px 0   }\n  75%  {background-size: 100% 4px,4px 100%,100% 4px,4px 0   }\n  90%,\n  100% {background-size: 100% 4px,4px 100%,100% 4px,4px 100%}\n}",
+  "js": "",
+  "tags": [
+    "lines",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:49:16.289",
+  "updatedAt": "2026-01-26T08:57:22.457",
+  "reviewed": false,
+  "slug": null
+}

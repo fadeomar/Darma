@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "1741484531218",
+  "title": "Dots vs. Bars 2",
+  "description": "Dots vs. Bars 2",
+  "shortDescription": "Dots vs. Bars 2",
+  "html": "<div id='loader2'></div>",
+  "css": "/* HTML: <div id='loader2'></div> */\n#loader2 {\n  width: 40px;\n  aspect-ratio: 1;\n  --c: linear-gradient(#000 0 0);\n  --r1: radial-gradient(farthest-side at bottom,#000 93%,#0000);\n  --r2: radial-gradient(farthest-side at top   ,#000 93%,#0000);\n  background: \n    var(--c) ,var(--r1),var(--r2),\n    var(--c) ,var(--r1),var(--r2),\n    var(--c) ,var(--r1),var(--r2);\n  background-repeat: no-repeat;\n  animation: l2 1s infinite alternate;\n}\n@keyframes l2 {\n  0%,25% {\n    background-size: 8px 0,8px 4px,8px 4px,8px 0,8px 4px,8px 4px,8px 0,8px 4px,8px 4px;\n    background-position: 0 50%,0 calc(50% - 2px),0 calc(50% + 2px),50% 50%,50% calc(50% - 2px),50% calc(50% + 2px),100% 50%,100% calc(50% - 2px),100% calc(50% + 2px);\n }\n 50% {\n    background-size: 8px 100%,8px 4px,8px 4px,8px 0,8px 4px,8px 4px,8px 0,8px 4px,8px 4px;\n    background-position: 0 50%,0 calc(0% - 2px),0 calc(100% + 2px),50% 50%,50% calc(50% - 2px),50% calc(50% + 2px),100% 50%,100% calc(50% - 2px),100% calc(50% + 2px);\n }\n 75% {\n    background-size: 8px 100%,8px 4px,8px 4px,8px 100%,8px 4px,8px 4px,8px 0,8px 4px,8px 4px;\n    background-position: 0 50%,0 calc(0% - 2px),0 calc(100% + 2px),50% 50%,50% calc(0% - 2px),50% calc(100% + 2px),100% 50%,100% calc(50% - 2px),100% calc(50% + 2px);\n }\n 95%,100% {\n    background-size: 8px 100%,8px 4px, 8px 4px,8px 100%,8px 4px,8px 4px,8px 100%,8px 4px,8px 4px;\n    background-position: 0 50%,0 calc(0% - 2px),0 calc(100% + 2px),50% 50%,50% calc(0% - 2px),50% calc(100% + 2px),100% 50%,100% calc(0% - 2px),100% calc(100% + 2px);\n }\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "bars",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T01:42:11.218",
+  "updatedAt": "2026-01-26T08:45:40.469",
+  "reviewed": false,
+  "slug": null
+}

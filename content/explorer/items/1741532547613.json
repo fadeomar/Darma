@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "1741532547613",
+  "title": "Dots vs. Bars 5",
+  "description": "Dots vs. Bars 5",
+  "shortDescription": "Dots vs. Bars 5",
+  "html": "<div id='loader5'></div>",
+  "css": "/* HTML: <div id='loader5'></div> */\n#loader5 {\n  width: 40px;\n  height: 30px;\n  --c:no-repeat linear-gradient(#000 0 0);\n  background:\n    var(--c) 0    100%/8px 30px,\n    var(--c) 50%  100%/8px 20px,\n    var(--c) 100% 100%/8px 10px;\n  position: relative;\n  clip-path: inset(-100% 0);\n}\n#loader5:before{\n  content: \"\";\n  position: absolute;\n  width: 8px;\n  height: 8px;\n  border-radius: 50%;\n  background: #000;\n  left: -16px;\n  top: 0;\n  animation: \n    l5-1 2s   linear infinite,\n    l5-2 0.5s cubic-bezier(0,200,.8,200) infinite;\n}\n@keyframes l5-1 {\n  0%   {left:-16px;transform:translateY(-8px)}\n  100% {left:calc(100% + 8px);transform:translateY(22px)}\n}\n@keyframes l5-2 {\n  100% {top:-0.1px}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "bars",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:02:27.613",
+  "updatedAt": "2026-01-26T08:45:57.649",
+  "reviewed": false,
+  "slug": null
+}

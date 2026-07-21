@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552155135",
+  "title": "square loading 5",
+  "description": "square loading 5",
+  "shortDescription": "square loading 5",
+  "html": "<div id='loader-5'></div>",
+  "css": "body {\n background: #333;\n}\n #loader-5 {\n  display: inline-flex;\n  gap: 5px;\n}\n#loader-5:before,\n#loader-5:after {\n  content: \"\";\n  width: 25px;\n  aspect-ratio: 1;\n  box-shadow: 0 0 0 3px inset #fff;\n  animation: l5 1.5s infinite;\n}\n#loader-5:after {\n  --s: -1;\n}\n@keyframes l5 {\n  0%   {transform: scaleX(var(--s, 1)) translate(0) scale(1)}\n  33%  {transform: scaleX(var(--s, 1)) translate(calc(50% + 2.5px)) scale(1)}\n  66%  {transform: scaleX(var(--s, 1)) translate(calc(50% + 2.5px)) scale(2)}\n  100% {transform: scaleX(var(--s, 1)) translate(0) scale(1)}\n}",
+  "js": "",
+  "tags": [
+    "square",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:29:15.135",
+  "updatedAt": "2026-01-26T08:55:05.352",
+  "reviewed": false,
+  "slug": null
+}

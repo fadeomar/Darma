@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534105209",
+  "title": "Spinner loading 27",
+  "description": "Spin, spin, spin... Don't stop spinning! spin loading 27",
+  "shortDescription": "Spin, spin, spin... Don't stop spinning! spin loading 27",
+  "html": "<div id='loader-sh-27'></div>",
+  "css": "/* HTML: <div id='loader-sh-27'></div> */\n#loader-sh-27 {\n  width: 50px;\n  aspect-ratio: 1.154;\n  position: relative;\n  background: conic-gradient(from 120deg at 50% 64%,#0000, #25b09b 1deg 120deg,#0000 121deg);\n  animation: l27-0 1.5s infinite cubic-bezier(0.3,1,0,1);\n}\n#loader-sh-27:before,\n#loader-sh-27:after {\n  content:'';\n  position: absolute;\n  inset:0;\n  background:inherit;\n  transform-origin: 50% 66%;\n  animation: l27-1 1.5s infinite;\n}\n#loader-sh-27:after {\n  --s:-1;\n}\n@keyframes l27-0 {\n   0%,30%      {transform: rotate(0)}\n   70%         {transform: rotate(120deg)}\n   70.01%,100% {transform: rotate(360deg)}\n}\n@keyframes l27-1 {\n   0%      {transform: rotate(calc(var(--s,1)*120deg)) translate(0)}\n   30%,70% {transform: rotate(calc(var(--s,1)*120deg)) translate(calc(var(--s,1)*-5px),10px)}\n   100%    {transform: rotate(calc(var(--s,1)*120deg)) translate(0)}\n}",
+  "js": "",
+  "tags": [
+    "spin",
+    "spinner",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:28:25.209",
+  "updatedAt": "2026-01-26T08:50:24.054",
+  "reviewed": false,
+  "slug": null
+}

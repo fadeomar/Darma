@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "1741532547664",
+  "title": "Dots vs. Bars 6",
+  "description": "Dots vs. Bars 6",
+  "shortDescription": "Dots vs. Bars 6",
+  "html": "<div id='loader6'></div>",
+  "css": "/* HTML: <div id='loader6'></div> */\n#loader6 {\n  width: 40px;\n  height: 20px;\n  --c:no-repeat radial-gradient(farthest-side,#000 93%,#0000);\n  background:\n    var(--c) 0    0,\n    var(--c) 50%  0;\n  background-size: 8px 8px;\n  position: relative;\n  clip-path: inset(-200% -100% 0 0);\n  animation: l6-0 1.5s linear infinite;\n}\n#loader6:before {\n  content: \"\";\n  position: absolute;\n  width: 8px;\n  height: 12px;\n  background: #000;\n  left: -16px;\n  top: 0;\n  animation: \n    l6-1 1.5s linear infinite,\n    l6-2 0.5s cubic-bezier(0,200,.8,200) infinite;\n}\n#loader6:after {\n  content: \"\";\n  position: absolute;\n  inset: 0 0 auto auto;\n  width: 8px;\n  height: 8px;\n  border-radius: 50%;\n  background: #000; \n  animation: l6-3 1.5s linear infinite;\n}\n@keyframes l6-0 {\n  0%,30%  {background-position: 0  0   ,50% 0   }\n  33%     {background-position: 0  100%,50% 0   }\n  41%,63% {background-position: 0  0   ,50% 0   }\n  66%     {background-position: 0  0   ,50% 100%}\n  74%,100%{background-position: 0  0   ,50% 0   }\n}\n@keyframes l6-1 {\n  90%  {transform:translateY(0)}\n  95%  {transform:translateY(15px)}\n  100% {transform:translateY(15px);left:calc(100% - 8px)}\n}\n@keyframes l6-2 {\n  100% {top:-0.1px}\n}\n@keyframes l6-3 {\n  0%,80%,100% {transform:translate(0)}\n  90%         {transform:translate(26px)}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "bars",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:02:27.664",
+  "updatedAt": "2026-01-26T08:45:58.421",
+  "reviewed": false,
+  "slug": null
+}

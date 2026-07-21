@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551764257",
+  "title": "arcade loading 10",
+  "description": "arcade loading 10",
+  "shortDescription": "arcade loading 10",
+  "html": "<div id='loader-10'></div>",
+  "css": "#loader-10 {\n  width: fit-content;\n  font-size: 17px;\n  font-family: monospace;\n  line-height: 1.4;\n  font-weight: bold;\n  padding: 30px 2px 50px;\n  background: linear-gradient(#000 0 0) 0 0/100% 100% content-box padding-box no-repeat;\n  position: relative;\n  overflow: hidden;\n  animation: l10-0 2s infinite cubic-bezier(1, 175, .5, 175);\n}\n#loader-10::before {\n  content: \"Loading\";\n  display: inline-block;\n  animation: l10-2 2s infinite;\n}\n#loader-10::after {\n  content: \"\";\n  position: absolute;\n  width: 34px;\n  height: 28px;\n  top: 110%;\n  left: calc(50% - 16px);\n  background: linear-gradient(90deg, #0000 12px, #f92033 0 22px, #0000 0 26px, #fdc98d 0 32px, #0000) bottom 26px left 50%, linear-gradient(90deg, #0000 10px, #f92033 0 28px, #fdc98d 0 32px, #0000 0) bottom 24px left 50%, linear-gradient(90deg, #0000 10px, #643700 0 16px, #fdc98d 0 20px, #000 0 22px, #fdc98d 0 24px, #000 0 26px, #f92033 0 32px, #0000 0) bottom 22px left 50%, linear-gradient(90deg, #0000 8px, #643700 0 10px, #fdc98d 0 12px, #643700 0 14px, #fdc98d 0 20px, #000 0 22px, #fdc98d 0 28px, #f92033 0 32px, #0000 0) bottom 20px left 50%, linear-gradient(90deg, #0000 8px, #643700 0 10px, #fdc98d 0 12px, #643700 0 16px, #fdc98d 0 22px, #000 0 24px, #fdc98d 0 30px, #f92033 0 32px, #0000 0) bottom 18px left 50%, linear-gradient(90deg, #0000 8px, #643700 0 12px, #fdc98d 0 20px, #000 0 28px, #f92033 0 30px, #0000 0) bottom 16px left 50%, linear-gradient(90deg, #0000 12px, #fdc98d 0 26px, #f92033 0 30px, #0000 0) bottom 14px left 50%, linear-gradient(90deg, #fdc98d 6px, #f92033 0 14px, #222a87 0 16px, #f92033 0 22px, #222a87 0 24px, #f92033 0 28px, #0000 0 32px, #643700 0) bottom 12px left 50%, linear-gradient(90deg, #fdc98d 6px, #f92033 0 16px, #222a87 0 18px, #f92033 0 24px, #f92033 0 26px, #0000 0 30px, #643700 0) bottom 10px left 50%, linear-gradient(90deg, #0000 10px, #f92033 0 16px, #222a87 0 24px, #feee49 0 26px, #222a87 0 30px, #643700 0) bottom 8px left 50%, linear-gradient(90deg, #0000 12px, #222a87 0 18px, #feee49 0 20px, #222a87 0 30px, #643700 0) bottom 6px left 50%, linear-gradient(90deg, #0000 8px, #643700 0 12px, #222a87 0 30px, #643700 0) bottom 4px left 50%, linear-gradient(90deg, #0000 6px, #643700 0 14px, #222a87 0 26px, #0000 0) bottom 2px left 50%, linear-gradient(90deg, #0000 6px, #643700 0 10px, #0000 0) bottom 0px left 50%;\n  background-size: 34px 2px;\n  background-repeat: no-repeat;\n  animation: inherit;\n  animation-name: l10-1;\n}\n@keyframes l10-0 {\n  0%, 30% {background-position: 0 0px}\n  50%, 100% {background-position: 0 -0.1px}\n}\n@keyframes l10-1 {\n  50%, 100% {top: 109.5%}\n}\n@keyframes l10-2 {\n  0%, 30% {transform: translateY(0)}\n  80%, 100% {transform: translateY(-260%)}\n}",
+  "js": "",
+  "tags": [
+    "arcade",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:22:44.257",
+  "updatedAt": "2026-01-26T08:54:36.273",
+  "reviewed": false,
+  "slug": null
+}

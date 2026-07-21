@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534102066",
+  "title": "Spinner loading 10",
+  "description": "Spin, spin, spin... Don't stop spinning! spin loading 10",
+  "shortDescription": "Spin, spin, spin... Don't stop spinning! spin loading 10",
+  "html": "<div id='loader-sh-10'></div>",
+  "css": "/* HTML: <div id='loader-sh-10'></div> */\n#loader-sh-10 {\n  display: flex;\n  width: 50px;\n  aspect-ratio: 1;\n  animation: l10-0 1.5s infinite linear;\n}\n#loader-sh-10:before,\n#loader-sh-10:after {\n  content: \"\";\n  width: 50%;\n  background: #514b82;\n  clip-path: polygon(0 0,100% 50%,0% 100%);\n  animation: inherit;\n  animation-name: l10-1;\n  transform-origin: bottom left;\n}\n#loader-sh-10:before {\n  clip-path: polygon(0 50%,100% 0,100% 100%);\n  transform-origin: bottom right;\n  --s:-1;\n}\n@keyframes l10-0 {\n  0%,34.99% {transform: scaley(1)}\n  35%,70%   {transform: scaley(-1)}\n  90%,100%  {transform: scaley(-1) rotate(180deg)}\n}\n\n@keyframes l10-1 {\n  0%,10%,70%,100%{transform:translateY(-100%) rotate(calc(var(--s,1)*135deg))}\n  35%            {transform:translateY(0%)    rotate(0deg)}\n}",
+  "js": "",
+  "tags": [
+    "spin",
+    "spinner",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:28:22.066",
+  "updatedAt": "2026-01-26T08:49:40.702",
+  "reviewed": false,
+  "slug": null
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551460168",
+  "title": "continuous loading 7",
+  "description": "continuous loading 7",
+  "shortDescription": "continuous loading 7",
+  "html": "<div id='loader-7'></div>",
+  "css": "#loader-7 {\n  width: 120px;\n  height: 20px;\n  -webkit-mask: linear-gradient(90deg, #000 70%, #0000 0) left/20% 100%;\n  background: linear-gradient(#000 0 0) left -25% top 0/20% 100% no-repeat #ddd;\n  animation: l7 1s infinite steps(6);\n}\n@keyframes l7 {\n  100% {background-position: right -25% top 0}\n}",
+  "js": "",
+  "tags": [
+    "continuous",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:17:40.168",
+  "updatedAt": "2026-01-26T08:53:45.824",
+  "reviewed": false,
+  "slug": null
+}

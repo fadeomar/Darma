@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741547447133",
+  "title": "wobbling loading 19",
+  "description": "wobbling Loading 19",
+  "shortDescription": "wobbling Loading 19",
+  "html": "<div id='loader-19'></div>",
+  "css": "#loader-19 {\n  height: 30px;\n  aspect-ratio: 3;\n  --c:no-repeat linear-gradient(#514b82 0 0);\n  background:\n    var(--c) calc(0*100%/5) 50%,\n    var(--c) calc(1*100%/5) 50%,\n    var(--c) calc(2*100%/5) 50%,\n    var(--c) calc(3*100%/5) 50%,\n    var(--c) calc(4*100%/5) 50%,\n    var(--c) calc(5*100%/5) 50%;\n  background-size:calc(100%/6 + 1px) 50%;\n  animation: l19 1s infinite cubic-bezier(0.5,170,0.5,-170);\n}\n@keyframes l19 {\n    14.28% {background-position: calc(0*100%/5) 51%, calc(1*100%/5) 50%, calc(2*100%/5) 50%, calc(3*100%/5) 50%, calc(4*100%/5) 50%, calc(5*100%/5) 50%}\n    28.57% {background-position: calc(0*100%/5) 50%, calc(1*100%/5) 51%, calc(2*100%/5) 50%, calc(3*100%/5) 50%, calc(4*100%/5) 50%, calc(5*100%/5) 50%}\n    42.85% {background-position: calc(0*100%/5) 50%, calc(1*100%/5) 50%, calc(2*100%/5) 51%, calc(3*100%/5) 50%, calc(4*100%/5) 50%, calc(5*100%/5) 50%}\n    57.14% {background-position: calc(0*100%/5) 50%, calc(1*100%/5) 50%, calc(2*100%/5) 50%, calc(3*100%/5) 51%, calc(4*100%/5) 50%, calc(5*100%/5) 50%}\n    71.42% {background-position: calc(0*100%/5) 50%, calc(1*100%/5) 50%, calc(2*100%/5) 50%, calc(3*100%/5) 50%, calc(4*100%/5) 51%, calc(5*100%/5) 50%}\n    85.71% {background-position: calc(0*100%/5) 50%, calc(1*100%/5) 50%, calc(2*100%/5) 50%, calc(3*100%/5) 50%, calc(4*100%/5) 50%, calc(5*100%/5) 51%}\n}",
+  "js": "",
+  "tags": [
+    "wobbling",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:10:47.132",
+  "updatedAt": "2026-01-26T08:52:06.888",
+  "reviewed": false,
+  "slug": null
+}

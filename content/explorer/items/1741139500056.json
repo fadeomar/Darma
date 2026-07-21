@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741139500056",
+  "title": "Dynamic Wave Animations HTML Canvas",
+  "description": "<h1><strong>Dynamic Wave Animation with JavaScript &amp; Canvas</strong></h1><h2><strong>Description</strong></h2><p>Bring your screen to life with a mesmerizing <strong>wave animation</strong> using <strong>pure JavaScript</strong> and the <strong>HTML5 Canvas API</strong>. This project generates dynamic, smoothly flowing waves that continuously evolve over time, creating a visually appealing effect.</p><p></p><p><strong>Features:</strong></p><p>✅ <strong>Realistic Wave Motion</strong> – Uses sine functions to create smooth, natural-looking waves.<br>✅ <strong>Dynamic Animation</strong> – Waves shift and evolve with a fading effect for a seamless transition.<br>✅ <strong>Randomized Wave Properties</strong> – Each wave has a unique amplitude, frequency, and speed.<br>✅ <strong>Responsive Design</strong> – Adjusts to screen size dynamically when the window is resized.<br>✅ <strong>Vibrant Color Scheme</strong> – HSL-based stroke colors create a beautiful gradient effect.</p><p></p><p><strong>How It Works:</strong></p><p>The animation is achieved using <strong>trigonometric sine waves</strong>, with each wave having:</p><ul class=\"list-disc pl-6\"><li><p>A <strong>base Y position</strong>, which is randomized within a range.</p></li><li><p>A <strong>wavelength</strong>, affecting how stretched out the wave looks.</p></li><li><p>An <strong>amplitude</strong>, controlling wave height.</p></li><li><p>A <strong>speed</strong>, determining how fast it oscillates.</p></li><li><p>A <strong>phase shift</strong>, which updates on every frame to create continuous motion.</p><p></p></li></ul><p>Using <code>requestAnimationFrame()</code>, the animation is drawn repeatedly, giving an ultra-smooth visual effect. The canvas is also resized dynamically when the window size changes, ensuring the animation always fits perfectly.</p><p></p>",
+  "shortDescription": "A dynamic wave animation using JavaScript and Canvas API, featuring smooth motion, vibrant colors, and responsive resizing.",
+  "html": "    <canvas id=\"canvas\"></canvas>\r\n",
+  "css": "",
+  "js": "const canvas = document.querySelector(\"#canvas\");\r\nconst ctx = canvas.getContext(\"2d\");\r\n\r\n// Set canvas size\r\ncanvas.width = window.innerWidth;\r\ncanvas.height = window.innerHeight;\r\n\r\nconst wavePatterns = [];\r\nconst numberOfWaves = 25;\r\n\r\n// Initialize waves with random properties\r\nfor (let i = 0; i < numberOfWaves; i++) {\r\n  wavePatterns.push({\r\n    baseY: canvas.height / 2 - 100 + Math.random() * 200, // Vertical position of the wave\r\n    wavelength: 0.01 + Math.random() * 0.001, // Controls the wave frequency\r\n    amplitude: 50 + Math.random() * 100, // Height of the wave\r\n    speed: 0.01 + Math.random() * 0.03, // Speed of wave movement\r\n    phase: Math.random() * Math.PI * 2, // Initial phase shift\r\n  });\r\n}\r\n\r\nfunction animateWaves() {\r\n  requestAnimationFrame(animateWaves);\r\n\r\n  // Create a fading effect for smooth animation\r\n  ctx.fillStyle = `rgba(0, 0, 0, 0.03)`;\r\n  ctx.fillRect(0, 0, canvas.width, canvas.height);\r\n\r\n  // Draw each wave\r\n  wavePatterns.forEach((wave, index) => {\r\n    ctx.beginPath();\r\n    ctx.moveTo(0, wave.baseY);\r\n\r\n    for (let x = 0; x < canvas.width; x++) {\r\n      const yOffset =\r\n        Math.sin(x * wave.wavelength + wave.phase) *\r\n        wave.amplitude *\r\n        Math.sin(wave.phase);\r\n\r\n      ctx.lineTo(x, wave.baseY + yOffset);\r\n    }\r\n\r\n    // Set stroke color with a hue variation for a gradient effect\r\n    ctx.strokeStyle = `hsl(${index / 2 + 170}, 100%, 50%)`;\r\n    ctx.stroke();\r\n\r\n    // Update wave phase to create movement\r\n    wave.phase += wave.speed;\r\n  });\r\n}\r\n\r\n// Start animation\r\nanimateWaves();\r\n\r\n// Adjust canvas size on window resize and reposition waves\r\nwindow.addEventListener(\"resize\", () => {\r\n  canvas.width = window.innerWidth;\r\n  canvas.height = window.innerHeight;\r\n\r\n  wavePatterns.forEach((wave) => {\r\n    wave.baseY = canvas.height / 2 - 100 + Math.random() * 200;\r\n  });\r\n});\r\n",
+  "tags": [
+    "Dynamic",
+    "Wave",
+    "Animations",
+    "HTML",
+    "Canvas"
+  ],
+  "mainCategory": [
+    "canvas-projects"
+  ],
+  "secondaryCategory": [
+    "particles",
+    "visualizers"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-08T11:05:11.379",
+  "updatedAt": "2026-01-26T08:45:28.81",
+  "reviewed": true,
+  "slug": null
+}

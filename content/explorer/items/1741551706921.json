@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551706921",
+  "title": "pulsing loading 7",
+  "description": "pulsing loading 7",
+  "shortDescription": "pulsing loading 7",
+  "html": "<div id='loader-7'></div>",
+  "css": "#loader-7 {\n  width: 108px;\n  height: 60px;\n  color: #269af2;\n  --c: radial-gradient(farthest-side, currentColor 96%, #0000);\n  background: var(--c) 100% 100%/30% 60%, var(--c) 70% 0/50% 100%, var(--c) 0 100%/36% 68%, var(--c) 27% 18%/26% 40%, linear-gradient(currentColor 0 0) bottom/67% 58%;\n  background-repeat: no-repeat;\n  position: relative;\n}\n#loader-7::after {\n  content: '';\n  position: absolute;\n  inset: 0;\n  background: inherit;\n  opacity: 0.4;\n  animation: l7 1s infinite;\n}\n@keyframes l7 {\n  to {transform: scale(1.8); opacity: 0}\n}",
+  "js": "",
+  "tags": [
+    "pulsing",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:21:46.921",
+  "updatedAt": "2026-01-26T08:54:10.939",
+  "reviewed": false,
+  "slug": null
+}

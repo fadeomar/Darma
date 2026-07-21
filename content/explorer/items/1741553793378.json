@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553793378",
+  "title": "maze loading 9",
+  "description": "maze loading 9",
+  "shortDescription": "maze loading 9",
+  "html": "<div id='loader-9'></div>",
+  "css": "body {\n background: #000;\n}\n #loader-9 {\n  width: 70px;\n  height: 40px;\n  outline: 2px solid #fff;\n  background:\n    radial-gradient(farthest-side,red 90%,#0000) 0 0/8px 8px no-repeat,\n    radial-gradient(farthest-side,#000 90%,#0000) 0 0/8px 8px no-repeat,\n    linear-gradient(#fff 0 0) 50%/10px 100% no-repeat,\n    conic-gradient(from  90deg at 10px 10px,#0000 90deg,#fff 0),\n    conic-gradient(from -90deg at 60px 30px,#0000 90deg,#fff 0);\n  animation: l9 2s infinite;\n}\n@keyframes l9 {\n  0%    {background-position:50%  100%,0    0   ,50%}\n  12.5% {background-position:0    100%,50%  0   ,50%}\n  25%   {background-position:0    0   ,50%  100%,50%}\n  37.5% {background-position:50%  0   ,100% 100%,50%}\n  50%   {background-position:50%  100%,100% 0   ,50%}\n  62.5% {background-position:100% 100%,50%  0   ,50%}\n  75%   {background-position:100% 0   ,50%  100%,50%}\n  82.5% {background-position:50%  0   ,0    100%,50%}\n  100%  {background-position:50%  100%,0    0   ,50%}\n}",
+  "js": "",
+  "tags": [
+    "maze",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:56:33.378",
+  "updatedAt": "2026-01-26T09:19:11.182",
+  "reviewed": false,
+  "slug": null
+}

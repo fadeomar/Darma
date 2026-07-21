@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533556795",
+  "title": "dots loading 23",
+  "description": "dots loading 23",
+  "shortDescription": "dots loading 23",
+  "html": "<div id='loader-d-23'></div>",
+  "css": "/* HTML: <div id=\"loader-d-23\"></div> */\n#loader-d-23 {\n  width: 50px;\n  height: 28px;\n  --_g: no-repeat radial-gradient(farthest-side,#000 94%,#0000);\n  background:\n    var(--_g) 50%  0,\n    var(--_g) 100% 0;\n  background-size: 12px 12px;\n  position: relative;\n  animation: l23-0 1.5s linear infinite;\n}\n#loader-d-23::before {\n  content: \"\";\n  position: absolute;\n  height: 12px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: #000;\n  left:0;\n  top:0;\n  animation: \n    l23-1 1.5s linear infinite,\n    l23-2 0.5s cubic-bezier(0,200,.8,200) infinite;\n}\n@keyframes l23-0 {\n  0%,31%  {background-position: 50% 0   ,100% 0}\n  33%     {background-position: 50% 100%,100% 0}\n  43%,64% {background-position: 50% 0   ,100% 0}\n  66%     {background-position: 50% 0   ,100% 100%}\n  79%     {background-position: 50% 0   ,100% 0}\n  100%    {transform:translateX(calc(-100%/3))}\n}\n@keyframes l23-1 {\n  100% {left:calc(100% + 7px)}\n}\n@keyframes l23-2 {\n  100% {top:-0.1px}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:19:16.795",
+  "updatedAt": "2026-01-26T08:47:20.328",
+  "reviewed": false,
+  "slug": null
+}

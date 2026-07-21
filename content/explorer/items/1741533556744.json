@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533556744",
+  "title": "dots loading 22",
+  "description": "dots loading 22",
+  "shortDescription": "dots loading 22",
+  "html": "<div id='loader-d-22'></div>",
+  "css": "/* HTML: <div id=\"loader-d-22\"></div> */\n#loader-d-22 {\n  width: 17px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background: #000;\n  display: grid;\n  animation: l22-0 2s infinite linear;\n}\n#loader-d-22::before,\n#loader-d-22::after {\n  content: \"\";\n  grid-area: 1/1;\n  margin: 15%;\n  border-radius: 50%;\n  background: inherit;\n  transform: rotate(0deg) translate(150%);\n  animation: l22 1s infinite;\n}\n#loader-d-22::after {\n  animation-delay: -.5s\n}\n@keyframes l22-0 {\n  100% {transform: rotate(1turn)}\n}\n@keyframes l22 {\n  100% {transform: rotate(1turn) translate(150%)}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:19:16.744",
+  "updatedAt": "2026-01-26T08:47:18.479",
+  "reviewed": false,
+  "slug": null
+}

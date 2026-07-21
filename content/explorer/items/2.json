@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "2",
+  "title": "Loading Spinner",
+  "description": "A simple loading spinner.",
+  "shortDescription": "A simple loading spinner.",
+  "html": "<div class='spinner'></div>",
+  "css": ".spinner {\r\n    width: 50px;\r\n    height: 50px;\r\n    border: 5px solid #ccc;\r\n    border-top: 5px solid #007bff;\r\n    border-radius: 50%;\r\n    animation: spin 1s linear infinite;\r\n}\r\n\r\n@keyframes spin {\r\n    to {\r\n        transform: rotate(360deg);\r\n    }\r\n}",
+  "js": "",
+  "tags": [
+    "loader",
+    "animation",
+    "CSS"
+  ],
+  "mainCategory": [
+    "ui-elements",
+    "shapes"
+  ],
+  "secondaryCategory": [
+    "loaders-spinners"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-08T11:01:22.982",
+  "updatedAt": "2026-01-26T08:45:14.912",
+  "reviewed": false,
+  "slug": null
+}

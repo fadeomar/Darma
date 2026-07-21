@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533239754",
+  "title": "text effect 31",
+  "description": "text effect 31",
+  "shortDescription": "text effect 31",
+  "html": "<div id='loader-c-31'></div>",
+  "css": "/* HTML: <div id=\"loader-c-31\"></div> */\n#loader-c-31 {\n  --w:10ch;\n  font-weight: bold;\n  font-family: monospace;\n  font-size: 30px;\n  line-height: 2em;\n  letter-spacing: var(--w);\n  width:var(--w);\n  overflow: hidden;\n  white-space: nowrap;\n  color: #0000;\n  text-shadow: \n        calc( 0*var(--w)) 0 #000,calc(-1*var(--w)) 0 #000,calc(-2*var(--w)) 0 #000,calc(-3*var(--w)) 0 #000,calc(-4*var(--w)) 0 #000, \n        calc(-5*var(--w)) 0 #000,calc(-6*var(--w)) 0 #000,calc(-7*var(--w)) 0 #000,calc(-8*var(--w)) 0 #000,calc(-9*var(--w)) 0 #000;\n  animation: l31 1s infinite cubic-bezier(0.5,-150,0.5,150);\n}\n#loader-c-31:before {\n  content:\"Loading...\";\n}\n\n@keyframes l31{\n  15%,100% {\n  text-shadow: \n        calc( 0*var(--w) + 0.1px) 0 #000,calc(-1*var(--w)) 0.01em #000,calc(-2*var(--w) - 0.2px) 0 #000,calc(-3*var(--w) + 0.1px) 0.01em #000,calc(-4*var(--w)) -0.01em #000, \n        calc(-5*var(--w) - 0.1px) 0 #000,calc(-6*var(--w) - 0.2px) 0.015em #000,calc(-7*var(--w) - 0.1px) 0.02em #000,calc(-8*var(--w)) -0.01em #000,calc(-9*var(--w) + 0.2px) -0.01em #000;\n  }\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loading-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:13:59.754",
+  "updatedAt": "2026-01-26T08:46:43.07",
+  "reviewed": false,
+  "slug": null
+}

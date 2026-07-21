@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741549690292",
+  "title": "bouncing loading shape 2",
+  "description": "bouncing loading shape 2",
+  "shortDescription": "bouncing loading shape 2",
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\r\n  height: 60px;\r\n  aspect-ratio: 2;\r\n  border-bottom: 3px solid #524656;\r\n  position: relative;\r\n  overflow: hidden;\r\n}\r\n.loader:before {\r\n  content: \"\";\r\n  position: absolute;\r\n  inset: auto 42.5% 0;\r\n  aspect-ratio: 1;\r\n  border-radius: 50%;\r\n  background: #CF4647;\r\n  animation: \r\n    l2-0 .5s cubic-bezier(0,900,1,900) infinite,\r\n    l2-1  2s linear infinite alternate;\r\n}\r\n@keyframes l2-0 {\r\n  0%,2% {bottom: 0%}\r\n  98%,to {bottom:.1%}\r\n}\r\n@keyframes l2-1 {\r\n  0% {translate: -500%}\r\n  to {translate:  500%}\r\n}",
+  "js": "",
+  "tags": [
+    "bounce",
+    "ball",
+    "loading",
+    "animated"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Motion & Animation Types"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:48:10.292",
+  "updatedAt": "2026-01-26T08:53:28.173",
+  "reviewed": false,
+  "slug": null
+}

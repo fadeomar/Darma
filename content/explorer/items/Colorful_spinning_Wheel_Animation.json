@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "Colorful_spinning_Wheel_Animation",
+  "title": "Colorful spinning Wheel Animation",
+  "description": "A simple loading spinner.",
+  "shortDescription": "A simple loading spinner.",
+  "html": "<div class='wheel'>\n      <div class='segment' style='--color: #ff5733; --i: 0'></div>\n      <div class='segment' style='--color: #ff8d33; --i: 1'></div>\n      <div class='segment' style='--color: #ffc733; --i: 2'></div>\n      <div class='segment' style='--color: #d4ff33; --i: 3'></div>\n      <div class='segment' style='--color: #75ff33; --i: 4'></div>\n      <div class='segment' style='--color: #33ff57; --i: 5'></div>\n      <div class='segment' style='--color: #33ffbd; --i: 6'></div>\n      <div class='segment' style='--color: #33d4ff; --i: 7'></div>\n      <div class='segment' style='--color: #338dff; --i: 8'></div>\n      <div class='segment' style='--color: #5733ff; --i: 9'></div>\n      <div class='segment' style='--color: #8d33ff; --i: 10'></div>\n      <div class='segment' style='--color: #ff33c7; --i: 11'></div>\n    </div>",
+  "css": "/* HTML: <div id='new_Test'></div> */\n* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  height: 100vh;\n  display: grid;\n  place-items: center;\n  background-color: #25335b;\n}\n\n.wheel {\n  width: 200px;\n  height: 200px;\n  border: 10px solid #ffd700;\n  border-radius: 50%;\n  position: relative;\n  animation: spin 5s linear infinite;\n}\n\n.wheel::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 20px;\n  height: 20px;\n  background-color: #ffd700;\n  border-radius: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 1;\n}\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n\n  100% {\n    transform: rotate(360deg);\n  }\n}\n\n.segment {\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  top: 0;\n  left: 0;\n  clip-path: polygon(50% 50%, 100% 0, 100% 100%);\n  background-color: var(--color);\n  transform: rotate(calc(var(--i) * 30deg));\n}\n",
+  "js": null,
+  "tags": [
+    "loader",
+    "animation",
+    "CSS"
+  ],
+  "mainCategory": [
+    "shapes"
+  ],
+  "secondaryCategory": [
+    "css-art",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-08T11:03:11.809",
+  "updatedAt": "2026-01-26T08:45:18.799",
+  "reviewed": false,
+  "slug": null
+}

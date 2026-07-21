@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551460364",
+  "title": "continuous loading 10",
+  "description": "continuous loading 10",
+  "shortDescription": "continuous loading 10",
+  "html": "<div id='loader-10'></div>",
+  "css": "#loader-10 {\n  width: 120px;\n  height: 20px;\n  background: linear-gradient(#514b82 0 0) left -40px top 0/40px 100% no-repeat #eee;\n  -webkit-mask: conic-gradient(from 90deg at 5px 5px, #0000 25%, #000 0) 0 0/calc((100% - 5px)/5) calc(100% - 5px);\n  animation: l10 1s infinite linear;\n}\n@keyframes l10 {\n  100% {background-position: right -40px top 0}\n}",
+  "js": "",
+  "tags": [
+    "continuous",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:17:40.364",
+  "updatedAt": "2026-01-26T08:54:04.328",
+  "reviewed": false,
+  "slug": null
+}

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741900837094",
+  "title": "CSS Loader Animation | Unique Spinning Glow Effect! 🚀✨",
+  "description": "Want to create a smooth and unique CSS loader animation? 🚀 In this tutorial, I'll show you how to design a spinning geometric glow effect using just HTML and CSS! No JavaScript needed! 🔥",
+  "shortDescription": "Want to create a smooth and unique CSS loader animation? 🚀 In this tutorial, I'll show you how to design a spinning geometric glow effect using just HTML and CSS! No JavaScript needed! 🔥",
+  "html": "<div class=\"loader\"></div> ",
+  "css": ".loader {\r\n  --s: -100vmax;\r\n  height: 40vmin;\r\n  aspect-ratio: 1;\r\n  position: relative;\r\n  clip-path: polygon(evenodd,var(--s) var(--s),calc(100% - var(--s)) var(--s),calc(100% - var(--s)) calc(100% - var(--s)),var(--s) calc(100% - var(--s)),var(--s) var(--s),100% 50%,85.36% 85.36%,50% 100%,14.64% 85.36%,0% 50%,14.64% 14.64%,50% 0%,85.36% 14.64%,100% 50%,74.75% 25.25%,50% 15%,25.25% 25.25%,15% 50%,25.25% 74.75%,50% 85%,74.75% 74.75%,85% 50%,74.75% 25.25%,100% 50%);\r\n}\r\n.loader:before {\r\n  content: \"\";\r\n  position: absolute;\r\n  inset: 0 35% 70%;\r\n  border-radius: 50%;\r\n  background: #0b486b;\r\n  filter: blur(8vmin);\r\n  transform-origin: 50% 165%;\r\n  animation: l12 1.5s linear infinite;\r\n}\r\n@keyframes l12 {\r\n  to {rotate: 1turn}\r\n}\r\n\r\nbody {\r\n  margin: 0;\r\n  min-height: 100vh;\r\n  display: grid;\r\n  place-content: center;\r\n  background: repeating-linear-gradient(45deg,#0000 0 40px, #f9f9f9 0 80px);\r\n}",
+  "js": "",
+  "tags": [
+    "loading",
+    "spinning",
+    "animation",
+    "css"
+  ],
+  "mainCategory": [
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-13T21:20:37.094",
+  "updatedAt": "2026-01-26T09:25:02.163",
+  "reviewed": false,
+  "slug": null
+}

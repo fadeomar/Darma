@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552843913",
+  "title": "hungry loading 4",
+  "description": "hungry loading 4",
+  "shortDescription": "hungry loading 4",
+  "html": "<div id='loader-4'></div>",
+  "css": "#loader-4 {\n  width: 80px;\n  height: 80px;\n  border-radius: 50%;\n  border: 8px solid #d1914b;\n  box-sizing: border-box;\n  --c:no-repeat radial-gradient(farthest-side, #d64123 94%,#0000);\n  --b:no-repeat radial-gradient(farthest-side, #000 94%,#0000);\n  background:\n    var(--c) 11px 15px,\n    var(--b) 6px 15px,    \n    var(--c) 35px 23px,\n    var(--b) 29px 15px,    \n    var(--c) 11px 46px,\n    var(--b) 11px 34px,    \n    var(--c) 36px 0px,\n    var(--b) 50px 31px,\n    var(--c) 47px 43px,\n    var(--b) 31px 48px,    \n    #f6d353; \n  background-size: 15px 15px,6px 6px;\n  animation: l4 3s infinite;\n}\n@keyframes l4 {\n  0%     {-webkit-mask:conic-gradient(#0000 0     ,#000 0)}\n  16.67% {-webkit-mask:conic-gradient(#0000 60deg ,#000 0)}\n  33.33% {-webkit-mask:conic-gradient(#0000 120deg,#000 0)}\n  50%    {-webkit-mask:conic-gradient(#0000 180deg,#000 0)}\n  66.67% {-webkit-mask:conic-gradient(#0000 240deg,#000 0)}\n  83.33% {-webkit-mask:conic-gradient(#0000 300deg,#000 0)}\n  100%   {-webkit-mask:conic-gradient(#0000 360deg,#000 0)}\n}",
+  "js": "",
+  "tags": [
+    "hungry",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:40:43.913",
+  "updatedAt": "2026-01-26T08:56:34.283",
+  "reviewed": false,
+  "slug": null
+}

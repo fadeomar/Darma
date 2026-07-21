@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533555154",
+  "title": "dots loading 6",
+  "description": "dots loading 6",
+  "shortDescription": "dots loading 6",
+  "html": "<div id='loader-d-6'></div>",
+  "css": "/* HTML: <div id=\"loader-d-6\"></div> */\n#loader-d-6 {\n  width: 15px;\n  aspect-ratio: 1;\n  background: #000;\n  border-radius: 50%;\n  animation: l6 1s infinite linear alternate;\n}\n@keyframes l6 {\n    0%  {box-shadow: 15px 0,-25px 0}\n    50% {box-shadow: 15px 0,-15px 0}\n    100%{box-shadow: 25px 0,-15px 0}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:19:15.154",
+  "updatedAt": "2026-01-26T08:47:03.369",
+  "reviewed": false,
+  "slug": null
+}

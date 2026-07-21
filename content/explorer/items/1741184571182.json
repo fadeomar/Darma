@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "1741184571182",
+  "title": "🌊 Flowing Circles Animation with JavaScript Canvas 🎨",
+  "description": "<p>🌊 Flowing Circles Animation with JavaScript Canvas 🎨</p><hr><p>I’ve built a mesmerizing <strong>Flowing Circles Animation</strong> using HTML, CSS, and JavaScript! This project creates a dynamic visual effect where colorful circles flow across the screen with a soothing wave-like motion, leaving fading trails behind them. It’s lightweight, customizable, and perfect for adding some flair to your website! 🚀</p><ul class=\"list-disc pl-6\"><li><p><strong>What’s it about?</strong> A canvas-based animation featuring circles that move horizontally, oscillate vertically, and fade into trails for a 3D-like perspective effect.</p></li><li><p><strong>The result?</strong> A smooth, eye-catching animation that feels alive and immersive.</p></li><li><p><strong>Main key of the code:</strong> The <code>Circle</code>class handles movement, wave oscillation <code>Math.sin</code>), and trail effects, while the animation loop <code>requestAnimationFrame</code>) ensures fluid rendering.</p></li><li><p><strong>How can users benefit?</strong> Add it to your site as a background, tweak the number of circles, speed, or colors to match your vibe, or use it as a creative coding playground!</p></li></ul>",
+  "shortDescription": "🌟 A flowing circle animation with trails and wave motion, built with JS Canvas. Perfect for backgrounds or creative projects!",
+  "html": "    <canvas id=\"canvas\"></canvas>\r\n",
+  "css": "body {\r\n  margin: 0;\r\n  overflow: hidden;\r\n  background-color: #f0f8ff;\r\n}\r\n\r\ncanvas {\r\n  display: block;\r\n}\r\n",
+  "js": "// Get canvas element and its 2D context\r\nconst canvas = document.getElementById(\"canvas\");\r\nconst ctx = canvas.getContext(\"2d\");\r\n\r\n// Set canvas size to match window dimensions\r\ncanvas.width = window.innerWidth;\r\ncanvas.height = window.innerHeight;\r\n\r\n// Configuration constants\r\nconst TOTAL_CIRCLES = 50; // Number of circles to generate\r\nconst CIRCLES = []; // Array to store circle objects\r\nconst FLOW_SPEED_X = 1; // Horizontal movement speed\r\nconst TRAIL_LENGTH = 30; // Max length of each circle's trail\r\nconst TRAIL_FADE = 0.05; // Opacity fade rate for trails\r\n\r\n// Circle class to manage properties and behavior\r\nclass Circle {\r\n  constructor() {\r\n    this.posX = Math.random() * canvas.width; // Initial X position\r\n    this.posY = Math.random() * canvas.height; // Initial Y position\r\n    this.radius = Math.random() * 20 + 10; // Random radius between 10-30\r\n    this.speed = Math.random() * 2 + 1; // Speed of wave oscillation\r\n    this.waveAmplitude = Math.random() * 5 + 2; // Height of vertical wave\r\n    this.wavePhase = Math.random() * Math.PI * 2; // Starting point in wave cycle\r\n    this.color = `rgba(0, 128, 255, ${Math.random() * 0.5 + 0.2})`; // Semi-transparent blue\r\n    this.trail = []; // Array to store trail positions\r\n  }\r\n\r\n  // Update circle's position and wave motion\r\n  update() {\r\n    this.wavePhase += this.speed * 0.01; // Increment phase for oscillation\r\n    this.posY += Math.sin(this.wavePhase) * this.waveAmplitude; // Vertical wave motion\r\n  }\r\n\r\n  // Draw the circle and its trail\r\n  draw() {\r\n    const perspective = 1 - this.posY / canvas.height; // Depth effect based on Y position\r\n    ctx.globalAlpha = perspective * (1 - TRAIL_FADE); // Adjust opacity with perspective\r\n\r\n    // Draw trail circles with fading size and opacity\r\n    for (let i = 0; i < this.trail.length; i++) {\r\n      const trailPerspective = 1 - this.trail[i].y / canvas.height;\r\n      const trailRadius = Math.max(\r\n        this.radius * trailPerspective * (1 - i / this.trail.length),\r\n        0\r\n      );\r\n      ctx.beginPath();\r\n      ctx.arc(this.trail[i].x, this.trail[i].y, trailRadius, 0, Math.PI * 2);\r\n      ctx.fill();\r\n    }\r\n\r\n    // Draw current circle\r\n    const currentRadius = Math.max(this.radius * perspective, 0);\r\n    ctx.beginPath();\r\n    ctx.arc(this.posX, this.posY, currentRadius, 0, Math.PI * 2);\r\n    ctx.fillStyle = this.color;\r\n    ctx.fill();\r\n\r\n    // Update trail with current position\r\n    this.trail.push({ x: this.posX, y: this.posY });\r\n    if (this.trail.length > TRAIL_LENGTH) {\r\n      this.trail.shift(); // Remove oldest trail point\r\n    }\r\n  }\r\n}\r\n\r\n// Initialize circles\r\nfor (let i = 0; i < TOTAL_CIRCLES; i++) {\r\n  CIRCLES.push(new Circle());\r\n}\r\n\r\n// Animation loop\r\nfunction animate() {\r\n  ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas each frame\r\n\r\n  for (const circle of CIRCLES) {\r\n    circle.update(); // Update position and wave\r\n    circle.draw(); // Render circle and trail\r\n\r\n    // Move circle horizontally and reset if off-screen\r\n    circle.posX += FLOW_SPEED_X;\r\n    if (circle.posX > canvas.width + circle.radius) {\r\n      circle.posX = -circle.radius;\r\n    }\r\n  }\r\n\r\n  requestAnimationFrame(animate); // Queue next frame\r\n}\r\n\r\n// Start the animation\r\nanimate();",
+  "tags": [
+    "Canvas",
+    "JavaScript",
+    "Animation",
+    "WebDesign",
+    "CreativeCoding"
+  ],
+  "mainCategory": [
+    "canvas-projects"
+  ],
+  "secondaryCategory": [
+    "particles"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-08T11:07:11.913",
+  "updatedAt": "2026-01-26T09:18:50.948",
+  "reviewed": true,
+  "slug": null
+}

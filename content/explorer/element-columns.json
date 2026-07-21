@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "table": "public.\"Element\"",
+  "columns": [
+    {
+      "ordinal_position": 1,
+      "column_name": "id",
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "prismaField": "id"
+    },
+    {
+      "ordinal_position": 2,
+      "column_name": "title",
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "prismaField": "title"
+    },
+    {
+      "ordinal_position": 3,
+      "column_name": "description",
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "prismaField": "description"
+    },
+    {
+      "ordinal_position": 4,
+      "column_name": "shortDescription",
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "YES",
+      "column_default": null,
+      "prismaField": "shortDescription"
+    },
+    {
+      "ordinal_position": 5,
+      "column_name": "html",
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "prismaField": "html"
+    },
+    {
+      "ordinal_position": 6,
+      "column_name": "css",
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "NO",
+      "column_default": null,
+      "prismaField": "css"
+    },
+    {
+      "ordinal_position": 7,
+      "column_name": "js",
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "YES",
+      "column_default": null,
+      "prismaField": "js"
+    },
+    {
+      "ordinal_position": 8,
+      "column_name": "tags",
+      "data_type": "ARRAY",
+      "udt_name": "_text",
+      "is_nullable": "YES",
+      "column_default": null,
+      "prismaField": "tags"
+    },
+    {
+      "ordinal_position": 9,
+      "column_name": "mainCategory",
+      "data_type": "ARRAY",
+      "udt_name": "_text",
+      "is_nullable": "YES",
+      "column_default": null,
+      "prismaField": "mainCategory"
+    },
+    {
+      "ordinal_position": 10,
+      "column_name": "secondaryCategory",
+      "data_type": "ARRAY",
+      "udt_name": "_text",
+      "is_nullable": "YES",
+      "column_default": null,
+      "prismaField": "secondaryCategory"
+    },
+    {
+      "ordinal_position": 11,
+      "column_name": "deleted",
+      "data_type": "boolean",
+      "udt_name": "bool",
+      "is_nullable": "NO",
+      "column_default": "false",
+      "prismaField": "deleted"
+    },
+    {
+      "ordinal_position": 12,
+      "column_name": "createdAt",
+      "data_type": "timestamp without time zone",
+      "udt_name": "timestamp",
+      "is_nullable": "NO",
+      "column_default": "CURRENT_TIMESTAMP",
+      "prismaField": "createdAt"
+    },
+    {
+      "ordinal_position": 13,
+      "column_name": "updatedAt",
+      "data_type": "timestamp without time zone",
+      "udt_name": "timestamp",
+      "is_nullable": "NO",
+      "column_default": null,
+      "prismaField": "updatedAt"
+    },
+    {
+      "ordinal_position": 14,
+      "column_name": "reviewed",
+      "data_type": "boolean",
+      "udt_name": "bool",
+      "is_nullable": "NO",
+      "column_default": "false",
+      "prismaField": "reviewed"
+    },
+    {
+      "ordinal_position": 16,
+      "column_name": "slug",
+      "data_type": "text",
+      "udt_name": "text",
+      "is_nullable": "YES",
+      "column_default": null,
+      "prismaField": "slug"
+    }
+  ],
+  "columnParity": {
+    "missingInModel": [],
+    "extraInModel": []
+  }
+}

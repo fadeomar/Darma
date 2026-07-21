@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553414991",
+  "title": "thin loading 7",
+  "description": "thin loading 7",
+  "shortDescription": "thin loading 7",
+  "html": "<div id='loader-7'></div>",
+  "css": "#loader-7 {\n  height: 3px;\n  width: 75px;\n  --c:no-repeat linear-gradient(#000 0 0);\n  background: var(--c), var(--c), var(--c), var(--c);\n  background-size: 21% 100%;\n  animation: l7 1s infinite alternate;\n}\n@keyframes l7 {\n  0%,\n  20%  {background-position: calc(0*100%/4) 0,calc(1*100%/4) 0,calc(2*100%/4) 0,calc(3*100%/4) 0}\n  35%  {background-position: calc(0*100%/4) 0,calc(1*100%/4) 0,calc(2*100%/4) 0,calc(4*100%/4) 0}\n  50%  {background-position: calc(0*100%/4) 0,calc(1*100%/4) 0,calc(3*100%/4) 0,calc(4*100%/4) 0}\n  65%  {background-position: calc(0*100%/4) 0,calc(2*100%/4) 0,calc(3*100%/4) 0,calc(4*100%/4) 0}\n  80%,\n  100% {background-position: calc(1*100%/4) 0,calc(2*100%/4) 0,calc(3*100%/4) 0,calc(4*100%/4) 0}\n}",
+  "js": "",
+  "tags": [
+    "thin",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "Unique Mechanics",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:50:14.991",
+  "updatedAt": "2026-01-26T08:57:53.098",
+  "reviewed": false,
+  "slug": null
+}

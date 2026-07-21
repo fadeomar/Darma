@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741537874156",
+  "title": "progress loading 6",
+  "description": "progress Loading 6",
+  "shortDescription": "progress Loading 6",
+  "html": "<div id='loader-6'></div>",
+  "css": "/* HTML: <div id='loader-6'></div> */\n#loader-6 {\n  width: 120px;\n  height: 22px;\n  border-radius: 20px;\n  color: #514b82;\n  border: 2px solid;\n  position: relative;\n}\n#loader-6::before {\n  content: \"\";\n  position: absolute;\n  margin: 2px;\n  inset: 0 100% 0 0;\n  border-radius: inherit;\n  background: currentColor;\n  animation: l6 2s infinite;\n}\n@keyframes l6 {\n    100% {inset:0}\n}",
+  "js": "",
+  "tags": [
+    "progress",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T16:31:14.156",
+  "updatedAt": "2026-01-26T08:51:24.778",
+  "reviewed": false,
+  "slug": null
+}

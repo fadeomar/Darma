@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "1741532548990",
+  "title": "Dots vs. Bars 17",
+  "description": "Dots vs. Bars 17",
+  "shortDescription": "Dots vs. Bars 17",
+  "html": "<div id='loader17'></div>",
+  "css": "/* HTML: <div id='loader17'></div> */\n#loader17 {\n  width: 40px;\n  aspect-ratio: 1;\n   --c: linear-gradient(#000 0 0);\n   --m: radial-gradient(farthest-side,#000 92%,#0000);\n  background: \n    var(--c),var(--m),\n    var(--c),var(--m), \n    var(--c),var(--m);\n  background-size: 8px 12px,8px 8px;\n  background-repeat: no-repeat;\n  animation: l17 1s infinite linear;\n}\n@keyframes l17 {\n  0%,5% {background-position: 0 50%             ,0 0               ,50% 50%             ,50% 0               ,100% 50%             ,100% 0}\n  12.5% {background-position: 0 50%             ,0 calc(50% - 10px),50% 50%             ,50% 0               ,100% 50%             ,100% 0}\n  25%   {background-position: 0 calc(50% + 10px),0 50%             ,50% 50%             ,50% 0               ,100% 50%             ,100% 0}\n  37.5% {background-position: 0 calc(50% + 10px),0 50%             ,50% 50%             ,50% calc(50% - 10px),100% 50%             ,100% 0}\n  50%   {background-position: 0 50%             ,0 0               ,50% calc(50% + 10px),50% 50%             ,100% 50%             ,100% 0}\n  62.5% {background-position: 0 50%             ,0 0               ,50% calc(50% + 10px),50% 50%             ,100% 50%             ,100% calc(50% - 10px)}\n  75%   {background-position: 0 50%             ,0 0               ,50% 50%             ,50% 0               ,100% calc(50% + 10px),100% 50%}\n  87.5% {background-position: 0 50%             ,0 0               ,50% 50%             ,50% 0               ,100% calc(50% + 10px),100% 50%}\n  95%,\n  100%  {background-position: 0 50%             ,0 0               ,50% 50%             ,50% 0               ,100% 50%             ,100% 0}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "bars",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:02:28.99",
+  "updatedAt": "2026-01-26T08:46:16.659",
+  "reviewed": false,
+  "slug": null
+}

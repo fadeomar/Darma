@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553666591",
+  "title": "blob loading 11",
+  "description": "blob loading 11",
+  "shortDescription": "blob loading 11",
+  "html": "<div id='loader-41'></div>",
+  "css": "#loader-41 {\n  width: 80px;\n  aspect-ratio: 1;\n  border: 10px solid #0000;\n  padding: 5px;\n  box-sizing: border-box;\n  background: \n    radial-gradient(farthest-side,#fff 98%,#0000 ) 0 0/20px 20px no-repeat,\n    conic-gradient(from 90deg at 10px 10px,#0000 90deg,#fff 0) content-box,\n    conic-gradient(from -90deg at 40px 40px,#0000 90deg,#fff 0) content-box,\n    #000;\n  filter: blur(4px) contrast(10);\n  animation: l11 2s infinite;\n}\n@keyframes l11 {\n  0%   {background-position:0 0}\n  25%  {background-position:100% 0}\n  50%  {background-position:100% 100%}\n  75%  {background-position:0% 100%}\n  100% {background-position:0% 0}\n}",
+  "js": "",
+  "tags": [
+    "blob",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Unique Mechanics",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:54:26.591",
+  "updatedAt": "2026-01-26T08:59:01.198",
+  "reviewed": false,
+  "slug": null
+}

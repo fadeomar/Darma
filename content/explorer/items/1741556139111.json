@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741556139111",
+  "title": "factory loading 7",
+  "description": "factory loading 7",
+  "shortDescription": "factory loading 7",
+  "html": "<div id='loader-17'></div>",
+  "css": "body {\n background: #000;\n}\n #loader-17 {\n  width: 90px;\n  height: 14px;\n  box-shadow: 0 3px 0 #fff;\n  position: relative;\n  clip-path: inset(-40px 0 -5px)\n}\n#loader-17:before {\n  content: \"\";\n  position: absolute;\n  inset: auto calc(50% - 17px) 0;\n  height: 50px;\n  --g:no-repeat linear-gradient(#ccc 0 0);\n  background: var(--g),var(--g),var(--g),var(--g);\n  background-size: 16px 14px;\n  animation:\n    l7-1 2s infinite linear,\n    l7-2 2s infinite linear;\n}\n@keyframes l7-1 {\n  0%,\n  100%  {background-position: 0 -50px,100% -50px}\n  17.5% {background-position: 0 100%,100% -50px,0 -50px,100% -50px}\n  35%   {background-position: 0 100%,100% 100% ,0 -50px,100% -50px}\n  52.5% {background-position: 0 100%,100% 100% ,0 calc(100% - 16px),100% -50px}\n  70%,\n  98%  {background-position: 0 100%,100% 100% ,0 calc(100% - 16px),100% calc(100% - 16px)}\n}\n@keyframes l7-2 {\n  0%,70% {transform:translate(0)}\n  100%  {transform:translate(200%)}\n}",
+  "js": "",
+  "tags": [
+    "factory",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T21:35:39.111",
+  "updatedAt": "2026-01-26T09:20:09.303",
+  "reviewed": false,
+  "slug": null
+}

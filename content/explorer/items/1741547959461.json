@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741547959461",
+  "title": "infinity loading 8",
+  "description": "infinity Loading 8",
+  "shortDescription": "infinity Loading 8",
+  "html": "<div id='infinity-8'></div>",
+  "css": "#infinity-8 {\n  width: 90px;\n  height: 12px;\n  --c:#000 50%,#0000 0;\n  background: \n    linear-gradient(90deg ,var(--c)) 0 0%,\n    linear-gradient(-90deg,var(--c)) 0 50%,\n    linear-gradient(90deg ,var(--c)) 0 100%;\n  background-size: 8px calc(100%/3);\n  background-repeat: repeat-x;\n  animation: l8 .25s infinite linear;\n}\n@keyframes l8 {\n    100% {background-position: -8px 0%,-8px 50%,-8px 100%}\n}",
+  "js": "",
+  "tags": [
+    "infinity",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Progress & Status Indicators",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:19:19.461",
+  "updatedAt": "2026-01-26T08:52:17.341",
+  "reviewed": false,
+  "slug": null
+}

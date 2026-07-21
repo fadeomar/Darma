@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "loader-18",
+  "title": "Loading Spinner",
+  "description": "<p>🚀 <strong>Try Our Live Code Preview Tool Now!</strong> 🎉</p><p>Are you ready to <strong>supercharge your coding experience</strong>? Dive into our <strong>Live Code Preview Tool</strong> and watch your HTML, CSS, and JavaScript <strong>spring to life in real-time</strong>! Whether you’re a beginner just starting out or a seasoned developer tackling tricky bugs, this tool is your <strong>ultimate coding playground</strong>. 🛠️</p><p></p><p>✨ <strong>Features You’ll Love:</strong></p><ul class=\"list-disc pl-6\"><li><p><strong>Live Preview</strong>: See your code render instantly as you type—no delays, just pure coding magic!</p></li><li><p><strong>Error Handling</strong>: Get crystal-clear, actionable error messages the moment something goes wrong.</p></li><li><p><strong>Console Output</strong>: Debug like a pro with console.log and outputs displayed right where you need them.</p></li><li><p><strong>Sleek UI</strong>: Code in style with a modern, intuitive design featuring neumorphic vibes and bold colors.</p></li></ul><p></p><p>💡 <strong>Why It’s a Game-Changer:</strong></p><ul class=\"list-disc pl-6\"><li><p><strong>Beginner-Friendly</strong>: Perfect for learning, experimenting, and mastering code in a safe, sandboxed space.</p></li><li><p><strong>Developer-Ready</strong>: Test and debug efficiently with real-time feedback and a powerful console at your fingertips.</p></li><li><p><strong>Zero Setup</strong>: Jump straight in—no downloads, no installs, just pure coding freedom!</p></li></ul><p>🔍 <strong>SEO-Friendly Tip</strong>: Searching for a <strong>\"live code preview\"</strong>, <strong>\"HTML CSS JS playground\"</strong>, or <strong>\"real-time code testing\"</strong>? You’ve landed on the perfect tool!</p><p></p><p>👉 <strong>Get Started Now</strong>: Try it today and discover how <strong>easy</strong>, <strong>fun</strong>, and <strong>powerful</strong> coding can be! Your next big idea is just a few lines away. 💻✨</p><hr><p></p>",
+  "shortDescription": "A simple loading spinner.",
+  "html": "<div id='loader-18'></div>",
+  "css": "#loader-18 {\n  width: 80px;\n  aspect-ratio: 1;\n  display: grid;\n  color: #8d7958;\n  background: radial-gradient(circle 16px,currentColor 94%,#0000);\n  -webkit-mask: radial-gradient(circle 5px,#0000 90%,#000);\n  animation: l10 1.5s infinite linear;\n}\n#loader-18:before,\n#loader-18:after {\n  content: \"\";\n  grid-area: 1/1;\n  background: \n    radial-gradient(farthest-side at bottom right,currentColor 94%,#0000) top    right, \n    radial-gradient(farthest-side at top    left ,currentColor 94%,#0000) bottom left;\n  background-size: 40% 45%;\n  background-repeat: no-repeat;\n  -webkit-mask: \n    radial-gradient(60% 100% at bottom right,#0000 94%,#000) top    right, \n    radial-gradient(60% 100% at top    left ,#0000 94%,#000) bottom left;\n  -webkit-mask-size: 40% 45%;\n  -webkit-mask-repeat: no-repeat;\n}\n#loader-18:after {\n  transform: rotate(90deg);\n}\n@keyframes l10 { \n  100%{transform: rotate(1turn)}\n}",
+  "js": "",
+  "tags": [
+    "loader",
+    "animation",
+    "CSS"
+  ],
+  "mainCategory": [
+    "ui-elements",
+    "shapes"
+  ],
+  "secondaryCategory": [
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-08T11:02:29.464",
+  "updatedAt": "2026-01-26T08:45:22.874",
+  "reviewed": false,
+  "slug": null
+}

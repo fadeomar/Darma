@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741549892060",
+  "title": "bouncing loading shape 6",
+  "description": "bouncing loading shape 6",
+  "shortDescription": "bouncing loading shape 6",
+  "html": "<div class=\"loader\"></div>",
+  "css": ".loader {\r\n  height: 60px;\r\n  aspect-ratio: 1;\r\n  position: relative;\r\n  border: 3px solid #0000;\r\n}\r\n.loader:before {\r\n  content: \"\";\r\n  position: absolute;\r\n  inset: auto 35% 0;\r\n  aspect-ratio: 1;\r\n  border-radius: 50%;\r\n  background: #CF4647;\r\n  animation: l6-0 .5s cubic-bezier(0,800,1,800) infinite;\r\n}\r\n.loader:after {\r\n  content: \"\";\r\n  position: absolute;\r\n  inset: 0;\r\n  outline: 3px solid #524656;\r\n  animation: l6-1 .5s linear infinite;\r\n}\r\n@keyframes l6-0 {\r\n  0%,2% {bottom: 0%}\r\n  98%,to {bottom:.1%}\r\n}\r\n@keyframes l6-1 {\r\n  0%,30% {rotate:  0deg}\r\n  70%,to {rotate: 90deg}\r\n}",
+  "js": "",
+  "tags": [
+    "bounce",
+    "ball",
+    "loading",
+    "animated"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:51:32.06",
+  "updatedAt": "2026-01-26T08:53:30.68",
+  "reviewed": false,
+  "slug": null
+}

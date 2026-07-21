@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552982955",
+  "title": "dancers loading 4",
+  "description": "dancers loading 4",
+  "shortDescription": "dancers loading 4",
+  "html": "<div id='loader-32'></div>",
+  "css": "#loader-32 {\n  width: 16px;\n  aspect-ratio: 1;\n  background: #3FB8AF;\n  box-shadow: 30px 0 #FF3D7F;\n  animation:\n    l4-1  1s infinite alternate,\n    l4-2 .5s infinite alternate;\n}\n@keyframes l4-1 {\n   0%,40%   {transform: rotate(0)}\n   80%,100% {transform: rotate(.5turn)}\n}\n@keyframes l4-2 {\n   80%,100% {box-shadow: 16px 0 #FF3D7F}\n}",
+  "js": "",
+  "tags": [
+    "dancers",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:43:02.955",
+  "updatedAt": "2026-01-26T08:56:49.595",
+  "reviewed": false,
+  "slug": null
+}

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741547959590",
+  "title": "infinity loading 9",
+  "description": "infinity Loading 9",
+  "shortDescription": "infinity Loading 9",
+  "html": "<div id='infinity-9'></div>",
+  "css": "#infinity-9 {\n  width: 90px;\n  height: 14px;\n  color: #000;\n  background: \n    linear-gradient(90deg,#0000 16px, currentColor 0 30px, #0000 0),\n    radial-gradient(circle closest-side at 68% 50%, currentColor 92%,#0000),\n    conic-gradient(from   45deg at calc(100% - 7px) 50%,currentColor 90deg,#0000 0),\n    conic-gradient(from -135deg at             7px  50%,currentColor 90deg,#0000 0);\n  background-position: 0 0;\n  background-size: calc(3*100%/4) 100%;\n  background-repeat: repeat-x;\n  animation: l9 2s infinite linear;\n}\n@keyframes l9 {\n    100% {background-position: -300% 0}\n}",
+  "js": "",
+  "tags": [
+    "infinity",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Progress & Status Indicators",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:19:19.59",
+  "updatedAt": "2026-01-26T08:52:17.927",
+  "reviewed": false,
+  "slug": null
+}

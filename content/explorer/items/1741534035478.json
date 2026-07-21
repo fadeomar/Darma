@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534035478",
+  "title": "Spinner loading 26",
+  "description": "Spin, spin, spin... Don't stop spinning! spin loading 26",
+  "shortDescription": "Spin, spin, spin... Don't stop spinning! spin loading 26",
+  "html": "<div id='loader26'></div>",
+  "css": "/* HTML: <div id='loader26'></div> */\n#loader26 {\n  width: 50px;\n  aspect-ratio: 1;\n  display:grid;\n  -webkit-mask: conic-gradient(from 15deg,#0000,#000);\n  animation: l26 1s infinite steps(12);\n}\n#loader26,\n#loader26:before,\n#loader26:after{\n  background:\n    radial-gradient(closest-side at 50% 12.5%,\n     #f03355 96%,#0000) 50% 0/20% 80% repeat-y,\n    radial-gradient(closest-side at 12.5% 50%,\n     #f03355 96%,#0000) 0 50%/80% 20% repeat-x;\n}\n#loader26:before,\n#loader26:after {\n  content: \"\";\n  grid-area: 1/1;\n  transform: rotate(30deg);\n}\n#loader26:after {\n  transform: rotate(60deg);\n}\n@keyframes l26 {\n  100% {transform:rotate(1turn)}\n}",
+  "js": "",
+  "tags": [
+    "spin",
+    "spinner",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:27:15.478",
+  "updatedAt": "2026-01-26T08:49:12.611",
+  "reviewed": false,
+  "slug": null
+}

@@ -48,3 +48,12 @@ next-env.d.ts
 neon.dump
 neon.sql
 prisma/migrations_backup/
+
+# database dumps & explorer migration backups (NEVER commit — kept in a secure dir outside git)
+/migration-backups/
+*.dump
+*.sql
+*.sql.gz
+*.backup
+*.pgpass
+SHA256SUMS

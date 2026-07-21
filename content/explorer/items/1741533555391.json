@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533555391",
+  "title": "dots loading 11",
+  "description": "dots loading 11",
+  "shortDescription": "dots loading 11",
+  "html": "<div id='loader-d-11'></div>",
+  "css": "/* HTML: <div id=\"loader-d-11\"></div> */\n#loader-d-11 {\n  width: 35px;\n  aspect-ratio: 1;\n  --_g: no-repeat radial-gradient(circle closest-side,#000 90%,#0000);\n  background: \n    var(--_g) 0    0,\n    var(--_g) 0    100%,\n    var(--_g) 100% 100%;\n  background-size: 40% 40%;\n  animation:l11 1s infinite linear;\n}\n@keyframes l11 {\n    25% {background-position:100% 0   ,0 100%,100% 100%}\n    50% {background-position:100% 0   ,0 0   ,100% 100%}\n    75% {background-position:100% 0   ,0 0   ,0    100%}\n    100%{background-position:100% 100%,0 0   ,0    100%}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:19:15.391",
+  "updatedAt": "2026-01-26T08:47:08.269",
+  "reviewed": false,
+  "slug": null
+}

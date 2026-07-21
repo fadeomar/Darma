@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551761497",
+  "title": "arcade loading 1",
+  "description": "arcade loading 1",
+  "shortDescription": "arcade loading 1",
+  "html": "<div id='loader-1'></div>",
+  "css": "#loader-1 {\n  width: 45px;\n  height: 30px;\n  animation: l1 2s infinite linear;\n}\n@keyframes l1 {\n  0%,\n  25%  {background: linear-gradient(#e50021 0 0) 50% 0/66% 100% no-repeat}\n  25.1%,\n  50%  {background: linear-gradient(#004ce4 0 0) 0 0/100% 50% no-repeat, linear-gradient(#004ce4 0 0) 0 0/33% 100% no-repeat}\n  50.1%,\n  75%  {background: linear-gradient(#00e622 0 0) 100% 0/66% 50% no-repeat, linear-gradient(#00e622 0 0) 0 100%/66% 50% no-repeat}\n  75.1%,\n  100% {background: linear-gradient(#9d0be6 0 0) 0 100%/100% 50% no-repeat, linear-gradient(#9d0be6 0 0) 50% 0 /33% 50% no-repeat}\n}",
+  "js": "",
+  "tags": [
+    "arcade",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:22:41.497",
+  "updatedAt": "2026-01-26T08:54:14.318",
+  "reviewed": false,
+  "slug": null
+}

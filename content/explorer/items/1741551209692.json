@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551209692",
+  "title": "bounce loading 1",
+  "description": "bounce loading 1",
+  "shortDescription": "bounce loading 1",
+  "html": "<div id='loader-21'></div>",
+  "css": "#loader-21 {\n  display: inline-grid;\n  width: 80px;\n  aspect-ratio: 1;\n}\n#loader-21:before,\n#loader-21:after {\n  content: '';\n  grid-area: 1/1;\n  border-radius: 50%;\n}\n#loader-21:before {\n  margin: 25%;\n  background: repeating-conic-gradient(#C02942 0 60deg,#0B486B 0 120deg);\n  transform: rotate(0turn) translate(50%) rotate(0turn);\n  animation: l1 3s linear infinite;\n}\n#loader-21:after {\n  padding: 10%;\n  margin: -10%;\n  background: repeating-conic-gradient(from -15deg,#C02942 0 30deg,#0B486B 0 60deg);\n  mask: conic-gradient(#000 0 0) content-box exclude,conic-gradient(#000 0 0);\n}\n@keyframes l1 {\n  to{transform: rotate(1turn) translate(50%) rotate(-2turn)}\n}",
+  "js": "",
+  "tags": [
+    "rolling",
+    "ball",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:13:29.692",
+  "updatedAt": "2026-01-26T08:53:40.591",
+  "reviewed": false,
+  "slug": null
+}

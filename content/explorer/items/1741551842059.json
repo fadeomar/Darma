@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551842059",
+  "title": "hypnotic loading 20",
+  "description": "hypnotic loading 20",
+  "shortDescription": "hypnotic loading 20",
+  "html": "<div id='loader-20'></div>",
+  "css": "#loader-20 {\n  --b: 5px;\n  width: calc(12 * var(--b));\n  aspect-ratio: 1;\n  border-radius: 50%;\n  background:\n    repeating-radial-gradient(calc(2 * var(--b)) at top, #0000 -1px, #000 0 calc(50% - 1px), #0000 50% calc(100% - 1px)) calc(50% + var(--b)) 100%,\n    repeating-radial-gradient(calc(2 * var(--b)) at bottom, #000 -1px, #0000 0 calc(50% - 1px), #000 50% calc(100% - 1px)) 50% 0;\n  background-size: 150% 50%;\n  background-repeat: no-repeat;\n  mask:\n    radial-gradient(calc(1.5 * var(--b)) at calc(100% - var(--b) / 2) 0, #0000 calc(100% / 3), #000 calc(100% / 3 + 1px) 110%, #0000 0) calc(50% + var(--b) / 2) 100% / calc(3 * var(--b)) 50% exclude no-repeat,\n    conic-gradient(#000 0 0);\n  animation: l20 1s infinite linear;\n}\n@keyframes l20 {\n  100% {transform: rotate(1turn)}\n}",
+  "js": "",
+  "tags": [
+    "hypnotic",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:24:02.059",
+  "updatedAt": "2026-01-26T08:54:54.188",
+  "reviewed": false,
+  "slug": null
+}

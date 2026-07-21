@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741537874325",
+  "title": "progress loading 4",
+  "description": "progress Loading 4",
+  "shortDescription": "progress Loading 4",
+  "html": "<div id='loader-4'></div>",
+  "css": "/* HTML: <div id='loader-4'></div> */\n#loader-4 {\n  width: 120px;\n  height: 20px;\n  -webkit-mask:linear-gradient(90deg,#000 70%,#0000 0) 0/20%;\n  background:\n   linear-gradient(#000 0 0) 0/0% no-repeat\n   #ddd;\n  animation: l4 2s infinite steps(6);\n}\n@keyframes l4 {\n    100% {background-size:120%}\n}",
+  "js": "",
+  "tags": [
+    "progress",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T16:31:14.325",
+  "updatedAt": "2026-01-26T08:51:29.426",
+  "reviewed": false,
+  "slug": null
+}

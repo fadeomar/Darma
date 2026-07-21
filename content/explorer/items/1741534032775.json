@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534032775",
+  "title": "Spinner loading 8",
+  "description": "Spin, spin, spin... Don't stop spinning! spin loading 8",
+  "shortDescription": "Spin, spin, spin... Don't stop spinning! spin loading 8",
+  "html": "<div id='loader8'></div>",
+  "css": "/* HTML: <div id='loader8'></div> */\n#loader8 {\n  width: 50px;\n  aspect-ratio: 1;\n  color: #f03355;\n  --_c:no-repeat radial-gradient(farthest-side,currentColor 92%,#0000);\n  background: \n    var(--_c) 50% 0   /12px 12px,\n    var(--_c) 50% 100%/12px 12px,\n    var(--_c) 100% 50%/12px 12px,\n    var(--_c) 0    50%/12px 12px,\n    var(--_c) 50%  50%/12px 12px,\n    conic-gradient(from 90deg at 4px 4px,#0000 90deg,currentColor 0)\n    -4px -4px/calc(50% + 2px) calc(50% + 2px);\n  animation: l8 1s infinite linear;\n}\n@keyframes l8 {to{transform: rotate(.5turn)}}",
+  "js": "",
+  "tags": [
+    "spin",
+    "spinner",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:27:12.775",
+  "updatedAt": "2026-01-26T08:48:46.855",
+  "reviewed": false,
+  "slug": null
+}

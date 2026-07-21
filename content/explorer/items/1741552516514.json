@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552516514",
+  "title": "colorful loading 18",
+  "description": "colorful loading 18",
+  "shortDescription": "colorful loading 18",
+  "html": "<div id='loader-18'></div>",
+  "css": "#loader-18 {\n  width: 60px;\n  aspect-ratio: 1;\n  background:\n    linear-gradient(90deg,#CEE879 50%,#FF5254 0) top/100% 50% no-repeat,\n    linear-gradient(90deg,#FCB653 50%,#5CACC4 0);\n  -webkit-mask:linear-gradient(#000 0 0) 0 0/50% 50% no-repeat;\n  animation: l18 2s infinite; \n}\n@keyframes l18 {\n  0%   {-webkit-mask-position:0    0   }\n  25%  {-webkit-mask-position:100% 0   }\n  50%  {-webkit-mask-position:100% 100%}\n  75%  {-webkit-mask-position:0    100%}\n  100% {-webkit-mask-position:0    0   }\n}",
+  "js": "",
+  "tags": [
+    "colorful",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:35:16.514",
+  "updatedAt": "2026-01-26T08:55:53.999",
+  "reviewed": false,
+  "slug": null
+}

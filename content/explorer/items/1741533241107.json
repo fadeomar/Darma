@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533241107",
+  "title": "text effect 39",
+  "description": "text effect 39",
+  "shortDescription": "text effect 39",
+  "html": "<div id='loader-c-39'></div>",
+  "css": "/* HTML: <div id=\"loader-c-39\"></div> */\n#loader-c-39 {\n  width: fit-content;\n  font-weight: bold;\n  font-family: monospace;\n  white-space: pre;\n  font-size: 30px;\n  line-height: 1.2em;\n  height:1.2em;\n  overflow: hidden;\n}\n#loader-c-39:before {\n  content:\"Loading...\\A⌰oading...\\A⌰⍜ading...\\A⌰⍜⏃ding...\\A⌰⍜⏃⎅ing...\\A⌰⍜⏃⎅⟟ng...\\A⌰⍜⏃⎅⟟⋏g...\\A⌰⍜⏃⎅⟟⋏☌...\\A⌰⍜⏃⎅⟟⋏☌⟒..\\A⌰⍜⏃⎅⟟⋏☌⟒⏁.\\A⌰⍜⏃⎅⟟⋏☌⟒⏁⋔\"; \n  white-space: pre;\n  display: inline-block;\n  animation: l39 1s infinite steps(11) alternate;\n}\n\n@keyframes l39 {\n  100%{transform: translateY(-100%)}\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loading-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:14:01.107",
+  "updatedAt": "2026-01-26T08:46:57.962",
+  "reviewed": false,
+  "slug": null
+}

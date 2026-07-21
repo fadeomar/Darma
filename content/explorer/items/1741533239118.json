@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533239118",
+  "title": "text effect 27",
+  "description": "text effect 27",
+  "shortDescription": "text effect 27",
+  "html": "<div id='loader-c-27'></div>",
+  "css": "/* HTML: <div id=\"loader-c-27\"></div> */\n#loader-c-27 {\n  font-weight: bold;\n  font-family: monospace;\n  font-size: 30px;\n  display: inline-flex;\n}\n#loader-c-27::before {\n  content:\"Loadi\";\n  animation: l27 2s infinite;\n}\n#loader-c-27::after {\n  content:\"ng...\";\n  animation: l27 2s infinite 1s;\n}\n\n@keyframes l27{\n   50%,100%{transform:rotate(1turn)}\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loading-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:13:59.118",
+  "updatedAt": "2026-01-26T08:46:39.13",
+  "reviewed": false,
+  "slug": null
+}

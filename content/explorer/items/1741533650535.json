@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533650535",
+  "title": "bar loading 22",
+  "description": "bar loading 22",
+  "shortDescription": "bar loading 22",
+  "html": "<div id='loader-b-22'></div>",
+  "css": "/* HTML: <div id=\"loader-b-22\"></div> */\n#loader-b-22 {\n  width: 45px;\n  aspect-ratio: 1;\n  --c:no-repeat repeating-linear-gradient(90deg,#000 0 20%,#0000 0 40%);\n  background: var(--c),var(--c),var(--c),var(--c);\n  background-size: 100% 26%;\n  animation: l22 1.5s infinite;\n}\n@keyframes l22 {\n 0%    {background-position:0 -20px        ,0 -20px         ,0 -20px         ,0 -20px}\n 12.5% {background-position:0 -20px        ,0 -20px         ,0 -20px         ,0 calc(3*100%/3)}\n 25%   {background-position:0 -20px        ,0 -20px         ,0 calc(2*100%/3),0 calc(3*100%/3)}\n 37.5% {background-position:0 -20px        ,0 calc(1*100%/3),0 calc(2*100%/3),0 calc(3*100%/3)}\n 45%,\n 50%   {background-position:0 calc(0*100%/3),0 calc(1*100%/3),0 calc(2*100%/3),0 calc(3*100%/3)}\n 62.5% {background-position:0 calc(0*100%/3),0 calc(1*100%/3),0 calc(2*100%/3),0 50px}\n 75%   {background-position:0 calc(0*100%/3),0 calc(1*100%/3),0 50px          ,0 50px}\n 87.5% {background-position:0 calc(0*100%/3),0 50px          ,0 50px          ,0 50px}\n 100%  {background-position:0 50px          ,0 50px          ,0 50px          ,0 50px}\n}",
+  "js": "",
+  "tags": [
+    "bars",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:20:50.534",
+  "updatedAt": "2026-01-26T08:48:18.335",
+  "reviewed": false,
+  "slug": null
+}

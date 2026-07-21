@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533555912",
+  "title": "dots loading 14",
+  "description": "dots loading 14",
+  "shortDescription": "dots loading 14",
+  "html": "<div id='loader-d-14'></div>",
+  "css": "/* HTML: <div id=\"loader-d-14\"></div> */\n#loader-d-14 {\n  --s: 64px;\n  width: var(--s);\n  aspect-ratio: 2;\n  --_g: #000 90%,#0000;\n  background: \n    radial-gradient(farthest-side,var(--_g)) 0   50%/25% 50%,\n    radial-gradient(farthest-side at bottom,var(--_g)) 50%  calc(50% - var(--s)/16)/25% 25%,\n    radial-gradient(farthest-side at top   ,var(--_g)) 50%  calc(50% + var(--s)/16)/25% 25%,\n    radial-gradient(farthest-side at bottom,var(--_g)) 100% calc(50% - var(--s)/16)/25% 25%,\n    radial-gradient(farthest-side at top   ,var(--_g)) 100% calc(50% + var(--s)/16)/25% 25%;\n  background-repeat: no-repeat;\n  animation: l14 1s infinite;\n}\n@keyframes l14 {\n    25%  {background-position:0    50%,50% 0,50% 100%,100% 0,100% 100%}\n    50%  {background-position:100% 50%,0   0,0   100%,50%  0,50%  100%}\n    75%,\n    100% {background-position:100% 50%,0 calc(50% - var(--s)/16),0 calc(50% + var(--s)/16),50% calc(50% - var(--s)/16),50% calc(50% + var(--s)/16)}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:19:15.912",
+  "updatedAt": "2026-01-26T08:47:10.461",
+  "reviewed": false,
+  "slug": null
+}

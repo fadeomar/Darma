@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552675976",
+  "title": "nature loading 14",
+  "description": "nature loading 14",
+  "shortDescription": "nature loading 14",
+  "html": "<div id='loader-nature-14'></div>",
+  "css": "#loader-nature-14 {\n  width: calc(6*30px);\n  height: 50px;\n  display: grid;\n  color: #8d7958;\n  filter: drop-shadow(30px 25px 0 currentColor) drop-shadow(60px 0 0 currentColor) drop-shadow(120px 0 0 currentColor);\n  clip-path: inset(0 100% 0 0);\n  animation: l14 2s infinite steps(7);\n}\n#loader-nature-14:before,\n#loader-nature-14:after {\n  content: \"\";\n  width: 24px;\n  grid-area: 1/1;\n  height: 9px;\n  background: \n    radial-gradient(farthest-side,currentColor 90%,#0000) left/10px 9px, \n    conic-gradient(from -106deg at right,#0000, currentColor 2deg 29deg,#0000 33deg) right/17px 11px;\n  background-repeat: no-repeat;\n  transform: rotate(7deg);\n  transform-origin: 5px 50%;\n}\n#loader-nature-14:after {\n  margin-top: 12px;\n  transform: rotate(-7deg);\n}\n@keyframes l14 {\n  100% {clip-path: inset(0 -30px 0 0)}\n}",
+  "js": "",
+  "tags": [
+    "nature",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:37:55.976",
+  "updatedAt": "2026-01-26T08:56:10.944",
+  "reviewed": false,
+  "slug": null
+}

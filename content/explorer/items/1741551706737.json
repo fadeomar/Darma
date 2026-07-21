@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551706737",
+  "title": "pulsing loading 6",
+  "description": "pulsing loading 6",
+  "shortDescription": "pulsing loading 6",
+  "html": "<div id='loader-6'></div>",
+  "css": "#loader-6 {\n  width: 40px;\n  aspect-ratio: 1;\n  position: relative;\n  transform: rotate(45deg);\n}\n#loader-6::before,\n#loader-6::after {\n  content: '';\n  position: absolute;\n  inset: 0;\n  border-radius: 50% 50% 0 50%;\n  background: #514b82;\n  -webkit-mask: radial-gradient(circle 10px at 50% 50%, #0000 94%, #000);\n}\n#loader-6::after {\n  animation: l6 1s infinite;\n  transform: perspective(300px) translateZ(0px);\n}\n@keyframes l6 {\n  to {transform: perspective(300px) translateZ(150px); opacity: 0}\n}",
+  "js": "",
+  "tags": [
+    "pulsing",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:21:46.737",
+  "updatedAt": "2026-01-26T08:54:10.605",
+  "reviewed": false,
+  "slug": null
+}

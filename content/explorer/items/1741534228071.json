@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534228071",
+  "title": "polygon loading 10",
+  "description": "polygon Loading 10",
+  "shortDescription": "polygon Loading 10",
+  "html": "<div id='loader-10'></div>",
+  "css": "/* HTML: <div id='loader-10'></div> */\n#loader-10 {\n  display: inline-flex;\n  width: 90px;\n  aspect-ratio: 2;\n  animation: l10-0 1s linear infinite;\n}\n#loader-10:before,\n#loader-10:after {\n  content: \"\";\n  flex: 1;\n  background: #574951;\n  clip-path: polygon(50% 0,100% 50%,50% 100%,0 50%);\n  animation: l10-1 1s linear infinite;\n  transform-origin: right;\n}\n#loader-10:after {\n  scale: -1 1;\n  translate: -100% 0;\n  animation-direction: reverse;\n}\n@keyframes l10-0 {\n  0%{translate: 0 -35.35%}\n  to{translate: 0  35.35%}\n}\n@keyframes l10-1 {\n  0%{rotate: -45deg}\n  to{rotate:  45deg}\n}",
+  "js": "",
+  "tags": [
+    "spin",
+    "spinner",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:30:28.071",
+  "updatedAt": "2026-01-26T08:51:02.459",
+  "reviewed": false,
+  "slug": null
+}

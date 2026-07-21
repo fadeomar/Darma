@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552675873",
+  "title": "nature loading 13",
+  "description": "nature loading 13",
+  "shortDescription": "nature loading 13",
+  "html": "<div id='loader-nature-13'></div>",
+  "css": "#loader-nature-13 {\n  width: calc(6*30px);\n  height: 50px;\n  display: flex;\n  color: #8d7958;\n  filter: drop-shadow(30px 25px 0 currentColor) drop-shadow(60px 0 0 currentColor) drop-shadow(120px 0 0 currentColor);\n  clip-path: inset(0 100% 0 0);\n  animation: l13 2s infinite steps(7);\n}\n#loader-nature-13:before {\n  content: \"\";\n  width: 30px;\n  height: 25px;\n  background: \n    radial-gradient(farthest-side at right,currentColor 92%,#0000) left/20px 100% no-repeat,\n    radial-gradient(farthest-side,         currentColor 92%,#0000) right/17px 9px repeat-y;\n}\n@keyframes l13 {\n  100% {clip-path: inset(0 -30px 0 0)}\n}",
+  "js": "",
+  "tags": [
+    "nature",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:37:55.873",
+  "updatedAt": "2026-01-26T08:56:09.609",
+  "reviewed": false,
+  "slug": null
+}

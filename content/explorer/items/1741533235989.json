@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533235989",
+  "title": "text effect 8",
+  "description": "text effect 8",
+  "shortDescription": "text effect 8",
+  "html": "<div id='loader-c-8'></div>",
+  "css": "#loader-c-8 {\n  width: fit-content;\n  font-weight: bold;\n  font-family: monospace;\n  font-size: 30px;\n  color: #0000;\n  background: linear-gradient(90deg, #000 calc(50% - 0.5ch), #C02942 0 calc(50% + 0.5ch), #000 0) right/calc(200% + 1ch) 100%;\n  -webkit-background-clip: text;\n  background-clip: text;\n  animation: l8 2s infinite steps(11);\n}\n#loader-c-8:before {\n  content: \"Loading...\";\n}\n@keyframes l8 {\n  to {\n    background-position: left;\n  }\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loading-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:13:55.989",
+  "updatedAt": "2026-01-26T08:46:20.023",
+  "reviewed": false,
+  "slug": null
+}

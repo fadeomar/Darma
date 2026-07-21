@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "cm8hvvgjd0001ccs4vsiu0h6s",
+  "title": "Smoke and Mirrors: Animated Gradient Art with SVG Filters",
+  "description": "This project showcases a mesmerizing animated gradient effect using advanced CSS and SVG filters. The design features a golden border with a dynamic, smoke-like gradient animation inside. The gradient transitions smoothly between colors using CSS custom properties (@property) and is enhanced by an SVG turbulence filter for a smoky, organic feel. The animation is achieved through keyframes that manipulate custom properties, creating a visually captivating experience.",
+  "shortDescription": "A stunning animated gradient effect with a smoky texture, powered by CSS custom properties and SVG filters.",
+  "html": "<svg width=\"0\" height=\"0\" aria-hidden=\"true\">\r\n  <filter id=\"smoke\" color-interpolation-filters=\"sRGB\">\r\n    <feTurbulence baseFrequency=\".00713\" result=\"turbulence\"></feTurbulence>\r\n    <feComponentTransfer>\r\n      <feFuncA type=\"discrete\" tableValues=\"1\"></feFuncA>\r\n    </feComponentTransfer>\r\n    <feGaussianBlur stdDeviation=\"5\" result=\"blur\"></feGaussianBlur>\r\n    <feBlend in=\"SourceGraphic\" in2=\"turbulence\" mode=\"exclusion\"></feBlend>\r\n    <feDisplacementMap in=\"blur\" scale=\"180\" xChannelSelector=\"R\" yChannelSelector=\"G\"></feDisplacementMap>\r\n  </filter>\r\n</svg>\r\n<div></div>",
+  "css": "/* Define custom properties for gradient colors */\r\n@property --r {\r\n  syntax: \"<percentage>\";\r\n  initial-value: 0%;\r\n  inherits: false;\r\n}\r\n\r\n@property --g {\r\n  syntax: \"<percentage>\";\r\n  initial-value: 0%;\r\n  inherits: false;\r\n}\r\n\r\n/* Global styles */\r\nhtml, body, div {\r\n  display: grid;\r\n}\r\n\r\nhtml {\r\n  min-height: 100vh;\r\n}\r\n\r\nbody {\r\n    width: 100vw;\r\n    height: 100vh;\r\n  background: #121212; /* Dark background for contrast */\r\n}\r\n\r\n/* Hide the SVG filter */\r\nsvg[aria-hidden=true][height=\"0\"] {\r\n  position: fixed;\r\n}\r\n\r\n/* Container for the animated gradient */\r\ndiv {\r\n  --border-width: 1em;\r\n  --border-radius: 3em;\r\n  --size: 25em;\r\n\r\n  place-self: center;\r\n  border: solid var(--border-width) gold;\r\n  width: var(--size);\r\n  aspect-ratio: 1;\r\n  border-radius: var(--border-radius);\r\n}\r\n\r\n/* Animated gradient effect */\r\ndiv::after {\r\n  --gradient-colors: rgb(var(--r) var(--g) 0%),\r\n                      rgb(calc(100% - var(--r)) calc(100% - var(--g)) 0%);\r\n\r\n  margin: calc(-1 * var(--border-width));\r\n  background: radial-gradient(var(--gradient-colors)),\r\n              linear-gradient(var(--gradient-colors)),\r\n              conic-gradient(at 0 100%, var(--gradient-colors) 25%);\r\n  background-blend-mode: difference;\r\n  clip-path: inset(3em round 1em);\r\n  filter: url(#smoke) invert(1) saturate(2);\r\n  content: \"\";\r\n\r\n  /* Animation */\r\n  animation: r 4.7s ease-in-out -1.93s infinite alternate,\r\n             g 4.3s ease-in-out -2.37s infinite alternate;\r\n}\r\n\r\n/* Keyframes for gradient animation */\r\n@keyframes r {\r\n  to {\r\n    --r: 100%;\r\n  }\r\n}\r\n\r\n@keyframes g {\r\n  to {\r\n    --g: 100%;\r\n  }\r\n}",
+  "js": "",
+  "tags": [
+    "SVG",
+    "Gradient",
+    "art",
+    "Mirrors"
+  ],
+  "mainCategory": [
+    "shapes",
+    "backgrounds"
+  ],
+  "secondaryCategory": [
+    "css-art",
+    "gradient-blurred"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-20T21:48:48.38",
+  "updatedAt": "2026-06-21T14:16:04.707",
+  "reviewed": true,
+  "slug": null
+}

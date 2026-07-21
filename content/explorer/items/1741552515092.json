@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552515092",
+  "title": "colorful loading 14",
+  "description": "colorful loading 14",
+  "shortDescription": "colorful loading 14",
+  "html": "<div id='loader-14'></div>",
+  "css": "#loader-14 {\n  width: 50px;\n  aspect-ratio: 1;\n  transform: translate(-100%,100%);\n  animation: l14 2s infinite; \n}\n@keyframes l14 {\n  0%{\n   box-shadow: \n    50px -50px #B5AC01,\n    50px -50px #ECBA09,\n    50px -50px #0000,\n    50px -50px #0000,\n    50px -50px #0000}\n  25%{\n   box-shadow: \n    100px -50px #0000,\n    50px  -50px #ECBA09,\n    50px  -50px #E86E1C,\n    50px  -50px #0000,\n    50px  -50px #0000}\n  50%{\n   box-shadow: \n    100px -50px  #0000,\n    50px  -100px #0000,\n    50px  -50px  #E86E1C,\n    50px  -50px  #D41E45,\n    50px  -50px  #0000}\n  75%{\n   box-shadow: \n    100px -50px  #0000,\n    50px  -100px #0000,\n     0px  -50px  #0000,\n    50px  -50px  #D41E45,\n    50px  -50px  #B5AC01}\n  100%{\n   box-shadow: \n    100px -50px  #0000,\n    50px  -100px #0000,\n     0px  -50px  #0000,\n    50px    0px  #0000,\n    50px  -50px  #B5AC01}\n}",
+  "js": "",
+  "tags": [
+    "colorful",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:35:15.092",
+  "updatedAt": "2026-01-26T08:55:50.038",
+  "reviewed": false,
+  "slug": null
+}

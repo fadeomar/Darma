@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552807539",
+  "title": "time loading 9",
+  "description": "time loading 9",
+  "shortDescription": "time loading 9",
+  "html": "<div id='loader-time-9'></div>",
+  "css": "#loader-time-9 {\n  width: 50px;\n  aspect-ratio: 1;\n  color: #ce0800;\n  border: 7px solid;\n  box-sizing: border-box;\n  border-radius: 50%;\n  background: \n    radial-gradient(circle 3px, #000 95%,#0000),\n    linear-gradient(180deg,#000 50%,#0000 0) center/3px 70%,\n    linear-gradient(90deg ,#000 50%,#0000 0) center/50% 3px;\n  background-repeat: no-repeat;\n  position: relative;\n  animation: l9 1s infinite;\n}\n#loader-time-9:before,\n#loader-time-9:after {\n  content: \"\";\n  position: absolute;\n  border-radius: 20px 20px 0 0;\n  inset: -20px calc(50% - 10px);\n  transform: rotate(40deg);\n  background: \n      linear-gradient(currentColor 0 0) top   /100% 10px,\n      linear-gradient(currentColor 0 0) bottom/3px  10px;\n  background-repeat: no-repeat;\n}\n#loader-time-9:after {\n  transform: rotate(-40deg);\n}\n@keyframes l9 {\n  0%,70%,100% {transform: translateY(0)    rotate(0)}\n  75%,85%,95% {transform: translateY(-3px) rotate(10deg)}\n  80%,90%     {transform: translateY(-3px) rotate(-10deg)}\n}",
+  "js": "",
+  "tags": [
+    "time",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:40:07.539",
+  "updatedAt": "2026-01-26T08:56:26.798",
+  "reviewed": false,
+  "slug": null
+}

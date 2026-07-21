@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534479202",
+  "title": "3d shape loading 9",
+  "description": "3d shape Loading 9",
+  "shortDescription": "3d shape Loading 9",
+  "html": "<div id='loader-9'></div>",
+  "css": "/* HTML: <div id='loader-9'></div> */\n#loader-9 {\n  --s: 25px;\n  --g :5px;  \n  width: calc(2*(1.353*var(--s) + var(--g)));\n  aspect-ratio: 1;\n  background:\n    linear-gradient(#ff1818 0 0) left/50% 100% no-repeat,\n    conic-gradient(from -90deg at var(--s) calc(0.353*var(--s)),\n      #fff 135deg,#666 0 270deg,#aaa 0); \n  background-blend-mode: multiply;\n  --_m:\n    linear-gradient(to bottom right,\n       #0000 calc(0.25*var(--s)),#000 0 calc(100% - calc(0.25*var(--s)) - 1.414*var(--g)),#0000 0),\n    conic-gradient(from -90deg at right var(--g) bottom var(--g),#000 90deg,#0000 0);\n  -webkit-mask: var(--_m);\n          mask: var(--_m);\n  background-size:   50% 50%;\n  -webkit-mask-size: 50% 50%;\n          mask-size: 50% 50%;\n  -webkit-mask-composite: source-in;\n          mask-composite: intersect;\n  animation: l9 1.5s infinite;\n}\n@keyframes l9 {\n  0%,12.5%    {background-position:0% 0%,0 0}\n  12.6%,37.5% {background-position:100% 0%,0 0}\n  37.6%,62.5% {background-position:100% 100%,0 0}\n  62.6%,87.5% {background-position:0% 100%,0 0}\n  87.6%,100%  {background-position:0% 0%,0 0}\n}",
+  "js": "",
+  "tags": [
+    "3d",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "animated-shapes",
+    "3d-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:34:39.202",
+  "updatedAt": "2026-01-26T08:51:19.727",
+  "reviewed": false,
+  "slug": null
+}

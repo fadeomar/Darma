@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741547444579",
+  "title": "wobbling loading 1",
+  "description": "wobbling Loading 1",
+  "shortDescription": "wobbling Loading 1",
+  "html": "<div id='loader-1'></div>",
+  "css": "/* HTML: <div id='loader-1'></div> */\n/* HTML: <div id=\"loader-1\"></div> */\n#loader-1 {\n  width: 120px;\n  height: 20px;\n  background:\n   linear-gradient(#000 0 0) left/20px 20px no-repeat\n   #ddd;\n  animation: l1 1s infinite linear;\n}\n@keyframes l1 {\n    50% {background-position: right }\n}",
+  "js": "",
+  "tags": [
+    "wobbling",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:10:44.579",
+  "updatedAt": "2026-01-26T08:51:51.405",
+  "reviewed": false,
+  "slug": null
+}

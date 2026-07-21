@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741537875971",
+  "title": "progress loading 15",
+  "description": "progress Loading 15",
+  "shortDescription": "progress Loading 15",
+  "html": "<div id='loader-15'></div>",
+  "css": "/* HTML: <div id='loader-15'></div> */\n#loader-15 {\n  width: 80px;\n  aspect-ratio: 1.154;\n  clip-path: polygon(50% 0,100% 100%,0 100%);\n  --c:no-repeat linear-gradient(#f03355 0 0);\n  background: var(--c),var(--c),var(--c),var(--c),var(--c);\n  background-size: 100% calc(100%/5 + 1px);\n  animation: l15 2s infinite;\n}\n@keyframes l15 {\n  0%  {background-position: 0 calc(-2*100%/4),0 calc(-2*100%/4),0 calc(-2*100%/4),0 calc(-2*100%/4),0 calc(-2*100%/4)}\n  20% {background-position: 0 calc(4*100%/4) ,0 calc(-2*100%/4),0 calc(-2*100%/4),0 calc(-2*100%/4),0 calc(-2*100%/4)}\n  40% {background-position: 0 calc(4*100%/4) ,0 calc(3*100%/4) ,0 calc(-2*100%/4),0 calc(-2*100%/4),0 calc(-2*100%/4)}\n  60% {background-position: 0 calc(4*100%/4) ,0 calc(3*100%/4) ,0 calc(2*100%/4) ,0 calc(-2*100%/4),0 calc(-2*100%/4)}\n  80% {background-position: 0 calc(4*100%/4) ,0 calc(3*100%/4) ,0 calc(2*100%/4) ,0 calc(1*100%/4) ,0 calc(-2*100%/4)}\n  100%{background-position: 0 calc(4*100%/4) ,0 calc(3*100%/4) ,0 calc(2*100%/4) ,0 calc(1*100%/4) ,0 calc(0*100%/4)}\n}",
+  "js": "",
+  "tags": [
+    "progress",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T16:31:15.971",
+  "updatedAt": "2026-01-26T08:51:43.079",
+  "reviewed": false,
+  "slug": null
+}

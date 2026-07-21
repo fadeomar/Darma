@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533651211",
+  "title": "bar loading 24",
+  "description": "bar loading 24",
+  "shortDescription": "bar loading 24",
+  "html": "<div id='loader-b-24'></div>",
+  "css": "/* HTML: <div id=\"loader-b-24\"></div> */\n#loader-b-24 {\n  width: 45px;\n  aspect-ratio: .8;\n  --c:no-repeat repeating-linear-gradient(90deg,#000 0 20%,#0000 0 40%);\n  background: var(--c),var(--c),var(--c),var(--c);\n  background-size: 100% 21%;\n  animation: l24 .75s infinite alternate;\n}\n@keyframes l24 {\n 0%,\n 10% {background-position:0 calc(0*100%/4),0 calc(1*100%/4),0 calc(2*100%/4),0 calc(3*100%/4)}\n 25% {background-position:0 calc(0*100%/4),0 calc(1*100%/4),0 calc(2*100%/4),0 calc(4*100%/4)}\n 50% {background-position:0 calc(0*100%/4),0 calc(1*100%/4),0 calc(3*100%/4),0 calc(4*100%/4)}\n 75% {background-position:0 calc(0*100%/4),0 calc(2*100%/4),0 calc(3*100%/4),0 calc(4*100%/4)}\n 90%,\n 100%{background-position:0 calc(1*100%/4),0 calc(2*100%/4),0 calc(3*100%/4),0 calc(4*100%/4)}\n}",
+  "js": "",
+  "tags": [
+    "bars",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:20:51.211",
+  "updatedAt": "2026-01-26T08:48:26.743",
+  "reviewed": false,
+  "slug": null
+}

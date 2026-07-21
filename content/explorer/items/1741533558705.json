@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533558705",
+  "title": "dots loading 36",
+  "description": "dots loading 36",
+  "shortDescription": "dots loading 36",
+  "html": "<div id='loader-d-36'></div>",
+  "css": "/* HTML: <div id=\"loader-d-36\"></div> */\n#loader-d-36 {\n  height: 15px;\n  aspect-ratio: 5;\n  display: grid;\n  animation: l36-0 2s infinite linear; \n}\n#loader-d-36::before,\n#loader-d-36::after {\n  content: \"\";\n  grid-area: 1/1;\n  height: inherit;\n  --_g: no-repeat radial-gradient(farthest-side,#000 94%,#0000);\n  background:\n    var(--_g) left,\n    var(--_g) right;\n  background-size: 15px 100%;\n  background-repeat: no-repeat;\n  animation: l36-1 1s infinite linear; \n}\n#loader-d-36::after {\n  margin-left: auto;\n  --s:-1;\n}\n@keyframes l36-0 {\n  0%,49.99% {transform: scaleY( 1)}\n  50%,100%  {transform: scaleY(-1)}\n}\n@keyframes l36-1 {\n  0%   {transform:translate(0                    ,calc(var(--s,1)*0px));aspect-ratio: 2.3}\n  33%  {transform:translate(0                    ,calc(var(--s,1)*8px));aspect-ratio: 2.3}\n  66%  {transform:translate(calc(var(--s,1)*19px),calc(var(--s,1)*8px));aspect-ratio: 3.7}\n  100% {transform:translate(calc(var(--s,1)*19px),calc(var(--s,1)*0px));aspect-ratio: 3.7}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:19:18.705",
+  "updatedAt": "2026-01-26T08:47:37.113",
+  "reviewed": false,
+  "slug": null
+}

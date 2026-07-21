@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533554771",
+  "title": "dots loading 5",
+  "description": "dots loading 5",
+  "shortDescription": "dots loading 5",
+  "html": "<div id='loader-d-5'></div>",
+  "css": "/* HTML: <div id=\"loader-d-5\"></div> */\n#loader-d-5 {\n  width: 15px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  animation: l5 1s infinite linear alternate;\n}\n@keyframes l5 {\n    0%  {box-shadow: 20px 0 #000, -20px 0 #0002;background: #000 }\n    33% {box-shadow: 20px 0 #000, -20px 0 #0002;background: #0002}\n    66% {box-shadow: 20px 0 #0002,-20px 0 #000; background: #0002}\n    100%{box-shadow: 20px 0 #0002,-20px 0 #000; background: #000 }\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:19:14.771",
+  "updatedAt": "2026-01-26T08:46:49.14",
+  "reviewed": false,
+  "slug": null
+}

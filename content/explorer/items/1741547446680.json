@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741547446680",
+  "title": "wobbling loading 18",
+  "description": "wobbling Loading 18",
+  "shortDescription": "wobbling Loading 18",
+  "html": "<div id='loader-18'></div>",
+  "css": "#loader-18 {\n  height: 40px;\n  aspect-ratio: 2;\n  --c:no-repeat linear-gradient(#25b09b 0 0);\n  background: var(--c),var(--c),var(--c),var(--c);\n  background-size: 26% 50%;\n  animation: l18 1s infinite cubic-bezier(0.5,150,0.5,-150);\n}\n@keyframes l18 {\n    0%   {background-position: calc(0*100%/3) 50%, calc(1*100%/3) 50%  , calc(2*100%/3) 50%  , calc(3*100%/3) 50%}\n    100% {background-position: calc(0*100%/3) 51%, calc(1*100%/3) 50.5%, calc(2*100%/3) 49.5%, calc(3*100%/3) 49%}\n}",
+  "js": "",
+  "tags": [
+    "wobbling",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:10:46.68",
+  "updatedAt": "2026-01-26T08:51:16.539",
+  "reviewed": false,
+  "slug": null
+}

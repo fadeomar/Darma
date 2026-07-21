@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553360334",
+  "title": "lines loading 14",
+  "description": "lines loading 14",
+  "shortDescription": "lines loading 14",
+  "html": "<div id='loader-14'></div>",
+  "css": "#loader-14 {\n  width: 60px;\n  height: 30px;\n  display: grid;\n}\n#loader-14:before,\n#loader-14:after {\n  content: \"\";\n  grid-area: 1/1;\n  --c:no-repeat linear-gradient(#046D8B 0 0);\n  background: var(--c), var(--c), var(--c);\n  animation: l14-1 1s infinite linear, l14-2 1s infinite linear;\n}\n#loader-14:after {\n  transform: scale(-1);\n}\n@keyframes l14-1 {\n  0%,\n  3%    {background-size: 0               4px,4px 0   ,0               4px}\n  16.67%{background-size: calc(50% - 6px) 4px,4px 0   ,0               4px}\n  33.33%{background-size: calc(50% - 6px) 4px,4px 14px,0               4px}\n  46%,\n  54%   {background-size: calc(50% - 6px) 4px,4px 14px,calc(50% + 6px) 4px}\n  66.67%{background-size: 0               4px,4px 14px,calc(50% + 6px) 4px}\n  83.33%{background-size: 0               4px,4px 0   ,calc(50% + 6px) 4px}\n  96%,\n  100%  {background-size: 0               4px,4px 0   ,0               4px}\n}\n@keyframes l14-2 {\n  0%,49.9%{background-position:0              50%,left calc(50% - 6px) bottom 13px,left  24px top 3px}\n  50%,100%{background-position:right 36px top 50%,left calc(50% - 6px) top     3px,right 0    top 3px}\n}",
+  "js": "",
+  "tags": [
+    "lines",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:49:20.334",
+  "updatedAt": "2026-01-26T08:57:37.962",
+  "reviewed": false,
+  "slug": null
+}

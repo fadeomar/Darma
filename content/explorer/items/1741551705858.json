@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551705858",
+  "title": "pulsing loading 4",
+  "description": "pulsing loading 4",
+  "shortDescription": "pulsing loading 4",
+  "html": "<div id='loader-4'></div>",
+  "css": "#loader-4 {\n  width: 60px;\n  aspect-ratio: 1;\n  position: relative;\n}\n#loader-4::before,\n#loader-4::after {\n  content: '';\n  position: absolute;\n  border-radius: 50%;\n  inset: 0;\n  background: radial-gradient(circle 10px, #f85c00 94%, #0000), repeating-conic-gradient(from -30deg, #0000 0 60deg, #f85c00 61deg 120deg);\n  -webkit-mask: radial-gradient(circle 15px, #000 calc(100% - 6px), #0000 calc(100% - 5px) 94%, #000);\n}\n#loader-4::after {\n  animation: l4 1s infinite;\n  transform: perspective(300px) translateZ(0px);\n}\n@keyframes l4 {\n  to {transform: perspective(300px) translateZ(150px); opacity: 0}\n}",
+  "js": "",
+  "tags": [
+    "pulsing",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:21:45.858",
+  "updatedAt": "2026-01-26T08:54:09.357",
+  "reviewed": false,
+  "slug": null
+}

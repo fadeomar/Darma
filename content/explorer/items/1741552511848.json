@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552511848",
+  "title": "colorful loading 3",
+  "description": "colorful loading 3",
+  "shortDescription": "colorful loading 3",
+  "html": "<div id='loader-3'></div>",
+  "css": "#loader-3 {\n  width: 40px;\n  aspect-ratio: 1;\n  background: linear-gradient(45deg, #00AAFF 50%, #0000 0), linear-gradient(-45deg, #F1BBBB 50%, #0000 0), linear-gradient(45deg, #0000 50%, #AA00FF 0), linear-gradient(-45deg, #0000 50%, #FF00AA 0), #00AAFF;\n  background-size: 200% 200%;\n  background-repeat: no-repeat;\n  animation: l3 2.5s infinite;\n}\n@keyframes l3 {\n  0%   {background-position: 100% 0, 0 0, 0 100%, 100% 100%}\n  15%, 25%  {background-position: 100% 0, 0 0, 0 100%, 0 0}\n  40%, 50%  {background-position: 100% 0, 0 0, 100% 0, 0 0}\n  65%, 75%  {background-position: 100% 0, 100% 100%, 100% 0, 0 0}\n  90%, 100% {background-position: 0 100%, 100% 100%, 100% 0, 0 0}\n}",
+  "js": "",
+  "tags": [
+    "colorful",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:35:11.848",
+  "updatedAt": "2026-01-26T08:55:42.641",
+  "reviewed": false,
+  "slug": null
+}

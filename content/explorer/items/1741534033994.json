@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534033994",
+  "title": "Spinner loading 18",
+  "description": "Spin, spin, spin... Don't stop spinning! spin loading 18",
+  "shortDescription": "Spin, spin, spin... Don't stop spinning! spin loading 18",
+  "html": "<div id='loader18'></div>",
+  "css": "/* HTML: <div id='loader18'></div> */\n#loader18 {\n  width: 50px;\n  aspect-ratio: 1;\n  --c:no-repeat radial-gradient(farthest-side,#514b82 92%,#0000);\n  background: \n    var(--c) 50%  0, \n    var(--c) 50%  100%, \n    var(--c) 100% 50%, \n    var(--c) 0    50%;\n  background-size: 10px 10px;\n  animation: l18 1s infinite;\n  position: relative;\n}\n#loader18::before {    \n  content:\"\";\n  position: absolute;\n  inset:0;\n  margin: 3px;\n  background: repeating-conic-gradient(#0000 0 35deg,#514b82 0 90deg);\n  -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 3px),#000 0);\n  border-radius: 50%;\n}\n@keyframes l18 { \n  100%{transform: rotate(.5turn)}\n}",
+  "js": "",
+  "tags": [
+    "spin",
+    "spinner",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:27:13.994",
+  "updatedAt": "2026-01-26T08:48:58.165",
+  "reviewed": false,
+  "slug": null
+}

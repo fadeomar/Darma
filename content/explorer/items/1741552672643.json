@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552672643",
+  "title": "nature loading 4",
+  "description": "nature loading 4",
+  "shortDescription": "nature loading 4",
+  "html": "<div id='loader-nature-4'></div>",
+  "css": "#loader-nature-4 {\n  width: 50px;\n  aspect-ratio: 1;\n  background-color: #8d847f;\n  border-radius: 50%;\n  animation: l4 3s infinite;\n}\n@keyframes l4 {\n  12.5% {background-image:radial-gradient(80% 65% at left, #0000 94%,#fff9)}\n  25%   {background-image:linear-gradient(90deg,#0000 50%,#fff9 0)}\n  37.5% {background-image:radial-gradient(80% 65% at right,#fff9 94%,#0000)}\n  50%   {background-image:linear-gradient(#fff9 0 0)}\n  62.5% {background-image:radial-gradient(80% 65% at left, #fff9 94%,#0000)}\n  75%   {background-image:linear-gradient(-90deg,#0000 50%,#fff9 0)}\n  87.5% {background-image:radial-gradient(80% 65% at right,#0000 94%,#fff9)}\n}",
+  "js": "",
+  "tags": [
+    "nature",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:37:52.643",
+  "updatedAt": "2026-01-26T08:56:00.525",
+  "reviewed": false,
+  "slug": null
+}

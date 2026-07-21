@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741537875285",
+  "title": "progress loading 11",
+  "description": "progress Loading 11",
+  "shortDescription": "progress Loading 11",
+  "html": "<div id='loader-11'></div>",
+  "css": "/* HTML: <div id='loader-11'></div> */\n#loader-11 {\n  width: 60px;\n  aspect-ratio: 1;\n  border-radius: 50%;\n  animation: l11 2s infinite;\n}\n@keyframes l11 {\n  0%   {background: conic-gradient(#f03355 0     ,#0000 0)}\n  12.5%{background: conic-gradient(#f03355 45deg ,#0000 46deg)}\n  25%  {background: conic-gradient(#f03355 90deg ,#0000 91deg)}\n  37.5%{background: conic-gradient(#f03355 135deg,#0000 136deg)}\n  50%  {background: conic-gradient(#f03355 180deg,#0000 181deg)}\n  62.5%{background: conic-gradient(#f03355 225deg,#0000 226deg)}\n  75%  {background: conic-gradient(#f03355 270deg,#0000 271deg)}\n  87.5%{background: conic-gradient(#f03355 315deg,#0000 316deg)}\n  100% {background: conic-gradient(#f03355 360deg,#0000 360deg)}\n}",
+  "js": "",
+  "tags": [
+    "progress",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Shape-Specific Loaders",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T16:31:15.285",
+  "updatedAt": "2026-01-26T08:51:39.346",
+  "reviewed": false,
+  "slug": null
+}

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533556645",
+  "title": "dots loading 20",
+  "description": "dots loading 20",
+  "shortDescription": "dots loading 20",
+  "html": "<div id='loader-d-20'></div>",
+  "css": "/* HTML: <div id=\"loader-d-20\"></div> */\n#loader-d-20 {\n  height: 15px;\n  aspect-ratio: 6;\n  display: flex;\n}\n#loader-d-20::before,\n#loader-d-20::after {\n  content: \"\";\n  flex: 1;\n  padding-left: calc(100%/6);\n  background: radial-gradient(closest-side at calc(100%/3) 50%,#000 90%,#0000) 0/75% 100% content-box;\n  animation: l20 2s infinite;\n}\n#loader-d-20::after {\n  --_s:-1;\n}\n@keyframes l20 {\n    0%       {transform:scale(var(--_s,1)) translate(0)    rotate(0)}\n    25%      {transform:scale(var(--_s,1)) translate(-25%) rotate(0)}\n    50%      {transform:scale(var(--_s,1)) translate(-25%) rotate(1turn)}\n    75%,100% {transform:scale(var(--_s,1)) translate(0)    rotate(1turn)}\n}",
+  "js": "",
+  "tags": [
+    "dots",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:19:16.645",
+  "updatedAt": "2026-01-26T08:47:17.195",
+  "reviewed": false,
+  "slug": null
+}

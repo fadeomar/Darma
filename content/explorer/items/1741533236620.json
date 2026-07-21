@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533236620",
+  "title": "text effect 10",
+  "description": "text effect 10",
+  "shortDescription": "text effect 10",
+  "html": "<div id='loader-c-10'></div>",
+  "css": "#loader-c-10 {\n  width: fit-content;\n  font-weight: bold;\n  font-family: monospace;\n  font-size: 30px;\n  color: #0000;\n  background: linear-gradient(90deg, #000 25%, #8A9B0F 0 50%, #C02942 0 75%, #00A0B0 0) 0 0/400% 100%;\n  -webkit-background-clip: text;\n  background-clip: text;\n  animation: l10 5s infinite cubic-bezier(0.3, 1, 0, 1);\n}\n#loader-c-10:before {\n  content: \"Loading...\";\n}\n@keyframes l10 {\n  25% {\n    background-position: calc(1 * 100% / 3) 0;\n  }\n  50% {\n    background-position: calc(2 * 100% / 3) 0;\n  }\n  75% {\n    background-position: calc(3 * 100% / 3) 0;\n  }\n  100% {\n    background-position: calc(4 * 100% / 3) 0;\n  }\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loading-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:13:56.62",
+  "updatedAt": "2026-01-26T08:46:20.921",
+  "reviewed": false,
+  "slug": null
+}

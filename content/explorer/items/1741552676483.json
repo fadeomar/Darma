@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741552676483",
+  "title": "nature loading 16",
+  "description": "nature loading 16",
+  "shortDescription": "nature loading 16",
+  "html": "<div id='loader-nature-16'></div>",
+  "css": "#loader-nature-16 {\n  width: 20px;\n  height: 80px;\n  background: #935936;\n  position: relative;\n}\n#loader-nature-16:before {\n  content: \"\";\n  position: absolute;\n  top: 10px;\n  left: -22px;\n  width: 25px;\n  height: 60px;\n  background: \n    radial-gradient(farthest-side,#fff 92%,#0000) 60% 6px/4px 4px,\n    radial-gradient(50% 60%,#53707b 92%,#0000) center/70% 55%,\n    radial-gradient(farthest-side,#53707b 92%,#0000) 50% 3px/14px 14px,\n    radial-gradient(142% 100% at bottom right,#0000 64%,#53707b 65%) bottom/57% 40%,\n    conic-gradient(from -120deg at right,#53707b 36deg,#0000 0)100% 3px/51% 12px,\n    conic-gradient(from 120deg at top left,#0000 ,#ef524a 2deg 40deg,#0000 43deg) top/100% 10px;\n  background-repeat: no-repeat;    \n  transform: rotate(-26deg);\n  transform-origin: 100% 80%;\n  animation: l16 .25s infinite linear alternate;\n}\n#loader-nature-16:after {    \n  content: \"\";\n  position: absolute;\n  width: 6px;\n  height: 12px;\n  left: -6px;\n  bottom: 15px;\n  border-radius: 100px 0 0 100px;\n  background: #53707b;\n}\n@keyframes l16 {\n  100% {transform: rotate(0)}\n}",
+  "js": "",
+  "tags": [
+    "nature",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:37:56.483",
+  "updatedAt": "2026-01-26T08:56:14.766",
+  "reviewed": false,
+  "slug": null
+}

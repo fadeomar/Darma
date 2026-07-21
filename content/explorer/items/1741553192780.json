@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553192780",
+  "title": "moving loading 2",
+  "description": "moving loading 2",
+  "shortDescription": "moving loading 2",
+  "html": "<div id='loader-2'></div>",
+  "css": "body {\n background: #1b2832;\n}\n #loader-2 {\n  height: 60px;\n  aspect-ratio: 1;\n  --c:no-repeat linear-gradient(#fff 0 0);\n  background: var(--c), var(--c), var(--c), var(--c);\n  background-size: 33.4% 33.4%;\n  animation: l2 2s infinite linear;\n  background-color: #1b2832;\n}\n@keyframes l2 {\n  0%    {background-position:0   0  ,50%  0  ,0   50% ,50%  50%}\n  12.5% {background-position:50% 0  ,100% 0  ,0   50% ,50%  50%}\n  25%   {background-position:50% 0  ,100% 0  ,50% 50% ,100% 50%}\n  37.5% {background-position:50% 0  ,100% 50%,50% 50% ,100% 100%}\n  50%   {background-position:50% 50%,100% 50%,50% 100%,100% 100%}\n  62.5% {background-position:50% 50%,100% 50%,0   100%,50%  100%}\n  75%   {background-position:0   50%,50%  50%,0   100%,50%  100%}\n  87.5% {background-position:0   0  ,50%  50%,0   50% ,50%  100%}\n  100%  {background-position:0   0  ,50%  0  ,0   50% ,50%  50%}\n}",
+  "js": "",
+  "tags": [
+    "moving",
+    "square",
+    "box",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:46:32.78",
+  "updatedAt": "2026-01-26T08:57:05.474",
+  "reviewed": false,
+  "slug": null
+}

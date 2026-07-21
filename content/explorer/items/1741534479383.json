@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534479383",
+  "title": "3d shape loading 10",
+  "description": "3d shape Loading 10",
+  "shortDescription": "3d shape Loading 10",
+  "html": "<div id='loader-10'></div>",
+  "css": "/* HTML: <div id='loader-10'></div> */\n#loader-10 {\n  --s: 25px;\n  --g :5px;  \n  width: calc(3*(1.353*var(--s) + var(--g)));\n  display: grid;\n  justify-items: end;\n  aspect-ratio: 3;\n  overflow: hidden;\n  --_m: linear-gradient(90deg,#0000,#000 15px calc(100% - 15px),#0000);\n  -webkit-mask: var(--_m);\n          mask: var(--_m);\n}\n#loader-10:before { \n  content: \"\";\n  width: 200%;\n  background:\n    linear-gradient(90deg,#ff1818 50%,#0000 0),\n    conic-gradient(from -90deg at var(--s) calc(0.353*var(--s)),\n      #fff 135deg,#666 0 270deg,#aaa 0); \n  background-blend-mode: multiply;\n  --_m:\n    linear-gradient(to bottom right,\n       #0000 calc(0.25*var(--s)),#000 0 calc(100% - calc(0.25*var(--s)) - 1.414*var(--g)),#0000 0),\n    conic-gradient(from -90deg at right var(--g) bottom var(--g),#000 90deg,#0000 0);\n  -webkit-mask: var(--_m);\n          mask: var(--_m);\n  background-size:   calc(100%/3) 100%, calc(100%/6) 100%;\n  -webkit-mask-size: calc(100%/6) 100%;\n          mask-size: calc(100%/6) 100%;\n  -webkit-mask-composite: source-in;\n          mask-composite: intersect;\n  animation: l10 1s infinite linear;\n}\n@keyframes l10 {\n  to {transform:translate(calc(100%/3))}\n}",
+  "js": "",
+  "tags": [
+    "3d",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "animated-shapes",
+    "3d-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:34:39.383",
+  "updatedAt": "2026-01-26T08:51:22.232",
+  "reviewed": false,
+  "slug": null
+}

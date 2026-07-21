@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741881156022",
+  "title": "🚀 Build a Simple Calculator with HTML, CSS, and JavaScript! 🎯",
+  "description": "I just built a clean and functional calculator using only HTML, CSS, and JavaScript! 🖥️✨ It features a simple UI design, click-responsive buttons, and supports basic math operations ➕➖✖️➗. Check it out and let me know what you think! 🚀\n\n#HTML #CSS #JavaScript #WebDevelopment #Coding #Calculator #Frontend",
+  "shortDescription": "I just built a clean and functional calculator using only HTML, CSS, and JavaScript! 🖥️✨ It features a simple UI design, click-responsive buttons, and supports basic math operations ➕➖✖️➗. Check it out and let me know what you think! 🚀\n\n#HTML #CSS #JavaScript #WebDevelopment #Coding #Calculator #Frontend",
+  "html": "   <div class=\"calculator\">\r\n        <h1>Calculator</h1>\r\n        <input type=\"text\" id=\"result\" disabled />\r\n\r\n        <div>\r\n            <button class=\"btn\" onclick=\"append('7')\">7</button>\r\n            <button class=\"btn\" onclick=\"append('8')\">8</button>\r\n            <button class=\"btn\" onclick=\"append('9')\">9</button>\r\n            <button class=\"btn\" onclick=\"append('+')\">+</button>\r\n        </div>\r\n\r\n        <div>\r\n            <button class=\"btn\" onclick=\"append('4')\">4</button>\r\n            <button class=\"btn\" onclick=\"append('5')\">5</button>\r\n            <button class=\"btn\" onclick=\"append('6')\">6</button>\r\n            <button class=\"btn\" onclick=\"append('-')\">-</button>\r\n        </div>\r\n\r\n        <div>\r\n            <button class=\"btn\" onclick=\"append('1')\">1</button>\r\n            <button class=\"btn\" onclick=\"append('2')\">2</button>\r\n            <button class=\"btn\" onclick=\"append('3')\">3</button>\r\n            <button class=\"btn\" onclick=\"append('*')\">*</button>\r\n        </div>\r\n\r\n        <div>\r\n            <button class=\"btn\" onclick=\"append('0')\">0</button>\r\n            <button class=\"btn\" onclick=\"calculate()\">=</button>\r\n            <button class=\"btn\" onclick=\"clearResult()\">C</button>\r\n            <button class=\"btn\" onclick=\"append('/')\">/</button>\r\n        </div>\r\n    </div>",
+  "css": ".calculator {\r\n    width: 270px;\r\n    margin: 0 auto;\r\n    background-color: #f7f7f7;\r\n    border: 1px solid #ccc;\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);\r\n}\r\n\r\nh1 {\r\n    text-align: center;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n#result {\r\n    width: 90%;\r\n    margin-bottom: 10px;\r\n    padding: 10px;\r\n    font-size: 20px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 5px;\r\n    text-align: right;\r\n}\r\n\r\n.btn {\r\n    width: 50px;\r\n    height: 50px;\r\n    font-size: 20px;\r\n    margin: 5px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 5px;\r\n    cursor: pointer;\r\n    background-color: #f9f9f9;\r\n}\r\n\r\n.btn:hover {\r\n    background-color: #e6e6e6;\r\n}\r\n",
+  "js": "const resultInput = document.getElementById(\"result\");\r\nlet currentExpression = \"\";\r\n\r\nfunction append(value) {\r\n    currentExpression += value;\r\n    resultInput.value = currentExpression;\r\n}\r\n\r\nfunction calculate() {\r\n    try {\r\n        const result = eval(currentExpression);\r\n        resultInput.value = result;\r\n        currentExpression = \"\";\r\n    } catch (error) {\r\n        resultInput.value = \"Error\";\r\n    }\r\n}\r\n\r\nfunction clearResult() {\r\n    currentExpression = \"\";\r\n    resultInput.value = \"\";\r\n}\r\n",
+  "tags": [
+    "Calculator",
+    "html",
+    "css",
+    "js",
+    "project"
+  ],
+  "mainCategory": [
+    "games"
+  ],
+  "secondaryCategory": [
+    "click-based",
+    "mini-games"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-13T15:52:36.022",
+  "updatedAt": "2026-01-26T09:24:52.01",
+  "reviewed": false,
+  "slug": null
+}

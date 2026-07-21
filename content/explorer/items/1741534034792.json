@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "1741534034792",
+  "title": "Spinner loading 22",
+  "description": "Spin, spin, spin... Don't stop spinning! spin loading 22",
+  "shortDescription": "Spin, spin, spin... Don't stop spinning! spin loading 22",
+  "html": "<div id='loader22'></div>",
+  "css": "/* HTML: <div id='loader22'></div> */\n#loader22 {\n  width: 50px;\n  aspect-ratio: 1;\n  display: grid;\n  border-radius: 50%;\n  background: conic-gradient(#25b09b 25%,#f03355 0 50%,#514b82 0 75%,#ffa516 0);\n  animation: l22 2s infinite linear;\n}\n#loader22::before,\n#loader22::after {\n   content: \"\";\n   grid-area: 1/1;\n   margin: 15%;\n   border-radius: 50%;\n   background: inherit;\n   animation: inherit;\n}\n#loader22::after {\n   margin: 25%;\n   animation-duration: 3s;\n}\n@keyframes l22 {\n  100% {transform: rotate(1turn)}\n}",
+  "js": "",
+  "tags": [
+    "spin",
+    "spinner",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loaders-spinners",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:27:14.792",
+  "updatedAt": "2026-01-26T08:49:02.745",
+  "reviewed": false,
+  "slug": null
+}

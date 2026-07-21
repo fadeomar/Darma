@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741553270307",
+  "title": "eyes loading 3",
+  "description": "eyes loading 3",
+  "shortDescription": "eyes loading 3",
+  "html": "<div id='loader-3'></div>",
+  "css": "body {\n background: #1b2832;\n}\n #loader-3 {\n  height: 30px;\n  aspect-ratio: 2;\n  background:\n    radial-gradient(farthest-side,#000 15%,#0000 18%)0 0/50% 100%,\n    radial-gradient(50% 100% at 50% 160%,#fff 95%,#0000) 0 0   /50% 50%,\n    radial-gradient(50% 100% at 50% -60%,#fff 95%,#0000) 0 100%/50% 50%;\n  background-repeat: repeat-x;\n  -webkit-mask: radial-gradient(50% 100%,#000 95%,#0000) 0 100%/50% 0% repeat-x;\n  animation: l3 1s infinite alternate ease-in;\n  background-color: #1b2832;\n}\n@keyframes l3 {\n  0%,\n  70% {-webkit-mask-size:50% 100%}\n  85% {-webkit-mask-size:50% 0}\n  100% {-webkit-mask-size:50% 100%}\n}",
+  "js": "",
+  "tags": [
+    "eyes",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "animated-shapes",
+    "Thematic & Fun Loaders"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:47:50.307",
+  "updatedAt": "2026-01-26T08:57:17.424",
+  "reviewed": false,
+  "slug": null
+}

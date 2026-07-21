@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "1741548139141",
+  "title": "Wavy loading 12",
+  "description": "If you are not team Zig-Zag, then you are team Wavy!\n\n Loading 12",
+  "shortDescription": "If you are not team Zig-Zag, then you are team Wavy!\n\n Loading 12",
+  "html": "<div id='wavy-12'></div>",
+  "css": "#wavy-12 {\n  display: inline-grid;\n  padding: 5px;\n  background: #fff;\n  filter: blur(4px) contrast(12);\n}\n#wavy-12:before {\n  content: \"\";\n  height: 40px;\n  aspect-ratio: 3;\n  --c: #0000 64%,#000 66% 98%,#0000 101%;\n  background:\n    radial-gradient(35% 146% at 50% 159%,var(--c)) 0 0,\n    radial-gradient(35% 146% at 50% -59%,var(--c)) 100% 100%;\n  background-size: calc(200%/3) 50%;\n  background-repeat: repeat-x;\n  -webkit-mask: repeating-linear-gradient(90deg,#000 0 10%,#0000 0 20%);\n  animation: l12 .8s infinite linear;\n}\n@keyframes l12{\n  to {background-position: -200% 0,-100% 100%}\n}",
+  "js": "",
+  "tags": [
+    "wavy",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders",
+    "ui-elements"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T19:22:19.141",
+  "updatedAt": "2026-01-26T08:52:54.06",
+  "reviewed": false,
+  "slug": null
+}

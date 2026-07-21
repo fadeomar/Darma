@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "1741533241419",
+  "title": "text effect 40",
+  "description": "text effect 40",
+  "shortDescription": "text effect 40",
+  "html": "<div id='loader-c-40'></div>",
+  "css": "/* HTML: <div id=\"loader-c-40\"></div> */\n#loader-c-40 {\n  --w:10ch;\n  font-weight: bold;\n  font-family: monospace;\n  font-size: 30px;\n  letter-spacing: var(--w);\n  width: var(--w);\n  overflow: hidden;\n  white-space: nowrap;\n  color: #0000;\n  animation: l40 2s infinite;\n}\n#loader-c-40:before {\n  content:\"Loading...\";\n}\n\n@keyframes l40{\n  0%,100% {\n   text-shadow: \n        calc( 0*var(--w)) 0 #000,calc(-1*var(--w)) 0 #000,calc(-2*var(--w)) 0 #000,calc(-3*var(--w)) 0 #000,calc(-4*var(--w)) 0 #000, \n        calc(-5*var(--w)) 0 #000,calc(-6*var(--w)) 0 #000,calc(-7*var(--w)) 0 #000,calc(-8*var(--w)) 0 #000,calc(-9*var(--w)) 0 #000;\n  }\n  9% {\n   text-shadow: \n        calc( 0*var(--w)) 0 #000,calc(-1*var(--w)) 0 #000,calc(-2*var(--w)) -20px #0000,calc(-3*var(--w)) 0 #000,calc(-4*var(--w)) 0 #000, \n        calc(-5*var(--w)) 0 #000,calc(-6*var(--w)) 0 #000,calc(-7*var(--w)) 0 #000,calc(-8*var(--w)) 0 #000,calc(-9*var(--w)) 0 #000;\n  }\n  18% {\n   text-shadow: \n        calc( 0*var(--w)) 0 #000,calc(-1*var(--w)) 0 #000,calc(-2*var(--w)) -20px #0000,calc(-3*var(--w)) 0 #000,calc(-4*var(--w)) 0 #000, \n        calc(-5*var(--w)) 0 #000,calc(-6*var(--w)) -20px #0000,calc(-7*var(--w)) 0 #000,calc(-8*var(--w)) 0 #000,calc(-9*var(--w)) 0 #000;\n  }\n  27% {\n   text-shadow: \n        calc( 0*var(--w)) -20px #0000,calc(-1*var(--w)) 0 #000,calc(-2*var(--w)) -20px #0000,calc(-3*var(--w)) 0 #000,calc(-4*var(--w)) 0 #000, \n        calc(-5*var(--w)) 0 #000,calc(-6*var(--w)) -20px #0000,calc(-7*var(--w)) 0 #000,calc(-8*var(--w)) 0 #000,calc(-9*var(--w)) 0 #000;\n  }\n  36% {\n   text-shadow: \n        calc( 0*var(--w)) -20px #0000,calc(-1*var(--w)) 0 #000,calc(-2*var(--w)) -20px #0000,calc(-3*var(--w)) 0 #000,calc(-4*var(--w)) 0 #000, \n        calc(-5*var(--w)) -20px #0000,calc(-6*var(--w)) -20px #0000,calc(-7*var(--w)) 0 #000,calc(-8*var(--w)) 0 #000,calc(-9*var(--w)) 0 #000;\n  }\n  45% {\n   text-shadow: \n        calc( 0*var(--w)) -20px #0000,calc(-1*var(--w)) 0 #000,calc(-2*var(--w)) -20px #0000,calc(-3*var(--w)) 0 #000,calc(-4*var(--w)) 0 #000, \n        calc(-5*var(--w)) -20px #0000,calc(-6*var(--w)) -20px #0000,calc(-7*var(--w)) 0 #000,calc(-8*var(--w)) -20px #0000,calc(-9*var(--w)) 0 #000;\n  }\n  54% {\n   text-shadow: \n        calc( 0*var(--w)) -20px #0000,calc(-1*var(--w)) 0 #000,calc(-2*var(--w)) -20px #0000,calc(-3*var(--w)) 0 #000,calc(-4*var(--w)) -20px #0000, \n        calc(-5*var(--w)) -20px #0000,calc(-6*var(--w)) -20px #0000,calc(-7*var(--w)) 0 #000,calc(-8*var(--w)) -20px #0000,calc(-9*var(--w)) 0 #000;\n  }\n  63% {\n   text-shadow: \n        calc( 0*var(--w)) -20px #0000,calc(-1*var(--w)) 0 #000,calc(-2*var(--w)) -20px #0000,calc(-3*var(--w)) 0 #000,calc(-4*var(--w)) -20px #0000, \n        calc(-5*var(--w)) -20px #0000,calc(-6*var(--w)) -20px #0000,calc(-7*var(--w)) 0 #000,calc(-8*var(--w)) -20px #0000,calc(-9*var(--w)) -20px #0000;\n  }\n  72% {\n   text-shadow: \n        calc( 0*var(--w)) -20px #0000,calc(-1*var(--w)) -20px #0000,calc(-2*var(--w)) -20px #0000,calc(-3*var(--w)) 0 #000,calc(-4*var(--w)) -20px #0000, \n        calc(-5*var(--w)) -20px #0000,calc(-6*var(--w)) -20px #0000,calc(-7*var(--w)) 0 #000,calc(-8*var(--w)) -20px #0000,calc(-9*var(--w)) -20px #0000;\n  }\n  81% {\n   text-shadow: \n        calc( 0*var(--w)) -20px #0000,calc(-1*var(--w)) -20px #0000,calc(-2*var(--w)) -20px #0000,calc(-3*var(--w)) 0 #000,calc(-4*var(--w)) -20px #0000, \n        calc(-5*var(--w)) -20px #0000,calc(-6*var(--w)) -20px #0000,calc(-7*var(--w)) -20px #0000,calc(-8*var(--w)) -20px #0000,calc(-9*var(--w)) -20px #0000;\n  }\n  90% {\n   text-shadow: \n        calc( 0*var(--w)) -20px #0000,calc(-1*var(--w)) -20px #0000,calc(-2*var(--w)) -20px #0000,calc(-3*var(--w)) -20px #0000,calc(-4*var(--w)) -20px #0000, \n        calc(-5*var(--w)) -20px #0000,calc(-6*var(--w)) -20px #0000,calc(-7*var(--w)) -20px #0000,calc(-8*var(--w)) -20px #0000,calc(-9*var(--w)) -20px #0000;\n  }\n}",
+  "js": "",
+  "tags": [
+    "text",
+    "loading"
+  ],
+  "mainCategory": [
+    "text-effects",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Basic Shapes & Styles",
+    "loading-text"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T15:14:01.419",
+  "updatedAt": "2026-01-26T08:46:58.861",
+  "reviewed": false,
+  "slug": null
+}

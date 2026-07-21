@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "1741551460253",
+  "title": "continuous loading 8",
+  "description": "continuous loading 8",
+  "shortDescription": "continuous loading 8",
+  "html": "<div id='loader-8'></div>",
+  "css": "#loader-8 {\n  width: 40px;\n  aspect-ratio: 1;\n  background: linear-gradient(to bottom right, #0000 calc(50% - 40px), #fff 50%, #0000 calc(50% + 40px)) bottom right/calc(200% + 80px) calc(200% + 80px) orange;\n  animation: l8 1s infinite;\n}\n@keyframes l8 {\n  100% {background-position: top left}\n}",
+  "js": "",
+  "tags": [
+    "continuous",
+    "animated",
+    "loop",
+    "loading"
+  ],
+  "mainCategory": [
+    "shapes",
+    "loaders"
+  ],
+  "secondaryCategory": [
+    "Motion & Animation Types",
+    "animated-shapes"
+  ],
+  "deleted": false,
+  "createdAt": "2025-03-09T20:17:40.253",
+  "updatedAt": "2026-01-26T08:54:03.482",
+  "reviewed": false,
+  "slug": null
+}

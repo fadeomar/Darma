@@ -8,7 +8,7 @@ import {
 
 export function explorerContentWriteErrorResponse(
   error: unknown,
-): NextResponse | null {
+): NextResponse<{ error: string }> | null {
   if (error instanceof ElementNotFoundError) {
     return NextResponse.json({ error: "Element not found" }, { status: 404 });
   }

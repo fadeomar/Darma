@@ -107,6 +107,16 @@ export class ElementPrismaRepository implements ElementRepository {
         : [
             { title: { contains: needle, mode: "insensitive" } },
             { description: { contains: needle, mode: "insensitive" } },
+            ...(filters.includeShortDescription
+              ? [
+                  {
+                    shortDescription: {
+                      contains: needle,
+                      mode: "insensitive" as const,
+                    },
+                  },
+                ]
+              : []),
             { tags: { has: needle } },
           ];
     }
@@ -197,5 +207,51 @@ export class ElementPrismaRepository implements ElementRepository {
     });
 
     return row ? toElementDomain(row) : null;
+  }
+
+  async getBySlug(slug: string) {
+    const row = await prisma.element.findFirst({
+      where: {
+        slug,
+        deleted: false,
+        reviewed: true,
+      },
+      select: {
+        id: true,
+        title: true,
+        description: true,
+        shortDescription: true,
+        html: true,
+        css: true,
+        js: true,
+        tags: true,
+        mainCategory: true,
+        secondaryCategory: true,
+        deleted: true,
+        reviewed: true,
+        createdAt: true,
+        updatedAt: true,
+        slug: true,
+      },
+    });
+
+    return row ? toElementDomain(row) : null;
+  }
+
+  async getPublicSecondaryCategories(
+    mainCategory: string,
+  ): Promise<string[]> {
+    const rows = await prisma.element.findMany({
+      where: {
+        mainCategory: { has: mainCategory },
+        deleted: false,
+        reviewed: true,
+      },
+      select: { secondaryCategory: true },
+    });
+
+    return Array.from(
+      new Set<string>(rows.flatMap((row) => row.secondaryCategory)),
+    ).sort();
   }
 }

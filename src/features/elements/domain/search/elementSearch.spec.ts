@@ -62,6 +62,7 @@ export function buildElementSearchSpec(input: {
     filters: {
       q: filters.q?.trim() || undefined,
       exactMatch: !!filters.exactMatch,
+      includeShortDescription: !!filters.includeShortDescription,
       mainCategory: filters.mainCategory ?? [],
       secondaryCategory: filters.secondaryCategory ?? [],
     },

@@ -8,6 +8,12 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(process.cwd()),
   },
+  outputFileTracingIncludes: {
+    "/*": [
+      "./content/explorer/manifest.json",
+      "./content/explorer/items/**/*.json",
+    ],
+  },
   images: {
     remotePatterns: [
       {

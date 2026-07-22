@@ -12,6 +12,7 @@ import type {
 export type SearchServiceInput = {
   q?: string;
   exactMatch?: boolean;
+  includeShortDescription?: boolean;
 
   mainCategory?: string[];
   secondaryCategory?: string[];
@@ -42,12 +43,17 @@ function mapSort(sort?: SearchServiceInput["sort"]): ElementSort {
 export async function searchElementsDTO(
   input: SearchServiceInput,
 ): Promise<PaginatedResultDTO<ElementDTO>> {
-  const { element: elementRepo } = getRepositories();
+  const repositories = getRepositories();
+  const elementRepo =
+    input.visibility === "admin"
+      ? repositories.adminElement
+      : repositories.element;
 
   const spec = buildElementSearchSpec({
     filters: {
       q: input.q,
       exactMatch: input.exactMatch,
+      includeShortDescription: input.includeShortDescription,
       mainCategory: input.mainCategory,
       secondaryCategory: input.secondaryCategory,
     },
@@ -76,4 +82,10 @@ export async function searchElementsDTO(
     page: result.page,
     pageSize: result.pageSize,
   };
+}
+
+export async function getPublicSecondaryCategories(
+  mainCategory: string,
+): Promise<string[]> {
+  return getRepositories().element.getPublicSecondaryCategories(mainCategory);
 }

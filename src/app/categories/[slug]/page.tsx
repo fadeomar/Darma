@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { prisma } from "@/server/db/prisma";
 import categoriesData from "@/data/category.json";
 import type { SearchParams } from "@/types";
-import type { ElementDTO } from "@/features/elements/dto/element.dto";
+import {
+  getPublicSecondaryCategories,
+  searchElementsDTO,
+} from "@/server/services/search.service";
 import CategoryClient from "./CategoryClient";
 
 interface Props {
@@ -34,64 +36,27 @@ async function fetchCategoryData(slug: string, searchParams: SearchParams) {
   const { q = "", page = "1" } = searchParams;
   const selectedSecondaryCategories = normalizeFilter(searchParams.secCat);
   const currentPage = Math.max(1, Number(page || 1));
-  const pageSize = 6;
-  const skip = (currentPage - 1) * pageSize;
-
   const trimmedQuery = q.trim();
-
-  const where = {
-    mainCategory: { has: slug },
-    deleted: false,
-    reviewed: true,
-    ...(selectedSecondaryCategories.length > 0
-      ? { secondaryCategory: { hasSome: selectedSecondaryCategories } }
-      : {}),
-    ...(trimmedQuery
-      ? {
-          OR: [
-            { title: { contains: trimmedQuery, mode: "insensitive" as const } },
-            { description: { contains: trimmedQuery, mode: "insensitive" as const } },
-            { shortDescription: { contains: trimmedQuery, mode: "insensitive" as const } },
-            { tags: { hasSome: [trimmedQuery] } },
-          ],
-        }
-      : {}),
-  };
-
-  const [elements, total, allSecondaryCategories] = await Promise.all([
-    prisma.element.findMany({
-      where,
-      skip,
-      take: pageSize,
-      orderBy: { createdAt: "desc" },
+  const [searchResult, allSecondaryCategories] = await Promise.all([
+    searchElementsDTO({
+      q: trimmedQuery,
+      mainCategory: [slug],
+      secondaryCategory: selectedSecondaryCategories,
+      page: currentPage,
+      pageSize: 6,
+      sort: "newest",
+      visibility: "public",
+      includeShortDescription: true,
     }),
-    prisma.element.count({ where }),
-    prisma.element
-      .findMany({
-        where: {
-          mainCategory: { has: slug },
-          deleted: false,
-          reviewed: true,
-        },
-        select: { secondaryCategory: true },
-      })
-      .then((results) =>
-        Array.from(new Set(results.flatMap((el) => el.secondaryCategory))).sort(),
-      ),
+    getPublicSecondaryCategories(slug),
   ]);
 
-  const elementsDTO: ElementDTO[] = elements.map((e) => ({
-    ...e,
-    createdAt: e.createdAt instanceof Date ? e.createdAt.toISOString() : e.createdAt,
-    updatedAt: e.updatedAt instanceof Date ? e.updatedAt.toISOString() : e.updatedAt,
-  }));
-
   return {
-    elementsDTO,
-    total,
+    elementsDTO: searchResult.items,
+    total: searchResult.total,
     allSecondaryCategories,
     selectedSecondaryCategories,
-    currentPage,
+    currentPage: searchResult.page,
   };
 }
 

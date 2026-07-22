@@ -1,14 +1,24 @@
-export type FilterState = {
-  brightness: number; // 0–2 (1 = normal)
-  contrast: number; // 0–2
-  saturate: number; // 0–3
-  grayscale: number; // 0–1
-  sepia: number; // 0–1
-  hueRotate: number; // 0–360 (deg)
-  invert: number; // 0–1
-  blur: number; // 0–20 (px)
-  opacity: number; // 0–1
-};
+export type CssFilterKey =
+  | "brightness"
+  | "contrast"
+  | "saturate"
+  | "grayscale"
+  | "sepia"
+  | "hueRotate"
+  | "invert"
+  | "blur"
+  | "opacity";
+
+export type RasterAdjustmentKey =
+  | "exposure"
+  | "temperature"
+  | "highlights"
+  | "shadows";
+
+export type AdjustmentKey = CssFilterKey | RasterAdjustmentKey;
+
+export type FilterState = Record<AdjustmentKey, number>;
+export type PhotoAdjustments = FilterState;
 
 export type Orientation = {
   rotate: 0 | 90 | 180 | 270;
@@ -16,27 +26,108 @@ export type Orientation = {
   flipV: boolean;
 };
 
+export type NormalizedCrop = {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+};
+
+export type PhotoEditState = {
+  adjustments: PhotoAdjustments;
+  crop: NormalizedCrop;
+  orientation: Orientation;
+};
+
 export type ExportFormat = "png" | "jpeg" | "webp";
+export type ResizeMode = "original" | "custom" | "scale";
+
+export type ExportSettings = {
+  format: ExportFormat;
+  quality: number;
+  backgroundColor: string;
+  filename: string;
+  resizeMode: ResizeMode;
+  width: number;
+  height: number;
+  lockAspect: boolean;
+  scalePercent: number;
+  allowUpscale: boolean;
+};
+
+export type PreviewBackground = "checkerboard" | "light" | "dark";
+
+export type PreviewSettings = {
+  background: PreviewBackground;
+  showOverlays: boolean;
+  comparisonEnabled: boolean;
+  comparisonPosition: number;
+};
 
 export type FilterControl = {
-  key: keyof FilterState;
+  key: AdjustmentKey;
   label: string;
+  group: "Light" | "Color" | "Effects";
   min: number;
   max: number;
   step: number;
-  unit: "" | "%" | "deg" | "px";
-  /** How the numeric value is shown to the user (e.g. 1 → 100%). */
-  display: "percent" | "raw" | "deg" | "px";
+  neutral: number;
+  unit: "" | "%" | "deg" | "px" | "EV";
+  display: "percent" | "signed-percent" | "raw" | "deg" | "px" | "ev";
+  cssCompatible: boolean;
 };
 
 export type FilterPreset = {
   id: string;
   name: string;
   description: string;
-  filters: FilterState;
+  category: "Essentials" | "Portrait" | "Cinematic" | "Vintage" | "Black & White" | "Creative";
+  filters: PhotoAdjustments;
 };
 
+export type CropAspectId = "free" | "original" | "1:1" | "4:5" | "3:4" | "4:3" | "16:9" | "9:16";
+export type CropHandle = "move" | "n" | "ne" | "e" | "se" | "s" | "sw" | "w" | "nw";
+
 export type FilterValidationMessage = {
-  type: "info" | "warning";
+  type: "info" | "warning" | "error";
   message: string;
+};
+
+export type ImageSourceInfo = {
+  fileName: string;
+  mimeType: string;
+  width: number;
+  height: number;
+  bytes: number;
+};
+
+export type LoadedPhoto = {
+  original: HTMLImageElement;
+  preview: CanvasImageSource;
+  previewWidth: number;
+  previewHeight: number;
+  objectUrl: string;
+  info: ImageSourceInfo;
+};
+
+export type ToolStatus = {
+  tone: "info" | "success" | "warning" | "error";
+  message: string;
+};
+
+export type CustomPreset = {
+  id: string;
+  name: string;
+  adjustments: PhotoAdjustments;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type PhotoProjectV1 = {
+  kind: "darma.photo-filter-project";
+  version: 1;
+  name: string;
+  edit: PhotoEditState;
+  export: ExportSettings;
+  preview: PreviewSettings;
 };

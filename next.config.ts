@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/*": [
       "./content/explorer/manifest.json",
+      "./content/explorer/catalog.json",
       "./content/explorer/items/**/*.json",
     ],
   },

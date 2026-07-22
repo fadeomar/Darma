@@ -1,18 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/server/db/prisma";
 import { assertAdminApi } from "@/lib/auth/guards";
 import { toElementDTO } from "@/features/elements/dto/element.dto.mapper";
+import { getRepositories } from "@/server/repositories";
+
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 type RouteContext = { params: Promise<{ id: string }> };
 
-/**
- * Admin-only single-element fetch.
- *
- * Unlike the public GET /api/elements/[id] (which only returns reviewed,
- * non-deleted items), this returns ANY element by id — including pending and
- * soft-deleted ones — so the admin edit form can be opened directly for
- * items shown in the Review Queue.
- */
 export async function GET(request: NextRequest, context: RouteContext) {
   const auth = await assertAdminApi(request);
   if (auth instanceof NextResponse) return auth;
@@ -23,7 +18,7 @@ export async function GET(request: NextRequest, context: RouteContext) {
   }
 
   try {
-    const row = await prisma.element.findUnique({ where: { id } });
+    const row = await getRepositories().adminElement.getById(id);
     if (!row) {
       return NextResponse.json({ error: "Element not found" }, { status: 404 });
     }

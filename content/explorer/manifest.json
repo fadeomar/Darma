@@ -5,8 +5,8 @@
   "table": "public.\"Element\"",
   "total": 778,
   "counts": {
-    "publicApproved": 46,
-    "pending": 730,
+    "publicApproved": 47,
+    "pending": 729,
     "deleted": 2,
     "reviewedAndDeleted": 0
   },
@@ -8199,12 +8199,12 @@
       "id": "1741964850578",
       "slug": null,
       "filename": "items/1741964850578.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-14T15:07:30.578",
-      "updatedAt": "2026-01-26T09:25:07.253",
+      "updatedAt": "2026-07-23T14:59:56.460",
       "title": "🚀 Futuristic 3D Rotating Glowing Cube with Pure CSS! 🔥✨",
-      "checksum": "sha256:11026c850a55269821116b5b51254847550647efda965198e92aa18ed980330e"
+      "checksum": "sha256:d909493e5f5cb392359788991a470a6ce23af83e458701bab9c66a3e57dd21d1"
     },
     {
       "id": "1741980955190",
@@ -8570,5 +8570,5 @@
       "checksum": "sha256:02e3008827368d5db2b2a1213b997cac2d9c999b563f7d3593e9e3710fbde6cd"
     }
   ],
-  "contentUpdatedAt": "2026-07-23T14:59:32.489Z"
+  "contentUpdatedAt": "2026-07-23T15:00:01.323Z"
 }

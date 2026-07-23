@@ -6,8 +6,8 @@
   "total": 778,
   "counts": {
     "publicApproved": 63,
-    "pending": 713,
-    "deleted": 2,
+    "pending": 706,
+    "deleted": 9,
     "reviewedAndDeleted": 0
   },
   "items": [
@@ -7936,77 +7936,77 @@
       "slug": null,
       "filename": "items/1741556138368.json",
       "reviewed": false,
-      "deleted": false,
+      "deleted": true,
       "createdAt": "2025-03-09T21:35:38.368",
-      "updatedAt": "2026-01-26T09:19:48.79",
+      "updatedAt": "2026-07-23T16:03:00.330",
       "title": "factory loading 1",
-      "checksum": "sha256:e7e64da54a34e69db2b088e01f29082e44be40688cea7dd9263b690f81345249"
+      "checksum": "sha256:5887bcd8876902ddf4b55d3f17c29313b793b1103e79be2275bee458f6becd1a"
     },
     {
       "id": "1741556138410",
       "slug": null,
       "filename": "items/1741556138410.json",
       "reviewed": false,
-      "deleted": false,
-      "createdAt": "2025-03-09T21:35:38.41",
-      "updatedAt": "2026-01-26T09:19:50.581",
+      "deleted": true,
+      "createdAt": "2025-03-09T21:35:38.410",
+      "updatedAt": "2026-07-23T16:03:00.330",
       "title": "factory loading 3",
-      "checksum": "sha256:7e1f59652c91ca7251be7c874ea023331b98aa89bace33aabdc1818c45c78219"
+      "checksum": "sha256:be4f0fa02cc15a60cf79f9bf2fd54b2c8127c28b901108058a333acfce1f9d89"
     },
     {
       "id": "1741556138455",
       "slug": null,
       "filename": "items/1741556138455.json",
       "reviewed": false,
-      "deleted": false,
+      "deleted": true,
       "createdAt": "2025-03-09T21:35:38.455",
-      "updatedAt": "2026-01-26T09:19:53.707",
+      "updatedAt": "2026-07-23T16:03:00.330",
       "title": "factory loading 4",
-      "checksum": "sha256:569376f979877b477a000fcefcda1aa8089c7db23321d8cee08854b62d1ea8ca"
+      "checksum": "sha256:57a25a3cc5772e69ea973f3523b855399648563918582f9c0b3d817db875fa8e"
     },
     {
       "id": "1741556138512",
       "slug": null,
       "filename": "items/1741556138512.json",
       "reviewed": false,
-      "deleted": false,
+      "deleted": true,
       "createdAt": "2025-03-09T21:35:38.512",
-      "updatedAt": "2026-01-26T09:19:56.086",
+      "updatedAt": "2026-07-23T16:03:00.330",
       "title": "factory loading 2",
-      "checksum": "sha256:66081bda4d679075aa31a6d598b7e00d1ef70991a36d807aed6e963a4288b9fe"
+      "checksum": "sha256:748b19475b103bec7d27bd8d00dbfaa7ce17b7b866b43979415df8dac992515b"
     },
     {
       "id": "1741556138563",
       "slug": null,
       "filename": "items/1741556138563.json",
       "reviewed": false,
-      "deleted": false,
+      "deleted": true,
       "createdAt": "2025-03-09T21:35:38.563",
-      "updatedAt": "2026-01-26T09:19:58.939",
+      "updatedAt": "2026-07-23T16:03:00.330",
       "title": "factory loading 5",
-      "checksum": "sha256:89c800cf542009762423218c5eb1641f64e2de160c688440c649cda117801b69"
+      "checksum": "sha256:fafbbf3bfb46ef402bf4ce0b4fc6ed0e24d0959b1b3f853a87883e5cc57e38e7"
     },
     {
       "id": "1741556139058",
       "slug": null,
       "filename": "items/1741556139058.json",
       "reviewed": false,
-      "deleted": false,
+      "deleted": true,
       "createdAt": "2025-03-09T21:35:39.058",
-      "updatedAt": "2026-01-26T09:20:07.25",
+      "updatedAt": "2026-07-23T16:03:00.330",
       "title": "factory loading 8",
-      "checksum": "sha256:64c2af912828b6d0f342fecc242725752062ad3e7a8ad798a5bce337791819c4"
+      "checksum": "sha256:fc41a73f129ec2a538f61a1f59825eadcf40203d1f579f8e7ffebdeef0b9b2eb"
     },
     {
       "id": "1741556139111",
       "slug": null,
       "filename": "items/1741556139111.json",
       "reviewed": false,
-      "deleted": false,
+      "deleted": true,
       "createdAt": "2025-03-09T21:35:39.111",
-      "updatedAt": "2026-01-26T09:20:09.303",
+      "updatedAt": "2026-07-23T16:03:00.330",
       "title": "factory loading 7",
-      "checksum": "sha256:d13eb39febffbd2b12bc93c6f1d64bfe54945b97fd3bd1514578bfc9de509598"
+      "checksum": "sha256:189b16e7b981b303be4e98956225bf42efa701b14caef9e141db5ec51e13fab8"
     },
     {
       "id": "1741569875183",
@@ -8570,5 +8570,5 @@
       "checksum": "sha256:02e3008827368d5db2b2a1213b997cac2d9c999b563f7d3593e9e3710fbde6cd"
     }
   ],
-  "contentUpdatedAt": "2026-07-23T16:01:18.292Z"
+  "contentUpdatedAt": "2026-07-23T16:03:00.330Z"
 }

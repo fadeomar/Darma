@@ -8186,14 +8186,14 @@
     },
     {
       "id": "1741964588082",
-      "slug": "fun-animated-grid-with-color-transitionsgrid-with-color-transitions",
+      "slug": "animated-geometric-grid-background",
       "filename": "items/1741964588082.json",
       "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-14T15:03:08.081",
-      "updatedAt": "2026-07-23T16:30:47.004",
-      "title": "Fun Animated Grid with Color TransitionsGrid with Color Transitions",
-      "checksum": "sha256:cfb8de539a45ca4540426f02637a4ebf4faafae8d309ee837221a9ae9f34be88"
+      "updatedAt": "2026-07-23T16:32:07.153",
+      "title": "Animated Geometric Grid Background",
+      "checksum": "sha256:b782665e2bc711eebd6987f957280c580dd199a78e835ae09a190c6f2afcea7c"
     },
     {
       "id": "1741964850578",
@@ -8570,5 +8570,5 @@
       "checksum": "sha256:02e3008827368d5db2b2a1213b997cac2d9c999b563f7d3593e9e3710fbde6cd"
     }
   ],
-  "contentUpdatedAt": "2026-07-23T16:30:53.146Z"
+  "contentUpdatedAt": "2026-07-23T16:32:27.067Z"
 }

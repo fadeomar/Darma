@@ -5,8 +5,8 @@
   "table": "public.\"Element\"",
   "total": 778,
   "counts": {
-    "publicApproved": 47,
-    "pending": 729,
+    "publicApproved": 48,
+    "pending": 728,
     "deleted": 2,
     "reviewedAndDeleted": 0
   },
@@ -8166,12 +8166,12 @@
       "id": "1741901027482",
       "slug": null,
       "filename": "items/1741901027482.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-13T21:23:47.482",
-      "updatedAt": "2026-01-26T09:25:03.122",
+      "updatedAt": "2026-07-23T15:00:44.670",
       "title": "CSS Path Animation | Smooth Moving Objects Along a Custom Path! 🚀✨",
-      "checksum": "sha256:9aafccd43c742d460dc963df9307e565c45a67ad9353884cd23fb053f8b8f970"
+      "checksum": "sha256:19fea531d8eaeff2985aaeeaca2dcf2cb380e14d40ceb4ac407bb3aceed4e1be"
     },
     {
       "id": "1741964516982",
@@ -8570,5 +8570,5 @@
       "checksum": "sha256:02e3008827368d5db2b2a1213b997cac2d9c999b563f7d3593e9e3710fbde6cd"
     }
   ],
-  "contentUpdatedAt": "2026-07-23T15:00:01.323Z"
+  "contentUpdatedAt": "2026-07-23T15:00:49.789Z"
 }

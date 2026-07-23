@@ -5,8 +5,8 @@
   "table": "public.\"Element\"",
   "total": 778,
   "counts": {
-    "publicApproved": 50,
-    "pending": 726,
+    "publicApproved": 51,
+    "pending": 725,
     "deleted": 2,
     "reviewedAndDeleted": 0
   },
@@ -8133,12 +8133,12 @@
       "id": "1741894233456",
       "slug": null,
       "filename": "items/1741894233456.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-13T19:30:33.456",
-      "updatedAt": "2026-01-26T09:24:59.514",
+      "updatedAt": "2026-07-23T15:04:24.226",
       "title": "🎨 Dynamic Pixel Grid Animation – A Colorful Canvas with JavaScript & CSS! ✨",
-      "checksum": "sha256:527a93c11dba7d91e8760de26a05ab70dcf35f17316880dafde3a57b502f655d"
+      "checksum": "sha256:5e9ea08598524fe63873cbaabc3482cc7f59d41c131e2ef4b753bcf6264f7cfd"
     },
     {
       "id": "1741900539173",
@@ -8570,5 +8570,5 @@
       "checksum": "sha256:02e3008827368d5db2b2a1213b997cac2d9c999b563f7d3593e9e3710fbde6cd"
     }
   ],
-  "contentUpdatedAt": "2026-07-23T15:03:56.570Z"
+  "contentUpdatedAt": "2026-07-23T15:04:29.758Z"
 }

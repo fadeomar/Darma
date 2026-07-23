@@ -5,8 +5,8 @@
   "table": "public.\"Element\"",
   "total": 778,
   "counts": {
-    "publicApproved": 54,
-    "pending": 722,
+    "publicApproved": 60,
+    "pending": 716,
     "deleted": 2,
     "reviewedAndDeleted": 0
   },
@@ -8034,12 +8034,12 @@
       "id": "1741640432849",
       "slug": null,
       "filename": "items/1741640432849.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-10T21:00:32.849",
-      "updatedAt": "2026-01-26T09:20:17.254",
+      "updatedAt": "2026-07-23T15:28:11.870",
       "title": "🚀 Pure CSS Animated Background | Floating Circle Animation 🌟",
-      "checksum": "sha256:ac555315db4634727018001692d9cad79d9b9c3249e7292b4c8a8bffeae6492f"
+      "checksum": "sha256:5775eaa6c057c45c1de27fb30ef437e43a9173a6fd88263cb274535b1eb1a294"
     },
     {
       "id": "1741641184081",
@@ -8056,45 +8056,45 @@
       "id": "1741641904271",
       "slug": null,
       "filename": "items/1741641904271.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-10T21:25:04.271",
-      "updatedAt": "2026-01-26T09:20:25.938",
+      "updatedAt": "2026-07-23T15:28:11.870",
       "title": "CSS Bubble Animation Button | Click Effect with Smooth Bouncing Bubbles",
-      "checksum": "sha256:7d1dc36d08967fa5f2b85bc6a5c44ef507d797287586e025ce2d361b7266a9e6"
+      "checksum": "sha256:021bec41d52cab1b89ce97ecc90f4abcc126321ebf4c97cee1d32b093185f9e2"
     },
     {
       "id": "1741725759299",
       "slug": null,
       "filename": "items/1741725759299.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-11T20:42:39.299",
-      "updatedAt": "2026-01-26T09:20:27.832",
+      "updatedAt": "2026-07-23T15:28:11.870",
       "title": "🔢 Simple JavaScript Calculator for Beginners – HTML, CSS & JS 💡",
-      "checksum": "sha256:71084fb067789c85ddb7e88e57c2f68f1521bfbfd643c16ab00c0ff25d3e2a3e"
+      "checksum": "sha256:c4c3f50ec4487b5a8657b710e9baf84513be2971ce8724f3d51f38cb9e06ea70"
     },
     {
       "id": "1741726427645",
       "slug": null,
       "filename": "items/1741726427645.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-11T20:53:47.645",
-      "updatedAt": "2026-01-26T09:24:40.369",
+      "updatedAt": "2026-07-23T15:28:11.870",
       "title": "2048 Game – Merge Tiles & Score High!",
-      "checksum": "sha256:f9c616239ed7c616bcffc1e4579e200327d110eff394e26989b9bf4d054585a0"
+      "checksum": "sha256:53e0765b95aa24d69b3f57e46542c555819ba7b4782bd3d4edf71bbb777029e3"
     },
     {
       "id": "1741727476035",
       "slug": null,
       "filename": "items/1741727476035.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-11T21:11:16.035",
-      "updatedAt": "2026-01-26T09:24:44.343",
+      "updatedAt": "2026-07-23T15:28:11.870",
       "title": "🎯 Build a Sudoku Game with JavaScript – Interactive & Fun! 🧩✨",
-      "checksum": "sha256:68d85bdc33f4618dbbd948b1066a86c32b2e7011b2661e419653711022624217"
+      "checksum": "sha256:920b4b3f2f43642d860afc9106d6487102af4240c4cc2baf0ac314baf1ed80a6"
     },
     {
       "id": "1741727999160",
@@ -8111,12 +8111,12 @@
       "id": "1741881156022",
       "slug": null,
       "filename": "items/1741881156022.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-13T15:52:36.022",
-      "updatedAt": "2026-01-26T09:24:52.01",
+      "updatedAt": "2026-07-23T15:28:11.870",
       "title": "🚀 Build a Simple Calculator with HTML, CSS, and JavaScript! 🎯",
-      "checksum": "sha256:8551b51131798c1c24e56c7c520b5f6ce4ef90aeb01f4aee78d8cc0ce75d5130"
+      "checksum": "sha256:c418190a887d799049b0464b8b78c3af4b206d06bf0ecabbdedf5c08d30c9968"
     },
     {
       "id": "1741893412829",
@@ -8570,5 +8570,5 @@
       "checksum": "sha256:02e3008827368d5db2b2a1213b997cac2d9c999b563f7d3593e9e3710fbde6cd"
     }
   ],
-  "contentUpdatedAt": "2026-07-23T15:06:22.369Z"
+  "contentUpdatedAt": "2026-07-23T15:28:11.870Z"
 }

@@ -5,8 +5,8 @@
   "table": "public.\"Element\"",
   "total": 778,
   "counts": {
-    "publicApproved": 51,
-    "pending": 725,
+    "publicApproved": 52,
+    "pending": 724,
     "deleted": 2,
     "reviewedAndDeleted": 0
   },
@@ -8122,12 +8122,12 @@
       "id": "1741893412829",
       "slug": null,
       "filename": "items/1741893412829.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-13T19:16:52.829",
-      "updatedAt": "2026-01-26T09:24:53.769",
+      "updatedAt": "2026-07-23T15:04:58.424",
       "title": "🔥 Stunning CSS Casio Calculator UI – Clean & Improved Design! 🎨✨",
-      "checksum": "sha256:6de5908c9e70b10fc188fed33c2c83f4fc2cbc52c9a51d72b4656e91127c2fa9"
+      "checksum": "sha256:05c91b32bbb559d3427f5ec6ca8f1263f0f111c817b605a47eb1acf0c7fac154"
     },
     {
       "id": "1741894233456",
@@ -8570,5 +8570,5 @@
       "checksum": "sha256:02e3008827368d5db2b2a1213b997cac2d9c999b563f7d3593e9e3710fbde6cd"
     }
   ],
-  "contentUpdatedAt": "2026-07-23T15:04:29.758Z"
+  "contentUpdatedAt": "2026-07-23T15:05:10.107Z"
 }

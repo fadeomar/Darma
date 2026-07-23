@@ -5,8 +5,8 @@
   "table": "public.\"Element\"",
   "total": 778,
   "counts": {
-    "publicApproved": 48,
-    "pending": 728,
+    "publicApproved": 49,
+    "pending": 727,
     "deleted": 2,
     "reviewedAndDeleted": 0
   },
@@ -8221,12 +8221,12 @@
       "id": "1742348169716",
       "slug": null,
       "filename": "items/1742348169716.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-19T01:36:09.716",
-      "updatedAt": "2026-01-26T09:25:10.473",
+      "updatedAt": "2026-07-23T15:01:04.620",
       "title": "🚀 Smooth Expanding Navigation Menu with Animation | HTML, CSS & JS",
-      "checksum": "sha256:a1e0f8ca4aa6e9d1291f8315b28bf262f44548ec4c60de5effb2d1c49ab65446"
+      "checksum": "sha256:c1c62d03e73da672d394136f508fbd0ef4281ab7266dddd24f7d0f68b6a5dce3"
     },
     {
       "id": "1742348357643",
@@ -8570,5 +8570,5 @@
       "checksum": "sha256:02e3008827368d5db2b2a1213b997cac2d9c999b563f7d3593e9e3710fbde6cd"
     }
   ],
-  "contentUpdatedAt": "2026-07-23T15:00:49.789Z"
+  "contentUpdatedAt": "2026-07-23T15:01:09.997Z"
 }

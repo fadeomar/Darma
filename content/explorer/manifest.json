@@ -5,8 +5,8 @@
   "table": "public.\"Element\"",
   "total": 778,
   "counts": {
-    "publicApproved": 60,
-    "pending": 716,
+    "publicApproved": 62,
+    "pending": 714,
     "deleted": 2,
     "reviewedAndDeleted": 0
   },
@@ -8012,23 +8012,23 @@
       "id": "1741569875183",
       "slug": null,
       "filename": "items/1741569875183.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-10T01:24:35.183",
-      "updatedAt": "2026-01-26T09:20:10.181",
+      "updatedAt": "2026-07-23T15:28:49.378",
       "title": "Floating Shapes Animation – CSS Background Effect",
-      "checksum": "sha256:3a7ac00dda5418726a20d06509f73da1344fa6ac668b0756d7fa447cb8328d86"
+      "checksum": "sha256:acac3e01aa96b5b0a8e99281d680d021d81888b439262c80cc8de504d62b75b9"
     },
     {
       "id": "1741570208845",
       "slug": null,
       "filename": "items/1741570208845.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-10T01:30:08.845",
-      "updatedAt": "2026-01-26T09:20:12.089",
+      "updatedAt": "2026-07-23T15:28:49.378",
       "title": "Seamless Geometric Pattern Background using Pure CSS",
-      "checksum": "sha256:de3a3e4da576589065bef3a8725152c16e4bdf99e50f401cab7a64b2fb01337a"
+      "checksum": "sha256:91a160b6086313fcf25294f87d274bbb69334ca2aa6fe6da1dab203619c5f365"
     },
     {
       "id": "1741640432849",
@@ -8570,5 +8570,5 @@
       "checksum": "sha256:02e3008827368d5db2b2a1213b997cac2d9c999b563f7d3593e9e3710fbde6cd"
     }
   ],
-  "contentUpdatedAt": "2026-07-23T15:28:11.870Z"
+  "contentUpdatedAt": "2026-07-23T15:28:49.378Z"
 }

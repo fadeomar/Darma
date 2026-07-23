@@ -5,8 +5,8 @@
   "table": "public.\"Element\"",
   "total": 778,
   "counts": {
-    "publicApproved": 62,
-    "pending": 714,
+    "publicApproved": 63,
+    "pending": 713,
     "deleted": 2,
     "reviewedAndDeleted": 0
   },
@@ -8208,14 +8208,14 @@
     },
     {
       "id": "1741980955190",
-      "slug": null,
+      "slug": "animated-svg-gradient-text-fill",
       "filename": "items/1741980955190.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
-      "createdAt": "2025-03-14T19:35:55.19",
-      "updatedAt": "2026-01-26T09:25:08.323",
-      "title": "text fill animation gradient colored ",
-      "checksum": "sha256:fa557423c51d2d0d111c8ad4eed502dc18cf919e3f60ddcfd3b82c4c4f3df58d"
+      "createdAt": "2025-03-14T19:35:55.190",
+      "updatedAt": "2026-07-23T16:01:13.128",
+      "title": "Animated SVG Gradient Text Fill",
+      "checksum": "sha256:2842dcc80b9c6f0ac07f0b52d4961dc4ed3683b60355f05cbd59109fbbd2a28c"
     },
     {
       "id": "1742348169716",
@@ -8570,5 +8570,5 @@
       "checksum": "sha256:02e3008827368d5db2b2a1213b997cac2d9c999b563f7d3593e9e3710fbde6cd"
     }
   ],
-  "contentUpdatedAt": "2026-07-23T15:28:49.378Z"
+  "contentUpdatedAt": "2026-07-23T16:01:18.292Z"
 }

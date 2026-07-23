@@ -5,8 +5,8 @@
   "table": "public.\"Element\"",
   "total": 778,
   "counts": {
-    "publicApproved": 44,
-    "pending": 732,
+    "publicApproved": 45,
+    "pending": 731,
     "deleted": 2,
     "reviewedAndDeleted": 0
   },
@@ -8155,12 +8155,12 @@
       "id": "1741900837094",
       "slug": null,
       "filename": "items/1741900837094.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-13T21:20:37.094",
-      "updatedAt": "2026-01-26T09:25:02.163",
+      "updatedAt": "2026-07-23T14:57:47.884",
       "title": "CSS Loader Animation | Unique Spinning Glow Effect! 🚀✨",
-      "checksum": "sha256:ca4f3a095aa6507d2702d8f4eec95742cc276bc51afb3dc514847b21603d179f"
+      "checksum": "sha256:48ae9391374b485c32062331394bb4b1d62194c7e435bf2b1d4a66d0b2b3285e"
     },
     {
       "id": "1741901027482",
@@ -8570,5 +8570,5 @@
       "checksum": "sha256:02e3008827368d5db2b2a1213b997cac2d9c999b563f7d3593e9e3710fbde6cd"
     }
   ],
-  "contentUpdatedAt": "2026-07-23T14:57:18.284Z"
+  "contentUpdatedAt": "2026-07-23T14:57:52.649Z"
 }

@@ -1,5 +1,12 @@
+import nextEnv from "@next/env";
 import { PrismaClient } from "@prisma/client";
 import bcryptjs from "bcryptjs";
+
+const { loadEnvConfig } = nextEnv;
+
+// Load .env.local (and other Next env files) the same way `next dev` does,
+// so this standalone ts-node script sees DATABASE_URL and ADMIN_* vars.
+loadEnvConfig(process.cwd());
 
 const prisma = new PrismaClient();
 

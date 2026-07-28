@@ -47,5 +47,6 @@ export interface ElementAdminRepository {
   softDelete(id: string): Promise<Element | null>;
   restore(id: string): Promise<Element | null>;
   bulkApprove(ids: readonly string[] | "pending"): Promise<number>;
+  bulkSoftDelete(ids: readonly string[]): Promise<number>;
   getDashboardSummary(): Promise<AdminDashboardSummary>;
 }

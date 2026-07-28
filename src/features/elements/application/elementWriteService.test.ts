@@ -54,6 +54,17 @@ class MemoryAdminRepository implements ElementAdminRepository {
     }
     return count;
   }
+  async bulkSoftDelete(ids: readonly string[]) {
+    const selection = new Set(ids);
+    let count = 0;
+    for (const element of this.elements) {
+      if (!element.deleted && selection.has(element.id)) {
+        element.deleted = true;
+        count += 1;
+      }
+    }
+    return count;
+  }
   async getDashboardSummary(): Promise<AdminDashboardSummary> {
     throw new Error("not needed");
   }

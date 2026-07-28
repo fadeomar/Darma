@@ -54,36 +54,58 @@ export async function GET(
 
 export async function POST(
   request: NextRequest,
-): Promise<NextResponse<{ approved: number } | { error: string }>> {
+): Promise<
+  NextResponse<{ approved: number } | { rejected: number } | { error: string }>
+> {
   const auth = await assertAdminApi(request);
   if (auth instanceof NextResponse) return auth;
 
   const body = (await request.json().catch(() => null)) as
     | { action?: string; ids?: unknown; scope?: unknown }
     | null;
-  if (!body || body.action !== "approve") {
+  if (!body || (body.action !== "approve" && body.action !== "reject")) {
     return NextResponse.json(
-      { error: 'Unsupported action. Expected { action: "approve" }.' },
+      { error: 'Unsupported action. Expected { action: "approve" | "reject" }.' },
       { status: 400 },
     );
+  }
+
+  function parseIds(value: unknown): string[] {
+    return Array.isArray(value)
+      ? value.filter(
+          (id): id is string => typeof id === "string" && id.length > 0,
+        )
+      : [];
+  }
+
+  if (body.action === "reject") {
+    const ids = parseIds(body.ids);
+    if (ids.length === 0) {
+      return NextResponse.json({ error: "No valid ids provided." }, { status: 400 });
+    }
+    try {
+      const rejected = await getRepositories().adminElement.bulkSoftDelete(ids);
+      return NextResponse.json({ rejected });
+    } catch (error) {
+      const response = explorerContentWriteErrorResponse(error);
+      if (response) return response;
+      console.error("Error bulk-rejecting review queue:", error);
+      return NextResponse.json({ error: "Failed to bulk-reject elements" }, { status: 500 });
+    }
   }
 
   let selection: readonly string[] | "pending";
   if (body.scope === "pending") {
     selection = "pending";
-  } else if (Array.isArray(body.ids)) {
-    const ids = body.ids.filter(
-      (id): id is string => typeof id === "string" && id.length > 0,
-    );
+  } else {
+    const ids = parseIds(body.ids);
     if (ids.length === 0) {
-      return NextResponse.json({ error: "No valid ids provided." }, { status: 400 });
+      return NextResponse.json(
+        { error: 'Provide either { ids: string[] } or { scope: "pending" }.' },
+        { status: 400 },
+      );
     }
     selection = ids;
-  } else {
-    return NextResponse.json(
-      { error: 'Provide either { ids: string[] } or { scope: "pending" }.' },
-      { status: 400 },
-    );
   }
 
   try {

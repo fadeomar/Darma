@@ -211,6 +211,36 @@ export class ElementGitHubRepository implements ElementAdminRepository {
     return result ?? 0;
   }
 
+  async bulkSoftDelete(ids: readonly string[]): Promise<number> {
+    const result = await this.mutate((snapshot) => {
+      const selected = new Set(ids.filter((id) => id.length > 0));
+      const changedIds: string[] = [];
+      const elements = snapshot.elements.map((element) => {
+        const shouldDelete = !element.deleted && selected.has(element.id);
+        if (!shouldDelete) return cloneElement(element);
+        changedIds.push(element.id);
+        return { ...cloneElement(element), deleted: true, updatedAt: this.now() };
+      });
+
+      if (changedIds.length === 0) {
+        return {
+          value: 0,
+          elements,
+          changedIds: [],
+          message: "content(explorer): reject elements",
+        };
+      }
+
+      return {
+        value: changedIds.length,
+        elements,
+        changedIds,
+        message: `content(explorer): reject ${changedIds.length} element${changedIds.length === 1 ? "" : "s"}`,
+      };
+    });
+    return result ?? 0;
+  }
+
   async getDashboardSummary(): Promise<AdminDashboardSummary> {
     const snapshot = await this.loadSnapshot();
     const active = snapshot.elements.filter((element) => !element.deleted);

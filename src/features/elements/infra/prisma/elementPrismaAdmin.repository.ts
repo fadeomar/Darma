@@ -176,6 +176,16 @@ export class ElementPrismaAdminRepository implements ElementAdminRepository {
     return result.count;
   }
 
+  async bulkSoftDelete(ids: readonly string[]): Promise<number> {
+    const cleaned = ids.filter((id) => id.length > 0);
+    if (cleaned.length === 0) return 0;
+    const result = await this.prisma.element.updateMany({
+      where: { deleted: false, id: { in: cleaned } },
+      data: { deleted: true },
+    });
+    return result.count;
+  }
+
   async getDashboardSummary(): Promise<AdminDashboardSummary> {
     const [
       total,

@@ -5,9 +5,9 @@
   "table": "public.\"Element\"",
   "total": 778,
   "counts": {
-    "publicApproved": 42,
-    "pending": 734,
-    "deleted": 2,
+    "publicApproved": 64,
+    "pending": 705,
+    "deleted": 9,
     "reviewedAndDeleted": 0
   },
   "items": [
@@ -7936,110 +7936,110 @@
       "slug": null,
       "filename": "items/1741556138368.json",
       "reviewed": false,
-      "deleted": false,
+      "deleted": true,
       "createdAt": "2025-03-09T21:35:38.368",
-      "updatedAt": "2026-01-26T09:19:48.79",
+      "updatedAt": "2026-07-23T16:03:00.330",
       "title": "factory loading 1",
-      "checksum": "sha256:e7e64da54a34e69db2b088e01f29082e44be40688cea7dd9263b690f81345249"
+      "checksum": "sha256:5887bcd8876902ddf4b55d3f17c29313b793b1103e79be2275bee458f6becd1a"
     },
     {
       "id": "1741556138410",
       "slug": null,
       "filename": "items/1741556138410.json",
       "reviewed": false,
-      "deleted": false,
-      "createdAt": "2025-03-09T21:35:38.41",
-      "updatedAt": "2026-01-26T09:19:50.581",
+      "deleted": true,
+      "createdAt": "2025-03-09T21:35:38.410",
+      "updatedAt": "2026-07-23T16:03:00.330",
       "title": "factory loading 3",
-      "checksum": "sha256:7e1f59652c91ca7251be7c874ea023331b98aa89bace33aabdc1818c45c78219"
+      "checksum": "sha256:be4f0fa02cc15a60cf79f9bf2fd54b2c8127c28b901108058a333acfce1f9d89"
     },
     {
       "id": "1741556138455",
       "slug": null,
       "filename": "items/1741556138455.json",
       "reviewed": false,
-      "deleted": false,
+      "deleted": true,
       "createdAt": "2025-03-09T21:35:38.455",
-      "updatedAt": "2026-01-26T09:19:53.707",
+      "updatedAt": "2026-07-23T16:03:00.330",
       "title": "factory loading 4",
-      "checksum": "sha256:569376f979877b477a000fcefcda1aa8089c7db23321d8cee08854b62d1ea8ca"
+      "checksum": "sha256:57a25a3cc5772e69ea973f3523b855399648563918582f9c0b3d817db875fa8e"
     },
     {
       "id": "1741556138512",
       "slug": null,
       "filename": "items/1741556138512.json",
       "reviewed": false,
-      "deleted": false,
+      "deleted": true,
       "createdAt": "2025-03-09T21:35:38.512",
-      "updatedAt": "2026-01-26T09:19:56.086",
+      "updatedAt": "2026-07-23T16:03:00.330",
       "title": "factory loading 2",
-      "checksum": "sha256:66081bda4d679075aa31a6d598b7e00d1ef70991a36d807aed6e963a4288b9fe"
+      "checksum": "sha256:748b19475b103bec7d27bd8d00dbfaa7ce17b7b866b43979415df8dac992515b"
     },
     {
       "id": "1741556138563",
       "slug": null,
       "filename": "items/1741556138563.json",
       "reviewed": false,
-      "deleted": false,
+      "deleted": true,
       "createdAt": "2025-03-09T21:35:38.563",
-      "updatedAt": "2026-01-26T09:19:58.939",
+      "updatedAt": "2026-07-23T16:03:00.330",
       "title": "factory loading 5",
-      "checksum": "sha256:89c800cf542009762423218c5eb1641f64e2de160c688440c649cda117801b69"
+      "checksum": "sha256:fafbbf3bfb46ef402bf4ce0b4fc6ed0e24d0959b1b3f853a87883e5cc57e38e7"
     },
     {
       "id": "1741556139058",
       "slug": null,
       "filename": "items/1741556139058.json",
       "reviewed": false,
-      "deleted": false,
+      "deleted": true,
       "createdAt": "2025-03-09T21:35:39.058",
-      "updatedAt": "2026-01-26T09:20:07.25",
+      "updatedAt": "2026-07-23T16:03:00.330",
       "title": "factory loading 8",
-      "checksum": "sha256:64c2af912828b6d0f342fecc242725752062ad3e7a8ad798a5bce337791819c4"
+      "checksum": "sha256:fc41a73f129ec2a538f61a1f59825eadcf40203d1f579f8e7ffebdeef0b9b2eb"
     },
     {
       "id": "1741556139111",
       "slug": null,
       "filename": "items/1741556139111.json",
       "reviewed": false,
-      "deleted": false,
+      "deleted": true,
       "createdAt": "2025-03-09T21:35:39.111",
-      "updatedAt": "2026-01-26T09:20:09.303",
+      "updatedAt": "2026-07-23T16:03:00.330",
       "title": "factory loading 7",
-      "checksum": "sha256:d13eb39febffbd2b12bc93c6f1d64bfe54945b97fd3bd1514578bfc9de509598"
+      "checksum": "sha256:189b16e7b981b303be4e98956225bf42efa701b14caef9e141db5ec51e13fab8"
     },
     {
       "id": "1741569875183",
       "slug": null,
       "filename": "items/1741569875183.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-10T01:24:35.183",
-      "updatedAt": "2026-01-26T09:20:10.181",
+      "updatedAt": "2026-07-23T15:28:49.378",
       "title": "Floating Shapes Animation – CSS Background Effect",
-      "checksum": "sha256:3a7ac00dda5418726a20d06509f73da1344fa6ac668b0756d7fa447cb8328d86"
+      "checksum": "sha256:acac3e01aa96b5b0a8e99281d680d021d81888b439262c80cc8de504d62b75b9"
     },
     {
       "id": "1741570208845",
       "slug": null,
       "filename": "items/1741570208845.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-10T01:30:08.845",
-      "updatedAt": "2026-01-26T09:20:12.089",
+      "updatedAt": "2026-07-23T15:28:49.378",
       "title": "Seamless Geometric Pattern Background using Pure CSS",
-      "checksum": "sha256:de3a3e4da576589065bef3a8725152c16e4bdf99e50f401cab7a64b2fb01337a"
+      "checksum": "sha256:91a160b6086313fcf25294f87d274bbb69334ca2aa6fe6da1dab203619c5f365"
     },
     {
       "id": "1741640432849",
       "slug": null,
       "filename": "items/1741640432849.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-10T21:00:32.849",
-      "updatedAt": "2026-01-26T09:20:17.254",
+      "updatedAt": "2026-07-23T15:28:11.870",
       "title": "🚀 Pure CSS Animated Background | Floating Circle Animation 🌟",
-      "checksum": "sha256:ac555315db4634727018001692d9cad79d9b9c3249e7292b4c8a8bffeae6492f"
+      "checksum": "sha256:5775eaa6c057c45c1de27fb30ef437e43a9173a6fd88263cb274535b1eb1a294"
     },
     {
       "id": "1741641184081",
@@ -8056,122 +8056,122 @@
       "id": "1741641904271",
       "slug": null,
       "filename": "items/1741641904271.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-10T21:25:04.271",
-      "updatedAt": "2026-01-26T09:20:25.938",
+      "updatedAt": "2026-07-23T15:28:11.870",
       "title": "CSS Bubble Animation Button | Click Effect with Smooth Bouncing Bubbles",
-      "checksum": "sha256:7d1dc36d08967fa5f2b85bc6a5c44ef507d797287586e025ce2d361b7266a9e6"
+      "checksum": "sha256:021bec41d52cab1b89ce97ecc90f4abcc126321ebf4c97cee1d32b093185f9e2"
     },
     {
       "id": "1741725759299",
       "slug": null,
       "filename": "items/1741725759299.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-11T20:42:39.299",
-      "updatedAt": "2026-01-26T09:20:27.832",
+      "updatedAt": "2026-07-23T15:28:11.870",
       "title": "🔢 Simple JavaScript Calculator for Beginners – HTML, CSS & JS 💡",
-      "checksum": "sha256:71084fb067789c85ddb7e88e57c2f68f1521bfbfd643c16ab00c0ff25d3e2a3e"
+      "checksum": "sha256:c4c3f50ec4487b5a8657b710e9baf84513be2971ce8724f3d51f38cb9e06ea70"
     },
     {
       "id": "1741726427645",
       "slug": null,
       "filename": "items/1741726427645.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-11T20:53:47.645",
-      "updatedAt": "2026-01-26T09:24:40.369",
+      "updatedAt": "2026-07-23T15:28:11.870",
       "title": "2048 Game – Merge Tiles & Score High!",
-      "checksum": "sha256:f9c616239ed7c616bcffc1e4579e200327d110eff394e26989b9bf4d054585a0"
+      "checksum": "sha256:53e0765b95aa24d69b3f57e46542c555819ba7b4782bd3d4edf71bbb777029e3"
     },
     {
       "id": "1741727476035",
       "slug": null,
       "filename": "items/1741727476035.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-11T21:11:16.035",
-      "updatedAt": "2026-01-26T09:24:44.343",
+      "updatedAt": "2026-07-23T15:28:11.870",
       "title": "🎯 Build a Sudoku Game with JavaScript – Interactive & Fun! 🧩✨",
-      "checksum": "sha256:68d85bdc33f4618dbbd948b1066a86c32b2e7011b2661e419653711022624217"
+      "checksum": "sha256:920b4b3f2f43642d860afc9106d6487102af4240c4cc2baf0ac314baf1ed80a6"
     },
     {
       "id": "1741727999160",
       "slug": null,
       "filename": "items/1741727999160.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
-      "createdAt": "2025-03-11T21:19:59.16",
-      "updatedAt": "2026-01-26T09:24:47.792",
+      "createdAt": "2025-03-11T21:19:59.160",
+      "updatedAt": "2026-07-23T15:05:43.271",
       "title": "Build a Secure Password Generator with HTML, CSS, and JavaScript",
-      "checksum": "sha256:f08e7dde2dfd4792e10c8cfb53db23660c539a1ac74a17964f27c7355b7be81b"
+      "checksum": "sha256:90fb1f5d567a9f5a8a52c249c367836ed3c2664b2e227e6b93f24bb38ae834f6"
     },
     {
       "id": "1741881156022",
       "slug": null,
       "filename": "items/1741881156022.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-13T15:52:36.022",
-      "updatedAt": "2026-01-26T09:24:52.01",
+      "updatedAt": "2026-07-23T15:28:11.870",
       "title": "🚀 Build a Simple Calculator with HTML, CSS, and JavaScript! 🎯",
-      "checksum": "sha256:8551b51131798c1c24e56c7c520b5f6ce4ef90aeb01f4aee78d8cc0ce75d5130"
+      "checksum": "sha256:c418190a887d799049b0464b8b78c3af4b206d06bf0ecabbdedf5c08d30c9968"
     },
     {
       "id": "1741893412829",
       "slug": null,
       "filename": "items/1741893412829.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-13T19:16:52.829",
-      "updatedAt": "2026-01-26T09:24:53.769",
+      "updatedAt": "2026-07-23T15:04:58.424",
       "title": "🔥 Stunning CSS Casio Calculator UI – Clean & Improved Design! 🎨✨",
-      "checksum": "sha256:6de5908c9e70b10fc188fed33c2c83f4fc2cbc52c9a51d72b4656e91127c2fa9"
+      "checksum": "sha256:05c91b32bbb559d3427f5ec6ca8f1263f0f111c817b605a47eb1acf0c7fac154"
     },
     {
       "id": "1741894233456",
       "slug": null,
       "filename": "items/1741894233456.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-13T19:30:33.456",
-      "updatedAt": "2026-01-26T09:24:59.514",
+      "updatedAt": "2026-07-23T15:04:24.226",
       "title": "🎨 Dynamic Pixel Grid Animation – A Colorful Canvas with JavaScript & CSS! ✨",
-      "checksum": "sha256:527a93c11dba7d91e8760de26a05ab70dcf35f17316880dafde3a57b502f655d"
+      "checksum": "sha256:5e9ea08598524fe63873cbaabc3482cc7f59d41c131e2ef4b753bcf6264f7cfd"
     },
     {
       "id": "1741900539173",
       "slug": null,
       "filename": "items/1741900539173.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-13T21:15:39.173",
-      "updatedAt": "2026-01-26T09:25:00.82",
+      "updatedAt": "2026-07-23T15:03:44.829",
       "title": "3D Spinning Dice Animation using HTML & CSS 🎲✨",
-      "checksum": "sha256:800d44e7957999c9adda88200053c66ebee9b28b5c032a4d23ea311e7bce2d1c"
+      "checksum": "sha256:3fe061c6c526b752e4bc677bf7719ef8d214e092502a6c3f1630d90355f5e545"
     },
     {
       "id": "1741900837094",
       "slug": null,
       "filename": "items/1741900837094.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-13T21:20:37.094",
-      "updatedAt": "2026-01-26T09:25:02.163",
+      "updatedAt": "2026-07-23T14:57:47.884",
       "title": "CSS Loader Animation | Unique Spinning Glow Effect! 🚀✨",
-      "checksum": "sha256:ca4f3a095aa6507d2702d8f4eec95742cc276bc51afb3dc514847b21603d179f"
+      "checksum": "sha256:48ae9391374b485c32062331394bb4b1d62194c7e435bf2b1d4a66d0b2b3285e"
     },
     {
       "id": "1741901027482",
       "slug": null,
       "filename": "items/1741901027482.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-13T21:23:47.482",
-      "updatedAt": "2026-01-26T09:25:03.122",
+      "updatedAt": "2026-07-23T15:00:44.670",
       "title": "CSS Path Animation | Smooth Moving Objects Along a Custom Path! 🚀✨",
-      "checksum": "sha256:9aafccd43c742d460dc963df9307e565c45a67ad9353884cd23fb053f8b8f970"
+      "checksum": "sha256:19fea531d8eaeff2985aaeeaca2dcf2cb380e14d40ceb4ac407bb3aceed4e1be"
     },
     {
       "id": "1741964516982",
@@ -8186,80 +8186,80 @@
     },
     {
       "id": "1741964588082",
-      "slug": null,
+      "slug": "animated-geometric-grid-background",
       "filename": "items/1741964588082.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-14T15:03:08.081",
-      "updatedAt": "2026-01-26T09:25:05.314",
-      "title": "Fun Animated Grid with Color TransitionsGrid with Color Transitions",
-      "checksum": "sha256:6aef261fed60aded169b012f40b40edaf99edec9f35ab4b2d6d1f956385b7453"
+      "updatedAt": "2026-07-23T16:32:07.153",
+      "title": "Animated Geometric Grid Background",
+      "checksum": "sha256:b782665e2bc711eebd6987f957280c580dd199a78e835ae09a190c6f2afcea7c"
     },
     {
       "id": "1741964850578",
       "slug": null,
       "filename": "items/1741964850578.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-14T15:07:30.578",
-      "updatedAt": "2026-01-26T09:25:07.253",
+      "updatedAt": "2026-07-23T14:59:56.460",
       "title": "🚀 Futuristic 3D Rotating Glowing Cube with Pure CSS! 🔥✨",
-      "checksum": "sha256:11026c850a55269821116b5b51254847550647efda965198e92aa18ed980330e"
+      "checksum": "sha256:d909493e5f5cb392359788991a470a6ce23af83e458701bab9c66a3e57dd21d1"
     },
     {
       "id": "1741980955190",
-      "slug": null,
+      "slug": "animated-svg-gradient-text-fill",
       "filename": "items/1741980955190.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
-      "createdAt": "2025-03-14T19:35:55.19",
-      "updatedAt": "2026-01-26T09:25:08.323",
-      "title": "text fill animation gradient colored ",
-      "checksum": "sha256:fa557423c51d2d0d111c8ad4eed502dc18cf919e3f60ddcfd3b82c4c4f3df58d"
+      "createdAt": "2025-03-14T19:35:55.190",
+      "updatedAt": "2026-07-23T16:01:13.128",
+      "title": "Animated SVG Gradient Text Fill",
+      "checksum": "sha256:2842dcc80b9c6f0ac07f0b52d4961dc4ed3683b60355f05cbd59109fbbd2a28c"
     },
     {
       "id": "1742348169716",
       "slug": null,
       "filename": "items/1742348169716.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-19T01:36:09.716",
-      "updatedAt": "2026-01-26T09:25:10.473",
+      "updatedAt": "2026-07-23T15:01:04.620",
       "title": "🚀 Smooth Expanding Navigation Menu with Animation | HTML, CSS & JS",
-      "checksum": "sha256:a1e0f8ca4aa6e9d1291f8315b28bf262f44548ec4c60de5effb2d1c49ab65446"
+      "checksum": "sha256:c1c62d03e73da672d394136f508fbd0ef4281ab7266dddd24f7d0f68b6a5dce3"
     },
     {
       "id": "1742348357643",
       "slug": null,
       "filename": "items/1742348357643.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-19T01:39:17.643",
-      "updatedAt": "2026-01-26T09:25:12.242",
+      "updatedAt": "2026-07-23T14:59:26.182",
       "title": "🌟 CSS Hover Effect Buttons with Animated Text! 🎨✨",
-      "checksum": "sha256:250397d28091e78229c236fc585c8d62c1c60b3933ce87b871d56d766a765590"
+      "checksum": "sha256:1245c92fbe965919f718e447fc7839c79593b0d3a5a8c16a683546e292f17147"
     },
     {
       "id": "1742420069806",
       "slug": null,
       "filename": "items/1742420069806.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-19T21:34:29.806",
-      "updatedAt": "2026-01-26T09:25:13.602",
+      "updatedAt": "2026-07-23T15:06:12.762",
       "title": "Memory Cards Game",
-      "checksum": "sha256:6d2bf78761d2978d0f99cd71fdd5f3a72349f4103cc9205c7fbcce8e17ce6e11"
+      "checksum": "sha256:b1bb806b8ca89a0a2206673167af7a4c87e30e5a378d6196ed8c051502271deb"
     },
     {
       "id": "1742432543001",
       "slug": null,
       "filename": "items/1742432543001.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-20T01:02:23.001",
-      "updatedAt": "2026-01-26T09:25:16.05",
+      "updatedAt": "2026-07-23T14:57:13.555",
       "title": "🔥 Build a Tic-Tac-Toe Game with HTML, CSS, and JavaScript! 🎮",
-      "checksum": "sha256:ffa579a5f62b890d4546d375423218687e5cbff50a291f63c0d33b3ce5a90bef"
+      "checksum": "sha256:e595d8d12773819f96c10f2f7f7597a77ddbefb36990eb3735f63b71579cf838"
     },
     {
       "id": "1742433710561",
@@ -8298,12 +8298,12 @@
       "id": "1742481303104",
       "slug": null,
       "filename": "items/1742481303104.json",
-      "reviewed": false,
+      "reviewed": true,
       "deleted": false,
       "createdAt": "2025-03-20T14:35:03.104",
-      "updatedAt": "2026-01-26T09:25:35.225",
+      "updatedAt": "2026-07-23T14:54:38.497",
       "title": "Retro D20 Dice Roller with CRT Shader Effects",
-      "checksum": "sha256:f14935b00bfb9ba19b1beaefcc89bb2f4c406c01122195e3ec30818ebc2a1b23"
+      "checksum": "sha256:0ea3cb417c9d1f45af79fd29a683130631bbf747e931e52c0405c82d70babf1c"
     },
     {
       "id": "cm8hq7bmz0000ccs4ce9nh2v4",
@@ -8569,5 +8569,6 @@
       "title": "Blooming Flower Animation with HTML, CSS & JavaScript | Click to Bloom Effect",
       "checksum": "sha256:02e3008827368d5db2b2a1213b997cac2d9c999b563f7d3593e9e3710fbde6cd"
     }
-  ]
+  ],
+  "contentUpdatedAt": "2026-07-23T16:32:27.067Z"
 }

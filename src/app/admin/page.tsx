@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/server/db/prisma";
+import { getExplorerAdminContentSource, getRepositories } from "@/server/repositories";
 import { getToolRegistry } from "@/features/tools";
 import { Badge, Card } from "@/components/ui";
 
@@ -86,48 +87,21 @@ function StatCard({
 }
 
 export default async function AdminDashboardPage() {
-  const [
-    usersCount,
-    elementsCount,
-    publishedCount,
-    pendingCount,
-    deletedCount,
-    missingCategoryCount,
-    missingShortDescriptionCount,
-    missingTagsCount,
-    recent,
-  ] = await Promise.all([
+  const [usersCount, explorerSummary] = await Promise.all([
     prisma.user.count(),
-    prisma.element.count(),
-    prisma.element.count({ where: { reviewed: true, deleted: false } }),
-    prisma.element.count({ where: { reviewed: false, deleted: false } }),
-    prisma.element.count({ where: { deleted: true } }),
-    // Content-health checks (live, non-deleted items only)
-    prisma.element.count({
-      where: { deleted: false, mainCategory: { isEmpty: true } },
-    }),
-    prisma.element.count({
-      where: {
-        deleted: false,
-        OR: [{ shortDescription: null }, { shortDescription: "" }],
-      },
-    }),
-    prisma.element.count({
-      where: { deleted: false, tags: { isEmpty: true } },
-    }),
-    prisma.element.findMany({
-      take: 6,
-      orderBy: { updatedAt: "desc" },
-      select: {
-        id: true,
-        title: true,
-        slug: true,
-        updatedAt: true,
-        reviewed: true,
-        deleted: true,
-      },
-    }),
+    getRepositories().adminElement.getDashboardSummary(),
   ]);
+  const {
+    total: elementsCount,
+    published: publishedCount,
+    pending: pendingCount,
+    deleted: deletedCount,
+    missingCategory: missingCategoryCount,
+    missingShortDescription: missingShortDescriptionCount,
+    missingTags: missingTagsCount,
+    recent,
+  } = explorerSummary;
+  const explorerSource = getExplorerAdminContentSource();
 
   const visitorsToday = "—";
 
@@ -174,7 +148,7 @@ export default async function AdminDashboardPage() {
             Overview
           </h2>
           <div className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
-            Live DB
+            {explorerSource === "github" ? "GitHub JSON" : "Live DB"}
           </div>
         </div>
 

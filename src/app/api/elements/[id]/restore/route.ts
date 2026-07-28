@@ -3,7 +3,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { assertAdminApi } from "@/lib/auth/guards";
 import { makeElementWriteService } from "@/features/elements/di/adminWrite";
 import { toElementDTO } from "@/features/elements/dto/element.dto.mapper";
-import { ElementNotFoundError } from "@/features/elements/application/elementWriteService";
+import { explorerContentWriteErrorResponse } from "@/server/http/explorerContentWriteError";
+
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 type RouteContext = { params: Promise<{ id: string }> };
 
@@ -20,11 +23,9 @@ export async function POST(request: NextRequest, context: RouteContext) {
     const service = makeElementWriteService();
     const restored = await service.restore(id);
     return NextResponse.json(toElementDTO(restored), { status: 200 });
-  } catch (error: any) {
-    if (error?.name === "ElementNotFoundError" || error instanceof ElementNotFoundError) {
-      return NextResponse.json({ error: "Element not found" }, { status: 404 });
-    }
-
+  } catch (error: unknown) {
+    const response = explorerContentWriteErrorResponse(error);
+    if (response) return response;
     console.error("Error restoring element:", error);
     return NextResponse.json({ error: "Failed to restore element" }, { status: 500 });
   }

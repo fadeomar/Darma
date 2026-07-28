@@ -4,9 +4,12 @@ import { assertAdminApi } from "@/lib/auth/guards";
 import { makeElementWriteService } from "@/features/elements/di/adminWrite";
 import { elementUpdateSchema } from "@/features/elements/validation/elementWriteSchemas";
 import { parseJsonBody } from "@/shared/http/validation";
-import { ElementNotFoundError } from "@/features/elements/application/elementWriteService";
 import { toElementDTO } from "@/features/elements/dto/element.dto.mapper";
 import { getPublicElementByIdDTO } from "@/server/services/element.service";
+import { explorerContentWriteErrorResponse } from "@/server/http/explorerContentWriteError";
+
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 type RouteContext = { params: Promise<{ id: string }> };
 
@@ -56,14 +59,9 @@ export async function PUT(request: NextRequest, context: RouteContext) {
     const service = makeElementWriteService();
     const updated = await service.update(id, parsed.data);
     return NextResponse.json(toElementDTO(updated), { status: 200 });
-  } catch (error: any) {
-    if (error?.code === "P2002") {
-      return NextResponse.json({ error: "Slug already exists" }, { status: 409 });
-    }
-    if (error?.name === "ElementNotFoundError" || error instanceof ElementNotFoundError) {
-      return NextResponse.json({ error: "Element not found" }, { status: 404 });
-    }
-
+  } catch (error: unknown) {
+    const response = explorerContentWriteErrorResponse(error);
+    if (response) return response;
     console.error("Error updating element:", error);
     return NextResponse.json({ error: "Failed to update element" }, { status: 500 });
   }
@@ -82,11 +80,9 @@ export async function DELETE(request: NextRequest, context: RouteContext) {
     const service = makeElementWriteService();
     const deleted = await service.softDelete(id);
     return NextResponse.json(toElementDTO(deleted), { status: 200 });
-  } catch (error: any) {
-    if (error?.name === "ElementNotFoundError" || error instanceof ElementNotFoundError) {
-      return NextResponse.json({ error: "Element not found" }, { status: 404 });
-    }
-
+  } catch (error: unknown) {
+    const response = explorerContentWriteErrorResponse(error);
+    if (response) return response;
     console.error("Error soft deleting element:", error);
     return NextResponse.json({ error: "Failed to soft delete element" }, { status: 500 });
   }

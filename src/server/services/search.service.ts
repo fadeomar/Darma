@@ -13,16 +13,11 @@ export type SearchServiceInput = {
   q?: string;
   exactMatch?: boolean;
   includeShortDescription?: boolean;
-
   mainCategory?: string[];
   secondaryCategory?: string[];
-
   page?: number;
   pageSize?: number;
-
   sort?: "newest" | "oldest" | "titleAsc" | "titleDesc";
-
-  // ✅ Visibility
   visibility?: "public" | "admin";
   includeDeleted?: boolean;
   reviewed?: "true" | "false" | "all";
@@ -44,10 +39,31 @@ export async function searchElementsDTO(
   input: SearchServiceInput,
 ): Promise<PaginatedResultDTO<ElementDTO>> {
   const repositories = getRepositories();
-  const elementRepo =
-    input.visibility === "admin"
-      ? repositories.adminElement
-      : repositories.element;
+  const page = input.page ?? 1;
+  const pageSize = input.pageSize ?? 12;
+
+  if (input.visibility === "admin") {
+    const status =
+      input.reviewed === "true"
+        ? "approved"
+        : input.reviewed === "false"
+          ? "pending"
+          : input.includeDeleted
+            ? "all"
+            : "active";
+    const result = await repositories.adminElement.list({
+      query: input.q,
+      status,
+      page,
+      pageSize,
+    });
+    return {
+      items: result.items.map(toElementDTO),
+      total: result.total,
+      page: result.page,
+      pageSize: result.pageSize,
+    };
+  }
 
   const spec = buildElementSearchSpec({
     filters: {
@@ -57,25 +73,12 @@ export async function searchElementsDTO(
       mainCategory: input.mainCategory,
       secondaryCategory: input.secondaryCategory,
     },
-    pagination: {
-      page: input.page ?? 1,
-      pageSize: input.pageSize ?? 12,
-    },
+    pagination: { page, pageSize },
     sort: mapSort(input.sort),
-
-    // ✅ Visibility handled by spec itself (no .and())
-    visibility:
-      input.visibility === "admin"
-        ? {
-            mode: "admin",
-            includeDeleted: !!input.includeDeleted,
-            reviewed: input.reviewed ?? "all",
-          }
-        : { mode: "public" },
+    visibility: { mode: "public" },
   });
 
-  const result = await elementRepo.search(spec);
-
+  const result = await repositories.element.search(spec);
   return {
     items: result.items.map(toElementDTO),
     total: result.total,

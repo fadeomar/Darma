@@ -20,7 +20,11 @@
     "content:validate:explorer-export": "tsx scripts/content/validate-explorer-export.ts",
     "content:scan:explorer-secrets": "tsx scripts/content/scan-explorer-secrets.ts",
     "content:test:explorer": "vitest run scripts/content",
-    "content:compare:explorer-read-sources": "tsx scripts/content/compare-explorer-read-sources.ts"
+    "content:compare:explorer-read-sources": "tsx scripts/content/compare-explorer-read-sources.ts",
+    "content:build:explorer-catalog": "tsx scripts/content/build-explorer-catalog.ts",
+    "content:validate:explorer-catalog": "tsx scripts/content/validate-explorer-catalog.ts",
+    "content:check:explorer-github": "tsx scripts/content/check-explorer-github-source.ts",
+    "content:compare:explorer-admin-sources": "tsx scripts/content/compare-explorer-admin-sources.ts"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

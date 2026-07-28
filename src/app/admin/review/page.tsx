@@ -60,6 +60,7 @@ export default function AdminReviewPage() {
   const [bulkBusy, setBulkBusy] = useState(false);
   const [previewed, setPreviewed] = useState<ElementDTO | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
 
   const [pendingCount, setPendingCount] = useState<number | null>(null);
   const [deletedCount, setDeletedCount] = useState<number | null>(null);
@@ -85,6 +86,7 @@ export default function AdminReviewPage() {
   async function load() {
     setLoading(true);
     setError(null);
+    setSelectedIds(new Set());
 
     try {
       const url = `/api/admin/review-queue?status=${status}&page=${page}&pageSize=${pageSize}`;
@@ -176,6 +178,34 @@ export default function AdminReviewPage() {
     }
   }
 
+  async function bulkReject(ids: string[]) {
+    if (ids.length === 0) return;
+    if (
+      !window.confirm(
+        `Reject ${ids.length} selected item${ids.length === 1 ? "" : "s"}? They will be moved to Deleted.`,
+      )
+    ) {
+      return;
+    }
+
+    setBulkBusy(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/admin/review-queue", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "reject", ids }),
+      });
+      if (!res.ok) throw new Error(`Bulk reject failed: ${res.status}`);
+      await Promise.all([load(), loadCounts()]);
+    } catch (e) {
+      console.error(e);
+      setError("Bulk reject failed. Please try again.");
+    } finally {
+      setBulkBusy(false);
+    }
+  }
+
   async function reject(id: string) {
     if (!window.confirm("Reject this item? It will be moved to Deleted.")) return;
 
@@ -215,6 +245,38 @@ export default function AdminReviewPage() {
     if (status === "deleted") return "No deleted items.";
     return "No items found.";
   }, [status]);
+
+  // Only pending (unreviewed, not deleted) items can be approved/rejected in bulk.
+  const selectableIds = useMemo(
+    () =>
+      items
+        .filter((el) => !el.deleted && !el.reviewed)
+        .map((el) => el.id),
+    [items],
+  );
+  const selectedList = useMemo(
+    () => selectableIds.filter((id) => selectedIds.has(id)),
+    [selectableIds, selectedIds],
+  );
+  const allSelectableSelected =
+    selectableIds.length > 0 && selectedList.length === selectableIds.length;
+
+  function toggleSelected(id: string) {
+    setSelectedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  }
+
+  function toggleSelectAll() {
+    setSelectedIds((prev) =>
+      prev.size >= selectableIds.length && selectableIds.every((id) => prev.has(id))
+        ? new Set()
+        : new Set(selectableIds),
+    );
+  }
 
   function StatusTab({
     value,
@@ -290,7 +352,7 @@ export default function AdminReviewPage() {
               <Button
                 variant="outline"
                 size="sm"
-                disabled={loading || bulkBusy}
+                disabled={loading || bulkBusy || actionBusyId !== null}
                 loading={bulkBusy}
                 leftIcon={!bulkBusy ? <CheckCircle2 className="h-4 w-4" /> : undefined}
                 onClick={() => bulkApprove({ ids: items.map((el) => el.id) })}
@@ -299,7 +361,7 @@ export default function AdminReviewPage() {
               </Button>
               <Button
                 size="sm"
-                disabled={loading || bulkBusy}
+                disabled={loading || bulkBusy || actionBusyId !== null}
                 loading={bulkBusy}
                 leftIcon={!bulkBusy ? <CheckCircle2 className="h-4 w-4" /> : undefined}
                 onClick={() => {
@@ -346,6 +408,68 @@ export default function AdminReviewPage() {
         </div>
       </Card>
 
+      {!loading && selectableIds.length > 0 ? (
+        <Card padding="sm">
+          <div className="flex flex-wrap items-center gap-3">
+            <label className="inline-flex items-center gap-2 text-sm text-[var(--color-text-secondary)]">
+              <input
+                type="checkbox"
+                className="h-4 w-4 accent-[var(--color-primary)]"
+                checked={allSelectableSelected}
+                ref={(el) => {
+                  if (el)
+                    el.indeterminate =
+                      selectedList.length > 0 && !allSelectableSelected;
+                }}
+                onChange={toggleSelectAll}
+                disabled={bulkBusy || actionBusyId !== null}
+              />
+              Select all on page ({selectableIds.length})
+            </label>
+
+            <div className="text-sm text-[var(--color-text-secondary)]">
+              <b>{selectedList.length}</b> selected
+            </div>
+
+            {selectedList.length > 0 ? (
+              <div className="flex flex-wrap items-center gap-2">
+                <Button
+                  size="sm"
+                  disabled={loading || bulkBusy || actionBusyId !== null}
+                  loading={bulkBusy}
+                  leftIcon={
+                    !bulkBusy ? <CheckCircle2 className="h-4 w-4" /> : undefined
+                  }
+                  onClick={() => bulkApprove({ ids: selectedList })}
+                >
+                  Approve selected ({selectedList.length})
+                </Button>
+                <Button
+                  size="sm"
+                  variant="danger"
+                  disabled={loading || bulkBusy || actionBusyId !== null}
+                  loading={bulkBusy}
+                  leftIcon={
+                    !bulkBusy ? <Trash2 className="h-4 w-4" /> : undefined
+                  }
+                  onClick={() => bulkReject(selectedList)}
+                >
+                  Reject selected ({selectedList.length})
+                </Button>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  disabled={bulkBusy || actionBusyId !== null}
+                  onClick={() => setSelectedIds(new Set())}
+                >
+                  Clear
+                </Button>
+              </div>
+            ) : null}
+          </div>
+        </Card>
+      ) : null}
+
       {loading ? (
         <Card className="py-10 text-center text-sm text-[var(--color-text-secondary)]">
           Loading…
@@ -386,10 +510,26 @@ export default function AdminReviewPage() {
         <div className="grid grid-cols-1 gap-3">
           {items.map((element) => {
             const busy = actionBusyId === element.id;
+            // Block every row's actions while any single or bulk write is in
+            // flight. Each approve/reject is a sequential GitHub commit with
+            // optimistic locking, so a second concurrent write would conflict.
+            const actionsLocked = actionBusyId !== null || bulkBusy;
+            const selectable = !element.deleted && !element.reviewed;
             return (
               <Card key={element.id} padding="sm">
                 <div className="flex flex-wrap items-start justify-between gap-3">
-                  <div className="min-w-0">
+                  <div className="flex min-w-0 items-start gap-3">
+                    {selectable ? (
+                      <input
+                        type="checkbox"
+                        className="mt-1.5 h-4 w-4 shrink-0 accent-[var(--color-primary)]"
+                        checked={selectedIds.has(element.id)}
+                        onChange={() => toggleSelected(element.id)}
+                        disabled={actionsLocked}
+                        aria-label={`Select ${element.title}`}
+                      />
+                    ) : null}
+                    <div className="min-w-0">
                     <div className="truncate text-base font-semibold text-[var(--color-text-primary)]">
                       {element.title}
                     </div>
@@ -424,13 +564,14 @@ export default function AdminReviewPage() {
                         Edit
                       </Button>
                     </div>
+                    </div>
                   </div>
 
                   <div className="flex flex-wrap items-center gap-2">
                     {!element.deleted && !element.reviewed && (
                       <>
                         <Button
-                          disabled={busy}
+                          disabled={actionsLocked}
                           loading={busy}
                           onClick={() => approve(element.id)}
                           leftIcon={!busy ? <CheckCircle2 className="h-4 w-4" /> : undefined}
@@ -438,7 +579,7 @@ export default function AdminReviewPage() {
                           Approve
                         </Button>
                         <Button
-                          disabled={busy}
+                          disabled={actionsLocked}
                           variant="danger"
                           onClick={() => reject(element.id)}
                           leftIcon={<Trash2 className="h-4 w-4" />}
@@ -450,7 +591,7 @@ export default function AdminReviewPage() {
 
                     {element.deleted && (
                       <Button
-                        disabled={busy}
+                        disabled={actionsLocked}
                         loading={busy}
                         variant="outline"
                         onClick={() => restore(element.id)}

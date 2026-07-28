@@ -7,7 +7,7 @@ export const elementCreateSchema = z
   .object({
     title: z.string().min(1).max(200),
 
-    description: z.string().max(5000).optional().default(""),
+    description: z.string().max(50000).optional().default(""),
     shortDescription: z.string().max(500).optional().nullable(),
 
     html: z.string().min(1),
@@ -28,7 +28,7 @@ export const elementUpdateSchema = z
   .object({
     title: z.string().min(1).max(200).optional(),
 
-    description: z.string().max(5000).optional(),
+    description: z.string().max(50000).optional(),
     shortDescription: z.string().max(500).optional().nullable(),
 
     html: z.string().min(1).optional(),

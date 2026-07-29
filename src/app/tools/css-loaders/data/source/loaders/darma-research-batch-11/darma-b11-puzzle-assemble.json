@@ -1,0 +1,12 @@
+{
+  "id": "darma-b11-puzzle-assemble",
+  "name": "Puzzle Assemble",
+  "category": "creative",
+  "tags": ["puzzle", "jigsaw", "assemble", "pieces", "creative"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader span { position: absolute; width: 46%; height: 46%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); border: 1px solid color-mix(in srgb, #fff 25%, transparent); }\n.loader span:nth-child(1) { left: 2%; top: 2%; border-radius: 22% 0 0 0; animation: pz-tl calc(var(--loader-speed) * 2.6) ease-in-out infinite; }\n.loader span:nth-child(2) { right: 2%; top: 2%; border-radius: 0 22% 0 0; animation: pz-tr calc(var(--loader-speed) * 2.6) ease-in-out infinite; }\n.loader span:nth-child(3) { left: 2%; bottom: 2%; border-radius: 0 0 0 22%; animation: pz-bl calc(var(--loader-speed) * 2.6) ease-in-out infinite; }\n.loader span:nth-child(4) { right: 2%; bottom: 2%; border-radius: 0 0 22% 0; animation: pz-br calc(var(--loader-speed) * 2.6) ease-in-out infinite; }\n@keyframes pz-tl { 0%, 100% { transform: translate(-70%, -70%); opacity: 0; } 40%, 82% { transform: translate(0, 0); opacity: 1; } }\n@keyframes pz-tr { 0%, 100% { transform: translate(70%, -70%); opacity: 0; } 40%, 82% { transform: translate(0, 0); opacity: 1; } }\n@keyframes pz-bl { 0%, 100% { transform: translate(-70%, 70%); opacity: 0; } 40%, 82% { transform: translate(0, 0); opacity: 1; } }\n@keyframes pz-br { 0%, 100% { transform: translate(70%, 70%); opacity: 0; } 40%, 82% { transform: translate(0, 0); opacity: 1; } }",
+  "defaults": { "color": "#8b5cf6", "secondaryColor": "#ec4899", "size": 80, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 11", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

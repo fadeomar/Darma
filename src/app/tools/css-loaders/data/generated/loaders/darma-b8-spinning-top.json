@@ -1,0 +1,48 @@
+{
+  "id": "darma-b8-spinning-top",
+  "name": "Spinning Top",
+  "category": "fun",
+  "sourceId": "darma-research-batch-8",
+  "tags": [
+    "top",
+    "spin",
+    "toy",
+    "wobble",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b8-spinning-top spinning top fun darma-research-batch-8 darma research batch 8 top spin toy wobble fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b8-spinning-top\" aria-label=\"Loading\"><span></span></div>",
+  "previewCss": ".darma-loader-darma-b8-spinning-top { --accent: var(--loader-color, #e11d48); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 80px); height: var(--loader-size, 80px); position: relative; transform-origin: 50% 92%; animation: darma-loader-darma-b8-spinning-top-wobble calc(var(--loader-speed, 1s) * 2) ease-in-out infinite; }\n.darma-loader-darma-b8-spinning-top span { position: absolute; left: 50%; top: 16%; width: 56%; height: 68%; margin-left: -28%; background: conic-gradient(var(--accent) 0deg 90deg, var(--accent-2) 90deg 180deg, var(--accent) 180deg 270deg, var(--accent-2) 270deg 360deg); clip-path: polygon(0 0, 100% 0, 50% 100%); animation: darma-loader-darma-b8-spinning-top-spin calc(var(--loader-speed, 1s) * .35) linear infinite; }\n.darma-loader-darma-b8-spinning-top::after { content: ''; position: absolute; left: 50%; top: 9%; width: 56%; height: 15%; margin-left: -28%; border-radius: 50%; background: var(--accent-2); }\n@keyframes darma-loader-darma-b8-spinning-top-spin { to { transform: rotate(360deg); } }\n@keyframes darma-loader-darma-b8-spinning-top-wobble { 0%, 100% { transform: rotate(-9deg); } 50% { transform: rotate(9deg); } }",
+  "defaults": {
+    "color": "#e11d48",
+    "secondaryColor": "#fbbf24",
+    "size": 80,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b8-spinning-top\" aria-label=\"Loading\"><span></span></div>",
+    "css": ".darma-loader-darma-b8-spinning-top { --accent: var(--loader-color, #e11d48); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 80px); height: var(--loader-size, 80px); position: relative; transform-origin: 50% 92%; animation: darma-loader-darma-b8-spinning-top-wobble calc(var(--loader-speed, 1s) * 2) ease-in-out infinite; }\n.darma-loader-darma-b8-spinning-top span { position: absolute; left: 50%; top: 16%; width: 56%; height: 68%; margin-left: -28%; background: conic-gradient(var(--accent) 0deg 90deg, var(--accent-2) 90deg 180deg, var(--accent) 180deg 270deg, var(--accent-2) 270deg 360deg); clip-path: polygon(0 0, 100% 0, 50% 100%); animation: darma-loader-darma-b8-spinning-top-spin calc(var(--loader-speed, 1s) * .35) linear infinite; }\n.darma-loader-darma-b8-spinning-top::after { content: ''; position: absolute; left: 50%; top: 9%; width: 56%; height: 15%; margin-left: -28%; border-radius: 50%; background: var(--accent-2); }\n@keyframes darma-loader-darma-b8-spinning-top-spin { to { transform: rotate(360deg); } }\n@keyframes darma-loader-darma-b8-spinning-top-wobble { 0%, 100% { transform: rotate(-9deg); } 50% { transform: rotate(9deg); } }",
+    "react": "export default function DarmaB8SpinningTopLoader() {\n  return (\n    <div className=\"darma-loader-darma-b8-spinning-top\" aria-label=\"Loading\"><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 8",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

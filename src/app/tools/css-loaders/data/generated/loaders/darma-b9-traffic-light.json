@@ -1,0 +1,46 @@
+{
+  "id": "darma-b9-traffic-light",
+  "name": "Traffic Light",
+  "category": "fun",
+  "sourceId": "darma-research-batch-9",
+  "tags": [
+    "traffic",
+    "light",
+    "signal",
+    "stop",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b9-traffic-light traffic light fun darma-research-batch-9 darma research batch 9 traffic light signal stop fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b9-traffic-light\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b9-traffic-light { width: calc(var(--loader-size, 96px) * .4); height: var(--loader-size, 96px); border-radius: calc(var(--loader-size, 96px) * .12); background: #1f2937; display: flex; flex-direction: column; align-items: center; justify-content: space-around; padding: calc(var(--loader-size, 96px) * .06) 0; box-sizing: border-box; }\n.darma-loader-darma-b9-traffic-light span { width: 62%; aspect-ratio: 1; border-radius: 50%; }\n.darma-loader-darma-b9-traffic-light span:nth-child(1) { background: #ef4444; animation: darma-loader-darma-b9-traffic-light-tl-a calc(var(--loader-speed, 1s) * 3) infinite; }\n.darma-loader-darma-b9-traffic-light span:nth-child(2) { background: #f59e0b; animation: darma-loader-darma-b9-traffic-light-tl-b calc(var(--loader-speed, 1s) * 3) infinite; }\n.darma-loader-darma-b9-traffic-light span:nth-child(3) { background: #22c55e; animation: darma-loader-darma-b9-traffic-light-tl-c calc(var(--loader-speed, 1s) * 3) infinite; }\n@keyframes darma-loader-darma-b9-traffic-light-tl-a { 0%, 30% { opacity: 1; box-shadow: 0 0 calc(var(--loader-size, 96px) * .1) #ef4444; } 31%, 100% { opacity: .18; box-shadow: none; } }\n@keyframes darma-loader-darma-b9-traffic-light-tl-b { 0%, 30% { opacity: .18; } 31%, 63% { opacity: 1; box-shadow: 0 0 calc(var(--loader-size, 96px) * .1) #f59e0b; } 64%, 100% { opacity: .18; } }\n@keyframes darma-loader-darma-b9-traffic-light-tl-c { 0%, 63% { opacity: .18; } 64%, 100% { opacity: 1; box-shadow: 0 0 calc(var(--loader-size, 96px) * .1) #22c55e; } }",
+  "defaults": {
+    "size": 96,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b9-traffic-light\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b9-traffic-light { width: calc(var(--loader-size, 96px) * .4); height: var(--loader-size, 96px); border-radius: calc(var(--loader-size, 96px) * .12); background: #1f2937; display: flex; flex-direction: column; align-items: center; justify-content: space-around; padding: calc(var(--loader-size, 96px) * .06) 0; box-sizing: border-box; }\n.darma-loader-darma-b9-traffic-light span { width: 62%; aspect-ratio: 1; border-radius: 50%; }\n.darma-loader-darma-b9-traffic-light span:nth-child(1) { background: #ef4444; animation: darma-loader-darma-b9-traffic-light-tl-a calc(var(--loader-speed, 1s) * 3) infinite; }\n.darma-loader-darma-b9-traffic-light span:nth-child(2) { background: #f59e0b; animation: darma-loader-darma-b9-traffic-light-tl-b calc(var(--loader-speed, 1s) * 3) infinite; }\n.darma-loader-darma-b9-traffic-light span:nth-child(3) { background: #22c55e; animation: darma-loader-darma-b9-traffic-light-tl-c calc(var(--loader-speed, 1s) * 3) infinite; }\n@keyframes darma-loader-darma-b9-traffic-light-tl-a { 0%, 30% { opacity: 1; box-shadow: 0 0 calc(var(--loader-size, 96px) * .1) #ef4444; } 31%, 100% { opacity: .18; box-shadow: none; } }\n@keyframes darma-loader-darma-b9-traffic-light-tl-b { 0%, 30% { opacity: .18; } 31%, 63% { opacity: 1; box-shadow: 0 0 calc(var(--loader-size, 96px) * .1) #f59e0b; } 64%, 100% { opacity: .18; } }\n@keyframes darma-loader-darma-b9-traffic-light-tl-c { 0%, 63% { opacity: .18; } 64%, 100% { opacity: 1; box-shadow: 0 0 calc(var(--loader-size, 96px) * .1) #22c55e; } }",
+    "react": "export default function DarmaB9TrafficLightLoader() {\n  return (\n    <div className=\"darma-loader-darma-b9-traffic-light\" aria-label=\"Loading\"><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": false,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Darma Research Batch 9",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

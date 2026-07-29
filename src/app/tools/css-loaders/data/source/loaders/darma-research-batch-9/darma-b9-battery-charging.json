@@ -1,0 +1,12 @@
+{
+  "id": "darma-b9-battery-charging",
+  "name": "Battery Charging",
+  "category": "progress",
+  "tags": ["battery", "charge", "power", "energy", "progress"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: calc(var(--loader-size) * .95); height: calc(var(--loader-size) * .5); border: calc(var(--loader-size) * .04) solid var(--accent); border-radius: calc(var(--loader-size) * .07); position: relative; box-sizing: border-box; }\n.loader::after { content: ''; position: absolute; right: calc(var(--loader-size) * -.07); top: 30%; width: calc(var(--loader-size) * .05); height: 40%; border-radius: 0 3px 3px 0; background: var(--accent); }\n.loader span { position: absolute; inset: 14%; border-radius: calc(var(--loader-size) * .03); background: linear-gradient(90deg, var(--accent-2), var(--accent)); transform-origin: left center; animation: charge calc(var(--loader-speed) * 2.6) ease-in-out infinite; }\n.loader span::after { content: ''; position: absolute; left: 50%; top: 50%; width: 30%; height: 60%; transform: translate(-50%, -50%); background: #fff; clip-path: polygon(52% 0, 20% 55%, 48% 55%, 40% 100%, 82% 42%, 52% 42%); opacity: .9; }\n@keyframes charge { 0% { transform: scaleX(.05); } 80%, 100% { transform: scaleX(1); } }",
+  "defaults": { "color": "#16a34a", "secondaryColor": "#86efac", "size": 84, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 9", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

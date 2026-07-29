@@ -1,0 +1,48 @@
+{
+  "id": "darma-b8-stacking-blocks",
+  "name": "Stacking Blocks",
+  "category": "fun",
+  "sourceId": "darma-research-batch-8",
+  "tags": [
+    "blocks",
+    "stack",
+    "build",
+    "tower",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b8-stacking-blocks stacking blocks fun darma-research-batch-8 darma research batch 8 blocks stack build tower fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b8-stacking-blocks\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b8-stacking-blocks { --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #ef4444); width: var(--loader-size, 76px); height: var(--loader-size, 76px); position: relative; }\n.darma-loader-darma-b8-stacking-blocks span { position: absolute; left: 50%; width: 52%; height: 17%; margin-left: -26%; border-radius: 14%; background: linear-gradient(var(--accent), var(--accent-2)); opacity: 0; animation: darma-loader-darma-b8-stacking-blocks-stack calc(var(--loader-speed, 1s) * 2) ease-in infinite; }\n.darma-loader-darma-b8-stacking-blocks span:nth-child(1) { bottom: 8%; animation-delay: 0s; }\n.darma-loader-darma-b8-stacking-blocks span:nth-child(2) { bottom: 30%; animation-delay: calc(var(--loader-speed, 1s) * .4); }\n.darma-loader-darma-b8-stacking-blocks span:nth-child(3) { bottom: 52%; animation-delay: calc(var(--loader-speed, 1s) * .8); }\n.darma-loader-darma-b8-stacking-blocks span:nth-child(4) { bottom: 74%; animation-delay: calc(var(--loader-speed, 1s) * 1.2); }\n@keyframes darma-loader-darma-b8-stacking-blocks-stack { 0% { transform: translateY(calc(var(--loader-size, 76px) * -.7)); opacity: 0; } 18% { opacity: 1; } 35%, 92% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(0); opacity: 0; } }",
+  "defaults": {
+    "color": "#f59e0b",
+    "secondaryColor": "#ef4444",
+    "size": 76,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b8-stacking-blocks\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b8-stacking-blocks { --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #ef4444); width: var(--loader-size, 76px); height: var(--loader-size, 76px); position: relative; }\n.darma-loader-darma-b8-stacking-blocks span { position: absolute; left: 50%; width: 52%; height: 17%; margin-left: -26%; border-radius: 14%; background: linear-gradient(var(--accent), var(--accent-2)); opacity: 0; animation: darma-loader-darma-b8-stacking-blocks-stack calc(var(--loader-speed, 1s) * 2) ease-in infinite; }\n.darma-loader-darma-b8-stacking-blocks span:nth-child(1) { bottom: 8%; animation-delay: 0s; }\n.darma-loader-darma-b8-stacking-blocks span:nth-child(2) { bottom: 30%; animation-delay: calc(var(--loader-speed, 1s) * .4); }\n.darma-loader-darma-b8-stacking-blocks span:nth-child(3) { bottom: 52%; animation-delay: calc(var(--loader-speed, 1s) * .8); }\n.darma-loader-darma-b8-stacking-blocks span:nth-child(4) { bottom: 74%; animation-delay: calc(var(--loader-speed, 1s) * 1.2); }\n@keyframes darma-loader-darma-b8-stacking-blocks-stack { 0% { transform: translateY(calc(var(--loader-size, 76px) * -.7)); opacity: 0; } 18% { opacity: 1; } 35%, 92% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(0); opacity: 0; } }",
+    "react": "export default function DarmaB8StackingBlocksLoader() {\n  return (\n    <div className=\"darma-loader-darma-b8-stacking-blocks\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 8",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -74,6 +74,37 @@
     }
   },
   {
+    "id": "darma-b9-battery-charging",
+    "name": "Battery Charging",
+    "category": "progress",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "battery",
+      "charge",
+      "power",
+      "energy",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-battery-charging battery charging progress darma-research-batch-9 darma research batch 9 battery charge power energy progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b9-battery-charging\" aria-label=\"Loading\"><span></span></div>",
+    "previewCss": ".darma-loader-darma-b9-battery-charging { --accent: var(--loader-color, #16a34a); --accent-2: var(--loader-secondary-color, #86efac); width: calc(var(--loader-size, 84px) * .95); height: calc(var(--loader-size, 84px) * .5); border: calc(var(--loader-size, 84px) * .04) solid var(--accent); border-radius: calc(var(--loader-size, 84px) * .07); position: relative; box-sizing: border-box; }\n.darma-loader-darma-b9-battery-charging::after { content: ''; position: absolute; right: calc(var(--loader-size, 84px) * -.07); top: 30%; width: calc(var(--loader-size, 84px) * .05); height: 40%; border-radius: 0 3px 3px 0; background: var(--accent); }\n.darma-loader-darma-b9-battery-charging span { position: absolute; inset: 14%; border-radius: calc(var(--loader-size, 84px) * .03); background: linear-gradient(90deg, var(--accent-2), var(--accent)); transform-origin: left center; animation: darma-loader-darma-b9-battery-charging-charge calc(var(--loader-speed, 1s) * 2.6) ease-in-out infinite; }\n.darma-loader-darma-b9-battery-charging span::after { content: ''; position: absolute; left: 50%; top: 50%; width: 30%; height: 60%; transform: translate(-50%, -50%); background: #fff; clip-path: polygon(52% 0, 20% 55%, 48% 55%, 40% 100%, 82% 42%, 52% 42%); opacity: .9; }\n@keyframes darma-loader-darma-b9-battery-charging-charge { 0% { transform: scaleX(.05); } 80%, 100% { transform: scaleX(1); } }",
+    "defaults": {
+      "color": "#16a34a",
+      "secondaryColor": "#86efac",
+      "size": 84,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-custom-041",
     "name": "Battery Charging Steps",
     "category": "progress",
@@ -2063,6 +2094,37 @@
     }
   },
   {
+    "id": "darma-b9-indeterminate-bar",
+    "name": "Indeterminate Bar",
+    "category": "progress",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "progress",
+      "bar",
+      "loading",
+      "material",
+      "indeterminate"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-indeterminate-bar indeterminate bar progress darma-research-batch-9 darma research batch 9 progress bar loading material indeterminate html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b9-indeterminate-bar\" aria-label=\"Loading\"><span></span></div>",
+    "previewCss": ".darma-loader-darma-b9-indeterminate-bar { --accent: var(--loader-color, #3b82f6); --accent-2: var(--loader-secondary-color, #22d3ee); width: var(--loader-size, 120px); height: calc(var(--loader-size, 120px) * .16); border-radius: calc(var(--loader-size, 120px) * .08); background: color-mix(in srgb, var(--accent) 20%, transparent); position: relative; overflow: hidden; }\n.darma-loader-darma-b9-indeterminate-bar span { position: absolute; top: 0; height: 100%; width: 40%; border-radius: inherit; background: linear-gradient(90deg, var(--accent), var(--accent-2)); animation: darma-loader-darma-b9-indeterminate-bar-slide calc(var(--loader-speed, 1s) * 1.6) cubic-bezier(.65, .05, .35, 1) infinite; }\n@keyframes darma-loader-darma-b9-indeterminate-bar-slide { 0% { left: -45%; } 100% { left: 105%; } }",
+    "defaults": {
+      "color": "#3b82f6",
+      "secondaryColor": "#22d3ee",
+      "size": 120,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-custom-066",
     "name": "Isometric Belt Progress",
     "category": "progress",
@@ -2301,6 +2363,37 @@
       "color": "#06b6d4",
       "secondaryColor": "#a855f7",
       "size": 70,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b7-liquid-wave-fill",
+    "name": "Liquid Wave Fill",
+    "category": "progress",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "liquid",
+      "wave",
+      "water",
+      "fill",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-liquid-wave-fill liquid wave fill progress darma-research-batch-7 darma research batch 7 liquid wave water fill progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b7-liquid-wave-fill\" aria-label=\"Loading\"><span></span></div>",
+    "previewCss": ".darma-loader-darma-b7-liquid-wave-fill { --accent: var(--loader-color, #0ea5e9); --accent-2: var(--loader-secondary-color, #1d4ed8); width: var(--loader-size, 72px); height: var(--loader-size, 72px); border-radius: 50%; border: calc(var(--loader-size, 72px) * .05) solid color-mix(in srgb, var(--accent) 40%, transparent); position: relative; overflow: hidden; }\n.darma-loader-darma-b7-liquid-wave-fill span { position: absolute; left: 50%; top: 45%; width: 170%; height: 170%; margin-left: -85%; background: linear-gradient(var(--accent), var(--accent-2)); border-radius: 42% 45% 41% 47%; animation: darma-loader-darma-b7-liquid-wave-fill-wave-spin calc(var(--loader-speed, 1s) * 3) linear infinite, darma-loader-darma-b7-liquid-wave-fill-wave-rise calc(var(--loader-speed, 1s) * 4) ease-in-out infinite alternate; }\n@keyframes darma-loader-darma-b7-liquid-wave-fill-wave-spin { to { transform: rotate(360deg); } }\n@keyframes darma-loader-darma-b7-liquid-wave-fill-wave-rise { 0% { top: 60%; } 100% { top: 22%; } }",
+    "defaults": {
+      "color": "#0ea5e9",
+      "secondaryColor": "#1d4ed8",
+      "size": 72,
       "speed": 1
     }
   },
@@ -4655,6 +4748,37 @@
     }
   },
   {
+    "id": "darma-b7-pie-clock-fill",
+    "name": "Pie Clock",
+    "category": "progress",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "pie",
+      "clock",
+      "sweep",
+      "fill",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-pie-clock-fill pie clock progress darma-research-batch-7 darma research batch 7 pie clock sweep fill progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b7-pie-clock-fill\" aria-label=\"Loading\"></div>",
+    "previewCss": ".darma-loader-darma-b7-pie-clock-fill { --accent: var(--loader-color, #06b6d4); --accent-2: var(--loader-secondary-color, #0e7490); width: var(--loader-size, 72px); height: var(--loader-size, 72px); border-radius: 50%; background: color-mix(in srgb, var(--accent-2) 22%, transparent); position: relative; overflow: hidden; }\n.darma-loader-darma-b7-pie-clock-fill::before, .darma-loader-darma-b7-pie-clock-fill::after { content: ''; position: absolute; top: 0; left: 50%; width: 50%; height: 100%; background: var(--accent); transform-origin: left center; }\n.darma-loader-darma-b7-pie-clock-fill::before { animation: darma-loader-darma-b7-pie-clock-fill-pie-a calc(var(--loader-speed, 1s) * 2.4) linear infinite; }\n.darma-loader-darma-b7-pie-clock-fill::after { animation: darma-loader-darma-b7-pie-clock-fill-pie-b calc(var(--loader-speed, 1s) * 2.4) linear infinite; }\n@keyframes darma-loader-darma-b7-pie-clock-fill-pie-a { 0% { transform: rotate(0deg); } 50%, 100% { transform: rotate(180deg); } }\n@keyframes darma-loader-darma-b7-pie-clock-fill-pie-b { 0%, 50% { transform: rotate(0deg); } 100% { transform: rotate(180deg); } }",
+    "defaults": {
+      "color": "#06b6d4",
+      "secondaryColor": "#0e7490",
+      "size": 72,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-research-prism-marquee-loader",
     "name": "Prism Marquee Loader",
     "category": "progress",
@@ -5845,6 +5969,68 @@
       "color": "#f97316",
       "secondaryColor": "#facc15",
       "size": 80,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b10-water-fill-square",
+    "name": "Tank Fill",
+    "category": "progress",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "water",
+      "tank",
+      "fill",
+      "level",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-water-fill-square tank fill progress darma-research-batch-10 darma research batch 10 water tank fill level progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b10-water-fill-square\" aria-label=\"Loading\"><span></span></div>",
+    "previewCss": ".darma-loader-darma-b10-water-fill-square { --accent: var(--loader-color, #0ea5e9); --accent-2: var(--loader-secondary-color, #22d3ee); width: var(--loader-size, 76px); height: var(--loader-size, 76px); border-radius: 22%; background: color-mix(in srgb, var(--accent) 12%, transparent); border: calc(var(--loader-size, 76px) * .035) solid color-mix(in srgb, var(--accent) 45%, transparent); position: relative; overflow: hidden; box-sizing: border-box; }\n.darma-loader-darma-b10-water-fill-square span { position: absolute; left: 0; right: 0; bottom: 0; height: 40%; background: linear-gradient(var(--accent-2), var(--accent)); animation: darma-loader-darma-b10-water-fill-square-rise calc(var(--loader-speed, 1s) * 3.4) ease-in-out infinite alternate; }\n.darma-loader-darma-b10-water-fill-square span::before, .darma-loader-darma-b10-water-fill-square span::after { content: ''; position: absolute; bottom: 96%; left: -50%; width: 200%; height: calc(var(--loader-size, 76px) * .16); background: inherit; border-radius: 45%; }\n.darma-loader-darma-b10-water-fill-square span::before { animation: darma-loader-darma-b10-water-fill-square-surface calc(var(--loader-speed, 1s) * 1.6) linear infinite; opacity: .85; }\n.darma-loader-darma-b10-water-fill-square span::after { animation: darma-loader-darma-b10-water-fill-square-surface calc(var(--loader-speed, 1s) * 2.4) linear infinite reverse; }\n@keyframes darma-loader-darma-b10-water-fill-square-rise { 0% { height: 28%; } 100% { height: 80%; } }\n@keyframes darma-loader-darma-b10-water-fill-square-surface { 0% { transform: translateX(0); } 100% { transform: translateX(25%); } }",
+    "defaults": {
+      "color": "#0ea5e9",
+      "secondaryColor": "#22d3ee",
+      "size": 76,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b11-thermometer",
+    "name": "Thermometer",
+    "category": "progress",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "thermometer",
+      "temperature",
+      "mercury",
+      "heat",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-thermometer thermometer progress darma-research-batch-11 darma research batch 11 thermometer temperature mercury heat progress html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b11-thermometer\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b11-thermometer__tube\"></div></div>",
+    "previewCss": ".darma-loader-darma-b11-thermometer { --accent: var(--loader-color, #f97316); --accent-2: var(--loader-secondary-color, #ef4444); width: calc(var(--loader-size, 108px) * .34); height: var(--loader-size, 108px); position: relative; display: grid; place-items: start center; }\n.darma-loader-darma-b11-thermometer .darma-loader-darma-b11-thermometer__tube { position: relative; width: 40%; height: 74%; margin-top: 4%; background: #e2e8f0; border-radius: 20px; overflow: hidden; box-shadow: inset 0 0 0 2px #cbd5e1; }\n.darma-loader-darma-b11-thermometer .darma-loader-darma-b11-thermometer__tube::after { content: ''; position: absolute; left: 0; bottom: 0; width: 100%; background: linear-gradient(var(--accent), var(--accent-2)); animation: darma-loader-darma-b11-thermometer-mercury calc(var(--loader-speed, 1s) * 2.6) ease-in-out infinite; }\n.darma-loader-darma-b11-thermometer::after { content: ''; position: absolute; bottom: 2%; left: 50%; width: calc(var(--loader-size, 108px) * .28); height: calc(var(--loader-size, 108px) * .28); margin-left: calc(var(--loader-size, 108px) * -.14); border-radius: 50%; background: var(--accent-2); box-shadow: inset 0 0 0 2px #cbd5e1; }\n@keyframes darma-loader-darma-b11-thermometer-mercury { 0% { height: 8%; } 50% { height: 100%; } 100% { height: 8%; } }",
+    "defaults": {
+      "color": "#f97316",
+      "secondaryColor": "#ef4444",
+      "size": 108,
       "speed": 1
     }
   },

@@ -1,0 +1,12 @@
+{
+  "id": "darma-b8-stacking-blocks",
+  "name": "Stacking Blocks",
+  "category": "fun",
+  "tags": ["blocks", "stack", "build", "tower", "fun"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader span { position: absolute; left: 50%; width: 52%; height: 17%; margin-left: -26%; border-radius: 14%; background: linear-gradient(var(--accent), var(--accent-2)); opacity: 0; animation: stack calc(var(--loader-speed) * 2) ease-in infinite; }\n.loader span:nth-child(1) { bottom: 8%; animation-delay: 0s; }\n.loader span:nth-child(2) { bottom: 30%; animation-delay: calc(var(--loader-speed) * .4); }\n.loader span:nth-child(3) { bottom: 52%; animation-delay: calc(var(--loader-speed) * .8); }\n.loader span:nth-child(4) { bottom: 74%; animation-delay: calc(var(--loader-speed) * 1.2); }\n@keyframes stack { 0% { transform: translateY(calc(var(--loader-size) * -.7)); opacity: 0; } 18% { opacity: 1; } 35%, 92% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(0); opacity: 0; } }",
+  "defaults": { "color": "#f59e0b", "secondaryColor": "#ef4444", "size": 76, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 8", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

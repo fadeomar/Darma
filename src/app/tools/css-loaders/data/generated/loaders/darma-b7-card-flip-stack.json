@@ -1,0 +1,48 @@
+{
+  "id": "darma-b7-card-flip-stack",
+  "name": "Flip Cards",
+  "category": "creative",
+  "sourceId": "darma-research-batch-7",
+  "tags": [
+    "card",
+    "flip",
+    "3d",
+    "stack",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b7-card-flip-stack flip cards creative darma-research-batch-7 darma research batch 7 card flip 3d stack creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b7-card-flip-stack\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b7-card-flip-stack { --accent: var(--loader-color, #f43f5e); --accent-2: var(--loader-secondary-color, #fb923c); width: calc(var(--loader-size, 80px) * .8); height: var(--loader-size, 80px); position: relative; perspective: 500px; }\n.darma-loader-darma-b7-card-flip-stack span { position: absolute; inset: 0; border-radius: 14%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); transform-origin: center top; animation: darma-loader-darma-b7-card-flip-stack-flip calc(var(--loader-speed, 1s) * 1.8) ease-in-out infinite; }\n.darma-loader-darma-b7-card-flip-stack span:nth-child(2) { animation-delay: calc(var(--loader-speed, 1s) * .28); opacity: .78; }\n.darma-loader-darma-b7-card-flip-stack span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * .56); opacity: .55; }\n@keyframes darma-loader-darma-b7-card-flip-stack-flip { 0%, 55%, 100% { transform: rotateX(0deg); } 28% { transform: rotateX(-172deg); } }",
+  "defaults": {
+    "color": "#f43f5e",
+    "secondaryColor": "#fb923c",
+    "size": 80,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b7-card-flip-stack\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b7-card-flip-stack { --accent: var(--loader-color, #f43f5e); --accent-2: var(--loader-secondary-color, #fb923c); width: calc(var(--loader-size, 80px) * .8); height: var(--loader-size, 80px); position: relative; perspective: 500px; }\n.darma-loader-darma-b7-card-flip-stack span { position: absolute; inset: 0; border-radius: 14%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); transform-origin: center top; animation: darma-loader-darma-b7-card-flip-stack-flip calc(var(--loader-speed, 1s) * 1.8) ease-in-out infinite; }\n.darma-loader-darma-b7-card-flip-stack span:nth-child(2) { animation-delay: calc(var(--loader-speed, 1s) * .28); opacity: .78; }\n.darma-loader-darma-b7-card-flip-stack span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * .56); opacity: .55; }\n@keyframes darma-loader-darma-b7-card-flip-stack-flip { 0%, 55%, 100% { transform: rotateX(0deg); } 28% { transform: rotateX(-172deg); } }",
+    "react": "export default function DarmaB7CardFlipStackLoader() {\n  return (\n    <div className=\"darma-loader-darma-b7-card-flip-stack\" aria-label=\"Loading\"><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 7",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

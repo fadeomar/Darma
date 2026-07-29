@@ -1,0 +1,49 @@
+{
+  "id": "darma-b11-fidget-spinner",
+  "name": "Fidget Spinner",
+  "category": "fun",
+  "sourceId": "darma-research-batch-11",
+  "tags": [
+    "fidget",
+    "spinner",
+    "toy",
+    "spin",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "popular": true,
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b11-fidget-spinner fidget spinner fun darma-research-batch-11 darma research batch 11 fidget spinner toy spin fun html css react popular customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b11-fidget-spinner\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b11-fidget-spinner__spinner\"><span></span><span></span><span></span></div></div>",
+  "previewCss": ".darma-loader-darma-b11-fidget-spinner { --accent: var(--loader-color, #22d3ee); --accent-2: var(--loader-secondary-color, #3b82f6); width: var(--loader-size, 88px); height: var(--loader-size, 88px); position: relative; display: grid; place-items: center; }\n.darma-loader-darma-b11-fidget-spinner::after { content: ''; position: absolute; width: 16%; height: 16%; border-radius: 50%; background: radial-gradient(circle, #e2e8f0, #94a3b8); z-index: 2; }\n.darma-loader-darma-b11-fidget-spinner .darma-loader-darma-b11-fidget-spinner__spinner { position: relative; width: 82%; height: 82%; animation: darma-loader-darma-b11-fidget-spinner-fspin calc(var(--loader-speed, 1s) * .5) linear infinite; }\n.darma-loader-darma-b11-fidget-spinner .darma-loader-darma-b11-fidget-spinner__spinner span { position: absolute; top: 50%; left: 50%; width: calc(var(--loader-size, 88px) * .34); height: calc(var(--loader-size, 88px) * .34); margin: calc(var(--loader-size, 88px) * -.17) 0 0 calc(var(--loader-size, 88px) * -.17); border-radius: 50%; background: radial-gradient(circle at 40% 35%, color-mix(in srgb, #fff 30%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b11-fidget-spinner .darma-loader-darma-b11-fidget-spinner__spinner span:nth-child(2) { background: radial-gradient(circle at 40% 35%, color-mix(in srgb, #fff 30%, var(--accent-2)), var(--accent-2)); }\n.darma-loader-darma-b11-fidget-spinner .darma-loader-darma-b11-fidget-spinner__spinner span:nth-child(1) { transform: rotate(0deg) translateY(calc(var(--loader-size, 88px) * -.24)); }\n.darma-loader-darma-b11-fidget-spinner .darma-loader-darma-b11-fidget-spinner__spinner span:nth-child(2) { transform: rotate(120deg) translateY(calc(var(--loader-size, 88px) * -.24)); }\n.darma-loader-darma-b11-fidget-spinner .darma-loader-darma-b11-fidget-spinner__spinner span:nth-child(3) { transform: rotate(240deg) translateY(calc(var(--loader-size, 88px) * -.24)); }\n@keyframes darma-loader-darma-b11-fidget-spinner-fspin { to { transform: rotate(360deg); } }",
+  "defaults": {
+    "color": "#22d3ee",
+    "secondaryColor": "#3b82f6",
+    "size": 88,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b11-fidget-spinner\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b11-fidget-spinner__spinner\"><span></span><span></span><span></span></div></div>",
+    "css": ".darma-loader-darma-b11-fidget-spinner { --accent: var(--loader-color, #22d3ee); --accent-2: var(--loader-secondary-color, #3b82f6); width: var(--loader-size, 88px); height: var(--loader-size, 88px); position: relative; display: grid; place-items: center; }\n.darma-loader-darma-b11-fidget-spinner::after { content: ''; position: absolute; width: 16%; height: 16%; border-radius: 50%; background: radial-gradient(circle, #e2e8f0, #94a3b8); z-index: 2; }\n.darma-loader-darma-b11-fidget-spinner .darma-loader-darma-b11-fidget-spinner__spinner { position: relative; width: 82%; height: 82%; animation: darma-loader-darma-b11-fidget-spinner-fspin calc(var(--loader-speed, 1s) * .5) linear infinite; }\n.darma-loader-darma-b11-fidget-spinner .darma-loader-darma-b11-fidget-spinner__spinner span { position: absolute; top: 50%; left: 50%; width: calc(var(--loader-size, 88px) * .34); height: calc(var(--loader-size, 88px) * .34); margin: calc(var(--loader-size, 88px) * -.17) 0 0 calc(var(--loader-size, 88px) * -.17); border-radius: 50%; background: radial-gradient(circle at 40% 35%, color-mix(in srgb, #fff 30%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b11-fidget-spinner .darma-loader-darma-b11-fidget-spinner__spinner span:nth-child(2) { background: radial-gradient(circle at 40% 35%, color-mix(in srgb, #fff 30%, var(--accent-2)), var(--accent-2)); }\n.darma-loader-darma-b11-fidget-spinner .darma-loader-darma-b11-fidget-spinner__spinner span:nth-child(1) { transform: rotate(0deg) translateY(calc(var(--loader-size, 88px) * -.24)); }\n.darma-loader-darma-b11-fidget-spinner .darma-loader-darma-b11-fidget-spinner__spinner span:nth-child(2) { transform: rotate(120deg) translateY(calc(var(--loader-size, 88px) * -.24)); }\n.darma-loader-darma-b11-fidget-spinner .darma-loader-darma-b11-fidget-spinner__spinner span:nth-child(3) { transform: rotate(240deg) translateY(calc(var(--loader-size, 88px) * -.24)); }\n@keyframes darma-loader-darma-b11-fidget-spinner-fspin { to { transform: rotate(360deg); } }",
+    "react": "export default function DarmaB11FidgetSpinnerLoader() {\n  return (\n    <div className=\"darma-loader-darma-b11-fidget-spinner\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b11-fidget-spinner__spinner\"><span></span><span></span><span></span></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 11",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

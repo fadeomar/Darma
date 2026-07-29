@@ -1,0 +1,12 @@
+{
+  "id": "darma-b10-blinking-caret",
+  "name": "Typing Caret",
+  "category": "minimal",
+  "tags": ["caret", "cursor", "typing", "terminal", "minimal"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><i></i></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .4); display: flex; align-items: center; justify-content: center; gap: calc(var(--loader-size) * .06); }\n.loader span { width: calc(var(--loader-size) * .1); height: calc(var(--loader-size) * .1); border-radius: 50%; background: var(--accent); opacity: .3; animation: type calc(var(--loader-speed) * 1.2) ease-in-out infinite; }\n.loader span:nth-child(2) { animation-delay: calc(var(--loader-speed) * .18); }\n.loader span:nth-child(3) { animation-delay: calc(var(--loader-speed) * .36); }\n.loader i { width: calc(var(--loader-size) * .035); height: 68%; background: var(--accent-2); animation: blink calc(var(--loader-speed) * .9) step-end infinite; }\n@keyframes type { 0%, 100% { opacity: .3; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-24%); } }\n@keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }",
+  "defaults": { "color": "#64748b", "secondaryColor": "#22c55e", "size": 90, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 10", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

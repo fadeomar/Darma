@@ -1,0 +1,12 @@
+{
+  "id": "darma-b7-atom-orbit",
+  "name": "Atom Orbit",
+  "category": "creative",
+  "tags": ["atom", "orbit", "electron", "science", "creative"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader::before { content: ''; position: absolute; left: 50%; top: 50%; width: 16%; height: 16%; margin: -8% 0 0 -8%; border-radius: 50%; background: var(--accent); box-shadow: 0 0 calc(var(--loader-size) * .14) var(--accent); }\n.loader span { position: absolute; left: 8%; right: 8%; top: 35%; bottom: 35%; border: calc(var(--loader-size) * .025) solid color-mix(in srgb, var(--accent-2) 40%, transparent); border-radius: 50%; }\n.loader span::after { content: ''; position: absolute; top: 50%; left: 0; width: calc(var(--loader-size) * .12); height: calc(var(--loader-size) * .12); margin-top: calc(var(--loader-size) * -.06); border-radius: 50%; background: var(--accent-2); }\n.loader span:nth-child(1) { animation: orbit-a calc(var(--loader-speed) * 1.8) linear infinite; }\n.loader span:nth-child(2) { animation: orbit-b calc(var(--loader-speed) * 2.2) linear infinite; }\n.loader span:nth-child(3) { animation: orbit-c calc(var(--loader-speed) * 2.6) linear infinite; }\n@keyframes orbit-a { to { rotate: 360deg; } }\n@keyframes orbit-b { from { rotate: 120deg; } to { rotate: 480deg; } }\n@keyframes orbit-c { from { rotate: 240deg; } to { rotate: 600deg; } }",
+  "defaults": { "color": "#f472b6", "secondaryColor": "#38bdf8", "size": 84, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "popular": true, "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 7", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

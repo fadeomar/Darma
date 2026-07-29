@@ -1,0 +1,48 @@
+{
+  "id": "darma-b9-kaleidoscope",
+  "name": "Kaleidoscope",
+  "category": "creative",
+  "sourceId": "darma-research-batch-9",
+  "tags": [
+    "kaleidoscope",
+    "star",
+    "symmetry",
+    "prism",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b9-kaleidoscope kaleidoscope creative darma-research-batch-9 darma research batch 9 kaleidoscope star symmetry prism creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b9-kaleidoscope\" aria-label=\"Loading\"></div>",
+  "previewCss": ".darma-loader-darma-b9-kaleidoscope { --accent: var(--loader-color, #a855f7); --accent-2: var(--loader-secondary-color, #22d3ee); width: var(--loader-size, 84px); height: var(--loader-size, 84px); background: repeating-conic-gradient(from 0deg, var(--accent) 0deg 30deg, var(--accent-2) 30deg 60deg); clip-path: polygon(50% 0%, 63% 38%, 100% 38%, 69% 59%, 82% 100%, 50% 75%, 18% 100%, 31% 59%, 0% 38%, 37% 38%); animation: darma-loader-darma-b9-kaleidoscope-kaleido calc(var(--loader-speed, 1s) * 4) linear infinite; }\n@keyframes darma-loader-darma-b9-kaleidoscope-kaleido { 0% { transform: rotate(0deg) scale(1); } 50% { transform: rotate(180deg) scale(.82); } 100% { transform: rotate(360deg) scale(1); } }",
+  "defaults": {
+    "color": "#a855f7",
+    "secondaryColor": "#22d3ee",
+    "size": 84,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b9-kaleidoscope\" aria-label=\"Loading\"></div>",
+    "css": ".darma-loader-darma-b9-kaleidoscope { --accent: var(--loader-color, #a855f7); --accent-2: var(--loader-secondary-color, #22d3ee); width: var(--loader-size, 84px); height: var(--loader-size, 84px); background: repeating-conic-gradient(from 0deg, var(--accent) 0deg 30deg, var(--accent-2) 30deg 60deg); clip-path: polygon(50% 0%, 63% 38%, 100% 38%, 69% 59%, 82% 100%, 50% 75%, 18% 100%, 31% 59%, 0% 38%, 37% 38%); animation: darma-loader-darma-b9-kaleidoscope-kaleido calc(var(--loader-speed, 1s) * 4) linear infinite; }\n@keyframes darma-loader-darma-b9-kaleidoscope-kaleido { 0% { transform: rotate(0deg) scale(1); } 50% { transform: rotate(180deg) scale(.82); } 100% { transform: rotate(360deg) scale(1); } }",
+    "react": "export default function DarmaB9KaleidoscopeLoader() {\n  return (\n    <div className=\"darma-loader-darma-b9-kaleidoscope\" aria-label=\"Loading\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 9",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

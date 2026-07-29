@@ -1,0 +1,48 @@
+{
+  "id": "darma-b8-jelly-square",
+  "name": "Jelly Wobble",
+  "category": "fun",
+  "sourceId": "darma-research-batch-8",
+  "tags": [
+    "jelly",
+    "wobble",
+    "squishy",
+    "elastic",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b8-jelly-square jelly wobble fun darma-research-batch-8 darma research batch 8 jelly wobble squishy elastic fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b8-jelly-square\" aria-label=\"Loading\"></div>",
+  "previewCss": ".darma-loader-darma-b8-jelly-square { --accent: var(--loader-color, #84cc16); --accent-2: var(--loader-secondary-color, #22c55e); width: var(--loader-size, 68px); height: var(--loader-size, 68px); background: linear-gradient(135deg, var(--accent), var(--accent-2)); border-radius: 26%; box-shadow: 0 calc(var(--loader-size, 68px) * .06) calc(var(--loader-size, 68px) * .12) color-mix(in srgb, var(--accent) 35%, transparent); animation: darma-loader-darma-b8-jelly-square-jelly calc(var(--loader-speed, 1s) * 1) ease-in-out infinite; }\n@keyframes darma-loader-darma-b8-jelly-square-jelly { 0%, 100% { transform: scale(1, 1) skew(0deg, 0deg); } 25% { transform: scale(1.14, .84) skew(-5deg, 0deg); } 50% { transform: scale(.88, 1.14) skew(0deg, 4deg); } 75% { transform: scale(1.08, .94) skew(4deg, 0deg); } }",
+  "defaults": {
+    "color": "#84cc16",
+    "secondaryColor": "#22c55e",
+    "size": 68,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b8-jelly-square\" aria-label=\"Loading\"></div>",
+    "css": ".darma-loader-darma-b8-jelly-square { --accent: var(--loader-color, #84cc16); --accent-2: var(--loader-secondary-color, #22c55e); width: var(--loader-size, 68px); height: var(--loader-size, 68px); background: linear-gradient(135deg, var(--accent), var(--accent-2)); border-radius: 26%; box-shadow: 0 calc(var(--loader-size, 68px) * .06) calc(var(--loader-size, 68px) * .12) color-mix(in srgb, var(--accent) 35%, transparent); animation: darma-loader-darma-b8-jelly-square-jelly calc(var(--loader-speed, 1s) * 1) ease-in-out infinite; }\n@keyframes darma-loader-darma-b8-jelly-square-jelly { 0%, 100% { transform: scale(1, 1) skew(0deg, 0deg); } 25% { transform: scale(1.14, .84) skew(-5deg, 0deg); } 50% { transform: scale(.88, 1.14) skew(0deg, 4deg); } 75% { transform: scale(1.08, .94) skew(4deg, 0deg); } }",
+    "react": "export default function DarmaB8JellySquareLoader() {\n  return (\n    <div className=\"darma-loader-darma-b8-jelly-square\" aria-label=\"Loading\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 8",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

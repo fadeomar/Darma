@@ -1,0 +1,12 @@
+{
+  "id": "darma-b9-wifi-broadcast",
+  "name": "Wifi Broadcast",
+  "category": "pulse",
+  "tags": ["wifi", "signal", "broadcast", "waves", "pulse"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader::after { content: ''; position: absolute; left: 50%; bottom: 14%; width: 9%; height: 9%; transform: translateX(-50%); border-radius: 50%; background: var(--accent); }\n.loader span { position: absolute; left: 50%; bottom: 14%; translate: -50% 0; border: calc(var(--loader-size) * .045) solid var(--accent); border-bottom-color: transparent; border-left-color: transparent; border-right-color: transparent; border-radius: 50%; animation: wifi calc(var(--loader-speed) * 1.6) ease-in-out infinite; }\n.loader span:nth-child(1) { width: 26%; height: 26%; animation-delay: 0s; }\n.loader span:nth-child(2) { width: 52%; height: 52%; animation-delay: calc(var(--loader-speed) * .2); }\n.loader span:nth-child(3) { width: 80%; height: 80%; animation-delay: calc(var(--loader-speed) * .4); }\n@keyframes wifi { 0%, 65%, 100% { opacity: .18; } 32% { opacity: 1; } }",
+  "defaults": { "color": "#0284c7", "size": 84, "speed": 1 },
+  "controls": { "color": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 9", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

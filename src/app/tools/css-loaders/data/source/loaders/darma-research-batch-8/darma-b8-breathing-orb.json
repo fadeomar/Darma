@@ -1,0 +1,12 @@
+{
+  "id": "darma-b8-breathing-orb",
+  "name": "Breathing Orb",
+  "category": "pulse",
+  "tags": ["orb", "glow", "breathe", "sphere", "pulse"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); border-radius: 50%; background: radial-gradient(circle at 38% 34%, color-mix(in srgb, #fff 45%, var(--accent)), var(--accent) 55%, var(--accent-2)); box-shadow: 0 0 calc(var(--loader-size) * .3) var(--accent); animation: breathe calc(var(--loader-speed) * 2.4) ease-in-out infinite; }\n@keyframes breathe { 0%, 100% { transform: scale(.72); box-shadow: 0 0 calc(var(--loader-size) * .14) var(--accent); opacity: .7; } 50% { transform: scale(1); box-shadow: 0 0 calc(var(--loader-size) * .42) var(--accent); opacity: 1; } }",
+  "defaults": { "color": "#22d3ee", "secondaryColor": "#4f46e5", "size": 72, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 8", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

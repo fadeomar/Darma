@@ -1,0 +1,12 @@
+{
+  "id": "darma-b9-kaleidoscope",
+  "name": "Kaleidoscope",
+  "category": "creative",
+  "tags": ["kaleidoscope", "star", "symmetry", "prism", "creative"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); background: repeating-conic-gradient(from 0deg, var(--accent) 0deg 30deg, var(--accent-2) 30deg 60deg); clip-path: polygon(50% 0%, 63% 38%, 100% 38%, 69% 59%, 82% 100%, 50% 75%, 18% 100%, 31% 59%, 0% 38%, 37% 38%); animation: kaleido calc(var(--loader-speed) * 4) linear infinite; }\n@keyframes kaleido { 0% { transform: rotate(0deg) scale(1); } 50% { transform: rotate(180deg) scale(.82); } 100% { transform: rotate(360deg) scale(1); } }",
+  "defaults": { "color": "#a855f7", "secondaryColor": "#22d3ee", "size": 84, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 9", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

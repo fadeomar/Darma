@@ -1,0 +1,12 @@
+{
+  "id": "darma-b7-liquid-wave-fill",
+  "name": "Liquid Wave Fill",
+  "category": "progress",
+  "tags": ["liquid", "wave", "water", "fill", "progress"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); border-radius: 50%; border: calc(var(--loader-size) * .05) solid color-mix(in srgb, var(--accent) 40%, transparent); position: relative; overflow: hidden; }\n.loader span { position: absolute; left: 50%; top: 45%; width: 170%; height: 170%; margin-left: -85%; background: linear-gradient(var(--accent), var(--accent-2)); border-radius: 42% 45% 41% 47%; animation: wave-spin calc(var(--loader-speed) * 3) linear infinite, wave-rise calc(var(--loader-speed) * 4) ease-in-out infinite alternate; }\n@keyframes wave-spin { to { transform: rotate(360deg); } }\n@keyframes wave-rise { 0% { top: 60%; } 100% { top: 22%; } }",
+  "defaults": { "color": "#0ea5e9", "secondaryColor": "#1d4ed8", "size": 72, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 7", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

@@ -1,0 +1,12 @@
+{
+  "id": "darma-b11-camera-shutter",
+  "name": "Camera Shutter",
+  "category": "creative",
+  "tags": ["camera", "shutter", "aperture", "iris", "creative"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; border-radius: 50%; overflow: hidden; background: radial-gradient(circle, #0b0b0b 28%, #1c1c1c); }\n.loader span { position: absolute; inset: 0; background: linear-gradient(140deg, var(--accent), var(--accent-2)); clip-path: polygon(50% 50%, 100% 12%, 100% 52%); transform-origin: 50% 50%; animation: iris calc(var(--loader-speed) * 2.6) ease-in-out infinite; }\n.loader span:nth-child(1) { transform: rotate(0deg); }\n.loader span:nth-child(2) { transform: rotate(60deg); }\n.loader span:nth-child(3) { transform: rotate(120deg); }\n.loader span:nth-child(4) { transform: rotate(180deg); }\n.loader span:nth-child(5) { transform: rotate(240deg); }\n.loader span:nth-child(6) { transform: rotate(300deg); }\n@keyframes iris { 0%, 100% { rotate: 0deg; } 50% { rotate: -48deg; } }",
+  "defaults": { "color": "#0ea5e9", "secondaryColor": "#334155", "size": 80, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 11", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

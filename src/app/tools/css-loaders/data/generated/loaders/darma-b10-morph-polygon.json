@@ -1,0 +1,48 @@
+{
+  "id": "darma-b10-morph-polygon",
+  "name": "Morphing Polygon",
+  "category": "creative",
+  "sourceId": "darma-research-batch-10",
+  "tags": [
+    "polygon",
+    "morph",
+    "shape",
+    "geometry",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b10-morph-polygon morphing polygon creative darma-research-batch-10 darma research batch 10 polygon morph shape geometry creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b10-morph-polygon\" aria-label=\"Loading\"></div>",
+  "previewCss": ".darma-loader-darma-b10-morph-polygon { --accent: var(--loader-color, #f43f5e); --accent-2: var(--loader-secondary-color, #8b5cf6); width: var(--loader-size, 72px); height: var(--loader-size, 72px); background: linear-gradient(135deg, var(--accent), var(--accent-2)); animation: darma-loader-darma-b10-morph-polygon-morph calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n@keyframes darma-loader-darma-b10-morph-polygon-morph { 0%, 100% { clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); transform: rotate(0deg); } 33% { clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%); transform: rotate(120deg); } 66% { clip-path: polygon(50% 0%, 50% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 100%); transform: rotate(240deg); } }",
+  "defaults": {
+    "color": "#f43f5e",
+    "secondaryColor": "#8b5cf6",
+    "size": 72,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b10-morph-polygon\" aria-label=\"Loading\"></div>",
+    "css": ".darma-loader-darma-b10-morph-polygon { --accent: var(--loader-color, #f43f5e); --accent-2: var(--loader-secondary-color, #8b5cf6); width: var(--loader-size, 72px); height: var(--loader-size, 72px); background: linear-gradient(135deg, var(--accent), var(--accent-2)); animation: darma-loader-darma-b10-morph-polygon-morph calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n@keyframes darma-loader-darma-b10-morph-polygon-morph { 0%, 100% { clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); transform: rotate(0deg); } 33% { clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%); transform: rotate(120deg); } 66% { clip-path: polygon(50% 0%, 50% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 100%); transform: rotate(240deg); } }",
+    "react": "export default function DarmaB10MorphPolygonLoader() {\n  return (\n    <div className=\"darma-loader-darma-b10-morph-polygon\" aria-label=\"Loading\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 10",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

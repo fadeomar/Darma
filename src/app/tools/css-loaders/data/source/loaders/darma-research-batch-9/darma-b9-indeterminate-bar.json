@@ -1,0 +1,12 @@
+{
+  "id": "darma-b9-indeterminate-bar",
+  "name": "Indeterminate Bar",
+  "category": "progress",
+  "tags": ["progress", "bar", "loading", "material", "indeterminate"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .16); border-radius: calc(var(--loader-size) * .08); background: color-mix(in srgb, var(--accent) 20%, transparent); position: relative; overflow: hidden; }\n.loader span { position: absolute; top: 0; height: 100%; width: 40%; border-radius: inherit; background: linear-gradient(90deg, var(--accent), var(--accent-2)); animation: slide calc(var(--loader-speed) * 1.6) cubic-bezier(.65, .05, .35, 1) infinite; }\n@keyframes slide { 0% { left: -45%; } 100% { left: 105%; } }",
+  "defaults": { "color": "#3b82f6", "secondaryColor": "#22d3ee", "size": 120, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 9", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

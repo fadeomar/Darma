@@ -1,0 +1,47 @@
+{
+  "id": "darma-b7-signal-bars",
+  "name": "Signal Bars",
+  "category": "bars",
+  "sourceId": "darma-research-batch-7",
+  "tags": [
+    "signal",
+    "bars",
+    "strength",
+    "network",
+    "steps"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b7-signal-bars signal bars bars darma-research-batch-7 darma research batch 7 signal bars strength network steps html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b7-signal-bars\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b7-signal-bars { --accent: var(--loader-color, #3b82f6); width: var(--loader-size, 64px); height: calc(var(--loader-size, 64px) * .62); display: flex; align-items: flex-end; gap: calc(var(--loader-size, 64px) * .06); }\n.darma-loader-darma-b7-signal-bars span { flex: 1; background: var(--accent); border-radius: calc(var(--loader-size, 64px) * .02); opacity: .22; animation: darma-loader-darma-b7-signal-bars-signal calc(var(--loader-speed, 1s) * 1.4) ease-in-out infinite; }\n.darma-loader-darma-b7-signal-bars span:nth-child(1) { height: 28%; animation-delay: 0s; }\n.darma-loader-darma-b7-signal-bars span:nth-child(2) { height: 52%; animation-delay: calc(var(--loader-speed, 1s) * .15); }\n.darma-loader-darma-b7-signal-bars span:nth-child(3) { height: 76%; animation-delay: calc(var(--loader-speed, 1s) * .3); }\n.darma-loader-darma-b7-signal-bars span:nth-child(4) { height: 100%; animation-delay: calc(var(--loader-speed, 1s) * .45); }\n@keyframes darma-loader-darma-b7-signal-bars-signal { 0%, 100% { opacity: .22; } 50% { opacity: 1; } }",
+  "defaults": {
+    "color": "#3b82f6",
+    "size": 64,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b7-signal-bars\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b7-signal-bars { --accent: var(--loader-color, #3b82f6); width: var(--loader-size, 64px); height: calc(var(--loader-size, 64px) * .62); display: flex; align-items: flex-end; gap: calc(var(--loader-size, 64px) * .06); }\n.darma-loader-darma-b7-signal-bars span { flex: 1; background: var(--accent); border-radius: calc(var(--loader-size, 64px) * .02); opacity: .22; animation: darma-loader-darma-b7-signal-bars-signal calc(var(--loader-speed, 1s) * 1.4) ease-in-out infinite; }\n.darma-loader-darma-b7-signal-bars span:nth-child(1) { height: 28%; animation-delay: 0s; }\n.darma-loader-darma-b7-signal-bars span:nth-child(2) { height: 52%; animation-delay: calc(var(--loader-speed, 1s) * .15); }\n.darma-loader-darma-b7-signal-bars span:nth-child(3) { height: 76%; animation-delay: calc(var(--loader-speed, 1s) * .3); }\n.darma-loader-darma-b7-signal-bars span:nth-child(4) { height: 100%; animation-delay: calc(var(--loader-speed, 1s) * .45); }\n@keyframes darma-loader-darma-b7-signal-bars-signal { 0%, 100% { opacity: .22; } 50% { opacity: 1; } }",
+    "react": "export default function DarmaB7SignalBarsLoader() {\n  return (\n    <div className=\"darma-loader-darma-b7-signal-bars\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Darma Research Batch 7",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

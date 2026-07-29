@@ -1,0 +1,12 @@
+{
+  "id": "darma-b7-newtons-cradle",
+  "name": "Newton's Cradle",
+  "category": "dots",
+  "tags": ["newton", "cradle", "pendulum", "physics", "dots"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); width: var(--loader-size); height: calc(var(--loader-size) * .55); display: flex; align-items: flex-start; justify-content: center; }\n.loader span { width: calc(var(--loader-size) * .19); height: calc(var(--loader-size) * .19); border-radius: 50%; background: radial-gradient(circle at 32% 30%, color-mix(in srgb, #fff 55%, var(--accent)), var(--accent)); transform-origin: 50% -160%; }\n.loader span:first-child { animation: cradle-left calc(var(--loader-speed) * 1.4) ease-in-out infinite; }\n.loader span:last-child { animation: cradle-right calc(var(--loader-speed) * 1.4) ease-in-out infinite; }\n@keyframes cradle-left { 0%, 50%, 100% { transform: rotate(0); } 25% { transform: rotate(-48deg); } }\n@keyframes cradle-right { 0%, 50%, 100% { transform: rotate(0); } 75% { transform: rotate(48deg); } }",
+  "defaults": { "color": "#64748b", "size": 84, "speed": 1 },
+  "controls": { "color": true, "size": true, "speed": true },
+  "flags": { "popular": true, "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 7", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

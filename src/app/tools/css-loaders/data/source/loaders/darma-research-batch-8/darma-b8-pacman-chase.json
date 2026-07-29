@@ -1,0 +1,12 @@
+{
+  "id": "darma-b8-pacman-chase",
+  "name": "Pac Chase",
+  "category": "fun",
+  "tags": ["pacman", "chomp", "dots", "arcade", "fun"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><i class=\"head\"></i><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .44); position: relative; display: flex; align-items: center; }\n.loader .head { position: relative; width: calc(var(--loader-size) * .44); height: calc(var(--loader-size) * .44); flex: none; }\n.loader .head::before, .loader .head::after { content: ''; position: absolute; left: 0; width: 100%; height: 50%; background: var(--accent); }\n.loader .head::before { top: 0; border-radius: 100% 100% 0 0 / 200% 200% 0 0; transform-origin: 50% 100%; animation: jaw-top calc(var(--loader-speed) * .5) ease-in-out infinite; }\n.loader .head::after { bottom: 0; border-radius: 0 0 100% 100% / 0 0 200% 200%; transform-origin: 50% 0%; animation: jaw-bottom calc(var(--loader-speed) * .5) ease-in-out infinite; }\n.loader span { width: calc(var(--loader-size) * .1); height: calc(var(--loader-size) * .1); margin-left: calc(var(--loader-size) * .13); border-radius: 50%; background: var(--accent-2); animation: eat calc(var(--loader-speed) * 1.5) linear infinite; }\n.loader span:nth-child(3) { animation-delay: calc(var(--loader-speed) * .5); }\n.loader span:nth-child(4) { animation-delay: calc(var(--loader-speed) * 1); }\n@keyframes jaw-top { 0%, 100% { transform: rotate(-38deg); } 50% { transform: rotate(0deg); } }\n@keyframes jaw-bottom { 0%, 100% { transform: rotate(38deg); } 50% { transform: rotate(0deg); } }\n@keyframes eat { 0% { transform: translateX(0); opacity: 1; } 100% { transform: translateX(calc(var(--loader-size) * -.2)); opacity: 0; } }",
+  "defaults": { "color": "#facc15", "secondaryColor": "#f8fafc", "size": 96, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "popular": true, "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 8", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "darma-b10-ink-drop-spread",
+  "name": "Ink Spread",
+  "category": "creative",
+  "sourceId": "darma-research-batch-10",
+  "tags": [
+    "ink",
+    "spread",
+    "blot",
+    "spill",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b10-ink-drop-spread ink spread creative darma-research-batch-10 darma research batch 10 ink spread blot spill creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b10-ink-drop-spread\" aria-label=\"Loading\"><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b10-ink-drop-spread { --accent: var(--loader-color, #1e293b); --accent-2: var(--loader-secondary-color, #6366f1); width: var(--loader-size, 76px); height: var(--loader-size, 76px); position: relative; display: grid; place-items: center; }\n.darma-loader-darma-b10-ink-drop-spread span { position: absolute; width: 22%; height: 22%; border-radius: 50%; background: radial-gradient(circle at 40% 35%, color-mix(in srgb, #fff 22%, var(--accent)), var(--accent)); animation: darma-loader-darma-b10-ink-drop-spread-ink calc(var(--loader-speed, 1s) * 2.2) ease-out infinite; }\n.darma-loader-darma-b10-ink-drop-spread span:nth-child(2) { background: radial-gradient(circle at 40% 35%, color-mix(in srgb, #fff 22%, var(--accent-2)), var(--accent-2)); animation-delay: calc(var(--loader-speed, 1s) * 1.1); }\n@keyframes darma-loader-darma-b10-ink-drop-spread-ink { 0% { transform: scale(.2); border-radius: 50%; opacity: 1; } 55% { border-radius: 42% 58% 45% 55%; } 100% { transform: scale(3.4); border-radius: 46% 54% 52% 48%; opacity: 0; } }",
+  "defaults": {
+    "color": "#1e293b",
+    "secondaryColor": "#6366f1",
+    "size": 76,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b10-ink-drop-spread\" aria-label=\"Loading\"><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b10-ink-drop-spread { --accent: var(--loader-color, #1e293b); --accent-2: var(--loader-secondary-color, #6366f1); width: var(--loader-size, 76px); height: var(--loader-size, 76px); position: relative; display: grid; place-items: center; }\n.darma-loader-darma-b10-ink-drop-spread span { position: absolute; width: 22%; height: 22%; border-radius: 50%; background: radial-gradient(circle at 40% 35%, color-mix(in srgb, #fff 22%, var(--accent)), var(--accent)); animation: darma-loader-darma-b10-ink-drop-spread-ink calc(var(--loader-speed, 1s) * 2.2) ease-out infinite; }\n.darma-loader-darma-b10-ink-drop-spread span:nth-child(2) { background: radial-gradient(circle at 40% 35%, color-mix(in srgb, #fff 22%, var(--accent-2)), var(--accent-2)); animation-delay: calc(var(--loader-speed, 1s) * 1.1); }\n@keyframes darma-loader-darma-b10-ink-drop-spread-ink { 0% { transform: scale(.2); border-radius: 50%; opacity: 1; } 55% { border-radius: 42% 58% 45% 55%; } 100% { transform: scale(3.4); border-radius: 46% 54% 52% 48%; opacity: 0; } }",
+    "react": "export default function DarmaB10InkDropSpreadLoader() {\n  return (\n    <div className=\"darma-loader-darma-b10-ink-drop-spread\" aria-label=\"Loading\"><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 10",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

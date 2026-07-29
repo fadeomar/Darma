@@ -1,0 +1,12 @@
+{
+  "id": "darma-b8-helix-ribbon",
+  "name": "Twisting Ribbon",
+  "category": "bars",
+  "tags": ["ribbon", "twist", "helix", "wave", "bars"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .6); display: flex; align-items: center; justify-content: space-between; perspective: 500px; }\n.loader span { width: 10%; height: 100%; background: linear-gradient(var(--accent), var(--accent-2)); border-radius: calc(var(--loader-size) * .03); animation: twist calc(var(--loader-speed) * 1.6) ease-in-out infinite; }\n.loader span:nth-child(1) { animation-delay: 0s; }\n.loader span:nth-child(2) { animation-delay: calc(var(--loader-speed) * .1); }\n.loader span:nth-child(3) { animation-delay: calc(var(--loader-speed) * .2); }\n.loader span:nth-child(4) { animation-delay: calc(var(--loader-speed) * .3); }\n.loader span:nth-child(5) { animation-delay: calc(var(--loader-speed) * .4); }\n.loader span:nth-child(6) { animation-delay: calc(var(--loader-speed) * .5); }\n@keyframes twist { 0%, 100% { transform: rotateY(0deg) scaleY(.4); } 50% { transform: rotateY(180deg) scaleY(1); } }",
+  "defaults": { "color": "#8b5cf6", "secondaryColor": "#22d3ee", "size": 80, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 8", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

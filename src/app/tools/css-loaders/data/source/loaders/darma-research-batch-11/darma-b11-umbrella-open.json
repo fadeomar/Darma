@@ -1,0 +1,12 @@
+{
+  "id": "darma-b11-umbrella-open",
+  "name": "Umbrella",
+  "category": "creative",
+  "tags": ["umbrella", "open", "canopy", "rain", "creative"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; display: grid; place-items: center; }\n.loader span { width: 62%; height: 31%; background: conic-gradient(from 270deg at 50% 100%, var(--accent) 0 60deg, var(--accent-2) 60deg 120deg, var(--accent) 120deg 180deg); border-radius: 100% 100% 8px 8px / 100% 100% 8px 8px; transform-origin: 50% 100%; margin-bottom: 30%; animation: umbrella calc(var(--loader-speed) * 2) ease-in-out infinite; }\n.loader::after { content: ''; position: absolute; left: 50%; top: 42%; width: calc(var(--loader-size) * .03); height: calc(var(--loader-size) * .36); margin-left: calc(var(--loader-size) * -.015); background: color-mix(in srgb, #000 25%, var(--accent)); border-bottom-left-radius: 8px; border-bottom: calc(var(--loader-size) * .03) solid color-mix(in srgb, #000 25%, var(--accent)); }\n@keyframes umbrella { 0%, 100% { transform: scale(.32, .28); } 50% { transform: scale(1, 1); } }",
+  "defaults": { "color": "#f43f5e", "secondaryColor": "#3b82f6", "size": 84, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 11", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

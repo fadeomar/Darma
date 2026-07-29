@@ -1,0 +1,12 @@
+{
+  "id": "darma-b9-spinning-globe",
+  "name": "Spinning Globe",
+  "category": "creative",
+  "tags": ["globe", "earth", "planet", "rotate", "creative"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); border-radius: 50%; position: relative; overflow: hidden; background: radial-gradient(circle at 34% 30%, color-mix(in srgb, #fff 40%, var(--accent)), var(--accent) 68%, color-mix(in srgb, #000 45%, var(--accent))); box-shadow: inset calc(var(--loader-size) * -.12) calc(var(--loader-size) * -.12) calc(var(--loader-size) * .22) rgba(0, 0, 0, .45); }\n.loader::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0 11%, color-mix(in srgb, var(--accent-2) 55%, transparent) 11% 12.5%); animation: globe calc(var(--loader-speed) * 3) linear infinite; }\n.loader::after { content: ''; position: absolute; inset: 8% 0; border-top: 2px solid color-mix(in srgb, var(--accent-2) 40%, transparent); border-bottom: 2px solid color-mix(in srgb, var(--accent-2) 40%, transparent); border-radius: 50%; }\n@keyframes globe { to { background-position: calc(var(--loader-size) * .5) 0; } }",
+  "defaults": { "color": "#0ea5e9", "secondaryColor": "#4ade80", "size": 80, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "popular": true, "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 9", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

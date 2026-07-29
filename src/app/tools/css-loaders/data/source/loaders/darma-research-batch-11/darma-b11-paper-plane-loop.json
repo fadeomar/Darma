@@ -1,0 +1,12 @@
+{
+  "id": "darma-b11-paper-plane-loop",
+  "name": "Paper Plane",
+  "category": "fun",
+  "tags": ["plane", "paper", "fly", "loop", "fun"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader::before { content: ''; position: absolute; inset: 22%; border-radius: 50%; border: 1px dashed color-mix(in srgb, var(--accent-2) 40%, transparent); }\n.loader span { position: absolute; top: 50%; left: 50%; width: 0; height: 0; border-left: calc(var(--loader-size) * .18) solid var(--accent); border-top: calc(var(--loader-size) * .1) solid transparent; border-bottom: calc(var(--loader-size) * .1) solid transparent; margin: calc(var(--loader-size) * -.1) 0 0 calc(var(--loader-size) * -.09); animation: fly calc(var(--loader-speed) * 3) linear infinite; }\n@keyframes fly { from { transform: rotate(0deg) translateX(calc(var(--loader-size) * .3)) rotate(115deg); } to { transform: rotate(360deg) translateX(calc(var(--loader-size) * .3)) rotate(115deg); } }",
+  "defaults": { "color": "#0ea5e9", "secondaryColor": "#94a3b8", "size": 88, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 11", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

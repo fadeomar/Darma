@@ -1,0 +1,12 @@
+{
+  "id": "darma-b10-tunnel-squares",
+  "name": "Square Tunnel",
+  "category": "creative",
+  "tags": ["tunnel", "squares", "zoom", "hypnotic", "creative"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader span { position: absolute; inset: 0; border: calc(var(--loader-size) * .035) solid var(--accent); border-radius: 10%; animation: tunnel calc(var(--loader-speed) * 2.4) linear infinite; }\n.loader span:nth-child(even) { border-color: var(--accent-2); }\n.loader span:nth-child(2) { animation-delay: calc(var(--loader-speed) * -.6); }\n.loader span:nth-child(3) { animation-delay: calc(var(--loader-speed) * -1.2); }\n.loader span:nth-child(4) { animation-delay: calc(var(--loader-speed) * -1.8); }\n@keyframes tunnel { 0% { transform: scale(1) rotate(0deg); opacity: 0; } 15% { opacity: 1; } 100% { transform: scale(.05) rotate(90deg); opacity: 0; } }",
+  "defaults": { "color": "#06b6d4", "secondaryColor": "#d946ef", "size": 80, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 10", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

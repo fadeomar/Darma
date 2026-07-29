@@ -1,0 +1,12 @@
+{
+  "id": "darma-b10-ink-drop-spread",
+  "name": "Ink Spread",
+  "category": "creative",
+  "tags": ["ink", "spread", "blot", "spill", "creative"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; display: grid; place-items: center; }\n.loader span { position: absolute; width: 22%; height: 22%; border-radius: 50%; background: radial-gradient(circle at 40% 35%, color-mix(in srgb, #fff 22%, var(--accent)), var(--accent)); animation: ink calc(var(--loader-speed) * 2.2) ease-out infinite; }\n.loader span:nth-child(2) { background: radial-gradient(circle at 40% 35%, color-mix(in srgb, #fff 22%, var(--accent-2)), var(--accent-2)); animation-delay: calc(var(--loader-speed) * 1.1); }\n@keyframes ink { 0% { transform: scale(.2); border-radius: 50%; opacity: 1; } 55% { border-radius: 42% 58% 45% 55%; } 100% { transform: scale(3.4); border-radius: 46% 54% 52% 48%; opacity: 0; } }",
+  "defaults": { "color": "#1e293b", "secondaryColor": "#6366f1", "size": 76, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 10", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

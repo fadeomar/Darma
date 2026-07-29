@@ -1,0 +1,12 @@
+{
+  "id": "darma-b8-nested-hexagons",
+  "name": "Nested Hexagons",
+  "category": "spinners",
+  "tags": ["hexagon", "nested", "geometric", "polygon", "spinner"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader span { position: absolute; inset: 0; margin: auto; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }\n.loader span:nth-child(1) { background: var(--accent); animation: spin-cw calc(var(--loader-speed) * 2.6) linear infinite; }\n.loader span:nth-child(2) { inset: 22%; background: var(--accent-2); animation: spin-ccw calc(var(--loader-speed) * 2) linear infinite; }\n.loader span:nth-child(3) { inset: 44%; background: color-mix(in srgb, #fff 35%, var(--accent)); animation: spin-cw calc(var(--loader-speed) * 1.4) linear infinite; }\n@keyframes spin-cw { to { transform: rotate(360deg); } }\n@keyframes spin-ccw { to { transform: rotate(-360deg); } }",
+  "defaults": { "color": "#8b5cf6", "secondaryColor": "#ec4899", "size": 76, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 8", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

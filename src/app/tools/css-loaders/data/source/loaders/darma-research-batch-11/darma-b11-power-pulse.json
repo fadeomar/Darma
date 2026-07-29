@@ -1,0 +1,12 @@
+{
+  "id": "darma-b11-power-pulse",
+  "name": "Power Pulse",
+  "category": "pulse",
+  "tags": ["power", "button", "boot", "energy", "pulse"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); display: grid; place-items: center; }\n.loader span { position: relative; width: 54%; height: 54%; border: calc(var(--loader-size) * .08) solid var(--accent); border-radius: 50%; border-top-color: transparent; box-shadow: 0 0 calc(var(--loader-size) * .16) var(--accent); animation: power calc(var(--loader-speed) * 1.5) ease-in-out infinite; }\n.loader span::after { content: ''; position: absolute; top: -34%; left: 50%; width: calc(var(--loader-size) * .08); height: 36%; margin-left: calc(var(--loader-size) * -.04); background: var(--accent-2); border-radius: 4px; box-shadow: 0 0 calc(var(--loader-size) * .1) var(--accent-2); }\n@keyframes power { 0%, 100% { opacity: .45; box-shadow: 0 0 calc(var(--loader-size) * .05) var(--accent); } 50% { opacity: 1; box-shadow: 0 0 calc(var(--loader-size) * .24) var(--accent); } }",
+  "defaults": { "color": "#22c55e", "secondaryColor": "#4ade80", "size": 76, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 11", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

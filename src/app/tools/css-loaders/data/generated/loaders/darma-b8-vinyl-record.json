@@ -1,0 +1,48 @@
+{
+  "id": "darma-b8-vinyl-record",
+  "name": "Vinyl Record",
+  "category": "fun",
+  "sourceId": "darma-research-batch-8",
+  "tags": [
+    "vinyl",
+    "record",
+    "music",
+    "turntable",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b8-vinyl-record vinyl record fun darma-research-batch-8 darma research batch 8 vinyl record music turntable fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b8-vinyl-record\" aria-label=\"Loading\"><span></span></div>",
+  "previewCss": ".darma-loader-darma-b8-vinyl-record { --accent: var(--loader-color, #dc2626); --accent-2: var(--loader-secondary-color, #facc15); width: var(--loader-size, 84px); height: var(--loader-size, 84px); position: relative; }\n.darma-loader-darma-b8-vinyl-record span { position: absolute; inset: 0; border-radius: 50%; background: repeating-radial-gradient(circle, #191919 0 2px, #2b2b2b 2px 4px); box-shadow: inset 0 0 calc(var(--loader-size, 84px) * .12) rgba(0, 0, 0, .7); animation: darma-loader-darma-b8-vinyl-record-spin calc(var(--loader-speed, 1s) * 2) linear infinite; }\n.darma-loader-darma-b8-vinyl-record span::after { content: ''; position: absolute; inset: 34%; border-radius: 50%; background: radial-gradient(circle, #111 0 12%, var(--accent) 13% 100%); border: 2px solid var(--accent-2); box-sizing: border-box; }\n.darma-loader-darma-b8-vinyl-record::before { content: ''; position: absolute; z-index: 2; top: 2%; right: 12%; width: calc(var(--loader-size, 84px) * .045); height: 54%; background: #94a3b8; border-radius: 4px; transform-origin: top center; transform: rotate(24deg); }\n@keyframes darma-loader-darma-b8-vinyl-record-spin { to { transform: rotate(360deg); } }",
+  "defaults": {
+    "color": "#dc2626",
+    "secondaryColor": "#facc15",
+    "size": 84,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b8-vinyl-record\" aria-label=\"Loading\"><span></span></div>",
+    "css": ".darma-loader-darma-b8-vinyl-record { --accent: var(--loader-color, #dc2626); --accent-2: var(--loader-secondary-color, #facc15); width: var(--loader-size, 84px); height: var(--loader-size, 84px); position: relative; }\n.darma-loader-darma-b8-vinyl-record span { position: absolute; inset: 0; border-radius: 50%; background: repeating-radial-gradient(circle, #191919 0 2px, #2b2b2b 2px 4px); box-shadow: inset 0 0 calc(var(--loader-size, 84px) * .12) rgba(0, 0, 0, .7); animation: darma-loader-darma-b8-vinyl-record-spin calc(var(--loader-speed, 1s) * 2) linear infinite; }\n.darma-loader-darma-b8-vinyl-record span::after { content: ''; position: absolute; inset: 34%; border-radius: 50%; background: radial-gradient(circle, #111 0 12%, var(--accent) 13% 100%); border: 2px solid var(--accent-2); box-sizing: border-box; }\n.darma-loader-darma-b8-vinyl-record::before { content: ''; position: absolute; z-index: 2; top: 2%; right: 12%; width: calc(var(--loader-size, 84px) * .045); height: 54%; background: #94a3b8; border-radius: 4px; transform-origin: top center; transform: rotate(24deg); }\n@keyframes darma-loader-darma-b8-vinyl-record-spin { to { transform: rotate(360deg); } }",
+    "react": "export default function DarmaB8VinylRecordLoader() {\n  return (\n    <div className=\"darma-loader-darma-b8-vinyl-record\" aria-label=\"Loading\"><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 8",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

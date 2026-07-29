@@ -1,0 +1,12 @@
+{
+  "id": "darma-b7-rising-bubbles",
+  "name": "Rising Bubbles",
+  "category": "dots",
+  "tags": ["bubbles", "rise", "float", "water", "dots"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader span { position: absolute; bottom: 0; width: calc(var(--loader-size) * .16); height: calc(var(--loader-size) * .16); border-radius: 50%; background: radial-gradient(circle at 35% 30%, color-mix(in srgb, #fff 65%, transparent), var(--accent)); opacity: 0; animation: rise calc(var(--loader-speed) * 2.2) ease-in infinite; }\n.loader span:nth-child(1) { left: 8%; animation-delay: 0s; }\n.loader span:nth-child(2) { left: 28%; animation-delay: calc(var(--loader-speed) * .4); }\n.loader span:nth-child(3) { left: 48%; animation-delay: calc(var(--loader-speed) * .8); }\n.loader span:nth-child(4) { left: 68%; animation-delay: calc(var(--loader-speed) * 1.2); }\n.loader span:nth-child(5) { left: 86%; animation-delay: calc(var(--loader-speed) * 1.6); }\n@keyframes rise { 0% { transform: translateY(0) scale(.4); opacity: 0; } 20% { opacity: .9; } 80% { opacity: .9; } 100% { transform: translateY(calc(var(--loader-size) * -.9)) scale(1); opacity: 0; } }",
+  "defaults": { "color": "#22d3ee", "size": 76, "speed": 1 },
+  "controls": { "color": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 7", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

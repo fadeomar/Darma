@@ -1,0 +1,12 @@
+{
+  "id": "darma-b10-light-bulb",
+  "name": "Light Bulb",
+  "category": "fun",
+  "tags": ["bulb", "light", "idea", "glow", "fun"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; display: grid; place-items: center; }\n.loader span { width: 44%; height: 54%; border-radius: 50% 50% 46% 46%; background: radial-gradient(circle at 44% 34%, color-mix(in srgb, #fff 60%, var(--accent)), var(--accent)); box-shadow: 0 0 calc(var(--loader-size) * .28) var(--accent); position: relative; animation: bulb calc(var(--loader-speed) * 1.4) ease-in-out infinite; }\n.loader span::before { content: ''; position: absolute; top: 42%; left: 50%; width: 22%; height: 26%; margin-left: -11%; border: 2px solid color-mix(in srgb, #000 25%, var(--accent)); border-top: none; border-radius: 0 0 60% 60%; }\n.loader span::after { content: ''; position: absolute; bottom: -20%; left: 50%; width: 30%; height: 22%; margin-left: -15%; background: color-mix(in srgb, var(--accent-2) 45%, #64748b); border-radius: 3px 3px 5px 5px; }\n@keyframes bulb { 0%, 100% { opacity: .5; box-shadow: 0 0 calc(var(--loader-size) * .08) var(--accent); } 50% { opacity: 1; box-shadow: 0 0 calc(var(--loader-size) * .32) var(--accent); } }",
+  "defaults": { "color": "#fbbf24", "secondaryColor": "#94a3b8", "size": 80, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 10", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

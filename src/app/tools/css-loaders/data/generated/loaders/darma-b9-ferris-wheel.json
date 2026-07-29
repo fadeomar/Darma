@@ -1,0 +1,48 @@
+{
+  "id": "darma-b9-ferris-wheel",
+  "name": "Ferris Wheel",
+  "category": "fun",
+  "sourceId": "darma-research-batch-9",
+  "tags": [
+    "ferris",
+    "wheel",
+    "carnival",
+    "cabins",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b9-ferris-wheel ferris wheel fun darma-research-batch-9 darma research batch 9 ferris wheel carnival cabins fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b9-ferris-wheel\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b9-ferris-wheel__wheel\"><span></span><span></span><span></span><span></span><span></span><span></span></div></div>",
+  "previewCss": ".darma-loader-darma-b9-ferris-wheel { --accent: var(--loader-color, #0ea5e9); --accent-2: var(--loader-secondary-color, #f43f5e); width: var(--loader-size, 96px); height: var(--loader-size, 96px); position: relative; display: grid; place-items: center; }\n.darma-loader-darma-b9-ferris-wheel::after { content: ''; position: absolute; top: 50%; left: 50%; width: 12%; height: 12%; transform: translate(-50%, -50%); border-radius: 50%; background: var(--accent); z-index: 2; }\n.darma-loader-darma-b9-ferris-wheel .darma-loader-darma-b9-ferris-wheel__wheel { position: relative; width: 88%; height: 88%; border-radius: 50%; border: calc(var(--loader-size, 96px) * .02) solid color-mix(in srgb, var(--accent) 55%, transparent); animation: darma-loader-darma-b9-ferris-wheel-fw-spin calc(var(--loader-speed, 1s) * 4) linear infinite; }\n.darma-loader-darma-b9-ferris-wheel .darma-loader-darma-b9-ferris-wheel__wheel span { position: absolute; top: 50%; left: 50%; width: calc(var(--loader-size, 96px) * .15); height: calc(var(--loader-size, 96px) * .15); margin: calc(var(--loader-size, 96px) * -.075) 0 0 calc(var(--loader-size, 96px) * -.075); border-radius: 22% 22% 42% 42%; background: var(--accent-2); animation: darma-loader-darma-b9-ferris-wheel-fw-cabin calc(var(--loader-speed, 1s) * 4) linear infinite; }\n.darma-loader-darma-b9-ferris-wheel .darma-loader-darma-b9-ferris-wheel__wheel span:nth-child(1) { transform: rotate(0deg) translateY(calc(var(--loader-size, 96px) * -.44)); }\n.darma-loader-darma-b9-ferris-wheel .darma-loader-darma-b9-ferris-wheel__wheel span:nth-child(2) { transform: rotate(60deg) translateY(calc(var(--loader-size, 96px) * -.44)); }\n.darma-loader-darma-b9-ferris-wheel .darma-loader-darma-b9-ferris-wheel__wheel span:nth-child(3) { transform: rotate(120deg) translateY(calc(var(--loader-size, 96px) * -.44)); }\n.darma-loader-darma-b9-ferris-wheel .darma-loader-darma-b9-ferris-wheel__wheel span:nth-child(4) { transform: rotate(180deg) translateY(calc(var(--loader-size, 96px) * -.44)); }\n.darma-loader-darma-b9-ferris-wheel .darma-loader-darma-b9-ferris-wheel__wheel span:nth-child(5) { transform: rotate(240deg) translateY(calc(var(--loader-size, 96px) * -.44)); }\n.darma-loader-darma-b9-ferris-wheel .darma-loader-darma-b9-ferris-wheel__wheel span:nth-child(6) { transform: rotate(300deg) translateY(calc(var(--loader-size, 96px) * -.44)); }\n@keyframes darma-loader-darma-b9-ferris-wheel-fw-spin { to { rotate: 360deg; } }\n@keyframes darma-loader-darma-b9-ferris-wheel-fw-cabin { from { rotate: 0deg; } to { rotate: -360deg; } }",
+  "defaults": {
+    "color": "#0ea5e9",
+    "secondaryColor": "#f43f5e",
+    "size": 96,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b9-ferris-wheel\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b9-ferris-wheel__wheel\"><span></span><span></span><span></span><span></span><span></span><span></span></div></div>",
+    "css": ".darma-loader-darma-b9-ferris-wheel { --accent: var(--loader-color, #0ea5e9); --accent-2: var(--loader-secondary-color, #f43f5e); width: var(--loader-size, 96px); height: var(--loader-size, 96px); position: relative; display: grid; place-items: center; }\n.darma-loader-darma-b9-ferris-wheel::after { content: ''; position: absolute; top: 50%; left: 50%; width: 12%; height: 12%; transform: translate(-50%, -50%); border-radius: 50%; background: var(--accent); z-index: 2; }\n.darma-loader-darma-b9-ferris-wheel .darma-loader-darma-b9-ferris-wheel__wheel { position: relative; width: 88%; height: 88%; border-radius: 50%; border: calc(var(--loader-size, 96px) * .02) solid color-mix(in srgb, var(--accent) 55%, transparent); animation: darma-loader-darma-b9-ferris-wheel-fw-spin calc(var(--loader-speed, 1s) * 4) linear infinite; }\n.darma-loader-darma-b9-ferris-wheel .darma-loader-darma-b9-ferris-wheel__wheel span { position: absolute; top: 50%; left: 50%; width: calc(var(--loader-size, 96px) * .15); height: calc(var(--loader-size, 96px) * .15); margin: calc(var(--loader-size, 96px) * -.075) 0 0 calc(var(--loader-size, 96px) * -.075); border-radius: 22% 22% 42% 42%; background: var(--accent-2); animation: darma-loader-darma-b9-ferris-wheel-fw-cabin calc(var(--loader-speed, 1s) * 4) linear infinite; }\n.darma-loader-darma-b9-ferris-wheel .darma-loader-darma-b9-ferris-wheel__wheel span:nth-child(1) { transform: rotate(0deg) translateY(calc(var(--loader-size, 96px) * -.44)); }\n.darma-loader-darma-b9-ferris-wheel .darma-loader-darma-b9-ferris-wheel__wheel span:nth-child(2) { transform: rotate(60deg) translateY(calc(var(--loader-size, 96px) * -.44)); }\n.darma-loader-darma-b9-ferris-wheel .darma-loader-darma-b9-ferris-wheel__wheel span:nth-child(3) { transform: rotate(120deg) translateY(calc(var(--loader-size, 96px) * -.44)); }\n.darma-loader-darma-b9-ferris-wheel .darma-loader-darma-b9-ferris-wheel__wheel span:nth-child(4) { transform: rotate(180deg) translateY(calc(var(--loader-size, 96px) * -.44)); }\n.darma-loader-darma-b9-ferris-wheel .darma-loader-darma-b9-ferris-wheel__wheel span:nth-child(5) { transform: rotate(240deg) translateY(calc(var(--loader-size, 96px) * -.44)); }\n.darma-loader-darma-b9-ferris-wheel .darma-loader-darma-b9-ferris-wheel__wheel span:nth-child(6) { transform: rotate(300deg) translateY(calc(var(--loader-size, 96px) * -.44)); }\n@keyframes darma-loader-darma-b9-ferris-wheel-fw-spin { to { rotate: 360deg; } }\n@keyframes darma-loader-darma-b9-ferris-wheel-fw-cabin { from { rotate: 0deg; } to { rotate: -360deg; } }",
+    "react": "export default function DarmaB9FerrisWheelLoader() {\n  return (\n    <div className=\"darma-loader-darma-b9-ferris-wheel\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b9-ferris-wheel__wheel\"><span></span><span></span><span></span><span></span><span></span><span></span></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 9",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

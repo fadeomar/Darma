@@ -1,0 +1,12 @@
+{
+  "id": "darma-b8-jelly-square",
+  "name": "Jelly Wobble",
+  "category": "fun",
+  "tags": ["jelly", "wobble", "squishy", "elastic", "fun"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); background: linear-gradient(135deg, var(--accent), var(--accent-2)); border-radius: 26%; box-shadow: 0 calc(var(--loader-size) * .06) calc(var(--loader-size) * .12) color-mix(in srgb, var(--accent) 35%, transparent); animation: jelly calc(var(--loader-speed) * 1) ease-in-out infinite; }\n@keyframes jelly { 0%, 100% { transform: scale(1, 1) skew(0deg, 0deg); } 25% { transform: scale(1.14, .84) skew(-5deg, 0deg); } 50% { transform: scale(.88, 1.14) skew(0deg, 4deg); } 75% { transform: scale(1.08, .94) skew(4deg, 0deg); } }",
+  "defaults": { "color": "#84cc16", "secondaryColor": "#22c55e", "size": 68, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 8", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

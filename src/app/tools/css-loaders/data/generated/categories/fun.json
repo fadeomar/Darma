@@ -546,6 +546,37 @@
     }
   },
   {
+    "id": "darma-b10-balloon-inflate",
+    "name": "Balloon Inflate",
+    "category": "fun",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "balloon",
+      "inflate",
+      "party",
+      "float",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-balloon-inflate balloon inflate fun darma-research-batch-10 darma research batch 10 balloon inflate party float fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b10-balloon-inflate\" aria-label=\"Loading\"><span></span></div>",
+    "previewCss": ".darma-loader-darma-b10-balloon-inflate { --accent: var(--loader-color, #ef4444); --accent-2: var(--loader-secondary-color, #f59e0b); width: var(--loader-size, 80px); height: var(--loader-size, 80px); position: relative; display: grid; place-items: center; }\n.darma-loader-darma-b10-balloon-inflate span { width: 52%; height: 62%; border-radius: 50% 50% 50% 50% / 56% 56% 44% 44%; background: radial-gradient(circle at 38% 32%, color-mix(in srgb, #fff 45%, var(--accent)), var(--accent) 72%, var(--accent-2)); transform-origin: 50% 88%; animation: darma-loader-darma-b10-balloon-inflate-inflate calc(var(--loader-speed, 1s) * 1.8) ease-in-out infinite; position: relative; }\n.darma-loader-darma-b10-balloon-inflate span::after { content: ''; position: absolute; bottom: -7%; left: 50%; width: 12%; height: 10%; margin-left: -6%; background: var(--accent-2); clip-path: polygon(50% 0, 100% 100%, 0 100%); }\n.darma-loader-darma-b10-balloon-inflate span::before { content: ''; position: absolute; top: 100%; left: 50%; width: 1px; height: calc(var(--loader-size, 80px) * .18); background: color-mix(in srgb, var(--accent) 45%, transparent); }\n@keyframes darma-loader-darma-b10-balloon-inflate-inflate { 0%, 100% { transform: scale(.58); } 50% { transform: scale(1); } }",
+    "defaults": {
+      "color": "#ef4444",
+      "secondaryColor": "#f59e0b",
+      "size": 80,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-custom-308",
     "name": "Bounce Rail",
     "category": "fun",
@@ -887,6 +918,99 @@
     }
   },
   {
+    "id": "darma-b11-butterfly",
+    "name": "Butterfly",
+    "category": "fun",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "butterfly",
+      "wings",
+      "flap",
+      "insect",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-butterfly butterfly fun darma-research-batch-11 darma research batch 11 butterfly wings flap insect fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b11-butterfly\" aria-label=\"Loading\"><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b11-butterfly { --accent: var(--loader-color, #8b5cf6); --accent-2: var(--loader-secondary-color, #f0abfc); width: var(--loader-size, 84px); height: var(--loader-size, 84px); position: relative; display: grid; place-items: center; }\n.darma-loader-darma-b11-butterfly span { position: absolute; width: 40%; height: 58%; background: radial-gradient(circle at 50% 38%, color-mix(in srgb, #fff 25%, var(--accent-2)), var(--accent)); border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%; }\n.darma-loader-darma-b11-butterfly span:nth-child(1) { left: 8%; transform-origin: right center; animation: darma-loader-darma-b11-butterfly-flap-l calc(var(--loader-speed, 1s) * .6) ease-in-out infinite; }\n.darma-loader-darma-b11-butterfly span:nth-child(2) { right: 8%; transform-origin: left center; animation: darma-loader-darma-b11-butterfly-flap-r calc(var(--loader-speed, 1s) * .6) ease-in-out infinite; }\n.darma-loader-darma-b11-butterfly::after { content: ''; position: absolute; left: 50%; top: 22%; width: calc(var(--loader-size, 84px) * .045); height: 56%; margin-left: calc(var(--loader-size, 84px) * -.0225); background: #1e293b; border-radius: 4px; z-index: 2; }\n@keyframes darma-loader-darma-b11-butterfly-flap-l { 0%, 100% { transform: perspective(220px) rotateY(0deg); } 50% { transform: perspective(220px) rotateY(72deg); } }\n@keyframes darma-loader-darma-b11-butterfly-flap-r { 0%, 100% { transform: perspective(220px) rotateY(0deg); } 50% { transform: perspective(220px) rotateY(-72deg); } }",
+    "defaults": {
+      "color": "#8b5cf6",
+      "secondaryColor": "#f0abfc",
+      "size": 84,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b11-campfire",
+    "name": "Campfire",
+    "category": "fun",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "campfire",
+      "fire",
+      "logs",
+      "flame",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-campfire campfire fun darma-research-batch-11 darma research batch 11 campfire fire logs flame fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b11-campfire\" aria-label=\"Loading\"><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b11-campfire { --accent: var(--loader-color, #f97316); --accent-2: var(--loader-secondary-color, #fde047); width: var(--loader-size, 84px); height: var(--loader-size, 84px); position: relative; }\n.darma-loader-darma-b11-campfire span { position: absolute; bottom: 24%; left: 50%; width: 32%; height: 46%; margin-left: -16%; background: radial-gradient(ellipse at 50% 82%, #fff, var(--accent-2) 34%, var(--accent) 76%); border-radius: 0 50% 50% 50%; transform: rotate(45deg); transform-origin: 50% 82%; box-shadow: 0 0 calc(var(--loader-size, 84px) * .2) color-mix(in srgb, var(--accent) 55%, transparent); animation: darma-loader-darma-b11-campfire-fire-a calc(var(--loader-speed, 1s) * .5) ease-in-out infinite alternate; }\n.darma-loader-darma-b11-campfire span:nth-child(2) { width: 20%; height: 30%; margin-left: -10%; bottom: 30%; background: radial-gradient(ellipse at 50% 82%, #fff, var(--accent-2) 45%, var(--accent) 85%); animation: darma-loader-darma-b11-campfire-fire-b calc(var(--loader-speed, 1s) * .38) ease-in-out infinite alternate; box-shadow: none; }\n.darma-loader-darma-b11-campfire::before, .darma-loader-darma-b11-campfire::after { content: ''; position: absolute; bottom: 14%; left: 50%; width: 46%; height: calc(var(--loader-size, 84px) * .06); margin-left: -23%; background: linear-gradient(#92400e, #78350f); border-radius: 4px; }\n.darma-loader-darma-b11-campfire::before { transform: rotate(16deg); }\n.darma-loader-darma-b11-campfire::after { transform: rotate(-16deg); }\n@keyframes darma-loader-darma-b11-campfire-fire-a { 0% { transform: rotate(45deg) scale(1, 1); } 100% { transform: rotate(45deg) scale(.88, 1.16); } }\n@keyframes darma-loader-darma-b11-campfire-fire-b { 0% { transform: rotate(45deg) scale(1.1, .9); } 100% { transform: rotate(45deg) scale(.9, 1.1); } }",
+    "defaults": {
+      "color": "#f97316",
+      "secondaryColor": "#fde047",
+      "size": 84,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b9-candle-flame",
+    "name": "Candle Flame",
+    "category": "fun",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "candle",
+      "flame",
+      "fire",
+      "flicker",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-candle-flame candle flame fun darma-research-batch-9 darma research batch 9 candle flame fire flicker fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b9-candle-flame\" aria-label=\"Loading\"><span></span></div>",
+    "previewCss": ".darma-loader-darma-b9-candle-flame { --accent: var(--loader-color, #f97316); --accent-2: var(--loader-secondary-color, #fde047); width: var(--loader-size, 76px); height: var(--loader-size, 76px); position: relative; display: grid; place-items: center; }\n.darma-loader-darma-b9-candle-flame span { width: 46%; height: 46%; background: radial-gradient(ellipse at 50% 68%, #fff 0%, var(--accent-2) 34%, var(--accent) 78%); border-radius: 0 50% 50% 50%; transform-origin: 50% 78%; box-shadow: 0 0 calc(var(--loader-size, 76px) * .22) color-mix(in srgb, var(--accent) 60%, transparent); animation: darma-loader-darma-b9-candle-flame-flame calc(var(--loader-speed, 1s) * .5) ease-in-out infinite alternate; }\n.darma-loader-darma-b9-candle-flame::after { content: ''; position: absolute; bottom: 16%; left: 50%; width: 6%; height: 12%; margin-left: -3%; border-radius: 2px; background: color-mix(in srgb, #94a3b8 80%, var(--accent)); }\n@keyframes darma-loader-darma-b9-candle-flame-flame { 0% { transform: rotate(45deg) scale(1, 1); } 100% { transform: rotate(45deg) scale(.9, 1.14); } }",
+    "defaults": {
+      "color": "#f97316",
+      "secondaryColor": "#fde047",
+      "size": 76,
+      "speed": 1
+    }
+  },
+  {
     "id": "uiverse-candlelight-duo",
     "name": "Candlelight Duo",
     "category": "fun",
@@ -1199,6 +1323,36 @@
     }
   },
   {
+    "id": "darma-b7-slinky-spring",
+    "name": "Coil Spring",
+    "category": "fun",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "spring",
+      "coil",
+      "slinky",
+      "compress",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-slinky-spring coil spring fun darma-research-batch-7 darma research batch 7 spring coil slinky compress fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b7-slinky-spring\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b7-slinky-spring { --accent: var(--loader-color, #d946ef); width: calc(var(--loader-size, 80px) * .6); height: var(--loader-size, 80px); display: flex; flex-direction: column; align-items: center; justify-content: center; }\n.darma-loader-darma-b7-slinky-spring span { width: 100%; height: calc(var(--loader-size, 80px) * .08); border: calc(var(--loader-size, 80px) * .028) solid var(--accent); border-radius: 50%; margin: calc(var(--loader-size, 80px) * .012) 0; animation: darma-loader-darma-b7-slinky-spring-coil calc(var(--loader-speed, 1s) * 1.2) ease-in-out infinite; }\n.darma-loader-darma-b7-slinky-spring span:nth-child(1) { animation-delay: 0s; }\n.darma-loader-darma-b7-slinky-spring span:nth-child(2) { animation-delay: calc(var(--loader-speed, 1s) * .1); }\n.darma-loader-darma-b7-slinky-spring span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * .2); }\n.darma-loader-darma-b7-slinky-spring span:nth-child(4) { animation-delay: calc(var(--loader-speed, 1s) * .3); }\n.darma-loader-darma-b7-slinky-spring span:nth-child(5) { animation-delay: calc(var(--loader-speed, 1s) * .4); }\n@keyframes darma-loader-darma-b7-slinky-spring-coil { 0%, 100% { transform: scaleX(.5); opacity: .4; } 50% { transform: scaleX(1); opacity: 1; } }",
+    "defaults": {
+      "color": "#d946ef",
+      "size": 80,
+      "speed": 1
+    }
+  },
+  {
     "id": "uiverse-comic-panel-loader",
     "name": "Comic Panel Loader",
     "category": "fun",
@@ -1259,6 +1413,37 @@
     "defaults": {
       "color": "#6366f1",
       "size": 48,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b9-confetti-fall",
+    "name": "Confetti Fall",
+    "category": "fun",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "confetti",
+      "fall",
+      "party",
+      "celebrate",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-confetti-fall confetti fall fun darma-research-batch-9 darma research batch 9 confetti fall party celebrate fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b9-confetti-fall\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b9-confetti-fall { --accent: var(--loader-color, #f472b6); --accent-2: var(--loader-secondary-color, #38bdf8); width: var(--loader-size, 80px); height: var(--loader-size, 80px); position: relative; overflow: hidden; }\n.darma-loader-darma-b9-confetti-fall span { position: absolute; top: -12%; width: calc(var(--loader-size, 80px) * .06); height: calc(var(--loader-size, 80px) * .11); border-radius: 2px; background: var(--accent); animation: darma-loader-darma-b9-confetti-fall-fall calc(var(--loader-speed, 1s) * 2.4) linear infinite; }\n.darma-loader-darma-b9-confetti-fall span:nth-child(even) { background: var(--accent-2); }\n.darma-loader-darma-b9-confetti-fall span:nth-child(1) { left: 12%; animation-delay: 0s; }\n.darma-loader-darma-b9-confetti-fall span:nth-child(2) { left: 30%; animation-delay: calc(var(--loader-speed, 1s) * .5); }\n.darma-loader-darma-b9-confetti-fall span:nth-child(3) { left: 48%; animation-delay: calc(var(--loader-speed, 1s) * 1); }\n.darma-loader-darma-b9-confetti-fall span:nth-child(4) { left: 64%; animation-delay: calc(var(--loader-speed, 1s) * .3); }\n.darma-loader-darma-b9-confetti-fall span:nth-child(5) { left: 80%; animation-delay: calc(var(--loader-speed, 1s) * 1.3); }\n.darma-loader-darma-b9-confetti-fall span:nth-child(6) { left: 90%; animation-delay: calc(var(--loader-speed, 1s) * .8); }\n@keyframes darma-loader-darma-b9-confetti-fall-fall { 0% { transform: translateY(0) rotate(0deg); opacity: 0; } 12% { opacity: 1; } 88% { opacity: 1; } 100% { transform: translateY(calc(var(--loader-size, 80px) * 1.15)) rotate(400deg); opacity: 0; } }",
+    "defaults": {
+      "color": "#f472b6",
+      "secondaryColor": "#38bdf8",
+      "size": 80,
       "speed": 1
     }
   },
@@ -1467,6 +1652,36 @@
       "size": 128,
       "speed": 1,
       "background": "transparent"
+    }
+  },
+  {
+    "id": "darma-b7-domino-fall",
+    "name": "Domino Fall",
+    "category": "fun",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "domino",
+      "tiles",
+      "fall",
+      "wave",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-domino-fall domino fall fun darma-research-batch-7 darma research batch 7 domino tiles fall wave fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b7-domino-fall\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b7-domino-fall { --accent: var(--loader-color, #7c3aed); width: var(--loader-size, 84px); height: calc(var(--loader-size, 84px) * .5); display: flex; align-items: flex-end; justify-content: space-between; }\n.darma-loader-darma-b7-domino-fall span { width: calc(var(--loader-size, 84px) * .1); height: 100%; background: var(--accent); border-radius: calc(var(--loader-size, 84px) * .02); transform-origin: 50% 100%; animation: darma-loader-darma-b7-domino-fall-domino calc(var(--loader-speed, 1s) * 1.6) ease-in-out infinite; }\n.darma-loader-darma-b7-domino-fall span:nth-child(1) { animation-delay: 0s; }\n.darma-loader-darma-b7-domino-fall span:nth-child(2) { animation-delay: calc(var(--loader-speed, 1s) * .12); }\n.darma-loader-darma-b7-domino-fall span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * .24); }\n.darma-loader-darma-b7-domino-fall span:nth-child(4) { animation-delay: calc(var(--loader-speed, 1s) * .36); }\n.darma-loader-darma-b7-domino-fall span:nth-child(5) { animation-delay: calc(var(--loader-speed, 1s) * .48); }\n@keyframes darma-loader-darma-b7-domino-fall-domino { 0% { transform: rotate(0deg); } 30%, 55% { transform: rotate(62deg); } 85%, 100% { transform: rotate(0deg); } }",
+    "defaults": {
+      "color": "#7c3aed",
+      "size": 84,
+      "speed": 1
     }
   },
   {
@@ -2072,6 +2287,37 @@
     }
   },
   {
+    "id": "darma-b9-ferris-wheel",
+    "name": "Ferris Wheel",
+    "category": "fun",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "ferris",
+      "wheel",
+      "carnival",
+      "cabins",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-ferris-wheel ferris wheel fun darma-research-batch-9 darma research batch 9 ferris wheel carnival cabins fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b9-ferris-wheel\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b9-ferris-wheel__wheel\"><span></span><span></span><span></span><span></span><span></span><span></span></div></div>",
+    "previewCss": ".darma-loader-darma-b9-ferris-wheel { --accent: var(--loader-color, #0ea5e9); --accent-2: var(--loader-secondary-color, #f43f5e); width: var(--loader-size, 96px); height: var(--loader-size, 96px); position: relative; display: grid; place-items: center; }\n.darma-loader-darma-b9-ferris-wheel::after { content: ''; position: absolute; top: 50%; left: 50%; width: 12%; height: 12%; transform: translate(-50%, -50%); border-radius: 50%; background: var(--accent); z-index: 2; }\n.darma-loader-darma-b9-ferris-wheel .darma-loader-darma-b9-ferris-wheel__wheel { position: relative; width: 88%; height: 88%; border-radius: 50%; border: calc(var(--loader-size, 96px) * .02) solid color-mix(in srgb, var(--accent) 55%, transparent); animation: darma-loader-darma-b9-ferris-wheel-fw-spin calc(var(--loader-speed, 1s) * 4) linear infinite; }\n.darma-loader-darma-b9-ferris-wheel .darma-loader-darma-b9-ferris-wheel__wheel span { position: absolute; top: 50%; left: 50%; width: calc(var(--loader-size, 96px) * .15); height: calc(var(--loader-size, 96px) * .15); margin: calc(var(--loader-size, 96px) * -.075) 0 0 calc(var(--loader-size, 96px) * -.075); border-radius: 22% 22% 42% 42%; background: var(--accent-2); animation: darma-loader-darma-b9-ferris-wheel-fw-cabin calc(var(--loader-speed, 1s) * 4) linear infinite; }\n.darma-loader-darma-b9-ferris-wheel .darma-loader-darma-b9-ferris-wheel__wheel span:nth-child(1) { transform: rotate(0deg) translateY(calc(var(--loader-size, 96px) * -.44)); }\n.darma-loader-darma-b9-ferris-wheel .darma-loader-darma-b9-ferris-wheel__wheel span:nth-child(2) { transform: rotate(60deg) translateY(calc(var(--loader-size, 96px) * -.44)); }\n.darma-loader-darma-b9-ferris-wheel .darma-loader-darma-b9-ferris-wheel__wheel span:nth-child(3) { transform: rotate(120deg) translateY(calc(var(--loader-size, 96px) * -.44)); }\n.darma-loader-darma-b9-ferris-wheel .darma-loader-darma-b9-ferris-wheel__wheel span:nth-child(4) { transform: rotate(180deg) translateY(calc(var(--loader-size, 96px) * -.44)); }\n.darma-loader-darma-b9-ferris-wheel .darma-loader-darma-b9-ferris-wheel__wheel span:nth-child(5) { transform: rotate(240deg) translateY(calc(var(--loader-size, 96px) * -.44)); }\n.darma-loader-darma-b9-ferris-wheel .darma-loader-darma-b9-ferris-wheel__wheel span:nth-child(6) { transform: rotate(300deg) translateY(calc(var(--loader-size, 96px) * -.44)); }\n@keyframes darma-loader-darma-b9-ferris-wheel-fw-spin { to { rotate: 360deg; } }\n@keyframes darma-loader-darma-b9-ferris-wheel-fw-cabin { from { rotate: 0deg; } to { rotate: -360deg; } }",
+    "defaults": {
+      "color": "#0ea5e9",
+      "secondaryColor": "#f43f5e",
+      "size": 96,
+      "speed": 1
+    }
+  },
+  {
     "id": "ferris-wheel",
     "name": "Ferris Wheel",
     "category": "fun",
@@ -2099,6 +2345,100 @@
     "defaults": {
       "color": "#6366f1",
       "size": 56,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b11-fidget-spinner",
+    "name": "Fidget Spinner",
+    "category": "fun",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "fidget",
+      "spinner",
+      "toy",
+      "spin",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-fidget-spinner fidget spinner fun darma-research-batch-11 darma research batch 11 fidget spinner toy spin fun html css react popular customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b11-fidget-spinner\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b11-fidget-spinner__spinner\"><span></span><span></span><span></span></div></div>",
+    "previewCss": ".darma-loader-darma-b11-fidget-spinner { --accent: var(--loader-color, #22d3ee); --accent-2: var(--loader-secondary-color, #3b82f6); width: var(--loader-size, 88px); height: var(--loader-size, 88px); position: relative; display: grid; place-items: center; }\n.darma-loader-darma-b11-fidget-spinner::after { content: ''; position: absolute; width: 16%; height: 16%; border-radius: 50%; background: radial-gradient(circle, #e2e8f0, #94a3b8); z-index: 2; }\n.darma-loader-darma-b11-fidget-spinner .darma-loader-darma-b11-fidget-spinner__spinner { position: relative; width: 82%; height: 82%; animation: darma-loader-darma-b11-fidget-spinner-fspin calc(var(--loader-speed, 1s) * .5) linear infinite; }\n.darma-loader-darma-b11-fidget-spinner .darma-loader-darma-b11-fidget-spinner__spinner span { position: absolute; top: 50%; left: 50%; width: calc(var(--loader-size, 88px) * .34); height: calc(var(--loader-size, 88px) * .34); margin: calc(var(--loader-size, 88px) * -.17) 0 0 calc(var(--loader-size, 88px) * -.17); border-radius: 50%; background: radial-gradient(circle at 40% 35%, color-mix(in srgb, #fff 30%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b11-fidget-spinner .darma-loader-darma-b11-fidget-spinner__spinner span:nth-child(2) { background: radial-gradient(circle at 40% 35%, color-mix(in srgb, #fff 30%, var(--accent-2)), var(--accent-2)); }\n.darma-loader-darma-b11-fidget-spinner .darma-loader-darma-b11-fidget-spinner__spinner span:nth-child(1) { transform: rotate(0deg) translateY(calc(var(--loader-size, 88px) * -.24)); }\n.darma-loader-darma-b11-fidget-spinner .darma-loader-darma-b11-fidget-spinner__spinner span:nth-child(2) { transform: rotate(120deg) translateY(calc(var(--loader-size, 88px) * -.24)); }\n.darma-loader-darma-b11-fidget-spinner .darma-loader-darma-b11-fidget-spinner__spinner span:nth-child(3) { transform: rotate(240deg) translateY(calc(var(--loader-size, 88px) * -.24)); }\n@keyframes darma-loader-darma-b11-fidget-spinner-fspin { to { transform: rotate(360deg); } }",
+    "defaults": {
+      "color": "#22d3ee",
+      "secondaryColor": "#3b82f6",
+      "size": 88,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b10-fireflies",
+    "name": "Fireflies",
+    "category": "fun",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "fireflies",
+      "glow",
+      "drift",
+      "night",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-fireflies fireflies fun darma-research-batch-10 darma research batch 10 fireflies glow drift night fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b10-fireflies\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b10-fireflies { --accent: var(--loader-color, #fde047); --accent-2: var(--loader-secondary-color, #a3e635); width: var(--loader-size, 88px); height: var(--loader-size, 88px); position: relative; }\n.darma-loader-darma-b10-fireflies span { position: absolute; width: calc(var(--loader-size, 88px) * .1); height: calc(var(--loader-size, 88px) * .1); border-radius: 50%; background: radial-gradient(circle, #fff, var(--accent)); box-shadow: 0 0 calc(var(--loader-size, 88px) * .14) var(--accent); }\n.darma-loader-darma-b10-fireflies span:nth-child(odd) { background: radial-gradient(circle, #fff, var(--accent-2)); box-shadow: 0 0 calc(var(--loader-size, 88px) * .14) var(--accent-2); }\n.darma-loader-darma-b10-fireflies span:nth-child(1) { left: 8%; top: 20%; animation: darma-loader-darma-b10-fireflies-fly-a calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b10-fireflies span:nth-child(2) { left: 60%; top: 12%; animation: darma-loader-darma-b10-fireflies-fly-b calc(var(--loader-speed, 1s) * 3.4) ease-in-out infinite; }\n.darma-loader-darma-b10-fireflies span:nth-child(3) { left: 30%; top: 60%; animation: darma-loader-darma-b10-fireflies-fly-a calc(var(--loader-speed, 1s) * 2.6) ease-in-out infinite; }\n.darma-loader-darma-b10-fireflies span:nth-child(4) { left: 72%; top: 64%; animation: darma-loader-darma-b10-fireflies-fly-b calc(var(--loader-speed, 1s) * 3.8) ease-in-out infinite; }\n.darma-loader-darma-b10-fireflies span:nth-child(5) { left: 46%; top: 38%; animation: darma-loader-darma-b10-fireflies-fly-a calc(var(--loader-speed, 1s) * 3.2) ease-in-out infinite; }\n@keyframes darma-loader-darma-b10-fireflies-fly-a { 0%, 100% { transform: translate(0, 0); opacity: .3; } 25% { transform: translate(55%, 25%); opacity: 1; } 50% { transform: translate(20%, 60%); opacity: .5; } 75% { transform: translate(-25%, 35%); opacity: 1; } }\n@keyframes darma-loader-darma-b10-fireflies-fly-b { 0%, 100% { transform: translate(0, 0); opacity: 1; } 30% { transform: translate(-45%, 30%); opacity: .4; } 60% { transform: translate(-15%, -35%); opacity: 1; } 80% { transform: translate(30%, -20%); opacity: .6; } }",
+    "defaults": {
+      "color": "#fde047",
+      "secondaryColor": "#a3e635",
+      "size": 88,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b8-fireworks-burst",
+    "name": "Fireworks Burst",
+    "category": "fun",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "fireworks",
+      "burst",
+      "particles",
+      "explode",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-fireworks-burst fireworks burst fun darma-research-batch-8 darma research batch 8 fireworks burst particles explode fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b8-fireworks-burst\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b8-fireworks-burst { --accent: var(--loader-color, #f472b6); --accent-2: var(--loader-secondary-color, #fde047); width: var(--loader-size, 88px); height: var(--loader-size, 88px); position: relative; }\n.darma-loader-darma-b8-fireworks-burst span { position: absolute; top: 50%; left: 50%; width: calc(var(--loader-size, 88px) * .08); height: calc(var(--loader-size, 88px) * .08); margin: calc(var(--loader-size, 88px) * -.04) 0 0 calc(var(--loader-size, 88px) * -.04); border-radius: 50%; background: var(--accent); animation: darma-loader-darma-b8-fireworks-burst-burst calc(var(--loader-speed, 1s) * 1.6) ease-out infinite; }\n.darma-loader-darma-b8-fireworks-burst span:nth-child(even) { background: var(--accent-2); }\n.darma-loader-darma-b8-fireworks-burst span:nth-child(1) { --a: 0deg; }\n.darma-loader-darma-b8-fireworks-burst span:nth-child(2) { --a: 36deg; }\n.darma-loader-darma-b8-fireworks-burst span:nth-child(3) { --a: 72deg; }\n.darma-loader-darma-b8-fireworks-burst span:nth-child(4) { --a: 108deg; }\n.darma-loader-darma-b8-fireworks-burst span:nth-child(5) { --a: 144deg; }\n.darma-loader-darma-b8-fireworks-burst span:nth-child(6) { --a: 180deg; }\n.darma-loader-darma-b8-fireworks-burst span:nth-child(7) { --a: 216deg; }\n.darma-loader-darma-b8-fireworks-burst span:nth-child(8) { --a: 252deg; }\n.darma-loader-darma-b8-fireworks-burst span:nth-child(9) { --a: 288deg; }\n.darma-loader-darma-b8-fireworks-burst span:nth-child(10) { --a: 324deg; }\n@keyframes darma-loader-darma-b8-fireworks-burst-burst { 0% { transform: rotate(var(--a)) translateX(0) scale(1); opacity: 1; } 70% { opacity: 1; } 100% { transform: rotate(var(--a)) translateX(calc(var(--loader-size, 88px) * .42)) scale(.2); opacity: 0; } }",
+    "defaults": {
+      "color": "#f472b6",
+      "secondaryColor": "#fde047",
+      "size": 88,
       "speed": 1
     }
   },
@@ -2517,6 +2857,38 @@
     }
   },
   {
+    "id": "darma-b9-heartbeat",
+    "name": "Heartbeat",
+    "category": "fun",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "heart",
+      "beat",
+      "love",
+      "pulse",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-heartbeat heartbeat fun darma-research-batch-9 darma research batch 9 heart beat love pulse fun html css react popular customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b9-heartbeat\" aria-label=\"Loading\"><span></span></div>",
+    "previewCss": ".darma-loader-darma-b9-heartbeat { --accent: var(--loader-color, #e11d48); --accent-2: var(--loader-secondary-color, #fb7185); width: var(--loader-size, 72px); height: var(--loader-size, 72px); position: relative; animation: darma-loader-darma-b9-heartbeat-beat calc(var(--loader-speed, 1s) * 1.2) ease-in-out infinite; }\n.darma-loader-darma-b9-heartbeat span { position: absolute; top: 32%; left: 50%; width: 42%; height: 42%; transform: translateX(-50%) rotate(-45deg); background: linear-gradient(45deg, var(--accent-2), var(--accent)); box-shadow: 0 0 calc(var(--loader-size, 72px) * .18) color-mix(in srgb, var(--accent) 55%, transparent); }\n.darma-loader-darma-b9-heartbeat span::before, .darma-loader-darma-b9-heartbeat span::after { content: ''; position: absolute; width: 100%; height: 100%; border-radius: 50%; background: inherit; }\n.darma-loader-darma-b9-heartbeat span::before { top: -50%; left: 0; }\n.darma-loader-darma-b9-heartbeat span::after { top: 0; left: 50%; }\n@keyframes darma-loader-darma-b9-heartbeat-beat { 0%, 100% { transform: scale(.82); } 15% { transform: scale(1.05); } 30% { transform: scale(.9); } 45% { transform: scale(1); } 60% { transform: scale(.82); } }",
+    "defaults": {
+      "color": "#e11d48",
+      "secondaryColor": "#fb7185",
+      "size": 72,
+      "speed": 1
+    }
+  },
+  {
     "id": "uiverse-heartbeat-medallion",
     "name": "Heartbeat Medallion",
     "category": "fun",
@@ -2697,6 +3069,37 @@
     }
   },
   {
+    "id": "darma-b11-hot-air-balloon",
+    "name": "Hot Air Balloon",
+    "category": "fun",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "balloon",
+      "hot-air",
+      "float",
+      "sky",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-hot-air-balloon hot air balloon fun darma-research-batch-11 darma research batch 11 balloon hot-air float sky fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b11-hot-air-balloon\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b11-hot-air-balloon__balloon\"></div></div>",
+    "previewCss": ".darma-loader-darma-b11-hot-air-balloon { --accent: var(--loader-color, #f43f5e); --accent-2: var(--loader-secondary-color, #fb923c); width: var(--loader-size, 88px); height: var(--loader-size, 88px); position: relative; overflow: hidden; }\n.darma-loader-darma-b11-hot-air-balloon .darma-loader-darma-b11-hot-air-balloon__balloon { position: absolute; left: 50%; bottom: 22%; width: 48%; height: 54%; margin-left: -24%; background: radial-gradient(circle at 40% 30%, color-mix(in srgb, #fff 35%, var(--accent)), var(--accent) 58%, var(--accent-2)); border-radius: 50% 50% 50% 50% / 44% 44% 64% 64%; animation: darma-loader-darma-b11-hot-air-balloon-hab calc(var(--loader-speed, 1s) * 2.6) ease-in-out infinite; }\n.darma-loader-darma-b11-hot-air-balloon .darma-loader-darma-b11-hot-air-balloon__balloon::before { content: ''; position: absolute; top: 100%; left: 50%; width: 38%; height: calc(var(--loader-size, 88px) * .12); margin-left: -19%; border-left: 2px solid color-mix(in srgb, #000 30%, var(--accent)); border-right: 2px solid color-mix(in srgb, #000 30%, var(--accent)); }\n.darma-loader-darma-b11-hot-air-balloon .darma-loader-darma-b11-hot-air-balloon__balloon::after { content: ''; position: absolute; top: 100%; left: 50%; width: 22%; height: 16%; margin-left: -11%; margin-top: calc(var(--loader-size, 88px) * .11); background: #92400e; border-radius: 2px 2px 5px 5px; }\n@keyframes darma-loader-darma-b11-hot-air-balloon-hab { 0%, 100% { transform: translateY(6%) rotate(-3deg); } 50% { transform: translateY(-9%) rotate(3deg); } }",
+    "defaults": {
+      "color": "#f43f5e",
+      "secondaryColor": "#fb923c",
+      "size": 88,
+      "speed": 1
+    }
+  },
+  {
     "id": "hot-air-balloon",
     "name": "Hot Air Balloon",
     "category": "fun",
@@ -2723,6 +3126,68 @@
     "defaults": {
       "color": "#6366f1",
       "size": 56,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b8-jelly-square",
+    "name": "Jelly Wobble",
+    "category": "fun",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "jelly",
+      "wobble",
+      "squishy",
+      "elastic",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-jelly-square jelly wobble fun darma-research-batch-8 darma research batch 8 jelly wobble squishy elastic fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b8-jelly-square\" aria-label=\"Loading\"></div>",
+    "previewCss": ".darma-loader-darma-b8-jelly-square { --accent: var(--loader-color, #84cc16); --accent-2: var(--loader-secondary-color, #22c55e); width: var(--loader-size, 68px); height: var(--loader-size, 68px); background: linear-gradient(135deg, var(--accent), var(--accent-2)); border-radius: 26%; box-shadow: 0 calc(var(--loader-size, 68px) * .06) calc(var(--loader-size, 68px) * .12) color-mix(in srgb, var(--accent) 35%, transparent); animation: darma-loader-darma-b8-jelly-square-jelly calc(var(--loader-speed, 1s) * 1) ease-in-out infinite; }\n@keyframes darma-loader-darma-b8-jelly-square-jelly { 0%, 100% { transform: scale(1, 1) skew(0deg, 0deg); } 25% { transform: scale(1.14, .84) skew(-5deg, 0deg); } 50% { transform: scale(.88, 1.14) skew(0deg, 4deg); } 75% { transform: scale(1.08, .94) skew(4deg, 0deg); } }",
+    "defaults": {
+      "color": "#84cc16",
+      "secondaryColor": "#22c55e",
+      "size": 68,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b11-jellyfish",
+    "name": "Jellyfish",
+    "category": "fun",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "jellyfish",
+      "ocean",
+      "float",
+      "tentacles",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-jellyfish jellyfish fun darma-research-batch-11 darma research batch 11 jellyfish ocean float tentacles fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b11-jellyfish\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b11-jellyfish__bell\"></div></div>",
+    "previewCss": ".darma-loader-darma-b11-jellyfish { --accent: var(--loader-color, #a855f7); --accent-2: var(--loader-secondary-color, #ec4899); width: var(--loader-size, 88px); height: var(--loader-size, 88px); position: relative; display: grid; place-items: center; }\n.darma-loader-darma-b11-jellyfish .darma-loader-darma-b11-jellyfish__bell { position: relative; width: 46%; height: 34%; background: radial-gradient(circle at 45% 32%, color-mix(in srgb, #fff 45%, var(--accent)), var(--accent) 68%, var(--accent-2)); border-radius: 50% 50% 32% 32%; box-shadow: 0 0 calc(var(--loader-size, 88px) * .16) color-mix(in srgb, var(--accent) 45%, transparent); animation: darma-loader-darma-b11-jellyfish-jelly-pulse calc(var(--loader-speed, 1s) * 1.8) ease-in-out infinite; }\n.darma-loader-darma-b11-jellyfish .darma-loader-darma-b11-jellyfish__bell::after { content: ''; position: absolute; top: 88%; left: 6%; width: 88%; height: 130%; background: repeating-linear-gradient(90deg, var(--accent) 0 9%, transparent 9% 20%); -webkit-mask: linear-gradient(#000, transparent 88%); mask: linear-gradient(#000, transparent 88%); border-radius: 0 0 40% 40%; transform-origin: 50% 0; animation: darma-loader-darma-b11-jellyfish-jelly-sway calc(var(--loader-speed, 1s) * 1.8) ease-in-out infinite; }\n@keyframes darma-loader-darma-b11-jellyfish-jelly-pulse { 0%, 100% { transform: scale(1, 1); } 50% { transform: scale(1.08, .82); } }\n@keyframes darma-loader-darma-b11-jellyfish-jelly-sway { 0%, 100% { transform: skewX(7deg); } 50% { transform: skewX(-7deg); } }",
+    "defaults": {
+      "color": "#a855f7",
+      "secondaryColor": "#ec4899",
+      "size": 88,
       "speed": 1
     }
   },
@@ -2931,6 +3396,37 @@
     }
   },
   {
+    "id": "darma-b10-light-bulb",
+    "name": "Light Bulb",
+    "category": "fun",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "bulb",
+      "light",
+      "idea",
+      "glow",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-light-bulb light bulb fun darma-research-batch-10 darma research batch 10 bulb light idea glow fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b10-light-bulb\" aria-label=\"Loading\"><span></span></div>",
+    "previewCss": ".darma-loader-darma-b10-light-bulb { --accent: var(--loader-color, #fbbf24); --accent-2: var(--loader-secondary-color, #94a3b8); width: var(--loader-size, 80px); height: var(--loader-size, 80px); position: relative; display: grid; place-items: center; }\n.darma-loader-darma-b10-light-bulb span { width: 44%; height: 54%; border-radius: 50% 50% 46% 46%; background: radial-gradient(circle at 44% 34%, color-mix(in srgb, #fff 60%, var(--accent)), var(--accent)); box-shadow: 0 0 calc(var(--loader-size, 80px) * .28) var(--accent); position: relative; animation: darma-loader-darma-b10-light-bulb-bulb calc(var(--loader-speed, 1s) * 1.4) ease-in-out infinite; }\n.darma-loader-darma-b10-light-bulb span::before { content: ''; position: absolute; top: 42%; left: 50%; width: 22%; height: 26%; margin-left: -11%; border: 2px solid color-mix(in srgb, #000 25%, var(--accent)); border-top: none; border-radius: 0 0 60% 60%; }\n.darma-loader-darma-b10-light-bulb span::after { content: ''; position: absolute; bottom: -20%; left: 50%; width: 30%; height: 22%; margin-left: -15%; background: color-mix(in srgb, var(--accent-2) 45%, #64748b); border-radius: 3px 3px 5px 5px; }\n@keyframes darma-loader-darma-b10-light-bulb-bulb { 0%, 100% { opacity: .5; box-shadow: 0 0 calc(var(--loader-size, 80px) * .08) var(--accent); } 50% { opacity: 1; box-shadow: 0 0 calc(var(--loader-size, 80px) * .32) var(--accent); } }",
+    "defaults": {
+      "color": "#fbbf24",
+      "secondaryColor": "#94a3b8",
+      "size": 80,
+      "speed": 1
+    }
+  },
+  {
     "id": "light-bulb-flicker",
     "name": "Light Bulb Flicker",
     "category": "fun",
@@ -3071,6 +3567,37 @@
     }
   },
   {
+    "id": "darma-b11-matrix-rain",
+    "name": "Matrix Rain",
+    "category": "fun",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "matrix",
+      "code",
+      "rain",
+      "digital",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-matrix-rain matrix rain fun darma-research-batch-11 darma research batch 11 matrix code rain digital fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b11-matrix-rain\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b11-matrix-rain { --accent: var(--loader-color, #22c55e); --accent-2: var(--loader-secondary-color, #86efac); width: var(--loader-size, 84px); height: var(--loader-size, 84px); position: relative; overflow: hidden; border-radius: 10%; background: #0a0f0a; }\n.darma-loader-darma-b11-matrix-rain span { position: absolute; top: 0; width: 13%; height: 42%; background: linear-gradient(transparent, var(--accent) 62%, color-mix(in srgb, #fff 60%, var(--accent-2))); border-radius: 4px; animation: darma-loader-darma-b11-matrix-rain-mrain calc(var(--loader-speed, 1s) * 1.6) linear infinite; }\n.darma-loader-darma-b11-matrix-rain span:nth-child(1) { left: 6%; animation-duration: calc(var(--loader-speed, 1s) * 1.4); animation-delay: 0s; }\n.darma-loader-darma-b11-matrix-rain span:nth-child(2) { left: 26%; animation-duration: calc(var(--loader-speed, 1s) * 2); animation-delay: calc(var(--loader-speed, 1s) * -.6); }\n.darma-loader-darma-b11-matrix-rain span:nth-child(3) { left: 46%; animation-duration: calc(var(--loader-speed, 1s) * 1.7); animation-delay: calc(var(--loader-speed, 1s) * -1); }\n.darma-loader-darma-b11-matrix-rain span:nth-child(4) { left: 66%; animation-duration: calc(var(--loader-speed, 1s) * 2.3); animation-delay: calc(var(--loader-speed, 1s) * -.3); }\n.darma-loader-darma-b11-matrix-rain span:nth-child(5) { left: 84%; animation-duration: calc(var(--loader-speed, 1s) * 1.5); animation-delay: calc(var(--loader-speed, 1s) * -1.4); }\n@keyframes darma-loader-darma-b11-matrix-rain-mrain { 0% { transform: translateY(-110%); } 100% { transform: translateY(255%); } }",
+    "defaults": {
+      "color": "#22c55e",
+      "secondaryColor": "#86efac",
+      "size": 84,
+      "speed": 1
+    }
+  },
+  {
     "id": "uiverse-matrix-rain-digits",
     "name": "Matrix Rain Digits",
     "category": "fun",
@@ -3103,6 +3630,37 @@
       "size": 128,
       "speed": 1,
       "background": "transparent"
+    }
+  },
+  {
+    "id": "darma-b7-metronome-pendulum",
+    "name": "Metronome",
+    "category": "fun",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "metronome",
+      "pendulum",
+      "swing",
+      "tick",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-metronome-pendulum metronome fun darma-research-batch-7 darma research batch 7 metronome pendulum swing tick fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b7-metronome-pendulum\" aria-label=\"Loading\"><span></span></div>",
+    "previewCss": ".darma-loader-darma-b7-metronome-pendulum { --accent: var(--loader-color, #b45309); --accent-2: var(--loader-secondary-color, #ef4444); width: var(--loader-size, 80px); height: var(--loader-size, 80px); position: relative; }\n.darma-loader-darma-b7-metronome-pendulum span { position: absolute; left: 50%; top: 12%; width: calc(var(--loader-size, 80px) * .05); height: 76%; margin-left: calc(var(--loader-size, 80px) * -.025); background: var(--accent); border-radius: calc(var(--loader-size, 80px) * .05); transform-origin: 50% 100%; animation: darma-loader-darma-b7-metronome-pendulum-swing calc(var(--loader-speed, 1s) * 1.6) ease-in-out infinite; }\n.darma-loader-darma-b7-metronome-pendulum span::after { content: ''; position: absolute; top: -8%; left: 50%; width: calc(var(--loader-size, 80px) * .24); height: calc(var(--loader-size, 80px) * .24); margin-left: calc(var(--loader-size, 80px) * -.12); border-radius: 50%; background: var(--accent-2); }\n@keyframes darma-loader-darma-b7-metronome-pendulum-swing { 0%, 100% { transform: rotate(38deg); } 50% { transform: rotate(-38deg); } }",
+    "defaults": {
+      "color": "#b45309",
+      "secondaryColor": "#ef4444",
+      "size": 80,
+      "speed": 1
     }
   },
   {
@@ -3430,6 +3988,38 @@
     }
   },
   {
+    "id": "darma-b8-pacman-chase",
+    "name": "Pac Chase",
+    "category": "fun",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "pacman",
+      "chomp",
+      "dots",
+      "arcade",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-pacman-chase pac chase fun darma-research-batch-8 darma research batch 8 pacman chomp dots arcade fun html css react popular customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b8-pacman-chase\" aria-label=\"Loading\"><i class=\"darma-loader-darma-b8-pacman-chase__head\"></i><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b8-pacman-chase { --accent: var(--loader-color, #facc15); --accent-2: var(--loader-secondary-color, #f8fafc); width: var(--loader-size, 96px); height: calc(var(--loader-size, 96px) * .44); position: relative; display: flex; align-items: center; }\n.darma-loader-darma-b8-pacman-chase .darma-loader-darma-b8-pacman-chase__head { position: relative; width: calc(var(--loader-size, 96px) * .44); height: calc(var(--loader-size, 96px) * .44); flex: none; }\n.darma-loader-darma-b8-pacman-chase .darma-loader-darma-b8-pacman-chase__head::before, .darma-loader-darma-b8-pacman-chase .darma-loader-darma-b8-pacman-chase__head::after { content: ''; position: absolute; left: 0; width: 100%; height: 50%; background: var(--accent); }\n.darma-loader-darma-b8-pacman-chase .darma-loader-darma-b8-pacman-chase__head::before { top: 0; border-radius: 100% 100% 0 0 / 200% 200% 0 0; transform-origin: 50% 100%; animation: darma-loader-darma-b8-pacman-chase-jaw-top calc(var(--loader-speed, 1s) * .5) ease-in-out infinite; }\n.darma-loader-darma-b8-pacman-chase .darma-loader-darma-b8-pacman-chase__head::after { bottom: 0; border-radius: 0 0 100% 100% / 0 0 200% 200%; transform-origin: 50% 0%; animation: darma-loader-darma-b8-pacman-chase-jaw-bottom calc(var(--loader-speed, 1s) * .5) ease-in-out infinite; }\n.darma-loader-darma-b8-pacman-chase span { width: calc(var(--loader-size, 96px) * .1); height: calc(var(--loader-size, 96px) * .1); margin-left: calc(var(--loader-size, 96px) * .13); border-radius: 50%; background: var(--accent-2); animation: darma-loader-darma-b8-pacman-chase-eat calc(var(--loader-speed, 1s) * 1.5) linear infinite; }\n.darma-loader-darma-b8-pacman-chase span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * .5); }\n.darma-loader-darma-b8-pacman-chase span:nth-child(4) { animation-delay: calc(var(--loader-speed, 1s) * 1); }\n@keyframes darma-loader-darma-b8-pacman-chase-jaw-top { 0%, 100% { transform: rotate(-38deg); } 50% { transform: rotate(0deg); } }\n@keyframes darma-loader-darma-b8-pacman-chase-jaw-bottom { 0%, 100% { transform: rotate(38deg); } 50% { transform: rotate(0deg); } }\n@keyframes darma-loader-darma-b8-pacman-chase-eat { 0% { transform: translateX(0); opacity: 1; } 100% { transform: translateX(calc(var(--loader-size, 96px) * -.2)); opacity: 0; } }",
+    "defaults": {
+      "color": "#facc15",
+      "secondaryColor": "#f8fafc",
+      "size": 96,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-custom-094",
     "name": "Pacman Quarter Orbit",
     "category": "fun",
@@ -3500,6 +4090,37 @@
       "size": 128,
       "speed": 1,
       "background": "transparent"
+    }
+  },
+  {
+    "id": "darma-b11-paper-plane-loop",
+    "name": "Paper Plane",
+    "category": "fun",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "plane",
+      "paper",
+      "fly",
+      "loop",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-paper-plane-loop paper plane fun darma-research-batch-11 darma research batch 11 plane paper fly loop fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b11-paper-plane-loop\" aria-label=\"Loading\"><span></span></div>",
+    "previewCss": ".darma-loader-darma-b11-paper-plane-loop { --accent: var(--loader-color, #0ea5e9); --accent-2: var(--loader-secondary-color, #94a3b8); width: var(--loader-size, 88px); height: var(--loader-size, 88px); position: relative; }\n.darma-loader-darma-b11-paper-plane-loop::before { content: ''; position: absolute; inset: 22%; border-radius: 50%; border: 1px dashed color-mix(in srgb, var(--accent-2) 40%, transparent); }\n.darma-loader-darma-b11-paper-plane-loop span { position: absolute; top: 50%; left: 50%; width: 0; height: 0; border-left: calc(var(--loader-size, 88px) * .18) solid var(--accent); border-top: calc(var(--loader-size, 88px) * .1) solid transparent; border-bottom: calc(var(--loader-size, 88px) * .1) solid transparent; margin: calc(var(--loader-size, 88px) * -.1) 0 0 calc(var(--loader-size, 88px) * -.09); animation: darma-loader-darma-b11-paper-plane-loop-fly calc(var(--loader-speed, 1s) * 3) linear infinite; }\n@keyframes darma-loader-darma-b11-paper-plane-loop-fly { from { transform: rotate(0deg) translateX(calc(var(--loader-size, 88px) * .3)) rotate(115deg); } to { transform: rotate(360deg) translateX(calc(var(--loader-size, 88px) * .3)) rotate(115deg); } }",
+    "defaults": {
+      "color": "#0ea5e9",
+      "secondaryColor": "#94a3b8",
+      "size": 88,
+      "speed": 1
     }
   },
   {
@@ -3666,6 +4287,37 @@
     }
   },
   {
+    "id": "darma-b11-piano-keys",
+    "name": "Piano Keys",
+    "category": "fun",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "piano",
+      "keys",
+      "music",
+      "press",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-piano-keys piano keys fun darma-research-batch-11 darma research batch 11 piano keys music press fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b11-piano-keys\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b11-piano-keys { --accent: var(--loader-color, #8b5cf6); --accent-2: var(--loader-secondary-color, #ec4899); width: var(--loader-size, 96px); height: calc(var(--loader-size, 96px) * .5); display: flex; gap: calc(var(--loader-size, 96px) * .015); perspective: 300px; }\n.darma-loader-darma-b11-piano-keys span { flex: 1; background: #f8fafc; border-radius: 0 0 5px 5px; transform-origin: top center; box-shadow: inset 0 -4px 6px rgba(0, 0, 0, .12); animation: darma-loader-darma-b11-piano-keys-press calc(var(--loader-speed, 1s) * 1.2) ease-in-out infinite; }\n.darma-loader-darma-b11-piano-keys span:nth-child(1) { animation-delay: 0s; }\n.darma-loader-darma-b11-piano-keys span:nth-child(2) { animation-delay: calc(var(--loader-speed, 1s) * .12); }\n.darma-loader-darma-b11-piano-keys span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * .24); }\n.darma-loader-darma-b11-piano-keys span:nth-child(4) { animation-delay: calc(var(--loader-speed, 1s) * .36); }\n.darma-loader-darma-b11-piano-keys span:nth-child(5) { animation-delay: calc(var(--loader-speed, 1s) * .48); }\n@keyframes darma-loader-darma-b11-piano-keys-press { 0%, 100% { transform: rotateX(0deg); background: #f8fafc; } 50% { transform: rotateX(30deg); background: linear-gradient(var(--accent), var(--accent-2)); } }",
+    "defaults": {
+      "color": "#8b5cf6",
+      "secondaryColor": "#ec4899",
+      "size": 96,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-custom-314",
     "name": "Ping Box Bounce",
     "category": "fun",
@@ -3703,6 +4355,68 @@
       "size": 64,
       "speed": 1,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-b9-ping-pong",
+    "name": "Ping Pong",
+    "category": "fun",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "pong",
+      "ball",
+      "paddle",
+      "bounce",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-ping-pong ping pong fun darma-research-batch-9 darma research batch 9 pong ball paddle bounce fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b9-ping-pong\" aria-label=\"Loading\"><span></span></div>",
+    "previewCss": ".darma-loader-darma-b9-ping-pong { --accent: var(--loader-color, #e2e8f0); --accent-2: var(--loader-secondary-color, #facc15); width: var(--loader-size, 96px); height: calc(var(--loader-size, 96px) * .5); position: relative; }\n.darma-loader-darma-b9-ping-pong::before, .darma-loader-darma-b9-ping-pong::after { content: ''; position: absolute; top: 50%; width: calc(var(--loader-size, 96px) * .06); height: 56%; margin-top: -28%; border-radius: calc(var(--loader-size, 96px) * .03); background: var(--accent); }\n.darma-loader-darma-b9-ping-pong::before { left: 0; animation: darma-loader-darma-b9-ping-pong-paddle-l calc(var(--loader-speed, 1s) * 1.2) ease-in-out infinite; }\n.darma-loader-darma-b9-ping-pong::after { right: 0; animation: darma-loader-darma-b9-ping-pong-paddle-r calc(var(--loader-speed, 1s) * 1.2) ease-in-out infinite; }\n.darma-loader-darma-b9-ping-pong span { position: absolute; top: 50%; left: 10%; width: calc(var(--loader-size, 96px) * .1); height: calc(var(--loader-size, 96px) * .1); margin-top: calc(var(--loader-size, 96px) * -.05); border-radius: 50%; background: var(--accent-2); animation: darma-loader-darma-b9-ping-pong-ball calc(var(--loader-speed, 1s) * 1.2) ease-in-out infinite; }\n@keyframes darma-loader-darma-b9-ping-pong-ball { 0%, 100% { left: 10%; top: 30%; } 50% { left: 78%; top: 60%; } }\n@keyframes darma-loader-darma-b9-ping-pong-paddle-l { 0%, 100% { transform: translateY(-18%); } 50% { transform: translateY(14%); } }\n@keyframes darma-loader-darma-b9-ping-pong-paddle-r { 0%, 100% { transform: translateY(14%); } 50% { transform: translateY(-18%); } }",
+    "defaults": {
+      "color": "#e2e8f0",
+      "secondaryColor": "#facc15",
+      "size": 96,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b8-pinwheel-spin",
+    "name": "Pinwheel",
+    "category": "fun",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "pinwheel",
+      "windmill",
+      "blades",
+      "spin",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-pinwheel-spin pinwheel fun darma-research-batch-8 darma research batch 8 pinwheel windmill blades spin fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b8-pinwheel-spin\" aria-label=\"Loading\"></div>",
+    "previewCss": ".darma-loader-darma-b8-pinwheel-spin { --accent: var(--loader-color, #0ea5e9); --accent-2: var(--loader-secondary-color, #f43f5e); width: var(--loader-size, 76px); height: var(--loader-size, 76px); border-radius: 10%; background: conic-gradient(var(--accent) 0deg 90deg, var(--accent-2) 90deg 180deg, var(--accent) 180deg 270deg, var(--accent-2) 270deg 360deg); clip-path: polygon(50% 50%, 100% 0, 100% 50%, 50% 50%, 100% 100%, 50% 100%, 50% 50%, 0 100%, 0 50%, 50% 50%, 0 0, 50% 0); animation: darma-loader-darma-b8-pinwheel-spin-spin calc(var(--loader-speed, 1s) * 1.4) linear infinite; }\n@keyframes darma-loader-darma-b8-pinwheel-spin-spin { to { transform: rotate(360deg); } }",
+    "defaults": {
+      "color": "#0ea5e9",
+      "secondaryColor": "#f43f5e",
+      "size": 76,
+      "speed": 1
     }
   },
   {
@@ -3883,6 +4597,37 @@
     }
   },
   {
+    "id": "darma-b11-printer-print",
+    "name": "Printer",
+    "category": "fun",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "printer",
+      "print",
+      "paper",
+      "office",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-printer-print printer fun darma-research-batch-11 darma research batch 11 printer print paper office fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b11-printer-print\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b11-printer-print__paper\"></div><div class=\"darma-loader-darma-b11-printer-print__body\"></div></div>",
+    "previewCss": ".darma-loader-darma-b11-printer-print { --accent: var(--loader-color, #3b82f6); --accent-2: var(--loader-secondary-color, #22d3ee); width: var(--loader-size, 88px); height: var(--loader-size, 88px); position: relative; }\n.darma-loader-darma-b11-printer-print .darma-loader-darma-b11-printer-print__body { position: absolute; left: 14%; bottom: 20%; width: 72%; height: 38%; background: linear-gradient(#94a3b8, #475569); border-radius: 8px 8px 10px 10px; z-index: 2; }\n.darma-loader-darma-b11-printer-print .darma-loader-darma-b11-printer-print__body::after { content: ''; position: absolute; bottom: 22%; left: 12%; width: 30%; height: 14%; border-radius: 3px; background: var(--accent-2); box-shadow: 0 0 calc(var(--loader-size, 88px) * .06) var(--accent-2); }\n.darma-loader-darma-b11-printer-print .darma-loader-darma-b11-printer-print__paper { position: absolute; left: 28%; bottom: 57%; width: 44%; height: 0; background: #fff; border: 1px solid #cbd5e1; overflow: hidden; animation: darma-loader-darma-b11-printer-print-print calc(var(--loader-speed, 1s) * 2.4) ease-in-out infinite; }\n.darma-loader-darma-b11-printer-print .darma-loader-darma-b11-printer-print__paper::before { content: ''; position: absolute; inset: 14% 12%; background: repeating-linear-gradient(var(--accent) 0 12%, transparent 12% 30%); }\n@keyframes darma-loader-darma-b11-printer-print-print { 0% { height: 0; } 45%, 100% { height: 46%; } }",
+    "defaults": {
+      "color": "#3b82f6",
+      "secondaryColor": "#22d3ee",
+      "size": 88,
+      "speed": 1
+    }
+  },
+  {
     "id": "printer-paper",
     "name": "Printer Paper",
     "category": "fun",
@@ -3909,6 +4654,68 @@
     "defaults": {
       "color": "#6366f1",
       "size": 56,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b11-rain-cloud",
+    "name": "Rain Cloud",
+    "category": "fun",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "rain",
+      "cloud",
+      "weather",
+      "drops",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-rain-cloud rain cloud fun darma-research-batch-11 darma research batch 11 rain cloud weather drops fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b11-rain-cloud\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b11-rain-cloud__cloud\"></div><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b11-rain-cloud { --accent: var(--loader-color, #38bdf8); --accent-2: var(--loader-secondary-color, #818cf8); width: var(--loader-size, 88px); height: var(--loader-size, 88px); position: relative; }\n.darma-loader-darma-b11-rain-cloud .darma-loader-darma-b11-rain-cloud__cloud { position: absolute; top: 22%; left: 50%; width: 56%; height: 22%; margin-left: -28%; background: linear-gradient(#f1f5f9, #94a3b8); border-radius: 40px; }\n.darma-loader-darma-b11-rain-cloud .darma-loader-darma-b11-rain-cloud__cloud::before { content: ''; position: absolute; bottom: 0; left: 12%; width: 42%; height: 150%; background: inherit; border-radius: 50%; }\n.darma-loader-darma-b11-rain-cloud .darma-loader-darma-b11-rain-cloud__cloud::after { content: ''; position: absolute; bottom: 0; right: 10%; width: 50%; height: 130%; background: inherit; border-radius: 50%; }\n.darma-loader-darma-b11-rain-cloud span { position: absolute; top: 52%; width: calc(var(--loader-size, 88px) * .04); height: calc(var(--loader-size, 88px) * .13); border-radius: 0 0 4px 4px; background: var(--accent); animation: darma-loader-darma-b11-rain-cloud-drop calc(var(--loader-speed, 1s) * 1) linear infinite; }\n.darma-loader-darma-b11-rain-cloud span:nth-child(even) { background: var(--accent-2); }\n.darma-loader-darma-b11-rain-cloud span:nth-child(1) { left: 32%; animation-delay: 0s; }\n.darma-loader-darma-b11-rain-cloud span:nth-child(2) { left: 46%; animation-delay: calc(var(--loader-speed, 1s) * .35); }\n.darma-loader-darma-b11-rain-cloud span:nth-child(3) { left: 60%; animation-delay: calc(var(--loader-speed, 1s) * .15); }\n.darma-loader-darma-b11-rain-cloud span:nth-child(4) { left: 68%; animation-delay: calc(var(--loader-speed, 1s) * .55); }\n@keyframes darma-loader-darma-b11-rain-cloud-drop { 0% { transform: translateY(0); opacity: 0; } 20% { opacity: 1; } 100% { transform: translateY(140%); opacity: 0; } }",
+    "defaults": {
+      "color": "#38bdf8",
+      "secondaryColor": "#818cf8",
+      "size": 88,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b9-rocket-launch",
+    "name": "Rocket Launch",
+    "category": "fun",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "rocket",
+      "launch",
+      "space",
+      "flame",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-rocket-launch rocket launch fun darma-research-batch-9 darma research batch 9 rocket launch space flame fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b9-rocket-launch\" aria-label=\"Loading\"><i class=\"darma-loader-darma-b9-rocket-launch__rocket\"></i></div>",
+    "previewCss": ".darma-loader-darma-b9-rocket-launch { --accent: var(--loader-color, #ef4444); --accent-2: var(--loader-secondary-color, #cbd5e1); width: var(--loader-size, 80px); height: var(--loader-size, 80px); position: relative; overflow: hidden; }\n.darma-loader-darma-b9-rocket-launch .darma-loader-darma-b9-rocket-launch__rocket { position: absolute; left: 50%; bottom: 0; width: calc(var(--loader-size, 80px) * .24); height: calc(var(--loader-size, 80px) * .42); margin-left: calc(var(--loader-size, 80px) * -.12); background: linear-gradient(color-mix(in srgb, #fff 30%, var(--accent-2)), var(--accent)); border-radius: 50% 50% 30% 30%; animation: darma-loader-darma-b9-rocket-launch-launch calc(var(--loader-speed, 1s) * 2) ease-in infinite; }\n.darma-loader-darma-b9-rocket-launch .darma-loader-darma-b9-rocket-launch__rocket::before { content: ''; position: absolute; bottom: calc(var(--loader-size, 80px) * -.12); left: 50%; width: 60%; height: calc(var(--loader-size, 80px) * .16); margin-left: -30%; background: linear-gradient(#fef08a, #f97316); border-radius: 0 0 50% 50%; clip-path: polygon(0 0, 100% 0, 50% 100%); animation: darma-loader-darma-b9-rocket-launch-flame calc(var(--loader-speed, 1s) * .18) ease-in-out infinite alternate; }\n.darma-loader-darma-b9-rocket-launch .darma-loader-darma-b9-rocket-launch__rocket::after { content: ''; position: absolute; top: 26%; left: 50%; width: 40%; height: 40%; margin-left: -20%; border-radius: 50%; background: color-mix(in srgb, #fff 55%, var(--accent-2)); }\n@keyframes darma-loader-darma-b9-rocket-launch-launch { 0% { transform: translateY(85%); opacity: 0; } 16% { opacity: 1; } 84% { opacity: 1; } 100% { transform: translateY(-125%); opacity: 0; } }\n@keyframes darma-loader-darma-b9-rocket-launch-flame { 0% { transform: scaleY(.8); } 100% { transform: scaleY(1.2); } }",
+    "defaults": {
+      "color": "#ef4444",
+      "secondaryColor": "#cbd5e1",
+      "size": 80,
       "speed": 1
     }
   },
@@ -3978,6 +4785,37 @@
     }
   },
   {
+    "id": "darma-b10-dice-roll",
+    "name": "Rolling Dice",
+    "category": "fun",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "dice",
+      "die",
+      "roll",
+      "game",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-dice-roll rolling dice fun darma-research-batch-10 darma research batch 10 dice die roll game fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b10-dice-roll\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b10-dice-roll__die\"><span></span><span></span><span></span><span></span><span></span></div></div>",
+    "previewCss": ".darma-loader-darma-b10-dice-roll { --accent: var(--loader-color, #1e293b); --accent-2: var(--loader-secondary-color, #f43f5e); width: var(--loader-size, 76px); height: var(--loader-size, 76px); display: grid; place-items: center; perspective: 500px; }\n.darma-loader-darma-b10-dice-roll .darma-loader-darma-b10-dice-roll__die { position: relative; width: 56%; height: 56%; border-radius: 18%; background: linear-gradient(135deg, #fff, color-mix(in srgb, var(--accent-2) 32%, #fff)); box-shadow: inset 0 0 calc(var(--loader-size, 76px) * .05) rgba(0, 0, 0, .12); animation: darma-loader-darma-b10-dice-roll-roll calc(var(--loader-speed, 1s) * 1.6) cubic-bezier(.7, 0, .3, 1) infinite; }\n.darma-loader-darma-b10-dice-roll .darma-loader-darma-b10-dice-roll__die span { position: absolute; width: 17%; height: 17%; border-radius: 50%; background: var(--accent); }\n.darma-loader-darma-b10-dice-roll .darma-loader-darma-b10-dice-roll__die span:nth-child(1) { top: 16%; left: 16%; }\n.darma-loader-darma-b10-dice-roll .darma-loader-darma-b10-dice-roll__die span:nth-child(2) { top: 16%; right: 16%; }\n.darma-loader-darma-b10-dice-roll .darma-loader-darma-b10-dice-roll__die span:nth-child(3) { top: 41.5%; left: 41.5%; }\n.darma-loader-darma-b10-dice-roll .darma-loader-darma-b10-dice-roll__die span:nth-child(4) { bottom: 16%; left: 16%; }\n.darma-loader-darma-b10-dice-roll .darma-loader-darma-b10-dice-roll__die span:nth-child(5) { bottom: 16%; right: 16%; }\n@keyframes darma-loader-darma-b10-dice-roll-roll { 0% { transform: rotateX(0deg) rotateY(0deg); } 50% { transform: rotateX(190deg) rotateY(90deg); } 100% { transform: rotateX(360deg) rotateY(180deg); } }",
+    "defaults": {
+      "color": "#1e293b",
+      "secondaryColor": "#f43f5e",
+      "size": 76,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-custom-310",
     "name": "Rolling Floor Bounce",
     "category": "fun",
@@ -4015,6 +4853,37 @@
       "size": 64,
       "speed": 1,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-b9-rolling-wheel",
+    "name": "Rolling Wheel",
+    "category": "fun",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "wheel",
+      "roll",
+      "spokes",
+      "tire",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-rolling-wheel rolling wheel fun darma-research-batch-9 darma research batch 9 wheel roll spokes tire fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b9-rolling-wheel\" aria-label=\"Loading\"><span></span></div>",
+    "previewCss": ".darma-loader-darma-b9-rolling-wheel { --accent: var(--loader-color, #334155); --accent-2: var(--loader-secondary-color, #f59e0b); width: var(--loader-size, 88px); height: calc(var(--loader-size, 88px) * .58); position: relative; }\n.darma-loader-darma-b9-rolling-wheel::after { content: ''; position: absolute; left: 0; right: 0; bottom: 6%; height: 2px; background: color-mix(in srgb, var(--accent) 30%, transparent); }\n.darma-loader-darma-b9-rolling-wheel span { position: absolute; left: 0; bottom: 8%; width: calc(var(--loader-size, 88px) * .5); height: calc(var(--loader-size, 88px) * .5); border-radius: 50%; border: calc(var(--loader-size, 88px) * .05) solid var(--accent); box-sizing: border-box; animation: darma-loader-darma-b9-rolling-wheel-roll calc(var(--loader-speed, 1s) * 2) linear infinite; }\n.darma-loader-darma-b9-rolling-wheel span::before, .darma-loader-darma-b9-rolling-wheel span::after { content: ''; position: absolute; inset: 28% 46%; background: var(--accent-2); border-radius: 2px; }\n.darma-loader-darma-b9-rolling-wheel span::after { transform: rotate(90deg); }\n@keyframes darma-loader-darma-b9-rolling-wheel-roll { 0% { transform: translateX(0) rotate(0deg); } 100% { transform: translateX(calc(var(--loader-size, 88px) * .5)) rotate(360deg); } }",
+    "defaults": {
+      "color": "#334155",
+      "secondaryColor": "#f59e0b",
+      "size": 88,
+      "speed": 1
     }
   },
   {
@@ -4124,6 +4993,37 @@
     "defaults": {
       "color": "#6366f1",
       "size": 56,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b8-magnifier-search",
+    "name": "Search Scan",
+    "category": "fun",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "magnifier",
+      "search",
+      "scan",
+      "find",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-magnifier-search search scan fun darma-research-batch-8 darma research batch 8 magnifier search scan find fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b8-magnifier-search\" aria-label=\"Loading\"><span></span></div>",
+    "previewCss": ".darma-loader-darma-b8-magnifier-search { --accent: var(--loader-color, #64748b); --accent-2: var(--loader-secondary-color, #38bdf8); width: var(--loader-size, 80px); height: var(--loader-size, 80px); position: relative; }\n.darma-loader-darma-b8-magnifier-search span { position: absolute; left: 50%; top: 50%; width: calc(var(--loader-size, 80px) * .4); height: calc(var(--loader-size, 80px) * .4); margin: calc(var(--loader-size, 80px) * -.2) 0 0 calc(var(--loader-size, 80px) * -.2); border: calc(var(--loader-size, 80px) * .06) solid var(--accent); border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--accent-2) 18%, transparent), transparent 70%); animation: darma-loader-darma-b8-magnifier-search-search calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b8-magnifier-search span::after { content: ''; position: absolute; right: calc(var(--loader-size, 80px) * -.13); bottom: calc(var(--loader-size, 80px) * -.07); width: calc(var(--loader-size, 80px) * .2); height: calc(var(--loader-size, 80px) * .07); border-radius: 4px; background: var(--accent); transform: rotate(45deg); transform-origin: left center; }\n@keyframes darma-loader-darma-b8-magnifier-search-search { 0%, 100% { transform: translate(-42%, -40%); } 25% { transform: translate(12%, -32%); } 50% { transform: translate(22%, 20%); } 75% { transform: translate(-30%, 12%); } }",
+    "defaults": {
+      "color": "#64748b",
+      "secondaryColor": "#38bdf8",
+      "size": 80,
       "speed": 1
     }
   },
@@ -4270,6 +5170,37 @@
       "size": 128,
       "speed": 1,
       "background": "#111827"
+    }
+  },
+  {
+    "id": "darma-b10-slot-reels",
+    "name": "Slot Reels",
+    "category": "fun",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "slot",
+      "reels",
+      "casino",
+      "spin",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-slot-reels slot reels fun darma-research-batch-10 darma research batch 10 slot reels casino spin fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b10-slot-reels\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b10-slot-reels { --accent: var(--loader-color, #f43f5e); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 92px); height: calc(var(--loader-size, 92px) * .7); display: flex; gap: calc(var(--loader-size, 92px) * .04); background: #1f2937; border-radius: calc(var(--loader-size, 92px) * .08); padding: calc(var(--loader-size, 92px) * .05); box-sizing: border-box; }\n.darma-loader-darma-b10-slot-reels span { flex: 1; overflow: hidden; border-radius: calc(var(--loader-size, 92px) * .04); background: #0f172a; position: relative; }\n.darma-loader-darma-b10-slot-reels span::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 300%; background: repeating-linear-gradient(var(--accent) 0 16.66%, var(--accent-2) 16.66% 33.33%); animation: darma-loader-darma-b10-slot-reels-reel calc(var(--loader-speed, 1s) * .8) linear infinite; }\n.darma-loader-darma-b10-slot-reels span:nth-child(2)::before { animation-duration: calc(var(--loader-speed, 1s) * .6); }\n.darma-loader-darma-b10-slot-reels span:nth-child(3)::before { animation-duration: calc(var(--loader-speed, 1s) * 1); }\n@keyframes darma-loader-darma-b10-slot-reels-reel { to { transform: translateY(-33.33%); } }",
+    "defaults": {
+      "color": "#f43f5e",
+      "secondaryColor": "#fbbf24",
+      "size": 92,
+      "speed": 1
     }
   },
   {
@@ -4755,6 +5686,68 @@
     }
   },
   {
+    "id": "darma-b10-ceiling-fan",
+    "name": "Spinning Fan",
+    "category": "fun",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "fan",
+      "blades",
+      "propeller",
+      "spin",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-ceiling-fan spinning fan fun darma-research-batch-10 darma research batch 10 fan blades propeller spin fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b10-ceiling-fan\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b10-ceiling-fan__fan\"><span></span><span></span><span></span></div></div>",
+    "previewCss": ".darma-loader-darma-b10-ceiling-fan { --accent: var(--loader-color, #14b8a6); --accent-2: var(--loader-secondary-color, #5eead4); width: var(--loader-size, 84px); height: var(--loader-size, 84px); position: relative; display: grid; place-items: center; }\n.darma-loader-darma-b10-ceiling-fan::after { content: ''; position: absolute; top: 50%; left: 50%; width: 14%; height: 14%; transform: translate(-50%, -50%); border-radius: 50%; background: var(--accent); z-index: 2; }\n.darma-loader-darma-b10-ceiling-fan .darma-loader-darma-b10-ceiling-fan__fan { position: relative; width: 82%; height: 82%; animation: darma-loader-darma-b10-ceiling-fan-spin calc(var(--loader-speed, 1s) * .55) linear infinite; }\n.darma-loader-darma-b10-ceiling-fan .darma-loader-darma-b10-ceiling-fan__fan span { position: absolute; top: 50%; left: 50%; width: 44%; height: 17%; margin-top: -8.5%; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 60%, var(--accent-2)), var(--accent-2)); border-radius: 30% 60% 60% 30%; transform-origin: left center; }\n.darma-loader-darma-b10-ceiling-fan .darma-loader-darma-b10-ceiling-fan__fan span:nth-child(1) { transform: rotate(0deg); }\n.darma-loader-darma-b10-ceiling-fan .darma-loader-darma-b10-ceiling-fan__fan span:nth-child(2) { transform: rotate(120deg); }\n.darma-loader-darma-b10-ceiling-fan .darma-loader-darma-b10-ceiling-fan__fan span:nth-child(3) { transform: rotate(240deg); }\n@keyframes darma-loader-darma-b10-ceiling-fan-spin { to { transform: rotate(360deg); } }",
+    "defaults": {
+      "color": "#14b8a6",
+      "secondaryColor": "#5eead4",
+      "size": 84,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b8-spinning-top",
+    "name": "Spinning Top",
+    "category": "fun",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "top",
+      "spin",
+      "toy",
+      "wobble",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-spinning-top spinning top fun darma-research-batch-8 darma research batch 8 top spin toy wobble fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b8-spinning-top\" aria-label=\"Loading\"><span></span></div>",
+    "previewCss": ".darma-loader-darma-b8-spinning-top { --accent: var(--loader-color, #e11d48); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 80px); height: var(--loader-size, 80px); position: relative; transform-origin: 50% 92%; animation: darma-loader-darma-b8-spinning-top-wobble calc(var(--loader-speed, 1s) * 2) ease-in-out infinite; }\n.darma-loader-darma-b8-spinning-top span { position: absolute; left: 50%; top: 16%; width: 56%; height: 68%; margin-left: -28%; background: conic-gradient(var(--accent) 0deg 90deg, var(--accent-2) 90deg 180deg, var(--accent) 180deg 270deg, var(--accent-2) 270deg 360deg); clip-path: polygon(0 0, 100% 0, 50% 100%); animation: darma-loader-darma-b8-spinning-top-spin calc(var(--loader-speed, 1s) * .35) linear infinite; }\n.darma-loader-darma-b8-spinning-top::after { content: ''; position: absolute; left: 50%; top: 9%; width: 56%; height: 15%; margin-left: -28%; border-radius: 50%; background: var(--accent-2); }\n@keyframes darma-loader-darma-b8-spinning-top-spin { to { transform: rotate(360deg); } }\n@keyframes darma-loader-darma-b8-spinning-top-wobble { 0%, 100% { transform: rotate(-9deg); } 50% { transform: rotate(9deg); } }",
+    "defaults": {
+      "color": "#e11d48",
+      "secondaryColor": "#fbbf24",
+      "size": 80,
+      "speed": 1
+    }
+  },
+  {
     "id": "spinning-top",
     "name": "Spinning Top",
     "category": "fun",
@@ -4856,6 +5849,98 @@
       "size": 60,
       "speed": 1,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-b10-sprout-grow",
+    "name": "Sprout",
+    "category": "fun",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "sprout",
+      "plant",
+      "grow",
+      "leaf",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-sprout-grow sprout fun darma-research-batch-10 darma research batch 10 sprout plant grow leaf fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b10-sprout-grow\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b10-sprout-grow__plant\"><span></span><span></span></div></div>",
+    "previewCss": ".darma-loader-darma-b10-sprout-grow { --accent: var(--loader-color, #22c55e); --accent-2: var(--loader-secondary-color, #65a30d); width: var(--loader-size, 84px); height: var(--loader-size, 84px); display: grid; place-items: end center; }\n.darma-loader-darma-b10-sprout-grow .darma-loader-darma-b10-sprout-grow__plant { position: relative; width: calc(var(--loader-size, 84px) * .06); height: 62%; background: linear-gradient(var(--accent-2), color-mix(in srgb, #fff 25%, var(--accent-2))); border-radius: 4px; transform-origin: 50% 100%; animation: darma-loader-darma-b10-sprout-grow-grow calc(var(--loader-speed, 1s) * 2.4) ease-in-out infinite; }\n.darma-loader-darma-b10-sprout-grow .darma-loader-darma-b10-sprout-grow__plant span { position: absolute; width: calc(var(--loader-size, 84px) * .26); height: calc(var(--loader-size, 84px) * .16); background: var(--accent); }\n.darma-loader-darma-b10-sprout-grow .darma-loader-darma-b10-sprout-grow__plant span:nth-child(1) { top: 2%; right: 60%; border-radius: 0 100% 0 100%; transform-origin: right center; transform: rotate(20deg); }\n.darma-loader-darma-b10-sprout-grow .darma-loader-darma-b10-sprout-grow__plant span:nth-child(2) { top: 24%; left: 60%; border-radius: 100% 0 100% 0; transform-origin: left center; transform: rotate(-20deg); }\n@keyframes darma-loader-darma-b10-sprout-grow-grow { 0% { transform: scaleY(0); } 65%, 92% { transform: scaleY(1); } 100% { transform: scaleY(1); opacity: .2; } }",
+    "defaults": {
+      "color": "#22c55e",
+      "secondaryColor": "#65a30d",
+      "size": 84,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b7-squash-bounce-ball",
+    "name": "Squash Bounce",
+    "category": "fun",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "ball",
+      "bounce",
+      "squash",
+      "shadow",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-squash-bounce-ball squash bounce fun darma-research-batch-7 darma research batch 7 ball bounce squash shadow fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b7-squash-bounce-ball\" aria-label=\"Loading\"><span></span></div>",
+    "previewCss": ".darma-loader-darma-b7-squash-bounce-ball { --accent: var(--loader-color, #f97316); width: var(--loader-size, 76px); height: var(--loader-size, 76px); position: relative; }\n.darma-loader-darma-b7-squash-bounce-ball span { position: absolute; left: 50%; top: 6%; width: calc(var(--loader-size, 76px) * .32); height: calc(var(--loader-size, 76px) * .32); margin-left: calc(var(--loader-size, 76px) * -.16); border-radius: 50%; background: radial-gradient(circle at 35% 30%, color-mix(in srgb, #fff 45%, var(--accent)), var(--accent)); transform-origin: center bottom; animation: darma-loader-darma-b7-squash-bounce-ball-bounce calc(var(--loader-speed, 1s) * .9) cubic-bezier(.5, .05, .5, .95) infinite; }\n.darma-loader-darma-b7-squash-bounce-ball::after { content: ''; position: absolute; left: 50%; bottom: 5%; width: 46%; height: 8%; margin-left: -23%; border-radius: 50%; background: color-mix(in srgb, var(--accent) 45%, transparent); animation: darma-loader-darma-b7-squash-bounce-ball-shadow calc(var(--loader-speed, 1s) * .9) cubic-bezier(.5, .05, .5, .95) infinite; }\n@keyframes darma-loader-darma-b7-squash-bounce-ball-bounce { 0%, 100% { transform: translateY(0) scale(1, 1); } 50% { transform: translateY(calc(var(--loader-size, 76px) * .55)) scale(1.18, .8); } }\n@keyframes darma-loader-darma-b7-squash-bounce-ball-shadow { 0%, 100% { transform: scale(.55); opacity: .35; } 50% { transform: scale(1.1); opacity: .7; } }",
+    "defaults": {
+      "color": "#f97316",
+      "size": 76,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b8-stacking-blocks",
+    "name": "Stacking Blocks",
+    "category": "fun",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "blocks",
+      "stack",
+      "build",
+      "tower",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-stacking-blocks stacking blocks fun darma-research-batch-8 darma research batch 8 blocks stack build tower fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b8-stacking-blocks\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b8-stacking-blocks { --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #ef4444); width: var(--loader-size, 76px); height: var(--loader-size, 76px); position: relative; }\n.darma-loader-darma-b8-stacking-blocks span { position: absolute; left: 50%; width: 52%; height: 17%; margin-left: -26%; border-radius: 14%; background: linear-gradient(var(--accent), var(--accent-2)); opacity: 0; animation: darma-loader-darma-b8-stacking-blocks-stack calc(var(--loader-speed, 1s) * 2) ease-in infinite; }\n.darma-loader-darma-b8-stacking-blocks span:nth-child(1) { bottom: 8%; animation-delay: 0s; }\n.darma-loader-darma-b8-stacking-blocks span:nth-child(2) { bottom: 30%; animation-delay: calc(var(--loader-speed, 1s) * .4); }\n.darma-loader-darma-b8-stacking-blocks span:nth-child(3) { bottom: 52%; animation-delay: calc(var(--loader-speed, 1s) * .8); }\n.darma-loader-darma-b8-stacking-blocks span:nth-child(4) { bottom: 74%; animation-delay: calc(var(--loader-speed, 1s) * 1.2); }\n@keyframes darma-loader-darma-b8-stacking-blocks-stack { 0% { transform: translateY(calc(var(--loader-size, 76px) * -.7)); opacity: 0; } 18% { opacity: 1; } 35%, 92% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(0); opacity: 0; } }",
+    "defaults": {
+      "color": "#f59e0b",
+      "secondaryColor": "#ef4444",
+      "size": 76,
+      "speed": 1
     }
   },
   {
@@ -5182,6 +6267,37 @@
     }
   },
   {
+    "id": "darma-b10-tetris-drop",
+    "name": "Tetris Drop",
+    "category": "fun",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "tetris",
+      "blocks",
+      "drop",
+      "puzzle",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-tetris-drop tetris drop fun darma-research-batch-10 darma research batch 10 tetris blocks drop puzzle fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b10-tetris-drop\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b10-tetris-drop { --accent: var(--loader-color, #06b6d4); --accent-2: var(--loader-secondary-color, #f59e0b); width: var(--loader-size, 76px); height: var(--loader-size, 76px); position: relative; }\n.darma-loader-darma-b10-tetris-drop span { position: absolute; width: 44%; height: 44%; border-radius: 12%; border: calc(var(--loader-size, 76px) * .012) solid color-mix(in srgb, #fff 30%, transparent); opacity: 0; animation: darma-loader-darma-b10-tetris-drop-drop calc(var(--loader-speed, 1s) * 2) ease-in infinite; }\n.darma-loader-darma-b10-tetris-drop span:nth-child(1) { left: 4%; top: 4%; background: var(--accent); animation-delay: 0s; }\n.darma-loader-darma-b10-tetris-drop span:nth-child(2) { right: 4%; top: 4%; background: var(--accent-2); animation-delay: calc(var(--loader-speed, 1s) * .3); }\n.darma-loader-darma-b10-tetris-drop span:nth-child(3) { left: 4%; bottom: 4%; background: var(--accent-2); animation-delay: calc(var(--loader-speed, 1s) * .6); }\n.darma-loader-darma-b10-tetris-drop span:nth-child(4) { right: 4%; bottom: 4%; background: var(--accent); animation-delay: calc(var(--loader-speed, 1s) * .9); }\n@keyframes darma-loader-darma-b10-tetris-drop-drop { 0% { transform: translateY(-130%); opacity: 0; } 12% { opacity: 1; } 32%, 88% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(0); opacity: 0; } }",
+    "defaults": {
+      "color": "#06b6d4",
+      "secondaryColor": "#f59e0b",
+      "size": 76,
+      "speed": 1
+    }
+  },
+  {
     "id": "tetris-drop",
     "name": "Tetris Drop",
     "category": "fun",
@@ -5244,6 +6360,35 @@
       "size": 80,
       "speed": 2,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-b9-traffic-light",
+    "name": "Traffic Light",
+    "category": "fun",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "traffic",
+      "light",
+      "signal",
+      "stop",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-traffic-light traffic light fun darma-research-batch-9 darma research batch 9 traffic light signal stop fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b9-traffic-light\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b9-traffic-light { width: calc(var(--loader-size, 96px) * .4); height: var(--loader-size, 96px); border-radius: calc(var(--loader-size, 96px) * .12); background: #1f2937; display: flex; flex-direction: column; align-items: center; justify-content: space-around; padding: calc(var(--loader-size, 96px) * .06) 0; box-sizing: border-box; }\n.darma-loader-darma-b9-traffic-light span { width: 62%; aspect-ratio: 1; border-radius: 50%; }\n.darma-loader-darma-b9-traffic-light span:nth-child(1) { background: #ef4444; animation: darma-loader-darma-b9-traffic-light-tl-a calc(var(--loader-speed, 1s) * 3) infinite; }\n.darma-loader-darma-b9-traffic-light span:nth-child(2) { background: #f59e0b; animation: darma-loader-darma-b9-traffic-light-tl-b calc(var(--loader-speed, 1s) * 3) infinite; }\n.darma-loader-darma-b9-traffic-light span:nth-child(3) { background: #22c55e; animation: darma-loader-darma-b9-traffic-light-tl-c calc(var(--loader-speed, 1s) * 3) infinite; }\n@keyframes darma-loader-darma-b9-traffic-light-tl-a { 0%, 30% { opacity: 1; box-shadow: 0 0 calc(var(--loader-size, 96px) * .1) #ef4444; } 31%, 100% { opacity: .18; box-shadow: none; } }\n@keyframes darma-loader-darma-b9-traffic-light-tl-b { 0%, 30% { opacity: .18; } 31%, 63% { opacity: 1; box-shadow: 0 0 calc(var(--loader-size, 96px) * .1) #f59e0b; } 64%, 100% { opacity: .18; } }\n@keyframes darma-loader-darma-b9-traffic-light-tl-c { 0%, 63% { opacity: .18; } 64%, 100% { opacity: 1; box-shadow: 0 0 calc(var(--loader-size, 96px) * .1) #22c55e; } }",
+    "defaults": {
+      "size": 96,
+      "speed": 1
     }
   },
   {
@@ -5452,6 +6597,37 @@
     }
   },
   {
+    "id": "darma-b11-ufo-beam",
+    "name": "UFO Beam",
+    "category": "fun",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "ufo",
+      "alien",
+      "beam",
+      "space",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-ufo-beam ufo beam fun darma-research-batch-11 darma research batch 11 ufo alien beam space fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b11-ufo-beam\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b11-ufo-beam__ufo\"></div></div>",
+    "previewCss": ".darma-loader-darma-b11-ufo-beam { --accent: var(--loader-color, #22c55e); --accent-2: var(--loader-secondary-color, #bbf7d0); width: var(--loader-size, 88px); height: var(--loader-size, 88px); position: relative; overflow: hidden; }\n.darma-loader-darma-b11-ufo-beam .darma-loader-darma-b11-ufo-beam__ufo { position: absolute; top: 24%; left: 50%; width: 56%; height: 18%; margin-left: -28%; background: linear-gradient(#e2e8f0, #64748b); border-radius: 50%; animation: darma-loader-darma-b11-ufo-darma-loader-darma-b11-ufo-beam-beam-hover calc(var(--loader-speed, 1s) * 2.2) ease-in-out infinite; z-index: 2; }\n.darma-loader-darma-b11-ufo-beam .darma-loader-darma-b11-ufo-beam__ufo::before { content: ''; position: absolute; left: 50%; top: -55%; width: 44%; height: 105%; margin-left: -22%; background: radial-gradient(circle at 50% 40%, color-mix(in srgb, #fff 45%, var(--accent)), var(--accent)); border-radius: 50% 50% 0 0; }\n.darma-loader-darma-b11-ufo-beam .darma-loader-darma-b11-ufo-beam__ufo::after { content: ''; position: absolute; left: 50%; top: 90%; width: 74%; height: calc(var(--loader-size, 88px) * .5); margin-left: -37%; background: linear-gradient(var(--accent-2), transparent); clip-path: polygon(30% 0, 70% 0, 100% 100%, 0 100%); animation: darma-loader-darma-b11-ufo-beam-beam calc(var(--loader-speed, 1s) * 1.4) ease-in-out infinite; }\n@keyframes darma-loader-darma-b11-ufo-beam-hover { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12%); } }\n@keyframes darma-loader-darma-b11-ufo-beam-beam { 0%, 100% { opacity: .3; } 50% { opacity: .75; } }",
+    "defaults": {
+      "color": "#22c55e",
+      "secondaryColor": "#bbf7d0",
+      "size": 88,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-custom-031",
     "name": "Vertical Pendulum Rod",
     "category": "fun",
@@ -5485,6 +6661,37 @@
       "size": 80,
       "speed": 2,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-b8-vinyl-record",
+    "name": "Vinyl Record",
+    "category": "fun",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "vinyl",
+      "record",
+      "music",
+      "turntable",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-vinyl-record vinyl record fun darma-research-batch-8 darma research batch 8 vinyl record music turntable fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b8-vinyl-record\" aria-label=\"Loading\"><span></span></div>",
+    "previewCss": ".darma-loader-darma-b8-vinyl-record { --accent: var(--loader-color, #dc2626); --accent-2: var(--loader-secondary-color, #facc15); width: var(--loader-size, 84px); height: var(--loader-size, 84px); position: relative; }\n.darma-loader-darma-b8-vinyl-record span { position: absolute; inset: 0; border-radius: 50%; background: repeating-radial-gradient(circle, #191919 0 2px, #2b2b2b 2px 4px); box-shadow: inset 0 0 calc(var(--loader-size, 84px) * .12) rgba(0, 0, 0, .7); animation: darma-loader-darma-b8-vinyl-record-spin calc(var(--loader-speed, 1s) * 2) linear infinite; }\n.darma-loader-darma-b8-vinyl-record span::after { content: ''; position: absolute; inset: 34%; border-radius: 50%; background: radial-gradient(circle, #111 0 12%, var(--accent) 13% 100%); border: 2px solid var(--accent-2); box-sizing: border-box; }\n.darma-loader-darma-b8-vinyl-record::before { content: ''; position: absolute; z-index: 2; top: 2%; right: 12%; width: calc(var(--loader-size, 84px) * .045); height: 54%; background: #94a3b8; border-radius: 4px; transform-origin: top center; transform: rotate(24deg); }\n@keyframes darma-loader-darma-b8-vinyl-record-spin { to { transform: rotate(360deg); } }",
+    "defaults": {
+      "color": "#dc2626",
+      "secondaryColor": "#facc15",
+      "size": 84,
+      "speed": 1
     }
   },
   {
@@ -5548,6 +6755,37 @@
     "defaults": {
       "color": "#6366f1",
       "size": 56,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b10-flag-wave",
+    "name": "Waving Flag",
+    "category": "fun",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "flag",
+      "wave",
+      "pole",
+      "banner",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-flag-wave waving flag fun darma-research-batch-10 darma research batch 10 flag wave pole banner fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b10-flag-wave\" aria-label=\"Loading\"><i class=\"darma-loader-darma-b10-flag-wave__pole\"></i><i class=\"darma-loader-darma-b10-flag-wave__flag\"></i></div>",
+    "previewCss": ".darma-loader-darma-b10-flag-wave { --accent: var(--loader-color, #1d4ed8); --accent-2: var(--loader-secondary-color, #38bdf8); width: var(--loader-size, 84px); height: var(--loader-size, 84px); position: relative; }\n.darma-loader-darma-b10-flag-wave .darma-loader-darma-b10-flag-wave__pole { position: absolute; left: 24%; top: 8%; width: calc(var(--loader-size, 84px) * .04); height: 84%; background: linear-gradient(#cbd5e1, #64748b); border-radius: 3px; }\n.darma-loader-darma-b10-flag-wave .darma-loader-darma-b10-flag-wave__flag { position: absolute; left: 26%; top: 12%; width: 50%; height: 32%; background: linear-gradient(135deg, var(--accent), var(--accent-2)); border-radius: 0 4px 4px 0; transform-origin: left center; animation: darma-loader-darma-b10-flag-wave-wave calc(var(--loader-speed, 1s) * 1.4) ease-in-out infinite; }\n@keyframes darma-loader-darma-b10-flag-wave-wave { 0%, 100% { transform: rotate(-1.5deg) skewY(4deg); border-radius: 0 4px 30% 4px; } 25% { transform: rotate(1.5deg) skewY(-5deg); border-radius: 0 4px 4px 30%; } 50% { transform: rotate(-1.5deg) skewY(4deg); border-radius: 0 30% 4px 4px; } 75% { transform: rotate(1deg) skewY(-3deg); } }",
+    "defaults": {
+      "color": "#1d4ed8",
+      "secondaryColor": "#38bdf8",
+      "size": 84,
       "speed": 1
     }
   },
@@ -6248,6 +7486,37 @@
     "defaults": {
       "color": "#6366f1",
       "size": 56,
+      "speed": 1
+    }
+  },
+  {
+    "id": "darma-b11-yo-yo",
+    "name": "Yo-Yo",
+    "category": "fun",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "yoyo",
+      "toy",
+      "bounce",
+      "string",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-yo-yo yo-yo fun darma-research-batch-11 darma research batch 11 yoyo toy bounce string fun html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b11-yo-yo\" aria-label=\"Loading\"><span></span></div>",
+    "previewCss": ".darma-loader-darma-b11-yo-yo { --accent: var(--loader-color, #ef4444); --accent-2: var(--loader-secondary-color, #991b1b); width: var(--loader-size, 88px); height: var(--loader-size, 88px); position: relative; }\n.darma-loader-darma-b11-yo-yo::before { content: ''; position: absolute; top: 4%; left: 50%; width: 2px; height: 40%; margin-left: -1px; background: color-mix(in srgb, #000 25%, var(--accent)); transform-origin: top center; animation: darma-loader-darma-b11-yo-yo-string calc(var(--loader-speed, 1s) * 1.4) ease-in-out infinite; }\n.darma-loader-darma-b11-yo-yo span { position: absolute; top: 36%; left: 50%; width: calc(var(--loader-size, 88px) * .34); height: calc(var(--loader-size, 88px) * .34); margin-left: calc(var(--loader-size, 88px) * -.17); border-radius: 50%; background: radial-gradient(circle at 40% 35%, color-mix(in srgb, #fff 30%, var(--accent)), var(--accent) 60%, var(--accent-2)); animation: darma-loader-darma-b11-yo-yo-yoyo calc(var(--loader-speed, 1s) * 1.4) ease-in-out infinite, darma-loader-darma-b11-yo-yo-yospin calc(var(--loader-speed, 1s) * .35) linear infinite; }\n.darma-loader-darma-b11-yo-yo span::after { content: ''; position: absolute; inset: 40%; border-radius: 50%; background: color-mix(in srgb, #000 25%, var(--accent-2)); }\n@keyframes darma-loader-darma-b11-yo-yo-yoyo { 0%, 100% { translate: 0 0; } 50% { translate: 0 48%; } }\n@keyframes darma-loader-darma-b11-yo-yo-yospin { to { rotate: 360deg; } }\n@keyframes darma-loader-darma-b11-yo-yo-string { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(2.15); } }",
+    "defaults": {
+      "color": "#ef4444",
+      "secondaryColor": "#991b1b",
+      "size": 88,
       "speed": 1
     }
   },

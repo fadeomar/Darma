@@ -1,0 +1,12 @@
+{
+  "id": "darma-b7-pie-clock-fill",
+  "name": "Pie Clock",
+  "category": "progress",
+  "tags": ["pie", "clock", "sweep", "fill", "progress"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); border-radius: 50%; background: color-mix(in srgb, var(--accent-2) 22%, transparent); position: relative; overflow: hidden; }\n.loader::before, .loader::after { content: ''; position: absolute; top: 0; left: 50%; width: 50%; height: 100%; background: var(--accent); transform-origin: left center; }\n.loader::before { animation: pie-a calc(var(--loader-speed) * 2.4) linear infinite; }\n.loader::after { animation: pie-b calc(var(--loader-speed) * 2.4) linear infinite; }\n@keyframes pie-a { 0% { transform: rotate(0deg); } 50%, 100% { transform: rotate(180deg); } }\n@keyframes pie-b { 0%, 50% { transform: rotate(0deg); } 100% { transform: rotate(180deg); } }",
+  "defaults": { "color": "#06b6d4", "secondaryColor": "#0e7490", "size": 72, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 7", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

@@ -1,0 +1,12 @@
+{
+  "id": "darma-b10-rainbow-arc",
+  "name": "Rainbow Arcs",
+  "category": "creative",
+  "tags": ["rainbow", "arcs", "concentric", "spinner", "creative"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader span { position: absolute; inset: 0; margin: auto; border-radius: 50%; border: calc(var(--loader-size) * .05) solid transparent; box-sizing: border-box; }\n.loader span:nth-child(1) { border-top-color: var(--accent); animation: arc-cw calc(var(--loader-speed) * 1.2) linear infinite; }\n.loader span:nth-child(2) { inset: 16%; border-top-color: var(--accent-2); border-right-color: var(--accent-2); animation: arc-ccw calc(var(--loader-speed) * 1.6) linear infinite; }\n.loader span:nth-child(3) { inset: 32%; border-top-color: color-mix(in srgb, #fff 35%, var(--accent)); animation: arc-cw calc(var(--loader-speed) * .9) linear infinite; }\n.loader span:nth-child(4) { inset: 48%; border-top-color: color-mix(in srgb, #fff 35%, var(--accent-2)); border-bottom-color: color-mix(in srgb, #fff 35%, var(--accent-2)); animation: arc-ccw calc(var(--loader-speed) * 1.3) linear infinite; }\n@keyframes arc-cw { to { transform: rotate(360deg); } }\n@keyframes arc-ccw { to { transform: rotate(-360deg); } }",
+  "defaults": { "color": "#f43f5e", "secondaryColor": "#0ea5e9", "size": 80, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 10", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

@@ -1,0 +1,12 @@
+{
+  "id": "darma-b11-matrix-rain",
+  "name": "Matrix Rain",
+  "category": "fun",
+  "tags": ["matrix", "code", "rain", "digital", "fun"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; overflow: hidden; border-radius: 10%; background: #0a0f0a; }\n.loader span { position: absolute; top: 0; width: 13%; height: 42%; background: linear-gradient(transparent, var(--accent) 62%, color-mix(in srgb, #fff 60%, var(--accent-2))); border-radius: 4px; animation: mrain calc(var(--loader-speed) * 1.6) linear infinite; }\n.loader span:nth-child(1) { left: 6%; animation-duration: calc(var(--loader-speed) * 1.4); animation-delay: 0s; }\n.loader span:nth-child(2) { left: 26%; animation-duration: calc(var(--loader-speed) * 2); animation-delay: calc(var(--loader-speed) * -.6); }\n.loader span:nth-child(3) { left: 46%; animation-duration: calc(var(--loader-speed) * 1.7); animation-delay: calc(var(--loader-speed) * -1); }\n.loader span:nth-child(4) { left: 66%; animation-duration: calc(var(--loader-speed) * 2.3); animation-delay: calc(var(--loader-speed) * -.3); }\n.loader span:nth-child(5) { left: 84%; animation-duration: calc(var(--loader-speed) * 1.5); animation-delay: calc(var(--loader-speed) * -1.4); }\n@keyframes mrain { 0% { transform: translateY(-110%); } 100% { transform: translateY(255%); } }",
+  "defaults": { "color": "#22c55e", "secondaryColor": "#86efac", "size": 84, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 11", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

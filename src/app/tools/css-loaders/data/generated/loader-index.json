@@ -814,6 +814,29 @@
     "searchText": "loaders-css-06 line spin fade 06 bars loaders-css loaders.css loaders-css line scale bars loader html css react popular cssonly customizable"
   },
   {
+    "id": "darma-b9-bar-chart-grow",
+    "name": "Live Bar Chart",
+    "category": "bars",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "chart",
+      "bars",
+      "data",
+      "analytics",
+      "graph"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-bar-chart-grow live bar chart bars darma-research-batch-9 darma research batch 9 chart bars data analytics graph html css react customizable cssonly"
+  },
+  {
     "id": "loading-io-05",
     "name": "Loading.io Adapted Loader 05",
     "category": "bars",
@@ -1365,6 +1388,29 @@
     "searchText": "darma-custom-163 peak wave bars 38 bars darma-custom darma custom peak wave bars 38 bar equalizer css-only single-element batch-04 html css react singleelement cssonly customizable"
   },
   {
+    "id": "darma-b10-radial-equalizer",
+    "name": "Radial Equalizer",
+    "category": "bars",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "equalizer",
+      "radial",
+      "audio",
+      "bars",
+      "music"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-radial-equalizer radial equalizer bars darma-research-batch-10 darma research batch 10 equalizer radial audio bars music html css react customizable cssonly"
+  },
+  {
     "id": "darma-custom-122",
     "name": "Rising Meter",
     "category": "bars",
@@ -1508,6 +1554,29 @@
       "customizable": true
     },
     "searchText": "darma-custom-166 sequential columns 41 bars darma-custom darma custom sequential columns 41 bar equalizer bars css-only single-element batch-04 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "darma-b7-signal-bars",
+    "name": "Signal Bars",
+    "category": "bars",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "signal",
+      "bars",
+      "strength",
+      "network",
+      "steps"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-signal-bars signal bars bars darma-research-batch-7 darma research batch 7 signal bars strength network steps html css react customizable cssonly"
   },
   {
     "id": "darma-custom-134",
@@ -2368,6 +2437,29 @@
     "searchText": "darma-custom-169 triple column swap 44 bars darma-custom darma custom triple column swap 44 bar equalizer bars css-only single-element batch-04 html css react singleelement cssonly customizable"
   },
   {
+    "id": "darma-b8-helix-ribbon",
+    "name": "Twisting Ribbon",
+    "category": "bars",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "ribbon",
+      "twist",
+      "helix",
+      "wave",
+      "bars"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-helix-ribbon twisting ribbon bars darma-research-batch-8 darma research batch 8 ribbon twist helix wave bars html css react customizable cssonly"
+  },
+  {
     "id": "darma-custom-050",
     "name": "Vertical Skyline Fill",
     "category": "bars",
@@ -2681,6 +2773,30 @@
     "searchText": "darma-research-orbital-upload-rings orbital upload rings button darma-research-batch-6 darma research batch 6 button upload rings orbit microinteraction html css react customizable cssonly"
   },
   {
+    "id": "darma-b10-carousel-dots-3d",
+    "name": "3D Carousel Dots",
+    "category": "creative",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "carousel",
+      "3d",
+      "dots",
+      "ring",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-carousel-dots-3d 3d carousel dots creative darma-research-batch-10 darma research batch 10 carousel 3d dots ring creative html css react popular customizable cssonly"
+  },
+  {
     "id": "darma-custom-656",
     "name": "3D Color Sphere",
     "category": "creative",
@@ -2711,6 +2827,30 @@
       "customizable": true
     },
     "searchText": "darma-custom-656 3d color sphere creative darma-custom darma custom rich 3d sphere scene colorful multi-element creative loader html-css customizable rich-batch-01 html css react cssonly customizable"
+  },
+  {
+    "id": "darma-b8-cube-3d-spin",
+    "name": "3D Cube Spin",
+    "category": "creative",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "cube",
+      "3d",
+      "rotate",
+      "box",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-cube-3d-spin 3d cube spin creative darma-research-batch-8 darma research batch 8 cube 3d rotate box creative html css react popular customizable cssonly"
   },
   {
     "id": "darma-custom-775",
@@ -2912,6 +3052,30 @@
       "customizable": true
     },
     "searchText": "darma-custom-102 arrow gate flip creative darma-custom darma custom arrow gate flip geometric creative css-only single-element batch-03 html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "darma-b7-atom-orbit",
+    "name": "Atom Orbit",
+    "category": "creative",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "atom",
+      "orbit",
+      "electron",
+      "science",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-atom-orbit atom orbit creative darma-research-batch-7 darma research batch 7 atom orbit electron science creative html css react popular customizable cssonly"
   },
   {
     "id": "uiverse-banter-box-shuffle",
@@ -3414,6 +3578,29 @@
     "searchText": "darma-custom-331 blob morph 12 creative darma-custom darma custom blob morph 12 shape organic creative loader css-only single-element batch-06 html css react singleelement cssonly customizable"
   },
   {
+    "id": "darma-b8-blooming-flower",
+    "name": "Blooming Flower",
+    "category": "creative",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "flower",
+      "bloom",
+      "petals",
+      "nature",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-blooming-flower blooming flower creative darma-research-batch-8 darma research batch 8 flower bloom petals nature creative html css react customizable cssonly"
+  },
+  {
     "id": "uiverse-blue-cube-swarm",
     "name": "Blue Cube Swarm",
     "category": "creative",
@@ -3607,6 +3794,29 @@
       "customizable": true
     },
     "searchText": "darma-custom-090 butterfly triangle flip creative darma-custom darma custom butterfly triangle flip geometric creative css-only single-element batch-03 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "darma-b11-camera-shutter",
+    "name": "Camera Shutter",
+    "category": "creative",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "camera",
+      "shutter",
+      "aperture",
+      "iris",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-camera-shutter camera shutter creative darma-research-batch-11 darma research batch 11 camera shutter aperture iris creative html css react customizable cssonly"
   },
   {
     "id": "cassette-reels",
@@ -4079,6 +4289,29 @@
       "customizable": true
     },
     "searchText": "uiverse-circuit-signal-path circuit signal path creative uiverse-batch-4 uiverse batch 4 circuit svg signal tech uiverse html css react cssonly customizable"
+  },
+  {
+    "id": "darma-b7-coin-flip",
+    "name": "Coin Flip",
+    "category": "creative",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "coin",
+      "flip",
+      "3d",
+      "spin",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-coin-flip coin flip creative darma-research-batch-7 darma research batch 7 coin flip 3d spin creative html css react customizable cssonly"
   },
   {
     "id": "coin-flip",
@@ -4722,6 +4955,29 @@
       "customizable": true
     },
     "searchText": "darma-custom-593 color geometry 20 creative darma-custom darma custom color geometry 20 motion creative tiles loader css-only single-element batch-07 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "darma-b8-comet-orbit",
+    "name": "Comet Orbit",
+    "category": "creative",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "comet",
+      "orbit",
+      "tail",
+      "space",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-comet-orbit comet orbit creative darma-research-batch-8 darma research batch 8 comet orbit tail space creative html css react customizable cssonly"
   },
   {
     "id": "darma-custom-435",
@@ -5578,6 +5834,29 @@
     "searchText": "uiverse-diamond-bounce-trio diamond bounce trio creative uiverse-batch-4 uiverse batch 4 diamonds bounce geometric uiverse html css react cssonly customizable"
   },
   {
+    "id": "darma-b9-double-helix-ribbon",
+    "name": "Double Helix",
+    "category": "creative",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "dna",
+      "helix",
+      "double",
+      "strand",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-double-helix-ribbon double helix creative darma-research-batch-9 darma research batch 9 dna helix double strand creative html css react customizable cssonly"
+  },
+  {
     "id": "darma-custom-281",
     "name": "Double Rolling Gear",
     "category": "creative",
@@ -6017,6 +6296,29 @@
     "searchText": "uiverse-ecg-stroke-loader ecg stroke loader creative uiverse-batch-3 uiverse batch 3 uiverse ecg heartbeat stroke medical loader html css react cssonly customizable"
   },
   {
+    "id": "darma-b9-elastic-dot",
+    "name": "Elastic Dash",
+    "category": "creative",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "elastic",
+      "stretch",
+      "rubber",
+      "bounce",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-elastic-dot elastic dash creative darma-research-batch-9 darma research batch 9 elastic stretch rubber bounce creative html css react customizable cssonly"
+  },
+  {
     "id": "darma-custom-642",
     "name": "Ember Tile",
     "category": "creative",
@@ -6135,6 +6437,29 @@
       "customizable": true
     },
     "searchText": "darma-custom-652 flash bulb creative darma-custom darma custom rich bulb flash illustrated idea single-element creative loader html-css customizable rich-batch-01 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "darma-b7-card-flip-stack",
+    "name": "Flip Cards",
+    "category": "creative",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "card",
+      "flip",
+      "3d",
+      "stack",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-card-flip-stack flip cards creative darma-research-batch-7 darma research batch 7 card flip 3d stack creative html css react customizable cssonly"
   },
   {
     "id": "flip-clock-card",
@@ -6780,6 +7105,29 @@
     "searchText": "darma-custom-373 flip tile 20 creative darma-custom darma custom flip tile 20 3d fold creative loader css-only single-element batch-06 html css react singleelement cssonly customizable"
   },
   {
+    "id": "darma-b9-flip-tiles-grid",
+    "name": "Flip Tiles",
+    "category": "creative",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "tiles",
+      "flip",
+      "grid",
+      "3d",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-flip-tiles-grid flip tiles creative darma-research-batch-9 darma research batch 9 tiles flip grid 3d creative html css react customizable cssonly"
+  },
+  {
     "id": "uiverse-flipbook-chapters",
     "name": "Flipbook Chapters",
     "category": "creative",
@@ -6887,6 +7235,30 @@
       "customizable": true
     },
     "searchText": "darma-custom-003 four panel gradient flip creative darma-custom darma custom square panels flip gradient batch-01 html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "darma-b8-galaxy-spiral",
+    "name": "Galaxy Spiral",
+    "category": "creative",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "galaxy",
+      "spiral",
+      "stars",
+      "space",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-galaxy-spiral galaxy spiral creative darma-research-batch-8 darma research batch 8 galaxy spiral stars space creative html css react popular customizable cssonly"
   },
   {
     "id": "uiverse-gearbox-sync",
@@ -7376,6 +7748,29 @@
     "searchText": "horseshoe-magnet horseshoe magnet creative darma darma originals magnet horseshoe field attract pulse html css react cssonly customizable"
   },
   {
+    "id": "darma-b7-hourglass-flip",
+    "name": "Hourglass Flip",
+    "category": "creative",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "hourglass",
+      "flip",
+      "triangle",
+      "time",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-hourglass-flip hourglass flip creative darma-research-batch-7 darma research batch 7 hourglass flip triangle time creative html css react customizable cssonly"
+  },
+  {
     "id": "uiverse-hourglass-sand",
     "name": "Hourglass Sand Loader",
     "category": "creative",
@@ -7430,6 +7825,52 @@
       "customizable": true
     },
     "searchText": "darma-custom-086 hourglass split creative darma-custom darma custom hourglass split geometric creative css-only single-element batch-03 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "darma-b7-infinity-trace",
+    "name": "Infinity Trace",
+    "category": "creative",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "infinity",
+      "figure-eight",
+      "loop",
+      "trace",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-infinity-trace infinity trace creative darma-research-batch-7 darma research batch 7 infinity figure-eight loop trace creative html css react customizable cssonly"
+  },
+  {
+    "id": "darma-b10-ink-drop-spread",
+    "name": "Ink Spread",
+    "category": "creative",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "ink",
+      "spread",
+      "blot",
+      "spill",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-ink-drop-spread ink spread creative darma-research-batch-10 darma research batch 10 ink spread blot spill creative html css react customizable cssonly"
   },
   {
     "id": "uiverse-inner-box-orbit",
@@ -7546,6 +7987,52 @@
       "customizable": true
     },
     "searchText": "darma-custom-647 isometric tower creative darma-custom darma custom rich 3d tower blocks isometric multi-element creative loader html-css customizable rich-batch-01 html css react cssonly customizable"
+  },
+  {
+    "id": "darma-b9-kaleidoscope",
+    "name": "Kaleidoscope",
+    "category": "creative",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "kaleidoscope",
+      "star",
+      "symmetry",
+      "prism",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-kaleidoscope kaleidoscope creative darma-research-batch-9 darma research batch 9 kaleidoscope star symmetry prism creative html css react customizable cssonly"
+  },
+  {
+    "id": "darma-b9-lava-lamp",
+    "name": "Lava Lamp",
+    "category": "creative",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "lava",
+      "lamp",
+      "blob",
+      "retro",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-lava-lamp lava lamp creative darma-research-batch-9 darma research batch 9 lava lamp blob retro creative html css react customizable cssonly"
   },
   {
     "id": "lighthouse-beam",
@@ -8472,6 +8959,29 @@
     "searchText": "darma-custom-196 matrix pop grid 12 creative darma-custom darma custom matrix pop grid 12 creative motion css-only single-element batch-04 html css react singleelement cssonly customizable"
   },
   {
+    "id": "darma-b7-gear-mesh",
+    "name": "Meshing Gears",
+    "category": "creative",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "gear",
+      "cog",
+      "mesh",
+      "machine",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-gear-mesh meshing gears creative darma-research-batch-7 darma research batch 7 gear cog mesh machine creative html css react customizable cssonly"
+  },
+  {
     "id": "darma-custom-110",
     "name": "Mirror Triangle Transform",
     "category": "creative",
@@ -8583,6 +9093,29 @@
       "customizable": true
     },
     "searchText": "uiverse-morphing-panels morphing panels loader creative uiverse uiverse uiverse morphing panels cards shape creative loader html css react cssonly customizable"
+  },
+  {
+    "id": "darma-b10-morph-polygon",
+    "name": "Morphing Polygon",
+    "category": "creative",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "polygon",
+      "morph",
+      "shape",
+      "geometry",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-morph-polygon morphing polygon creative darma-research-batch-10 darma research batch 10 polygon morph shape geometry creative html css react customizable cssonly"
   },
   {
     "id": "darma-custom-287",
@@ -9363,6 +9896,29 @@
     "searchText": "uiverse-purple-helix-rails purple helix rails creative uiverse-batch-4 uiverse batch 4 helix rails 3d purple uiverse html css react cssonly customizable"
   },
   {
+    "id": "darma-b11-puzzle-assemble",
+    "name": "Puzzle Assemble",
+    "category": "creative",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "puzzle",
+      "jigsaw",
+      "assemble",
+      "pieces",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-puzzle-assemble puzzle assemble creative darma-research-batch-11 darma research batch 11 puzzle jigsaw assemble pieces creative html css react customizable cssonly"
+  },
+  {
     "id": "qr-scan",
     "name": "QR Scan",
     "category": "creative",
@@ -9468,6 +10024,29 @@
     "searchText": "uiverse-radar-sweep radar sweep creative uiverse-batch-2 uiverse batch 2 uiverse radar sweep scan glow creative loader html css react cssonly customizable"
   },
   {
+    "id": "darma-b10-rainbow-arc",
+    "name": "Rainbow Arcs",
+    "category": "creative",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "rainbow",
+      "arcs",
+      "concentric",
+      "spinner",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-rainbow-arc rainbow arcs creative darma-research-batch-10 darma research batch 10 rainbow arcs concentric spinner creative html css react customizable cssonly"
+  },
+  {
     "id": "uiverse-react-atom-orbit",
     "name": "React Atom Orbit",
     "category": "creative",
@@ -9547,6 +10126,29 @@
       "customizable": true
     },
     "searchText": "uiverse-red-eye-shutter red eye shutter creative uiverse-batch-5 uiverse batch 5 eye scan shutter watch uiverse batch-5 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "darma-b10-ripple-pool",
+    "name": "Ripple Pool",
+    "category": "creative",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "ripple",
+      "pool",
+      "water",
+      "surface",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-ripple-pool ripple pool creative darma-research-batch-10 darma research batch 10 ripple pool water surface creative html css react customizable cssonly"
   },
   {
     "id": "darma-custom-282",
@@ -9781,6 +10383,30 @@
       "customizable": true
     },
     "searchText": "uiverse-ruby-chevron-shine ruby chevron shine creative uiverse-batch-3 uiverse batch 3 uiverse ruby chevron shine logo creative loader html css react cssonly customizable"
+  },
+  {
+    "id": "darma-b11-saturn-planet",
+    "name": "Saturn",
+    "category": "creative",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "saturn",
+      "planet",
+      "ring",
+      "space",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-saturn-planet saturn creative darma-research-batch-11 darma research batch 11 saturn planet ring space creative html css react popular customizable cssonly"
   },
   {
     "id": "saturn-rings",
@@ -10117,6 +10743,29 @@
     "searchText": "darma-custom-460 shape morph 10 creative darma-custom darma custom shape morph 10 outline geometric creative loader css-only single-element batch-07 html css react singleelement cssonly customizable"
   },
   {
+    "id": "darma-b10-shooting-star",
+    "name": "Shooting Star",
+    "category": "creative",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "star",
+      "shooting",
+      "streak",
+      "meteor",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-shooting-star shooting star creative darma-research-batch-10 darma research batch 10 star shooting streak meteor creative html css react customizable cssonly"
+  },
+  {
     "id": "sine-wave-trace",
     "name": "Sine Wave Trace",
     "category": "creative",
@@ -10225,6 +10874,100 @@
       "customizable": true
     },
     "searchText": "darma-custom-176 skipping dot meter creative darma-custom darma custom skipping dot meter creative motion css-only single-element batch-04 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "darma-b7-snake-track",
+    "name": "Snake Track",
+    "category": "creative",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "snake",
+      "square",
+      "chase",
+      "trail",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-snake-track snake track creative darma-research-batch-7 darma research batch 7 snake square chase trail creative html css react customizable cssonly"
+  },
+  {
+    "id": "darma-b8-solar-system",
+    "name": "Solar System",
+    "category": "creative",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "solar",
+      "planets",
+      "orbit",
+      "space",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-solar-system solar system creative darma-research-batch-8 darma research batch 8 solar planets orbit space creative html css react popular customizable cssonly"
+  },
+  {
+    "id": "darma-b11-speedometer-gauge",
+    "name": "Speedometer",
+    "category": "creative",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "speedometer",
+      "gauge",
+      "needle",
+      "dial",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-speedometer-gauge speedometer creative darma-research-batch-11 darma research batch 11 speedometer gauge needle dial creative html css react customizable cssonly"
+  },
+  {
+    "id": "darma-b9-spinning-globe",
+    "name": "Spinning Globe",
+    "category": "creative",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "globe",
+      "earth",
+      "planet",
+      "rotate",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-spinning-globe spinning globe creative darma-research-batch-9 darma research batch 9 globe earth planet rotate creative html css react popular customizable cssonly"
   },
   {
     "id": "uiverse-spiral-vortex-rings",
@@ -10369,6 +11112,29 @@
     "searchText": "loaders-css-07 square spin 07 creative loaders-css loaders.css loaders-css square spin creative loader html css react popular singleelement cssonly customizable"
   },
   {
+    "id": "darma-b10-tunnel-squares",
+    "name": "Square Tunnel",
+    "category": "creative",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "tunnel",
+      "squares",
+      "zoom",
+      "hypnotic",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-tunnel-squares square tunnel creative darma-research-batch-10 darma research batch 10 tunnel squares zoom hypnotic creative html css react customizable cssonly"
+  },
+  {
     "id": "darma-custom-060",
     "name": "Stacked Isometric Cubes",
     "category": "creative",
@@ -10486,6 +11252,29 @@
     "searchText": "darma-custom-104 stretching block pair creative darma-custom darma custom stretching block pair geometric creative css-only single-element batch-03 html css react singleelement cssonly customizable"
   },
   {
+    "id": "darma-b8-sunburst-rays",
+    "name": "Sunburst Rays",
+    "category": "creative",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "sun",
+      "rays",
+      "sunburst",
+      "shine",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-sunburst-rays sunburst rays creative darma-research-batch-8 darma research batch 8 sun rays sunburst shine creative html css react customizable cssonly"
+  },
+  {
     "id": "uiverse-terminal-typing-panel",
     "name": "Terminal Typing Panel",
     "category": "creative",
@@ -10511,6 +11300,29 @@
       "customizable": true
     },
     "searchText": "uiverse-terminal-typing-panel terminal typing panel creative uiverse-batch-2 uiverse batch 2 uiverse terminal typing cursor developer loader html css react cssonly customizable"
+  },
+  {
+    "id": "darma-b9-torus-ring-3d",
+    "name": "Tilted Halo",
+    "category": "creative",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "torus",
+      "halo",
+      "ring",
+      "3d",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-torus-ring-3d tilted halo creative darma-research-batch-9 darma research batch 9 torus halo ring 3d creative html css react customizable cssonly"
   },
   {
     "id": "tornado-funnel",
@@ -10724,6 +11536,29 @@
       "customizable": true
     },
     "searchText": "uiverse-tumbling-cube-route tumbling cube route creative uiverse-batch-5 uiverse batch 5 cube 3d route tumble uiverse batch-5 html css react cssonly customizable"
+  },
+  {
+    "id": "darma-b11-umbrella-open",
+    "name": "Umbrella",
+    "category": "creative",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "umbrella",
+      "open",
+      "canopy",
+      "rain",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-umbrella-open umbrella creative darma-research-batch-11 darma research batch 11 umbrella open canopy rain creative html css react customizable cssonly"
   },
   {
     "id": "darma-custom-477",
@@ -11057,6 +11892,29 @@
       "customizable": true
     },
     "searchText": "vinyl-record vinyl record creative darma darma originals vinyl record disc spin music html css react cssonly customizable"
+  },
+  {
+    "id": "darma-b11-whirlpool-vortex",
+    "name": "Whirlpool",
+    "category": "creative",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "whirlpool",
+      "vortex",
+      "swirl",
+      "spiral",
+      "creative"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-whirlpool-vortex whirlpool creative darma-research-batch-11 darma research batch 11 whirlpool vortex swirl spiral creative html css react customizable cssonly"
   },
   {
     "id": "wind-turbine",
@@ -11807,6 +12665,29 @@
       "customizable": true
     },
     "searchText": "darma-custom-203 dot depth pulse dots darma-custom darma custom dot depth pulse dots loader css-only single-element batch-04 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "darma-b8-dot-grid-wave",
+    "name": "Dot Grid Wave",
+    "category": "dots",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "grid",
+      "dots",
+      "wave",
+      "ripple",
+      "matrix"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-dot-grid-wave dot grid wave dots darma-research-batch-8 darma research batch 8 grid dots wave ripple matrix html css react customizable cssonly"
   },
   {
     "id": "darma-custom-209",
@@ -13034,6 +13915,30 @@
     "searchText": "darma-custom-174 morph dots dots darma-custom darma custom morph dots dot loader css-only single-element batch-04 html css react singleelement cssonly customizable"
   },
   {
+    "id": "darma-b7-newtons-cradle",
+    "name": "Newton's Cradle",
+    "category": "dots",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "newton",
+      "cradle",
+      "pendulum",
+      "physics",
+      "dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-newtons-cradle newton's cradle dots darma-research-batch-7 darma research batch 7 newton cradle pendulum physics dots html css react popular customizable cssonly"
+  },
+  {
     "id": "darma-custom-111",
     "name": "Nine Tile Pulse",
     "category": "dots",
@@ -13377,6 +14282,29 @@
     "searchText": "uiverse-pearl-typing-row pearl typing row dots uiverse-batch-4 uiverse batch 4 typing pearls dots text uiverse html css react cssonly customizable"
   },
   {
+    "id": "darma-b9-pendulum-wave",
+    "name": "Pendulum Wave",
+    "category": "dots",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "pendulum",
+      "wave",
+      "physics",
+      "swing",
+      "dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-pendulum-wave pendulum wave dots darma-research-batch-9 darma research batch 9 pendulum wave physics swing dots html css react customizable cssonly"
+  },
+  {
     "id": "darma-custom-190",
     "name": "Pill Dot Shift",
     "category": "dots",
@@ -13538,6 +14466,29 @@
       "popular": false
     },
     "searchText": "three-dots-revolution revolution dots dots three-dots three dots dots revolution orbit single-element three-dots html css react cssonly customizable singleelement"
+  },
+  {
+    "id": "darma-b7-rising-bubbles",
+    "name": "Rising Bubbles",
+    "category": "dots",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "bubbles",
+      "rise",
+      "float",
+      "water",
+      "dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-rising-bubbles rising bubbles dots darma-research-batch-7 darma research batch 7 bubbles rise float water dots html css react customizable cssonly"
   },
   {
     "id": "darma-custom-213",
@@ -14289,6 +15240,29 @@
     "searchText": "balance-scale balance scale fun darma darma originals balance scale weigh justice tilt html css react cssonly customizable"
   },
   {
+    "id": "darma-b10-balloon-inflate",
+    "name": "Balloon Inflate",
+    "category": "fun",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "balloon",
+      "inflate",
+      "party",
+      "float",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-balloon-inflate balloon inflate fun darma-research-batch-10 darma research batch 10 balloon inflate party float fun html css react customizable cssonly"
+  },
+  {
     "id": "darma-custom-308",
     "name": "Bounce Rail",
     "category": "fun",
@@ -14552,6 +15526,75 @@
     "searchText": "burger-stack burger stack fun darma darma originals burger stack food assemble layers html css react cssonly customizable popular"
   },
   {
+    "id": "darma-b11-butterfly",
+    "name": "Butterfly",
+    "category": "fun",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "butterfly",
+      "wings",
+      "flap",
+      "insect",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-butterfly butterfly fun darma-research-batch-11 darma research batch 11 butterfly wings flap insect fun html css react customizable cssonly"
+  },
+  {
+    "id": "darma-b11-campfire",
+    "name": "Campfire",
+    "category": "fun",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "campfire",
+      "fire",
+      "logs",
+      "flame",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-campfire campfire fun darma-research-batch-11 darma research batch 11 campfire fire logs flame fun html css react customizable cssonly"
+  },
+  {
+    "id": "darma-b9-candle-flame",
+    "name": "Candle Flame",
+    "category": "fun",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "candle",
+      "flame",
+      "fire",
+      "flicker",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-candle-flame candle flame fun darma-research-batch-9 darma research batch 9 candle flame fire flicker fun html css react customizable cssonly"
+  },
+  {
     "id": "uiverse-candlelight-duo",
     "name": "Candlelight Duo",
     "category": "fun",
@@ -14794,6 +15837,29 @@
     "searchText": "darma-custom-672 coffee progress fun darma-custom darma custom rich coffee progress steam illustrated multi-element fun loader html-css customizable rich-batch-01 html css react cssonly customizable"
   },
   {
+    "id": "darma-b7-slinky-spring",
+    "name": "Coil Spring",
+    "category": "fun",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "spring",
+      "coil",
+      "slinky",
+      "compress",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-slinky-spring coil spring fun darma-research-batch-7 darma research batch 7 spring coil slinky compress fun html css react customizable cssonly"
+  },
+  {
     "id": "uiverse-comic-panel-loader",
     "name": "Comic Panel Loader",
     "category": "fun",
@@ -14841,6 +15907,29 @@
       "customizable": true
     },
     "searchText": "confetti-dots confetti dots fun darma darma originals fun confetti dots celebration html css react cssonly customizable"
+  },
+  {
+    "id": "darma-b9-confetti-fall",
+    "name": "Confetti Fall",
+    "category": "fun",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "confetti",
+      "fall",
+      "party",
+      "celebrate",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-confetti-fall confetti fall fun darma-research-batch-9 darma research batch 9 confetti fall party celebrate fun html css react customizable cssonly"
   },
   {
     "id": "darma-research-conveyor-parcel-line",
@@ -15001,6 +16090,29 @@
       "customizable": true
     },
     "searchText": "uiverse-domino-cascade domino cascade fun uiverse-batch-2 uiverse batch 2 uiverse domino cascade fall fun loader html css react cssonly customizable"
+  },
+  {
+    "id": "darma-b7-domino-fall",
+    "name": "Domino Fall",
+    "category": "fun",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "domino",
+      "tiles",
+      "fall",
+      "wave",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-domino-fall domino fall fun darma-research-batch-7 darma research batch 7 domino tiles fall wave fun html css react customizable cssonly"
   },
   {
     "id": "darma-custom-076",
@@ -15470,6 +16582,29 @@
     "searchText": "darma-custom-534 eye blink 10 fun darma-custom darma custom eye blink 10 eyes face fun minimal loader css-only single-element batch-07 html css react singleelement cssonly customizable"
   },
   {
+    "id": "darma-b9-ferris-wheel",
+    "name": "Ferris Wheel",
+    "category": "fun",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "ferris",
+      "wheel",
+      "carnival",
+      "cabins",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-ferris-wheel ferris wheel fun darma-research-batch-9 darma research batch 9 ferris wheel carnival cabins fun html css react customizable cssonly"
+  },
+  {
     "id": "ferris-wheel",
     "name": "Ferris Wheel",
     "category": "fun",
@@ -15492,6 +16627,76 @@
       "popular": true
     },
     "searchText": "ferris-wheel ferris wheel fun darma darma originals ferris wheel rotate cabins carnival html css react cssonly customizable popular"
+  },
+  {
+    "id": "darma-b11-fidget-spinner",
+    "name": "Fidget Spinner",
+    "category": "fun",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "fidget",
+      "spinner",
+      "toy",
+      "spin",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-fidget-spinner fidget spinner fun darma-research-batch-11 darma research batch 11 fidget spinner toy spin fun html css react popular customizable cssonly"
+  },
+  {
+    "id": "darma-b10-fireflies",
+    "name": "Fireflies",
+    "category": "fun",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "fireflies",
+      "glow",
+      "drift",
+      "night",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-fireflies fireflies fun darma-research-batch-10 darma research batch 10 fireflies glow drift night fun html css react customizable cssonly"
+  },
+  {
+    "id": "darma-b8-fireworks-burst",
+    "name": "Fireworks Burst",
+    "category": "fun",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "fireworks",
+      "burst",
+      "particles",
+      "explode",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-fireworks-burst fireworks burst fun darma-research-batch-8 darma research batch 8 fireworks burst particles explode fun html css react customizable cssonly"
   },
   {
     "id": "fishing-bob",
@@ -15812,6 +17017,30 @@
     "searchText": "darma-custom-055 heart fill loader fun darma-custom darma custom heart fill mask fun progress batch-02 html css react popular singleelement cssonly customizable"
   },
   {
+    "id": "darma-b9-heartbeat",
+    "name": "Heartbeat",
+    "category": "fun",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "heart",
+      "beat",
+      "love",
+      "pulse",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-heartbeat heartbeat fun darma-research-batch-9 darma research batch 9 heart beat love pulse fun html css react popular customizable cssonly"
+  },
+  {
     "id": "uiverse-heartbeat-medallion",
     "name": "Heartbeat Medallion",
     "category": "fun",
@@ -15950,6 +17179,29 @@
     "searchText": "darma-custom-077 hexagon wings bounce fun darma-custom darma custom hexagon wings bounce playful motion css-only single-element batch-03 html css react singleelement cssonly customizable"
   },
   {
+    "id": "darma-b11-hot-air-balloon",
+    "name": "Hot Air Balloon",
+    "category": "fun",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "balloon",
+      "hot-air",
+      "float",
+      "sky",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-hot-air-balloon hot air balloon fun darma-research-batch-11 darma research batch 11 balloon hot-air float sky fun html css react customizable cssonly"
+  },
+  {
     "id": "hot-air-balloon",
     "name": "Hot Air Balloon",
     "category": "fun",
@@ -15971,6 +17223,52 @@
       "customizable": true
     },
     "searchText": "hot-air-balloon hot air balloon fun darma darma originals balloon float rise sky bob html css react cssonly customizable"
+  },
+  {
+    "id": "darma-b8-jelly-square",
+    "name": "Jelly Wobble",
+    "category": "fun",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "jelly",
+      "wobble",
+      "squishy",
+      "elastic",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-jelly-square jelly wobble fun darma-research-batch-8 darma research batch 8 jelly wobble squishy elastic fun html css react customizable cssonly"
+  },
+  {
+    "id": "darma-b11-jellyfish",
+    "name": "Jellyfish",
+    "category": "fun",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "jellyfish",
+      "ocean",
+      "float",
+      "tentacles",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-jellyfish jellyfish fun darma-research-batch-11 darma research batch 11 jellyfish ocean float tentacles fun html css react customizable cssonly"
   },
   {
     "id": "uiverse-jellyfish-drift",
@@ -16131,6 +17429,29 @@
     "searchText": "uiverse-laser-duel-sparks laser duel sparks fun uiverse-batch-5 uiverse batch 5 laser duel sparks sci-fi uiverse batch-5 html css react cssonly customizable"
   },
   {
+    "id": "darma-b10-light-bulb",
+    "name": "Light Bulb",
+    "category": "fun",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "bulb",
+      "light",
+      "idea",
+      "glow",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-light-bulb light bulb fun darma-research-batch-10 darma research batch 10 bulb light idea glow fun html css react customizable cssonly"
+  },
+  {
     "id": "light-bulb-flicker",
     "name": "Light Bulb Flicker",
     "category": "fun",
@@ -16239,6 +17560,29 @@
     "searchText": "darma-custom-193 matrix pop grid 74 fun darma-custom darma custom matrix pop grid 74 fun playful motion css-only single-element batch-04 html css react singleelement cssonly customizable"
   },
   {
+    "id": "darma-b11-matrix-rain",
+    "name": "Matrix Rain",
+    "category": "fun",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "matrix",
+      "code",
+      "rain",
+      "digital",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-matrix-rain matrix rain fun darma-research-batch-11 darma research batch 11 matrix code rain digital fun html css react customizable cssonly"
+  },
+  {
     "id": "uiverse-matrix-rain-digits",
     "name": "Matrix Rain Digits",
     "category": "fun",
@@ -16265,6 +17609,29 @@
       "customizable": true
     },
     "searchText": "uiverse-matrix-rain-digits matrix rain digits fun uiverse-batch-2 uiverse batch 2 uiverse matrix digits binary ai fun loader html css react cssonly customizable"
+  },
+  {
+    "id": "darma-b7-metronome-pendulum",
+    "name": "Metronome",
+    "category": "fun",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "metronome",
+      "pendulum",
+      "swing",
+      "tick",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-metronome-pendulum metronome fun darma-research-batch-7 darma research batch 7 metronome pendulum swing tick fun html css react customizable cssonly"
   },
   {
     "id": "metronome-tick",
@@ -16515,6 +17882,30 @@
     "searchText": "darma-custom-645 orbit earth fun darma-custom darma custom rich svg earth connecting illustrated multi-element fun loader html-css customizable rich-batch-01 html css react cssonly customizable"
   },
   {
+    "id": "darma-b8-pacman-chase",
+    "name": "Pac Chase",
+    "category": "fun",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "pacman",
+      "chomp",
+      "dots",
+      "arcade",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-pacman-chase pac chase fun darma-research-batch-8 darma research batch 8 pacman chomp dots arcade fun html css react popular customizable cssonly"
+  },
+  {
     "id": "darma-custom-094",
     "name": "Pacman Quarter Orbit",
     "category": "fun",
@@ -16570,6 +17961,29 @@
       "customizable": true
     },
     "searchText": "uiverse-panda-blink-face panda blink face fun uiverse-batch-3 uiverse batch 3 uiverse panda animal blink cute fun loader html css react cssonly customizable"
+  },
+  {
+    "id": "darma-b11-paper-plane-loop",
+    "name": "Paper Plane",
+    "category": "fun",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "plane",
+      "paper",
+      "fly",
+      "loop",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-paper-plane-loop paper plane fun darma-research-batch-11 darma research batch 11 plane paper fly loop fun html css react customizable cssonly"
   },
   {
     "id": "paper-plane-loop",
@@ -16697,6 +18111,29 @@
     "searchText": "pendulum-wave pendulum wave fun darma darma originals pendulum wave physics swing harmonic html css react cssonly customizable"
   },
   {
+    "id": "darma-b11-piano-keys",
+    "name": "Piano Keys",
+    "category": "fun",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "piano",
+      "keys",
+      "music",
+      "press",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-piano-keys piano keys fun darma-research-batch-11 darma research batch 11 piano keys music press fun html css react customizable cssonly"
+  },
+  {
     "id": "darma-custom-314",
     "name": "Ping Box Bounce",
     "category": "fun",
@@ -16726,6 +18163,52 @@
       "customizable": true
     },
     "searchText": "darma-custom-314 ping box bounce fun darma-custom darma custom ping box bounce ball fun motion loader css-only single-element batch-05 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "darma-b9-ping-pong",
+    "name": "Ping Pong",
+    "category": "fun",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "pong",
+      "ball",
+      "paddle",
+      "bounce",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-ping-pong ping pong fun darma-research-batch-9 darma research batch 9 pong ball paddle bounce fun html css react customizable cssonly"
+  },
+  {
+    "id": "darma-b8-pinwheel-spin",
+    "name": "Pinwheel",
+    "category": "fun",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "pinwheel",
+      "windmill",
+      "blades",
+      "spin",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-pinwheel-spin pinwheel fun darma-research-batch-8 darma research batch 8 pinwheel windmill blades spin fun html css react customizable cssonly"
   },
   {
     "id": "darma-research-pixel-dungeon-runner",
@@ -16866,6 +18349,29 @@
     "searchText": "uiverse-pop-burst-action pop burst action fun uiverse-batch-4 uiverse batch 4 comic burst action pop uiverse html css react cssonly customizable"
   },
   {
+    "id": "darma-b11-printer-print",
+    "name": "Printer",
+    "category": "fun",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "printer",
+      "print",
+      "paper",
+      "office",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-printer-print printer fun darma-research-batch-11 darma research batch 11 printer print paper office fun html css react customizable cssonly"
+  },
+  {
     "id": "printer-paper",
     "name": "Printer Paper",
     "category": "fun",
@@ -16887,6 +18393,52 @@
       "customizable": true
     },
     "searchText": "printer-paper printer paper fun darma darma originals printer paper print feed document html css react cssonly customizable"
+  },
+  {
+    "id": "darma-b11-rain-cloud",
+    "name": "Rain Cloud",
+    "category": "fun",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "rain",
+      "cloud",
+      "weather",
+      "drops",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-rain-cloud rain cloud fun darma-research-batch-11 darma research batch 11 rain cloud weather drops fun html css react customizable cssonly"
+  },
+  {
+    "id": "darma-b9-rocket-launch",
+    "name": "Rocket Launch",
+    "category": "fun",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "rocket",
+      "launch",
+      "space",
+      "flame",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-rocket-launch rocket launch fun darma-research-batch-9 darma research batch 9 rocket launch space flame fun html css react customizable cssonly"
   },
   {
     "id": "rocket-launch",
@@ -16938,6 +18490,29 @@
     "searchText": "darma-custom-032 rolling arch ball fun darma-custom darma custom rolling arch ball bounce batch-02 html css react popular singleelement cssonly customizable"
   },
   {
+    "id": "darma-b10-dice-roll",
+    "name": "Rolling Dice",
+    "category": "fun",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "dice",
+      "die",
+      "roll",
+      "game",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-dice-roll rolling dice fun darma-research-batch-10 darma research batch 10 dice die roll game fun html css react customizable cssonly"
+  },
+  {
     "id": "darma-custom-310",
     "name": "Rolling Floor Bounce",
     "category": "fun",
@@ -16967,6 +18542,29 @@
       "customizable": true
     },
     "searchText": "darma-custom-310 rolling floor bounce fun darma-custom darma custom rolling floor bounce ball fun motion loader css-only single-element batch-05 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "darma-b9-rolling-wheel",
+    "name": "Rolling Wheel",
+    "category": "fun",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "wheel",
+      "roll",
+      "spokes",
+      "tire",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-rolling-wheel rolling wheel fun darma-research-batch-9 darma research batch 9 wheel roll spokes tire fun html css react customizable cssonly"
   },
   {
     "id": "darma-custom-313",
@@ -17052,6 +18650,29 @@
       "customizable": true
     },
     "searchText": "sailboat-bob sailboat bob fun darma darma originals sailboat boat sail rock sea html css react cssonly customizable"
+  },
+  {
+    "id": "darma-b8-magnifier-search",
+    "name": "Search Scan",
+    "category": "fun",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "magnifier",
+      "search",
+      "scan",
+      "find",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-magnifier-search search scan fun darma-research-batch-8 darma research batch 8 magnifier search scan find fun html css react customizable cssonly"
   },
   {
     "id": "darma-custom-311",
@@ -17165,6 +18786,29 @@
       "customizable": true
     },
     "searchText": "uiverse-shooting-star-trio shooting star trio fun uiverse-batch-3 uiverse batch 3 uiverse stars shooting sparkle fun loader html css react cssonly customizable"
+  },
+  {
+    "id": "darma-b10-slot-reels",
+    "name": "Slot Reels",
+    "category": "fun",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "slot",
+      "reels",
+      "casino",
+      "spin",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-slot-reels slot reels fun darma-research-batch-10 darma research batch 10 slot reels casino spin fun html css react customizable cssonly"
   },
   {
     "id": "darma-custom-487",
@@ -17537,6 +19181,52 @@
     "searchText": "darma-custom-317 spinning diamond bounce fun darma-custom darma custom spinning diamond bounce ball fun motion loader css-only single-element batch-05 html css react singleelement cssonly customizable"
   },
   {
+    "id": "darma-b10-ceiling-fan",
+    "name": "Spinning Fan",
+    "category": "fun",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "fan",
+      "blades",
+      "propeller",
+      "spin",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-ceiling-fan spinning fan fun darma-research-batch-10 darma research batch 10 fan blades propeller spin fun html css react customizable cssonly"
+  },
+  {
+    "id": "darma-b8-spinning-top",
+    "name": "Spinning Top",
+    "category": "fun",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "top",
+      "spin",
+      "toy",
+      "wobble",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-spinning-top spinning top fun darma-research-batch-8 darma research batch 8 top spin toy wobble fun html css react customizable cssonly"
+  },
+  {
     "id": "spinning-top",
     "name": "Spinning Top",
     "category": "fun",
@@ -17614,6 +19304,75 @@
       "customizable": true
     },
     "searchText": "darma-custom-036 split sphere bounce fun darma-custom darma custom sphere bounce split circle pseudo-element batch-02 html css react popular singleelement cssonly customizable"
+  },
+  {
+    "id": "darma-b10-sprout-grow",
+    "name": "Sprout",
+    "category": "fun",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "sprout",
+      "plant",
+      "grow",
+      "leaf",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-sprout-grow sprout fun darma-research-batch-10 darma research batch 10 sprout plant grow leaf fun html css react customizable cssonly"
+  },
+  {
+    "id": "darma-b7-squash-bounce-ball",
+    "name": "Squash Bounce",
+    "category": "fun",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "ball",
+      "bounce",
+      "squash",
+      "shadow",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-squash-bounce-ball squash bounce fun darma-research-batch-7 darma research batch 7 ball bounce squash shadow fun html css react customizable cssonly"
+  },
+  {
+    "id": "darma-b8-stacking-blocks",
+    "name": "Stacking Blocks",
+    "category": "fun",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "blocks",
+      "stack",
+      "build",
+      "tower",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-stacking-blocks stacking blocks fun darma-research-batch-8 darma research batch 8 blocks stack build tower fun html css react customizable cssonly"
   },
   {
     "id": "darma-custom-099",
@@ -17866,6 +19625,29 @@
     "searchText": "darma-custom-658 tapping hand fun darma-custom darma custom rich hand tap gesture illustrated multi-element fun loader html-css customizable rich-batch-01 html css react cssonly customizable"
   },
   {
+    "id": "darma-b10-tetris-drop",
+    "name": "Tetris Drop",
+    "category": "fun",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "tetris",
+      "blocks",
+      "drop",
+      "puzzle",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-tetris-drop tetris drop fun darma-research-batch-10 darma research batch 10 tetris blocks drop puzzle fun html css react customizable cssonly"
+  },
+  {
     "id": "tetris-drop",
     "name": "Tetris Drop",
     "category": "fun",
@@ -17913,6 +19695,29 @@
       "customizable": true
     },
     "searchText": "darma-custom-033 tilted track ball fun darma-custom darma custom tilted track ball slope batch-02 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "darma-b9-traffic-light",
+    "name": "Traffic Light",
+    "category": "fun",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "traffic",
+      "light",
+      "signal",
+      "stop",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-traffic-light traffic light fun darma-research-batch-9 darma research batch 9 traffic light signal stop fun html css react customizable cssonly"
   },
   {
     "id": "uiverse-traffic-light-sequence",
@@ -18074,6 +19879,29 @@
     "searchText": "uiverse-typewriter typewriter loader fun uiverse uiverse uiverse typewriter keyboard paper fun loader html css react popular cssonly customizable"
   },
   {
+    "id": "darma-b11-ufo-beam",
+    "name": "UFO Beam",
+    "category": "fun",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "ufo",
+      "alien",
+      "beam",
+      "space",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-ufo-beam ufo beam fun darma-research-batch-11 darma research batch 11 ufo alien beam space fun html css react customizable cssonly"
+  },
+  {
     "id": "darma-custom-031",
     "name": "Vertical Pendulum Rod",
     "category": "fun",
@@ -18099,6 +19927,29 @@
       "customizable": true
     },
     "searchText": "darma-custom-031 vertical pendulum rod fun darma-custom darma custom vertical pendulum rod swing single-element batch-02 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "darma-b8-vinyl-record",
+    "name": "Vinyl Record",
+    "category": "fun",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "vinyl",
+      "record",
+      "music",
+      "turntable",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-vinyl-record vinyl record fun darma-research-batch-8 darma research batch 8 vinyl record music turntable fun html css react customizable cssonly"
   },
   {
     "id": "uiverse-walking-mascot",
@@ -18150,6 +20001,29 @@
       "customizable": true
     },
     "searchText": "washing-machine washing machine fun darma darma originals washing machine drum tumble spin html css react cssonly customizable"
+  },
+  {
+    "id": "darma-b10-flag-wave",
+    "name": "Waving Flag",
+    "category": "fun",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "flag",
+      "wave",
+      "pole",
+      "banner",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-flag-wave waving flag fun darma-research-batch-10 darma research batch 10 flag wave pole banner fun html css react customizable cssonly"
   },
   {
     "id": "waving-flag",
@@ -18692,6 +20566,29 @@
       "customizable": true
     },
     "searchText": "wiper-sweep wiper sweep fun darma darma originals wiper sweep windshield swing clean html css react cssonly customizable"
+  },
+  {
+    "id": "darma-b11-yo-yo",
+    "name": "Yo-Yo",
+    "category": "fun",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "yoyo",
+      "toy",
+      "bounce",
+      "string",
+      "fun"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-yo-yo yo-yo fun darma-research-batch-11 darma research batch 11 yoyo toy bounce string fun html css react customizable cssonly"
   },
   {
     "id": "yoyo-drop",
@@ -19277,6 +21174,29 @@
       "customizable": true
     },
     "searchText": "uiverse-rolling-rock-steps rolling rock steps minimal uiverse-batch-2 uiverse batch 2 uiverse rolling rock steps minimal loader html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "darma-b7-yin-yang-spin",
+    "name": "Tai Chi Spin",
+    "category": "minimal",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "yin-yang",
+      "tai-chi",
+      "balance",
+      "rotate",
+      "minimal"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-yin-yang-spin tai chi spin minimal darma-research-batch-7 darma research batch 7 yin-yang tai-chi balance rotate minimal html css react customizable cssonly"
   },
   {
     "id": "darma-research-terminal-cursor-wave",
@@ -19980,6 +21900,29 @@
     "searchText": "uiverse-tiny-loading-pill tiny loading pill minimal uiverse uiverse uiverse minimal pill loader html css react singleelement cssonly customizable"
   },
   {
+    "id": "darma-b10-blinking-caret",
+    "name": "Typing Caret",
+    "category": "minimal",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "caret",
+      "cursor",
+      "typing",
+      "terminal",
+      "minimal"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-blinking-caret typing caret minimal darma-research-batch-10 darma research batch 10 caret cursor typing terminal minimal html css react customizable cssonly"
+  },
+  {
     "id": "darma-custom-011",
     "name": "Vanishing Color Stack",
     "category": "minimal",
@@ -20088,6 +22031,29 @@
       "customizable": true
     },
     "searchText": "darma-custom-226 arrow rail progress darma-custom darma custom arrow rail progress bar track linear loader css-only single-element batch-05 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "darma-b9-battery-charging",
+    "name": "Battery Charging",
+    "category": "progress",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "battery",
+      "charge",
+      "power",
+      "energy",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-battery-charging battery charging progress darma-research-batch-9 darma research batch 9 battery charge power energy progress html css react customizable cssonly"
   },
   {
     "id": "darma-custom-041",
@@ -21617,6 +23583,29 @@
     "searchText": "darma-custom-232 hybrid wave track progress darma-custom darma custom hybrid wave track progress bar linear loader css-only single-element batch-05 html css react singleelement cssonly customizable"
   },
   {
+    "id": "darma-b9-indeterminate-bar",
+    "name": "Indeterminate Bar",
+    "category": "progress",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "progress",
+      "bar",
+      "loading",
+      "material",
+      "indeterminate"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-indeterminate-bar indeterminate bar progress darma-research-batch-9 darma research batch 9 progress bar loading material indeterminate html css react customizable cssonly"
+  },
+  {
     "id": "darma-custom-066",
     "name": "Isometric Belt Progress",
     "category": "progress",
@@ -21799,6 +23788,29 @@
       "cssOnly": true
     },
     "searchText": "darma-research-liquid-tab-switcher liquid tab switcher progress darma-research-batch-6 darma research batch 6 tabs liquid progress pill ui html css react customizable cssonly"
+  },
+  {
+    "id": "darma-b7-liquid-wave-fill",
+    "name": "Liquid Wave Fill",
+    "category": "progress",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "liquid",
+      "wave",
+      "water",
+      "fill",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-liquid-wave-fill liquid wave fill progress darma-research-batch-7 darma research batch 7 liquid wave water fill progress html css react customizable cssonly"
   },
   {
     "id": "darma-custom-018",
@@ -23599,6 +25611,29 @@
     "searchText": "darma-custom-770 pattern progress 96 progress darma-custom darma custom css-only single-element customizable batch-08 progress striped pattern loader html css react singleelement cssonly customizable"
   },
   {
+    "id": "darma-b7-pie-clock-fill",
+    "name": "Pie Clock",
+    "category": "progress",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "pie",
+      "clock",
+      "sweep",
+      "fill",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-pie-clock-fill pie clock progress darma-research-batch-7 darma research batch 7 pie clock sweep fill progress html css react customizable cssonly"
+  },
+  {
     "id": "darma-research-prism-marquee-loader",
     "name": "Prism Marquee Loader",
     "category": "progress",
@@ -24517,6 +26552,52 @@
     "searchText": "darma-research-sunrise-arch-progress sunrise arch progress progress darma-research-batch-6 darma research batch 6 sunrise arch progress warm minimal html css react customizable cssonly"
   },
   {
+    "id": "darma-b10-water-fill-square",
+    "name": "Tank Fill",
+    "category": "progress",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "water",
+      "tank",
+      "fill",
+      "level",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-water-fill-square tank fill progress darma-research-batch-10 darma research batch 10 water tank fill level progress html css react customizable cssonly"
+  },
+  {
+    "id": "darma-b11-thermometer",
+    "name": "Thermometer",
+    "category": "progress",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "thermometer",
+      "temperature",
+      "mercury",
+      "heat",
+      "progress"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-thermometer thermometer progress darma-research-batch-11 darma research batch 11 thermometer temperature mercury heat progress html css react customizable cssonly"
+  },
+  {
     "id": "thermometer-fill",
     "name": "Thermometer Fill",
     "category": "progress",
@@ -25360,6 +27441,29 @@
     "searchText": "uiverse-blue-ripple-rings blue ripple rings pulse uiverse-batch-4 uiverse batch 4 ripple rings pulse blue uiverse html css react singleelement cssonly customizable"
   },
   {
+    "id": "darma-b8-breathing-orb",
+    "name": "Breathing Orb",
+    "category": "pulse",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "orb",
+      "glow",
+      "breathe",
+      "sphere",
+      "pulse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-breathing-orb breathing orb pulse darma-research-batch-8 darma research batch 8 orb glow breathe sphere pulse html css react customizable cssonly"
+  },
+  {
     "id": "darma-custom-120",
     "name": "Corner Ring Expand",
     "category": "pulse",
@@ -25590,6 +27694,29 @@
     "searchText": "cssloaders-github-34 cssloaders pattern 34 pulse cssloaders-github css loaders cssloaders pulse circle loader html css react singleelement cssonly customizable"
   },
   {
+    "id": "darma-b8-droplet-ripple",
+    "name": "Droplet Ripple",
+    "category": "pulse",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "droplet",
+      "water",
+      "ripple",
+      "splash",
+      "pulse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-droplet-ripple droplet ripple pulse darma-research-batch-8 darma research batch 8 droplet water ripple splash pulse html css react customizable cssonly"
+  },
+  {
     "id": "glow-pulse",
     "name": "Glow Pulse",
     "category": "pulse",
@@ -25611,6 +27738,29 @@
       "customizable": true
     },
     "searchText": "glow-pulse glow pulse pulse darma darma originals pulse glow status indicator html css react cssonly customizable"
+  },
+  {
+    "id": "darma-b10-cross-pulse",
+    "name": "Health Cross",
+    "category": "pulse",
+    "sourceId": "darma-research-batch-10",
+    "tags": [
+      "cross",
+      "plus",
+      "medical",
+      "health",
+      "pulse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b10-cross-pulse health cross pulse darma-research-batch-10 darma research batch 10 cross plus medical health pulse html css react customizable cssonly"
   },
   {
     "id": "heartbeat-pulse",
@@ -25963,6 +28113,52 @@
       "customizable": true
     },
     "searchText": "darma-custom-573 mask reveal 10 pulse darma-custom darma custom mask reveal 10 pulse shape loader css-only single-element batch-07 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "darma-b7-morph-square-circle",
+    "name": "Morphing Square",
+    "category": "pulse",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "morph",
+      "square",
+      "circle",
+      "shape",
+      "pulse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-morph-square-circle morphing square pulse darma-research-batch-7 darma research batch 7 morph square circle shape pulse html css react customizable cssonly"
+  },
+  {
+    "id": "darma-b8-neon-pulse-ring",
+    "name": "Neon Pulse Ring",
+    "category": "pulse",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "neon",
+      "glow",
+      "ring",
+      "pulse",
+      "cyberpunk"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-neon-pulse-ring neon pulse ring pulse darma-research-batch-8 darma research batch 8 neon glow ring pulse cyberpunk html css react customizable cssonly"
   },
   {
     "id": "open-ripple-circle",
@@ -26376,6 +28572,29 @@
       "customizable": true
     },
     "searchText": "darma-custom-403 pop icon 10 pulse darma-custom darma custom pop icon 10 pulse shape motion loader css-only single-element batch-06 html css react singleelement cssonly customizable"
+  },
+  {
+    "id": "darma-b11-power-pulse",
+    "name": "Power Pulse",
+    "category": "pulse",
+    "sourceId": "darma-research-batch-11",
+    "tags": [
+      "power",
+      "button",
+      "boot",
+      "energy",
+      "pulse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b11-power-pulse power pulse pulse darma-research-batch-11 darma research batch 11 power button boot energy pulse html css react customizable cssonly"
   },
   {
     "id": "darma-custom-374",
@@ -26814,6 +29033,29 @@
     "searchText": "darma-custom-015 rounded quadrant bloom pulse darma-custom darma custom circle quadrant bloom rounded batch-01 html css react popular singleelement cssonly customizable"
   },
   {
+    "id": "darma-b7-ripple-sonar",
+    "name": "Sonar Ripple",
+    "category": "pulse",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "ripple",
+      "sonar",
+      "radar",
+      "waves",
+      "pulse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-ripple-sonar sonar ripple pulse darma-research-batch-7 darma research batch 7 ripple sonar radar waves pulse html css react customizable cssonly"
+  },
+  {
     "id": "uiverse-splash-square-trio",
     "name": "Splash Square Trio",
     "category": "pulse",
@@ -26839,6 +29081,29 @@
       "customizable": true
     },
     "searchText": "uiverse-splash-square-trio splash square trio pulse uiverse-batch-3 uiverse batch 3 uiverse splash squares trio pulse loader html css react cssonly customizable"
+  },
+  {
+    "id": "darma-b9-wifi-broadcast",
+    "name": "Wifi Broadcast",
+    "category": "pulse",
+    "sourceId": "darma-research-batch-9",
+    "tags": [
+      "wifi",
+      "signal",
+      "broadcast",
+      "waves",
+      "pulse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b9-wifi-broadcast wifi broadcast pulse darma-research-batch-9 darma research batch 9 wifi signal broadcast waves pulse html css react customizable cssonly"
   },
   {
     "id": "wifi-pulse",
@@ -30635,6 +32900,29 @@
     "searchText": "uiverse-neon-loading-ring neon loading ring spinners uiverse-batch-3 uiverse batch 3 uiverse neon ring text spinner loader html css react cssonly customizable"
   },
   {
+    "id": "darma-b8-nested-hexagons",
+    "name": "Nested Hexagons",
+    "category": "spinners",
+    "sourceId": "darma-research-batch-8",
+    "tags": [
+      "hexagon",
+      "nested",
+      "geometric",
+      "polygon",
+      "spinner"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b8-nested-hexagons nested hexagons spinners darma-research-batch-8 darma research batch 8 hexagon nested geometric polygon spinner html css react customizable cssonly"
+  },
+  {
     "id": "darma-custom-650",
     "name": "Neumorphic Vortex",
     "category": "spinners",
@@ -31247,6 +33535,30 @@
       "customizable": true
     },
     "searchText": "uiverse-propeller-tick-spinner propeller tick spinner spinners uiverse-batch-5 uiverse batch 5 ticks propeller radial spinner uiverse batch-5 html css react cssonly customizable"
+  },
+  {
+    "id": "darma-b7-radar-sweep",
+    "name": "Radar Sweep",
+    "category": "spinners",
+    "sourceId": "darma-research-batch-7",
+    "tags": [
+      "radar",
+      "sweep",
+      "scan",
+      "conic",
+      "spinner"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "popular": true,
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b7-radar-sweep radar sweep spinners darma-research-batch-7 darma research batch 7 radar sweep scan conic spinner html css react popular customizable cssonly"
   },
   {
     "id": "darma-custom-669",

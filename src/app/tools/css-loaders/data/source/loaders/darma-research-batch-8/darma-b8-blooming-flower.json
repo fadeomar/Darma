@@ -1,0 +1,12 @@
+{
+  "id": "darma-b8-blooming-flower",
+  "name": "Blooming Flower",
+  "category": "creative",
+  "tags": ["flower", "bloom", "petals", "nature", "creative"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader span { position: absolute; left: 50%; top: 50%; width: 30%; height: 46%; margin-left: -15%; margin-top: -46%; transform-origin: 50% 100%; border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%; background: linear-gradient(var(--accent), var(--accent-2)); animation: bloom calc(var(--loader-speed) * 2) ease-in-out infinite; }\n.loader span:nth-child(1) { transform: rotate(0deg); animation-delay: 0s; }\n.loader span:nth-child(2) { transform: rotate(60deg); animation-delay: calc(var(--loader-speed) * .1); }\n.loader span:nth-child(3) { transform: rotate(120deg); animation-delay: calc(var(--loader-speed) * .2); }\n.loader span:nth-child(4) { transform: rotate(180deg); animation-delay: calc(var(--loader-speed) * .3); }\n.loader span:nth-child(5) { transform: rotate(240deg); animation-delay: calc(var(--loader-speed) * .4); }\n.loader span:nth-child(6) { transform: rotate(300deg); animation-delay: calc(var(--loader-speed) * .5); }\n@keyframes bloom { 0%, 100% { scale: .3; opacity: .4; } 50% { scale: 1; opacity: .9; } }",
+  "defaults": { "color": "#ec4899", "secondaryColor": "#a855f7", "size": 88, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 8", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

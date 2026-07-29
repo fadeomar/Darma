@@ -1,0 +1,12 @@
+{
+  "id": "darma-b11-fidget-spinner",
+  "name": "Fidget Spinner",
+  "category": "fun",
+  "tags": ["fidget", "spinner", "toy", "spin", "fun"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"spinner\"><span></span><span></span><span></span></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; display: grid; place-items: center; }\n.loader::after { content: ''; position: absolute; width: 16%; height: 16%; border-radius: 50%; background: radial-gradient(circle, #e2e8f0, #94a3b8); z-index: 2; }\n.loader .spinner { position: relative; width: 82%; height: 82%; animation: fspin calc(var(--loader-speed) * .5) linear infinite; }\n.loader .spinner span { position: absolute; top: 50%; left: 50%; width: calc(var(--loader-size) * .34); height: calc(var(--loader-size) * .34); margin: calc(var(--loader-size) * -.17) 0 0 calc(var(--loader-size) * -.17); border-radius: 50%; background: radial-gradient(circle at 40% 35%, color-mix(in srgb, #fff 30%, var(--accent)), var(--accent)); }\n.loader .spinner span:nth-child(2) { background: radial-gradient(circle at 40% 35%, color-mix(in srgb, #fff 30%, var(--accent-2)), var(--accent-2)); }\n.loader .spinner span:nth-child(1) { transform: rotate(0deg) translateY(calc(var(--loader-size) * -.24)); }\n.loader .spinner span:nth-child(2) { transform: rotate(120deg) translateY(calc(var(--loader-size) * -.24)); }\n.loader .spinner span:nth-child(3) { transform: rotate(240deg) translateY(calc(var(--loader-size) * -.24)); }\n@keyframes fspin { to { transform: rotate(360deg); } }",
+  "defaults": { "color": "#22d3ee", "secondaryColor": "#3b82f6", "size": 88, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "popular": true, "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 11", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

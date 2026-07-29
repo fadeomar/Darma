@@ -1,0 +1,12 @@
+{
+  "id": "darma-b10-morph-polygon",
+  "name": "Morphing Polygon",
+  "category": "creative",
+  "tags": ["polygon", "morph", "shape", "geometry", "creative"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); background: linear-gradient(135deg, var(--accent), var(--accent-2)); animation: morph calc(var(--loader-speed) * 3) ease-in-out infinite; }\n@keyframes morph { 0%, 100% { clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); transform: rotate(0deg); } 33% { clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%); transform: rotate(120deg); } 66% { clip-path: polygon(50% 0%, 50% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 100%); transform: rotate(240deg); } }",
+  "defaults": { "color": "#f43f5e", "secondaryColor": "#8b5cf6", "size": 72, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 10", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

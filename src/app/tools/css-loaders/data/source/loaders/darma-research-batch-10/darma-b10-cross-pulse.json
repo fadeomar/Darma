@@ -1,0 +1,12 @@
+{
+  "id": "darma-b10-cross-pulse",
+  "name": "Health Cross",
+  "category": "pulse",
+  "tags": ["cross", "plus", "medical", "health", "pulse"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); display: grid; place-items: center; }\n.loader span { width: 26%; height: 80%; background: var(--accent); border-radius: calc(var(--loader-size) * .05); position: relative; box-shadow: 0 0 calc(var(--loader-size) * .16) color-mix(in srgb, var(--accent-2) 65%, transparent); animation: cross calc(var(--loader-speed) * 1.6) ease-in-out infinite; }\n.loader span::after { content: ''; position: absolute; top: 37%; left: -100%; width: 300%; height: 26%; background: inherit; border-radius: inherit; }\n@keyframes cross { 0%, 100% { transform: scale(.7) rotate(0deg); } 50% { transform: scale(1) rotate(90deg); } }",
+  "defaults": { "color": "#ef4444", "secondaryColor": "#f87171", "size": 72, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 10", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

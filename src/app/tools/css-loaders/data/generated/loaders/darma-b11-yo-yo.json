@@ -1,0 +1,48 @@
+{
+  "id": "darma-b11-yo-yo",
+  "name": "Yo-Yo",
+  "category": "fun",
+  "sourceId": "darma-research-batch-11",
+  "tags": [
+    "yoyo",
+    "toy",
+    "bounce",
+    "string",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b11-yo-yo yo-yo fun darma-research-batch-11 darma research batch 11 yoyo toy bounce string fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b11-yo-yo\" aria-label=\"Loading\"><span></span></div>",
+  "previewCss": ".darma-loader-darma-b11-yo-yo { --accent: var(--loader-color, #ef4444); --accent-2: var(--loader-secondary-color, #991b1b); width: var(--loader-size, 88px); height: var(--loader-size, 88px); position: relative; }\n.darma-loader-darma-b11-yo-yo::before { content: ''; position: absolute; top: 4%; left: 50%; width: 2px; height: 40%; margin-left: -1px; background: color-mix(in srgb, #000 25%, var(--accent)); transform-origin: top center; animation: darma-loader-darma-b11-yo-yo-string calc(var(--loader-speed, 1s) * 1.4) ease-in-out infinite; }\n.darma-loader-darma-b11-yo-yo span { position: absolute; top: 36%; left: 50%; width: calc(var(--loader-size, 88px) * .34); height: calc(var(--loader-size, 88px) * .34); margin-left: calc(var(--loader-size, 88px) * -.17); border-radius: 50%; background: radial-gradient(circle at 40% 35%, color-mix(in srgb, #fff 30%, var(--accent)), var(--accent) 60%, var(--accent-2)); animation: darma-loader-darma-b11-yo-yo-yoyo calc(var(--loader-speed, 1s) * 1.4) ease-in-out infinite, darma-loader-darma-b11-yo-yo-yospin calc(var(--loader-speed, 1s) * .35) linear infinite; }\n.darma-loader-darma-b11-yo-yo span::after { content: ''; position: absolute; inset: 40%; border-radius: 50%; background: color-mix(in srgb, #000 25%, var(--accent-2)); }\n@keyframes darma-loader-darma-b11-yo-yo-yoyo { 0%, 100% { translate: 0 0; } 50% { translate: 0 48%; } }\n@keyframes darma-loader-darma-b11-yo-yo-yospin { to { rotate: 360deg; } }\n@keyframes darma-loader-darma-b11-yo-yo-string { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(2.15); } }",
+  "defaults": {
+    "color": "#ef4444",
+    "secondaryColor": "#991b1b",
+    "size": 88,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b11-yo-yo\" aria-label=\"Loading\"><span></span></div>",
+    "css": ".darma-loader-darma-b11-yo-yo { --accent: var(--loader-color, #ef4444); --accent-2: var(--loader-secondary-color, #991b1b); width: var(--loader-size, 88px); height: var(--loader-size, 88px); position: relative; }\n.darma-loader-darma-b11-yo-yo::before { content: ''; position: absolute; top: 4%; left: 50%; width: 2px; height: 40%; margin-left: -1px; background: color-mix(in srgb, #000 25%, var(--accent)); transform-origin: top center; animation: darma-loader-darma-b11-yo-yo-string calc(var(--loader-speed, 1s) * 1.4) ease-in-out infinite; }\n.darma-loader-darma-b11-yo-yo span { position: absolute; top: 36%; left: 50%; width: calc(var(--loader-size, 88px) * .34); height: calc(var(--loader-size, 88px) * .34); margin-left: calc(var(--loader-size, 88px) * -.17); border-radius: 50%; background: radial-gradient(circle at 40% 35%, color-mix(in srgb, #fff 30%, var(--accent)), var(--accent) 60%, var(--accent-2)); animation: darma-loader-darma-b11-yo-yo-yoyo calc(var(--loader-speed, 1s) * 1.4) ease-in-out infinite, darma-loader-darma-b11-yo-yo-yospin calc(var(--loader-speed, 1s) * .35) linear infinite; }\n.darma-loader-darma-b11-yo-yo span::after { content: ''; position: absolute; inset: 40%; border-radius: 50%; background: color-mix(in srgb, #000 25%, var(--accent-2)); }\n@keyframes darma-loader-darma-b11-yo-yo-yoyo { 0%, 100% { translate: 0 0; } 50% { translate: 0 48%; } }\n@keyframes darma-loader-darma-b11-yo-yo-yospin { to { rotate: 360deg; } }\n@keyframes darma-loader-darma-b11-yo-yo-string { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(2.15); } }",
+    "react": "export default function DarmaB11YoYoLoader() {\n  return (\n    <div className=\"darma-loader-darma-b11-yo-yo\" aria-label=\"Loading\"><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 11",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

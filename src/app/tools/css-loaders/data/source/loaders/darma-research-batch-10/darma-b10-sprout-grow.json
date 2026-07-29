@@ -1,0 +1,12 @@
+{
+  "id": "darma-b10-sprout-grow",
+  "name": "Sprout",
+  "category": "fun",
+  "tags": ["sprout", "plant", "grow", "leaf", "fun"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"plant\"><span></span><span></span></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); display: grid; place-items: end center; }\n.loader .plant { position: relative; width: calc(var(--loader-size) * .06); height: 62%; background: linear-gradient(var(--accent-2), color-mix(in srgb, #fff 25%, var(--accent-2))); border-radius: 4px; transform-origin: 50% 100%; animation: grow calc(var(--loader-speed) * 2.4) ease-in-out infinite; }\n.loader .plant span { position: absolute; width: calc(var(--loader-size) * .26); height: calc(var(--loader-size) * .16); background: var(--accent); }\n.loader .plant span:nth-child(1) { top: 2%; right: 60%; border-radius: 0 100% 0 100%; transform-origin: right center; transform: rotate(20deg); }\n.loader .plant span:nth-child(2) { top: 24%; left: 60%; border-radius: 100% 0 100% 0; transform-origin: left center; transform: rotate(-20deg); }\n@keyframes grow { 0% { transform: scaleY(0); } 65%, 92% { transform: scaleY(1); } 100% { transform: scaleY(1); opacity: .2; } }",
+  "defaults": { "color": "#22c55e", "secondaryColor": "#65a30d", "size": 84, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 10", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

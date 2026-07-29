@@ -1,0 +1,12 @@
+{
+  "id": "darma-b10-dice-roll",
+  "name": "Rolling Dice",
+  "category": "fun",
+  "tags": ["dice", "die", "roll", "game", "fun"],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"die\"><span></span><span></span><span></span><span></span><span></span></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); display: grid; place-items: center; perspective: 500px; }\n.loader .die { position: relative; width: 56%; height: 56%; border-radius: 18%; background: linear-gradient(135deg, #fff, color-mix(in srgb, var(--accent-2) 32%, #fff)); box-shadow: inset 0 0 calc(var(--loader-size) * .05) rgba(0, 0, 0, .12); animation: roll calc(var(--loader-speed) * 1.6) cubic-bezier(.7, 0, .3, 1) infinite; }\n.loader .die span { position: absolute; width: 17%; height: 17%; border-radius: 50%; background: var(--accent); }\n.loader .die span:nth-child(1) { top: 16%; left: 16%; }\n.loader .die span:nth-child(2) { top: 16%; right: 16%; }\n.loader .die span:nth-child(3) { top: 41.5%; left: 41.5%; }\n.loader .die span:nth-child(4) { bottom: 16%; left: 16%; }\n.loader .die span:nth-child(5) { bottom: 16%; right: 16%; }\n@keyframes roll { 0% { transform: rotateX(0deg) rotateY(0deg); } 50% { transform: rotateX(190deg) rotateY(90deg); } 100% { transform: rotateX(360deg) rotateY(180deg); } }",
+  "defaults": { "color": "#1e293b", "secondaryColor": "#f43f5e", "size": 76, "speed": 1 },
+  "controls": { "color": true, "secondaryColor": true, "size": true, "speed": true },
+  "flags": { "customizable": true, "cssOnly": true },
+  "source": { "name": "Darma Research Batch 10", "author": "Darma", "license": "Original implementation for Darma; inspired by public CSS loader galleries" }
+}

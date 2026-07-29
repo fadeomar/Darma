@@ -1,0 +1,48 @@
+{
+  "id": "darma-b7-pie-clock-fill",
+  "name": "Pie Clock",
+  "category": "progress",
+  "sourceId": "darma-research-batch-7",
+  "tags": [
+    "pie",
+    "clock",
+    "sweep",
+    "fill",
+    "progress"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b7-pie-clock-fill pie clock progress darma-research-batch-7 darma research batch 7 pie clock sweep fill progress html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b7-pie-clock-fill\" aria-label=\"Loading\"></div>",
+  "previewCss": ".darma-loader-darma-b7-pie-clock-fill { --accent: var(--loader-color, #06b6d4); --accent-2: var(--loader-secondary-color, #0e7490); width: var(--loader-size, 72px); height: var(--loader-size, 72px); border-radius: 50%; background: color-mix(in srgb, var(--accent-2) 22%, transparent); position: relative; overflow: hidden; }\n.darma-loader-darma-b7-pie-clock-fill::before, .darma-loader-darma-b7-pie-clock-fill::after { content: ''; position: absolute; top: 0; left: 50%; width: 50%; height: 100%; background: var(--accent); transform-origin: left center; }\n.darma-loader-darma-b7-pie-clock-fill::before { animation: darma-loader-darma-b7-pie-clock-fill-pie-a calc(var(--loader-speed, 1s) * 2.4) linear infinite; }\n.darma-loader-darma-b7-pie-clock-fill::after { animation: darma-loader-darma-b7-pie-clock-fill-pie-b calc(var(--loader-speed, 1s) * 2.4) linear infinite; }\n@keyframes darma-loader-darma-b7-pie-clock-fill-pie-a { 0% { transform: rotate(0deg); } 50%, 100% { transform: rotate(180deg); } }\n@keyframes darma-loader-darma-b7-pie-clock-fill-pie-b { 0%, 50% { transform: rotate(0deg); } 100% { transform: rotate(180deg); } }",
+  "defaults": {
+    "color": "#06b6d4",
+    "secondaryColor": "#0e7490",
+    "size": 72,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b7-pie-clock-fill\" aria-label=\"Loading\"></div>",
+    "css": ".darma-loader-darma-b7-pie-clock-fill { --accent: var(--loader-color, #06b6d4); --accent-2: var(--loader-secondary-color, #0e7490); width: var(--loader-size, 72px); height: var(--loader-size, 72px); border-radius: 50%; background: color-mix(in srgb, var(--accent-2) 22%, transparent); position: relative; overflow: hidden; }\n.darma-loader-darma-b7-pie-clock-fill::before, .darma-loader-darma-b7-pie-clock-fill::after { content: ''; position: absolute; top: 0; left: 50%; width: 50%; height: 100%; background: var(--accent); transform-origin: left center; }\n.darma-loader-darma-b7-pie-clock-fill::before { animation: darma-loader-darma-b7-pie-clock-fill-pie-a calc(var(--loader-speed, 1s) * 2.4) linear infinite; }\n.darma-loader-darma-b7-pie-clock-fill::after { animation: darma-loader-darma-b7-pie-clock-fill-pie-b calc(var(--loader-speed, 1s) * 2.4) linear infinite; }\n@keyframes darma-loader-darma-b7-pie-clock-fill-pie-a { 0% { transform: rotate(0deg); } 50%, 100% { transform: rotate(180deg); } }\n@keyframes darma-loader-darma-b7-pie-clock-fill-pie-b { 0%, 50% { transform: rotate(0deg); } 100% { transform: rotate(180deg); } }",
+    "react": "export default function DarmaB7PieClockFillLoader() {\n  return (\n    <div className=\"darma-loader-darma-b7-pie-clock-fill\" aria-label=\"Loading\"></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 7",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

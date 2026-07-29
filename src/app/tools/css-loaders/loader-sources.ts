@@ -19,6 +19,11 @@ export type LoaderSourceGroupId =
   | "darma"
   | "darma-custom"
   | "darma-research-batch-6"
+  | "darma-research-batch-7"
+  | "darma-research-batch-8"
+  | "darma-research-batch-9"
+  | "darma-research-batch-10"
+  | "darma-research-batch-11"
   | "loaders-css"
   | "loading-io"
   | "open-pack-2026"
@@ -72,6 +77,51 @@ export const LOADER_SOURCE_GROUPS: readonly LoaderSourceGroup[] = [
     id: "darma-research-batch-6",
     name: "Darma Research Batch 6",
     description: "Darma original implementations inspired by public CSS loader galleries.",
+    author: "Darma",
+    license: "Custom (Darma)",
+    isOriginal: true,
+    licenseVerified: true,
+  },
+  {
+    id: "darma-research-batch-7",
+    name: "Darma Research Batch 7",
+    description: "Darma original loaders exploring physical and shape-morphing motifs (hourglass, cradle, gears, morphs).",
+    author: "Darma",
+    license: "Custom (Darma)",
+    isOriginal: true,
+    licenseVerified: true,
+  },
+  {
+    id: "darma-research-batch-8",
+    name: "Darma Research Batch 8",
+    description: "Darma original loaders with richer 3D, orbital, particle, and glow motifs (cube, solar system, fireworks, neon).",
+    author: "Darma",
+    license: "Custom (Darma)",
+    isOriginal: true,
+    licenseVerified: true,
+  },
+  {
+    id: "darma-research-batch-9",
+    name: "Darma Research Batch 9",
+    description: "Darma original loaders with mechanical, natural, and UI-pattern motifs (ferris wheel, candle, battery, pendulum wave).",
+    author: "Darma",
+    license: "Custom (Darma)",
+    isOriginal: true,
+    licenseVerified: true,
+  },
+  {
+    id: "darma-research-batch-10",
+    name: "Darma Research Batch 10",
+    description: "Darma original loaders exploring playful toy, nature, and UI motifs (carousel, sprout, slot reels, fireflies).",
+    author: "Darma",
+    license: "Custom (Darma)",
+    isOriginal: true,
+    licenseVerified: true,
+  },
+  {
+    id: "darma-research-batch-11",
+    name: "Darma Research Batch 11",
+    description: "Darma original loaders with camera, weather, and toy object motifs (shutter, campfire, jellyfish, hot-air balloon).",
     author: "Darma",
     license: "Custom (Darma)",
     isOriginal: true,

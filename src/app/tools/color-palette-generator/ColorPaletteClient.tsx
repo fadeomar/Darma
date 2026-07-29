@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { CheckCircle2, Lock, RefreshCw, Shuffle, Unlock } from "lucide-react";
 import { Badge, Button, CopyButton, Select } from "@/components/ui";
 import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
@@ -32,6 +32,8 @@ import {
   normalizeHex,
   randomHexColor,
 } from "./palette";
+import { COLOR_WORKFLOW_ID, readColorWorkflowState, writeColorWorkflowState } from "@/features/tools/workflows/browserState";
+import { useActiveWorkflowId } from "@/features/tools/workflows/useActiveWorkflow";
 import type { HarmonyMode, PaletteColor, PalettePreset, PaletteSize, PaletteUiMode } from "./types";
 
 type DetailsTab = "overview" | "accessibility" | "exports";
@@ -39,7 +41,9 @@ type DetailsTab = "overview" | "accessibility" | "exports";
 const PALETTE_SIZE_VALUES: PaletteSize[] = [3, 5, 7, 9];
 
 export default function ColorPaletteClient() {
+  const workflowId = useActiveWorkflowId();
   const [baseColor, setBaseColor] = useState("#2563EB");
+  const [workflowReady, setWorkflowReady] = useState(false);
   const [harmony, setHarmony] = useState<HarmonyMode>("analogous");
   const [size, setSize] = useState<PaletteSize>(5);
   const [uiMode, setUiMode] = useState<PaletteUiMode>("light");
@@ -55,6 +59,26 @@ export default function ColorPaletteClient() {
 
   const contrastPairs = useMemo(() => getContrastPairs(colors), [colors]);
   const summary = useMemo(() => getPaletteSummary(colors), [colors]);
+
+  useEffect(() => {
+    if (workflowId !== COLOR_WORKFLOW_ID) {
+      setWorkflowReady(false);
+      return;
+    }
+    const stored = readColorWorkflowState();
+    if (stored?.primary) setBaseColor(stored.primary);
+    setWorkflowReady(true);
+  }, [workflowId]);
+
+  useEffect(() => {
+    if (workflowId !== COLOR_WORKFLOW_ID || !workflowReady || !normalizedBase || colors.length === 0) return;
+    const palette = colors.map((color) => color.hex);
+    writeColorWorkflowState({
+      primary: normalizedBase,
+      secondary: palette[1] ?? palette.at(-1),
+      palette,
+    });
+  }, [colors, normalizedBase, workflowId, workflowReady]);
 
   const tabs = useMemo<CodeOutputTab[]>(
     () => [

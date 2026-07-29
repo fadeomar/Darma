@@ -16,6 +16,8 @@ import {
   Wand2,
   X,
 } from "lucide-react";
+import { COLOR_WORKFLOW_ID, readColorWorkflowState } from "@/features/tools/workflows/browserState";
+import { useActiveWorkflowId } from "@/features/tools/workflows/useActiveWorkflow";
 import {
   COLOR_SPACES,
   DEFAULT_GRADIENT,
@@ -428,12 +430,37 @@ function PreviewOverlay({
 }
 
 export default function CssGradientGeneratorClient() {
+  const workflowId = useActiveWorkflowId();
+  const workflowSeeded = useRef(false);
   const [state, setState] = useState<GradientState>(() => cloneState(DEFAULT_GRADIENT));
   const [importValue, setImportValue] = useState("");
   const [importError, setImportError] = useState<string | null>(null);
   const [showImport, setShowImport] = useState(false);
   const [centerPane, setCenterPane] = useState<"preview" | "code">("preview");
   const [copied, setCopied] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (workflowId !== COLOR_WORKFLOW_ID || workflowSeeded.current) return;
+    const stored = readColorWorkflowState();
+    const palette = stored?.palette?.length
+      ? stored.palette
+      : stored
+        ? [stored.primary, stored.secondary].filter((item): item is string => Boolean(item))
+        : [];
+    if (palette.length < 2) return;
+
+    workflowSeeded.current = true;
+    setState((current) => {
+      const next = cloneState(current);
+      const layer = next.layers[0];
+      if (!layer) return next;
+      const colors = palette.slice(0, 5);
+      layer.stops = updateStops(colors.map((color) => createStop(color)));
+      layer.space = "oklab";
+      layer.interpolation = "shorter";
+      return next;
+    });
+  }, [workflowId]);
 
   const activeLayer = getActiveLayer(state);
   const validation = useMemo(() => validateGradient(state), [state]);

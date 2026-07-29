@@ -5,7 +5,7 @@ import categoriesData from "@/data/category.json";
 import PageSection from "@/components/ui/PageSection";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { Badge, Card } from "@/components/ui";
-import { getToolRegistry } from "@/features/tools/registry";
+import { getPublicTools } from "@/features/tools";
 
 export const metadata: Metadata = {
   title: "Categories | Darma",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default function CategoriesPage() {
-  const tools = getToolRegistry().list().filter((tool) => tool.visibility === "public");
+  const tools = getPublicTools();
   const toolCategories = Array.from(
     tools.reduce((map, tool) => {
       for (const category of tool.secondaryCategory ?? []) {

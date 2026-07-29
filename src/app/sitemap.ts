@@ -1,15 +1,12 @@
 import type { MetadataRoute } from "next";
-import { getToolRegistry } from "@/features/tools";
+import { getPublicTools } from "@/features/tools";
 import { absoluteUrl } from "@/features/tools/seo";
 import { getGames } from "@/features/games";
 
 const STATIC_ROUTES = ["/", "/tools", "/games", "/collections", "/search", "/explore", "/categories", "/about"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const toolRoutes = getToolRegistry()
-    .list()
-    .filter((tool) => tool.visibility === "public")
-    .map((tool) => tool.href);
+  const toolRoutes = getPublicTools().map((tool) => tool.href);
 
   const gameRoutes = getGames().map((game) => game.href);
 

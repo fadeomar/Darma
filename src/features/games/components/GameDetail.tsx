@@ -93,7 +93,7 @@ function getGameFeatures(game: GameDefinition) {
   return Array.from(new Set(features)).slice(0, 6);
 }
 
-function getTips(game: GameDefinition) {
+function getFallbackTips(game: GameDefinition) {
   const tips = [
     "Start with a short round to learn the rhythm before chasing high scores.",
     "Use the controls slowly at first, then increase speed once the pattern feels natural.",
@@ -114,7 +114,7 @@ function getTips(game: GameDefinition) {
 
 export function GameDetail({ game, allGames }: { game: GameDefinition; allGames: GameDefinition[] }) {
   const features = getGameFeatures(game);
-  const tips = getTips(game);
+  const tips = game.tips?.length ? game.tips.slice(0, 3) : getFallbackTips(game);
 
   return (
     <div className="game-page-shell game-page-shell-wide mx-auto max-w-[1680px] px-3 py-7 sm:px-5 sm:py-9 lg:px-6 xl:px-8">
@@ -320,7 +320,7 @@ export function GameDetail({ game, allGames }: { game: GameDefinition; allGames:
             <Lightbulb className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
             <h2 className="text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Quick tips</h2>
           </div>
-          <ol className="mt-4 space-y-3">
+          <ol className="mt-4 list-none space-y-3 pl-0">
             {tips.map((tip, index) => (
               <li key={tip} className="flex gap-3 text-sm leading-6 text-[var(--color-text-secondary)]">
                 <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-[var(--radius-full)] bg-[var(--color-primary)] text-xs font-black text-[var(--color-primary-text)]">

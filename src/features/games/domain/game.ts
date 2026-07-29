@@ -85,6 +85,7 @@ export type GameDefinition = {
   input: GameInput[];
   devices: GameDevice[];
   controls: string;
+  tips?: string[];
   privacyNote: string;
   seoTitle: string;
   seoDescription: string;

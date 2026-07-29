@@ -3,6 +3,7 @@ import { CheckCircle2, Expand, Gamepad2, Play, ShieldCheck } from "lucide-react"
 import { Badge } from "@/components/ui";
 import type { GameDefinition } from "../domain/game";
 import { GameThumbnail } from "./GameThumbnail";
+import { GameExperienceFrame } from "../engine/GameExperienceFrame";
 import { ReactionTimerPro } from "../playables/reaction-timer";
 import { TetrisGame } from "../playables/tetris";
 import { ChessMiniGame } from "../playables/chess-mini";
@@ -27,7 +28,7 @@ import { NeonCoreDefenseGame } from "../playables/neon-core-defense";
  * Polished player area. Real game components can be lazy-loaded later and passed
  * as `children`; until then this shell still feels intentional and useful.
  */
-export function GamePlayerShell({
+function GamePlayerContent({
   game,
   children,
 }: {
@@ -212,5 +213,20 @@ export function GamePlayerShell({
         </span>
       </div>
     </div>
+  );
+}
+
+
+export function GamePlayerShell({
+  game,
+  children,
+}: {
+  game: GameDefinition;
+  children?: ReactNode;
+}) {
+  return (
+    <GameExperienceFrame game={game}>
+      <GamePlayerContent game={game}>{children}</GamePlayerContent>
+    </GameExperienceFrame>
   );
 }

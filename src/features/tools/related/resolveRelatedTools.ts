@@ -45,9 +45,10 @@ function intersects<T>(left: readonly T[] = [], right: readonly T[] = []) {
 
 function workflowNeighbors(currentToolId: ToolId) {
   return toolWorkflows.flatMap((workflow) => {
-    const index = workflow.toolIds.indexOf(currentToolId);
+    const toolIds = workflow.steps.flatMap((step) => (step.toolId ? [step.toolId] : []));
+    const index = toolIds.indexOf(currentToolId);
     if (index === -1) return [];
-    return workflow.toolIds.filter((id) => id !== currentToolId);
+    return toolIds.filter((id) => id !== currentToolId);
   });
 }
 

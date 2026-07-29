@@ -19,7 +19,6 @@ import ToolCardLink from "@/components/analytics/ToolCardLink";
 import { Badge, Button, Card, EmptyState, Input, Select } from "@/components/ui";
 import { FavoriteToolButton } from "@/features/tools/components/FavoriteToolButton";
 import { RecentToolsRail } from "@/features/tools/components/RecentToolsRail";
-import { ToolCoreBridgePanel } from "@/features/tools/components/ToolCoreBridgePanel";
 import type { ToolAudience, ToolDefinition } from "@/features/tools";
 import { useFavoriteTools } from "@/features/tools/hooks/useFavoriteTools";
 import { toolWorkflows } from "@/features/tools/workflows";
@@ -173,119 +172,9 @@ function ToolCard({ tool, compact = false }: { tool: ToolDefinition; compact?: b
   );
 }
 
-function challengeSpotlightLabel(tool: ToolDefinition) {
-  if (tool.id === "mouse-scroll-test") return "Wheel sprint";
-  if (tool.id === "click-speed-test") return "CPS rush";
-  if (tool.id === "spacebar-counter") return "Key rhythm";
-  if (tool.id === "reaction-time-test") return "Reflex rounds";
-  return "Quick challenge";
-}
-
-function ChallengeSpotlight({
-  tools,
-  onExplore,
-}: {
-  tools: ToolDefinition[];
-  onExplore: () => void;
-}) {
-  if (!tools.length) return null;
-
-  const leadTool = tools[0];
-
-  return (
-    <section className="relative mt-8 overflow-hidden rounded-[2rem] border border-[var(--color-primary-border)] bg-[radial-gradient(circle_at_top_left,var(--color-primary-soft),transparent_34%),radial-gradient(circle_at_bottom_right,var(--color-accent-soft),transparent_32%),linear-gradient(135deg,var(--color-surface-overlay),var(--color-surface-raised))] p-5 shadow-[0_22px_70px_rgba(91,61,31,0.13)] sm:p-6 lg:p-7">
-      <div className="pointer-events-none absolute inset-0 opacity-55 [background-image:linear-gradient(rgba(119,83,45,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(119,83,45,0.07)_1px,transparent_1px)] [background-size:42px_42px]" />
-      <div className="pointer-events-none absolute left-1/2 top-0 h-44 w-44 -translate-x-1/2 rounded-full bg-[var(--color-primary-soft)] blur-3xl" />
-      <div className="relative grid gap-5 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-stretch">
-        <div className="flex min-w-0 flex-col justify-between">
-          <div>
-            <div className="flex flex-wrap items-center gap-2">
-              <Badge variant="warning">Fun Tools</Badge>
-              <Badge variant="accent">Interactive challenges</Badge>
-              <Badge variant="outline">{tools.length} live</Badge>
-            </div>
-            <h2 className="mt-3 max-w-3xl text-3xl font-black leading-[var(--leading-tight)] tracking-[-0.045em] text-[var(--color-text-primary)] sm:text-4xl">
-              A soft arcade shelf inside the tools directory.
-            </h2>
-            <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)] sm:text-base">
-              Scroll, click, press, and react inside browser-only challenges with focused arena chrome, live status pills, progress rails, local personal bests, and copyable result highlights.
-            </p>
-          </div>
-
-          <div className="mt-5 flex flex-wrap gap-2">
-            <Link
-              href="/tools/fun"
-              className="inline-flex min-h-10 items-center rounded-[var(--radius-md)] bg-[var(--color-primary)] px-4 text-sm font-black text-[var(--color-primary-text)] shadow-[var(--shadow-xs)] transition hover:bg-[var(--color-primary-hover)] focus:outline-none focus:shadow-[var(--focus-ring)]"
-            >
-              Open fun hub
-            </Link>
-            <button
-              type="button"
-              onClick={onExplore}
-              className="inline-flex min-h-10 items-center rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-4 text-sm font-black text-[var(--color-text-primary)] shadow-[var(--shadow-xs)] transition hover:border-[var(--color-primary-border)] focus:outline-none focus:shadow-[var(--focus-ring)]"
-            >
-              Filter challenges
-            </button>
-          </div>
-        </div>
-
-        <div className="rounded-[var(--radius-xl)] border border-white/55 bg-white/65 p-3 shadow-[var(--shadow-card)] backdrop-blur dark:border-white/10 dark:bg-white/10">
-          <div className="rounded-[var(--radius-lg)] border border-[var(--color-primary-border)] bg-[radial-gradient(circle_at_0%_0%,var(--color-primary-soft),transparent_38%),var(--color-surface-base)] p-4">
-            <div className="flex items-center justify-between gap-3">
-              <Badge variant="warning">Featured</Badge>
-              <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">No signup</span>
-            </div>
-            <h3 className="mt-3 text-2xl font-black tracking-[-0.04em] text-[var(--color-text-primary)]">{leadTool.title}</h3>
-            <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">
-              {challengeSpotlightLabel(leadTool)} with live metrics, local history, and instant retry energy.
-            </p>
-            <Link
-              href={leadTool.href}
-              className="mt-4 inline-flex min-h-10 w-full items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] px-4 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-primary)] transition hover:bg-[var(--color-primary)] hover:text-[var(--color-primary-text)] focus:outline-none focus:shadow-[var(--focus-ring)]"
-            >
-              Play featured →
-            </Link>
-          </div>
-          <div className="mt-3 grid grid-cols-3 gap-2">
-            <div className="rounded-[var(--radius-md)] bg-[var(--color-surface-base)]/80 p-3 text-center">
-              <p className="text-2xl font-black text-[var(--color-text-primary)]">{tools.length}</p>
-              <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Tools</p>
-            </div>
-            <div className="rounded-[var(--radius-md)] bg-[var(--color-surface-base)]/80 p-3 text-center">
-              <p className="text-2xl font-black text-[var(--color-text-primary)]">4</p>
-              <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Modes</p>
-            </div>
-            <div className="rounded-[var(--radius-md)] bg-[var(--color-surface-base)]/80 p-3 text-center">
-              <p className="text-2xl font-black text-[var(--color-text-primary)]">0</p>
-              <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Signup</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="relative mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-        {tools.slice(0, 4).map((tool) => (
-          <Link
-            key={tool.id}
-            href={tool.href}
-            className="group rounded-[var(--radius-lg)] border border-white/55 bg-white/62 p-4 shadow-[var(--shadow-xs)] backdrop-blur transition hover:-translate-y-0.5 hover:border-[var(--color-primary-border)] hover:bg-white/75 hover:shadow-[var(--shadow-card)] focus:outline-none focus:shadow-[var(--focus-ring)] dark:border-white/10 dark:bg-white/10 motion-reduce:hover:translate-y-0"
-          >
-            <div className="flex items-center justify-between gap-3">
-              <Badge variant="outline">{layoutLabel(tool.layoutType)}</Badge>
-              <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-primary)]">Play →</span>
-            </div>
-            <h3 className="mt-3 text-base font-black tracking-[-0.02em] text-[var(--color-text-primary)]">{tool.title}</h3>
-            <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">{challengeSpotlightLabel(tool)}</p>
-          </Link>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 function WorkflowCard({ workflow }: { workflow: (typeof toolWorkflows)[number] }) {
   return (
-    <Link href={`/tools/workflows/${workflow.id}`} className="block h-full rounded-[var(--radius-lg)] focus:outline-none focus:shadow-[var(--focus-ring)]">
+    <Link href={`/workflows/${workflow.id}`} className="block h-full rounded-[var(--radius-lg)] focus:outline-none focus:shadow-[var(--focus-ring)]">
       <Card as="article" variant="interactive" padding="md" className="flex h-full flex-col">
         <div className="mb-4 flex flex-wrap gap-2">
           {(workflow.audience ?? []).slice(0, 2).map((audience) => (
@@ -297,14 +186,14 @@ function WorkflowCard({ workflow }: { workflow: (typeof toolWorkflows)[number] }
         {workflow.steps?.length ? (
           <ol className="mt-4 grid gap-1.5 text-xs leading-5 text-[var(--color-text-tertiary)]">
             {workflow.steps.slice(0, 3).map((step, index) => (
-              <li key={step}>
-                <span className="font-bold text-[var(--color-text-secondary)]">{index + 1}.</span> {step}
+              <li key={step.id}>
+                <span className="font-bold text-[var(--color-text-secondary)]">{index + 1}.</span> {step.title}
               </li>
             ))}
           </ol>
         ) : null}
         <div className="mt-auto pt-5">
-          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{workflow.toolIds.length} linked tools -&gt;</span>
+          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{workflow.steps.length} connected steps -&gt;</span>
         </div>
       </Card>
     </Link>
@@ -333,35 +222,12 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
     [tools],
   );
 
-  const topDailyTools = useMemo(
-    () => [...tools].sort((a, b) => (b.dailyUseScore ?? 0) - (a.dailyUseScore ?? 0) || a.title.localeCompare(b.title)).slice(0, 6),
-    [tools],
-  );
 
   const favoriteTools = useMemo(() => {
     const byId = new Map(tools.map((tool) => [tool.id, tool]));
     return favoriteToolIds.map((id) => byId.get(id)).filter((tool): tool is ToolDefinition => Boolean(tool));
   }, [favoriteToolIds, tools]);
 
-  const audienceSections = useMemo(() => {
-    const sections: Array<{ key: ToolAudience; title: string }> = [
-      { key: "general", title: "Everyday users" },
-      { key: "student", title: "Students" },
-      { key: "creator", title: "Creators" },
-      { key: "designer", title: "Designers" },
-      { key: "developer", title: "Developers" },
-    ];
-
-    return sections
-      .map((section) => ({
-        ...section,
-        tools: sortTools(
-          tools.filter((tool) => (tool.audiences ?? []).includes(section.key)),
-          "featured",
-        ).slice(0, 3),
-      }))
-      .filter((section) => section.tools.length > 0);
-  }, [tools]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -521,13 +387,9 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
         </div>
       </section>
 
-      {showDashboardSections ? (
-        <ChallengeSpotlight tools={challengeTools} onExplore={exploreChallenges} />
-      ) : null}
 
       {showDashboardSections ? <RecentToolsRail tools={tools} /> : null}
 
-      {showDashboardSections ? <ToolCoreBridgePanel tools={tools} /> : null}
 
       {showDashboardSections && favoriteTools.length > 0 ? (
         <section className="mt-8">
@@ -540,18 +402,6 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
           </div>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {favoriteTools.slice(0, 6).map((tool) => <ToolCard key={tool.id} tool={tool} compact />)}
-          </div>
-        </section>
-      ) : null}
-
-      {showDashboardSections && toolWorkflows.length > 0 ? (
-        <section className="mt-8">
-          <div className="mb-4">
-            <Badge variant="soft">Workflows</Badge>
-            <h2 className="mt-2 text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Popular workflows</h2>
-          </div>
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {toolWorkflows.slice(0, 4).map((workflow) => <WorkflowCard key={workflow.id} workflow={workflow} />)}
           </div>
         </section>
       ) : null}
@@ -573,41 +423,19 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
         </section>
       ) : null}
 
-      {showDashboardSections && topDailyTools.length > 0 ? (
+
+      {showDashboardSections && toolWorkflows.length > 0 ? (
         <section className="mt-8">
           <div className="mb-4">
-            <Badge variant="soft">Daily-use</Badge>
-            <h2 className="mt-2 text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Useful every day</h2>
+            <Badge variant="soft">Workflows</Badge>
+            <h2 className="mt-2 text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Guided workflows</h2>
           </div>
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {topDailyTools.map((tool) => <ToolCard key={tool.id} tool={tool} compact />)}
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {toolWorkflows.slice(0, 4).map((workflow) => <WorkflowCard key={workflow.id} workflow={workflow} />)}
           </div>
         </section>
       ) : null}
 
-      {showDashboardSections && audienceSections.length > 0 ? (
-        <section className="mt-8">
-          <div className="mb-4">
-            <Badge variant="outline">By audience</Badge>
-            <h2 className="mt-2 text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Pick tools by task</h2>
-          </div>
-          <div className="grid gap-4 xl:grid-cols-2">
-            {audienceSections.map((section) => (
-              <div key={section.key} className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-card)]">
-                <h3 className="text-lg font-black text-[var(--color-text-primary)]">{section.title}</h3>
-                <div className="mt-4 grid gap-3 sm:grid-cols-3">
-                  {section.tools.map((tool) => (
-                    <Link key={tool.id} href={tool.href} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 transition hover:border-[var(--color-border-strong)] focus:outline-none focus:shadow-[var(--focus-ring)]">
-                      <span className="block text-sm font-black text-[var(--color-text-primary)]">{tool.title}</span>
-                      <span className="mt-1 line-clamp-2 block text-xs leading-5 text-[var(--color-text-secondary)]">{tool.shortDescription ?? tool.description}</span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      ) : null}
 
       <section className="mt-8">
         <div className="mb-4 flex flex-wrap items-end justify-between gap-4">

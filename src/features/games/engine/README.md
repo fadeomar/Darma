@@ -9,17 +9,58 @@ The goal is not to create a heavy framework. The goal is to prevent every new Da
 - local-only storage adapters
 - QA checklist for mobile, fullscreen, timing, accessibility, sharing, and storage
 - shared vocabulary for game modes and browser capabilities
+- first-run onboarding and truthful shared controls
+- cross-game accessibility preferences
+- local session summaries and replay hooks
 
 ## Available primitives
 
 ```ts
 import {
   GameCanvasStageBase,
+  GameExperienceFrame,
   GameFullscreenShell,
   createLocalJsonStore,
+  useGameExperience,
+  useGameExperienceControls,
   DARMA_GAME_QA_CHECKLIST,
 } from "@/features/games/engine";
 ```
+
+
+### GameExperienceFrame
+
+Every public game route is now wrapped by one shared experience layer. It adds:
+
+- a compact instructions and preferences toolbar
+- first-run onboarding for games that do not already own an onboarding flow
+- fullscreen on the outer player without changing game internals
+- shared mute, reduced-motion, high-contrast, large-control, and auto-pause preferences
+- local-only session counts, duration, last result, and eligible best scores
+- an ARIA live region for start, pause, resume, and completion updates
+
+Preserved third-party runtimes remain isolated. The shell never claims it can rewrite their internal audio, controls, or accessibility behavior.
+
+### useGameExperience / useGameExperienceControls
+
+Native games can opt into deeper integration without adopting a heavy framework:
+
+```tsx
+const { startSession, completeSession, preferences } = useGameExperience();
+
+useGameExperienceControls({
+  pause,
+  resume,
+  restart,
+  canPause: phase === "playing",
+  canResume: phase === "paused",
+  canRestart: phase === "over",
+});
+```
+
+Call `startSession()` only when gameplay genuinely begins. Call `completeSession()` once with a concise result. Use `trackBestScore: true` only when a larger numeric score is objectively better; reaction times and other lower-is-better metrics should use `scoreLabel` instead.
+
+Phase 3 integrates the deeper lifecycle with Math Sprint, Reaction Timer Pro classic/practice, and Neon Core Defense. Other games still receive the universal onboarding, preferences, fullscreen, and accessibility shell, and can register lifecycle controls incrementally.
 
 ### GameCanvasStageBase
 

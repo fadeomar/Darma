@@ -1,11 +1,11 @@
-
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, Clock3, ExternalLink, Link2 } from "lucide-react";
 import { Badge, Card } from "@/components/ui";
 import { getToolRegistry } from "@/features/tools/registry";
-import { getToolWorkflow, toolWorkflows } from "@/features/tools/workflows";
+import { appendWorkflowContext, getToolWorkflow, toolWorkflows } from "@/features/tools/workflows";
+import { WorkflowProgressSummary } from "@/features/tools/workflows/components";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -26,16 +26,24 @@ export default async function WorkflowDetailPage({ params }: Props) {
   if (!workflow) notFound();
 
   const registry = getToolRegistry();
-  const tools = workflow.toolIds.map((id) => registry.getById(id)).filter((tool) => tool?.visibility === "public");
   const related = (workflow.relatedWorkflowIds ?? [])
     .map((id) => toolWorkflows.find((item) => item.id === id))
     .filter(Boolean);
+  const startStep = workflow.steps[0];
+  if (!startStep) notFound();
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "ItemList",
+    "@type": "HowTo",
     name: workflow.title,
     description: workflow.description,
-    itemListElement: tools.map((tool, index) => ({ "@type": "ListItem", position: index + 1, name: tool?.title, url: tool?.href })),
+    totalTime: workflow.estimatedTime,
+    step: workflow.steps.map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: step.title,
+      text: step.description,
+      url: appendWorkflowContext(step.href, workflow.id),
+    })),
   };
 
   return (
@@ -47,47 +55,60 @@ export default async function WorkflowDetailPage({ params }: Props) {
           Back to workflows
         </Link>
         <div className="mt-4 flex flex-wrap gap-2">
-          <Badge variant="soft">Workflow</Badge>
-          <Badge variant="outline">{tools.length} tools</Badge>
+          <Badge variant="soft">Connected workflow</Badge>
+          <Badge variant="outline">{workflow.steps.length} steps</Badge>
+          {workflow.estimatedTime ? <Badge variant="outline"><Clock3 className="mr-1 h-3 w-3" aria-hidden />{workflow.estimatedTime}</Badge> : null}
           {(workflow.audience ?? []).map((item) => <Badge key={item} variant="outline">{item}</Badge>)}
         </div>
         <h1 className="mt-4 max-w-4xl text-4xl font-black tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-5xl">{workflow.title}</h1>
         <p className="mt-4 max-w-3xl text-base leading-7 text-[var(--color-text-secondary)]">{workflow.description}</p>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <Link href={appendWorkflowContext(startStep.href, workflow.id)} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-sm)] bg-[var(--color-primary)] px-5 text-sm font-bold text-[var(--color-primary-text)] transition hover:bg-[var(--color-primary-hover)]">
+            Start with step 1 <ArrowRight className="h-4 w-4" aria-hidden />
+          </Link>
+          <Link href="#workflow-steps" className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-5 text-sm font-semibold text-[var(--color-text-secondary)] transition hover:text-[var(--color-text-primary)]">
+            Review all steps
+          </Link>
+        </div>
+        <WorkflowProgressSummary workflowId={workflow.id} stepIds={workflow.steps.map((step) => step.id)} />
       </Card>
 
-      <Card variant="article" padding="lg" className="mt-8">
-        <h2 className="text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">Why this order?</h2>
-        <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">{workflow.useCase}</p>
-        {workflow.steps?.length ? (
-          <ol className="mt-5 grid gap-3 md:grid-cols-2">
-            {workflow.steps.map((step, index) => (
-              <li key={step} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 text-sm leading-6 text-[var(--color-text-secondary)]">
-                <span className="mr-2 font-mono text-xs font-black text-[var(--color-primary)]">{index + 1}</span>
-                {step}
-              </li>
-            ))}
-          </ol>
-        ) : null}
-      </Card>
+      <div className="mt-8 grid gap-5 lg:grid-cols-2">
+        <Card variant="article" padding="lg">
+          <h2 className="flex items-center gap-2 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]"><Link2 className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />Why this order?</h2>
+          <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">{workflow.useCase}</p>
+        </Card>
+        <Card variant="article" padding="lg">
+          <h2 className="flex items-center gap-2 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]"><CheckCircle2 className="h-5 w-5 text-[var(--color-success)]" aria-hidden />Expected outcome</h2>
+          <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">{workflow.outcome}</p>
+        </Card>
+      </div>
 
-      <section className="mt-8 space-y-4">
-        {tools.map((tool, index) => tool ? (
-          <Link key={tool.id} href={tool.href} className="block">
-            <Card as="article" variant="interactive" padding="md">
+      <section id="workflow-steps" className="mt-8 space-y-4 scroll-mt-24">
+        {workflow.steps.map((step, index) => {
+          const tool = step.toolId ? registry.getById(step.toolId) : null;
+          const href = appendWorkflowContext(step.href, workflow.id);
+          return (
+            <Card key={step.id} as="article" variant="interactive" padding="md">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
-                <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-full)] bg-[var(--color-primary)] font-mono text-sm font-black text-[var(--color-primary-text)]">{index + 1}</span>
-                <div>
+                <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[var(--radius-full)] bg-[var(--color-primary)] font-mono text-sm font-black text-[var(--color-primary-text)]">{index + 1}</span>
+                <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap gap-2">
-                    <Badge variant="soft">{tool.layoutType?.replace(/-/g, " ") ?? "tool"}</Badge>
-                    {tool.secondaryCategory?.[0] ? <Badge variant="outline">{tool.secondaryCategory[0]}</Badge> : null}
+                    <Badge variant="soft">{tool?.layoutType?.replace(/-/g, " ") ?? "Explorer step"}</Badge>
+                    {tool?.secondaryCategory?.[0] ? <Badge variant="outline">{tool.secondaryCategory[0]}</Badge> : null}
+                    {step.handoff ? <Badge variant="accent">Data handoff</Badge> : null}
                   </div>
-                  <h2 className="mt-3 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">{tool.title}</h2>
-                  <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">{tool.description}</p>
+                  <h2 className="mt-3 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">{step.title}</h2>
+                  <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">{step.description}</p>
+                  {step.handoff ? <p className="mt-3 rounded-[var(--radius-sm)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] px-3 py-2 text-xs font-semibold leading-5 text-[var(--color-text-secondary)]">{step.handoff}</p> : null}
+                  <Link href={href} className="mt-4 inline-flex min-h-10 items-center justify-center gap-2 rounded-[var(--radius-sm)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-4 text-sm font-bold text-[var(--color-text-primary)] transition hover:border-[var(--color-primary-border)]">
+                    {index === 0 ? "Start this workflow" : "Open this step"} <ExternalLink className="h-4 w-4" aria-hidden />
+                  </Link>
                 </div>
               </div>
             </Card>
-          </Link>
-        ) : null)}
+          );
+        })}
       </section>
 
       {related.length > 0 ? (

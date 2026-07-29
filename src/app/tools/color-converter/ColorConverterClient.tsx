@@ -1,10 +1,12 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { AlertTriangle, CheckCircle2, Droplets, Eye, Layers, Palette, SlidersHorizontal } from "lucide-react";
 import { Badge, Button, CopyButton, Input } from "@/components/ui";
 import SurfaceCard from "@/components/ui/SurfaceCard";
 import { cn } from "@/lib/cn";
+import { COLOR_WORKFLOW_ID, readColorWorkflowState, writeColorWorkflowState } from "@/features/tools/workflows/browserState";
+import { useActiveWorkflowId } from "@/features/tools/workflows/useActiveWorkflow";
 import {
   COLOR_EXAMPLES,
   formatCmyk,
@@ -406,8 +408,30 @@ function ResultTabs({ parsed }: { parsed: Extract<ParsedColorResult, { ok: true 
 }
 
 export default function ColorConverterClient() {
+  const workflowId = useActiveWorkflowId();
   const [input, setInput] = useState("#3b82f6");
+  const [workflowReady, setWorkflowReady] = useState(false);
   const parsed = useMemo(() => parseColorInput(input), [input]);
+
+  useEffect(() => {
+    if (workflowId !== COLOR_WORKFLOW_ID) {
+      setWorkflowReady(false);
+      return;
+    }
+    const stored = readColorWorkflowState();
+    if (stored?.primary) setInput(stored.primary);
+    setWorkflowReady(true);
+  }, [workflowId]);
+
+  useEffect(() => {
+    if (workflowId !== COLOR_WORKFLOW_ID || !workflowReady || !parsed.ok) return;
+    const stored = readColorWorkflowState();
+    writeColorWorkflowState({
+      primary: parsed.hex,
+      secondary: stored?.secondary,
+      palette: stored?.palette,
+    });
+  }, [parsed, workflowId, workflowReady]);
 
   return (
     <div className="space-y-5">

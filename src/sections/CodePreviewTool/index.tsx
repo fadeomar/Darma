@@ -39,6 +39,7 @@ import {
   SegmentedControl,
 } from "@/features/tools/components";
 import { cn } from "@/lib/cn";
+import { consumeCodePreviewHandoff } from "@/features/tools/workflows/browserState";
 import {
   CODE_PREVIEW_PRESETS,
   DEFAULT_CODE_PREVIEW_PRESET,
@@ -208,6 +209,29 @@ export default function CodePreviewTool() {
   const versionRef = useRef(1);
   const [previewCanvasWidth, setPreviewCanvasWidth] = useState(0);
   const [importStatus, setImportStatus] = useState<ImportStatus>(null);
+
+  useEffect(() => {
+    const query = new URLSearchParams(window.location.search);
+    if (query.get("source") !== "explorer") return;
+    const handoff = consumeCodePreviewHandoff();
+    const cleanHandoffQuery = () => {
+      const nextUrl = new URL(window.location.href);
+      nextUrl.searchParams.delete("source");
+      window.history.replaceState({}, "", `${nextUrl.pathname}${nextUrl.search}${nextUrl.hash}`);
+    };
+    if (!handoff) {
+      setImportStatus({ kind: "error", message: "The Explorer handoff was missing or expired. Return to the element preview and open it again." });
+      cleanHandoffQuery();
+      return;
+    }
+    setHtml(handoff.source.html);
+    setCss(handoff.source.css);
+    setJs(handoff.source.js);
+    setSelectedPresetId("custom");
+    setActiveTab("html");
+    setImportStatus({ kind: "success", message: `Loaded ${handoff.title ?? "the Explorer element"} into Code Preview.` });
+    cleanHandoffQuery();
+  }, []);
 
   const source = useMemo<ProjectSource>(() => ({ html, css, js }), [css, html, js]);
   const productionChecks = useMemo(() => getProductionChecks(source), [source]);

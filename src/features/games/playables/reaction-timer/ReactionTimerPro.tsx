@@ -13,6 +13,7 @@ import { Expand, Keyboard, Minimize2, MousePointerClick, Pause, Play, Settings, 
 import { Badge, Button } from "@/components/ui";
 import { cn } from "@/lib/cn";
 import type { GameDefinition } from "../../domain/game";
+import { useGameExperience, useGameExperienceControls } from "../../engine/GameExperienceProvider";
 import { ReactionAccessibilityPanel } from "./ReactionAccessibilityPanel";
 import { ReactionAchievementToast } from "./ReactionAchievementToast";
 import { ReactionArena } from "./ReactionArena";
@@ -46,6 +47,7 @@ import type { InputMethod } from "./reactionInsights";
 import type { ReactionState } from "./reactionMachine";
 import type { PrecisionPhase } from "./precisionTypes";
 import type { ShareActionKind, ShareableGameResult } from "./reactionShareCard";
+import type { ReactionSettings } from "./reactionSettings";
 
 /** Map a precision phase to a reaction phase so the shared Canvas picks a tone. */
 const PRECISION_CANVAS_PHASE: Record<PrecisionPhase, ReactionPhase> = {
@@ -64,6 +66,7 @@ const SUBTEXT: Partial<Record<ReactionState["phase"], string>> = {
 
 export function ReactionTimerPro({ game }: { game: GameDefinition }) {
   const shellRef = useRef<HTMLDivElement | null>(null);
+  const previousSharedPhaseRef = useRef<ReactionPhase>("idle");
   const reducedMotion = useReducedMotion();
   const { isFullscreen, toggle: toggleFullscreen } = useFullscreen(shellRef);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -79,10 +82,10 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
     stats,
     hydrated,
     settings,
-    updateSetting,
-    resetSettings,
+    updateSetting: updateReactionSetting,
+    resetSettings: resetReactionSettings,
     soundEnabled,
-    toggleSound,
+    toggleSound: toggleReactionSound,
     testSound,
     testHaptics,
     unlockedAchievements,
@@ -121,6 +124,16 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
     play,
     vibrate,
   } = game$;
+  const {
+    hydrated: sharedExperienceHydrated,
+    preferences: sharedPreferences,
+    updatePreference: updateSharedPreference,
+    startSession: startSharedSession,
+    pauseSession: pauseSharedSession,
+    resumeSession: resumeSharedSession,
+    completeSession: completeSharedSession,
+    abandonSession: abandonSharedSession,
+  } = useGameExperience();
   const { selectedThemeId, activeTheme, selectTheme, resetTheme } = useReactionTheme(stats);
 
   const phase = state.phase;
@@ -161,7 +174,77 @@ export function ReactionTimerPro({ game }: { game: GameDefinition }) {
   const openLocalBattle = useCallback(() => setView("local-battle"), []);
   const exitLocalBattle = useCallback(() => setView("modes"), []);
   // Treat system reduced-motion and the in-game "reduce effects" setting alike.
-  const calmMotion = reducedMotion || settings.reducedEffects;
+  const calmMotion = reducedMotion || settings.reducedEffects || sharedPreferences.reducedMotion;
+
+  const updateSetting = useCallback(<K extends keyof ReactionSettings,>(key: K, value: ReactionSettings[K]) => {
+    updateReactionSetting(key, value);
+    if (key === "soundEnabled") updateSharedPreference("muted", !Boolean(value));
+    if (key === "reducedEffects") updateSharedPreference("reducedMotion", Boolean(value));
+    if (key === "highContrastMode") updateSharedPreference("highContrast", Boolean(value));
+  }, [updateReactionSetting, updateSharedPreference]);
+
+  const resetSettings = useCallback(() => {
+    resetReactionSettings();
+    updateSharedPreference("muted", false);
+    updateSharedPreference("reducedMotion", false);
+    updateSharedPreference("highContrast", false);
+  }, [resetReactionSettings, updateSharedPreference]);
+
+  // Shared preferences can be changed by another game or the universal toolbar.
+  useEffect(() => {
+    if (!sharedExperienceHydrated || !hydrated) return;
+    if (settings.soundEnabled === sharedPreferences.muted) updateReactionSetting("soundEnabled", !sharedPreferences.muted);
+    if (settings.reducedEffects !== sharedPreferences.reducedMotion) updateReactionSetting("reducedEffects", sharedPreferences.reducedMotion);
+    if (settings.highContrastMode !== sharedPreferences.highContrast) updateReactionSetting("highContrastMode", sharedPreferences.highContrast);
+  }, [hydrated, settings.highContrastMode, settings.reducedEffects, settings.soundEnabled, sharedExperienceHydrated, sharedPreferences.highContrast, sharedPreferences.muted, sharedPreferences.reducedMotion, updateReactionSetting]);
+
+  const toggleSound = useCallback(() => {
+    toggleReactionSound();
+    updateSharedPreference("muted", soundEnabled);
+  }, [soundEnabled, toggleReactionSound, updateSharedPreference]);
+
+  // Mirror the classic/practice lifecycle into the shared shell. Other advanced
+  // modes keep their own specialised summaries and will join the same API later.
+  useEffect(() => {
+    const previous = previousSharedPhaseRef.current;
+    if (previous === phase) return;
+    previousSharedPhaseRef.current = phase;
+
+    if ((previous === "idle" || previous === "final-summary") && phase !== "idle" && phase !== "final-summary") {
+      startSharedSession({ mode: state.mode });
+    }
+    if (phase === "paused") pauseSharedSession();
+    if (previous === "paused" && phase !== "paused" && phase !== "idle") resumeSharedSession();
+    if (phase === "final-summary" && state.run) {
+      completeSharedSession({
+        scoreLabel: state.run.bestMs === null ? "Completed run" : `Best ${state.run.bestMs} ms`,
+        summary: state.run.averageMs === null
+          ? "Practice run completed."
+          : `${Math.round(state.run.averageMs)} ms average with ${state.run.accuracy}% accuracy.`,
+        outcome: state.run.mode === "practice" ? "practice" : "completed",
+        stats: {
+          "Best reaction": state.run.bestMs === null ? "—" : `${state.run.bestMs} ms`,
+          Average: state.run.averageMs === null ? "—" : `${Math.round(state.run.averageMs)} ms`,
+          Accuracy: `${state.run.accuracy}%`,
+          Consistency: `${state.run.consistency}%`,
+        },
+      });
+    } else if (phase === "idle" && previous !== "final-summary" && previous !== "idle") {
+      abandonSharedSession();
+    }
+  }, [abandonSharedSession, completeSharedSession, pauseSharedSession, phase, resumeSharedSession, startSharedSession, state.mode, state.run]);
+
+  const restartSharedRun = useCallback(() => start(state.mode), [start, state.mode]);
+
+  useGameExperienceControls({
+    pause,
+    resume,
+    restart: restartSharedRun,
+    quit: reset,
+    canPause: ["countdown", "waiting", "signal", "round-result", "too-early"].includes(phase),
+    canResume: phase === "paused",
+    canRestart: phase === "final-summary",
+  });
 
   // Detect haptics support on the client (avoids SSR/hydration mismatch).
   useEffect(() => {

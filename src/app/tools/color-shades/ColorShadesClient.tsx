@@ -6,6 +6,8 @@ import { Button, CopyButton, Tabs } from "@/components/ui";
 import { CodeOutputPanel, ColorField, NumberField, WarningPanel } from "@/features/tools/components";
 import type { ColorShade, ColorShadesParams } from "@/types";
 import { generateShades } from "@/utils/color-shades";
+import { COLOR_WORKFLOW_ID, readColorWorkflowState, writeColorWorkflowState } from "@/features/tools/workflows/browserState";
+import { useActiveWorkflowId } from "@/features/tools/workflows/useActiveWorkflow";
 
 type ActiveTab = "overview" | "accessibility" | "exports";
 
@@ -152,7 +154,9 @@ function compactColorValue(value: string) {
 }
 
 export default function ColorShadesClient({ initialParams }: { initialParams: ColorShadesParams }) {
+  const workflowId = useActiveWorkflowId();
   const [params, setParams] = useState<ColorShadesParams>(initialParams);
+  const [workflowReady, setWorkflowReady] = useState(false);
   const [activeTab, setActiveTab] = useState<ActiveTab>("overview");
 
   useEffect(() => {
@@ -183,6 +187,33 @@ export default function ColorShadesClient({ initialParams }: { initialParams: Co
   const scss = buildScssMap(shades);
   const accessibility = buildAccessibility(shades);
   const hexList = shades.map((shade) => shade.hex).join("\n");
+
+  useEffect(() => {
+    if (workflowId !== COLOR_WORKFLOW_ID) {
+      setWorkflowReady(false);
+      return;
+    }
+    const stored = readColorWorkflowState();
+    if (stored) {
+      const palette = stored.palette ?? [];
+      setParams((current) => ({
+        ...current,
+        color1: palette[0] ?? stored.primary,
+        color2: palette.at(-1) ?? stored.secondary ?? current.color2,
+      }));
+    }
+    setWorkflowReady(true);
+  }, [workflowId]);
+
+  useEffect(() => {
+    if (workflowId !== COLOR_WORKFLOW_ID || !workflowReady || shades.length === 0) return;
+    const palette = shades.map((shade) => shade.hex);
+    writeColorWorkflowState({
+      primary: palette[Math.floor(palette.length / 2)] ?? palette[0] ?? "#3B82F6",
+      secondary: palette.at(-1),
+      palette,
+    });
+  }, [shades, workflowId, workflowReady]);
 
   function patch(next: Partial<ColorShadesParams>) {
     setParams((current) => ({ ...current, ...next, steps: clampSteps(next.steps ?? current.steps) }));

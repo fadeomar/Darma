@@ -1,7 +1,7 @@
 import Link from "next/link";
 import PageSection from "@/components/ui/PageSection";
 import { Badge, Card } from "@/components/ui";
-import { getToolRegistry } from "@/features/tools";
+import { getPublicTools } from "@/features/tools";
 
 const featureCards = [
   {
@@ -28,8 +28,7 @@ const featureCards = [
 ];
 
 export default function LandingPage() {
-  const registry = getToolRegistry();
-  const publicTools = registry.list().filter((tool) => tool.visibility === "public");
+  const publicTools = getPublicTools();
   const featuredTools = publicTools.filter((tool) => tool.featured).slice(0, 4);
   const categories = new Set(publicTools.flatMap((tool) => tool.secondaryCategory ?? []));
 

@@ -22,6 +22,7 @@ import {
   GraduationCap,
   Hash,
   Keyboard,
+  Pause,
   Play,
   RotateCcw,
   Settings2,
@@ -36,6 +37,7 @@ import {
 import { Badge, Button } from "@/components/ui";
 import { cn } from "@/lib/cn";
 import type { GameDefinition } from "../../domain/game";
+import { useGameExperience, useGameExperienceControls } from "../../engine/GameExperienceProvider";
 import {
   checkResult,
   enabledDifficulties,
@@ -100,6 +102,7 @@ function formatTime(seconds: number | null): string {
 
 export function MathSprintGame({ game }: { game: GameDefinition }) {
   const [phase, setPhase] = useState<Phase>("setup");
+  const [paused, setPaused] = useState(false);
   const [mode, setMode] = useState<GameMode>("practice");
   const [difficulties, setDifficulties] = useState<DifficultyMap>(() => getDefaultDifficulties());
   const [muted, setMuted] = useState(false);
@@ -112,6 +115,7 @@ export function MathSprintGame({ game }: { game: GameDefinition }) {
   const [revealed, setRevealed] = useState(false);
 
   const [stats, setStats] = useState<SessionStats>(EMPTY_STATS);
+  const statsRef = useRef<SessionStats>(EMPTY_STATS);
   const [bestSprintScore, setBestSprintScore] = useState(0);
   const [bestStreak, setBestStreak] = useState(0);
   const [isRecord, setIsRecord] = useState(false);
@@ -128,6 +132,15 @@ export function MathSprintGame({ game }: { game: GameDefinition }) {
   const phaseRef = useRef<Phase>("setup");
   const mutedRef = useRef(false);
   const modeRef = useRef<GameMode>("practice");
+  const pauseStartedRef = useRef<number | null>(null);
+
+  const {
+    hydrated: experienceHydrated,
+    preferences: sharedPreferences,
+    updatePreference: updateSharedPreference,
+    startSession,
+    completeSession,
+  } = useGameExperience();
 
   useEffect(() => {
     phaseRef.current = phase;
@@ -148,6 +161,14 @@ export function MathSprintGame({ game }: { game: GameDefinition }) {
     setBestStreak(state.bestStreak);
     setHydrated(true);
   }, []);
+
+  // The shared Darma preference is the source of truth once the player shell hydrates.
+  useEffect(() => {
+    if (!experienceHydrated) return;
+    setMuted(sharedPreferences.muted);
+    mutedRef.current = sharedPreferences.muted;
+    writeMuted(sharedPreferences.muted);
+  }, [experienceHydrated, sharedPreferences.muted]);
 
   const focusInput = useCallback(() => {
     // Autofocus only with a fine pointer (desktop) so mobile keyboards don't pop unexpectedly.
@@ -170,51 +191,72 @@ export function MathSprintGame({ game }: { game: GameDefinition }) {
   }, [focusInput]);
 
   const endSession = useCallback(() => {
+    if (phaseRef.current !== "playing") return;
     if (advanceTimerRef.current) window.clearTimeout(advanceTimerRef.current);
     lockRef.current = true;
+    pauseStartedRef.current = null;
+    setPaused(false);
     phaseRef.current = "over";
     setPhase("over");
     setQuestion(null);
 
-    setStats((finalStats) => {
-      const record =
-        modeRef.current === "sprint"
-          ? finalStats.score > 0 && finalStats.score > bestSprintScore
-          : finalStats.bestStreak > 0 && finalStats.bestStreak > bestStreak;
+    const finalStats = statsRef.current;
+    const record =
+      modeRef.current === "sprint"
+        ? finalStats.score > 0 && finalStats.score > bestSprintScore
+        : finalStats.bestStreak > 0 && finalStats.bestStreak > bestStreak;
 
-      if (modeRef.current === "sprint") setBestSprintScore(commitBestSprintScore(finalStats.score));
-      setBestStreak(commitBestStreak(finalStats.bestStreak));
-      setIsRecord(record);
-      setRecommendation(recommendNextDifficulty({ correct: finalStats.correct, wrong: finalStats.wrong, averageTime: finalStats.averageTime }));
+    if (modeRef.current === "sprint") setBestSprintScore(commitBestSprintScore(finalStats.score));
+    setBestStreak(commitBestStreak(finalStats.bestStreak));
+    setIsRecord(record);
+    setRecommendation(recommendNextDifficulty({ correct: finalStats.correct, wrong: finalStats.wrong, averageTime: finalStats.averageTime }));
 
-      playMathSprintSound("finish", mutedRef.current);
-      if (record) {
-        window.setTimeout(() => playMathSprintSound("newbest", mutedRef.current), 260);
-        celebrate("newbest");
-      } else if (modeRef.current === "sprint" && finalStats.correct >= 12) {
-        celebrate("finish");
-      }
-      return finalStats;
+    completeSession({
+      score: finalStats.score,
+      scoreLabel: `${finalStats.correct} correct · ${finalStats.wrong} missed`,
+      summary: modeRef.current === "sprint"
+        ? `${finalStats.score} points with ${finalStats.correct} correct answers.`
+        : `${finalStats.correct} correct answers and a best streak of ${finalStats.bestStreak}.`,
+      outcome: modeRef.current === "practice" ? "practice" : "completed",
+      stats: {
+        Correct: finalStats.correct,
+        Missed: finalStats.wrong,
+        "Best streak": finalStats.bestStreak,
+        "Average time": finalStats.averageTime === null ? "—" : `${finalStats.averageTime.toFixed(1)}s`,
+      },
+      trackBestScore: modeRef.current === "sprint",
     });
-  }, [bestSprintScore, bestStreak]);
+
+    playMathSprintSound("finish", mutedRef.current);
+    if (record) {
+      window.setTimeout(() => playMathSprintSound("newbest", mutedRef.current), 260);
+      if (!sharedPreferences.reducedMotion) celebrate("newbest");
+    } else if (modeRef.current === "sprint" && finalStats.correct >= 12 && !sharedPreferences.reducedMotion) {
+      celebrate("finish");
+    }
+  }, [bestSprintScore, bestStreak, completeSession, sharedPreferences.reducedMotion]);
 
   const startGame = useCallback(
     (nextMode: GameMode) => {
       const map = nextMode === "kids" ? kidsDifficultyMap() : difficulties;
       setMode(nextMode);
       modeRef.current = nextMode;
+      statsRef.current = EMPTY_STATS;
       setStats(EMPTY_STATS);
       setIsRecord(false);
       setRecommendation("");
       setTimeLeft(SPRINT_SECONDS);
       sprintEndRef.current = Date.now() + SPRINT_SECONDS * 1000;
+      pauseStartedRef.current = null;
+      setPaused(false);
       phaseRef.current = "playing";
       setPhase("playing");
+      startSession({ mode: nextMode });
       unlockMathSprintAudio();
       playMathSprintSound("start", mutedRef.current);
       presentQuestion(map, null);
     },
-    [difficulties, presentQuestion],
+    [difficulties, presentQuestion, startSession],
   );
 
   const advanceAfter = useCallback(
@@ -229,7 +271,7 @@ export function MathSprintGame({ game }: { game: GameDefinition }) {
   );
 
   const submitAnswer = useCallback(() => {
-    if (lockRef.current || !question || phase !== "playing") return;
+    if (lockRef.current || paused || !question || phase !== "playing") return;
     const trimmed = input.trim();
     if (trimmed === "" || trimmed === "-" || trimmed === "." || trimmed === ",") return;
 
@@ -248,8 +290,8 @@ export function MathSprintGame({ game }: { game: GameDefinition }) {
         const totalCorrectTime = previous.totalCorrectTime + answerTime;
         const newBestStreak = Math.max(previous.bestStreak, streak);
         // Confetti only on meaningful milestones — never every answer.
-        if (streak > 0 && streak % 10 === 0) celebrate("milestone");
-        return {
+        if (streak > 0 && streak % 10 === 0 && !sharedPreferences.reducedMotion) celebrate("milestone");
+        const next = {
           ...previous,
           score: previous.score + question.points,
           correct: correctCount,
@@ -259,6 +301,8 @@ export function MathSprintGame({ game }: { game: GameDefinition }) {
           lastTime: answerTime,
           averageTime: totalCorrectTime / correctCount,
         };
+        statsRef.current = next;
+        return next;
       });
 
       advanceAfter(mode === "kids" ? 650 : 380, map, question);
@@ -270,33 +314,41 @@ export function MathSprintGame({ game }: { game: GameDefinition }) {
     setAttempts(nextAttempts);
     setFeedback("wrong");
     playMathSprintSound("wrong", mutedRef.current);
-    setStats((previous) => (previous.streak === 0 ? previous : { ...previous, streak: 0 }));
+    setStats((previous) => {
+      const next = previous.streak === 0 ? previous : { ...previous, streak: 0 };
+      statsRef.current = next;
+      return next;
+    });
 
     if (nextAttempts >= MAX_ATTEMPTS) {
       // Reveal the answer, count the question as missed, then move on.
       lockRef.current = true;
       setRevealed(true);
-      setStats((previous) => ({ ...previous, wrong: previous.wrong + 1 }));
+      setStats((previous) => {
+        const next = { ...previous, wrong: previous.wrong + 1 };
+        statsRef.current = next;
+        return next;
+      });
       advanceAfter(1500, map, question);
     } else {
       setInput("");
       window.setTimeout(() => setFeedback("idle"), 420);
       focusInput();
     }
-  }, [advanceAfter, attempts, difficulties, focusInput, input, mode, phase, question]);
+  }, [advanceAfter, attempts, difficulties, focusInput, input, mode, paused, phase, question, sharedPreferences.reducedMotion]);
 
   // Live "current question" timer.
   useEffect(() => {
-    if (phase !== "playing" || feedback !== "idle") return;
+    if (phase !== "playing" || paused || feedback !== "idle") return;
     const id = window.setInterval(() => {
       setCurrentTime((Date.now() - questionStartRef.current) / 1000);
     }, 100);
     return () => window.clearInterval(id);
-  }, [phase, feedback, question]);
+  }, [phase, paused, feedback, question]);
 
   // Sprint countdown.
   useEffect(() => {
-    if (phase !== "playing" || mode !== "sprint") return;
+    if (phase !== "playing" || paused || mode !== "sprint") return;
     const id = window.setInterval(() => {
       const remaining = Math.max(0, (sprintEndRef.current - Date.now()) / 1000);
       setTimeLeft(remaining);
@@ -306,11 +358,11 @@ export function MathSprintGame({ game }: { game: GameDefinition }) {
       }
     }, 100);
     return () => window.clearInterval(id);
-  }, [phase, mode, endSession]);
+  }, [phase, paused, mode, endSession]);
 
   // Keyboard: Enter to submit while playing.
   useEffect(() => {
-    if (phase !== "playing") return;
+    if (phase !== "playing" || paused) return;
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Enter") {
         event.preventDefault();
@@ -319,7 +371,7 @@ export function MathSprintGame({ game }: { game: GameDefinition }) {
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [phase, submitAnswer]);
+  }, [paused, phase, submitAnswer]);
 
   // Cleanup timers on unmount.
   useEffect(() => () => {
@@ -327,13 +379,39 @@ export function MathSprintGame({ game }: { game: GameDefinition }) {
   }, []);
 
   const toggleMute = useCallback(() => {
-    setMuted((current) => {
-      const next = !current;
-      mutedRef.current = next;
-      writeMuted(next);
-      return next;
-    });
-  }, []);
+    const next = !mutedRef.current;
+    mutedRef.current = next;
+    setMuted(next);
+    writeMuted(next);
+    updateSharedPreference("muted", next);
+  }, [updateSharedPreference]);
+
+  const pauseGame = useCallback(() => {
+    if (phaseRef.current !== "playing" || pauseStartedRef.current !== null || feedback !== "idle") return;
+    pauseStartedRef.current = Date.now();
+    setPaused(true);
+  }, [feedback]);
+
+  const resumeGame = useCallback(() => {
+    if (phaseRef.current !== "playing" || pauseStartedRef.current === null) return;
+    const pausedFor = Date.now() - pauseStartedRef.current;
+    questionStartRef.current += pausedFor;
+    if (modeRef.current === "sprint") sprintEndRef.current += pausedFor;
+    pauseStartedRef.current = null;
+    setPaused(false);
+    requestAnimationFrame(focusInput);
+  }, [focusInput]);
+
+  const restartGame = useCallback(() => startGame(modeRef.current), [startGame]);
+
+  useGameExperienceControls({
+    pause: pauseGame,
+    resume: resumeGame,
+    restart: restartGame,
+    canPause: phase === "playing" && !paused && feedback === "idle",
+    canResume: phase === "playing" && paused,
+    canRestart: phase === "over",
+  });
 
   const toggleGroup = useCallback((group: OperationGroup) => {
     setDifficulties((current) => {
@@ -381,9 +459,20 @@ export function MathSprintGame({ game }: { game: GameDefinition }) {
             {muted ? "Muted" : "Sound"}
           </Button>
           {phase === "playing" ? (
-            <Button variant="secondary" size="sm" onClick={endSession} leftIcon={<RotateCcw className="h-4 w-4" aria-hidden />}>
-              End
-            </Button>
+            <>
+              <Button
+                variant="secondary"
+                size="sm"
+                onClick={paused ? resumeGame : pauseGame}
+                disabled={!paused && feedback !== "idle"}
+                leftIcon={paused ? <Play className="h-4 w-4" aria-hidden /> : <Pause className="h-4 w-4" aria-hidden />}
+              >
+                {paused ? "Resume" : "Pause"}
+              </Button>
+              <Button variant="secondary" size="sm" onClick={endSession} leftIcon={<RotateCcw className="h-4 w-4" aria-hidden />}>
+                End
+              </Button>
+            </>
           ) : null}
         </div>
       </div>
@@ -401,29 +490,39 @@ export function MathSprintGame({ game }: { game: GameDefinition }) {
             onStart={() => startGame(mode)}
           />
         ) : phase === "playing" ? (
-          <PlayScreen
-            mode={mode}
-            question={question}
-            input={input}
-            feedback={feedback}
-            revealed={revealed}
-            attempts={attempts}
-            stats={stats}
-            currentTime={currentTime}
-            timeLeft={timeLeft}
-            bestScore={displayBestScore}
-            bestStreak={displayBestStreak}
-            enabledGroupSymbols={enabledGroupSymbols}
-            inputRef={inputRef}
-            onInputChange={(value) => {
-              setInput(sanitizeInput(value));
-              setFeedback((f) => (f === "wrong" ? "idle" : f));
-            }}
-            onSubmit={submitAnswer}
-            onAppend={appendChar}
-            onBackspace={backspace}
-            onClear={clearInput}
-          />
+          <div className="dmsp-play-wrap">
+            <PlayScreen
+              mode={mode}
+              question={question}
+              input={input}
+              feedback={feedback}
+              revealed={revealed}
+              attempts={attempts}
+              stats={stats}
+              currentTime={currentTime}
+              timeLeft={timeLeft}
+              bestScore={displayBestScore}
+              bestStreak={displayBestStreak}
+              enabledGroupSymbols={enabledGroupSymbols}
+              inputRef={inputRef}
+              onInputChange={(value) => {
+                setInput(sanitizeInput(value));
+                setFeedback((f) => (f === "wrong" ? "idle" : f));
+              }}
+              onSubmit={submitAnswer}
+              onAppend={appendChar}
+              onBackspace={backspace}
+              onClear={clearInput}
+            />
+            {paused ? (
+              <div className="dmsp-pause-overlay" role="dialog" aria-label="Math Sprint paused">
+                <span className="dmsp-panel-kicker"><Pause className="h-4 w-4" aria-hidden /> Session paused</span>
+                <h3>Your timer and current question are frozen.</h3>
+                <p>Resume when you are ready. Time spent paused is not included in the shared session duration.</p>
+                <Button size="lg" onClick={resumeGame} leftIcon={<Play className="h-5 w-5" aria-hidden />}>Resume sprint</Button>
+              </div>
+            ) : null}
+          </div>
         ) : (
           <ResultsScreen
             mode={mode}

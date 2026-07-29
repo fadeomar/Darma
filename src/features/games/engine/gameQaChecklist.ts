@@ -16,6 +16,36 @@ export const DARMA_GAME_QA_CHECKLIST: DarmaGameQaItem[] = [
     label: "Game route loads without console errors",
   },
   {
+    id: "shared-onboarding",
+    area: "general",
+    status: "needs-check",
+    label: "First-run onboarding explains controls without blocking returning players",
+  },
+  {
+    id: "shared-session-controls",
+    area: "general",
+    status: "needs-check",
+    label: "Compatible games register truthful pause, resume, replay, and quit controls",
+  },
+  {
+    id: "visibility-auto-pause",
+    area: "timing",
+    status: "needs-check",
+    label: "Compatible active sessions pause safely when the page becomes hidden",
+  },
+  {
+    id: "shared-preferences",
+    area: "accessibility",
+    status: "needs-check",
+    label: "Mute, reduced motion, contrast, and larger-control preferences persist across games",
+  },
+  {
+    id: "session-summary-storage",
+    area: "storage",
+    status: "needs-check",
+    label: "Completed session summaries persist locally without storing personal data",
+  },
+  {
     id: "timing-performance-now",
     area: "timing",
     status: "needs-check",

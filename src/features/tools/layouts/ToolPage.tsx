@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui";
 import { FavoriteToolButton } from "@/features/tools/components/FavoriteToolButton";
 import { RelatedToolsGrid } from "@/features/tools/components/RelatedToolsGrid";
 import { RecentToolTracker } from "@/features/tools/components/RecentToolTracker";
+import { ToolWorkflowNavigator } from "@/features/tools/workflows/components";
 import type { ToolDefinition } from "@/features/tools/domain/tool";
 import { audienceLabel, formatCategory, resolveToolProfile } from "./toolProfile";
 import { cn } from "@/lib/cn";
@@ -152,6 +153,8 @@ export function ToolPage({
           ) : null}
         </div>
       </header>
+
+      {tool ? <ToolWorkflowNavigator toolId={tool.id} /> : null}
 
       <main className="mt-7 sm:mt-8">{children}</main>
       {article ? <div className="mt-8">{article}</div> : null}

@@ -1,7 +1,13 @@
 import type { GameDefinition } from "../domain/game";
 
-const PRIVACY_NOTE =
-  "This game runs in your browser. No signup is required. If progress is saved in the future, it should use local storage only.";
+const NO_SAVE_NOTE =
+  "This game runs entirely in your browser. No signup is required, and Darma does not send gameplay data to a backend.";
+const LOCAL_SCORE_NOTE =
+  "This game runs entirely in your browser. No signup is required. High scores and lightweight preferences are saved only in local storage on this device.";
+const LOCAL_STATS_NOTE =
+  "This game runs entirely in your browser. No signup is required. Results, records, and preferences are saved only in local storage on this device.";
+const LOCAL_PROGRESS_NOTE =
+  "This game runs entirely in your browser. No signup is required. Progress, records, and settings are saved only in local storage on this device.";
 
 const GAME_DEFINITIONS: GameDefinition[] = [
   {
@@ -26,6 +32,11 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     devices: ["desktop", "tablet", "mobile"],
     controls:
       "Swap adjacent tiles to make groups of three or more. Gather and build during the day; create weapons and shields at night. Use the in-game menu for sound, save export/import, and other options.",
+    tips: [
+      "Use daytime matches to prepare resources before night changes the board.",
+      "Avoid spending every resource immediately; balanced building gives you more survival options.",
+      "Export a save from the in-game menu before experimenting with a risky strategy.",
+    ],
     privacyNote:
       "Gridland runs entirely in your browser with self-hosted assets. Progress and settings stay in namespaced local storage on this device; no signup is required.",
     seoTitle: "Play Gridland Online Free | Darma Games",
@@ -63,7 +74,12 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     input: ["keyboard", "touch", "mouse"],
     devices: ["desktop", "tablet", "mobile"],
     controls: "Use arrow keys or swipe to slide all tiles. Matching tiles merge into one.",
-    privacyNote: PRIVACY_NOTE,
+    tips: [
+      "Keep your highest-value tile anchored in one corner.",
+      "Prefer moves that preserve an ordered row instead of filling every empty space.",
+      "Pause before each swipe and check whether it creates a useful follow-up merge.",
+    ],
+    privacyNote: LOCAL_PROGRESS_NOTE,
     seoTitle: "Play 2048 Classic Online Free | Darma Games",
     seoDescription:
       "Play 2048 in your browser for free. Slide and merge numbered tiles to reach 2048. No signup, no downloads — just a quick numbers puzzle.",
@@ -90,7 +106,12 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     input: ["keyboard", "touch", "mouse"],
     devices: ["desktop", "tablet", "mobile"],
     controls: "Use arrows or WASD, swipe on mobile, or tap the on-screen controls. Choose Classic, Wrap, or Maze mode and chase high scores.",
-    privacyNote: PRIVACY_NOTE,
+    tips: [
+      "Leave yourself an escape route instead of circling food too tightly.",
+      "Use slower speeds while learning maze or wrap behavior.",
+      "Golden food is valuable, but skip it when the route would trap your tail.",
+    ],
+    privacyNote: LOCAL_STATS_NOTE,
     seoTitle: "Play Snake Pro Online Free | Darma Games",
     seoDescription:
       "Play Snake Pro free in your browser with classic, wrap, and maze modes, golden food, local high scores, keyboard controls, and mobile swipes. No signup.",
@@ -116,7 +137,12 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     input: ["mouse", "touch", "keyboard"],
     devices: ["desktop", "tablet", "mobile"],
     controls: "Tap or click an empty cell. Play local two-player or against the AI; threat highlights help you block and build lines.",
-    privacyNote: PRIVACY_NOTE,
+    tips: [
+      "Control the center when it is available.",
+      "Look for moves that create two winning threats at once.",
+      "In 4×4 mode, scan rows, columns, and diagonals before committing to an attack.",
+    ],
+    privacyNote: LOCAL_STATS_NOTE,
     seoTitle: "Play Tic Tac Toe Pro Online Free | Darma Games",
     seoDescription:
       "Play Tic Tac Toe Pro free in your browser with AI, 4x4 mode, threat highlights, local stats, and quick board sharing. No signup needed.",
@@ -142,7 +168,12 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     input: ["mouse", "touch"],
     devices: ["desktop", "tablet", "mobile"],
     controls: "Preview the board, then click or tap cards to flip them. Match pairs, use hints carefully, and clear the board in fewer moves.",
-    privacyNote: PRIVACY_NOTE,
+    tips: [
+      "Use the preview to group card positions into small mental zones.",
+      "Flip a known card first so the second choice can complete a pair.",
+      "Save hints for larger boards or late-round uncertainty.",
+    ],
+    privacyNote: LOCAL_STATS_NOTE,
     seoTitle: "Play Memory Cards Pro Online Free | Darma Games",
     seoDescription:
       "Play Memory Cards Pro free in your browser with preview mode, hints, streaks, difficulty levels, themes, and local best scores. No signup needed.",
@@ -167,7 +198,12 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     input: ["mouse", "touch"],
     devices: ["desktop", "tablet", "mobile"],
     controls: "Tap a word, then tap its matching card. Correct pairs build streaks, wrong attempts appear in mistake review, and hints reveal learning clues.",
-    privacyNote: PRIVACY_NOTE,
+    tips: [
+      "Start with one category before switching to mixed rounds.",
+      "Use hints only after comparing every visible pair.",
+      "Review missed pairs after the round and replay the same mode to reinforce them.",
+    ],
+    privacyNote: LOCAL_STATS_NOTE,
     seoTitle: "Play Word Match Pro Online Free | Darma Games",
     seoDescription:
       "Play Word Match Pro free in your browser with synonyms, opposites, categories, English-Arabic pairs, hints, streaks, scoring, and local best scores. No signup.",
@@ -192,7 +228,12 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     input: ["mouse", "touch", "keyboard"],
     devices: ["desktop", "tablet", "mobile"],
     controls: "Select a cell, then type or tap a number. Use notes, hints, undo/redo, keyboard arrows, and erase to solve each row, column, and box.",
-    privacyNote: PRIVACY_NOTE,
+    tips: [
+      "Fill cells with only one possible value before guessing.",
+      "Use notes to track candidates instead of holding them in memory.",
+      "Check each row, column, and box after every correction to avoid repeated mistakes.",
+    ],
+    privacyNote: LOCAL_PROGRESS_NOTE,
     seoTitle: "Play Sudoku Mini Online Free | Darma Games",
     seoDescription:
       "Play Sudoku Mini free in your browser. Solve 4×4 and 6×6 Sudoku puzzles with notes, hints, timer, keyboard controls, autosave, and best times. No signup required.",
@@ -218,7 +259,12 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     input: ["touch", "mouse", "keyboard"],
     devices: ["desktop", "tablet", "mobile"],
     controls: "Tap, click, press Space, Arrow Up, or W to jump. Pass only through segments matching your orb color. P or Esc pauses.",
-    privacyNote: PRIVACY_NOTE,
+    tips: [
+      "Watch the next gate before jumping; the current obstacle is only half the decision.",
+      "Use short controlled taps instead of rapid repeated input.",
+      "Collect stars only when the route still matches your current orb color.",
+    ],
+    privacyNote: LOCAL_SCORE_NOTE,
     seoTitle: "Color Orbit Switch — Free Color Matching Arcade Game | Darma Games",
     seoDescription:
       "Play Color Orbit Switch free in your browser. Tap through matching color gates, collect stars, clear levels, and chase an endless high score. No signup.",
@@ -244,7 +290,12 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     input: ["touch", "mouse", "keyboard"],
     devices: ["desktop", "tablet", "mobile"],
     controls: "Look at the visible text color, ignore the word meaning, then tap the matching color button. Number keys 1–8 also work during gameplay.",
-    privacyNote: PRIVACY_NOTE,
+    tips: [
+      "Say the visible color silently and ignore the written word.",
+      "Begin with fewer colors, then increase difficulty after accuracy stabilizes.",
+      "Prioritize correct answers first; speed improves naturally with repetition.",
+    ],
+    privacyNote: NO_SAVE_NOTE,
     seoTitle: "Color Brain Rush — English Color Learning Reaction Game | Darma Games",
     seoDescription:
       "Play Color Brain Rush free in your browser. A kids-friendly English colors game and Stroop reaction challenge with levels, scoring, sounds, win, and game over screens.",
@@ -269,7 +320,12 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     input: ["mouse", "touch", "keyboard"],
     devices: ["desktop", "tablet", "mobile"],
     controls: "Choose a mode, follow the on-screen objective, then click, tap, press Space, or press Enter where supported. Pointer/touch is recommended for target-heavy modes.",
-    privacyNote: `${PRIVACY_NOTE} Reaction Timer Pro stores progress locally and is not a medical or diagnostic test.`,
+    tips: [
+      "Begin with Classic Reaction before opening the advanced modes.",
+      "Keep your hand relaxed and focus near the center of the arena.",
+      "Compare averages across several rounds instead of judging one unusually fast result.",
+    ],
+    privacyNote: `${LOCAL_PROGRESS_NOTE} Reaction Timer Pro is a practice game, not a medical or diagnostic test.`,
     seoTitle: "Reaction Timer Pro — Free Browser Reaction Time Test | Darma Games",
     seoDescription:
       "Play Reaction Timer Pro free in your browser: classic reaction time test, precision timer, target hunter, level challenge, daily local goals, achievements, and no signup.",
@@ -296,7 +352,12 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     devices: ["desktop", "tablet", "mobile"],
     controls:
       "Arrow Left/Right to move, Arrow Up to rotate, Arrow Down to soft drop, Space to hard drop, P to pause, Q or Esc to quit. On touch devices, use the on-screen buttons below the board.",
-    privacyNote: PRIVACY_NOTE,
+    tips: [
+      "Keep the stack low and avoid creating covered holes.",
+      "Use the next-piece preview to prepare a landing area early.",
+      "Save long vertical gaps for the straight piece only when the board remains stable.",
+    ],
+    privacyNote: LOCAL_SCORE_NOTE,
     seoTitle: "Tetris Game | Darma Games",
     seoDescription:
       "Play a polished classic Tetris block puzzle game with keyboard and mobile controls. Free in your browser, no signup.",
@@ -325,7 +386,12 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     devices: ["desktop", "tablet", "mobile"],
     controls:
       "Use Left/Right arrows or A/D to rotate the hexagon. On touch devices, tap or swipe inside the game area. Match same-colored blocks to clear stacks and build combos before the hexagon fills up.",
-    privacyNote: PRIVACY_NOTE,
+    tips: [
+      "Rotate early so the target side is ready before the block reaches the center.",
+      "Build short same-color groups instead of tall mixed stacks.",
+      "Use chain clears to recover space when the speed increases.",
+    ],
+    privacyNote: LOCAL_SCORE_NOTE,
     seoTitle: "Play Hextris Online Free | Darma Games",
     seoDescription:
       "Play Hextris free inside Darma Games. Rotate the hexagon, match colors, clear falling blocks, and chase high scores in your browser with no signup.",
@@ -351,7 +417,12 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     input: ["mouse", "touch", "keyboard"],
     devices: ["desktop", "tablet", "mobile"],
     controls: "Click or tap to reveal a square. Right-click, long-press, or enable Flag mode to mark suspected mines. Numbers show how many mines touch each revealed square. The first reveal is always safe.",
-    privacyNote: PRIVACY_NOTE,
+    tips: [
+      "Start from open areas and use revealed numbers as exact constraints.",
+      "Flag only when every remaining covered neighbor must be a mine.",
+      "When uncertain, compare overlapping number groups before making a guess.",
+    ],
+    privacyNote: LOCAL_STATS_NOTE,
     seoTitle: "Play Minesweeper Online Free | Darma Games",
     seoDescription:
       "Play a polished Minesweeper game free in your browser. Safe first click, score, flags, sounds, mobile controls, win and game over screens. No signup.",
@@ -376,7 +447,12 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     input: ["mouse", "touch", "keyboard"],
     devices: ["desktop", "tablet", "mobile"],
     controls: "Click, tap, or press 1–7 to drop your disc. Green columns can win now; amber columns warn about threats you should block.",
-    privacyNote: PRIVACY_NOTE,
+    tips: [
+      "Favor the center columns because they participate in more winning lines.",
+      "Check the opponent’s immediate threat before extending your own sequence.",
+      "Create two possible winning drops so one cannot be blocked.",
+    ],
+    privacyNote: LOCAL_STATS_NOTE,
     seoTitle: "Play Connect Four Pro Online Free | Darma Games",
     seoDescription:
       "Play Connect Four Pro free in your browser with AI difficulty, hints, threat highlights, undo, local stats, and mobile controls. No signup required.",
@@ -400,7 +476,12 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     input: ["mouse", "touch", "keyboard"],
     devices: ["desktop", "tablet", "mobile"],
     controls: "Choose your side and difficulty, then click or tap one of your pieces and choose a highlighted legal square. The computer replies automatically. Supports castling, en passant, promotion choice, undo, board flip, draw, resign, optional clocks, board themes, sound, and coordinate toggle. Keyboard users can tab to the board and use arrow keys between squares.",
-    privacyNote: PRIVACY_NOTE,
+    tips: [
+      "Develop pieces toward the center before launching an early attack.",
+      "Check captures, checks, and threats for both sides before every move.",
+      "When ahead, trade pieces carefully instead of opening unnecessary risks.",
+    ],
+    privacyNote: LOCAL_STATS_NOTE,
     seoTitle: "Play Chess Mini Online Free | Darma Games",
     seoDescription:
       "Play Chess Mini free in your browser. A polished chess game against a computer opponent with difficulty levels, legal move highlights, timers, promotion, castling, en passant, and no signup.",
@@ -427,7 +508,12 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     devices: ["desktop", "tablet", "mobile"],
     controls:
       "Tap, click, or press Space / Up to flap through the pipe gaps. P pauses, Enter starts or restarts. Each cleared pipe scores a point; earn bronze, silver, gold, and platinum medals at 10, 20, 30, and 40 points.",
-    privacyNote: PRIVACY_NOTE,
+    tips: [
+      "Use small taps to control altitude instead of large corrections.",
+      "Focus on the opening between pipes, not on the bird itself.",
+      "Establish a steady rhythm before trying to chase the high score.",
+    ],
+    privacyNote: LOCAL_SCORE_NOTE,
     seoTitle: "Play Floppy Bird Online Free | Darma Games",
     seoDescription:
       "Play Floppy Bird free in your browser. A retro one-tap arcade flyer with crisp sprites, real sound effects, saved best score, and mobile-friendly controls. No signup required.",
@@ -453,7 +539,12 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     devices: ["desktop", "tablet", "mobile"],
     controls:
       "Type your answer and press Enter, or use the on-screen keypad. Choose operations and a mode (Practice, 60-second Sprint, or Kids) on the setup screen. Decimals accept a dot or comma. Best score and streak are saved on your device.",
-    privacyNote: PRIVACY_NOTE,
+    tips: [
+      "Choose only the operations you want to practice before starting a sprint.",
+      "Type the answer as soon as you recognize it instead of rechecking simple facts.",
+      "Review incorrect answers after the round and repeat the weakest operation.",
+    ],
+    privacyNote: LOCAL_STATS_NOTE,
     seoTitle: "Play Math Sprint Online Free | Darma Games",
     seoDescription:
       "Play Math Sprint free in your browser. Fast arithmetic practice with addition, subtraction, multiplication, division, and decimals — Practice, 60-second Sprint, and Kids modes. No signup, mobile-friendly.",
@@ -479,7 +570,12 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     devices: ["desktop", "tablet", "mobile"],
     controls:
       "Click or tap anywhere in the arena to fire from the core toward that point. Use 1, 2, and 3 (or the weapon buttons) to switch weapons, and the same keys to pick an upgrade between waves. Press Enter to start or restart, and P or Esc to pause. Your best score, best wave, highest combo, and favourite weapon are saved on this device.",
-    privacyNote: PRIVACY_NOTE,
+    tips: [
+      "Use edge flashes to identify the next threat before it enters the arena.",
+      "Switch weapons based on enemy type instead of staying with one favorite.",
+      "Protect your combo by collecting defensive power-ups before chasing risky bonus shots.",
+    ],
+    privacyNote: LOCAL_PROGRESS_NOTE,
     seoTitle: "Play Neon Core Defense Online Free | Darma Games",
     seoDescription:
       "Play Neon Core Defense free in your browser. Defend a stationary neon core through escalating waves of drones, build combos for a bigger multiplier, and chase your best score. No signup, mobile-friendly.",
@@ -507,7 +603,12 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     devices: ["desktop", "tablet", "mobile"],
     controls:
       "Use Arrow keys or WASD to move Pacman. On mobile, swipe on the canvas or use the D-pad. Space/Enter starts the game, P or Esc pauses. Eat power pills to catch vulnerable ghosts.",
-    privacyNote: PRIVACY_NOTE,
+    tips: [
+      "Clear one side of the maze while keeping an escape route open.",
+      "Save power pills until multiple ghosts are close enough to reward the risk.",
+      "Use tunnels and corners to change direction before ghosts surround you.",
+    ],
+    privacyNote: LOCAL_SCORE_NOTE,
     seoTitle: "Play Pacman Canvas Online Free | Darma Games",
     seoDescription:
       "Play Pacman Canvas free in your browser with local retro assets, ghosts, power pills, score, lives, keyboard controls, mobile swipes, and no signup.",
@@ -536,7 +637,12 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     devices: ["desktop", "tablet", "mobile"],
     controls:
       "Press Space, Arrow Up, W, or tap the canvas to jump. Press Arrow Down or S, or the Slide button, to slide under head-height obstacles. Use P or Esc to pause. On mobile, tap the canvas or the Jump/Slide buttons to play.",
-    privacyNote: PRIVACY_NOTE,
+    tips: [
+      "Read the obstacle silhouette early to decide between jump and slide.",
+      "Avoid repeated taps; one deliberate input gives the character a cleaner arc.",
+      "After taking damage, use the brief shield to recover rhythm rather than rushing.",
+    ],
+    privacyNote: LOCAL_SCORE_NOTE,
     seoTitle: "Play Endless Runner Online Free | Darma Games",
     seoDescription:
       "Play Endless Runner free in your browser. Jump over obstacles, slide under birds and branches, collect coins, enjoy parallax canvas backgrounds, mobile controls, and local best score. No signup required.",
@@ -563,7 +669,12 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     input: ["keyboard"],
     devices: ["desktop", "tablet"],
     controls: "Choose a mode, then start typing. The timer begins on the first character; paste is disabled; results show WPM, raw WPM, accuracy, mistakes, and local history.",
-    privacyNote: PRIVACY_NOTE,
+    tips: [
+      "Prioritize accuracy before trying to raise raw WPM.",
+      "Keep your eyes slightly ahead of the character you are typing.",
+      "Review repeated mistake patterns and practice those letter combinations separately.",
+    ],
+    privacyNote: LOCAL_STATS_NOTE,
     seoTitle: "Play Typing Speed Pro Online Free | Darma Games",
     seoDescription:
       "Test and improve typing speed free in your browser with WPM, raw WPM, accuracy, mistake patterns, modes, local history, and copyable results. No signup.",

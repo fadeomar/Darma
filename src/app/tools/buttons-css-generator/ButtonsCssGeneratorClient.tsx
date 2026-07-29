@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, type CSSProperties, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
 import { Download, RotateCcw, Wand2 } from "lucide-react";
 import { Badge, Button, CopyButton, Field, Input, Select } from "@/components/ui";
 import { ToolLayoutVisualGenerator } from "@/features/tools/layouts";
@@ -18,6 +18,8 @@ import {
   type CodeOutputTab,
   type WarningMessage,
 } from "@/features/tools/components";
+import { COLOR_WORKFLOW_ID, readColorWorkflowState, readableTextColor } from "@/features/tools/workflows/browserState";
+import { useActiveWorkflowId } from "@/features/tools/workflows/useActiveWorkflow";
 import { buttonPresets, defaultButtonConfig } from "./presets";
 import {
   generateButtonCss,
@@ -152,6 +154,7 @@ function getPreviewBackground(config: ButtonGeneratorConfig): CSSProperties {
 }
 
 export default function ButtonsCssGeneratorClient() {
+  const workflowId = useActiveWorkflowId();
   const [config, setConfig] = useState<ButtonGeneratorConfig>(defaultButtonConfig);
   const [previewState, setPreviewState] = useState<PreviewState>("default");
 
@@ -165,6 +168,23 @@ export default function ButtonsCssGeneratorClient() {
   const tokenJson = useMemo(() => generateButtonTokenJson(previewConfig), [previewConfig]);
   const contrastRatio = useMemo(() => getContrastRatio(previewConfig.textColor, previewConfig.variant === "outline" || previewConfig.variant === "ghost" ? "#ffffff" : previewConfig.background), [previewConfig]);
   const productionMetrics = useMemo(() => getProductionMetrics(previewConfig, contrastRatio), [previewConfig, contrastRatio]);
+
+  useEffect(() => {
+    if (workflowId !== COLOR_WORKFLOW_ID) return;
+    const stored = readColorWorkflowState();
+    if (!stored) return;
+    const palette = stored.palette ?? [];
+    const primary = palette[Math.floor(palette.length / 2)] ?? stored.primary;
+    const secondary = palette.at(-1) ?? stored.secondary ?? primary;
+    setConfig((current) => ({
+      ...current,
+      variant: primary !== secondary ? "gradient" : current.variant,
+      background: primary,
+      background2: secondary,
+      borderColor: primary,
+      textColor: readableTextColor(primary),
+    }));
+  }, [workflowId]);
 
   const tabs = useMemo<CodeOutputTab[]>(() => [
     { id: "css", label: "CSS", language: "css", filename: "button.css", code: css },

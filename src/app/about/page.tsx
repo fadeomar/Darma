@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import GoodLinks from "@/sections/GoodLinks";
 import { Badge, Card, CopyButton } from "@/components/ui";
-import { getToolRegistry } from "@/features/tools";
+import { getPublicTools } from "@/features/tools";
 import { toolWorkflows } from "@/features/tools/workflows";
 import {
   AUDIENCE_GROUPS,
@@ -39,8 +39,7 @@ const sectionClass = "mx-auto max-w-[var(--container-wide)] px-4 py-8 sm:px-6 lg
 const eyebrowClass = "font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]";
 
 export default function AboutPage() {
-  const registry = getToolRegistry();
-  const publicTools = registry.list().filter((tool) => tool.visibility === "public");
+  const publicTools = getPublicTools();
   const featuredTools = publicTools.filter((tool) => tool.featured);
 
   const todayTool = pickDaily(featuredTools.length ? featuredTools : publicTools) ?? publicTools[0];
@@ -150,7 +149,7 @@ export default function AboutPage() {
               <h3 className="mt-4 text-2xl font-black tracking-[-0.035em] text-[var(--color-text-primary)]">{todayWorkflow.title}</h3>
               <p className="mt-3 flex-1 text-sm leading-7 text-[var(--color-text-secondary)]">{todayWorkflow.description}</p>
               <Link href={`/workflows/${todayWorkflow.id}`} className={`mt-5 self-start ${secondaryLinkClass}`}>
-                Open workflow · {todayWorkflow.toolIds.length} tools
+                Open workflow · {todayWorkflow.steps.length} steps
               </Link>
             </Card>
           ) : null}
@@ -240,7 +239,7 @@ export default function AboutPage() {
               >
                 <div className="flex items-center justify-between gap-3">
                   <h3 className="text-lg font-bold text-[var(--color-text-primary)]">{workflow.title}</h3>
-                  <Badge variant="outline">{workflow.toolIds.length} tools</Badge>
+                  <Badge variant="outline">{workflow.steps.length} steps</Badge>
                 </div>
                 <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">{workflow.description}</p>
               </Link>

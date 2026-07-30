@@ -1,4 +1,4 @@
-export const DEFAULT_SITE_URL = "https://darma.tools";
+export const DEFAULT_SITE_URL = "https://darma-lake.vercel.app";
 
 export function getSiteUrl() {
   const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim() || DEFAULT_SITE_URL;

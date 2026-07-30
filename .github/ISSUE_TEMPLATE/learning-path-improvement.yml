@@ -1,0 +1,52 @@
+name: Improve a learning path
+description: Suggest a missing stage, stronger source, better checkpoint, or clearer project outcome.
+title: "[Learning path]: "
+body:
+  - type: dropdown
+    id: path
+    attributes:
+      label: Learning path
+      options:
+        - Web Development Foundations
+        - Frontend JavaScript Developer
+        - Full-Stack JavaScript Developer
+        - React Native Mobile Developer
+        - UI/UX and Product Design
+        - DevOps for Web Developers
+        - New path proposal
+    validations:
+      required: true
+  - type: dropdown
+    id: change
+    attributes:
+      label: Improvement type
+      options:
+        - Correct inaccurate content
+        - Add or reorder a stage
+        - Replace or add a source
+        - Improve a checkpoint
+        - Improve a practical project
+        - Improve accessibility or clarity
+        - Propose a new path
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is missing or inaccurate?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Give concrete replacement wording, ordering, deliverables, or source URLs.
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Learner benefit and evidence
+      description: Explain who benefits and cite an official or primary reference when the proposal depends on a factual claim.
+    validations:
+      required: true

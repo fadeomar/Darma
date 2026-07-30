@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Gamepad2, Layers3, Search, Wrench } from "lucide-react";
+import { ArrowRight, BookOpen, Gamepad2, GraduationCap, Layers3, Search, Wrench } from "lucide-react";
 import { Badge, Card } from "@/components/ui";
 import { CoreCategoryChips, CoreEmptyState, CoreEntityCard, CoreSearchInput, CoreSectionHeader, type CoreEntity, type CoreEntityKind } from "@/core";
 import { cn } from "@/lib/cn";
@@ -19,6 +19,8 @@ const KIND_FILTERS: { value: UnifiedSearchKind; label: string; icon: typeof Sear
   { value: "tool", label: "Tools", icon: Wrench },
   { value: "game", label: "Games", icon: Gamepad2 },
   { value: "collection", label: "Collections", icon: Layers3 },
+  { value: "resource", label: "Resources", icon: BookOpen },
+  { value: "learning", label: "Atlas", icon: GraduationCap },
 ];
 
 const KIND_LABELS: Record<CoreEntityKind, string> = {
@@ -33,7 +35,7 @@ const KIND_LABELS: Record<CoreEntityKind, string> = {
 };
 
 function getSuggestedQueries(entities: readonly CoreEntity[]) {
-  const terms = ["image", "css", "puzzle", "calculator", "classic", "color", "productivity", "browser"];
+  const terms = ["react", "career", "agile", "accessibility", "image", "css", "calculator", "design"];
   return terms.filter((term) => searchUnifiedEntities({ entities, query: term }).length > 0).slice(0, 6);
 }
 
@@ -64,17 +66,17 @@ export function UnifiedSearchClient({ entities, initialQuery = "" }: UnifiedSear
             <div className="mb-5 flex flex-wrap gap-2">
               <Badge variant="accent">Darma Core</Badge>
               <Badge variant="outline">Unified search</Badge>
-              <Badge variant="soft">Tools + Games + Collections</Badge>
+              <Badge variant="soft">Tools + Games + Tech Atlas</Badge>
             </div>
             <h1 className="text-3xl font-black tracking-[-0.05em] text-[var(--color-text-primary)] sm:text-5xl lg:text-6xl">
               Search everything Darma can do.
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--color-text-secondary)] sm:text-lg">
-              One fast discovery layer across tools, games, and collections — powered by the shared CoreEntity registry.
+              One discovery layer across tools, games, resources, learning paths, careers, workflows, and collections — powered by the shared CoreEntity registry.
             </p>
 
             <div className="mt-6 max-w-2xl">
-              <CoreSearchInput value={query} onChange={setQuery} placeholder="Search tools, games, collections…" label="Search Darma" />
+              <CoreSearchInput value={query} onChange={setQuery} placeholder="Search React, careers, Agile, tools, games…" label="Search Darma" />
             </div>
 
             {suggestedQueries.length ? (
@@ -189,7 +191,7 @@ export function UnifiedSearchClient({ entities, initialQuery = "" }: UnifiedSear
             <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">Core migration</p>
             <h2 className="mt-1 text-xl font-black text-[var(--color-text-primary)]">Unified search is now the bridge across Darma.</h2>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">
-              This page proves Tools, Games, and Collections can share one searchable entity layer before deeper migration work.
+              Tools, games, resources, learning paths, careers, workflows, and collections now share one searchable entity layer.
             </p>
           </div>
           <Link href="/collections" className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-4 py-2 text-sm font-bold text-[var(--color-text-primary)] transition hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] focus-visible:shadow-[var(--focus-ring)] motion-reduce:transition-none motion-reduce:hover:translate-y-0">

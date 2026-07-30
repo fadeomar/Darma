@@ -1,0 +1,9 @@
+<svg width="960" height="720" viewBox="0 0 960 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs><radialGradient id="bg" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(480 360) rotate(90) scale(360 480)"><stop stop-color="#24332F"/><stop offset="1" stop-color="#121514"/></radialGradient><linearGradient id="needle" x1="401" y1="511" x2="565" y2="193" gradientUnits="userSpaceOnUse"><stop stop-color="#2DD4BF"/><stop offset=".52" stop-color="#FFF7ED"/><stop offset="1" stop-color="#FF6A3D"/></linearGradient></defs>
+  <rect width="960" height="720" rx="42" fill="url(#bg)"/>
+  <circle cx="480" cy="360" r="248" stroke="#FFF7ED" stroke-opacity=".15" stroke-width="2"/><circle cx="480" cy="360" r="196" stroke="#FFF7ED" stroke-opacity=".18" stroke-width="2"/><circle cx="480" cy="360" r="134" stroke="#FFF7ED" stroke-opacity=".22" stroke-width="2"/>
+  <g stroke="#FFF7ED" stroke-opacity=".3" stroke-width="4"><path d="M480 89V136M480 584V631M209 360H256M704 360H751M289 169L322 202M638 518L671 551M671 169L638 202M322 518L289 551"/></g>
+  <path d="M421 482L472 345L544 210L493 375L421 482Z" fill="url(#needle)"/>
+  <circle cx="480" cy="360" r="24" fill="#FFF7ED" stroke="#FF6A3D" stroke-width="8"/>
+  <g font-family="Arial, sans-serif" font-weight="700" text-anchor="middle"><text x="480" y="73" font-size="23" fill="#FF7A45">BUILD</text><text x="480" y="669" font-size="23" fill="#2DD4BF">SUPPORT</text><text x="169" y="367" font-size="23" fill="#FFF7ED">DESIGN</text><text x="791" y="367" font-size="23" fill="#FFF7ED">LEAD</text></g>
+</svg>

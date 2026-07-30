@@ -1,0 +1,1485 @@
+[
+  {
+    "id": "mdn-learn-web-development",
+    "slug": "mdn-learn-web-development",
+    "name": "MDN Learn Web Development",
+    "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development",
+    "domain": "developer.mozilla.org",
+    "summary": "A structured standards-focused learning area covering the essential skills needed to build accessible modern websites.",
+    "categories": [
+      "Learning & Cheatsheets",
+      "Web Development"
+    ],
+    "tags": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "accessibility",
+      "web standards"
+    ],
+    "resourceType": "course",
+    "levels": [
+      "beginner",
+      "intermediate"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "logoUrl": "https://cdn.simpleicons.org/mdnwebdocs",
+      "faviconUrl": "https://developer.mozilla.org/favicon.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained documentation."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://developer.mozilla.org/en-US/docs/Learn_web_development"
+      ]
+    }
+  },
+  {
+    "id": "mdn-frontend-curriculum",
+    "slug": "mdn-frontend-curriculum",
+    "name": "MDN Front-end Developer Curriculum",
+    "url": "https://developer.mozilla.org/en-US/curriculum/",
+    "domain": "developer.mozilla.org",
+    "summary": "A curriculum map of the fundamental knowledge and professional practices expected from a modern front-end developer.",
+    "categories": [
+      "Learning & Cheatsheets",
+      "Web Development"
+    ],
+    "tags": [
+      "frontend",
+      "curriculum",
+      "web standards",
+      "career roadmap"
+    ],
+    "resourceType": "reference",
+    "levels": [
+      "beginner",
+      "intermediate"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "logoUrl": "https://cdn.simpleicons.org/mdnwebdocs",
+      "faviconUrl": "https://developer.mozilla.org/favicon.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained documentation."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://developer.mozilla.org/en-US/curriculum/"
+      ]
+    }
+  },
+  {
+    "id": "web-dev-learn",
+    "slug": "web-dev-learn",
+    "name": "web.dev Learn",
+    "url": "https://web.dev/learn",
+    "domain": "web.dev",
+    "summary": "Practical courses on HTML, CSS, JavaScript, accessibility, performance, privacy, images, and progressive web applications.",
+    "categories": [
+      "Learning & Cheatsheets",
+      "Accessibility & Optimization",
+      "Web Development"
+    ],
+    "tags": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "performance",
+      "accessibility"
+    ],
+    "resourceType": "course",
+    "levels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "faviconUrl": "https://web.dev/favicon.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained documentation."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://web.dev/learn"
+      ]
+    }
+  },
+  {
+    "id": "react-official-learn",
+    "slug": "react-official-learn",
+    "name": "React Learn",
+    "url": "https://react.dev/learn",
+    "domain": "react.dev",
+    "summary": "The official self-paced introduction to components, rendering, events, state, data flow, and everyday React concepts.",
+    "categories": [
+      "JavaScript Tools",
+      "Learning & Cheatsheets",
+      "Web Development"
+    ],
+    "tags": [
+      "React",
+      "components",
+      "state",
+      "frontend"
+    ],
+    "resourceType": "course",
+    "levels": [
+      "beginner",
+      "intermediate"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "logoUrl": "https://cdn.simpleicons.org/react",
+      "faviconUrl": "https://react.dev/favicon.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained documentation."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://react.dev/learn"
+      ]
+    }
+  },
+  {
+    "id": "nextjs-official-docs",
+    "slug": "nextjs-official-docs",
+    "name": "Next.js Documentation",
+    "url": "https://nextjs.org/docs/app/getting-started",
+    "domain": "nextjs.org",
+    "summary": "Official App Router guidance for layouts, routing, server and client components, data work, caching, and deployment.",
+    "categories": [
+      "JavaScript Tools",
+      "Learning & Cheatsheets",
+      "Web Development"
+    ],
+    "tags": [
+      "Next.js",
+      "React",
+      "full stack",
+      "App Router"
+    ],
+    "resourceType": "documentation",
+    "levels": [
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "logoUrl": "https://cdn.simpleicons.org/nextdotjs",
+      "faviconUrl": "https://nextjs.org/favicon.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained documentation."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://nextjs.org/docs/app/getting-started"
+      ]
+    }
+  },
+  {
+    "id": "nodejs-official-learn",
+    "slug": "nodejs-official-learn",
+    "name": "Learn Node.js",
+    "url": "https://nodejs.org/en/learn",
+    "domain": "nodejs.org",
+    "summary": "Official learning material for the Node.js runtime, modules, asynchronous work, command-line tools, servers, and APIs.",
+    "categories": [
+      "JavaScript Tools",
+      "Learning & Cheatsheets",
+      "Backend Development"
+    ],
+    "tags": [
+      "Node.js",
+      "backend",
+      "JavaScript",
+      "APIs"
+    ],
+    "resourceType": "course",
+    "levels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "logoUrl": "https://cdn.simpleicons.org/nodedotjs",
+      "faviconUrl": "https://nodejs.org/static/images/favicons/favicon.png"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained documentation."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://nodejs.org/en/learn"
+      ]
+    }
+  },
+  {
+    "id": "typescript-handbook",
+    "slug": "typescript-handbook",
+    "name": "TypeScript Handbook",
+    "url": "https://www.typescriptlang.org/docs/handbook/intro.html",
+    "domain": "typescriptlang.org",
+    "summary": "The official comprehensive guide to TypeScript concepts, type modeling, functions, objects, generics, narrowing, and modules.",
+    "categories": [
+      "JavaScript Tools",
+      "Learning & Cheatsheets",
+      "Web Development"
+    ],
+    "tags": [
+      "TypeScript",
+      "types",
+      "JavaScript"
+    ],
+    "resourceType": "documentation",
+    "levels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "logoUrl": "https://cdn.simpleicons.org/typescript",
+      "faviconUrl": "https://www.typescriptlang.org/favicon-32x32.png"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained documentation."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://www.typescriptlang.org/docs/handbook/intro.html"
+      ]
+    }
+  },
+  {
+    "id": "pro-git-book",
+    "slug": "pro-git-book",
+    "name": "Pro Git Book",
+    "url": "https://git-scm.com/book/en/v2",
+    "domain": "git-scm.com",
+    "summary": "A freely available book covering Git fundamentals, branching, collaboration, distributed workflows, advanced tools, and internals.",
+    "categories": [
+      "Learning & Cheatsheets",
+      "Version Control & Collaboration"
+    ],
+    "tags": [
+      "Git",
+      "version control",
+      "branching",
+      "commits"
+    ],
+    "resourceType": "course",
+    "levels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "logoUrl": "https://cdn.simpleicons.org/git",
+      "faviconUrl": "https://git-scm.com/favicon.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained documentation."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://git-scm.com/book/en/v2"
+      ]
+    }
+  },
+  {
+    "id": "github-get-started",
+    "slug": "github-get-started",
+    "name": "GitHub Get Started",
+    "url": "https://docs.github.com/en/get-started",
+    "domain": "docs.github.com",
+    "summary": "Official guidance for repositories, branches, commits, pull requests, collaboration, authentication, and maintaining projects.",
+    "categories": [
+      "Productivity & Collaboration",
+      "Version Control & Collaboration"
+    ],
+    "tags": [
+      "GitHub",
+      "pull requests",
+      "repositories",
+      "open source"
+    ],
+    "resourceType": "documentation",
+    "levels": [
+      "beginner",
+      "intermediate"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "logoUrl": "https://cdn.simpleicons.org/github",
+      "faviconUrl": "https://github.githubassets.com/favicons/favicon.svg"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained documentation."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://docs.github.com/en/get-started"
+      ]
+    }
+  },
+  {
+    "id": "react-native-official-docs",
+    "slug": "react-native-official-docs",
+    "name": "React Native Documentation",
+    "url": "https://reactnative.dev/docs/getting-started",
+    "domain": "reactnative.dev",
+    "summary": "Official guidance for native interfaces with React, core components, platform behavior, testing, performance, and integration.",
+    "categories": [
+      "JavaScript Tools",
+      "Learning & Cheatsheets",
+      "Mobile Development"
+    ],
+    "tags": [
+      "React Native",
+      "mobile",
+      "Android",
+      "iOS"
+    ],
+    "resourceType": "documentation",
+    "levels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "logoUrl": "https://cdn.simpleicons.org/react",
+      "faviconUrl": "https://reactnative.dev/img/favicon.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained documentation."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://reactnative.dev/docs/getting-started"
+      ]
+    }
+  },
+  {
+    "id": "expo-get-started",
+    "slug": "expo-get-started",
+    "name": "Expo Get Started",
+    "url": "https://docs.expo.dev/get-started/introduction/",
+    "domain": "docs.expo.dev",
+    "summary": "Official guidance for creating, running, developing, and distributing React Native applications with Expo tools and services.",
+    "categories": [
+      "JavaScript Tools",
+      "Learning & Cheatsheets",
+      "Mobile Development"
+    ],
+    "tags": [
+      "Expo",
+      "React Native",
+      "mobile",
+      "deployment"
+    ],
+    "resourceType": "documentation",
+    "levels": [
+      "beginner",
+      "intermediate"
+    ],
+    "pricing": "freemium",
+    "publisherType": "official",
+    "featured": false,
+    "icon": {
+      "status": "remote-candidate",
+      "logoUrl": "https://cdn.simpleicons.org/expo",
+      "faviconUrl": "https://docs.expo.dev/static/favicon.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained documentation."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://docs.expo.dev/get-started/introduction/"
+      ]
+    }
+  },
+  {
+    "id": "figma-design-beginners",
+    "slug": "figma-design-beginners",
+    "name": "Figma Design for Beginners",
+    "url": "https://help.figma.com/hc/en-us/sections/30880632542743-Figma-Design-for-beginners",
+    "domain": "help.figma.com",
+    "summary": "Official beginner material for Figma files, frames, layers, layout, components, prototypes, and interface design workflows.",
+    "categories": [
+      "Design Resources",
+      "Learning & Cheatsheets"
+    ],
+    "tags": [
+      "Figma",
+      "UI design",
+      "UX design",
+      "prototyping"
+    ],
+    "resourceType": "course",
+    "levels": [
+      "beginner",
+      "intermediate"
+    ],
+    "pricing": "freemium",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "logoUrl": "https://cdn.simpleicons.org/figma",
+      "faviconUrl": "https://static.figma.com/app/icon/1/favicon.png"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained documentation."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://help.figma.com/hc/en-us/sections/30880632542743-Figma-Design-for-beginners"
+      ]
+    }
+  },
+  {
+    "id": "w3c-wai-tutorials",
+    "slug": "w3c-wai-tutorials",
+    "name": "W3C Web Accessibility Tutorials",
+    "url": "https://www.w3.org/WAI/tutorials/",
+    "domain": "w3.org",
+    "summary": "Practical W3C tutorials for accessible page structure, menus, images, tables, forms, and interactive content patterns.",
+    "categories": [
+      "Accessibility & Optimization",
+      "Learning & Cheatsheets",
+      "Web Development"
+    ],
+    "tags": [
+      "accessibility",
+      "WAI",
+      "WCAG",
+      "semantic HTML"
+    ],
+    "resourceType": "tutorial",
+    "levels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "faviconUrl": "https://www.w3.org/favicon.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained documentation."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://www.w3.org/WAI/tutorials/"
+      ]
+    }
+  },
+  {
+    "id": "docker-get-started",
+    "slug": "docker-get-started",
+    "name": "Docker Get Started",
+    "url": "https://docs.docker.com/get-started/",
+    "domain": "docs.docker.com",
+    "summary": "Official beginner guidance and a practical workshop for containers, images, Dockerfiles, registries, Compose, and delivery workflows.",
+    "categories": [
+      "Learning & Cheatsheets",
+      "DevOps & Delivery"
+    ],
+    "tags": [
+      "Docker",
+      "containers",
+      "images",
+      "Compose"
+    ],
+    "resourceType": "course",
+    "levels": [
+      "beginner",
+      "intermediate"
+    ],
+    "pricing": "freemium",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "logoUrl": "https://cdn.simpleicons.org/docker",
+      "faviconUrl": "https://docs.docker.com/favicons/docs@2x.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained documentation."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://docs.docker.com/get-started/"
+      ]
+    }
+  },
+  {
+    "id": "github-actions-docs",
+    "slug": "github-actions-docs",
+    "name": "GitHub Actions Documentation",
+    "url": "https://docs.github.com/en/actions",
+    "domain": "docs.github.com",
+    "summary": "Official documentation for repository automation, tests, builds, releases, deployments, schedules, and reusable CI/CD workflows.",
+    "categories": [
+      "Productivity & Collaboration",
+      "DevOps & Delivery",
+      "Version Control & Collaboration"
+    ],
+    "tags": [
+      "GitHub Actions",
+      "CI/CD",
+      "automation",
+      "deployment"
+    ],
+    "resourceType": "documentation",
+    "levels": [
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "freemium",
+    "publisherType": "official",
+    "featured": false,
+    "icon": {
+      "status": "remote-candidate",
+      "logoUrl": "https://cdn.simpleicons.org/githubactions",
+      "faviconUrl": "https://github.githubassets.com/favicons/favicon.svg"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained documentation."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://docs.github.com/en/actions"
+      ]
+    }
+  },
+  {
+    "id": "testing-library-docs",
+    "slug": "testing-library-docs",
+    "name": "Testing Library Documentation",
+    "url": "https://testing-library.com/docs/",
+    "domain": "testing-library.com",
+    "summary": "Documentation for testing user interfaces through accessible queries and user-visible behavior instead of implementation details.",
+    "categories": [
+      "JavaScript Tools",
+      "Testing & Quality",
+      "Learning & Cheatsheets"
+    ],
+    "tags": [
+      "Testing Library",
+      "React testing",
+      "accessibility"
+    ],
+    "resourceType": "documentation",
+    "levels": [
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": false,
+    "icon": {
+      "status": "remote-candidate",
+      "logoUrl": "https://cdn.simpleicons.org/testinglibrary",
+      "faviconUrl": "https://testing-library.com/img/octopus-64x64.png"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained documentation."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://testing-library.com/docs/"
+      ]
+    }
+  },
+  {
+    "id": "vitest-guide",
+    "slug": "vitest-guide",
+    "name": "Vitest Guide",
+    "url": "https://vitest.dev/guide/",
+    "domain": "vitest.dev",
+    "summary": "Official guidance for fast unit and component testing in Vite projects, including configuration, mocking, coverage, and browser tests.",
+    "categories": [
+      "JavaScript Tools",
+      "Testing & Quality"
+    ],
+    "tags": [
+      "Vitest",
+      "testing",
+      "Vite",
+      "TypeScript"
+    ],
+    "resourceType": "documentation",
+    "levels": [
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": false,
+    "icon": {
+      "status": "remote-candidate",
+      "logoUrl": "https://cdn.simpleicons.org/vitest",
+      "faviconUrl": "https://vitest.dev/favicon.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained documentation."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://vitest.dev/guide/"
+      ]
+    }
+  },
+  {
+    "id": "playwright-docs",
+    "slug": "playwright-docs",
+    "name": "Playwright Documentation",
+    "url": "https://playwright.dev/docs/intro",
+    "domain": "playwright.dev",
+    "summary": "Official documentation for end-to-end browser testing, locators, assertions, fixtures, traces, projects, and continuous integration.",
+    "categories": [
+      "JavaScript Tools",
+      "Testing & Quality"
+    ],
+    "tags": [
+      "Playwright",
+      "end-to-end testing",
+      "browser testing",
+      "CI"
+    ],
+    "resourceType": "documentation",
+    "levels": [
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": false,
+    "icon": {
+      "status": "remote-candidate",
+      "logoUrl": "https://cdn.simpleicons.org/playwright",
+      "faviconUrl": "https://playwright.dev/img/playwright-logo.svg"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained documentation."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://playwright.dev/docs/intro"
+      ]
+    }
+  },
+  {
+    "id": "prisma-orm-docs",
+    "slug": "prisma-orm-docs",
+    "name": "Prisma ORM Documentation",
+    "url": "https://www.prisma.io/docs/orm",
+    "domain": "prisma.io",
+    "summary": "Official documentation for data modeling, migrations, type-safe queries, transactions, relations, and production database workflows.",
+    "categories": [
+      "JavaScript Tools",
+      "Backend Development",
+      "Learning & Cheatsheets"
+    ],
+    "tags": [
+      "Prisma",
+      "database",
+      "ORM",
+      "migrations"
+    ],
+    "resourceType": "documentation",
+    "levels": [
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "freemium",
+    "publisherType": "official",
+    "featured": false,
+    "icon": {
+      "status": "remote-candidate",
+      "logoUrl": "https://cdn.simpleicons.org/prisma",
+      "faviconUrl": "https://www.prisma.io/favicon.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained documentation."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://www.prisma.io/docs/orm"
+      ]
+    }
+  },
+  {
+    "id": "postgresql-tutorial",
+    "slug": "postgresql-tutorial",
+    "name": "PostgreSQL Tutorial",
+    "url": "https://www.postgresql.org/docs/current/tutorial.html",
+    "domain": "postgresql.org",
+    "summary": "The official PostgreSQL tutorial introduces relational concepts, SQL, tables, joins, aggregates, updates, transactions, and advanced features.",
+    "categories": [
+      "Backend Development",
+      "Learning & Cheatsheets"
+    ],
+    "tags": [
+      "PostgreSQL",
+      "SQL",
+      "database",
+      "transactions"
+    ],
+    "resourceType": "tutorial",
+    "levels": [
+      "beginner",
+      "intermediate"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": false,
+    "icon": {
+      "status": "remote-candidate",
+      "logoUrl": "https://cdn.simpleicons.org/postgresql",
+      "faviconUrl": "https://www.postgresql.org/favicon.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained documentation."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://www.postgresql.org/docs/current/tutorial.html"
+      ]
+    }
+  },
+  {
+    "id": "owasp-web-security-guide",
+    "slug": "owasp-web-security-guide",
+    "name": "OWASP Web Security Testing Guide",
+    "url": "https://owasp.org/www-project-web-security-testing-guide/",
+    "domain": "owasp.org",
+    "summary": "A project-maintained guide for assessing authentication, authorization, sessions, input handling, APIs, configuration, and client security.",
+    "categories": [
+      "Testing & Quality",
+      "Backend Development",
+      "DevOps & Delivery"
+    ],
+    "tags": [
+      "OWASP",
+      "security",
+      "authentication",
+      "APIs"
+    ],
+    "resourceType": "reference",
+    "levels": [
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "free",
+    "publisherType": "community",
+    "featured": false,
+    "icon": {
+      "status": "remote-candidate",
+      "logoUrl": "https://cdn.simpleicons.org/owasp",
+      "faviconUrl": "https://owasp.org/assets/images/favicon.png"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained documentation."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://owasp.org/www-project-web-security-testing-guide/"
+      ]
+    }
+  },
+  {
+    "id": "agile-manifesto",
+    "slug": "agile-manifesto",
+    "name": "Agile Manifesto",
+    "url": "https://agilemanifesto.org/",
+    "domain": "agilemanifesto.org",
+    "summary": "The original values and principles that define agile software development and guide adaptive, collaborative delivery.",
+    "categories": [
+      "Ways of Working",
+      "Software Delivery"
+    ],
+    "tags": [
+      "agile",
+      "values",
+      "principles",
+      "software delivery"
+    ],
+    "resourceType": "reference",
+    "levels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "faviconUrl": "https://agilemanifesto.org/favicon.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained source."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://agilemanifesto.org/"
+      ]
+    }
+  },
+  {
+    "id": "scrum-guide",
+    "slug": "scrum-guide",
+    "name": "The Scrum Guide",
+    "url": "https://scrumguides.org/",
+    "domain": "scrumguides.org",
+    "summary": "The official definition of Scrum, including its accountabilities, events, artifacts, commitments, and underlying theory.",
+    "categories": [
+      "Ways of Working",
+      "Software Delivery"
+    ],
+    "tags": [
+      "scrum",
+      "framework",
+      "sprint",
+      "product development"
+    ],
+    "resourceType": "documentation",
+    "levels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "faviconUrl": "https://scrumguides.org/favicon.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained source."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://scrumguides.org/"
+      ]
+    }
+  },
+  {
+    "id": "kanban-guide",
+    "slug": "kanban-guide",
+    "name": "The Kanban Guide",
+    "url": "https://kanbanguides.org/",
+    "domain": "kanbanguides.org",
+    "summary": "A concise guide to managing professional work through flow, work-in-progress controls, and service-level expectations.",
+    "categories": [
+      "Ways of Working",
+      "Software Delivery"
+    ],
+    "tags": [
+      "kanban",
+      "flow",
+      "WIP",
+      "delivery"
+    ],
+    "resourceType": "documentation",
+    "levels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "faviconUrl": "https://kanbanguides.org/favicon.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained source."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://kanbanguides.org/"
+      ]
+    }
+  },
+  {
+    "id": "design-council-double-diamond",
+    "slug": "design-council-double-diamond",
+    "name": "Design Council Double Diamond",
+    "url": "https://www.designcouncil.org.uk/resources/the-double-diamond/",
+    "domain": "designcouncil.org.uk",
+    "summary": "A visual design and innovation process that alternates divergent exploration with convergent definition and delivery.",
+    "categories": [
+      "Design Resources",
+      "Ways of Working"
+    ],
+    "tags": [
+      "double diamond",
+      "design process",
+      "discovery",
+      "innovation"
+    ],
+    "resourceType": "reference",
+    "levels": [
+      "beginner",
+      "intermediate"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "faviconUrl": "https://www.designcouncil.org.uk/favicon.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained source."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://www.designcouncil.org.uk/resources/the-double-diamond/"
+      ]
+    }
+  },
+  {
+    "id": "basecamp-shape-up",
+    "slug": "basecamp-shape-up",
+    "name": "Shape Up by Basecamp",
+    "url": "https://basecamp.com/shapeup",
+    "domain": "basecamp.com",
+    "summary": "A complete product development method built around shaping work, appetite-based bets, six-week cycles, and team autonomy.",
+    "categories": [
+      "Ways of Working",
+      "Product Development"
+    ],
+    "tags": [
+      "shape up",
+      "product development",
+      "cycles",
+      "shaping"
+    ],
+    "resourceType": "course",
+    "levels": [
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "faviconUrl": "https://basecamp.com/favicon.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained source."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://basecamp.com/shapeup"
+      ]
+    }
+  },
+  {
+    "id": "dora-capabilities",
+    "slug": "dora-capabilities",
+    "name": "DORA Capabilities",
+    "url": "https://dora.dev/capabilities/",
+    "domain": "dora.dev",
+    "summary": "Research-backed technical, process, and cultural capabilities associated with effective software delivery and operations.",
+    "categories": [
+      "DevOps",
+      "Ways of Working"
+    ],
+    "tags": [
+      "DORA",
+      "DevOps",
+      "delivery performance",
+      "continuous improvement"
+    ],
+    "resourceType": "reference",
+    "levels": [
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "faviconUrl": "https://dora.dev/favicon.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained source."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://dora.dev/capabilities/"
+      ]
+    }
+  },
+  {
+    "id": "lean-thinking-practice",
+    "slug": "lean-thinking-practice",
+    "name": "Lean Enterprise Institute",
+    "url": "https://www.lean.org/explore-lean/what-is-lean-thinking/",
+    "domain": "lean.org",
+    "summary": "An introduction to lean thinking through customer value, value streams, flow, pull, and continuous pursuit of perfection.",
+    "categories": [
+      "Ways of Working",
+      "Product Development"
+    ],
+    "tags": [
+      "lean",
+      "value stream",
+      "flow",
+      "continuous improvement"
+    ],
+    "resourceType": "reference",
+    "levels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "faviconUrl": "https://www.lean.org/favicon.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained source."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://www.lean.org/explore-lean/what-is-lean-thinking/"
+      ]
+    }
+  },
+  {
+    "id": "sfia-responsibility-levels",
+    "slug": "sfia-responsibility-levels",
+    "name": "SFIA Levels of Responsibility",
+    "url": "https://sfia-online.org/en/sfia-9/responsibilities",
+    "domain": "sfia-online.org",
+    "summary": "A responsibility framework describing increasing autonomy, influence, complexity, knowledge, and business skills across seven levels.",
+    "categories": [
+      "Tech Careers",
+      "Career Development"
+    ],
+    "tags": [
+      "SFIA",
+      "seniority",
+      "responsibility",
+      "career levels"
+    ],
+    "resourceType": "reference",
+    "levels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "faviconUrl": "https://sfia-online.org/favicon.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained source."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://sfia-online.org/en/sfia-9/responsibilities"
+      ]
+    }
+  },
+  {
+    "id": "onet-software-developers",
+    "slug": "onet-software-developers",
+    "name": "O*NET Software Developers",
+    "url": "https://www.onetonline.org/link/summary/15-1252.00",
+    "domain": "onetonline.org",
+    "summary": "A public occupational profile covering software developer tasks, knowledge, skills, abilities, work activities, and employment context.",
+    "categories": [
+      "Tech Careers",
+      "Career Development"
+    ],
+    "tags": [
+      "software developer",
+      "occupation",
+      "skills",
+      "career research"
+    ],
+    "resourceType": "reference",
+    "levels": [
+      "beginner",
+      "intermediate"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "faviconUrl": "https://www.onetonline.org/favicon.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained source."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://www.onetonline.org/link/summary/15-1252.00"
+      ]
+    }
+  },
+  {
+    "id": "gitlab-job-description-library",
+    "slug": "gitlab-job-description-library",
+    "name": "GitLab Job Description Library",
+    "url": "https://handbook.gitlab.com/job-families/",
+    "domain": "handbook.gitlab.com",
+    "summary": "A public library of role descriptions and career ladders from a large distributed technology organization.",
+    "categories": [
+      "Tech Careers",
+      "Career Development"
+    ],
+    "tags": [
+      "job descriptions",
+      "career ladder",
+      "remote teams",
+      "technology roles"
+    ],
+    "resourceType": "reference",
+    "levels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "faviconUrl": "https://about.gitlab.com/ico/favicon.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained source."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://handbook.gitlab.com/job-families/"
+      ]
+    }
+  },
+  {
+    "id": "team-topologies-key-concepts",
+    "slug": "team-topologies-key-concepts",
+    "name": "Team Topologies Key Concepts",
+    "url": "https://teamtopologies.com/key-concepts",
+    "domain": "teamtopologies.com",
+    "summary": "A practical vocabulary for team types, interaction modes, cognitive load, and organizational design around software flow.",
+    "categories": [
+      "Tech Careers",
+      "Ways of Working"
+    ],
+    "tags": [
+      "team topologies",
+      "organization design",
+      "platform team",
+      "team interaction"
+    ],
+    "resourceType": "reference",
+    "levels": [
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "faviconUrl": "https://teamtopologies.com/favicon.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official or project-maintained source."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://teamtopologies.com/key-concepts"
+      ]
+    }
+  },
+  {
+    "id": "vue-official-guide",
+    "slug": "vue-official-guide",
+    "name": "Vue.js Guide",
+    "url": "https://vuejs.org/guide/introduction.html",
+    "domain": "vuejs.org",
+    "summary": "The official Vue guide covering the framework's component model, reactivity, templates, composition patterns, tooling, and application architecture.",
+    "categories": [
+      "JavaScript Tools",
+      "Learning & Cheatsheets",
+      "Web Development"
+    ],
+    "tags": [
+      "Vue",
+      "JavaScript",
+      "components",
+      "frontend"
+    ],
+    "resourceType": "documentation",
+    "levels": [
+      "beginner",
+      "intermediate"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "logoUrl": "https://cdn.simpleicons.org/vuedotjs",
+      "faviconUrl": "https://vuejs.org/logo.svg"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official framework documentation."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://vuejs.org/guide/introduction.html"
+      ]
+    }
+  },
+  {
+    "id": "angular-official-docs",
+    "slug": "angular-official-docs",
+    "name": "Angular Documentation",
+    "url": "https://angular.dev/overview",
+    "domain": "angular.dev",
+    "summary": "The official Angular documentation for components, templates, dependency injection, routing, forms, testing, and structured application development.",
+    "categories": [
+      "JavaScript Tools",
+      "Learning & Cheatsheets",
+      "Web Development"
+    ],
+    "tags": [
+      "Angular",
+      "TypeScript",
+      "frontend",
+      "framework"
+    ],
+    "resourceType": "documentation",
+    "levels": [
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "logoUrl": "https://cdn.simpleicons.org/angular",
+      "faviconUrl": "https://angular.dev/assets/icons/favicon.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official framework documentation."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://angular.dev/overview"
+      ]
+    }
+  },
+  {
+    "id": "flutter-official-docs",
+    "slug": "flutter-official-docs",
+    "name": "Flutter Documentation",
+    "url": "https://docs.flutter.dev/get-started/fundamentals",
+    "domain": "docs.flutter.dev",
+    "summary": "The official Flutter learning path for Dart fundamentals, widgets, layouts, state, navigation, platform integration, testing, and application release.",
+    "categories": [
+      "Mobile Development",
+      "Learning & Cheatsheets"
+    ],
+    "tags": [
+      "Flutter",
+      "Dart",
+      "mobile development",
+      "cross-platform"
+    ],
+    "resourceType": "documentation",
+    "levels": [
+      "beginner",
+      "intermediate"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "logoUrl": "https://cdn.simpleicons.org/flutter",
+      "faviconUrl": "https://docs.flutter.dev/assets/images/favicon.png"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-29T00:00:00.000Z",
+      "notes": "Verified against the official framework documentation."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://docs.flutter.dev/get-started/fundamentals"
+      ]
+    }
+  }
+]

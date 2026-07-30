@@ -1,0 +1,82 @@
+{
+  "https://developer.mozilla.org": {
+    "featured": true,
+    "publisherType": "official",
+    "pricing": "free",
+    "resourceType": "documentation",
+    "levels": ["beginner", "intermediate", "advanced"],
+    "tags": ["HTML", "CSS", "JavaScript", "Web APIs", "Documentation"]
+  },
+  "https://caniuse.com": {
+    "featured": true,
+    "pricing": "free",
+    "resourceType": "reference",
+    "levels": ["beginner", "intermediate", "advanced"],
+    "tags": ["Browser support", "Compatibility", "CSS", "JavaScript"],
+    "related": { "title": "CSS Grid Generator", "href": "/tools/css-grid-generator" }
+  },
+  "https://web.dev": {
+    "featured": true,
+    "publisherType": "official",
+    "pricing": "free",
+    "resourceType": "documentation",
+    "levels": ["intermediate", "advanced"],
+    "tags": ["Performance", "Accessibility", "SEO", "Web development"]
+  },
+  "https://css-tricks.com": {
+    "featured": true,
+    "pricing": "free",
+    "resourceType": "tutorial",
+    "levels": ["beginner", "intermediate", "advanced"],
+    "tags": ["CSS", "Layout", "Guides"],
+    "related": { "title": "Buttons CSS Generator", "href": "/tools/buttons-css-generator" }
+  },
+  "https://www.freecodecamp.org": {
+    "featured": true,
+    "publisherType": "community",
+    "pricing": "free",
+    "resourceType": "course",
+    "levels": ["beginner", "intermediate"],
+    "tags": ["Learning", "Projects", "JavaScript", "Web development"]
+  },
+  "https://www.theodinproject.com": {
+    "featured": true,
+    "publisherType": "community",
+    "pricing": "free",
+    "resourceType": "course",
+    "levels": ["beginner", "intermediate"],
+    "tags": ["Learning path", "Full stack", "Projects"]
+  },
+  "https://coolors.co": {
+    "featured": true,
+    "pricing": "freemium",
+    "resourceType": "tool",
+    "levels": ["beginner", "intermediate", "advanced"],
+    "tags": ["Color", "Palette", "Design"],
+    "related": { "title": "Color Palette Generator", "href": "/tools/color-palette-generator" }
+  },
+  "https://fonts.google.com": {
+    "featured": true,
+    "publisherType": "official",
+    "pricing": "free",
+    "resourceType": "asset-library",
+    "levels": ["beginner", "intermediate", "advanced"],
+    "tags": ["Typography", "Fonts", "Web design"]
+  },
+  "https://jakearchibald.github.io/svgomg": {
+    "featured": true,
+    "pricing": "free",
+    "resourceType": "tool",
+    "levels": ["beginner", "intermediate", "advanced"],
+    "tags": ["SVG", "Optimization", "Images"],
+    "related": { "title": "SVG Path Editor", "href": "/tools/svg-path-editor" }
+  },
+  "https://picsum.photos": {
+    "featured": true,
+    "pricing": "free",
+    "resourceType": "asset-library",
+    "levels": ["beginner", "intermediate", "advanced"],
+    "tags": ["Images", "Placeholder", "Mockups"],
+    "related": { "title": "Image Converter", "href": "/tools/image-converter" }
+  }
+}

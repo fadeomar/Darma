@@ -4,6 +4,7 @@ import { getGames } from "@/features/games";
 import { toGameCoreEntities } from "@/features/games/lib/gameCoreAdapter";
 import { getToolRegistry } from "@/features/tools";
 import { toToolCoreEntities } from "@/features/tools/lib/toolCoreAdapter";
+import { getAtlasSearchEntities } from "./atlasSearchAdapter";
 
 export type UnifiedSearchKind = CoreEntityKind | "all";
 
@@ -25,15 +26,16 @@ export function getUnifiedSearchEntities(): CoreEntity[] {
   const toolEntities = toToolCoreEntities(getToolRegistry().list().filter((tool) => tool.visibility === "public"));
   const gameEntities = toGameCoreEntities(getGames().filter((game) => (game.visibility ?? "public") === "public"));
   const collectionEntities = getCollectionCoreEntities();
+  const atlasEntities = getAtlasSearchEntities();
 
-  return [...toolEntities, ...gameEntities, ...collectionEntities];
+  return [...toolEntities, ...gameEntities, ...collectionEntities, ...atlasEntities];
 }
 
 export function createUnifiedSearchRegistry(): CoreRegistry<CoreEntity> {
   return {
     id: "unified-search",
     title: "Darma Unified Search",
-    description: "Search-ready CoreEntity registry combining Tools, Games, and Collections.",
+    description: "Search-ready CoreEntity registry combining Tools, Games, Collections, Resources, and the Tech Atlas.",
     items: getUnifiedSearchEntities(),
   };
 }

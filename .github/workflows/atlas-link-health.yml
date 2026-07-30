@@ -1,0 +1,46 @@
+name: Tech Atlas link health
+
+on:
+  schedule:
+    - cron: "23 4 * * 1"
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Optional maximum number of resources to check"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: atlas-link-health
+  cancel-in-progress: false
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Check external resource links
+        continue-on-error: true
+        env:
+          INPUT_LIMIT: ${{ inputs.limit }}
+        run: |
+          LIMIT_ARG=""
+          if [ -n "$INPUT_LIMIT" ]; then LIMIT_ARG="--limit=$INPUT_LIMIT"; fi
+          node scripts/atlas/check-external-links.mjs $LIMIT_ARG --report=ATLAS_LINK_HEALTH.md --json=ATLAS_LINK_HEALTH.json --github-summary
+      - name: Upload health report
+        uses: actions/upload-artifact@v4
+        with:
+          name: atlas-link-health-${{ github.run_id }}
+          path: |
+            ATLAS_LINK_HEALTH.md
+            ATLAS_LINK_HEALTH.json
+          retention-days: 30

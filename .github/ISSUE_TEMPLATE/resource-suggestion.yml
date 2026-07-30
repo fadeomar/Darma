@@ -1,0 +1,77 @@
+name: Suggest a Tech Atlas resource
+description: Propose a trustworthy documentation site, course, tool, reference, or community resource.
+title: "[Resource]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping Darma improve its public reference library. Please submit one resource per issue and prefer the official or primary source whenever one exists.
+  - type: input
+    id: name
+    attributes:
+      label: Resource name
+      placeholder: MDN Web Docs
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Canonical URL
+      description: Use the most stable HTTPS landing page for the resource.
+      placeholder: https://example.com
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Resource type
+      options:
+        - Documentation
+        - Course
+        - Tutorial
+        - Tool
+        - Generator
+        - Community
+        - Reference
+        - Asset library
+    validations:
+      required: true
+  - type: dropdown
+    id: level
+    attributes:
+      label: Best-fit learner level
+      options:
+        - Beginner
+        - Intermediate
+        - Advanced
+        - Useful across levels
+        - Not applicable
+    validations:
+      required: true
+  - type: textarea
+    id: value
+    attributes:
+      label: Why this belongs in Darma
+      description: Explain the practical task it supports, who benefits, and why it is trustworthy.
+      placeholder: This is the official documentation for… It helps users…
+    validations:
+      required: true
+  - type: textarea
+    id: placement
+    attributes:
+      label: Suggested placement
+      description: Mention relevant categories, learning paths, careers, or ways of working.
+      placeholder: Frontend Development; Web Foundations; Frontend Developer
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checks
+      options:
+        - label: I checked that the URL is reachable and uses HTTPS.
+          required: true
+        - label: I searched the current library and did not find the same resource.
+          required: true
+        - label: I am not submitting an undisclosed affiliate, referral, or paid placement link.
+          required: true

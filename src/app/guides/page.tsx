@@ -1,0 +1,25 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight, BookOpen, ShieldCheck } from "lucide-react";
+import { AtlasHeroScene, MotionSection, SplitTextReveal } from "@/components/motion";
+import { Badge, Card } from "@/components/ui";
+import { EditorialCard, getEditorialPagesByKind } from "@/features/editorial";
+import { absoluteUrl } from "@/features/tools/seo";
+
+export const metadata: Metadata = {
+  title: "Technology Guides — practical learning and career roadmaps | Darma",
+  description: "Read practical, reviewed guides for web development, frontend, full stack JavaScript, mobile development, UI/UX, DevOps, technology careers, and software methodologies.",
+  keywords: ["technology guides", "developer roadmaps", "web development roadmap", "technology career guide", "software development guide"],
+  alternates: { canonical: "/guides" },
+  openGraph: { title: "Darma Technology Guides", description: "Practical roadmaps and decision guides connected to trusted sources, learning paths, careers, and real projects.", url: absoluteUrl("/guides"), type: "website" },
+};
+
+export default function GuidesPage() {
+  const guides = getEditorialPagesByKind("guide");
+  const jsonLd = { "@context": "https://schema.org", "@type": "CollectionPage", name: "Darma Technology Guides", description: metadata.description, url: absoluteUrl("/guides"), mainEntity: { "@type": "ItemList", numberOfItems: guides.length, itemListElement: guides.map((guide, index) => ({ "@type": "ListItem", position: index + 1, name: guide.title, url: absoluteUrl(`/guides/${guide.slug}`) })) } };
+  return <div className="pb-20"><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+    <section className="visual-grid-bg border-b border-[var(--color-border-subtle)]"><div className="mx-auto grid max-w-[var(--container-wide)] gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(390px,.84fr)] lg:items-center lg:px-8 lg:py-20"><div className="max-w-4xl"><div className="flex flex-wrap gap-2"><Badge variant="soft">Editorial knowledge hub</Badge><Badge variant="outline">{guides.length} reviewed guides</Badge></div><SplitTextReveal text="Technology roadmaps built around decisions, projects, and evidence." className="mt-5 text-4xl font-black tracking-[-0.055em] text-[var(--color-text-primary)] sm:text-5xl lg:text-7xl" /><p className="mt-6 max-w-3xl text-base leading-8 text-[var(--color-text-secondary)] sm:text-lg">Start with a goal, understand what to learn in order, see what can wait, and connect every topic to trusted references and practical work.</p><div className="mt-8 flex flex-wrap gap-3"><a href="#guide-library" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[var(--color-primary)] px-6 text-sm font-black text-[var(--color-primary-text)] shadow-[var(--shadow-md)]">Browse guides <ArrowRight className="h-4 w-4" aria-hidden /></a><Link href="/comparisons" className="inline-flex min-h-12 items-center justify-center rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-6 text-sm font-black text-[var(--color-text-primary)]">Open comparisons</Link></div></div><AtlasHeroScene src="/atlas/open-workbench.svg" alt="A digital workbench combining code, visual tools, content cards, and practical references" priority labels={[`${guides.length} guides`, "Primary sources", "Projects + evidence", "Human reviewed"]} /></div></section>
+    <MotionSection as="section" className="mx-auto max-w-[var(--container-page)] px-4 py-10 sm:px-6 lg:px-8" distance={18}><Card padding="lg" className="grid gap-6 border-[var(--color-primary-border)] lg:grid-cols-[auto_1fr_auto] lg:items-center"><span className="atlas-symbol"><BookOpen className="h-5 w-5" aria-hidden /></span><div><h2 className="text-xl font-black text-[var(--color-text-primary)]">What makes a Darma guide useful?</h2><p className="mt-2 text-sm leading-7 text-[var(--color-text-secondary)]">A direct answer, ordered capabilities, practical projects, clear alternatives, author and reviewer metadata, and links to primary references.</p></div><Link href="/editorial-policy" className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[var(--color-border-default)] px-4 text-sm font-black text-[var(--color-primary)]"><ShieldCheck className="h-4 w-4" aria-hidden />Editorial policy</Link></Card></MotionSection>
+    <section id="guide-library" className="mx-auto max-w-[var(--container-wide)] scroll-mt-28 px-4 sm:px-6 lg:px-8"><div className="mb-7 max-w-3xl"><p className="font-mono text-[10px] font-black uppercase tracking-[0.16em] text-[var(--color-primary)]">Guide library</p><h2 className="mt-2 text-3xl font-black tracking-[-0.04em] text-[var(--color-text-primary)]">Choose the roadmap closest to your current goal.</h2></div><div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">{guides.map((guide, index) => <MotionSection key={guide.slug} delay={(index % 3) * .05} distance={18}><EditorialCard page={guide} /></MotionSection>)}</div></section>
+  </div>;
+}

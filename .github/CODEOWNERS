@@ -1,0 +1,16 @@
+# Darma repository owner and default reviewer
+* @fadeomar
+
+# Tech Atlas data, validation, and public contribution workflow
+/src/features/resources/ @fadeomar
+/src/features/learning-paths/ @fadeomar
+/src/features/tech-careers/ @fadeomar
+/src/features/ways-of-working/ @fadeomar
+/src/features/tech-glossary/ @fadeomar
+/src/features/tech-teams/ @fadeomar
+/scripts/atlas/ @fadeomar
+/scripts/resources/ @fadeomar
+/scripts/learning-paths/ @fadeomar
+/scripts/tech-atlas/ @fadeomar
+/.github/ @fadeomar
+/docs/atlas/ @fadeomar

@@ -1,0 +1,53 @@
+name: Correct a career, workflow, team, or glossary entry
+description: Propose a factual correction or practical improvement to the Tech Atlas.
+title: "[Atlas correction]: "
+body:
+  - type: dropdown
+    id: section
+    attributes:
+      label: Atlas section
+      options:
+        - Tech Careers
+        - Ways of Working
+        - Technology Teams
+        - Delivery Flow
+        - Tech Glossary
+    validations:
+      required: true
+  - type: input
+    id: entry
+    attributes:
+      label: Entry or page
+      placeholder: Product Manager, Scrum, Matrix Organization, CI/CD…
+    validations:
+      required: true
+  - type: textarea
+    id: current_problem
+    attributes:
+      label: What is inaccurate, unclear, or incomplete?
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_change
+    attributes:
+      label: Proposed correction
+      description: Include replacement wording or a precise structural change.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Supporting sources
+      description: Prefer official standards, primary documentation, or recognized professional frameworks.
+      placeholder: One URL per line
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Quality checks
+      options:
+        - label: The proposal explains practical work, not only a dictionary definition.
+          required: true
+        - label: The proposal does not present one company structure as universal.
+          required: true

@@ -1,0 +1,1857 @@
+[
+  {
+    "slug": "agile",
+    "term": "Agile",
+    "aliases": [],
+    "category": "delivery",
+    "definition": "A set of software-development values and principles that favor collaboration, working outcomes, customer partnership, and adaptation over rigid process compliance.",
+    "practicalMeaning": "In practice, agile means building feedback into planning and delivery so evidence can change both the product and the way the team works.",
+    "example": "A team releases a small usable improvement, reviews user behavior, and changes its next priority from what it learned.",
+    "relatedTerms": [
+      "increment",
+      "stakeholder",
+      "retrospective"
+    ],
+    "relatedRoleSlugs": [
+      "product-manager",
+      "tech-lead"
+    ],
+    "relatedMethodSlugs": [
+      "agile"
+    ],
+    "tags": [
+      "adaptive delivery",
+      "principles"
+    ]
+  },
+  {
+    "slug": "scrum",
+    "term": "Scrum",
+    "aliases": [],
+    "category": "delivery",
+    "definition": "A lightweight framework for complex product development with defined accountabilities, events, artifacts, commitments, and short inspect-and-adapt cycles.",
+    "practicalMeaning": "Scrum gives a stable team a regular rhythm for pursuing a Product Goal while changing the detailed plan as new evidence appears.",
+    "example": "A Scrum Team chooses a Sprint Goal, creates a usable Increment, reviews it with stakeholders, then improves its process.",
+    "relatedTerms": [
+      "sprint",
+      "product-backlog",
+      "increment"
+    ],
+    "relatedRoleSlugs": [
+      "product-manager",
+      "scrum-master-agile-facilitator"
+    ],
+    "relatedMethodSlugs": [
+      "scrum"
+    ],
+    "tags": [
+      "framework",
+      "empiricism"
+    ]
+  },
+  {
+    "slug": "sprint",
+    "term": "Sprint",
+    "aliases": [],
+    "category": "delivery",
+    "definition": "A fixed-length Scrum event of one month or less during which the Scrum Team works toward a Sprint Goal and creates a usable Increment.",
+    "practicalMeaning": "The Sprint protects a short planning and learning horizon; it is not a promise that every selected backlog item will remain unchanged.",
+    "example": "During a two-week Sprint, developers adapt tasks while preserving the goal of enabling members to submit an application.",
+    "relatedTerms": [
+      "sprint-goal",
+      "increment",
+      "product-backlog"
+    ],
+    "relatedRoleSlugs": [
+      "scrum-master-agile-facilitator",
+      "product-manager"
+    ],
+    "relatedMethodSlugs": [
+      "scrum",
+      "scrumban"
+    ],
+    "tags": [
+      "timebox",
+      "scrum"
+    ]
+  },
+  {
+    "slug": "product-backlog",
+    "term": "Product Backlog",
+    "aliases": [],
+    "category": "product",
+    "definition": "An emergent, ordered list of what is needed to improve a product and the single source of work undertaken by a Scrum Team.",
+    "practicalMeaning": "A healthy Product Backlog communicates direction and choices; it is refined as evidence changes rather than becoming a permanent request warehouse.",
+    "example": "The Product Owner reorders identity verification above profile customization because it blocks the next measurable outcome.",
+    "relatedTerms": [
+      "backlog",
+      "product-goal",
+      "user-story"
+    ],
+    "relatedRoleSlugs": [
+      "product-manager"
+    ],
+    "relatedMethodSlugs": [
+      "scrum"
+    ],
+    "tags": [
+      "prioritization",
+      "scrum"
+    ]
+  },
+  {
+    "slug": "product-goal",
+    "term": "Product Goal",
+    "aliases": [],
+    "category": "product",
+    "definition": "A long-term objective for a Scrum Team that describes a future state of the product and gives the Product Backlog a coherent direction.",
+    "practicalMeaning": "The Product Goal helps the team reject unrelated work and evaluate whether increments are moving toward a meaningful product outcome.",
+    "example": "The team sets a Product Goal to let association staff manage membership applications without developer support.",
+    "relatedTerms": [
+      "product-backlog",
+      "sprint-goal",
+      "roadmap"
+    ],
+    "relatedRoleSlugs": [
+      "product-manager"
+    ],
+    "relatedMethodSlugs": [
+      "scrum"
+    ],
+    "tags": [
+      "goal",
+      "product strategy"
+    ]
+  },
+  {
+    "slug": "sprint-goal",
+    "term": "Sprint Goal",
+    "aliases": [],
+    "category": "delivery",
+    "definition": "The single objective for a Scrum Sprint that explains why the work is valuable and gives Developers flexibility in how they achieve it.",
+    "practicalMeaning": "When individual tasks change, the Sprint Goal remains the decision anchor for collaboration, scope trade-offs, and daily adaptation.",
+    "example": "The Sprint Goal is “members can complete and confirm an application,” even if one optional profile field is postponed.",
+    "relatedTerms": [
+      "sprint",
+      "increment",
+      "acceptance-criteria"
+    ],
+    "relatedRoleSlugs": [
+      "product-manager",
+      "scrum-master-agile-facilitator"
+    ],
+    "relatedMethodSlugs": [
+      "scrum"
+    ],
+    "tags": [
+      "goal",
+      "sprint"
+    ]
+  },
+  {
+    "slug": "definition-of-done",
+    "term": "Definition of Done",
+    "aliases": [],
+    "category": "delivery",
+    "definition": "A formal description of the quality state an Increment must meet before it is considered complete and usable within Scrum.",
+    "practicalMeaning": "It creates shared transparency about quality, preventing teams from calling partially integrated or untested work complete.",
+    "example": "A feature is done only after review, automated tests, accessibility checks, documentation, and deployment to the agreed environment.",
+    "relatedTerms": [
+      "increment",
+      "acceptance-criteria",
+      "deployment"
+    ],
+    "relatedRoleSlugs": [
+      "software-qa-engineer",
+      "tech-lead"
+    ],
+    "relatedMethodSlugs": [
+      "scrum"
+    ],
+    "tags": [
+      "quality",
+      "completion"
+    ]
+  },
+  {
+    "slug": "increment",
+    "term": "Increment",
+    "aliases": [],
+    "category": "delivery",
+    "definition": "A concrete usable step toward a product goal that adds to all previous work and meets the applicable quality definition.",
+    "practicalMeaning": "An Increment is integrated product behavior, not a collection of separate design, coding, and testing tasks waiting for later assembly.",
+    "example": "A completed membership confirmation flow is usable end to end and can be released even if other profile features wait.",
+    "relatedTerms": [
+      "definition-of-done",
+      "release",
+      "sprint"
+    ],
+    "relatedRoleSlugs": [
+      "frontend-developer",
+      "backend-developer"
+    ],
+    "relatedMethodSlugs": [
+      "scrum",
+      "agile"
+    ],
+    "tags": [
+      "working software",
+      "value"
+    ]
+  },
+  {
+    "slug": "retrospective",
+    "term": "Retrospective",
+    "aliases": [],
+    "category": "delivery",
+    "definition": "A structured reflection in which a team inspects how work happened and agrees on changes intended to improve quality and effectiveness.",
+    "practicalMeaning": "A retrospective should produce honest learning and a small completed improvement, not become a recurring meeting for complaints without ownership.",
+    "example": "The team limits concurrent review work after discovering that large pull-request queues caused repeated release delays.",
+    "relatedTerms": [
+      "continuous-improvement",
+      "cycle-time",
+      "work-in-progress"
+    ],
+    "relatedRoleSlugs": [
+      "scrum-master-agile-facilitator",
+      "engineering-manager"
+    ],
+    "relatedMethodSlugs": [
+      "scrum",
+      "agile",
+      "scrumban"
+    ],
+    "tags": [
+      "reflection",
+      "improvement"
+    ]
+  },
+  {
+    "slug": "kanban",
+    "term": "Kanban",
+    "aliases": [],
+    "category": "delivery",
+    "definition": "A strategy for optimizing the flow of value through a process by defining workflow, controlling work in progress, actively managing items, and improving.",
+    "practicalMeaning": "Kanban makes queues, aging, blockage, and policies visible so a service can become faster and more predictable without prescribing new job titles.",
+    "example": "A support team limits investigations in progress and swarms on aging incidents before pulling new requests.",
+    "relatedTerms": [
+      "work-in-progress",
+      "cycle-time",
+      "throughput"
+    ],
+    "relatedRoleSlugs": [
+      "operations-manager",
+      "project-manager"
+    ],
+    "relatedMethodSlugs": [
+      "kanban",
+      "scrumban"
+    ],
+    "tags": [
+      "flow",
+      "visual management"
+    ]
+  },
+  {
+    "slug": "work-in-progress",
+    "term": "Work in Progress",
+    "acronym": "WIP",
+    "aliases": [],
+    "category": "delivery",
+    "definition": "Work that has started but has not yet reached the defined finished state of a workflow or service.",
+    "practicalMeaning": "Limiting work in progress reduces multitasking and queues, creates pressure to finish, and exposes where the system cannot absorb more work.",
+    "example": "The team stops starting a sixth feature because its WIP limit is five and instead helps finish a blocked review.",
+    "relatedTerms": [
+      "flow",
+      "cycle-time",
+      "throughput"
+    ],
+    "relatedRoleSlugs": [
+      "project-manager",
+      "software-qa-engineer"
+    ],
+    "relatedMethodSlugs": [
+      "kanban",
+      "scrumban"
+    ],
+    "tags": [
+      "WIP",
+      "flow"
+    ]
+  },
+  {
+    "slug": "cycle-time",
+    "term": "Cycle Time",
+    "aliases": [],
+    "category": "delivery",
+    "definition": "The elapsed time from when a work item starts in a defined workflow until it reaches the workflow’s finished state.",
+    "practicalMeaning": "Teams use cycle-time distributions to understand delivery speed and predictability rather than relying only on optimistic estimates.",
+    "example": "Most small fixes finish in two to five days, but the team investigates items aging beyond eight days.",
+    "relatedTerms": [
+      "work-in-progress",
+      "throughput",
+      "service-level-expectation"
+    ],
+    "relatedRoleSlugs": [
+      "project-manager",
+      "operations-manager"
+    ],
+    "relatedMethodSlugs": [
+      "kanban",
+      "scrumban"
+    ],
+    "tags": [
+      "flow metric",
+      "predictability"
+    ]
+  },
+  {
+    "slug": "throughput",
+    "term": "Throughput",
+    "aliases": [],
+    "category": "delivery",
+    "definition": "The count of work items completed by a workflow or service during a defined period of time.",
+    "practicalMeaning": "Throughput helps teams understand actual delivery capacity, especially when interpreted with item size, quality, demand, and cycle time.",
+    "example": "The service completes between 18 and 24 comparable support requests per week over the last three months.",
+    "relatedTerms": [
+      "cycle-time",
+      "work-in-progress",
+      "flow"
+    ],
+    "relatedRoleSlugs": [
+      "operations-manager",
+      "project-manager"
+    ],
+    "relatedMethodSlugs": [
+      "kanban"
+    ],
+    "tags": [
+      "flow metric",
+      "capacity"
+    ]
+  },
+  {
+    "slug": "service-level-expectation",
+    "term": "Service Level Expectation",
+    "acronym": "SLE",
+    "aliases": [],
+    "category": "delivery",
+    "definition": "A forecast describing how long a work item should take to flow from start to finish with an explicit probability or confidence level.",
+    "practicalMeaning": "An SLE guides conversations about aging work and customer expectations; it is a forecast based on evidence rather than a guaranteed deadline.",
+    "example": "The team expects 85 percent of standard requests to finish within seven days once work begins.",
+    "relatedTerms": [
+      "cycle-time",
+      "service-level-objective",
+      "throughput"
+    ],
+    "relatedRoleSlugs": [
+      "operations-manager",
+      "site-reliability-engineer"
+    ],
+    "relatedMethodSlugs": [
+      "kanban"
+    ],
+    "tags": [
+      "SLE",
+      "forecast"
+    ]
+  },
+  {
+    "slug": "waterfall",
+    "term": "Waterfall",
+    "aliases": [],
+    "category": "delivery",
+    "definition": "A predictive delivery model that moves work through substantially sequential phases such as requirements, design, implementation, verification, and release.",
+    "practicalMeaning": "Waterfall can support formal traceability and expensive sequential dependencies, but late feedback becomes dangerous when needs or feasibility are uncertain.",
+    "example": "A regulated system completes approved requirements and design baselines before controlled implementation and verification phases begin.",
+    "relatedTerms": [
+      "requirements",
+      "milestone",
+      "change-control"
+    ],
+    "relatedRoleSlugs": [
+      "project-manager",
+      "software-qa-engineer"
+    ],
+    "relatedMethodSlugs": [
+      "waterfall"
+    ],
+    "tags": [
+      "predictive model",
+      "sequential"
+    ]
+  },
+  {
+    "slug": "requirements",
+    "term": "Requirements",
+    "aliases": [],
+    "category": "product",
+    "definition": "Documented needs, capabilities, constraints, qualities, or conditions that a product, service, or system is expected to satisfy.",
+    "practicalMeaning": "Requirements are useful when they make purpose and acceptance testable; they become harmful when assumptions are presented as permanent facts.",
+    "example": "A requirement states that only authorized editors may publish an article and that every publication action must be auditable.",
+    "relatedTerms": [
+      "acceptance-criteria",
+      "stakeholder",
+      "change-control"
+    ],
+    "relatedRoleSlugs": [
+      "project-manager",
+      "product-manager"
+    ],
+    "relatedMethodSlugs": [
+      "waterfall"
+    ],
+    "tags": [
+      "scope",
+      "specification"
+    ]
+  },
+  {
+    "slug": "milestone",
+    "term": "Milestone",
+    "aliases": [],
+    "category": "delivery",
+    "definition": "A significant zero-duration checkpoint used to represent an important event, approval, dependency, or delivery state in a plan.",
+    "practicalMeaning": "Milestones help coordinate expectations but should describe meaningful evidence rather than arbitrary calendar decoration.",
+    "example": "“Client acceptance completed” is a milestone supported by signed evidence, while “development 80% complete” is not.",
+    "relatedTerms": [
+      "roadmap",
+      "release",
+      "stakeholder"
+    ],
+    "relatedRoleSlugs": [
+      "project-manager",
+      "operations-manager"
+    ],
+    "relatedMethodSlugs": [
+      "waterfall"
+    ],
+    "tags": [
+      "planning",
+      "checkpoint"
+    ]
+  },
+  {
+    "slug": "change-control",
+    "term": "Change Control",
+    "aliases": [],
+    "category": "delivery",
+    "definition": "A governed process for recording, assessing, approving, and communicating changes to an agreed scope, baseline, system, or operational state.",
+    "practicalMeaning": "Good change control makes impact and accountability visible without pretending that change itself is a failure.",
+    "example": "A requested integration change is assessed for cost, security, schedule, and testing impact before the project baseline is updated.",
+    "relatedTerms": [
+      "requirements",
+      "technical-debt",
+      "release"
+    ],
+    "relatedRoleSlugs": [
+      "project-manager",
+      "security-engineer"
+    ],
+    "relatedMethodSlugs": [
+      "waterfall"
+    ],
+    "tags": [
+      "governance",
+      "change"
+    ]
+  },
+  {
+    "slug": "acceptance-criteria",
+    "term": "Acceptance Criteria",
+    "aliases": [],
+    "category": "product",
+    "definition": "Specific conditions used to determine whether a work item or product behavior satisfies the intended need and can be accepted.",
+    "practicalMeaning": "Acceptance criteria create a shared testable understanding, but they do not replace discovery, design judgment, or broader quality standards.",
+    "example": "The application displays a confirmation reference, sends an email, and prevents a duplicate submission after success.",
+    "relatedTerms": [
+      "requirements",
+      "user-story",
+      "definition-of-done"
+    ],
+    "relatedRoleSlugs": [
+      "product-manager",
+      "software-qa-engineer"
+    ],
+    "relatedMethodSlugs": [
+      "scrum",
+      "waterfall"
+    ],
+    "tags": [
+      "validation",
+      "quality"
+    ]
+  },
+  {
+    "slug": "scrumban",
+    "term": "Scrumban",
+    "aliases": [],
+    "category": "delivery",
+    "definition": "An informal hybrid that combines selected Scrum goals or cadences with Kanban workflow visualization, pull, work-in-progress control, and flow measures.",
+    "practicalMeaning": "Teams should document which rules they retain; otherwise Scrumban can become an unclear mix of ceremonies and ad hoc priorities.",
+    "example": "A team keeps a two-week product goal but replenishes tasks continuously within explicit WIP limits.",
+    "relatedTerms": [
+      "scrum",
+      "kanban",
+      "work-in-progress"
+    ],
+    "relatedRoleSlugs": [
+      "scrum-master-agile-facilitator",
+      "project-manager"
+    ],
+    "relatedMethodSlugs": [
+      "scrumban"
+    ],
+    "tags": [
+      "hybrid",
+      "flow"
+    ]
+  },
+  {
+    "slug": "backlog",
+    "term": "Backlog",
+    "aliases": [],
+    "category": "product",
+    "definition": "An ordered or categorized collection of potential work, requests, defects, opportunities, or obligations that has not yet been completed.",
+    "practicalMeaning": "A backlog is a decision aid, not a promise to deliver every item; stale and low-value entries should be removed or reconsidered.",
+    "example": "The team archives requests that no longer support its strategy instead of carrying them indefinitely as hidden commitments.",
+    "relatedTerms": [
+      "product-backlog",
+      "roadmap",
+      "user-story"
+    ],
+    "relatedRoleSlugs": [
+      "product-manager",
+      "project-manager"
+    ],
+    "relatedMethodSlugs": [
+      "scrum",
+      "shape-up"
+    ],
+    "tags": [
+      "planning",
+      "work queue"
+    ]
+  },
+  {
+    "slug": "roadmap",
+    "term": "Roadmap",
+    "aliases": [],
+    "category": "product",
+    "definition": "A communication view of intended product direction, outcomes, themes, or investments across time rather than a guaranteed feature schedule.",
+    "practicalMeaning": "A useful roadmap explains strategic choices and uncertainty while connecting near-term work to measurable outcomes.",
+    "example": "The quarterly roadmap groups work under member growth, editorial efficiency, and platform reliability instead of listing every ticket.",
+    "relatedTerms": [
+      "product-goal",
+      "milestone",
+      "stakeholder"
+    ],
+    "relatedRoleSlugs": [
+      "product-manager",
+      "project-manager"
+    ],
+    "relatedMethodSlugs": [],
+    "tags": [
+      "strategy",
+      "planning"
+    ]
+  },
+  {
+    "slug": "stakeholder",
+    "term": "Stakeholder",
+    "aliases": [],
+    "category": "people-business",
+    "definition": "A person or group that affects, is affected by, or has a legitimate interest in a product, service, project, or decision.",
+    "practicalMeaning": "Stakeholder management means understanding influence, impact, needs, evidence, and decision rights—not merely sending everyone status updates.",
+    "example": "Editors, members, funders, support staff, and developers are different stakeholders in a new publishing workflow.",
+    "relatedTerms": [
+      "requirements",
+      "roadmap",
+      "user-research"
+    ],
+    "relatedRoleSlugs": [
+      "product-manager",
+      "project-manager"
+    ],
+    "relatedMethodSlugs": [
+      "agile",
+      "waterfall"
+    ],
+    "tags": [
+      "collaboration",
+      "governance"
+    ]
+  },
+  {
+    "slug": "user-story",
+    "term": "User Story",
+    "aliases": [],
+    "category": "product",
+    "definition": "A brief product-backlog expression of a need from a user perspective, usually intended to support conversation rather than replace detailed understanding.",
+    "practicalMeaning": "A story is valuable when it connects context, desired outcome, examples, and collaboration; filling a template alone does not create insight.",
+    "example": "An editor needs to preview an article before publication so formatting problems are found without exposing drafts publicly.",
+    "relatedTerms": [
+      "acceptance-criteria",
+      "product-backlog",
+      "increment"
+    ],
+    "relatedRoleSlugs": [
+      "product-manager",
+      "product-designer"
+    ],
+    "relatedMethodSlugs": [
+      "scrum",
+      "extreme-programming"
+    ],
+    "tags": [
+      "requirements",
+      "conversation"
+    ]
+  },
+  {
+    "slug": "mvp",
+    "term": "Minimum Viable Product",
+    "acronym": "MVP",
+    "aliases": [],
+    "category": "product",
+    "definition": "The smallest product experiment or release capable of testing a meaningful value assumption with real users and credible evidence.",
+    "practicalMeaning": "An MVP is not the lowest-quality version of a large roadmap; it intentionally narrows scope while preserving the core learning question.",
+    "example": "Instead of building a full marketplace, a team tests whether users request curated matches through a simple assisted workflow.",
+    "relatedTerms": [
+      "prototype",
+      "increment",
+      "product-goal"
+    ],
+    "relatedRoleSlugs": [
+      "product-manager",
+      "product-designer"
+    ],
+    "relatedMethodSlugs": [
+      "lean",
+      "agile"
+    ],
+    "tags": [
+      "MVP",
+      "experiment"
+    ]
+  },
+  {
+    "slug": "lean",
+    "term": "Lean",
+    "aliases": [],
+    "category": "operations",
+    "definition": "A management approach focused on customer value, end-to-end value streams, flow, pull, quality, respect for people, and continuous improvement.",
+    "practicalMeaning": "Lean asks teams to improve the whole system rather than maximize local utilization or treat cost cutting as the only goal.",
+    "example": "A team maps request-to-release delay and removes an approval queue that adds no risk reduction or customer value.",
+    "relatedTerms": [
+      "value-stream",
+      "flow",
+      "pull-system"
+    ],
+    "relatedRoleSlugs": [
+      "operations-manager",
+      "engineering-manager"
+    ],
+    "relatedMethodSlugs": [
+      "lean"
+    ],
+    "tags": [
+      "value",
+      "system improvement"
+    ]
+  },
+  {
+    "slug": "value-stream",
+    "term": "Value Stream",
+    "aliases": [],
+    "category": "operations",
+    "definition": "The complete sequence of activities and information required to respond to demand and deliver a product or service outcome to a customer.",
+    "practicalMeaning": "Mapping a value stream exposes delay, handoffs, rework, and missing feedback that individual team metrics often hide.",
+    "example": "The map covers idea intake, discovery, design, coding, review, deployment, support, and product feedback.",
+    "relatedTerms": [
+      "flow",
+      "continuous-improvement",
+      "deployment"
+    ],
+    "relatedRoleSlugs": [
+      "operations-manager",
+      "devops-engineer"
+    ],
+    "relatedMethodSlugs": [
+      "lean"
+    ],
+    "tags": [
+      "process",
+      "customer value"
+    ]
+  },
+  {
+    "slug": "flow",
+    "term": "Flow",
+    "aliases": [],
+    "category": "delivery",
+    "definition": "The smooth movement of work or value through a defined system with minimal waiting, blockage, rework, batching, and unnecessary handoff.",
+    "practicalMeaning": "Improving flow usually means finishing more consistently with less concurrent work, not making every individual appear fully utilized.",
+    "example": "Reviewers swarm on open changes so completed features reach users instead of accumulating in a queue.",
+    "relatedTerms": [
+      "work-in-progress",
+      "cycle-time",
+      "value-stream"
+    ],
+    "relatedRoleSlugs": [
+      "operations-manager",
+      "scrum-master-agile-facilitator"
+    ],
+    "relatedMethodSlugs": [
+      "kanban",
+      "lean"
+    ],
+    "tags": [
+      "delivery",
+      "system"
+    ]
+  },
+  {
+    "slug": "pull-system",
+    "term": "Pull System",
+    "aliases": [],
+    "category": "operations",
+    "definition": "A work system in which new activity begins in response to real demand and available downstream capacity rather than forecast-driven overproduction.",
+    "practicalMeaning": "Pull protects flow by preventing teams from starting work that the next step cannot absorb or finish.",
+    "example": "A developer selects a new ready item only after a review slot becomes available under the workflow limit.",
+    "relatedTerms": [
+      "work-in-progress",
+      "flow",
+      "kanban"
+    ],
+    "relatedRoleSlugs": [
+      "operations-manager",
+      "devops-engineer"
+    ],
+    "relatedMethodSlugs": [
+      "lean",
+      "kanban"
+    ],
+    "tags": [
+      "capacity",
+      "demand"
+    ]
+  },
+  {
+    "slug": "continuous-improvement",
+    "term": "Continuous Improvement",
+    "aliases": [],
+    "category": "operations",
+    "definition": "An ongoing disciplined practice of studying work, testing changes, learning from outcomes, and standardizing useful improvements over time.",
+    "practicalMeaning": "The important unit is a completed improvement with evidence, not a growing list of retrospective ideas that nobody owns.",
+    "example": "The team changes its release checklist, measures rollback failures for a month, and keeps or adjusts the change from results.",
+    "relatedTerms": [
+      "retrospective",
+      "technical-debt",
+      "value-stream"
+    ],
+    "relatedRoleSlugs": [
+      "engineering-manager",
+      "operations-manager"
+    ],
+    "relatedMethodSlugs": [
+      "lean",
+      "kanban",
+      "devops-lifecycle"
+    ],
+    "tags": [
+      "kaizen",
+      "learning"
+    ]
+  },
+  {
+    "slug": "extreme-programming",
+    "term": "Extreme Programming",
+    "aliases": [],
+    "category": "engineering",
+    "definition": "An agile software-development method centered on rapid feedback and reinforcing engineering practices such as testing, pairing, refactoring, and continuous integration.",
+    "practicalMeaning": "XP makes adaptation technically sustainable by keeping code integrated, tested, understandable, and collectively owned.",
+    "example": "Two developers pair on a small story, write tests first, integrate it the same day, and refactor before selecting the next story.",
+    "relatedTerms": [
+      "test-driven-development",
+      "pair-programming",
+      "refactoring"
+    ],
+    "relatedRoleSlugs": [
+      "frontend-developer",
+      "backend-developer"
+    ],
+    "relatedMethodSlugs": [
+      "extreme-programming"
+    ],
+    "tags": [
+      "XP",
+      "engineering method"
+    ]
+  },
+  {
+    "slug": "test-driven-development",
+    "term": "Test-Driven Development",
+    "acronym": "TDD",
+    "aliases": [],
+    "category": "engineering",
+    "definition": "A development practice that cycles through writing a failing automated test, making it pass with minimal code, and improving the design through refactoring.",
+    "practicalMeaning": "TDD uses tests to guide small design decisions and produce fast regression feedback; it is not a substitute for every other testing method.",
+    "example": "A developer first expresses the rejected duplicate application as a failing unit test, then implements and refactors the rule.",
+    "relatedTerms": [
+      "refactoring",
+      "continuous-integration",
+      "acceptance-criteria"
+    ],
+    "relatedRoleSlugs": [
+      "frontend-developer",
+      "backend-developer"
+    ],
+    "relatedMethodSlugs": [
+      "extreme-programming"
+    ],
+    "tags": [
+      "TDD",
+      "testing"
+    ]
+  },
+  {
+    "slug": "pair-programming",
+    "term": "Pair Programming",
+    "aliases": [],
+    "category": "engineering",
+    "definition": "A collaborative development practice in which two people work together at one workstation or shared environment on the same software task.",
+    "practicalMeaning": "Pairing combines real-time design, review, knowledge sharing, and problem solving, with participants switching active and observing roles intentionally.",
+    "example": "One engineer writes a migration while the other checks data assumptions and rollback safety, then they swap roles.",
+    "relatedTerms": [
+      "extreme-programming",
+      "pull-request",
+      "refactoring"
+    ],
+    "relatedRoleSlugs": [
+      "frontend-developer",
+      "backend-developer"
+    ],
+    "relatedMethodSlugs": [
+      "extreme-programming"
+    ],
+    "tags": [
+      "collaboration",
+      "coding"
+    ]
+  },
+  {
+    "slug": "refactoring",
+    "term": "Refactoring",
+    "aliases": [],
+    "category": "engineering",
+    "definition": "Changing the internal structure of existing software without intentionally changing its externally observable behavior.",
+    "practicalMeaning": "Refactoring keeps future change safer and clearer when performed in small steps with reliable tests and an explicit design purpose.",
+    "example": "After tests pass, repeated validation logic is moved into one named function without altering application results.",
+    "relatedTerms": [
+      "technical-debt",
+      "test-driven-development",
+      "continuous-integration"
+    ],
+    "relatedRoleSlugs": [
+      "frontend-developer",
+      "backend-developer"
+    ],
+    "relatedMethodSlugs": [
+      "extreme-programming"
+    ],
+    "tags": [
+      "code quality",
+      "design"
+    ]
+  },
+  {
+    "slug": "pull-request",
+    "term": "Pull Request",
+    "acronym": "PR",
+    "aliases": [],
+    "category": "engineering",
+    "definition": "A repository workflow object proposing that one set of version-controlled changes be reviewed and merged into another branch.",
+    "practicalMeaning": "A pull request is a collaboration and quality checkpoint containing context, evidence, discussion, and traceability—not just permission to merge code.",
+    "example": "The author explains the membership-state change, links the issue, includes test evidence, and requests review from the data owner.",
+    "relatedTerms": [
+      "continuous-integration",
+      "code-review",
+      "deployment"
+    ],
+    "relatedRoleSlugs": [
+      "frontend-developer",
+      "backend-developer"
+    ],
+    "relatedMethodSlugs": [],
+    "tags": [
+      "PR",
+      "git"
+    ]
+  },
+  {
+    "slug": "code-review",
+    "term": "Code Review",
+    "aliases": [],
+    "category": "engineering",
+    "definition": "A systematic examination of source-code changes by people or automated controls to find defects, improve design, and share knowledge.",
+    "practicalMeaning": "Effective review prioritizes correctness, risk, maintainability, security, and learning rather than formatting debates already handled by tools.",
+    "example": "A reviewer notices that an authorization check exists in the interface but not in the API and requests a server-side fix.",
+    "relatedTerms": [
+      "pull-request",
+      "continuous-integration",
+      "definition-of-done"
+    ],
+    "relatedRoleSlugs": [
+      "tech-lead",
+      "software-qa-engineer"
+    ],
+    "relatedMethodSlugs": [
+      "extreme-programming"
+    ],
+    "tags": [
+      "quality",
+      "collaboration"
+    ]
+  },
+  {
+    "slug": "api",
+    "term": "Application Programming Interface",
+    "acronym": "API",
+    "aliases": [],
+    "category": "engineering",
+    "definition": "A defined contract through which software components or external systems request capabilities, exchange data, or receive events.",
+    "practicalMeaning": "A stable API makes responsibilities, inputs, outputs, errors, permissions, and change expectations explicit for its consumers.",
+    "example": "The membership API accepts validated application data and returns a reference identifier or a documented error response.",
+    "relatedTerms": [
+      "requirements",
+      "backend-service",
+      "authentication"
+    ],
+    "relatedRoleSlugs": [
+      "backend-developer",
+      "frontend-developer"
+    ],
+    "relatedMethodSlugs": [],
+    "tags": [
+      "API",
+      "integration"
+    ]
+  },
+  {
+    "slug": "backend-service",
+    "term": "Backend Service",
+    "aliases": [],
+    "category": "engineering",
+    "definition": "A server-side software component that exposes business capabilities, manages data or integrations, and runs independently of a user interface.",
+    "practicalMeaning": "A service should own a coherent responsibility and operational contract rather than becoming an arbitrary collection of endpoints.",
+    "example": "The notification service receives approved events, renders messages, sends email, and records delivery status.",
+    "relatedTerms": [
+      "api",
+      "observability",
+      "deployment"
+    ],
+    "relatedRoleSlugs": [
+      "backend-developer",
+      "devops-engineer"
+    ],
+    "relatedMethodSlugs": [],
+    "tags": [
+      "server",
+      "service"
+    ]
+  },
+  {
+    "slug": "authentication",
+    "term": "Authentication",
+    "aliases": [],
+    "category": "engineering",
+    "definition": "The process of establishing or verifying the identity of a user, service, or device before granting identity-dependent access.",
+    "practicalMeaning": "Authentication answers who or what is making a request; authorization separately decides what that identity may do.",
+    "example": "An editor signs in with a verified account before the system evaluates whether they may publish content.",
+    "relatedTerms": [
+      "authorization",
+      "api",
+      "security-risk"
+    ],
+    "relatedRoleSlugs": [
+      "backend-developer",
+      "security-engineer"
+    ],
+    "relatedMethodSlugs": [],
+    "tags": [
+      "identity",
+      "security"
+    ]
+  },
+  {
+    "slug": "authorization",
+    "term": "Authorization",
+    "aliases": [],
+    "category": "engineering",
+    "definition": "The process of deciding whether an authenticated identity has permission to perform a specific action on a resource or within a context.",
+    "practicalMeaning": "Authorization must be enforced at trusted system boundaries, not only by hiding interface controls from users.",
+    "example": "The API permits editors to save drafts but only administrators to change another user’s role.",
+    "relatedTerms": [
+      "authentication",
+      "security-risk",
+      "api"
+    ],
+    "relatedRoleSlugs": [
+      "backend-developer",
+      "security-engineer"
+    ],
+    "relatedMethodSlugs": [],
+    "tags": [
+      "permissions",
+      "security"
+    ]
+  },
+  {
+    "slug": "technical-debt",
+    "term": "Technical Debt",
+    "aliases": [],
+    "category": "engineering",
+    "definition": "The future cost and reduced flexibility created by technical choices, shortcuts, missing maintenance, or system conditions that make change harder.",
+    "practicalMeaning": "Debt should be described through concrete impact, risk, and options rather than used as a vague label for code someone dislikes.",
+    "example": "Duplicated authorization rules cause inconsistent fixes, so the team consolidates them before adding another role.",
+    "relatedTerms": [
+      "refactoring",
+      "continuous-improvement",
+      "risk"
+    ],
+    "relatedRoleSlugs": [
+      "tech-lead",
+      "engineering-manager"
+    ],
+    "relatedMethodSlugs": [
+      "lean",
+      "extreme-programming"
+    ],
+    "tags": [
+      "maintenance",
+      "architecture"
+    ]
+  },
+  {
+    "slug": "design-system",
+    "term": "Design System",
+    "aliases": [],
+    "category": "design",
+    "definition": "A maintained collection of reusable design decisions, components, patterns, standards, documentation, and contribution practices for product teams.",
+    "practicalMeaning": "A design system aligns design and code while reducing repeated decisions; a component library alone is only one part of the system.",
+    "example": "The system defines accessible button behavior, visual tokens, coded components, usage guidance, and review ownership.",
+    "relatedTerms": [
+      "prototype",
+      "definition-of-done",
+      "accessibility"
+    ],
+    "relatedRoleSlugs": [
+      "product-designer",
+      "frontend-developer"
+    ],
+    "relatedMethodSlugs": [],
+    "tags": [
+      "components",
+      "standards"
+    ]
+  },
+  {
+    "slug": "prototype",
+    "term": "Prototype",
+    "aliases": [],
+    "category": "design",
+    "definition": "A representation of a possible product or service used to explore, communicate, or test assumptions before committing to full implementation.",
+    "practicalMeaning": "Prototype fidelity should match the question: a sketch can test flow, while interactive behavior may require a coded or high-fidelity model.",
+    "example": "The team tests whether editors understand the publishing sequence using a clickable prototype before building APIs.",
+    "relatedTerms": [
+      "discovery",
+      "design-brief",
+      "mvp"
+    ],
+    "relatedRoleSlugs": [
+      "product-designer",
+      "ux-researcher"
+    ],
+    "relatedMethodSlugs": [
+      "double-diamond"
+    ],
+    "tags": [
+      "design",
+      "experiment"
+    ]
+  },
+  {
+    "slug": "discovery",
+    "term": "Discovery",
+    "aliases": [],
+    "category": "product",
+    "definition": "Structured work that reduces uncertainty about users, problems, value, feasibility, constraints, and potential solution directions before or during delivery.",
+    "practicalMeaning": "Discovery does not guarantee certainty; it produces enough credible evidence to make a better next investment or test.",
+    "example": "Researchers observe editorial work while engineers test integration feasibility and product compares outcome options.",
+    "relatedTerms": [
+      "problem-definition",
+      "prototype",
+      "stakeholder"
+    ],
+    "relatedRoleSlugs": [
+      "ux-researcher",
+      "product-manager"
+    ],
+    "relatedMethodSlugs": [
+      "double-diamond"
+    ],
+    "tags": [
+      "research",
+      "uncertainty"
+    ]
+  },
+  {
+    "slug": "problem-definition",
+    "term": "Problem Definition",
+    "aliases": [],
+    "category": "design",
+    "definition": "A focused evidence-based explanation of who experiences a problem, in what context, why it matters, and what constraints shape a useful outcome.",
+    "practicalMeaning": "A strong definition guides solution exploration without disguising a preferred feature as the problem itself.",
+    "example": "Instead of “we need notifications,” the brief states that applicants cannot tell whether submissions were received or what happens next.",
+    "relatedTerms": [
+      "discovery",
+      "design-brief",
+      "requirements"
+    ],
+    "relatedRoleSlugs": [
+      "product-designer",
+      "product-manager"
+    ],
+    "relatedMethodSlugs": [
+      "double-diamond"
+    ],
+    "tags": [
+      "framing",
+      "evidence"
+    ]
+  },
+  {
+    "slug": "design-brief",
+    "term": "Design Brief",
+    "aliases": [],
+    "category": "design",
+    "definition": "A concise shared statement of a design challenge, audience, intended outcome, evidence, constraints, scope, and decision conditions.",
+    "practicalMeaning": "The brief translates discovery into a usable direction while remaining open enough for multiple solution approaches.",
+    "example": "The team agrees to reduce failed mobile applications without changing the required legal fields or exposing private data.",
+    "relatedTerms": [
+      "problem-definition",
+      "prototype",
+      "stakeholder"
+    ],
+    "relatedRoleSlugs": [
+      "product-designer",
+      "ux-researcher"
+    ],
+    "relatedMethodSlugs": [
+      "double-diamond"
+    ],
+    "tags": [
+      "brief",
+      "scope"
+    ]
+  },
+  {
+    "slug": "double-diamond",
+    "term": "Double Diamond",
+    "aliases": [],
+    "category": "design",
+    "definition": "A design-process model with alternating divergence and convergence across Discover, Define, Develop, and Deliver phases.",
+    "practicalMeaning": "It reminds teams to explore evidence and multiple possibilities before converging, while allowing iteration rather than enforcing a rigid sequence.",
+    "example": "The team researches many causes, defines one priority problem, prototypes several approaches, then implements and measures one.",
+    "relatedTerms": [
+      "discovery",
+      "problem-definition",
+      "prototype"
+    ],
+    "relatedRoleSlugs": [
+      "product-designer",
+      "ux-researcher"
+    ],
+    "relatedMethodSlugs": [
+      "double-diamond"
+    ],
+    "tags": [
+      "design process",
+      "innovation"
+    ]
+  },
+  {
+    "slug": "accessibility",
+    "term": "Accessibility",
+    "aliases": [],
+    "category": "design",
+    "definition": "The quality of products, services, and environments being usable by people with diverse abilities, technologies, contexts, and access needs.",
+    "practicalMeaning": "Accessibility is a design and engineering requirement throughout discovery, content, interaction, implementation, testing, and maintenance.",
+    "example": "A form supports keyboard use, visible focus, understandable errors, screen-reader labels, zoom, and sufficient contrast.",
+    "relatedTerms": [
+      "design-system",
+      "definition-of-done",
+      "acceptance-criteria"
+    ],
+    "relatedRoleSlugs": [
+      "product-designer",
+      "frontend-developer"
+    ],
+    "relatedMethodSlugs": [],
+    "tags": [
+      "a11y",
+      "inclusive design"
+    ]
+  },
+  {
+    "slug": "devops",
+    "term": "DevOps",
+    "aliases": [],
+    "category": "operations",
+    "definition": "A socio-technical approach that joins software development and operation through shared responsibility, automation, fast feedback, and continuous learning.",
+    "practicalMeaning": "DevOps is an organizational capability, not merely a team name, cloud role, or collection of pipeline tools.",
+    "example": "A product team owns deployment, telemetry, incident learning, and improvements with support from a platform team.",
+    "relatedTerms": [
+      "continuous-integration",
+      "continuous-delivery",
+      "observability"
+    ],
+    "relatedRoleSlugs": [
+      "devops-engineer",
+      "site-reliability-engineer"
+    ],
+    "relatedMethodSlugs": [
+      "devops-lifecycle"
+    ],
+    "tags": [
+      "delivery",
+      "operations"
+    ]
+  },
+  {
+    "slug": "continuous-integration",
+    "term": "Continuous Integration",
+    "acronym": "CI",
+    "aliases": [],
+    "category": "engineering",
+    "definition": "A practice in which developers integrate small changes into a shared codebase frequently and receive fast automated build and test feedback.",
+    "practicalMeaning": "CI reduces integration risk by making incompatibility visible early and keeping the main code line in a healthy state.",
+    "example": "Each pull request runs formatting, type, unit, integration, and security checks before a small merge.",
+    "relatedTerms": [
+      "pull-request",
+      "continuous-delivery",
+      "test-driven-development"
+    ],
+    "relatedRoleSlugs": [
+      "devops-engineer",
+      "frontend-developer"
+    ],
+    "relatedMethodSlugs": [
+      "devops-lifecycle",
+      "extreme-programming"
+    ],
+    "tags": [
+      "CI",
+      "automation"
+    ]
+  },
+  {
+    "slug": "continuous-delivery",
+    "term": "Continuous Delivery",
+    "acronym": "CD",
+    "aliases": [],
+    "category": "operations",
+    "definition": "The capability to keep software in a releasable state through automated, repeatable build, verification, configuration, and deployment practices.",
+    "practicalMeaning": "Continuous delivery means a safe release can be made on demand; it does not require exposing every successful build to all users immediately.",
+    "example": "A verified immutable artifact can be promoted to production through an automated pipeline with rollback and audit evidence.",
+    "relatedTerms": [
+      "continuous-integration",
+      "deployment",
+      "release"
+    ],
+    "relatedRoleSlugs": [
+      "devops-engineer",
+      "site-reliability-engineer"
+    ],
+    "relatedMethodSlugs": [
+      "devops-lifecycle"
+    ],
+    "tags": [
+      "CD",
+      "release"
+    ]
+  },
+  {
+    "slug": "ci-cd",
+    "term": "CI/CD",
+    "acronym": "CI/CD",
+    "aliases": [],
+    "category": "operations",
+    "definition": "A common shorthand for continuous integration and continuous delivery or deployment practices that automate feedback and software release flow.",
+    "practicalMeaning": "The label only has value when pipelines make change safer, faster, traceable, and repeatable rather than adding fragile automation.",
+    "example": "A commit creates a tested artifact, deploys it to preview, and allows controlled production promotion after required checks.",
+    "relatedTerms": [
+      "continuous-integration",
+      "continuous-delivery",
+      "deployment"
+    ],
+    "relatedRoleSlugs": [
+      "devops-engineer",
+      "software-qa-engineer"
+    ],
+    "relatedMethodSlugs": [
+      "devops-lifecycle"
+    ],
+    "tags": [
+      "pipeline",
+      "automation"
+    ]
+  },
+  {
+    "slug": "deployment",
+    "term": "Deployment",
+    "aliases": [],
+    "category": "operations",
+    "definition": "The technical act of installing, configuring, or activating a software version and its dependencies in a target environment.",
+    "practicalMeaning": "Deployment and release can be separated: code may be safely deployed while a feature remains hidden or gradually enabled.",
+    "example": "Version 2.4 is deployed to production, but the new editor remains behind a feature flag for internal users.",
+    "relatedTerms": [
+      "release",
+      "continuous-delivery",
+      "rollback"
+    ],
+    "relatedRoleSlugs": [
+      "devops-engineer",
+      "backend-developer"
+    ],
+    "relatedMethodSlugs": [
+      "devops-lifecycle"
+    ],
+    "tags": [
+      "environment",
+      "delivery"
+    ]
+  },
+  {
+    "slug": "release",
+    "term": "Release",
+    "aliases": [],
+    "category": "product",
+    "definition": "The product or business decision to make a capability available to intended users, customers, or operational consumers.",
+    "practicalMeaning": "Separating release from deployment enables safer experiments, staged exposure, and independent operational control.",
+    "example": "The team releases the already-deployed workflow to ten percent of members and watches support and completion data.",
+    "relatedTerms": [
+      "deployment",
+      "increment",
+      "feature-flag"
+    ],
+    "relatedRoleSlugs": [
+      "product-manager",
+      "devops-engineer"
+    ],
+    "relatedMethodSlugs": [
+      "devops-lifecycle"
+    ],
+    "tags": [
+      "launch",
+      "availability"
+    ]
+  },
+  {
+    "slug": "feature-flag",
+    "term": "Feature Flag",
+    "aliases": [],
+    "category": "engineering",
+    "definition": "A configurable control that changes whether a software capability is enabled for selected users, environments, or conditions without a new deployment.",
+    "practicalMeaning": "Flags support gradual release and experiments, but unmanaged flags create complexity and must have ownership and removal plans.",
+    "example": "The new checkout is enabled for staff accounts first, then gradually expanded while error rates are monitored.",
+    "relatedTerms": [
+      "release",
+      "deployment",
+      "observability"
+    ],
+    "relatedRoleSlugs": [
+      "frontend-developer",
+      "devops-engineer"
+    ],
+    "relatedMethodSlugs": [
+      "devops-lifecycle"
+    ],
+    "tags": [
+      "toggle",
+      "progressive delivery"
+    ]
+  },
+  {
+    "slug": "rollback",
+    "term": "Rollback",
+    "aliases": [],
+    "category": "operations",
+    "definition": "A controlled action that restores a previous known software, configuration, data, or infrastructure state after an unsafe change.",
+    "practicalMeaning": "Rollback readiness reduces recovery time, but data migrations and external effects may require forward fixes or explicit recovery plans.",
+    "example": "After elevated errors, the deployment pipeline restores the previous application image while the incident team investigates.",
+    "relatedTerms": [
+      "deployment",
+      "incident",
+      "continuous-delivery"
+    ],
+    "relatedRoleSlugs": [
+      "devops-engineer",
+      "site-reliability-engineer"
+    ],
+    "relatedMethodSlugs": [
+      "devops-lifecycle"
+    ],
+    "tags": [
+      "recovery",
+      "release"
+    ]
+  },
+  {
+    "slug": "observability",
+    "term": "Observability",
+    "aliases": [],
+    "category": "operations",
+    "definition": "The ability to understand a system’s internal state and behavior from its outputs, context, and intentionally designed telemetry.",
+    "practicalMeaning": "Observability helps teams ask new questions during unexpected conditions instead of relying only on predetermined alert checks.",
+    "example": "Engineers correlate a user request across logs, metrics, and traces to find latency in an external service.",
+    "relatedTerms": [
+      "incident",
+      "service-level-objective",
+      "telemetry"
+    ],
+    "relatedRoleSlugs": [
+      "site-reliability-engineer",
+      "backend-developer"
+    ],
+    "relatedMethodSlugs": [
+      "devops-lifecycle"
+    ],
+    "tags": [
+      "logs",
+      "metrics"
+    ]
+  },
+  {
+    "slug": "telemetry",
+    "term": "Telemetry",
+    "aliases": [],
+    "category": "operations",
+    "definition": "Automatically collected signals about software, infrastructure, user interaction, or operational processes used for observation and analysis.",
+    "practicalMeaning": "Telemetry should be purposeful, privacy-aware, and connected to decisions rather than collected without ownership or retention limits.",
+    "example": "The service records request latency, error type, deployment version, and anonymous completion events for a critical flow.",
+    "relatedTerms": [
+      "observability",
+      "incident",
+      "product-analytics"
+    ],
+    "relatedRoleSlugs": [
+      "site-reliability-engineer",
+      "product-manager"
+    ],
+    "relatedMethodSlugs": [
+      "devops-lifecycle"
+    ],
+    "tags": [
+      "data",
+      "monitoring"
+    ]
+  },
+  {
+    "slug": "incident",
+    "term": "Incident",
+    "aliases": [],
+    "category": "operations",
+    "definition": "An unplanned event that degrades or threatens a service, user outcome, security property, or agreed operational condition.",
+    "practicalMeaning": "Incident management coordinates stabilization, communication, investigation, and learning; it should not focus on finding one person to blame.",
+    "example": "A deployment prevents members from submitting forms, triggering response, rollback, stakeholder updates, and a follow-up review.",
+    "relatedTerms": [
+      "rollback",
+      "observability",
+      "service-level-objective"
+    ],
+    "relatedRoleSlugs": [
+      "site-reliability-engineer",
+      "security-engineer"
+    ],
+    "relatedMethodSlugs": [
+      "devops-lifecycle"
+    ],
+    "tags": [
+      "outage",
+      "response"
+    ]
+  },
+  {
+    "slug": "service-level-objective",
+    "term": "Service Level Objective",
+    "acronym": "SLO",
+    "aliases": [],
+    "category": "operations",
+    "definition": "A target level of service reliability or performance measured by a defined service-level indicator over a specified period.",
+    "practicalMeaning": "SLOs turn vague reliability expectations into explicit trade-offs between product change, risk, and operational investment.",
+    "example": "The team targets 99.9 percent successful membership submissions measured over a rolling 28-day window.",
+    "relatedTerms": [
+      "error-budget",
+      "service-level-expectation",
+      "observability"
+    ],
+    "relatedRoleSlugs": [
+      "site-reliability-engineer",
+      "product-manager"
+    ],
+    "relatedMethodSlugs": [
+      "devops-lifecycle"
+    ],
+    "tags": [
+      "SLO",
+      "reliability"
+    ]
+  },
+  {
+    "slug": "error-budget",
+    "term": "Error Budget",
+    "aliases": [],
+    "category": "operations",
+    "definition": "The permitted amount of unreliability implied by a service-level objective during its measurement window.",
+    "practicalMeaning": "Teams use the remaining budget to balance release speed and reliability work instead of demanding impossible perfect availability.",
+    "example": "After consuming most of the monthly budget, the team pauses risky launches and prioritizes failure prevention.",
+    "relatedTerms": [
+      "service-level-objective",
+      "incident",
+      "risk"
+    ],
+    "relatedRoleSlugs": [
+      "site-reliability-engineer",
+      "product-manager"
+    ],
+    "relatedMethodSlugs": [
+      "devops-lifecycle"
+    ],
+    "tags": [
+      "reliability",
+      "risk"
+    ]
+  },
+  {
+    "slug": "risk",
+    "term": "Risk",
+    "aliases": [],
+    "category": "people-business",
+    "definition": "An uncertain event or condition that could affect an objective, often considered through likelihood, impact, exposure, and response options.",
+    "practicalMeaning": "Useful risk work identifies specific scenarios, owners, triggers, mitigations, and residual exposure rather than maintaining generic red lists.",
+    "example": "The team reduces data-loss risk through backups, restore tests, access controls, and a documented recovery owner.",
+    "relatedTerms": [
+      "security-risk",
+      "change-control",
+      "incident"
+    ],
+    "relatedRoleSlugs": [
+      "project-manager",
+      "security-engineer"
+    ],
+    "relatedMethodSlugs": [],
+    "tags": [
+      "uncertainty",
+      "governance"
+    ]
+  },
+  {
+    "slug": "security-risk",
+    "term": "Security Risk",
+    "aliases": [],
+    "category": "operations",
+    "definition": "The possibility that a threat exploits a vulnerability and causes harm to confidentiality, integrity, availability, safety, privacy, or organizational outcomes.",
+    "practicalMeaning": "Security risk should be evaluated in context so controls are proportionate and remediation priorities reflect credible harm.",
+    "example": "Public file uploads could execute active content, so the service validates type, stores files separately, and serves safe responses.",
+    "relatedTerms": [
+      "risk",
+      "authentication",
+      "authorization"
+    ],
+    "relatedRoleSlugs": [
+      "security-engineer",
+      "backend-developer"
+    ],
+    "relatedMethodSlugs": [],
+    "tags": [
+      "cybersecurity",
+      "threat"
+    ]
+  },
+  {
+    "slug": "shape-up",
+    "term": "Shape Up",
+    "aliases": [],
+    "category": "product",
+    "definition": "A product-development method based on shaping bounded work, setting an appetite, selecting bets, fixed build cycles, variable scope, and team autonomy.",
+    "practicalMeaning": "Shape Up shifts detailed task discovery to the builder team while requiring senior shaping to remove major risks before commitment.",
+    "example": "Leaders select a six-week bet with clear boundaries, and the team cuts optional scope rather than extending the cycle.",
+    "relatedTerms": [
+      "appetite",
+      "pitch",
+      "cycle"
+    ],
+    "relatedRoleSlugs": [
+      "product-manager",
+      "tech-lead"
+    ],
+    "relatedMethodSlugs": [
+      "shape-up"
+    ],
+    "tags": [
+      "product method",
+      "betting"
+    ]
+  },
+  {
+    "slug": "appetite",
+    "term": "Appetite",
+    "aliases": [],
+    "category": "product",
+    "definition": "The amount of time and attention an organization is willing to invest in a problem before designing or committing to a solution.",
+    "practicalMeaning": "An appetite is a strategic constraint that shapes the solution; it is not an estimate of a fully specified scope.",
+    "example": "The team gives notification improvements a two-week appetite and designs a narrow solution that fits that investment.",
+    "relatedTerms": [
+      "shape-up",
+      "pitch",
+      "scope"
+    ],
+    "relatedRoleSlugs": [
+      "product-manager",
+      "engineering-manager"
+    ],
+    "relatedMethodSlugs": [
+      "shape-up"
+    ],
+    "tags": [
+      "time budget",
+      "scope"
+    ]
+  },
+  {
+    "slug": "pitch",
+    "term": "Pitch",
+    "aliases": [],
+    "category": "product",
+    "definition": "A shaped proposal describing a problem, appetite, solution direction, boundaries, risks, and no-gos for a potential product bet.",
+    "practicalMeaning": "The pitch supplies enough context for a team to exercise judgment without turning the work into a prewritten task list.",
+    "example": "The pitch explains the publishing delay, sketches the key interaction, identifies permission risk, and excludes analytics redesign.",
+    "relatedTerms": [
+      "appetite",
+      "shape-up",
+      "design-brief"
+    ],
+    "relatedRoleSlugs": [
+      "product-manager",
+      "tech-lead"
+    ],
+    "relatedMethodSlugs": [
+      "shape-up"
+    ],
+    "tags": [
+      "proposal",
+      "shaping"
+    ]
+  },
+  {
+    "slug": "cycle",
+    "term": "Cycle",
+    "aliases": [],
+    "category": "delivery",
+    "definition": "A repeated bounded period used by a method or organization to plan, build, review, learn, or allocate capacity.",
+    "practicalMeaning": "The meaning depends on the method; teams should state whether a cycle is a fixed delivery bet, a Sprint, or simply a reporting period.",
+    "example": "A Shape Up team receives one six-week build cycle followed by cooldown, while another team uses two-week Sprints.",
+    "relatedTerms": [
+      "sprint",
+      "shape-up",
+      "milestone"
+    ],
+    "relatedRoleSlugs": [
+      "project-manager",
+      "engineering-manager"
+    ],
+    "relatedMethodSlugs": [
+      "shape-up",
+      "scrum"
+    ],
+    "tags": [
+      "cadence",
+      "timebox"
+    ]
+  },
+  {
+    "slug": "hill-chart",
+    "term": "Hill Chart",
+    "aliases": [],
+    "category": "delivery",
+    "definition": "A Shape Up progress visualization that distinguishes work still being figured out from work that has a known execution path.",
+    "practicalMeaning": "Moving uphill represents uncertainty reduction; moving downhill represents completing understood work, making unknowns more visible than percent complete.",
+    "example": "A team keeps permissions uphill while the editor interface moves downhill because its remaining tasks are understood.",
+    "relatedTerms": [
+      "shape-up",
+      "risk",
+      "cycle"
+    ],
+    "relatedRoleSlugs": [
+      "tech-lead",
+      "product-designer"
+    ],
+    "relatedMethodSlugs": [
+      "shape-up"
+    ],
+    "tags": [
+      "progress",
+      "uncertainty"
+    ]
+  },
+  {
+    "slug": "platform-team",
+    "term": "Platform Team",
+    "aliases": [],
+    "category": "people-business",
+    "definition": "A team that provides internal capabilities and services intended to reduce cognitive load and accelerate safe delivery for product-oriented teams.",
+    "practicalMeaning": "A platform should behave like an internal product with clear users, supported paths, documentation, feedback, and measured usefulness.",
+    "example": "The platform team offers a supported deployment pipeline, secrets management, logs, and templates that product teams can self-serve.",
+    "relatedTerms": [
+      "devops",
+      "cross-functional-team",
+      "team-api"
+    ],
+    "relatedRoleSlugs": [
+      "devops-engineer",
+      "engineering-manager"
+    ],
+    "relatedMethodSlugs": [
+      "devops-lifecycle"
+    ],
+    "tags": [
+      "team topology",
+      "internal platform"
+    ]
+  },
+  {
+    "slug": "cross-functional-team",
+    "term": "Cross-Functional Team",
+    "aliases": [],
+    "category": "people-business",
+    "definition": "A team containing the complementary skills and authority needed to pursue an outcome without routine handoffs to separate functional departments.",
+    "practicalMeaning": "Cross-functional does not mean every member has every skill; it means the team can collaborate across necessary disciplines and owns an integrated result.",
+    "example": "A product team includes product, design, frontend, backend, and quality capabilities needed to improve membership onboarding.",
+    "relatedTerms": [
+      "platform-team",
+      "stakeholder",
+      "increment"
+    ],
+    "relatedRoleSlugs": [
+      "product-manager",
+      "engineering-manager"
+    ],
+    "relatedMethodSlugs": [
+      "agile",
+      "scrum"
+    ],
+    "tags": [
+      "team design",
+      "collaboration"
+    ]
+  },
+  {
+    "slug": "team-api",
+    "term": "Team API",
+    "aliases": [],
+    "category": "people-business",
+    "definition": "An explicit description of a team’s purpose, responsibilities, supported services, communication channels, boundaries, and ways other teams interact with it.",
+    "practicalMeaning": "A Team API reduces hidden dependency and helps collaborators choose self-service, facilitation, or close collaboration intentionally.",
+    "example": "The platform team documents supported deployment paths, response expectations, escalation channels, and unsupported custom infrastructure.",
+    "relatedTerms": [
+      "platform-team",
+      "service-level-expectation",
+      "stakeholder"
+    ],
+    "relatedRoleSlugs": [
+      "engineering-manager",
+      "operations-manager"
+    ],
+    "relatedMethodSlugs": [],
+    "tags": [
+      "team interaction",
+      "ownership"
+    ]
+  },
+  {
+    "slug": "scope",
+    "term": "Scope",
+    "aliases": [],
+    "category": "delivery",
+    "definition": "The boundaries of work, outcomes, features, systems, responsibilities, or conditions included and excluded from an initiative or decision.",
+    "practicalMeaning": "Scope should be explicit and changeable through informed trade-offs; ambiguity creates hidden commitments and conflicting expectations.",
+    "example": "The release includes application submission and confirmation but excludes payment and member-directory profiles.",
+    "relatedTerms": [
+      "requirements",
+      "change-control",
+      "appetite"
+    ],
+    "relatedRoleSlugs": [
+      "project-manager",
+      "product-manager"
+    ],
+    "relatedMethodSlugs": [
+      "waterfall",
+      "shape-up"
+    ],
+    "tags": [
+      "boundaries",
+      "planning"
+    ]
+  },
+  {
+    "slug": "product-analytics",
+    "term": "Product Analytics",
+    "aliases": [],
+    "category": "product",
+    "definition": "The collection and analysis of behavioral and outcome data to understand how people use a product and whether changes create intended value.",
+    "practicalMeaning": "Product analytics should begin with decisions and ethical measurement, then combine quantitative patterns with qualitative context.",
+    "example": "The team compares completion, abandonment, error, and support-contact rates before and after redesigning an application flow.",
+    "relatedTerms": [
+      "telemetry",
+      "product-goal",
+      "mvp"
+    ],
+    "relatedRoleSlugs": [
+      "product-manager",
+      "ux-researcher"
+    ],
+    "relatedMethodSlugs": [],
+    "tags": [
+      "measurement",
+      "behavior"
+    ]
+  },
+  {
+    "slug": "user-research",
+    "term": "User Research",
+    "aliases": [],
+    "category": "design",
+    "definition": "Systematic study of people, contexts, behavior, needs, and experiences to inform product or service decisions.",
+    "practicalMeaning": "Research uses suitable methods and ethical practice to reduce uncertainty; it does not ask participants to become product strategists.",
+    "example": "A researcher observes editors publishing real content and tests a prototype with representative users.",
+    "relatedTerms": [
+      "discovery",
+      "prototype",
+      "stakeholder"
+    ],
+    "relatedRoleSlugs": [
+      "ux-researcher",
+      "product-designer"
+    ],
+    "relatedMethodSlugs": [
+      "double-diamond"
+    ],
+    "tags": [
+      "UX research",
+      "evidence"
+    ]
+  }
+]

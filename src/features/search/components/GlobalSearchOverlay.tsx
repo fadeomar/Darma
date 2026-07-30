@@ -54,7 +54,7 @@ const KIND_ICONS: Record<CoreEntityKind, typeof Search> = {
   learning: Sparkles,
 };
 
-const FEATURED_QUERIES = ["image", "css", "puzzle", "calculator", "color", "classic"];
+const FEATURED_QUERIES = ["react", "career", "agile", "accessibility", "image", "calculator"];
 
 function readJsonArray<T>(key: string): T[] {
   if (typeof window === "undefined") return [];

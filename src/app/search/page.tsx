@@ -4,8 +4,10 @@ import "@/core/components/core-ui.css";
 import "@/features/search/styles/unified-search.css";
 
 export const metadata: Metadata = {
-  title: "Search Darma | Tools, Games, and Collections",
-  description: "Search across Darma tools, games, and collections from one unified Core-powered discovery page.",
+  title: "Search Darma | Tools, Games, Resources, and Tech Atlas",
+  description: "Search across Darma tools, games, resources, learning paths, careers, workflows, glossary terms, guides, comparisons, and collections.",
+  alternates: { canonical: "/search" },
+  robots: { index: false, follow: true },
 };
 
 type SearchPageProps = {

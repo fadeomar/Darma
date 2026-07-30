@@ -1,0 +1,47 @@
+name: Report a broken or outdated resource
+description: Report a dead link, redirect problem, outdated description, pricing change, or incorrect classification.
+title: "[Resource health]: "
+body:
+  - type: input
+    id: resource
+    attributes:
+      label: Resource name or Darma URL
+      placeholder: MDN Web Docs or https://darma-lake.vercel.app/resources?q=MDN
+    validations:
+      required: true
+  - type: input
+    id: external_url
+    attributes:
+      label: External URL
+      placeholder: https://example.com
+    validations:
+      required: true
+  - type: dropdown
+    id: problem
+    attributes:
+      label: What changed?
+      options:
+        - Link returns an error
+        - Link redirects to the wrong page
+        - Resource is archived or abandoned
+        - Description is inaccurate
+        - Pricing is inaccurate
+        - Publisher classification is inaccurate
+        - Logo or favicon is broken
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and expected correction
+      description: Include the observed status, date checked, and a replacement URL when available.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Confirmation
+      options:
+        - label: I rechecked the URL before submitting this report.
+          required: true

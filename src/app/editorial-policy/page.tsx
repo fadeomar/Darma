@@ -1,0 +1,34 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { CheckCircle2, ExternalLink, GitPullRequest, SearchCheck, ShieldCheck } from "lucide-react";
+import { Badge, Card } from "@/components/ui";
+import { absoluteUrl } from "@/features/tools/seo";
+
+export const metadata: Metadata = {
+  title: "Editorial Policy — how Darma researches and reviews technology content",
+  description: "Read how Darma selects sources, writes guides, handles comparisons, records review dates, corrects mistakes, and keeps its open-source technology reference accountable.",
+  alternates: { canonical: "/editorial-policy" },
+  openGraph: { title: "Darma Editorial Policy", description: "How Darma researches, reviews, cites, updates, and corrects technology content.", url: absoluteUrl("/editorial-policy"), type: "article" },
+};
+
+const STEPS = [
+  ["Start from a real user question", "A guide or comparison begins with a clear search and decision intent, not a target word count or a request to publish more pages."],
+  ["Prefer primary references", "Official documentation, standards bodies, framework maintainers, and original research are preferred. Community sources are labelled and used when they add practical context."],
+  ["Write an original explanation", "Darma connects definitions to projects, constraints, mistakes, alternatives, and next actions instead of copying documentation or producing a directory of links."],
+  ["Validate cross-references", "Learning paths, careers, methods, glossary terms, and resources must resolve to existing records and must not contradict the connected content."],
+  ["Review before publication", "A separate technical review checks claims, source quality, comparison balance, structure, accessibility, metadata, and internal links."],
+  ["Record updates and corrections", "Pages expose their modified date. Significant corrections are made in the repository, and outdated sources can be reported through structured contribution forms."],
+];
+
+export default function EditorialPolicyPage() {
+  const jsonLd = { "@context": "https://schema.org", "@type": "WebPage", name: "Darma Editorial Policy", description: metadata.description, url: absoluteUrl("/editorial-policy"), about: { "@type": "Organization", name: "Darma", url: absoluteUrl("/") }, dateModified: "2026-07-29" };
+  return <div className="pb-16"><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
+    <section className="mx-auto max-w-[var(--container-wide)] px-4 py-12 sm:px-6 lg:px-8 lg:py-16"><div className="max-w-4xl"><div className="flex flex-wrap gap-2"><Badge variant="soft">Trust and transparency</Badge><Badge variant="outline">Open-source policy</Badge></div><h1 className="mt-5 text-4xl font-black tracking-[-0.045em] text-[var(--color-text-primary)] sm:text-5xl lg:text-6xl">How Darma researches, writes, reviews, and corrects technology content.</h1><p className="mt-6 max-w-3xl text-base leading-8 text-[var(--color-text-secondary)] sm:text-lg">Darma is designed to help people make technical and career decisions. That requires visible sources, balanced comparisons, honest uncertainty, and a correction process—not only polished pages.</p></div></section>
+
+    <section className="mx-auto max-w-[var(--container-wide)] px-4 pb-10 sm:px-6 lg:px-8"><div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">{STEPS.map(([title, text], index) => <Card key={title} padding="lg"><span className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--color-primary)] font-mono text-xs font-black text-[var(--color-primary-text)]">{index + 1}</span><h2 className="mt-4 text-lg font-black text-[var(--color-text-primary)]">{title}</h2><p className="mt-2 text-sm leading-7 text-[var(--color-text-secondary)]">{text}</p></Card>)}</div></section>
+
+    <section className="mx-auto max-w-[var(--container-wide)] px-4 pb-10 sm:px-6 lg:px-8"><div className="grid gap-5 lg:grid-cols-2"><Card padding="lg"><SearchCheck className="h-5 w-5 text-[var(--color-primary)]" aria-hidden /><h2 className="mt-4 text-2xl font-black text-[var(--color-text-primary)]">Source hierarchy</h2><ol className="mt-5 space-y-3">{["Official documentation and original maintainers","Standards bodies and recognized public frameworks","Original research and transparent datasets","Community explanations with clear attribution","Darma's own practical synthesis and examples"].map((item, index) => <li key={item} className="flex items-start gap-3 text-sm leading-6 text-[var(--color-text-secondary)]"><span className="font-mono text-xs font-black text-[var(--color-primary)]">{index + 1}</span>{item}</li>)}</ol></Card><Card padding="lg"><ShieldCheck className="h-5 w-5 text-[var(--color-primary)]" aria-hidden /><h2 className="mt-4 text-2xl font-black text-[var(--color-text-primary)]">What Darma does not claim</h2><ul className="mt-5 space-y-3">{["A roadmap cannot guarantee employment or replace supervised professional experience.","A comparison does not create one universal winner for every team.","A verified link does not mean Darma endorses every statement or commercial offer on that site.","Structured data and SEO work do not guarantee a rich result or a specific ranking.","Automated link failures never remove a source without human review."].map((item) => <li key={item} className="flex items-start gap-2 text-sm leading-6 text-[var(--color-text-secondary)]"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-success-text)]" aria-hidden />{item}</li>)}</ul></Card></div></section>
+
+    <section className="mx-auto max-w-[var(--container-wide)] px-4 pb-10 sm:px-6 lg:px-8"><Card padding="lg" className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center"><div><GitPullRequest className="h-5 w-5 text-[var(--color-primary)]" aria-hidden /><h2 className="mt-4 text-2xl font-black text-[var(--color-text-primary)]">Corrections are part of the system</h2><p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)]">Report a broken source, challenge an explanation, propose a better primary reference, or submit a focused pull request. The public repository keeps the review history visible.</p></div><div className="flex flex-wrap gap-3"><Link href="/contribute" className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-primary)] px-5 text-sm font-semibold text-[var(--color-primary-text)]">Open contribution guide</Link><a href="https://github.com/fadeomar/Darma" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-default)] px-5 text-sm font-semibold text-[var(--color-text-primary)]">View repository <ExternalLink className="h-4 w-4" aria-hidden /></a></div></Card></section>
+  </div>;
+}

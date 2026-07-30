@@ -1,7 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import GoodLinks from "@/sections/GoodLinks";
+import { ResourcePreview } from "@/features/resources/components";
+import { getFeaturedLearningPaths, getLearningPaths } from "@/features/learning-paths";
+import { LearningPathCard } from "@/features/learning-paths/components";
+import { getTechCareers } from "@/features/tech-careers";
+import { getWaysOfWorking } from "@/features/ways-of-working";
+import { getGlossaryTerms } from "@/features/tech-glossary";
+import { getTeamModels } from "@/features/tech-teams";
+import { getEditorialPagesByKind, getResourceHubs } from "@/features/editorial";
+import { absoluteUrl } from "@/features/tools/seo";
 import { Badge, Card, CopyButton } from "@/components/ui";
+import { AtlasHeroScene, AtlasScrollStory, MotionSection, SplitTextReveal } from "@/components/motion";
 import { getPublicTools } from "@/features/tools";
 import { toolWorkflows } from "@/features/tools/workflows";
 import {
@@ -26,9 +35,10 @@ const SUGGEST_TOOL_URL =
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "About Darma — your daily online toolbox",
+  title: "About Darma — open tools and a practical technology atlas",
   description:
-    "Darma is a daily online toolbox for useful tasks: count and clean text, convert images, generate passwords and QR codes, design with CSS, format data, and more — for students, creators, designers, developers, and everyday users.",
+    "Learn how Darma combines free browser tools with trusted resources, learning paths, technology careers, team workflows, organization maps, and practical terminology.",
+  alternates: { canonical: "/about" },
 };
 
 const primaryLinkClass =
@@ -40,6 +50,15 @@ const eyebrowClass = "font-mono text-[11px] font-bold uppercase tracking-[0.18em
 
 export default function AboutPage() {
   const publicTools = getPublicTools();
+  const learningPaths = getLearningPaths();
+  const featuredLearningPaths = getFeaturedLearningPaths(3);
+  const techCareers = getTechCareers();
+  const waysOfWorking = getWaysOfWorking();
+  const glossaryTerms = getGlossaryTerms();
+  const teamModels = getTeamModels();
+  const guides = getEditorialPagesByKind("guide");
+  const comparisons = getEditorialPagesByKind("comparison");
+  const resourceHubs = getResourceHubs();
   const featuredTools = publicTools.filter((tool) => tool.featured);
 
   const todayTool = pickDaily(featuredTools.length ? featuredTools : publicTools) ?? publicTools[0];
@@ -58,49 +77,39 @@ export default function AboutPage() {
     description: tool.shortDescription ?? tool.description,
   }));
 
+  const structuredData = { "@context": "https://schema.org", "@graph": [{ "@type": "AboutPage", "@id": `${absoluteUrl("/about")}#about`, name: "About Darma", url: absoluteUrl("/about"), description: metadata.description, mainEntity: { "@id": `${absoluteUrl("/")}#organization` }, dateModified: "2026-07-29" }, { "@type": "Organization", "@id": `${absoluteUrl("/")}#organization`, name: "Darma", url: absoluteUrl("/"), description: "An open-source technology workspace connecting practical browser tools with trusted resources, learning paths, careers, team workflows, and reviewed guides.", sameAs: ["https://github.com/fadeomar/Darma"], knowsAbout: ["Web development", "JavaScript", "Frontend development", "Mobile development", "UI and UX design", "DevOps", "Technology careers", "Software development methodologies"] }, { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") }, { "@type": "ListItem", position: 2, name: "About Darma", item: absoluteUrl("/about") }] }] };
+
   return (
-    <main className="pb-16">
+    <div className="pb-16">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
       {/* Hero */}
-      <section className="mx-auto max-w-[var(--container-wide)] px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_360px]">
+      <section className="visual-grid-bg border-b border-[var(--color-border-subtle)]">
+        <div className="mx-auto grid max-w-[var(--container-wide)] gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(390px,.88fr)] lg:items-center lg:px-8 lg:py-20">
           <div className="max-w-4xl">
-            <Badge variant="soft">About Darma</Badge>
-            <h1 className="mt-5 text-4xl font-black tracking-[-0.045em] text-[var(--color-text-primary)] sm:text-5xl lg:text-6xl">
-              Your daily online toolbox for useful tasks.
-            </h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-[var(--color-text-secondary)] sm:text-lg">
-              Darma brings together practical tools for writing, studying, designing, converting, and building — so anyone can finish small digital tasks faster, without installing anything.
+            <div className="flex flex-wrap gap-2"><Badge variant="soft">About Darma</Badge><Badge variant="outline">Open-source knowledge workspace</Badge></div>
+            <SplitTextReveal text="An open workbench and technology atlas built to turn questions into useful action." className="mt-5 text-4xl font-black tracking-[-0.055em] text-[var(--color-text-primary)] sm:text-5xl lg:text-7xl" />
+            <p className="mt-6 max-w-3xl text-base leading-8 text-[var(--color-text-secondary)] sm:text-lg">
+              Darma connects practical browser tools with trusted resources, structured learning paths, technology careers, ways of working, team structures, and the language people meet inside the industry.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/tools" className={primaryLinkClass}>Explore all tools</Link>
-              <Link href="/workflows" className={secondaryLinkClass}>Browse workflows</Link>
+              <Link href="/tech-atlas" className={primaryLinkClass}>Open the Tech Atlas</Link>
+              <Link href="/career-pathfinder" className={secondaryLinkClass}>Try Career Pathfinder</Link>
+              <Link href="/tools" className={secondaryLinkClass}>Explore all tools</Link>
+              <Link href="/guides" className={secondaryLinkClass}>Read practical guides</Link>
             </div>
             <div className="mt-7 flex flex-wrap items-center gap-2">
               <span className="text-xs font-semibold text-[var(--color-text-tertiary)]">Made for</span>
-              {AUDIENCE_LABELS.map((audience) => (
-                <Badge key={audience.id} variant="outline">{audience.label}</Badge>
-              ))}
+              {AUDIENCE_LABELS.map((audience) => (<Badge key={audience.id} variant="outline">{audience.label}</Badge>))}
             </div>
           </div>
-
-          <Card padding="lg" className="self-start">
-            <p className={eyebrowClass}>Darma at a glance</p>
-            <dl className="mt-4 space-y-3">
-              {[
-                { label: "Browser-based tools", value: `${publicTools.length}` },
-                { label: "Guided workflows", value: `${toolWorkflows.length}` },
-                { label: "Account required", value: "No" },
-                { label: "Runs in your browser", value: "Yes" },
-              ].map((row) => (
-                <div key={row.label} className="flex items-center justify-between gap-3 border-b border-[var(--color-border-subtle)] pb-3 last:border-0 last:pb-0">
-                  <dt className="text-sm text-[var(--color-text-secondary)]">{row.label}</dt>
-                  <dd className="font-mono text-sm font-bold text-[var(--color-text-primary)]">{row.value}</dd>
-                </div>
-              ))}
-            </dl>
-          </Card>
+          <AtlasHeroScene src="/atlas/open-workbench.svg" alt="An open digital workbench showing code, visual tools, resources, and project cards" priority labels={[`${publicTools.length} tools`, `${learningPaths.length} learning paths`, `${techCareers.length} careers`, "Open source"]} />
         </div>
       </section>
+
+      <MotionSection as="section" className={sectionClass} distance={18}>
+        <div className="mb-7 max-w-3xl"><p className={eyebrowClass}>From question to confident action</p><h2 className="mt-2 text-3xl font-black tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-4xl">A reference should help you move—not only give you more tabs.</h2><p className="mt-3 text-base leading-8 text-[var(--color-text-secondary)]">Scroll through the flow Darma uses to connect a real question with verified sources, practical routes, and evidence from doing the work.</p></div>
+        <AtlasScrollStory />
+      </MotionSection>
 
       {/* What Darma helps you do */}
       <section className={sectionClass}>
@@ -269,6 +278,37 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className={sectionClass}>
+        <div className="mb-6 max-w-3xl">
+          <p className={eyebrowClass}>How Darma researches content</p>
+          <h2 className="mt-2 text-3xl font-black tracking-[-0.035em] text-[var(--color-text-primary)]">A visible editorial process, not an anonymous list of links.</h2>
+          <p className="mt-3 text-base leading-7 text-[var(--color-text-secondary)]">Every guide starts from a real user question, prefers primary sources, adds an original practical explanation, connects to existing Atlas records, and receives a separate structural and technical review.</p>
+        </div>
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {[
+            { title: "Official source first", text: "Framework documentation, standards bodies, maintainers, and original research are preferred before secondary summaries." },
+            { title: "Original practical value", text: "Darma adds decision criteria, project evidence, mistakes, alternatives, and next actions instead of rewriting documentation." },
+            { title: "Cross-reference review", text: "Resources, paths, careers, methods, team models, and glossary terms are validated as one connected system." },
+            { title: "Correction and maintenance", text: "Update dates stay visible, automated checks remain non-destructive, and contributors can report outdated content publicly." },
+          ].map((item) => <Card key={item.title} padding="lg" className="h-full"><h3 className="text-lg font-black text-[var(--color-text-primary)]">{item.title}</h3><p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">{item.text}</p></Card>)}
+        </div>
+        <Link href="/editorial-policy" className="mt-6 inline-flex text-sm font-bold text-[var(--color-primary)]">Read the complete editorial policy →</Link>
+      </section>
+
+      <section className={sectionClass}>
+        <div className="mb-6 max-w-3xl"><p className={eyebrowClass}>What Darma covers</p><h2 className="mt-2 text-3xl font-black tracking-[-0.035em] text-[var(--color-text-primary)]">A connected reference across the work of building technology.</h2><p className="mt-3 text-base leading-7 text-[var(--color-text-secondary)]">The goal is not to publish on every topic. Darma concentrates on areas it can connect to trustworthy sources, structured learning, real roles, practical tools, and clear decisions.</p></div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{[
+          ["Web and JavaScript development", "/resources/web-development"], ["Mobile application development", "/guides/mobile-development-roadmap"], ["UI, UX, and product design", "/resources/ui-ux-design"], ["Testing, accessibility, and quality", "/resources/testing-quality"], ["DevOps, delivery, and reliability", "/resources/devops-delivery"], ["Technology careers and team systems", "/tech-atlas"],
+        ].map(([title, href]) => <Link key={title} href={href} className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-5 text-base font-black text-[var(--color-text-primary)] transition hover:border-[var(--color-primary-border)] hover:text-[var(--color-primary)]">{title} →</Link>)}</div>
+      </section>
+
+      <section id="maintainers" className={`${sectionClass} scroll-mt-28`}>
+        <div className="grid gap-5 lg:grid-cols-2">
+          <Card padding="lg"><p className={eyebrowClass}>Who maintains Darma</p><h2 className="mt-3 text-2xl font-black text-[var(--color-text-primary)]">Open-source maintainers and contributors.</h2><p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">Darma is maintained in a public repository. Content changes, source additions, audits, and implementation history can be inspected and improved through focused issues and pull requests.</p><div className="mt-5 flex flex-wrap gap-3"><a href="https://github.com/fadeomar/Darma" target="_blank" rel="noopener noreferrer" className={primaryLinkClass}>View the repository</a><Link href="/contribute" className={secondaryLinkClass}>Contribute a correction</Link></div></Card>
+          <Card padding="lg"><p className={eyebrowClass}>What Darma does not do</p><ul className="mt-4 space-y-3 text-sm leading-7 text-[var(--color-text-secondary)]"><li>• Darma does not sell placement or call an unverified source official.</li><li>• A learning path does not guarantee a job or replace supervised experience.</li><li>• Comparisons do not declare one universal winner for every team.</li><li>• Darma does not replace primary documentation, standards, or professional advice.</li><li>• One automated network failure never removes a resource.</li></ul></Card>
+        </div>
+      </section>
+
       {/* Privacy & transparency */}
       <section className={sectionClass}>
         <div className="rounded-[var(--radius-xl)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-6 shadow-[var(--shadow-card)] sm:p-8">
@@ -320,7 +360,59 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <GoodLinks />
-    </main>
+      <section className={sectionClass}>
+        <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-3xl">
+            <p className={eyebrowClass}>Structured learning</p>
+            <h2 className="mt-2 text-3xl font-black tracking-[-0.035em] text-[var(--color-text-primary)]">Move from useful links to a practical learning flow.</h2>
+            <p className="mt-3 text-base leading-7 text-[var(--color-text-secondary)]">Each path connects trusted references to ordered stages, checkpoints, projects, and locally saved progress.</p>
+          </div>
+          <Link href="/learning-paths" className={secondaryLinkClass}>Browse all learning paths</Link>
+        </div>
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {featuredLearningPaths.map((path) => <LearningPathCard key={path.slug} path={path} />)}
+        </div>
+      </section>
+
+
+      <section className={sectionClass}>
+        <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-3xl">
+            <p className={eyebrowClass}>Technology industry reference</p>
+            <h2 className="mt-2 text-3xl font-black tracking-[-0.035em] text-[var(--color-text-primary)]">Understand the work around the code.</h2>
+            <p className="mt-3 text-base leading-7 text-[var(--color-text-secondary)]">Use Darma to explore roles, compare delivery systems, decode terminology, and see how different technology team structures move one need from discovery to operation.</p>
+          </div>
+          <Link href="/tech-atlas" className={primaryLinkClass}>Explore the complete Tech Atlas</Link>
+        </div>
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {[
+            { href: "/tech-careers", count: techCareers.length, label: "Career guides", title: "Who does what?", text: "Daily work, responsibilities, deliverables, skills, collaborators, and junior-to-senior scope." },
+            { href: "/ways-of-working", count: waysOfWorking.length, label: "Ways of working", title: "How does work flow?", text: "Agile, Scrum, Kanban, Waterfall, DevOps, design processes, and practical comparisons." },
+            { href: "/tech-teams", count: teamModels.length, label: "Team models", title: "How are companies structured?", text: "Functional, cross-functional, project, matrix, cooperative, and flow-oriented structures." },
+            { href: "/tech-glossary", count: glossaryTerms.length, label: "Glossary terms", title: "What does the language mean?", text: "Clear definitions, practical meaning, realistic examples, and links to roles and methods." },
+          ].map((item) => (
+            <Card key={item.href} padding="lg" className="flex h-full flex-col">
+              <Badge variant="soft">{item.count} {item.label}</Badge>
+              <h3 className="mt-4 text-xl font-black text-[var(--color-text-primary)]">{item.title}</h3>
+              <p className="mt-3 flex-1 text-sm leading-6 text-[var(--color-text-secondary)]">{item.text}</p>
+              <Link href={item.href} className="mt-5 text-sm font-bold text-[var(--color-primary)]">Open section →</Link>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section className={sectionClass}>
+        <Card padding="lg" className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div className="max-w-3xl">
+            <p className={eyebrowClass}>Open-source stewardship</p>
+            <h2 className="mt-2 text-3xl font-black tracking-[-0.035em] text-[var(--color-text-primary)]">Help keep the reference useful and honest.</h2>
+            <p className="mt-3 text-base leading-7 text-[var(--color-text-secondary)]">Use structured forms to suggest a source, report outdated content, improve a learning path, or correct how Darma explains careers and team workflows. Every contribution is reviewed before publication.</p>
+          </div>
+          <Link href="/contribute" className={primaryLinkClass}>Open contribution guide</Link>
+        </Card>
+      </section>
+
+      <ResourcePreview />
+    </div>
   );
 }

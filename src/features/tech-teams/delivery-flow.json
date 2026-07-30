@@ -1,0 +1,205 @@
+[
+  {
+    "id": "need",
+    "title": "Need and signal",
+    "question": "What changed, and who is affected?",
+    "description": "Capture a user, client, operational, market, or organizational signal without immediately treating a requested feature as the only solution.",
+    "roleSlugs": [
+      "product-manager",
+      "ux-researcher",
+      "operations-manager",
+      "technical-marketing"
+    ],
+    "outputs": [
+      "Problem signal",
+      "Affected stakeholders",
+      "Initial evidence"
+    ],
+    "glossaryTerms": [
+      "stakeholder",
+      "discovery",
+      "product-analytics"
+    ]
+  },
+  {
+    "id": "discovery",
+    "title": "Discovery and framing",
+    "question": "Which problem is worth solving now?",
+    "description": "Study users, context, feasibility, constraints, risks, and strategic fit, then define an outcome and the uncertainty that must be reduced.",
+    "roleSlugs": [
+      "product-manager",
+      "product-designer",
+      "ux-researcher",
+      "tech-lead"
+    ],
+    "outputs": [
+      "Problem definition",
+      "Outcome measure",
+      "Decision brief"
+    ],
+    "glossaryTerms": [
+      "discovery",
+      "problem-definition",
+      "design-brief"
+    ]
+  },
+  {
+    "id": "direction",
+    "title": "Direction and prioritization",
+    "question": "What will we invest in, defer, or reject?",
+    "description": "Compare opportunities, appetite, capacity, dependencies, risk, and expected value to make an explicit investment and sequencing decision.",
+    "roleSlugs": [
+      "product-manager",
+      "project-manager",
+      "engineering-manager",
+      "operations-manager"
+    ],
+    "outputs": [
+      "Priority decision",
+      "Scope or appetite",
+      "Stakeholder alignment"
+    ],
+    "glossaryTerms": [
+      "roadmap",
+      "scope",
+      "appetite",
+      "risk"
+    ]
+  },
+  {
+    "id": "design",
+    "title": "Experience and solution design",
+    "question": "How might the complete experience and system work?",
+    "description": "Explore interaction, content, service, architecture, data, security, and operational options before selecting a coherent approach.",
+    "roleSlugs": [
+      "product-designer",
+      "tech-lead",
+      "security-engineer",
+      "backend-developer"
+    ],
+    "outputs": [
+      "User flow or prototype",
+      "Architecture decisions",
+      "Acceptance examples"
+    ],
+    "glossaryTerms": [
+      "prototype",
+      "design-system",
+      "acceptance-criteria",
+      "security-risk"
+    ]
+  },
+  {
+    "id": "planning",
+    "title": "Delivery planning",
+    "question": "How will we deliver safely in useful slices?",
+    "description": "Break the intended outcome into integrated increments, clarify dependencies and quality conditions, and choose a suitable planning and flow method.",
+    "roleSlugs": [
+      "project-manager",
+      "scrum-master-agile-facilitator",
+      "tech-lead",
+      "software-qa-engineer"
+    ],
+    "outputs": [
+      "Delivery plan or goal",
+      "Workflow policies",
+      "Definition of Done"
+    ],
+    "glossaryTerms": [
+      "increment",
+      "definition-of-done",
+      "work-in-progress"
+    ]
+  },
+  {
+    "id": "build",
+    "title": "Build and integrate",
+    "question": "Can the team create a working, maintainable increment?",
+    "description": "Implement interface, service, data, and infrastructure changes collaboratively while integrating frequently and keeping quality feedback close to development.",
+    "roleSlugs": [
+      "frontend-developer",
+      "backend-developer",
+      "full-stack-developer",
+      "mobile-developer"
+    ],
+    "outputs": [
+      "Integrated software",
+      "Reviewed changes",
+      "Technical documentation"
+    ],
+    "glossaryTerms": [
+      "pull-request",
+      "continuous-integration",
+      "refactoring"
+    ]
+  },
+  {
+    "id": "verify",
+    "title": "Verify and assess risk",
+    "question": "Is the change fit for use and safe to release?",
+    "description": "Test important functional, accessibility, security, performance, data, and operational risks against agreed evidence rather than only checking happy paths.",
+    "roleSlugs": [
+      "software-qa-engineer",
+      "security-engineer",
+      "product-designer",
+      "site-reliability-engineer"
+    ],
+    "outputs": [
+      "Risk-based test evidence",
+      "Resolved defects",
+      "Release recommendation"
+    ],
+    "glossaryTerms": [
+      "acceptance-criteria",
+      "accessibility",
+      "security-risk",
+      "definition-of-done"
+    ]
+  },
+  {
+    "id": "release",
+    "title": "Deploy and release",
+    "question": "How will the capability reach users safely?",
+    "description": "Deploy repeatable artifacts, migrate data where necessary, control exposure, communicate changes, and retain rollback and incident readiness.",
+    "roleSlugs": [
+      "devops-engineer",
+      "site-reliability-engineer",
+      "backend-developer",
+      "product-manager"
+    ],
+    "outputs": [
+      "Deployed version",
+      "Release communication",
+      "Rollback readiness"
+    ],
+    "glossaryTerms": [
+      "deployment",
+      "release",
+      "feature-flag",
+      "rollback"
+    ]
+  },
+  {
+    "id": "learn",
+    "title": "Operate, learn, and improve",
+    "question": "What happened in real use, and what changes next?",
+    "description": "Observe technical and user outcomes, respond to incidents and support needs, compare results with the intended outcome, and improve product and system.",
+    "roleSlugs": [
+      "site-reliability-engineer",
+      "product-manager",
+      "operations-manager",
+      "engineering-manager"
+    ],
+    "outputs": [
+      "Telemetry and feedback",
+      "Outcome review",
+      "Improvement actions"
+    ],
+    "glossaryTerms": [
+      "observability",
+      "incident",
+      "product-analytics",
+      "continuous-improvement"
+    ]
+  }
+]

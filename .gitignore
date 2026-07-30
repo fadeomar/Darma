@@ -57,3 +57,7 @@ prisma/migrations_backup/
 *.backup
 *.pgpass
 SHA256SUMS
+
+# generated external link-health reports
+/ATLAS_LINK_HEALTH*.md
+/ATLAS_LINK_HEALTH*.json

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const PRINCIPLES = [
   { icon: BriefcaseBusiness, title: "Role, level, and responsibility are different", text: "A job family explains the work, seniority explains scope and evidence, and titles such as lead or manager add contextual responsibilities." },
   { icon: Network, title: "No role works alone", text: "Every guide shows collaborators and handoffs so beginners can see how a real technology organization delivers outcomes." },
-  { icon: ShieldCheck, title: "Evidence before title inflation", text: "Junior, mid-level, and senior guidance focuses on autonomy, complexity, influence, and outcomes—not only years of experience." },
+  { icon: ShieldCheck, title: "Evidence before title inflation", text: "Junior, mid-level, and senior guidance focuses on autonomy, complexity, influence, and outcomes. Years of experience are only one part of the picture." },
 ];
 
 function careerJsonLd() {

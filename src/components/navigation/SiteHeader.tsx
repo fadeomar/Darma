@@ -28,6 +28,7 @@ import { loadGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
 const PRIMARY_NAV = [
   { href: "/explore", label: "Explore" },
   { href: "/tools", label: "Tools" },
+  { href: "/games", label: "Games" },
   { href: "/guides", label: "Guides" },
   { href: "/comparisons", label: "Compare" },
   { href: "/about", label: "About" },
@@ -191,13 +192,13 @@ export default function SiteHeader() {
           <span className="darma-brand-mark transition group-hover:rotate-6 group-hover:scale-105 motion-reduce:transition-none">D</span>
           <span className="hidden sm:block">
             <span className="block text-lg font-black leading-none tracking-[-0.04em] text-[var(--color-text-primary)]">Darma</span>
-            <span className="mt-1 block font-mono text-[9px] font-bold uppercase tracking-[0.17em] text-[var(--color-text-tertiary)]">Tools + Tech Atlas</span>
+            <span className="mt-1 block font-mono text-[9px] font-bold uppercase tracking-[0.17em] text-[var(--color-text-tertiary)]">Tools • Games • Tech Atlas</span>
           </span>
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
-          {PRIMARY_NAV.slice(0, 2).map((item) => (
-            <Link key={item.href} href={item.href} data-active={isPathActive(pathname, item.href)} className="darma-nav-link rounded-full px-4 py-2.5 text-sm font-bold text-[var(--color-text-secondary)] transition hover:text-[var(--color-text-primary)]">
+          {PRIMARY_NAV.slice(0, 3).map((item) => (
+            <Link key={item.href} href={item.href} data-active={isPathActive(pathname, item.href)} className="darma-nav-link rounded-full px-3.5 py-2.5 text-sm font-bold text-[var(--color-text-secondary)] transition hover:text-[var(--color-text-primary)]">
               {item.label}
             </Link>
           ))}
@@ -206,7 +207,7 @@ export default function SiteHeader() {
             <button
               type="button"
               onClick={() => setAtlasOpen((value) => !value)}
-              className="darma-nav-link inline-flex items-center gap-1 rounded-full px-4 py-2.5 text-sm font-bold text-[var(--color-text-secondary)] transition hover:text-[var(--color-text-primary)]"
+              className="darma-nav-link inline-flex items-center gap-1 rounded-full px-3.5 py-2.5 text-sm font-bold text-[var(--color-text-secondary)] transition hover:text-[var(--color-text-primary)]"
               data-active={atlasActive}
               aria-haspopup="menu"
               aria-expanded={atlasOpen}
@@ -234,15 +235,15 @@ export default function SiteHeader() {
             ) : null}
           </div>
 
-          {PRIMARY_NAV.slice(2).map((item) => (
-            <Link key={item.href} href={item.href} data-active={isPathActive(pathname, item.href)} className="darma-nav-link rounded-full px-4 py-2.5 text-sm font-bold text-[var(--color-text-secondary)] transition hover:text-[var(--color-text-primary)]">
+          {PRIMARY_NAV.slice(3).map((item) => (
+            <Link key={item.href} href={item.href} data-active={isPathActive(pathname, item.href)} className="darma-nav-link rounded-full px-3.5 py-2.5 text-sm font-bold text-[var(--color-text-secondary)] transition hover:text-[var(--color-text-primary)]">
               {item.label}
             </Link>
           ))}
         </nav>
 
         <div className="flex shrink-0 items-center gap-2">
-          <GlobalSearchButton compact className="inline-flex" />
+          <GlobalSearchButton compact showShortcut className="inline-flex" />
           <ThemeToggle />
           <button ref={mobileButtonRef} type="button" onClick={() => setMobileOpen(true)} className="grid h-11 w-11 place-items-center rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] text-[var(--color-text-primary)] lg:hidden" aria-label="Open navigation menu" aria-expanded={mobileOpen}>
             <Menu className="h-5 w-5" aria-hidden />

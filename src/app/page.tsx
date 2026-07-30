@@ -11,7 +11,7 @@ import { getResourceCatalog } from "@/features/resources";
 import { absoluteUrl } from "@/features/tools/seo";
 
 export const metadata: Metadata = {
-  title: { absolute: "Darma — open developer tools and a connected technology atlas" },
+  title: { absolute: "Darma | Open developer tools and a connected technology atlas" },
   description: "Use free browser tools, explore trusted developer resources, follow learning paths, understand technology careers, and compare frameworks and software workflows.",
   alternates: { canonical: "/" },
 };
@@ -60,12 +60,12 @@ export default function LandingPage() {
 
       <MotionSection as="section" className="mx-auto max-w-[var(--container-wide)] px-4 py-12 sm:px-6 lg:px-8" distance={20}>
         <div className="editorial-visual-banner">
-          <div><div className="flex items-center gap-2 text-[var(--color-primary)]"><BookOpenText className="h-5 w-5" aria-hidden /><span className="font-mono text-xs font-black uppercase tracking-[0.14em]">Editorial knowledge</span></div><h2 className="mt-4 text-3xl font-black tracking-[-0.045em] text-[var(--color-text-primary)] sm:text-4xl">Roadmaps and comparisons that explain the decision—not only the definition.</h2><p className="mt-4 max-w-3xl text-base leading-8 text-[var(--color-text-secondary)]">Every reviewed page includes a direct answer, practical constraints, decision criteria, common questions, review metadata, and links to primary sources.</p><div className="mt-6 flex flex-wrap gap-3"><Link href="/guides" className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[var(--color-text-primary)] px-5 text-sm font-black text-[var(--color-surface-base)]">Browse guides <ArrowRight className="h-4 w-4" aria-hidden /></Link><Link href="/comparisons" className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[var(--color-border-default)] px-5 text-sm font-black text-[var(--color-text-primary)]">Compare choices</Link></div></div>
+          <div><div className="flex items-center gap-2 text-[var(--color-primary)]"><BookOpenText className="h-5 w-5" aria-hidden /><span className="font-mono text-xs font-black uppercase tracking-[0.14em]">Editorial knowledge</span></div><h2 className="mt-4 text-3xl font-black tracking-[-0.045em] text-[var(--color-text-primary)] sm:text-4xl">Roadmaps and comparisons that explain what changes in practice.</h2><p className="mt-4 max-w-3xl text-base leading-8 text-[var(--color-text-secondary)]">Every reviewed page includes a direct answer, practical constraints, decision criteria, common questions, review metadata, and links to primary sources.</p><div className="mt-6 flex flex-wrap gap-3"><Link href="/guides" className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[var(--color-text-primary)] px-5 text-sm font-black text-[var(--color-surface-base)]">Browse guides <ArrowRight className="h-4 w-4" aria-hidden /></Link><Link href="/comparisons" className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[var(--color-border-default)] px-5 text-sm font-black text-[var(--color-text-primary)]">Compare choices</Link></div></div>
           <AtlasHeroScene src="/atlas/decision-map.svg" alt="A visual decision map connecting context, comparison, options, tests, and learning" labels={[`${guides.length} guides`, `${comparisons.length} comparisons`]} />
         </div>
       </MotionSection>
 
-      <PageSection eyebrow="Featured tools" title="Useful tools that keep work moving" description="Focused controls, visible results, and export-ready output—without turning every small task into another account or subscription.">
+      <PageSection eyebrow="Featured tools" title="Useful tools that keep work moving" description="Focused controls, visible results, and export-ready output. Small tasks stay quick, private, and easy to finish.">
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">{featuredTools.map((tool, index) => <MotionSection key={tool.id} delay={index * .04} distance={18}><Link href={tool.href} className="block h-full"><Card variant="interactive" padding="md" className="visual-card h-full"><div className="flex flex-wrap gap-2"><Badge variant="outline">{tool.audiences?.[0] ?? "tool"}</Badge><Badge variant={tool.privacy === "client-only" ? "accent" : "soft"}>{tool.privacy ?? "browser"}</Badge></div><h2 className="mt-4 text-lg font-black text-[var(--color-text-primary)]">{tool.title}</h2><p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">{tool.description}</p></Card></Link></MotionSection>)}</div>
       </PageSection>
 

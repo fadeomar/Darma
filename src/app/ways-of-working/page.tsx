@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 const PRINCIPLES = [
   { icon: Scale, title: "Compare the operating system", text: "The same ceremony can serve different purposes. Compare decisions, flow, roles, evidence, and constraints before choosing a label." },
-  { icon: RefreshCw, title: "Methods must improve outcomes", text: "A healthy approach changes how work finishes, quality improves, feedback arrives, and teams learn—not only what meetings appear on calendars." },
+  { icon: RefreshCw, title: "Methods must improve outcomes", text: "A healthy approach changes how work finishes, how quality improves, how feedback arrives, and how teams learn. Meeting names alone do not prove that the method is working." },
   { icon: ShieldCheck, title: "No universal winner", text: "Product uncertainty, regulation, support demand, organizational design, and physical dependencies change which practices are appropriate." },
 ];
 function jsonLd() { const ways = getWaysOfWorking(); return { "@context": "https://schema.org", "@graph": [{ "@type": "CollectionPage", "@id": `${absoluteUrl("/ways-of-working")}#collection`, name: "Darma Ways of Working Atlas", url: absoluteUrl("/ways-of-working"), description: "Practical comparisons of product, software, design, and delivery working methods." }, { "@type": "ItemList", numberOfItems: ways.length, itemListElement: ways.map((way, index) => ({ "@type": "ListItem", position: index + 1, name: way.title, url: absoluteUrl(`/ways-of-working/${way.slug}`) })) }, { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: absoluteUrl("/") }, { "@type": "ListItem", position: 2, name: "Ways of Working", item: absoluteUrl("/ways-of-working") }] }] }; }

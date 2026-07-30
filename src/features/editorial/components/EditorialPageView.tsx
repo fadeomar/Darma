@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, BookOpen, CalendarDays, CheckCircle2, ExternalLink, GitCompareArrows, ListTree, ShieldCheck, Sparkles, UserRoundCheck } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen, CalendarDays, CheckCircle2, ChevronDown, ExternalLink, GitCompareArrows, ListTree, ShieldCheck, Sparkles, UserRoundCheck } from "lucide-react";
 import { Badge, Card } from "@/components/ui";
 import { MotionSection, SplitTextReveal } from "@/components/motion";
 import { getLearningPath } from "@/features/learning-paths";
@@ -121,8 +121,8 @@ export function EditorialPageView({ page }: { page: EditorialPage }) {
       <article>
         {page.sections.map((section, index) => (
           <MotionSection as="section" id={section.id} key={section.id} className={`${sectionClass} scroll-mt-28`} distance={18}>
-            <div className="grid gap-6 lg:grid-cols-[220px_minmax(0,760px)] lg:justify-between">
-              <div><span className="font-mono text-xs font-black text-[var(--color-primary)]">{String(index + 1).padStart(2, "0")}</span><h2 className="mt-2 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-3xl">{section.title}</h2></div>
+            <div className="grid gap-6 lg:grid-cols-[minmax(270px,320px)_minmax(0,760px)] lg:gap-12 lg:justify-between">
+              <div><span className="font-mono text-xs font-black text-[var(--color-primary)]">{String(index + 1).padStart(2, "0")}</span><h2 className="mt-2 max-w-[19ch] text-balance text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[1.75rem] sm:leading-tight">{section.title}</h2></div>
               <div>
                 <div className="space-y-5">{section.paragraphs.map((paragraph) => <p key={paragraph} className="text-base leading-8 text-[var(--color-text-secondary)]">{paragraph}</p>)}</div>
                 {section.bullets?.length ? <ul className="mt-6 grid gap-3 sm:grid-cols-2">{section.bullets.map((item) => <li key={item} className="flex items-start gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 text-sm leading-6 text-[var(--color-text-secondary)]"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-primary)]" aria-hidden />{item}</li>)}</ul> : null}
@@ -154,7 +154,21 @@ export function EditorialPageView({ page }: { page: EditorialPage }) {
 
       <section id="questions" className={`${sectionClass} scroll-mt-28`}>
         <div className="mb-5"><Badge variant="soft">Common questions</Badge><h2 className="mt-3 text-3xl font-black tracking-[-0.035em] text-[var(--color-text-primary)]">Questions people ask before choosing</h2></div>
-        <div className="space-y-3">{page.faqs.map((item) => <details key={item.question} className="group rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-5 open:shadow-[var(--shadow-card)]"><summary className="cursor-pointer list-none pr-8 text-base font-black text-[var(--color-text-primary)]">{item.question}</summary><p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--color-text-secondary)]">{item.answer}</p></details>)}</div>
+        <div className="space-y-3">
+          {page.faqs.map((item) => (
+            <details key={item.question} className="editorial-faq group rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] open:border-[var(--color-primary-border)] open:bg-[var(--color-surface-raised)] open:shadow-[var(--shadow-card)]">
+              <summary className="flex min-h-[64px] cursor-pointer list-none items-center justify-between gap-5 px-5 py-4 text-base font-black text-[var(--color-text-primary)] focus-visible:shadow-[var(--focus-ring)]">
+                <span>{item.question}</span>
+                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[var(--color-border-default)] bg-[var(--color-control-track)] text-[var(--color-text-secondary)] transition group-open:rotate-180 group-open:border-[var(--color-primary-border)] group-open:bg-[var(--color-primary-soft)] group-open:text-[var(--color-primary)] motion-reduce:transition-none">
+                  <ChevronDown className="h-5 w-5" aria-hidden />
+                </span>
+              </summary>
+              <div className="border-t border-[var(--color-border-subtle)] px-5 pb-5 pt-4">
+                <p className="max-w-4xl text-sm leading-7 text-[var(--color-text-secondary)]">{item.answer}</p>
+              </div>
+            </details>
+          ))}
+        </div>
       </section>
 
       {(paths.length || careers.length || ways.length) ? (

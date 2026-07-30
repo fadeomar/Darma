@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { ResourcePreview } from "@/features/resources/components";
 import { getFeaturedLearningPaths, getLearningPaths } from "@/features/learning-paths";
 import { LearningPathCard } from "@/features/learning-paths/components";
@@ -14,7 +15,6 @@ import { AtlasHeroScene, AtlasScrollStory, MotionSection, SplitTextReveal } from
 import { getPublicTools } from "@/features/tools";
 import { toolWorkflows } from "@/features/tools/workflows";
 import {
-  AUDIENCE_GROUPS,
   AUDIENCE_LABELS,
   countByPrivacy,
   HELP_AREAS,
@@ -22,7 +22,7 @@ import {
   PRINCIPLES,
   PRIVACY_META,
   PRIVACY_ORDER,
-  selectGroupTools,
+  selectAudienceToolGroups,
   SNIPPETS,
 } from "./aboutContent";
 import { ContinuePanel } from "./ContinuePanel";
@@ -35,7 +35,7 @@ const SUGGEST_TOOL_URL =
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "About Darma — open tools and a practical technology atlas",
+  title: "About Darma | Open tools and a practical technology atlas",
   description:
     "Learn how Darma combines free browser tools with trusted resources, learning paths, technology careers, team workflows, organization maps, and practical terminology.",
   alternates: { canonical: "/about" },
@@ -60,6 +60,7 @@ export default function AboutPage() {
   const comparisons = getEditorialPagesByKind("comparison");
   const resourceHubs = getResourceHubs();
   const featuredTools = publicTools.filter((tool) => tool.featured);
+  const audienceToolGroups = selectAudienceToolGroups(publicTools);
 
   const todayTool = pickDaily(featuredTools.length ? featuredTools : publicTools) ?? publicTools[0];
   const todayWorkflow = pickDaily(toolWorkflows, 3) ?? toolWorkflows[0];
@@ -107,7 +108,7 @@ export default function AboutPage() {
       </section>
 
       <MotionSection as="section" className={sectionClass} distance={18}>
-        <div className="mb-7 max-w-3xl"><p className={eyebrowClass}>From question to confident action</p><h2 className="mt-2 text-3xl font-black tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-4xl">A reference should help you move—not only give you more tabs.</h2><p className="mt-3 text-base leading-8 text-[var(--color-text-secondary)]">Scroll through the flow Darma uses to connect a real question with verified sources, practical routes, and evidence from doing the work.</p></div>
+        <div className="mb-7 max-w-3xl"><p className={eyebrowClass}>From question to confident action</p><h2 className="mt-2 text-3xl font-black tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-4xl">A useful reference should make the next step clearer.</h2><p className="mt-3 text-base leading-8 text-[var(--color-text-secondary)]">Darma starts with a real question, checks reliable sources, connects the answer to a practical route, and helps you validate it through real work.</p></div>
         <AtlasScrollStory />
       </MotionSection>
 
@@ -123,9 +124,10 @@ export default function AboutPage() {
           </p>
         </div>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {HELP_AREAS.map((area) => (
-            <Card key={area.title} padding="lg" className="h-full">
-              <h3 className="text-lg font-bold text-[var(--color-text-primary)]">{area.title}</h3>
+          {HELP_AREAS.map((area, index) => (
+            <Card key={area.title} padding="lg" className="about-help-card h-full">
+              <span className="font-mono text-xs font-black text-[var(--color-primary)]">0{index + 1}</span>
+              <h3 className="mt-5 text-lg font-bold text-[var(--color-text-primary)]">{area.title}</h3>
               <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">{area.text}</p>
             </Card>
           ))}
@@ -140,7 +142,7 @@ export default function AboutPage() {
             A fresh place to start every day.
           </h2>
           <p className="mt-3 text-base leading-7 text-[var(--color-text-secondary)]">
-            One useful tool, one guided workflow, and one copy-ready snippet — picked automatically each day.
+            Darma selects one useful tool, one guided workflow, and one copy-ready snippet each day.
           </p>
         </div>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -192,36 +194,42 @@ export default function AboutPage() {
             Find tools for what you actually do.
           </h2>
           <p className="mt-3 text-base leading-7 text-[var(--color-text-secondary)]">
-            Darma is not just for developers. Start from a task and open the tool you need.
+            Start with the task in front of you, then open a tool that fits the work.
           </p>
         </div>
-        <div className="grid gap-5 md:grid-cols-3">
-          {AUDIENCE_GROUPS.map((group) => {
-            const tools = selectGroupTools(publicTools, group);
-            if (tools.length === 0) return null;
-            return (
-              <Card key={group.id} padding="lg" className="flex h-full flex-col">
-                <h3 className="text-xl font-bold text-[var(--color-text-primary)]">{group.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">{group.description}</p>
-                <ul className="mt-4 flex-1 space-y-1.5">
-                  {tools.map((tool) => (
-                    <li key={tool.id}>
-                      <Link
-                        href={tool.href}
-                        className="group flex items-center justify-between gap-3 rounded-[var(--radius-sm)] border border-transparent px-3 py-2 text-sm text-[var(--color-text-secondary)] transition hover:border-[var(--color-border-default)] hover:bg-[var(--color-control-hover)] hover:text-[var(--color-text-primary)]"
-                      >
-                        <span className="min-w-0 truncate font-medium">{tool.title}</span>
-                        <span className="text-[var(--color-text-tertiary)] transition group-hover:text-[var(--color-primary)]">→</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-                <Link href="/tools" className="mt-4 inline-flex text-sm font-semibold text-[var(--color-primary)] transition hover:text-[var(--color-primary-hover)]">
-                  Browse all tools
-                </Link>
-              </Card>
-            );
-          })}
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-6">
+          {audienceToolGroups.map(({ group, tools }, groupIndex) => (
+            <Card
+              key={group.id}
+              padding="lg"
+              className={`about-audience-card flex h-full flex-col md:col-span-1 xl:col-span-2 ${groupIndex === 3 ? "xl:col-start-2" : ""}`}
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="font-mono text-[10px] font-black uppercase tracking-[0.16em] text-[var(--color-primary)]">Audience 0{groupIndex + 1}</p>
+                  <h3 className="mt-2 text-xl font-bold text-[var(--color-text-primary)]">{group.title}</h3>
+                </div>
+                <span className="grid h-9 min-w-9 place-items-center rounded-full border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] font-mono text-xs font-black text-[var(--color-primary)]">{tools.length}</span>
+              </div>
+              <p className="mt-3 text-sm leading-6 text-[var(--color-text-secondary)]">{group.description}</p>
+              <ul className="mt-4 flex-1 space-y-1.5">
+                {tools.map((tool) => (
+                  <li key={tool.id}>
+                    <Link
+                      href={tool.href}
+                      className="group flex min-h-11 items-center justify-between gap-4 rounded-[var(--radius-md)] border border-transparent px-3 py-2.5 text-sm text-[var(--color-text-secondary)] transition hover:border-[var(--color-border-default)] hover:bg-[var(--color-control-hover)] hover:text-[var(--color-text-primary)] focus-visible:shadow-[var(--focus-ring)]"
+                    >
+                      <span className="min-w-0 line-clamp-2 font-semibold leading-5">{tool.title}</span>
+                      <ArrowRight className="h-5 w-5 shrink-0 text-[var(--color-text-tertiary)] transition group-hover:translate-x-1 group-hover:text-[var(--color-primary)] motion-reduce:transition-none motion-reduce:group-hover:translate-x-0" aria-hidden />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <Link href="/tools" className="group mt-4 inline-flex min-h-10 items-center gap-2 self-start text-sm font-bold text-[var(--color-primary)] transition hover:text-[var(--color-primary-hover)]">
+                Browse all tools <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0" aria-hidden />
+              </Link>
+            </Card>
+          ))}
         </div>
       </section>
 
@@ -292,14 +300,14 @@ export default function AboutPage() {
             { title: "Correction and maintenance", text: "Update dates stay visible, automated checks remain non-destructive, and contributors can report outdated content publicly." },
           ].map((item) => <Card key={item.title} padding="lg" className="h-full"><h3 className="text-lg font-black text-[var(--color-text-primary)]">{item.title}</h3><p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">{item.text}</p></Card>)}
         </div>
-        <Link href="/editorial-policy" className="mt-6 inline-flex text-sm font-bold text-[var(--color-primary)]">Read the complete editorial policy →</Link>
+        <Link href="/editorial-policy" className="group mt-6 inline-flex min-h-10 items-center gap-2 text-sm font-bold text-[var(--color-primary)]">Read the complete editorial policy <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0" aria-hidden /></Link>
       </section>
 
       <section className={sectionClass}>
         <div className="mb-6 max-w-3xl"><p className={eyebrowClass}>What Darma covers</p><h2 className="mt-2 text-3xl font-black tracking-[-0.035em] text-[var(--color-text-primary)]">A connected reference across the work of building technology.</h2><p className="mt-3 text-base leading-7 text-[var(--color-text-secondary)]">The goal is not to publish on every topic. Darma concentrates on areas it can connect to trustworthy sources, structured learning, real roles, practical tools, and clear decisions.</p></div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{[
           ["Web and JavaScript development", "/resources/web-development"], ["Mobile application development", "/guides/mobile-development-roadmap"], ["UI, UX, and product design", "/resources/ui-ux-design"], ["Testing, accessibility, and quality", "/resources/testing-quality"], ["DevOps, delivery, and reliability", "/resources/devops-delivery"], ["Technology careers and team systems", "/tech-atlas"],
-        ].map(([title, href]) => <Link key={title} href={href} className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-5 text-base font-black text-[var(--color-text-primary)] transition hover:border-[var(--color-primary-border)] hover:text-[var(--color-primary)]">{title} →</Link>)}</div>
+        ].map(([title, href]) => <Link key={title} href={href} className="group flex min-h-[72px] items-center justify-between gap-5 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-5 text-base font-black text-[var(--color-text-primary)] transition hover:-translate-y-0.5 hover:border-[var(--color-primary-border)] hover:bg-[var(--color-surface-raised)] hover:text-[var(--color-primary)] focus-visible:shadow-[var(--focus-ring)] motion-reduce:hover:translate-y-0"><span>{title}</span><ArrowRight className="h-5 w-5 shrink-0 text-[var(--color-text-tertiary)] transition group-hover:translate-x-1 group-hover:text-[var(--color-primary)] motion-reduce:transition-none motion-reduce:group-hover:translate-x-0" aria-hidden /></Link>)}</div>
       </section>
 
       <section id="maintainers" className={`${sectionClass} scroll-mt-28`}>
@@ -345,7 +353,7 @@ export default function AboutPage() {
                 Missing a tool you&apos;d use daily?
               </h2>
               <p className="mt-3 text-base leading-7 text-[var(--color-text-secondary)]">
-                Darma grows from real needs. Tell us what would save you time — for studying, writing, designing, or building — and it may become the next tool.
+                Tell us which task takes too long. Your suggestion could become the next Darma tool for studying, writing, design, or development.
               </p>
             </div>
             <a
@@ -391,12 +399,17 @@ export default function AboutPage() {
             { href: "/tech-teams", count: teamModels.length, label: "Team models", title: "How are companies structured?", text: "Functional, cross-functional, project, matrix, cooperative, and flow-oriented structures." },
             { href: "/tech-glossary", count: glossaryTerms.length, label: "Glossary terms", title: "What does the language mean?", text: "Clear definitions, practical meaning, realistic examples, and links to roles and methods." },
           ].map((item) => (
-            <Card key={item.href} padding="lg" className="flex h-full flex-col">
-              <Badge variant="soft">{item.count} {item.label}</Badge>
-              <h3 className="mt-4 text-xl font-black text-[var(--color-text-primary)]">{item.title}</h3>
-              <p className="mt-3 flex-1 text-sm leading-6 text-[var(--color-text-secondary)]">{item.text}</p>
-              <Link href={item.href} className="mt-5 text-sm font-bold text-[var(--color-primary)]">Open section →</Link>
-            </Card>
+            <Link key={item.href} href={item.href} className="group block h-full rounded-[var(--radius-lg)] focus-visible:shadow-[var(--focus-ring)]">
+              <Card padding="lg" variant="interactive" className="about-atlas-card flex h-full flex-col">
+                <div className="flex items-start justify-between gap-3">
+                  <Badge variant="soft">{item.count} {item.label}</Badge>
+                  <ArrowRight className="h-5 w-5 shrink-0 text-[var(--color-text-tertiary)] transition group-hover:translate-x-1 group-hover:text-[var(--color-primary)] motion-reduce:transition-none motion-reduce:group-hover:translate-x-0" aria-hidden />
+                </div>
+                <h3 className="mt-5 text-xl font-black text-[var(--color-text-primary)]">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">{item.text}</p>
+                <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[var(--color-primary)]">Explore section</span>
+              </Card>
+            </Link>
           ))}
         </div>
       </section>

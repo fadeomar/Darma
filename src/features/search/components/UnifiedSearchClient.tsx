@@ -72,7 +72,7 @@ export function UnifiedSearchClient({ entities, initialQuery = "" }: UnifiedSear
               Search everything Darma can do.
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--color-text-secondary)] sm:text-lg">
-              One discovery layer across tools, games, resources, learning paths, careers, workflows, and collections — powered by the shared CoreEntity registry.
+              Search tools, games, resources, learning paths, careers, workflows, and collections from one shared Darma index.
             </p>
 
             <div className="mt-6 max-w-2xl">

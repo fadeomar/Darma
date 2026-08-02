@@ -99,10 +99,12 @@ export function CareerPathfinder({ careers, initialMatches = [] }: { careers: Pa
     try { window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next)); } catch {
       // Storage is optional; keep the in-memory answer flow working.
     }
-    window.setTimeout(() => {
-      if (step === PATHFINDER_QUESTIONS.length - 1) setComplete(true);
-      else setStep((value) => value + 1);
-    }, userPrefersReducedMotion() ? 0 : 160);
+  };
+
+  const continueToNext = () => {
+    if (!answers[question.id]) return;
+    if (step === PATHFINDER_QUESTIONS.length - 1) setComplete(true);
+    else setStep((value) => value + 1);
   };
 
   const reset = () => {
@@ -142,21 +144,44 @@ export function CareerPathfinder({ careers, initialMatches = [] }: { careers: Pa
         {!complete ? (
           <div className="mx-auto max-w-4xl">
             <div className="flex items-center justify-between gap-4"><p className="font-mono text-xs font-black uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">{question.eyebrow}</p><p className="text-xs font-bold text-[var(--color-text-tertiary)]">{step + 1} / {PATHFINDER_QUESTIONS.length}</p></div>
-            <h3 className="mt-3 text-3xl font-black tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-4xl">{question.title}</h3>
-            <p className="mt-3 max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] sm:text-base">{question.helper}</p>
+            <h3 className="darma-balanced-heading mt-3 text-3xl font-black tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-4xl">{question.title}</h3>
+            <p className="darma-pretty-copy mt-3 max-w-2xl text-sm leading-7 text-[var(--color-text-secondary)] sm:text-base">{question.helper}</p>
             <div className="mt-7 grid gap-3 md:grid-cols-2">
-              {question.options.map((option) => {
+              {question.options.map((option, optionIndex) => {
                 const selected = answers[question.id] === option.id;
+                const isLastOddOption = question.options.length % 2 === 1 && optionIndex === question.options.length - 1;
                 return (
-                  <button key={option.id} data-pathfinder-option type="button" onClick={() => selectOption(option.id)} className={`pathfinder-option rounded-[1.2rem] border p-5 ${selected ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-raised)]"}`}>
-                    <span className="flex items-start gap-3"><span className={`mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-full border ${selected ? "border-[var(--color-primary)] bg-[var(--color-primary)] text-[var(--color-primary-text)]" : "border-[var(--color-border-default)]"}`}>{selected ? <Check className="h-4 w-4" aria-hidden /> : null}</span><span><span className="block text-base font-black text-[var(--color-text-primary)]">{option.label}</span><span className="mt-1 block text-sm leading-6 text-[var(--color-text-secondary)]">{option.description}</span></span></span>
+                  <button
+                    key={option.id}
+                    data-pathfinder-option
+                    type="button"
+                    aria-pressed={selected}
+                    onClick={() => selectOption(option.id)}
+                    className={`pathfinder-option rounded-[1.2rem] border p-5 ${isLastOddOption ? "md:col-span-2 md:w-[calc(50%-0.375rem)] md:justify-self-center" : ""} ${selected ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] shadow-[0_0_0_2px_var(--color-primary-soft)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-raised)]"}`}
+                  >
+                    <span className="flex items-start gap-3">
+                      <span className={`mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-full border ${selected ? "border-[var(--color-primary)] bg-[var(--color-primary)] text-[var(--color-primary-text)]" : "border-[var(--color-border-strong)] bg-[var(--color-surface-base)]"}`}>{selected ? <Check className="h-4 w-4" aria-hidden /> : null}</span>
+                      <span>
+                        <span className="block text-base font-black text-[var(--color-text-primary)]">{option.label}</span>
+                        <span className="darma-pretty-copy mt-1 block text-sm leading-6 text-[var(--color-text-secondary)]">{option.description}</span>
+                      </span>
+                    </span>
                   </button>
                 );
               })}
             </div>
-            <div className="mt-7 flex items-center justify-between gap-3">
-              <button type="button" disabled={step === 0} onClick={() => setStep((value) => Math.max(0, value - 1))} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[var(--color-border-default)] px-4 text-sm font-bold text-[var(--color-text-primary)] disabled:cursor-not-allowed disabled:opacity-40"><ArrowLeft className="h-4 w-4" aria-hidden />Previous</button>
-              <button type="button" onClick={reset} className="text-sm font-bold text-[var(--color-text-tertiary)] hover:text-[var(--color-primary)]">Reset answers</button>
+            <div className="mt-7 flex flex-wrap items-center justify-between gap-3 border-t border-[var(--color-border-subtle)] pt-5">
+              <div className="flex flex-wrap gap-3">
+                {step > 0 ? (
+                  <button type="button" onClick={() => setStep((value) => Math.max(0, value - 1))} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-4 text-sm font-bold text-[var(--color-text-primary)]">
+                    <ArrowLeft className="h-4 w-4" aria-hidden /> Previous
+                  </button>
+                ) : null}
+                <button type="button" onClick={reset} className="inline-flex min-h-11 items-center px-2 text-sm font-bold text-[var(--color-text-tertiary)] hover:text-[var(--color-primary)]">Reset answers</button>
+              </div>
+              <button type="button" disabled={!answers[question.id]} onClick={continueToNext} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[var(--color-primary)] px-5 text-sm font-black text-[var(--color-primary-text)] transition hover:bg-[var(--color-primary-hover)] disabled:cursor-not-allowed disabled:opacity-45">
+                {step === PATHFINDER_QUESTIONS.length - 1 ? "See my matches" : "Continue"} <ArrowRight className="h-4 w-4" aria-hidden />
+              </button>
             </div>
           </div>
         ) : (

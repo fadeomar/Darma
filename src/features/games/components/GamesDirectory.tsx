@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Button, EmptyState } from "@/components/ui";
 import type { GameDefinition } from "../domain/game";
 import { filterAndSortGames } from "../lib/filterGames";
@@ -15,10 +15,14 @@ import { GameSortSelect, type GameSort } from "./GameSortSelect";
 
 const FLAGSHIP_SLUGS = ["neon-core-defense", "reaction-timer", "math-sprint"];
 
-export function GamesDirectory({ games }: { games: GameDefinition[] }) {
+export function GamesDirectory({ games, showHero = true, initialFilter = "all" }: { games: GameDefinition[]; showHero?: boolean; initialFilter?: GameFilter }) {
   const [query, setQuery] = useState("");
-  const [filter, setFilter] = useState<GameFilter>("all");
+  const [filter, setFilter] = useState<GameFilter>(initialFilter);
   const [sort, setSort] = useState<GameSort>("featured");
+
+  useEffect(() => {
+    setFilter(initialFilter);
+  }, [initialFilter]);
 
   const hasFilters = query.trim().length > 0 || filter !== "all";
   const showDashboard = !hasFilters && sort === "featured";
@@ -56,12 +60,14 @@ export function GamesDirectory({ games }: { games: GameDefinition[] }) {
         Skip to games results
       </a>
 
-      <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-card)]">
-        <div className="p-5 sm:p-7 lg:p-8">
-          <GameHero />
-        </div>
+      <section id="games-search" className="scroll-mt-24 overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-card)]">
+        {showHero ? (
+          <div className="p-5 sm:p-7 lg:p-8">
+            <GameHero />
+          </div>
+        ) : null}
 
-        <div className="border-t border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/70 p-4 sm:p-5">
+        <div className={showHero ? "border-t border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/70 p-4 sm:p-5" : "bg-[var(--color-surface-base)]/70 p-4 sm:p-5"}>
           <div className="space-y-4">
             <GameSearchBar value={query} onChange={setQuery} describedBy="games-result-summary" />
             <GameCategoryChips active={filter} onChange={setFilter} />

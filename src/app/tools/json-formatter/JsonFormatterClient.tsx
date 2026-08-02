@@ -29,6 +29,7 @@ import {
   Wand2,
 } from "lucide-react";
 import { Badge, Button, CopyButton, Select } from "@/components/ui";
+import { ToolMobileActions } from "@/features/tools/components";
 import { downloadText } from "../_shared/clientUtils";
 import { downloadBlobFile } from "@/features/tools/export/downloadBlob";
 import { cn } from "@/lib/cn";
@@ -749,14 +750,10 @@ export default function JsonFormatterClient() {
     <div className={wrapperClass}>
       <input ref={fileInputRef} type="file" accept=".json,application/json,text/json,text/plain" onChange={handleFileInput} className="sr-only" />
 
-      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4" aria-label="JSON production summary">
-        {summaryCards.map((card) => <SummaryCard key={card.label} {...card} />)}
-      </div>
-
       <section
         className={cn(
-          "overflow-hidden rounded-[var(--radius-xl)] border bg-[var(--color-surface-overlay)] shadow-[var(--shadow-card)]",
-          isDragging ? "border-[var(--color-primary)] ring-4 ring-[var(--color-primary-soft)]" : "border-[var(--color-border-default)]",
+          "overflow-hidden rounded-[var(--radius-xl)] border bg-[var(--color-tool-workspace-bg)] shadow-[var(--shadow-tool-preview)]",
+          isDragging ? "border-[var(--color-primary)] ring-4 ring-[var(--color-primary-soft)]" : "border-[var(--color-border-strong)]",
         )}
         onDragOver={(event) => {
           event.preventDefault();
@@ -769,7 +766,7 @@ export default function JsonFormatterClient() {
           void handleFile(event.dataTransfer.files?.[0]);
         }}
       >
-        <div className="border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/80 p-4 sm:p-5">
+        <div className="border-b border-[var(--color-tool-controls-border)] bg-[var(--color-tool-controls-header)] p-4">
           <div className="flex flex-col gap-4 xl:flex-row xl:items-start xl:justify-between">
             <div className="min-w-0">
               <div className="flex flex-wrap items-center gap-2">
@@ -777,7 +774,7 @@ export default function JsonFormatterClient() {
                 <StatusPill validation={validation} />
                 {sortKeys ? <Badge variant="outline">Sort keys on</Badge> : null}
               </div>
-              <h2 className="mt-3 text-2xl font-black tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-3xl">
+              <h2 className="mt-3 text-xl font-black tracking-[-0.035em] text-[var(--color-text-primary)] sm:text-2xl">
                 Format, validate, repair, and inspect JSON
               </h2>
               <p className="mt-2 max-w-3xl text-sm leading-6 text-[var(--color-text-secondary)]">
@@ -860,11 +857,12 @@ export default function JsonFormatterClient() {
           </div>
         </div>
 
-        <div className="grid gap-4 p-4 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] xl:p-5">
-          <div className="min-w-0 space-y-3">
-            <div className="min-h-[88px] space-y-3">
+        <div className="grid gap-4 p-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+          <div data-tool-region="input" className="min-w-0 space-y-3 rounded-[var(--radius-lg)] border border-[var(--color-tool-input-border)] bg-[var(--color-tool-input-bg)] p-3 shadow-[var(--shadow-tool-controls)]">
+            <div className="space-y-3">
               <div>
-                <h3 className="text-sm font-bold text-[var(--color-text-primary)]">Input JSON</h3>
+                <span className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Input</span>
+                <h3 className="mt-1 text-base font-black text-[var(--color-text-primary)]">Input JSON</h3>
                 <p className="text-xs text-[var(--color-text-tertiary)]">Paste, edit, or drop a .json file here.</p>
               </div>
               <div className="flex min-w-0 flex-wrap items-center gap-2">
@@ -892,7 +890,7 @@ export default function JsonFormatterClient() {
               placeholder="Paste JSON here, or drop a .json file anywhere on this card..."
               value={input}
               onChange={handleInputChange}
-              height={isFullscreen ? "68vh" : "520px"}
+              height={isFullscreen ? "68vh" : "440px"}
               errorLine={validation && "line" in validation ? validation.line : undefined}
               errorColumn={validation && "col" in validation ? validation.col : undefined}
             />
@@ -905,11 +903,12 @@ export default function JsonFormatterClient() {
             </div>
           </div>
 
-          <div className="min-w-0 space-y-3">
-            <div className="min-h-[88px] space-y-3">
+          <div id="json-result" data-tool-region="output" className="min-w-0 scroll-mt-28 space-y-3 rounded-[var(--radius-lg)] border border-[var(--color-tool-output-border)] bg-[var(--color-tool-output-bg)] p-3 shadow-[var(--shadow-tool-result)]">
+            <div className="space-y-3">
               <div>
                 <div className="flex flex-wrap items-center gap-2">
-                  <h3 className="text-sm font-bold text-[var(--color-text-primary)]">Output & Inspector</h3>
+                  <span className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Output</span>
+                  <h3 className="text-base font-black text-[var(--color-text-primary)]">Output & Inspector</h3>
                   {isLiveFormattedPreview ? <Badge variant="info">Live formatted preview</Badge> : null}
                 </div>
                 <p className="text-xs text-[var(--color-text-tertiary)]">Switch between text, tree, table, and stats views.</p>
@@ -932,7 +931,7 @@ export default function JsonFormatterClient() {
                 placeholder="Formatted, minified, or repaired JSON will appear here..."
                 value={outputForCopy}
                 readOnly
-                height={isFullscreen ? "68vh" : "520px"}
+                height={isFullscreen ? "68vh" : "440px"}
               />
             ) : null}
             {activeView === "tree" ? <JsonTreeView value={parsedTarget as JsonValue | undefined} expansion={treeExpansion} /> : null}
@@ -961,6 +960,15 @@ export default function JsonFormatterClient() {
           </div>
         </div>
       </section>
+
+      <ToolMobileActions>
+        <Button onClick={() => runAction("format")} leftIcon={<FileJson2 className="h-4 w-4" />}>Format JSON</Button>
+        <a href="#json-result" className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-sm)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-4 text-sm font-bold text-[var(--color-text-primary)]">View output</a>
+      </ToolMobileActions>
+
+      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4" aria-label="JSON production summary">
+        {summaryCards.map((card) => <SummaryCard key={card.label} {...card} />)}
+      </div>
 
       <div className="grid gap-4 xl:grid-cols-[minmax(0,1.45fr)_minmax(320px,0.55fr)]">
         <ProductionAudit checks={productionChecks} />

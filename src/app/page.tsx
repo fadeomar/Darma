@@ -1,76 +1,303 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, BookOpenText, Compass, GitCompareArrows, Route, Search, Sparkles, Wrench } from "lucide-react";
-import { AtlasHeroScene, MotionSection, SplitTextReveal } from "@/components/motion";
-import PageSection from "@/components/ui/PageSection";
-import { Badge, Card } from "@/components/ui";
+import {
+  ArrowRight,
+  Check,
+  Compass,
+  Search,
+  ShieldCheck,
+  Sparkles,
+  Wrench,
+} from "lucide-react";
+import { MotionSection, SplitTextReveal } from "@/components/motion";
+import { Badge } from "@/components/ui";
+import { DarmaSymbol, type DarmaSymbolName } from "@/components/visuals";
+import { ConnectedAtlasVisual, DarmaHeroExperience, LandingIntentNavigator, LandingProofWorkflow, LandingSectionRail, LandingWorkbenchDemo, ModernWebRadar, ToolPreviewArtwork } from "@/components/landing";
 import { getPublicTools } from "@/features/tools";
-import { getEditorialPagesByKind, getResourceHubs } from "@/features/editorial";
+import { getEditorialPagesByKind } from "@/features/editorial";
 import { getLearningPaths } from "@/features/learning-paths";
 import { getResourceCatalog } from "@/features/resources";
+import { getGames } from "@/features/games";
+import { GameThumbnail } from "@/features/games/components/GameThumbnail";
 import { absoluteUrl } from "@/features/tools/seo";
+import "@/features/games/styles/games-theme.css";
 
 export const metadata: Metadata = {
-  title: { absolute: "Darma | Open developer tools and a connected technology atlas" },
-  description: "Use free browser tools, explore trusted developer resources, follow learning paths, understand technology careers, and compare frameworks and software workflows.",
+  title: { absolute: "Darma | useful browser tools and a connected technology atlas" },
+  description: "Use free browser tools, follow practical learning paths, compare technology choices, explore careers, and play focused browser games without creating an account.",
   alternates: { canonical: "/" },
 };
 
-const featureCards = [
-  { icon: Wrench, symbol: "01", title: "Solve a task", description: "Open focused browser tools for code, design, content, images, calculations, and everyday digital work.", href: "/tools", cta: "Use the tools" },
-  { icon: Route, symbol: "02", title: "Learn in order", description: "Follow structured paths with trusted sources, checkpoints, projects, and locally saved progress.", href: "/learning-paths", cta: "Choose a learning path" },
-  { icon: GitCompareArrows, symbol: "03", title: "Make a technology decision", description: "Read reviewed roadmaps and side-by-side comparisons connected to careers, methods, and primary references.", href: "/comparisons", cta: "Compare your options" },
-  { icon: Compass, symbol: "04", title: "Explore a career direction", description: "Use a practical Pathfinder, then inspect the daily work, skills, scope, and evidence behind each role.", href: "/career-pathfinder", cta: "Try the Pathfinder" },
+const trustItems: Array<{ symbol: DarmaSymbolName; title: string; description: string }> = [
+  {
+    symbol: "secure",
+    title: "Browser-first by default",
+    description: "Most tools process inputs on your device. Privacy notes explain when local storage or a server is involved.",
+  },
+  {
+    symbol: "source",
+    title: "Sources before summaries",
+    description: "The Atlas prioritizes official documentation and durable references, then adds practical context around them.",
+  },
+  {
+    symbol: "accessible",
+    title: "Readable in light and dark",
+    description: "Text, controls, previews, results, borders, and focus states are designed as one accessible visual system.",
+  },
+  {
+    symbol: "route",
+    title: "Open to correction",
+    description: "Darma is open source. Missing, outdated, or unclear content can be reviewed through a visible contribution flow.",
+  },
 ];
+
+const FEATURED_TOOL_IDS = ["css-gradient-generator", "json-formatter", "gpa-calculator", "image-compressor-resizer"];
 
 export default function LandingPage() {
   const publicTools = getPublicTools();
-  const featuredTools = publicTools.filter((tool) => tool.featured).slice(0, 4);
+  const featuredTools = FEATURED_TOOL_IDS.map((id) => publicTools.find((tool) => tool.id === id)).filter(Boolean);
   const guides = getEditorialPagesByKind("guide");
   const comparisons = getEditorialPagesByKind("comparison");
   const paths = getLearningPaths();
   const resources = getResourceCatalog();
-  const hubs = getResourceHubs();
-  const jsonLd = { "@context": "https://schema.org", "@type": "WebPage", name: "Darma", description: metadata.description, url: absoluteUrl("/"), primaryImageOfPage: absoluteUrl("/opengraph-image"), mainEntity: { "@type": "ItemList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Developer tools", url: absoluteUrl("/tools") }, { "@type": "ListItem", position: 2, name: "Technology resources", url: absoluteUrl("/resources") }, { "@type": "ListItem", position: 3, name: "Learning paths", url: absoluteUrl("/learning-paths") }, { "@type": "ListItem", position: 4, name: "Technology guides", url: absoluteUrl("/guides") }, { "@type": "ListItem", position: 5, name: "Career Pathfinder", url: absoluteUrl("/career-pathfinder") }] } };
+  const games = getGames();
+  const featuredGames = games.filter((game) => game.featured || game.popular).slice(0, 3);
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Darma",
+    description: metadata.description,
+    url: absoluteUrl("/"),
+    primaryImageOfPage: absoluteUrl("/opengraph-image"),
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Browser tools", url: absoluteUrl("/tools") },
+        { "@type": "ListItem", position: 2, name: "Technology atlas", url: absoluteUrl("/tech-atlas") },
+        { "@type": "ListItem", position: 3, name: "Learning paths", url: absoluteUrl("/learning-paths") },
+        { "@type": "ListItem", position: 4, name: "Browser games", url: absoluteUrl("/games") },
+        { "@type": "ListItem", position: 5, name: "Career Pathfinder", url: absoluteUrl("/career-pathfinder") },
+      ],
+    },
+  };
 
   return (
-    <div className="pb-20">
+    <div className="pb-24">
+      <LandingSectionRail />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
-      <section className="visual-grid-bg border-b border-[var(--color-border-subtle)]">
-        <div className="mx-auto grid max-w-[var(--container-wide)] gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(390px,.88fr)] lg:items-center lg:px-8 lg:py-20">
-          <div>
-            <div className="flex flex-wrap gap-2"><Badge variant="soft">Open technology workspace</Badge><Badge variant="outline">Open source</Badge><Badge variant="outline">No account required</Badge></div>
-            <SplitTextReveal text="Build, learn, and make better technology decisions from one connected workspace." className="mt-5 max-w-5xl text-4xl font-black tracking-[-0.055em] text-[var(--color-text-primary)] sm:text-5xl lg:text-7xl" />
-            <p className="mt-6 max-w-3xl text-base leading-8 text-[var(--color-text-secondary)] sm:text-lg">Darma combines browser-based utilities with a reviewed Tech Atlas: resources, roadmaps, careers, team workflows, terminology, and comparisons that lead to a clear next action.</p>
-            <div className="mt-8 flex flex-wrap gap-3"><Link href="/tech-atlas" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[var(--color-primary)] px-6 text-sm font-black text-[var(--color-primary-text)] shadow-[var(--shadow-md)] transition hover:-translate-y-0.5 hover:bg-[var(--color-primary-hover)] motion-reduce:transition-none">Open the Tech Atlas <ArrowRight className="h-4 w-4" aria-hidden /></Link><Link href="/tools" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-6 text-sm font-black text-[var(--color-text-primary)] shadow-[var(--shadow-xs)]"><Wrench className="h-4 w-4" aria-hidden />Use browser tools</Link><Link href="/search" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] px-6 text-sm font-black text-[var(--color-primary)]"><Search className="h-4 w-4" aria-hidden />Search everything</Link></div>
+
+      <section id="start" className="landing-hero scroll-mt-24">
+        <div className="mx-auto grid max-w-[var(--container-wide)] gap-10 px-4 pb-16 pt-12 sm:px-6 lg:grid-cols-[minmax(0,.94fr)_minmax(500px,1.06fr)] lg:items-center lg:px-8 lg:pb-24 lg:pt-20">
+          <div className="landing-hero-copy">
+            <div className="landing-hero-eyebrow">
+              <span aria-hidden>✦</span>
+              Open technology workspace
+            </div>
+            <SplitTextReveal
+              text="Use the tool. Understand the system. Keep moving."
+              className="landing-hero-title"
+            />
+            <p className="landing-hero-description">
+              Darma brings practical browser tools, a connected Tech Atlas, learning routes, career guidance, and focused games into one place. Start with what you need to do, then see the wider system around it.
+            </p>
+            <div className="landing-hero-actions">
+              <Link href="/tools" className="landing-hero-action-primary">
+                <Wrench className="h-4 w-4" aria-hidden />
+                Open browser tools
+                <ArrowRight className="h-4 w-4" aria-hidden />
+              </Link>
+              <Link href="/tech-atlas" className="landing-hero-action-secondary">
+                <Compass className="h-4 w-4" aria-hidden />
+                Explore the Tech Atlas
+              </Link>
+              <Link href="/search" className="landing-hero-action-search">
+                <Search className="h-4 w-4" aria-hidden />
+                Search everything
+                <span className="font-mono text-[10px] opacity-75">Ctrl K</span>
+              </Link>
+            </div>
+            <div className="landing-hero-proof" aria-label="Darma product principles">
+              <span><i><Check className="h-3 w-3" aria-hidden /></i>No signup for core tools</span>
+              <span><i><Check className="h-3 w-3" aria-hidden /></i>Open source</span>
+              <span><i><Check className="h-3 w-3" aria-hidden /></i>Built for light and dark mode</span>
+            </div>
           </div>
-          <AtlasHeroScene src="/atlas/knowledge-constellation.svg" alt="A connected knowledge map showing questions, learning, verified sources, building, tools, roles, teams, and delivery" priority labels={[`${publicTools.length} tools`, `${resources.length} references`, `${paths.length} learning paths`, `${guides.length + comparisons.length} reviewed pages`]} />
+
+          <DarmaHeroExperience
+            metrics={[
+              `${publicTools.length} tools`,
+              `${games.length} games`,
+              `${resources.length} references`,
+              `${paths.length} learning paths`,
+            ]}
+          />
         </div>
       </section>
 
-      <MotionSection as="section" className="mx-auto max-w-[var(--container-wide)] px-4 py-12 sm:px-6 lg:px-8" distance={18}>
-        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          {[["Browser tools", publicTools.length], ["Reviewed resources", resources.length], ["Learning paths", paths.length], ["Guides + comparisons", guides.length + comparisons.length]].map(([label, value], index) => <Card key={String(label)} padding="lg" className="visual-stat-card"><p className="font-mono text-[10px] font-black uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">0{index + 1} • live catalog</p><p className="mt-3 text-4xl font-black tracking-[-0.05em] text-[var(--color-text-primary)]">{value}</p><p className="mt-1 text-sm font-bold text-[var(--color-text-secondary)]">{label}</p></Card>)}
+      <section id="choose" className="landing-intent-section scroll-mt-24">
+        <div className="mx-auto max-w-[var(--container-wide)] px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+          <div className="landing-section-heading">
+            <div>
+              <span className="landing-section-eyebrow">Start with the task in front of you</span>
+              <h2>Choose what you need to finish. Darma will reveal the route around it.</h2>
+              <p>You do not need to know the correct category first. Pick an outcome, inspect the recommended workspaces, and see what a useful result should contain before you begin.</p>
+            </div>
+            <div className="landing-intent-counts" aria-label="Darma catalog totals">
+              <span><strong>{publicTools.length}</strong> tools</span>
+              <span><strong>{resources.length}</strong> references</span>
+              <span><strong>{guides.length + comparisons.length}</strong> guides</span>
+              <span><strong>{games.length}</strong> games</span>
+            </div>
+          </div>
+          <LandingIntentNavigator />
         </div>
-      </MotionSection>
+      </section>
 
-      <PageSection eyebrow="Choose your goal" title="Start from what you need today" description="Darma is organized around tasks and decisions rather than forcing every visitor through the same catalog.">
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">{featureCards.map((card, index) => { const Icon = card.icon; return <MotionSection key={card.title} delay={index * .05} distance={20}><Link href={card.href} className="block h-full"><Card variant="interactive" padding="lg" className="visual-card h-full"><div className="flex items-center justify-between"><span className="atlas-symbol"><Icon className="h-5 w-5" aria-hidden /></span><span className="font-mono text-xs font-black text-[var(--color-text-tertiary)]">{card.symbol}</span></div><h2 className="mt-6 text-xl font-black text-[var(--color-text-primary)]">{card.title}</h2><p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">{card.description}</p><span className="mt-6 inline-flex items-center gap-2 text-sm font-black text-[var(--color-primary)]">{card.cta} <ArrowRight className="h-4 w-4" aria-hidden /></span></Card></Link></MotionSection>; })}</div>
-      </PageSection>
-
-      <MotionSection as="section" className="mx-auto max-w-[var(--container-wide)] px-4 py-12 sm:px-6 lg:px-8" distance={20}>
-        <div className="editorial-visual-banner">
-          <div><div className="flex items-center gap-2 text-[var(--color-primary)]"><BookOpenText className="h-5 w-5" aria-hidden /><span className="font-mono text-xs font-black uppercase tracking-[0.14em]">Editorial knowledge</span></div><h2 className="mt-4 text-3xl font-black tracking-[-0.045em] text-[var(--color-text-primary)] sm:text-4xl">Roadmaps and comparisons that explain what changes in practice.</h2><p className="mt-4 max-w-3xl text-base leading-8 text-[var(--color-text-secondary)]">Every reviewed page includes a direct answer, practical constraints, decision criteria, common questions, review metadata, and links to primary sources.</p><div className="mt-6 flex flex-wrap gap-3"><Link href="/guides" className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[var(--color-text-primary)] px-5 text-sm font-black text-[var(--color-surface-base)]">Browse guides <ArrowRight className="h-4 w-4" aria-hidden /></Link><Link href="/comparisons" className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[var(--color-border-default)] px-5 text-sm font-black text-[var(--color-text-primary)]">Compare choices</Link></div></div>
-          <AtlasHeroScene src="/atlas/decision-map.svg" alt="A visual decision map connecting context, comparison, options, tests, and learning" labels={[`${guides.length} guides`, `${comparisons.length} comparisons`]} />
+      <section id="workbench" className="landing-workbench-section scroll-mt-24">
+        <div className="relative mx-auto max-w-[var(--container-wide)] px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+          <div className="landing-section-heading">
+            <div>
+              <span className="landing-section-eyebrow">See the interaction model</span>
+              <h2>Controls and results belong in the same conversation.</h2>
+              <p>Darma tools are being rebuilt around one clear workspace pattern. Inputs stay visible, previews respond immediately, and the next action is easy to find.</p>
+            </div>
+          </div>
+          <MotionSection className="mt-10" distance={24}>
+            <LandingWorkbenchDemo />
+          </MotionSection>
         </div>
-      </MotionSection>
+      </section>
 
-      <PageSection eyebrow="Featured tools" title="Useful tools that keep work moving" description="Focused controls, visible results, and export-ready output. Small tasks stay quick, private, and easy to finish.">
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">{featuredTools.map((tool, index) => <MotionSection key={tool.id} delay={index * .04} distance={18}><Link href={tool.href} className="block h-full"><Card variant="interactive" padding="md" className="visual-card h-full"><div className="flex flex-wrap gap-2"><Badge variant="outline">{tool.audiences?.[0] ?? "tool"}</Badge><Badge variant={tool.privacy === "client-only" ? "accent" : "soft"}>{tool.privacy ?? "browser"}</Badge></div><h2 className="mt-4 text-lg font-black text-[var(--color-text-primary)]">{tool.title}</h2><p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">{tool.description}</p></Card></Link></MotionSection>)}</div>
-      </PageSection>
+      <section id="featured" className="scroll-mt-24 border-y border-[var(--color-border-subtle)] bg-[var(--color-page-bg-soft)]">
+        <div className="mx-auto max-w-[var(--container-wide)] px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+          <div className="landing-section-heading">
+            <div>
+              <span className="landing-section-eyebrow">Featured workspaces</span>
+              <h2>See what a tool does before opening it.</h2>
+              <p>Each featured card now uses a visual preview from the tool itself. The directory can feel like a workshop shelf instead of a wall of identical text cards.</p>
+            </div>
+            <Link href="/tools">View all tools <ArrowRight className="h-4 w-4" aria-hidden /></Link>
+          </div>
+          <div className="landing-tool-grid mt-10">
+            {featuredTools.map((tool, index) => tool ? (
+              <MotionSection key={tool.id} delay={index * 0.04} distance={18}>
+                <Link href={tool.href} className="landing-tool-card">
+                  <ToolPreviewArtwork tool={tool} />
+                  <div className="landing-tool-card-copy">
+                    <div className="landing-tool-card-meta">
+                      <Badge variant="soft">{tool.layoutType?.replaceAll("-", " ") ?? "tool"}</Badge>
+                      <Badge variant="outline">{tool.privacy === "client-only" ? "Runs locally" : "Browser workspace"}</Badge>
+                    </div>
+                    <h3>{tool.title}</h3>
+                    <p>{tool.shortDescription ?? tool.description}</p>
+                    <div className="landing-tool-card-footer"><span>Open workspace</span><span><ArrowRight className="h-4 w-4" aria-hidden /></span></div>
+                  </div>
+                </Link>
+              </MotionSection>
+            ) : null)}
+          </div>
+        </div>
+      </section>
 
-      <MotionSection as="section" className="mx-auto max-w-[var(--container-page)] px-4 pt-8 sm:px-6 lg:px-8" distance={18}>
-        <Card padding="lg" className="visual-grid-bg grid gap-6 border-[var(--color-primary-border)] lg:grid-cols-[1fr_auto] lg:items-center"><div><div className="flex items-center gap-2 text-[var(--color-primary)]"><Sparkles className="h-5 w-5" aria-hidden /><span className="font-mono text-xs font-black uppercase tracking-[0.14em]">A living open reference</span></div><h2 className="mt-3 text-3xl font-black tracking-[-0.04em] text-[var(--color-text-primary)]">Find something missing or outdated?</h2><p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)]">Suggest a source, improve a learning path, correct a role guide, or submit a focused pull request through Darma’s review workflow.</p></div><Link href="/contribute" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[var(--color-primary)] px-6 text-sm font-black text-[var(--color-primary-text)]">Contribute to Darma <ArrowRight className="h-4 w-4" aria-hidden /></Link></Card>
+      <section id="proof" className="landing-proof-section scroll-mt-24">
+        <div className="mx-auto max-w-[var(--container-wide)] px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+          <div className="landing-section-heading">
+            <div>
+              <span className="landing-section-eyebrow">From isolated tools to a complete handoff</span>
+              <h2>See how separate workspaces become one practical route.</h2>
+              <p>A professional workflow is more than a list of links. Each step should produce an artifact, expose a check, and hand useful context to the next step.</p>
+            </div>
+            <Link href="/workflows">Browse all workflows <ArrowRight className="h-4 w-4" aria-hidden /></Link>
+          </div>
+          <LandingProofWorkflow />
+        </div>
+      </section>
+
+      <section id="radar" className="landing-radar-section scroll-mt-24 border-y border-[var(--color-border-subtle)] bg-[var(--color-section-ink)] text-[var(--color-text-on-ink)]">
+        <div className="mx-auto max-w-[var(--container-wide)] px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+          <div className="landing-section-heading landing-section-heading-on-dark">
+            <div>
+              <span className="landing-section-eyebrow">Current web practice</span>
+              <h2>Keep the workspace connected to the standards shaping real products.</h2>
+              <p>Darma should not become a static shelf. This radar brings current official guidance into the visual story, then connects it to tools, learning, security, accessibility, and performance work.</p>
+            </div>
+            <Link href="/resources?publisher=official">Browse official references <ArrowRight className="h-4 w-4" aria-hidden /></Link>
+          </div>
+          <ModernWebRadar />
+        </div>
+      </section>
+
+      <section id="atlas" className="landing-atlas-band scroll-mt-24">
+        <div className="relative z-[2] mx-auto grid max-w-[var(--container-wide)] gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[minmax(0,.88fr)_minmax(480px,1.12fr)] lg:items-center lg:px-8 lg:py-24">
+          <MotionSection distance={20}>
+            <span className="landing-section-eyebrow">The connected Tech Atlas</span>
+            <h2 className="mt-3 text-4xl font-black tracking-[-0.055em] text-[var(--color-text-primary)] sm:text-5xl">A reference should lead somewhere useful.</h2>
+            <p className="mt-5 max-w-2xl text-base leading-8 text-[var(--color-text-secondary)]">A guide can point to a comparison. A comparison can reveal a role. A role can connect to a learning path, team model, workflow, glossary term, and primary source. The Atlas makes those relationships visible.</p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link href="/tech-atlas" className="landing-hero-action-primary">Open the Tech Atlas <ArrowRight className="h-4 w-4" aria-hidden /></Link>
+              <Link href="/learning-paths" className="landing-hero-action-secondary">Browse learning paths</Link>
+            </div>
+          </MotionSection>
+          <MotionSection delay={0.08} distance={24}>
+            <ConnectedAtlasVisual guides={guides.length} comparisons={comparisons.length} resources={resources.length} paths={paths.length} />
+          </MotionSection>
+        </div>
+      </section>
+
+      <section id="play" className="mx-auto max-w-[var(--container-wide)] scroll-mt-24 px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+        <div className="landing-section-heading">
+          <div>
+            <span className="landing-section-eyebrow">Play inside Darma</span>
+            <h2>Take a short break without entering another platform.</h2>
+            <p>Games are part of the workspace too. Open one quickly, keep progress on the device when supported, and return to the task with a clearer head.</p>
+          </div>
+          <Link href="/games">Browse every game <ArrowRight className="h-4 w-4" aria-hidden /></Link>
+        </div>
+        <div className="landing-game-grid mt-10">
+          {featuredGames.map((game, index) => (
+            <MotionSection key={game.id} delay={index * 0.05} distance={18}>
+              <Link href={game.href} className="landing-game-card group">
+                <div className="landing-game-card-media"><GameThumbnail game={game} priority={index === 0} /></div>
+                <div className="landing-game-card-body">
+                  <div><h3>{game.title}</h3><span className="landing-game-card-arrow"><ArrowRight className="h-4 w-4" aria-hidden /></span></div>
+                  <p>{game.description}</p>
+                  <div className="landing-game-card-meta"><span>{game.difficulty}</span><span>•</span><span>{game.playTime}</span><span>•</span><span>{game.input.join(" + ")}</span></div>
+                </div>
+              </Link>
+            </MotionSection>
+          ))}
+        </div>
+      </section>
+
+      <section className="border-y border-[var(--color-border-subtle)] bg-[var(--color-page-bg-soft)]">
+        <div className="mx-auto max-w-[var(--container-wide)] px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+          <div className="landing-section-heading">
+            <div>
+              <span className="landing-section-eyebrow">Built to earn trust</span>
+              <h2>The interface should explain how the product behaves.</h2>
+              <p>Privacy, sourcing, accessibility, and contribution are visible product features. They are not hidden in a footer after the important decisions have already been made.</p>
+            </div>
+          </div>
+          <div className="landing-trust-grid mt-9">
+            {trustItems.map((item, index) => (
+              <MotionSection key={item.title} delay={index * 0.04} distance={16}>
+                <article className="landing-trust-card"><span><DarmaSymbol name={item.symbol} className="h-6 w-6" /></span><h3>{item.title}</h3><p>{item.description}</p></article>
+              </MotionSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <MotionSection as="section" className="mx-auto max-w-[var(--container-page)] px-4 pt-16 sm:px-6 lg:px-8" distance={18}>
+        <div className="landing-final-cta grid gap-8 p-7 sm:p-10 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div>
+            <div className="flex items-center gap-2 text-[#ff8b68]"><ShieldCheck className="h-5 w-5" aria-hidden /><span className="font-mono text-xs font-black uppercase tracking-[0.14em]">A living open reference</span></div>
+            <h2 className="mt-4 text-3xl font-black tracking-[-0.045em] sm:text-4xl">Find something missing, unclear, or outdated?</h2>
+            <p className="mt-4 max-w-3xl text-sm leading-7">Suggest a source, improve a learning path, correct a role guide, report a tool issue, or submit a focused pull request through Darma’s review workflow.</p>
+          </div>
+          <Link href="/contribute" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#ff6a3d] px-6 text-sm font-black text-[#111110] shadow-lg">Contribute to Darma <Sparkles className="h-4 w-4" aria-hidden /></Link>
+        </div>
       </MotionSection>
     </div>
   );

@@ -10502,3 +10502,29 @@ html.rtp-gameplay-active body {
     min-width: 2.75rem;
   }
 }
+
+/* Visual completion: original Darma vector symbols replace emoji-only hero tiles. */
+.game-hero-vector-orbit {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 190px;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border: 1px dashed var(--color-primary-border);
+  border-radius: 999px;
+  opacity: .72;
+}
+.game-hero-vector-orbit::before,
+.game-hero-vector-orbit::after {
+  position: absolute;
+  content: "";
+  border-radius: inherit;
+  border: 1px solid var(--color-border-subtle);
+}
+.game-hero-vector-orbit::before { inset: 19%; }
+.game-hero-vector-orbit::after { inset: 38%; background: color-mix(in srgb, var(--color-primary) 12%, transparent); }
+.game-hero-vector-orbit span { position: absolute; width: 8px; height: 8px; border-radius: 999px; background: var(--color-primary); box-shadow: 0 0 0 5px var(--color-primary-soft); }
+.game-hero-vector-orbit span:nth-child(1) { left: 16px; top: 47%; }.game-hero-vector-orbit span:nth-child(2) { right: 26px; top: 12px; background: var(--color-accent); box-shadow: 0 0 0 5px var(--color-accent-soft); }.game-hero-vector-orbit span:nth-child(3) { right: 8px; bottom: 42px; }
+.game-float-symbol { flex-direction: column; gap: .2rem; color: var(--color-text-primary); }
+.game-float-symbol svg { color: currentColor; }
+.game-float-symbol > span { font-family: var(--font-mono); font-size: .5rem; font-weight: 950; letter-spacing: .05em; text-transform: uppercase; }

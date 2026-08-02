@@ -1481,5 +1481,175 @@
         "https://docs.flutter.dev/get-started/fundamentals"
       ]
     }
+  },
+  {
+    "id": "web-platform-baseline-2026",
+    "slug": "web-platform-baseline-2026",
+    "name": "Web Platform Baseline 2026",
+    "url": "https://web.dev/baseline/2026",
+    "domain": "web.dev",
+    "summary": "Official guidance for identifying web platform features that have reached Baseline milestones and are ready to evaluate across major browser engines.",
+    "categories": [
+      "Web Development",
+      "Web Platform",
+      "Browser Compatibility"
+    ],
+    "tags": [
+      "Baseline 2026",
+      "browser support",
+      "web platform",
+      "interoperability"
+    ],
+    "resourceType": "reference",
+    "levels": [
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "faviconUrl": "https://web.dev/static/images/favicon.png"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-30T00:00:00.000Z",
+      "notes": "Verified against the official web.dev Baseline 2026 page."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://web.dev/baseline/2026"
+      ]
+    }
+  },
+  {
+    "id": "wcag-22-standard",
+    "slug": "wcag-22-standard",
+    "name": "Web Content Accessibility Guidelines 2.2",
+    "url": "https://www.w3.org/TR/WCAG22/",
+    "domain": "w3.org",
+    "summary": "The W3C accessibility standard covering perceivable content, keyboard interaction, visible focus, pointer target size, understandable interfaces, and robust implementation.",
+    "categories": [
+      "Accessibility",
+      "Web Standards",
+      "UX Design"
+    ],
+    "tags": [
+      "WCAG 2.2",
+      "accessibility",
+      "focus appearance",
+      "target size"
+    ],
+    "resourceType": "reference",
+    "levels": [
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "faviconUrl": "https://www.w3.org/favicon.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-30T00:00:00.000Z",
+      "notes": "Verified against the normative W3C WCAG 2.2 recommendation."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://www.w3.org/TR/WCAG22/"
+      ]
+    }
+  },
+  {
+    "id": "owasp-top-10-2025",
+    "slug": "owasp-top-10-2025",
+    "name": "OWASP Top 10:2025",
+    "url": "https://owasp.org/Top10/2025/",
+    "domain": "owasp.org",
+    "summary": "The current OWASP awareness document for the most critical web application security risks, including modern software supply-chain and design concerns.",
+    "categories": [
+      "Security",
+      "Web Development",
+      "Software Architecture"
+    ],
+    "tags": [
+      "OWASP Top 10",
+      "application security",
+      "supply chain",
+      "secure development"
+    ],
+    "resourceType": "reference",
+    "levels": [
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "faviconUrl": "https://owasp.org/assets/images/favicon.ico"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-30T00:00:00.000Z",
+      "notes": "Verified against the official OWASP Top 10:2025 release."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://owasp.org/Top10/2025/"
+      ]
+    }
+  },
+  {
+    "id": "core-web-vitals-learning",
+    "slug": "core-web-vitals-learning",
+    "name": "Learn Core Web Vitals",
+    "url": "https://web.dev/explore/learn-core-web-vitals",
+    "domain": "web.dev",
+    "summary": "Official guidance for measuring and improving loading performance, interaction responsiveness, and visual stability through LCP, INP, and CLS.",
+    "categories": [
+      "Performance",
+      "Web Development",
+      "UX Design"
+    ],
+    "tags": [
+      "Core Web Vitals",
+      "LCP",
+      "INP",
+      "CLS",
+      "web performance"
+    ],
+    "resourceType": "tutorial",
+    "levels": [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ],
+    "pricing": "free",
+    "publisherType": "official",
+    "featured": true,
+    "icon": {
+      "status": "remote-candidate",
+      "faviconUrl": "https://web.dev/static/images/favicon.png"
+    },
+    "review": {
+      "status": "verified",
+      "lastChecked": "2026-07-30T00:00:00.000Z",
+      "notes": "Verified against the official web.dev Core Web Vitals learning collection."
+    },
+    "source": {
+      "importedFrom": "src/features/resources/curated-resources.json",
+      "originalUrls": [
+        "https://web.dev/explore/learn-core-web-vitals"
+      ]
+    }
   }
 ]

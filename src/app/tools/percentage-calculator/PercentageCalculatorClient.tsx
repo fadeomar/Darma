@@ -22,6 +22,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { Button, CopyButton, Input, Select } from "@/components/ui";
+import { ToolMobileActions } from "@/features/tools/components";
 import { downloadText } from "../_shared/clientUtils";
 import {
   buildJavaScriptSnippet,
@@ -158,17 +159,10 @@ export default function PercentageCalculatorClient() {
   ];
 
   return (
-    <div className="space-y-4">
-      <div className="grid grid-cols-2 gap-2 lg:grid-cols-4">
-        <SummaryCard label="Primary result" value={formatValue(outcome.valid ? outcome.value : null, outcome.unit, precision)} hint={meta.answerLabel} icon={<Percent className="h-4 w-4" />} />
-        <SummaryCard label="Absolute delta" value={formatValue(outcome.absoluteDelta, "number", precision)} hint={outcome.direction === "none" ? "comparison amount" : outcome.direction} icon={directionIcon(outcome.direction)} />
-        <SummaryCard label="Factor" value={formatValue(outcome.factor, "number", Math.min(precision + 2, 8))} hint="decimal multiplier or ratio" icon={<Gauge className="h-4 w-4" />} />
-        <SummaryCard label="Production review" value={outcome.valid ? (reviewCount ? `${reviewCount} review` : "Ready") : "Blocked"} hint={`${checks.length} checks completed`} icon={outcome.valid && !reviewCount ? <ShieldCheck className="h-4 w-4" /> : <TrendingUp className="h-4 w-4" />} />
-      </div>
-
-      <div className="grid items-start gap-4 xl:grid-cols-[420px_minmax(0,1fr)]">
-        <aside className="space-y-4">
-          <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
+    <div className="space-y-5">
+      <div className="grid items-start gap-5 lg:grid-cols-[minmax(320px,var(--tool-controls-width))_minmax(0,1fr)]">
+        <aside data-tool-region="controls" className="space-y-4 rounded-[var(--radius-lg)] border border-[var(--color-tool-controls-border)] bg-[var(--color-tool-controls-bg)] p-3 shadow-[var(--shadow-tool-controls)] lg:sticky lg:top-[6.75rem] lg:max-h-[calc(100vh-7.75rem)] lg:overflow-y-auto lg:overscroll-contain">
+          <section className="rounded-[var(--radius-lg)] border border-[var(--color-tool-controls-border)] bg-[var(--color-tool-controls-bg)] p-4">
             <div className="mb-3 flex items-center justify-between gap-2">
               <div>
                 <h2 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4 text-[var(--color-primary)]" />Practical presets</h2>
@@ -186,7 +180,7 @@ export default function PercentageCalculatorClient() {
             </div>
           </section>
 
-          <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
+          <section className="rounded-[var(--radius-lg)] border border-[var(--color-tool-controls-border)] bg-[var(--color-tool-controls-bg)] p-4">
             <div className="mb-3 flex items-center gap-2">
               <Calculator className="h-4 w-4 text-[var(--color-primary)]" />
               <div>
@@ -204,7 +198,7 @@ export default function PercentageCalculatorClient() {
             <p className="mt-3 rounded-[var(--radius-md)] bg-[var(--color-surface-subtle)] px-3 py-2 text-[11px] leading-5 text-[var(--color-text-secondary)]">{meta.description}</p>
           </section>
 
-          <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
+          <section className="rounded-[var(--radius-lg)] border border-[var(--color-tool-controls-border)] bg-[var(--color-tool-controls-bg)] p-4">
             <div className="mb-3 flex items-center justify-between gap-2">
               <div>
                 <h2 className="text-sm font-black text-[var(--color-text-primary)]">Inputs</h2>
@@ -220,9 +214,10 @@ export default function PercentageCalculatorClient() {
           </section>
         </aside>
 
-        <main className="min-w-0 overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] shadow-[var(--shadow-sm)]">
-          <div className="border-b border-[var(--color-border-subtle)] p-3">
-            <div className="flex flex-wrap gap-1.5">
+        <main id="percentage-result" data-tool-region="result" className="min-w-0 scroll-mt-28 overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-tool-result-border)] bg-[var(--color-tool-result-bg)] shadow-[var(--shadow-tool-result)]">
+          <div className="border-b border-[var(--color-tool-result-border)] bg-[var(--color-tool-result-header)] p-3.5">
+            <div className="mb-3"><div className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Live result</div><h2 className="mt-1 text-lg font-black text-[var(--color-text-primary)]">Percentage analysis</h2><p className="mt-1 text-[13px] text-[var(--color-text-secondary)]">Change the mode or inputs on the left. The result and formula update immediately.</p></div>
+            <div className="flex max-w-full flex-nowrap gap-1.5 overflow-x-auto">
               {tabs.map((tab) => <Button key={tab.id} size="sm" variant={activeTab === tab.id ? "primary" : "secondary"} onClick={() => setActiveTab(tab.id)}>{tab.label}</Button>)}
             </div>
           </div>
@@ -230,7 +225,7 @@ export default function PercentageCalculatorClient() {
           <div className="p-4">
             {activeTab === "overview" ? (
               <div className="space-y-4">
-                <section className={`rounded-[var(--radius-lg)] border p-5 ${outcome.valid ? "border-[var(--color-primary)]/30 bg-[var(--color-primary-subtle)]" : "border-[var(--color-danger-border)] bg-[var(--color-danger-bg)]"}`}>
+                <section className={`rounded-[var(--radius-lg)] border p-5 shadow-[var(--shadow-sm)] ${outcome.valid ? "border-[var(--color-tool-result-border)] bg-[var(--color-surface-raised)]" : "border-[var(--color-danger-border)] bg-[var(--color-danger-bg)]"}`}>
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div className="min-w-0">
                       <div className="text-[10px] font-bold uppercase tracking-[0.09em] text-[var(--color-text-tertiary)]">{meta.answerLabel}</div>
@@ -319,6 +314,18 @@ export default function PercentageCalculatorClient() {
             ) : null}
           </div>
         </main>
+      </div>
+
+      <ToolMobileActions>
+        <a href="#percentage-result" className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-primary)] px-4 text-sm font-bold text-[var(--color-primary-text)]">View result</a>
+        <CopyButton text={outcome.sentence} disabled={!outcome.valid}>Copy result</CopyButton>
+      </ToolMobileActions>
+
+      <div className="grid grid-cols-2 gap-2 lg:grid-cols-4">
+        <SummaryCard label="Primary result" value={formatValue(outcome.valid ? outcome.value : null, outcome.unit, precision)} hint={meta.answerLabel} icon={<Percent className="h-4 w-4" />} />
+        <SummaryCard label="Absolute delta" value={formatValue(outcome.absoluteDelta, "number", precision)} hint={outcome.direction === "none" ? "comparison amount" : outcome.direction} icon={directionIcon(outcome.direction)} />
+        <SummaryCard label="Factor" value={formatValue(outcome.factor, "number", Math.min(precision + 2, 8))} hint="decimal multiplier or ratio" icon={<Gauge className="h-4 w-4" />} />
+        <SummaryCard label="Production review" value={outcome.valid ? (reviewCount ? `${reviewCount} review` : "Ready") : "Blocked"} hint={`${checks.length} checks completed`} icon={outcome.valid && !reviewCount ? <ShieldCheck className="h-4 w-4" /> : <TrendingUp className="h-4 w-4" />} />
       </div>
 
       <div className="flex flex-wrap items-center justify-between gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] px-3 py-2 text-[11px] text-[var(--color-text-tertiary)]">

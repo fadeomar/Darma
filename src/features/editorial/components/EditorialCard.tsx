@@ -1,24 +1,50 @@
 import Link from "next/link";
-import { ArrowRight, BookOpen, GitCompareArrows } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Badge, Card } from "@/components/ui";
+import { EditorialArtwork } from "@/components/visuals";
 import type { EditorialPage } from "../schema";
 
 export function EditorialCard({ page }: { page: EditorialPage }) {
   const href = `/${page.kind === "guide" ? "guides" : "comparisons"}/${page.slug}`;
-  const Icon = page.kind === "guide" ? BookOpen : GitCompareArrows;
-  const symbol = page.kind === "guide" ? "↗" : "⇄";
+  const comparisonSubjects = page.kind === "comparison"
+    ? page.shortTitle.split(/\s+vs\.?\s+/i).map((item) => item.trim()).filter(Boolean).slice(0, 3)
+    : [];
+
   return (
-    <Link href={href} className="block h-full">
-      <Card variant="interactive" padding="lg" className="visual-card flex h-full flex-col">
-        <div className="flex items-center justify-between gap-3">
-          <Badge variant={page.kind === "guide" ? "soft" : "outline"}>{page.kind === "guide" ? "Practical guide" : "Comparison"}</Badge>
-          <span className="font-mono text-[10px] font-black uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">{page.readingMinutes} min</span>
+    <Link href={href} className="group block h-full rounded-[var(--radius-lg)] focus:outline-none focus:shadow-[var(--focus-ring)]">
+      <Card variant="interactive" padding="none" className="flex h-full overflow-hidden flex-col">
+        <EditorialArtwork kind={page.kind} subjects={comparisonSubjects} />
+        <div className="flex flex-1 flex-col p-5 sm:p-6">
+          <div className="flex items-center justify-between gap-3">
+            <Badge variant={page.kind === "guide" ? "soft" : "outline"}>
+              {page.kind === "guide" ? "Practical guide" : "Comparison"}
+            </Badge>
+            <span className="text-xs font-bold text-[var(--color-text-tertiary)]">{page.readingMinutes} min read</span>
+          </div>
+
+          {comparisonSubjects.length > 1 ? (
+            <div className="mt-4 flex flex-wrap items-center gap-2" aria-label="Comparison options">
+              {comparisonSubjects.map((subject, index) => (
+                <span key={subject} className="inline-flex items-center gap-2">
+                  {index > 0 ? <span className="font-mono text-[10px] font-black text-[var(--color-primary)]">VS</span> : null}
+                  <span className="rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-3 py-1.5 text-xs font-black text-[var(--color-text-primary)]">{subject}</span>
+                </span>
+              ))}
+            </div>
+          ) : null}
+
+          <h2 className="darma-balanced-heading mt-5 text-xl font-black tracking-[-0.035em] text-[var(--color-text-primary)] transition group-hover:text-[var(--color-primary)]">{page.shortTitle}</h2>
+          <p className="darma-pretty-copy mt-3 line-clamp-4 flex-1 text-sm leading-7 text-[var(--color-text-secondary)]">{page.summary}</p>
+
+          <div className="mt-5 flex flex-wrap gap-2">
+            {page.secondaryKeywords.slice(0, 2).map((keyword) => <Badge key={keyword} variant="outline">{keyword}</Badge>)}
+          </div>
+
+          <span className="mt-6 inline-flex min-h-10 items-center gap-2 text-sm font-black text-[var(--color-primary)]">
+            Read the {page.kind}
+            <ArrowRight className="darma-link-arrow h-[18px] w-[18px]" aria-hidden />
+          </span>
         </div>
-        <div className="mt-6 flex items-center justify-between"><span className="atlas-symbol"><Icon className="h-5 w-5" aria-hidden /></span><span className="text-4xl font-black text-[var(--color-primary)] opacity-40" aria-hidden>{symbol}</span></div>
-        <h2 className="mt-5 text-xl font-black tracking-[-0.035em] text-[var(--color-text-primary)]">{page.shortTitle}</h2>
-        <p className="mt-3 flex-1 text-sm leading-7 text-[var(--color-text-secondary)]">{page.summary}</p>
-        <div className="mt-5 flex flex-wrap gap-2">{page.secondaryKeywords.slice(0, 2).map((keyword) => <span key={keyword} className="rounded-full bg-[var(--color-control-track)] px-3 py-1 text-[10px] font-bold text-[var(--color-text-tertiary)]">{keyword}</span>)}</div>
-        <span className="mt-6 inline-flex items-center gap-2 text-sm font-black text-[var(--color-primary)]">Read the {page.kind} <ArrowRight className="h-4 w-4" aria-hidden /></span>
       </Card>
     </Link>
   );

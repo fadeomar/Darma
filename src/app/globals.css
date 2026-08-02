@@ -2,6 +2,7 @@
 @import "../styles/themes.css";
 @import "../styles/base.css";
 @import "../styles/experience.css";
+@import "../styles/tool-workspace.css";
 @import "../core/components/core-ui.css";
 
 @tailwind base;

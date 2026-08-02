@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ChevronDown, SlidersHorizontal } from "lucide-react";
 import { type ReactNode } from "react";
 import { Badge } from "@/components/ui";
 import { FavoriteToolButton } from "@/features/tools/components/FavoriteToolButton";
@@ -24,7 +24,6 @@ function privacyLabel(privacy?: ToolDefinition["privacy"]) {
   return null;
 }
 
-
 export function ToolPage({
   tool,
   title,
@@ -36,7 +35,7 @@ export function ToolPage({
   maxWidth = "default",
   headerAlign = "left",
   intro,
-  headerSize = "default",
+  headerSize = "compact",
 }: {
   tool?: ToolDefinition;
   title?: string;
@@ -56,107 +55,110 @@ export function ToolPage({
   const privacy = privacyLabel(tool?.privacy);
   const primaryCategory = tool?.mainCategory?.[0] ?? tool?.secondaryCategory?.[0];
   const profile = resolveToolProfile(tool);
-  // The aside is opt-out on centered headers, but it is only ever opt-in when
-  // there is actually something to put in it.
   const showProfile = headerAlign !== "center" && profile.hasMeaningfulContent;
 
   return (
-    <div className={cn("mx-auto px-4 py-7 sm:px-6 sm:py-9 lg:px-8", maxWidthClass[maxWidth])}>
+    <div className={cn("mx-auto px-4 py-5 sm:px-6 sm:py-7 lg:px-8", maxWidthClass[maxWidth])}>
       {tool ? <RecentToolTracker id={tool.id} title={tool.title} href={tool.href} /> : null}
+
       <header
         className={cn(
-          "relative overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] px-5 py-5 shadow-[var(--shadow-card)] sm:px-7 sm:py-7",
+          "relative overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] px-5 py-5 shadow-[var(--shadow-card)] sm:px-6 sm:py-6",
           "before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-[var(--color-primary-border)]",
-          headerSize === "compact" ? "lg:px-7 lg:py-6" : "lg:px-8 lg:py-8",
+          headerSize === "default" && "lg:px-8 lg:py-7",
           headerAlign === "center" && "text-center",
         )}
       >
-        <div
-          className={cn(
-            "relative grid gap-6",
-            // Only reserve the secondary track when the aside will actually be
-            // rendered — otherwise the title and description get the full width.
-            showProfile
-              ? "lg:grid-cols-[minmax(0,1fr)_minmax(260px,var(--tool-profile-width))] lg:items-end"
-              : "lg:grid-cols-1",
-          )}
-        >
-          <div className={cn("min-w-0", headerAlign === "center" && "mx-auto max-w-4xl")}>
+        <div className={cn("relative min-w-0", headerAlign === "center" && "mx-auto max-w-4xl")}>
+          <div className={cn("flex flex-wrap items-center gap-2", headerAlign === "center" && "justify-center")}>
             <Link
               href="/tools"
+              className="inline-flex min-h-9 items-center gap-2 rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-3 font-mono text-xs font-bold uppercase tracking-[0.07em] text-[var(--color-text-secondary)] shadow-[var(--shadow-xs)] transition hover:border-[var(--color-primary-border)] hover:text-[var(--color-text-primary)] focus:outline-none focus:shadow-[var(--focus-ring)]"
+            >
+              <ArrowLeft className="h-3.5 w-3.5" aria-hidden />
+              Tools
+            </Link>
+            {eyebrow ? <Badge variant="soft">{eyebrow}</Badge> : null}
+            {privacy ? <Badge variant="accent">{privacy}</Badge> : null}
+            {primaryCategory ? <Badge variant="outline">{formatCategory(primaryCategory)}</Badge> : null}
+            {tool ? <FavoriteToolButton toolId={tool.id} toolTitle={tool.title} /> : null}
+            <a
+              href="#tool-workspace"
+              className="ml-auto inline-flex min-h-9 items-center gap-2 rounded-[var(--radius-full)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] px-3 text-xs font-bold text-[var(--color-primary)] transition hover:border-[var(--color-primary)] hover:bg-[var(--color-control-active)] focus:outline-none focus:shadow-[var(--focus-ring)]"
+            >
+              <SlidersHorizontal className="h-3.5 w-3.5" aria-hidden />
+              Workspace
+            </a>
+          </div>
+
+          {pageTitle ? (
+            <h1
               className={cn(
-                "inline-flex items-center gap-2 rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)] shadow-[var(--shadow-xs)] transition hover:border-[var(--color-primary-border)] hover:text-[var(--color-text-primary)] focus:outline-none focus:shadow-[var(--focus-ring)]",
+                "mt-4 max-w-5xl text-balance font-black leading-[1.03] tracking-[-0.045em] text-[var(--color-text-primary)]",
+                headerSize === "compact" ? "text-3xl sm:text-4xl lg:text-5xl" : "text-4xl sm:text-5xl lg:text-6xl",
                 headerAlign === "center" && "mx-auto",
               )}
             >
-              <ArrowLeft className="h-3.5 w-3.5" aria-hidden />
-              Back to tools
-            </Link>
+              {pageTitle}
+            </h1>
+          ) : null}
 
-            <div className={cn("mt-4 flex flex-wrap gap-2", headerAlign === "center" && "justify-center")}>
-              {eyebrow ? <Badge variant="soft">{eyebrow}</Badge> : null}
-              {privacy ? <Badge variant="accent">{privacy}</Badge> : null}
-              {primaryCategory ? <Badge variant="outline">{formatCategory(primaryCategory)}</Badge> : null}
-              {tool ? <FavoriteToolButton toolId={tool.id} toolTitle={tool.title} /> : null}
-            </div>
+          {pageDescription ? (
+            <p
+              className={cn(
+                "mt-3 max-w-4xl text-pretty text-sm leading-6 text-[var(--color-text-secondary)] sm:text-base sm:leading-7",
+                headerAlign === "center" && "mx-auto",
+              )}
+            >
+              {pageDescription}
+            </p>
+          ) : null}
 
-            {pageTitle ? (
-              <h1
-                className={cn(
-                  "mt-4 max-w-5xl font-black leading-[var(--leading-tight)] tracking-[-0.04em] text-[var(--color-text-primary)]",
-                  headerSize === "compact" ? "text-3xl sm:text-4xl" : "text-4xl sm:text-5xl lg:text-6xl",
-                  headerAlign === "center" && "mx-auto",
-                )}
-              >
-                {pageTitle}
-              </h1>
-            ) : null}
-
-            {pageDescription ? (
-              <p
-                className={cn(
-                  "mt-3 max-w-3xl leading-7 text-[var(--color-text-secondary)]",
-                  headerSize === "compact" ? "text-sm sm:text-base" : "text-base sm:text-lg",
-                  headerAlign === "center" && "mx-auto",
-                )}
-              >
-                {pageDescription}
-              </p>
-            ) : null}
-
-            {intro ? <div className={headerSize === "compact" ? "mt-4" : "mt-5"}>{intro}</div> : null}
-          </div>
+          {intro ? <div className="mt-4 max-w-4xl">{intro}</div> : null}
 
           {showProfile ? (
-            <aside className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/70 p-4 shadow-[inset_0_1px_0_var(--color-border-subtle)]">
-              <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Tool profile</p>
-              {profile.audiences.length || profile.categories.length ? (
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {profile.audiences.map((audience) => (
-                    <Badge key={audience} variant="outline">
-                      {audienceLabel(audience)}
-                    </Badge>
-                  ))}
-                  {profile.categories.map((category) => (
-                    <Badge key={category} variant="outline">
-                      {formatCategory(category)}
-                    </Badge>
-                  ))}
-                </div>
-              ) : null}
-              {profile.tags.length ? (
-                <p className="mt-3 line-clamp-2 text-xs leading-5 text-[var(--color-text-tertiary)]">
-                  {profile.tags.map((tag) => `#${tag}`).join("  ")}
-                </p>
-              ) : null}
-            </aside>
+            <details className="group mt-4 max-w-4xl rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/68">
+              <summary className="flex min-h-10 cursor-pointer list-none items-center justify-between gap-3 px-3.5 text-xs font-bold text-[var(--color-text-secondary)] outline-none transition hover:bg-[var(--color-control-hover)] focus-visible:shadow-[var(--focus-ring)] [&::-webkit-details-marker]:hidden">
+                <span>Audience, categories, and tags</span>
+                <ChevronDown className="h-4 w-4 shrink-0 transition group-open:rotate-180" aria-hidden />
+              </summary>
+              <div className="border-t border-[var(--color-border-subtle)] px-3.5 py-3">
+                {profile.audiences.length || profile.categories.length ? (
+                  <div className="flex flex-wrap gap-2">
+                    {profile.audiences.map((audience) => (
+                      <Badge key={audience} variant="outline">
+                        {audienceLabel(audience)}
+                      </Badge>
+                    ))}
+                    {profile.categories.map((category) => (
+                      <Badge key={category} variant="outline">
+                        {formatCategory(category)}
+                      </Badge>
+                    ))}
+                  </div>
+                ) : null}
+                {profile.tags.length ? (
+                  <p className="mt-2 text-xs leading-5 text-[var(--color-text-tertiary)]">
+                    {profile.tags.map((tag) => `#${tag}`).join("  ")}
+                  </p>
+                ) : null}
+              </div>
+            </details>
           ) : null}
         </div>
       </header>
 
       {tool ? <ToolWorkflowNavigator toolId={tool.id} /> : null}
 
-      <main className="mt-7 sm:mt-8">{children}</main>
+      <main
+        id="tool-workspace"
+        data-tool-workspace
+        data-tool-layout={tool?.layoutType ?? "custom"}
+        data-tool-id={tool?.id}
+        className="mt-5 scroll-mt-28 sm:mt-6"
+      >
+        {children}
+      </main>
       {article ? <div className="mt-8">{article}</div> : null}
       {relatedContent ? <div className="mt-8">{relatedContent}</div> : null}
     </div>

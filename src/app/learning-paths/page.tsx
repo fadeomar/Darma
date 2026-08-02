@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, BookOpenCheck, Compass, GitBranch, Route, ShieldCheck } from "lucide-react";
-import { Badge, Card } from "@/components/ui";
+import { BookOpenCheck, GitBranch, Route, ShieldCheck } from "lucide-react";
+import { PortalHero } from "@/components/portals";
+import { Card } from "@/components/ui";
 import { absoluteUrl } from "@/features/tools/seo";
 import { getLearningPaths } from "@/features/learning-paths";
 import { LearningPathExplorer } from "@/features/learning-paths/components";
 
 export const metadata: Metadata = {
-  title: "Technology Learning Paths — web, JavaScript, mobile, design, and DevOps | Darma",
+  title: "Technology Learning Paths | web, JavaScript, mobile, design, and DevOps | Darma",
   description: "Follow practical, project-based learning paths for web foundations, frontend JavaScript, full-stack Node.js, React Native, UI/UX design, and DevOps.",
   keywords: ["developer learning paths", "web development roadmap", "JavaScript learning path", "React learning path", "React Native roadmap", "UI UX learning path", "DevOps for developers"],
   alternates: { canonical: "/learning-paths" },
@@ -64,30 +65,61 @@ export default function LearningPathsPage() {
   const paths = getLearningPaths();
   const jsonLd = learningPathsJsonLd();
   const stageCount = paths.reduce((total, path) => total + path.stages.length, 0);
+  const projectCount = paths.reduce((total, path) => total + path.stages.filter((stage) => Boolean(stage.project)).length, 0);
 
   return (
     <div className="pb-16">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
-      <section className="mx-auto max-w-[var(--container-wide)] px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-start">
-          <div className="max-w-4xl">
-            <div className="flex flex-wrap gap-2"><Badge variant="soft">Darma Tech Atlas</Badge><Badge variant="outline">Project-based guides</Badge></div>
-            <h1 className="mt-5 text-4xl font-black tracking-[-0.045em] text-[var(--color-text-primary)] sm:text-5xl lg:text-6xl">Choose a goal. Follow a clear path. Build proof that you learned it.</h1>
-            <p className="mt-6 max-w-3xl text-base leading-8 text-[var(--color-text-secondary)] sm:text-lg">Darma Learning Paths connect essential concepts, official references, practical checkpoints, and portfolio-ready projects without pretending that one roadmap fits every learner.</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#learning-path-explorer-title" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-md)] bg-[var(--color-primary)] px-5 text-sm font-semibold text-[var(--color-primary-text)] transition hover:bg-[var(--color-primary-hover)]">Choose your path <ArrowRight className="h-4 w-4" aria-hidden /></a>
-              <Link href="/resources" className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-5 text-sm font-semibold text-[var(--color-text-primary)] transition hover:bg-[var(--color-surface-subtle)]">Search all resources</Link>
-            </div>
-          </div>
-          <Card padding="lg">
-            <div className="flex items-center gap-3"><div className="flex h-11 w-11 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"><Compass className="h-5 w-5" aria-hidden /></div><div><p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">Available now</p><p className="text-lg font-black text-[var(--color-text-primary)]">Six guided directions</p></div></div>
-            <dl className="mt-5 space-y-3">{[["Learning paths", paths.length], ["Practical stages", stageCount], ["Progress account", "Not required"], ["Primary stack", "JavaScript-first"]].map(([label, value]) => <div key={String(label)} className="flex items-center justify-between gap-3 border-b border-[var(--color-border-subtle)] pb-3 last:border-0 last:pb-0"><dt className="text-sm text-[var(--color-text-secondary)]">{label}</dt><dd className="font-mono text-sm font-bold text-[var(--color-text-primary)]">{value}</dd></div>)}</dl>
-          </Card>
+      <PortalHero
+        variant="learning"
+        eyebrow="Darma structured learning"
+        badges={["Project-based", "Official sources", "No progress account"]}
+        title="Choose a direction, build evidence, and know why the next stage comes next."
+        description="Darma Learning Paths connect foundations, trusted references, practical checkpoints, and portfolio-ready projects without pretending that one roadmap fits every learner."
+        actions={[
+          { href: "#learning-path-explorer-title", label: "Choose a learning path", icon: "route", tone: "primary" },
+          { href: "/resources", label: "Search official resources", icon: "resources", tone: "secondary" },
+          { href: "/career-pathfinder", label: "Match a career direction", icon: "atlas", tone: "quiet" },
+        ]}
+        metrics={[
+          { value: paths.length, label: "guided directions" },
+          { value: stageCount, label: "practical stages" },
+          { value: projectCount, label: "project checkpoints" },
+          { value: "0", label: "accounts required" },
+        ]}
+        signals={[
+          { label: "Start", value: "Foundations first" },
+          { label: "Practice", value: "Checkpoint per stage" },
+          { label: "Evidence", value: "Projects and outputs" },
+          { label: "Sources", value: "Reviewed references" },
+        ]}
+      />
+      <section className="mx-auto max-w-[var(--container-wide)] px-4 py-10 sm:px-6 lg:px-8" aria-label="Learning path principles">
+        <div className="portal-principle-grid">
+          {PRINCIPLES.map((principle, index) => {
+            const Icon = principle.icon;
+            return (
+              <Card key={principle.title} padding="md" className="portal-principle-card h-full">
+                <span className="portal-principle-index">0{index + 1}</span>
+                <span className="portal-principle-icon"><Icon className="h-5 w-5" aria-hidden /></span>
+                <h2>{principle.title}</h2>
+                <p>{principle.text}</p>
+              </Card>
+            );
+          })}
         </div>
       </section>
-      <section className="mx-auto max-w-[var(--container-wide)] px-4 pb-10 sm:px-6 lg:px-8" aria-label="Learning path principles"><div className="grid gap-4 md:grid-cols-3">{PRINCIPLES.map((principle) => { const Icon = principle.icon; return <Card key={principle.title} padding="md" className="h-full"><Icon className="h-5 w-5 text-[var(--color-primary)]" aria-hidden /><h2 className="mt-4 text-lg font-bold text-[var(--color-text-primary)]">{principle.title}</h2><p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">{principle.text}</p></Card>; })}</div></section>
       <LearningPathExplorer paths={paths} />
-      <section className="mx-auto max-w-[var(--container-wide)] px-4 sm:px-6 lg:px-8"><Card padding="lg" className="grid gap-5 lg:grid-cols-[1fr_auto] lg:items-center"><div><div className="flex items-center gap-2 text-[var(--color-primary)]"><GitBranch className="h-5 w-5" aria-hidden /><span className="font-mono text-xs font-bold uppercase tracking-[0.14em]">Open source guidance</span></div><h2 className="mt-3 text-2xl font-black text-[var(--color-text-primary)]">Found a missing stage or a stronger official source?</h2><p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">The paths are deliberately reviewable and expandable. Suggestions should explain who benefits, where the item belongs, and why the source is trustworthy.</p></div><Link href="/contribute#learning-paths" className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-5 text-sm font-semibold text-[var(--color-text-primary)] transition hover:border-[var(--color-primary-border)] hover:text-[var(--color-primary)]">Suggest an improvement</Link></Card></section>
+      <section className="mx-auto max-w-[var(--container-wide)] px-4 sm:px-6 lg:px-8">
+        <Card padding="lg" className="grid gap-5 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div>
+            <div className="flex items-center gap-2 text-[var(--color-primary)]"><GitBranch className="h-5 w-5" aria-hidden /><span className="font-mono text-xs font-bold uppercase tracking-[0.14em]">Open source guidance</span></div>
+            <h2 className="mt-3 text-2xl font-black text-[var(--color-text-primary)]">Found a missing stage or a stronger official source?</h2>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">The paths are deliberately reviewable and expandable. Suggestions should explain who benefits, where the item belongs, and why the source is trustworthy.</p>
+          </div>
+          <Link href="/contribute#learning-paths" className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-5 text-sm font-semibold text-[var(--color-text-primary)] transition hover:border-[var(--color-primary-border)] hover:text-[var(--color-primary)]">Suggest an improvement</Link>
+        </Card>
+      </section>
     </div>
   );
 }

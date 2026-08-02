@@ -606,9 +606,9 @@ export default function CssGradientGeneratorClient() {
   if (!activeLayer) return null;
 
   return (
-    <div className="gs-shell" style={{ background: validation.ok ? previewBackground : undefined }}>
+    <div data-tool-workspace data-tool-layout="visual-generator" data-tool-id="css-gradient-generator" className="gs-shell" style={{ background: validation.ok ? previewBackground : undefined }}>
       <div className="gs-builder">
-        <aside className="gs-left-panel">
+        <aside data-tool-region="controls" className="gs-left-panel">
           <header className="gs-brand">
             <div className="gs-gradient-logo" style={{ background: previewBackground }} />
             <h1>
@@ -677,8 +677,9 @@ export default function CssGradientGeneratorClient() {
           </footer>
         </aside>
 
-        <main className="gs-center-panel">
+        <main data-tool-region="preview" className="gs-center-panel">
           <section className={centerPane === "preview" ? "gs-preview-panel is-active" : "gs-preview-panel"}>
+            <div className="gs-pane-label">Live preview <span>{validation.ok ? "Updated" : "Needs review"}</span></div>
             <div className="gs-panel-actions">
               <button type="button" onClick={() => setCenterPane("code")} title="Get the CSS code" aria-label="Get the CSS code">
                 <Code2 size={23} />
@@ -700,6 +701,7 @@ export default function CssGradientGeneratorClient() {
           </section>
 
           <section className={centerPane === "code" ? "gs-code-panel is-active" : "gs-code-panel"}>
+            <div className="gs-pane-label">Generated output <span>Copy-ready CSS</span></div>
             <div className="gs-panel-actions gs-back-action">
               <button type="button" onClick={() => setCenterPane("preview")} title="Back to editor" aria-label="Back to editor">
                 ←
@@ -723,7 +725,7 @@ export default function CssGradientGeneratorClient() {
           </section>
         </main>
 
-        <aside className="gs-right-panel">
+        <aside data-tool-region="controls" className="gs-right-panel">
           <div className="gs-menu-bar">
             <button className="gs-global-action-shell" type="button">
               <SlidersHorizontal size={21} />
@@ -1365,6 +1367,35 @@ export default function CssGradientGeneratorClient() {
 
         .gs-code-panel {
           background: var(--gs-surface-2);
+        }
+
+        .gs-pane-label {
+          position: absolute;
+          top: 22px;
+          left: 22px;
+          z-index: 4;
+          display: inline-flex;
+          align-items: center;
+          gap: 9px;
+          border: 1px solid var(--gs-line);
+          border-radius: 999px;
+          background: color-mix(in srgb, var(--gs-surface-3) 88%, transparent);
+          padding: 8px 11px;
+          color: var(--gs-text-1);
+          font-size: 11px;
+          font-weight: 900;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+          backdrop-filter: blur(12px);
+        }
+
+        .gs-pane-label span {
+          color: var(--gs-text-2);
+          font-size: 10px;
+          font-weight: 750;
+          letter-spacing: 0;
+          text-transform: none;
         }
 
         .gs-panel-actions {

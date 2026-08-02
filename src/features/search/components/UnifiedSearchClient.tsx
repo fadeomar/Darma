@@ -6,6 +6,7 @@ import { ArrowRight, BookOpen, Gamepad2, GraduationCap, Layers3, Search, Wrench 
 import { Badge, Card } from "@/components/ui";
 import { CoreCategoryChips, CoreEmptyState, CoreEntityCard, CoreSearchInput, CoreSectionHeader, type CoreEntity, type CoreEntityKind } from "@/core";
 import { cn } from "@/lib/cn";
+import { SearchConstellationArtwork } from "@/components/visuals";
 import { getUnifiedSearchSummary, searchUnifiedEntities, type UnifiedSearchKind } from "../lib";
 import "../styles/unified-search.css";
 
@@ -72,7 +73,7 @@ export function UnifiedSearchClient({ entities, initialQuery = "" }: UnifiedSear
               Search everything Darma can do.
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--color-text-secondary)] sm:text-lg">
-              Search tools, games, resources, learning paths, careers, workflows, and collections from one shared Darma index.
+              One discovery layer across tools, games, resources, learning paths, careers, workflows, and collections. The shared CoreEntity registry powers the complete discovery layer.
             </p>
 
             <div className="mt-6 max-w-2xl">
@@ -96,23 +97,18 @@ export function UnifiedSearchClient({ entities, initialQuery = "" }: UnifiedSear
             ) : null}
           </div>
 
-          <div className="unified-search-stats-grid grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-            <Card className="unified-search-stat-card">
-              <p className="text-3xl font-black text-[var(--color-text-primary)]">{summary.total}</p>
-              <p className="mt-1 text-sm font-semibold text-[var(--color-text-secondary)]">Searchable entities</p>
-            </Card>
-            <Card className="unified-search-stat-card">
-              <p className="text-3xl font-black text-[var(--color-text-primary)]">{summary.live}</p>
-              <p className="mt-1 text-sm font-semibold text-[var(--color-text-secondary)]">Live pages</p>
-            </Card>
-            <Card className="unified-search-stat-card">
-              <p className="text-3xl font-black text-[var(--color-text-primary)]">{summary.featured}</p>
-              <p className="mt-1 text-sm font-semibold text-[var(--color-text-secondary)]">Featured picks</p>
-            </Card>
-            <Card className="unified-search-stat-card">
-              <p className="text-3xl font-black text-[var(--color-text-primary)]">{summary.kinds.length}</p>
-              <p className="mt-1 text-sm font-semibold text-[var(--color-text-secondary)]">Connected kinds</p>
-            </Card>
+          <div className="unified-search-visual-stack">
+            <SearchConstellationArtwork total={summary.total} live={summary.live} kinds={summary.kinds.length} />
+            <div className="unified-search-stats-grid grid grid-cols-2 gap-2">
+              <Card className="unified-search-stat-card">
+                <p className="text-2xl font-black text-[var(--color-text-primary)]">{summary.live}</p>
+                <p className="mt-1 text-xs font-semibold text-[var(--color-text-secondary)]">Live pages</p>
+              </Card>
+              <Card className="unified-search-stat-card">
+                <p className="text-2xl font-black text-[var(--color-text-primary)]">{summary.featured}</p>
+                <p className="mt-1 text-xs font-semibold text-[var(--color-text-secondary)]">Featured picks</p>
+              </Card>
+            </div>
           </div>
         </div>
       </section>

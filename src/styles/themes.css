@@ -11,12 +11,17 @@
   --color-surface-raised: #1e1d1a;
   --color-surface-subtle: #22211e;
   --color-surface-inset: #0f0f0e;
-  --color-surface-overlay: rgba(25, 25, 23, 0.94);
+  --color-surface-overlay: rgba(25, 25, 23, 0.96);
+  --color-section-warm: #211b18;
+  --color-section-mint: #14211f;
+  --color-section-ink: #090b0a;
+  --color-text-on-ink: #f4f1ea;
+  --color-text-on-ink-muted: #c6c1b7;
 
   /* === Text === */
   --color-text-primary: #f4f1ea;
   --color-text-secondary: #d8d2c5;
-  --color-text-tertiary: #918a7d;
+  --color-text-tertiary: #aaa294;
   --color-text-inverse: #111110;
 
   /* === Borders === */
@@ -65,13 +70,35 @@
   --color-control-bg: #191917;
   --color-control-hover: #22211e;
   --color-control-active: rgba(255, 106, 61, 0.14);
-  --color-control-track: rgba(244, 241, 234, 0.06);
+  --color-control-track: rgba(244, 241, 234, 0.09);
+
+  /* === Tool workspaces === */
+  --color-tool-workspace-bg: #0e0f0e;
+  --color-tool-controls-bg: #1d1916;
+  --color-tool-controls-header: #261e18;
+  --color-tool-controls-border: #4b3b31;
+  --color-tool-input-bg: #191917;
+  --color-tool-input-header: #22211e;
+  --color-tool-input-border: #403d36;
+  --color-tool-preview-bg: #14201d;
+  --color-tool-preview-header: #182a25;
+  --color-tool-preview-border: #31594f;
+  --color-tool-result-bg: #211b13;
+  --color-tool-result-header: #2b2115;
+  --color-tool-result-border: #6e5731;
+  --color-tool-result-accent: #ff9a78;
+  --color-tool-output-bg: #161b18;
+  --color-tool-output-header: #1c2520;
+  --color-tool-output-border: #395146;
+  --shadow-tool-controls: 0 12px 30px rgba(0, 0, 0, 0.24);
+  --shadow-tool-preview: 0 18px 44px rgba(0, 0, 0, 0.30);
+  --shadow-tool-result: 0 20px 48px rgba(0, 0, 0, 0.34);
 
   /* === Preview === */
-  --color-preview-bg: #191917;
-  --color-preview-bg-strong: #111110;
-  --color-preview-grid: rgba(244, 241, 234, 0.045);
-  --color-preview-border: #34322d;
+  --color-preview-bg: var(--color-tool-preview-bg);
+  --color-preview-bg-strong: #0e1714;
+  --color-preview-grid: rgba(128, 216, 190, 0.07);
+  --color-preview-border: var(--color-tool-preview-border);
 
   /* === Code === */
   --color-code-bg: #090a0a;

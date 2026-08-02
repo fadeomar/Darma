@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, BriefcaseBusiness, GitBranch, GraduationCap, Network, ShieldCheck } from "lucide-react";
-import { Badge, Card } from "@/components/ui";
-import { AtlasHeroScene, MotionSection, SplitTextReveal } from "@/components/motion";
+import { BriefcaseBusiness, GitBranch, Network, ShieldCheck } from "lucide-react";
+import { PortalHero } from "@/components/portals";
+import { Card } from "@/components/ui";
 import { absoluteUrl } from "@/features/tools/seo";
 import { getTechCareers } from "@/features/tech-careers";
 import { CareerExplorer } from "@/features/tech-careers/components";
 
 export const metadata: Metadata = {
-  title: "Technology Careers — roles, skills, seniority, and team collaboration | Darma",
+  title: "Technology Careers | roles, skills, seniority, and team collaboration | Darma",
   description: "Explore technology careers across engineering, design, product, delivery, quality, security, leadership, operations, and growth with practical role guides.",
   keywords: ["technology careers", "software engineering roles", "tech job titles", "junior vs senior developer", "product design careers", "DevOps careers", "technology team roles"],
   alternates: { canonical: "/tech-careers" },
@@ -36,18 +36,63 @@ function careerJsonLd() {
 export default function TechCareersPage() {
   const careers = getTechCareers();
   const data = careerJsonLd();
+  const categories = new Set(careers.map((career) => career.category)).size;
+  const featured = careers.filter((career) => career.featured).length;
+  const linkedPaths = new Set(careers.flatMap((career) => career.learningPathSlugs)).size;
+
   return (
     <div className="pb-16">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }} />
-      <section className="visual-grid-bg border-b border-[var(--color-border-subtle)]">
-        <div className="mx-auto grid max-w-[var(--container-wide)] gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(390px,.85fr)] lg:items-center lg:px-8 lg:py-20">
-          <div className="max-w-4xl"><div className="flex flex-wrap gap-2"><Badge variant="soft">Darma Tech Atlas</Badge><Badge variant="outline">Career reference</Badge></div><SplitTextReveal text="See how technology roles create one product together." className="mt-5 text-4xl font-black tracking-[-0.055em] text-[var(--color-text-primary)] sm:text-5xl lg:text-7xl" /><p className="mt-6 max-w-3xl text-base leading-8 text-[var(--color-text-secondary)] sm:text-lg">Go beyond job-title lists. Understand daily work, responsibilities, deliverables, skills, collaborators, career levels, common misconceptions, and the clearest ways to start.</p><div className="mt-8 flex flex-wrap gap-3"><Link href="/career-pathfinder" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[var(--color-primary)] px-6 text-sm font-black text-[var(--color-primary-text)] shadow-[var(--shadow-md)]">Try Career Pathfinder <ArrowRight className="h-4 w-4" aria-hidden /></Link><a href="#career-explorer-title" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-6 text-sm font-black text-[var(--color-text-primary)]">Browse all roles</a><Link href="/tech-teams" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] px-6 text-sm font-black text-[var(--color-primary)]"><Network className="h-4 w-4" aria-hidden />See team structures</Link></div></div>
-          <AtlasHeroScene src="/atlas/career-path.svg" alt="A visual career path moving from starting skills through evidence, scope, and growth" priority labels={[`${careers.length} roles`, "3 scope levels", "Real collaborators", "Verified references"]} />
+      <PortalHero
+        variant="careers"
+        eyebrow="Darma technology career atlas"
+        badges={["Role guides", "Scope and evidence", "Team context"]}
+        title="See what technology roles deliver, who they work with, and how responsibility grows."
+        description="Go beyond job-title lists. Understand daily work, responsibilities, deliverables, skills, collaborators, career levels, common misconceptions, and the clearest ways to start."
+        actions={[
+          { href: "/career-pathfinder", label: "Try Career Pathfinder", icon: "atlas", tone: "primary" },
+          { href: "#career-explorer-title", label: "Browse all roles", icon: "search", tone: "secondary" },
+          { href: "/tech-teams", label: "See team structures", icon: "route", tone: "quiet" },
+        ]}
+        metrics={[
+          { value: careers.length, label: "role guides" },
+          { value: categories, label: "career families" },
+          { value: featured, label: "featured roles" },
+          { value: linkedPaths, label: "linked learning paths" },
+        ]}
+        signals={[
+          { label: "Work", value: "Daily responsibilities" },
+          { label: "Evidence", value: "Deliverables and outcomes" },
+          { label: "Scope", value: "Junior to senior" },
+          { label: "Context", value: "Collaborators and teams" },
+        ]}
+      />
+      <section className="mx-auto max-w-[var(--container-wide)] px-4 py-10 sm:px-6 lg:px-8">
+        <div className="portal-principle-grid">
+          {PRINCIPLES.map((principle, index) => {
+            const Icon = principle.icon;
+            return (
+              <Card key={principle.title} padding="md" className="portal-principle-card h-full">
+                <span className="portal-principle-index">0{index + 1}</span>
+                <span className="portal-principle-icon"><Icon className="h-5 w-5" aria-hidden /></span>
+                <h2>{principle.title}</h2>
+                <p>{principle.text}</p>
+              </Card>
+            );
+          })}
         </div>
       </section>
-      <MotionSection as="section" className="mx-auto max-w-[var(--container-wide)] px-4 py-10 sm:px-6 lg:px-8" distance={18}><div className="grid gap-4 md:grid-cols-3">{PRINCIPLES.map((principle) => { const Icon = principle.icon; return <Card key={principle.title} padding="md"><Icon className="h-5 w-5 text-[var(--color-primary)]" aria-hidden /><h2 className="mt-4 text-lg font-bold text-[var(--color-text-primary)]">{principle.title}</h2><p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">{principle.text}</p></Card>; })}</div></MotionSection>
       <CareerExplorer careers={careers} />
-      <section className="mx-auto max-w-[var(--container-wide)] px-4 sm:px-6 lg:px-8"><Card padding="lg" className="grid gap-5 lg:grid-cols-[1fr_auto] lg:items-center"><div><div className="flex items-center gap-2 text-[var(--color-primary)]"><GitBranch className="h-5 w-5" aria-hidden /><span className="font-mono text-xs font-bold uppercase tracking-[0.14em]">Titles vary between companies</span></div><h2 className="mt-3 text-2xl font-black text-[var(--color-text-primary)]">Use these guides to ask better questions, not to force every company into one chart.</h2><p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">Scope, product type, company stage, team topology, and local labor markets change titles. Compare the actual responsibilities and expected evidence.</p></div><Link href="/tech-glossary" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-5 text-sm font-semibold text-[var(--color-text-primary)] transition hover:border-[var(--color-primary-border)] hover:text-[var(--color-primary)]">Open the tech glossary</Link></Card></section>
+      <section className="mx-auto max-w-[var(--container-wide)] px-4 sm:px-6 lg:px-8">
+        <Card padding="lg" className="grid gap-5 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div>
+            <div className="flex items-center gap-2 text-[var(--color-primary)]"><GitBranch className="h-5 w-5" aria-hidden /><span className="font-mono text-xs font-bold uppercase tracking-[0.14em]">Titles vary between companies</span></div>
+            <h2 className="mt-3 text-2xl font-black text-[var(--color-text-primary)]">Use these guides to ask better questions, not to force every company into one chart.</h2>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">Scope, product type, company stage, team topology, and local labor markets change titles. Compare the actual responsibilities and expected evidence.</p>
+          </div>
+          <Link href="/tech-glossary" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-5 text-sm font-semibold text-[var(--color-text-primary)] transition hover:border-[var(--color-primary-border)] hover:text-[var(--color-primary)]">Open the tech glossary</Link>
+        </Card>
+      </section>
     </div>
   );
 }

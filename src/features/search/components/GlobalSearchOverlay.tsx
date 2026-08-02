@@ -421,9 +421,7 @@ export function GlobalSearchButton({
       <Search className="h-4 w-4" aria-hidden />
       <span>{compact ? "Search" : "Search Darma"}</span>
       {showShortcut ? (
-        <span className="hidden rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] bg-[var(--color-control-track)] px-2 py-0.5 font-mono text-[10px] font-bold text-[var(--color-text-tertiary)] min-[1180px]:inline-flex">
-          {shortcutLabel}
-        </span>
+        <span className={`${compact ? "hidden xl:inline-flex" : "inline-flex"} rounded-[var(--radius-full)] bg-[var(--color-control-track)] px-2 py-0.5 text-[11px] text-[var(--color-text-tertiary)]`}>{shortcutLabel}</span>
       ) : null}
     </button>
   );

@@ -1,7 +1,7 @@
 # Darma Tech Atlas Audit
 
 - Status: **PASSED**
-- Generated: 2026-07-29T18:21:21.566Z
+- Generated: 2026-08-02T13:34:34.644Z
 
 ## Counts
 
@@ -13,7 +13,7 @@
 | Team models | 6 |
 | Delivery stages | 9 |
 | Learning paths | 6 |
-| Combined resources | 396 |
+| Combined resources | 400 |
 
 ## Errors (0)
 

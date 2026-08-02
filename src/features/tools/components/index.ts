@@ -1,3 +1,6 @@
+export { ToolWorkspacePanel } from "./ToolWorkspacePanel";
+export type { ToolWorkspacePanelKind, ToolWorkspacePanelProps } from "./ToolWorkspacePanel";
+
 export { ToolControlPanel } from "./ToolControlPanel";
 export type { ToolControlPanelProps } from "./ToolControlPanel";
 

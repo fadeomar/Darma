@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, BookOpen, CalendarDays, CheckCircle2, ChevronDown, ExternalLink, GitCompareArrows, ListTree, ShieldCheck, Sparkles, UserRoundCheck } from "lucide-react";
+import { ArrowRight, BookOpen, CheckCircle2, ChevronDown, ExternalLink, GitCompareArrows, Sparkles } from "lucide-react";
 import { Badge, Card } from "@/components/ui";
-import { MotionSection, SplitTextReveal } from "@/components/motion";
+import { MotionSection } from "@/components/motion";
+import { DetailHero, DetailSectionNav, type DetailSectionNavItem } from "@/components/details";
 import { getLearningPath } from "@/features/learning-paths";
 import { getResourcesByIds } from "@/features/resources";
 import { getTechCareer } from "@/features/tech-careers";
@@ -67,43 +68,51 @@ export function EditorialPageView({ page }: { page: EditorialPage }) {
     <div className="pb-16">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
 
-      <section className="mx-auto max-w-[var(--container-wide)] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-        <Link href={basePath} className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-text-secondary)] transition hover:text-[var(--color-primary)]">
-          <ArrowLeft className="h-4 w-4" aria-hidden /> All {page.kind === "guide" ? "guides" : "comparisons"}
-        </Link>
-        <div className="mt-7 grid gap-8 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-start">
-          <div className="max-w-4xl">
-            <div className="flex flex-wrap gap-2">
-              <Badge variant={page.kind === "guide" ? "soft" : "outline"}>{page.kind === "guide" ? "Practical technology guide" : "Decision comparison"}</Badge>
-              <Badge variant="outline">{page.readingMinutes} minute read</Badge>
-              <Badge variant="success">Reviewed</Badge>
-            </div>
-            <SplitTextReveal text={page.title} className="mt-5 text-4xl font-black tracking-[-0.055em] text-[var(--color-text-primary)] sm:text-5xl lg:text-7xl" />
-            <p className="mt-6 max-w-3xl text-base leading-8 text-[var(--color-text-secondary)] sm:text-lg">{page.description}</p>
-            <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold text-[var(--color-text-tertiary)]">
-              <span className="inline-flex items-center gap-1.5"><CalendarDays className="h-4 w-4" aria-hidden /> Updated {formatDate(page.updatedAt)}</span>
-              <span className="inline-flex items-center gap-1.5"><UserRoundCheck className="h-4 w-4" aria-hidden /> {page.author.name}</span>
-              <Link href="/editorial-policy" className="inline-flex items-center gap-1.5 transition hover:text-[var(--color-primary)]"><ShieldCheck className="h-4 w-4" aria-hidden /> Review method</Link>
-            </div>
-          </div>
+      <DetailHero
+        variant={page.kind === "guide" ? "guide" : "comparison"}
+        backHref={basePath}
+        backLabel={`All ${page.kind === "guide" ? "guides" : "comparisons"}`}
+        eyebrow={page.kind === "guide" ? "Understand the system, then use it" : "Compare from constraints, not popularity"}
+        badges={[
+          { label: page.kind === "guide" ? "Practical technology guide" : "Decision comparison", tone: "soft" },
+          { label: `${page.readingMinutes} minute read`, tone: "outline" },
+          { label: "Reviewed", tone: "success" },
+        ]}
+        title={page.title}
+        description={page.description}
+        metrics={[
+          { value: page.sections.length, label: "sections" },
+          { value: page.readingMinutes, label: "minutes" },
+          { value: page.references.length + resources.length, label: "sources" },
+          { value: page.faqs.length, label: "questions" },
+        ]}
+        actions={[
+          { href: "#quick-answer", label: "Read the quick answer", tone: "primary" },
+          { href: `#${page.sections[0]?.id ?? "questions"}`, label: "Explore the reasoning", tone: "secondary" },
+          { href: "/editorial-policy", label: "Review method", tone: "quiet" },
+        ]}
+        signals={[
+          { label: "Updated", value: formatDate(page.updatedAt) },
+          { label: "Author", value: page.author.name },
+          { label: "Reviewed by", value: page.reviewer.name },
+          { label: "Primary topic", value: page.primaryKeyword },
+        ]}
+        asideTitle="Keep these decisions in view"
+        asideItems={page.keyTakeaways}
+      />
 
-          <Card padding="lg" className="self-start lg:sticky lg:top-28">
-            <div className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-[var(--radius-md)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"><ListTree className="h-5 w-5" aria-hidden /></span>
-              <div><p className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">On this page</p><p className="text-sm font-black text-[var(--color-text-primary)]">{page.sections.length} detailed sections</p></div>
-            </div>
-            <nav className="mt-5" aria-label="On this page">
-              <ol className="space-y-2">
-                <li><a href="#quick-answer" className="text-sm font-semibold text-[var(--color-text-secondary)] transition hover:text-[var(--color-primary)]">Quick answer</a></li>
-                {page.sections.map((section) => <li key={section.id}><a href={`#${section.id}`} className="text-sm font-semibold text-[var(--color-text-secondary)] transition hover:text-[var(--color-primary)]">{section.title}</a></li>)}
-                {page.comparisonTable ? <li><a href="#comparison-table" className="text-sm font-semibold text-[var(--color-text-secondary)] transition hover:text-[var(--color-primary)]">Comparison table</a></li> : null}
-                {page.decisionFramework ? <li><a href="#decision-guide" className="text-sm font-semibold text-[var(--color-text-secondary)] transition hover:text-[var(--color-primary)]">Decision guide</a></li> : null}
-                <li><a href="#questions" className="text-sm font-semibold text-[var(--color-text-secondary)] transition hover:text-[var(--color-primary)]">Common questions</a></li>
-              </ol>
-            </nav>
-          </Card>
-        </div>
-      </section>
+      <DetailSectionNav
+        items={[
+          { id: "quick-answer", label: "Quick answer" },
+          ...page.sections.map((section) => ({ id: section.id, label: section.title })),
+          ...(page.comparisonTable ? [{ id: "comparison-table", label: "Comparison table" }] : []),
+          ...(page.decisionFramework ? [{ id: "decision-guide", label: "Decision guide" }] : []),
+          { id: "questions", label: "Questions" },
+          ...((paths.length || careers.length || ways.length) ? [{ id: "continue-atlas", label: "Next actions" }] : []),
+          { id: "sources-next", label: "Sources" },
+        ] satisfies DetailSectionNavItem[]}
+        label={`${page.shortTitle} sections`}
+      />
 
       <section id="quick-answer" className={`${sectionClass} scroll-mt-28`}>
         <Card padding="lg" className="visual-grid-bg border-[var(--color-primary-border)]">
@@ -121,8 +130,8 @@ export function EditorialPageView({ page }: { page: EditorialPage }) {
       <article>
         {page.sections.map((section, index) => (
           <MotionSection as="section" id={section.id} key={section.id} className={`${sectionClass} scroll-mt-28`} distance={18}>
-            <div className="grid gap-6 lg:grid-cols-[minmax(270px,320px)_minmax(0,760px)] lg:gap-12 lg:justify-between">
-              <div><span className="font-mono text-xs font-black text-[var(--color-primary)]">{String(index + 1).padStart(2, "0")}</span><h2 className="mt-2 max-w-[19ch] text-balance text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-[1.75rem] sm:leading-tight">{section.title}</h2></div>
+            <div className="detail-editorial-section grid gap-6 lg:grid-cols-[minmax(260px,0.38fr)_minmax(0,760px)] lg:justify-between">
+              <div><span className="font-mono text-xs font-black text-[var(--color-primary)]">{String(index + 1).padStart(2, "0")}</span><h2 className="mt-2 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-3xl">{section.title}</h2></div>
               <div>
                 <div className="space-y-5">{section.paragraphs.map((paragraph) => <p key={paragraph} className="text-base leading-8 text-[var(--color-text-secondary)]">{paragraph}</p>)}</div>
                 {section.bullets?.length ? <ul className="mt-6 grid gap-3 sm:grid-cols-2">{section.bullets.map((item) => <li key={item} className="flex items-start gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 text-sm leading-6 text-[var(--color-text-secondary)]"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-primary)]" aria-hidden />{item}</li>)}</ul> : null}
@@ -172,7 +181,7 @@ export function EditorialPageView({ page }: { page: EditorialPage }) {
       </section>
 
       {(paths.length || careers.length || ways.length) ? (
-        <section className={sectionClass}>
+        <section id="continue-atlas" className={`${sectionClass} scroll-mt-28`}>
           <div className="mb-5"><Badge variant="soft">Continue in the Atlas</Badge><h2 className="mt-3 text-3xl font-black tracking-[-0.035em] text-[var(--color-text-primary)]">Turn the explanation into the next action</h2></div>
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {paths.map((item) => <Link key={item!.slug} href={`/learning-paths/${item!.slug}`} className="block h-full"><Card variant="interactive" padding="lg" className="h-full"><Badge variant="outline">Learning path</Badge><h3 className="mt-4 text-lg font-black text-[var(--color-text-primary)]">{item!.shortTitle}</h3><p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">{item!.summary}</p></Card></Link>)}
@@ -182,7 +191,7 @@ export function EditorialPageView({ page }: { page: EditorialPage }) {
         </section>
       ) : null}
 
-      <section className={sectionClass}>
+      <section id="sources-next" className={`${sectionClass} scroll-mt-28`}>
         <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(300px,0.7fr)]">
           <Card padding="lg" className="border-[var(--color-primary-border)]">
             <div className="flex items-center gap-2 text-[var(--color-primary)]"><Sparkles className="h-5 w-5" aria-hidden /><span className="font-mono text-xs font-bold uppercase tracking-[0.14em]">Next step</span></div>

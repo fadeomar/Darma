@@ -1,7 +1,9 @@
 {
-  "generatedAt": "2026-07-29T18:21:36.743Z",
+  "generatedAt": "2026-08-02T13:34:55.934Z",
   "editorialPages": 16,
   "resourceHubs": 6,
-  "errors": [],
+  "errors": [
+    "src/app/about/page.tsx: missing editorial trust section"
+  ],
   "warnings": []
 }

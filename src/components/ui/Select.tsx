@@ -10,8 +10,8 @@ export type SelectProps = Omit<SelectHTMLAttributes<HTMLSelectElement>, "size"> 
 };
 
 const sizeClass: Record<SelectSize, string> = {
-  sm: "min-h-8 pl-2 pr-8 text-xs",
-  md: "min-h-[38px] pl-3 pr-9 text-sm",
+  sm: "min-h-10 pl-3 pr-9 text-sm",
+  md: "min-h-11 pl-3.5 pr-10 text-sm",
   lg: "min-h-11 pl-4 pr-10 text-base",
 };
 

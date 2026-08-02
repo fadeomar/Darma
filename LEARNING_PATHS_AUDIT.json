@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T18:21:17.935Z",
+  "generatedAt": "2026-08-02T13:34:33.094Z",
   "learningPaths": 6,
   "stages": 36,
   "uniqueResourcesUsed": 26,
@@ -19,6 +19,10 @@
     "Curated resource is not connected to a learning stage: team-topologies-key-concepts",
     "Curated resource is not connected to a learning stage: vue-official-guide",
     "Curated resource is not connected to a learning stage: angular-official-docs",
-    "Curated resource is not connected to a learning stage: flutter-official-docs"
+    "Curated resource is not connected to a learning stage: flutter-official-docs",
+    "Curated resource is not connected to a learning stage: web-platform-baseline-2026",
+    "Curated resource is not connected to a learning stage: wcag-22-standard",
+    "Curated resource is not connected to a learning stage: owasp-top-10-2025",
+    "Curated resource is not connected to a learning stage: core-web-vitals-learning"
   ]
 }

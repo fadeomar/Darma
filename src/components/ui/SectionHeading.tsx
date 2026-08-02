@@ -14,11 +14,11 @@ export default function SectionHeading({
           {eyebrow}
         </p>
       ) : null}
-      <h2 className="mt-2 text-3xl font-black tracking-[-0.035em] text-[var(--color-text-primary)]">
+      <h2 className="mt-2 darma-balanced-heading text-3xl font-black tracking-[-0.035em] text-[var(--color-text-primary)]">
         {title}
       </h2>
       {description ? (
-        <p className="mt-3 text-base leading-7 text-[var(--color-text-secondary)]">
+        <p className="mt-3 darma-pretty-copy text-base leading-7 text-[var(--color-text-secondary)]">
           {description}
         </p>
       ) : null}

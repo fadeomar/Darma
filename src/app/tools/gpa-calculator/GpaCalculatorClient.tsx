@@ -4,7 +4,6 @@ import { useMemo, useState } from "react";
 import JSZip from "jszip";
 import {
   Award,
-  BookOpenCheck,
   CheckCircle2,
   Download,
   FileJson,
@@ -15,13 +14,12 @@ import {
   PackageCheck,
   Plus,
   RotateCcw,
-  ShieldCheck,
   Sparkles,
   Target,
   Trash2,
-  TrendingUp,
 } from "lucide-react";
 import { Button, CopyButton, Input, Select } from "@/components/ui";
+import { ToolMobileActions } from "@/features/tools/components";
 import { downloadText } from "../_shared/clientUtils";
 import {
   analyzeGpa,
@@ -107,25 +105,12 @@ function newCourse(index: number): CourseForm {
   return { id, name: "", grade: "A", credits: "3", included: true };
 }
 
-function SummaryCard({ label, value, hint, icon }: { label: string; value: string; hint: string; icon: React.ReactNode }) {
-  return (
-    <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2.5 shadow-[var(--shadow-xs)]">
-      <div className="flex items-center justify-between gap-2">
-        <span className="truncate font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</span>
-        <span className="text-[var(--color-primary)]">{icon}</span>
-      </div>
-      <div className="mt-1 truncate text-xl font-black tracking-tight text-[var(--color-text-primary)]" title={value}>{value}</div>
-      <div className="mt-0.5 truncate text-[11px] text-[var(--color-text-tertiary)]">{hint}</div>
-    </div>
-  );
-}
-
 function MetricCard({ label, value, hint }: { label: string; value: string; hint?: string }) {
   return (
-    <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
-      <div className="truncate text-[10px] font-bold uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">{label}</div>
-      <div className="mt-1 truncate font-mono text-lg font-black text-[var(--color-text-primary)]" title={value}>{value}</div>
-      {hint ? <div className="mt-0.5 truncate text-[10px] text-[var(--color-text-tertiary)]">{hint}</div> : null}
+    <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
+      <div className="truncate text-[11px] font-bold uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">{label}</div>
+      <div className="mt-1.5 truncate font-mono text-xl font-black text-[var(--color-text-primary)]" title={value}>{value}</div>
+      {hint ? <div className="mt-1 truncate text-xs text-[var(--color-text-tertiary)]">{hint}</div> : null}
     </div>
   );
 }
@@ -133,7 +118,7 @@ function MetricCard({ label, value, hint }: { label: string; value: string; hint
 function Field({ label, hint, children }: { label: string; hint?: string; children: React.ReactNode }) {
   return (
     <label className="block min-w-0">
-      <span className="mb-1 flex items-center justify-between gap-2 text-[11px] font-bold text-[var(--color-text-secondary)]">
+      <span className="mb-1 flex items-center justify-between gap-2 text-xs font-bold text-[var(--color-text-secondary)]">
         <span>{label}</span>
         {hint ? <span className="font-normal text-[var(--color-text-tertiary)]">{hint}</span> : null}
       </span>
@@ -215,35 +200,11 @@ export default function GpaCalculatorClient() {
   ];
 
   return (
-    <div className="space-y-4">
-      <div className="grid grid-cols-2 gap-2 lg:grid-cols-4">
-        <SummaryCard label="Semester GPA" value={formatGpa(analysis.semester.gpa, 3)} hint={gpaStanding(analysis.semester.gpa)} icon={<Award className="h-4 w-4" />} />
-        <SummaryCard label="Projected cumulative" value={formatGpa(analysis.projectedCumulativeGpa, 3)} hint={`${analysis.projectedTotalCredits} total credits`} icon={<TrendingUp className="h-4 w-4" />} />
-        <SummaryCard label="Semester load" value={`${analysis.semester.totalCredits} cr`} hint={`${analysis.semester.countedCourses} counted courses`} icon={<BookOpenCheck className="h-4 w-4" />} />
-        <SummaryCard label="Production review" value={reviewCount ? `${reviewCount} review` : "Ready"} hint={`${checks.length} checks completed`} icon={reviewCount ? <Flag className="h-4 w-4" /> : <ShieldCheck className="h-4 w-4" />} />
-      </div>
+    <div className="space-y-5">
+      <div className="grid items-start gap-5 lg:grid-cols-[minmax(320px,390px)_minmax(0,1fr)]">
+        <aside data-tool-region="controls" className="space-y-4 rounded-[var(--radius-lg)] border border-[var(--color-tool-controls-border)] bg-[var(--color-tool-controls-bg)] p-3 shadow-[var(--shadow-tool-controls)] lg:sticky lg:top-[6.75rem] lg:max-h-[calc(100vh-7.75rem)] lg:overflow-y-auto lg:overscroll-contain">
 
-      <div className="grid items-start gap-4 xl:grid-cols-[430px_minmax(0,1fr)]">
-        <aside className="space-y-4">
-          <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
-            <div className="mb-3 flex items-center justify-between gap-2">
-              <div>
-                <h2 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4 text-[var(--color-primary)]" />Practical presets</h2>
-                <p className="mt-0.5 text-[11px] text-[var(--color-text-tertiary)]">Load a realistic semester and edit any value.</p>
-              </div>
-              <Button size="sm" variant="ghost" onClick={reset} leftIcon={<RotateCcw className="h-3.5 w-3.5" />}>Reset</Button>
-            </div>
-            <div className="grid grid-cols-2 gap-2">
-              {GPA_PRESETS.map((preset) => (
-                <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-2.5 text-left transition hover:border-[var(--color-primary)] hover:bg-[var(--color-control-hover)]">
-                  <span className="block truncate text-xs font-bold text-[var(--color-text-primary)]">{preset.name}</span>
-                  <span className="mt-1 block line-clamp-2 text-[10px] leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
-                </button>
-              ))}
-            </div>
-          </section>
-
-          <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
+          <section className="rounded-[var(--radius-lg)] border border-[var(--color-tool-controls-border)] bg-[var(--color-tool-controls-bg)] p-4">
             <div className="mb-3 flex items-center gap-2"><GraduationCap className="h-4 w-4 text-[var(--color-primary)]" /><div><h2 className="text-sm font-black text-[var(--color-text-primary)]">Current record & target</h2><p className="text-[11px] text-[var(--color-text-tertiary)]">Use zero completed credits for a first semester.</p></div></div>
             <div className="grid grid-cols-3 gap-2">
               <Field label="Current GPA" hint="0–4"><Input type="text" inputMode="decimal" value={contextForm.completedGpa} onChange={(event) => setContextForm((current) => ({ ...current, completedGpa: event.target.value }))} aria-label="Current cumulative GPA" /></Field>
@@ -252,32 +213,52 @@ export default function GpaCalculatorClient() {
             </div>
           </section>
 
-          <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] shadow-[var(--shadow-sm)]">
+          <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-tool-controls-border)] bg-[var(--color-tool-controls-bg)]">
             <div className="flex items-center justify-between gap-2 border-b border-[var(--color-border-subtle)] px-4 py-3">
               <div><h2 className="text-sm font-black text-[var(--color-text-primary)]">Semester courses</h2><p className="text-[11px] text-[var(--color-text-tertiary)]">Use Count/Skip for pass/fail or withdrawn courses.</p></div>
               <Button size="sm" variant="secondary" onClick={addCourse} leftIcon={<Plus className="h-3.5 w-3.5" />}>Add</Button>
             </div>
             <div className="max-h-[430px] overflow-auto p-3">
               <div className="min-w-[390px] space-y-2">
-                <div className="grid grid-cols-[minmax(0,1fr)_72px_60px_58px_32px] gap-2 px-1 text-[9px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]"><span>Course</span><span>Grade</span><span>Credits</span><span>Use</span><span /></div>
+                <div className="grid grid-cols-[minmax(0,1fr)_72px_60px_58px_44px] gap-2 px-1 text-[9px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]"><span>Course</span><span>Grade</span><span>Credits</span><span>Use</span><span /></div>
                 {courseForms.map((course, index) => (
-                  <div key={course.id} className={`grid grid-cols-[minmax(0,1fr)_72px_60px_58px_32px] gap-2 rounded-[var(--radius-sm)] p-1 ${course.included ? "bg-transparent" : "bg-[var(--color-surface-subtle)] opacity-70"}`}>
+                  <div key={course.id} className={`grid grid-cols-[minmax(0,1fr)_72px_60px_58px_44px] gap-2 rounded-[var(--radius-sm)] p-1 ${course.included ? "bg-transparent" : "bg-[var(--color-surface-subtle)] opacity-70"}`}>
                     <Input value={course.name} onChange={(event) => updateCourse(course.id, { name: event.target.value })} placeholder={`Course ${index + 1}`} aria-label={`Course ${index + 1} name`} />
                     <Select value={course.grade} onChange={(event) => updateCourse(course.id, { grade: event.target.value as LetterGrade })} aria-label={`Course ${index + 1} grade`}>{LETTER_GRADES.map((grade) => <option key={grade} value={grade}>{grade}</option>)}</Select>
                     <Input type="text" inputMode="decimal" value={course.credits} onChange={(event) => updateCourse(course.id, { credits: event.target.value })} aria-label={`Course ${index + 1} credits`} />
                     <Button size="sm" variant={course.included ? "primary" : "secondary"} onClick={() => updateCourse(course.id, { included: !course.included })} aria-pressed={course.included}>{course.included ? "Count" : "Skip"}</Button>
-                    <Button size="icon" variant="ghost" onClick={() => removeCourse(course.id)} disabled={courseForms.length <= 1} aria-label={`Remove course ${index + 1}`} leftIcon={<Trash2 className="h-4 w-4" />} />
+                    <Button size="icon" variant="ghost" className="h-11 w-11" onClick={() => removeCourse(course.id)} disabled={courseForms.length <= 1} aria-label={`Remove course ${index + 1}`} leftIcon={<Trash2 className="h-4 w-4" />} />
                   </div>
                 ))}
               </div>
             </div>
           </section>
+          <details className="group rounded-[var(--radius-md)] border border-[var(--color-tool-controls-border)] bg-[var(--color-tool-controls-header)]">
+            <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 px-3.5 text-sm font-black text-[var(--color-text-primary)] outline-none hover:bg-[var(--color-control-hover)] focus-visible:shadow-[var(--focus-ring)] [&::-webkit-details-marker]:hidden">
+              <span className="flex items-center gap-2"><Sparkles className="h-4 w-4 text-[var(--color-primary)]" />Practical presets</span>
+              <span className="text-xs font-semibold text-[var(--color-text-secondary)]">Load sample data</span>
+            </summary>
+            <div className="border-t border-[var(--color-tool-controls-border)] p-3">
+              <div className="mb-3 flex items-center justify-between gap-2">
+                <p className="text-xs text-[var(--color-text-secondary)]">Load a realistic semester and edit any value.</p>
+                <Button size="sm" variant="ghost" onClick={reset} leftIcon={<RotateCcw className="h-3.5 w-3.5" />}>Reset</Button>
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+              {GPA_PRESETS.map((preset) => (
+                <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="min-h-24 min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3 text-left transition hover:border-[var(--color-primary)] hover:bg-[var(--color-control-hover)]">
+                  <span className="block truncate text-xs font-bold text-[var(--color-text-primary)]">{preset.name}</span>
+                  <span className="mt-1 block line-clamp-2 text-[10px] leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
+                </button>
+              ))}
+              </div>
+            </div>
+          </details>
         </aside>
 
-        <main className="min-w-0 overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-4 py-3">
-            <div><h2 className="text-sm font-black text-[var(--color-text-primary)]">GPA analysis</h2><p className="text-[11px] text-[var(--color-text-tertiary)]">Semester, cumulative, contribution, and target planning.</p></div>
-            <div className="flex flex-wrap gap-1 rounded-[var(--radius-md)] bg-[var(--color-surface-subtle)] p-1">
+        <main id="gpa-result" data-tool-region="result" className="min-w-0 scroll-mt-28 overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-tool-result-border)] bg-[var(--color-tool-result-bg)] shadow-[var(--shadow-tool-result)]">
+          <div className="flex flex-col gap-3 border-b border-[var(--color-tool-result-border)] bg-[var(--color-tool-result-header)] px-4 py-3.5 sm:flex-row sm:items-center sm:justify-between">
+            <div><div className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Live result</div><h2 className="mt-1 text-lg font-black text-[var(--color-text-primary)]">Your GPA analysis</h2><p className="mt-1 text-[13px] text-[var(--color-text-secondary)]">Edit courses on the left. Semester, cumulative, and target results update immediately.</p></div>
+            <div className="flex max-w-full flex-nowrap gap-1 overflow-x-auto rounded-[var(--radius-md)] border border-[var(--color-tool-result-border)] bg-[var(--color-surface-raised)] p-1">
               {tabs.map((tab) => <button key={tab.id} type="button" onClick={() => setActiveTab(tab.id)} className={`rounded-[var(--radius-sm)] px-2.5 py-1.5 text-[11px] font-bold transition ${activeTab === tab.id ? "bg-[var(--color-surface-base)] text-[var(--color-primary)] shadow-[var(--shadow-xs)]" : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}>{tab.label}</button>)}
             </div>
           </div>
@@ -285,9 +266,9 @@ export default function GpaCalculatorClient() {
           {activeTab === "overview" ? (
             <div className="space-y-4 p-4">
               <div className="grid gap-3 md:grid-cols-[minmax(0,1.2fr)_minmax(250px,0.8fr)]">
-                <section className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-5">
+                <section className="rounded-[var(--radius-md)] border border-[var(--color-tool-result-border)] bg-[var(--color-surface-raised)] p-5 shadow-[var(--shadow-sm)]">
                   <div className="flex flex-wrap items-end justify-between gap-4">
-                    <div><div className="text-[10px] font-bold uppercase tracking-[0.09em] text-[var(--color-text-tertiary)]">Semester GPA</div><div className="mt-1 text-6xl font-black tracking-[-0.05em] text-[var(--color-text-primary)]">{formatGpa(analysis.semester.gpa, 3)}</div><div className="mt-1 text-xs font-bold text-[var(--color-primary)]">{gpaStanding(analysis.semester.gpa)} · common 4.0 scale</div></div>
+                    <div><div className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Semester GPA</div><div className="mt-1 text-6xl font-black tracking-[-0.05em] text-[var(--color-text-primary)]">{formatGpa(analysis.semester.gpa, 3)}</div><div className="mt-1 text-xs font-bold text-[var(--color-primary)]">{gpaStanding(analysis.semester.gpa)} · common 4.0 scale</div></div>
                     <div className="grid grid-cols-2 gap-2"><MetricCard label="Projected cumulative" value={formatGpa(analysis.projectedCumulativeGpa, 3)} hint={`${analysis.projectedTotalCredits} credits`} /><MetricCard label="Quality points" value={analysis.semester.qualityPoints.toFixed(2)} hint={`${analysis.semester.totalCredits} term credits`} /></div>
                   </div>
                 </section>
@@ -351,6 +332,11 @@ export default function GpaCalculatorClient() {
           ) : null}
         </main>
       </div>
+
+      <ToolMobileActions>
+        <a href="#gpa-result" className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-sm)] bg-[var(--color-primary)] px-4 text-sm font-bold text-[var(--color-primary-text)] shadow-[var(--shadow-xs)]">View result</a>
+        <Button variant="secondary" onClick={reset} leftIcon={<RotateCcw className="h-4 w-4" />}>Reset</Button>
+      </ToolMobileActions>
     </div>
   );
 }

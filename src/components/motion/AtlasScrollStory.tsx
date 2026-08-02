@@ -8,7 +8,7 @@ const STEPS = [
   {
     icon: Compass,
     label: "Start with a real question",
-    text: "Describe the task, decision, role, or skill you need. You do not need to know the perfect technical category first.",
+    text: "Describe the task, decision, role, or skill you need. You do not have to know the correct technical category first.",
   },
   {
     icon: Library,
@@ -18,12 +18,12 @@ const STEPS = [
   {
     icon: Route,
     label: "Choose a practical route",
-    text: "Connect the reference to a learning path, career guide, team flow, or tool that turns information into a useful next step.",
+    text: "Connect the answer to a learning path, career guide, team workflow, or tool that helps you take the next step.",
   },
   {
     icon: Sparkles,
     label: "Build evidence and improve",
-    text: "Complete a project, test the choice, review the outcome, and use what you learned to ask a better question next time.",
+    text: "Try the route in real work, review the outcome, and return with a better question when the evidence changes.",
   },
 ];
 
@@ -46,26 +46,17 @@ export function AtlasScrollStory() {
         const progress = root.querySelector<HTMLElement>("[data-story-progress]");
 
         const activate = (index: number) => {
-          nodes.forEach((node, nodeIndex) => {
-            node.dataset.active = nodeIndex === index ? "true" : "false";
-          });
-          steps.forEach((step, stepIndex) => {
-            step.dataset.active = stepIndex === index ? "true" : "false";
-          });
-
-          gsap.to(nodes, { opacity: 0.34, scale: 0.94, duration: 0.2, overwrite: true });
-          gsap.to(nodes[index], { opacity: 1, scale: 1.06, duration: 0.35, ease: "back.out(1.5)", overwrite: true });
+          gsap.to(nodes, { opacity: 0.3, scale: 0.94, duration: 0.2, overwrite: true });
+          gsap.to(nodes[index], { opacity: 1, scale: 1.08, duration: 0.35, ease: "back.out(1.6)", overwrite: true });
           gsap.to(progress, {
             scaleY: (index + 1) / steps.length,
             duration: 0.35,
             transformOrigin: "top",
-            ease: "power2.out",
             overwrite: true,
           });
         };
 
         activate(0);
-
         steps.forEach((step, index) => {
           ScrollTrigger.create({
             trigger: step,
@@ -88,29 +79,26 @@ export function AtlasScrollStory() {
 
   return (
     <div ref={rootRef} className="atlas-scroll-story">
-      <div data-story-visual className="atlas-story-visual" aria-hidden>
-        <div className="atlas-story-visual-copy">
-          <span className="atlas-story-visual-kicker">Darma method</span>
-          <strong>One question. Four useful steps.</strong>
-        </div>
-        <div className="atlas-story-orbit">
-          <span className="atlas-story-progress-track">
-            <span data-story-progress className="atlas-story-progress" />
-          </span>
-          {STEPS.map((step, index) => {
-            const Icon = step.icon;
-            return (
-              <span
-                key={step.label}
-                data-story-node
-                data-active={index === 0 ? "true" : "false"}
-                className={`atlas-story-node atlas-story-node-${index + 1}`}
-              >
-                <Icon className="h-5 w-5" />
-              </span>
-            );
-          })}
-          <span className="atlas-story-center">D</span>
+      <div className="atlas-story-visual-wrap" aria-hidden>
+        <div data-story-visual className="atlas-story-visual">
+          <div className="atlas-story-orbit">
+            <span className="atlas-story-progress-track">
+              <span data-story-progress className="atlas-story-progress" />
+            </span>
+            {STEPS.map((step, index) => {
+              const Icon = step.icon;
+              return (
+                <span
+                  key={step.label}
+                  data-story-node
+                  className={`atlas-story-node atlas-story-node-${index + 1}`}
+                >
+                  <Icon className="h-6 w-6" />
+                </span>
+              );
+            })}
+            <span className="atlas-story-center">D</span>
+          </div>
         </div>
       </div>
 
@@ -118,17 +106,10 @@ export function AtlasScrollStory() {
         {STEPS.map((step, index) => {
           const Icon = step.icon;
           return (
-            <article
-              key={step.label}
-              data-story-step
-              data-active={index === 0 ? "true" : "false"}
-              className="atlas-story-step"
-            >
+            <article key={step.label} data-story-step className="atlas-story-step">
               <div className="atlas-story-step-header">
                 <span className="atlas-story-step-number">0{index + 1}</span>
-                <div className="atlas-story-step-icon">
-                  <Icon className="h-5 w-5" aria-hidden />
-                </div>
+                <div className="atlas-story-step-icon"><Icon className="h-5 w-5" aria-hidden /></div>
               </div>
               <h3>{step.label}</h3>
               <p>{step.text}</p>

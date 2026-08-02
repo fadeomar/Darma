@@ -196,9 +196,9 @@ export default function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
+        <nav className="hidden items-center gap-1 xl:flex" aria-label="Primary navigation">
           {PRIMARY_NAV.slice(0, 3).map((item) => (
-            <Link key={item.href} href={item.href} data-active={isPathActive(pathname, item.href)} className="darma-nav-link rounded-full px-3.5 py-2.5 text-sm font-bold text-[var(--color-text-secondary)] transition hover:text-[var(--color-text-primary)]">
+            <Link key={item.href} href={item.href} data-active={isPathActive(pathname, item.href)} className="darma-nav-link rounded-full px-4 py-2.5 text-sm font-bold text-[var(--color-text-secondary)] transition hover:text-[var(--color-text-primary)]">
               {item.label}
             </Link>
           ))}
@@ -236,7 +236,7 @@ export default function SiteHeader() {
           </div>
 
           {PRIMARY_NAV.slice(3).map((item) => (
-            <Link key={item.href} href={item.href} data-active={isPathActive(pathname, item.href)} className="darma-nav-link rounded-full px-3.5 py-2.5 text-sm font-bold text-[var(--color-text-secondary)] transition hover:text-[var(--color-text-primary)]">
+            <Link key={item.href} href={item.href} data-active={isPathActive(pathname, item.href)} className="darma-nav-link rounded-full px-4 py-2.5 text-sm font-bold text-[var(--color-text-secondary)] transition hover:text-[var(--color-text-primary)]">
               {item.label}
             </Link>
           ))}
@@ -245,7 +245,7 @@ export default function SiteHeader() {
         <div className="flex shrink-0 items-center gap-2">
           <GlobalSearchButton compact showShortcut className="inline-flex" />
           <ThemeToggle />
-          <button ref={mobileButtonRef} type="button" onClick={() => setMobileOpen(true)} className="grid h-11 w-11 place-items-center rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] text-[var(--color-text-primary)] lg:hidden" aria-label="Open navigation menu" aria-expanded={mobileOpen}>
+          <button ref={mobileButtonRef} type="button" onClick={() => setMobileOpen(true)} className="grid h-11 w-11 place-items-center rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] text-[var(--color-text-primary)] xl:hidden" aria-label="Open navigation menu" aria-expanded={mobileOpen}>
             <Menu className="h-5 w-5" aria-hidden />
           </button>
         </div>

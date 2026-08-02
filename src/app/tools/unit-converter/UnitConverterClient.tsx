@@ -24,6 +24,7 @@ import { useMemo, useState, type ChangeEvent, type ReactNode } from "react";
 import { Button, CopyButton, Input, Select, Textarea } from "@/components/ui";
 import { downloadBlobFile } from "@/features/tools/export/downloadBlob";
 import { downloadTextFile } from "@/features/tools/export/downloadText";
+import { ToolMobileActions } from "@/features/tools/components/ToolMobileActions";
 import {
   CATEGORIES,
   DEFAULT_FORMAT,
@@ -221,16 +222,9 @@ export default function UnitConverterClient() {
 
   return (
     <div className="space-y-4">
-      <div className="grid grid-cols-2 gap-2 lg:grid-cols-4">
-        <SummaryCard label="Converted value" value={resultText} hint={toUnit ? `${toUnit.name} (${toUnit.symbol})` : "destination unit"} icon={<Calculator className="h-4 w-4" />} />
-        <SummaryCard label="Category" value={category.label} hint={`${category.units.length} supported units`} icon={<Layers3 className="h-4 w-4" />} />
-        <SummaryCard label="Conversion system" value={fromUnit && toUnit ? `${systemLabel(fromUnit.system)} → ${systemLabel(toUnit.system)}` : "—"} hint="measurement standards" icon={<Ruler className="h-4 w-4" />} />
-        <SummaryCard label="Production review" value={outcome.valid ? (reviewCount ? `${reviewCount} review` : "Ready") : "Blocked"} hint={`${checks.length} checks completed`} icon={outcome.valid && !reviewCount ? <ShieldCheck className="h-4 w-4" /> : <ShieldAlert className="h-4 w-4" />} />
-      </div>
-
-      <div className="grid items-start gap-4 xl:grid-cols-[420px_minmax(0,1fr)]">
-        <aside className="space-y-4">
-          <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
+      <div className="grid items-start gap-4 lg:grid-cols-[minmax(320px,380px)_minmax(0,1fr)]">
+        <aside data-tool-region="controls" className="order-1 space-y-4 lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto lg:pr-1">
+          <section className="rounded-[var(--radius-lg)] border border-[var(--color-tool-controls-border)] bg-[var(--color-tool-controls-bg)] p-4 shadow-[var(--shadow-tool-controls)]">
             <div className="mb-3 flex items-start justify-between gap-3">
               <div>
                 <h2 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4 text-[var(--color-primary)]" />Practical presets</h2>
@@ -248,7 +242,7 @@ export default function UnitConverterClient() {
             </div>
           </section>
 
-          <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
+          <section className="rounded-[var(--radius-lg)] border border-[var(--color-tool-controls-border)] bg-[var(--color-tool-controls-bg)] p-4 shadow-[var(--shadow-tool-controls)]">
             <div className="mb-3">
               <h2 className="text-sm font-black text-[var(--color-text-primary)]">Conversion controls</h2>
               <p className="mt-0.5 text-[11px] text-[var(--color-text-tertiary)]">Choose a quantity, value, and exact unit standards.</p>
@@ -287,7 +281,7 @@ export default function UnitConverterClient() {
             </div>
           </section>
 
-          <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
+          <section className="rounded-[var(--radius-lg)] border border-[var(--color-tool-controls-border)] bg-[var(--color-tool-controls-bg)] p-4 shadow-[var(--shadow-tool-controls)]">
             <h2 className="text-sm font-black text-[var(--color-text-primary)]">Display precision</h2>
             <div className="mt-3 grid grid-cols-2 gap-3">
               <div>
@@ -310,9 +304,13 @@ export default function UnitConverterClient() {
           </section>
         </aside>
 
-        <main className="min-w-0 overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] shadow-[var(--shadow-sm)]">
-          <div className="border-b border-[var(--color-border-subtle)] p-3">
-            <div className="flex flex-wrap gap-1.5">
+        <main id="unit-result" data-tool-region="result" className="order-2 min-w-0 overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-tool-result-border)] bg-[var(--color-tool-result-bg)] shadow-[var(--shadow-tool-result)]">
+          <div className="border-b border-[var(--color-tool-result-border)] bg-[var(--color-tool-result-header)] p-3">
+            <div className="mb-2 flex items-center justify-between gap-3">
+              <div><div className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-tool-result-accent)]">Live result</div><h2 className="mt-1 text-base font-black text-[var(--color-text-primary)]">Unit conversion workspace</h2></div>
+              <span className="rounded-full border border-[var(--color-tool-result-border)] bg-[var(--color-surface-base)] px-2.5 py-1 text-xs font-bold text-[var(--color-tool-result-accent)]">{outcome.valid ? "Updated" : "Needs input"}</span>
+            </div>
+            <div className="flex gap-1.5 overflow-x-auto pb-1">
               {tabs.map((tab) => (
                 <Button key={tab.id} size="sm" variant={activeTab === tab.id ? "primary" : "secondary"} onClick={() => setActiveTab(tab.id)} leftIcon={tab.icon}>{tab.label}</Button>
               ))}
@@ -322,7 +320,7 @@ export default function UnitConverterClient() {
           <div className="p-4">
             {activeTab === "overview" ? (
               <div className="space-y-4">
-                <section className={`rounded-[var(--radius-lg)] border p-5 ${outcome.valid ? "border-[var(--color-primary)]/30 bg-[var(--color-primary-subtle)]" : "border-[var(--color-danger-border)] bg-[var(--color-danger-bg)]"}`}>
+                <section className={`rounded-[var(--radius-lg)] border p-5 shadow-[var(--shadow-sm)] ${outcome.valid ? "border-[var(--color-tool-result-border)] bg-[var(--color-surface-base)]" : "border-[var(--color-danger-border)] bg-[var(--color-danger-bg)]"}`}>
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div className="min-w-0">
                       <div className="text-[10px] font-bold uppercase tracking-[0.09em] text-[var(--color-text-tertiary)]">Converted value</div>
@@ -454,6 +452,18 @@ export default function UnitConverterClient() {
             ) : null}
           </div>
         </main>
+      </div>
+
+      <ToolMobileActions
+        primary={<a href="#unit-result" className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-primary)] px-4 text-sm font-bold text-[var(--color-text-inverse)]">View result</a>}
+        secondary={<CopyButton text={summary} size="sm" variant="secondary" disabled={!outcome.valid}>Copy</CopyButton>}
+      />
+
+      <div className="grid grid-cols-2 gap-2 lg:grid-cols-4">
+        <SummaryCard label="Converted value" value={resultText} hint={toUnit ? `${toUnit.name} (${toUnit.symbol})` : "destination unit"} icon={<Calculator className="h-4 w-4" />} />
+        <SummaryCard label="Category" value={category.label} hint={`${category.units.length} supported units`} icon={<Layers3 className="h-4 w-4" />} />
+        <SummaryCard label="Conversion system" value={fromUnit && toUnit ? `${systemLabel(fromUnit.system)} → ${systemLabel(toUnit.system)}` : "—"} hint="measurement standards" icon={<Ruler className="h-4 w-4" />} />
+        <SummaryCard label="Production review" value={outcome.valid ? (reviewCount ? `${reviewCount} review` : "Ready") : "Blocked"} hint={`${checks.length} checks completed`} icon={outcome.valid && !reviewCount ? <ShieldCheck className="h-4 w-4" /> : <ShieldAlert className="h-4 w-4" />} />
       </div>
     </div>
   );

@@ -16,6 +16,7 @@ import {
 import { Badge, Button, Card, CopyButton, Input, Select, Slider } from "@/components/ui";
 import { WarningPanel, type WarningMessage } from "@/features/tools/components";
 import { downloadBlobFile } from "@/features/tools/export/downloadBlob";
+import { ToolMobileActions } from "@/features/tools/components/ToolMobileActions";
 import { downloadTextFile } from "@/features/tools/export/downloadText";
 import { cn } from "@/lib/cn";
 import {
@@ -288,7 +289,7 @@ function SettingsPanel({
   }
 
   return (
-    <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-5 shadow-[var(--shadow-card)] sm:p-6">
+    <section data-tool-region="controls" className="order-1 rounded-[var(--radius-lg)] border border-[var(--color-tool-controls-border)] bg-[var(--color-tool-controls-bg)] p-5 shadow-[var(--shadow-tool-controls)] sm:p-6 lg:sticky lg:top-[6.75rem] lg:max-h-[calc(100vh-7.75rem)] lg:overflow-y-auto lg:overscroll-contain">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <p className="font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-[var(--color-primary)]">Policy and generator</p>
@@ -618,16 +619,10 @@ export default function PasswordGeneratorClient() {
 
   return (
     <div className="mx-auto max-w-7xl space-y-6 sm:space-y-8">
-      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-        {summary.map((card) => (
-          <SummaryCard key={card.label} {...card} />
-        ))}
-      </div>
-
-      <section className="grid gap-5 lg:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)] lg:items-start">
-        <div className="rounded-[var(--radius-xl)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-md)] sm:p-6">
-          <div className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] shadow-[var(--shadow-card)]">
-            <div className="border-b border-[var(--color-border-subtle)] bg-[linear-gradient(135deg,var(--color-primary-soft),var(--color-accent-soft))] p-5 sm:p-6">
+      <section className="grid gap-5 lg:grid-cols-[minmax(320px,var(--tool-controls-width))_minmax(0,1fr)] lg:items-start">
+        <div id="password-result" data-tool-region="result" className="order-2 rounded-[var(--radius-xl)] border border-[var(--color-tool-result-border)] bg-[var(--color-tool-result-bg)] p-3 shadow-[var(--shadow-tool-result)] sm:p-4">
+          <div className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-tool-result-border)] bg-[var(--color-surface-raised)] shadow-[var(--shadow-sm)]">
+            <div className="border-b border-[var(--color-tool-result-border)] bg-[linear-gradient(135deg,var(--color-tool-result-header),var(--color-accent-soft))] p-5 sm:p-6">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
                   <p className="font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-[var(--color-primary)]">Generated secret</p>
@@ -693,6 +688,17 @@ export default function PasswordGeneratorClient() {
           applyPreset={applyPreset}
         />
       </section>
+
+      <ToolMobileActions>
+        <CopyButton text={value} disabled={!value}>{copyLabel}</CopyButton>
+        <Button variant="secondary" onClick={regenerate} leftIcon={<RefreshCw className="h-4 w-4" aria-hidden />}>Regenerate</Button>
+      </ToolMobileActions>
+
+      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+        {summary.map((card) => (
+          <SummaryCard key={card.label} {...card} />
+        ))}
+      </div>
 
       <section className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_minmax(360px,0.72fr)]">
         <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-5 shadow-[var(--shadow-card)] sm:p-6">

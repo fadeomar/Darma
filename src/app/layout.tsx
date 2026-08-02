@@ -5,6 +5,8 @@ import AnalyticsRouteTracker from "@/components/analytics/AnalyticsRouteTracker"
 import { Suspense } from "react";
 import { cookies } from "next/headers";
 import SiteHeader from "@/components/navigation/SiteHeader";
+import SiteFooter from "@/components/layout/SiteFooter";
+import SiteFooterGate from "@/components/layout/SiteFooterGate";
 import { GlobalSearchProvider } from "@/features/search/components/GlobalSearchOverlay";
 import { getUnifiedSearchEntities } from "@/features/search/lib";
 import { absoluteUrl, getSiteUrl } from "@/features/tools/seo";
@@ -93,9 +95,11 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
       <body className="antialiased">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
         <GlobalSearchProvider entities={searchEntities}>
-          <div className="min-h-screen bg-[var(--color-app-bg)] text-[var(--color-text-primary)]">
+          <a href="#main-content" className="darma-skip-link">Skip to main content</a>
+          <div className="flex min-h-screen flex-col bg-[var(--color-app-bg)] text-[var(--color-text-primary)]">
             <Suspense fallback={null}><SiteHeader /></Suspense>
-            <main><RouteMotion>{children}</RouteMotion></main>
+            <main id="main-content" className="flex-1" tabIndex={-1}><RouteMotion>{children}</RouteMotion></main>
+            <SiteFooterGate><SiteFooter /></SiteFooterGate>
           </div>
         </GlobalSearchProvider>
         <GoogleAnalytics />

@@ -9,7 +9,12 @@
   --color-surface-raised: #ffffff;
   --color-surface-subtle: #f1ede4;
   --color-surface-inset: #ebe6dc;
-  --color-surface-overlay: rgba(255, 253, 248, 0.92);
+  --color-surface-overlay: rgba(255, 253, 248, 0.94);
+  --color-section-warm: #f4ede3;
+  --color-section-mint: #eaf4ef;
+  --color-section-ink: #171a18;
+  --color-text-on-ink: #f7f4ed;
+  --color-text-on-ink-muted: #d7d3ca;
 
   /* === Text === */
   --color-text-primary: #191817;
@@ -70,13 +75,37 @@
   --color-control-bg: #fffdf8;
   --color-control-hover: #f1ede4;
   --color-control-active: rgba(240, 90, 40, 0.11);
-  --color-control-track: rgba(25, 24, 23, 0.06);
+  --color-control-track: rgba(25, 24, 23, 0.08);
+
+  /* === Tool workspaces ===
+     Controls, previews, and results intentionally use different surfaces.
+     This makes the interaction flow readable without relying on headings alone. */
+  --color-tool-workspace-bg: #efe9de;
+  --color-tool-controls-bg: #fffaf1;
+  --color-tool-controls-header: #f6ede0;
+  --color-tool-controls-border: #d7c8b3;
+  --color-tool-input-bg: #fffdf8;
+  --color-tool-input-header: #f3eee4;
+  --color-tool-input-border: #d8d0c2;
+  --color-tool-preview-bg: #f2faf6;
+  --color-tool-preview-header: #e5f2ec;
+  --color-tool-preview-border: #b7d2c6;
+  --color-tool-result-bg: #fff8e9;
+  --color-tool-result-header: #f9e8c8;
+  --color-tool-result-border: #d8b87b;
+  --color-tool-result-accent: #9e3711;
+  --color-tool-output-bg: #f5f7f3;
+  --color-tool-output-header: #e8eee8;
+  --color-tool-output-border: #bdcabf;
+  --shadow-tool-controls: 0 10px 26px rgba(57, 43, 26, 0.07);
+  --shadow-tool-preview: 0 16px 38px rgba(24, 76, 62, 0.10);
+  --shadow-tool-result: 0 18px 42px rgba(112, 72, 18, 0.12);
 
   /* === Preview === */
-  --color-preview-bg: #fffdf8;
-  --color-preview-bg-strong: #f1ede4;
-  --color-preview-grid: rgba(25, 24, 23, 0.055);
-  --color-preview-border: #ded8ca;
+  --color-preview-bg: var(--color-tool-preview-bg);
+  --color-preview-bg-strong: #e5f2ec;
+  --color-preview-grid: rgba(21, 77, 62, 0.07);
+  --color-preview-border: var(--color-tool-preview-border);
 
   /* === Code === */
   --color-code-bg: #141716;
@@ -130,15 +159,17 @@
   --shadow-md: 0 12px 28px rgba(25, 24, 23, 0.10);
   --shadow-lg: 0 20px 44px rgba(25, 24, 23, 0.13);
   --shadow-soft: var(--shadow-md);
-  --shadow-card: var(--shadow-sm);
+  --shadow-card: 0 1px 2px rgba(25, 24, 23, 0.05), 0 12px 32px rgba(25, 24, 23, 0.035);
   --shadow-interactive: var(--shadow-md);
 
   /* === Layout === */
   --container-page: 1180px;
   --container-wide: 1380px;
-  --tool-preview-min-height: 420px;
-  /* Width of the ToolPage header profile aside when it has content to show. */
-  --tool-profile-width: 360px;
+  --tool-preview-min-height: 320px;
+  --tool-controls-width: 380px;
+  --tool-result-width: 440px;
+  /* Width of the compact ToolPage details panel when it is expanded. */
+  --tool-profile-width: 340px;
 
   /* === Motion === */
   --duration-fast: 150ms;

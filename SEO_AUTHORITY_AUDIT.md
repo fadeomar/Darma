@@ -1,14 +1,14 @@
 # SEO Authority Audit
 
-Generated: 2026-07-29T18:21:36.743Z
+Generated: 2026-08-02T13:34:55.934Z
 
 - Editorial pages: **16**
 - Resource hubs: **6**
-- Errors: **0**
+- Errors: **1**
 - Warnings: **0**
 
 ## Errors
-- None
+- src/app/about/page.tsx: missing editorial trust section
 
 ## Warnings
 - None

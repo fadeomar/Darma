@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, BookOpenText, BriefcaseBusiness, Compass, GitBranch, HeartHandshake, Library, Network, Route, Search } from "lucide-react";
-import { AtlasHeroScene, MotionSection, SplitTextReveal } from "@/components/motion";
+import { MotionSection } from "@/components/motion";
+import { PortalHero } from "@/components/portals";
 import { Badge, Card } from "@/components/ui";
+import { AtlasSectionArtwork } from "@/components/visuals";
 import { getLearningPaths } from "@/features/learning-paths";
 import { getResourceCatalog } from "@/features/resources";
 import { getGlossaryTerms } from "@/features/tech-glossary";
@@ -13,7 +15,7 @@ import { getWaysOfWorking } from "@/features/ways-of-working";
 import { getEditorialPagesByKind } from "@/features/editorial";
 
 export const metadata: Metadata = {
-  title: "Darma Tech Atlas — resources, learning paths, careers, teams, and workflows",
+  title: "Darma Tech Atlas | resources, learning paths, careers, teams, and workflows",
   description: "A free open-source technology reference connecting trusted resources, practical learning paths, career roles, ways of working, team structures, and technical vocabulary.",
   keywords: ["technology reference", "developer resources", "technology careers", "learning paths", "software methodologies", "technology glossary", "tech team structure"],
   alternates: { canonical: "/tech-atlas" },
@@ -46,22 +48,55 @@ export default function TechAtlasPage() {
   return (
     <div className="pb-20">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }} />
-      <section className="visual-grid-bg border-b border-[var(--color-border-subtle)]">
-        <div className="mx-auto grid max-w-[var(--container-wide)] gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(400px,.88fr)] lg:items-center lg:px-8 lg:py-20">
-          <div>
-            <div className="flex flex-wrap gap-2"><Badge variant="soft">Open source</Badge><Badge variant="outline">No account required</Badge><Badge variant="outline">Learning and work reference</Badge></div>
-            <SplitTextReveal text="One visual map for learning technology and understanding the industry around it." className="mt-6 text-4xl font-black tracking-[-0.055em] text-[var(--color-text-primary)] sm:text-6xl lg:text-7xl" />
-            <p className="mt-6 max-w-3xl text-base leading-8 text-[var(--color-text-secondary)] sm:text-lg">Darma connects what to learn, where to verify it, which roles use it, how teams organize the work, and what the language means in practice.</p>
-            <div className="mt-8 flex flex-wrap gap-3"><Link href="/resources" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[var(--color-primary)] px-6 text-sm font-black text-[var(--color-primary-text)] shadow-[var(--shadow-md)]"><Search className="h-4 w-4" aria-hidden />Search resources</Link><Link href="/career-pathfinder" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] px-6 text-sm font-black text-[var(--color-primary)]"><Compass className="h-4 w-4" aria-hidden />Find a career direction</Link></div>
-          </div>
-          <AtlasHeroScene src="/atlas/knowledge-constellation.svg" alt="A constellation diagram connecting learning, verified sources, tools, roles, teams, and delivery" priority labels={[`${resources.length} references`, `${careers.length} careers`, `${ways.length} working methods`, `${terms.length} terms`]} />
-        </div>
-      </section>
+      <PortalHero
+        variant="atlas"
+        eyebrow="The connected Darma Tech Atlas"
+        badges={["Open source", "No account required", "Learning and work reference"]}
+        title="Understand technology as a connected system, not a collection of isolated pages."
+        description="Darma connects what to learn, where to verify it, which roles use it, how teams organize the work, and what the language means in practice."
+        actions={[
+          { href: "/resources", label: "Search trusted resources", icon: "search", tone: "primary" },
+          { href: "/career-pathfinder", label: "Find a career direction", icon: "atlas", tone: "secondary" },
+          { href: "/learning-paths", label: "Choose a learning route", icon: "route", tone: "quiet" },
+        ]}
+        metrics={[
+          { value: resources.length, label: "reviewed references" },
+          { value: careers.length, label: "career guides" },
+          { value: ways.length, label: "working methods" },
+          { value: terms.length, label: "connected terms" },
+        ]}
+        signals={[
+          { label: "Learn", value: `${paths.length} structured paths` },
+          { label: "Decide", value: `${comparisons.length} comparisons` },
+          { label: "Work", value: `${teams.length} team models` },
+          { label: "Read", value: `${guides.length} practical guides` },
+        ]}
+      />
 
       <section className="mx-auto max-w-[var(--container-wide)] px-4 py-12 sm:px-6 lg:px-8">
         <div className="mb-7 max-w-3xl"><p className="font-mono text-[10px] font-black uppercase tracking-[0.18em] text-[var(--color-primary)]">Explore the map</p><h2 className="mt-2 text-3xl font-black tracking-[-0.045em] text-[var(--color-text-primary)] sm:text-4xl">Choose the doorway that matches your question.</h2><p className="mt-3 text-base leading-8 text-[var(--color-text-secondary)]">The sections stay connected. A resource can lead to a path, a path to a role, a role to a team, and a team to the method and language it uses.</p></div>
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {sections.map((section, index) => { const Icon = section.icon; return <MotionSection key={section.href} delay={(index % 3) * .05} distance={22}><Card variant="interactive" padding="lg" className="visual-card flex h-full flex-col"><div className="flex items-start justify-between gap-4"><span className="atlas-symbol"><Icon className="h-6 w-6" aria-hidden /></span><span className="text-3xl font-black text-[var(--color-primary)] opacity-50" aria-hidden>{section.accent}</span></div><p className="mt-5 font-mono text-[10px] font-black uppercase tracking-[0.14em] text-[var(--color-primary)]">{section.eyebrow}</p><h2 className="mt-2 text-2xl font-black tracking-[-0.035em] text-[var(--color-text-primary)]">{section.title}</h2><p className="mt-3 flex-1 text-sm leading-7 text-[var(--color-text-secondary)]">{section.text}</p><Link href={section.href} className="mt-6 inline-flex items-center gap-2 text-sm font-black text-[var(--color-primary)] transition hover:gap-3">{section.cta}<ArrowRight className="h-4 w-4" aria-hidden /></Link></Card></MotionSection>; })}
+          {sections.map((section, index) => {
+            const Icon = section.icon;
+            return (
+              <MotionSection key={section.href} delay={(index % 3) * .05} distance={22}>
+                <Link href={section.href} className="group block h-full rounded-[var(--radius-lg)] focus:outline-none focus:shadow-[var(--focus-ring)]">
+                  <Card variant="interactive" padding="none" className="visual-card flex h-full overflow-hidden flex-col">
+                    <AtlasSectionArtwork icon={Icon} index={index} label={section.title} />
+                    <div className="flex flex-1 flex-col p-6 sm:p-7">
+                      <div className="flex items-start justify-between gap-4">
+                        <p className="font-mono text-[10px] font-black uppercase tracking-[0.14em] text-[var(--color-primary)]">{section.eyebrow}</p>
+                        <span className="text-2xl font-black text-[var(--color-primary)] opacity-55" aria-hidden>{section.accent}</span>
+                      </div>
+                      <h2 className="mt-3 text-2xl font-black tracking-[-0.035em] text-[var(--color-text-primary)] transition group-hover:text-[var(--color-primary)]">{section.title}</h2>
+                      <p className="mt-3 flex-1 text-sm leading-7 text-[var(--color-text-secondary)]">{section.text}</p>
+                      <span className="mt-6 inline-flex items-center gap-2 text-sm font-black text-[var(--color-primary)]">{section.cta}<ArrowRight className="darma-link-arrow h-[18px] w-[18px]" aria-hidden /></span>
+                    </div>
+                  </Card>
+                </Link>
+              </MotionSection>
+            );
+          })}
         </div>
       </section>
 

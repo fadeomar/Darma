@@ -1,6 +1,16 @@
 import { type ReactNode } from "react";
 import { ActionBar, PreviewFrame } from "@/components/ui";
+import { ToolMobileActions } from "@/features/tools/components/ToolMobileActions";
 import { cn } from "@/lib/cn";
+
+function RegionLabel({ label, hint }: { label: string; hint: string }) {
+  return (
+    <div className="mb-2 flex flex-wrap items-end justify-between gap-2 px-1">
+      <span className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-secondary)]">{label}</span>
+      <span className="text-xs text-[var(--color-text-tertiary)]">{hint}</span>
+    </div>
+  );
+}
 
 export function ToolLayoutVisualGenerator({
   previewSlot,
@@ -19,36 +29,42 @@ export function ToolLayoutVisualGenerator({
   articleSlot?: ReactNode;
   actionsPlacement?: "after-grid" | "under-preview";
 }) {
-  const actions = actionsSlot ? <ActionBar align="between">{actionsSlot}</ActionBar> : null;
+  const desktopActions = actionsSlot ? <ActionBar className="hidden md:flex" align="between">{actionsSlot}</ActionBar> : null;
+  const mobileActions = actionsSlot ? <ToolMobileActions>{actionsSlot}</ToolMobileActions> : null;
 
   return (
-    <div className="space-y-5 sm:space-y-6">
-      <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_340px] xl:items-start">
-        <div className="min-w-0 space-y-4">
-          <PreviewFrame className="min-h-[360px] sm:min-h-[460px] xl:min-h-[540px]">
-            {previewSlot}
-          </PreviewFrame>
-          {actionsPlacement === "under-preview" ? actions : null}
-          {actionsPlacement === "under-preview" && codeSlot ? (
-            <section className="min-w-0">{codeSlot}</section>
-          ) : null}
-        </div>
+    <div data-tool-layout="visual-generator" className="space-y-5 sm:space-y-6">
+      <div
+        className={cn(
+          "grid gap-5 lg:items-start",
+          controlsSlot && "lg:grid-cols-[minmax(300px,var(--tool-controls-width))_minmax(0,1fr)]",
+        )}
+      >
         {controlsSlot ? (
-          <aside
-            className={cn(
-              "min-w-0",
-              actionsPlacement === "under-preview" && "xl:sticky xl:top-24 xl:max-h-[calc(100vh-7rem)] xl:overflow-y-auto xl:overscroll-contain xl:pr-1",
-            )}
-          >
+          <aside data-tool-region="controls" className="order-1 min-w-0 lg:sticky lg:top-[6.75rem] lg:max-h-[calc(100vh-7.75rem)] lg:overflow-y-auto lg:overscroll-contain lg:pr-1">
+            <RegionLabel label="Controls" hint="Change a setting to update the preview" />
             {controlsSlot}
           </aside>
         ) : null}
+
+        <section data-tool-region="preview" className="order-2 min-w-0 space-y-4">
+          <div>
+            <RegionLabel label="Live preview" hint="The result updates from the current controls" />
+            <PreviewFrame className="min-h-[280px] sm:min-h-[360px] lg:min-h-[460px]">
+              {previewSlot}
+            </PreviewFrame>
+          </div>
+
+          {actionsPlacement === "under-preview" ? desktopActions : null}
+          {actionsPlacement === "under-preview" && codeSlot ? <section className="min-w-0">{codeSlot}</section> : null}
+        </section>
       </div>
 
-      {actionsPlacement === "after-grid" ? actions : null}
+      {actionsPlacement === "after-grid" ? desktopActions : null}
       {actionsPlacement !== "under-preview" && codeSlot ? <section className="min-w-0">{codeSlot}</section> : null}
       {presetsSlot ? <section className="min-w-0">{presetsSlot}</section> : null}
       {articleSlot ? <section className="min-w-0">{articleSlot}</section> : null}
+      {mobileActions}
     </div>
   );
 }

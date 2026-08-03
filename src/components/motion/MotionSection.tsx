@@ -2,7 +2,7 @@
 
 import { useLayoutEffect, useRef, type ReactNode } from "react";
 import { cn } from "@/lib/cn";
-import { loadGsap, reportMotionFailure, restoreInlineStyles, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
+import { armVisibilityFailsafe, loadGsap, reportMotionFailure, restoreInlineStyles, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
 
 /** Restore content if the animation has not taken over by then. */
 const VISIBILITY_FAILSAFE_MS = 1000;
@@ -38,22 +38,14 @@ export function MotionSection({
 
     let cancelled = false;
     let cleanup: (() => void) | undefined;
-    let failsafe: ReturnType<typeof setTimeout> | undefined = setTimeout(() => {
-      failsafe = undefined;
-      if (!cancelled) restoreInlineStyles([element]);
-    }, VISIBILITY_FAILSAFE_MS);
-
-    const clearFailsafe = () => {
-      if (failsafe !== undefined) {
-        clearTimeout(failsafe);
-        failsafe = undefined;
-      }
-    };
+    // Left armed past a successful load on purpose: it also covers a trigger
+    // that never fires, and it only reveals in-viewport content GSAP has not
+    // touched, so scroll reveals below the fold are preserved.
+    const clearFailsafe = armVisibilityFailsafe([element], VISIBILITY_FAILSAFE_MS);
 
     loadGsap()
       .then(({ gsap }) => {
         if (cancelled || !rootRef.current) return;
-        clearFailsafe();
         const context = gsap.context(() => {
           gsap.to(element, {
             opacity: 1,

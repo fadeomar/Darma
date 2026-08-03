@@ -3,6 +3,7 @@ import { resolve } from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import {
+  armVisibilityFailsafe,
   loadGsap,
   reportMotionFailure,
   resetGsapLoaderForTests,
@@ -136,6 +137,67 @@ describe("restoreInlineStyles", () => {
     restoreInlineStyles(elements);
 
     for (const element of elements) expect(element.style.opacity).toBe("");
+  });
+});
+
+describe("armVisibilityFailsafe", () => {
+  const viewportStub = (initial: Record<string, string>, rect: { top: number; bottom: number }) =>
+    ({
+      style: { ...initial },
+      getBoundingClientRect: () => ({ top: rect.top, bottom: rect.bottom }),
+    }) as unknown as HTMLElement;
+
+  beforeEach(() => {
+    vi.useFakeTimers();
+    vi.stubGlobal("window", { innerHeight: 800 });
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+    vi.unstubAllGlobals();
+  });
+
+  it("reveals in-viewport content that no animation claimed", () => {
+    const element = viewportStub({ opacity: "0", transform: "translate3d(0, 28px, 0)" }, { top: 10, bottom: 200 });
+
+    armVisibilityFailsafe([element], 1000);
+    vi.advanceTimersByTime(1000);
+
+    expect(element.style.opacity).toBe("");
+    expect(element.style.transform).toBe("");
+  });
+
+  it("leaves below-fold content hidden so scroll reveals still work", () => {
+    const element = viewportStub({ opacity: "0" }, { top: 1200, bottom: 1500 });
+
+    armVisibilityFailsafe([element], 1000);
+    vi.advanceTimersByTime(1000);
+
+    expect(element.style.opacity).toBe("0");
+  });
+
+  it("does not interrupt an animation already in progress", () => {
+    // GSAP has begun tweening, so inline opacity is no longer exactly "0".
+    const element = viewportStub({ opacity: "0.43" }, { top: 10, bottom: 200 });
+
+    armVisibilityFailsafe([element], 1000);
+    vi.advanceTimersByTime(1000);
+
+    expect(element.style.opacity).toBe("0.43");
+  });
+
+  it("does nothing after it is cancelled on unmount", () => {
+    const element = viewportStub({ opacity: "0" }, { top: 10, bottom: 200 });
+
+    const cancel = armVisibilityFailsafe([element], 1000);
+    cancel();
+    vi.advanceTimersByTime(5000);
+
+    expect(element.style.opacity).toBe("0");
+  });
+
+  it("returns a no-op cancel for an empty target list", () => {
+    expect(() => armVisibilityFailsafe([], 1000)()).not.toThrow();
   });
 });
 

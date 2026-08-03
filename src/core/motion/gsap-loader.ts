@@ -90,3 +90,36 @@ export function restoreInlineStyles(elements: readonly HTMLElement[]) {
     }
   }
 }
+
+/** True when any part of the element is inside the viewport. */
+function isInViewport(element: HTMLElement) {
+  if (typeof window === "undefined") return false;
+  const rect = element.getBoundingClientRect();
+  return rect.bottom > 0 && rect.top < window.innerHeight;
+}
+
+/**
+ * Reveal pre-hidden content that no animation ever claimed.
+ *
+ * Content below the fold is legitimately held at `opacity: 0` until its
+ * ScrollTrigger fires, so only elements already inside the viewport are
+ * restored - those should have animated immediately. An element whose inline
+ * opacity is no longer exactly "0" has been picked up by GSAP, so it is left
+ * alone and a running animation is never interrupted.
+ *
+ * This covers the case a rejection handler cannot: GSAP loads fine but the
+ * trigger never fires (mis-measured layout, no scroll events, a suspended
+ * renderer), which would otherwise leave a hero heading permanently invisible.
+ *
+ * Returns a cancel function; call it on unmount.
+ */
+export function armVisibilityFailsafe(elements: readonly HTMLElement[], delayMs: number) {
+  if (typeof window === "undefined" || elements.length === 0) return () => {};
+
+  const timer = setTimeout(() => {
+    const stranded = elements.filter((element) => element && element.style.opacity === "0" && isInViewport(element));
+    if (stranded.length > 0) restoreInlineStyles(stranded);
+  }, delayMs);
+
+  return () => clearTimeout(timer);
+}

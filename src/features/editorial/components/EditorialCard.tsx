@@ -37,7 +37,13 @@ export function EditorialCard({ page }: { page: EditorialPage }) {
           <p className="darma-pretty-copy mt-3 line-clamp-4 flex-1 text-sm leading-7 text-[var(--color-text-secondary)]">{page.summary}</p>
 
           <div className="mt-5 flex flex-wrap gap-2">
-            {page.secondaryKeywords.slice(0, 2).map((keyword) => <Badge key={keyword} variant="outline">{keyword}</Badge>)}
+            {/* Editorial keywords are full phrases, so they must wrap instead of
+                being clipped by the card at narrow viewports. */}
+            {page.secondaryKeywords.slice(0, 2).map((keyword) => (
+              <Badge key={keyword} variant="outline" className="max-w-full whitespace-normal text-center leading-tight">
+                {keyword}
+              </Badge>
+            ))}
           </div>
 
           <span className="mt-6 inline-flex min-h-10 items-center gap-2 text-sm font-black text-[var(--color-primary)]">

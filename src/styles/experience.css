@@ -1359,6 +1359,16 @@
 }
 
 /* --------------------------------------------------------------------------
+   Narrow viewport containment
+   --------------------------------------------------------------------------
+   Grid and flex items default to `min-width: auto`, so a card refuses to
+   shrink below its content's intrinsic width and pushes the whole page wider
+   than the viewport. MotionSection is the wrapper used for card grid items
+   across the Atlas pages, so allowing it to shrink keeps 320px layouts inside
+   their container without clipping legitimate content. */
+.motion-section { min-width: 0; }
+
+/* --------------------------------------------------------------------------
    Visual discovery phase: illustrated atlas and resource cards
    -------------------------------------------------------------------------- */
 .atlas-card-art {

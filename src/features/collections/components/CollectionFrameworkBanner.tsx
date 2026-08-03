@@ -51,12 +51,14 @@ export function CollectionFrameworkBanner({
           >
             View tools <ArrowRight className="h-4 w-4" aria-hidden />
           </Link>
-          <Link
-            href={collection.primaryAction.href}
-            className="inline-flex min-h-8 items-center justify-center gap-2 rounded-[var(--radius-sm)] border border-transparent bg-[var(--color-primary)] px-3 text-xs font-semibold leading-none text-[var(--color-primary-text)] shadow-[var(--shadow-xs)] transition hover:bg-[var(--color-primary-hover)] focus-visible:shadow-[var(--focus-ring)]"
-          >
-            {collection.primaryAction.label} <Sparkles className="h-4 w-4" aria-hidden />
-          </Link>
+          {collection.primaryAction ? (
+            <Link
+              href={collection.primaryAction.href}
+              className="inline-flex min-h-8 items-center justify-center gap-2 rounded-[var(--radius-sm)] border border-transparent bg-[var(--color-primary)] px-3 text-xs font-semibold leading-none text-[var(--color-primary-text)] shadow-[var(--shadow-xs)] transition hover:bg-[var(--color-primary-hover)] focus-visible:shadow-[var(--focus-ring)]"
+            >
+              {collection.primaryAction.label} <Sparkles className="h-4 w-4" aria-hidden />
+            </Link>
+          ) : null}
         </div>
       </div>
 

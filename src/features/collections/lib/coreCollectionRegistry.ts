@@ -1,11 +1,24 @@
 import { createCoreRegistryIndex, type CoreEntity, type CoreRegistry } from "@/core";
+import type { CollectionDefinition } from "../domain/collection";
 import { COLLECTIONS } from "../registry/collectionRegistry";
+
+/**
+ * A CoreEntity always carries a required `href`, so every entity produced here is
+ * treated as navigable by rails, browsers, and unified search.
+ *
+ * Planned collections point at routes that do not exist yet, so they are excluded
+ * at the mapping boundary rather than filtered by each consumer. This keeps a new
+ * planned collection from silently becoming a dead link the moment it is added.
+ */
+export const isNavigableCollection = (collection: CollectionDefinition) => collection.status === "live";
+
+export const navigableCollections = COLLECTIONS.filter(isNavigableCollection);
 
 export const collectionCoreRegistry: CoreRegistry<CoreEntity> = {
   id: "collections",
   title: "Darma Collections",
   description: "Shared registry entries for Darma top-level collections.",
-  items: COLLECTIONS.map((collection) => ({
+  items: navigableCollections.map((collection) => ({
     id: collection.id,
     slug: collection.id,
     kind: "collection",

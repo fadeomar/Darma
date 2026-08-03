@@ -14,8 +14,8 @@ export const metadata: Metadata = {
 export default function CollectionsPage() {
   const liveCollections = getLiveCollections();
   const plannedCollections = getPlannedCollections();
+  // Already navigable-only: the collection core registry excludes planned entries.
   const coreCollections = getCollectionCoreEntities();
-  const liveCoreCollections = coreCollections.filter((collection) => collection.status === "live");
 
   return (
     <main className="mx-auto max-w-[var(--container-wide)] px-4 py-8 sm:px-6 lg:px-8">
@@ -30,7 +30,7 @@ export default function CollectionsPage() {
             One discovery system for every Darma collection.
           </h1>
           <p className="mt-4 text-base leading-7 text-[var(--color-text-secondary)] sm:text-lg">
-            Collections are the shared foundation behind Darma sections like Tools and Games, and the future home for Templates, AI, Components, Resources, and Learning.
+            Collections are the shared foundation behind live Darma sections like Tools, Games, Resources, and Learning Paths, and the future home for Templates, Components, and AI.
           </p>
         </div>
       </section>
@@ -112,7 +112,7 @@ export default function CollectionsPage() {
             <CoreDiscoveryRail
               title="Live core entries"
               description="The same rail component can later power Tools, Games, Templates, Components, AI, and Resources."
-              entities={liveCoreCollections}
+              entities={coreCollections}
               href="/collections"
               compactCards
             />

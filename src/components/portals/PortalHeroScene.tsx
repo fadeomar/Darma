@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useLayoutEffect, useRef } from "react";
-import { loadGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
+import { withGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
 import { cn } from "@/lib/cn";
 
 export type PortalVariant =
@@ -419,7 +419,7 @@ export function PortalHeroScene({ variant, metrics, className }: PortalHeroScene
     let cleanup: (() => void) | undefined;
     let removePointerListeners: (() => void) | undefined;
 
-    loadGsap().then(({ gsap }) => {
+    withGsap(({ gsap }) => {
       if (cancelled || !rootRef.current) return;
       const context = gsap.context(() => {
         const scene = root.querySelector<SVGGElement>("[data-portal-scene]");

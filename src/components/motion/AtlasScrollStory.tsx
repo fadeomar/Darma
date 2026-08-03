@@ -2,7 +2,7 @@
 
 import { useLayoutEffect, useRef } from "react";
 import { Compass, Library, Route, Sparkles } from "lucide-react";
-import { loadGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
+import { withGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
 
 const STEPS = [
   {
@@ -37,7 +37,7 @@ export function AtlasScrollStory() {
     let cancelled = false;
     let cleanup: (() => void) | undefined;
 
-    loadGsap().then(({ gsap, ScrollTrigger }) => {
+    withGsap(({ gsap, ScrollTrigger }) => {
       if (cancelled || !rootRef.current) return;
 
       const context = gsap.context(() => {

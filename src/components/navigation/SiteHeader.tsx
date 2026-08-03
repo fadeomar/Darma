@@ -23,7 +23,7 @@ import {
 } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
 import { GlobalSearchButton } from "@/features/search/components/GlobalSearchOverlay";
-import { loadGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
+import { withGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
 
 const PRIMARY_NAV = [
   { href: "/explore", label: "Explore" },
@@ -148,7 +148,7 @@ export default function SiteHeader() {
 
     let cancelled = false;
     let cleanup: (() => void) | undefined;
-    loadGsap().then(({ gsap }) => {
+    withGsap(({ gsap }) => {
       if (cancelled || !mobileRef.current) return;
       const context = gsap.context(() => {
         gsap.fromTo("[data-mobile-backdrop]", { opacity: 0 }, { opacity: 1, duration: 0.28, ease: "power2.out" });
@@ -169,7 +169,7 @@ export default function SiteHeader() {
     if (!atlasOpen || !root || userPrefersReducedMotion()) return;
     let cancelled = false;
     let cleanup: (() => void) | undefined;
-    loadGsap().then(({ gsap }) => {
+    withGsap(({ gsap }) => {
       if (cancelled || !atlasRef.current) return;
       const context = gsap.context(() => {
         gsap.fromTo("[data-mega-menu]", { y: -10, opacity: 0, scale: 0.98 }, { y: 0, opacity: 1, scale: 1, duration: 0.34, ease: "power3.out" });

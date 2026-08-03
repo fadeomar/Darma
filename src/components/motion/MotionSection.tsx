@@ -2,7 +2,10 @@
 
 import { useLayoutEffect, useRef, type ReactNode } from "react";
 import { cn } from "@/lib/cn";
-import { loadGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
+import { loadGsap, reportMotionFailure, restoreInlineStyles, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
+
+/** Restore content if the animation has not taken over by then. */
+const VISIBILITY_FAILSAFE_MS = 1000;
 
 type MotionSectionProps = {
   children: ReactNode;
@@ -35,29 +38,48 @@ export function MotionSection({
 
     let cancelled = false;
     let cleanup: (() => void) | undefined;
+    let failsafe: ReturnType<typeof setTimeout> | undefined = setTimeout(() => {
+      failsafe = undefined;
+      if (!cancelled) restoreInlineStyles([element]);
+    }, VISIBILITY_FAILSAFE_MS);
 
-    loadGsap().then(({ gsap }) => {
-      if (cancelled || !rootRef.current) return;
-      const context = gsap.context(() => {
-        gsap.to(element, {
-          opacity: 1,
-          y: 0,
-          duration: 0.72,
-          delay,
-          ease: "power3.out",
-          clearProps: "transform,opacity",
-          scrollTrigger: {
-            trigger: element,
-            start: "top 88%",
-            once,
-          },
-        });
-      }, element);
-      cleanup = () => context.revert();
-    });
+    const clearFailsafe = () => {
+      if (failsafe !== undefined) {
+        clearTimeout(failsafe);
+        failsafe = undefined;
+      }
+    };
+
+    loadGsap()
+      .then(({ gsap }) => {
+        if (cancelled || !rootRef.current) return;
+        clearFailsafe();
+        const context = gsap.context(() => {
+          gsap.to(element, {
+            opacity: 1,
+            y: 0,
+            duration: 0.72,
+            delay,
+            ease: "power3.out",
+            clearProps: "transform,opacity",
+            scrollTrigger: {
+              trigger: element,
+              start: "top 88%",
+              once,
+            },
+          });
+        }, element);
+        cleanup = () => context.revert();
+      })
+      .catch((error: unknown) => {
+        clearFailsafe();
+        if (!cancelled) restoreInlineStyles([element]);
+        reportMotionFailure(error);
+      });
 
     return () => {
       cancelled = true;
+      clearFailsafe();
       cleanup?.();
     };
   }, [delay, distance, once]);

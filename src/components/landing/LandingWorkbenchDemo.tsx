@@ -2,7 +2,7 @@
 
 import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import { BarChart3, Braces, Check, Gamepad2, GraduationCap, SlidersHorizontal, Sparkles } from "lucide-react";
-import { loadGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
+import { withGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
 
 type DemoMode = "build" | "analyze" | "learn" | "play";
 
@@ -62,7 +62,7 @@ export function LandingWorkbenchDemo() {
     let cancelled = false;
     let cleanup: (() => void) | undefined;
 
-    loadGsap().then(({ gsap }) => {
+    withGsap(({ gsap }) => {
       if (cancelled || !rootRef.current) return;
       const context = gsap.context(() => {
         const stage = root.querySelector<HTMLElement>("[data-workbench-stage]");

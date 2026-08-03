@@ -2,7 +2,7 @@
 
 import { useLayoutEffect, useRef } from "react";
 import { Braces, Gamepad2, GitCompareArrows, Route, Sparkles, Wrench } from "lucide-react";
-import { loadGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
+import { withGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
 import { cn } from "@/lib/cn";
 
 type DarmaHeroExperienceProps = {
@@ -28,7 +28,7 @@ export function DarmaHeroExperience({ metrics, className }: DarmaHeroExperienceP
     let cleanup: (() => void) | undefined;
     let removePointerListeners: (() => void) | undefined;
 
-    loadGsap().then(({ gsap }) => {
+    withGsap(({ gsap }) => {
       if (cancelled || !rootRef.current) return;
 
       const context = gsap.context(() => {

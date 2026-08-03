@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useLayoutEffect, useRef, useState } from "react";
 import { ArrowRight, CheckCircle2, FileCode2, PackageCheck, ScanSearch } from "lucide-react";
 import { DarmaSymbol, type DarmaSymbolName } from "@/components/visuals";
-import { loadGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
+import { withGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
 
 export type ProofWorkflow = {
   id: string;
@@ -76,7 +76,7 @@ export function LandingProofWorkflow() {
 
     let cancelled = false;
     let cleanup: (() => void) | undefined;
-    loadGsap().then(({ gsap }) => {
+    withGsap(({ gsap }) => {
       if (cancelled || !rootRef.current) return;
       const context = gsap.context(() => {
         const shell = root.querySelector<HTMLElement>("[data-proof-workflow]");

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { useLayoutEffect, useRef, useState } from "react";
-import { loadGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
+import { withGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
 import { DarmaSymbol, type DarmaSymbolName } from "@/components/visuals";
 
 const SIGNALS = [
@@ -69,7 +69,7 @@ export function ModernWebRadar() {
     let cancelled = false;
     let cleanup: (() => void) | undefined;
 
-    loadGsap().then(({ gsap, ScrollTrigger }) => {
+    withGsap(({ gsap, ScrollTrigger }) => {
       if (cancelled || !rootRef.current) return;
       const context = gsap.context(() => {
         const cards = root.querySelectorAll<HTMLElement>("[data-radar-card]");
@@ -116,7 +116,7 @@ export function ModernWebRadar() {
 
     let cancelled = false;
     let cleanup: (() => void) | undefined;
-    loadGsap().then(({ gsap }) => {
+    withGsap(({ gsap }) => {
       if (cancelled || !rootRef.current) return;
       const context = gsap.context(() => {
         gsap.fromTo(

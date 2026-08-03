@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { loadGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
+import { withGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
 
 const SECTIONS = [
   { id: "start", label: "Start" },
@@ -41,7 +41,7 @@ export function LandingSectionRail() {
     if (!root || userPrefersReducedMotion()) return;
     let cancelled = false;
     let cleanup: (() => void) | undefined;
-    loadGsap().then(({ gsap }) => {
+    withGsap(({ gsap }) => {
       if (cancelled || !rootRef.current) return;
       const target = root.querySelector<HTMLElement>(`[data-section-id="${activeId}"]`);
       const indicator = root.querySelector<HTMLElement>("[data-section-indicator]");

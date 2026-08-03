@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useLayoutEffect, useRef, type ReactNode } from "react";
-import { loadGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
+import { withGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
 
 export function RouteMotion({ children }: { children: ReactNode }) {
   const pathname = usePathname();
@@ -15,7 +15,7 @@ export function RouteMotion({ children }: { children: ReactNode }) {
     let cancelled = false;
     let cleanup: (() => void) | undefined;
 
-    loadGsap().then(({ gsap }) => {
+    withGsap(({ gsap }) => {
       if (cancelled || !rootRef.current) return;
       const context = gsap.context(() => {
         gsap.fromTo(root, { opacity: 0.72, y: 8 }, { opacity: 1, y: 0, duration: 0.42, ease: "power2.out", clearProps: "transform,opacity" });

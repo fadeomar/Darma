@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Check, Compass, ExternalLink, RotateCcw, Share2, Sparkles } from "lucide-react";
 import { Badge, Card } from "@/components/ui";
-import { loadGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
+import { withGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
 import { PATHFINDER_QUESTIONS } from "../questions";
 import type { PathfinderCareer, PathfinderOption } from "../types";
 
@@ -78,7 +78,7 @@ export function CareerPathfinder({ careers, initialMatches = [] }: { careers: Pa
     if (!panel || userPrefersReducedMotion()) return;
     let cancelled = false;
     let cleanup: (() => void) | undefined;
-    loadGsap().then(({ gsap }) => {
+    withGsap(({ gsap }) => {
       if (cancelled || !panelRef.current) return;
       const context = gsap.context(() => {
         gsap.fromTo(panel, { opacity: 0, x: 18 }, { opacity: 1, x: 0, duration: 0.42, ease: "power3.out", clearProps: "transform,opacity" });

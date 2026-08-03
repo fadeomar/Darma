@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { loadGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
+import { withGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
 import type { DetailMetric, DetailVariant } from "./DetailHero";
 
 const SCENE_COPY: Record<DetailVariant, { start: string; middle: string; end: string }> = {
@@ -90,7 +90,7 @@ export function DetailHeroScene({ variant, metrics }: { variant: DetailVariant; 
     let context: { revert: () => void } | undefined;
     let cancelled = false;
 
-    loadGsap().then(({ gsap }) => {
+    withGsap(({ gsap }) => {
       if (cancelled || !root) return;
       context = gsap.context(() => {
         const paths = root.querySelectorAll<SVGPathElement>("[data-detail-path]");

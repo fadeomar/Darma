@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useLayoutEffect, useRef, useState } from "react";
 import { ArrowRight, Check, Sparkles } from "lucide-react";
 import { DarmaSymbol, type DarmaSymbolName } from "@/components/visuals";
-import { loadGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
+import { withGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
 
 export type LandingIntent = {
   id: string;
@@ -144,7 +144,7 @@ export function LandingIntentNavigator() {
     let cancelled = false;
     let cleanup: (() => void) | undefined;
 
-    loadGsap().then(({ gsap }) => {
+    withGsap(({ gsap }) => {
       if (cancelled || !rootRef.current) return;
       const context = gsap.context(() => {
         const panel = root.querySelector<HTMLElement>("[data-intent-panel]");

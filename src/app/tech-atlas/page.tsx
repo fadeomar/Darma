@@ -6,7 +6,7 @@ import { PortalHero } from "@/components/portals";
 import { Badge, Card } from "@/components/ui";
 import { AtlasSectionArtwork } from "@/components/visuals";
 import { getLearningPaths } from "@/features/learning-paths";
-import { getResourceCatalog } from "@/features/resources";
+import { getResourceCatalog, getResourceGovernanceSummary } from "@/features/resources";
 import { getGlossaryTerms } from "@/features/tech-glossary";
 import { getTechCareers } from "@/features/tech-careers";
 import { getTeamModels } from "@/features/tech-teams";
@@ -16,7 +16,7 @@ import { getEditorialPagesByKind } from "@/features/editorial";
 
 export const metadata: Metadata = {
   title: "Darma Tech Atlas | resources, learning paths, careers, teams, and workflows",
-  description: "A free open-source technology reference connecting trusted resources, practical learning paths, career roles, ways of working, team structures, and technical vocabulary.",
+  description: "A free open-source technology reference connecting cataloged resources, practical learning paths, career roles, ways of working, team structures, and technical vocabulary.",
   keywords: ["technology reference", "developer resources", "technology careers", "learning paths", "software methodologies", "technology glossary", "tech team structure"],
   alternates: { canonical: "/tech-atlas" },
   openGraph: { title: "Darma Tech Atlas", description: "Find a resource, follow a path, understand a role, compare a workflow, or learn how a technology company works.", url: absoluteUrl("/tech-atlas"), type: "website" },
@@ -24,6 +24,7 @@ export const metadata: Metadata = {
 
 export default function TechAtlasPage() {
   const resources = getResourceCatalog();
+  const resourceGovernance = getResourceGovernanceSummary(resources);
   const paths = getLearningPaths();
   const careers = getTechCareers();
   const ways = getWaysOfWorking();
@@ -55,12 +56,12 @@ export default function TechAtlasPage() {
         title="Understand technology as a connected system, not a collection of isolated pages."
         description="Darma connects what to learn, where to verify it, which roles use it, how teams organize the work, and what the language means in practice."
         actions={[
-          { href: "/resources", label: "Search trusted resources", icon: "search", tone: "primary" },
+          { href: "/resources", label: "Search the resource catalog", icon: "search", tone: "primary" },
           { href: "/career-pathfinder", label: "Find a career direction", icon: "atlas", tone: "secondary" },
           { href: "/learning-paths", label: "Choose a learning route", icon: "route", tone: "quiet" },
         ]}
         metrics={[
-          { value: resources.length, label: "reviewed references" },
+          { value: resourceGovernance.total, label: "cataloged references" },
           { value: careers.length, label: "career guides" },
           { value: ways.length, label: "working methods" },
           { value: terms.length, label: "connected terms" },

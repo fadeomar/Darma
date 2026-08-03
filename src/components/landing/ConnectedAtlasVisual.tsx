@@ -10,7 +10,7 @@ export function ConnectedAtlasVisual({ guides, comparisons, resources, paths }: 
     <div className="landing-atlas-map" aria-label="A connected map of Darma guides, comparisons, resources, and learning paths">
       <svg viewBox="0 0 620 430" role="img" aria-labelledby="landing-atlas-title landing-atlas-description">
         <title id="landing-atlas-title">Darma Tech Atlas connection map</title>
-        <desc id="landing-atlas-description">A question connects to guides, comparisons, learning paths, roles, teams, and trusted sources.</desc>
+        <desc id="landing-atlas-description">A question connects to guides, comparisons, learning paths, roles, teams, and cataloged sources.</desc>
         <defs>
           <linearGradient id="landing-atlas-link" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0" stopColor="var(--color-primary)" />

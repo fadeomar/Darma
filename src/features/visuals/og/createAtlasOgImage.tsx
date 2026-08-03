@@ -40,7 +40,7 @@ export function createAtlasOgImage({ eyebrow, title, description, labels = [], s
           </div>
           <div style={{ flex: "0 0 auto", width: 174, height: 174, display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 999, border: `2px solid ${colors.primary}`, boxShadow: `inset 0 0 0 28px rgba(255,255,255,.035), 0 0 80px ${colors.glow}`, fontSize: 82, color: colors.secondary }}>{symbol}</div>
         </div>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: 15, color: "#a9a196" }}><span>Open source • Browser-first • Reviewed references</span><span>darma-lake.vercel.app</span></div>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", fontSize: 15, color: "#a9a196" }}><span>Open source • Browser-first • Cataloged references</span><span>darma-lake.vercel.app</span></div>
       </div>
     </div>,
     atlasOgSize,

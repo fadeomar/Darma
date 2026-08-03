@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 const PRINCIPLES = [
   { icon: Route, title: "Ordered, not overwhelming", text: "Each guide tells you what to learn now, what comes later, and what proof of understanding to create before moving on." },
   { icon: BookOpenCheck, title: "Practice at every stage", text: "Every stage includes a checkpoint and a small project so progress is based on demonstrated skill, not consumed content." },
-  { icon: ShieldCheck, title: "Trusted starting sources", text: "The paths prioritize official documentation and clearly reviewed references while keeping unverified claims out of the guidance." },
+  { icon: ShieldCheck, title: "Official starting sources", text: "The paths prioritize official documentation and show each source's review state instead of implying every reference has been verified." },
 ];
 
 function learningPathsJsonLd() {
@@ -75,7 +75,7 @@ export default function LearningPathsPage() {
         eyebrow="Darma structured learning"
         badges={["Project-based", "Official sources", "No progress account"]}
         title="Choose a direction, build evidence, and know why the next stage comes next."
-        description="Darma Learning Paths connect foundations, trusted references, practical checkpoints, and portfolio-ready projects without pretending that one roadmap fits every learner."
+        description="Darma Learning Paths connect foundations, cataloged references, practical checkpoints, and portfolio-ready projects without pretending that one roadmap fits every learner."
         actions={[
           { href: "#learning-path-explorer-title", label: "Choose a learning path", icon: "route", tone: "primary" },
           { href: "/resources", label: "Search official resources", icon: "resources", tone: "secondary" },
@@ -91,7 +91,7 @@ export default function LearningPathsPage() {
           { label: "Start", value: "Foundations first" },
           { label: "Practice", value: "Checkpoint per stage" },
           { label: "Evidence", value: "Projects and outputs" },
-          { label: "Sources", value: "Reviewed references" },
+          { label: "Sources", value: "Cataloged references" },
         ]}
       />
       <section className="mx-auto max-w-[var(--container-wide)] px-4 py-10 sm:px-6 lg:px-8" aria-label="Learning path principles">

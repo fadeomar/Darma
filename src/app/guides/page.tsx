@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: "Read practical, reviewed guides for web development, frontend, full stack JavaScript, mobile development, UI/UX, DevOps, technology careers, and software methodologies.",
   keywords: ["technology guides", "developer roadmaps", "web development roadmap", "technology career guide", "software development guide"],
   alternates: { canonical: "/guides" },
-  openGraph: { title: "Darma Technology Guides", description: "Practical roadmaps and decision guides connected to trusted sources, learning paths, careers, and real projects.", url: absoluteUrl("/guides"), type: "website" },
+  openGraph: { title: "Darma Technology Guides", description: "Practical roadmaps and decision guides connected to cataloged sources, learning paths, careers, and real projects.", url: absoluteUrl("/guides"), type: "website" },
 };
 
 export default function GuidesPage() {
@@ -38,7 +38,7 @@ export default function GuidesPage() {
         eyebrow="Darma editorial knowledge hub"
         badges={["Reviewed guides", "Projects and evidence", "Primary references"]}
         title="Use a roadmap that explains the order, the trade-offs, and the proof of progress."
-        description="Start with a goal, understand what to learn now, see what can wait, and connect every topic to trusted references, practical projects, career context, and real delivery work."
+        description="Start with a goal, understand what to learn now, see what can wait, and connect every topic to cataloged references, practical projects, career context, and real delivery work."
         actions={[
           { href: "#guide-library", label: "Browse practical guides", icon: "route", tone: "primary" },
           { href: "/comparisons", label: "Open comparisons", icon: "compare", tone: "secondary" },

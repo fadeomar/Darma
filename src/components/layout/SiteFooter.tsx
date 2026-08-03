@@ -68,7 +68,7 @@ export default function SiteFooter() {
               <span className="darma-footer-mark" aria-hidden>D</span>
               <div><h2 id="darma-footer-title">Darma</h2><p>Use the tool. Understand the system. Keep moving.</p></div>
             </div>
-            <p className="darma-footer-description">Practical browser tools, focused games, reviewed references, learning routes, career guidance, and connected workflows in one open workspace.</p>
+            <p className="darma-footer-description">Practical browser tools, focused games, cataloged references, learning routes, career guidance, and connected workflows in one open workspace.</p>
             <div className="darma-footer-actions">
               <Link href="/tools"><Wrench className="h-4 w-4" aria-hidden />Open tools <ArrowRight className="h-4 w-4" aria-hidden /></Link>
               <Link href="/search" className="darma-footer-search"><Search className="h-4 w-4" aria-hidden />Search Darma</Link>

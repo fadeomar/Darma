@@ -38,7 +38,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "About Darma — open tools and a practical technology atlas",
   description:
-    "Learn how Darma combines free browser tools with trusted resources, learning paths, technology careers, team workflows, organization maps, and practical terminology.",
+    "Learn how Darma combines free browser tools with cataloged resources, learning paths, technology careers, team workflows, organization maps, and practical terminology.",
   alternates: { canonical: "/about" },
 };
 
@@ -91,7 +91,7 @@ export default function AboutPage() {
         name: "Darma",
         url: absoluteUrl("/"),
         description:
-          "An open-source technology workspace connecting practical browser tools with trusted resources, learning paths, careers, team workflows, and reviewed guides.",
+          "An open-source technology workspace connecting practical browser tools with cataloged resources, learning paths, careers, team workflows, and editorial guides.",
         sameAs: ["https://github.com/fadeomar/Darma"],
       },
     ],
@@ -116,7 +116,7 @@ export default function AboutPage() {
               className="darma-balanced-heading mt-5 text-4xl font-black tracking-[-0.055em] text-[var(--color-text-primary)] sm:text-5xl lg:text-6xl"
             />
             <p className="darma-pretty-copy mt-6 max-w-3xl text-base leading-8 text-[var(--color-text-secondary)] sm:text-lg">
-              Darma connects practical browser tools with trusted resources, structured learning, career guidance, team models, and clear explanations of the language used across the technology industry.
+              Darma connects practical browser tools with cataloged resources, structured learning, career guidance, team models, and clear explanations of the language used across the technology industry.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/tech-atlas" className={primaryLinkClass}>

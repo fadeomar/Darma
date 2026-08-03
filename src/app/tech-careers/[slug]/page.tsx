@@ -51,7 +51,7 @@ export default async function CareerPage({ params }: Props) {
         { label: "Category", value: CATEGORY[career.category] },
         { label: "Primary focus", value: career.focus },
         { label: "Growth model", value: "Junior to senior" },
-        { label: "Evidence", value: `${career.references.length} reviewed references` },
+        { label: "Evidence", value: `${career.references.length} cited sources` },
       ]}
       asideTitle="Typical outputs"
       asideItems={career.deliverables}

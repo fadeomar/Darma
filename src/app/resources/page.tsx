@@ -11,6 +11,7 @@ import {
   getFeaturedResources,
   getResourceCatalog,
   getResourceCategoryCounts,
+  getResourceGovernanceSummary,
   RESOURCE_CATEGORIES,
   type Resource,
 } from "@/features/resources";
@@ -97,7 +98,7 @@ export default async function ResourcesPage({ searchParams }: PageProps) {
   const ways = getWaysOfWorking();
   const resourceHubs = getResourceHubs();
   const officialCount = resources.filter((resource) => resource.publisherType === "official").length;
-  const verifiedCount = resources.filter((resource) => resource.review.status === "verified").length;
+  const governance = getResourceGovernanceSummary(resources);
   const featuredCount = resources.filter((resource) => resource.featured).length;
   const atlasLinks = [getLearningPathLinksByResourceId(), getTechCareerLinksByResourceId(), getWayLinksByResourceId()].reduce<Record<string, Array<{ title: string; href: string }>>>((merged, map) => {
     for (const [id, links] of Object.entries(map)) merged[id] = [...(merged[id] ?? []), ...links];
@@ -109,7 +110,7 @@ export default async function ResourcesPage({ searchParams }: PageProps) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }} />
       <PortalHero
         variant="resources"
-        eyebrow="Darma reviewed resource network"
+        eyebrow="Darma resource catalog"
         badges={["Official sources", "Visible review status", "Connected to paths"]}
         title="Find the right technical source by the task it supports, not only by its name."
         description="Explore official documentation, courses, generators, design libraries, accessibility references, JavaScript tools, and community sources through one searchable catalog with visible trust signals."
@@ -119,13 +120,13 @@ export default async function ResourcesPage({ searchParams }: PageProps) {
           { href: "/contribute#resources", label: "Suggest a source", icon: "resources", tone: "quiet" },
         ]}
         metrics={[
-          { value: resources.length, label: "unique resources" },
+          { value: governance.total, label: "cataloged references" },
           { value: officialCount, label: "official publishers" },
-          { value: verifiedCount, label: "verified entries" },
+          { value: governance.verified, label: "verified entries" },
           { value: RESOURCE_CATEGORIES.length, label: "subject categories" },
         ]}
         signals={[
-          { label: "Trust", value: "Review state visible" },
+          { label: "Review", value: `${governance.verified} of ${governance.total} verified` },
           { label: "Context", value: "Task-based ranking" },
           { label: "Connection", value: "Paths and careers" },
           { label: "Coverage", value: `${featuredCount} featured sources` },

@@ -37,7 +37,7 @@ const MODES: ModeDefinition[] = [
     label: "Learn",
     eyebrow: "Connected route",
     title: "Move through a path with checkpoints instead of collecting tabs.",
-    description: "Each stage connects concepts, trusted references, practice, and evidence.",
+    description: "Each stage connects concepts, cataloged references, practice, and evidence.",
     icon: GraduationCap,
   },
   {

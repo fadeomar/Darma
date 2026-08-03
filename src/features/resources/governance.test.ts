@@ -91,14 +91,25 @@ describe("resource trust claims", () => {
   const TRUST_CLAIM_SURFACES = [
     "src/app/tech-atlas/page.tsx",
     "src/app/resources/page.tsx",
+    "src/app/resources/[category]/page.tsx",
     "src/app/learning-paths/page.tsx",
     "src/app/tech-careers/[slug]/page.tsx",
+    "src/app/layout.tsx",
+    "src/app/about/page.tsx",
+    "src/app/guides/page.tsx",
     "src/components/layout/SiteFooter.tsx",
+    "src/components/navigation/SiteHeader.tsx",
     "src/components/landing/LandingIntentNavigator.tsx",
+    "src/components/landing/LandingWorkbenchDemo.tsx",
+    "src/features/editorial/resource-hubs.ts",
+    "src/features/learning-paths/components/LearningPathTimeline.tsx",
     "src/features/visuals/og/createAtlasOgImage.tsx",
   ];
 
-  const FORBIDDEN = [/reviewed references?/i, /reviewed resource/i, /trusted (?:source|resource|starting|reference)/i];
+  // "references" is covered by the singular alternative matching as a prefix.
+  // `trusted` is banned outright on these surfaces: the earlier narrow pattern
+  // missed phrasings like "Trusted JavaScript ... references".
+  const FORBIDDEN = [/reviewed references?/i, /reviewed resource/i, /\btrusted\b/i];
 
   it.each(TRUST_CLAIM_SURFACES)("does not label totals as reviewed or trusted in %s", (relativePath) => {
     const contents = readFileSync(resolve(process.cwd(), relativePath), "utf8");

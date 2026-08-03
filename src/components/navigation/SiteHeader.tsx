@@ -35,7 +35,7 @@ const PRIMARY_NAV = [
 ];
 
 const ATLAS_LINKS = [
-  { href: "/resources", label: "Resources", text: "Trusted references and official documentation", icon: Library },
+  { href: "/resources", label: "Resources", text: "Cataloged references and official documentation", icon: Library },
   { href: "/learning-paths", label: "Learning paths", text: "Ordered stages, projects, and progress", icon: Route },
   { href: "/career-pathfinder", label: "Career Pathfinder", text: "Match your interests with practical roles", icon: Compass },
   { href: "/tech-careers", label: "Tech careers", text: "Daily work, skills, scope, and growth", icon: BriefcaseBusiness },

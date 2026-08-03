@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/learning-paths" },
   openGraph: {
     title: "Darma Technology Learning Paths",
-    description: "Structured, project-based guides that connect skills, checkpoints, practical projects, and trusted technical resources.",
+    description: "Structured, project-based guides that connect skills, checkpoints, practical projects, and cataloged technical resources.",
     url: absoluteUrl("/learning-paths"),
     type: "website",
   },

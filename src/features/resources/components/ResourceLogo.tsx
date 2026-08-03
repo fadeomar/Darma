@@ -1,6 +1,8 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { resolveResourceIcon, resourceMonogram } from "../lib/resourceIconPolicy";
 import type { Resource } from "../schema";
 
 type ResourceLogoProps = {
@@ -14,40 +16,40 @@ const SIZE_CLASSES = {
   lg: "h-16 w-16 rounded-[var(--radius-lg)] text-base",
 };
 
-function initialsFor(name: string) {
-  return name.split(/\s+/).filter(Boolean).slice(0, 2).map((part) => part[0]).join("").toUpperCase();
-}
+/** Rendered pixel box per size, used so next/image reserves stable space. */
+const SIZE_PIXELS = { sm: 36, md: 48, lg: 64 } as const;
 
 export function ResourceLogo({ resource, size = "md" }: ResourceLogoProps) {
-  const candidates = useMemo(
-    () => [resource.icon.localPath, resource.icon.logoUrl, resource.icon.faviconUrl].filter(Boolean) as string[],
-    [resource.icon.faviconUrl, resource.icon.localPath, resource.icon.logoUrl],
-  );
-  const [candidateIndex, setCandidateIndex] = useState(0);
-  useEffect(() => setCandidateIndex(0), [resource.id]);
+  const icon = resolveResourceIcon(resource.icon, resource.name);
+  const [failed, setFailed] = useState(false);
 
-  const source = candidates[candidateIndex];
+  useEffect(() => setFailed(false), [resource.id]);
+
   const baseClass = `${SIZE_CLASSES[size]} shrink-0 border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] shadow-[var(--shadow-xs)]`;
 
-  if (!source) {
+  // The adjacent resource title always supplies the accessible name, so the tile
+  // is decorative and must never announce itself twice.
+  if (icon.kind !== "image" || failed) {
     return (
-      <span className={`${baseClass} inline-flex items-center justify-center font-mono font-black tracking-tight text-[var(--color-primary)]`} aria-hidden>
-        {initialsFor(resource.name)}
+      <span
+        className={`${baseClass} inline-flex items-center justify-center font-mono font-black tracking-tight text-[var(--color-primary)]`}
+        aria-hidden
+      >
+        {resourceMonogram(resource.name)}
       </span>
     );
   }
 
   return (
     <span className={`${baseClass} inline-flex items-center justify-center overflow-hidden p-1.5`} aria-hidden>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={source}
+      <Image
+        src={icon.src}
         alt=""
+        width={SIZE_PIXELS[size]}
+        height={SIZE_PIXELS[size]}
         loading="lazy"
-        decoding="async"
-        referrerPolicy="no-referrer"
         className="h-full w-full object-contain"
-        onError={() => setCandidateIndex((current) => current + 1)}
+        onError={() => setFailed(true)}
       />
     </span>
   );

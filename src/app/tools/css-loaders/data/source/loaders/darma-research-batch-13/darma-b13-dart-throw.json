@@ -1,0 +1,35 @@
+{
+  "id": "darma-b13-dart-throw",
+  "name": "Dart Throw",
+  "category": "fun",
+  "tags": [
+    "dart",
+    "dartboard",
+    "throw",
+    "bullseye",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"dart\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .82); position: relative; }\n.loader::before { content: ''; position: absolute; right: 0; top: 6%; width: 68%; height: 88%; border-radius: 50%; background: repeating-radial-gradient(circle, var(--accent) 0 9%, var(--accent-2) 9% 18%); }\n.loader::after { content: ''; position: absolute; right: 29%; top: 43%; width: 10%; height: 13%; border-radius: 50%; background: #f8fafc; box-shadow: 0 0 0 calc(var(--loader-size) * .014) color-mix(in srgb, #000 30%, var(--accent)); }\n.loader .dart { position: absolute; left: 0; top: 46%; width: 40%; height: 5%; border-radius: 999px; background: linear-gradient(90deg, #64748b, #e2e8f0 72%, #f8fafc); animation: throw calc(var(--loader-speed) * 2.2) cubic-bezier(.3, 0, .2, 1) infinite; }\n.loader .dart::after { content: ''; position: absolute; left: -4%; top: -180%; width: 26%; height: 460%; background: var(--accent-2); clip-path: polygon(0 0, 100% 32%, 100% 68%, 0 100%); }\n@keyframes throw { 0% { opacity: 0; transform: translate(-34%, -46%); } 14% { opacity: 1; } 52% { transform: translate(40%, 0); } 84% { opacity: 1; transform: translate(40%, 0); } 100% { opacity: 0; transform: translate(40%, 0); } }",
+  "defaults": {
+    "color": "#16a34a",
+    "secondaryColor": "#dc2626",
+    "size": 116,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

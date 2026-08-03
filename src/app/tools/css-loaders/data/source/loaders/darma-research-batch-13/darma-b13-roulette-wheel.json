@@ -1,0 +1,35 @@
+{
+  "id": "darma-b13-roulette-wheel",
+  "name": "Roulette Wheel",
+  "category": "spinners",
+  "tags": [
+    "roulette",
+    "casino",
+    "wheel",
+    "ball",
+    "spinner"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"wheel\"></div><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; display: grid; place-items: center; }\n.loader .wheel { position: relative; width: 100%; height: 100%; border-radius: 50%; background: repeating-conic-gradient(from 0deg, var(--accent) 0 15deg, color-mix(in srgb, #000 62%, var(--accent)) 15deg 30deg); box-shadow: inset 0 0 0 calc(var(--loader-size) * .05) var(--accent-2); animation: wheel-spin calc(var(--loader-speed) * 3.4) linear infinite; }\n.loader .wheel::after { content: ''; position: absolute; inset: 28%; border-radius: 50%; background: radial-gradient(circle at 40% 34%, color-mix(in srgb, #fff 32%, var(--accent-2)), color-mix(in srgb, #000 24%, var(--accent-2))); }\n.loader span { position: absolute; top: 50%; left: 50%; width: 9%; height: 9%; margin: -4.5% 0 0 -4.5%; border-radius: 50%; background: radial-gradient(circle at 36% 32%, #fff, #cbd5e1); animation: ball-orbit calc(var(--loader-speed) * 1.3) linear infinite; }\n@keyframes wheel-spin { to { transform: rotate(360deg); } }\n@keyframes ball-orbit { from { transform: rotate(0deg) translateY(calc(var(--loader-size) * -.39)); } to { transform: rotate(-360deg) translateY(calc(var(--loader-size) * -.39)); } }",
+  "defaults": {
+    "color": "#b91c1c",
+    "secondaryColor": "#a16207",
+    "size": 100,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

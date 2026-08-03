@@ -1,0 +1,35 @@
+{
+  "id": "darma-b12-zipper-pull",
+  "name": "Zipper Pull",
+  "category": "progress",
+  "tags": [
+    "zipper",
+    "zip",
+    "teeth",
+    "slider",
+    "progress"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><div class=\"slider\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); --tooth: calc(var(--loader-size) * .032); width: var(--loader-size); height: calc(var(--loader-size) * .34); position: relative; }\n.loader::before, .loader::after { content: ''; position: absolute; right: 0; width: 94%; height: 26%; border-radius: 3px; background: repeating-linear-gradient(90deg, var(--accent-2) 0 var(--tooth), color-mix(in srgb, #fff 45%, var(--accent-2)) var(--tooth) calc(var(--tooth) * 2)); animation: unzip calc(var(--loader-speed) * 2.8) ease-in-out infinite; }\n.loader::before { top: 4%; }\n.loader::after { bottom: 4%; }\n.loader span { position: absolute; left: 0; top: 30%; height: 40%; width: 6%; border-radius: 3px; background: repeating-linear-gradient(90deg, var(--accent) 0 var(--tooth), var(--accent-2) var(--tooth) calc(var(--tooth) * 2)); animation: zip calc(var(--loader-speed) * 2.8) ease-in-out infinite; }\n.loader .slider { position: absolute; z-index: 3; left: 0; top: 14%; width: 13%; height: 72%; border-radius: 3px; background: linear-gradient(var(--accent-2), var(--accent)); box-shadow: 0 2px 5px rgba(15, 23, 42, .28); animation: pull calc(var(--loader-speed) * 2.8) ease-in-out infinite; }\n.loader .slider::after { content: ''; position: absolute; top: 90%; left: 28%; width: 44%; height: 58%; border-radius: 0 0 5px 5px; background: var(--accent); }\n@keyframes zip { 0% { width: 6%; } 58% { width: 100%; } 100% { width: 6%; } }\n@keyframes unzip { 0% { width: 94%; } 58% { width: 0%; } 100% { width: 94%; } }\n@keyframes pull { 0% { left: 0%; } 58% { left: 87%; } 100% { left: 0%; } }",
+  "defaults": {
+    "color": "#e11d48",
+    "secondaryColor": "#fb7185",
+    "size": 120,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 12",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

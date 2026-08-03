@@ -1,0 +1,35 @@
+{
+  "id": "darma-b12-abacus-slide",
+  "name": "Abacus Bead Rows",
+  "category": "bars",
+  "tags": [
+    "abacus",
+    "beads",
+    "slide",
+    "counting",
+    "bars"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); --bead: calc(var(--loader-size) * .11); width: var(--loader-size); height: calc(var(--loader-size) * .58); display: flex; flex-direction: column; justify-content: space-between; }\n.loader span { position: relative; height: 28%; background: linear-gradient(transparent calc(50% - 1.5px), #cbd5e1 calc(50% - 1.5px), #cbd5e1 calc(50% + 1.5px), transparent calc(50% + 1.5px)); }\n.loader span::before, .loader span::after { content: ''; position: absolute; top: 50%; width: var(--bead); height: var(--bead); margin-top: calc(var(--bead) * -.5); border-radius: 50%; }\n.loader span::before { left: 3%; background: var(--accent); box-shadow: calc(var(--bead) * 1.12) 0 0 var(--accent), calc(var(--bead) * 2.24) 0 0 var(--accent); animation: bead-right calc(var(--loader-speed) * 1.8) ease-in-out infinite; }\n.loader span::after { right: 3%; background: var(--accent-2); box-shadow: calc(var(--bead) * -1.12) 0 0 var(--accent-2), calc(var(--bead) * -2.24) 0 0 var(--accent-2); animation: bead-left calc(var(--loader-speed) * 1.8) ease-in-out infinite; }\n.loader span:nth-child(2)::before, .loader span:nth-child(2)::after { animation-delay: calc(var(--loader-speed) * .2); }\n.loader span:nth-child(3)::before, .loader span:nth-child(3)::after { animation-delay: calc(var(--loader-speed) * .4); }\n@keyframes bead-right { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(calc(var(--loader-size) * .22)); } }\n@keyframes bead-left { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(calc(var(--loader-size) * -.22)); } }",
+  "defaults": {
+    "color": "#0ea5e9",
+    "secondaryColor": "#f97316",
+    "size": 104,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 12",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

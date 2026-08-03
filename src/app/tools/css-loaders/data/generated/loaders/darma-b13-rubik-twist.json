@@ -1,0 +1,48 @@
+{
+  "id": "darma-b13-rubik-twist",
+  "name": "Rubik Twist",
+  "category": "creative",
+  "sourceId": "darma-research-batch-13",
+  "tags": [
+    "rubik",
+    "cube",
+    "twist",
+    "puzzle",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b13-rubik-twist rubik twist creative darma-research-batch-13 darma research batch 13 rubik cube twist puzzle creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b13-rubik-twist\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b13-rubik-twist { --accent: var(--loader-color, #ef4444); --accent-2: var(--loader-secondary-color, #facc15); width: var(--loader-size, 100px); height: var(--loader-size, 100px); display: grid; grid-template-columns: repeat(3, 1fr); gap: 5%; padding: 5%; border-radius: 12%; background: #0b1220; animation: darma-loader-darma-b13-rubik-twist-quarter-turn calc(var(--loader-speed, 1s) * 3.6) cubic-bezier(.6, 0, .2, 1) infinite; }\n.darma-loader-darma-b13-rubik-twist span { border-radius: 16%; background: var(--accent); animation: darma-loader-darma-b13-rubik-twist-recolor calc(var(--loader-speed, 1s) * 1.8) steps(2, end) infinite; }\n.darma-loader-darma-b13-rubik-twist span:nth-child(2) { animation-delay: calc(var(--loader-speed, 1s) * .2); }\n.darma-loader-darma-b13-rubik-twist span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * .4); }\n.darma-loader-darma-b13-rubik-twist span:nth-child(4) { animation-delay: calc(var(--loader-speed, 1s) * .6); }\n.darma-loader-darma-b13-rubik-twist span:nth-child(5) { animation-delay: calc(var(--loader-speed, 1s) * .8); }\n.darma-loader-darma-b13-rubik-twist span:nth-child(6) { animation-delay: calc(var(--loader-speed, 1s) * 1); }\n.darma-loader-darma-b13-rubik-twist span:nth-child(7) { animation-delay: calc(var(--loader-speed, 1s) * 1.2); }\n.darma-loader-darma-b13-rubik-twist span:nth-child(8) { animation-delay: calc(var(--loader-speed, 1s) * 1.4); }\n.darma-loader-darma-b13-rubik-twist span:nth-child(9) { animation-delay: calc(var(--loader-speed, 1s) * 1.6); }\n@keyframes darma-loader-darma-b13-rubik-twist-quarter-turn { 0%, 14% { transform: rotate(0deg); } 25%, 39% { transform: rotate(90deg); } 50%, 64% { transform: rotate(180deg); } 75%, 89% { transform: rotate(270deg); } 100% { transform: rotate(360deg); } }\n@keyframes darma-loader-darma-b13-rubik-twist-recolor { 0%, 100% { background: var(--accent); } 50% { background: var(--accent-2); } }",
+  "defaults": {
+    "color": "#ef4444",
+    "secondaryColor": "#facc15",
+    "size": 100,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b13-rubik-twist\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b13-rubik-twist { --accent: var(--loader-color, #ef4444); --accent-2: var(--loader-secondary-color, #facc15); width: var(--loader-size, 100px); height: var(--loader-size, 100px); display: grid; grid-template-columns: repeat(3, 1fr); gap: 5%; padding: 5%; border-radius: 12%; background: #0b1220; animation: darma-loader-darma-b13-rubik-twist-quarter-turn calc(var(--loader-speed, 1s) * 3.6) cubic-bezier(.6, 0, .2, 1) infinite; }\n.darma-loader-darma-b13-rubik-twist span { border-radius: 16%; background: var(--accent); animation: darma-loader-darma-b13-rubik-twist-recolor calc(var(--loader-speed, 1s) * 1.8) steps(2, end) infinite; }\n.darma-loader-darma-b13-rubik-twist span:nth-child(2) { animation-delay: calc(var(--loader-speed, 1s) * .2); }\n.darma-loader-darma-b13-rubik-twist span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * .4); }\n.darma-loader-darma-b13-rubik-twist span:nth-child(4) { animation-delay: calc(var(--loader-speed, 1s) * .6); }\n.darma-loader-darma-b13-rubik-twist span:nth-child(5) { animation-delay: calc(var(--loader-speed, 1s) * .8); }\n.darma-loader-darma-b13-rubik-twist span:nth-child(6) { animation-delay: calc(var(--loader-speed, 1s) * 1); }\n.darma-loader-darma-b13-rubik-twist span:nth-child(7) { animation-delay: calc(var(--loader-speed, 1s) * 1.2); }\n.darma-loader-darma-b13-rubik-twist span:nth-child(8) { animation-delay: calc(var(--loader-speed, 1s) * 1.4); }\n.darma-loader-darma-b13-rubik-twist span:nth-child(9) { animation-delay: calc(var(--loader-speed, 1s) * 1.6); }\n@keyframes darma-loader-darma-b13-rubik-twist-quarter-turn { 0%, 14% { transform: rotate(0deg); } 25%, 39% { transform: rotate(90deg); } 50%, 64% { transform: rotate(180deg); } 75%, 89% { transform: rotate(270deg); } 100% { transform: rotate(360deg); } }\n@keyframes darma-loader-darma-b13-rubik-twist-recolor { 0%, 100% { background: var(--accent); } 50% { background: var(--accent-2); } }",
+    "react": "export default function DarmaB13RubikTwistLoader() {\n  return (\n    <div className=\"darma-loader-darma-b13-rubik-twist\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

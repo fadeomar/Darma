@@ -1,0 +1,35 @@
+{
+  "id": "darma-b12-seesaw-balance",
+  "name": "Seesaw Balance",
+  "category": "creative",
+  "tags": [
+    "seesaw",
+    "balance",
+    "tilt",
+    "scale",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"beam\"><span></span><span></span></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .6); position: relative; }\n.loader::before { content: ''; position: absolute; bottom: 3%; left: 20%; width: 60%; height: 4%; border-radius: 999px; background: #cbd5e1; }\n.loader::after { content: ''; position: absolute; bottom: 6%; left: 43%; width: 14%; height: 36%; clip-path: polygon(50% 0%, 100% 100%, 0% 100%); background: var(--accent-2); }\n.loader .beam { position: absolute; bottom: 42%; left: 4%; width: 92%; height: 7%; border-radius: 999px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); animation: tilt calc(var(--loader-speed) * 2.2) ease-in-out infinite; }\n.loader .beam span { position: absolute; bottom: 100%; width: calc(var(--loader-size) * .16); height: calc(var(--loader-size) * .16); border-radius: 50%; background: radial-gradient(circle at 38% 32%, color-mix(in srgb, #fff 40%, var(--accent-2)), var(--accent)); }\n.loader .beam span:nth-child(1) { left: -2%; }\n.loader .beam span:nth-child(2) { right: -2%; }\n@keyframes tilt { 0%, 100% { transform: rotate(-14deg); } 50% { transform: rotate(14deg); } }",
+  "defaults": {
+    "color": "#0d9488",
+    "secondaryColor": "#f59e0b",
+    "size": 112,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 12",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "darma-b13-barbell-lift",
+  "name": "Barbell Lift",
+  "category": "fun",
+  "tags": [
+    "barbell",
+    "weights",
+    "lift",
+    "gym",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"bar\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .68); position: relative; }\n.loader::before, .loader::after { content: ''; position: absolute; bottom: 0; width: 6%; height: 100%; border-radius: 3px; background: linear-gradient(#cbd5e1, #64748b); }\n.loader::before { left: 9%; }\n.loader::after { right: 9%; }\n.loader .bar { position: absolute; left: 3%; width: 94%; height: 7%; border-radius: 999px; background: linear-gradient(#f1f5f9, #94a3b8); animation: lift calc(var(--loader-speed) * 2.4) ease-in-out infinite; }\n.loader .bar::before, .loader .bar::after { content: ''; position: absolute; top: -170%; width: 11%; height: 440%; border-radius: 4px; background: linear-gradient(var(--accent), var(--accent-2)); }\n.loader .bar::before { left: 0; }\n.loader .bar::after { right: 0; }\n@keyframes lift { 0%, 100% { bottom: 14%; } 46%, 54% { bottom: 72%; } }",
+  "defaults": {
+    "color": "#1d4ed8",
+    "secondaryColor": "#0ea5e9",
+    "size": 116,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

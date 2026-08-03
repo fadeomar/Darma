@@ -1,0 +1,48 @@
+{
+  "id": "darma-b13-weather-vane",
+  "name": "Weather Vane",
+  "category": "spinners",
+  "sourceId": "darma-research-batch-13",
+  "tags": [
+    "weather",
+    "vane",
+    "wind",
+    "arrow",
+    "spinner"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b13-weather-vane weather vane spinners darma-research-batch-13 darma research batch 13 weather vane wind arrow spinner html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b13-weather-vane\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b13-weather-vane__arrow\"></div></div>",
+  "previewCss": ".darma-loader-darma-b13-weather-vane { --accent: var(--loader-color, #0f172a); --accent-2: var(--loader-secondary-color, #f59e0b); width: var(--loader-size, 100px); height: var(--loader-size, 100px); position: relative; display: grid; place-items: center; }\n.darma-loader-darma-b13-weather-vane::before { content: ''; position: absolute; inset: 9%; background: linear-gradient(90deg, transparent calc(50% - 1.5px), var(--accent-2) calc(50% - 1.5px), var(--accent-2) calc(50% + 1.5px), transparent calc(50% + 1.5px)), linear-gradient(transparent calc(50% - 1.5px), var(--accent-2) calc(50% - 1.5px), var(--accent-2) calc(50% + 1.5px), transparent calc(50% + 1.5px)); }\n.darma-loader-darma-b13-weather-vane::after { content: ''; position: absolute; inset: 1%; border-radius: 50%; box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 12%, var(--accent-2)); }\n.darma-loader-darma-b13-weather-vane .darma-loader-darma-b13-weather-vane__arrow { width: 14%; height: 78%; clip-path: polygon(50% 0, 100% 27%, 62% 27%, 62% 100%, 38% 100%, 38% 27%, 0 27%); background: linear-gradient(var(--accent), color-mix(in srgb, #000 26%, var(--accent))); animation: darma-loader-darma-b13-weather-vane-veer calc(var(--loader-speed, 1s) * 4.2) ease-in-out infinite; }\n@keyframes darma-loader-darma-b13-weather-vane-veer { 0% { transform: rotate(-38deg); } 22% { transform: rotate(66deg); } 42% { transform: rotate(18deg); } 64% { transform: rotate(130deg); } 84% { transform: rotate(74deg); } 100% { transform: rotate(-38deg); } }",
+  "defaults": {
+    "color": "#0f172a",
+    "secondaryColor": "#f59e0b",
+    "size": 100,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b13-weather-vane\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b13-weather-vane__arrow\"></div></div>",
+    "css": ".darma-loader-darma-b13-weather-vane { --accent: var(--loader-color, #0f172a); --accent-2: var(--loader-secondary-color, #f59e0b); width: var(--loader-size, 100px); height: var(--loader-size, 100px); position: relative; display: grid; place-items: center; }\n.darma-loader-darma-b13-weather-vane::before { content: ''; position: absolute; inset: 9%; background: linear-gradient(90deg, transparent calc(50% - 1.5px), var(--accent-2) calc(50% - 1.5px), var(--accent-2) calc(50% + 1.5px), transparent calc(50% + 1.5px)), linear-gradient(transparent calc(50% - 1.5px), var(--accent-2) calc(50% - 1.5px), var(--accent-2) calc(50% + 1.5px), transparent calc(50% + 1.5px)); }\n.darma-loader-darma-b13-weather-vane::after { content: ''; position: absolute; inset: 1%; border-radius: 50%; box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 12%, var(--accent-2)); }\n.darma-loader-darma-b13-weather-vane .darma-loader-darma-b13-weather-vane__arrow { width: 14%; height: 78%; clip-path: polygon(50% 0, 100% 27%, 62% 27%, 62% 100%, 38% 100%, 38% 27%, 0 27%); background: linear-gradient(var(--accent), color-mix(in srgb, #000 26%, var(--accent))); animation: darma-loader-darma-b13-weather-vane-veer calc(var(--loader-speed, 1s) * 4.2) ease-in-out infinite; }\n@keyframes darma-loader-darma-b13-weather-vane-veer { 0% { transform: rotate(-38deg); } 22% { transform: rotate(66deg); } 42% { transform: rotate(18deg); } 64% { transform: rotate(130deg); } 84% { transform: rotate(74deg); } 100% { transform: rotate(-38deg); } }",
+    "react": "export default function DarmaB13WeatherVaneLoader() {\n  return (\n    <div className=\"darma-loader-darma-b13-weather-vane\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b13-weather-vane__arrow\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

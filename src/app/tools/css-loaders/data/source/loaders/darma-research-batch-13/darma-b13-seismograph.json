@@ -1,0 +1,35 @@
+{
+  "id": "darma-b13-seismograph",
+  "name": "Seismograph",
+  "category": "bars",
+  "tags": [
+    "seismograph",
+    "needle",
+    "trace",
+    "quake",
+    "bars"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><div class=\"needle\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .62); position: relative; overflow: hidden; border-radius: 4px; background: color-mix(in srgb, #fff 76%, var(--accent-2)); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 14%, var(--accent-2)); }\n.loader::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0 13%, color-mix(in srgb, #000 10%, transparent) 13% 14%), repeating-linear-gradient(transparent 0 23%, color-mix(in srgb, #000 10%, transparent) 23% 24%); }\n.loader span { position: absolute; left: 0; top: 24%; width: 200%; height: 52%; background: var(--accent); clip-path: polygon(0 46%, 6.25% 10%, 12.5% 86%, 18.75% 30%, 25% 46%, 31.25% 10%, 37.5% 86%, 43.75% 30%, 50% 46%, 56.25% 10%, 62.5% 86%, 68.75% 30%, 75% 46%, 81.25% 10%, 87.5% 86%, 93.75% 30%, 100% 46%, 100% 58%, 93.75% 42%, 87.5% 98%, 81.25% 22%, 75% 58%, 68.75% 42%, 62.5% 98%, 56.25% 22%, 50% 58%, 43.75% 42%, 37.5% 98%, 31.25% 22%, 25% 58%, 18.75% 42%, 12.5% 98%, 6.25% 22%, 0 58%); animation: trace calc(var(--loader-speed) * 2) linear infinite; }\n.loader .needle { position: absolute; z-index: 2; top: 0; left: 47%; width: 3%; height: 64%; border-radius: 0 0 2px 2px; background: linear-gradient(color-mix(in srgb, #000 20%, var(--accent-2)), #475569); animation: jitter calc(var(--loader-speed) * .5) ease-in-out infinite; }\n@keyframes trace { from { transform: translateX(0); } to { transform: translateX(-25%); } }\n@keyframes jitter { 0%, 100% { transform: translateY(-7%); } 25% { transform: translateY(9%); } 50% { transform: translateY(-12%); } 75% { transform: translateY(5%); } }",
+  "defaults": {
+    "color": "#dc2626",
+    "secondaryColor": "#0f172a",
+    "size": 128,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

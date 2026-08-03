@@ -1,0 +1,48 @@
+{
+  "id": "darma-b12-vault-dial",
+  "name": "Vault Dial",
+  "category": "spinners",
+  "sourceId": "darma-research-batch-12",
+  "tags": [
+    "vault",
+    "safe",
+    "dial",
+    "combination",
+    "spinner"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b12-vault-dial vault dial spinners darma-research-batch-12 darma research batch 12 vault safe dial combination spinner html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b12-vault-dial\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b12-vault-dial__dial\"></div></div>",
+  "previewCss": ".darma-loader-darma-b12-vault-dial { --accent: var(--loader-color, #334155); --accent-2: var(--loader-secondary-color, #eab308); width: var(--loader-size, 92px); height: var(--loader-size, 92px); position: relative; display: grid; place-items: center; border-radius: 50%; background: radial-gradient(circle, #e2e8f0 62%, #cbd5e1); box-shadow: inset 0 0 0 2px #94a3b8; }\n.darma-loader-darma-b12-vault-dial::before { content: ''; position: absolute; inset: 5%; border-radius: 50%; background: repeating-conic-gradient(var(--accent-2) 0 1.4deg, transparent 1.4deg 12deg); }\n.darma-loader-darma-b12-vault-dial .darma-loader-darma-b12-vault-dial__dial { position: relative; width: 70%; height: 70%; border-radius: 50%; background: conic-gradient(from 0deg, var(--accent), var(--accent-2), var(--accent)); box-shadow: 0 3px 8px rgba(15, 23, 42, .3); animation: darma-loader-darma-b12-vault-dial-vault calc(var(--loader-speed, 1s) * 3) cubic-bezier(.62, 0, .3, 1) infinite; }\n.darma-loader-darma-b12-vault-dial .darma-loader-darma-b12-vault-dial__dial::after { content: ''; position: absolute; top: 7%; left: calc(50% - 4%); width: 8%; height: 26%; border-radius: 999px; background: #f8fafc; }\n@keyframes darma-loader-darma-b12-vault-dial-vault { 0% { transform: rotate(0deg); } 22% { transform: rotate(148deg); } 40% { transform: rotate(104deg); } 62% { transform: rotate(268deg); } 80% { transform: rotate(220deg); } 100% { transform: rotate(360deg); } }",
+  "defaults": {
+    "color": "#334155",
+    "secondaryColor": "#eab308",
+    "size": 92,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b12-vault-dial\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b12-vault-dial__dial\"></div></div>",
+    "css": ".darma-loader-darma-b12-vault-dial { --accent: var(--loader-color, #334155); --accent-2: var(--loader-secondary-color, #eab308); width: var(--loader-size, 92px); height: var(--loader-size, 92px); position: relative; display: grid; place-items: center; border-radius: 50%; background: radial-gradient(circle, #e2e8f0 62%, #cbd5e1); box-shadow: inset 0 0 0 2px #94a3b8; }\n.darma-loader-darma-b12-vault-dial::before { content: ''; position: absolute; inset: 5%; border-radius: 50%; background: repeating-conic-gradient(var(--accent-2) 0 1.4deg, transparent 1.4deg 12deg); }\n.darma-loader-darma-b12-vault-dial .darma-loader-darma-b12-vault-dial__dial { position: relative; width: 70%; height: 70%; border-radius: 50%; background: conic-gradient(from 0deg, var(--accent), var(--accent-2), var(--accent)); box-shadow: 0 3px 8px rgba(15, 23, 42, .3); animation: darma-loader-darma-b12-vault-dial-vault calc(var(--loader-speed, 1s) * 3) cubic-bezier(.62, 0, .3, 1) infinite; }\n.darma-loader-darma-b12-vault-dial .darma-loader-darma-b12-vault-dial__dial::after { content: ''; position: absolute; top: 7%; left: calc(50% - 4%); width: 8%; height: 26%; border-radius: 999px; background: #f8fafc; }\n@keyframes darma-loader-darma-b12-vault-dial-vault { 0% { transform: rotate(0deg); } 22% { transform: rotate(148deg); } 40% { transform: rotate(104deg); } 62% { transform: rotate(268deg); } 80% { transform: rotate(220deg); } 100% { transform: rotate(360deg); } }",
+    "react": "export default function DarmaB12VaultDialLoader() {\n  return (\n    <div className=\"darma-loader-darma-b12-vault-dial\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b12-vault-dial__dial\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 12",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

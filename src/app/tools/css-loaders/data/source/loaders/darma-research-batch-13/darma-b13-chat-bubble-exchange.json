@@ -1,0 +1,35 @@
+{
+  "id": "darma-b13-chat-bubble-exchange",
+  "name": "Chat Bubble Exchange",
+  "category": "creative",
+  "tags": [
+    "chat",
+    "bubble",
+    "message",
+    "reply",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .7); position: relative; }\n.loader span { position: absolute; width: 62%; height: 42%; border-radius: 14px; animation: bubble-in calc(var(--loader-speed) * 2.4) cubic-bezier(.35, 1.5, .5, 1) infinite; }\n.loader span:nth-child(1) { left: 0; top: 0; transform-origin: bottom left; border-bottom-left-radius: 3px; background: linear-gradient(var(--accent), color-mix(in srgb, #000 16%, var(--accent))); }\n.loader span:nth-child(2) { right: 0; bottom: 0; transform-origin: bottom right; border-bottom-right-radius: 3px; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 16%, var(--accent-2))); animation-delay: calc(var(--loader-speed) * 1.2); }\n.loader span::after { content: ''; position: absolute; top: 40%; left: 22%; width: 9%; height: 21%; border-radius: 50%; background: rgba(255, 255, 255, .92); box-shadow: 200% 0 0 rgba(255, 255, 255, .92), 400% 0 0 rgba(255, 255, 255, .92); }\n@keyframes bubble-in { 0% { opacity: 0; transform: scale(0); } 14% { opacity: 1; transform: scale(1.06); } 22%, 52% { transform: scale(1); } 68%, 100% { opacity: .22; transform: scale(1); } }",
+  "defaults": {
+    "color": "#2563eb",
+    "secondaryColor": "#22c55e",
+    "size": 112,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

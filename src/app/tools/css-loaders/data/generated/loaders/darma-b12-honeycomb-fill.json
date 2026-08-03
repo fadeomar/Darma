@@ -1,0 +1,48 @@
+{
+  "id": "darma-b12-honeycomb-fill",
+  "name": "Honeycomb Fill",
+  "category": "creative",
+  "sourceId": "darma-research-batch-12",
+  "tags": [
+    "honeycomb",
+    "hexagon",
+    "cells",
+    "fill",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b12-honeycomb-fill honeycomb fill creative darma-research-batch-12 darma research batch 12 honeycomb hexagon cells fill creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b12-honeycomb-fill\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b12-honeycomb-fill { --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 100px); height: calc(var(--loader-size, 100px) * .96); position: relative; }\n.darma-loader-darma-b12-honeycomb-fill span { position: absolute; width: 34%; height: 30%; clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); background: var(--accent); animation: darma-loader-darma-b12-honeycomb-fill-comb calc(var(--loader-speed, 1s) * 1.9) ease-in-out infinite; }\n.darma-loader-darma-b12-honeycomb-fill span:nth-child(1) { left: 33%; top: 35%; background: var(--accent-2); animation-delay: 0s; }\n.darma-loader-darma-b12-honeycomb-fill span:nth-child(2) { left: 33%; top: 5%; animation-delay: calc(var(--loader-speed, 1s) * .16); }\n.darma-loader-darma-b12-honeycomb-fill span:nth-child(3) { left: 58%; top: 20%; animation-delay: calc(var(--loader-speed, 1s) * .32); }\n.darma-loader-darma-b12-honeycomb-fill span:nth-child(4) { left: 58%; top: 50%; animation-delay: calc(var(--loader-speed, 1s) * .48); }\n.darma-loader-darma-b12-honeycomb-fill span:nth-child(5) { left: 33%; top: 65%; animation-delay: calc(var(--loader-speed, 1s) * .64); }\n.darma-loader-darma-b12-honeycomb-fill span:nth-child(6) { left: 8%; top: 50%; animation-delay: calc(var(--loader-speed, 1s) * .8); }\n.darma-loader-darma-b12-honeycomb-fill span:nth-child(7) { left: 8%; top: 20%; animation-delay: calc(var(--loader-speed, 1s) * .96); }\n@keyframes darma-loader-darma-b12-honeycomb-fill-comb { 0%, 100% { opacity: .16; transform: scale(.84); } 45% { opacity: 1; transform: scale(1); } }",
+  "defaults": {
+    "color": "#f59e0b",
+    "secondaryColor": "#fbbf24",
+    "size": 100,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b12-honeycomb-fill\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b12-honeycomb-fill { --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 100px); height: calc(var(--loader-size, 100px) * .96); position: relative; }\n.darma-loader-darma-b12-honeycomb-fill span { position: absolute; width: 34%; height: 30%; clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); background: var(--accent); animation: darma-loader-darma-b12-honeycomb-fill-comb calc(var(--loader-speed, 1s) * 1.9) ease-in-out infinite; }\n.darma-loader-darma-b12-honeycomb-fill span:nth-child(1) { left: 33%; top: 35%; background: var(--accent-2); animation-delay: 0s; }\n.darma-loader-darma-b12-honeycomb-fill span:nth-child(2) { left: 33%; top: 5%; animation-delay: calc(var(--loader-speed, 1s) * .16); }\n.darma-loader-darma-b12-honeycomb-fill span:nth-child(3) { left: 58%; top: 20%; animation-delay: calc(var(--loader-speed, 1s) * .32); }\n.darma-loader-darma-b12-honeycomb-fill span:nth-child(4) { left: 58%; top: 50%; animation-delay: calc(var(--loader-speed, 1s) * .48); }\n.darma-loader-darma-b12-honeycomb-fill span:nth-child(5) { left: 33%; top: 65%; animation-delay: calc(var(--loader-speed, 1s) * .64); }\n.darma-loader-darma-b12-honeycomb-fill span:nth-child(6) { left: 8%; top: 50%; animation-delay: calc(var(--loader-speed, 1s) * .8); }\n.darma-loader-darma-b12-honeycomb-fill span:nth-child(7) { left: 8%; top: 20%; animation-delay: calc(var(--loader-speed, 1s) * .96); }\n@keyframes darma-loader-darma-b12-honeycomb-fill-comb { 0%, 100% { opacity: .16; transform: scale(.84); } 45% { opacity: 1; transform: scale(1); } }",
+    "react": "export default function DarmaB12HoneycombFillLoader() {\n  return (\n    <div className=\"darma-loader-darma-b12-honeycomb-fill\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 12",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

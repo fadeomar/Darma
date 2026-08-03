@@ -1,0 +1,48 @@
+{
+  "id": "darma-b12-popcorn-pop",
+  "name": "Popcorn Pop",
+  "category": "fun",
+  "sourceId": "darma-research-batch-12",
+  "tags": [
+    "popcorn",
+    "pop",
+    "cinema",
+    "kernels",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b12-popcorn-pop popcorn pop fun darma-research-batch-12 darma research batch 12 popcorn pop cinema kernels fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b12-popcorn-pop\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><div class=\"darma-loader-darma-b12-popcorn-pop__tub\"></div></div>",
+  "previewCss": ".darma-loader-darma-b12-popcorn-pop { --accent: var(--loader-color, #ef4444); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 100px); height: var(--loader-size, 100px); position: relative; }\n.darma-loader-darma-b12-popcorn-pop .darma-loader-darma-b12-popcorn-pop__tub { position: absolute; bottom: 2%; left: 19%; width: 62%; height: 44%; clip-path: polygon(5% 0%, 95% 0%, 84% 100%, 16% 100%); background: repeating-linear-gradient(90deg, var(--accent) 0 16%, #f8fafc 16% 32%); }\n.darma-loader-darma-b12-popcorn-pop span { position: absolute; bottom: 42%; width: 15%; height: 15%; border-radius: 44% 56% 48% 52% / 52% 46% 54% 48%; background: radial-gradient(circle at 38% 34%, #fff, color-mix(in srgb, #fff 52%, var(--accent-2))); animation: darma-loader-darma-b12-popcorn-pop-pop calc(var(--loader-speed, 1s) * 1.9) ease-out infinite; }\n.darma-loader-darma-b12-popcorn-pop span:nth-child(1) { left: 22%; --drift: -58%; animation-delay: 0s; }\n.darma-loader-darma-b12-popcorn-pop span:nth-child(2) { left: 37%; --drift: -18%; animation-delay: calc(var(--loader-speed, 1s) * .4); }\n.darma-loader-darma-b12-popcorn-pop span:nth-child(3) { left: 51%; --drift: 20%; animation-delay: calc(var(--loader-speed, 1s) * .8); }\n.darma-loader-darma-b12-popcorn-pop span:nth-child(4) { left: 64%; --drift: 60%; animation-delay: calc(var(--loader-speed, 1s) * 1.2); }\n@keyframes darma-loader-darma-b12-popcorn-pop-pop { 0% { opacity: 0; transform: translate(0, 20%) scale(.35) rotate(0deg); } 18% { opacity: 1; } 52% { transform: translate(var(--drift), -132%) scale(1) rotate(170deg); } 100% { opacity: 0; transform: translate(calc(var(--drift) * 1.5), 34%) scale(1) rotate(320deg); } }",
+  "defaults": {
+    "color": "#ef4444",
+    "secondaryColor": "#fbbf24",
+    "size": 100,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b12-popcorn-pop\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><div class=\"darma-loader-darma-b12-popcorn-pop__tub\"></div></div>",
+    "css": ".darma-loader-darma-b12-popcorn-pop { --accent: var(--loader-color, #ef4444); --accent-2: var(--loader-secondary-color, #fbbf24); width: var(--loader-size, 100px); height: var(--loader-size, 100px); position: relative; }\n.darma-loader-darma-b12-popcorn-pop .darma-loader-darma-b12-popcorn-pop__tub { position: absolute; bottom: 2%; left: 19%; width: 62%; height: 44%; clip-path: polygon(5% 0%, 95% 0%, 84% 100%, 16% 100%); background: repeating-linear-gradient(90deg, var(--accent) 0 16%, #f8fafc 16% 32%); }\n.darma-loader-darma-b12-popcorn-pop span { position: absolute; bottom: 42%; width: 15%; height: 15%; border-radius: 44% 56% 48% 52% / 52% 46% 54% 48%; background: radial-gradient(circle at 38% 34%, #fff, color-mix(in srgb, #fff 52%, var(--accent-2))); animation: darma-loader-darma-b12-popcorn-pop-pop calc(var(--loader-speed, 1s) * 1.9) ease-out infinite; }\n.darma-loader-darma-b12-popcorn-pop span:nth-child(1) { left: 22%; --drift: -58%; animation-delay: 0s; }\n.darma-loader-darma-b12-popcorn-pop span:nth-child(2) { left: 37%; --drift: -18%; animation-delay: calc(var(--loader-speed, 1s) * .4); }\n.darma-loader-darma-b12-popcorn-pop span:nth-child(3) { left: 51%; --drift: 20%; animation-delay: calc(var(--loader-speed, 1s) * .8); }\n.darma-loader-darma-b12-popcorn-pop span:nth-child(4) { left: 64%; --drift: 60%; animation-delay: calc(var(--loader-speed, 1s) * 1.2); }\n@keyframes darma-loader-darma-b12-popcorn-pop-pop { 0% { opacity: 0; transform: translate(0, 20%) scale(.35) rotate(0deg); } 18% { opacity: 1; } 52% { transform: translate(var(--drift), -132%) scale(1) rotate(170deg); } 100% { opacity: 0; transform: translate(calc(var(--drift) * 1.5), 34%) scale(1) rotate(320deg); } }",
+    "react": "export default function DarmaB12PopcornPopLoader() {\n  return (\n    <div className=\"darma-loader-darma-b12-popcorn-pop\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><div className=\"darma-loader-darma-b12-popcorn-pop__tub\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 12",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

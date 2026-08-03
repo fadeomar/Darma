@@ -1,0 +1,35 @@
+{
+  "id": "darma-b13-spider-web-weave",
+  "name": "Spider Web Weave",
+  "category": "creative",
+  "tags": [
+    "spider",
+    "web",
+    "weave",
+    "spiral",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; }\n.loader::before { content: ''; position: absolute; inset: 0; border-radius: 50%; background: repeating-conic-gradient(from 0deg, var(--accent-2) 0 .7deg, transparent .7deg 45deg); }\n.loader::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: repeating-radial-gradient(circle, transparent 0 10.5%, var(--accent) 10.5% 12%); animation: weave calc(var(--loader-speed) * 2.6) linear infinite; }\n.loader span { position: absolute; z-index: 2; top: 50%; left: 50%; width: 11%; height: 11%; margin: -5.5% 0 0 -5.5%; border-radius: 50%; background: radial-gradient(circle at 42% 34%, color-mix(in srgb, #fff 30%, var(--accent-2)), color-mix(in srgb, #000 42%, var(--accent-2))); animation: crawl calc(var(--loader-speed) * 2.6) linear infinite; }\n@keyframes weave { 0% { clip-path: circle(5% at 50% 50%); } 100% { clip-path: circle(51% at 50% 50%); } }\n@keyframes crawl { 0% { transform: rotate(0deg) translateX(calc(var(--loader-size) * .04)); } 100% { transform: rotate(1080deg) translateX(calc(var(--loader-size) * .45)); } }",
+  "defaults": {
+    "color": "#e2e8f0",
+    "secondaryColor": "#64748b",
+    "size": 108,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

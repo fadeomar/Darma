@@ -1,0 +1,35 @@
+{
+  "id": "darma-b12-book-flip-pages",
+  "name": "Book Flip Pages",
+  "category": "creative",
+  "tags": [
+    "book",
+    "pages",
+    "flip",
+    "reading",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .68); position: relative; perspective: 520px; }\n.loader::before, .loader::after { content: ''; position: absolute; top: 0; width: 50%; height: 100%; background: linear-gradient(var(--accent), var(--accent-2)); }\n.loader::before { left: 0; border-radius: 6px 0 0 6px; }\n.loader::after { right: 0; border-radius: 0 6px 6px 0; filter: brightness(.88); }\n.loader span { position: absolute; z-index: 2; top: 5%; left: 50%; width: 47%; height: 90%; transform-origin: left center; border-radius: 0 5px 5px 0; background: linear-gradient(90deg, #e2e8f0, #f8fafc 22%); box-shadow: 0 2px 8px rgba(15, 23, 42, .22); animation: turn calc(var(--loader-speed) * 1.8) ease-in-out infinite; }\n.loader span:nth-child(2) { animation-delay: calc(var(--loader-speed) * -.6); }\n.loader span:nth-child(3) { animation-delay: calc(var(--loader-speed) * -1.2); }\n@keyframes turn { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(-180deg); } }",
+  "defaults": {
+    "color": "#7c3aed",
+    "secondaryColor": "#c084fc",
+    "size": 108,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 12",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

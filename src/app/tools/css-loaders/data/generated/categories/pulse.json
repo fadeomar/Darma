@@ -466,7 +466,7 @@
     },
     "searchText": "darma-b8-droplet-ripple droplet ripple pulse darma-research-batch-8 darma research batch 8 droplet water ripple splash pulse html css react customizable cssonly",
     "previewHtml": "<div class=\"darma-loader-darma-b8-droplet-ripple\" aria-label=\"Loading\"><span></span></div>",
-    "previewCss": ".darma-loader-darma-b8-droplet-ripple { --accent: var(--loader-color, #38bdf8); --accent-2: var(--loader-secondary-color, #0284c7); width: var(--loader-size, 80px); height: var(--loader-size, 80px); position: relative; }\n.darma-loader-darma-b8-droplet-ripple span { position: absolute; left: 50%; top: 0; width: calc(var(--loader-size, 80px) * .16); height: calc(var(--loader-size, 80px) * .16); margin-left: calc(var(--loader-size, 80px) * -.08); border-radius: 50% 50% 50% 0; background: linear-gradient(135deg, var(--accent), var(--accent-2)); animation: darma-loader-darma-b8-droplet-darma-loader-darma-b8-droplet-ripple-ripple-drip calc(var(--loader-speed, 1s) * 1.8) ease-in infinite; }\n.darma-loader-darma-b8-droplet-ripple::before, .darma-loader-darma-b8-droplet-ripple::after { content: ''; position: absolute; left: 50%; bottom: 8%; width: calc(var(--loader-size, 80px) * .24); height: calc(var(--loader-size, 80px) * .1); margin-left: calc(var(--loader-size, 80px) * -.12); border: 2px solid var(--accent-2); border-radius: 50%; opacity: 0; animation: darma-loader-darma-b8-droplet-ripple-ripple calc(var(--loader-speed, 1s) * 1.8) ease-out infinite; }\n.darma-loader-darma-b8-droplet-ripple::after { animation-delay: calc(var(--loader-speed, 1s) * .28); }\n@keyframes darma-loader-darma-b8-droplet-ripple-drip { 0% { transform: translateY(0) rotate(45deg) scale(1); } 55% { transform: translateY(calc(var(--loader-size, 80px) * .72)) rotate(45deg) scale(1); opacity: 1; } 62% { transform: translateY(calc(var(--loader-size, 80px) * .72)) rotate(45deg) scale(.2); opacity: .3; } 63%, 100% { opacity: 0; } }\n@keyframes darma-loader-darma-b8-droplet-ripple-ripple { 0%, 55% { transform: scale(.3); opacity: 0; } 62% { opacity: .85; } 100% { transform: scale(1.6); opacity: 0; } }",
+    "previewCss": ".darma-loader-darma-b8-droplet-ripple { --accent: var(--loader-color, #38bdf8); --accent-2: var(--loader-secondary-color, #0284c7); width: var(--loader-size, 80px); height: var(--loader-size, 80px); position: relative; }\n.darma-loader-darma-b8-droplet-ripple span { position: absolute; left: 50%; top: 0; width: calc(var(--loader-size, 80px) * .16); height: calc(var(--loader-size, 80px) * .16); margin-left: calc(var(--loader-size, 80px) * -.08); border-radius: 50% 50% 50% 0; background: linear-gradient(135deg, var(--accent), var(--accent-2)); animation: darma-loader-darma-b8-droplet-ripple-drip calc(var(--loader-speed, 1s) * 1.8) ease-in infinite; }\n.darma-loader-darma-b8-droplet-ripple::before, .darma-loader-darma-b8-droplet-ripple::after { content: ''; position: absolute; left: 50%; bottom: 8%; width: calc(var(--loader-size, 80px) * .24); height: calc(var(--loader-size, 80px) * .1); margin-left: calc(var(--loader-size, 80px) * -.12); border: 2px solid var(--accent-2); border-radius: 50%; opacity: 0; animation: darma-loader-darma-b8-droplet-ripple-ripple calc(var(--loader-speed, 1s) * 1.8) ease-out infinite; }\n.darma-loader-darma-b8-droplet-ripple::after { animation-delay: calc(var(--loader-speed, 1s) * .28); }\n@keyframes darma-loader-darma-b8-droplet-ripple-drip { 0% { transform: translateY(0) rotate(45deg) scale(1); } 55% { transform: translateY(calc(var(--loader-size, 80px) * .72)) rotate(45deg) scale(1); opacity: 1; } 62% { transform: translateY(calc(var(--loader-size, 80px) * .72)) rotate(45deg) scale(.2); opacity: .3; } 63%, 100% { opacity: 0; } }\n@keyframes darma-loader-darma-b8-droplet-ripple-ripple { 0%, 55% { transform: scale(.3); opacity: 0; } 62% { opacity: .85; } 100% { transform: scale(1.6); opacity: 0; } }",
     "defaults": {
       "color": "#38bdf8",
       "secondaryColor": "#0284c7",
@@ -2223,6 +2223,37 @@
     }
   },
   {
+    "id": "darma-b13-speaker-cone",
+    "name": "Speaker Cone",
+    "category": "pulse",
+    "sourceId": "darma-research-batch-13",
+    "tags": [
+      "speaker",
+      "cone",
+      "bass",
+      "thump",
+      "pulse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b13-speaker-cone speaker cone pulse darma-research-batch-13 darma research batch 13 speaker cone bass thump pulse html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b13-speaker-cone\" aria-label=\"Loading\"><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b13-speaker-cone { --accent: var(--loader-color, #a855f7); --accent-2: var(--loader-secondary-color, #1e293b); width: var(--loader-size, 96px); height: var(--loader-size, 96px); position: relative; display: grid; place-items: center; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, #000 34%, var(--accent-2)) 0 21%, var(--accent-2) 22% 39%, color-mix(in srgb, #000 22%, var(--accent-2)) 40% 100%); box-shadow: inset 0 0 0 calc(var(--loader-size, 96px) * .05) color-mix(in srgb, #000 48%, var(--accent-2)); animation: darma-loader-darma-b13-speaker-cone-thump calc(var(--loader-speed, 1s) * .8) ease-out infinite; }\n.darma-loader-darma-b13-speaker-cone::after { content: ''; position: absolute; width: 26%; height: 26%; border-radius: 50%; background: radial-gradient(circle at 38% 32%, color-mix(in srgb, #fff 34%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b13-speaker-cone span { position: absolute; border-radius: 50%; border: calc(var(--loader-size, 96px) * .03) solid var(--accent); animation: darma-loader-darma-b13-speaker-cone-emit calc(var(--loader-speed, 1s) * 1.6) ease-out infinite; }\n.darma-loader-darma-b13-speaker-cone span:nth-child(2) { animation-delay: calc(var(--loader-speed, 1s) * .8); }\n@keyframes darma-loader-darma-b13-speaker-cone-thump { 0% { transform: scale(1); } 14% { transform: scale(1.07); } 44%, 100% { transform: scale(1); } }\n@keyframes darma-loader-darma-b13-speaker-cone-emit { 0% { width: 42%; height: 42%; opacity: .85; } 100% { width: 132%; height: 132%; opacity: 0; } }",
+    "defaults": {
+      "color": "#a855f7",
+      "secondaryColor": "#1e293b",
+      "size": 96,
+      "speed": 1
+    }
+  },
+  {
     "id": "uiverse-splash-square-trio",
     "name": "Splash Square Trio",
     "category": "pulse",
@@ -2249,7 +2280,7 @@
     },
     "searchText": "uiverse-splash-square-trio splash square trio pulse uiverse-batch-3 uiverse batch 3 uiverse splash squares trio pulse loader html css react cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-uiverse-splash-square-trio\">\n  <div class=\"darma-loader-uiverse-splash-square-trio__square\"></div>\n  <div class=\"darma-loader-uiverse-splash-square-trio__square\"></div>\n  <div class=\"darma-loader-uiverse-splash-square-trio__square\"></div>\n</div>\n/* Container for loader */",
-    "previewCss": ".darma-loader-uiverse-splash-square-trio {\n  display: flex;\n  gap: 8px;\n  justify-content: center;\n  align-items: center;\n  height: 60px;\n}\n\n/* Individual squares */\n.darma-loader-uiverse-splash-square-trio__square {\nwidth: 22px;\nheight: 22px;\nbackground-color: rgb(0, 247, 255);\nborder-radius: 4px;\nbox-shadow: 0 0 12px rgba(4, 136, 252, 0.8);\nanimation: darma-loader-uiverse-darma-loader-uiverse-splash-square-trio-splash-square-trio-scaleBounce 1.2s infinite ease-in-out;\nposition: relative;\n}\n\n/* Splash effect */\n.darma-loader-uiverse-splash-square-trio__square::after {\ncontent: \"\";\nposition: absolute;\nwidth: 100%;\nheight: 100%;\nbackground-color: rgba(0, 247, 255, 0.5);\nborder-radius: 50%;\nopacity: 0;\ntransform: scale(1);\nanimation: darma-loader-uiverse-splash-square-trio-splash 1.2s infinite ease-in-out;\n}\n\n/* Animations for each square */\n.darma-loader-uiverse-splash-square-trio__square:nth-child(1) {\nanimation-delay: -0.4s;\n}\n.darma-loader-uiverse-splash-square-trio__square:nth-child(2) {\nanimation-delay: -0.2s;\n}\n.darma-loader-uiverse-splash-square-trio__square:nth-child(3) {\nanimation-delay: 0s;\n}\n\n@keyframes darma-loader-uiverse-splash-square-trio-scaleBounce {\n0%,\n80%,\n100% {\ntransform: scale(0.5);\nopacity: 0.6;\n}\n40% {\ntransform: scale(1.2);\nopacity: 1;\n}\n}\n\n@keyframes darma-loader-uiverse-splash-square-trio-splash {\n0% {\nopacity: 0.6;\ntransform: scale(1);\n}\n50% {\nopacity: 0;\ntransform: scale(2);\n}\n100% {\nopacity: 0;\ntransform: scale(2.5);\n}\n}",
+    "previewCss": ".darma-loader-uiverse-splash-square-trio {\n  display: flex;\n  gap: 8px;\n  justify-content: center;\n  align-items: center;\n  height: 60px;\n}\n\n/* Individual squares */\n.darma-loader-uiverse-splash-square-trio__square {\nwidth: 22px;\nheight: 22px;\nbackground-color: rgb(0, 247, 255);\nborder-radius: 4px;\nbox-shadow: 0 0 12px rgba(4, 136, 252, 0.8);\nanimation: darma-loader-uiverse-splash-square-trio-scaleBounce 1.2s infinite ease-in-out;\nposition: relative;\n}\n\n/* Splash effect */\n.darma-loader-uiverse-splash-square-trio__square::after {\ncontent: \"\";\nposition: absolute;\nwidth: 100%;\nheight: 100%;\nbackground-color: rgba(0, 247, 255, 0.5);\nborder-radius: 50%;\nopacity: 0;\ntransform: scale(1);\nanimation: darma-loader-uiverse-splash-square-trio-splash 1.2s infinite ease-in-out;\n}\n\n/* Animations for each square */\n.darma-loader-uiverse-splash-square-trio__square:nth-child(1) {\nanimation-delay: -0.4s;\n}\n.darma-loader-uiverse-splash-square-trio__square:nth-child(2) {\nanimation-delay: -0.2s;\n}\n.darma-loader-uiverse-splash-square-trio__square:nth-child(3) {\nanimation-delay: 0s;\n}\n\n@keyframes darma-loader-uiverse-splash-square-trio-scaleBounce {\n0%,\n80%,\n100% {\ntransform: scale(0.5);\nopacity: 0.6;\n}\n40% {\ntransform: scale(1.2);\nopacity: 1;\n}\n}\n\n@keyframes darma-loader-uiverse-splash-square-trio-splash {\n0% {\nopacity: 0.6;\ntransform: scale(1);\n}\n50% {\nopacity: 0;\ntransform: scale(2);\n}\n100% {\nopacity: 0;\ntransform: scale(2.5);\n}\n}",
     "defaults": {
       "size": 120,
       "speed": 1,

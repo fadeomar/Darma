@@ -24,6 +24,8 @@ export type LoaderSourceGroupId =
   | "darma-research-batch-9"
   | "darma-research-batch-10"
   | "darma-research-batch-11"
+  | "darma-research-batch-12"
+  | "darma-research-batch-13"
   | "loaders-css"
   | "loading-io"
   | "open-pack-2026"
@@ -122,6 +124,24 @@ export const LOADER_SOURCE_GROUPS: readonly LoaderSourceGroup[] = [
     id: "darma-research-batch-11",
     name: "Darma Research Batch 11",
     description: "Darma original loaders with camera, weather, and toy object motifs (shutter, campfire, jellyfish, hot-air balloon).",
+    author: "Darma",
+    license: "Custom (Darma)",
+    isOriginal: true,
+    licenseVerified: true,
+  },
+  {
+    id: "darma-research-batch-12",
+    name: "Darma Research Batch 12",
+    description: "Darma original loaders built around everyday machines and objects (abacus, escalator, cassette, zipper, scanner).",
+    author: "Darma",
+    license: "Custom (Darma)",
+    isOriginal: true,
+    licenseVerified: true,
+  },
+  {
+    id: "darma-research-batch-13",
+    name: "Darma Research Batch 13",
+    description: "Darma original loaders drawn from machines, sport, and interface metaphors (sewing, water wheel, roulette, fingerprint scan).",
     author: "Darma",
     license: "Custom (Darma)",
     isOriginal: true,

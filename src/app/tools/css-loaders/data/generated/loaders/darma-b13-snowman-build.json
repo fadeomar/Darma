@@ -1,0 +1,48 @@
+{
+  "id": "darma-b13-snowman-build",
+  "name": "Snowman Build",
+  "category": "fun",
+  "sourceId": "darma-research-batch-13",
+  "tags": [
+    "snowman",
+    "snow",
+    "winter",
+    "stack",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b13-snowman-build snowman build fun darma-research-batch-13 darma research batch 13 snowman snow winter stack fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b13-snowman-build\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b13-snowman-build { --accent: var(--loader-color, #93c5fd); --accent-2: var(--loader-secondary-color, #1e293b); width: calc(var(--loader-size, 116px) * .8); height: var(--loader-size, 116px); position: relative; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; }\n.darma-loader-darma-b13-snowman-build::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 4%; border-radius: 999px; background: color-mix(in srgb, #fff 55%, var(--accent-2)); }\n.darma-loader-darma-b13-snowman-build::before { content: ''; position: absolute; top: 2%; left: 32%; width: 36%; height: 11%; border-radius: 3px 3px 0 0; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 28%, var(--accent-2))); box-shadow: 0 0 0 calc(var(--loader-size, 116px) * .022) color-mix(in srgb, #000 28%, var(--accent-2)); animation: darma-loader-darma-b13-snowman-build-build calc(var(--loader-speed, 1s) * 3) ease-out infinite; animation-delay: calc(var(--loader-speed, 1s) * .54); }\n.darma-loader-darma-b13-snowman-build span { border-radius: 50%; background: radial-gradient(circle at 36% 30%, #fff, color-mix(in srgb, #fff 62%, var(--accent))); box-shadow: inset 0 calc(var(--loader-size, 116px) * -.02) calc(var(--loader-size, 116px) * .04) color-mix(in srgb, var(--accent) 45%, transparent); animation: darma-loader-darma-b13-snowman-build-build calc(var(--loader-speed, 1s) * 3) ease-out infinite; }\n.darma-loader-darma-b13-snowman-build span:nth-child(1) { width: 46%; height: calc(var(--loader-size, 116px) * .368); order: 3; }\n.darma-loader-darma-b13-snowman-build span:nth-child(2) { width: 34%; height: calc(var(--loader-size, 116px) * .272); order: 2; margin-bottom: -4%; animation-delay: calc(var(--loader-speed, 1s) * .27); }\n.darma-loader-darma-b13-snowman-build span:nth-child(3) { width: 25%; height: calc(var(--loader-size, 116px) * .2); order: 1; margin-bottom: -3%; animation-delay: calc(var(--loader-speed, 1s) * .54); }\n@keyframes darma-loader-darma-b13-snowman-build-build { 0% { opacity: 0; transform: scale(0); } 10% { opacity: 1; transform: scale(1.14); } 16% { transform: scale(1); } 80% { opacity: 1; transform: scale(1); } 92%, 100% { opacity: 0; transform: scale(0); } }",
+  "defaults": {
+    "color": "#93c5fd",
+    "secondaryColor": "#1e293b",
+    "size": 116,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b13-snowman-build\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b13-snowman-build { --accent: var(--loader-color, #93c5fd); --accent-2: var(--loader-secondary-color, #1e293b); width: calc(var(--loader-size, 116px) * .8); height: var(--loader-size, 116px); position: relative; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; }\n.darma-loader-darma-b13-snowman-build::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 4%; border-radius: 999px; background: color-mix(in srgb, #fff 55%, var(--accent-2)); }\n.darma-loader-darma-b13-snowman-build::before { content: ''; position: absolute; top: 2%; left: 32%; width: 36%; height: 11%; border-radius: 3px 3px 0 0; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 28%, var(--accent-2))); box-shadow: 0 0 0 calc(var(--loader-size, 116px) * .022) color-mix(in srgb, #000 28%, var(--accent-2)); animation: darma-loader-darma-b13-snowman-build-build calc(var(--loader-speed, 1s) * 3) ease-out infinite; animation-delay: calc(var(--loader-speed, 1s) * .54); }\n.darma-loader-darma-b13-snowman-build span { border-radius: 50%; background: radial-gradient(circle at 36% 30%, #fff, color-mix(in srgb, #fff 62%, var(--accent))); box-shadow: inset 0 calc(var(--loader-size, 116px) * -.02) calc(var(--loader-size, 116px) * .04) color-mix(in srgb, var(--accent) 45%, transparent); animation: darma-loader-darma-b13-snowman-build-build calc(var(--loader-speed, 1s) * 3) ease-out infinite; }\n.darma-loader-darma-b13-snowman-build span:nth-child(1) { width: 46%; height: calc(var(--loader-size, 116px) * .368); order: 3; }\n.darma-loader-darma-b13-snowman-build span:nth-child(2) { width: 34%; height: calc(var(--loader-size, 116px) * .272); order: 2; margin-bottom: -4%; animation-delay: calc(var(--loader-speed, 1s) * .27); }\n.darma-loader-darma-b13-snowman-build span:nth-child(3) { width: 25%; height: calc(var(--loader-size, 116px) * .2); order: 1; margin-bottom: -3%; animation-delay: calc(var(--loader-speed, 1s) * .54); }\n@keyframes darma-loader-darma-b13-snowman-build-build { 0% { opacity: 0; transform: scale(0); } 10% { opacity: 1; transform: scale(1.14); } 16% { transform: scale(1); } 80% { opacity: 1; transform: scale(1); } 92%, 100% { opacity: 0; transform: scale(0); } }",
+    "react": "export default function DarmaB13SnowmanBuildLoader() {\n  return (\n    <div className=\"darma-loader-darma-b13-snowman-build\" aria-label=\"Loading\"><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

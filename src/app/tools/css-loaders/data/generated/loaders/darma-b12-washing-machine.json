@@ -1,0 +1,48 @@
+{
+  "id": "darma-b12-washing-machine",
+  "name": "Laundry Drum",
+  "category": "fun",
+  "sourceId": "darma-research-batch-12",
+  "tags": [
+    "washing",
+    "machine",
+    "laundry",
+    "tumble",
+    "fun"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b12-washing-machine laundry drum fun darma-research-batch-12 darma research batch 12 washing machine laundry tumble fun html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b12-washing-machine\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b12-washing-machine__drum\"><span></span><span></span><span></span></div></div>",
+  "previewCss": ".darma-loader-darma-b12-washing-machine { --accent: var(--loader-color, #2563eb); --accent-2: var(--loader-secondary-color, #93c5fd); width: var(--loader-size, 96px); height: var(--loader-size, 96px); position: relative; display: grid; place-items: center; border-radius: 12%; background: linear-gradient(#f8fafc, #e2e8f0); box-shadow: inset 0 0 0 2px #cbd5e1; }\n.darma-loader-darma-b12-washing-machine::before { content: ''; position: absolute; top: 7%; left: 12%; width: 76%; height: 9%; border-radius: 999px; background: #cbd5e1; }\n.darma-loader-darma-b12-washing-machine .darma-loader-darma-b12-washing-machine__drum { position: relative; width: 62%; height: 62%; margin-top: 10%; overflow: hidden; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, #fff 72%, var(--accent-2)) 58%, var(--accent-2)); box-shadow: inset 0 0 0 calc(var(--loader-size, 96px) * .045) var(--accent); }\n.darma-loader-darma-b12-washing-machine .darma-loader-darma-b12-washing-machine__drum span { position: absolute; top: 50%; left: 50%; width: 24%; height: 24%; margin: -12% 0 0 -12%; border-radius: 42%; background: var(--accent); animation: darma-loader-darma-b12-washing-machine-tumble calc(var(--loader-speed, 1s) * 1.5) linear infinite; }\n.darma-loader-darma-b12-washing-machine .darma-loader-darma-b12-washing-machine__drum span:nth-child(1) { --orbit: -108%; }\n.darma-loader-darma-b12-washing-machine .darma-loader-darma-b12-washing-machine__drum span:nth-child(2) { --orbit: -62%; animation-delay: calc(var(--loader-speed, 1s) * -.5); }\n.darma-loader-darma-b12-washing-machine .darma-loader-darma-b12-washing-machine__drum span:nth-child(3) { --orbit: -92%; animation-delay: calc(var(--loader-speed, 1s) * -1); }\n@keyframes darma-loader-darma-b12-washing-machine-tumble { from { transform: rotate(0deg) translateY(var(--orbit)); } to { transform: rotate(360deg) translateY(var(--orbit)); } }",
+  "defaults": {
+    "color": "#2563eb",
+    "secondaryColor": "#93c5fd",
+    "size": 96,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b12-washing-machine\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b12-washing-machine__drum\"><span></span><span></span><span></span></div></div>",
+    "css": ".darma-loader-darma-b12-washing-machine { --accent: var(--loader-color, #2563eb); --accent-2: var(--loader-secondary-color, #93c5fd); width: var(--loader-size, 96px); height: var(--loader-size, 96px); position: relative; display: grid; place-items: center; border-radius: 12%; background: linear-gradient(#f8fafc, #e2e8f0); box-shadow: inset 0 0 0 2px #cbd5e1; }\n.darma-loader-darma-b12-washing-machine::before { content: ''; position: absolute; top: 7%; left: 12%; width: 76%; height: 9%; border-radius: 999px; background: #cbd5e1; }\n.darma-loader-darma-b12-washing-machine .darma-loader-darma-b12-washing-machine__drum { position: relative; width: 62%; height: 62%; margin-top: 10%; overflow: hidden; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, #fff 72%, var(--accent-2)) 58%, var(--accent-2)); box-shadow: inset 0 0 0 calc(var(--loader-size, 96px) * .045) var(--accent); }\n.darma-loader-darma-b12-washing-machine .darma-loader-darma-b12-washing-machine__drum span { position: absolute; top: 50%; left: 50%; width: 24%; height: 24%; margin: -12% 0 0 -12%; border-radius: 42%; background: var(--accent); animation: darma-loader-darma-b12-washing-machine-tumble calc(var(--loader-speed, 1s) * 1.5) linear infinite; }\n.darma-loader-darma-b12-washing-machine .darma-loader-darma-b12-washing-machine__drum span:nth-child(1) { --orbit: -108%; }\n.darma-loader-darma-b12-washing-machine .darma-loader-darma-b12-washing-machine__drum span:nth-child(2) { --orbit: -62%; animation-delay: calc(var(--loader-speed, 1s) * -.5); }\n.darma-loader-darma-b12-washing-machine .darma-loader-darma-b12-washing-machine__drum span:nth-child(3) { --orbit: -92%; animation-delay: calc(var(--loader-speed, 1s) * -1); }\n@keyframes darma-loader-darma-b12-washing-machine-tumble { from { transform: rotate(0deg) translateY(var(--orbit)); } to { transform: rotate(360deg) translateY(var(--orbit)); } }",
+    "react": "export default function DarmaB12WashingMachineLoader() {\n  return (\n    <div className=\"darma-loader-darma-b12-washing-machine\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b12-washing-machine__drum\"><span></span><span></span><span></span></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 12",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

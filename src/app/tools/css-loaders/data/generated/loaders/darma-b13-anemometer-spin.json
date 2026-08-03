@@ -1,0 +1,48 @@
+{
+  "id": "darma-b13-anemometer-spin",
+  "name": "Anemometer Spin",
+  "category": "spinners",
+  "sourceId": "darma-research-batch-13",
+  "tags": [
+    "anemometer",
+    "cups",
+    "wind",
+    "meter",
+    "spinner"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b13-anemometer-spin anemometer spin spinners darma-research-batch-13 darma research batch 13 anemometer cups wind meter spinner html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b13-anemometer-spin\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b13-anemometer-spin { --accent: var(--loader-color, #e2e8f0); --accent-2: var(--loader-secondary-color, #0ea5e9); width: var(--loader-size, 96px); height: var(--loader-size, 96px); position: relative; animation: darma-loader-darma-b13-anemometer-spin-cups calc(var(--loader-speed, 1s) * 1.2) linear infinite; }\n.darma-loader-darma-b13-anemometer-spin::after { content: ''; position: absolute; top: 44%; left: 44%; width: 12%; height: 12%; border-radius: 50%; background: color-mix(in srgb, #000 30%, var(--accent-2)); }\n.darma-loader-darma-b13-anemometer-spin span { position: absolute; top: 50%; left: 50%; width: 40%; height: 7%; margin-top: -3.5%; border-radius: 999px; transform-origin: left center; background: var(--accent-2); }\n.darma-loader-darma-b13-anemometer-spin span::after { content: ''; position: absolute; right: -16%; top: -170%; width: 42%; height: 440%; border-radius: 0 999px 999px 0; background: linear-gradient(90deg, color-mix(in srgb, #000 18%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b13-anemometer-spin span:nth-child(2) { transform: rotate(120deg); }\n.darma-loader-darma-b13-anemometer-spin span:nth-child(3) { transform: rotate(240deg); }\n@keyframes darma-loader-darma-b13-anemometer-spin-cups { to { transform: rotate(360deg); } }",
+  "defaults": {
+    "color": "#e2e8f0",
+    "secondaryColor": "#0ea5e9",
+    "size": 96,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b13-anemometer-spin\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b13-anemometer-spin { --accent: var(--loader-color, #e2e8f0); --accent-2: var(--loader-secondary-color, #0ea5e9); width: var(--loader-size, 96px); height: var(--loader-size, 96px); position: relative; animation: darma-loader-darma-b13-anemometer-spin-cups calc(var(--loader-speed, 1s) * 1.2) linear infinite; }\n.darma-loader-darma-b13-anemometer-spin::after { content: ''; position: absolute; top: 44%; left: 44%; width: 12%; height: 12%; border-radius: 50%; background: color-mix(in srgb, #000 30%, var(--accent-2)); }\n.darma-loader-darma-b13-anemometer-spin span { position: absolute; top: 50%; left: 50%; width: 40%; height: 7%; margin-top: -3.5%; border-radius: 999px; transform-origin: left center; background: var(--accent-2); }\n.darma-loader-darma-b13-anemometer-spin span::after { content: ''; position: absolute; right: -16%; top: -170%; width: 42%; height: 440%; border-radius: 0 999px 999px 0; background: linear-gradient(90deg, color-mix(in srgb, #000 18%, var(--accent)), var(--accent)); }\n.darma-loader-darma-b13-anemometer-spin span:nth-child(2) { transform: rotate(120deg); }\n.darma-loader-darma-b13-anemometer-spin span:nth-child(3) { transform: rotate(240deg); }\n@keyframes darma-loader-darma-b13-anemometer-spin-cups { to { transform: rotate(360deg); } }",
+    "react": "export default function DarmaB13AnemometerSpinLoader() {\n  return (\n    <div className=\"darma-loader-darma-b13-anemometer-spin\" aria-label=\"Loading\"><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

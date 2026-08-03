@@ -1,0 +1,35 @@
+{
+  "id": "darma-b12-vault-dial",
+  "name": "Vault Dial",
+  "category": "spinners",
+  "tags": [
+    "vault",
+    "safe",
+    "dial",
+    "combination",
+    "spinner"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"dial\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; display: grid; place-items: center; border-radius: 50%; background: radial-gradient(circle, #e2e8f0 62%, #cbd5e1); box-shadow: inset 0 0 0 2px #94a3b8; }\n.loader::before { content: ''; position: absolute; inset: 5%; border-radius: 50%; background: repeating-conic-gradient(var(--accent-2) 0 1.4deg, transparent 1.4deg 12deg); }\n.loader .dial { position: relative; width: 70%; height: 70%; border-radius: 50%; background: conic-gradient(from 0deg, var(--accent), var(--accent-2), var(--accent)); box-shadow: 0 3px 8px rgba(15, 23, 42, .3); animation: vault calc(var(--loader-speed) * 3) cubic-bezier(.62, 0, .3, 1) infinite; }\n.loader .dial::after { content: ''; position: absolute; top: 7%; left: calc(50% - 4%); width: 8%; height: 26%; border-radius: 999px; background: #f8fafc; }\n@keyframes vault { 0% { transform: rotate(0deg); } 22% { transform: rotate(148deg); } 40% { transform: rotate(104deg); } 62% { transform: rotate(268deg); } 80% { transform: rotate(220deg); } 100% { transform: rotate(360deg); } }",
+  "defaults": {
+    "color": "#334155",
+    "secondaryColor": "#eab308",
+    "size": 92,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 12",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

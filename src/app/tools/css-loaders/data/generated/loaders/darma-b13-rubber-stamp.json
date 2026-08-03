@@ -1,0 +1,48 @@
+{
+  "id": "darma-b13-rubber-stamp",
+  "name": "Rubber Stamp",
+  "category": "progress",
+  "sourceId": "darma-research-batch-13",
+  "tags": [
+    "stamp",
+    "approve",
+    "ink",
+    "press",
+    "progress"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b13-rubber-stamp rubber stamp progress darma-research-batch-13 darma research batch 13 stamp approve ink press progress html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b13-rubber-stamp\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b13-rubber-stamp__stamp\"></div><span></span></div>",
+  "previewCss": ".darma-loader-darma-b13-rubber-stamp { --accent: var(--loader-color, #7c3aed); --accent-2: var(--loader-secondary-color, #16a34a); width: var(--loader-size, 116px); height: calc(var(--loader-size, 116px) * .76); position: relative; }\n.darma-loader-darma-b13-rubber-stamp::before { content: ''; position: absolute; bottom: 0; left: 11%; width: 78%; height: 32%; border-radius: 3px; background: #f8fafc; box-shadow: 0 2px 6px rgba(15, 23, 42, .2); }\n.darma-loader-darma-b13-rubber-stamp .darma-loader-darma-b13-rubber-stamp__stamp { position: absolute; top: 14%; left: 27%; width: 46%; height: 44%; border-radius: 6px 6px 3px 3px; background: linear-gradient(var(--accent), color-mix(in srgb, #000 28%, var(--accent))); animation: darma-loader-darma-b13-rubber-stamp-press calc(var(--loader-speed, 1s) * 2.4) cubic-bezier(.5, 0, .3, 1) infinite; }\n.darma-loader-darma-b13-rubber-stamp .darma-loader-darma-b13-rubber-stamp__stamp::after { content: ''; position: absolute; bottom: 100%; left: 24%; width: 52%; height: 62%; border-radius: 7px 7px 2px 2px; background: linear-gradient(color-mix(in srgb, #fff 22%, var(--accent-2)), var(--accent-2)); }\n.darma-loader-darma-b13-rubber-stamp span { position: absolute; bottom: 6%; left: 24%; width: 52%; height: 20%; border-radius: 3px; box-shadow: inset 0 0 0 3px var(--accent-2); animation: darma-loader-darma-b13-rubber-stamp-ink calc(var(--loader-speed, 1s) * 2.4) ease-out infinite; }\n@keyframes darma-loader-darma-b13-rubber-stamp-press { 0%, 18% { transform: translateY(0); } 42%, 52% { transform: translateY(40%); } 76%, 100% { transform: translateY(0); } }\n@keyframes darma-loader-darma-b13-rubber-stamp-ink { 0%, 38% { opacity: 0; transform: scale(.84); } 48% { opacity: 1; transform: scale(1); } 86% { opacity: 1; } 100% { opacity: 0; } }",
+  "defaults": {
+    "color": "#7c3aed",
+    "secondaryColor": "#16a34a",
+    "size": 116,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b13-rubber-stamp\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b13-rubber-stamp__stamp\"></div><span></span></div>",
+    "css": ".darma-loader-darma-b13-rubber-stamp { --accent: var(--loader-color, #7c3aed); --accent-2: var(--loader-secondary-color, #16a34a); width: var(--loader-size, 116px); height: calc(var(--loader-size, 116px) * .76); position: relative; }\n.darma-loader-darma-b13-rubber-stamp::before { content: ''; position: absolute; bottom: 0; left: 11%; width: 78%; height: 32%; border-radius: 3px; background: #f8fafc; box-shadow: 0 2px 6px rgba(15, 23, 42, .2); }\n.darma-loader-darma-b13-rubber-stamp .darma-loader-darma-b13-rubber-stamp__stamp { position: absolute; top: 14%; left: 27%; width: 46%; height: 44%; border-radius: 6px 6px 3px 3px; background: linear-gradient(var(--accent), color-mix(in srgb, #000 28%, var(--accent))); animation: darma-loader-darma-b13-rubber-stamp-press calc(var(--loader-speed, 1s) * 2.4) cubic-bezier(.5, 0, .3, 1) infinite; }\n.darma-loader-darma-b13-rubber-stamp .darma-loader-darma-b13-rubber-stamp__stamp::after { content: ''; position: absolute; bottom: 100%; left: 24%; width: 52%; height: 62%; border-radius: 7px 7px 2px 2px; background: linear-gradient(color-mix(in srgb, #fff 22%, var(--accent-2)), var(--accent-2)); }\n.darma-loader-darma-b13-rubber-stamp span { position: absolute; bottom: 6%; left: 24%; width: 52%; height: 20%; border-radius: 3px; box-shadow: inset 0 0 0 3px var(--accent-2); animation: darma-loader-darma-b13-rubber-stamp-ink calc(var(--loader-speed, 1s) * 2.4) ease-out infinite; }\n@keyframes darma-loader-darma-b13-rubber-stamp-press { 0%, 18% { transform: translateY(0); } 42%, 52% { transform: translateY(40%); } 76%, 100% { transform: translateY(0); } }\n@keyframes darma-loader-darma-b13-rubber-stamp-ink { 0%, 38% { opacity: 0; transform: scale(.84); } 48% { opacity: 1; transform: scale(1); } 86% { opacity: 1; } 100% { opacity: 0; } }",
+    "react": "export default function DarmaB13RubberStampLoader() {\n  return (\n    <div className=\"darma-loader-darma-b13-rubber-stamp\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b13-rubber-stamp__stamp\"></div><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

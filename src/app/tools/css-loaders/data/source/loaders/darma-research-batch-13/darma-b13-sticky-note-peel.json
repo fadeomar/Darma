@@ -1,0 +1,35 @@
+{
+  "id": "darma-b13-sticky-note-peel",
+  "name": "Sticky Note Peel",
+  "category": "creative",
+  "tags": [
+    "sticky",
+    "note",
+    "peel",
+    "paper",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: calc(var(--loader-size) * .84); height: calc(var(--loader-size) * .84); position: relative; perspective: 420px; }\n.loader::after { content: ''; position: absolute; inset: 0; border-radius: 2px; background: color-mix(in srgb, #000 18%, var(--accent-2)); }\n.loader span { position: absolute; inset: 0; border-radius: 2px; transform-origin: top center; background: linear-gradient(var(--accent-2), var(--accent)); box-shadow: 0 3px 8px rgba(15, 23, 42, .2); animation: peel calc(var(--loader-speed) * 2.2) ease-in-out infinite; }\n.loader span:nth-child(2) { animation-delay: calc(var(--loader-speed) * -1.1); }\n.loader span::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 26%; background: linear-gradient(rgba(255, 255, 255, .42), transparent); }\n@keyframes peel { 0% { opacity: 1; transform: rotateX(0deg) translateY(0); } 52% { opacity: 1; transform: rotateX(-74deg) translateY(-14%); } 82% { opacity: .28; transform: rotateX(-112deg) translateY(-42%); } 100% { opacity: 0; transform: rotateX(-112deg) translateY(-42%); } }",
+  "defaults": {
+    "color": "#f59e0b",
+    "secondaryColor": "#fde047",
+    "size": 108,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

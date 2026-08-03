@@ -1,5 +1,36 @@
 [
   {
+    "id": "darma-b12-abacus-slide",
+    "name": "Abacus Bead Rows",
+    "category": "bars",
+    "sourceId": "darma-research-batch-12",
+    "tags": [
+      "abacus",
+      "beads",
+      "slide",
+      "counting",
+      "bars"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b12-abacus-slide abacus bead rows bars darma-research-batch-12 darma research batch 12 abacus beads slide counting bars html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b12-abacus-slide\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b12-abacus-slide { --accent: var(--loader-color, #0ea5e9); --accent-2: var(--loader-secondary-color, #f97316); --bead: calc(var(--loader-size, 104px) * .11); width: var(--loader-size, 104px); height: calc(var(--loader-size, 104px) * .58); display: flex; flex-direction: column; justify-content: space-between; }\n.darma-loader-darma-b12-abacus-slide span { position: relative; height: 28%; background: linear-gradient(transparent calc(50% - 1.5px), #cbd5e1 calc(50% - 1.5px), #cbd5e1 calc(50% + 1.5px), transparent calc(50% + 1.5px)); }\n.darma-loader-darma-b12-abacus-slide span::before, .darma-loader-darma-b12-abacus-slide span::after { content: ''; position: absolute; top: 50%; width: var(--bead); height: var(--bead); margin-top: calc(var(--bead) * -.5); border-radius: 50%; }\n.darma-loader-darma-b12-abacus-slide span::before { left: 3%; background: var(--accent); box-shadow: calc(var(--bead) * 1.12) 0 0 var(--accent), calc(var(--bead) * 2.24) 0 0 var(--accent); animation: darma-loader-darma-b12-abacus-slide-bead-right calc(var(--loader-speed, 1s) * 1.8) ease-in-out infinite; }\n.darma-loader-darma-b12-abacus-slide span::after { right: 3%; background: var(--accent-2); box-shadow: calc(var(--bead) * -1.12) 0 0 var(--accent-2), calc(var(--bead) * -2.24) 0 0 var(--accent-2); animation: darma-loader-darma-b12-abacus-slide-bead-left calc(var(--loader-speed, 1s) * 1.8) ease-in-out infinite; }\n.darma-loader-darma-b12-abacus-slide span:nth-child(2)::before, .darma-loader-darma-b12-abacus-slide span:nth-child(2)::after { animation-delay: calc(var(--loader-speed, 1s) * .2); }\n.darma-loader-darma-b12-abacus-slide span:nth-child(3)::before, .darma-loader-darma-b12-abacus-slide span:nth-child(3)::after { animation-delay: calc(var(--loader-speed, 1s) * .4); }\n@keyframes darma-loader-darma-b12-abacus-slide-bead-right { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(calc(var(--loader-size, 104px) * .22)); } }\n@keyframes darma-loader-darma-b12-abacus-slide-bead-left { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(calc(var(--loader-size, 104px) * -.22)); } }",
+    "defaults": {
+      "color": "#0ea5e9",
+      "secondaryColor": "#f97316",
+      "size": 104,
+      "speed": 1
+    }
+  },
+  {
     "id": "darma-custom-126",
     "name": "Alternating Bars",
     "category": "bars",
@@ -253,6 +284,37 @@
       "size": 120,
       "speed": 1,
       "background": "transparent"
+    }
+  },
+  {
+    "id": "darma-b12-city-skyline",
+    "name": "City Skyline",
+    "category": "bars",
+    "sourceId": "darma-research-batch-12",
+    "tags": [
+      "city",
+      "skyline",
+      "buildings",
+      "windows",
+      "bars"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b12-city-skyline city skyline bars darma-research-batch-12 darma research batch 12 city skyline buildings windows bars html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b12-city-skyline\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b12-city-skyline { --accent: var(--loader-color, #1e40af); --accent-2: var(--loader-secondary-color, #7c3aed); width: var(--loader-size, 108px); height: calc(var(--loader-size, 108px) * .62); display: flex; align-items: flex-end; gap: 3%; }\n.darma-loader-darma-b12-city-skyline span { position: relative; flex: 1; border-radius: 3px 3px 0 0; background: linear-gradient(var(--accent), var(--accent-2)); }\n.darma-loader-darma-b12-city-skyline span::after { content: ''; position: absolute; inset: 14% 16% 8%; background: repeating-linear-gradient(to bottom, color-mix(in srgb, #fff 82%, transparent) 0 8%, transparent 8% 22%); -webkit-mask: repeating-linear-gradient(to right, #000 0 34%, transparent 34% 68%); mask: repeating-linear-gradient(to right, #000 0 34%, transparent 34% 68%); animation: darma-loader-darma-b12-city-skyline-windows calc(var(--loader-speed, 1s) * 1.6) steps(2, end) infinite; }\n.darma-loader-darma-b12-city-skyline span:nth-child(1) { height: 54%; }\n.darma-loader-darma-b12-city-skyline span:nth-child(2) { height: 80%; }\n.darma-loader-darma-b12-city-skyline span:nth-child(3) { height: 100%; }\n.darma-loader-darma-b12-city-skyline span:nth-child(4) { height: 66%; }\n.darma-loader-darma-b12-city-skyline span:nth-child(5) { height: 88%; }\n.darma-loader-darma-b12-city-skyline span:nth-child(2)::after { animation-delay: calc(var(--loader-speed, 1s) * .3); }\n.darma-loader-darma-b12-city-skyline span:nth-child(3)::after { animation-delay: calc(var(--loader-speed, 1s) * .6); }\n.darma-loader-darma-b12-city-skyline span:nth-child(4)::after { animation-delay: calc(var(--loader-speed, 1s) * .9); }\n.darma-loader-darma-b12-city-skyline span:nth-child(5)::after { animation-delay: calc(var(--loader-speed, 1s) * 1.2); }\n@keyframes darma-loader-darma-b12-city-skyline-windows { 0% { opacity: .28; } 50% { opacity: 1; } 100% { opacity: .28; } }",
+    "defaults": {
+      "color": "#1e40af",
+      "secondaryColor": "#7c3aed",
+      "size": 108,
+      "speed": 1
     }
   },
   {
@@ -1952,11 +2014,42 @@
     },
     "searchText": "uiverse-search-signal-bars search signal bars bars uiverse-batch-3 uiverse batch 3 uiverse search signal bars magnifier loader html css react cssonly customizable",
     "previewHtml": "<div class=\"darma-loader-uiverse-search-signal-bars\">\n  <div class=\"darma-loader-uiverse-search-signal-bars__MiniContainer\">\n    <div class=\"darma-loader-uiverse-search-signal-bars__barContainer\">\n      <span class=\"darma-loader-uiverse-search-signal-bars__bar\"></span>\n      <span class=\"darma-loader-uiverse-search-signal-bars__bar darma-loader-uiverse-search-signal-bars__bar2\"></span>\n    </div>\n    <svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      fill=\"none\"\n      viewBox=\"0 0 101 114\"\n      class=\"darma-loader-uiverse-search-signal-bars__svgIcon\"\n    >\n      <circle\n        stroke-width=\"7\"\n        stroke=\"black\"\n        transform=\"rotate(36.0692 46.1726 46.1727)\"\n        r=\"29.5497\"\n        cy=\"46.1727\"\n        cx=\"46.1726\"\n      ></circle>\n      <line\n        stroke-width=\"7\"\n        stroke=\"black\"\n        y2=\"111.784\"\n        x2=\"97.7088\"\n        y1=\"67.7837\"\n        x1=\"61.7089\"\n      ></line>\n    </svg>\n  </div>\n</div>",
-    "previewCss": ".darma-loader-uiverse-search-signal-bars {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.darma-loader-uiverse-search-signal-bars__MiniContainer {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n  width: 130px;\n  height: fit-content;\n}\n.darma-loader-uiverse-search-signal-bars__barContainer {\n  width: 100%;\n  height: fit-content;\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  justify-content: center;\n  gap: 10px;\n  background-position: left;\n}\n.darma-loader-uiverse-search-signal-bars__bar {\n  width: 100%;\n  height: 8px;\n  background: linear-gradient(\n    to right,\n    rgb(161, 94, 255),\n    rgb(217, 190, 255),\n    rgb(161, 94, 255)\n  );\n  background-size: 200% 100%;\n  border-radius: 10px;\n  animation: darma-loader-uiverse-darma-loader-uiverse-search-signal-bars-search-signal-bars-bar ease-in-out 3s infinite alternate-reverse;\n}\n@keyframes darma-loader-uiverse-search-signal-bars-bar {\n  0% {\n    background-position: left;\n  }\n  100% {\n    background-position: right;\n  }\n}\n.darma-loader-uiverse-search-signal-bars__bar2 {\n  width: 50%;\n}\n.darma-loader-uiverse-search-signal-bars__svgIcon {\n  position: absolute;\n  left: -25px;\n  margin-top: 18px;\n  z-index: 2;\n  width: 70%;\n  animation: darma-loader-uiverse-search-signal-bars-search ease-in-out 3s infinite alternate-reverse;\n}\n@keyframes darma-loader-uiverse-search-signal-bars-search {\n  0% {\n    transform: translateX(0%) rotate(70deg);\n  }\n\n100% {\ntransform: translateX(100px) rotate(10deg);\n}\n}\n.darma-loader-uiverse-search-signal-bars__svgIcon circle,\nline {\nstroke: rgb(162, 55, 255);\n}\n.darma-loader-uiverse-search-signal-bars__svgIcon circle {\nfill: rgba(98, 65, 142, 0.238);\n}",
+    "previewCss": ".darma-loader-uiverse-search-signal-bars {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.darma-loader-uiverse-search-signal-bars__MiniContainer {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  position: relative;\n  width: 130px;\n  height: fit-content;\n}\n.darma-loader-uiverse-search-signal-bars__barContainer {\n  width: 100%;\n  height: fit-content;\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  justify-content: center;\n  gap: 10px;\n  background-position: left;\n}\n.darma-loader-uiverse-search-signal-bars__bar {\n  width: 100%;\n  height: 8px;\n  background: linear-gradient(\n    to right,\n    rgb(161, 94, 255),\n    rgb(217, 190, 255),\n    rgb(161, 94, 255)\n  );\n  background-size: 200% 100%;\n  border-radius: 10px;\n  animation: darma-loader-uiverse-search-signal-bars-bar ease-in-out 3s infinite alternate-reverse;\n}\n@keyframes darma-loader-uiverse-search-signal-bars-bar {\n  0% {\n    background-position: left;\n  }\n  100% {\n    background-position: right;\n  }\n}\n.darma-loader-uiverse-search-signal-bars__bar2 {\n  width: 50%;\n}\n.darma-loader-uiverse-search-signal-bars__svgIcon {\n  position: absolute;\n  left: -25px;\n  margin-top: 18px;\n  z-index: 2;\n  width: 70%;\n  animation: darma-loader-uiverse-search-signal-bars-search ease-in-out 3s infinite alternate-reverse;\n}\n@keyframes darma-loader-uiverse-search-signal-bars-search {\n  0% {\n    transform: translateX(0%) rotate(70deg);\n  }\n\n100% {\ntransform: translateX(100px) rotate(10deg);\n}\n}\n.darma-loader-uiverse-search-signal-bars__svgIcon circle,\nline {\nstroke: rgb(162, 55, 255);\n}\n.darma-loader-uiverse-search-signal-bars__svgIcon circle {\nfill: rgba(98, 65, 142, 0.238);\n}",
     "defaults": {
       "size": 120,
       "speed": 1,
       "background": "transparent"
+    }
+  },
+  {
+    "id": "darma-b13-seismograph",
+    "name": "Seismograph",
+    "category": "bars",
+    "sourceId": "darma-research-batch-13",
+    "tags": [
+      "seismograph",
+      "needle",
+      "trace",
+      "quake",
+      "bars"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b13-seismograph seismograph bars darma-research-batch-13 darma research batch 13 seismograph needle trace quake bars html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b13-seismograph\" aria-label=\"Loading\"><span></span><div class=\"darma-loader-darma-b13-seismograph__needle\"></div></div>",
+    "previewCss": ".darma-loader-darma-b13-seismograph { --accent: var(--loader-color, #dc2626); --accent-2: var(--loader-secondary-color, #0f172a); width: var(--loader-size, 128px); height: calc(var(--loader-size, 128px) * .62); position: relative; overflow: hidden; border-radius: 4px; background: color-mix(in srgb, #fff 76%, var(--accent-2)); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 14%, var(--accent-2)); }\n.darma-loader-darma-b13-seismograph::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0 13%, color-mix(in srgb, #000 10%, transparent) 13% 14%), repeating-linear-gradient(transparent 0 23%, color-mix(in srgb, #000 10%, transparent) 23% 24%); }\n.darma-loader-darma-b13-seismograph span { position: absolute; left: 0; top: 24%; width: 200%; height: 52%; background: var(--accent); clip-path: polygon(0 46%, 6.25% 10%, 12.5% 86%, 18.75% 30%, 25% 46%, 31.25% 10%, 37.5% 86%, 43.75% 30%, 50% 46%, 56.25% 10%, 62.5% 86%, 68.75% 30%, 75% 46%, 81.25% 10%, 87.5% 86%, 93.75% 30%, 100% 46%, 100% 58%, 93.75% 42%, 87.5% 98%, 81.25% 22%, 75% 58%, 68.75% 42%, 62.5% 98%, 56.25% 22%, 50% 58%, 43.75% 42%, 37.5% 98%, 31.25% 22%, 25% 58%, 18.75% 42%, 12.5% 98%, 6.25% 22%, 0 58%); animation: darma-loader-darma-b13-seismograph-trace calc(var(--loader-speed, 1s) * 2) linear infinite; }\n.darma-loader-darma-b13-seismograph .darma-loader-darma-b13-seismograph__needle { position: absolute; z-index: 2; top: 0; left: 47%; width: 3%; height: 64%; border-radius: 0 0 2px 2px; background: linear-gradient(color-mix(in srgb, #000 20%, var(--accent-2)), #475569); animation: darma-loader-darma-b13-seismograph-jitter calc(var(--loader-speed, 1s) * .5) ease-in-out infinite; }\n@keyframes darma-loader-darma-b13-seismograph-trace { from { transform: translateX(0); } to { transform: translateX(-25%); } }\n@keyframes darma-loader-darma-b13-seismograph-jitter { 0%, 100% { transform: translateY(-7%); } 25% { transform: translateY(9%); } 50% { transform: translateY(-12%); } 75% { transform: translateY(5%); } }",
+    "defaults": {
+      "color": "#dc2626",
+      "secondaryColor": "#0f172a",
+      "size": 128,
+      "speed": 1
     }
   },
   {
@@ -2034,6 +2127,37 @@
       "size": 45,
       "speed": 1,
       "background": "#ffffff"
+    }
+  },
+  {
+    "id": "darma-b13-server-rack",
+    "name": "Server Rack",
+    "category": "bars",
+    "sourceId": "darma-research-batch-13",
+    "tags": [
+      "server",
+      "rack",
+      "leds",
+      "datacenter",
+      "bars"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react"
+    ],
+    "flags": {
+      "customizable": true,
+      "cssOnly": true
+    },
+    "searchText": "darma-b13-server-rack server rack bars darma-research-batch-13 darma research batch 13 server rack leds datacenter bars html css react customizable cssonly",
+    "previewHtml": "<div class=\"darma-loader-darma-b13-server-rack\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-darma-b13-server-rack { --accent: var(--loader-color, #22c55e); --accent-2: var(--loader-secondary-color, #f59e0b); width: calc(var(--loader-size, 112px) * .74); height: var(--loader-size, 112px); display: flex; flex-direction: column; gap: 4%; padding: 6%; border-radius: 6%; background: linear-gradient(#334155, #0b1220); box-shadow: inset 0 0 0 2px #475569; }\n.darma-loader-darma-b13-server-rack span { position: relative; flex: 1; border-radius: 3px; background: rgba(255, 255, 255, .08); }\n.darma-loader-darma-b13-server-rack span::before { content: ''; position: absolute; left: 7%; top: 32%; width: 44%; height: 34%; background: repeating-linear-gradient(90deg, rgba(255, 255, 255, .2) 0 11%, transparent 11% 22%); }\n.darma-loader-darma-b13-server-rack span::after { content: ''; position: absolute; right: 9%; top: 34%; width: calc(var(--loader-size, 112px) * .045); height: calc(var(--loader-size, 112px) * .045); border-radius: 50%; background: var(--accent); box-shadow: calc(var(--loader-size, 112px) * -.085) 0 0 var(--accent-2), calc(var(--loader-size, 112px) * -.17) 0 0 var(--accent); animation: darma-loader-darma-b13-server-rack-rack-blink calc(var(--loader-speed, 1s) * 1.4) steps(2, end) infinite; }\n.darma-loader-darma-b13-server-rack span:nth-child(2)::after { animation-delay: calc(var(--loader-speed, 1s) * .22); }\n.darma-loader-darma-b13-server-rack span:nth-child(3)::after { animation-delay: calc(var(--loader-speed, 1s) * .44); }\n.darma-loader-darma-b13-server-rack span:nth-child(4)::after { animation-delay: calc(var(--loader-speed, 1s) * .66); }\n.darma-loader-darma-b13-server-rack span:nth-child(5)::after { animation-delay: calc(var(--loader-speed, 1s) * .88); }\n@keyframes darma-loader-darma-b13-server-rack-rack-blink { 0%, 100% { opacity: .3; } 50% { opacity: 1; } }",
+    "defaults": {
+      "color": "#22c55e",
+      "secondaryColor": "#f59e0b",
+      "size": 112,
+      "speed": 1
     }
   },
   {

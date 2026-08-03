@@ -57,19 +57,36 @@ function scopeHtml(html: string, classMap: Map<string, string>) {
   });
 }
 
+/**
+ * Rename every keyframe (and its references inside `animation` / `animation-name`)
+ * to a loader-scoped name.
+ *
+ * Both renames happen in a single pass over the CSS. Renaming one name at a time
+ * is not safe: the scoped name embeds the loader id, so a later keyframe whose
+ * name also appears as a token in that id (e.g. keyframe `pull` in loader
+ * `darma-b12-zipper-pull`) would be substituted *inside* an already-scoped name
+ * and produce an animation that references no keyframe at all. Names are matched
+ * longest-first so a name that is a prefix of another (`spin` vs `spin-reverse`)
+ * cannot win over the longer one.
+ */
 function scopeKeyframes(css: string, id: string) {
-  let output = css;
+  const keyframeNames = collectKeyframeNames(css);
+  if (!keyframeNames.length) return css;
 
-  for (const keyframeName of collectKeyframeNames(css)) {
-    const scopedKeyframeName = `darma-loader-${id}-${keyframeName}`;
-    const keyframeNamePattern = new RegExp(String.raw`(@keyframes\s+)${escapeRegExp(keyframeName)}\b`, "g");
-    const animationValuePattern = new RegExp(String.raw`\b${escapeRegExp(keyframeName)}\b`, "g");
+  const scopedNames = new Map(keyframeNames.map((name) => [name, `darma-loader-${id}-${name}`]));
+  const namePattern = [...scopedNames.keys()]
+    .sort((a, b) => b.length - a.length || a.localeCompare(b))
+    .map(escapeRegExp)
+    .join("|");
 
-    output = output.replace(keyframeNamePattern, `$1${scopedKeyframeName}`);
-    output = output.replace(/(animation(?:-name)?\s*:\s*)([^;{}]+)/g, (_match, prefix: string, value: string) => {
-      return `${prefix}${value.replace(animationValuePattern, scopedKeyframeName)}`;
-    });
-  }
+  const declarationPattern = new RegExp(String.raw`(@keyframes\s+)(${namePattern})\b`, "g");
+  const referencePattern = new RegExp(String.raw`\b(${namePattern})\b`, "g");
+
+  let output = css.replace(declarationPattern, (_match, prefix: string, name: string) => `${prefix}${scopedNames.get(name)}`);
+
+  output = output.replace(/(animation(?:-name)?\s*:\s*)([^;{}]+)/g, (_match, prefix: string, value: string) => {
+    return `${prefix}${value.replace(referencePattern, (name) => scopedNames.get(name) ?? name)}`;
+  });
 
   return output;
 }

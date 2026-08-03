@@ -1,0 +1,35 @@
+{
+  "id": "darma-b12-city-skyline",
+  "name": "City Skyline",
+  "category": "bars",
+  "tags": [
+    "city",
+    "skyline",
+    "buildings",
+    "windows",
+    "bars"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .62); display: flex; align-items: flex-end; gap: 3%; }\n.loader span { position: relative; flex: 1; border-radius: 3px 3px 0 0; background: linear-gradient(var(--accent), var(--accent-2)); }\n.loader span::after { content: ''; position: absolute; inset: 14% 16% 8%; background: repeating-linear-gradient(to bottom, color-mix(in srgb, #fff 82%, transparent) 0 8%, transparent 8% 22%); -webkit-mask: repeating-linear-gradient(to right, #000 0 34%, transparent 34% 68%); mask: repeating-linear-gradient(to right, #000 0 34%, transparent 34% 68%); animation: windows calc(var(--loader-speed) * 1.6) steps(2, end) infinite; }\n.loader span:nth-child(1) { height: 54%; }\n.loader span:nth-child(2) { height: 80%; }\n.loader span:nth-child(3) { height: 100%; }\n.loader span:nth-child(4) { height: 66%; }\n.loader span:nth-child(5) { height: 88%; }\n.loader span:nth-child(2)::after { animation-delay: calc(var(--loader-speed) * .3); }\n.loader span:nth-child(3)::after { animation-delay: calc(var(--loader-speed) * .6); }\n.loader span:nth-child(4)::after { animation-delay: calc(var(--loader-speed) * .9); }\n.loader span:nth-child(5)::after { animation-delay: calc(var(--loader-speed) * 1.2); }\n@keyframes windows { 0% { opacity: .28; } 50% { opacity: 1; } 100% { opacity: .28; } }",
+  "defaults": {
+    "color": "#1e40af",
+    "secondaryColor": "#7c3aed",
+    "size": 108,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 12",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

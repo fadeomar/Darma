@@ -1,0 +1,35 @@
+{
+  "id": "darma-b13-bluetooth-pair",
+  "name": "Bluetooth Pair",
+  "category": "minimal",
+  "tags": [
+    "bluetooth",
+    "pair",
+    "connect",
+    "signal",
+    "minimal"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: calc(var(--loader-size) * .78); height: var(--loader-size); position: relative; display: grid; place-items: center; }\n.loader::after { content: ''; position: absolute; left: 4%; width: 52%; height: 86%; clip-path: polygon(42% 0, 82% 26%, 54% 50%, 82% 74%, 42% 100%, 42% 62%, 16% 82%, 11% 74%, 38% 54%, 38% 46%, 11% 26%, 16% 18%, 42% 38%); background: linear-gradient(var(--accent), color-mix(in srgb, #000 20%, var(--accent))); }\n.loader span { position: absolute; right: 2%; top: 50%; width: 30%; height: 30%; margin-top: -15%; border-radius: 50%; border: calc(var(--loader-size) * .035) solid transparent; border-right-color: var(--accent-2); animation: ping-out calc(var(--loader-speed) * 1.6) ease-out infinite; }\n.loader span:nth-child(2) { animation-delay: calc(var(--loader-speed) * .8); }\n@keyframes ping-out { 0% { opacity: 0; transform: scale(.35); } 26% { opacity: 1; } 100% { opacity: 0; transform: scale(1.5); } }",
+  "defaults": {
+    "color": "#2563eb",
+    "secondaryColor": "#60a5fa",
+    "size": 92,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

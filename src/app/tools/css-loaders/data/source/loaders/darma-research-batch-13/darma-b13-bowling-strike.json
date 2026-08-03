@@ -1,0 +1,35 @@
+{
+  "id": "darma-b13-bowling-strike",
+  "name": "Bowling Strike",
+  "category": "fun",
+  "tags": [
+    "bowling",
+    "pins",
+    "strike",
+    "ball",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><div class=\"ball\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .58); position: relative; }\n.loader::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 7%; border-radius: 999px; background: linear-gradient(90deg, color-mix(in srgb, #000 12%, var(--accent-2)), var(--accent-2)); }\n.loader span { position: absolute; bottom: 7%; width: 11%; height: 44%; border-radius: 50% 50% 22% 22% / 34% 34% 14% 14%; background: linear-gradient(#f8fafc 0 40%, var(--accent) 40% 56%, #f8fafc 56%); animation: knock calc(var(--loader-speed) * 2.6) ease-out infinite; }\n.loader span:nth-child(1) { right: 8%; }\n.loader span:nth-child(2) { right: 21%; animation-delay: calc(var(--loader-speed) * .05); }\n.loader span:nth-child(3) { right: 34%; animation-delay: calc(var(--loader-speed) * .1); }\n.loader .ball { position: absolute; bottom: 7%; left: 0; width: calc(var(--loader-size) * .2); height: calc(var(--loader-size) * .2); border-radius: 50%; background: radial-gradient(circle at 34% 30%, color-mix(in srgb, #fff 34%, var(--accent-2)), color-mix(in srgb, #000 28%, var(--accent-2))); animation: roll calc(var(--loader-speed) * 2.6) linear infinite; }\n@keyframes roll { 0% { opacity: 0; transform: translateX(-24%) rotate(0deg); } 8% { opacity: 1; } 56% { transform: translateX(calc(var(--loader-size) * .58)) rotate(540deg); } 68% { opacity: 0; transform: translateX(calc(var(--loader-size) * .68)) rotate(600deg); } 100% { opacity: 0; transform: translateX(calc(var(--loader-size) * .68)) rotate(600deg); } }\n@keyframes knock { 0%, 54% { transform: translate(0, 0) rotate(0deg); } 70% { transform: translate(calc(var(--loader-size) * .09), calc(var(--loader-size) * -.07)) rotate(62deg); } 84% { opacity: .5; transform: translate(calc(var(--loader-size) * .15), 0) rotate(92deg); } 85%, 100% { opacity: 1; transform: translate(0, 0) rotate(0deg); } }",
+  "defaults": {
+    "color": "#dc2626",
+    "secondaryColor": "#7c3aed",
+    "size": 120,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

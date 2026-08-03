@@ -1,0 +1,48 @@
+{
+  "id": "darma-b12-scanner-bed",
+  "name": "Scanner Bed",
+  "category": "progress",
+  "sourceId": "darma-research-batch-12",
+  "tags": [
+    "scanner",
+    "scan",
+    "document",
+    "beam",
+    "progress"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b12-scanner-bed scanner bed progress darma-research-batch-12 darma research batch 12 scanner scan document beam progress html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b12-scanner-bed\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b12-scanner-bed__bar\"></div></div>",
+  "previewCss": ".darma-loader-darma-b12-scanner-bed { --accent: var(--loader-color, #22d3ee); --accent-2: var(--loader-secondary-color, #3b82f6); width: var(--loader-size, 112px); height: calc(var(--loader-size, 112px) * .74); position: relative; overflow: hidden; border-radius: 7%; background: linear-gradient(#1e293b, #0b1220); box-shadow: inset 0 0 0 calc(var(--loader-size, 112px) * .028) #334155; }\n.darma-loader-darma-b12-scanner-bed::before { content: ''; position: absolute; inset: 14% 15%; border-radius: 3px; background: repeating-linear-gradient(to bottom, color-mix(in srgb, #fff 24%, transparent) 0 7%, transparent 7% 20%); }\n.darma-loader-darma-b12-scanner-bed::after { content: ''; position: absolute; top: -20%; left: -30%; width: 55%; height: 150%; transform: rotate(18deg); background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .1), transparent); }\n.darma-loader-darma-b12-scanner-bed .darma-loader-darma-b12-scanner-bed__bar { position: absolute; left: 0; width: 100%; height: 11%; background: linear-gradient(var(--accent), var(--accent-2)); box-shadow: 0 0 calc(var(--loader-size, 112px) * .1) var(--accent); animation: darma-loader-darma-b12-scanner-bed-scan calc(var(--loader-speed, 1s) * 2.4) ease-in-out infinite; }\n@keyframes darma-loader-darma-b12-scanner-bed-scan { 0% { top: -11%; } 50% { top: 100%; } 100% { top: -11%; } }",
+  "defaults": {
+    "color": "#22d3ee",
+    "secondaryColor": "#3b82f6",
+    "size": 112,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b12-scanner-bed\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b12-scanner-bed__bar\"></div></div>",
+    "css": ".darma-loader-darma-b12-scanner-bed { --accent: var(--loader-color, #22d3ee); --accent-2: var(--loader-secondary-color, #3b82f6); width: var(--loader-size, 112px); height: calc(var(--loader-size, 112px) * .74); position: relative; overflow: hidden; border-radius: 7%; background: linear-gradient(#1e293b, #0b1220); box-shadow: inset 0 0 0 calc(var(--loader-size, 112px) * .028) #334155; }\n.darma-loader-darma-b12-scanner-bed::before { content: ''; position: absolute; inset: 14% 15%; border-radius: 3px; background: repeating-linear-gradient(to bottom, color-mix(in srgb, #fff 24%, transparent) 0 7%, transparent 7% 20%); }\n.darma-loader-darma-b12-scanner-bed::after { content: ''; position: absolute; top: -20%; left: -30%; width: 55%; height: 150%; transform: rotate(18deg); background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .1), transparent); }\n.darma-loader-darma-b12-scanner-bed .darma-loader-darma-b12-scanner-bed__bar { position: absolute; left: 0; width: 100%; height: 11%; background: linear-gradient(var(--accent), var(--accent-2)); box-shadow: 0 0 calc(var(--loader-size, 112px) * .1) var(--accent); animation: darma-loader-darma-b12-scanner-bed-scan calc(var(--loader-speed, 1s) * 2.4) ease-in-out infinite; }\n@keyframes darma-loader-darma-b12-scanner-bed-scan { 0% { top: -11%; } 50% { top: 100%; } 100% { top: -11%; } }",
+    "react": "export default function DarmaB12ScannerBedLoader() {\n  return (\n    <div className=\"darma-loader-darma-b12-scanner-bed\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b12-scanner-bed__bar\"></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 12",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

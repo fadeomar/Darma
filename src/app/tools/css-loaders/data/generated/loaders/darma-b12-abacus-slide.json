@@ -1,0 +1,48 @@
+{
+  "id": "darma-b12-abacus-slide",
+  "name": "Abacus Bead Rows",
+  "category": "bars",
+  "sourceId": "darma-research-batch-12",
+  "tags": [
+    "abacus",
+    "beads",
+    "slide",
+    "counting",
+    "bars"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b12-abacus-slide abacus bead rows bars darma-research-batch-12 darma research batch 12 abacus beads slide counting bars html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b12-abacus-slide\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b12-abacus-slide { --accent: var(--loader-color, #0ea5e9); --accent-2: var(--loader-secondary-color, #f97316); --bead: calc(var(--loader-size, 104px) * .11); width: var(--loader-size, 104px); height: calc(var(--loader-size, 104px) * .58); display: flex; flex-direction: column; justify-content: space-between; }\n.darma-loader-darma-b12-abacus-slide span { position: relative; height: 28%; background: linear-gradient(transparent calc(50% - 1.5px), #cbd5e1 calc(50% - 1.5px), #cbd5e1 calc(50% + 1.5px), transparent calc(50% + 1.5px)); }\n.darma-loader-darma-b12-abacus-slide span::before, .darma-loader-darma-b12-abacus-slide span::after { content: ''; position: absolute; top: 50%; width: var(--bead); height: var(--bead); margin-top: calc(var(--bead) * -.5); border-radius: 50%; }\n.darma-loader-darma-b12-abacus-slide span::before { left: 3%; background: var(--accent); box-shadow: calc(var(--bead) * 1.12) 0 0 var(--accent), calc(var(--bead) * 2.24) 0 0 var(--accent); animation: darma-loader-darma-b12-abacus-slide-bead-right calc(var(--loader-speed, 1s) * 1.8) ease-in-out infinite; }\n.darma-loader-darma-b12-abacus-slide span::after { right: 3%; background: var(--accent-2); box-shadow: calc(var(--bead) * -1.12) 0 0 var(--accent-2), calc(var(--bead) * -2.24) 0 0 var(--accent-2); animation: darma-loader-darma-b12-abacus-slide-bead-left calc(var(--loader-speed, 1s) * 1.8) ease-in-out infinite; }\n.darma-loader-darma-b12-abacus-slide span:nth-child(2)::before, .darma-loader-darma-b12-abacus-slide span:nth-child(2)::after { animation-delay: calc(var(--loader-speed, 1s) * .2); }\n.darma-loader-darma-b12-abacus-slide span:nth-child(3)::before, .darma-loader-darma-b12-abacus-slide span:nth-child(3)::after { animation-delay: calc(var(--loader-speed, 1s) * .4); }\n@keyframes darma-loader-darma-b12-abacus-slide-bead-right { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(calc(var(--loader-size, 104px) * .22)); } }\n@keyframes darma-loader-darma-b12-abacus-slide-bead-left { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(calc(var(--loader-size, 104px) * -.22)); } }",
+  "defaults": {
+    "color": "#0ea5e9",
+    "secondaryColor": "#f97316",
+    "size": 104,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b12-abacus-slide\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b12-abacus-slide { --accent: var(--loader-color, #0ea5e9); --accent-2: var(--loader-secondary-color, #f97316); --bead: calc(var(--loader-size, 104px) * .11); width: var(--loader-size, 104px); height: calc(var(--loader-size, 104px) * .58); display: flex; flex-direction: column; justify-content: space-between; }\n.darma-loader-darma-b12-abacus-slide span { position: relative; height: 28%; background: linear-gradient(transparent calc(50% - 1.5px), #cbd5e1 calc(50% - 1.5px), #cbd5e1 calc(50% + 1.5px), transparent calc(50% + 1.5px)); }\n.darma-loader-darma-b12-abacus-slide span::before, .darma-loader-darma-b12-abacus-slide span::after { content: ''; position: absolute; top: 50%; width: var(--bead); height: var(--bead); margin-top: calc(var(--bead) * -.5); border-radius: 50%; }\n.darma-loader-darma-b12-abacus-slide span::before { left: 3%; background: var(--accent); box-shadow: calc(var(--bead) * 1.12) 0 0 var(--accent), calc(var(--bead) * 2.24) 0 0 var(--accent); animation: darma-loader-darma-b12-abacus-slide-bead-right calc(var(--loader-speed, 1s) * 1.8) ease-in-out infinite; }\n.darma-loader-darma-b12-abacus-slide span::after { right: 3%; background: var(--accent-2); box-shadow: calc(var(--bead) * -1.12) 0 0 var(--accent-2), calc(var(--bead) * -2.24) 0 0 var(--accent-2); animation: darma-loader-darma-b12-abacus-slide-bead-left calc(var(--loader-speed, 1s) * 1.8) ease-in-out infinite; }\n.darma-loader-darma-b12-abacus-slide span:nth-child(2)::before, .darma-loader-darma-b12-abacus-slide span:nth-child(2)::after { animation-delay: calc(var(--loader-speed, 1s) * .2); }\n.darma-loader-darma-b12-abacus-slide span:nth-child(3)::before, .darma-loader-darma-b12-abacus-slide span:nth-child(3)::after { animation-delay: calc(var(--loader-speed, 1s) * .4); }\n@keyframes darma-loader-darma-b12-abacus-slide-bead-right { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(calc(var(--loader-size, 104px) * .22)); } }\n@keyframes darma-loader-darma-b12-abacus-slide-bead-left { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(calc(var(--loader-size, 104px) * -.22)); } }",
+    "react": "export default function DarmaB12AbacusSlideLoader() {\n  return (\n    <div className=\"darma-loader-darma-b12-abacus-slide\" aria-label=\"Loading\"><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 12",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

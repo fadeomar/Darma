@@ -1,0 +1,35 @@
+{
+  "id": "darma-b13-accordion-squeeze",
+  "name": "Accordion Squeeze",
+  "category": "creative",
+  "tags": [
+    "accordion",
+    "bellows",
+    "squeeze",
+    "pleats",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"bellows\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .6); position: relative; display: grid; place-items: center; }\n.loader::before, .loader::after { content: ''; position: absolute; top: 0; width: 14%; height: 100%; border-radius: 4px; background: linear-gradient(var(--accent), color-mix(in srgb, #000 32%, var(--accent))); }\n.loader::before { left: 0; }\n.loader::after { right: 0; }\n.loader .bellows { height: 82%; border-radius: 2px; background: repeating-linear-gradient(90deg, var(--accent-2) 0 8%, color-mix(in srgb, #000 28%, var(--accent-2)) 8% 16%); animation: squeeze calc(var(--loader-speed) * 2) ease-in-out infinite; }\n@keyframes squeeze { 0%, 100% { width: 76%; } 50% { width: 40%; } }",
+  "defaults": {
+    "color": "#b91c1c",
+    "secondaryColor": "#f8fafc",
+    "size": 116,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

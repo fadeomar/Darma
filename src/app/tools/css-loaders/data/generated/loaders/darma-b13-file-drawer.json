@@ -1,0 +1,48 @@
+{
+  "id": "darma-b13-file-drawer",
+  "name": "File Drawer",
+  "category": "progress",
+  "sourceId": "darma-research-batch-13",
+  "tags": [
+    "drawer",
+    "cabinet",
+    "folder",
+    "archive",
+    "progress"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b13-file-drawer file drawer progress darma-research-batch-13 darma research batch 13 drawer cabinet folder archive progress html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b13-file-drawer\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b13-file-drawer__drawer\"><span></span></div></div>",
+  "previewCss": ".darma-loader-darma-b13-file-drawer { --accent: var(--loader-color, #334155); --accent-2: var(--loader-secondary-color, #f59e0b); width: var(--loader-size, 112px); height: calc(var(--loader-size, 112px) * .82); position: relative; overflow: hidden; border-radius: 6%; background: linear-gradient(#e2e8f0, #94a3b8); box-shadow: inset 0 0 0 2px #64748b; }\n.darma-loader-darma-b13-file-drawer::before { content: ''; position: absolute; top: 7%; left: 8%; width: 84%; height: 22%; border-radius: 3px; background: rgba(255, 255, 255, .42); box-shadow: 0 calc(var(--loader-size, 112px) * .245) 0 rgba(255, 255, 255, .42); }\n.darma-loader-darma-b13-file-drawer .darma-loader-darma-b13-file-drawer__drawer { position: absolute; bottom: 6%; left: 8%; width: 84%; height: 26%; animation: darma-loader-darma-b13-file-drawer-pull-out calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b13-file-drawer .darma-loader-darma-b13-file-drawer__drawer::after { content: ''; position: absolute; z-index: 2; inset: 0; border-radius: 3px; background: linear-gradient(var(--accent), color-mix(in srgb, #000 26%, var(--accent))); box-shadow: inset 0 2px 0 rgba(255, 255, 255, .3); }\n.darma-loader-darma-b13-file-drawer .darma-loader-darma-b13-file-drawer__drawer span { position: absolute; bottom: 56%; left: 16%; width: 42%; height: 92%; border-radius: 3px 3px 0 0; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 18%, var(--accent-2))); animation: darma-loader-darma-b13-file-drawer-file-up calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n@keyframes darma-loader-darma-b13-file-drawer-pull-out { 0%, 14% { transform: translateX(0); } 44%, 64% { transform: translateX(24%); } 92%, 100% { transform: translateX(0); } }\n@keyframes darma-loader-darma-b13-file-drawer-file-up { 0%, 22% { transform: translateY(72%); } 50%, 60% { transform: translateY(-8%); } 88%, 100% { transform: translateY(72%); } }",
+  "defaults": {
+    "color": "#334155",
+    "secondaryColor": "#f59e0b",
+    "size": 112,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b13-file-drawer\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b13-file-drawer__drawer\"><span></span></div></div>",
+    "css": ".darma-loader-darma-b13-file-drawer { --accent: var(--loader-color, #334155); --accent-2: var(--loader-secondary-color, #f59e0b); width: var(--loader-size, 112px); height: calc(var(--loader-size, 112px) * .82); position: relative; overflow: hidden; border-radius: 6%; background: linear-gradient(#e2e8f0, #94a3b8); box-shadow: inset 0 0 0 2px #64748b; }\n.darma-loader-darma-b13-file-drawer::before { content: ''; position: absolute; top: 7%; left: 8%; width: 84%; height: 22%; border-radius: 3px; background: rgba(255, 255, 255, .42); box-shadow: 0 calc(var(--loader-size, 112px) * .245) 0 rgba(255, 255, 255, .42); }\n.darma-loader-darma-b13-file-drawer .darma-loader-darma-b13-file-drawer__drawer { position: absolute; bottom: 6%; left: 8%; width: 84%; height: 26%; animation: darma-loader-darma-b13-file-drawer-pull-out calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b13-file-drawer .darma-loader-darma-b13-file-drawer__drawer::after { content: ''; position: absolute; z-index: 2; inset: 0; border-radius: 3px; background: linear-gradient(var(--accent), color-mix(in srgb, #000 26%, var(--accent))); box-shadow: inset 0 2px 0 rgba(255, 255, 255, .3); }\n.darma-loader-darma-b13-file-drawer .darma-loader-darma-b13-file-drawer__drawer span { position: absolute; bottom: 56%; left: 16%; width: 42%; height: 92%; border-radius: 3px 3px 0 0; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 18%, var(--accent-2))); animation: darma-loader-darma-b13-file-drawer-file-up calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n@keyframes darma-loader-darma-b13-file-drawer-pull-out { 0%, 14% { transform: translateX(0); } 44%, 64% { transform: translateX(24%); } 92%, 100% { transform: translateX(0); } }\n@keyframes darma-loader-darma-b13-file-drawer-file-up { 0%, 22% { transform: translateY(72%); } 50%, 60% { transform: translateY(-8%); } 88%, 100% { transform: translateY(72%); } }",
+    "react": "export default function DarmaB13FileDrawerLoader() {\n  return (\n    <div className=\"darma-loader-darma-b13-file-drawer\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b13-file-drawer__drawer\"><span></span></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "id": "darma-b13-forklift-pallet",
+  "name": "Forklift Pallet",
+  "category": "creative",
+  "sourceId": "darma-research-batch-13",
+  "tags": [
+    "forklift",
+    "pallet",
+    "warehouse",
+    "hoist",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b13-forklift-pallet forklift pallet creative darma-research-batch-13 darma research batch 13 forklift pallet warehouse hoist creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b13-forklift-pallet\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b13-forklift-pallet__mast\"><span></span></div></div>",
+  "previewCss": ".darma-loader-darma-b13-forklift-pallet { --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #a16207); width: var(--loader-size, 120px); height: calc(var(--loader-size, 120px) * .72); position: relative; }\n.darma-loader-darma-b13-forklift-pallet::after { content: ''; position: absolute; bottom: 9%; right: 4%; width: 44%; height: 44%; border-radius: 4px 10px 3px 3px; background: linear-gradient(var(--accent), color-mix(in srgb, #000 24%, var(--accent))); }\n.darma-loader-darma-b13-forklift-pallet::before { content: ''; position: absolute; bottom: 0; right: 11%; width: 16%; height: calc(var(--loader-size, 120px) * .115); border-radius: 50%; background: #334155; box-shadow: calc(var(--loader-size, 120px) * -.3) 0 0 #334155; }\n.darma-loader-darma-b13-forklift-pallet .darma-loader-darma-b13-forklift-pallet__mast { position: absolute; bottom: 9%; left: 24%; width: 6%; height: 78%; border-radius: 2px; background: linear-gradient(#cbd5e1, #64748b); }\n.darma-loader-darma-b13-forklift-pallet .darma-loader-darma-b13-forklift-pallet__mast span { position: absolute; left: -240%; width: 300%; height: 9%; border-radius: 2px; background: #94a3b8; animation: darma-loader-darma-b13-forklift-pallet-hoist-load calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b13-forklift-pallet .darma-loader-darma-b13-forklift-pallet__mast span::after { content: ''; position: absolute; bottom: 100%; left: 6%; width: 62%; height: 300%; border-radius: 3px; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 20%, var(--accent-2))); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 34%, var(--accent-2)); }\n@keyframes darma-loader-darma-b13-forklift-pallet-hoist-load { 0%, 14% { bottom: 2%; } 44%, 64% { bottom: 62%; } 92%, 100% { bottom: 2%; } }",
+  "defaults": {
+    "color": "#f59e0b",
+    "secondaryColor": "#a16207",
+    "size": 120,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b13-forklift-pallet\" aria-label=\"Loading\"><div class=\"darma-loader-darma-b13-forklift-pallet__mast\"><span></span></div></div>",
+    "css": ".darma-loader-darma-b13-forklift-pallet { --accent: var(--loader-color, #f59e0b); --accent-2: var(--loader-secondary-color, #a16207); width: var(--loader-size, 120px); height: calc(var(--loader-size, 120px) * .72); position: relative; }\n.darma-loader-darma-b13-forklift-pallet::after { content: ''; position: absolute; bottom: 9%; right: 4%; width: 44%; height: 44%; border-radius: 4px 10px 3px 3px; background: linear-gradient(var(--accent), color-mix(in srgb, #000 24%, var(--accent))); }\n.darma-loader-darma-b13-forklift-pallet::before { content: ''; position: absolute; bottom: 0; right: 11%; width: 16%; height: calc(var(--loader-size, 120px) * .115); border-radius: 50%; background: #334155; box-shadow: calc(var(--loader-size, 120px) * -.3) 0 0 #334155; }\n.darma-loader-darma-b13-forklift-pallet .darma-loader-darma-b13-forklift-pallet__mast { position: absolute; bottom: 9%; left: 24%; width: 6%; height: 78%; border-radius: 2px; background: linear-gradient(#cbd5e1, #64748b); }\n.darma-loader-darma-b13-forklift-pallet .darma-loader-darma-b13-forklift-pallet__mast span { position: absolute; left: -240%; width: 300%; height: 9%; border-radius: 2px; background: #94a3b8; animation: darma-loader-darma-b13-forklift-pallet-hoist-load calc(var(--loader-speed, 1s) * 3) ease-in-out infinite; }\n.darma-loader-darma-b13-forklift-pallet .darma-loader-darma-b13-forklift-pallet__mast span::after { content: ''; position: absolute; bottom: 100%; left: 6%; width: 62%; height: 300%; border-radius: 3px; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 20%, var(--accent-2))); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 34%, var(--accent-2)); }\n@keyframes darma-loader-darma-b13-forklift-pallet-hoist-load { 0%, 14% { bottom: 2%; } 44%, 64% { bottom: 62%; } 92%, 100% { bottom: 2%; } }",
+    "react": "export default function DarmaB13ForkliftPalletLoader() {\n  return (\n    <div className=\"darma-loader-darma-b13-forklift-pallet\" aria-label=\"Loading\"><div className=\"darma-loader-darma-b13-forklift-pallet__mast\"><span></span></div></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

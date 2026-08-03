@@ -1,0 +1,48 @@
+{
+  "id": "darma-b13-spider-web-weave",
+  "name": "Spider Web Weave",
+  "category": "creative",
+  "sourceId": "darma-research-batch-13",
+  "tags": [
+    "spider",
+    "web",
+    "weave",
+    "spiral",
+    "creative"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b13-spider-web-weave spider web weave creative darma-research-batch-13 darma research batch 13 spider web weave spiral creative html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b13-spider-web-weave\" aria-label=\"Loading\"><span></span></div>",
+  "previewCss": ".darma-loader-darma-b13-spider-web-weave { --accent: var(--loader-color, #e2e8f0); --accent-2: var(--loader-secondary-color, #64748b); width: var(--loader-size, 108px); height: var(--loader-size, 108px); position: relative; }\n.darma-loader-darma-b13-spider-web-weave::before { content: ''; position: absolute; inset: 0; border-radius: 50%; background: repeating-conic-gradient(from 0deg, var(--accent-2) 0 .7deg, transparent .7deg 45deg); }\n.darma-loader-darma-b13-spider-web-weave::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: repeating-radial-gradient(circle, transparent 0 10.5%, var(--accent) 10.5% 12%); animation: darma-loader-darma-b13-spider-web-weave-weave calc(var(--loader-speed, 1s) * 2.6) linear infinite; }\n.darma-loader-darma-b13-spider-web-weave span { position: absolute; z-index: 2; top: 50%; left: 50%; width: 11%; height: 11%; margin: -5.5% 0 0 -5.5%; border-radius: 50%; background: radial-gradient(circle at 42% 34%, color-mix(in srgb, #fff 30%, var(--accent-2)), color-mix(in srgb, #000 42%, var(--accent-2))); animation: darma-loader-darma-b13-spider-web-weave-crawl calc(var(--loader-speed, 1s) * 2.6) linear infinite; }\n@keyframes darma-loader-darma-b13-spider-web-weave-weave { 0% { clip-path: circle(5% at 50% 50%); } 100% { clip-path: circle(51% at 50% 50%); } }\n@keyframes darma-loader-darma-b13-spider-web-weave-crawl { 0% { transform: rotate(0deg) translateX(calc(var(--loader-size, 108px) * .04)); } 100% { transform: rotate(1080deg) translateX(calc(var(--loader-size, 108px) * .45)); } }",
+  "defaults": {
+    "color": "#e2e8f0",
+    "secondaryColor": "#64748b",
+    "size": 108,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b13-spider-web-weave\" aria-label=\"Loading\"><span></span></div>",
+    "css": ".darma-loader-darma-b13-spider-web-weave { --accent: var(--loader-color, #e2e8f0); --accent-2: var(--loader-secondary-color, #64748b); width: var(--loader-size, 108px); height: var(--loader-size, 108px); position: relative; }\n.darma-loader-darma-b13-spider-web-weave::before { content: ''; position: absolute; inset: 0; border-radius: 50%; background: repeating-conic-gradient(from 0deg, var(--accent-2) 0 .7deg, transparent .7deg 45deg); }\n.darma-loader-darma-b13-spider-web-weave::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: repeating-radial-gradient(circle, transparent 0 10.5%, var(--accent) 10.5% 12%); animation: darma-loader-darma-b13-spider-web-weave-weave calc(var(--loader-speed, 1s) * 2.6) linear infinite; }\n.darma-loader-darma-b13-spider-web-weave span { position: absolute; z-index: 2; top: 50%; left: 50%; width: 11%; height: 11%; margin: -5.5% 0 0 -5.5%; border-radius: 50%; background: radial-gradient(circle at 42% 34%, color-mix(in srgb, #fff 30%, var(--accent-2)), color-mix(in srgb, #000 42%, var(--accent-2))); animation: darma-loader-darma-b13-spider-web-weave-crawl calc(var(--loader-speed, 1s) * 2.6) linear infinite; }\n@keyframes darma-loader-darma-b13-spider-web-weave-weave { 0% { clip-path: circle(5% at 50% 50%); } 100% { clip-path: circle(51% at 50% 50%); } }\n@keyframes darma-loader-darma-b13-spider-web-weave-crawl { 0% { transform: rotate(0deg) translateX(calc(var(--loader-size, 108px) * .04)); } 100% { transform: rotate(1080deg) translateX(calc(var(--loader-size, 108px) * .45)); } }",
+    "react": "export default function DarmaB13SpiderWebWeaveLoader() {\n  return (\n    <div className=\"darma-loader-darma-b13-spider-web-weave\" aria-label=\"Loading\"><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 13",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

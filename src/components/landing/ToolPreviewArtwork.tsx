@@ -33,7 +33,7 @@ function JsonArt() {
         <p><b>{"{"}</b></p>
         <p><i>"workspace"</i>: <em>"Darma"</em>,</p>
         <p><i>"status"</i>: <strong>true</strong>,</p>
-        <p><i>"tools"</i>: <span>68</span></p>
+        <p><i>"indent"</i>: <span>2</span></p>
         <p><b>{"}"}</b></p>
       </div>
       <span className="landing-tool-json-check">✓ valid</span>

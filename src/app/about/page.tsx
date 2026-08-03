@@ -313,6 +313,34 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className={sectionClass}>
+        <div className="mb-7 max-w-3xl">
+          <p className={eyebrowClass}>How Darma researches content</p>
+          <h2 className="darma-balanced-heading mt-2 text-3xl font-black tracking-[-0.035em] text-[var(--color-text-primary)]">
+            A visible editorial process, not an anonymous list of links.
+          </h2>
+          <p className="darma-pretty-copy mt-3 text-base leading-7 text-[var(--color-text-secondary)]">
+            Every guide starts from a real user question, prefers primary sources, adds an original practical explanation, connects to existing Atlas records, and receives a separate structural and technical review.
+          </p>
+        </div>
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {[
+            { title: "Official source first", text: "Framework documentation, standards bodies, maintainers, and original research are preferred before secondary summaries." },
+            { title: "Original practical value", text: "Darma adds decision criteria, project evidence, mistakes, alternatives, and next actions instead of rewriting documentation." },
+            { title: "Cross-reference review", text: "Resources, paths, careers, methods, team models, and glossary terms are validated as one connected system." },
+            { title: "Correction and maintenance", text: "Update dates stay visible, automated checks remain non-destructive, and contributors can report outdated content publicly." },
+          ].map((item) => (
+            <Card key={item.title} padding="lg" className="h-full">
+              <h3 className="text-lg font-black text-[var(--color-text-primary)]">{item.title}</h3>
+              <p className="darma-pretty-copy mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">{item.text}</p>
+            </Card>
+          ))}
+        </div>
+        <Link href="/editorial-policy" className={`${primaryLinkClass} mt-6`}>
+          Read the complete editorial policy <ArrowRight className="darma-link-arrow h-4 w-4" aria-hidden />
+        </Link>
+      </section>
+
       <section id="maintainers" className="darma-section-shell darma-section-ink scroll-mt-28">
         <div className={`${sectionClass} grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center`}>
           <div className="max-w-3xl">

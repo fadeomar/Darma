@@ -160,7 +160,7 @@ export default function LandingPage() {
             <div>
               <span className="landing-section-eyebrow">See the interaction model</span>
               <h2>Controls and results belong in the same conversation.</h2>
-              <p>Darma tools are being rebuilt around one clear workspace pattern. Inputs stay visible, previews respond immediately, and the next action is easy to find.</p>
+              <p>Every Darma tool follows one workspace pattern. Your input stays visible, the preview responds as you type, and the next useful action is always in reach.</p>
             </div>
           </div>
           <MotionSection className="mt-10" distance={24}>
@@ -175,7 +175,7 @@ export default function LandingPage() {
             <div>
               <span className="landing-section-eyebrow">Featured workspaces</span>
               <h2>See what a tool does before opening it.</h2>
-              <p>Each featured card now uses a visual preview from the tool itself. The directory can feel like a workshop shelf instead of a wall of identical text cards.</p>
+              <p>Each card previews the real output of the tool behind it, so you can tell whether a workspace fits your task before you open it.</p>
             </div>
             <Link href="/tools">View all tools <ArrowRight className="h-4 w-4" aria-hidden /></Link>
           </div>

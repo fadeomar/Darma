@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-07-29T18:21:25.568Z",
+  "generatedAt": "2026-08-03T08:41:00.279Z",
   "status": "passed",
   "counts": {
     "governanceFiles": 19,
     "issueForms": 4,
-    "uniqueResources": 396,
-    "verified": 35,
+    "uniqueResources": 400,
+    "verified": 39,
     "reviewNeeded": 361,
     "archived": 0,
     "staleFeatured": 0,

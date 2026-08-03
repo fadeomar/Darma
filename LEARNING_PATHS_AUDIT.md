@@ -1,6 +1,6 @@
 # Learning Paths Audit
 
-- Generated: 2026-08-02T13:34:33.094Z
+- Generated: 2026-08-03T08:40:58.037Z
 - Learning paths: 6
 - Stages: 36
 - Unique resources used: 26

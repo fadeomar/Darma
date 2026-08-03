@@ -41,6 +41,21 @@ if (/route:\s*["\']\/search["\']/.test(sitemap)) errors.push("sitemap.ts: noinde
 if (/lastModified:\s*new Date\(\s*\)/.test(sitemap)) errors.push("sitemap.ts: lastModified still uses the current build time");
 const config = read("next.config.ts");
 if (/source:\s*["']\/search/.test(config)) errors.push("next.config.ts: /search is still rewritten away from the real search page");
+
+// A real page can be made unreachable by a proxy matcher that predates it. Any
+// static matcher entry pointing at an existing route is a redirect away from a
+// page we expect search engines and visitors to reach.
+const proxySource = read("src/proxy.ts");
+const matcherBlock = proxySource.match(/matcher:\s*\[([\s\S]*?)\]/);
+if (matcherBlock) {
+  for (const [, entry] of matcherBlock[1].matchAll(/["']([^"']+)["']/g)) {
+    if (entry.includes(":") || entry.includes("*")) continue;
+    const route = entry.replace(/^\//, "");
+    if (route && exists(`src/app/${route}/page.tsx`)) {
+      errors.push(`src/proxy.ts: matcher intercepts ${entry}, but a real page exists at src/app/${route}/page.tsx`);
+    }
+  }
+}
 const layout = read("src/app/layout.tsx");
 if (/alternates:\s*\{\s*canonical:\s*["\']\/["\']/.test(layout)) errors.push("layout.tsx: root layout must not define a site-wide homepage canonical");
 if (/Front-end showcase and online tools/.test(layout)) errors.push("layout.tsx: legacy site identity remains in root metadata");

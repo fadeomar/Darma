@@ -17,12 +17,13 @@ function redirectToLogin(request: NextRequest) {
 export async function proxy(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
 
-  // Handle static routes: /search, /element
-  if (pathname === "/search" || pathname === "/element") {
+  // Legacy alias: /element was folded into the home page.
+  // /search is a real page now (src/app/search) and must never be redirected.
+  if (pathname === "/element") {
     return NextResponse.redirect(new URL(`/${search}`, request.url));
   }
 
-  // Handle dynamic route: /search/[slug] -> "/?q=slug"
+  // Legacy dynamic route: /search/[slug] -> "/search?q=slug"
   if (pathname.startsWith("/search/") && pathname !== "/search") {
     const slug = pathname.split("/")[2];
     const searchParams = new URLSearchParams(search);
@@ -31,7 +32,7 @@ export async function proxy(request: NextRequest) {
       searchParams.set("q", slug);
     }
 
-    const target = `/?${searchParams.toString()}`;
+    const target = `/search?${searchParams.toString()}`;
     return NextResponse.redirect(new URL(target, request.url));
   }
 
@@ -77,7 +78,6 @@ export const config = {
   matcher: [
     "/admin/:path*",
     "/api/admin/:path*",
-    "/search",
     "/element",
     "/search/:slug+",
   ],

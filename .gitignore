@@ -36,6 +36,11 @@ yarn-error.log*
 
 # local source archive / backup artifacts
 src.zip
+src.backup-*/
+
+# scratch verification pages produced while building tools/loaders
+tmp-*.html
+public/tmp-*.html
 
 # vercel
 .vercel

@@ -1,0 +1,23 @@
+/*
+ * Game thumbnail scenes.
+ *
+ * A scene is a self-contained opaque stage, so it reads the same on a light or
+ * a dark card surface; the tile only needs a hairline that follows the theme.
+ * The scenes carry their own palettes on purpose — that is the games identity,
+ * distinct from the token-driven tool previews and Atlas diagrams.
+ */
+
+.gscene { display: block; background: var(--color-surface-inset); }
+.gscene-svg { display: block; width: 100%; height: 100%; }
+.gscene::after { position: absolute; inset: 0; content: ""; pointer-events: none; box-shadow: inset 0 0 0 1px var(--color-border-subtle); }
+
+/* One restrained hover reaction, matching the image thumbnails it replaced. */
+.group:hover .gscene-svg { transition: scale .5s var(--ease-standard); scale: 1.04; }
+
+.gscene-fallback { background: linear-gradient(140deg, var(--color-primary-soft), var(--color-accent-soft)); }
+.gscene-fallback-grid { position: absolute; inset: 0; opacity: .5; background-image: linear-gradient(var(--color-preview-grid) 1px, transparent 1px), linear-gradient(90deg, var(--color-preview-grid) 1px, transparent 1px); background-size: 20px 20px; }
+.gscene-fallback-orb { position: absolute; top: 50%; left: 50%; width: 38%; aspect-ratio: 1; translate: -50% -50%; border: 3px solid var(--color-primary); border-radius: 999px; background: var(--color-surface-raised); }
+
+@media (prefers-reduced-motion: reduce) {
+  .group:hover .gscene-svg { transition: none; scale: 1; }
+}

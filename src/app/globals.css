@@ -5,6 +5,7 @@
 @import "../styles/experience.css";
 @import "../styles/tool-workspace.css";
 @import "../styles/tool-previews.css";
+@import "../styles/game-scenes.css";
 @import "../core/components/core-ui.css";
 
 @tailwind base;

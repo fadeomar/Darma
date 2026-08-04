@@ -111,9 +111,9 @@ export default async function ResourcesPage({ searchParams }: PageProps) {
       <PortalHero
         variant="resources"
         eyebrow="Darma resource catalog"
-        badges={["Official sources", "Visible review status", "Connected to paths"]}
+        badges={["Official sources", "Visible review status"]}
         title="Find the right technical source by the task it supports, not only by its name."
-        description="Explore official documentation, courses, generators, design libraries, accessibility references, JavaScript tools, and community sources through one searchable catalog with visible trust signals."
+        description="Search official documentation, courses, generators, and design libraries by the task each one supports."
         actions={[
           { href: "#resource-explorer-title", label: "Search the library", icon: "search", tone: "primary" },
           { href: "/learning-paths", label: "Follow a learning path", icon: "route", tone: "secondary" },

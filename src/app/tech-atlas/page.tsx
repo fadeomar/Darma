@@ -52,9 +52,9 @@ export default function TechAtlasPage() {
       <PortalHero
         variant="atlas"
         eyebrow="The connected Darma Tech Atlas"
-        badges={["Open source", "No account required", "Learning and work reference"]}
+        badges={["Open reference", "No account required"]}
         title="Understand technology as a connected system, not a collection of isolated pages."
-        description="Darma connects what to learn, where to verify it, which roles use it, how teams organize the work, and what the language means in practice."
+        description="See what to learn, where to verify it, which roles use it, and how teams organise the work — all connected."
         actions={[
           { href: "/resources", label: "Search the resource catalog", icon: "search", tone: "primary" },
           { href: "/career-pathfinder", label: "Find a career direction", icon: "atlas", tone: "secondary" },

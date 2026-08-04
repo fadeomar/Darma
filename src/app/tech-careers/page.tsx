@@ -46,9 +46,9 @@ export default function TechCareersPage() {
       <PortalHero
         variant="careers"
         eyebrow="Darma technology career atlas"
-        badges={["Role guides", "Scope and evidence", "Team context"]}
+        badges={["Role guides", "Team context"]}
         title="See what technology roles deliver, who they work with, and how responsibility grows."
-        description="Go beyond job-title lists. Understand daily work, responsibilities, deliverables, skills, collaborators, career levels, common misconceptions, and the clearest ways to start."
+        description="What each role delivers day to day, who it works with, and how responsibility grows from junior to senior."
         actions={[
           { href: "/career-pathfinder", label: "Try Career Pathfinder", icon: "atlas", tone: "primary" },
           { href: "#career-explorer-title", label: "Browse all roles", icon: "search", tone: "secondary" },

@@ -73,9 +73,9 @@ export default function LearningPathsPage() {
       <PortalHero
         variant="learning"
         eyebrow="Darma structured learning"
-        badges={["Project-based", "Official sources", "No progress account"]}
+        badges={["Project-based", "No progress account"]}
         title="Choose a direction, build evidence, and know why the next stage comes next."
-        description="Darma Learning Paths connect foundations, cataloged references, practical checkpoints, and portfolio-ready projects without pretending that one roadmap fits every learner."
+        description="Ordered stages that pair foundations with a checkpoint and a portfolio-ready project at every step."
         actions={[
           { href: "#learning-path-explorer-title", label: "Choose a learning path", icon: "route", tone: "primary" },
           { href: "/resources", label: "Search official resources", icon: "resources", tone: "secondary" },

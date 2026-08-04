@@ -36,9 +36,9 @@ export default function ComparisonsPage() {
       <PortalHero
         variant="comparisons"
         eyebrow="Darma decision library"
-        badges={["Reviewed comparisons", "Real constraints", "No universal winners"]}
-        title="Compare technology choices through the work, risk, and context that actually change the answer."
-        description="See how daily work, architecture, team fit, learning effort, operating cost, and long-term maintenance differ before choosing a role, framework, platform, or process."
+        badges={["Real constraints", "No universal winners"]}
+        title="Compare technology choices through the work and risk that change the answer."
+        description="How daily work, team fit, cost, and long-term maintenance differ before you pick a framework, platform, or process."
         actions={[
           { href: "#comparison-library", label: "Browse comparisons", icon: "compare", tone: "primary" },
           { href: "/guides", label: "Open practical guides", icon: "route", tone: "secondary" },

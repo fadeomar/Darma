@@ -36,9 +36,9 @@ export default function GuidesPage() {
       <PortalHero
         variant="guides"
         eyebrow="Darma editorial knowledge hub"
-        badges={["Reviewed guides", "Projects and evidence", "Primary references"]}
+        badges={["Reviewed guides", "Projects and evidence"]}
         title="Use a roadmap that explains the order, the trade-offs, and the proof of progress."
-        description="Start with a goal, understand what to learn now, see what can wait, and connect every topic to cataloged references, practical projects, career context, and real delivery work."
+        description="Start from a goal and see what to learn now, what can wait, and which project proves you have it."
         actions={[
           { href: "#guide-library", label: "Browse practical guides", icon: "route", tone: "primary" },
           { href: "/comparisons", label: "Open comparisons", icon: "compare", tone: "secondary" },

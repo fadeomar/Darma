@@ -24,9 +24,9 @@ export default async function GamesPage({ searchParams }: PageProps) {
       <PortalHero
         variant="games"
         eyebrow="The Darma browser arcade"
-        badges={["Free games", "No signup", "Quick to open"]}
+        badges={["Free games", "Quick to open"]}
         title="Play for a minute, reset your attention, and return without leaving Darma."
-        description="Open lightweight browser games for speed, puzzles, strategy, creativity, and short breaks. Each experience keeps controls visible, works across supported devices, and stays connected to the wider Darma workspace."
+        description="Lightweight games for speed, puzzles, strategy, and short breaks — each one opens straight into play."
         actions={[
           { href: "#games-search", label: "Choose a game", icon: "games", tone: "primary" },
           { href: "/games?filter=quick-break#games-search", label: "Find a quick break", icon: "sparkles", tone: "secondary" },
@@ -39,7 +39,7 @@ export default async function GamesPage({ searchParams }: PageProps) {
           { value: quickCount, label: "quick-break games" },
         ]}
         signals={[
-          { label: "Access", value: "No account required" },
+          { label: "Access", value: "No signup" },
           { label: "Input", value: "Keyboard, mouse, touch" },
           { label: "Progress", value: "Local when supported" },
           { label: "Mood", value: "Puzzle to arcade" },

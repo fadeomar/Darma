@@ -56,6 +56,22 @@ const ACTION_ICONS = {
   sparkles: Sparkles,
 };
 
+/**
+ * Directory-page hero.
+ *
+ * The hierarchy is capped here rather than per route (F-13): one eyebrow, at
+ * most two context badges, one title, one supporting paragraph, one primary CTA
+ * plus at most one secondary, and one compact proof strip. Routes used to render
+ * three badges, three CTAs, four metrics AND a four-cell signal strip at the
+ * same time, which pushed every portal hero past its own viewport (1110-1267px
+ * at 1440x900) and left the first product row two screens down.
+ *
+ * Anything beyond these caps belongs after the first content row, not in the
+ * hero. Extra actions passed by a route are dropped rather than rendered.
+ */
+const MAX_BADGES = 2;
+const MAX_ACTIONS = 2;
+
 export function PortalHero({
   variant,
   eyebrow,
@@ -67,21 +83,24 @@ export function PortalHero({
   signals = [],
   className,
 }: PortalHeroProps) {
+  const heroBadges = badges.slice(0, MAX_BADGES);
+  const heroActions = actions.slice(0, MAX_ACTIONS);
+
   return (
     <section className={cn("portal-hero", `portal-hero-${variant}`, className)}>
       <div className="portal-hero-grid-overlay" aria-hidden />
       <div className="portal-hero-inner">
         <div className="portal-hero-copy">
           <div className="portal-hero-eyebrow"><span aria-hidden>✦</span>{eyebrow}</div>
-          {badges.length ? (
+          {heroBadges.length ? (
             <div className="portal-hero-badges">
-              {badges.map((badge, index) => <Badge key={badge} variant={index === 0 ? "soft" : "outline"}>{badge}</Badge>)}
+              {heroBadges.map((badge, index) => <Badge key={badge} variant={index === 0 ? "soft" : "outline"}>{badge}</Badge>)}
             </div>
           ) : null}
           <SplitTextReveal text={title} className="portal-hero-title" />
           <p className="portal-hero-description">{description}</p>
           <div className="portal-hero-actions">
-            {actions.map((action, index) => {
+            {heroActions.map((action, index) => {
               const Icon = ACTION_ICONS[action.icon ?? (index === 0 ? "arrow" : "sparkles")];
               return (
                 <Link key={`${action.href}-${action.label}`} href={action.href} className={`portal-hero-action portal-hero-action-${action.tone ?? (index === 0 ? "primary" : "secondary")}`}>

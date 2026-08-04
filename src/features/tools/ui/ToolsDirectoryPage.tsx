@@ -12,9 +12,9 @@ export default function ToolsDirectoryPage({ tools }: { tools: ToolDefinition[] 
       <PortalHero
         variant="tools"
         eyebrow="Darma browser workspaces"
-        badges={["Free tools", "No signup", "Result-first UI"]}
+        badges={["Free tools", "No signup"]}
         title="Turn the task in front of you into a clear, usable result."
-        description="Open focused workspaces for code, text, images, design, calculations, generators, and everyday digital tasks. Controls stay connected to previews, results, and export actions."
+        description="Focused workspaces for code, text, images, design, and everyday calculations — with controls beside the result."
         actions={[
           { href: "#tool-directory-filters", label: "Find a tool", icon: "search", tone: "primary" },
           { href: "/workflows", label: "Follow a workflow", icon: "route", tone: "secondary" },
@@ -28,7 +28,6 @@ export default function ToolsDirectoryPage({ tools }: { tools: ToolDefinition[] 
         ]}
         signals={[
           { label: "Interaction", value: "Controls beside results" },
-          { label: "Privacy", value: "Visible per tool" },
           { label: "Output", value: "Copy and export ready" },
           { label: "Discovery", value: "Search by task" },
         ]}

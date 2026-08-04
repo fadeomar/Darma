@@ -1833,14 +1833,17 @@
 .darma-footer-aurora { position: absolute; border-radius: 999px; filter: blur(50px); opacity: .26; }
 .darma-footer-aurora-one { width: 34rem; height: 34rem; left: -15rem; top: -16rem; background: #ff6a3d; }
 .darma-footer-aurora-two { width: 30rem; height: 30rem; right: -14rem; bottom: -16rem; background: #2dd4bf; }
-.darma-footer-inner { position: relative; z-index: 1; width: min(var(--container-wide), calc(100% - 2rem)); margin-inline: auto; padding-block: clamp(3.5rem, 7vw, 6.5rem) 1.5rem; }
-.darma-footer-lead { display: grid; gap: 2.2rem; align-items: center; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,.1); }
+.darma-footer-inner { position: relative; z-index: 1; width: min(var(--container-wide), calc(100% - 2rem)); margin-inline: auto; padding-block: clamp(2.25rem, 3.4vw, 3rem) 1.35rem; }
+.darma-footer-compact .darma-footer-inner { padding-block: 2rem 1.25rem; }
+.darma-footer-lead { display: grid; gap: 1.75rem; align-items: center; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(255,255,255,.1); }
+.darma-footer-compact .darma-footer-lead { padding-bottom: 1.35rem; }
 .darma-footer-kicker { display: inline-flex; align-items: center; gap: .45rem; color: #ff8b68; font-family: var(--font-mono); font-size: .75rem; font-weight: 900; letter-spacing: .11em; text-transform: uppercase; }
-.darma-footer-brand-row { display: flex; align-items: center; gap: 1rem; margin-top: 1rem; }
-.darma-footer-mark { display: grid; width: 4.4rem; height: 4.4rem; place-items: center; border-radius: 1.4rem; background: linear-gradient(145deg, #ff6a3d, #2dd4bf); color: #101110; box-shadow: 0 20px 45px rgba(0,0,0,.3); font-size: 2.2rem; font-weight: 950; }
-.darma-footer-brand-row h2 { color: #f4f1ea; font-size: clamp(2.4rem, 5vw, 4.4rem); font-weight: 950; line-height: .9; letter-spacing: -.07em; }
+.darma-footer-brand-row { display: flex; align-items: center; gap: .85rem; margin-top: .85rem; }
+.darma-footer-compact .darma-footer-brand-row { margin-top: 0; }
+.darma-footer-mark { display: grid; width: 3.1rem; height: 3.1rem; place-items: center; border-radius: 1rem; background: linear-gradient(145deg, #ff6a3d, #2dd4bf); color: #101110; box-shadow: 0 14px 32px rgba(0,0,0,.3); font-size: 1.5rem; font-weight: 950; }
+.darma-footer-brand-row h2 { color: #f4f1ea; font-size: clamp(1.75rem, 2.6vw, 2.4rem); font-weight: 950; line-height: .95; letter-spacing: -.05em; }
 .darma-footer-brand-row p { margin-top: .5rem; color: #aaa294; font-size: .84rem; font-weight: 750; }
-.darma-footer-description { margin-top: 1.2rem; max-width: 42rem; color: #bcb5a9; font-size: .9rem; line-height: 1.75; }
+.darma-footer-description { margin-top: .9rem; max-width: 40rem; color: #bcb5a9; font-size: .875rem; line-height: 1.65; }
 .darma-footer-actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.4rem; }
 .darma-footer-actions a { display: inline-flex; min-height: 2.9rem; align-items: center; justify-content: center; gap: .5rem; padding: .65rem 1rem; border: 1px solid #ff6a3d; border-radius: .85rem; background: #ff6a3d; color: #111110; font-size: .75rem; font-weight: 950; transition: transform .2s ease, box-shadow .2s ease; }
 .darma-footer-actions a:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(255,106,61,.2); }
@@ -1853,14 +1856,22 @@
 .darma-footer-output rect { fill: rgba(45,212,191,.08); stroke: rgba(45,212,191,.3); }
 .darma-footer-output circle { fill: #2dd4bf; }
 .darma-footer-output text { fill: #8cead9; font-family: var(--font-mono); font-size: 13px; font-weight: 900; letter-spacing: 1.1px; }
+/*
+ * Contribution panel (full footer only). Replaces the 620x430 network diagram
+ * and the four metric cards, which restated counts the portal pages already
+ * show and were most of the old footer's 1145px.
+ */
+.darma-footer-contribute { min-width: 0; padding: 1.15rem 1.25rem; border: 1px solid rgba(255,255,255,.12); border-radius: 1.2rem; background: rgba(255,255,255,.045); }
+.darma-footer-contribute h3 { color: #f4f1ea; font-size: 1.05rem; font-weight: 950; letter-spacing: -.02em; }
+.darma-footer-contribute p { margin-top: .45rem; color: #bcb5a9; font-size: .8125rem; line-height: 1.6; }
 .darma-footer-status { display: grid; gap: 1px; margin-top: 1.25rem; overflow: hidden; border: 1px solid rgba(255,255,255,.1); border-radius: 1.2rem; background: rgba(255,255,255,.1); }
 .darma-footer-status > span { display: grid; grid-template-columns: 2.2rem 1fr; column-gap: .65rem; align-items: center; min-height: 4.4rem; padding: .85rem 1rem; background: rgba(16,23,21,.92); }
 .darma-footer-status svg { grid-row: 1 / 3; color: #ff8b68; }
 .darma-footer-status strong { color: #f4f1ea; font-size: .78rem; font-weight: 950; }
 .darma-footer-status small { color: #aaa294; font-size: .75rem; line-height: 1.4; }
-.darma-footer-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 1.5rem; padding-block: 2.5rem; border-bottom: 1px solid rgba(255,255,255,.1); }
+.darma-footer-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; padding-block: 1.75rem; border-bottom: 1px solid rgba(255,255,255,.1); }
 .darma-footer-grid h3 { color: #f4f1ea; font-family: var(--font-mono); font-size: .75rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
-.darma-footer-grid ul { display: grid; gap: .55rem; margin-top: 1rem; }
+.darma-footer-grid ul { display: grid; gap: .45rem; margin-top: .75rem; }
 /* min-height keeps every footer link at or above the WCAG 2.5.8 (AA) 24px
    minimum target size; the type stays small, the hit area does not. */
 .darma-footer-grid a { display: inline-flex; min-height: 1.5rem; align-items: center; gap: .45rem; color: #aaa294; font-size: .75rem; font-weight: 800; line-height: 1.45; transition: color .2s ease, translate .2s ease; }
@@ -1871,6 +1882,16 @@
 .darma-footer-bottom > div { display: flex; flex-wrap: wrap; gap: .8rem 1.1rem; }
 .darma-footer-bottom a { display: inline-flex; min-height: 1.5rem; align-items: center; gap: .35rem; color: #aaa294; font-weight: 800; }
 .darma-footer-bottom a:hover { color: #f4f1ea; }
+/*
+ * Touch: footer links become 44px targets instead of 24px text rows. Declared
+ * after the base `a` rule so it is not overridden by it. The list gap goes to
+ * zero because the taller targets already provide the separation.
+ */
+@media (max-width: 767px) {
+  .darma-footer-grid a,
+  .darma-footer-bottom a { min-height: 2.75rem; }
+  .darma-footer-grid ul { gap: 0; }
+}
 
 @media (min-width: 760px) {
   .landing-intent-tabs { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -1878,7 +1899,7 @@
   .landing-proof-workflow { grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); }
   .landing-proof-copy { border-right: 1px solid rgba(255,255,255,.1); border-bottom: 0; }
   .darma-footer-status { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .darma-footer-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .darma-footer-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .darma-footer-bottom { flex-direction: row; align-items: center; justify-content: space-between; }
 }
 
@@ -1888,7 +1909,7 @@
   .landing-intent-story { min-height: 39rem; }
   .landing-intent-destinations { align-self: stretch; }
   .landing-proof-copy { position: sticky; top: 6.5rem; align-self: start; min-height: 100%; }
-  .darma-footer-lead { grid-template-columns: minmax(0, .88fr) minmax(480px, 1.12fr); }
+  .darma-footer-lead { grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr); }
   .darma-footer-status { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 

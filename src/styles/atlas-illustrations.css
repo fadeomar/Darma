@@ -1,0 +1,198 @@
+/*
+ * Tech Atlas pillar illustrations.
+ *
+ * Diagram language, distinct from the tool previews (input/output panels) and
+ * the game scenes (opaque arcade stages): token colours on the Atlas tile,
+ * 2px connectors, 999px nodes, and one label size. Labels are HTML at a fixed
+ * .75rem so they never fall under the readable floor when the card narrows;
+ * shapes are sized in em/% so they scale with the tile.
+ *
+ * `.atlas-ill-detail` marks secondary detail: it is dropped below 900px rather
+ * than shrunk, so a narrow card stays legible instead of becoming a smaller
+ * version of the same crowded picture.
+ */
+
+.atlas-card-art-pillar { min-height: 9.5rem; }
+.atlas-ill { position: absolute; inset: .9rem; z-index: 2; display: flex; align-items: center; gap: .6rem; font-size: .75rem; font-weight: 800; line-height: 1.3; }
+.atlas-ill em { font-style: normal; }
+.atlas-ill-label,.atlas-ill em { color: var(--color-text-secondary); font-family: var(--font-mono); font-size: .75rem; font-weight: 900; letter-spacing: .04em; }
+
+/* ----------------------------------------------------------- resources */
+.atlas-ill-sources { display: grid; gap: .35rem; }
+.atlas-ill-source { display: block; width: 1.6rem; height: 1.2rem; border: 2px solid var(--color-border-strong); border-radius: .3rem; background: var(--color-surface-raised); }
+.atlas-ill-source-course { border-radius: 999px; border-color: var(--color-accent); }
+.atlas-ill-source-repo { border-radius: .3rem; border-color: var(--color-info); border-style: dashed; }
+.atlas-ill-flow { position: relative; width: 1.5rem; height: 2px; flex: none; background: var(--color-border-strong); }
+.atlas-ill-flow::after { position: absolute; right: -1px; top: 50%; width: .45rem; height: .45rem; content: ""; translate: 0 -50%; rotate: 45deg; border-top: 2px solid var(--color-border-strong); border-right: 2px solid var(--color-border-strong); }
+.atlas-ill-shelf { position: relative; display: grid; flex: 1; gap: .3rem; padding: .5rem .6rem .6rem; border: 2px solid var(--color-primary-border); border-radius: .8rem; background: var(--color-surface-raised); box-shadow: var(--shadow-card); }
+.atlas-ill-shelf-label { color: var(--color-text-tertiary); font-family: var(--font-mono); font-size: .75rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+.atlas-ill-shelf-rows { display: grid; gap: .25rem; }
+.atlas-ill-shelf-row { display: flex; gap: .25rem; }
+.atlas-ill-shelf-row i { display: block; height: .5rem; flex: 1; border-radius: .15rem; background: var(--color-primary-soft); }
+.atlas-ill-shelf-row:nth-child(2) i:nth-child(2) { background: var(--color-accent-soft); }
+.atlas-ill-shelf-row:nth-child(3) i:nth-child(4) { background: var(--color-accent-soft); }
+.atlas-ill-status { position: absolute; right: .5rem; top: .4rem; padding: .05rem .4rem; border-radius: 999px; background: var(--color-success-bg); color: var(--color-success-text); font-size: .75rem; font-weight: 900; }
+.atlas-ill-outlets { display: grid; gap: .5rem; }
+.atlas-ill-outlet { display: block; width: 1.1rem; height: 1.1rem; border: 2px solid var(--color-primary); border-radius: 999px; background: var(--color-surface-raised); }
+.atlas-ill-outlet:last-child { border-color: var(--color-accent); }
+
+/* ------------------------------------------------------ learning paths */
+.atlas-ill-path { gap: .75rem; }
+.atlas-ill-track { position: relative; display: flex; flex: 1; align-items: center; justify-content: space-between; }
+.atlas-ill-track-line { position: absolute; right: 1rem; left: 1rem; height: 4px; border-radius: 999px; background: var(--color-control-track); }
+.atlas-ill-track-fill { position: absolute; left: 1rem; width: 42%; height: 4px; border-radius: 999px; background: var(--color-primary); }
+.atlas-ill-stage { position: relative; z-index: 2; display: grid; width: 2rem; height: 2rem; place-items: center; border: 2px solid var(--color-border-strong); border-radius: 999px; background: var(--color-surface-raised); }
+.atlas-ill-stage em { color: var(--color-text-tertiary); font-size: .75rem; }
+.atlas-ill-stage.is-done { border-color: var(--color-primary); background: var(--color-primary); }
+.atlas-ill-stage.is-done em { color: var(--color-primary-text); }
+.atlas-ill-stage.is-current { border-color: var(--color-primary); box-shadow: 0 0 0 4px var(--color-primary-soft); }
+.atlas-ill-stage.is-current em { color: var(--color-primary-text-strong); }
+.atlas-ill-stage::after { position: absolute; top: -1.05rem; width: 2px; height: .6rem; content: ""; background: var(--color-border-default); }
+.atlas-ill-stage.is-done::after,.atlas-ill-stage.is-current::after { background: var(--color-primary); }
+.atlas-ill-outcome { position: relative; display: grid; width: 6.2rem; flex: none; gap: .3rem; padding: .55rem; border: 2px solid var(--color-accent); border-radius: .7rem; background: var(--color-surface-raised); box-shadow: var(--shadow-card); }
+.atlas-ill-outcome-label { color: var(--color-text-secondary); font-family: var(--font-mono); font-size: .75rem; font-weight: 900; }
+.atlas-ill-outcome-lines { display: grid; gap: .22rem; }
+.atlas-ill-outcome-lines i { display: block; height: .3rem; border-radius: 999px; background: var(--color-control-track); }
+.atlas-ill-outcome-lines i:first-child { width: 80%; background: var(--color-accent-soft); }
+.atlas-ill-outcome-lines i:last-child { width: 55%; }
+.atlas-ill-outcome-star { position: absolute; right: -.55rem; top: -.55rem; width: 1.2rem; height: 1.2rem; border-radius: 999px; background: var(--color-accent); clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
+
+/* --------------------------------------------------------- pathfinder */
+.atlas-ill-answers { display: grid; gap: .4rem; }
+.atlas-ill-answer { display: block; width: 2.6rem; height: 1rem; border: 2px solid var(--color-border-strong); border-radius: 999px; background: var(--color-surface-raised); }
+.atlas-ill-answer.is-picked { border-color: var(--color-primary); background: var(--color-primary-soft); }
+.atlas-ill-fan { width: 3.4rem; height: 100%; flex: none; }
+.atlas-ill-fan svg { width: 100%; height: 100%; }
+.atlas-ill-branch { fill: none; stroke: var(--color-border-strong); stroke-width: 3; vector-effect: non-scaling-stroke; }
+.atlas-ill-branch-strong { stroke: var(--color-primary); }
+.atlas-ill-outcomes { display: grid; flex: 1; gap: .3rem; }
+.atlas-ill-outcome-card { position: relative; display: flex; height: 1.6rem; align-items: center; padding: 0 .5rem; border: 2px solid var(--color-border-default); border-radius: .45rem; background: var(--color-surface-raised); }
+.atlas-ill-outcome-card::before { width: 55%; height: .3rem; content: ""; border-radius: 999px; background: var(--color-control-track); }
+.atlas-ill-outcome-card.is-recommended { border-color: var(--color-primary); background: var(--color-primary-soft); box-shadow: 0 0 0 3px var(--color-primary-soft); }
+.atlas-ill-outcome-card.is-recommended::before { display: none; }
+.atlas-ill-outcome-card.is-recommended em { color: var(--color-primary-text-strong); }
+
+/* ------------------------------------------------------------ careers */
+.atlas-ill-careers { gap: .55rem; }
+.atlas-ill-role { display: grid; justify-items: center; gap: .3rem; }
+.atlas-ill-avatar { position: relative; display: block; width: 2.6rem; height: 2.6rem; border: 2px solid var(--color-primary); border-radius: 999px; background: var(--color-primary-soft); }
+.atlas-ill-avatar::before { position: absolute; top: .5rem; left: 50%; width: .85rem; height: .85rem; content: ""; translate: -50% 0; border-radius: 999px; background: var(--color-primary); }
+.atlas-ill-avatar::after { position: absolute; bottom: .28rem; left: 50%; width: 1.5rem; height: .75rem; content: ""; translate: -50% 0; border-radius: .75rem .75rem 0 0; background: var(--color-primary); }
+.atlas-ill-role-label { color: var(--color-text-tertiary); font-family: var(--font-mono); font-size: .75rem; font-weight: 900; }
+.atlas-ill-skills { display: grid; width: 4.5rem; flex: none; gap: .3rem; }
+.atlas-ill-skill { display: block; height: .4rem; border-radius: 999px; background: var(--color-control-track); }
+.atlas-ill-skill i { display: block; height: 100%; border-radius: 999px; background: var(--color-primary); }
+.atlas-ill-skill:nth-child(2) i { background: var(--color-accent); }
+.atlas-ill-skill:nth-child(3) i { background: var(--color-info); }
+.atlas-ill-outputs { display: grid; flex: 1; gap: .4rem; }
+.atlas-ill-output { display: grid; gap: .22rem; padding: .4rem .5rem; border: 2px solid var(--color-border-default); border-radius: .5rem; background: var(--color-surface-raised); }
+.atlas-ill-output-doc i { display: block; height: .28rem; border-radius: 999px; background: var(--color-control-track); }
+.atlas-ill-output-doc i:first-child { width: 70%; background: var(--color-primary); }
+.atlas-ill-output-chart { display: flex; align-items: flex-end; gap: .22rem; height: 2.1rem; }
+.atlas-ill-output-chart i { display: block; flex: 1; border-radius: .15rem .15rem 0 0; background: var(--color-accent-soft); }
+.atlas-ill-output-chart i:nth-child(1) { height: 40%; }
+.atlas-ill-output-chart i:nth-child(2) { height: 72%; background: var(--color-accent); }
+.atlas-ill-output-chart i:nth-child(3) { height: 54%; }
+.atlas-ill-output-chart i:nth-child(4) { height: 88%; background: var(--color-accent); }
+.atlas-ill-collaborators { display: grid; gap: .3rem; }
+.atlas-ill-collaborators span { display: block; width: 1.05rem; height: 1.05rem; border: 2px solid var(--color-surface-raised); border-radius: 999px; background: var(--color-info); box-shadow: 0 0 0 1px var(--color-border-default); }
+.atlas-ill-collaborators span:nth-child(2) { background: var(--color-accent); margin-left: .5rem; }
+.atlas-ill-collaborators span:nth-child(3) { background: var(--color-primary); }
+
+/* ---------------------------------------------------- ways of working */
+.atlas-ill-ways { gap: .9rem; }
+.atlas-ill-loop { width: 6.4rem; height: 100%; flex: none; }
+.atlas-ill-loop svg { width: 100%; height: 100%; }
+.atlas-ill-loop-track { fill: none; stroke: var(--color-control-track); stroke-width: 6; }
+.atlas-ill-loop-arc { fill: none; stroke: var(--color-primary); stroke-width: 6; stroke-linecap: round; }
+.atlas-ill-loop-head { fill: none; stroke: var(--color-primary); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+.atlas-ill-loop-node { fill: var(--color-surface-raised); stroke: var(--color-primary); stroke-width: 3; }
+.atlas-ill-loop-node.is-accent { fill: var(--color-accent); stroke: var(--color-accent); }
+.atlas-ill-loop-inner { fill: none; stroke: var(--color-accent); stroke-width: 3; stroke-dasharray: 5 5; }
+.atlas-ill-patterns { display: grid; flex: 1; gap: .55rem; }
+.atlas-ill-pattern { display: grid; gap: .3rem; }
+.atlas-ill-pattern-loop,.atlas-ill-pattern-line { display: block; height: .5rem; border-radius: 999px; }
+.atlas-ill-pattern-loop { background: repeating-linear-gradient(90deg, var(--color-primary) 0 1.1rem, transparent 1.1rem 1.6rem); }
+.atlas-ill-pattern-line { background: linear-gradient(90deg, var(--color-accent), var(--color-accent-soft)); }
+
+/* -------------------------------------------------------------- teams */
+.atlas-ill-teams { flex-direction: column; align-items: stretch; justify-content: center; gap: .55rem; }
+.atlas-ill-pods { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+.atlas-ill-pod { position: relative; display: flex; flex: 1; align-items: center; justify-content: center; gap: .25rem; padding: .5rem .3rem; border: 2px solid var(--color-border-strong); border-radius: .6rem; background: var(--color-surface-raised); }
+.atlas-ill-pod i { display: block; width: .7rem; height: .7rem; border-radius: 999px; background: var(--color-primary); }
+.atlas-ill-pod i:nth-child(2) { background: var(--color-accent); }
+.atlas-ill-pod i:nth-child(3) { background: var(--color-info); }
+.atlas-ill-pod:nth-child(2) { border-color: var(--color-primary); }
+.atlas-ill-handoff { position: absolute; right: -.55rem; top: 50%; width: .5rem; height: .5rem; translate: 0 -50%; rotate: 45deg; border-top: 2px solid var(--color-border-strong); border-right: 2px solid var(--color-border-strong); }
+.atlas-ill-lifecycle { display: flex; gap: .2rem; }
+.atlas-ill-lifecycle-step { display: block; height: .55rem; border-radius: 999px; background: var(--color-primary-soft); }
+.atlas-ill-lifecycle-step:nth-child(2n) { background: var(--color-accent-soft); }
+.atlas-ill-lifecycle-step:nth-child(3) { background: var(--color-primary); }
+.atlas-ill-lifecycle-label { color: var(--color-text-tertiary); font-family: var(--font-mono); font-size: .75rem; font-weight: 900; text-align: center; }
+
+/* ----------------------------------------------------------- glossary */
+.atlas-ill-glossary { flex-direction: column; align-items: stretch; justify-content: center; gap: .45rem; }
+.atlas-ill-search { display: flex; align-items: center; gap: .45rem; padding: .35rem .55rem; border: 2px solid var(--color-border-strong); border-radius: 999px; background: var(--color-surface-raised); }
+.atlas-ill-search-icon { position: relative; display: block; width: .8rem; height: .8rem; flex: none; border: 2px solid var(--color-primary); border-radius: 999px; }
+.atlas-ill-search-icon::after { position: absolute; right: -.28rem; bottom: -.28rem; width: .38rem; height: 2px; content: ""; rotate: 45deg; border-radius: 999px; background: var(--color-primary); }
+.atlas-ill-search-field { display: block; width: 45%; height: .35rem; border-radius: 999px; background: var(--color-control-track); }
+.atlas-ill-definition { display: grid; gap: .3rem; padding: .45rem .6rem; border-left: 3px solid var(--color-accent); border-radius: 0 .45rem .45rem 0; background: var(--color-surface-raised); }
+.atlas-ill-term { color: var(--color-text-primary); font-size: .75rem; font-weight: 950; letter-spacing: -.01em; }
+.atlas-ill-definition-lines { display: grid; gap: .22rem; }
+.atlas-ill-definition-lines i { display: block; height: .28rem; border-radius: 999px; background: var(--color-control-track); }
+.atlas-ill-definition-lines i:last-child { width: 62%; }
+.atlas-ill-related { position: relative; height: 2.6rem; }
+.atlas-ill-related svg { width: 100%; height: 100%; }
+.atlas-ill-link { fill: none; stroke: var(--color-border-strong); stroke-width: 2; stroke-dasharray: 4 4; vector-effect: non-scaling-stroke; }
+.atlas-ill-term-node { position: absolute; display: block; width: 1.5rem; height: .8rem; border-radius: 999px; background: var(--color-primary-soft); box-shadow: inset 0 0 0 2px var(--color-primary-border); }
+.atlas-ill-term-node-a { left: 28%; top: 50%; translate: -50% -50%; background: var(--color-primary); }
+.atlas-ill-term-node-b { left: 68%; top: 14%; }
+.atlas-ill-term-node-c { left: 68%; top: 78%; background: var(--color-accent-soft); box-shadow: inset 0 0 0 2px var(--color-accent-border); }
+
+/* --------------------------------------------------------- contribute */
+.atlas-ill-contribute { flex-direction: column; align-items: stretch; justify-content: center; gap: .3rem; }
+.atlas-ill-graph { position: relative; height: 4.6rem; }
+.atlas-ill-graph svg { width: 100%; height: 100%; }
+.atlas-ill-trunk { fill: none; stroke: var(--color-border-strong); stroke-width: 3; vector-effect: non-scaling-stroke; }
+.atlas-ill-branch-line { fill: none; stroke: var(--color-primary); stroke-width: 3; vector-effect: non-scaling-stroke; }
+.atlas-ill-commit { position: absolute; display: block; width: .95rem; height: .95rem; translate: -50% -50%; border: 3px solid var(--color-surface-raised); border-radius: 999px; background: var(--color-primary); box-shadow: 0 0 0 1px var(--color-border-default); }
+.atlas-ill-commit-issue { left: 8%; top: 79%; background: var(--color-accent); }
+.atlas-ill-commit-work { left: 42%; top: 25%; }
+.atlas-ill-commit-review { left: 60%; top: 25%; background: var(--color-success); }
+.atlas-ill-commit-merge { left: 86%; top: 79%; }
+.atlas-ill-commit-ship { left: 97%; top: 79%; width: 1.2rem; height: 1.2rem; background: var(--color-accent); clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); border: 0; box-shadow: none; }
+.atlas-ill-stages { display: flex; justify-content: space-between; }
+
+/* ------------------------------------------------------------- guides */
+.atlas-ill-guides { gap: .8rem; }
+.atlas-ill-checklist { display: grid; flex: 1; gap: .45rem; }
+.atlas-ill-check { display: flex; align-items: center; gap: .45rem; }
+.atlas-ill-check i { position: relative; display: block; width: 1rem; height: 1rem; flex: none; border: 2px solid var(--color-border-strong); border-radius: .25rem; background: var(--color-surface-raised); }
+.atlas-ill-check.is-done i { border-color: var(--color-success); background: var(--color-success); }
+.atlas-ill-check.is-done i::after { position: absolute; top: .05rem; left: .28rem; width: .22rem; height: .45rem; content: ""; rotate: 45deg; border-right: 2px solid var(--color-surface-raised); border-bottom: 2px solid var(--color-surface-raised); }
+.atlas-ill-check b { display: block; height: .32rem; border-radius: 999px; background: var(--color-control-track); }
+.atlas-ill-check.is-done b { background: var(--color-primary-soft); }
+.atlas-ill-route { position: relative; width: 5.4rem; height: 100%; flex: none; }
+.atlas-ill-route svg { width: 100%; height: 100%; }
+.atlas-ill-route-line { fill: none; stroke: var(--color-primary); stroke-width: 3; stroke-dasharray: 7 6; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.atlas-ill-route-start { position: absolute; bottom: .3rem; left: 12%; width: .8rem; height: .8rem; border: 3px solid var(--color-primary); border-radius: 999px; background: var(--color-surface-raised); }
+.atlas-ill-route-pin { position: absolute; top: .2rem; left: 46%; width: 1.1rem; height: 1.1rem; border-radius: 999px 999px 999px 0; rotate: -45deg; background: var(--color-accent); }
+
+/* -------------------------------------------------------- comparisons */
+.atlas-ill-comparisons { gap: .5rem; }
+.atlas-ill-option { position: relative; display: grid; flex: 1; align-content: center; gap: .35rem; padding: .55rem .6rem; border: 2px solid var(--color-border-default); border-radius: .6rem; background: var(--color-surface-raised); }
+.atlas-ill-option.is-chosen { border-color: var(--color-success); }
+.atlas-ill-option-head { color: var(--color-text-secondary); font-family: var(--font-mono); font-size: .75rem; font-weight: 950; }
+.atlas-ill-criterion { display: block; height: .35rem; border-radius: 999px; background: var(--color-control-track); }
+.atlas-ill-criterion i { display: block; height: 100%; border-radius: 999px; background: var(--color-border-strong); }
+.atlas-ill-option.is-chosen .atlas-ill-criterion i { background: var(--color-success); }
+.atlas-ill-chosen { position: absolute; right: .45rem; top: -.65rem; padding: .05rem .4rem; border-radius: 999px; background: var(--color-success); color: var(--color-text-inverse); font-size: .75rem; font-weight: 900; }
+.atlas-ill-versus { display: grid; width: 1.6rem; flex: none; justify-items: center; gap: .25rem; }
+.atlas-ill-versus-line { display: block; width: 2px; height: 1.4rem; border-radius: 999px; background: var(--color-border-default); }
+.atlas-ill-versus em { color: var(--color-text-tertiary); font-family: var(--font-mono); font-size: .75rem; font-weight: 900; }
+
+/* Narrow cards drop secondary detail instead of shrinking it. */
+@media (max-width: 900px) {
+  .atlas-ill-detail { display: none; }
+  .atlas-ill-ways { gap: .6rem; }
+}

@@ -4,7 +4,7 @@ import { ArrowRight, BookOpenText, BriefcaseBusiness, Compass, GitBranch, HeartH
 import { MotionSection } from "@/components/motion";
 import { PortalHero } from "@/components/portals";
 import { Badge, Card } from "@/components/ui";
-import { AtlasSectionArtwork } from "@/components/visuals";
+import { AtlasPillarIllustration, resolveAtlasConcept } from "@/components/visuals";
 import { getLearningPaths } from "@/features/learning-paths";
 import { getResourceCatalog, getResourceGovernanceSummary } from "@/features/resources";
 import { getGlossaryTerms } from "@/features/tech-glossary";
@@ -78,12 +78,12 @@ export default function TechAtlasPage() {
         <div className="mb-7 max-w-3xl"><p className="font-mono text-xs font-black uppercase tracking-[0.18em] text-[var(--color-primary-text-strong)]">Explore the map</p><h2 className="mt-2 text-3xl font-black tracking-[-0.045em] text-[var(--color-text-primary)] sm:text-4xl">Choose the doorway that matches your question.</h2><p className="mt-3 text-base leading-8 text-[var(--color-text-secondary)]">The sections stay connected. A resource can lead to a path, a path to a role, a role to a team, and a team to the method and language it uses.</p></div>
         <div className="darma-grid-balance grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {sections.map((section, index) => {
-            const Icon = section.icon;
+            const concept = resolveAtlasConcept(section.href);
             return (
               <MotionSection key={section.href} delay={(index % 3) * .05} distance={22}>
                 <Link href={section.href} className="group block h-full rounded-[var(--radius-lg)] focus:outline-none focus:shadow-[var(--focus-ring)]">
                   <Card variant="interactive" padding="none" className="visual-card flex h-full overflow-hidden flex-col">
-                    <AtlasSectionArtwork icon={Icon} index={index} label={section.title} />
+                    {concept ? <AtlasPillarIllustration concept={concept} /> : null}
                     <div className="flex flex-1 flex-col p-6 sm:p-7">
                       <div className="flex items-start justify-between gap-4">
                         <p className="font-mono text-xs font-black uppercase tracking-[0.14em] text-[var(--color-primary-text-strong)]">{section.eyebrow}</p>

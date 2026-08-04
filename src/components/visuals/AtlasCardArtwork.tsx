@@ -1,4 +1,3 @@
-import type { LucideIcon } from "lucide-react";
 import type { LearningPathTrack } from "@/features/learning-paths/schema";
 import type { TechCareer } from "@/features/tech-careers/schema";
 
@@ -88,21 +87,6 @@ export function CareerArtwork({ category, collaborators }: { category: TechCaree
         <rect x="22" y="18" width="116" height="28" rx="14" fill="var(--color-surface-overlay)" stroke="var(--color-border-default)" /><text x="80" y="36" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="10" fontWeight="950">{CAREER_LABELS[category]}</text>
         <rect x="309" y="129" width="98" height="28" rx="14" fill="var(--color-surface-overlay)" stroke="var(--color-border-default)" /><text x="358" y="147" textAnchor="middle" fill="var(--color-text-primary)" fontSize="10" fontWeight="950">{collaborators} LINKS</text>
       </svg>
-    </div>
-  );
-}
-
-export function AtlasSectionArtwork({ icon: Icon, index, label }: { icon: LucideIcon; index: number; label: string }) {
-  const layout = index % 4;
-  return (
-    <div className={`atlas-card-art atlas-card-art-section atlas-card-art-section-${layout}`} aria-hidden>
-      <div className="atlas-card-section-grid" />
-      <div className="atlas-card-section-core"><Icon className="h-6 w-6" /></div>
-      <span className="atlas-card-section-node atlas-card-section-node-one" />
-      <span className="atlas-card-section-node atlas-card-section-node-two" />
-      <span className="atlas-card-section-node atlas-card-section-node-three" />
-      <svg viewBox="0 0 430 176" focusable="false"><path d="M85 43 C153 42 150 88 215 88 C281 88 277 133 347 133" fill="none" stroke="var(--color-border-strong)" strokeWidth="3" strokeDasharray="5 8" /><path d="M84 133 C151 133 150 88 215 88 C279 88 279 42 348 42" fill="none" stroke="var(--color-primary)" strokeWidth="3" strokeLinecap="round" /></svg>
-      <span className="atlas-card-section-label">{label}</span>
     </div>
   );
 }

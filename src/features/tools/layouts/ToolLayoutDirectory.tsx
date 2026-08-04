@@ -146,20 +146,35 @@ function ToolCard({ tool, compact = false }: { tool: ToolDefinition; compact?: b
           <FavoriteToolButton toolId={tool.id} toolTitle={tool.title} showLabel={false} />
         </div>
 
-        <ToolCardLink href={tool.href} toolName={tool.title}>
+        <ToolCardLink href={tool.href} toolName={tool.title} title={tool.title} className="flex flex-1 flex-col">
           <div className="flex h-full flex-col">
-            <h3 className="text-lg font-black leading-tight tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-xl">{tool.title}</h3>
-            <p className="mt-3 line-clamp-3 text-sm leading-6 text-[var(--color-text-secondary)]">{tool.shortDescription ?? tool.description}</p>
+            {/*
+              Tool catalog card, fixed content regions. Every region below has a
+              reserved height so the CTA sits at a constant offset and CTA rows
+              share a baseline across the grid row (F-12: titles reach 40
+              characters and descriptions vary freely, which spread CTAs by up
+              to 62px). The full title stays available to assistive tech via the
+              link's accessible name and to pointer users via `title`, so the
+              two-line clamp is presentational only.
+            */}
+            <h3
+              className="line-clamp-2 min-h-[2.5rem] text-lg font-black leading-tight tracking-[-0.02em] text-[var(--color-text-primary)] sm:min-h-[3.5rem] sm:text-xl"
+            >
+              {tool.title}
+            </h3>
+            <p className="mt-3 line-clamp-3 min-h-[4.5rem] text-sm leading-6 text-[var(--color-text-secondary)]">{tool.shortDescription ?? tool.description}</p>
 
-            {!compact && tool.useCases?.length ? (
-              <ul className="mt-4 grid gap-1.5 text-xs leading-5 text-[var(--color-text-tertiary)]">
-                {tool.useCases.slice(0, 2).map((useCase) => (
-                  <li key={useCase} className="flex gap-2"><span className="text-[var(--color-primary-text-strong)]" aria-hidden>✦</span><span>{useCase}</span></li>
+            {!compact ? (
+              // Always two rows tall, whether or not use cases exist, so a tool
+              // without them does not pull its CTA up past its neighbours.
+              <ul className="mt-4 grid min-h-[2.5rem] content-start gap-1.5 text-xs leading-5 text-[var(--color-text-tertiary)]">
+                {(tool.useCases ?? []).slice(0, 2).map((useCase) => (
+                  <li key={useCase} className="flex gap-2"><span className="text-[var(--color-primary-text-strong)]" aria-hidden>✦</span><span className="line-clamp-1">{useCase}</span></li>
                 ))}
               </ul>
             ) : null}
 
-            <div className="mt-4 flex flex-wrap gap-2">
+            <div className="mt-4 flex min-h-8 flex-wrap content-start gap-2">
               {category ? <Badge variant="outline">{formatCategory(category)}</Badge> : null}
               {primaryTags.map((tag) => (
                 <Badge key={tag} variant="outline">#{tag}</Badge>

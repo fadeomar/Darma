@@ -27,20 +27,26 @@ function accentFor(resource: ResourceCardArtworkProps["resource"]) {
   return resource.publisherType === "official" ? "teal" : "orange";
 }
 
+/**
+ * Decorative identity panel for a resource card.
+ *
+ * It used to print the resource type and first category as text, which the card
+ * body states again a few rows below — so every resource card said "reference"
+ * and its pillar name twice. The panel now carries the type only through its
+ * symbol and accent, leaving the words to the card's own metadata row.
+ *
+ * The panel keeps a stable aspect ratio so a future local logo can drop into
+ * this slot without changing card dimensions.
+ */
 export function ResourceCardArtwork({ resource, compact = false }: ResourceCardArtworkProps) {
   const symbol = TYPE_SYMBOLS[resource.resourceType];
   const accent = accentFor(resource);
-  const category = resource.categories[0] ?? "Reference";
 
   return (
     <div className={`resource-card-artwork resource-card-artwork-${accent} ${compact ? "resource-card-artwork-compact" : ""}`} aria-hidden>
       <div className="resource-card-artwork-grid" />
       <div className="resource-card-artwork-orbit"><span /><span /><span /></div>
       <div className="resource-card-artwork-symbol"><DarmaSymbol name={symbol} /></div>
-      <div className="resource-card-artwork-labels">
-        <span>{resource.resourceType.replace("-", " ")}</span>
-        <strong>{category}</strong>
-      </div>
       <div className="resource-card-artwork-pulse"><i /><i /><i /></div>
     </div>
   );

@@ -1253,6 +1253,23 @@
 .landing-atlas-band::after { position: absolute; width: 45rem; aspect-ratio: 1; right: -22rem; top: -17rem; content: ""; border: 1px dashed var(--color-accent-border); border-radius: 999px; box-shadow: inset 0 0 0 5rem var(--color-accent-soft); opacity: .55; }
 .landing-atlas-map { position: relative; min-height: 25rem; }
 .landing-atlas-map svg { width: 100%; height: auto; overflow: visible; }
+/*
+ * Landing connected-atlas map: same in-SVG text policy as the portal scenes.
+ * The labels are sized in viewBox units, so they fall to 5-7px on a phone and
+ * 9-11px at 1024. Each band gets the size that clears the 12px floor; below
+ * 1024 the text is dropped and the map reads as a diagram. The wrapper carries
+ * an aria-label describing the map, so nothing is lost to assistive tech.
+ */
+.landing-atlas-map svg text { display: none; }
+@media (min-width: 1024px) {
+  .landing-atlas-map svg text { display: initial; font-size: 15px; }
+  .landing-atlas-map svg text.landing-atlas-map-title { font-size: 26px; }
+}
+@media (min-width: 1280px) {
+  .landing-atlas-map svg text { font-size: 12px; }
+  .landing-atlas-map svg text.landing-atlas-map-title { font-size: 22px; }
+}
+
 .landing-atlas-node-card { position: absolute; display: grid; min-width: 7.2rem; min-height: 4.2rem; place-items: center; padding: .65rem; border: 1px solid var(--color-border-default); border-radius: .9rem; background: var(--color-surface-overlay); box-shadow: var(--shadow-md); text-align: center; }.landing-atlas-node-card strong { color: var(--color-text-primary); font-size: .75rem; }.landing-atlas-node-card span { margin-top: .2rem; color: var(--color-text-tertiary); font-size: .75rem; }.landing-atlas-node-card-one { left: 2%; top: 12%; }.landing-atlas-node-card-two { right: 2%; top: 5%; }.landing-atlas-node-card-three { left: 5%; bottom: 5%; }.landing-atlas-node-card-four { right: 7%; bottom: 12%; }
 
 .landing-game-grid { display: grid; gap: 1rem; }
@@ -2180,6 +2197,47 @@
 .portal-scene-metrics strong { color: var(--color-text-primary); font-family: var(--font-mono); font-size: .8rem; font-weight: 950; }
 .portal-scene-metrics small { min-width: 0; overflow: hidden; color: var(--color-text-tertiary); font-size: .75rem; font-weight: 800; text-overflow: ellipsis; white-space: nowrap; }
 
+/*
+ * Portal hero scene: in-SVG label sizing.
+ *
+ * SVG text scales with the viewBox, and Slice D deliberately made the scene
+ * column narrower, so a fixed user-unit size no longer renders at a fixed
+ * pixel size. Measured scales for the 720-unit viewBox are 0.38 (<=767px),
+ * 0.57 (768-1023), 0.65 (1024-1279), 0.79 (1280-1439) and 0.87 (>=1440), so
+ * each band gets the user-unit size that lands the label on or above the 12px
+ * readable floor (F-18).
+ *
+ * Below 1024px the scene is capped at 17rem: no size clears 12px there without
+ * the labels swamping the illustration, so the in-SVG text is dropped and the
+ * scene reads as pure artwork. Nothing is lost — the hero copy states the same
+ * thing, and the metric strip beneath the SVG is HTML, so it stays readable and
+ * scales with browser text settings.
+ */
+.portal-hero-scene svg text { display: none; }
+
+@media (min-width: 1024px) {
+  .portal-hero-scene svg text { display: initial; }
+  .portal-scene-kicker,
+  .portal-scene-game-label,
+  .portal-scene-small-label,
+  .portal-scene-resource-label,
+  .portal-scene-learning-label { font-size: 19px; }
+}
+@media (min-width: 1280px) {
+  .portal-scene-kicker,
+  .portal-scene-game-label,
+  .portal-scene-small-label,
+  .portal-scene-resource-label,
+  .portal-scene-learning-label { font-size: 16px; }
+}
+@media (min-width: 1440px) {
+  .portal-scene-kicker,
+  .portal-scene-game-label,
+  .portal-scene-small-label,
+  .portal-scene-resource-label,
+  .portal-scene-learning-label { font-size: 14px; }
+}
+
 .portal-hero-games {
   background:
     radial-gradient(circle at 12% 12%, rgba(255,106,61,.18), transparent 28rem),
@@ -2325,6 +2383,9 @@
 .portal-scene-guide-outline { fill: color-mix(in srgb, var(--color-surface-raised) 92%, var(--color-primary-soft)); }
 .portal-scene-guide-step { fill: var(--color-primary-soft); stroke: var(--color-primary-border); stroke-width: 1.5; }
 .portal-scene-guide-step-label { fill: var(--color-primary); font-family: var(--font-mono); font-size: 16px; font-weight: 950; }
+/* Same viewBox-scale bands as the other in-scene labels (F-18). */
+@media (min-width: 1024px) { .portal-scene-guide-step-label { font-size: 19px; } }
+@media (min-width: 1280px) { .portal-scene-guide-step-label { font-size: 16px; } }
 .portal-scene-guide-note { fill: color-mix(in srgb, var(--color-accent-soft) 48%, var(--color-surface-raised)); stroke: var(--color-accent-border); stroke-width: 1.2; }
 .portal-scene-guide-core { fill: var(--color-section-ink); stroke: var(--color-border-strong); stroke-width: 2; }
 .portal-scene-guide-core-lines { fill: none; stroke: var(--color-text-on-ink); stroke-width: 5; stroke-linecap: round; }

@@ -33,8 +33,11 @@ export function ConnectedAtlasVisual({ guides, comparisons, resources, paths }: 
 
         <g transform="translate(250 154)">
           <rect width="120" height="120" rx="36" fill="var(--color-section-ink)" stroke="var(--color-primary)" strokeWidth="3" />
-          <text x="60" y="53" textAnchor="middle" fill="var(--color-text-on-ink-muted)" fontSize="13" fontWeight="800">START WITH</text>
-          <text x="60" y="82" textAnchor="middle" fill="var(--color-text-on-ink)" fontSize="22" fontWeight="950">A QUESTION</text>
+          {/* Sizes here are viewBox units; experience.css sets the rendered size
+              per breakpoint so every label clears the 12px floor. The two
+              display lines opt out via `landing-atlas-map-title`. */}
+          <text className="landing-atlas-map-title" x="60" y="53" textAnchor="middle" fill="var(--color-text-on-ink-muted)" fontWeight="800">START WITH</text>
+          <text className="landing-atlas-map-title" x="60" y="82" textAnchor="middle" fill="var(--color-text-on-ink)" fontWeight="950">A QUESTION</text>
         </g>
 
         {[
@@ -46,20 +49,18 @@ export function ConnectedAtlasVisual({ guides, comparisons, resources, paths }: 
           <g key={node.label} transform={`translate(${node.x} ${node.y})`}>
             <rect width="112" height="70" rx="19" fill="var(--color-surface-raised)" stroke="var(--color-border-default)" />
             <circle cx="20" cy="20" r="7" fill={node.accent} />
-            <text x="18" y="50" fill="var(--color-text-primary)" fontSize="21" fontWeight="950">{node.value}</text>
-            {/* The scene renders at ~1.15x its viewBox, so 11 user units land at
-                ~12.7px — the readable floor for an in-diagram label. */}
-            <text x="52" y="50" fill="var(--color-text-tertiary)" fontSize="11" fontWeight="900">{node.label}</text>
+            <text className="landing-atlas-map-title" x="18" y="50" fill="var(--color-text-primary)" fontWeight="950">{node.value}</text>
+            <text x="52" y="50" fill="var(--color-text-tertiary)" fontWeight="900">{node.label}</text>
           </g>
         ))}
 
         <g transform="translate(257 16)">
           <rect width="106" height="49" rx="16" fill="var(--color-surface-overlay)" stroke="var(--color-border-default)" />
-          <text x="53" y="30" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="12" fontWeight="900">REAL CONTEXT</text>
+          <text x="53" y="30" textAnchor="middle" fill="var(--color-text-secondary)" fontWeight="900">REAL CONTEXT</text>
         </g>
         <g transform="translate(252 365)">
           <rect width="116" height="49" rx="16" fill="var(--color-surface-overlay)" stroke="var(--color-border-default)" />
-          <text x="58" y="30" textAnchor="middle" fill="var(--color-text-secondary)" fontSize="12" fontWeight="900">NEXT ACTION</text>
+          <text x="58" y="30" textAnchor="middle" fill="var(--color-text-secondary)" fontWeight="900">NEXT ACTION</text>
         </g>
       </svg>
     </div>

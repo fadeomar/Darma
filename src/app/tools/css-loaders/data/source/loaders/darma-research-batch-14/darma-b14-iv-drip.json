@@ -1,0 +1,35 @@
+{
+  "id": "darma-b14-iv-drip",
+  "name": "IV Drip",
+  "category": "progress",
+  "tags": [
+    "iv",
+    "drip",
+    "medical",
+    "infusion",
+    "progress"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"bag\"></div><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: calc(var(--loader-size) * .6); height: var(--loader-size); position: relative; }\n.loader::before { content: ''; position: absolute; top: 44%; left: 47%; width: 5%; height: 56%; border-radius: 2px; background: color-mix(in srgb, #fff 46%, var(--accent-2)); }\n.loader .bag { position: absolute; top: 0; left: 13%; width: 74%; height: 44%; overflow: hidden; border-radius: 6px 6px 42% 42%; background: color-mix(in srgb, #fff 60%, var(--accent-2)); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 16%, var(--accent-2)); }\n.loader .bag::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(color-mix(in srgb, #fff 22%, var(--accent)), var(--accent)); animation: drain calc(var(--loader-speed) * 4) linear infinite; }\n.loader span { position: absolute; top: 48%; left: 46%; width: 7%; height: 9%; border-radius: 50% 50% 62% 62%; background: var(--accent); animation: drop-fall calc(var(--loader-speed) * 1.4) ease-in infinite; }\n.loader span:nth-child(3) { animation-delay: calc(var(--loader-speed) * .7); }\n@keyframes drain { 0% { height: 88%; } 100% { height: 22%; } }\n@keyframes drop-fall { 0% { opacity: 0; transform: translateY(0) scaleY(.6); } 16% { opacity: 1; } 72% { transform: translateY(200%) scaleY(1.1); } 100% { opacity: 0; transform: translateY(250%) scaleY(.5); } }",
+  "defaults": {
+    "color": "#0ea5e9",
+    "secondaryColor": "#94a3b8",
+    "size": 116,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

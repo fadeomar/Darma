@@ -1,0 +1,48 @@
+{
+  "id": "darma-b14-diff-lines",
+  "name": "Diff Lines",
+  "category": "progress",
+  "sourceId": "darma-research-batch-14",
+  "tags": [
+    "diff",
+    "code",
+    "review",
+    "changes",
+    "progress"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b14-diff-lines diff lines progress darma-research-batch-14 darma research batch 14 diff code review changes progress html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b14-diff-lines\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b14-diff-lines { --accent: var(--loader-color, #22c55e); --accent-2: var(--loader-secondary-color, #ef4444); width: var(--loader-size, 116px); height: calc(var(--loader-size, 116px) * .8); display: flex; flex-direction: column; justify-content: space-between; padding: 7%; border-radius: 5px; background: #0b1220; box-shadow: inset 0 0 0 2px #24334d; }\n.darma-loader-darma-b14-diff-lines span { position: relative; height: 11%; border-radius: 2px; animation: darma-loader-darma-b14-diff-lines-diff-in calc(var(--loader-speed, 1s) * 2.8) ease-out infinite; }\n.darma-loader-darma-b14-diff-lines span:nth-child(odd) { background: var(--accent); }\n.darma-loader-darma-b14-diff-lines span:nth-child(even) { background: var(--accent-2); }\n.darma-loader-darma-b14-diff-lines span::before { content: ''; position: absolute; top: 22%; left: -6%; width: 3.5%; height: 56%; border-radius: 1px; background: rgba(255, 255, 255, .45); }\n.darma-loader-darma-b14-diff-lines span:nth-child(1) { --w: 84%; }\n.darma-loader-darma-b14-diff-lines span:nth-child(2) { --w: 62%; animation-delay: calc(var(--loader-speed, 1s) * .16); }\n.darma-loader-darma-b14-diff-lines span:nth-child(3) { --w: 94%; animation-delay: calc(var(--loader-speed, 1s) * .32); }\n.darma-loader-darma-b14-diff-lines span:nth-child(4) { --w: 48%; animation-delay: calc(var(--loader-speed, 1s) * .48); }\n.darma-loader-darma-b14-diff-lines span:nth-child(5) { --w: 76%; animation-delay: calc(var(--loader-speed, 1s) * .64); }\n.darma-loader-darma-b14-diff-lines span:nth-child(6) { --w: 58%; animation-delay: calc(var(--loader-speed, 1s) * .8); }\n@keyframes darma-loader-darma-b14-diff-lines-diff-in { 0% { opacity: 0; width: 0; } 12% { opacity: 1; } 36% { width: var(--w); } 84% { width: var(--w); } 96%, 100% { opacity: 0; width: 0; } }",
+  "defaults": {
+    "color": "#22c55e",
+    "secondaryColor": "#ef4444",
+    "size": 116,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b14-diff-lines\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b14-diff-lines { --accent: var(--loader-color, #22c55e); --accent-2: var(--loader-secondary-color, #ef4444); width: var(--loader-size, 116px); height: calc(var(--loader-size, 116px) * .8); display: flex; flex-direction: column; justify-content: space-between; padding: 7%; border-radius: 5px; background: #0b1220; box-shadow: inset 0 0 0 2px #24334d; }\n.darma-loader-darma-b14-diff-lines span { position: relative; height: 11%; border-radius: 2px; animation: darma-loader-darma-b14-diff-lines-diff-in calc(var(--loader-speed, 1s) * 2.8) ease-out infinite; }\n.darma-loader-darma-b14-diff-lines span:nth-child(odd) { background: var(--accent); }\n.darma-loader-darma-b14-diff-lines span:nth-child(even) { background: var(--accent-2); }\n.darma-loader-darma-b14-diff-lines span::before { content: ''; position: absolute; top: 22%; left: -6%; width: 3.5%; height: 56%; border-radius: 1px; background: rgba(255, 255, 255, .45); }\n.darma-loader-darma-b14-diff-lines span:nth-child(1) { --w: 84%; }\n.darma-loader-darma-b14-diff-lines span:nth-child(2) { --w: 62%; animation-delay: calc(var(--loader-speed, 1s) * .16); }\n.darma-loader-darma-b14-diff-lines span:nth-child(3) { --w: 94%; animation-delay: calc(var(--loader-speed, 1s) * .32); }\n.darma-loader-darma-b14-diff-lines span:nth-child(4) { --w: 48%; animation-delay: calc(var(--loader-speed, 1s) * .48); }\n.darma-loader-darma-b14-diff-lines span:nth-child(5) { --w: 76%; animation-delay: calc(var(--loader-speed, 1s) * .64); }\n.darma-loader-darma-b14-diff-lines span:nth-child(6) { --w: 58%; animation-delay: calc(var(--loader-speed, 1s) * .8); }\n@keyframes darma-loader-darma-b14-diff-lines-diff-in { 0% { opacity: 0; width: 0; } 12% { opacity: 1; } 36% { width: var(--w); } 84% { width: var(--w); } 96%, 100% { opacity: 0; width: 0; } }",
+    "react": "export default function DarmaB14DiffLinesLoader() {\n  return (\n    <div className=\"darma-loader-darma-b14-diff-lines\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

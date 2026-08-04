@@ -1,0 +1,35 @@
+{
+  "id": "darma-b14-pancake-flip",
+  "name": "Pancake Flip",
+  "category": "fun",
+  "tags": [
+    "pancake",
+    "flip",
+    "pan",
+    "breakfast",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"pan\"></div><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .72); position: relative; }\n.loader .pan { position: absolute; bottom: 12%; left: 4%; width: 62%; height: 15%; border-radius: 4px 4px 46% 46%; background: linear-gradient(#475569, #1e293b); animation: toss calc(var(--loader-speed) * 2.4) ease-in-out infinite; }\n.loader .pan::after { content: ''; position: absolute; left: 97%; top: 24%; width: 46%; height: 30%; border-radius: 0 4px 4px 0; background: #334155; }\n.loader span { position: absolute; bottom: 26%; left: 14%; width: 42%; height: 11%; border-radius: 50%; background: radial-gradient(ellipse at 50% 36%, color-mix(in srgb, #fff 26%, var(--accent-2)), var(--accent)); animation: flip-cake calc(var(--loader-speed) * 2.4) ease-in-out infinite; }\n@keyframes toss { 0%, 18% { transform: translateY(0) rotate(0deg); } 28% { transform: translateY(-16%) rotate(-8deg); } 44%, 100% { transform: translateY(0) rotate(0deg); } }\n@keyframes flip-cake { 0%, 14% { transform: translateY(0) rotate(0deg) scaleY(1); } 40% { transform: translateY(-186%) rotate(180deg) scaleY(.78); } 62% { transform: translateY(-42%) rotate(338deg) scaleY(1); } 72% { transform: translateY(0) rotate(360deg) scaleY(.68); } 82%, 100% { transform: translateY(0) rotate(360deg) scaleY(1); } }",
+  "defaults": {
+    "color": "#d97706",
+    "secondaryColor": "#fcd34d",
+    "size": 116,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

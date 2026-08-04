@@ -1,0 +1,35 @@
+{
+  "id": "darma-b14-waterfall-cascade",
+  "name": "Waterfall Cascade",
+  "category": "creative",
+  "tags": [
+    "waterfall",
+    "cascade",
+    "cliff",
+    "mist",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; overflow: hidden; border-radius: 6%; background: color-mix(in srgb, #fff 30%, var(--accent-2)); }\n.loader::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, color-mix(in srgb, #000 22%, var(--accent-2)) 0 22%, transparent 22%), linear-gradient(to left, color-mix(in srgb, #000 22%, var(--accent-2)) 0 18%, transparent 18%), repeating-linear-gradient(to bottom, rgba(255, 255, 255, .09) 0 7%, transparent 7% 15%); }\n.loader span { position: absolute; top: -80%; width: 19%; height: 160%; border-radius: 999px; background: linear-gradient(transparent, color-mix(in srgb, #fff 80%, var(--accent)) 30%, color-mix(in srgb, #fff 26%, var(--accent))); animation: cascade calc(var(--loader-speed) * 1.4) linear infinite; }\n.loader span:nth-child(1) { left: 27%; }\n.loader span:nth-child(2) { left: 42%; animation-duration: calc(var(--loader-speed) * 1.05); }\n.loader span:nth-child(3) { left: 57%; animation-duration: calc(var(--loader-speed) * 1.7); }\n.loader::after { content: ''; position: absolute; bottom: -6%; left: 10%; width: 80%; height: 26%; border-radius: 50%; background: radial-gradient(ellipse, color-mix(in srgb, #fff 74%, var(--accent)) 0 38%, transparent 72%); animation: mist calc(var(--loader-speed) * 2.1) ease-in-out infinite; }\n@keyframes cascade { from { transform: translateY(0); } to { transform: translateY(80%); } }\n@keyframes mist { 0%, 100% { opacity: .5; transform: scale(.92); } 50% { opacity: .9; transform: scale(1.05); } }",
+  "defaults": {
+    "color": "#38bdf8",
+    "secondaryColor": "#334155",
+    "size": 104,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

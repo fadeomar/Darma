@@ -1,0 +1,48 @@
+{
+  "id": "darma-b14-cpu-cores",
+  "name": "CPU Cores",
+  "category": "bars",
+  "sourceId": "darma-research-batch-14",
+  "tags": [
+    "cpu",
+    "cores",
+    "load",
+    "compute",
+    "bars"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react"
+  ],
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "searchText": "darma-b14-cpu-cores cpu cores bars darma-research-batch-14 darma research batch 14 cpu cores load compute bars html css react customizable cssonly",
+  "previewHtml": "<div class=\"darma-loader-darma-b14-cpu-cores\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-darma-b14-cpu-cores { --accent: var(--loader-color, #22c55e); --accent-2: var(--loader-secondary-color, #facc15); width: var(--loader-size, 100px); height: var(--loader-size, 100px); display: grid; grid-template-columns: repeat(2, 1fr); gap: 8%; padding: 11%; border-radius: 9%; background: linear-gradient(#1e293b, #0b1220); box-shadow: inset 0 0 0 2px #334155; }\n.darma-loader-darma-b14-cpu-cores span { position: relative; overflow: hidden; border-radius: 3px; background: rgba(255, 255, 255, .08); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12); }\n.darma-loader-darma-b14-cpu-cores span::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(var(--accent-2), var(--accent)); animation: darma-loader-darma-b14-cpu-cores-core-load calc(var(--loader-speed, 1s) * 1.8) ease-in-out infinite; }\n.darma-loader-darma-b14-cpu-cores span:nth-child(1) { --peak: 92%; }\n.darma-loader-darma-b14-cpu-cores span:nth-child(2) { --peak: 62%; }\n.darma-loader-darma-b14-cpu-cores span:nth-child(2)::after { animation-delay: calc(var(--loader-speed, 1s) * .3); }\n.darma-loader-darma-b14-cpu-cores span:nth-child(3) { --peak: 100%; }\n.darma-loader-darma-b14-cpu-cores span:nth-child(3)::after { animation-delay: calc(var(--loader-speed, 1s) * .6); }\n.darma-loader-darma-b14-cpu-cores span:nth-child(4) { --peak: 46%; }\n.darma-loader-darma-b14-cpu-cores span:nth-child(4)::after { animation-delay: calc(var(--loader-speed, 1s) * .9); }\n@keyframes darma-loader-darma-b14-cpu-cores-core-load { 0%, 100% { height: 16%; } 50% { height: var(--peak); } }",
+  "defaults": {
+    "color": "#22c55e",
+    "secondaryColor": "#facc15",
+    "size": 100,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-darma-b14-cpu-cores\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-darma-b14-cpu-cores { --accent: var(--loader-color, #22c55e); --accent-2: var(--loader-secondary-color, #facc15); width: var(--loader-size, 100px); height: var(--loader-size, 100px); display: grid; grid-template-columns: repeat(2, 1fr); gap: 8%; padding: 11%; border-radius: 9%; background: linear-gradient(#1e293b, #0b1220); box-shadow: inset 0 0 0 2px #334155; }\n.darma-loader-darma-b14-cpu-cores span { position: relative; overflow: hidden; border-radius: 3px; background: rgba(255, 255, 255, .08); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12); }\n.darma-loader-darma-b14-cpu-cores span::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(var(--accent-2), var(--accent)); animation: darma-loader-darma-b14-cpu-cores-core-load calc(var(--loader-speed, 1s) * 1.8) ease-in-out infinite; }\n.darma-loader-darma-b14-cpu-cores span:nth-child(1) { --peak: 92%; }\n.darma-loader-darma-b14-cpu-cores span:nth-child(2) { --peak: 62%; }\n.darma-loader-darma-b14-cpu-cores span:nth-child(2)::after { animation-delay: calc(var(--loader-speed, 1s) * .3); }\n.darma-loader-darma-b14-cpu-cores span:nth-child(3) { --peak: 100%; }\n.darma-loader-darma-b14-cpu-cores span:nth-child(3)::after { animation-delay: calc(var(--loader-speed, 1s) * .6); }\n.darma-loader-darma-b14-cpu-cores span:nth-child(4) { --peak: 46%; }\n.darma-loader-darma-b14-cpu-cores span:nth-child(4)::after { animation-delay: calc(var(--loader-speed, 1s) * .9); }\n@keyframes darma-loader-darma-b14-cpu-cores-core-load { 0%, 100% { height: 16%; } 50% { height: var(--peak); } }",
+    "react": "export default function DarmaB14CpuCoresLoader() {\n  return (\n    <div className=\"darma-loader-darma-b14-cpu-cores\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>\n  );\n}\n"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

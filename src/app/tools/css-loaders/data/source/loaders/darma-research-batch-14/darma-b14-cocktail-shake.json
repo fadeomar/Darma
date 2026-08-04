@@ -1,0 +1,35 @@
+{
+  "id": "darma-b14-cocktail-shake",
+  "name": "Cocktail Shake",
+  "category": "fun",
+  "tags": [
+    "cocktail",
+    "shaker",
+    "bar",
+    "ice",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"shaker\"><span></span><span></span></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); display: grid; place-items: center; }\n.loader .shaker { position: relative; width: 40%; height: 70%; overflow: hidden; border-radius: 12% 12% 20% 20%; background: linear-gradient(100deg, color-mix(in srgb, #fff 38%, var(--accent-2)), var(--accent-2)); box-shadow: inset calc(var(--loader-size) * -.03) 0 calc(var(--loader-size) * .05) rgba(15, 23, 42, .3); animation: shake calc(var(--loader-speed) * .9) ease-in-out infinite; }\n.loader .shaker::after { content: ''; position: absolute; top: 0; left: 10%; width: 80%; height: 16%; border-radius: 4px 4px 8px 8px; background: linear-gradient(var(--accent), color-mix(in srgb, #000 28%, var(--accent))); }\n.loader .shaker span { position: absolute; width: 30%; height: 24%; border-radius: 3px; background: rgba(255, 255, 255, .68); animation: slosh calc(var(--loader-speed) * .9) ease-in-out infinite; }\n.loader .shaker span:nth-child(1) { bottom: 12%; left: 14%; }\n.loader .shaker span:nth-child(2) { bottom: 34%; left: 44%; animation-delay: calc(var(--loader-speed) * .3); }\n@keyframes shake { 0%, 100% { transform: rotate(-17deg) translateY(0); } 25% { transform: rotate(15deg) translateY(-7%); } 50% { transform: rotate(-15deg) translateY(0); } 75% { transform: rotate(17deg) translateY(-7%); } }\n@keyframes slosh { 0%, 100% { transform: translate(-12%, 0); } 50% { transform: translate(32%, -42%); } }",
+  "defaults": {
+    "color": "#e11d48",
+    "secondaryColor": "#94a3b8",
+    "size": 108,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

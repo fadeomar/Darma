@@ -1,0 +1,35 @@
+{
+  "id": "darma-b14-roller-coaster",
+  "name": "Roller Coaster",
+  "category": "creative",
+  "tags": [
+    "rollercoaster",
+    "track",
+    "car",
+    "hill",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .68); position: relative; overflow: hidden; }\n.loader::before { content: ''; position: absolute; bottom: 18%; left: 0; width: 100%; height: 48%; border: calc(var(--loader-size) * .028) solid var(--accent-2); border-bottom: 0; border-radius: 50% 50% 0 0 / 100% 100% 0 0; }\n.loader::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 20%; border-bottom: calc(var(--loader-size) * .028) solid color-mix(in srgb, #000 30%, var(--accent-2)); background: repeating-linear-gradient(90deg, color-mix(in srgb, #000 22%, var(--accent-2)) 0 2.5%, transparent 2.5% 16%); }\n.loader span { position: absolute; width: 17%; height: 13%; border-radius: 3px 3px 5px 5px; background: linear-gradient(var(--accent), color-mix(in srgb, #000 24%, var(--accent))); animation: coast calc(var(--loader-speed) * 2.8) linear infinite; }\n.loader span:nth-child(2) { animation-delay: calc(var(--loader-speed) * -1.1); }\n@keyframes coast { 0% { left: -20%; top: 62%; } 16% { left: -1%; top: 42%; } 34% { left: 16%; top: 27%; } 50% { left: 41%; top: 21%; } 66% { left: 66%; top: 27%; } 84% { left: 83%; top: 42%; } 100% { left: 104%; top: 62%; } }",
+  "defaults": {
+    "color": "#e11d48",
+    "secondaryColor": "#475569",
+    "size": 120,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

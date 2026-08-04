@@ -1,0 +1,35 @@
+{
+  "id": "darma-b14-honey-drip",
+  "name": "Honey Drip",
+  "category": "creative",
+  "tags": [
+    "honey",
+    "drip",
+    "viscous",
+    "golden",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: calc(var(--loader-size) * .68); height: var(--loader-size); position: relative; }\n.loader::before { content: ''; position: absolute; top: 0; left: 8%; width: 84%; height: 17%; border-radius: 4px 4px 42% 42%; background: linear-gradient(var(--accent-2), var(--accent)); }\n.loader::after { content: ''; position: absolute; bottom: 0; left: 12%; width: 76%; height: 13%; border-radius: 50% 50% 6px 6px; background: var(--accent); animation: pool calc(var(--loader-speed) * 1.9) ease-in-out infinite; }\n.loader span { position: absolute; top: 15%; left: 45%; width: 10%; height: 19%; border-radius: 50% 50% 62% 62%; background: linear-gradient(var(--accent), color-mix(in srgb, #fff 20%, var(--accent-2))); animation: ooze calc(var(--loader-speed) * 1.9) ease-in infinite; }\n.loader span:nth-child(2) { animation-delay: calc(var(--loader-speed) * .95); }\n@keyframes ooze { 0% { opacity: 0; transform: translateY(0) scaleY(.4); } 12% { opacity: 1; } 45% { transform: translateY(122%) scaleY(1.9); } 78% { transform: translateY(288%) scaleY(1); } 100% { opacity: 0; transform: translateY(340%) scaleY(.5); } }\n@keyframes pool { 0%, 100% { transform: scaleX(1); } 50% { transform: scaleX(1.08); } }",
+  "defaults": {
+    "color": "#f59e0b",
+    "secondaryColor": "#fde047",
+    "size": 108,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

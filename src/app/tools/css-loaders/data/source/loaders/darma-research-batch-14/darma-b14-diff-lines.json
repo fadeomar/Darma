@@ -1,0 +1,35 @@
+{
+  "id": "darma-b14-diff-lines",
+  "name": "Diff Lines",
+  "category": "progress",
+  "tags": [
+    "diff",
+    "code",
+    "review",
+    "changes",
+    "progress"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .8); display: flex; flex-direction: column; justify-content: space-between; padding: 7%; border-radius: 5px; background: #0b1220; box-shadow: inset 0 0 0 2px #24334d; }\n.loader span { position: relative; height: 11%; border-radius: 2px; animation: diff-in calc(var(--loader-speed) * 2.8) ease-out infinite; }\n.loader span:nth-child(odd) { background: var(--accent); }\n.loader span:nth-child(even) { background: var(--accent-2); }\n.loader span::before { content: ''; position: absolute; top: 22%; left: -6%; width: 3.5%; height: 56%; border-radius: 1px; background: rgba(255, 255, 255, .45); }\n.loader span:nth-child(1) { --w: 84%; }\n.loader span:nth-child(2) { --w: 62%; animation-delay: calc(var(--loader-speed) * .16); }\n.loader span:nth-child(3) { --w: 94%; animation-delay: calc(var(--loader-speed) * .32); }\n.loader span:nth-child(4) { --w: 48%; animation-delay: calc(var(--loader-speed) * .48); }\n.loader span:nth-child(5) { --w: 76%; animation-delay: calc(var(--loader-speed) * .64); }\n.loader span:nth-child(6) { --w: 58%; animation-delay: calc(var(--loader-speed) * .8); }\n@keyframes diff-in { 0% { opacity: 0; width: 0; } 12% { opacity: 1; } 36% { width: var(--w); } 84% { width: var(--w); } 96%, 100% { opacity: 0; width: 0; } }",
+  "defaults": {
+    "color": "#22c55e",
+    "secondaryColor": "#ef4444",
+    "size": 116,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

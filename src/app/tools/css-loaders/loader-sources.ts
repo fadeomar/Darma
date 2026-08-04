@@ -26,6 +26,7 @@ export type LoaderSourceGroupId =
   | "darma-research-batch-11"
   | "darma-research-batch-12"
   | "darma-research-batch-13"
+  | "darma-research-batch-14"
   | "loaders-css"
   | "loading-io"
   | "open-pack-2026"
@@ -142,6 +143,15 @@ export const LOADER_SOURCE_GROUPS: readonly LoaderSourceGroup[] = [
     id: "darma-research-batch-13",
     name: "Darma Research Batch 13",
     description: "Darma original loaders drawn from machines, sport, and interface metaphors (sewing, water wheel, roulette, fingerprint scan).",
+    author: "Darma",
+    license: "Custom (Darma)",
+    isOriginal: true,
+    licenseVerified: true,
+  },
+  {
+    id: "darma-research-batch-14",
+    name: "Darma Research Batch 14",
+    description: "Darma original loaders from kitchen, workshop, and household motifs (pancake flip, hydraulic press, window blinds, snow globe).",
     author: "Darma",
     license: "Custom (Darma)",
     isOriginal: true,

@@ -1,0 +1,35 @@
+{
+  "id": "darma-b14-baton-pass",
+  "name": "Baton Pass",
+  "category": "progress",
+  "tags": [
+    "baton",
+    "relay",
+    "handoff",
+    "race",
+    "progress"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><div class=\"baton\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .42); position: relative; }\n.loader::after { content: ''; position: absolute; bottom: 16%; left: 0; width: 100%; height: 8%; border-radius: 999px; background: color-mix(in srgb, #000 18%, var(--accent-2)); }\n.loader span { position: absolute; bottom: 10%; width: 14%; height: 54%; border-radius: 40% 40% 7px 7px; background: linear-gradient(var(--accent-2), color-mix(in srgb, #000 26%, var(--accent-2))); animation: handoff calc(var(--loader-speed) * 3) ease-in-out infinite; }\n.loader span::after { content: ''; position: absolute; bottom: 96%; left: 14%; width: 72%; height: calc(var(--loader-size) * .075); border-radius: 50%; background: color-mix(in srgb, #fff 16%, var(--accent-2)); }\n.loader span:nth-child(1) { left: 3%; }\n.loader span:nth-child(2) { left: 43%; animation-delay: calc(var(--loader-speed) * .9); }\n.loader span:nth-child(3) { left: 83%; animation-delay: calc(var(--loader-speed) * 1.8); }\n.loader .baton { position: absolute; bottom: 40%; width: 20%; height: 13%; border-radius: 999px; background: linear-gradient(90deg, var(--accent), color-mix(in srgb, #fff 42%, var(--accent))); animation: pass calc(var(--loader-speed) * 3) ease-in-out infinite; }\n@keyframes pass { 0%, 8% { left: 4%; } 30%, 38% { left: 44%; } 60%, 68% { left: 82%; } 92%, 100% { left: 4%; } }\n@keyframes handoff { 0%, 14% { transform: scaleY(1); filter: brightness(1); } 22% { transform: scaleY(1.14); filter: brightness(1.4); } 34%, 100% { transform: scaleY(1); filter: brightness(1); } }",
+  "defaults": {
+    "color": "#f97316",
+    "secondaryColor": "#1d4ed8",
+    "size": 128,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

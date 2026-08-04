@@ -1,0 +1,35 @@
+{
+  "id": "darma-b14-jack-in-the-box",
+  "name": "Jack In The Box",
+  "category": "fun",
+  "tags": [
+    "jack",
+    "box",
+    "spring",
+    "toy",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><div class=\"lid\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: calc(var(--loader-size) * .82); height: var(--loader-size); position: relative; }\n.loader::after { content: ''; position: absolute; z-index: 3; bottom: 0; left: 4%; width: 92%; height: 52%; border-radius: 3px; background: linear-gradient(160deg, color-mix(in srgb, #fff 10%, var(--accent-2)), color-mix(in srgb, #000 34%, var(--accent-2))); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 44%, var(--accent-2)); }\n.loader::before { content: ''; position: absolute; z-index: 4; bottom: 10%; left: 39%; width: 22%; height: 17%; background: color-mix(in srgb, #fff 76%, var(--accent-2)); clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }\n.loader span { position: absolute; z-index: 2; bottom: 46%; left: 30%; width: 40%; height: 50%; transform-origin: bottom center; background: repeating-linear-gradient(to bottom, var(--accent) 0 15%, transparent 15% 30%); animation: jack-pop calc(var(--loader-speed) * 2.8) cubic-bezier(.34, 1.56, .5, 1) infinite; }\n.loader span::after { content: ''; position: absolute; bottom: 88%; left: -8%; width: 116%; height: 46%; border-radius: 50%; background: radial-gradient(circle at 34% 38%, #0b1220 0 9%, transparent 10%), radial-gradient(circle at 66% 38%, #0b1220 0 9%, transparent 10%), radial-gradient(circle at 50% 70%, color-mix(in srgb, #000 40%, var(--accent)) 0 15%, transparent 16%), radial-gradient(circle at 40% 30%, color-mix(in srgb, #fff 34%, var(--accent)), var(--accent)); }\n.loader .lid { position: absolute; z-index: 5; bottom: 52%; left: 4%; width: 66%; height: 9%; border-radius: 3px; transform-origin: left bottom; background: linear-gradient(color-mix(in srgb, #fff 46%, var(--accent-2)), color-mix(in srgb, #fff 8%, var(--accent-2))); box-shadow: 0 2px 0 color-mix(in srgb, #000 46%, var(--accent-2)); animation: lid-flip calc(var(--loader-speed) * 2.8) ease-in-out infinite; }\n@keyframes jack-pop { 0%, 24% { transform: translateY(76%) scaleY(.24); } 44% { transform: translateY(-10%) scaleY(1.06); } 54%, 74% { transform: translateY(0) scaleY(1); } 90%, 100% { transform: translateY(76%) scaleY(.24); } }\n@keyframes lid-flip { 0%, 20% { transform: rotate(0deg); } 40%, 74% { transform: rotate(-98deg); } 92%, 100% { transform: rotate(0deg); } }",
+  "defaults": {
+    "color": "#f43f5e",
+    "secondaryColor": "#1d4ed8",
+    "size": 108,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

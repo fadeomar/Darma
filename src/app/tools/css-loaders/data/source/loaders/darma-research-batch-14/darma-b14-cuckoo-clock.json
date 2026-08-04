@@ -1,0 +1,35 @@
+{
+  "id": "darma-b14-cuckoo-clock",
+  "name": "Cuckoo Clock",
+  "category": "fun",
+  "tags": [
+    "cuckoo",
+    "clock",
+    "doors",
+    "pendulum",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"bird\"></div><span></span><span></span><div class=\"pendulum\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: calc(var(--loader-size) * .82); height: var(--loader-size); position: relative; overflow: hidden; border-radius: 6% 6% 4px 4px; background: linear-gradient(color-mix(in srgb, #fff 12%, var(--accent-2)), color-mix(in srgb, #000 26%, var(--accent-2))); }\n.loader::before { content: ''; position: absolute; top: 0; left: -6%; width: 112%; height: 22%; clip-path: polygon(50% 0, 100% 100%, 0 100%); background: color-mix(in srgb, #000 40%, var(--accent-2)); }\n.loader .bird { position: absolute; z-index: 1; top: 30%; left: 42%; width: 17%; height: 16%; border-radius: 50% 34% 50% 40%; background: linear-gradient(var(--accent), color-mix(in srgb, #000 22%, var(--accent))); animation: cuckoo calc(var(--loader-speed) * 3) ease-in-out infinite; }\n.loader span { position: absolute; z-index: 2; top: 26%; width: 21%; height: 24%; background: linear-gradient(color-mix(in srgb, #000 34%, var(--accent-2)), color-mix(in srgb, #000 52%, var(--accent-2))); }\n.loader span:nth-child(2) { right: 50%; transform-origin: right center; animation: door-left calc(var(--loader-speed) * 3) ease-in-out infinite; }\n.loader span:nth-child(3) { left: 50%; transform-origin: left center; animation: door-right calc(var(--loader-speed) * 3) ease-in-out infinite; }\n.loader .pendulum { position: absolute; top: 58%; left: 48%; width: 3.5%; height: 30%; transform-origin: top center; background: #cbd5e1; animation: tick-tock calc(var(--loader-speed) * 1.5) ease-in-out infinite; }\n.loader .pendulum::after { content: ''; position: absolute; top: 98%; left: -190%; width: 480%; height: 22%; border-radius: 50%; background: var(--accent); }\n@keyframes door-left { 0%, 28% { transform: perspective(200px) rotateY(0deg); } 44%, 68% { transform: perspective(200px) rotateY(-80deg); } 84%, 100% { transform: perspective(200px) rotateY(0deg); } }\n@keyframes door-right { 0%, 28% { transform: perspective(200px) rotateY(0deg); } 44%, 68% { transform: perspective(200px) rotateY(80deg); } 84%, 100% { transform: perspective(200px) rotateY(0deg); } }\n@keyframes cuckoo { 0%, 32% { opacity: 0; transform: translateX(0); } 40% { opacity: 1; } 52%, 64% { opacity: 1; transform: translateX(-56%); } 80%, 100% { opacity: 0; transform: translateX(0); } }\n@keyframes tick-tock { 0%, 100% { transform: rotate(-15deg); } 50% { transform: rotate(15deg); } }",
+  "defaults": {
+    "color": "#facc15",
+    "secondaryColor": "#92400e",
+    "size": 116,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

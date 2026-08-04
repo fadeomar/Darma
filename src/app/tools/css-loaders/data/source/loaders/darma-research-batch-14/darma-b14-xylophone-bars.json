@@ -1,0 +1,35 @@
+{
+  "id": "darma-b14-xylophone-bars",
+  "name": "Xylophone Bars",
+  "category": "bars",
+  "tags": [
+    "xylophone",
+    "mallet",
+    "keys",
+    "chime",
+    "bars"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><div class=\"mallet\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .68); position: relative; display: flex; flex-direction: column; justify-content: space-between; padding: 8% 0; }\n.loader::after { content: ''; position: absolute; left: 2%; top: 4%; width: 96%; height: 92%; border-radius: 4px; background: linear-gradient(90deg, color-mix(in srgb, #000 28%, var(--accent-2)) 0 calc(var(--loader-size) * .022), transparent calc(var(--loader-size) * .022)); }\n.loader span { position: relative; z-index: 2; height: 14%; margin-left: 5%; border-radius: 3px; transform-origin: left center; background: linear-gradient(90deg, var(--accent), var(--accent-2)); box-shadow: 0 1px 2px rgba(15, 23, 42, .25); animation: ring-bar calc(var(--loader-speed) * 2.4) ease-out infinite; }\n.loader span:nth-child(1) { width: 88%; }\n.loader span:nth-child(2) { width: 76%; animation-delay: calc(var(--loader-speed) * .6); }\n.loader span:nth-child(3) { width: 64%; animation-delay: calc(var(--loader-speed) * 1.2); }\n.loader span:nth-child(4) { width: 52%; animation-delay: calc(var(--loader-speed) * 1.8); }\n.loader .mallet { position: absolute; z-index: 3; top: 0; left: 26%; width: calc(var(--loader-size) * .035); height: 26%; border-radius: 2px; background: linear-gradient(90deg, #f1f5f9, #64748b); animation: mallet-hit calc(var(--loader-speed) * 2.4) ease-in-out infinite; }\n.loader .mallet::after { content: ''; position: absolute; bottom: calc(var(--loader-size) * -.05); left: calc(var(--loader-size) * -.033); width: calc(var(--loader-size) * .1); height: calc(var(--loader-size) * .1); border-radius: 50%; background: radial-gradient(circle at 36% 32%, color-mix(in srgb, #fff 34%, var(--accent-2)), color-mix(in srgb, #000 24%, var(--accent-2))); }\n@keyframes ring-bar { 0%, 100% { transform: scaleY(1); filter: brightness(1); } 6% { transform: scaleY(1.5); filter: brightness(1.4); } 20% { transform: scaleY(1); filter: brightness(1); } }\n@keyframes mallet-hit { 0% { transform: translate(0, 6%); } 6% { transform: translate(0, 30%); } 16% { transform: translate(-2%, 10%); } 25% { transform: translate(-4%, 92%); } 31% { transform: translate(-4%, 116%); } 41% { transform: translate(-6%, 96%); } 50% { transform: translate(-8%, 178%); } 56% { transform: translate(-8%, 202%); } 66% { transform: translate(-10%, 182%); } 75% { transform: translate(-12%, 264%); } 81% { transform: translate(-12%, 288%); } 91% { transform: translate(-6%, 150%); } 100% { transform: translate(0, 6%); } }",
+  "defaults": {
+    "color": "#0ea5e9",
+    "secondaryColor": "#f43f5e",
+    "size": 120,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

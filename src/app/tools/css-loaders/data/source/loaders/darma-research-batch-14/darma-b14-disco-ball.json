@@ -1,0 +1,35 @@
+{
+  "id": "darma-b14-disco-ball",
+  "name": "Disco Ball",
+  "category": "fun",
+  "tags": [
+    "disco",
+    "ball",
+    "mirror",
+    "party",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"ball\"></div><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; display: grid; place-items: center; }\n.loader::before { content: ''; position: absolute; top: 0; left: 49%; width: 2%; height: 16%; background: #94a3b8; }\n.loader .ball { position: relative; z-index: 2; width: 64%; height: 64%; border-radius: 50%; background: repeating-conic-gradient(from 0deg, transparent 0 8deg, rgba(15, 23, 42, .4) 8deg 9.2deg), repeating-radial-gradient(circle, transparent 0 10%, rgba(15, 23, 42, .4) 10% 11.4%), radial-gradient(circle at 34% 28%, color-mix(in srgb, #fff 72%, var(--accent-2)) 0 12%, color-mix(in srgb, #fff 20%, var(--accent-2)) 46%, color-mix(in srgb, #000 42%, var(--accent-2))); animation: ball-spin calc(var(--loader-speed) * 3.2) linear infinite; }\n.loader span { position: absolute; top: 48%; left: 50%; width: 52%; height: 9%; transform-origin: left center; background: linear-gradient(90deg, color-mix(in srgb, #fff 30%, var(--accent)), color-mix(in srgb, var(--accent) 45%, transparent) 55%, transparent); animation: beam calc(var(--loader-speed) * 2.4) ease-in-out infinite; }\n.loader span:nth-child(3) { animation-delay: calc(var(--loader-speed) * 1.2); }\n@keyframes ball-spin { to { transform: rotate(360deg); } }\n@keyframes beam { 0% { opacity: 0; transform: rotate(-40deg); } 20% { opacity: .9; } 80% { opacity: .9; } 100% { opacity: 0; transform: rotate(220deg); } }",
+  "defaults": {
+    "color": "#c084fc",
+    "secondaryColor": "#cbd5e1",
+    "size": 108,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

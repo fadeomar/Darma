@@ -1,0 +1,35 @@
+{
+  "id": "darma-b14-pinball-bounce",
+  "name": "Pinball Bounce",
+  "category": "fun",
+  "tags": [
+    "pinball",
+    "bumper",
+    "flipper",
+    "arcade",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><div class=\"ball\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: calc(var(--loader-size) * .68); height: var(--loader-size); position: relative; overflow: hidden; border-radius: 10% 10% 4px 4px; background: linear-gradient(#1e293b, #0b1220); box-shadow: inset 0 0 0 2px #334155; }\n.loader::before { content: ''; position: absolute; bottom: 8%; left: 12%; width: 34%; height: 6%; border-radius: 999px; transform-origin: left center; background: var(--accent-2); animation: flip-left calc(var(--loader-speed) * 2.2) ease-out infinite; }\n.loader::after { content: ''; position: absolute; bottom: 8%; right: 12%; width: 34%; height: 6%; border-radius: 999px; transform-origin: right center; background: var(--accent-2); animation: flip-right calc(var(--loader-speed) * 2.2) ease-out infinite; }\n.loader span { position: absolute; width: 24%; height: calc(var(--loader-size) * .163); border-radius: 50%; background: radial-gradient(circle at 36% 32%, color-mix(in srgb, #fff 44%, var(--accent)), var(--accent)); animation: bumper calc(var(--loader-speed) * 2.2) ease-out infinite; }\n.loader span:nth-child(1) { top: 14%; left: 10%; }\n.loader span:nth-child(2) { top: 32%; right: 10%; animation-delay: calc(var(--loader-speed) * .48); }\n.loader .ball { position: absolute; width: 15%; height: calc(var(--loader-size) * .102); border-radius: 50%; background: radial-gradient(circle at 34% 30%, #fff, #94a3b8); animation: pinball calc(var(--loader-speed) * 2.2) ease-in-out infinite; }\n@keyframes pinball { 0% { left: 42%; top: 76%; } 22% { left: 14%; top: 20%; } 44% { left: 64%; top: 38%; } 64% { left: 24%; top: 58%; } 82% { left: 60%; top: 74%; } 100% { left: 42%; top: 76%; } }\n@keyframes bumper { 0%, 16% { transform: scale(1); box-shadow: 0 0 0 0 transparent; } 24% { transform: scale(1.14); box-shadow: 0 0 calc(var(--loader-size) * .08) var(--accent); } 38%, 100% { transform: scale(1); box-shadow: 0 0 0 0 transparent; } }\n@keyframes flip-left { 0%, 74% { transform: rotate(24deg); } 84% { transform: rotate(-16deg); } 94%, 100% { transform: rotate(24deg); } }\n@keyframes flip-right { 0%, 74% { transform: rotate(-24deg); } 84% { transform: rotate(16deg); } 94%, 100% { transform: rotate(-24deg); } }",
+  "defaults": {
+    "color": "#f97316",
+    "secondaryColor": "#22d3ee",
+    "size": 124,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

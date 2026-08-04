@@ -1,0 +1,35 @@
+{
+  "id": "darma-b14-wind-chimes",
+  "name": "Wind Chimes",
+  "category": "creative",
+  "tags": [
+    "windchimes",
+    "tubes",
+    "chime",
+    "breeze",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; display: flex; justify-content: space-evenly; padding-top: 12%; }\n.loader::before { content: ''; position: absolute; top: 6%; left: 16%; width: 68%; height: 4%; border-radius: 999px; background: color-mix(in srgb, #000 30%, var(--accent-2)); }\n.loader span { width: 10%; border-radius: 999px; transform-origin: top center; background: linear-gradient(90deg, color-mix(in srgb, #fff 62%, var(--accent)) 0 26%, var(--accent) 34% 76%, color-mix(in srgb, #000 26%, var(--accent)) 84%); animation: chime calc(var(--loader-speed) * 2.6) ease-in-out infinite; }\n.loader span:nth-child(1) { height: 76%; }\n.loader span:nth-child(2) { height: 60%; animation-delay: calc(var(--loader-speed) * .12); }\n.loader span:nth-child(3) { height: 82%; animation-delay: calc(var(--loader-speed) * .24); }\n.loader span:nth-child(4) { height: 54%; animation-delay: calc(var(--loader-speed) * .36); }\n.loader span:nth-child(5) { height: 68%; animation-delay: calc(var(--loader-speed) * .48); }\n.loader::after { content: ''; position: absolute; top: 40%; left: calc(50% - var(--loader-size) * .065); width: calc(var(--loader-size) * .13); height: calc(var(--loader-size) * .13); border-radius: 50%; background: radial-gradient(circle at 38% 32%, color-mix(in srgb, #fff 30%, var(--accent-2)), color-mix(in srgb, #000 20%, var(--accent-2))); animation: striker calc(var(--loader-speed) * 2.6) ease-in-out infinite; }\n@keyframes chime { 0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(8deg); } }\n@keyframes striker { 0%, 100% { transform: translateX(-160%); } 50% { transform: translateX(160%); } }",
+  "defaults": {
+    "color": "#cbd5e1",
+    "secondaryColor": "#a16207",
+    "size": 112,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

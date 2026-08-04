@@ -1,0 +1,35 @@
+{
+  "id": "darma-b14-golf-putt",
+  "name": "Golf Putt",
+  "category": "fun",
+  "tags": [
+    "golf",
+    "putt",
+    "green",
+    "flag",
+    "fun"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"putter\"></div><span></span><div class=\"flag\"></div></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .6); position: relative; }\n.loader::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 22%; border-radius: 40% 40% 4px 4px / 70% 70% 4px 4px; background: linear-gradient(color-mix(in srgb, #fff 24%, var(--accent-2)), var(--accent-2)); }\n.loader .flag { position: absolute; bottom: 18%; right: 12%; width: 2.5%; height: 44%; background: #94a3b8; }\n.loader .flag::after { content: ''; position: absolute; top: 0; left: 100%; width: 420%; height: 36%; background: var(--accent); clip-path: polygon(0 0, 100% 50%, 0 100%); }\n.loader .putter { position: absolute; bottom: 26%; left: 9%; width: 5%; height: 44%; transform-origin: top center; background: linear-gradient(#f1f5f9, #94a3b8); animation: swing-putt calc(var(--loader-speed) * 2.6) ease-out infinite; }\n.loader .putter::after { content: ''; position: absolute; bottom: -4%; left: -70%; width: 240%; height: 13%; border-radius: 2px; background: #64748b; }\n.loader span { position: absolute; bottom: 20%; left: 12%; width: calc(var(--loader-size) * .07); height: calc(var(--loader-size) * .07); border-radius: 50%; background: radial-gradient(circle at 34% 30%, #fff, #cbd5e1); animation: putt calc(var(--loader-speed) * 2.6) ease-out infinite; }\n@keyframes swing-putt { 0% { transform: rotate(30deg); } 12% { transform: rotate(-22deg); } 26%, 100% { transform: rotate(0deg); } }\n@keyframes putt { 0% { opacity: 0; transform: translateX(0); } 8% { opacity: 1; transform: translateX(0); } 14% { transform: translateX(0); } 62% { transform: translateX(calc(var(--loader-size) * .68)); } 70% { opacity: 0; transform: translateX(calc(var(--loader-size) * .7)); } 100% { opacity: 0; transform: translateX(calc(var(--loader-size) * .7)); } }",
+  "defaults": {
+    "color": "#dc2626",
+    "secondaryColor": "#16a34a",
+    "size": 124,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

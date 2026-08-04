@@ -1,0 +1,35 @@
+{
+  "id": "darma-b14-syringe-plunger",
+  "name": "Syringe Plunger",
+  "category": "progress",
+  "tags": [
+    "syringe",
+    "plunger",
+    "inject",
+    "dose",
+    "progress"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><div class=\"plunger\"></div><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .42); position: relative; }\n.loader::before { content: ''; position: absolute; left: 12%; top: 16%; width: 62%; height: 68%; border-radius: 3px; background: rgba(255, 255, 255, .45); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 18%, var(--accent-2)); }\n.loader::after { content: ''; position: absolute; left: 0; top: 44%; width: 13%; height: 8%; border-radius: 999px 0 0 999px; background: #94a3b8; }\n.loader span { position: absolute; left: 13%; top: 20%; height: 60%; border-radius: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); animation: inject calc(var(--loader-speed) * 3) ease-in-out infinite; }\n.loader .plunger { position: absolute; top: 30%; width: 30%; height: 40%; border-radius: 2px; background: linear-gradient(#f1f5f9, #94a3b8); animation: push calc(var(--loader-speed) * 3) ease-in-out infinite; }\n.loader .plunger::after { content: ''; position: absolute; left: 96%; top: -60%; width: 14%; height: 220%; border-radius: 2px; background: #cbd5e1; }\n@keyframes inject { 0%, 12% { width: 60%; } 56%, 70% { width: 5%; } 94%, 100% { width: 60%; } }\n@keyframes push { 0%, 12% { right: 2%; } 56%, 70% { right: 57%; } 94%, 100% { right: 2%; } }",
+  "defaults": {
+    "color": "#0d9488",
+    "secondaryColor": "#5eead4",
+    "size": 128,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "darma-b14-test-tube-bubble",
+  "name": "Test Tube Bubble",
+  "category": "bars",
+  "tags": [
+    "testtube",
+    "rack",
+    "lab",
+    "bubbles",
+    "bars"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: calc(var(--loader-size) * .92); position: relative; display: flex; justify-content: space-between; align-items: flex-end; padding: 0 6%; }\n.loader::after { content: ''; position: absolute; z-index: 0; bottom: 9%; left: 2%; width: 96%; height: calc(var(--loader-size) * .075); border-radius: 3px; background: linear-gradient(color-mix(in srgb, #000 22%, var(--accent-2)), color-mix(in srgb, #000 46%, var(--accent-2))); }\n.loader span { position: relative; z-index: 1; width: 16%; overflow: hidden; border-radius: 3px 3px 999px 999px; background: linear-gradient(90deg, rgba(255, 255, 255, .8) 0 22%, rgba(255, 255, 255, .3) 30%); box-shadow: inset 0 0 0 2px color-mix(in srgb, #000 20%, var(--accent-2)); }\n.loader span::before { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(90deg, color-mix(in srgb, #fff 42%, var(--accent)) 0 24%, var(--accent) 32%); animation: level calc(var(--loader-speed) * 2.4) ease-in-out infinite; }\n.loader span::after { content: ''; position: absolute; bottom: 8%; left: 28%; width: 44%; height: 13%; border-radius: 50%; background: rgba(255, 255, 255, .72); animation: bubble-up calc(var(--loader-speed) * 1.5) ease-in infinite; }\n.loader span:nth-child(1) { height: 88%; }\n.loader span:nth-child(2) { height: 74%; }\n.loader span:nth-child(2)::before { animation-delay: calc(var(--loader-speed) * .3); }\n.loader span:nth-child(2)::after { animation-delay: calc(var(--loader-speed) * .38); }\n.loader span:nth-child(3) { height: 94%; }\n.loader span:nth-child(3)::before { animation-delay: calc(var(--loader-speed) * .6); }\n.loader span:nth-child(3)::after { animation-delay: calc(var(--loader-speed) * .75); }\n.loader span:nth-child(4) { height: 68%; }\n.loader span:nth-child(4)::before { animation-delay: calc(var(--loader-speed) * .9); }\n.loader span:nth-child(4)::after { animation-delay: calc(var(--loader-speed) * 1.12); }\n@keyframes level { 0%, 100% { height: 36%; } 50% { height: 68%; } }\n@keyframes bubble-up { 0% { opacity: 0; transform: translateY(0) scale(.5); } 20% { opacity: 1; } 100% { opacity: 0; transform: translateY(-260%) scale(1); } }",
+  "defaults": {
+    "color": "#a855f7",
+    "secondaryColor": "#334155",
+    "size": 112,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

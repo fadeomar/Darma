@@ -1,0 +1,35 @@
+{
+  "id": "darma-b14-leaf-drift",
+  "name": "Leaf Drift",
+  "category": "creative",
+  "tags": [
+    "leaf",
+    "autumn",
+    "drift",
+    "fall",
+    "creative"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { --accent: var(--loader-color); --accent-2: var(--loader-secondary-color); width: var(--loader-size); height: var(--loader-size); position: relative; overflow: hidden; }\n.loader::before { content: ''; position: absolute; top: 5%; left: -6%; width: 74%; height: 4%; border-radius: 999px; transform: rotate(-9deg); background: color-mix(in srgb, #000 38%, var(--accent-2)); }\n.loader span { position: absolute; top: 7%; width: calc(var(--loader-size) * .2); height: calc(var(--loader-size) * .13); border-radius: 0 72% 0 72%; background: linear-gradient(128deg, var(--accent), var(--accent-2)); animation: drift-down calc(var(--loader-speed) * 3.4) linear infinite; }\n.loader span::after { content: ''; position: absolute; top: 46%; left: 10%; width: 80%; height: 9%; border-radius: 999px; transform: rotate(-16deg); background: color-mix(in srgb, #000 30%, var(--accent-2)); }\n.loader span:nth-child(1) { left: 8%; }\n.loader span:nth-child(2) { left: 28%; animation-delay: calc(var(--loader-speed) * -.85); }\n.loader span:nth-child(3) { left: 48%; animation-delay: calc(var(--loader-speed) * -1.7); }\n.loader span:nth-child(4) { left: 66%; animation-delay: calc(var(--loader-speed) * -2.55); }\n@keyframes drift-down { 0% { opacity: 0; transform: translate(0, 0) rotate(0deg); } 10% { opacity: 1; } 40% { transform: translate(calc(var(--loader-size) * .17), calc(var(--loader-size) * .32)) rotate(160deg); } 70% { transform: translate(calc(var(--loader-size) * -.07), calc(var(--loader-size) * .6)) rotate(300deg); } 92% { opacity: 1; } 100% { opacity: 0; transform: translate(calc(var(--loader-size) * .13), calc(var(--loader-size) * .9)) rotate(420deg); } }",
+  "defaults": {
+    "color": "#ea580c",
+    "secondaryColor": "#a16207",
+    "size": 108,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "secondaryColor": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "customizable": true,
+    "cssOnly": true
+  },
+  "source": {
+    "name": "Darma Research Batch 14",
+    "author": "Darma",
+    "license": "Original implementation for Darma; inspired by public CSS loader galleries"
+  }
+}

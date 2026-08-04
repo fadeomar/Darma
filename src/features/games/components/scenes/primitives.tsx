@@ -8,9 +8,12 @@ import type { ReactNode } from "react";
  * panel shape. Games keep their own palette and composition on top of that, so
  * the set reads as one universe without every card looking the same.
  *
- * In-scene text is limited to short numbers and single words at 14 user units
- * or larger. At the narrowest card the scene renders (about 270px wide) that
- * lands at ~12px, which is the readable floor the Phase 2 sweep established.
+ * In-scene text follows the readable floor the Phase 2 sweep established. SVG
+ * text scales with the viewBox, so a user-unit size only lands at a fixed pixel
+ * size for a fixed tile width. Values are 17 units or more, which clears 12px
+ * down to a 226px tile — narrower than any surface renders. Captions are 12
+ * units, which needs a 320px tile, so they carry `gscene-cap` and the
+ * stylesheet drops them below that rather than shrinking them into noise.
  */
 
 export const SCENE_WIDTH = 320;
@@ -198,10 +201,10 @@ export function ScorePanel({
   return (
     <g>
       <rect x={x} y={y} width={width} height={34} rx={10} fill={palette.bg[0]} fillOpacity="0.82" stroke={palette.rule} strokeWidth="1.5" />
-      <text x={textX} y={y + 14} textAnchor={anchor} fill={palette.text} fillOpacity="0.72" fontSize="9" fontWeight="900" letterSpacing="1.4">
+      <text x={textX} y={y + 13} textAnchor={anchor} className="gscene-cap" fill={palette.text} fillOpacity="0.72" fontSize="12" fontWeight="900" letterSpacing="0.8">
         {label}
       </text>
-      <text x={textX} y={y + 28} textAnchor={anchor} fill={palette.accent} fontSize="16" fontWeight="900">
+      <text x={textX} y={y + 29} textAnchor={anchor} fill={palette.accent} fontSize="17" fontWeight="900">
         {value}
       </text>
     </g>

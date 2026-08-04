@@ -87,7 +87,7 @@ export function Scene2048() {
       <ScorePanel x={14} y={58} label="BEST" value="20 116" palette={tone} width={108} />
       <g>
         <rect x={14} y={104} width={108} height={58} rx={10} fill="#ffffff" fillOpacity="0.72" stroke={tone.ink} strokeWidth="1.5" />
-        <text x={68} y={124} textAnchor="middle" fill={tone.text} fontSize="10" fontWeight="900" letterSpacing="1.4">
+        <text x={68} y={124} textAnchor="middle" fill={tone.text} className="gscene-cap" fontSize="12" fontWeight="900" letterSpacing="1.4">
           MERGE
         </text>
         <rect x={26} y={132} width={36} height={22} rx={5} fill="#edcc61" />
@@ -309,7 +309,7 @@ export function SceneSudokuMini() {
       </text>
       <ScorePanel x={14} y={26} label="DIFFICULTY" value="Medium" palette={tone} width={78} />
       <ScorePanel x={14} y={70} label="EMPTY" value="22" palette={tone} width={78} />
-      <Chip x={14} y={118} width={78} label="HINT" fill="#4f46e5" textFill="#ffffff" fontSize={12} />
+      <Chip x={14} y={118} width={78} label="HINT" fill="#4f46e5" textFill="#ffffff" fontSize={14} />
     </SceneStage>
   );
 }
@@ -418,7 +418,7 @@ export function SceneReactionTimer() {
         WAIT
       </text>
       <g>
-        <text x={168} y={44} fill="#ecfdf5" fillOpacity="0.7" fontSize="10" fontWeight="900" letterSpacing="1.6">
+        <text x={168} y={44} fill="#ecfdf5" fillOpacity="0.7" className="gscene-cap" fontSize="12" fontWeight="900" letterSpacing="1.6">
           LAST RESULT
         </text>
         <text x={168} y={78} fill="#34d399" fontSize="34" fontWeight="900" letterSpacing="-1">
@@ -441,7 +441,7 @@ export function SceneReactionTimer() {
           />
         ))}
         <line x1={166} y1={142} x2={302} y2={142} stroke="rgba(255,255,255,0.18)" strokeWidth="1.5" />
-        <text x={168} y={160} fill="#ecfdf5" fillOpacity="0.7" fontSize="11" fontWeight="900">
+        <text x={168} y={160} fill="#ecfdf5" fillOpacity="0.7" className="gscene-cap" fontSize="12" fontWeight="900">
           BEST 194 ms
         </text>
       </g>
@@ -479,14 +479,14 @@ export function SceneTetris() {
       <ScorePanel x={12} y={58} label="LINES" value="26" palette={tone} width={84} />
       <g>
         <rect x={224} y={16} width={82} height={70} rx={10} fill="rgba(0,0,0,0.35)" stroke="rgba(168,85,247,0.45)" strokeWidth="1.5" />
-        <text x={265} y={34} textAnchor="middle" fill="#f5f3ff" fillOpacity="0.72" fontSize="10" fontWeight="900" letterSpacing="1.4">
+        <text x={265} y={34} textAnchor="middle" fill="#f5f3ff" fillOpacity="0.72" className="gscene-cap" fontSize="12" fontWeight="900" letterSpacing="1.4">
           NEXT
         </text>
         {([[0, 0], [1, 0], [2, 0], [1, 1]] as [number, number][]).map(([col, row]) => (
           <Cell key={`next-${col}-${row}`} x={242 + col * 16} y={46 + row * 16} size={14} radius={3} fill="#a855f7" />
         ))}
       </g>
-      <text x={265} y={130} textAnchor="middle" fill="#f5f3ff" fillOpacity="0.6" fontSize="11" fontWeight="900" letterSpacing="1.2">
+      <text x={265} y={130} textAnchor="middle" fill="#f5f3ff" fillOpacity="0.6" className="gscene-cap" fontSize="12" fontWeight="900" letterSpacing="1.2">
         LEVEL 4
       </text>
     </SceneStage>
@@ -714,7 +714,7 @@ export function SceneChessMini() {
       <ChessPiece x={origin.x + 1 * cell + cell / 2} y={origin.y + 2 * cell + cell / 2} kind="pawn" fill="#2b2118" stroke="#0c0a08" />
       <ScorePanel x={12} y={26} label="ENGINE" value="Depth 4" palette={tone} width={72} />
       <ScorePanel x={12} y={72} label="EVAL" value="+1.4" palette={tone} width={72} />
-      <Chip x={12} y={122} width={72} label="e2 → e4" fill="#0f766e" textFill="#ffffff" fontSize={12} />
+      <Chip x={12} y={122} width={72} label="e2 → e4" fill="#0f766e" textFill="#ffffff" fontSize={14} />
     </SceneStage>
   );
 }
@@ -793,7 +793,7 @@ export function SceneMathSprint() {
             opacity={1 - index * 0.28}
           />
         ))}
-        <text x={82} y={154} fill="#f5f3ff" fillOpacity="0.75" fontSize="12" fontWeight="900">
+        <text x={82} y={154} fill="#f5f3ff" fillOpacity="0.75" className="gscene-cap" fontSize="12" fontWeight="900">
           ON FIRE
         </text>
       </g>
@@ -832,7 +832,7 @@ export function SceneNeonCoreDefense() {
       <Enemy x={36} y={26} size={16} fill="#fb7185" />
       <ScorePanel x={12} y={130} label="WAVE" value="14" palette={tone} width={82} />
       <g>
-        <text x={226} y={168} fill="#e0f2fe" fillOpacity="0.7" fontSize="10" fontWeight="900" letterSpacing="1.4">
+        <text x={226} y={168} fill="#e0f2fe" fillOpacity="0.7" className="gscene-cap" fontSize="12" fontWeight="900" letterSpacing="1.4">
           CORE
         </text>
         <rect x={226} y={172} width={82} height={6} rx={3} fill="rgba(255,255,255,0.15)" />
@@ -947,7 +947,7 @@ export function SceneTypingSpeed() {
       <rect x={136} y={46} width={2.6} height={30} rx={1.3} fill="#38bdf8" />
       <g>
         <rect x={14} y={104} width={138} height={58} rx={12} fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.16)" strokeWidth="1.5" />
-        <text x={30} y={124} fill="#e0f2fe" fillOpacity="0.7" fontSize="10" fontWeight="900" letterSpacing="1.4">
+        <text x={30} y={124} fill="#e0f2fe" fillOpacity="0.7" className="gscene-cap" fontSize="12" fontWeight="900" letterSpacing="1.4">
           WORDS PER MINUTE
         </text>
         <text x={30} y={150} fill="#38bdf8" fontSize="28" fontWeight="900">
@@ -956,7 +956,7 @@ export function SceneTypingSpeed() {
       </g>
       <g>
         <rect x={168} y={104} width={138} height={58} rx={12} fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.16)" strokeWidth="1.5" />
-        <text x={184} y={124} fill="#e0f2fe" fillOpacity="0.7" fontSize="10" fontWeight="900" letterSpacing="1.4">
+        <text x={184} y={124} fill="#e0f2fe" fillOpacity="0.7" className="gscene-cap" fontSize="12" fontWeight="900" letterSpacing="1.4">
           ACCURACY
         </text>
         <text x={184} y={150} fill="#4ade80" fontSize="28" fontWeight="900">

@@ -75,7 +75,7 @@ export default function TechAtlasPage() {
       />
 
       <section className="mx-auto max-w-[var(--container-wide)] px-4 py-12 sm:px-6 lg:px-8">
-        <div className="mb-7 max-w-3xl"><p className="font-mono text-[10px] font-black uppercase tracking-[0.18em] text-[var(--color-primary)]">Explore the map</p><h2 className="mt-2 text-3xl font-black tracking-[-0.045em] text-[var(--color-text-primary)] sm:text-4xl">Choose the doorway that matches your question.</h2><p className="mt-3 text-base leading-8 text-[var(--color-text-secondary)]">The sections stay connected. A resource can lead to a path, a path to a role, a role to a team, and a team to the method and language it uses.</p></div>
+        <div className="mb-7 max-w-3xl"><p className="font-mono text-xs font-black uppercase tracking-[0.18em] text-[var(--color-primary-text-strong)]">Explore the map</p><h2 className="mt-2 text-3xl font-black tracking-[-0.045em] text-[var(--color-text-primary)] sm:text-4xl">Choose the doorway that matches your question.</h2><p className="mt-3 text-base leading-8 text-[var(--color-text-secondary)]">The sections stay connected. A resource can lead to a path, a path to a role, a role to a team, and a team to the method and language it uses.</p></div>
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {sections.map((section, index) => {
             const Icon = section.icon;
@@ -86,12 +86,12 @@ export default function TechAtlasPage() {
                     <AtlasSectionArtwork icon={Icon} index={index} label={section.title} />
                     <div className="flex flex-1 flex-col p-6 sm:p-7">
                       <div className="flex items-start justify-between gap-4">
-                        <p className="font-mono text-[10px] font-black uppercase tracking-[0.14em] text-[var(--color-primary)]">{section.eyebrow}</p>
-                        <span className="text-2xl font-black text-[var(--color-primary)] opacity-55" aria-hidden>{section.accent}</span>
+                        <p className="font-mono text-xs font-black uppercase tracking-[0.14em] text-[var(--color-primary-text-strong)]">{section.eyebrow}</p>
+                        <span className="text-2xl font-black text-[var(--color-primary-text-strong)] opacity-55" aria-hidden>{section.accent}</span>
                       </div>
-                      <h2 className="mt-3 text-2xl font-black tracking-[-0.035em] text-[var(--color-text-primary)] transition group-hover:text-[var(--color-primary)]">{section.title}</h2>
+                      <h2 className="mt-3 text-2xl font-black tracking-[-0.035em] text-[var(--color-text-primary)] transition group-hover:text-[var(--color-primary-text-strong)]">{section.title}</h2>
                       <p className="mt-3 flex-1 text-sm leading-7 text-[var(--color-text-secondary)]">{section.text}</p>
-                      <span className="mt-6 inline-flex items-center gap-2 text-sm font-black text-[var(--color-primary)]">{section.cta}<ArrowRight className="darma-link-arrow h-[18px] w-[18px]" aria-hidden /></span>
+                      <span className="mt-6 inline-flex items-center gap-2 text-sm font-black text-[var(--color-primary-text-strong)]">{section.cta}<ArrowRight className="darma-link-arrow h-[18px] w-[18px]" aria-hidden /></span>
                     </div>
                   </Card>
                 </Link>

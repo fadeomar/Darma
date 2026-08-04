@@ -168,7 +168,7 @@ const CodeEditor = ({
           onClick={() => handleCopy()}
           className={`absolute ${
             buttonPosition === "top-right" ? "top-4" : "bottom-4"
-          } right-4 z-50 flex items-center gap-2 rounded-[var(--radius-sm)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] px-3 py-2 text-[var(--color-primary)] shadow-[var(--shadow-xs)] transition duration-[var(--duration-fast)] hover:border-[var(--color-primary)] hover:bg-[var(--color-control-active)]`}
+          } right-4 z-50 flex items-center gap-2 rounded-[var(--radius-sm)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] px-3 py-2 text-[var(--color-primary-text-strong)] shadow-[var(--shadow-xs)] transition duration-[var(--duration-fast)] hover:border-[var(--color-primary)] hover:bg-[var(--color-control-active)]`}
         >
           {isCopied ? (
             <>

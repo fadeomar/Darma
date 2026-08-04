@@ -20,7 +20,7 @@ function MiniGameRow({ game, meta }: { game: GameDefinition; meta: string }) {
       </div>
       <div className="min-w-0">
         <p className="truncate text-sm font-black text-[var(--color-text-primary)]">{game.title}</p>
-        <p className="mt-0.5 truncate font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{meta}</p>
+        <p className="mt-0.5 truncate font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{meta}</p>
       </div>
     </Link>
   );
@@ -47,14 +47,14 @@ export function GamePersonalizationPanel({ games }: { games: GameDefinition[] })
       <section className="mt-8 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-5 shadow-[var(--shadow-card)] sm:p-6">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="font-mono text-[10px] font-black uppercase tracking-[0.1em] text-[var(--color-primary)]">Personal play space</p>
+            <p className="font-mono text-xs font-black uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">Personal play space</p>
             <h2 className="mt-2 text-xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">Save games and build your quick list.</h2>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">
               Favorites and recently played games stay in this browser only. No account, no backend, and no personal tracking.
             </p>
           </div>
           <div className="flex items-center gap-2 rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2 text-xs font-bold text-[var(--color-text-secondary)]">
-            <Heart className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+            <Heart className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
             Local only
           </div>
         </div>
@@ -66,7 +66,7 @@ export function GamePersonalizationPanel({ games }: { games: GameDefinition[] })
     <section className="game-personal-panel mt-8 overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-5 shadow-[var(--shadow-card)] sm:p-6">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <p className="font-mono text-[10px] font-black uppercase tracking-[0.1em] text-[var(--color-primary)]">Your games</p>
+          <p className="font-mono text-xs font-black uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">Your games</p>
           <h2 className="mt-2 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">Pick up where you left off</h2>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">
             Stored locally in your browser so Darma Games stays private and account-free.
@@ -86,7 +86,7 @@ export function GamePersonalizationPanel({ games }: { games: GameDefinition[] })
                 <GameThumbnail game={continueGame} aspect="4/3" size="lg" />
               </div>
               <div className="flex min-w-0 flex-col justify-center">
-                <div className="inline-flex w-fit items-center gap-2 rounded-[var(--radius-full)] bg-[var(--color-surface-base)] px-3 py-1 font-mono text-[10px] font-black uppercase tracking-[0.1em] text-[var(--color-primary)]">
+                <div className="inline-flex w-fit items-center gap-2 rounded-[var(--radius-full)] bg-[var(--color-surface-base)] px-3 py-1 font-mono text-xs font-black uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">
                   <Clock3 className="h-3.5 w-3.5" aria-hidden />
                   Continue playing
                 </div>
@@ -113,7 +113,7 @@ export function GamePersonalizationPanel({ games }: { games: GameDefinition[] })
       {mostPlayedGames.length > 0 ? (
         <div className="mt-6">
           <div className="mb-3 flex items-center gap-2">
-            <Trophy className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+            <Trophy className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
             <h3 className="text-base font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Most played locally</h3>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

@@ -42,6 +42,17 @@
   --color-accent-soft: rgba(45, 212, 191, 0.12);
   --color-accent-border: rgba(45, 212, 191, 0.28);
 
+  /* === Text-safe brand colours ===
+     Dark mode inverts the relationship: the bright values already clear 4.5:1
+     on the dark surfaces, so the text tokens brighten rather than deepen. */
+  --color-primary-text-strong: #ff9a78;
+  --color-accent-text: #5eead4;
+
+  /* === Text on permanently dark (ink) surfaces === */
+  --color-on-ink-primary: #ff9a78;
+  --color-on-ink-accent: #5eead4;
+  --color-on-ink-warning: #f7c948;
+
   /* === Status: success === */
   --color-success: #34d399;
   --color-success-bg: rgba(22, 143, 99, 0.14);

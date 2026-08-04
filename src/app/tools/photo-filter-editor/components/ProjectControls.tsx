@@ -40,7 +40,7 @@ export function ProjectControls({
           <Button size="sm" leftIcon={<Upload className="h-4 w-4" />} onClick={onChooseImage}>{photo ? "Replace" : "Choose image"}</Button>
           <Button size="sm" variant="secondary" leftIcon={<ImageOff className="h-4 w-4" />} onClick={onRemoveImage} disabled={!photo}>Remove</Button>
         </div>
-        {photo ? <p className="mt-2 truncate text-[10px] text-[var(--color-text-tertiary)]" title={photo.info.fileName}>{photo.info.fileName} · {photo.info.width}×{photo.info.height}</p> : null}
+        {photo ? <p className="mt-2 truncate text-xs text-[var(--color-text-tertiary)]" title={photo.info.fileName}>{photo.info.fileName} · {photo.info.width}×{photo.info.height}</p> : null}
       </div>
       <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
         <label className="text-xs font-bold text-[var(--color-text-secondary)]">Project name

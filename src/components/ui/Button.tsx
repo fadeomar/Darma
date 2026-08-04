@@ -24,7 +24,7 @@ const variantClass: Record<ButtonVariant, string> = {
   ghost:
     "border border-transparent text-[var(--color-text-secondary)] hover:bg-[var(--color-control-hover)] hover:text-[var(--color-text-primary)]",
   soft:
-    "border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary)] hover:border-[var(--color-primary)] hover:bg-[var(--color-control-active)]",
+    "border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)] hover:border-[var(--color-primary)] hover:bg-[var(--color-control-active)]",
   danger:
     "border border-[var(--color-danger-border)] bg-[var(--color-danger-bg)] text-[var(--color-danger-text)] hover:border-[var(--color-danger)] hover:brightness-95",
 };

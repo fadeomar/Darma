@@ -53,13 +53,13 @@ const CHECK_STYLES: Record<EntityCheckLevel, string> = {
 function SummaryCard({ label, value, hint }: { label: string; value: string; hint: string }) {
   return (
     <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2.5 shadow-[var(--shadow-xs)]">
-      <div className="truncate font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+      <div className="truncate font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
         {label}
       </div>
       <div className="mt-1 truncate text-xl font-black tracking-tight text-[var(--color-text-primary)]" title={value}>
         {value}
       </div>
-      <div className="mt-0.5 truncate text-[11px] text-[var(--color-text-tertiary)]">{hint}</div>
+      <div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]">{hint}</div>
     </div>
   );
 }
@@ -76,7 +76,7 @@ function Card({ children, className = "" }: { children: ReactNode; className?: s
 
 function MiniLabel({ children }: { children: ReactNode }) {
   return (
-    <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+    <span className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
       {children}
     </span>
   );
@@ -267,7 +267,7 @@ export default function HtmlEntityClient() {
             spellCheck={false}
             placeholder="Paste HTML, text, or encoded entities..."
           />
-          <div className="mt-2 flex flex-wrap justify-between gap-2 text-[11px] text-[var(--color-text-tertiary)]">
+          <div className="mt-2 flex flex-wrap justify-between gap-2 text-xs text-[var(--color-text-tertiary)]">
             <span>{stats.inputCharacters.toLocaleString()} characters · {stats.lines.toLocaleString()} lines</span>
             <span>Browser-local processing</span>
           </div>
@@ -289,7 +289,7 @@ export default function HtmlEntityClient() {
             spellCheck={false}
             placeholder="Converted output appears here."
           />
-          <div className="mt-2 flex flex-wrap justify-between gap-2 text-[11px] text-[var(--color-text-tertiary)]">
+          <div className="mt-2 flex flex-wrap justify-between gap-2 text-xs text-[var(--color-text-tertiary)]">
             <span>{stats.outputCharacters.toLocaleString()} characters · {stats.entityCount.toLocaleString()} complete entities</span>
             <span>{stats.namedEntities.toLocaleString()} named · {stats.numericEntities.toLocaleString()} numeric</span>
           </div>
@@ -299,7 +299,7 @@ export default function HtmlEntityClient() {
       <div className="grid gap-4 xl:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
         <Card>
           <div className="flex items-center gap-2">
-            <Sparkles className="h-4 w-4 text-[var(--color-primary)]" />
+            <Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
             <h2 className="text-base font-black text-[var(--color-text-primary)]">Presets & controls</h2>
           </div>
 
@@ -388,7 +388,7 @@ export default function HtmlEntityClient() {
         <Card>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-2">
-              {detailTab === "inspector" ? <Search className="h-4 w-4 text-[var(--color-primary)]" /> : detailTab === "checks" ? <ShieldCheck className="h-4 w-4 text-[var(--color-primary)]" /> : <Code2 className="h-4 w-4 text-[var(--color-primary)]" />}
+              {detailTab === "inspector" ? <Search className="h-4 w-4 text-[var(--color-primary-text-strong)]" /> : detailTab === "checks" ? <ShieldCheck className="h-4 w-4 text-[var(--color-primary-text-strong)]" /> : <Code2 className="h-4 w-4 text-[var(--color-primary-text-strong)]" />}
               <h2 className="text-base font-black text-[var(--color-text-primary)]">Entity workbench</h2>
             </div>
             <SegmentedControl<DetailTab>
@@ -428,7 +428,7 @@ export default function HtmlEntityClient() {
                             <td className="px-3 py-2 capitalize">{occurrence.kind}</td>
                             <td className="px-3 py-2 font-mono">{occurrence.codePoints}</td>
                             <td className="px-3 py-2">
-                              <span className={`inline-flex rounded-full px-2 py-1 text-[10px] font-bold ${occurrence.valid ? "bg-[var(--color-success-bg)] text-[var(--color-success-text)]" : "bg-[var(--color-warning-bg)] text-[var(--color-warning-text)]"}`}>
+                              <span className={`inline-flex rounded-full px-2 py-1 text-xs font-bold ${occurrence.valid ? "bg-[var(--color-success-bg)] text-[var(--color-success-text)]" : "bg-[var(--color-warning-bg)] text-[var(--color-warning-text)]"}`}>
                                 {occurrence.valid ? "Valid" : occurrence.issue ?? "Review"}
                               </span>
                             </td>
@@ -437,7 +437,7 @@ export default function HtmlEntityClient() {
                       </tbody>
                     </table>
                   </div>
-                  {occurrences.length > 150 ? <div className="border-t border-[var(--color-border-subtle)] px-3 py-2 text-[11px] text-[var(--color-text-tertiary)]">Showing the first 150 of {occurrences.length.toLocaleString()} entities. The CSV export includes all rows.</div> : null}
+                  {occurrences.length > 150 ? <div className="border-t border-[var(--color-border-subtle)] px-3 py-2 text-xs text-[var(--color-text-tertiary)]">Showing the first 150 of {occurrences.length.toLocaleString()} entities. The CSV export includes all rows.</div> : null}
                 </div>
               ) : (
                 <div className="rounded-[var(--radius-md)] border border-dashed border-[var(--color-border-default)] p-8 text-center text-sm text-[var(--color-text-tertiary)]">

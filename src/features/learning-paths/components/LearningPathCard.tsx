@@ -21,7 +21,7 @@ export function LearningPathCard({ path }: { path: LearningPath }) {
             <Badge variant="soft">{TRACK_LABELS[path.track]}</Badge>
             <Badge variant="outline">{path.difficulty}</Badge>
           </div>
-          <h2 className="darma-balanced-heading mt-5 text-2xl font-black tracking-[-0.025em] text-[var(--color-text-primary)] transition group-hover:text-[var(--color-primary)]">{path.title}</h2>
+          <h2 className="darma-balanced-heading mt-5 text-2xl font-black tracking-[-0.025em] text-[var(--color-text-primary)] transition group-hover:text-[var(--color-primary-text-strong)]">{path.title}</h2>
           <p className="darma-pretty-copy mt-3 flex-1 text-sm leading-7 text-[var(--color-text-secondary)]">{path.summary}</p>
           <dl className="mt-5 grid grid-cols-3 gap-2 border-y border-[var(--color-border-subtle)] py-4 text-center">
             <div><dt className="flex justify-center text-[var(--color-text-tertiary)]"><Layers3 className="h-4 w-4" aria-hidden /></dt><dd className="mt-1 text-xs font-bold text-[var(--color-text-primary)]">{path.stages.length} stages</dd></div>
@@ -29,7 +29,7 @@ export function LearningPathCard({ path }: { path: LearningPath }) {
             <div><dt className="flex justify-center text-[var(--color-text-tertiary)]"><Signal className="h-4 w-4" aria-hidden /></dt><dd className="mt-1 text-xs font-bold capitalize text-[var(--color-text-primary)]">{path.difficulty}</dd></div>
           </dl>
           <div className="mt-4 flex flex-wrap gap-1.5">{path.tags.slice(0, 4).map((tag) => <Badge key={tag} variant="outline">{tag}</Badge>)}</div>
-          <span className="mt-5 inline-flex min-h-10 items-center gap-2 text-sm font-black text-[var(--color-primary)]">
+          <span className="mt-5 inline-flex min-h-10 items-center gap-2 text-sm font-black text-[var(--color-primary-text-strong)]">
             Open this path <ArrowRight className="darma-link-arrow h-[18px] w-[18px]" aria-hidden />
           </span>
         </div>

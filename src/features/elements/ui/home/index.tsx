@@ -143,7 +143,7 @@ export default function HomeClientPage({
       <section className="mt-6 rounded-[var(--radius-xl)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-card)] sm:p-5">
         <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">Results</p>
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">Results</p>
             <h2 className="mt-1 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">Published items</h2>
           </div>
           <p className="rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-3 py-1 text-sm font-semibold text-[var(--color-text-secondary)]">

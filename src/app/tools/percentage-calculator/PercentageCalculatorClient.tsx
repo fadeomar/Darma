@@ -55,11 +55,11 @@ function SummaryCard({ label, value, hint, icon }: { label: string; value: strin
   return (
     <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2.5 shadow-[var(--shadow-xs)]">
       <div className="flex items-center justify-between gap-2">
-        <span className="truncate font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</span>
-        <span className="text-[var(--color-primary)]">{icon}</span>
+        <span className="truncate font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</span>
+        <span className="text-[var(--color-primary-text-strong)]">{icon}</span>
       </div>
       <div className="mt-1 truncate text-xl font-black tracking-tight text-[var(--color-text-primary)]" title={value}>{value}</div>
-      <div className="mt-0.5 truncate text-[11px] text-[var(--color-text-tertiary)]">{hint}</div>
+      <div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]">{hint}</div>
     </div>
   );
 }
@@ -67,9 +67,9 @@ function SummaryCard({ label, value, hint, icon }: { label: string; value: strin
 function MetricCard({ label, value, hint }: { label: string; value: string; hint?: string }) {
   return (
     <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
-      <div className="truncate text-[10px] font-bold uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">{label}</div>
+      <div className="truncate text-xs font-bold uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">{label}</div>
       <div className="mt-1 truncate font-mono text-lg font-black text-[var(--color-text-primary)]" title={value}>{value}</div>
-      {hint ? <div className="mt-0.5 truncate text-[10px] text-[var(--color-text-tertiary)]">{hint}</div> : null}
+      {hint ? <div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]">{hint}</div> : null}
     </div>
   );
 }
@@ -77,7 +77,7 @@ function MetricCard({ label, value, hint }: { label: string; value: string; hint
 function Field({ label, hint, children }: { label: string; hint?: string; children: React.ReactNode }) {
   return (
     <label className="block min-w-0">
-      <span className="mb-1 flex items-center justify-between gap-2 text-[11px] font-bold text-[var(--color-text-secondary)]">
+      <span className="mb-1 flex items-center justify-between gap-2 text-xs font-bold text-[var(--color-text-secondary)]">
         <span>{label}</span>
         {hint ? <span className="font-normal text-[var(--color-text-tertiary)]">{hint}</span> : null}
       </span>
@@ -165,8 +165,8 @@ export default function PercentageCalculatorClient() {
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-tool-controls-border)] bg-[var(--color-tool-controls-bg)] p-4">
             <div className="mb-3 flex items-center justify-between gap-2">
               <div>
-                <h2 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4 text-[var(--color-primary)]" />Practical presets</h2>
-                <p className="mt-0.5 text-[11px] text-[var(--color-text-tertiary)]">Load a realistic calculation and edit any value.</p>
+                <h2 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" />Practical presets</h2>
+                <p className="mt-0.5 text-xs text-[var(--color-text-tertiary)]">Load a realistic calculation and edit any value.</p>
               </div>
               <Button size="sm" variant="ghost" onClick={reset} leftIcon={<RotateCcw className="h-3.5 w-3.5" />}>Reset</Button>
             </div>
@@ -174,7 +174,7 @@ export default function PercentageCalculatorClient() {
               {PERCENT_PRESETS.map((preset) => (
                 <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-2.5 text-left transition hover:border-[var(--color-primary)] hover:bg-[var(--color-control-hover)]">
                   <span className="block truncate text-xs font-bold text-[var(--color-text-primary)]">{preset.name}</span>
-                  <span className="mt-1 block line-clamp-2 text-[10px] leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
+                  <span className="mt-1 block line-clamp-2 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
                 </button>
               ))}
             </div>
@@ -182,29 +182,29 @@ export default function PercentageCalculatorClient() {
 
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-tool-controls-border)] bg-[var(--color-tool-controls-bg)] p-4">
             <div className="mb-3 flex items-center gap-2">
-              <Calculator className="h-4 w-4 text-[var(--color-primary)]" />
+              <Calculator className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
               <div>
                 <h2 className="text-sm font-black text-[var(--color-text-primary)]">Calculation mode</h2>
-                <p className="text-[11px] text-[var(--color-text-tertiary)]">Choose the exact percentage question.</p>
+                <p className="text-xs text-[var(--color-text-tertiary)]">Choose the exact percentage question.</p>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-2">
               {MODE_ORDER.map((item) => (
-                <button key={item} type="button" onClick={() => setMode(item)} aria-pressed={mode === item} className={`min-w-0 rounded-[var(--radius-md)] border px-2.5 py-2 text-left text-xs font-bold transition ${mode === item ? "border-[var(--color-primary)] bg-[var(--color-primary-subtle)] text-[var(--color-primary)]" : "border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-default)]"}`}>
+                <button key={item} type="button" onClick={() => setMode(item)} aria-pressed={mode === item} className={`min-w-0 rounded-[var(--radius-md)] border px-2.5 py-2 text-left text-xs font-bold transition ${mode === item ? "border-[var(--color-primary)] bg-[var(--color-primary-subtle)] text-[var(--color-primary-text-strong)]" : "border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-default)]"}`}>
                   <span className="block truncate">{MODE_META[item].shortLabel}</span>
                 </button>
               ))}
             </div>
-            <p className="mt-3 rounded-[var(--radius-md)] bg-[var(--color-surface-subtle)] px-3 py-2 text-[11px] leading-5 text-[var(--color-text-secondary)]">{meta.description}</p>
+            <p className="mt-3 rounded-[var(--radius-md)] bg-[var(--color-surface-subtle)] px-3 py-2 text-xs leading-5 text-[var(--color-text-secondary)]">{meta.description}</p>
           </section>
 
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-tool-controls-border)] bg-[var(--color-tool-controls-bg)] p-4">
             <div className="mb-3 flex items-center justify-between gap-2">
               <div>
                 <h2 className="text-sm font-black text-[var(--color-text-primary)]">Inputs</h2>
-                <p className="text-[11px] text-[var(--color-text-tertiary)]">Signed values and decimals are supported where meaningful.</p>
+                <p className="text-xs text-[var(--color-text-tertiary)]">Signed values and decimals are supported where meaningful.</p>
               </div>
-              <label className="w-24 text-[10px] font-bold text-[var(--color-text-tertiary)]">Precision<Select size="sm" className="mt-1" value={String(precision)} onChange={(event) => setPrecision(Number(event.target.value))} aria-label="Result precision"><option value="0">0 decimals</option><option value="2">2 decimals</option><option value="4">4 decimals</option><option value="6">6 decimals</option><option value="8">8 decimals</option></Select></label>
+              <label className="w-24 text-xs font-bold text-[var(--color-text-tertiary)]">Precision<Select size="sm" className="mt-1" value={String(precision)} onChange={(event) => setPrecision(Number(event.target.value))} aria-label="Result precision"><option value="0">0 decimals</option><option value="2">2 decimals</option><option value="4">4 decimals</option><option value="6">6 decimals</option><option value="8">8 decimals</option></Select></label>
             </div>
             <div className="grid grid-cols-2 gap-3">
               <Field label={meta.aLabel} hint={meta.aHint}><Input type="text" inputMode="decimal" value={rawA} onChange={(event) => setRawA(event.target.value)} aria-label={meta.aLabel} aria-invalid={!Number.isFinite(inputs.a)} /></Field>
@@ -228,7 +228,7 @@ export default function PercentageCalculatorClient() {
                 <section className={`rounded-[var(--radius-lg)] border p-5 shadow-[var(--shadow-sm)] ${outcome.valid ? "border-[var(--color-tool-result-border)] bg-[var(--color-surface-raised)]" : "border-[var(--color-danger-border)] bg-[var(--color-danger-bg)]"}`}>
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div className="min-w-0">
-                      <div className="text-[10px] font-bold uppercase tracking-[0.09em] text-[var(--color-text-tertiary)]">{meta.answerLabel}</div>
+                      <div className="text-xs font-bold uppercase tracking-[0.09em] text-[var(--color-text-tertiary)]">{meta.answerLabel}</div>
                       <div className="mt-1 break-words font-mono text-4xl font-black tracking-tight text-[var(--color-text-primary)]">{formatValue(outcome.valid ? outcome.value : null, outcome.unit, precision)}</div>
                     </div>
                     <CopyButton text={outcome.sentence} size="sm" variant="secondary" disabled={!outcome.valid}>Copy result</CopyButton>
@@ -241,7 +241,7 @@ export default function PercentageCalculatorClient() {
                 </div>
 
                 <section className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-4">
-                  <div className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><ReceiptText className="h-4 w-4 text-[var(--color-primary)]" />Formula preview</div>
+                  <div className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><ReceiptText className="h-4 w-4 text-[var(--color-primary-text-strong)]" />Formula preview</div>
                   <div className="mt-3 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-code-bg)] px-3 py-2 font-mono text-xs leading-6 text-[var(--color-code-text)]">{outcome.valid ? outcome.substitutedFormula : meta.formula}</div>
                 </section>
               </div>
@@ -251,13 +251,13 @@ export default function PercentageCalculatorClient() {
               <div className="space-y-4">
                 <section className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-4">
                   <h3 className="text-sm font-black text-[var(--color-text-primary)]">Formula</h3>
-                  <p className="mt-2 font-mono text-sm text-[var(--color-primary)]">{meta.formula}</p>
+                  <p className="mt-2 font-mono text-sm text-[var(--color-primary-text-strong)]">{meta.formula}</p>
                   {outcome.substitutedFormula ? <p className="mt-2 break-words rounded-[var(--radius-md)] bg-[var(--color-code-bg)] px-3 py-2 font-mono text-xs leading-6 text-[var(--color-code-text)]">{outcome.substitutedFormula}</p> : null}
                 </section>
                 <section>
                   <h3 className="text-sm font-black text-[var(--color-text-primary)]">Step-by-step calculation</h3>
                   <div className="mt-2 grid gap-2">
-                    {outcome.steps.length ? outcome.steps.map((step, index) => <div key={step} className="flex gap-3 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] p-3"><span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary-subtle)] text-xs font-black text-[var(--color-primary)]">{index + 1}</span><p className="text-sm leading-6 text-[var(--color-text-secondary)]">{step}</p></div>) : <p className="text-sm text-[var(--color-text-tertiary)]">Enter valid values to see calculation steps.</p>}
+                    {outcome.steps.length ? outcome.steps.map((step, index) => <div key={step} className="flex gap-3 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] p-3"><span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary-subtle)] text-xs font-black text-[var(--color-primary-text-strong)]">{index + 1}</span><p className="text-sm leading-6 text-[var(--color-text-secondary)]">{step}</p></div>) : <p className="text-sm text-[var(--color-text-tertiary)]">Enter valid values to see calculation steps.</p>}
                   </div>
                 </section>
                 <section>
@@ -278,7 +278,7 @@ export default function PercentageCalculatorClient() {
                 <div className="grid grid-cols-5 gap-1.5">
                   {scenarios.map((scenario) => {
                     const width = outcome.valid && scenario.outcome.valid && Math.abs(outcome.value) > 0 ? Math.min(100, Math.abs(scenario.outcome.value / outcome.value) * 50) : 0;
-                    return <div key={scenario.label} className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] p-2"><div className="truncate text-[10px] font-bold text-[var(--color-text-tertiary)]">{scenario.label}</div><div className="mt-1 truncate font-mono text-sm font-black text-[var(--color-text-primary)]">{formatValue(scenario.outcome.valid ? scenario.outcome.value : null, scenario.outcome.unit, precision)}</div><div className="mt-2 h-1.5 overflow-hidden rounded-full bg-[var(--color-surface-subtle)]"><div className="h-full rounded-full bg-[var(--color-primary)]" style={{ width: `${width}%` }} /></div></div>;
+                    return <div key={scenario.label} className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] p-2"><div className="truncate text-xs font-bold text-[var(--color-text-tertiary)]">{scenario.label}</div><div className="mt-1 truncate font-mono text-sm font-black text-[var(--color-text-primary)]">{formatValue(scenario.outcome.valid ? scenario.outcome.value : null, scenario.outcome.unit, precision)}</div><div className="mt-2 h-1.5 overflow-hidden rounded-full bg-[var(--color-surface-subtle)]"><div className="h-full rounded-full bg-[var(--color-primary)]" style={{ width: `${width}%` }} /></div></div>;
                   })}
                 </div>
                 <div className="overflow-x-auto rounded-[var(--radius-md)] border border-[var(--color-border-subtle)]">
@@ -290,9 +290,9 @@ export default function PercentageCalculatorClient() {
             {activeTab === "exports" ? (
               <div className="space-y-5">
                 <section>
-                  <h3 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><CheckCircle2 className="h-4 w-4 text-[var(--color-primary)]" />Production checks</h3>
+                  <h3 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><CheckCircle2 className="h-4 w-4 text-[var(--color-primary-text-strong)]" />Production checks</h3>
                   <div className="mt-2 grid gap-2">
-                    {checks.map((check) => <div key={check.id} className={`rounded-[var(--radius-md)] border px-3 py-2 ${CHECK_STYLES[check.level]}`}><div className="text-xs font-black">{check.title}</div><div className="mt-0.5 text-[11px] leading-5 opacity-90">{check.message}</div></div>)}
+                    {checks.map((check) => <div key={check.id} className={`rounded-[var(--radius-md)] border px-3 py-2 ${CHECK_STYLES[check.level]}`}><div className="text-xs font-black">{check.title}</div><div className="mt-0.5 text-xs leading-5 opacity-90">{check.message}</div></div>)}
                   </div>
                 </section>
                 <section>
@@ -328,7 +328,7 @@ export default function PercentageCalculatorClient() {
         <SummaryCard label="Production review" value={outcome.valid ? (reviewCount ? `${reviewCount} review` : "Ready") : "Blocked"} hint={`${checks.length} checks completed`} icon={outcome.valid && !reviewCount ? <ShieldCheck className="h-4 w-4" /> : <TrendingUp className="h-4 w-4" />} />
       </div>
 
-      <div className="flex flex-wrap items-center justify-between gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] px-3 py-2 text-[11px] text-[var(--color-text-tertiary)]">
+      <div className="flex flex-wrap items-center justify-between gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] px-3 py-2 text-xs text-[var(--color-text-tertiary)]">
         <span className="flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5" />All calculations stay in your browser.</span>
         <Button size="sm" variant="ghost" onClick={downloadPack} leftIcon={<Download className="h-3.5 w-3.5" />}>Download pack</Button>
       </div>

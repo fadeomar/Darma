@@ -68,7 +68,7 @@ function getConflictCells(state: SudokuGameState): Set<number> {
 function StatPill({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2 text-center">
-      <div className="font-mono text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
+      <div className="font-mono text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
       <div className="mt-1 text-sm font-black text-[var(--color-text-primary)]">{value}</div>
     </div>
   );
@@ -178,7 +178,7 @@ export function SudokuMiniGame({ game }: { game: GameDefinition }) {
     <div className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-card)]" onKeyDown={handleKeyDown} tabIndex={0}>
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--color-border-subtle)] px-4 py-3 sm:px-5">
         <div>
-          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Playable logic game</p>
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Playable logic game</p>
           <h2 className="text-base font-black tracking-[-0.02em] text-[var(--color-text-primary)]">{game.title}</h2>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -229,7 +229,7 @@ export function SudokuMiniGame({ game }: { game: GameDefinition }) {
                     style={borderStyle}
                   >
                     {value ? value : (
-                      <span className="grid h-full grid-cols-3 content-center gap-0.5 p-1 text-[9px] font-bold leading-none text-[var(--color-text-tertiary)] sm:text-[10px]">
+                      <span className="grid h-full grid-cols-3 content-center gap-0.5 p-1 text-xs font-bold leading-none text-[var(--color-text-tertiary)] sm:text-xs">
                         {Array.from({ length: state.puzzle.size }, (_, index) => index + 1).map((note) => <span key={note}>{state.notes[cell].includes(note) ? note : ""}</span>)}
                       </span>
                     )}
@@ -272,7 +272,7 @@ export function SudokuMiniGame({ game }: { game: GameDefinition }) {
               </div>
               <div className="space-y-2">
                 {MODES.map((item) => (
-                  <button key={item.id} type="button" onClick={() => startNew(size, difficulty, item.id)} className={cn("w-full rounded-[var(--radius-md)] border px-3 py-2 text-left text-xs transition", mode === item.id ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] text-[var(--color-text-secondary)]") }>
+                  <button key={item.id} type="button" onClick={() => startNew(size, difficulty, item.id)} className={cn("w-full rounded-[var(--radius-md)] border px-3 py-2 text-left text-xs transition", mode === item.id ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]" : "border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] text-[var(--color-text-secondary)]") }>
                     <strong className="block text-sm">{item.label}</strong>
                     {item.description}
                   </button>

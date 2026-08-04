@@ -192,7 +192,7 @@ export default function SiteHeader() {
           <span className="darma-brand-mark transition group-hover:rotate-6 group-hover:scale-105 motion-reduce:transition-none">D</span>
           <span className="hidden sm:block">
             <span className="block text-lg font-black leading-none tracking-[-0.04em] text-[var(--color-text-primary)]">Darma</span>
-            <span className="mt-1 block font-mono text-[9px] font-bold uppercase tracking-[0.17em] text-[var(--color-text-tertiary)]">Tools • Games • Tech Atlas</span>
+            <span className="mt-1 block font-mono text-xs font-bold uppercase tracking-[0.17em] text-[var(--color-text-tertiary)]">Tools • Games • Tech Atlas</span>
           </span>
         </Link>
 
@@ -217,7 +217,7 @@ export default function SiteHeader() {
             {atlasOpen ? (
               <div data-mega-menu className="darma-mega-menu" role="navigation" aria-label="Tech Atlas navigation">
                 <div className="mb-3 flex items-center justify-between gap-4 rounded-2xl bg-[var(--color-text-primary)] p-4 text-[var(--color-surface-base)]">
-                  <div><p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] opacity-70">Connected reference</p><p className="mt-1 text-lg font-black">Find what to learn, use, and understand.</p></div>
+                  <div><p className="font-mono text-xs font-bold uppercase tracking-[0.16em] opacity-70">Connected reference</p><p className="mt-1 text-lg font-black">Find what to learn, use, and understand.</p></div>
                   <Link href="/tech-atlas" className="shrink-0 rounded-full bg-[var(--color-primary)] px-4 py-2 text-xs font-black text-[var(--color-primary-text)]">Open Atlas</Link>
                 </div>
                 <div className="grid gap-1 md:grid-cols-2">
@@ -225,7 +225,7 @@ export default function SiteHeader() {
                     const Icon = item.icon;
                     return (
                       <Link key={item.href} href={item.href} data-mega-link className="darma-mega-link">
-                        <span className="grid h-10 w-10 place-items-center rounded-xl bg-[var(--color-primary-soft)] text-[var(--color-primary)]"><Icon className="h-5 w-5" aria-hidden /></span>
+                        <span className="grid h-10 w-10 place-items-center rounded-xl bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]"><Icon className="h-5 w-5" aria-hidden /></span>
                         <span><span className="block text-sm font-black text-[var(--color-text-primary)]">{item.label}</span><span className="mt-0.5 block text-xs leading-5 text-[var(--color-text-tertiary)]">{item.text}</span></span>
                       </Link>
                     );
@@ -261,17 +261,17 @@ export default function SiteHeader() {
             </div>
             <div className="space-y-7 p-4 pb-10 sm:p-6">
               <div data-mobile-link className="visual-grid-bg rounded-[1.4rem] border border-[var(--color-border-default)] p-5">
-                <p className="font-mono text-[10px] font-black uppercase tracking-[0.16em] text-[var(--color-primary)]">Start with a goal</p>
+                <p className="font-mono text-xs font-black uppercase tracking-[0.16em] text-[var(--color-primary-text-strong)]">Start with a goal</p>
                 <h2 className="mt-2 text-2xl font-black tracking-[-0.04em] text-[var(--color-text-primary)]">Search the whole Darma workspace.</h2>
                 <button type="button" onClick={() => { setMobileOpen(false); window.setTimeout(() => window.dispatchEvent(new Event("darma:open-global-search")), 80); }} className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-xl bg-[var(--color-primary)] px-4 text-sm font-black text-[var(--color-primary-text)]"><Search className="h-4 w-4" aria-hidden />Open search</button>
               </div>
               {MOBILE_GROUPS.map((group) => (
                 <section key={group.title}>
-                  <p data-mobile-link className="mb-3 font-mono text-[10px] font-black uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">{group.title}</p>
+                  <p data-mobile-link className="mb-3 font-mono text-xs font-black uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">{group.title}</p>
                   <div className="grid gap-2 sm:grid-cols-2">
                     {group.links.map((item) => {
                       const Icon = item.icon;
-                      return <Link key={`${group.title}-${item.href}`} href={item.href} data-mobile-link className="darma-mobile-nav-card" aria-current={isPathActive(pathname, item.href) ? "page" : undefined}><span className="grid h-10 w-10 place-items-center rounded-xl bg-[var(--color-primary-soft)] text-[var(--color-primary)]"><Icon className="h-5 w-5" aria-hidden /></span><span className="font-bold text-[var(--color-text-primary)]">{item.label}</span></Link>;
+                      return <Link key={`${group.title}-${item.href}`} href={item.href} data-mobile-link className="darma-mobile-nav-card" aria-current={isPathActive(pathname, item.href) ? "page" : undefined}><span className="grid h-10 w-10 place-items-center rounded-xl bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]"><Icon className="h-5 w-5" aria-hidden /></span><span className="font-bold text-[var(--color-text-primary)]">{item.label}</span></Link>;
                     })}
                   </div>
                 </section>

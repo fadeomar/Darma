@@ -19,7 +19,7 @@ function RelatedCard({ item }: { item: ResolvedRelatedTool }) {
         </div>
         <h3 className="text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">{item.tool.title}</h3>
         <p className="mt-2 line-clamp-3 text-sm leading-6 text-[var(--color-text-secondary)]">{item.tool.description}</p>
-        <p className="mt-auto pt-5 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Open next →</p>
+        <p className="mt-auto pt-5 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Open next →</p>
       </Card>
     </Link>
   );
@@ -47,7 +47,7 @@ export function RelatedToolsGrid({
           <h2 className="mt-3 text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">{title}</h2>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">{description}</p>
         </div>
-        <Link href="/tools" className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)] transition hover:text-[var(--color-text-primary)]">
+        <Link href="/tools" className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)] transition hover:text-[var(--color-text-primary)]">
           View all tools
         </Link>
       </div>

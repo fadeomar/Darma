@@ -67,7 +67,7 @@ function NumericAdjustment({
         onBlur={commit}
         onKeyDown={onKeyDown}
       />
-      {suffix ? <span className="pointer-events-none absolute inset-y-0 right-2 flex items-center text-[10px] text-[var(--color-text-tertiary)]">{suffix}</span> : null}
+      {suffix ? <span className="pointer-events-none absolute inset-y-0 right-2 flex items-center text-xs text-[var(--color-text-tertiary)]">{suffix}</span> : null}
     </div>
   );
 }
@@ -119,10 +119,10 @@ export function AdjustmentPanel({
                   <div className="mb-1.5 flex items-center justify-between gap-2">
                     <label htmlFor={`adjustment-${control.key}`} className="min-w-0 text-xs font-bold text-[var(--color-text-secondary)]">
                       {control.label}
-                      {!control.cssCompatible ? <span className="ml-1 text-[10px] font-medium text-[var(--color-text-tertiary)]">Raster</span> : null}
+                      {!control.cssCompatible ? <span className="ml-1 text-xs font-medium text-[var(--color-text-tertiary)]">Raster</span> : null}
                     </label>
                     <div className="flex shrink-0 items-center gap-1">
-                      <span className="hidden min-w-12 text-right text-[10px] tabular-nums text-[var(--color-text-tertiary)] sm:block">{formatControlValue(control, value)}</span>
+                      <span className="hidden min-w-12 text-right text-xs tabular-nums text-[var(--color-text-tertiary)] sm:block">{formatControlValue(control, value)}</span>
                       <NumericAdjustment control={control} value={value} onCommit={(next) => onCommitValue(control.key, next)} />
                       <Button
                         size="icon"

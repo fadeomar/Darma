@@ -73,7 +73,7 @@ export default function ElementPreviewShell({ element }: Props) {
         <div className="mx-auto flex max-w-[var(--container-wide)] flex-wrap items-center justify-between gap-3 px-4 py-3 sm:flex-nowrap sm:gap-4 sm:px-6 lg:px-8">
           <BackButton />
           <div className="min-w-0 flex-1">
-            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Element preview</p>
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Element preview</p>
             <h1 className="truncate text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)] sm:text-xl">
               {element.title}
             </h1>

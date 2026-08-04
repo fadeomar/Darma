@@ -32,7 +32,7 @@ export function ResourceLogo({ resource, size = "md" }: ResourceLogoProps) {
   if (icon.kind !== "image" || failed) {
     return (
       <span
-        className={`${baseClass} inline-flex items-center justify-center font-mono font-black tracking-tight text-[var(--color-primary)]`}
+        className={`${baseClass} inline-flex items-center justify-center font-mono font-black tracking-tight text-[var(--color-primary-text-strong)]`}
         aria-hidden
       >
         {resourceMonogram(resource.name)}

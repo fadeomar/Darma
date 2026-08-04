@@ -46,13 +46,13 @@ export default function WorkflowsPage() {
                 <h2 className="mt-4 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">{workflow.title}</h2>
                 <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">{workflow.description}</p>
                 <div className="mt-4 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
-                  <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Result</p>
+                  <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Result</p>
                   <p className="mt-1 line-clamp-3 text-xs leading-5 text-[var(--color-text-secondary)]">{workflow.outcome}</p>
                 </div>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {(workflow.audience ?? []).slice(0, 3).map((item) => <Badge key={item} variant="outline">{item}</Badge>)}
                 </div>
-                <span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-semibold text-[var(--color-primary)]">
+                <span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-semibold text-[var(--color-primary-text-strong)]">
                   Open workflow <ArrowRight className="h-4 w-4" aria-hidden />
                 </span>
               </Card>

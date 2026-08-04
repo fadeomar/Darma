@@ -179,7 +179,7 @@ export default function ContributePage() {
             <div className="flex items-center gap-3">
               <span className="atlas-symbol h-11 w-11"><HeartHandshake className="h-5 w-5" aria-hidden /></span>
               <div>
-                <p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">Atlas today</p>
+                <p className="font-mono text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">Atlas today</p>
                 <p className="text-lg font-black text-[var(--color-text-primary)]">Built to be maintained</p>
               </div>
             </div>
@@ -203,7 +203,7 @@ export default function ContributePage() {
 
       <section id="contribution-options" className="mx-auto max-w-[var(--container-wide)] scroll-mt-28 px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="max-w-3xl">
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary)]">Choose the smallest useful route</p>
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary-text-strong)]">Choose the smallest useful route</p>
           <h2 className="darma-balanced-heading mt-3 text-3xl font-black tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-4xl">Structured forms make contributions easier to review.</h2>
           <p className="darma-pretty-copy mt-4 text-base leading-7 text-[var(--color-text-secondary)]">Each route asks for the evidence and placement needed for that kind of change. This keeps the discussion focused and reduces unnecessary back-and-forth.</p>
         </div>
@@ -214,7 +214,7 @@ export default function ContributePage() {
             return (
               <article key={item.id} id={item.id} className="group flex h-full flex-col rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] p-6 shadow-[var(--shadow-card)] transition hover:-translate-y-0.5 hover:border-[var(--color-primary-border)] hover:shadow-[var(--shadow-md)]">
                 <span className="atlas-symbol h-12 w-12"><Icon className="h-6 w-6" aria-hidden /></span>
-                <p className="mt-5 font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--color-primary)]">{item.eyebrow}</p>
+                <p className="mt-5 font-mono text-xs font-bold uppercase tracking-[0.14em] text-[var(--color-primary-text-strong)]">{item.eyebrow}</p>
                 <h3 className="darma-balanced-heading mt-2 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">{item.title}</h3>
                 <p className="darma-pretty-copy mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">{item.text}</p>
                 <dl className="mt-5 space-y-3 border-t border-[var(--color-border-subtle)] pt-5 text-sm">
@@ -227,7 +227,7 @@ export default function ContributePage() {
                     <dd className="mt-1 leading-6 text-[var(--color-text-secondary)]">{item.review}</dd>
                   </div>
                 </dl>
-                <a href={item.href} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex min-h-11 items-center gap-2 self-start text-sm font-black text-[var(--color-primary)]">
+                <a href={item.href} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex min-h-11 items-center gap-2 self-start text-sm font-black text-[var(--color-primary-text-strong)]">
                   {item.action} <ExternalLink className="darma-link-arrow h-[18px] w-[18px]" aria-hidden />
                 </a>
               </article>
@@ -250,9 +250,9 @@ export default function ContributePage() {
                 const Icon = step.icon;
                 return (
                   <li key={step.title} className="relative grid gap-4 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-5 pl-[74px] shadow-[var(--shadow-card)] sm:grid-cols-[1fr_auto] sm:items-start">
-                    <span className="absolute left-3.5 top-5 z-10 grid h-12 w-12 place-items-center rounded-full border border-[var(--color-primary-border)] bg-[var(--color-surface-raised)] text-[var(--color-primary)] shadow-[var(--shadow-xs)]"><Icon className="h-5 w-5" aria-hidden /></span>
+                    <span className="absolute left-3.5 top-5 z-10 grid h-12 w-12 place-items-center rounded-full border border-[var(--color-primary-border)] bg-[var(--color-surface-raised)] text-[var(--color-primary-text-strong)] shadow-[var(--shadow-xs)]"><Icon className="h-5 w-5" aria-hidden /></span>
                     <div>
-                      <p className="font-mono text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--color-primary)]">Step {String(index + 1).padStart(2, "0")}</p>
+                      <p className="font-mono text-xs font-bold uppercase tracking-[0.14em] text-[var(--color-primary-text-strong)]">Step {String(index + 1).padStart(2, "0")}</p>
                       <h3 className="mt-2 text-xl font-black text-[var(--color-text-primary)]">{step.title}</h3>
                       <p className="darma-pretty-copy mt-2 text-sm leading-7 text-[var(--color-text-secondary)]">{step.text}</p>
                     </div>
@@ -267,7 +267,7 @@ export default function ContributePage() {
       <section className="mx-auto max-w-[var(--container-wide)] px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-5 lg:grid-cols-2">
           <Card padding="lg">
-            <GitBranch className="h-6 w-6 text-[var(--color-primary)]" aria-hidden />
+            <GitBranch className="h-6 w-6 text-[var(--color-primary-text-strong)]" aria-hidden />
             <h2 className="mt-4 text-2xl font-black text-[var(--color-text-primary)]">Ready to change code or data?</h2>
             <p className="darma-pretty-copy mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">Fork the repository, keep the pull request focused, run the relevant quality commands, and explain both the user-facing result and the evidence behind factual content.</p>
             <div className="mt-6 flex flex-wrap gap-3">
@@ -287,7 +287,7 @@ export default function ContributePage() {
       <section className="mx-auto max-w-[var(--container-wide)] px-4 pb-4 sm:px-6 lg:px-8">
         <div className="darma-section-ink rounded-[var(--radius-xl)] p-7 sm:flex sm:items-center sm:justify-between sm:gap-8 lg:p-9">
           <div>
-            <p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--color-text-on-ink-muted)]">A transparent public record</p>
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-text-on-ink-muted)]">A transparent public record</p>
             <h2 className="darma-balanced-heading mt-3 text-2xl font-black text-[var(--color-text-on-ink)] sm:text-3xl">Keep the reference useful and honest.</h2>
             <p className="darma-pretty-copy mt-3 max-w-3xl text-sm leading-7 text-[var(--color-text-on-ink-muted)]">Contributions remain reviewable in the repository, including the reasoning, discussion, and final change.</p>
           </div>

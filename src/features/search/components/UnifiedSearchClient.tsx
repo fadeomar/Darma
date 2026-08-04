@@ -134,7 +134,7 @@ export function UnifiedSearchClient({ entities, initialQuery = "" }: UnifiedSear
               >
                 <Icon className="h-4 w-4" aria-hidden />
                 {item.label}
-                <span className={cn("rounded-full px-2 py-0.5 text-[11px]", active ? "bg-white/20" : "bg-[var(--color-control-track)]")}>{count}</span>
+                <span className={cn("rounded-full px-2 py-0.5 text-xs", active ? "bg-black/25" : "bg-[var(--color-control-track)]")}>{count}</span>
               </button>
             );
           })}
@@ -151,7 +151,7 @@ export function UnifiedSearchClient({ entities, initialQuery = "" }: UnifiedSear
             description={`${results.length} matching item${results.length === 1 ? "" : "s"}. Filter by section or category to narrow the result set.`}
           />
           {query || kind !== "all" || category !== "All" ? (
-            <button type="button" onClick={reset} className="self-start text-sm font-bold text-[var(--color-primary)] hover:underline focus-visible:shadow-[var(--focus-ring)] sm:self-auto">
+            <button type="button" onClick={reset} className="self-start text-sm font-bold text-[var(--color-primary-text-strong)] hover:underline focus-visible:shadow-[var(--focus-ring)] sm:self-auto">
               Reset search
             </button>
           ) : null}
@@ -184,7 +184,7 @@ export function UnifiedSearchClient({ entities, initialQuery = "" }: UnifiedSear
       <section className="mt-10 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] p-5 shadow-[var(--shadow-card)] sm:p-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">Core migration</p>
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">Core migration</p>
             <h2 className="mt-1 text-xl font-black text-[var(--color-text-primary)]">Unified search is now the bridge across Darma.</h2>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">
               Tools, games, resources, learning paths, careers, workflows, and collections now share one searchable entity layer.

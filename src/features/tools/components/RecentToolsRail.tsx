@@ -26,7 +26,7 @@ export function RecentToolsRail({ tools }: { tools: ToolDefinition[] }) {
           <Badge variant="soft">Recent</Badge>
           <h2 className="mt-2 text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Recently used tools</h2>
         </div>
-        <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Stored on this device</p>
+        <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Stored on this device</p>
       </div>
       <div className="flex gap-3 overflow-x-auto pb-2">
         {items.map(({ recent, tool }) => (

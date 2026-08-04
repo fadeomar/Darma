@@ -32,7 +32,7 @@ export function ChallengeCard({
         {hasHeader ? (
           <div className="flex flex-wrap items-start justify-between gap-4">
             <div>
-              {eyebrow ? <p className="font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">{eyebrow}</p> : null}
+              {eyebrow ? <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">{eyebrow}</p> : null}
               {title ? <h3 className="mt-2 text-xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">{title}</h3> : null}
               {description ? <p className="mt-1 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">{description}</p> : null}
             </div>

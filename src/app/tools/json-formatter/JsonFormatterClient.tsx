@@ -115,7 +115,7 @@ function OutputViewTabs({ value, onChange }: { value: JsonView; onChange: (value
             aria-checked={active}
             onClick={() => onChange(option.value)}
             className={cn(
-              "h-8 min-w-[76px] flex-1 whitespace-nowrap rounded-[calc(var(--radius-md)-5px)] px-3 text-center text-[11px] font-bold uppercase tracking-[0.04em] transition duration-[var(--duration-fast)] sm:flex-none",
+              "h-8 min-w-[76px] flex-1 whitespace-nowrap rounded-[calc(var(--radius-md)-5px)] px-3 text-center text-xs font-bold uppercase tracking-[0.04em] transition duration-[var(--duration-fast)] sm:flex-none",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-soft)]",
               active
                 ? "bg-[var(--color-surface-raised)] text-[var(--color-text-primary)] shadow-[var(--shadow-xs)]"
@@ -197,7 +197,7 @@ function NoticePanel({ notice }: { notice: Notice }) {
 function WorkbenchStat({ label, value }: { label: string; value: string | number }) {
   return (
     <div className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-3 py-2">
-      <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</p>
+      <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</p>
       <p className="mt-1 text-lg font-black tracking-[-0.03em] text-[var(--color-text-primary)]">{value}</p>
     </div>
   );
@@ -206,7 +206,7 @@ function WorkbenchStat({ label, value }: { label: string; value: string | number
 function SummaryCard({ label, value, detail }: { label: string; value: string; detail: string }) {
   return (
     <div className="min-w-0 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
-      <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</p>
+      <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</p>
       <p className="mt-2 truncate text-xl font-black tracking-[-0.04em] text-[var(--color-text-primary)]">{value}</p>
       <p className="mt-1 text-xs leading-5 text-[var(--color-text-secondary)]">{detail}</p>
     </div>
@@ -227,7 +227,7 @@ function ProductionAudit({ checks }: { checks: JsonAuditCheck[] }) {
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <div className="flex items-center gap-2">
-            <ShieldCheck className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+            <ShieldCheck className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
             <h3 className="text-base font-black text-[var(--color-text-primary)]">Production checks</h3>
           </div>
           <p className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">
@@ -975,7 +975,7 @@ export default function JsonFormatterClient() {
 
         <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)] sm:p-5">
           <div className="flex items-center gap-2">
-            <Archive className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+            <Archive className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
             <h3 className="text-base font-black text-[var(--color-text-primary)]">Production exports</h3>
           </div>
           <p className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">
@@ -1057,22 +1057,22 @@ export default function JsonFormatterClient() {
 
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
-          <FileJson2 className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+          <FileJson2 className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
           <h3 className="mt-3 text-sm font-bold text-[var(--color-text-primary)]">Readable formatting</h3>
           <p className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">Format with 2 spaces, 4 spaces, tabs, and optional sorted keys.</p>
         </div>
         <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
-          <Wand2 className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+          <Wand2 className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
           <h3 className="mt-3 text-sm font-bold text-[var(--color-text-primary)]">Safe repair</h3>
           <p className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">Fix common issues like comments, single quotes, unquoted keys, and trailing commas.</p>
         </div>
         <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
-          <ListTree className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+          <ListTree className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
           <h3 className="mt-3 text-sm font-bold text-[var(--color-text-primary)]">Tree inspector</h3>
           <p className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">Browse nested objects and arrays without losing your place.</p>
         </div>
         <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-sm)]">
-          <Table2 className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+          <Table2 className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
           <h3 className="mt-3 text-sm font-bold text-[var(--color-text-primary)]">Table preview</h3>
           <p className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">Turn arrays of objects into a quick, scrollable data table.</p>
         </div>

@@ -174,7 +174,7 @@ export function BeforeAfterStage({
           <Button size="icon" variant={preview.comparisonEnabled ? "soft" : "ghost"} leftIcon={<SplitSquareVertical className="h-4 w-4" />} onClick={onToggleComparison} aria-pressed={preview.comparisonEnabled} aria-label="Toggle before and after comparison" title="Before and after">Compare</Button>
           <Button size="icon" variant="ghost" leftIcon={<RotateCcw className="h-4 w-4" />} onClick={onResetComparison} disabled={!preview.comparisonEnabled || preview.comparisonPosition === 50} aria-label="Center before and after comparison" title="Center comparison">Center comparison</Button>
           <Button size="icon" variant={preview.showOverlays ? "soft" : "ghost"} leftIcon={preview.showOverlays ? <Eye className="h-4 w-4" /> : <EyeOff className="h-4 w-4" />} onClick={onToggleOverlays} aria-pressed={preview.showOverlays} aria-label="Toggle editing overlays" title="Preview overlays">Overlays</Button>
-          <span className="px-2 text-[10px] text-[var(--color-text-tertiary)]">{imageInfo}</span>
+          <span className="px-2 text-xs text-[var(--color-text-tertiary)]">{imageInfo}</span>
         </div>
       </div>
 
@@ -240,8 +240,8 @@ export function BeforeAfterStage({
             ) : null}
             {preview.showOverlays && preview.comparisonEnabled && !cropEditing ? (
               <>
-                <span className="absolute left-2 top-2 rounded bg-black/65 px-2 py-1 text-[10px] font-bold text-white">Before</span>
-                <span className="absolute right-2 top-2 rounded bg-black/65 px-2 py-1 text-[10px] font-bold text-white">After</span>
+                <span className="absolute left-2 top-2 rounded bg-black/65 px-2 py-1 text-xs font-bold text-white">Before</span>
+                <span className="absolute right-2 top-2 rounded bg-black/65 px-2 py-1 text-xs font-bold text-white">After</span>
               </>
             ) : null}
             {cropEditing && preview.showOverlays ? <CropOverlay crop={pendingCrop} aspectRatio={cropAspectRatio} onChange={onPendingCrop} /> : null}
@@ -259,7 +259,7 @@ export function BeforeAfterStage({
         {dragOver ? <div className="pointer-events-none absolute inset-0 z-30 flex items-center justify-center bg-[var(--color-surface-base)]/85 text-sm font-black text-[var(--color-text-primary)]">Drop image to replace</div> : null}
         {loading ? <div className="absolute inset-0 z-40 flex items-center justify-center bg-[var(--color-surface-base)]/75 text-sm font-black"><RotateCcw className="mr-2 h-4 w-4 animate-spin" /> Decoding image…</div> : null}
       </div>
-      <p className="mt-2 text-center text-[10px] leading-4 text-[var(--color-text-tertiary)]">Use the comparison handle to inspect changes. Zoom and pan affect only the view, never the exported pixels.</p>
+      <p className="mt-2 text-center text-xs leading-4 text-[var(--color-text-tertiary)]">Use the comparison handle to inspect changes. Zoom and pan affect only the view, never the exported pixels.</p>
     </section>
   );
 }

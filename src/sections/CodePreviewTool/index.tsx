@@ -173,11 +173,11 @@ function SummaryCard({ label, value, detail, icon: Icon }: { label: string; valu
     <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-3 shadow-[var(--shadow-xs)]">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
-          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.09em] text-[var(--color-text-tertiary)]">{label}</p>
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.09em] text-[var(--color-text-tertiary)]">{label}</p>
           <p className="mt-1 truncate text-lg font-black tracking-[-0.025em] text-[var(--color-text-primary)]">{value}</p>
-          <p className="mt-1 truncate text-[11px] text-[var(--color-text-tertiary)]">{detail}</p>
+          <p className="mt-1 truncate text-xs text-[var(--color-text-tertiary)]">{detail}</p>
         </div>
-        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-[var(--radius-sm)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]">
+        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-[var(--radius-sm)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]">
           <Icon className="h-4 w-4" aria-hidden />
         </span>
       </div>
@@ -497,7 +497,7 @@ export default function CodePreviewTool() {
                 className="h-4 w-4 accent-[var(--color-primary)]"
               />
               Auto-run after edits
-              <span className="font-mono text-[10px] font-medium text-[var(--color-text-tertiary)]">Ctrl/⌘ + Enter</span>
+              <span className="font-mono text-xs font-medium text-[var(--color-text-tertiary)]">Ctrl/⌘ + Enter</span>
             </label>
           </PreviewToolbar>
 
@@ -568,7 +568,7 @@ export default function CodePreviewTool() {
                 )}
                 <div className="min-w-0">
                   <p className="text-xs font-bold text-[var(--color-text-primary)]">{check.label}</p>
-                  <p className="mt-0.5 text-[11px] leading-4 text-[var(--color-text-secondary)]">{check.detail}</p>
+                  <p className="mt-0.5 text-xs leading-4 text-[var(--color-text-secondary)]">{check.detail}</p>
                 </div>
               </div>
             ))}

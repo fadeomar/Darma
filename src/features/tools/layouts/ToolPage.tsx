@@ -84,7 +84,7 @@ export function ToolPage({
             {tool ? <FavoriteToolButton toolId={tool.id} toolTitle={tool.title} /> : null}
             <a
               href="#tool-workspace"
-              className="ml-auto inline-flex min-h-9 items-center gap-2 rounded-[var(--radius-full)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] px-3 text-xs font-bold text-[var(--color-primary)] transition hover:border-[var(--color-primary)] hover:bg-[var(--color-control-active)] focus:outline-none focus:shadow-[var(--focus-ring)]"
+              className="ml-auto inline-flex min-h-9 items-center gap-2 rounded-[var(--radius-full)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] px-3 text-xs font-bold text-[var(--color-primary-text-strong)] transition hover:border-[var(--color-primary)] hover:bg-[var(--color-control-active)] focus:outline-none focus:shadow-[var(--focus-ring)]"
             >
               <SlidersHorizontal className="h-3.5 w-3.5" aria-hidden />
               Workspace

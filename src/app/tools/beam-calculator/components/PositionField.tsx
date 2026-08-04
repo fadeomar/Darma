@@ -62,9 +62,9 @@ export function PositionField({ label, value, length, unit, onChange, ariaLabel,
               aria-label={`${ariaLabel}: ${preset.label}`}
               aria-pressed={active}
               className={cn(
-                "rounded-[var(--radius-sm)] border px-2 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.04em] transition disabled:cursor-not-allowed disabled:opacity-50",
+                "rounded-[var(--radius-sm)] border px-2 py-1 font-mono text-xs font-bold uppercase tracking-[0.04em] transition disabled:cursor-not-allowed disabled:opacity-50",
                 active
-                  ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+                  ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]"
                   : "border-[var(--color-border-default)] bg-[var(--color-surface-raised)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]",
               )}
             >

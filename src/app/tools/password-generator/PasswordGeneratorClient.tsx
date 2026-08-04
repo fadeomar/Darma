@@ -83,7 +83,7 @@ function getActiveCharacterSetCount(config: PasswordConfig) {
 function FieldLabel({ label, hint }: { label: string; hint?: string }) {
   return (
     <div className="space-y-1">
-      <div className="font-mono text-[11px] font-bold uppercase leading-none tracking-[0.08em] text-[var(--color-text-tertiary)]">
+      <div className="font-mono text-xs font-bold uppercase leading-none tracking-[0.08em] text-[var(--color-text-tertiary)]">
         {label}
       </div>
       {hint ? <p className="text-xs leading-5 text-[var(--color-text-tertiary)]">{hint}</p> : null}
@@ -117,7 +117,7 @@ function SliderWithNumber({
     <div className="space-y-3 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-xs)]">
       <div className="flex items-start justify-between gap-4">
         <div className="space-y-1">
-          <label htmlFor={id} className="font-mono text-[11px] font-bold uppercase leading-none tracking-[0.08em] text-[var(--color-text-tertiary)]">
+          <label htmlFor={id} className="font-mono text-xs font-bold uppercase leading-none tracking-[0.08em] text-[var(--color-text-tertiary)]">
             {label}
           </label>
           {hint ? <p className="text-xs leading-5 text-[var(--color-text-tertiary)]">{hint}</p> : null}
@@ -219,7 +219,7 @@ function ModeCard({
       )}
     >
       <span className="flex items-center gap-2 font-black text-[var(--color-text-primary)]">
-        {active ? <ShieldCheck className="h-4 w-4 text-[var(--color-primary)]" aria-hidden /> : null}
+        {active ? <ShieldCheck className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden /> : null}
         {title}
       </span>
       <span className="mt-2 block text-sm leading-6 text-[var(--color-text-secondary)]">{description}</span>
@@ -230,7 +230,7 @@ function ModeCard({
 function SummaryCard({ label, value, detail }: { label: string; value: string; detail: string }) {
   return (
     <Card padding="sm" className="min-w-0">
-      <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</p>
+      <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</p>
       <p className="mt-2 truncate text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]" title={value}>
         {value}
       </p>
@@ -292,14 +292,14 @@ function SettingsPanel({
     <section data-tool-region="controls" className="order-1 rounded-[var(--radius-lg)] border border-[var(--color-tool-controls-border)] bg-[var(--color-tool-controls-bg)] p-5 shadow-[var(--shadow-tool-controls)] sm:p-6 lg:sticky lg:top-[6.75rem] lg:max-h-[calc(100vh-7.75rem)] lg:overflow-y-auto lg:overscroll-contain">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <p className="font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-[var(--color-primary)]">Policy and generator</p>
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">Policy and generator</p>
           <h2 className="mt-2 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">Settings</h2>
         </div>
         <Badge variant="outline">Secrets never exported</Badge>
       </div>
 
       <div className="mt-5 space-y-2">
-        <label htmlFor="password-policy" className="font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+        <label htmlFor="password-policy" className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
           Target policy
         </label>
         <Select id="password-policy" value={policyId} onChange={(event) => setPolicyId(event.target.value as PasswordPolicyId)}>
@@ -405,7 +405,7 @@ function SettingsPanel({
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="space-y-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-xs)]">
-                <label htmlFor="password-generator-separator" className="font-mono text-[11px] font-bold uppercase leading-none tracking-[0.08em] text-[var(--color-text-tertiary)]">
+                <label htmlFor="password-generator-separator" className="font-mono text-xs font-bold uppercase leading-none tracking-[0.08em] text-[var(--color-text-tertiary)]">
                   Separator
                 </label>
                 <Select
@@ -443,7 +443,7 @@ function SettingsPanel({
         )}
 
         <div className="space-y-2 rounded-[var(--radius-md)] border border-[var(--color-warning-border)] bg-[var(--color-warning-bg)] p-4">
-          <label htmlFor="password-generator-seed" className="font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--color-warning-text)]">
+          <label htmlFor="password-generator-seed" className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-warning-text)]">
             Optional custom fragment
           </label>
           <Input
@@ -625,7 +625,7 @@ export default function PasswordGeneratorClient() {
             <div className="border-b border-[var(--color-tool-result-border)] bg-[linear-gradient(135deg,var(--color-tool-result-header),var(--color-accent-soft))] p-5 sm:p-6">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
-                  <p className="font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-[var(--color-primary)]">Generated secret</p>
+                  <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">Generated secret</p>
                   <h2 className="mt-2 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-3xl">
                     {error ? "Generation unavailable" : "Ready to copy"}
                   </h2>
@@ -660,7 +660,7 @@ export default function PasswordGeneratorClient() {
               <PasswordStrengthMeter strength={strength} />
               <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-4">
                 <div className="mb-3 flex flex-wrap items-center gap-2">
-                  <Sparkles className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+                  <Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
                   <h3 className="font-semibold text-[var(--color-text-primary)]">Character mix</h3>
                 </div>
                 <PasswordCharacterLegend />
@@ -704,7 +704,7 @@ export default function PasswordGeneratorClient() {
         <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-5 shadow-[var(--shadow-card)] sm:p-6">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
-              <p className="font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-[var(--color-primary)]">Production audit</p>
+              <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">Production audit</p>
               <h2 className="mt-2 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">Security readiness</h2>
               <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">
                 The audit compares current settings with the selected use case. It never checks the secret against an online breach service or sends it anywhere.
@@ -720,7 +720,7 @@ export default function PasswordGeneratorClient() {
         </div>
 
         <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-5 shadow-[var(--shadow-card)] sm:p-6">
-          <p className="font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-[var(--color-primary)]">Policy portability</p>
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">Policy portability</p>
           <h2 className="mt-2 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">Import and export</h2>
           <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">
             Downloads contain settings, code starters, and audit guidance only. The generated secret is never included.

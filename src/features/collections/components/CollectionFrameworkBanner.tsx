@@ -64,7 +64,7 @@ export function CollectionFrameworkBanner({
 
       {nextCollections.length > 0 ? (
         <div className="mt-5 border-t border-[var(--color-border-subtle)] pt-4">
-          <p className="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">
+          <p className="mb-3 font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">
             Future collections using the same foundation
           </p>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

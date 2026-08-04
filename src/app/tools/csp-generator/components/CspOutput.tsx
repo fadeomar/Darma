@@ -72,9 +72,9 @@ export function CspOutput({
       <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-3 shadow-[var(--shadow-sm)]">
         <div className="flex flex-wrap items-start justify-between gap-2">
           <div className="min-w-0 space-y-1">
-            <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Policy strength</span>
+            <span className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Policy strength</span>
             <div className="flex flex-wrap items-center gap-2">
-              <span className={cn("rounded-[var(--radius-full)] border px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.08em]", riskMeta.className)}>
+              <span className={cn("rounded-[var(--radius-full)] border px-2.5 py-0.5 font-mono text-xs font-bold uppercase tracking-[0.08em]", riskMeta.className)}>
                 {riskMeta.label}
               </span>
               <span className="text-xs leading-5 text-[var(--color-text-secondary)]">{riskMeta.helper}</span>
@@ -86,9 +86,9 @@ export function CspOutput({
             aria-checked={reportOnly}
             onClick={() => onToggleReportOnly(!reportOnly)}
             className={cn(
-              "inline-flex items-center gap-2 rounded-[var(--radius-full)] border px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.08em] transition",
+              "inline-flex items-center gap-2 rounded-[var(--radius-full)] border px-3 py-1 font-mono text-xs font-bold uppercase tracking-[0.08em] transition",
               reportOnly
-                ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+                ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]"
                 : "border-[var(--color-border-default)] bg-[var(--color-surface-base)] text-[var(--color-text-tertiary)] hover:border-[var(--color-border-strong)]",
             )}
           >

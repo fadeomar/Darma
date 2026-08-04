@@ -44,7 +44,7 @@ export function ToolCoreBridgePanel({ tools }: ToolCoreBridgePanelProps) {
             {stats.coverage.slice(0, 9).map((item) => (
               <div key={item.label} className="rounded-[var(--radius-md)] bg-[var(--color-surface-base)]/85 p-3 text-center">
                 <p className="text-xl font-black text-[var(--color-text-primary)]">{item.value}</p>
-                <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{item.label}</p>
+                <p className="mt-1 text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{item.label}</p>
               </div>
             ))}
           </div>

@@ -52,7 +52,7 @@ function MiniCard({
 }) {
   return (
     <div className="min-w-0 rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3">
-      <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+      <p className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
         {label}
       </p>
       <p
@@ -84,13 +84,13 @@ function SourcePill({ match }: { match: ColorMatch }) {
         style={{ background: match.hex }}
       />
       <span className="min-w-0">
-        <span className="block truncate text-[11px] font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+        <span className="block truncate text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
           {match.source}
         </span>
         <span className="block truncate text-sm font-black text-[var(--color-text-primary)]">
           {match.name}
         </span>
-        <span className="block truncate font-mono text-[11px] text-[var(--color-text-tertiary)]">
+        <span className="block truncate font-mono text-xs text-[var(--color-text-tertiary)]">
           {match.hex} · {match.confidence}%
         </span>
       </span>
@@ -109,7 +109,7 @@ function ExportBlock({ title, text }: { title: string; text: string }) {
           Copy
         </CopyButton>
       </div>
-      <pre className="mt-3 max-h-28 overflow-auto whitespace-pre-wrap break-all rounded-xl bg-[var(--color-surface)] p-3 font-mono text-[11px] leading-5 text-[var(--color-text-secondary)]">
+      <pre className="mt-3 max-h-28 overflow-auto whitespace-pre-wrap break-all rounded-xl bg-[var(--color-surface)] p-3 font-mono text-xs leading-5 text-[var(--color-text-secondary)]">
         {text}
       </pre>
     </div>
@@ -349,7 +349,7 @@ export default function ColorNameFinderClient() {
                 </p>
               </div>
               <div className="shrink-0 rounded-2xl bg-white/20 px-3 py-2 text-right backdrop-blur">
-                <p className="text-[10px] font-bold uppercase opacity-75">
+                <p className="text-xs font-bold uppercase opacity-75">
                   Confidence
                 </p>
                 <p className="text-2xl font-black">{top.confidence}%</p>
@@ -367,7 +367,7 @@ export default function ColorNameFinderClient() {
               <label className="text-xs font-bold text-[var(--color-text-secondary)]">
                 Color input
               </label>
-              <span className="rounded-full bg-[var(--color-surface-subtle)] px-2 py-1 text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+              <span className="rounded-full bg-[var(--color-surface-subtle)] px-2 py-1 text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
                 {parsed.detectedFormat}
               </span>
             </div>
@@ -440,7 +440,7 @@ export default function ColorNameFinderClient() {
                   title="Name sources"
                   description="Closest result by dataset when CSS, human, and design names disagree."
                   action={
-                    <span className="rounded-full bg-[var(--color-surface-subtle)] px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+                    <span className="rounded-full bg-[var(--color-surface-subtle)] px-2.5 py-1 text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
                       4 datasets
                     </span>
                   }
@@ -466,7 +466,7 @@ export default function ColorNameFinderClient() {
                   title="Framework matches"
                   description="Nearest available Tailwind, Bootstrap, and Material tokens. Low scores mean no exact token exists."
                   action={
-                    <span className="rounded-full bg-[var(--color-surface-subtle)] px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+                    <span className="rounded-full bg-[var(--color-surface-subtle)] px-2.5 py-1 text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
                       UI systems
                     </span>
                   }
@@ -484,13 +484,13 @@ export default function ColorNameFinderClient() {
                         style={{ background: item.hex }}
                       />
                       <span className="min-w-0">
-                        <span className="block truncate text-[11px] font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+                        <span className="block truncate text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
                           {item.system}
                         </span>
                         <span className="block truncate text-sm font-black leading-5 text-[var(--color-text-primary)]">
                           {item.name}
                         </span>
-                        <span className="block truncate font-mono text-[11px] leading-4 text-[var(--color-text-tertiary)]">
+                        <span className="block truncate font-mono text-xs leading-4 text-[var(--color-text-tertiary)]">
                           {item.hex} · ΔE {item.distance}
                         </span>
                       </span>
@@ -509,7 +509,7 @@ export default function ColorNameFinderClient() {
                   title="Alternative names"
                   description="Nearest readable names after the main match."
                   action={
-                    <span className="rounded-full bg-[var(--color-surface-subtle)] px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+                    <span className="rounded-full bg-[var(--color-surface-subtle)] px-2.5 py-1 text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
                       LAB
                     </span>
                   }
@@ -531,7 +531,7 @@ export default function ColorNameFinderClient() {
                         <span className="block truncate text-sm font-black leading-5 text-[var(--color-text-primary)]">
                           {m.name}
                         </span>
-                        <span className="block truncate font-mono text-[11px] leading-4 text-[var(--color-text-tertiary)]">
+                        <span className="block truncate font-mono text-xs leading-4 text-[var(--color-text-tertiary)]">
                           {m.hex} · {m.source}
                         </span>
                       </span>
@@ -593,7 +593,7 @@ export default function ColorNameFinderClient() {
                 <span className="block text-sm font-black text-[var(--color-text-primary)]">
                   {panel.label}
                 </span>
-                <span className="mt-1 block text-[11px] leading-4 text-[var(--color-text-tertiary)]">
+                <span className="mt-1 block text-xs leading-4 text-[var(--color-text-tertiary)]">
                   {panel.description}
                 </span>
               </button>
@@ -684,7 +684,7 @@ export default function ColorNameFinderClient() {
                       >
                         <div className="flex items-start justify-between gap-2">
                           <p className="text-sm font-black">{check.title}</p>
-                          <span className="rounded-full bg-white/60 px-2 py-0.5 text-[10px] font-black uppercase text-current dark:bg-black/20">
+                          <span className="rounded-full bg-white/60 px-2 py-0.5 text-xs font-black uppercase text-current dark:bg-black/20">
                             {check.status}
                           </span>
                         </div>
@@ -712,7 +712,7 @@ export default function ColorNameFinderClient() {
                             {role.role}
                           </p>
                           <span
-                            className={`rounded-full border px-2 py-0.5 text-[10px] font-black uppercase ${statusClass(role.fit)}`}
+                            className={`rounded-full border px-2 py-0.5 text-xs font-black uppercase ${statusClass(role.fit)}`}
                           >
                             {role.fit}
                           </span>
@@ -751,7 +751,7 @@ export default function ColorNameFinderClient() {
                         <span className="block truncate text-xs font-bold text-[var(--color-text-primary)]">
                           {item.name}
                         </span>
-                        <span className="font-mono text-[11px] text-[var(--color-text-tertiary)]">
+                        <span className="font-mono text-xs text-[var(--color-text-tertiary)]">
                           {item.hex}
                         </span>
                       </span>
@@ -785,7 +785,7 @@ export default function ColorNameFinderClient() {
                         className="block h-14"
                         style={{ background: item.hex }}
                       />
-                      <span className="block p-1 text-[10px] font-black text-[var(--color-text-secondary)]">
+                      <span className="block p-1 text-xs font-black text-[var(--color-text-secondary)]">
                         {item.label}
                       </span>
                     </button>
@@ -851,7 +851,7 @@ export default function ColorNameFinderClient() {
                         className="overflow-hidden rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface)] text-left transition hover:border-[var(--color-border)]"
                       >
                         <span
-                          className="grid h-16 place-items-center text-[10px] font-black"
+                          className="grid h-16 place-items-center text-xs font-black"
                           style={{
                             background: item.hex,
                             color: item.recommendedText,
@@ -863,7 +863,7 @@ export default function ColorNameFinderClient() {
                           <span className="block truncate text-xs font-black text-[var(--color-text-primary)]">
                             {item.label}
                           </span>
-                          <span className="block truncate text-[10px] text-[var(--color-text-tertiary)]">
+                          <span className="block truncate text-xs text-[var(--color-text-tertiary)]">
                             {item.note}
                           </span>
                         </span>
@@ -902,11 +902,11 @@ export default function ColorNameFinderClient() {
                           <span className="block truncate text-sm font-black">
                             {item.surface}
                           </span>
-                          <span className="block truncate font-mono text-[11px] opacity-75">
+                          <span className="block truncate font-mono text-xs opacity-75">
                             {item.hex} over {item.backgroundHex}
                           </span>
                         </span>
-                        <span className="text-[10px] font-black">
+                        <span className="text-xs font-black">
                           {item.contrast}:1
                         </span>
                       </button>
@@ -938,7 +938,7 @@ export default function ColorNameFinderClient() {
                       className="overflow-hidden rounded-xl border border-[var(--color-border-subtle)] bg-[var(--color-surface)] text-left transition hover:border-[var(--color-border)]"
                     >
                       <span
-                        className="grid h-14 place-items-center text-[10px] font-black"
+                        className="grid h-14 place-items-center text-xs font-black"
                         style={{
                           background: item.hex,
                           color: item.recommendedText,
@@ -946,7 +946,7 @@ export default function ColorNameFinderClient() {
                       >
                         {item.status}
                       </span>
-                      <span className="block p-1 text-[10px] font-black text-[var(--color-text-secondary)]">
+                      <span className="block p-1 text-xs font-black text-[var(--color-text-secondary)]">
                         {item.label}
                       </span>
                     </button>

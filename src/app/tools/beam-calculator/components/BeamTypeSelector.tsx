@@ -39,13 +39,13 @@ export function BeamTypeSelector({ mode, onChange }: BeamTypeSelectorProps) {
                 {option.value === "advanced" ? <SlidersHorizontal className="h-3.5 w-3.5" aria-hidden /> : null}
                 {option.label}
               </span>
-              <span className="mt-0.5 block text-[11px] leading-4 text-[var(--color-text-tertiary)]">{MODE_HINT[option.value]}</span>
+              <span className="mt-0.5 block text-xs leading-4 text-[var(--color-text-tertiary)]">{MODE_HINT[option.value]}</span>
             </button>
           );
         })}
       </div>
       {isGuidedMode(mode) ? (
-        <p className="flex items-center gap-1.5 text-[11px] leading-4 text-[var(--color-text-tertiary)]">
+        <p className="flex items-center gap-1.5 text-xs leading-4 text-[var(--color-text-tertiary)]">
           <Lock className="h-3 w-3 shrink-0" aria-hidden />
           Supports are placed for you and locked. Switch to <strong className="font-semibold">Advanced custom</strong> to edit them.
         </p>

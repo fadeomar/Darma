@@ -375,7 +375,7 @@ export default function PhotoFilterEditorClient() {
         </div>
         <div className="min-w-0 text-right">
           <div className="truncate text-xs font-bold text-[var(--color-text-primary)]">{projectName}</div>
-          <div className="text-[10px] text-[var(--color-text-tertiary)]">{getActiveRasterAdjustments(edit.adjustments).length > 0 ? "CSS + raster adjustments" : "CSS-compatible adjustments"}</div>
+          <div className="text-xs text-[var(--color-text-tertiary)]">{getActiveRasterAdjustments(edit.adjustments).length > 0 ? "CSS + raster adjustments" : "CSS-compatible adjustments"}</div>
         </div>
       </div>
 

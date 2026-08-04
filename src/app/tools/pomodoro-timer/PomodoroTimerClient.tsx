@@ -146,11 +146,11 @@ function SummaryCard({ label, value, hint, icon }: { label: string; value: strin
   return (
     <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2.5 shadow-[var(--shadow-xs)]">
       <div className="flex items-center justify-between gap-2">
-        <span className="truncate font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</span>
-        <span className="text-[var(--color-primary)]">{icon}</span>
+        <span className="truncate font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</span>
+        <span className="text-[var(--color-primary-text-strong)]">{icon}</span>
       </div>
       <div className="mt-1 truncate text-xl font-black tracking-tight text-[var(--color-text-primary)]" title={value}>{value}</div>
-      <div className="mt-0.5 truncate text-[11px] text-[var(--color-text-tertiary)]">{hint}</div>
+      <div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]">{hint}</div>
     </div>
   );
 }
@@ -158,7 +158,7 @@ function SummaryCard({ label, value, hint, icon }: { label: string; value: strin
 function Field({ label, hint, children }: { label: string; hint?: string; children: React.ReactNode }) {
   return (
     <label className="block min-w-0">
-      <span className="mb-1 flex items-center justify-between gap-2 text-[11px] font-bold text-[var(--color-text-secondary)]">
+      <span className="mb-1 flex items-center justify-between gap-2 text-xs font-bold text-[var(--color-text-secondary)]">
         <span>{label}</span>
         {hint ? <span className="font-normal text-[var(--color-text-tertiary)]">{hint}</span> : null}
       </span>
@@ -179,7 +179,7 @@ function Toggle({ checked, onChange, label, description, disabled = false }: { c
       />
       <span className="min-w-0">
         <span className="block text-xs font-bold text-[var(--color-text-primary)]">{label}</span>
-        <span className="mt-0.5 block text-[10px] leading-4 text-[var(--color-text-tertiary)]">{description}</span>
+        <span className="mt-0.5 block text-xs leading-4 text-[var(--color-text-tertiary)]">{description}</span>
       </span>
     </label>
   );
@@ -504,8 +504,8 @@ export default function PomodoroTimerClient() {
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
             <div className="mb-3 flex items-center justify-between gap-2">
               <div>
-                <h2 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4 text-[var(--color-primary)]" />Focus presets</h2>
-                <p className="mt-0.5 text-[11px] text-[var(--color-text-tertiary)]">Load a complete cycle, task, and daily target.</p>
+                <h2 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" />Focus presets</h2>
+                <p className="mt-0.5 text-xs text-[var(--color-text-tertiary)]">Load a complete cycle, task, and daily target.</p>
               </div>
               <Button size="sm" variant="ghost" onClick={() => applyPreset(DEFAULT_POMODORO_PRESET_ID)} leftIcon={<RotateCcw className="h-3.5 w-3.5" />}>Reset</Button>
             </div>
@@ -513,7 +513,7 @@ export default function PomodoroTimerClient() {
               {POMODORO_PRESETS.map((preset) => (
                 <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-2.5 text-left transition hover:border-[var(--color-primary)] hover:bg-[var(--color-control-hover)]">
                   <span className="block truncate text-xs font-bold text-[var(--color-text-primary)]">{preset.name}</span>
-                  <span className="mt-1 block line-clamp-2 text-[10px] leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
+                  <span className="mt-1 block line-clamp-2 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
                 </button>
               ))}
             </div>
@@ -521,10 +521,10 @@ export default function PomodoroTimerClient() {
 
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
             <div className="mb-3 flex items-center gap-2">
-              <Target className="h-4 w-4 text-[var(--color-primary)]" />
+              <Target className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
               <div>
                 <h2 className="text-sm font-black text-[var(--color-text-primary)]">Session plan</h2>
-                <p className="text-[11px] text-[var(--color-text-tertiary)]">Name the work and set a realistic focus target.</p>
+                <p className="text-xs text-[var(--color-text-tertiary)]">Name the work and set a realistic focus target.</p>
               </div>
             </div>
             <div className="space-y-3">
@@ -535,7 +535,7 @@ export default function PomodoroTimerClient() {
                 <Input type="number" min={1} max={24} value={targetSessions} onChange={(event) => setTargetSessions(Math.min(24, Math.max(1, Number(event.target.value) || 1)))} />
               </Field>
               <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3">
-                <div className="mb-1.5 flex items-center justify-between text-[11px] font-bold text-[var(--color-text-secondary)]">
+                <div className="mb-1.5 flex items-center justify-between text-xs font-bold text-[var(--color-text-secondary)]">
                   <span>Daily progress</span>
                   <span>{todayStats.completedFocusSessions} of {targetSessions}</span>
                 </div>
@@ -563,19 +563,19 @@ export default function PomodoroTimerClient() {
                   </button>
                 ))}
               </div>
-              <span className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{status}</span>
+              <span className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-2.5 py-1 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{status}</span>
             </div>
           </div>
 
           <div className="px-5 py-8 text-center sm:px-8 sm:py-10">
-            <div className="text-xs font-black uppercase tracking-[0.18em] text-[var(--color-primary)]">{PHASE_LABEL[phase]}</div>
+            <div className="text-xs font-black uppercase tracking-[0.18em] text-[var(--color-primary-text-strong)]">{PHASE_LABEL[phase]}</div>
             <div className="mt-2 font-mono text-7xl font-black tabular-nums tracking-[-0.06em] text-[var(--color-text-primary)] sm:text-8xl">{formatTime(secondsLeft)}</div>
             <p className="mx-auto mt-3 max-w-xl truncate text-sm font-semibold text-[var(--color-text-secondary)]" title={task || "No task selected"}>{task || "No task selected"}</p>
 
             <div className="mx-auto mt-5 h-2.5 w-full max-w-xl overflow-hidden rounded-full bg-[var(--color-surface-subtle)]">
               <div className="h-full rounded-full bg-[var(--color-primary)] transition-[width] duration-300" style={{ width: `${progress}%` }} />
             </div>
-            <div className="mx-auto mt-2 flex max-w-xl items-center justify-between font-mono text-[10px] text-[var(--color-text-tertiary)]">
+            <div className="mx-auto mt-2 flex max-w-xl items-center justify-between font-mono text-xs text-[var(--color-text-tertiary)]">
               <span>{Math.round(progress)}%</span>
               <span>{formatTime(durationSeconds)}</span>
             </div>
@@ -592,10 +592,10 @@ export default function PomodoroTimerClient() {
               {Array.from({ length: config.sessionsBeforeLongBreak }).map((_, index) => (
                 <span key={index} className={`h-2.5 w-8 rounded-full ${index < cyclePosition ? "bg-[var(--color-primary)]" : "bg-[var(--color-border-strong)]"}`} />
               ))}
-              <span className="ml-1 text-[11px] font-semibold text-[var(--color-text-tertiary)]">Long break after {config.sessionsBeforeLongBreak}</span>
+              <span className="ml-1 text-xs font-semibold text-[var(--color-text-tertiary)]">Long break after {config.sessionsBeforeLongBreak}</span>
             </div>
 
-            <div className="mt-5 text-[10px] text-[var(--color-text-tertiary)]">Keyboard: Space start/pause · R reset · S skip</div>
+            <div className="mt-5 text-xs text-[var(--color-text-tertiary)]">Keyboard: Space start/pause · R reset · S skip</div>
           </div>
         </section>
       </div>
@@ -624,9 +624,9 @@ export default function PomodoroTimerClient() {
                   <div className="mt-3 grid gap-2 md:grid-cols-3">
                     {(["focus", "shortBreak", "longBreak"] as TimerPhase[]).map((item) => (
                       <div key={item} className={`rounded-[var(--radius-md)] border p-3 ${phase === item ? "border-[var(--color-primary)] bg-[var(--color-control-hover)]" : "border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]"}`}>
-                        <div className="text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{PHASE_LABEL[item]}</div>
+                        <div className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{PHASE_LABEL[item]}</div>
                         <div className="mt-1 text-lg font-black text-[var(--color-text-primary)]">{phaseSeconds(config, item) / 60} min</div>
-                        <div className="mt-1 text-[10px] text-[var(--color-text-tertiary)]">{item === "focus" ? `${config.sessionsBeforeLongBreak} before long break` : item === "shortBreak" ? "between focus blocks" : "cycle recovery"}</div>
+                        <div className="mt-1 text-xs text-[var(--color-text-tertiary)]">{item === "focus" ? `${config.sessionsBeforeLongBreak} before long break` : item === "shortBreak" ? "between focus blocks" : "cycle recovery"}</div>
                       </div>
                     ))}
                   </div>
@@ -638,7 +638,7 @@ export default function PomodoroTimerClient() {
                   {checks.map((check) => (
                     <div key={check.id} className={`rounded-[var(--radius-md)] border p-3 ${CHECK_STYLES[check.level]}`}>
                       <div className="text-xs font-black">{check.title}</div>
-                      <p className="mt-1 text-[10px] leading-4 opacity-90">{check.message}</p>
+                      <p className="mt-1 text-xs leading-4 opacity-90">{check.message}</p>
                     </div>
                   ))}
                 </div>
@@ -651,7 +651,7 @@ export default function PomodoroTimerClient() {
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <div>
                   <h3 className="text-sm font-black text-[var(--color-text-primary)]">Local session history</h3>
-                  <p className="text-[11px] text-[var(--color-text-tertiary)]">Up to {MAX_HISTORY} completed or skipped phases are stored in this browser.</p>
+                  <p className="text-xs text-[var(--color-text-tertiary)]">Up to {MAX_HISTORY} completed or skipped phases are stored in this browser.</p>
                 </div>
                 <div className="flex gap-2">
                   <Button size="sm" variant="secondary" disabled={!history.length} onClick={() => downloadText("pomodoro-history.csv", historyCsv, "text/csv;charset=utf-8")} leftIcon={<FileSpreadsheet className="h-3.5 w-3.5" />}>CSV</Button>
@@ -660,7 +660,7 @@ export default function PomodoroTimerClient() {
               </div>
               <div className="overflow-x-auto rounded-[var(--radius-md)] border border-[var(--color-border-subtle)]">
                 <table className="w-full min-w-[700px] text-left text-xs">
-                  <thead className="bg-[var(--color-surface-subtle)] text-[10px] uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">
+                  <thead className="bg-[var(--color-surface-subtle)] text-xs uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">
                     <tr><th className="px-3 py-2">Ended</th><th className="px-3 py-2">Phase</th><th className="px-3 py-2">Task</th><th className="px-3 py-2">Elapsed</th><th className="px-3 py-2">Status</th></tr>
                   </thead>
                   <tbody>
@@ -670,7 +670,7 @@ export default function PomodoroTimerClient() {
                         <td className="px-3 py-2 font-bold text-[var(--color-text-primary)]">{PHASE_LABEL[entry.phase]}</td>
                         <td className="max-w-[280px] truncate px-3 py-2 text-[var(--color-text-secondary)]" title={entry.task}>{entry.task || "—"}</td>
                         <td className="px-3 py-2 font-mono text-[var(--color-text-secondary)]">{formatTime(entry.elapsedSeconds)}</td>
-                        <td className="px-3 py-2"><span className={`rounded-full px-2 py-1 text-[10px] font-bold ${entry.status === "completed" ? "bg-[var(--color-success-bg)] text-[var(--color-success-text)]" : "bg-[var(--color-warning-bg)] text-[var(--color-warning-text)]"}`}>{entry.status}</span></td>
+                        <td className="px-3 py-2"><span className={`rounded-full px-2 py-1 text-xs font-bold ${entry.status === "completed" ? "bg-[var(--color-success-bg)] text-[var(--color-success-text)]" : "bg-[var(--color-warning-bg)] text-[var(--color-warning-text)]"}`}>{entry.status}</span></td>
                       </tr>
                     ))}
                     {!history.length ? <tr><td colSpan={5} className="px-3 py-8 text-center text-[var(--color-text-tertiary)]">Complete or skip a phase to build your local session log.</td></tr> : null}
@@ -707,7 +707,7 @@ export default function PomodoroTimerClient() {
                   <div className="space-y-2">
                     <Toggle checked={config.soundEnabled} onChange={(checked) => updateConfig({ soundEnabled: checked })} label="Completion sound" description="Play a two-tone browser-local beep at the end of a phase." />
                     <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3">
-                      <div className="flex items-center justify-between gap-2 text-xs font-bold text-[var(--color-text-primary)]"><span className="flex items-center gap-2"><Volume2 className="h-4 w-4 text-[var(--color-primary)]" />Sound volume</span><span>{Math.round(config.volume * 100)}%</span></div>
+                      <div className="flex items-center justify-between gap-2 text-xs font-bold text-[var(--color-text-primary)]"><span className="flex items-center gap-2"><Volume2 className="h-4 w-4 text-[var(--color-primary-text-strong)]" />Sound volume</span><span>{Math.round(config.volume * 100)}%</span></div>
                       <input className="mt-3 w-full accent-[var(--color-primary)]" type="range" min={0} max={1} step={0.05} value={config.volume} onChange={(event) => updateConfig({ volume: Number(event.target.value) })} disabled={!config.soundEnabled} />
                     </div>
                     <Toggle checked={config.notificationsEnabled} onChange={(checked) => updateConfig({ notificationsEnabled: checked })} label="Desktop notifications" description={`Permission: ${notificationPermission}`} disabled={!notificationSupported} />
@@ -717,7 +717,7 @@ export default function PomodoroTimerClient() {
                 </div>
                 <div className="rounded-[var(--radius-md)] border border-[var(--color-info-border)] bg-[var(--color-info-bg)] p-3 text-[var(--color-info-text)]">
                   <div className="flex items-center gap-2 text-xs font-black"><Bell className="h-4 w-4" />Browser behavior</div>
-                  <p className="mt-1 text-[10px] leading-4">The timer uses an absolute deadline, so it corrects interval drift when the tab is throttled. Browsers may still suspend audio or notifications under power-saving policies.</p>
+                  <p className="mt-1 text-xs leading-4">The timer uses an absolute deadline, so it corrects interval drift when the tab is throttled. Browsers may still suspend audio or notifications under power-saving policies.</p>
                 </div>
               </div>
             </div>
@@ -727,7 +727,7 @@ export default function PomodoroTimerClient() {
             <div className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_360px]">
               <div className="space-y-3">
                 <div className="flex items-center justify-between gap-2"><h3 className="text-sm font-black text-[var(--color-text-primary)]">Report preview</h3><CopyButton text={markdown} size="sm" variant="secondary">Copy Markdown</CopyButton></div>
-                <pre className="max-h-[420px] overflow-auto whitespace-pre-wrap rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-4 font-mono text-[11px] leading-5 text-[var(--color-text-secondary)]">{markdown}</pre>
+                <pre className="max-h-[420px] overflow-auto whitespace-pre-wrap rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-4 font-mono text-xs leading-5 text-[var(--color-text-secondary)]">{markdown}</pre>
               </div>
               <div className="space-y-2">
                 <Button className="w-full justify-start" variant="secondary" onClick={() => downloadText("pomodoro-summary.md", markdown, "text/markdown;charset=utf-8")} leftIcon={<Download className="h-4 w-4" />}>Download Markdown</Button>
@@ -735,7 +735,7 @@ export default function PomodoroTimerClient() {
                 <Button className="w-full justify-start" variant="secondary" onClick={() => downloadText("pomodoro-history.csv", historyCsv, "text/csv;charset=utf-8")} leftIcon={<FileSpreadsheet className="h-4 w-4" />}>Download history CSV</Button>
                 <Button className="w-full justify-start" variant="secondary" onClick={() => downloadText("drift-resistant-timer.js", jsStarter, "text/javascript;charset=utf-8")} leftIcon={<Code2 className="h-4 w-4" />}>Download JavaScript starter</Button>
                 <Button className="w-full justify-start" variant="primary" onClick={downloadPack} leftIcon={<PackageCheck className="h-4 w-4" />}>Download production pack</Button>
-                <div className="mt-3 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3 text-[10px] leading-4 text-[var(--color-text-tertiary)]">Exports include local session history but never include browser notification permissions or any external account data.</div>
+                <div className="mt-3 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3 text-xs leading-4 text-[var(--color-text-tertiary)]">Exports include local session history but never include browser notification permissions or any external account data.</div>
               </div>
             </div>
           ) : null}

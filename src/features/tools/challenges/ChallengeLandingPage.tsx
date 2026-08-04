@@ -89,12 +89,12 @@ function profileFor(tool: ToolDefinition) {
 
 function accentClasses(profile: ChallengeProfile) {
   if (profile.accent === "accent") {
-    return "from-[var(--color-accent-soft)] to-transparent text-[var(--color-accent)] border-[var(--color-accent-border)]";
+    return "from-[var(--color-accent-soft)] to-transparent text-[var(--color-accent-text)] border-[var(--color-accent-border)]";
   }
   if (profile.accent === "warning") {
     return "from-[var(--color-warning-bg)] to-transparent text-[var(--color-warning-text)] border-[var(--color-warning-border)]";
   }
-  return "from-[var(--color-primary-soft)] to-transparent text-[var(--color-primary)] border-[var(--color-primary-border)]";
+  return "from-[var(--color-primary-soft)] to-transparent text-[var(--color-primary-text-strong)] border-[var(--color-primary-border)]";
 }
 
 function ChallengeMiniCard({ tool, index }: { tool: ToolDefinition; index: number }) {
@@ -127,12 +127,12 @@ function ChallengeMiniCard({ tool, index }: { tool: ToolDefinition; index: numbe
               </span>
               <div>
                 <Badge variant="warning">Challenge</Badge>
-                <p className="mt-1 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+                <p className="mt-1 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
                   {profile.rhythm}
                 </p>
               </div>
             </div>
-            <span className="rounded-[var(--radius-full)] border border-white/60 bg-white/75 px-2.5 py-1 font-mono text-[10px] font-black text-[var(--color-primary)] shadow-[var(--shadow-xs)] dark:border-white/10 dark:bg-white/10">
+            <span className="rounded-[var(--radius-full)] border border-white/60 bg-white/75 px-2.5 py-1 font-mono text-xs font-black text-[var(--color-primary-text-strong)] shadow-[var(--shadow-xs)] dark:border-white/10 dark:bg-white/10">
               0{index + 1}
             </span>
           </div>
@@ -146,7 +146,7 @@ function ChallengeMiniCard({ tool, index }: { tool: ToolDefinition; index: numbe
 
           <div className="mt-4 grid grid-cols-2 gap-2">
             <div className="rounded-[var(--radius-md)] border border-white/55 bg-white/60 p-3 dark:border-white/10 dark:bg-white/10">
-              <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+              <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
                 Score
               </p>
               <p className="mt-1 text-sm font-black text-[var(--color-text-primary)]">
@@ -154,7 +154,7 @@ function ChallengeMiniCard({ tool, index }: { tool: ToolDefinition; index: numbe
               </p>
             </div>
             <div className="rounded-[var(--radius-md)] border border-white/55 bg-white/60 p-3 dark:border-white/10 dark:bg-white/10">
-              <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+              <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
                 Best for
               </p>
               <p className="mt-1 text-sm font-black text-[var(--color-text-primary)]">
@@ -170,7 +170,7 @@ function ChallengeMiniCard({ tool, index }: { tool: ToolDefinition; index: numbe
               </Badge>
             ))}
           </div>
-          <span className="mt-auto pt-5 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-primary)]">
+          <span className="mt-auto pt-5 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-primary-text-strong)]">
             {profile.quickLabel} →
           </span>
         </div>
@@ -214,7 +214,7 @@ function FeaturedChallengeCard({ tool }: { tool: ToolDefinition }) {
             <p className="text-xl font-black text-[var(--color-text-primary)]">
               {profile.scoreLabel}
             </p>
-            <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+            <p className="mt-1 text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
               Score type
             </p>
           </div>
@@ -222,7 +222,7 @@ function FeaturedChallengeCard({ tool }: { tool: ToolDefinition }) {
             <p className="text-xl font-black text-[var(--color-text-primary)]">
               Local
             </p>
-            <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+            <p className="mt-1 text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
               History
             </p>
           </div>
@@ -230,7 +230,7 @@ function FeaturedChallengeCard({ tool }: { tool: ToolDefinition }) {
             <p className="text-xl font-black text-[var(--color-text-primary)]">
               Zero
             </p>
-            <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+            <p className="mt-1 text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
               Setup
             </p>
           </div>
@@ -257,10 +257,10 @@ function ChallengeConsole({ toolsCount }: { toolsCount: number }) {
       <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-[var(--color-accent-soft)] blur-2xl" />
       <div className="relative">
         <div className="flex items-center justify-between gap-3">
-          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">
             Challenge console
           </p>
-          <span className="inline-flex items-center gap-1 rounded-[var(--radius-full)] border border-[var(--color-success-border)] bg-[var(--color-success-bg)] px-2 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-success-text)]">
+          <span className="inline-flex items-center gap-1 rounded-[var(--radius-full)] border border-[var(--color-success-border)] bg-[var(--color-success-bg)] px-2 py-1 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-success-text)]">
             <span className="h-1.5 w-1.5 rounded-full bg-current motion-safe:animate-pulse" />
             Live
           </span>
@@ -270,7 +270,7 @@ function ChallengeConsole({ toolsCount }: { toolsCount: number }) {
             <p className="text-3xl font-black tracking-[-0.05em] text-[var(--color-text-primary)]">
               {toolsCount}
             </p>
-            <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+            <p className="mt-1 text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
               Tools
             </p>
           </div>
@@ -278,7 +278,7 @@ function ChallengeConsole({ toolsCount }: { toolsCount: number }) {
             <p className="text-3xl font-black tracking-[-0.05em] text-[var(--color-text-primary)]">
               4
             </p>
-            <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+            <p className="mt-1 text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
               Modes
             </p>
           </div>
@@ -286,7 +286,7 @@ function ChallengeConsole({ toolsCount }: { toolsCount: number }) {
             <p className="text-3xl font-black tracking-[-0.05em] text-[var(--color-text-primary)]">
               0
             </p>
-            <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+            <p className="mt-1 text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
               Signup
             </p>
           </div>
@@ -320,7 +320,7 @@ function QuickStartStrip({ tools }: { tools: ToolDefinition[] }) {
               >
                 {profile.icon}
               </span>
-              <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)] group-hover:text-[var(--color-primary)]">
+              <span className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)] group-hover:text-[var(--color-primary-text-strong)]">
                 Quick start →
               </span>
             </div>
@@ -377,7 +377,7 @@ export function ChallengeLandingPage({ tools }: { tools: ToolDefinition[] }) {
         <div className="relative">
           <Link
             href="/tools"
-            className="inline-flex rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)] transition hover:border-[var(--color-primary-border)] hover:text-[var(--color-text-primary)] focus:outline-none focus:shadow-[var(--focus-ring)]"
+            className="inline-flex rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-3 py-1.5 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)] transition hover:border-[var(--color-primary-border)] hover:text-[var(--color-text-primary)] focus:outline-none focus:shadow-[var(--focus-ring)]"
           >
             ← Back to tools
           </Link>
@@ -447,7 +447,7 @@ export function ChallengeLandingPage({ tools }: { tools: ToolDefinition[] }) {
                     key={step}
                     className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-xs)]"
                   >
-                    <p className="font-mono text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-primary)]">
+                    <p className="font-mono text-xs font-black uppercase tracking-[0.08em] text-[var(--color-primary-text-strong)]">
                       {step}
                     </p>
                     <h3 className="mt-2 text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">
@@ -475,7 +475,7 @@ export function ChallengeLandingPage({ tools }: { tools: ToolDefinition[] }) {
               Pick a quick test
             </h2>
           </div>
-          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
             Built from interactive-challenge layout
           </p>
         </div>
@@ -526,7 +526,7 @@ export function ChallengeLandingPage({ tools }: { tools: ToolDefinition[] }) {
               <Link
                 key={category}
                 href={`/tools/category/${slugifyCategory(category)}`}
-                className="rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)] transition hover:border-[var(--color-primary-border)] hover:text-[var(--color-text-primary)] focus:outline-none focus:shadow-[var(--focus-ring)]"
+                className="rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-3 py-1.5 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)] transition hover:border-[var(--color-primary-border)] hover:text-[var(--color-text-primary)] focus:outline-none focus:shadow-[var(--focus-ring)]"
               >
                 {formatCategory(category)}
               </Link>

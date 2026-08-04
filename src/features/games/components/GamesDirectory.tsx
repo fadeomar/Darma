@@ -103,13 +103,13 @@ export function GamesDirectory({ games, showHero = true, initialFilter = "all" }
       <section id="games-results" className="mt-8 scroll-mt-24" aria-labelledby="games-results-title">
         <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
           <div>
-            <p className="font-mono text-[10px] font-black uppercase tracking-[0.1em] text-[var(--color-primary)]">Catalog</p>
+            <p className="font-mono text-xs font-black uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">Catalog</p>
             <h2 id="games-results-title" className="mt-2 text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">
               {hasFilters ? "Matching games" : "All games"}
             </h2>
           </div>
           <p
-            className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]"
+            className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]"
             aria-live="polite"
           >
             {results.length} of {games.length} game{results.length === 1 ? "" : "s"}

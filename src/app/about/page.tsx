@@ -48,7 +48,7 @@ const secondaryLinkClass =
   "group inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-5 text-sm font-semibold text-[var(--color-text-primary)] shadow-[var(--shadow-xs)] transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-subtle)]";
 const sectionClass = "mx-auto max-w-[var(--container-wide)] px-4 py-10 sm:px-6 lg:px-8 lg:py-14";
 const eyebrowClass =
-  "font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]";
+  "font-mono text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]";
 
 const HELP_ICONS = [Wrench, Sparkles, Library, ShieldCheck];
 
@@ -212,7 +212,7 @@ export default function AboutPage() {
               <Card key={group.id} padding="md" className="flex h-full flex-col">
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    <Users className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+                    <Users className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
                     <h3 className="mt-4 text-lg font-black text-[var(--color-text-primary)]">{group.title}</h3>
                   </div>
                   <Badge variant="outline">{tools.length} picks</Badge>
@@ -221,14 +221,14 @@ export default function AboutPage() {
                 <ul className="mt-5 space-y-2">
                   {tools.map((tool) => (
                     <li key={tool.id}>
-                      <Link href={tool.href} className="group flex min-h-11 items-center justify-between gap-3 rounded-[var(--radius-sm)] px-2 text-sm font-semibold text-[var(--color-text-primary)] transition hover:bg-[var(--color-control-hover)] hover:text-[var(--color-primary)]">
+                      <Link href={tool.href} className="group flex min-h-11 items-center justify-between gap-3 rounded-[var(--radius-sm)] px-2 text-sm font-semibold text-[var(--color-text-primary)] transition hover:bg-[var(--color-control-hover)] hover:text-[var(--color-primary-text-strong)]">
                         <span className="line-clamp-2">{tool.title}</span>
                         <ArrowRight className="darma-link-arrow h-[18px] w-[18px] shrink-0" aria-hidden />
                       </Link>
                     </li>
                   ))}
                 </ul>
-                <Link href="/tools" className="group mt-auto inline-flex items-center gap-2 pt-5 text-sm font-bold text-[var(--color-primary)]">
+                <Link href="/tools" className="group mt-auto inline-flex items-center gap-2 pt-5 text-sm font-bold text-[var(--color-primary-text-strong)]">
                   Browse all tools <ArrowRight className="darma-link-arrow h-4 w-4" aria-hidden />
                 </Link>
               </Card>
@@ -261,7 +261,7 @@ export default function AboutPage() {
                 <span className="text-lg font-black">{title}</span>
                 <span className="mt-5 flex items-center justify-between gap-3 text-sm font-semibold text-[var(--color-text-secondary)]">
                   {meta}
-                  <ArrowRight className="darma-link-arrow h-[18px] w-[18px] shrink-0 text-[var(--color-primary)]" aria-hidden />
+                  <ArrowRight className="darma-link-arrow h-[18px] w-[18px] shrink-0 text-[var(--color-primary-text-strong)]" aria-hidden />
                 </span>
               </Link>
             ))}
@@ -273,7 +273,7 @@ export default function AboutPage() {
         <div className="grid gap-6 lg:grid-cols-[1.08fr_.92fr]">
           <Card padding="lg" className="border-[var(--color-primary-border)]">
             <div className="flex items-center gap-3">
-              <ShieldCheck className="h-6 w-6 text-[var(--color-primary)]" aria-hidden />
+              <ShieldCheck className="h-6 w-6 text-[var(--color-primary-text-strong)]" aria-hidden />
               <p className={eyebrowClass}>Editorial responsibility</p>
             </div>
             <h2 className="darma-balanced-heading mt-5 text-3xl font-black tracking-[-0.035em] text-[var(--color-text-primary)]">
@@ -344,7 +344,7 @@ export default function AboutPage() {
       <section id="maintainers" className="darma-section-shell darma-section-ink scroll-mt-28">
         <div className={`${sectionClass} grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center`}>
           <div className="max-w-3xl">
-            <p className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--color-primary)]">Open-source stewardship</p>
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-primary-text-strong)]">Open-source stewardship</p>
             <h2 className="darma-balanced-heading mt-3 text-3xl font-black tracking-[-0.035em] text-[var(--color-text-on-ink)] sm:text-4xl">
               Help keep Darma useful, accurate, and open.
             </h2>

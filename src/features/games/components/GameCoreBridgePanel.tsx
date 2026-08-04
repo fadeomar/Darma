@@ -37,7 +37,7 @@ export function GameCoreBridgePanel({ games }: GameCoreBridgePanelProps) {
           const Icon = [DatabaseZap, Layers3, SearchCheck, GitBranch][index] ?? DatabaseZap;
           return (
             <div key={item.label} className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
-              <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]">
+              <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-[var(--radius-md)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]">
                 <Icon className="h-4 w-4" aria-hidden />
               </div>
               <p className="text-2xl font-black tracking-[-0.04em] text-[var(--color-text-primary)]">{item.value}</p>

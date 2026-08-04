@@ -83,7 +83,7 @@ function shadowValue(state: BorderRadiusState) {
 function QuickMetric({ label, value, detail }: { label: string; value: ReactNode; detail?: string }) {
   return (
     <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border)] bg-white/75 p-3 shadow-sm backdrop-blur dark:bg-[var(--color-code-surface)]/70">
-      <div className="text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
+      <div className="text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
       <div className="mt-1 truncate text-sm font-black text-[var(--color-text-primary)]" title={typeof value === "string" ? value : undefined}>{value}</div>
       {detail ? <div className="mt-1 truncate text-xs font-semibold text-[var(--color-text-secondary)]" title={detail}>{detail}</div> : null}
     </div>
@@ -353,7 +353,7 @@ function CornerLabels({ state }: { state: BorderRadiusState }) {
       {corners.map((corner) => (
         <span
           key={corner}
-          className="absolute rounded-full bg-black/60 px-2 py-1 text-[10px] font-black text-white"
+          className="absolute rounded-full bg-black/60 px-2 py-1 text-xs font-black text-white"
           style={{
             top: corner.includes("top") ? 8 : undefined,
             bottom: corner.includes("bottom") ? 8 : undefined,

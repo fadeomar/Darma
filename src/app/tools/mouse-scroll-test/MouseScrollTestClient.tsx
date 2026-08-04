@@ -539,8 +539,8 @@ export default function MouseScrollTestClient() {
             {isCountdown ? (
               <div className="absolute inset-0 z-20 flex items-center justify-center bg-[rgba(255,248,237,0.72)] backdrop-blur-sm dark:bg-[rgba(20,17,14,0.72)]" aria-live="assertive">
                 <div className="text-center">
-                  <p className="font-mono text-[11px] font-black uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">Get ready</p>
-                  <div className="mt-4 text-8xl font-black tracking-[-0.08em] text-[var(--color-primary)] motion-safe:animate-ping sm:text-9xl">
+                  <p className="font-mono text-xs font-black uppercase tracking-[0.22em] text-[var(--color-text-tertiary)]">Get ready</p>
+                  <div className="mt-4 text-8xl font-black tracking-[-0.08em] text-[var(--color-primary-text-strong)] motion-safe:animate-ping sm:text-9xl">
                     {countdown}
                   </div>
                   <p className="mt-4 text-sm font-bold text-[var(--color-text-secondary)]">Put your pointer inside the arena.</p>
@@ -568,10 +568,10 @@ export default function MouseScrollTestClient() {
               <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col items-center justify-center text-center" aria-live="polite">
                 <div className="relative flex h-28 w-28 items-center justify-center rounded-[2rem] border border-white/55 bg-white/70 shadow-[0_24px_70px_rgba(98,68,33,0.18)] backdrop-blur dark:border-white/10 dark:bg-white/10 sm:h-36 sm:w-36">
                   <div className={cn("absolute inset-3 rounded-[1.5rem] border border-[var(--color-primary-border)]", isRunning && "motion-safe:animate-pulse")} />
-                  <Mouse className={cn("h-12 w-12 text-[var(--color-primary)] sm:h-16 sm:w-16", isRunning && "motion-safe:animate-bounce")} aria-hidden />
+                  <Mouse className={cn("h-12 w-12 text-[var(--color-primary-text-strong)] sm:h-16 sm:w-16", isRunning && "motion-safe:animate-bounce")} aria-hidden />
                 </div>
 
-                <p className="mt-6 font-mono text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">
+                <p className="mt-6 font-mono text-xs font-bold uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">
                   {isCountdown ? "Ready your hand" : isRunning ? "Scroll inside the arena" : status === "finished" ? "Sprint complete" : "Choose a mode, start, then scroll here"}
                 </p>
                 <h2 className="mt-3 text-5xl font-black tracking-[-0.06em] text-[var(--color-text-primary)] sm:text-7xl">
@@ -594,7 +594,7 @@ export default function MouseScrollTestClient() {
                     description={activeInsight}
                     metricLabel="Average"
                     metricValue={`${formatNumber(stats.pixelsPerSecond)} px/s`}
-                    icon={<Trophy className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />}
+                    icon={<Trophy className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />}
                     badges={[
                       { label: "Distance", value: `${formatNumber(stats.totalDistance)} px`, tone: "primary", icon: <Gauge className="h-3 w-3" aria-hidden /> },
                       { label: "Burst", value: `${formatNumber(stats.bestBurst)} px/s`, tone: "success", icon: <Zap className="h-3 w-3" aria-hidden /> },
@@ -679,7 +679,7 @@ export default function MouseScrollTestClient() {
         <div className="space-y-4">
           <ChallengePersonalBestCard
             title="Best run"
-            icon={<Crown className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />}
+            icon={<Crown className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />}
             badge={personalBest ? <Badge variant="success">{modeLabel(personalBest.mode)}</Badge> : undefined}
             empty={
               <ChallengeEmptyState
@@ -691,7 +691,7 @@ export default function MouseScrollTestClient() {
           >
             {personalBest ? (
               <div className="mt-4 rounded-[var(--radius-md)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] p-4">
-                <p className="text-3xl font-black tracking-[-0.04em] text-[var(--color-primary)]">{formatNumber(personalBest.stats.pixelsPerSecond)} px/s</p>
+                <p className="text-3xl font-black tracking-[-0.04em] text-[var(--color-primary-text-strong)]">{formatNumber(personalBest.stats.pixelsPerSecond)} px/s</p>
                 <p className="mt-1 text-xs leading-5 text-[var(--color-text-secondary)]">
                   {formatNumber(personalBest.stats.totalDistance)} px · {personalBest.stats.eventsCount} events · {personalBest.stats.inputMethod}
                 </p>
@@ -701,7 +701,7 @@ export default function MouseScrollTestClient() {
 
           <ChallengeHistoryPanel
             title="Last 10 runs"
-            icon={<History className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />}
+            icon={<History className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />}
             items={history}
             onClear={clearHistory}
             empty={
@@ -730,23 +730,23 @@ export default function MouseScrollTestClient() {
           eyebrow="Measurement notes"
           tips={[
             {
-              icon: <Medal className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]" aria-hidden />,
+              icon: <Medal className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]" aria-hidden />,
               text: "Each new run keeps relative event timing, movement deltas, and the wheel or touch source for local review.",
             },
             {
-              icon: <Timer className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]" aria-hidden />,
+              icon: <Timer className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]" aria-hidden />,
               text: "Use a fixed timer and one input method when comparing attempts. Manual mode is useful for diagnostics, not rankings.",
             },
             {
-              icon: <ShieldCheck className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]" aria-hidden />,
+              icon: <ShieldCheck className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]" aria-hidden />,
               text: "The page scroll lock is active only while the sprint is running and is released immediately when the run ends.",
             },
             {
-              icon: <Info className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]" aria-hidden />,
+              icon: <Info className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]" aria-hidden />,
               text: "Results are best for comparison because OS, browser, wheel settings, and touchpads report scroll deltas differently.",
             },
             {
-              icon: <Sparkles className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]" aria-hidden />,
+              icon: <Sparkles className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]" aria-hidden />,
               text: "JSON restores local history, while Markdown, CSV, and ZIP preserve the latest result for controlled comparison.",
             },
           ]}

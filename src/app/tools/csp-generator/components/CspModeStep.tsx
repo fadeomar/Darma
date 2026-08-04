@@ -27,14 +27,14 @@ export function CspModeStep({ mode, onChange }: { mode: CspPolicyMode; onChange:
             <div className="flex items-center justify-between gap-2">
               <span className="text-sm font-black text-[var(--color-text-primary)]">{meta.label}</span>
               {active ? (
-                <Check className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+                <Check className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
               ) : meta.recommended ? (
-                <span className="rounded-[var(--radius-full)] border border-[var(--color-success-border)] bg-[var(--color-success-bg)] px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-[0.08em] text-[var(--color-success-text)]">
+                <span className="rounded-[var(--radius-full)] border border-[var(--color-success-border)] bg-[var(--color-success-bg)] px-2 py-0.5 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-success-text)]">
                   Recommended
                 </span>
               ) : null}
             </div>
-            <span className="mt-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+            <span className="mt-0.5 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
               {meta.tagline}
             </span>
             <span className="mt-2 text-xs leading-5 text-[var(--color-text-secondary)]">{meta.description}</span>

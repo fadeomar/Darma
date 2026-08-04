@@ -113,11 +113,11 @@ export default function LearningPathsPage() {
       <section className="mx-auto max-w-[var(--container-wide)] px-4 sm:px-6 lg:px-8">
         <Card padding="lg" className="grid gap-5 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>
-            <div className="flex items-center gap-2 text-[var(--color-primary)]"><GitBranch className="h-5 w-5" aria-hidden /><span className="font-mono text-xs font-bold uppercase tracking-[0.14em]">Open source guidance</span></div>
+            <div className="flex items-center gap-2 text-[var(--color-primary-text-strong)]"><GitBranch className="h-5 w-5" aria-hidden /><span className="font-mono text-xs font-bold uppercase tracking-[0.14em]">Open source guidance</span></div>
             <h2 className="mt-3 text-2xl font-black text-[var(--color-text-primary)]">Found a missing stage or a stronger official source?</h2>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">The paths are deliberately reviewable and expandable. Suggestions should explain who benefits, where the item belongs, and why the source is trustworthy.</p>
           </div>
-          <Link href="/contribute#learning-paths" className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-5 text-sm font-semibold text-[var(--color-text-primary)] transition hover:border-[var(--color-primary-border)] hover:text-[var(--color-primary)]">Suggest an improvement</Link>
+          <Link href="/contribute#learning-paths" className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-5 text-sm font-semibold text-[var(--color-text-primary)] transition hover:border-[var(--color-primary-border)] hover:text-[var(--color-primary-text-strong)]">Suggest an improvement</Link>
         </Card>
       </section>
     </div>

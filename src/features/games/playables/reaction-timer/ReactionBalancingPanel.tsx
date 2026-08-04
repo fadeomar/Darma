@@ -28,7 +28,7 @@ export function ReactionBalancingPanel() {
     <Card variant="default" padding="lg" className="rtp-balance-panel">
       <div className="rtp-panel-head rtp-panel-head--split">
         <span className="rtp-panel-head-left">
-          <SlidersHorizontal className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+          <SlidersHorizontal className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
           <h3 className="rtp-panel-title">Gameplay balancing</h3>
         </span>
         <span className="rtp-balance-version">{REACTION_BALANCING_VERSION}</span>

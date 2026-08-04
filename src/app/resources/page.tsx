@@ -169,13 +169,13 @@ export default async function ResourcesPage({ searchParams }: PageProps) {
       <section className="mx-auto max-w-[var(--container-wide)] px-4 sm:px-6 lg:px-8">
         <Card padding="lg" className="grid gap-5 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>
-            <div className="flex items-center gap-2 text-[var(--color-primary)]"><GitBranch className="h-5 w-5" aria-hidden /><span className="font-mono text-xs font-bold uppercase tracking-[0.14em]">Open catalog</span></div>
+            <div className="flex items-center gap-2 text-[var(--color-primary-text-strong)]"><GitBranch className="h-5 w-5" aria-hidden /><span className="font-mono text-xs font-bold uppercase tracking-[0.14em]">Open catalog</span></div>
             <h2 className="mt-3 text-2xl font-black text-[var(--color-text-primary)]">A resource becomes more useful when its place in the journey is clear.</h2>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">Open the learning paths to see which sources support each stage, what to build, and how to check your understanding.</p>
           </div>
           <div className="flex flex-wrap gap-3">
             <Link href="/learning-paths" className="inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-md)] bg-[var(--color-primary)] px-5 text-sm font-semibold text-[var(--color-primary-text)] transition hover:bg-[var(--color-primary-hover)]">Browse learning paths <ArrowRight className="h-4 w-4" aria-hidden /></Link>
-            <Link href="/contribute#resources" className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-5 text-sm font-semibold text-[var(--color-text-primary)] transition hover:border-[var(--color-primary-border)] hover:text-[var(--color-primary)]">Suggest a resource</Link>
+            <Link href="/contribute#resources" className="inline-flex min-h-11 items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-5 text-sm font-semibold text-[var(--color-text-primary)] transition hover:border-[var(--color-primary-border)] hover:text-[var(--color-primary-text-strong)]">Suggest a resource</Link>
           </div>
         </Card>
       </section>

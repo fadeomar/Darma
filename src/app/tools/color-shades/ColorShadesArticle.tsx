@@ -75,7 +75,7 @@ export default function ColorShadesArticle() {
         <div className="space-y-6">
           <div>
             <h3 className="text-lg font-medium flex items-center">
-              <span className="bg-[var(--color-primary-soft)] text-[var(--color-primary)] p-2 rounded-full mr-3">
+              <span className="bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)] p-2 rounded-full mr-3">
                 1
               </span>
               Precision Color Control
@@ -87,7 +87,7 @@ export default function ColorShadesArticle() {
           </div>
           <div>
             <h3 className="text-lg font-medium flex items-center">
-              <span className="bg-[var(--color-primary-soft)] text-[var(--color-primary)] p-2 rounded-full mr-3">
+              <span className="bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)] p-2 rounded-full mr-3">
                 2
               </span>
               Developer-Friendly Features
@@ -99,7 +99,7 @@ export default function ColorShadesArticle() {
           </div>
           <div>
             <h3 className="text-lg font-medium flex items-center">
-              <span className="bg-[var(--color-primary-soft)] text-[var(--color-primary)] p-2 rounded-full mr-3">
+              <span className="bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)] p-2 rounded-full mr-3">
                 3
               </span>
               Instant Access

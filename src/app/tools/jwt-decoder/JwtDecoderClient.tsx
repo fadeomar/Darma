@@ -62,9 +62,9 @@ const EMPTY_VERIFICATION: JwtVerificationResult = {
 function SummaryCard({ label, value, hint }: { label: string; value: string; hint: string }) {
   return (
     <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2.5 shadow-[var(--shadow-xs)]">
-      <div className="truncate font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
+      <div className="truncate font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
       <div className="mt-1 truncate text-xl font-black tracking-tight text-[var(--color-text-primary)]">{value}</div>
-      <div className="mt-0.5 truncate text-[11px] text-[var(--color-text-tertiary)]">{hint}</div>
+      <div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]">{hint}</div>
     </div>
   );
 }
@@ -191,7 +191,7 @@ export default function JwtDecoderClient() {
         <div className="flex flex-col gap-3 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3 lg:flex-row lg:items-center lg:justify-between">
           <div className="min-w-0">
             <div className="flex items-center gap-2">
-              <Sparkles className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+              <Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
               <h2 className="text-sm font-bold text-[var(--color-text-primary)]">Practical JWT presets</h2>
             </div>
             <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Inspect lifecycle, identity, privacy, and unsecured-token scenarios without using a real credential.</p>
@@ -208,8 +208,8 @@ export default function JwtDecoderClient() {
               className={`min-w-0 rounded-[var(--radius-md)] border p-2.5 text-left transition focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)] ${selectedPreset === sample.id ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]" : "border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-raised)]"}`}
             >
               <span className="block truncate text-xs font-bold text-[var(--color-text-primary)]">{sample.label}</span>
-              <span className="mt-1 block truncate font-mono text-[10px] uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">{sample.category}</span>
-              <span className="mt-1 line-clamp-2 block text-[11px] leading-4 text-[var(--color-text-secondary)]">{sample.description}</span>
+              <span className="mt-1 block truncate font-mono text-xs uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">{sample.category}</span>
+              <span className="mt-1 line-clamp-2 block text-xs leading-4 text-[var(--color-text-secondary)]">{sample.description}</span>
             </button>
           ))}
         </div>
@@ -219,7 +219,7 @@ export default function JwtDecoderClient() {
         <section className="flex min-w-0 flex-col overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
           <div className="flex flex-col gap-2 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <div className="flex items-center gap-2"><Fingerprint className="h-4 w-4 text-[var(--color-primary)]" aria-hidden /><h2 className="text-sm font-bold text-[var(--color-text-primary)]">Encoded JWT</h2></div>
+              <div className="flex items-center gap-2"><Fingerprint className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden /><h2 className="text-sm font-bold text-[var(--color-text-primary)]">Encoded JWT</h2></div>
               <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Processed locally. The token is not stored in browser storage.</p>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -241,15 +241,15 @@ export default function JwtDecoderClient() {
             />
             {decoded.segments.length === 3 ? (
               <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-inset)] p-3">
-                <div className="mb-2 text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Token anatomy</div>
-                <div className="break-all font-mono text-[11px] leading-5">
+                <div className="mb-2 text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Token anatomy</div>
+                <div className="break-all font-mono text-xs leading-5">
                   <span className="text-[var(--color-danger-text)]">{decoded.segments[0]}</span>
                   <span className="text-[var(--color-text-tertiary)]">.</span>
                   <span className="text-[var(--color-info-text)]">{decoded.segments[1]}</span>
                   <span className="text-[var(--color-text-tertiary)]">.</span>
                   <span className="text-[var(--color-success-text)]">{decoded.segments[2] || "(empty)"}</span>
                 </div>
-                <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-[10px] font-semibold text-[var(--color-text-tertiary)]">
+                <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs font-semibold text-[var(--color-text-tertiary)]">
                   <span>Header</span><span>Payload</span><span>Signature</span>
                 </div>
               </div>
@@ -264,7 +264,7 @@ export default function JwtDecoderClient() {
         <section className="flex min-w-0 flex-col overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
           <div className="flex flex-col gap-3 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3 lg:flex-row lg:items-center lg:justify-between">
             <div>
-              <div className="flex items-center gap-2"><Braces className="h-4 w-4 text-[var(--color-primary)]" aria-hidden /><h2 className="text-sm font-bold text-[var(--color-text-primary)]">Decoded inspector</h2></div>
+              <div className="flex items-center gap-2"><Braces className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden /><h2 className="text-sm font-bold text-[var(--color-text-primary)]">Decoded inspector</h2></div>
               <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Switch between JSON, registered claims, signature data, and security findings.</p>
             </div>
             <CopyButton text={activeValue} size="sm" variant="secondary">Copy current view</CopyButton>
@@ -289,9 +289,9 @@ export default function JwtDecoderClient() {
                 <div className="grid gap-2 sm:grid-cols-2">
                   {decoded.claimAnalysis.insights.map((claim) => (
                     <article key={claim.key} className={`min-w-0 rounded-[var(--radius-md)] border p-3 ${CLAIM_STYLES[claim.status]}`}>
-                      <div className="flex items-center justify-between gap-2"><h3 className="truncate text-xs font-bold text-[var(--color-text-primary)]">{claim.label}</h3><code className="shrink-0 text-[10px] text-[var(--color-text-tertiary)]">{claim.key}</code></div>
+                      <div className="flex items-center justify-between gap-2"><h3 className="truncate text-xs font-bold text-[var(--color-text-primary)]">{claim.label}</h3><code className="shrink-0 text-xs text-[var(--color-text-tertiary)]">{claim.key}</code></div>
                       <div className="mt-2 break-words text-sm font-semibold text-[var(--color-text-primary)]">{claim.value}</div>
-                      <p className="mt-1 text-[11px] leading-4 text-[var(--color-text-secondary)]">{claim.description}</p>
+                      <p className="mt-1 text-xs leading-4 text-[var(--color-text-secondary)]">{claim.description}</p>
                     </article>
                   ))}
                 </div>
@@ -301,7 +301,7 @@ export default function JwtDecoderClient() {
                 {checks.map((check) => (
                   <article key={check.id} className={`flex gap-2 rounded-[var(--radius-md)] border p-3 ${CHECK_STYLES[check.severity]}`}>
                     <span className="mt-0.5 shrink-0"><CheckIcon severity={check.severity} /></span>
-                    <div className="min-w-0"><h3 className="text-xs font-bold">{check.title}</h3><p className="mt-1 text-[11px] leading-4 opacity-90">{check.message}</p></div>
+                    <div className="min-w-0"><h3 className="text-xs font-bold">{check.title}</h3><p className="mt-1 text-xs leading-4 opacity-90">{check.message}</p></div>
                   </article>
                 ))}
               </div>
@@ -315,7 +315,7 @@ export default function JwtDecoderClient() {
       <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
         <div className="flex flex-col gap-3 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <div className="flex items-center gap-2"><LockKeyhole className="h-4 w-4 text-[var(--color-primary)]" aria-hidden /><h2 className="text-sm font-bold text-[var(--color-text-primary)]">Optional signature verification</h2></div>
+            <div className="flex items-center gap-2"><LockKeyhole className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden /><h2 className="text-sm font-bold text-[var(--color-text-primary)]">Optional signature verification</h2></div>
             <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Uses the existing jose library locally. Keys remain in this page state and are excluded from reports.</p>
           </div>
           <div className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-bold ${verification.status === "verified" ? CHECK_STYLES.success : verification.status === "failed" ? CHECK_STYLES.danger : CHECK_STYLES.info}`}>
@@ -346,27 +346,27 @@ export default function JwtDecoderClient() {
             ) : null}
           </div>
           <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-inset)] p-3">
-            <div className="mb-2 flex items-center justify-between gap-2"><div><h3 className="text-xs font-bold text-[var(--color-text-primary)]">Server verification starter</h3><p className="mt-0.5 text-[10px] text-[var(--color-text-tertiary)]">Keep trusted keys and claim expectations on the server.</p></div><CopyButton text={verificationSnippet} size="sm" variant="secondary">Copy</CopyButton></div>
-            <pre className="max-h-64 overflow-auto whitespace-pre-wrap break-words font-mono text-[11px] leading-5 text-[var(--color-text-secondary)]">{verificationSnippet}</pre>
+            <div className="mb-2 flex items-center justify-between gap-2"><div><h3 className="text-xs font-bold text-[var(--color-text-primary)]">Server verification starter</h3><p className="mt-0.5 text-xs text-[var(--color-text-tertiary)]">Keep trusted keys and claim expectations on the server.</p></div><CopyButton text={verificationSnippet} size="sm" variant="secondary">Copy</CopyButton></div>
+            <pre className="max-h-64 overflow-auto whitespace-pre-wrap break-words font-mono text-xs leading-5 text-[var(--color-text-secondary)]">{verificationSnippet}</pre>
           </div>
         </div>
       </section>
 
       <div className="grid gap-4 lg:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)]">
         <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
-          <div className="border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3"><div className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-[var(--color-primary)]" aria-hidden /><h2 className="text-sm font-bold text-[var(--color-text-primary)]">Production checks</h2></div><p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Structural, lifecycle, privacy, algorithm, and deployment checks.</p></div>
+          <div className="border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3"><div className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden /><h2 className="text-sm font-bold text-[var(--color-text-primary)]">Production checks</h2></div><p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Structural, lifecycle, privacy, algorithm, and deployment checks.</p></div>
           <div className="grid gap-2 p-3 sm:grid-cols-2">
-            {checks.map((check) => <article key={check.id} className={`flex gap-2 rounded-[var(--radius-md)] border p-3 ${CHECK_STYLES[check.severity]}`}><span className="mt-0.5 shrink-0"><CheckIcon severity={check.severity} /></span><div className="min-w-0"><h3 className="text-xs font-bold">{check.title}</h3><p className="mt-1 text-[11px] leading-4 opacity-90">{check.message}</p></div></article>)}
+            {checks.map((check) => <article key={check.id} className={`flex gap-2 rounded-[var(--radius-md)] border p-3 ${CHECK_STYLES[check.severity]}`}><span className="mt-0.5 shrink-0"><CheckIcon severity={check.severity} /></span><div className="min-w-0"><h3 className="text-xs font-bold">{check.title}</h3><p className="mt-1 text-xs leading-4 opacity-90">{check.message}</p></div></article>)}
           </div>
         </section>
 
         <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
-          <div className="border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3"><div className="flex items-center gap-2"><Download className="h-4 w-4 text-[var(--color-primary)]" aria-hidden /><h2 className="text-sm font-bold text-[var(--color-text-primary)]">Safe exports</h2></div><p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Verification secrets and JWK input are never included.</p></div>
+          <div className="border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3"><div className="flex items-center gap-2"><Download className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden /><h2 className="text-sm font-bold text-[var(--color-text-primary)]">Safe exports</h2></div><p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Verification secrets and JWK input are never included.</p></div>
           <div className="space-y-2 p-3">
             <Button fullWidth variant="secondary" leftIcon={<FileJson className="h-4 w-4" />} onClick={() => downloadText("jwt-analysis-report.json", reportJson, "application/json;charset=utf-8")}>Download JSON report</Button>
             <Button fullWidth variant="secondary" leftIcon={<FileCode2 className="h-4 w-4" />} onClick={() => downloadText("jwt-verification.mjs", verificationSnippet, "text/javascript;charset=utf-8")}>Download verification starter</Button>
             <CopyButton fullWidth text={decoded.decodedJson} variant="secondary">Copy decoded JSON</CopyButton>
-            <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-inset)] p-3 text-[11px] leading-5 text-[var(--color-text-tertiary)]">
+            <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-inset)] p-3 text-xs leading-5 text-[var(--color-text-tertiary)]">
               <div className="flex items-center gap-2 font-bold text-[var(--color-text-secondary)]"><Clock3 className="h-3.5 w-3.5" aria-hidden />Current lifecycle</div>
               <p className="mt-1">{decoded.claimAnalysis.expiresAt ? `Expires ${decoded.claimAnalysis.expiresIn ?? "at the declared time"}.` : "No exp claim is declared."}</p>
             </div>

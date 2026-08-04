@@ -231,15 +231,15 @@ export default function ColorShadesClient({ initialParams }: { initialParams: Co
             <div className="h-28 border-b border-[var(--color-border-subtle)]" style={{ background: gradient }} />
             <div className="grid gap-3 p-4 sm:grid-cols-3">
               <div>
-                <p className="font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Start</p>
+                <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Start</p>
                 <p className="mt-1 font-mono text-sm font-bold text-[var(--color-text-primary)]">{normalizeHex(params.color1)}</p>
               </div>
               <div>
-                <p className="font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Steps</p>
+                <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Steps</p>
                 <p className="mt-1 text-sm font-bold text-[var(--color-text-primary)]">{params.steps} shades</p>
               </div>
               <div>
-                <p className="font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">End</p>
+                <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">End</p>
                 <p className="mt-1 font-mono text-sm font-bold text-[var(--color-text-primary)]">{normalizeHex(params.color2)}</p>
               </div>
             </div>
@@ -348,15 +348,15 @@ export default function ColorShadesClient({ initialParams }: { initialParams: Co
                 {shades.map((shade) => (
                   <article key={`${shade.label}-${shade.hex}`} className="overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)]">
                     <div className="flex h-20 items-end p-2" style={{ background: shade.hex, color: shade.textColor }}>
-                      <span className="rounded-[var(--radius-full)] bg-black/20 px-2 py-1 font-mono text-[10px] font-bold backdrop-blur-sm">{shade.label}</span>
+                      <span className="rounded-[var(--radius-full)] bg-black/20 px-2 py-1 font-mono text-xs font-bold backdrop-blur-sm">{shade.label}</span>
                     </div>
                     <div className="space-y-2 p-3">
                       <div className="flex items-center justify-between gap-2">
                         <p className="truncate font-mono text-xs font-bold text-[var(--color-text-primary)]" title={shade.hex}>{shade.hex}</p>
                         <CopyButton text={shade.hex} size="sm" variant="secondary">Copy</CopyButton>
                       </div>
-                      <p className="truncate font-mono text-[11px] text-[var(--color-text-tertiary)]" title={shade.rgb}>{compactColorValue(shade.rgb)}</p>
-                      <p className="truncate font-mono text-[11px] text-[var(--color-text-tertiary)]" title={shade.hsl}>{compactColorValue(shade.hsl)}</p>
+                      <p className="truncate font-mono text-xs text-[var(--color-text-tertiary)]" title={shade.rgb}>{compactColorValue(shade.rgb)}</p>
+                      <p className="truncate font-mono text-xs text-[var(--color-text-tertiary)]" title={shade.hsl}>{compactColorValue(shade.hsl)}</p>
                     </div>
                   </article>
                 ))}
@@ -364,7 +364,7 @@ export default function ColorShadesClient({ initialParams }: { initialParams: Co
 
               <div className="grid gap-3 md:grid-cols-2">
                 <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
-                  <p className="font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">UI preview</p>
+                  <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">UI preview</p>
                   <div className="mt-3 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] p-4" style={{ background: shades[0]?.hex, color: shades[shades.length - 1]?.hex }}>
                     <div className="rounded-[var(--radius-md)] bg-[var(--color-surface-overlay)] p-4 text-[var(--color-text-primary)] shadow-[var(--shadow-sm)]">
                       <p className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Preview card</p>
@@ -378,7 +378,7 @@ export default function ColorShadesClient({ initialParams }: { initialParams: Co
                 </div>
 
                 <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
-                  <p className="font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Recommended roles</p>
+                  <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Recommended roles</p>
                   <div className="mt-3 grid gap-2 text-sm">
                     <RoleRow label="Background" shade={shades[0]} />
                     <RoleRow label="Surface" shade={shades[Math.min(1, shades.length - 1)]} />
@@ -438,7 +438,7 @@ function RoleRow({ label, shade }: { label: string; shade?: EnrichedShade }) {
         <span className="h-6 w-6 shrink-0 rounded-[var(--radius-xs)] border border-[var(--color-border-default)]" style={{ background: shade.hex }} />
         <span className="truncate text-xs font-bold text-[var(--color-text-primary)]">{label}</span>
       </div>
-      <span className="shrink-0 font-mono text-[11px] text-[var(--color-text-tertiary)]">{shade.label}</span>
+      <span className="shrink-0 font-mono text-xs text-[var(--color-text-tertiary)]">{shade.label}</span>
     </div>
   );
 }

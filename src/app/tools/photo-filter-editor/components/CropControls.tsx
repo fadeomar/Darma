@@ -79,7 +79,7 @@ export function CropControls({
       </div>
 
       <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
-        <div className="mb-2 text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Transform</div>
+        <div className="mb-2 text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Transform</div>
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 xl:grid-cols-2">
           <Button size="sm" variant="secondary" leftIcon={<RotateCcw className="h-4 w-4" />} onClick={() => onRotate(-1)} disabled={!hasImage}>Rotate left</Button>
           <Button size="sm" variant="secondary" leftIcon={<RotateCw className="h-4 w-4" />} onClick={() => onRotate(1)} disabled={!hasImage}>Rotate right</Button>

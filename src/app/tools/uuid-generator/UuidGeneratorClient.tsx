@@ -64,11 +64,11 @@ function SummaryCard({ label, value, hint, icon }: { label: string; value: strin
   return (
     <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2.5 shadow-[var(--shadow-xs)]">
       <div className="flex items-center justify-between gap-2">
-        <span className="truncate font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</span>
-        <span className="text-[var(--color-primary)]">{icon}</span>
+        <span className="truncate font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</span>
+        <span className="text-[var(--color-primary-text-strong)]">{icon}</span>
       </div>
       <div className="mt-1 truncate text-xl font-black tracking-tight text-[var(--color-text-primary)]" title={value}>{value}</div>
-      <div className="mt-0.5 truncate text-[11px] text-[var(--color-text-tertiary)]">{hint}</div>
+      <div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]">{hint}</div>
     </div>
   );
 }
@@ -76,9 +76,9 @@ function SummaryCard({ label, value, hint, icon }: { label: string; value: strin
 function MetricCard({ label, value, hint }: { label: string; value: string; hint?: string }) {
   return (
     <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
-      <div className="truncate text-[10px] font-bold uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">{label}</div>
+      <div className="truncate text-xs font-bold uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">{label}</div>
       <div className="mt-1 break-words font-mono text-sm font-black text-[var(--color-text-primary)]" title={value}>{value}</div>
-      {hint ? <div className="mt-1 text-[10px] leading-4 text-[var(--color-text-tertiary)]">{hint}</div> : null}
+      {hint ? <div className="mt-1 text-xs leading-4 text-[var(--color-text-tertiary)]">{hint}</div> : null}
     </div>
   );
 }
@@ -86,7 +86,7 @@ function MetricCard({ label, value, hint }: { label: string; value: string; hint
 function Field({ label, hint, children }: { label: string; hint?: string; children: ReactNode }) {
   return (
     <label className="block min-w-0">
-      <span className="mb-1 flex items-center justify-between gap-2 text-[11px] font-bold text-[var(--color-text-secondary)]">
+      <span className="mb-1 flex items-center justify-between gap-2 text-xs font-bold text-[var(--color-text-secondary)]">
         <span>{label}</span>
         {hint ? <span className="font-normal text-[var(--color-text-tertiary)]">{hint}</span> : null}
       </span>
@@ -216,9 +216,9 @@ export default function UuidGeneratorClient() {
             <div className="mb-3 flex items-center justify-between gap-3">
               <div>
                 <h2 className="text-sm font-black text-[var(--color-text-primary)]">Practical presets</h2>
-                <p className="text-[11px] text-[var(--color-text-tertiary)]">Apply a workflow-ready version, quantity, format, and output.</p>
+                <p className="text-xs text-[var(--color-text-tertiary)]">Apply a workflow-ready version, quantity, format, and output.</p>
               </div>
-              <Sparkles className="h-4 w-4 text-[var(--color-primary)]" />
+              <Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
             </div>
             <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
               {UUID_PRESETS.map((preset) => (
@@ -230,9 +230,9 @@ export default function UuidGeneratorClient() {
                 >
                   <div className="flex items-center justify-between gap-2">
                     <span className="truncate text-xs font-black text-[var(--color-text-primary)]">{preset.name}</span>
-                    <span className="rounded-full border border-[var(--color-border-subtle)] px-2 py-0.5 font-mono text-[9px] font-bold uppercase text-[var(--color-text-tertiary)]">{preset.version} · {preset.count}</span>
+                    <span className="rounded-full border border-[var(--color-border-subtle)] px-2 py-0.5 font-mono text-xs font-bold uppercase text-[var(--color-text-tertiary)]">{preset.version} · {preset.count}</span>
                   </div>
-                  <p className="mt-1 line-clamp-2 text-[10px] leading-4 text-[var(--color-text-tertiary)]">{preset.description}</p>
+                  <p className="mt-1 line-clamp-2 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</p>
                 </button>
               ))}
             </div>
@@ -248,7 +248,7 @@ export default function UuidGeneratorClient() {
                       type="button"
                       onClick={() => setVersion(option.value)}
                       title={option.description}
-                      className={`min-h-8 rounded-[var(--radius-sm)] px-2 text-xs font-bold ${version === option.value ? "bg-[var(--color-surface-base)] text-[var(--color-primary)] shadow-[var(--shadow-xs)]" : "text-[var(--color-text-secondary)]"}`}
+                      className={`min-h-8 rounded-[var(--radius-sm)] px-2 text-xs font-bold ${version === option.value ? "bg-[var(--color-surface-base)] text-[var(--color-primary-text-strong)] shadow-[var(--shadow-xs)]" : "text-[var(--color-text-secondary)]"}`}
                     >
                       {option.label}
                     </button>
@@ -284,7 +284,7 @@ export default function UuidGeneratorClient() {
             <section className="min-w-0 rounded-[var(--radius-lg)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] p-4">
               <div className="flex items-center justify-between gap-3">
                 <div className="min-w-0">
-                  <div className="text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Current UUID</div>
+                  <div className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Current UUID</div>
                   <div className="mt-2 break-all font-mono text-lg font-black leading-7 text-[var(--color-text-primary)]">{current || "Generate a value"}</div>
                 </div>
                 {current ? <CopyButton text={current} size="sm">Copy</CopyButton> : null}
@@ -299,7 +299,7 @@ export default function UuidGeneratorClient() {
               <div className="flex items-center justify-between gap-3 border-b border-[var(--color-code-border)] bg-[var(--color-code-surface)] px-4 py-3">
                 <div>
                   <h2 className="text-sm font-bold text-[var(--color-code-text)]">Batch output</h2>
-                  <p className="text-[10px] text-[var(--color-code-muted)]">{values.length} value(s) · {outputStyle.toUpperCase()}</p>
+                  <p className="text-xs text-[var(--color-code-muted)]">{values.length} value(s) · {outputStyle.toUpperCase()}</p>
                 </div>
                 <CopyButton text={serialized} size="sm" variant="soft">Copy</CopyButton>
               </div>
@@ -329,12 +329,12 @@ export default function UuidGeneratorClient() {
 
           {inspection.normalized ? (
             <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
-              <div className="mb-3 flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><Braces className="h-4 w-4 text-[var(--color-primary)]" /> UUID field map</div>
+              <div className="mb-3 flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><Braces className="h-4 w-4 text-[var(--color-primary-text-strong)]" /> UUID field map</div>
               <div className="grid gap-2 font-mono text-xs sm:grid-cols-[8fr_4fr_4fr_4fr_12fr]">
                 {inspection.normalized.split("-").map((part, index) => (
                   <div key={`${part}-${index}`} className="min-w-0 rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-2 text-center text-[var(--color-text-primary)]">
                     <div className="break-all font-bold">{part}</div>
-                    <div className="mt-1 text-[9px] uppercase text-[var(--color-text-tertiary)]">{["time / random", "time / random", "version", "variant", "random"][index]}</div>
+                    <div className="mt-1 text-xs uppercase text-[var(--color-text-tertiary)]">{["time / random", "time / random", "version", "variant", "random"][index]}</div>
                   </div>
                 ))}
               </div>
@@ -342,13 +342,13 @@ export default function UuidGeneratorClient() {
           ) : null}
 
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] p-4">
-            <div className="mb-3 flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><ListChecks className="h-4 w-4 text-[var(--color-primary)]" /> Production checks</div>
+            <div className="mb-3 flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><ListChecks className="h-4 w-4 text-[var(--color-primary-text-strong)]" /> Production checks</div>
             <div className="grid gap-2 lg:grid-cols-2">
               {checks.map((check) => (
                 <div key={check.id} className={`rounded-[var(--radius-md)] border p-3 ${CHECK_STYLES[check.level]}`}>
                   <div className="flex items-start gap-2">
                     <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0" />
-                    <div><div className="text-xs font-black">{check.title}</div><p className="mt-1 text-[10px] leading-4 opacity-90">{check.message}</p></div>
+                    <div><div className="text-xs font-black">{check.title}</div><p className="mt-1 text-xs leading-4 opacity-90">{check.message}</p></div>
                   </div>
                 </div>
               ))}
@@ -381,19 +381,19 @@ export default function UuidGeneratorClient() {
 
           <div className="grid gap-3 md:grid-cols-3">
             <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
-              <FileJson className="h-4 w-4 text-[var(--color-primary)]" />
+              <FileJson className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
               <div className="mt-2 text-xs font-black text-[var(--color-text-primary)]">Structured outputs</div>
-              <p className="mt-1 text-[10px] leading-4 text-[var(--color-text-tertiary)]">JSON, CSV, SQL, and typed constants cover common fixture and seed workflows.</p>
+              <p className="mt-1 text-xs leading-4 text-[var(--color-text-tertiary)]">JSON, CSV, SQL, and typed constants cover common fixture and seed workflows.</p>
             </div>
             <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
-              <Clock3 className="h-4 w-4 text-[var(--color-primary)]" />
+              <Clock3 className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
               <div className="mt-2 text-xs font-black text-[var(--color-text-primary)]">UUID v7 inspection</div>
-              <p className="mt-1 text-[10px] leading-4 text-[var(--color-text-tertiary)]">The audit includes the embedded Unix-millisecond timestamp when the current value is v7.</p>
+              <p className="mt-1 text-xs leading-4 text-[var(--color-text-tertiary)]">The audit includes the embedded Unix-millisecond timestamp when the current value is v7.</p>
             </div>
             <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
-              <Copy className="h-4 w-4 text-[var(--color-primary)]" />
+              <Copy className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
               <div className="mt-2 text-xs font-black text-[var(--color-text-primary)]">Local-only workflow</div>
-              <p className="mt-1 text-[10px] leading-4 text-[var(--color-text-tertiary)]">Generation, validation, packaging, and downloads happen in the browser.</p>
+              <p className="mt-1 text-xs leading-4 text-[var(--color-text-tertiary)]">Generation, validation, packaging, and downloads happen in the browser.</p>
             </div>
           </div>
         </div>

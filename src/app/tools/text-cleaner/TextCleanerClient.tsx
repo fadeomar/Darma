@@ -104,7 +104,7 @@ function SummaryCard({
 }) {
   return (
     <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 shadow-[var(--shadow-xs)]">
-      <div className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+      <div className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
         {label}
       </div>
       <div className="mt-1 break-words text-base font-black tracking-[-0.02em] text-[var(--color-text-primary)]">
@@ -409,7 +409,7 @@ export default function TextCleanerClient({
                     key={transform.id}
                     className="flex min-w-0 items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] p-2"
                   >
-                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-[var(--radius-full)] bg-[var(--color-surface-subtle)] font-mono text-[10px] font-bold text-[var(--color-text-tertiary)]">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-[var(--radius-full)] bg-[var(--color-surface-subtle)] font-mono text-xs font-bold text-[var(--color-text-tertiary)]">
                       {index + 1}
                     </span>
                     <span className="min-w-0 flex-1 truncate text-xs font-bold text-[var(--color-text-primary)]">
@@ -503,7 +503,7 @@ export default function TextCleanerClient({
             />
             {activeGroup === "format" ? (
               <div className="grid gap-3 md:grid-cols-2">
-                <label className="grid gap-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+                <label className="grid gap-1.5 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
                   Prefix text
                   <Input
                     value={prefixText}
@@ -512,7 +512,7 @@ export default function TextCleanerClient({
                     size="sm"
                   />
                 </label>
-                <label className="grid gap-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+                <label className="grid gap-1.5 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
                   Suffix text
                   <Input
                     value={suffixText}

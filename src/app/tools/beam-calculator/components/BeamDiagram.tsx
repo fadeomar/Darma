@@ -65,7 +65,7 @@ export function BeamDiagram({
     <figure className="m-0">
       <figcaption className="mb-2 flex items-baseline justify-between gap-3">
         <span className="text-sm font-bold text-[var(--color-text-primary)]">{title}</span>
-        <span className="font-mono text-[11px] font-bold text-[var(--color-text-tertiary)]">
+        <span className="font-mono text-xs font-bold text-[var(--color-text-tertiary)]">
           max {formatNumber(Math.abs(extreme.value))} {valueUnit}
         </span>
       </figcaption>

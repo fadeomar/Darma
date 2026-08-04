@@ -15,7 +15,7 @@ const VARIANT: Record<TaskPriority, "outline" | "info" | "warning" | "danger" | 
 export function TaskPriorityBadge({ priority }: { priority: TaskPriority }) {
   if (priority === "none") return null;
   return (
-    <Badge variant={VARIANT[priority]} className="text-[9px]">
+    <Badge variant={VARIANT[priority]} className="text-xs">
       {PRIORITY_LABELS[priority]}
     </Badge>
   );

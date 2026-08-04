@@ -31,7 +31,7 @@
 /* Old bespoke tools frequently used 9–11px labels. Keep compact metadata, but
    never let required controls or result explanations become unreadable. */
 [data-tool-workspace] [class*="text-[9px]"] {
-  font-size: 0.6875rem !important;
+  font-size: .75rem !important;
   line-height: 1rem !important;
 }
 

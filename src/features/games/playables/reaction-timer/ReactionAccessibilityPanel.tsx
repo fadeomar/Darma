@@ -10,7 +10,7 @@ export function ReactionAccessibilityPanel({ settings }: { settings: ReactionSet
     <section className="rtp-accessibility" aria-labelledby="rtp-accessibility-title">
       <Card variant="default" padding="lg" className="rtp-accessibility-card">
         <div className="rtp-panel-head rtp-accessibility-head">
-          <Accessibility className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+          <Accessibility className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
           <div>
             <h3 id="rtp-accessibility-title" className="rtp-panel-title">Accessibility audit</h3>
             <p className="rtp-accessibility-sub">

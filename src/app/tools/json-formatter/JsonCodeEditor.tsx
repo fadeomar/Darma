@@ -68,7 +68,7 @@ const JsonCodeEditor = forwardRef<JsonCodeEditorHandle, JsonCodeEditorProps>(
         )}
       >
         {!value ? (
-          <div className="pointer-events-none absolute left-[4.6rem] top-4 z-10 font-mono text-sm text-slate-500">
+          <div className="pointer-events-none absolute left-[4.6rem] top-4 z-10 font-mono text-sm text-slate-400">
             {placeholder ?? "Paste JSON here..."}
           </div>
         ) : null}

@@ -64,10 +64,10 @@ export function GameCard({ game, featured = false }: { game: GameDefinition; fea
           <StatusBadges game={game} />
         </div>
         <div className="pointer-events-none absolute inset-x-3 bottom-3 flex items-end justify-between gap-2">
-          <span className="rounded-[var(--radius-full)] border border-white/40 bg-black/35 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-white backdrop-blur transition duration-300 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100">
+          <span className="rounded-[var(--radius-full)] border border-white/40 bg-black/35 px-2.5 py-0.5 font-mono text-xs font-bold uppercase tracking-[0.08em] text-white backdrop-blur transition duration-300 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100">
             {game.playTime}
           </span>
-          <span className="game-card-play-pulse inline-flex h-10 w-10 items-center justify-center rounded-[var(--radius-full)] border border-white/40 bg-white/90 text-[var(--color-primary)] shadow-[var(--shadow-card)] backdrop-blur transition duration-300 group-hover:scale-105 group-hover:bg-white motion-reduce:transition-none motion-reduce:group-hover:scale-100">
+          <span className="game-card-play-pulse inline-flex h-10 w-10 items-center justify-center rounded-[var(--radius-full)] border border-white/40 bg-white/90 text-[var(--color-primary-text-strong)] shadow-[var(--shadow-card)] backdrop-blur transition duration-300 group-hover:scale-105 group-hover:bg-white motion-reduce:transition-none motion-reduce:group-hover:scale-100">
             <Gamepad2 className="h-4 w-4" aria-hidden />
           </span>
         </div>

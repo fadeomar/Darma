@@ -53,7 +53,7 @@ function FieldGroup({ children, className }: { children: ReactNode; className?: 
 }
 
 function MiniLabel({ children }: { children: ReactNode }) {
-  return <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{children}</span>;
+  return <span className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{children}</span>;
 }
 
 function CopyButton({ value, label = "Copy" }: { value: string; label?: string }) {
@@ -89,14 +89,14 @@ function QuickStartPresets({ setInput }: { setInput: React.Dispatch<React.SetSta
           >
             <span className="flex flex-wrap items-start justify-between gap-2 text-xs font-bold text-[var(--color-text-primary)]">
               <span>{preset.title}</span>
-              <span className="inline-flex shrink-0 items-center whitespace-nowrap rounded-full bg-[var(--color-primary-soft)] px-2 py-0.5 font-mono text-[10px] uppercase text-[var(--color-primary)]">{badges[preset.id]}</span>
+              <span className="inline-flex shrink-0 items-center whitespace-nowrap rounded-full bg-[var(--color-primary-soft)] px-2 py-0.5 font-mono text-xs uppercase text-[var(--color-primary-text-strong)]">{badges[preset.id]}</span>
             </span>
-            <span className="mt-1 line-clamp-2 block text-[11px] leading-4 text-[var(--color-text-secondary)]">{preset.description}</span>
+            <span className="mt-1 line-clamp-2 block text-xs leading-4 text-[var(--color-text-secondary)]">{preset.description}</span>
           </button>
         ))}
       </div>
       {FAVICON_QUICK_PRESETS.length > 4 ? (
-        <button type="button" className="text-xs font-bold text-[var(--color-primary)] hover:underline" onClick={() => setShowAll((value) => !value)}>
+        <button type="button" className="text-xs font-bold text-[var(--color-primary-text-strong)] hover:underline" onClick={() => setShowAll((value) => !value)}>
           {showAll ? "Show less" : "Show more presets"}
         </button>
       ) : null}
@@ -121,7 +121,7 @@ function LegibilityStrip({ assets }: { assets: GeneratedAsset[] }) {
             <div className="grid min-h-16 place-items-center rounded-[var(--radius-sm)] bg-white shadow-[var(--shadow-xs)] dark:bg-slate-950">
               {item.asset?.previewUrl ? <img src={item.asset.previewUrl} alt={`${item.label}px preview`} style={{ width: `${Math.min(Number(item.label), 48)}px`, height: `${Math.min(Number(item.label), 48)}px` }} /> : <span className="h-5 w-5 rounded bg-[var(--color-border-default)]" />}
             </div>
-            <div className="mt-2 font-mono text-[10px] font-bold text-[var(--color-text-tertiary)]">{item.label}px</div>
+            <div className="mt-2 font-mono text-xs font-bold text-[var(--color-text-tertiary)]">{item.label}px</div>
           </div>
         ))}
       </div>
@@ -134,7 +134,7 @@ function PreviewTile({ title, children, meta }: { title: string; children: React
     <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] p-3 shadow-[var(--shadow-xs)]">
       <div className="mb-2 flex items-center justify-between gap-2">
         <MiniLabel>{title}</MiniLabel>
-        {meta ? <span className="text-[11px] text-[var(--color-text-tertiary)]">{meta}</span> : null}
+        {meta ? <span className="text-xs text-[var(--color-text-tertiary)]">{meta}</span> : null}
       </div>
       {children}
     </div>
@@ -159,7 +159,7 @@ function SafeAreaIconPreview({ previewUrl, backgroundColor }: { previewUrl?: str
             {previewUrl ? <img src={previewUrl} alt={`${mask.label} maskable icon preview`} className="h-full w-full object-cover" /> : null}
             <div className="pointer-events-none absolute inset-[10%] rounded-full border border-dashed border-white/70 mix-blend-difference" />
           </div>
-          <div className="text-[11px] font-semibold text-[var(--color-text-secondary)]">{mask.label}</div>
+          <div className="text-xs font-semibold text-[var(--color-text-secondary)]">{mask.label}</div>
         </div>
       ))}
     </div>
@@ -265,7 +265,7 @@ function SourceControls({ input, setInput, uploadError, setUploadError }: { inpu
       {input.sourceMode === "image" ? (
         <div className="space-y-3">
           <label className="flex min-h-36 cursor-pointer flex-col items-center justify-center gap-3 rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] p-4 text-center transition hover:border-[var(--color-primary)] hover:bg-[var(--color-control-hover)]">
-            <UploadCloud className="h-7 w-7 text-[var(--color-primary)]" />
+            <UploadCloud className="h-7 w-7 text-[var(--color-primary-text-strong)]" />
             <span className="text-sm font-bold text-[var(--color-text-primary)]">Upload PNG, JPG, WebP, or SVG</span>
             <span className="text-xs leading-5 text-[var(--color-text-tertiary)]">Best result: square 512×512 or larger logo.</span>
             <input type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml" className="sr-only" onChange={handleImageUpload} />
@@ -387,7 +387,7 @@ function SourceFramingControls({ input, setInput }: { input: FaviconInput; setIn
             </span>
           )}
         </div>
-        <p className="text-center text-[11px] leading-4 text-[var(--color-text-tertiary)]">Keep important artwork inside the dashed safe area before downloading the package.</p>
+        <p className="text-center text-xs leading-4 text-[var(--color-text-tertiary)]">Keep important artwork inside the dashed safe area before downloading the package.</p>
       </div>
 
       <FieldGroup>
@@ -592,12 +592,12 @@ function PreviewModeSwitch({ mode, setMode }: { mode: PreviewMode; setMode: (mod
             className={cn(
               "rounded-[var(--radius-md)] border px-3 py-2 text-left transition focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2 focus:ring-offset-[var(--color-surface-base)]",
               active
-                ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+                ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]"
                 : "border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] text-[var(--color-text-secondary)] hover:border-[var(--color-primary)] hover:text-[var(--color-text-primary)]",
             )}
           >
             <span className="block text-xs font-black">{option.label}</span>
-            <span className="block text-[10px] font-semibold text-[var(--color-text-tertiary)]">{option.detail}</span>
+            <span className="block text-xs font-semibold text-[var(--color-text-tertiary)]">{option.detail}</span>
           </button>
         );
       })}
@@ -620,7 +620,7 @@ function BrowserTabPreview({ iconUrl, siteName, tone }: { iconUrl?: string; site
           <span className="truncate">{siteName}</span>
         </span>
       </div>
-      <div className={cn("px-3 py-2 font-mono text-[11px]", isDark ? "text-slate-400" : "text-slate-500")}>https://example.com</div>
+      <div className={cn("px-3 py-2 font-mono text-xs", isDark ? "text-slate-400" : "text-slate-500")}>https://example.com</div>
     </div>
   );
 }
@@ -672,11 +672,11 @@ function AndroidHomeScreenPreview({ iconUrl, label, backgroundColor }: { iconUrl
             <div className="mx-auto grid h-12 w-12 place-items-center rounded-[28%] bg-white/10 shadow-lg" style={item === label ? { backgroundColor } : undefined}>
               {item === label && iconUrl ? <img src={iconUrl} alt="Android launcher icon preview" className="h-12 w-12 rounded-[28%] object-cover" /> : <span className="h-5 w-5 rounded-full bg-white/30" />}
             </div>
-            <div className="truncate text-[10px] font-medium text-white/75">{item}</div>
+            <div className="truncate text-xs font-medium text-white/75">{item}</div>
           </div>
         ))}
       </div>
-      <p className="mt-3 text-[11px] leading-4 text-white/70">Android launchers can crop adaptive icons differently, so keep the logo centered and padded.</p>
+      <p className="mt-3 text-xs leading-4 text-white/70">Android launchers can crop adaptive icons differently, so keep the logo centered and padded.</p>
     </div>
   );
 }
@@ -708,12 +708,12 @@ function ManifestAppCardPreview({ iconUrl, input }: { iconUrl?: string; input: F
           <div className="truncate text-sm font-black text-[var(--color-text-primary)]">{input.siteName || "My Website"}</div>
           <div className="truncate text-xs font-semibold text-[var(--color-text-secondary)]">short_name: {input.shortName || "App"}</div>
           <div className="mt-1 flex flex-wrap gap-1.5">
-            <span className="rounded-full bg-[var(--color-primary-soft)] px-2 py-0.5 font-mono text-[10px] font-bold uppercase text-[var(--color-primary)]">{input.display}</span>
-            <span className="rounded-full bg-[var(--color-surface-raised)] px-2 py-0.5 font-mono text-[10px] font-bold uppercase text-[var(--color-text-tertiary)]">{input.orientation}</span>
+            <span className="rounded-full bg-[var(--color-primary-soft)] px-2 py-0.5 font-mono text-xs font-bold uppercase text-[var(--color-primary-text-strong)]">{input.display}</span>
+            <span className="rounded-full bg-[var(--color-surface-raised)] px-2 py-0.5 font-mono text-xs font-bold uppercase text-[var(--color-text-tertiary)]">{input.orientation}</span>
           </div>
         </div>
       </div>
-      <div className="mt-3 grid grid-cols-2 gap-2 text-[11px] text-[var(--color-text-secondary)]">
+      <div className="mt-3 grid grid-cols-2 gap-2 text-xs text-[var(--color-text-secondary)]">
         <div className="rounded-[var(--radius-sm)] bg-[var(--color-surface-raised)] p-2">theme_color<br /><span className="font-mono font-bold">{input.themeColor}</span></div>
         <div className="rounded-[var(--radius-sm)] bg-[var(--color-surface-raised)] p-2">background_color<br /><span className="font-mono font-bold">{input.manifestBackgroundColor}</span></div>
       </div>
@@ -733,7 +733,7 @@ function AppLauncherGridPreview({ iconUrl, label }: { iconUrl?: string; label: s
               <div className={cn("mx-auto grid h-12 w-12 place-items-center rounded-[24%] shadow-[var(--shadow-xs)]", current ? "bg-transparent" : "bg-[var(--color-surface-raised)]")}>
                 {current && iconUrl ? <img src={iconUrl} alt="App launcher grid icon preview" className="h-12 w-12 rounded-[24%] object-cover" /> : <span className="h-5 w-5 rounded-full bg-[var(--color-border-default)]" />}
               </div>
-              <div className="truncate text-[10px] font-semibold text-[var(--color-text-secondary)]">{app}</div>
+              <div className="truncate text-xs font-semibold text-[var(--color-text-secondary)]">{app}</div>
             </div>
           );
         })}
@@ -759,7 +759,7 @@ function PreviewPanel({ input, assets, status, error }: { input: FaviconInput; a
         <div className="min-w-0 space-y-1">
           <div className="flex flex-wrap items-center gap-2">
             <h2 className="text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Favicon & App Icon Studio</h2>
-            <span className="rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] px-2 py-0.5 font-mono text-[10px] font-bold uppercase text-[var(--color-text-tertiary)]">Client-only</span>
+            <span className="rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] px-2 py-0.5 font-mono text-xs font-bold uppercase text-[var(--color-text-tertiary)]">Client-only</span>
           </div>
           <p className="text-xs leading-5 text-[var(--color-text-secondary)]">Generate, preview, score, validate, and export full favicon packages without uploading files.</p>
         </div>
@@ -841,7 +841,7 @@ function PreviewPanel({ input, assets, status, error }: { input: FaviconInput; a
           </div>
           <PreviewTile title="Maskable shape comparison" meta="circle, squircle, rounded, adaptive">
             <SafeAreaIconPreview previewUrl={maskable?.previewUrl || bestPreviewUrl} backgroundColor={input.manifestBackgroundColor} />
-            <p className="mt-3 text-center text-[11px] leading-4 text-[var(--color-text-tertiary)]">The dashed circle is the safe area. Keep logos, initials, and emoji details inside it to avoid launcher cropping.</p>
+            <p className="mt-3 text-center text-xs leading-4 text-[var(--color-text-tertiary)]">The dashed circle is the safe area. Keep logos, initials, and emoji details inside it to avoid launcher cropping.</p>
           </PreviewTile>
         </>
       ) : null}
@@ -863,14 +863,14 @@ function FileChecklist({ assets }: { assets: GeneratedAsset[] }) {
   return (
     <div className="grid gap-4 lg:grid-cols-2">
       <section className="min-w-0 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-xs)]">
-        <h3 className="font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Generated image files</h3>
+        <h3 className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Generated image files</h3>
         <p className="mb-3 mt-1 text-xs text-[var(--color-text-secondary)]">Ready-to-use favicon and app icon images.</p>
         <div className="max-h-80 space-y-2 overflow-auto pr-1">
           {groups.image.map((asset) => (
             <div key={asset.filename} className="flex items-center justify-between gap-3 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] px-3 py-2">
               <div className="min-w-0">
                 <div className="truncate font-mono text-xs font-bold text-[var(--color-text-primary)]">{asset.filename}</div>
-                <div className="text-[11px] text-[var(--color-text-tertiary)]">{asset.width ? `${asset.width}×${asset.height}` : "ICO"} · {formatBytes(asset.size)}</div>
+                <div className="text-xs text-[var(--color-text-tertiary)]">{asset.width ? `${asset.width}×${asset.height}` : "ICO"} · {formatBytes(asset.size)}</div>
               </div>
               <Button size="sm" variant="ghost" onClick={() => downloadBlobFile({ blob: asset.blob, filename: asset.filename })}>Download</Button>
             </div>
@@ -879,14 +879,14 @@ function FileChecklist({ assets }: { assets: GeneratedAsset[] }) {
       </section>
 
       <section className="min-w-0 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-xs)]">
-        <h3 className="font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Generated docs & snippets</h3>
+        <h3 className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Generated docs & snippets</h3>
         <p className="mb-3 mt-1 text-xs text-[var(--color-text-secondary)]">Manifest, setup code, and handoff notes.</p>
         <div className="max-h-80 space-y-2 overflow-auto pr-1">
           {groups.code.map((asset) => (
             <div key={asset.filename} className="flex items-center justify-between gap-3 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] px-3 py-2">
               <div className="min-w-0">
                 <div className="truncate font-mono text-xs font-bold text-[var(--color-text-primary)]">{asset.filename}</div>
-                <div className="text-[11px] text-[var(--color-text-tertiary)]">{asset.mimeType} · {formatBytes(asset.size)}</div>
+                <div className="text-xs text-[var(--color-text-tertiary)]">{asset.mimeType} · {formatBytes(asset.size)}</div>
               </div>
               <Button size="sm" variant="ghost" onClick={() => downloadBlobFile({ blob: asset.blob, filename: asset.filename })}>Download</Button>
             </div>
@@ -960,7 +960,7 @@ function QualityIssueCard({ issue, setInput }: { issue: SmartQualityIssue; setIn
   return (
     <div className={cn("rounded-[var(--radius-md)] border p-3 shadow-[var(--shadow-xs)]", QUALITY_SEVERITY_CLASS[issue.severity])}>
       <div className="flex flex-wrap items-center gap-2">
-        <span className="rounded-[var(--radius-full)] border border-current px-2 py-0.5 font-mono text-[10px] font-bold uppercase leading-none tracking-[0.08em] opacity-75">{issue.severity}</span>
+        <span className="rounded-[var(--radius-full)] border border-current px-2 py-0.5 font-mono text-xs font-bold uppercase leading-none tracking-[0.08em] opacity-75">{issue.severity}</span>
         <span className="text-xs font-bold leading-5">{READINESS_CATEGORY_LABELS[issue.category]}</span>
       </div>
       <h4 className="mt-2 text-sm font-black leading-5">{issue.title}</h4>
@@ -970,7 +970,7 @@ function QualityIssueCard({ issue, setInput }: { issue: SmartQualityIssue; setIn
           {issue.action.label}
         </Button>
       ) : issue.severity === "warning" || issue.severity === "danger" ? (
-        <span className="mt-3 inline-flex rounded-[var(--radius-full)] border border-current px-2 py-1 font-mono text-[10px] font-bold uppercase opacity-75">Manual check</span>
+        <span className="mt-3 inline-flex rounded-[var(--radius-full)] border border-current px-2 py-1 font-mono text-xs font-bold uppercase opacity-75">Manual check</span>
       ) : null}
     </div>
   );
@@ -999,7 +999,7 @@ function ReadinessPanel({ input, assets, setInput }: { input: FaviconInput; asse
         </div>
         <div className="flex flex-wrap items-center gap-2">
           <div className="rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] px-4 py-2 font-mono text-lg font-black text-[var(--color-text-primary)]">{score}/100</div>
-          <div className={cn("rounded-[var(--radius-full)] border px-3 py-1.5 font-mono text-[11px] font-black uppercase", reviewCount ? "border-[var(--color-warning-border)] bg-[var(--color-warning-bg)] text-[var(--color-warning-text)]" : "border-[var(--color-success-border)] bg-[var(--color-success-bg)] text-[var(--color-success-text)]")}>
+          <div className={cn("rounded-[var(--radius-full)] border px-3 py-1.5 font-mono text-xs font-black uppercase", reviewCount ? "border-[var(--color-warning-border)] bg-[var(--color-warning-bg)] text-[var(--color-warning-text)]" : "border-[var(--color-success-border)] bg-[var(--color-success-bg)] text-[var(--color-success-text)]")}>
             {reviewCount ? `${reviewCount} to review` : "Looks strong"}
           </div>
         </div>
@@ -1011,12 +1011,12 @@ function ReadinessPanel({ input, assets, setInput }: { input: FaviconInput; asse
             <div className="flex items-center gap-2">
               {check.passed ? <CheckCircle2 className="h-4 w-4 text-[var(--color-success-text)]" /> : <AlertTriangle className="h-4 w-4 text-[var(--color-warning-text)]" />}
               <span className="text-xs font-bold text-[var(--color-text-primary)]">{check.label}</span>
-              <span className="ml-auto font-mono text-[10px] text-[var(--color-text-tertiary)]">{check.points}/{check.maxPoints}</span>
+              <span className="ml-auto font-mono text-xs text-[var(--color-text-tertiary)]">{check.points}/{check.maxPoints}</span>
             </div>
             <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-[var(--color-surface-subtle)]">
               <div className="h-full rounded-full bg-[var(--color-primary)]" style={{ width: `${Math.round((check.points / check.maxPoints) * 100)}%` }} />
             </div>
-            <p className="mt-2 text-[11px] leading-5 text-[var(--color-text-secondary)]">{check.detail}</p>
+            <p className="mt-2 text-xs leading-5 text-[var(--color-text-secondary)]">{check.detail}</p>
           </div>
         ))}
       </div>
@@ -1027,7 +1027,7 @@ function ReadinessPanel({ input, assets, setInput }: { input: FaviconInput; asse
             <h4 className="text-sm font-black text-[var(--color-text-primary)]">Actionable quality issues</h4>
             <p className="text-xs leading-5 text-[var(--color-text-tertiary)]">Every button below updates the actual generator state, then previews and files regenerate automatically.</p>
           </div>
-          <span className="self-start rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-1 font-mono text-[10px] font-bold uppercase text-[var(--color-text-tertiary)] sm:self-auto">
+          <span className="self-start rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-1 font-mono text-xs font-bold uppercase text-[var(--color-text-tertiary)] sm:self-auto">
             {actionCount} auto-fix{actionCount === 1 ? "" : "es"} available
           </span>
         </div>
@@ -1181,13 +1181,13 @@ function InstallChecklistPanel({ input, assets }: { input: FaviconInput; assets:
         {steps.map((step, index) => (
           <div key={`${step.title}-${index}`} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] p-3">
             <div className="flex items-start gap-3">
-              <span className="grid h-7 w-7 shrink-0 place-items-center rounded-[var(--radius-full)] bg-[var(--color-primary-soft)] font-mono text-xs font-black text-[var(--color-primary)]">{index + 1}</span>
+              <span className="grid h-7 w-7 shrink-0 place-items-center rounded-[var(--radius-full)] bg-[var(--color-primary-soft)] font-mono text-xs font-black text-[var(--color-primary-text-strong)]">{index + 1}</span>
               <div className="min-w-0 flex-1">
                 <div className="text-sm font-bold text-[var(--color-text-primary)]">{step.title}</div>
                 <p className="mt-1 text-xs leading-5 text-[var(--color-text-secondary)]">{step.detail}</p>
                 {step.copy ? (
                   <div className="mt-2 flex items-center justify-between gap-2 rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-2 py-1.5">
-                    <code className="min-w-0 whitespace-pre-wrap break-all font-mono text-[11px] text-[var(--color-text-secondary)]">{step.copy}</code>
+                    <code className="min-w-0 whitespace-pre-wrap break-all font-mono text-xs text-[var(--color-text-secondary)]">{step.copy}</code>
                     <CopyButton value={step.copy} />
                   </div>
                 ) : null}
@@ -1236,9 +1236,9 @@ function CheckerResults({ issues }: { issues: FileValidationIssue[] }) {
             <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
               <div>
                 <h4 className="text-sm font-black text-[var(--color-text-primary)]">{group.title}</h4>
-                <p className="text-[11px] leading-4 text-[var(--color-text-tertiary)]">{group.description}</p>
+                <p className="text-xs leading-4 text-[var(--color-text-tertiary)]">{group.description}</p>
               </div>
-              <span className="rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-2.5 py-1 font-mono text-[10px] font-bold uppercase text-[var(--color-text-tertiary)]">
+              <span className="rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-2.5 py-1 font-mono text-xs font-bold uppercase text-[var(--color-text-tertiary)]">
                 {groupIssues.length} item{groupIssues.length === 1 ? "" : "s"}
               </span>
             </div>
@@ -1317,13 +1317,13 @@ function ValidatorPanel() {
         </div>
         <div className="flex flex-wrap items-center gap-2">
           <span className={cn(
-            "rounded-[var(--radius-full)] border px-3 py-1.5 font-mono text-[10px] font-black uppercase",
+            "rounded-[var(--radius-full)] border px-3 py-1.5 font-mono text-xs font-black uppercase",
             problemCount ? "border-[var(--color-warning-border)] bg-[var(--color-warning-bg)] text-[var(--color-warning-text)]" : "border-[var(--color-success-border)] bg-[var(--color-success-bg)] text-[var(--color-success-text)]",
           )}>
             {issues.length ? `${problemCount} to review` : "Ready to check"}
           </span>
           {issues.length ? (
-            <span className="rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] px-3 py-1.5 font-mono text-[10px] font-black uppercase text-[var(--color-text-tertiary)]">
+            <span className="rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] px-3 py-1.5 font-mono text-xs font-black uppercase text-[var(--color-text-tertiary)]">
               {passCount} passed
             </span>
           ) : null}
@@ -1383,7 +1383,7 @@ function ValidatorPanel() {
             </div>
             <Input value={urlText} onChange={(event) => setUrlText(event.target.value)} placeholder="https://example.com" />
             <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-              <p className="text-[11px] leading-5 text-[var(--color-text-tertiary)]">The backend follows redirects and checks linked assets, but some sites may block automated requests.</p>
+              <p className="text-xs leading-5 text-[var(--color-text-tertiary)]">The backend follows redirects and checks linked assets, but some sites may block automated requests.</p>
               <Button size="sm" variant="secondary" onClick={runUrlCheck} disabled={checking} leftIcon={checking ? <Loader2 className="h-4 w-4 animate-spin" /> : <FileCheck2 className="h-4 w-4" />}>
                 {checking ? "Scanning…" : "Scan website"}
               </Button>
@@ -1570,7 +1570,7 @@ export default function FaviconAppIconClient() {
             ["3", "Export and install", "Copy the install code or download the complete favicon and app icon ZIP."],
           ].map(([number, title, detail]) => (
             <li key={number} className="flex items-start gap-3 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] px-3 py-2.5">
-              <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary-soft)] font-mono text-[11px] font-black text-[var(--color-primary)]">{number}</span>
+              <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary-soft)] font-mono text-xs font-black text-[var(--color-primary-text-strong)]">{number}</span>
               <span><strong className="block text-[var(--color-text-primary)]">Step {number} — {title}</strong>{detail}</span>
             </li>
           ))}

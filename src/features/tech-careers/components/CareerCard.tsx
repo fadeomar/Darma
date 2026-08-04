@@ -24,7 +24,7 @@ export function CareerCard({ career }: { career: TechCareer }) {
             {career.featured ? <Badge variant="success">Core role</Badge> : <Badge variant="outline">{career.focus}</Badge>}
           </div>
 
-          <h3 className="darma-balanced-heading mt-4 text-xl font-black tracking-[-0.025em] text-[var(--color-text-primary)] transition group-hover:text-[var(--color-primary)]">{career.title}</h3>
+          <h3 className="darma-balanced-heading mt-4 text-xl font-black tracking-[-0.025em] text-[var(--color-text-primary)] transition group-hover:text-[var(--color-primary-text-strong)]">{career.title}</h3>
           <p className="darma-pretty-copy mt-3 line-clamp-4 flex-1 text-sm leading-7 text-[var(--color-text-secondary)]">{career.summary}</p>
 
           <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm font-semibold text-[var(--color-text-tertiary)]">
@@ -32,7 +32,7 @@ export function CareerCard({ career }: { career: TechCareer }) {
             <span className="flex items-center gap-1.5"><Route className="h-4 w-4" aria-hidden />{career.learningPathSlugs.length || "No"} linked paths</span>
           </div>
 
-          <span className="mt-6 inline-flex min-h-10 items-center gap-2 text-sm font-black text-[var(--color-primary)]">
+          <span className="mt-6 inline-flex min-h-10 items-center gap-2 text-sm font-black text-[var(--color-primary-text-strong)]">
             Explore the role <ArrowRight className="darma-link-arrow h-[18px] w-[18px]" aria-hidden />
           </span>
         </div>

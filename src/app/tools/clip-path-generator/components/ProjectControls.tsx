@@ -92,7 +92,7 @@ export function ProjectControls({
       ) : null}
 
       <div className="mt-4">
-        <h3 className="text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Transforms</h3>
+        <h3 className="text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Transforms</h3>
         <div className="mt-2 grid grid-cols-2 gap-2">
           <Button size="sm" variant="ghost" leftIcon={<Shuffle className="h-4 w-4" />} onClick={onReverse}>Reverse</Button>
           <Button size="sm" variant="ghost" leftIcon={<AlignCenter className="h-4 w-4" />} onClick={onCenter} disabled={!validShape} title={!validShape ? "Fix validation errors first" : undefined}>Center</Button>

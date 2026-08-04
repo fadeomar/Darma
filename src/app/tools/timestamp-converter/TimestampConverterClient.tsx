@@ -60,11 +60,11 @@ function SummaryCard({ label, value, hint, icon }: { label: string; value: strin
   return (
     <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2.5 shadow-[var(--shadow-xs)]">
       <div className="flex items-center justify-between gap-2">
-        <span className="truncate font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</span>
-        <span className="text-[var(--color-primary)]">{icon}</span>
+        <span className="truncate font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</span>
+        <span className="text-[var(--color-primary-text-strong)]">{icon}</span>
       </div>
       <div className="mt-1 truncate text-lg font-black tracking-tight text-[var(--color-text-primary)]" title={value}>{value}</div>
-      <div className="mt-0.5 truncate text-[11px] text-[var(--color-text-tertiary)]">{hint}</div>
+      <div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]">{hint}</div>
     </div>
   );
 }
@@ -72,7 +72,7 @@ function SummaryCard({ label, value, hint, icon }: { label: string; value: strin
 function Field({ label, hint, children }: { label: string; hint?: string; children: ReactNode }) {
   return (
     <label className="block min-w-0">
-      <span className="mb-1 flex items-center justify-between gap-2 text-[11px] font-bold text-[var(--color-text-secondary)]">
+      <span className="mb-1 flex items-center justify-between gap-2 text-xs font-bold text-[var(--color-text-secondary)]">
         <span>{label}</span>
         {hint ? <span className="font-normal text-[var(--color-text-tertiary)]">{hint}</span> : null}
       </span>
@@ -86,7 +86,7 @@ function ModeButton({ active, onClick, children }: { active: boolean; onClick: (
     <button
       type="button"
       onClick={onClick}
-      className={`rounded-[var(--radius-sm)] px-2.5 py-2 text-[11px] font-bold transition ${active ? "bg-[var(--color-surface-base)] text-[var(--color-primary)] shadow-[var(--shadow-xs)]" : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}
+      className={`rounded-[var(--radius-sm)] px-2.5 py-2 text-xs font-bold transition ${active ? "bg-[var(--color-surface-base)] text-[var(--color-primary-text-strong)] shadow-[var(--shadow-xs)]" : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}
     >
       {children}
     </button>
@@ -240,7 +240,7 @@ export default function TimestampConverterClient() {
         <section className="space-y-4 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-card)]">
           <div>
             <div className="flex items-center gap-2">
-              <Sparkles className="h-4 w-4 text-[var(--color-primary)]" />
+              <Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
               <h2 className="text-sm font-black text-[var(--color-text-primary)]">Practical presets</h2>
             </div>
             <div className="mt-3 grid gap-2 sm:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-2">
@@ -252,7 +252,7 @@ export default function TimestampConverterClient() {
                   className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2 text-left transition hover:border-[var(--color-primary-border)] hover:bg-[var(--color-primary-soft)] focus:outline-none focus:shadow-[var(--focus-ring)]"
                 >
                   <span className="flex items-center gap-2 text-xs font-bold text-[var(--color-text-primary)]"><span aria-hidden>{preset.icon}</span>{preset.label}</span>
-                  <span className="mt-1 line-clamp-2 block text-[10px] leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
+                  <span className="mt-1 line-clamp-2 block text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
                 </button>
               ))}
             </div>
@@ -316,12 +316,12 @@ export default function TimestampConverterClient() {
 
           <div className="border-t border-[var(--color-border-subtle)] pt-4">
             <div className="flex items-center gap-2">
-              <Globe2 className="h-4 w-4 text-[var(--color-primary)]" />
+              <Globe2 className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
               <h3 className="text-xs font-black text-[var(--color-text-primary)]">Time-zone comparison</h3>
             </div>
             <div className="mt-2 grid grid-cols-2 gap-2">
               {zoneOptions.map((zone) => (
-                <label key={zone.id} className="flex cursor-pointer items-center gap-2 rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] px-2.5 py-2 text-[10px] text-[var(--color-text-secondary)]">
+                <label key={zone.id} className="flex cursor-pointer items-center gap-2 rounded-[var(--radius-sm)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] px-2.5 py-2 text-xs text-[var(--color-text-secondary)]">
                   <input type="checkbox" checked={selectedZoneIds.includes(zone.id)} onChange={() => toggleZone(zone.id)} className="h-3.5 w-3.5 accent-[var(--color-primary)]" />
                   <span className="truncate">{zone.label}</span>
                 </label>
@@ -334,7 +334,7 @@ export default function TimestampConverterClient() {
           <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--color-border-subtle)] px-4 py-3">
             <div>
               <h2 className="text-sm font-black text-[var(--color-text-primary)]">Conversion workspace</h2>
-              <p className="mt-0.5 text-[10px] text-[var(--color-text-tertiary)]">Compare interpretations, zones, batch rows, and export formats.</p>
+              <p className="mt-0.5 text-xs text-[var(--color-text-tertiary)]">Compare interpretations, zones, batch rows, and export formats.</p>
             </div>
             <div className="flex flex-wrap gap-2">
               <Button size="sm" variant="secondary" onClick={useCurrentTime}><RefreshCw className="h-3.5 w-3.5" />Now</Button>
@@ -349,7 +349,7 @@ export default function TimestampConverterClient() {
               ["batch", `Batch${batchRows.length ? ` (${batchRows.length})` : ""}`],
               ["exports", "Exports"],
             ] as [TimestampTab, string][]).map(([id, label]) => (
-              <button key={id} type="button" onClick={() => setActiveTab(id)} className={`whitespace-nowrap rounded-[var(--radius-sm)] px-3 py-2 text-[11px] font-bold transition ${activeTab === id ? "bg-[var(--color-surface-base)] text-[var(--color-primary)] shadow-[var(--shadow-xs)]" : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}>{label}</button>
+              <button key={id} type="button" onClick={() => setActiveTab(id)} className={`whitespace-nowrap rounded-[var(--radius-sm)] px-3 py-2 text-xs font-bold transition ${activeTab === id ? "bg-[var(--color-surface-base)] text-[var(--color-primary-text-strong)] shadow-[var(--shadow-xs)]" : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}>{label}</button>
             ))}
           </div>
 
@@ -360,7 +360,7 @@ export default function TimestampConverterClient() {
                   <div className="grid gap-2">
                     {formatRows.map(([label, value]) => (
                       <div key={label} className="grid min-w-0 gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 sm:grid-cols-[145px_minmax(0,1fr)_auto] sm:items-center">
-                        <div className="text-[10px] font-bold uppercase tracking-wide text-[var(--color-text-tertiary)]">{label}</div>
+                        <div className="text-xs font-bold uppercase tracking-wide text-[var(--color-text-tertiary)]">{label}</div>
                         <code className="min-w-0 break-all font-mono text-xs text-[var(--color-text-primary)]">{value}</code>
                         <CopyButton text={value} size="sm" variant="secondary" aria-label={`Copy ${label}`}><Copy className="h-3.5 w-3.5" /></CopyButton>
                       </div>
@@ -368,7 +368,7 @@ export default function TimestampConverterClient() {
                   </div>
                 ) : inputMode === "batch" ? (
                   <div className="rounded-[var(--radius-md)] border border-dashed border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] p-6 text-center">
-                    <ListChecks className="mx-auto h-8 w-8 text-[var(--color-primary)]" />
+                    <ListChecks className="mx-auto h-8 w-8 text-[var(--color-primary-text-strong)]" />
                     <p className="mt-2 text-sm font-bold text-[var(--color-text-primary)]">Batch mode is active</p>
                     <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Open the Batch tab to inspect each row.</p>
                   </div>
@@ -380,26 +380,26 @@ export default function TimestampConverterClient() {
                   <div>
                     <div className="mb-2 flex items-center justify-between gap-2">
                       <h3 className="text-xs font-black text-[var(--color-text-primary)]">Auto-detection candidates</h3>
-                      <span className="text-[10px] text-[var(--color-text-tertiary)]">Lower score is more plausible</span>
+                      <span className="text-xs text-[var(--color-text-tertiary)]">Lower score is more plausible</span>
                     </div>
                     <div className="overflow-x-auto rounded-[var(--radius-md)] border border-[var(--color-border-subtle)]">
                       <table className="w-full min-w-[560px] text-left text-xs">
-                        <thead className="bg-[var(--color-surface-subtle)] text-[10px] uppercase tracking-wide text-[var(--color-text-tertiary)]">
+                        <thead className="bg-[var(--color-surface-subtle)] text-xs uppercase tracking-wide text-[var(--color-text-tertiary)]">
                           <tr><th className="px-3 py-2">Unit</th><th className="px-3 py-2">Calendar result</th><th className="px-3 py-2">Score</th><th className="px-3 py-2">Status</th></tr>
                         </thead>
                         <tbody>
                           {timestampResult.candidates.map((candidate) => (
                             <tr key={candidate.unit} className={`border-t border-[var(--color-border-subtle)] ${candidate.unit === timestampResult.unit ? "bg-[var(--color-primary-soft)]" : ""}`}>
                               <td className="px-3 py-2 font-bold text-[var(--color-text-primary)]">{candidate.label}</td>
-                              <td className="px-3 py-2 font-mono text-[11px] text-[var(--color-text-secondary)]">{candidate.iso ?? "Outside Date range"}</td>
+                              <td className="px-3 py-2 font-mono text-xs text-[var(--color-text-secondary)]">{candidate.iso ?? "Outside Date range"}</td>
                               <td className="px-3 py-2 font-mono text-[var(--color-text-secondary)]">{candidate.valid ? candidate.score : "—"}</td>
-                              <td className="px-3 py-2 text-[10px] font-bold">{candidate.unit === timestampResult.unit ? "Selected" : candidate.valid ? "Alternative" : "Invalid"}</td>
+                              <td className="px-3 py-2 text-xs font-bold">{candidate.unit === timestampResult.unit ? "Selected" : candidate.valid ? "Alternative" : "Invalid"}</td>
                             </tr>
                           ))}
                         </tbody>
                       </table>
                     </div>
-                    <p className="mt-2 text-[11px] leading-5 text-[var(--color-text-tertiary)]">{timestampResult.note}</p>
+                    <p className="mt-2 text-xs leading-5 text-[var(--color-text-tertiary)]">{timestampResult.note}</p>
                   </div>
                 ) : null}
               </div>
@@ -409,10 +409,10 @@ export default function TimestampConverterClient() {
                   <div key={zone.id} className="grid gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 sm:grid-cols-[120px_minmax(0,1fr)_110px] sm:items-center">
                     <div>
                       <div className="text-xs font-black text-[var(--color-text-primary)]">{zone.label}</div>
-                      <div className="mt-0.5 truncate text-[10px] text-[var(--color-text-tertiary)]" title={zone.zone}>{zone.zone}</div>
+                      <div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]" title={zone.zone}>{zone.zone}</div>
                     </div>
                     <div className="font-mono text-xs text-[var(--color-text-secondary)]">{zone.formatted}</div>
-                    <div className="font-mono text-[11px] font-bold text-[var(--color-primary)]">{zone.offset}</div>
+                    <div className="font-mono text-xs font-bold text-[var(--color-primary-text-strong)]">{zone.offset}</div>
                   </div>
                 )) : <div className="rounded-[var(--radius-md)] border border-dashed border-[var(--color-border-default)] p-6 text-center text-sm text-[var(--color-text-tertiary)]">Select at least one time zone and provide a valid instant.</div>}
               </div>
@@ -424,7 +424,7 @@ export default function TimestampConverterClient() {
                 </div>
                 <div className="overflow-x-auto rounded-[var(--radius-md)] border border-[var(--color-border-subtle)]">
                   <table className="w-full min-w-[760px] text-left text-xs">
-                    <thead className="bg-[var(--color-surface-subtle)] text-[10px] uppercase tracking-wide text-[var(--color-text-tertiary)]">
+                    <thead className="bg-[var(--color-surface-subtle)] text-xs uppercase tracking-wide text-[var(--color-text-tertiary)]">
                       <tr><th className="px-3 py-2">Line</th><th className="px-3 py-2">Input</th><th className="px-3 py-2">Unit</th><th className="px-3 py-2">ISO result</th><th className="px-3 py-2">Status</th></tr>
                     </thead>
                     <tbody>
@@ -433,7 +433,7 @@ export default function TimestampConverterClient() {
                           <td className="px-3 py-2 font-mono text-[var(--color-text-tertiary)]">{row.line}</td>
                           <td className="max-w-56 truncate px-3 py-2 font-mono text-[var(--color-text-primary)]" title={row.raw}>{row.raw}</td>
                           <td className="px-3 py-2 text-[var(--color-text-secondary)]">{row.detectedUnit ?? row.requestedUnit}</td>
-                          <td className="px-3 py-2 font-mono text-[11px] text-[var(--color-text-secondary)]">{row.iso ?? row.error}</td>
+                          <td className="px-3 py-2 font-mono text-xs text-[var(--color-text-secondary)]">{row.iso ?? row.error}</td>
                           <td className="px-3 py-2">{row.ok ? <span className="font-bold text-[var(--color-success-text)]">Valid</span> : <span className="font-bold text-[var(--color-danger-text)]">Review</span>}</td>
                         </tr>
                       ))}
@@ -451,14 +451,14 @@ export default function TimestampConverterClient() {
                   { label: "JavaScript starter", hint: "Reusable seconds/ms/us/ns conversion helper", icon: <Code2 className="h-4 w-4" />, action: () => downloadText("timestamp-helper.js", javascript, "text/javascript;charset=utf-8") },
                 ].map((item) => (
                   <button key={item.label} type="button" onClick={item.action} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 text-left transition hover:border-[var(--color-primary-border)] hover:bg-[var(--color-primary-soft)]">
-                    <span className="flex items-center gap-2 text-xs font-black text-[var(--color-text-primary)]"><span className="text-[var(--color-primary)]">{item.icon}</span>{item.label}</span>
-                    <span className="mt-1 block text-[10px] leading-4 text-[var(--color-text-tertiary)]">{item.hint}</span>
-                    <span className="mt-3 inline-flex items-center gap-1 text-[10px] font-bold text-[var(--color-primary)]"><Download className="h-3 w-3" />Download</span>
+                    <span className="flex items-center gap-2 text-xs font-black text-[var(--color-text-primary)]"><span className="text-[var(--color-primary-text-strong)]">{item.icon}</span>{item.label}</span>
+                    <span className="mt-1 block text-xs leading-4 text-[var(--color-text-tertiary)]">{item.hint}</span>
+                    <span className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-[var(--color-primary-text-strong)]"><Download className="h-3 w-3" />Download</span>
                   </button>
                 ))}
                 <button type="button" onClick={downloadPack} disabled={zipBusy} className="rounded-[var(--radius-md)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] p-4 text-left transition hover:bg-[var(--color-primary-soft-hover)] sm:col-span-2">
-                  <span className="flex items-center gap-2 text-xs font-black text-[var(--color-text-primary)]"><PackageCheck className="h-4 w-4 text-[var(--color-primary)]" />Production ZIP pack</span>
-                  <span className="mt-1 block text-[10px] leading-4 text-[var(--color-text-tertiary)]">Formats, report, CSV, Markdown, and JavaScript helper in one archive.</span>
+                  <span className="flex items-center gap-2 text-xs font-black text-[var(--color-text-primary)]"><PackageCheck className="h-4 w-4 text-[var(--color-primary-text-strong)]" />Production ZIP pack</span>
+                  <span className="mt-1 block text-xs leading-4 text-[var(--color-text-tertiary)]">Formats, report, CSV, Markdown, and JavaScript helper in one archive.</span>
                 </button>
               </div>
             )}
@@ -468,7 +468,7 @@ export default function TimestampConverterClient() {
 
       <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-card)]">
         <div className="flex items-center gap-2">
-          <ListChecks className="h-4 w-4 text-[var(--color-primary)]" />
+          <ListChecks className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
           <h2 className="text-sm font-black text-[var(--color-text-primary)]">Production checks</h2>
         </div>
         <div className="mt-3 grid gap-2 md:grid-cols-2">
@@ -478,7 +478,7 @@ export default function TimestampConverterClient() {
                 {check.level === "success" ? <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" /> : check.level === "danger" || check.level === "warning" ? <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" /> : <Braces className="mt-0.5 h-4 w-4 shrink-0" />}
                 <div className="min-w-0">
                   <div className="text-xs font-black">{check.title}</div>
-                  <p className="mt-1 text-[10px] leading-4 opacity-90">{check.message}</p>
+                  <p className="mt-1 text-xs leading-4 opacity-90">{check.message}</p>
                 </div>
               </div>
             </div>

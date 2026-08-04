@@ -55,7 +55,7 @@ export function EditorPanel({
       >
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
-            {readOnly ? <FileOutput className="h-4 w-4 text-[var(--color-accent)]" aria-hidden /> : <FileInput className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />}
+            {readOnly ? <FileOutput className="h-4 w-4 text-[var(--color-accent-text)]" aria-hidden /> : <FileInput className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />}
             <span className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{readOnly ? "Output" : "Input"}</span>
             {language ? (
               <span className="rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] px-2 py-0.5 font-mono text-xs font-bold uppercase leading-none tracking-[0.07em] text-[var(--color-text-secondary)]">

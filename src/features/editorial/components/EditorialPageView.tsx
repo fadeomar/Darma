@@ -116,7 +116,7 @@ export function EditorialPageView({ page }: { page: EditorialPage }) {
 
       <section id="quick-answer" className={`${sectionClass} scroll-mt-28`}>
         <Card padding="lg" className="visual-grid-bg border-[var(--color-primary-border)]">
-          <div className="flex items-center gap-2 text-[var(--color-primary)]"><KindIcon className="h-5 w-5" aria-hidden /><span className="font-mono text-xs font-bold uppercase tracking-[0.14em]">Quick answer</span></div>
+          <div className="flex items-center gap-2 text-[var(--color-primary-text-strong)]"><KindIcon className="h-5 w-5" aria-hidden /><span className="font-mono text-xs font-bold uppercase tracking-[0.14em]">Quick answer</span></div>
           <p className="mt-4 max-w-4xl text-base leading-8 text-[var(--color-text-primary)] sm:text-lg">{page.quickAnswer}</p>
         </Card>
       </section>
@@ -131,10 +131,10 @@ export function EditorialPageView({ page }: { page: EditorialPage }) {
         {page.sections.map((section, index) => (
           <MotionSection as="section" id={section.id} key={section.id} className={`${sectionClass} scroll-mt-28`} distance={18}>
             <div className="detail-editorial-section grid gap-6 lg:grid-cols-[minmax(260px,0.38fr)_minmax(0,760px)] lg:justify-between">
-              <div><span className="font-mono text-xs font-black text-[var(--color-primary)]">{String(index + 1).padStart(2, "0")}</span><h2 className="mt-2 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-3xl">{section.title}</h2></div>
+              <div><span className="font-mono text-xs font-black text-[var(--color-primary-text-strong)]">{String(index + 1).padStart(2, "0")}</span><h2 className="mt-2 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-3xl">{section.title}</h2></div>
               <div>
                 <div className="space-y-5">{section.paragraphs.map((paragraph) => <p key={paragraph} className="text-base leading-8 text-[var(--color-text-secondary)]">{paragraph}</p>)}</div>
-                {section.bullets?.length ? <ul className="mt-6 grid gap-3 sm:grid-cols-2">{section.bullets.map((item) => <li key={item} className="flex items-start gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 text-sm leading-6 text-[var(--color-text-secondary)]"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-primary)]" aria-hidden />{item}</li>)}</ul> : null}
+                {section.bullets?.length ? <ul className="mt-6 grid gap-3 sm:grid-cols-2">{section.bullets.map((item) => <li key={item} className="flex items-start gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 text-sm leading-6 text-[var(--color-text-secondary)]"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]" aria-hidden />{item}</li>)}</ul> : null}
                 {section.note ? <div className="mt-6 rounded-[var(--radius-lg)] border border-[var(--color-warning-border)] bg-[var(--color-warning-bg)] p-5 text-sm leading-7 text-[var(--color-text-primary)]"><strong>Keep in mind:</strong> {section.note}</div> : null}
               </div>
             </div>
@@ -168,7 +168,7 @@ export function EditorialPageView({ page }: { page: EditorialPage }) {
             <details key={item.question} className="editorial-faq group rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] open:border-[var(--color-primary-border)] open:bg-[var(--color-surface-raised)] open:shadow-[var(--shadow-card)]">
               <summary className="flex min-h-[64px] cursor-pointer list-none items-center justify-between gap-5 px-5 py-4 text-base font-black text-[var(--color-text-primary)] focus-visible:shadow-[var(--focus-ring)]">
                 <span>{item.question}</span>
-                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[var(--color-border-default)] bg-[var(--color-control-track)] text-[var(--color-text-secondary)] transition group-open:rotate-180 group-open:border-[var(--color-primary-border)] group-open:bg-[var(--color-primary-soft)] group-open:text-[var(--color-primary)] motion-reduce:transition-none">
+                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[var(--color-border-default)] bg-[var(--color-control-track)] text-[var(--color-text-secondary)] transition group-open:rotate-180 group-open:border-[var(--color-primary-border)] group-open:bg-[var(--color-primary-soft)] group-open:text-[var(--color-primary-text-strong)] motion-reduce:transition-none">
                   <ChevronDown className="h-5 w-5" aria-hidden />
                 </span>
               </summary>
@@ -194,7 +194,7 @@ export function EditorialPageView({ page }: { page: EditorialPage }) {
       <section id="sources-next" className={`${sectionClass} scroll-mt-28`}>
         <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(300px,0.7fr)]">
           <Card padding="lg" className="border-[var(--color-primary-border)]">
-            <div className="flex items-center gap-2 text-[var(--color-primary)]"><Sparkles className="h-5 w-5" aria-hidden /><span className="font-mono text-xs font-bold uppercase tracking-[0.14em]">Next step</span></div>
+            <div className="flex items-center gap-2 text-[var(--color-primary-text-strong)]"><Sparkles className="h-5 w-5" aria-hidden /><span className="font-mono text-xs font-bold uppercase tracking-[0.14em]">Next step</span></div>
             <h2 className="mt-4 text-2xl font-black text-[var(--color-text-primary)]">{page.cta.title}</h2>
             <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">{page.cta.text}</p>
             <Link href={page.cta.href} className={`mt-5 ${primaryClass}`}>{page.cta.label} <ArrowRight className="h-4 w-4" aria-hidden /></Link>
@@ -205,7 +205,7 @@ export function EditorialPageView({ page }: { page: EditorialPage }) {
             <div className="mt-5 space-y-2">
               {[...page.references.map((item) => ({ name: item.name, url: item.url, label: item.type })), ...resources.map((item) => ({ name: item.name, url: item.url, label: item.publisherType }))]
                 .filter((item, index, all) => all.findIndex((candidate) => candidate.url === item.url) === index)
-                .map((item) => <a key={item.url} href={item.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between gap-3 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] p-3 text-sm font-semibold text-[var(--color-text-primary)] transition hover:border-[var(--color-primary-border)] hover:text-[var(--color-primary)]"><span><span className="block">{item.name}</span><span className="mt-1 block font-mono text-[9px] uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">{item.label}</span></span><ExternalLink className="h-4 w-4 shrink-0" aria-hidden /></a>)}
+                .map((item) => <a key={item.url} href={item.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between gap-3 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] p-3 text-sm font-semibold text-[var(--color-text-primary)] transition hover:border-[var(--color-primary-border)] hover:text-[var(--color-primary-text-strong)]"><span><span className="block">{item.name}</span><span className="mt-1 block font-mono text-xs uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">{item.label}</span></span><ExternalLink className="h-4 w-4 shrink-0" aria-hidden /></a>)}
             </div>
           </Card>
         </div>

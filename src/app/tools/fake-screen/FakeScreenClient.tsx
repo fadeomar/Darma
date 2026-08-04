@@ -123,7 +123,7 @@ function Field({ label, hint, children }: { label: string; hint?: string; childr
   return (
     <label className="block text-xs font-black uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">
       {label}
-      {hint ? <span className="mt-1 block text-[11px] normal-case tracking-normal text-[var(--color-text-tertiary)]">{hint}</span> : null}
+      {hint ? <span className="mt-1 block text-xs normal-case tracking-normal text-[var(--color-text-tertiary)]">{hint}</span> : null}
       <div className="mt-2">{children}</div>
     </label>
   );
@@ -752,10 +752,10 @@ function PresetThumbnail({ preset }: { preset: FakeScreenPreset }) {
     const template = s.updateTemplate;
     if (template === "winxp") return <span className="preview-art bg-[#5d83df]"><i className="absolute inset-x-0 top-0 h-3 bg-[#003399]" /><i className="absolute inset-x-0 bottom-0 h-3 bg-[#1b38b4]" /><WindowsMark colorful /></span>;
     if (template === "mac") return <span className="preview-art bg-black"><AppleLikeMark /></span>;
-    if (template === "ubuntu") return <span className="preview-art bg-[#300a24]"><b className="text-[11px] font-light text-white">ubuntu</b></span>;
+    if (template === "ubuntu") return <span className="preview-art bg-[#300a24]"><b className="text-xs font-light text-white">ubuntu</b></span>;
     if (template === "chrome") return <span className="preview-art bg-[#202124]"><ChromeLikeMark /></span>;
     if (template === "android") return <span className="preview-art bg-[#121212]"><AndroidLikeMark /></span>;
-    if (template === "terminal") return <span className="preview-art bg-black p-2 font-mono text-[9px] leading-3 text-green-400">$ update<br />pkg done<br />pkg done</span>;
+    if (template === "terminal") return <span className="preview-art bg-black p-2 font-mono text-xs leading-3 text-green-400">$ update<br />pkg done<br />pkg done</span>;
     return <span className={template === "win10" ? "preview-art bg-[#0078d7]" : "preview-art bg-[#05070c]"}><WindowsSpinner small /></span>;
   }
   if (preset.mode === "error") {
@@ -763,11 +763,11 @@ function PresetThumbnail({ preset }: { preset: FakeScreenPreset }) {
     if (s.errorTemplate === "radar") return <span className="preview-art bg-emerald-950"><i className="radar-sweep h-14 w-14 rounded-full border border-emerald-400/60" /></span>;
     if (s.errorTemplate === "no-signal") return <span className="preview-art grid grid-cols-7"><i className="bg-white" /><i className="bg-yellow-300" /><i className="bg-cyan-400" /><i className="bg-green-500" /><i className="bg-fuchsia-500" /><i className="bg-red-500" /><i className="bg-blue-600" /></span>;
     if (s.errorTemplate === "broken") return <span className="preview-art bg-zinc-950"><i className="h-px w-20 rotate-45 bg-white/70" /><i className="absolute h-px w-16 -rotate-12 bg-white/70" /></span>;
-    return <span className="preview-art bg-black p-2 font-mono text-[9px] leading-3 text-green-400">0101<br />ACCESS<br />READY</span>;
+    return <span className="preview-art bg-black p-2 font-mono text-xs leading-3 text-green-400">0101<br />ACCESS<br />READY</span>;
   }
   if (preset.mode === "screensaver") {
     if (s.screensaverTemplate === "dvd") return <span className="preview-art bg-black text-red-500"><DvdLogo text="DVD" /></span>;
-    if (s.screensaverTemplate === "matrix") return <span className="preview-art bg-black font-mono text-[9px] leading-3 text-green-400">アイ01<br />0101<br />DARMA</span>;
+    if (s.screensaverTemplate === "matrix") return <span className="preview-art bg-black font-mono text-xs leading-3 text-green-400">アイ01<br />0101<br />DARMA</span>;
     if (s.screensaverTemplate === "no-signal") return <span className="preview-art grid grid-cols-7"><i className="bg-white" /><i className="bg-yellow-300" /><i className="bg-cyan-400" /><i className="bg-green-500" /><i className="bg-fuchsia-500" /><i className="bg-red-500" /><i className="bg-blue-600" /></span>;
     if (s.screensaverTemplate === "flip-clock") return <span className="preview-art bg-white"><b className="rounded bg-black px-1.5 py-1 text-xs text-white">15:31</b></span>;
   }

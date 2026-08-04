@@ -49,12 +49,12 @@ export function SliderNumberField({
     <div className={cn("min-w-0 space-y-2", className)}>
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0 space-y-1">
-          <div className="font-mono text-[11px] font-bold uppercase leading-none tracking-[0.07em] text-[var(--color-text-tertiary)]">
+          <div className="font-mono text-xs font-bold uppercase leading-none tracking-[0.07em] text-[var(--color-text-tertiary)]">
             {label}
           </div>
-          {hint ? <div className="text-[11px] leading-4 text-[var(--color-text-tertiary)]">{hint}</div> : null}
+          {hint ? <div className="text-xs leading-4 text-[var(--color-text-tertiary)]">{hint}</div> : null}
         </div>
-        <div className="shrink-0 rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] px-2 py-0.5 font-mono text-[11px] font-bold tabular-nums text-[var(--color-text-secondary)]">
+        <div className="shrink-0 rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] px-2 py-0.5 font-mono text-xs font-bold tabular-nums text-[var(--color-text-secondary)]">
           {formatSliderValue(value, step, unit)}
         </div>
       </div>
@@ -90,11 +90,11 @@ export function SliderNumberField({
               }}
               className="font-mono tabular-nums"
             />
-            {unit && typeof unit !== "string" ? <span className="text-[11px] font-bold text-[var(--color-text-tertiary)]">{unit}</span> : null}
+            {unit && typeof unit !== "string" ? <span className="text-xs font-bold text-[var(--color-text-tertiary)]">{unit}</span> : null}
           </div>
         ) : null}
       </div>
-      {error ? <p className="text-[11px] font-semibold leading-4 text-[var(--color-danger-text)]">{error}</p> : null}
+      {error ? <p className="text-xs font-semibold leading-4 text-[var(--color-danger-text)]">{error}</p> : null}
     </div>
   );
 }

@@ -151,7 +151,7 @@ export default function ScrabbleWordFinderClient() {
               event.target.value = "";
             }}
           />
-          <p className="mt-2 text-[11px] leading-relaxed text-[var(--color-text-tertiary)]">
+          <p className="mt-2 text-xs leading-relaxed text-[var(--color-text-tertiary)]">
             The built-in list is a small set of common words. For tournament play, load a full TWL or SOWPODS
             word list (a plain text file, one word per line). It is read locally and never uploaded.
           </p>
@@ -236,7 +236,7 @@ function WordChip({ word, score, blanks }: { word: string; score: number; blanks
     >
       <span className="font-semibold text-[var(--color-text-primary)]">{word}</span>
       <span className="tabular-nums text-xs text-[var(--color-text-tertiary)]">{score}</span>
-      {blanks > 0 && <span className="text-[10px] text-[var(--color-warning-text)]">·{blanks}?</span>}
+      {blanks > 0 && <span className="text-xs text-[var(--color-warning-text)]">·{blanks}?</span>}
     </span>
   );
 }

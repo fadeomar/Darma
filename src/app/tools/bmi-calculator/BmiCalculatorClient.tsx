@@ -155,7 +155,7 @@ function BmiScale({ bmi }: { bmi: number }) {
           style={{ left: `calc(${percent}% - 2px)` }}
         />
       </div>
-      <div className="mt-2 grid grid-cols-4 gap-1 text-center text-[10px] font-bold text-[var(--color-text-tertiary)]">
+      <div className="mt-2 grid grid-cols-4 gap-1 text-center text-xs font-bold text-[var(--color-text-tertiary)]">
         <span>Under</span>
         <span>Healthy</span>
         <span>Over</span>
@@ -176,7 +176,7 @@ function SummaryCard({
 }) {
   return (
     <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 shadow-[var(--shadow-xs)]">
-      <div className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+      <div className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
         {label}
       </div>
       <div className="mt-1 break-words text-base font-black tracking-[-0.02em] text-[var(--color-text-primary)]">
@@ -670,7 +670,7 @@ export default function BmiCalculatorClient() {
         <section className="flex h-full flex-col overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-sm)]">
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]/75 px-4 py-3">
             <div>
-              <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+              <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
                 Private browser result
               </p>
               <h2 className="text-sm font-bold text-[var(--color-text-primary)]">
@@ -691,7 +691,7 @@ export default function BmiCalculatorClient() {
                   <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-5">
                     <div className="flex items-start justify-between gap-3">
                       <div>
-                        <div className="text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+                        <div className="text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
                           BMI score
                         </div>
                         <div className="mt-1 text-6xl font-black tracking-tight text-[var(--color-text-primary)]">
@@ -817,7 +817,7 @@ export default function BmiCalculatorClient() {
         <div className="space-y-4">
           <div className="flex items-center gap-2">
             <ShieldCheck
-              className="h-5 w-5 text-[var(--color-primary)]"
+              className="h-5 w-5 text-[var(--color-primary-text-strong)]"
               aria-hidden
             />
             <h3 className="text-sm font-black text-[var(--color-text-primary)]">
@@ -831,7 +831,7 @@ export default function BmiCalculatorClient() {
         <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-card)]">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex items-center gap-2">
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--color-primary-soft)] text-[var(--color-primary)]">
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]">
                 <History className="h-4 w-4" aria-hidden />
               </span>
               <div>

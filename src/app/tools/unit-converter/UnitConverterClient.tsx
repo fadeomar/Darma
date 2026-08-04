@@ -78,18 +78,18 @@ function SummaryCard({ label, value, hint, icon }: { label: string; value: strin
   return (
     <div className="min-w-0 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 shadow-[var(--shadow-sm)]">
       <div className="flex items-center justify-between gap-2">
-        <span className="text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</span>
-        <span className="text-[var(--color-primary)]">{icon}</span>
+        <span className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</span>
+        <span className="text-[var(--color-primary-text-strong)]">{icon}</span>
       </div>
       <div className="mt-1 truncate text-lg font-black text-[var(--color-text-primary)]" title={value}>{value}</div>
-      <div className="mt-0.5 truncate text-[10px] text-[var(--color-text-tertiary)]" title={hint}>{hint}</div>
+      <div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]" title={hint}>{hint}</div>
     </div>
   );
 }
 
 function FieldLabel({ children, hint }: { children: ReactNode; hint?: string }) {
   return (
-    <label className="block min-w-0 text-[11px] font-bold text-[var(--color-text-secondary)]">
+    <label className="block min-w-0 text-xs font-bold text-[var(--color-text-secondary)]">
       <span className="flex items-center justify-between gap-2">
         <span>{children}</span>
         {hint ? <span className="font-normal text-[var(--color-text-tertiary)]">{hint}</span> : null}
@@ -121,7 +121,7 @@ function ChecksList({ checks }: { checks: ConversionCheck[] }) {
             <span className="mt-0.5 shrink-0"><CheckIcon level={check.level} /></span>
             <div className="min-w-0">
               <div className="text-xs font-black">{check.title}</div>
-              <p className="mt-0.5 text-[11px] leading-5 opacity-90">{check.message}</p>
+              <p className="mt-0.5 text-xs leading-5 opacity-90">{check.message}</p>
             </div>
           </div>
         </div>
@@ -227,8 +227,8 @@ export default function UnitConverterClient() {
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-tool-controls-border)] bg-[var(--color-tool-controls-bg)] p-4 shadow-[var(--shadow-tool-controls)]">
             <div className="mb-3 flex items-start justify-between gap-3">
               <div>
-                <h2 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4 text-[var(--color-primary)]" />Practical presets</h2>
-                <p className="mt-0.5 text-[11px] text-[var(--color-text-tertiary)]">Load a realistic conversion and edit it.</p>
+                <h2 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" />Practical presets</h2>
+                <p className="mt-0.5 text-xs text-[var(--color-text-tertiary)]">Load a realistic conversion and edit it.</p>
               </div>
               <Button size="sm" variant="ghost" onClick={reset}>Reset</Button>
             </div>
@@ -236,7 +236,7 @@ export default function UnitConverterClient() {
               {UNIT_PRESETS.map((preset) => (
                 <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-2.5 text-left transition hover:border-[var(--color-primary)] hover:bg-[var(--color-control-hover)]">
                   <span className="block truncate text-xs font-bold text-[var(--color-text-primary)]">{preset.name}</span>
-                  <span className="mt-1 block line-clamp-2 text-[10px] leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
+                  <span className="mt-1 block line-clamp-2 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
                 </button>
               ))}
             </div>
@@ -245,7 +245,7 @@ export default function UnitConverterClient() {
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-tool-controls-border)] bg-[var(--color-tool-controls-bg)] p-4 shadow-[var(--shadow-tool-controls)]">
             <div className="mb-3">
               <h2 className="text-sm font-black text-[var(--color-text-primary)]">Conversion controls</h2>
-              <p className="mt-0.5 text-[11px] text-[var(--color-text-tertiary)]">Choose a quantity, value, and exact unit standards.</p>
+              <p className="mt-0.5 text-xs text-[var(--color-text-tertiary)]">Choose a quantity, value, and exact unit standards.</p>
             </div>
             <div className="space-y-3">
               <div>
@@ -253,7 +253,7 @@ export default function UnitConverterClient() {
                 <Select className="mt-1" value={categoryId} onChange={(event: ChangeEvent<HTMLSelectElement>) => changeCategory(event.target.value)} aria-label="Conversion category">
                   {CATEGORIES.map((candidate) => <option key={candidate.id} value={candidate.id}>{candidate.label}</option>)}
                 </Select>
-                <p className="mt-1 text-[10px] leading-4 text-[var(--color-text-tertiary)]">{category.description}</p>
+                <p className="mt-1 text-xs leading-4 text-[var(--color-text-tertiary)]">{category.description}</p>
               </div>
 
               <div>
@@ -323,7 +323,7 @@ export default function UnitConverterClient() {
                 <section className={`rounded-[var(--radius-lg)] border p-5 shadow-[var(--shadow-sm)] ${outcome.valid ? "border-[var(--color-tool-result-border)] bg-[var(--color-surface-base)]" : "border-[var(--color-danger-border)] bg-[var(--color-danger-bg)]"}`}>
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div className="min-w-0">
-                      <div className="text-[10px] font-bold uppercase tracking-[0.09em] text-[var(--color-text-tertiary)]">Converted value</div>
+                      <div className="text-xs font-bold uppercase tracking-[0.09em] text-[var(--color-text-tertiary)]">Converted value</div>
                       <div className="mt-1 break-words font-mono text-4xl font-black tracking-tight text-[var(--color-text-primary)]">{resultText} <span className="text-2xl text-[var(--color-text-tertiary)]">{toUnit?.symbol}</span></div>
                       <p className="mt-2 text-sm font-semibold text-[var(--color-text-secondary)]">{summary}</p>
                     </div>
@@ -333,21 +333,21 @@ export default function UnitConverterClient() {
 
                 <div className="grid gap-2 sm:grid-cols-3">
                   <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3">
-                    <div className="text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Input</div>
+                    <div className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Input</div>
                     <div className="mt-1 font-mono text-lg font-black text-[var(--color-text-primary)]">{inputText} {fromUnit?.symbol}</div>
                   </div>
                   <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3">
-                    <div className="text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Multiplier</div>
+                    <div className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Multiplier</div>
                     <div className="mt-1 font-mono text-lg font-black text-[var(--color-text-primary)]">{outcome.factor == null ? "Offset formula" : formatResult(outcome.factor, { mode: "significant", precision: 8, useGrouping: false })}</div>
                   </div>
                   <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3">
-                    <div className="text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Standard</div>
+                    <div className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Standard</div>
                     <div className="mt-1 text-sm font-black text-[var(--color-text-primary)]">{fromUnit && toUnit ? `${systemLabel(fromUnit.system)} → ${systemLabel(toUnit.system)}` : "—"}</div>
                   </div>
                 </div>
 
                 <section className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-4">
-                  <h3 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><Braces className="h-4 w-4 text-[var(--color-primary)]" />Formula and method</h3>
+                  <h3 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><Braces className="h-4 w-4 text-[var(--color-primary-text-strong)]" />Formula and method</h3>
                   <div className="mt-3 break-words rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-code-bg)] px-3 py-2 font-mono text-xs leading-6 text-[var(--color-code-text)]">{outcome.substitutedFormula || outcome.formula || "Enter a valid value."}</div>
                   {outcome.steps.length ? <ol className="mt-3 list-inside list-decimal space-y-1 text-xs leading-5 text-[var(--color-text-secondary)]">{outcome.steps.map((step) => <li key={step}>{step}</li>)}</ol> : null}
                 </section>
@@ -355,7 +355,7 @@ export default function UnitConverterClient() {
                 <section>
                   <div className="mb-2 flex items-center justify-between gap-2">
                     <h3 className="text-sm font-black text-[var(--color-text-primary)]">Production checks</h3>
-                    <span className="text-[10px] text-[var(--color-text-tertiary)]">{checks.length} completed</span>
+                    <span className="text-xs text-[var(--color-text-tertiary)]">{checks.length} completed</span>
                   </div>
                   <ChecksList checks={checks.slice(0, 4)} />
                 </section>
@@ -367,19 +367,19 @@ export default function UnitConverterClient() {
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div>
                     <h2 className="text-sm font-black text-[var(--color-text-primary)]">All {category.label.toLowerCase()} units</h2>
-                    <p className="mt-0.5 text-[11px] text-[var(--color-text-tertiary)]">Use a row as the destination or export the full comparison.</p>
+                    <p className="mt-0.5 text-xs text-[var(--color-text-tertiary)]">Use a row as the destination or export the full comparison.</p>
                   </div>
                   <Button size="sm" variant="secondary" leftIcon={<FileSpreadsheet className="h-3.5 w-3.5" />} onClick={() => downloadText("unit-conversions.csv", buildConversionsCsv(request, format), "text/csv;charset=utf-8")}>Download CSV</Button>
                 </div>
                 <div className="overflow-x-auto rounded-[var(--radius-md)] border border-[var(--color-border-subtle)]">
                   <table className="w-full min-w-[620px] text-left text-xs">
-                    <thead className="bg-[var(--color-surface-subtle)] text-[10px] uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+                    <thead className="bg-[var(--color-surface-subtle)] text-xs uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
                       <tr><th className="px-3 py-2">Unit</th><th className="px-3 py-2">System</th><th className="px-3 py-2 text-right">Converted value</th><th className="px-3 py-2 text-right">Action</th></tr>
                     </thead>
                     <tbody className="divide-y divide-[var(--color-border-subtle)]">
                       {allConversions.map(({ unit, value: converted }) => (
                         <tr key={unit.id} className={unit.id === toId ? "bg-[var(--color-primary-subtle)]" : "bg-[var(--color-surface-base)]"}>
-                          <td className="px-3 py-2"><div className="font-bold text-[var(--color-text-primary)]">{unit.name}</div><div className="text-[10px] text-[var(--color-text-tertiary)]">{unit.symbol}</div></td>
+                          <td className="px-3 py-2"><div className="font-bold text-[var(--color-text-primary)]">{unit.name}</div><div className="text-xs text-[var(--color-text-tertiary)]">{unit.symbol}</div></td>
                           <td className="px-3 py-2 text-[var(--color-text-secondary)]">{systemLabel(unit.system)}</td>
                           <td className="px-3 py-2 text-right font-mono font-bold text-[var(--color-text-primary)]">{formatResult(converted, format)} {unit.symbol}</td>
                           <td className="px-3 py-2 text-right"><Button size="sm" variant={unit.id === toId ? "primary" : "ghost"} onClick={() => setToId(unit.id)} disabled={unit.id === toId}>{unit.id === toId ? "Selected" : "Use target"}</Button></td>
@@ -397,17 +397,17 @@ export default function UnitConverterClient() {
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div>
                       <h2 className="text-sm font-black text-[var(--color-text-primary)]">Batch conversion</h2>
-                      <p className="mt-0.5 text-[11px] leading-5 text-[var(--color-text-tertiary)]">One value per line. Add an optional unit such as <code>5 km</code>; rows without a unit use {fromUnit?.symbol}.</p>
+                      <p className="mt-0.5 text-xs leading-5 text-[var(--color-text-tertiary)]">One value per line. Add an optional unit such as <code>5 km</code>; rows without a unit use {fromUnit?.symbol}.</p>
                     </div>
                     <Button size="sm" variant="secondary" leftIcon={<FileSpreadsheet className="h-3.5 w-3.5" />} onClick={() => downloadText("batch-conversions.csv", buildBatchCsv(batchRows, format), "text/csv;charset=utf-8")} disabled={!batchRows.length}>Download CSV</Button>
                   </div>
                   <Textarea className="mt-3 min-h-36 font-mono text-xs" value={batchInput} onChange={(event: ChangeEvent<HTMLTextAreaElement>) => setBatchInput(event.target.value)} aria-label="Batch values" placeholder={`1\n2.5\n10 ${fromUnit?.symbol ?? ""}`} />
-                  <div className="mt-2 flex flex-wrap gap-3 text-[10px] text-[var(--color-text-tertiary)]"><span>{batchRows.length} parsed rows</span><span>{validBatchRows} valid</span><span>{batchRows.length - validBatchRows} invalid</span></div>
+                  <div className="mt-2 flex flex-wrap gap-3 text-xs text-[var(--color-text-tertiary)]"><span>{batchRows.length} parsed rows</span><span>{validBatchRows} valid</span><span>{batchRows.length - validBatchRows} invalid</span></div>
                 </section>
 
                 <div className="overflow-x-auto rounded-[var(--radius-md)] border border-[var(--color-border-subtle)]">
                   <table className="w-full min-w-[640px] text-left text-xs">
-                    <thead className="bg-[var(--color-surface-subtle)] text-[10px] uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]"><tr><th className="px-3 py-2">Line</th><th className="px-3 py-2">Input</th><th className="px-3 py-2">Source</th><th className="px-3 py-2 text-right">Result</th><th className="px-3 py-2">Status</th></tr></thead>
+                    <thead className="bg-[var(--color-surface-subtle)] text-xs uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]"><tr><th className="px-3 py-2">Line</th><th className="px-3 py-2">Input</th><th className="px-3 py-2">Source</th><th className="px-3 py-2 text-right">Result</th><th className="px-3 py-2">Status</th></tr></thead>
                     <tbody className="divide-y divide-[var(--color-border-subtle)]">
                       {batchRows.length ? batchRows.map((row) => (
                         <tr key={`${row.lineNumber}-${row.raw}`} className="bg-[var(--color-surface-base)]">
@@ -433,7 +433,7 @@ export default function UnitConverterClient() {
 
                 <section className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-4">
                   <h2 className="text-sm font-black text-[var(--color-text-primary)]">Export pack</h2>
-                  <p className="mt-1 text-[11px] leading-5 text-[var(--color-text-tertiary)]">Download a human-readable report, machine-readable audit, comparison tables, or a reusable JavaScript helper.</p>
+                  <p className="mt-1 text-xs leading-5 text-[var(--color-text-tertiary)]">Download a human-readable report, machine-readable audit, comparison tables, or a reusable JavaScript helper.</p>
                   <div className="mt-3 grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
                     <Button size="sm" variant="secondary" leftIcon={<Download className="h-3.5 w-3.5" />} onClick={() => downloadText("unit-conversion-report.md", buildMarkdownReport(report), "text/markdown;charset=utf-8")}>Markdown report</Button>
                     <Button size="sm" variant="secondary" leftIcon={<FileJson className="h-3.5 w-3.5" />} onClick={() => downloadText("unit-conversion-report.json", JSON.stringify(report, null, 2), "application/json;charset=utf-8")}>JSON audit</Button>

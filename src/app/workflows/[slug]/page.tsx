@@ -95,7 +95,7 @@ export default async function WorkflowDetailPage({ params }: Props) {
         <WorkflowProgressSummary workflowId={workflow.id} stepIds={workflow.steps.map((step) => step.id)} />
         <div className="detail-overview-grid mt-5 grid gap-5 lg:grid-cols-2">
           <Card variant="article" padding="lg">
-            <h2 className="flex items-center gap-2 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]"><Link2 className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />Why this order?</h2>
+            <h2 className="flex items-center gap-2 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]"><Link2 className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />Why this order?</h2>
             <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">{workflow.useCase}</p>
           </Card>
           <Card variant="article" padding="lg">
@@ -128,7 +128,7 @@ export default async function WorkflowDetailPage({ params }: Props) {
                     </p>
                   ) : null}
                 </div>
-                <Link href={href} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-sm)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-4 text-sm font-bold text-[var(--color-text-primary)] transition hover:border-[var(--color-primary-border)] hover:text-[var(--color-primary)] sm:justify-self-end">
+                <Link href={href} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-sm)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-4 text-sm font-bold text-[var(--color-text-primary)] transition hover:border-[var(--color-primary-border)] hover:text-[var(--color-primary-text-strong)] sm:justify-self-end">
                   Open step <ExternalLink className="h-4 w-4" aria-hidden />
                 </Link>
               </article>

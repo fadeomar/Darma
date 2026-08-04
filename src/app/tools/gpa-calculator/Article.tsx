@@ -53,7 +53,7 @@ export default function GpaCalculatorArticle() {
         <details key={section.title} open={index === 0} className="group">
           <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-left focus:outline-none focus-visible:shadow-[inset_0_0_0_3px_var(--color-primary-soft)] sm:px-6">
             <h2 className="text-lg font-black text-[var(--color-text-primary)] sm:text-xl">{section.title}</h2>
-            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] text-[var(--color-text-secondary)] transition group-open:rotate-180 group-open:border-[var(--color-primary-border)] group-open:text-[var(--color-primary)]">
+            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] text-[var(--color-text-secondary)] transition group-open:rotate-180 group-open:border-[var(--color-primary-border)] group-open:text-[var(--color-primary-text-strong)]">
               <ChevronDown className="h-4 w-4" aria-hidden />
             </span>
           </summary>

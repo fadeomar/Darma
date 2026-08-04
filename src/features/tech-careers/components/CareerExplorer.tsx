@@ -73,7 +73,7 @@ export function CareerExplorer({ careers }: { careers: TechCareer[] }) {
       <Card padding="lg" className="mb-6 lg:sticky lg:top-[76px] lg:z-20 bg-[var(--color-surface-overlay)]/95 backdrop-blur-xl">
         <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.14em] text-[var(--color-primary)]">Choose by the work you enjoy</p>
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.14em] text-[var(--color-primary-text-strong)]">Choose by the work you enjoy</p>
             <h2 id="career-explorer-title" className="scroll-mt-24 mt-3 text-3xl font-black tracking-[-0.035em] text-[var(--color-text-primary)]">Find the role behind the title.</h2>
             <p className="mt-3 text-sm leading-6 text-[var(--color-text-secondary)]">Compare responsibilities, daily work, evidence of seniority, collaborators, skills, and practical starting steps.</p>
           </div>

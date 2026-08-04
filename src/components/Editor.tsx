@@ -38,7 +38,7 @@ function toolbarButtonClass(active?: boolean) {
   return cn(
     "rounded-[var(--radius-sm)] p-2 transition duration-[var(--duration-fast)] disabled:cursor-not-allowed disabled:opacity-40",
     active
-      ? "bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+      ? "bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]"
       : "text-[var(--color-text-tertiary)] hover:bg-[var(--color-control-hover)] hover:text-[var(--color-text-primary)]",
   );
 }
@@ -60,7 +60,7 @@ export default function Editor({
       Link.configure({
         openOnClick: false,
         autolink: true,
-        HTMLAttributes: { class: "text-[var(--color-primary)] underline underline-offset-2" },
+        HTMLAttributes: { class: "text-[var(--color-primary-text-strong)] underline underline-offset-2" },
       }),
     ],
     content,

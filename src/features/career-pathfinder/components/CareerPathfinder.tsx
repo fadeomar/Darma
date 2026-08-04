@@ -134,7 +134,7 @@ export function CareerPathfinder({ careers, initialMatches = [] }: { careers: Pa
     <Card padding="none" className="pathfinder-shell border-[var(--color-primary-border)]">
       <div className="relative z-10 border-b border-[var(--color-border-subtle)] p-5 sm:p-7">
         <div className="flex flex-wrap items-center justify-between gap-4">
-          <div><p className="font-mono text-[10px] font-black uppercase tracking-[0.18em] text-[var(--color-primary)]">Interactive decision aid</p><h2 className="mt-2 text-2xl font-black tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-3xl">Career Pathfinder</h2></div>
+          <div><p className="font-mono text-xs font-black uppercase tracking-[0.18em] text-[var(--color-primary-text-strong)]">Interactive decision aid</p><h2 className="mt-2 text-2xl font-black tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-3xl">Career Pathfinder</h2></div>
           <Badge variant="outline">No account • saved locally</Badge>
         </div>
         <div className="pathfinder-progress mt-5" aria-label={`${Math.round(progress)} percent complete`}><span style={{ width: `${progress}%` }} /></div>
@@ -177,7 +177,7 @@ export function CareerPathfinder({ careers, initialMatches = [] }: { careers: Pa
                     <ArrowLeft className="h-4 w-4" aria-hidden /> Previous
                   </button>
                 ) : null}
-                <button type="button" onClick={reset} className="inline-flex min-h-11 items-center px-2 text-sm font-bold text-[var(--color-text-tertiary)] hover:text-[var(--color-primary)]">Reset answers</button>
+                <button type="button" onClick={reset} className="inline-flex min-h-11 items-center px-2 text-sm font-bold text-[var(--color-text-tertiary)] hover:text-[var(--color-primary-text-strong)]">Reset answers</button>
               </div>
               <button type="button" disabled={!answers[question.id]} onClick={continueToNext} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[var(--color-primary)] px-5 text-sm font-black text-[var(--color-primary-text)] transition hover:bg-[var(--color-primary-hover)] disabled:cursor-not-allowed disabled:opacity-45">
                 {step === PATHFINDER_QUESTIONS.length - 1 ? "See my matches" : "Continue"} <ArrowRight className="h-4 w-4" aria-hidden />
@@ -186,22 +186,22 @@ export function CareerPathfinder({ careers, initialMatches = [] }: { careers: Pa
           </div>
         ) : (
           <div className="mx-auto max-w-5xl">
-            <div className="mx-auto max-w-3xl text-center"><span className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-[var(--color-primary-soft)] text-[var(--color-primary)]"><Compass className="h-7 w-7" aria-hidden /></span><p className="mt-5 font-mono text-[10px] font-black uppercase tracking-[0.18em] text-[var(--color-primary)]">Your strongest starting directions</p><h3 className="mt-3 text-3xl font-black tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-5xl">Explore these roles first.</h3><p className="mt-4 text-sm leading-7 text-[var(--color-text-secondary)] sm:text-base">This is a structured reflection tool, not a personality test or hiring assessment. Open the role guides, compare the daily work, and test your interest through a small project.</p></div>
+            <div className="mx-auto max-w-3xl text-center"><span className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]"><Compass className="h-7 w-7" aria-hidden /></span><p className="mt-5 font-mono text-xs font-black uppercase tracking-[0.18em] text-[var(--color-primary-text-strong)]">Your strongest starting directions</p><h3 className="mt-3 text-3xl font-black tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-5xl">Explore these roles first.</h3><p className="mt-4 text-sm leading-7 text-[var(--color-text-secondary)] sm:text-base">This is a structured reflection tool, not a personality test or hiring assessment. Open the role guides, compare the daily work, and test your interest through a small project.</p></div>
             <div className="mt-8 grid gap-4 lg:grid-cols-3">
               {results.map((career, index) => (
                 <Card key={career.slug} data-pathfinder-option variant="interactive" padding="lg" className="visual-card h-full">
-                  <div className="flex items-center justify-between"><Badge variant={index === 0 ? "accent" : "soft"}>Match {index + 1}</Badge><Sparkles className="h-5 w-5 text-[var(--color-primary)]" aria-hidden /></div>
+                  <div className="flex items-center justify-between"><Badge variant={index === 0 ? "accent" : "soft"}>Match {index + 1}</Badge><Sparkles className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden /></div>
                   <h4 className="mt-5 text-2xl font-black tracking-[-0.035em] text-[var(--color-text-primary)]">{career.title}</h4>
                   <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">{career.summary}</p>
-                  <ul className="mt-4 space-y-2">{career.reasons.length ? career.reasons.map((reason) => <li key={reason} className="flex gap-2 text-xs leading-5 text-[var(--color-text-tertiary)]"><Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-accent)]" aria-hidden />{reason}</li>) : <li className="text-xs leading-5 text-[var(--color-text-tertiary)]">This role shares several patterns with your selected work preferences.</li>}</ul>
-                  <Link href={`/tech-careers/${career.slug}`} className="mt-6 inline-flex items-center gap-2 text-sm font-black text-[var(--color-primary)]">Read the role guide <ArrowRight className="h-4 w-4" aria-hidden /></Link>
+                  <ul className="mt-4 space-y-2">{career.reasons.length ? career.reasons.map((reason) => <li key={reason} className="flex gap-2 text-xs leading-5 text-[var(--color-text-tertiary)]"><Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-accent-text)]" aria-hidden />{reason}</li>) : <li className="text-xs leading-5 text-[var(--color-text-tertiary)]">This role shares several patterns with your selected work preferences.</li>}</ul>
+                  <Link href={`/tech-careers/${career.slug}`} className="mt-6 inline-flex items-center gap-2 text-sm font-black text-[var(--color-primary-text-strong)]">Read the role guide <ArrowRight className="h-4 w-4" aria-hidden /></Link>
                 </Card>
               ))}
             </div>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <button type="button" onClick={shareResults} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-[var(--color-primary)] px-5 text-sm font-black text-[var(--color-primary-text)]"><Share2 className="h-4 w-4" aria-hidden />{copied ? "Link copied" : "Copy result link"}</button>
               <button type="button" onClick={reset} className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] px-5 text-sm font-black text-[var(--color-text-primary)]"><RotateCcw className="h-4 w-4" aria-hidden />Start again</button>
-              <Link href="/learning-paths" className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] px-5 text-sm font-black text-[var(--color-primary)]">Compare learning paths <ExternalLink className="h-4 w-4" aria-hidden /></Link>
+              <Link href="/learning-paths" className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] px-5 text-sm font-black text-[var(--color-primary-text-strong)]">Compare learning paths <ExternalLink className="h-4 w-4" aria-hidden /></Link>
             </div>
           </div>
         )}

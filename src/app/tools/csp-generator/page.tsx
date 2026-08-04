@@ -39,7 +39,7 @@ export default function CspGeneratorPage() {
           <details className="group">
             <summary className="flex cursor-pointer list-none items-center justify-between gap-3 p-5 sm:p-6">
               <span className="min-w-0">
-                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Reference</span>
+                <span className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Reference</span>
                 <span className="mt-1 block text-xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Learn about CSP</span>
                 <span className="mt-1 block text-sm leading-6 text-[var(--color-text-secondary)]">
                   What Content Security Policy protects against, nonces vs. hashes, directives, and deployment tips.

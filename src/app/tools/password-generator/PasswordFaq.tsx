@@ -55,7 +55,7 @@ export function PasswordFaq() {
   return (
     <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-5 shadow-[var(--shadow-card)] sm:p-7">
       <div className="max-w-3xl">
-        <p className="font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-[var(--color-primary)]">FAQ</p>
+        <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">FAQ</p>
         <h2 className="mt-2 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)] sm:text-3xl">
           Password generator questions
         </h2>
@@ -75,7 +75,7 @@ export function PasswordFaq() {
               <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] font-mono text-sm text-[var(--color-text-secondary)] group-open:hidden">
                 +
               </span>
-              <span className="mt-0.5 hidden h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] font-mono text-sm text-[var(--color-primary)] group-open:inline-flex">
+              <span className="mt-0.5 hidden h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] font-mono text-sm text-[var(--color-primary-text-strong)] group-open:inline-flex">
                 −
               </span>
             </summary>

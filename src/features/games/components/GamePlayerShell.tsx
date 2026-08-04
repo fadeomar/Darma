@@ -151,7 +151,7 @@ function GamePlayerContent({
     <div className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-card)]">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--color-border-subtle)] px-4 py-3 sm:px-5">
         <div className="min-w-0">
-          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
             Browser player
           </p>
           <h2 className="truncate text-base font-black tracking-[-0.02em] text-[var(--color-text-primary)]">
@@ -200,15 +200,15 @@ function GamePlayerContent({
 
       <div className="grid gap-2 border-t border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-4 py-3 text-xs font-semibold text-[var(--color-text-secondary)] sm:grid-cols-3 sm:px-5">
         <span className="inline-flex items-center gap-2">
-          <CheckCircle2 className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+          <CheckCircle2 className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
           No account required
         </span>
         <span className="inline-flex items-center gap-2">
-          <CheckCircle2 className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+          <CheckCircle2 className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
           Lightweight by default
         </span>
         <span className="inline-flex items-center gap-2">
-          <CheckCircle2 className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+          <CheckCircle2 className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
           Playable shell ready
         </span>
       </div>

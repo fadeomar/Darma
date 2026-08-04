@@ -26,14 +26,14 @@ export function EditorialCard({ page }: { page: EditorialPage }) {
             <div className="mt-4 flex flex-wrap items-center gap-2" aria-label="Comparison options">
               {comparisonSubjects.map((subject, index) => (
                 <span key={subject} className="inline-flex items-center gap-2">
-                  {index > 0 ? <span className="font-mono text-[10px] font-black text-[var(--color-primary)]">VS</span> : null}
+                  {index > 0 ? <span className="font-mono text-xs font-black text-[var(--color-primary-text-strong)]">VS</span> : null}
                   <span className="rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-3 py-1.5 text-xs font-black text-[var(--color-text-primary)]">{subject}</span>
                 </span>
               ))}
             </div>
           ) : null}
 
-          <h2 className="darma-balanced-heading mt-5 text-xl font-black tracking-[-0.035em] text-[var(--color-text-primary)] transition group-hover:text-[var(--color-primary)]">{page.shortTitle}</h2>
+          <h2 className="darma-balanced-heading mt-5 text-xl font-black tracking-[-0.035em] text-[var(--color-text-primary)] transition group-hover:text-[var(--color-primary-text-strong)]">{page.shortTitle}</h2>
           <p className="darma-pretty-copy mt-3 line-clamp-4 flex-1 text-sm leading-7 text-[var(--color-text-secondary)]">{page.summary}</p>
 
           <div className="mt-5 flex flex-wrap gap-2">
@@ -46,7 +46,7 @@ export function EditorialCard({ page }: { page: EditorialPage }) {
             ))}
           </div>
 
-          <span className="mt-6 inline-flex min-h-10 items-center gap-2 text-sm font-black text-[var(--color-primary)]">
+          <span className="mt-6 inline-flex min-h-10 items-center gap-2 text-sm font-black text-[var(--color-primary-text-strong)]">
             Read the {page.kind}
             <ArrowRight className="darma-link-arrow h-[18px] w-[18px]" aria-hidden />
           </span>

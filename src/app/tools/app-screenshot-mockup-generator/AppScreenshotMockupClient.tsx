@@ -111,7 +111,7 @@ function FieldGroup({ children, className }: { children: ReactNode; className?: 
 }
 
 function MiniLabel({ children }: { children: ReactNode }) {
-  return <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{children}</span>;
+  return <span className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{children}</span>;
 }
 
 function Disclosure({ title, description, children }: { title: string; description?: string; children: ReactNode }) {
@@ -119,8 +119,8 @@ function Disclosure({ title, description, children }: { title: string; descripti
     <details className="group border-t border-[var(--color-border-subtle)] pt-3">
       <summary className="flex cursor-pointer list-none items-start justify-between gap-3 rounded-[var(--radius-sm)] py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary-soft)] [&::-webkit-details-marker]:hidden">
         <span>
-          <span className="block font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{title}</span>
-          {description ? <span className="mt-1 block text-[11px] leading-4 text-[var(--color-text-tertiary)]">{description}</span> : null}
+          <span className="block font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{title}</span>
+          {description ? <span className="mt-1 block text-xs leading-4 text-[var(--color-text-tertiary)]">{description}</span> : null}
         </span>
         <ChevronDown className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-text-tertiary)] transition group-open:rotate-180" />
       </summary>
@@ -162,9 +162,9 @@ function CopyInlineButton({ value }: { value: string }) {
 function UploadBox({ label, hint, accept, onChange, previewUrl }: { label: string; hint: string; accept: string; onChange: (file: File) => void; previewUrl?: string }) {
   return (
     <label className="flex min-h-32 cursor-pointer flex-col items-center justify-center gap-2 rounded-[var(--radius-lg)] border border-dashed border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] p-3 text-center transition hover:border-[var(--color-primary)] hover:bg-[var(--color-control-hover)]">
-      {previewUrl ? <img src={previewUrl} alt="Uploaded preview" className="h-16 w-24 rounded-[var(--radius-sm)] object-cover shadow-[var(--shadow-xs)]" /> : <UploadCloud className="h-7 w-7 text-[var(--color-primary)]" />}
+      {previewUrl ? <img src={previewUrl} alt="Uploaded preview" className="h-16 w-24 rounded-[var(--radius-sm)] object-cover shadow-[var(--shadow-xs)]" /> : <UploadCloud className="h-7 w-7 text-[var(--color-primary-text-strong)]" />}
       <span className="text-xs font-bold text-[var(--color-text-primary)]">{label}</span>
-      <span className="text-[11px] leading-4 text-[var(--color-text-tertiary)]">{hint}</span>
+      <span className="text-xs leading-4 text-[var(--color-text-tertiary)]">{hint}</span>
       <input
         type="file"
         accept={accept}
@@ -191,7 +191,7 @@ function QuickPresets({ setInput }: { setInput: Dispatch<SetStateAction<MockupIn
             className="group rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-2.5 text-left transition hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)]"
           >
             <span className="flex items-start gap-1.5 text-xs font-bold leading-4 text-[var(--color-text-primary)]">
-              <Sparkles className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--color-primary)]" />
+              <Sparkles className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[var(--color-primary-text-strong)]" />
               {preset.title}
             </span>
           </button>
@@ -238,7 +238,7 @@ function DeviceControls({ input, setInput }: { input: MockupInput; setInput: Dis
         onChange={(device) => updateInput(setInput, { device, frameRadius: Math.max(input.frameRadius, effectiveFrameRadius(device, input.showDeviceChrome)) })}
         options={DEVICE_OPTIONS.map((option) => ({ value: option.value, label: option.value === "card" ? "Card" : option.label }))}
       />
-      <p className="text-[11px] leading-4 text-[var(--color-text-tertiary)]">{DEVICE_OPTIONS.find((option) => option.value === input.device)?.description}</p>
+      <p className="text-xs leading-4 text-[var(--color-text-tertiary)]">{DEVICE_OPTIONS.find((option) => option.value === input.device)?.description}</p>
       <FieldGroup>
         <CompactField label="Orientation">
           <Select value={input.orientation} onChange={(event) => updateInput(setInput, { orientation: event.target.value as MockupOrientation })}>
@@ -284,7 +284,7 @@ function DeviceControls({ input, setInput }: { input: MockupInput; setInput: Dis
           Show export safe-area guide
         </label>
       </div>
-      <p className="text-[11px] leading-4 text-[var(--color-text-tertiary)]">
+      <p className="text-xs leading-4 text-[var(--color-text-tertiary)]">
         {radiusMin ? `This frame uses a ${radiusMin}px minimum radius while chrome is shown.` : "This frame supports the full radius range from square to rounded."}
       </p>
       </Disclosure>
@@ -399,7 +399,7 @@ function ExportControls({ input, setInput }: { input: MockupInput; setInput: Dis
             <p className="text-xs font-bold text-[var(--color-text-primary)]">{pack.title}</p>
             <p className="mt-1 text-xs leading-5 text-[var(--color-text-secondary)]">{pack.description}</p>
           </div>
-          <span className="rounded-[var(--radius-full)] bg-[var(--color-surface-subtle)] px-2 py-1 font-mono text-[11px] font-bold text-[var(--color-text-secondary)]">{pack.sizes.length} sizes</span>
+          <span className="rounded-[var(--radius-full)] bg-[var(--color-surface-subtle)] px-2 py-1 font-mono text-xs font-bold text-[var(--color-text-secondary)]">{pack.sizes.length} sizes</span>
         </div>
         <div className="mt-3 grid gap-2">
           {pack.sizes.slice(0, 4).map((size) => (
@@ -409,7 +409,7 @@ function ExportControls({ input, setInput }: { input: MockupInput; setInput: Dis
             </div>
           ))}
         </div>
-        {pack.sizes.length > 4 ? <p className="mt-2 text-[11px] text-[var(--color-text-tertiary)]">Plus {pack.sizes.length - 4} more outputs in the ZIP.</p> : null}
+        {pack.sizes.length > 4 ? <p className="mt-2 text-xs text-[var(--color-text-tertiary)]">Plus {pack.sizes.length - 4} more outputs in the ZIP.</p> : null}
       </div>
 
       <Disclosure title="Live preview canvas" description="Controls the working preview. Export pack sizes are still generated from the selected pack.">
@@ -439,7 +439,7 @@ function PreviewPanel({ previewUrl, input, status }: { previewUrl: string; input
     <div className="flex h-full min-h-[420px] flex-col gap-4 bg-[radial-gradient(circle_at_top,var(--color-primary-soft),transparent_34%),var(--color-surface-subtle)] p-4 sm:p-5">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Live mockup preview</p>
+          <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Live mockup preview</p>
           <h3 className="mt-1 text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">{input.canvasWidth}×{input.canvasHeight} canvas</h3>
           <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">{getCanvasSummary(input)}</p>
         </div>
@@ -465,7 +465,7 @@ function PreviewPanel({ previewUrl, input, status }: { previewUrl: string; input
           />
         ) : (
           <div className="flex flex-col items-center gap-3 text-center text-sm text-[var(--color-text-secondary)]">
-            <MonitorSmartphone className="h-10 w-10 text-[var(--color-primary)]" />
+            <MonitorSmartphone className="h-10 w-10 text-[var(--color-primary-text-strong)]" />
             <span>Upload a screenshot or use the placeholder preview.</span>
           </div>
         )}
@@ -494,7 +494,7 @@ function ReadinessPanel({ input, assets }: { input: MockupInput; assets: Generat
           <MiniLabel>Readiness score</MiniLabel>
           <p className="mt-1 text-2xl font-black tracking-[-0.04em] text-[var(--color-text-primary)]">{score}/100</p>
         </div>
-        <div className="h-16 w-16 rounded-full border-4 border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-center text-sm font-black leading-[3.5rem] text-[var(--color-primary)]">{score}</div>
+        <div className="h-16 w-16 rounded-full border-4 border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-center text-sm font-black leading-[3.5rem] text-[var(--color-primary-text-strong)]">{score}</div>
       </div>
       <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
         {checks.map((check) => (
@@ -503,7 +503,7 @@ function ReadinessPanel({ input, assets }: { input: MockupInput; assets: Generat
               <CheckCircle2 className={cn("h-4 w-4", check.passed ? "text-[var(--color-success-text)]" : "text-[var(--color-warning-text)]")} />
               {check.label}
             </div>
-            <p className="mt-1 text-[11px] leading-4 text-[var(--color-text-tertiary)]">{check.detail}</p>
+            <p className="mt-1 text-xs leading-4 text-[var(--color-text-tertiary)]">{check.detail}</p>
           </div>
         ))}
       </div>
@@ -542,7 +542,7 @@ function GeneratedFilesPanel({ assets, checks, downloadsEnabled, onDownload }: {
           {checks.map((check) => (
             <div key={check.id} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
               <p className={cn("text-xs font-bold", check.level === "error" ? "text-[var(--color-danger-text)]" : check.level === "warning" ? "text-[var(--color-warning-text)]" : "text-[var(--color-success-text)]")}>{check.title}</p>
-              <p className="mt-1 text-[11px] leading-4 text-[var(--color-text-tertiary)]">{check.message}</p>
+              <p className="mt-1 text-xs leading-4 text-[var(--color-text-tertiary)]">{check.message}</p>
             </div>
           ))}
         </div>
@@ -569,13 +569,13 @@ function ProductionHandoffPanel({ input, assets, warnings }: { input: MockupInpu
           <MiniLabel>Production handoff</MiniLabel>
           <p className="mt-1 text-sm font-bold text-[var(--color-text-primary)]">Campaign checks before final export</p>
         </div>
-        <span className="rounded-[var(--radius-full)] bg-[var(--color-surface-subtle)] px-2.5 py-1 font-mono text-[11px] font-bold text-[var(--color-text-secondary)]">local-only</span>
+        <span className="rounded-[var(--radius-full)] bg-[var(--color-surface-subtle)] px-2.5 py-1 font-mono text-xs font-bold text-[var(--color-text-secondary)]">local-only</span>
       </div>
       <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
         {checks.map((check) => (
           <div key={check.id} className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
             <p className={cn("truncate text-xs font-bold", check.tone === "bad" ? "text-[var(--color-danger-text)]" : check.tone === "warn" ? "text-[var(--color-warning-text)]" : "text-[var(--color-success-text)]")} title={check.label}>{check.label}</p>
-            <p className="mt-1 line-clamp-2 text-[11px] leading-4 text-[var(--color-text-tertiary)]">{check.detail}</p>
+            <p className="mt-1 line-clamp-2 text-xs leading-4 text-[var(--color-text-tertiary)]">{check.detail}</p>
           </div>
         ))}
       </div>
@@ -620,7 +620,7 @@ function PackageChecker({ onResult }: { onResult: (results: PackageCheckResult[]
         onDrop={handleDrop}
         className={cn("flex cursor-pointer items-center justify-center gap-2 rounded-[var(--radius-md)] border border-dashed bg-[var(--color-surface-base)] p-4 text-center text-sm font-bold text-[var(--color-text-primary)] transition hover:border-[var(--color-primary)] hover:bg-[var(--color-primary-soft)]", dragging ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)]" : "border-[var(--color-border-default)]")}
       >
-        <ImageIcon className="h-4 w-4 text-[var(--color-primary)]" />
+        <ImageIcon className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
         Drop images here or choose files
         <input type="file" multiple accept="image/png,image/jpeg,image/webp" className="sr-only" onChange={handleFiles} />
       </label>
@@ -628,17 +628,17 @@ function PackageChecker({ onResult }: { onResult: (results: PackageCheckResult[]
         <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3" aria-live="polite">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <span className="text-xs font-bold text-[var(--color-text-primary)]">{checkedCount} {checkedCount === 1 ? "file" : "files"} checked</span>
-            <span className={cn("text-[11px] font-bold", localResults.some((result) => result.level === "error") ? "text-[var(--color-danger-text)]" : localResults.some((result) => result.level === "warning") ? "text-[var(--color-warning-text)]" : "text-[var(--color-success-text)]")}>
+            <span className={cn("text-xs font-bold", localResults.some((result) => result.level === "error") ? "text-[var(--color-danger-text)]" : localResults.some((result) => result.level === "warning") ? "text-[var(--color-warning-text)]" : "text-[var(--color-success-text)]")}>
               {errorCount ? `${errorCount} ${errorCount === 1 ? "error" : "errors"}, ${warningCount} ${warningCount === 1 ? "warning" : "warnings"}` : warningCount ? `${warningCount} ${warningCount === 1 ? "warning" : "warnings"} found` : "Package looks ready"}
             </span>
           </div>
           {issueCount ? (
-            <ul className="mt-2 space-y-1 text-[11px] leading-4 text-[var(--color-text-tertiary)]">
+            <ul className="mt-2 space-y-1 text-xs leading-4 text-[var(--color-text-tertiary)]">
               {localResults.filter((result) => result.level !== "pass").slice(0, 2).map((result) => <li key={result.id}>{result.title}: {result.message}</li>)}
             </ul>
-          ) : <p className="mt-1 text-[11px] text-[var(--color-text-tertiary)]">Image types, sizes, and filenames passed the local checks.</p>}
+          ) : <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Image types, sizes, and filenames passed the local checks.</p>}
         </div>
-      ) : <p className="text-[11px] leading-4 text-[var(--color-text-tertiary)]">No package checked yet. Choose or drop one or more PNG, JPG, or WebP files.</p>}
+      ) : <p className="text-xs leading-4 text-[var(--color-text-tertiary)]">No package checked yet. Choose or drop one or more PNG, JPG, or WebP files.</p>}
     </Disclosure>
   );
 }

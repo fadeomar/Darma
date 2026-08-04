@@ -234,7 +234,7 @@ export function StaticGameEmbed({
       <div className="static-game-toolbar flex flex-col gap-3 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-5">
         <div className="flex min-w-0 items-center gap-3">
           <div className="min-w-0">
-            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
               {variant === "immersive" ? "Darma preserved game" : "Darma playable"}
             </p>
             <h2 className="truncate text-base font-black tracking-[-0.02em] text-[var(--color-text-primary)]">
@@ -319,7 +319,7 @@ export function StaticGameEmbed({
 
       <div className="static-game-footer grid gap-2 border-t border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-4 py-3 text-xs font-semibold text-[var(--color-text-secondary)] sm:grid-cols-3 sm:px-5">
         <span className="inline-flex items-center gap-2">
-          <ShieldCheck className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+          <ShieldCheck className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
           Original runtime, locally hosted
         </span>
         <span className="sm:col-span-2">{focusHint}</span>

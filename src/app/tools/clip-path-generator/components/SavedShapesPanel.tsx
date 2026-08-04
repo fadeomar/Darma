@@ -49,7 +49,7 @@ export function SavedShapesPanel({
             <li key={item.id} className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-2">
               <button type="button" onClick={() => onLoad(item)} className="min-w-0 flex-1 rounded-[var(--radius-sm)] text-left outline-none focus-visible:shadow-[var(--focus-ring)]">
                 <span className="block truncate text-xs font-bold text-[var(--color-text-primary)]">{item.name}</span>
-                <span className="block truncate text-[10px] text-[var(--color-text-tertiary)]">{item.points.length} points · {new Date(item.updatedAt).toLocaleDateString()}</span>
+                <span className="block truncate text-xs text-[var(--color-text-tertiary)]">{item.points.length} points · {new Date(item.updatedAt).toLocaleDateString()}</span>
               </button>
               <Button size="icon" variant="ghost" onClick={() => onLoad(item)} aria-label={`Load ${item.name}`} title="Load"><FolderOpen className="h-4 w-4" /></Button>
               <Button size="icon" variant="ghost" onClick={() => {

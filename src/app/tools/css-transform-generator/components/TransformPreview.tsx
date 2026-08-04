@@ -57,7 +57,7 @@ export function TransformPreview({ state, onPatch }: { state: TransformGenerator
       <div className="grid gap-3 border-b border-[var(--color-border-subtle)] p-3 sm:grid-cols-4">
         {summary.map((item) => (
           <div key={item.label} className={cn("min-w-0 rounded-[var(--radius-md)] border px-3 py-2", toneClass(item.tone))}>
-            <div className="text-[10px] font-black uppercase tracking-[0.12em] opacity-70">{item.label}</div>
+            <div className="text-xs font-black uppercase tracking-[0.12em] opacity-70">{item.label}</div>
             <div className="mt-1 truncate font-mono text-xs font-bold" title={item.value}>{item.value}</div>
           </div>
         ))}
@@ -68,7 +68,7 @@ export function TransformPreview({ state, onPatch }: { state: TransformGenerator
           {checks.map((check) => (
             <div key={check.label} className={cn("rounded-[var(--radius-md)] border px-3 py-2 text-xs shadow-[var(--shadow-xs)] backdrop-blur", toneClass(check.tone))}>
               <div className="font-bold">{check.label}</div>
-              <div className="mt-0.5 text-[11px] opacity-75">{check.value}</div>
+              <div className="mt-0.5 text-xs opacity-75">{check.value}</div>
             </div>
           ))}
         </div>

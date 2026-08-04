@@ -94,7 +94,7 @@ export function TicTacToeGame({ game }: { game: GameDefinition }) {
     <section className="overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] shadow-[var(--shadow-card)]" aria-label={`${game.title} playable area`}>
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-4 py-3 sm:px-5">
         <div>
-          <p className="font-mono text-[10px] font-black uppercase tracking-[0.1em] text-[var(--color-primary)]">Strategy board pro</p>
+          <p className="font-mono text-xs font-black uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">Strategy board pro</p>
           <h2 className="text-lg font-black tracking-[-0.03em] text-[var(--color-text-primary)]">Tic Tac Toe Pro</h2>
           <p className="text-xs text-[var(--color-text-secondary)]">AI, 4×4 mode, tactical hints, local scoreboard, and shareable board state.</p>
         </div>
@@ -193,7 +193,7 @@ function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] p-3 text-center">
       <div className="font-mono text-lg font-black text-[var(--color-text-primary)]">{value}</div>
-      <div className="mt-1 text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
+      <div className="mt-1 text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
     </div>
   );
 }
@@ -202,7 +202,7 @@ function Feature({ icon, title, text }: { icon: ReactNode; title: string; text: 
   return (
     <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
       <div className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]">
-        <span className="text-[var(--color-primary)]">{icon}</span>
+        <span className="text-[var(--color-primary-text-strong)]">{icon}</span>
         {title}
       </div>
       <p className="mt-1 text-xs leading-5 text-[var(--color-text-secondary)]">{text}</p>

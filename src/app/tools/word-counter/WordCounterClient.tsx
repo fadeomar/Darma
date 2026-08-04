@@ -63,9 +63,9 @@ const FLAG_LABELS = {
 function SummaryCard({ label, value, hint }: { label: string; value: string; hint: string }) {
   return (
     <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2.5 shadow-[var(--shadow-xs)]">
-      <div className="truncate font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
+      <div className="truncate font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
       <div className="mt-1 truncate text-xl font-black tracking-tight text-[var(--color-text-primary)]">{value}</div>
-      <div className="mt-0.5 truncate text-[11px] text-[var(--color-text-tertiary)]">{hint}</div>
+      <div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]">{hint}</div>
     </div>
   );
 }
@@ -210,7 +210,7 @@ export default function WordCounterClient() {
               placeholder="Paste an essay, article, caption, speech, description, or documentation draft…"
               className="min-h-[250px] resize-y leading-7"
             />
-            <div className="mt-2 flex flex-wrap items-center justify-between gap-2 text-[11px] text-[var(--color-text-tertiary)]">
+            <div className="mt-2 flex flex-wrap items-center justify-between gap-2 text-xs text-[var(--color-text-tertiary)]">
               <span>{stats.characters.toLocaleString()} characters · {stats.words.toLocaleString()} words · {stats.sentences.toLocaleString()} sentences</span>
               <span>Calculated locally · multilingual word detection</span>
             </div>
@@ -230,7 +230,7 @@ export default function WordCounterClient() {
               <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-4">
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div>
-                    <div className="flex items-center gap-2 text-sm font-bold text-[var(--color-text-primary)]"><Target className="h-4 w-4 text-[var(--color-primary)]" />{goal.label}</div>
+                    <div className="flex items-center gap-2 text-sm font-bold text-[var(--color-text-primary)]"><Target className="h-4 w-4 text-[var(--color-primary-text-strong)]" />{goal.label}</div>
                     <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">{goal.description}</p>
                   </div>
                   <span className={`rounded-full px-2.5 py-1 text-xs font-bold ${stats.goal.status === "within" ? "bg-[var(--color-success-bg)] text-[var(--color-success-text)]" : stats.goal.status === "above" ? "bg-[var(--color-danger-bg)] text-[var(--color-danger-text)]" : "bg-[var(--color-warning-bg)] text-[var(--color-warning-text)]"}`}>{goalStatusLabel(stats.goal.status)}</span>
@@ -238,7 +238,7 @@ export default function WordCounterClient() {
                 <div className="mt-4 h-2.5 overflow-hidden rounded-full bg-[var(--color-surface-base)]">
                   <div className={`h-full rounded-full ${stats.goal.status === "above" ? "bg-[var(--color-danger)]" : stats.goal.status === "within" ? "bg-[var(--color-success)]" : "bg-[var(--color-primary)]"}`} style={{ width: percentageWidth(stats.goal.percent) }} />
                 </div>
-                <div className="mt-2 flex items-center justify-between gap-3 text-[11px] text-[var(--color-text-tertiary)]">
+                <div className="mt-2 flex items-center justify-between gap-3 text-xs text-[var(--color-text-tertiary)]">
                   <span>Current: {stats.goal.current.toLocaleString()} {goalMetricLabel(goal.metric)}</span>
                   <span>{goalHint(goal)}</span>
                 </div>
@@ -255,14 +255,14 @@ export default function WordCounterClient() {
                 ].map(([label, value]) => (
                   <div key={label} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3 text-center">
                     <div className="font-mono text-xl font-black text-[var(--color-text-primary)]">{Number(value).toLocaleString()}</div>
-                    <div className="mt-1 text-[10px] font-bold uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">{label}</div>
+                    <div className="mt-1 text-xs font-bold uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">{label}</div>
                   </div>
                 ))}
               </div>
 
               <div className="grid gap-4 lg:grid-cols-2">
                 <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] p-4">
-                  <div className="flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><BarChart3 className="h-4 w-4 text-[var(--color-primary)]" />Sentence length distribution</div>
+                  <div className="flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><BarChart3 className="h-4 w-4 text-[var(--color-primary-text-strong)]" />Sentence length distribution</div>
                   <div className="mt-4 space-y-3">
                     {stats.sentenceBuckets.map((bucket) => (
                       <div key={bucket.id}>
@@ -274,7 +274,7 @@ export default function WordCounterClient() {
                 </div>
 
                 <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] p-4">
-                  <div className="flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><Gauge className="h-4 w-4 text-[var(--color-primary)]" />Writing profile</div>
+                  <div className="flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><Gauge className="h-4 w-4 text-[var(--color-primary-text-strong)]" />Writing profile</div>
                   <dl className="mt-4 grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
                     {[
                       ["Unique words", stats.uniqueWords.toLocaleString()],
@@ -283,7 +283,7 @@ export default function WordCounterClient() {
                       ["Avg. sentence", `${stats.averageSentenceWords.toFixed(1)} words`],
                       ["Avg. paragraph", `${stats.averageParagraphWords.toFixed(1)} words`],
                       ["Longest word", stats.longestWord || "—"],
-                    ].map(([label, value]) => <div key={label} className="min-w-0"><dt className="text-[11px] text-[var(--color-text-tertiary)]">{label}</dt><dd className="truncate font-mono font-semibold text-[var(--color-text-primary)]" title={value}>{value}</dd></div>)}
+                    ].map(([label, value]) => <div key={label} className="min-w-0"><dt className="text-xs text-[var(--color-text-tertiary)]">{label}</dt><dd className="truncate font-mono font-semibold text-[var(--color-text-primary)]" title={value}>{value}</dd></div>)}
                   </dl>
                 </div>
               </div>
@@ -293,13 +293,13 @@ export default function WordCounterClient() {
           {view === "keywords" && (
             <div className="grid gap-4 p-4 lg:grid-cols-2">
               <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] p-4">
-                <div className="flex items-center justify-between gap-3"><div><h3 className="font-bold text-[var(--color-text-primary)]">Top words</h3><p className="text-xs text-[var(--color-text-tertiary)]">Density uses the full document word count.</p></div><Search className="h-5 w-5 text-[var(--color-primary)]" /></div>
+                <div className="flex items-center justify-between gap-3"><div><h3 className="font-bold text-[var(--color-text-primary)]">Top words</h3><p className="text-xs text-[var(--color-text-tertiary)]">Density uses the full document word count.</p></div><Search className="h-5 w-5 text-[var(--color-primary-text-strong)]" /></div>
                 {stats.topWords.length ? <div className="mt-4 space-y-3">{stats.topWords.map((item) => <div key={item.word}><div className="flex items-center justify-between gap-3 text-sm"><span className="truncate font-semibold text-[var(--color-text-secondary)]">{item.word}</span><span className="font-mono text-xs text-[var(--color-text-tertiary)]">{item.count} · {item.density.toFixed(1)}%</span></div><div className="mt-1 h-1.5 overflow-hidden rounded-full bg-[var(--color-surface-subtle)]"><div className="h-full rounded-full bg-[var(--color-primary)]" style={{ width: `${maxKeywordCount ? (item.count / maxKeywordCount) * 100 : 0}%` }} /></div></div>)}</div> : <div className="mt-8 text-center text-sm text-[var(--color-text-tertiary)]">No meaningful keywords detected.</div>}
               </div>
 
               <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] p-4">
-                <div className="flex items-center justify-between gap-3"><div><h3 className="font-bold text-[var(--color-text-primary)]">Repeated phrases</h3><p className="text-xs text-[var(--color-text-tertiary)]">Two-word sequences that appear more than once.</p></div><MessageSquareText className="h-5 w-5 text-[var(--color-primary)]" /></div>
-                {stats.topPhrases.length ? <div className="mt-4 overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-border-subtle)]"><table className="w-full text-left text-sm"><thead className="bg-[var(--color-surface-subtle)] text-[10px] uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]"><tr><th className="px-3 py-2">Phrase</th><th className="px-3 py-2 text-right">Count</th><th className="px-3 py-2 text-right">Density</th></tr></thead><tbody>{stats.topPhrases.map((item) => <tr key={item.phrase} className="border-t border-[var(--color-border-subtle)]"><td className="max-w-0 truncate px-3 py-2 font-medium text-[var(--color-text-secondary)]">{item.phrase}</td><td className="px-3 py-2 text-right font-mono">{item.count}</td><td className="px-3 py-2 text-right font-mono">{item.density.toFixed(1)}%</td></tr>)}</tbody></table></div> : <div className="mt-8 text-center text-sm text-[var(--color-text-tertiary)]">No repeated two-word phrases detected.</div>}
+                <div className="flex items-center justify-between gap-3"><div><h3 className="font-bold text-[var(--color-text-primary)]">Repeated phrases</h3><p className="text-xs text-[var(--color-text-tertiary)]">Two-word sequences that appear more than once.</p></div><MessageSquareText className="h-5 w-5 text-[var(--color-primary-text-strong)]" /></div>
+                {stats.topPhrases.length ? <div className="mt-4 overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-border-subtle)]"><table className="w-full text-left text-sm"><thead className="bg-[var(--color-surface-subtle)] text-xs uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]"><tr><th className="px-3 py-2">Phrase</th><th className="px-3 py-2 text-right">Count</th><th className="px-3 py-2 text-right">Density</th></tr></thead><tbody>{stats.topPhrases.map((item) => <tr key={item.phrase} className="border-t border-[var(--color-border-subtle)]"><td className="max-w-0 truncate px-3 py-2 font-medium text-[var(--color-text-secondary)]">{item.phrase}</td><td className="px-3 py-2 text-right font-mono">{item.count}</td><td className="px-3 py-2 text-right font-mono">{item.density.toFixed(1)}%</td></tr>)}</tbody></table></div> : <div className="mt-8 text-center text-sm text-[var(--color-text-tertiary)]">No repeated two-word phrases detected.</div>}
               </div>
             </div>
           )}
@@ -307,17 +307,17 @@ export default function WordCounterClient() {
           {view === "structure" && (
             <div className="grid gap-4 p-4 lg:grid-cols-2">
               <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] p-4">
-                <div className="flex items-center justify-between gap-3"><div><h3 className="font-bold text-[var(--color-text-primary)]">Sentence review</h3><p className="text-xs text-[var(--color-text-tertiary)]">Fragments, long sentences, and all-caps text.</p></div><TextCursorInput className="h-5 w-5 text-[var(--color-primary)]" /></div>
+                <div className="flex items-center justify-between gap-3"><div><h3 className="font-bold text-[var(--color-text-primary)]">Sentence review</h3><p className="text-xs text-[var(--color-text-tertiary)]">Fragments, long sentences, and all-caps text.</p></div><TextCursorInput className="h-5 w-5 text-[var(--color-primary-text-strong)]" /></div>
                 <div className="mt-4 max-h-[420px] space-y-2 overflow-auto pr-1">
-                  {(flaggedSentences.length ? flaggedSentences : stats.sentenceAnalysis.slice(0, 10)).map((sentence) => <div key={sentence.index} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3"><div className="flex flex-wrap items-center justify-between gap-2"><span className="text-[10px] font-bold uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">Sentence {sentence.index + 1} · {sentence.words} words</span><div className="flex flex-wrap gap-1">{sentence.flags.map((flag) => <span key={flag} className="rounded-full bg-[var(--color-warning-bg)] px-2 py-0.5 text-[10px] font-bold text-[var(--color-warning-text)]">{FLAG_LABELS[flag]}</span>)}</div></div><p className="mt-2 line-clamp-4 text-sm leading-6 text-[var(--color-text-secondary)]">{sentence.text}</p></div>)}
+                  {(flaggedSentences.length ? flaggedSentences : stats.sentenceAnalysis.slice(0, 10)).map((sentence) => <div key={sentence.index} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3"><div className="flex flex-wrap items-center justify-between gap-2"><span className="text-xs font-bold uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">Sentence {sentence.index + 1} · {sentence.words} words</span><div className="flex flex-wrap gap-1">{sentence.flags.map((flag) => <span key={flag} className="rounded-full bg-[var(--color-warning-bg)] px-2 py-0.5 text-xs font-bold text-[var(--color-warning-text)]">{FLAG_LABELS[flag]}</span>)}</div></div><p className="mt-2 line-clamp-4 text-sm leading-6 text-[var(--color-text-secondary)]">{sentence.text}</p></div>)}
                   {!stats.sentenceAnalysis.length && <div className="py-8 text-center text-sm text-[var(--color-text-tertiary)]">Add text to inspect sentence structure.</div>}
                 </div>
               </div>
 
               <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] p-4">
-                <div className="flex items-center justify-between gap-3"><div><h3 className="font-bold text-[var(--color-text-primary)]">Paragraph review</h3><p className="text-xs text-[var(--color-text-tertiary)]">Scan density and paragraph length.</p></div><BookOpen className="h-5 w-5 text-[var(--color-primary)]" /></div>
+                <div className="flex items-center justify-between gap-3"><div><h3 className="font-bold text-[var(--color-text-primary)]">Paragraph review</h3><p className="text-xs text-[var(--color-text-tertiary)]">Scan density and paragraph length.</p></div><BookOpen className="h-5 w-5 text-[var(--color-primary-text-strong)]" /></div>
                 <div className="mt-4 max-h-[420px] space-y-2 overflow-auto pr-1">
-                  {(flaggedParagraphs.length ? flaggedParagraphs : stats.paragraphAnalysis.slice(0, 10)).map((paragraph) => <div key={paragraph.index} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3"><div className="flex flex-wrap items-center justify-between gap-2"><span className="text-[10px] font-bold uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">Paragraph {paragraph.index + 1} · {paragraph.words} words · {paragraph.sentences} sentences</span><div className="flex flex-wrap gap-1">{paragraph.flags.map((flag) => <span key={flag} className="rounded-full bg-[var(--color-warning-bg)] px-2 py-0.5 text-[10px] font-bold text-[var(--color-warning-text)]">{FLAG_LABELS[flag]}</span>)}</div></div><p className="mt-2 line-clamp-5 text-sm leading-6 text-[var(--color-text-secondary)]">{paragraph.text}</p></div>)}
+                  {(flaggedParagraphs.length ? flaggedParagraphs : stats.paragraphAnalysis.slice(0, 10)).map((paragraph) => <div key={paragraph.index} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3"><div className="flex flex-wrap items-center justify-between gap-2"><span className="text-xs font-bold uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">Paragraph {paragraph.index + 1} · {paragraph.words} words · {paragraph.sentences} sentences</span><div className="flex flex-wrap gap-1">{paragraph.flags.map((flag) => <span key={flag} className="rounded-full bg-[var(--color-warning-bg)] px-2 py-0.5 text-xs font-bold text-[var(--color-warning-text)]">{FLAG_LABELS[flag]}</span>)}</div></div><p className="mt-2 line-clamp-5 text-sm leading-6 text-[var(--color-text-secondary)]">{paragraph.text}</p></div>)}
                   {!stats.paragraphAnalysis.length && <div className="py-8 text-center text-sm text-[var(--color-text-tertiary)]">Add text to inspect paragraph structure.</div>}
                 </div>
               </div>
@@ -333,27 +333,27 @@ export default function WordCounterClient() {
 
         <aside className="space-y-4">
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
-            <div className="flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4 text-[var(--color-primary)]" />Practical presets</div>
+            <div className="flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" />Practical presets</div>
             <div className="mt-3 grid grid-cols-2 gap-2">
-              {WORD_COUNTER_PRESETS.map((preset) => <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-2.5 text-left transition hover:border-[var(--color-primary)]"><span className="block text-xs font-bold text-[var(--color-text-primary)]">{preset.label}</span><span className="mt-1 block line-clamp-2 text-[10px] leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span></button>)}
+              {WORD_COUNTER_PRESETS.map((preset) => <button key={preset.id} type="button" onClick={() => applyPreset(preset.id)} className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-2.5 text-left transition hover:border-[var(--color-primary)]"><span className="block text-xs font-bold text-[var(--color-text-primary)]">{preset.label}</span><span className="mt-1 block line-clamp-2 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span></button>)}
             </div>
           </section>
 
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
-            <div className="flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><Target className="h-4 w-4 text-[var(--color-primary)]" />Writing target</div>
+            <div className="flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><Target className="h-4 w-4 text-[var(--color-primary-text-strong)]" />Writing target</div>
             <label className="mt-3 block text-xs font-semibold text-[var(--color-text-muted)]">Target preset<Select className="mt-1" value={goalId} onChange={(event) => setGoalId(event.target.value)}>{WORD_COUNTER_GOALS.map((item) => <option key={item.id} value={item.id}>{item.label}</option>)}</Select></label>
-            <p className="mt-2 text-[11px] leading-5 text-[var(--color-text-tertiary)]">{goal.description}</p>
+            <p className="mt-2 text-xs leading-5 text-[var(--color-text-tertiary)]">{goal.description}</p>
             {goalId === "custom" && <div className="mt-3 space-y-3 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3"><label className="block text-xs font-semibold text-[var(--color-text-muted)]">Metric<Select className="mt-1" value={customMetric} onChange={(event) => setCustomMetric(event.target.value as WordCounterMetric)}><option value="words">Words</option><option value="characters">Characters</option><option value="characters-no-spaces">Characters without spaces</option></Select></label><div className="grid grid-cols-2 gap-2"><label className="text-xs font-semibold text-[var(--color-text-muted)]">Minimum<Input className="mt-1" type="number" min="0" value={customMin} onChange={(event) => setCustomMin(event.target.value)} /></label><label className="text-xs font-semibold text-[var(--color-text-muted)]">Maximum<Input className="mt-1" type="number" min="0" value={customMax} onChange={(event) => setCustomMax(event.target.value)} /></label></div></div>}
           </section>
 
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
-            <div className="flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><Settings2 className="h-4 w-4 text-[var(--color-primary)]" />Analysis settings</div>
+            <div className="flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><Settings2 className="h-4 w-4 text-[var(--color-primary-text-strong)]" />Analysis settings</div>
             <div className="mt-3 grid grid-cols-2 gap-2"><label className="text-xs font-semibold text-[var(--color-text-muted)]">Reading WPM<Input className="mt-1" type="number" min="1" max="1000" value={readingWpm} onChange={(event) => setReadingWpm(event.target.value)} /></label><label className="text-xs font-semibold text-[var(--color-text-muted)]">Speaking WPM<Input className="mt-1" type="number" min="1" max="1000" value={speakingWpm} onChange={(event) => setSpeakingWpm(event.target.value)} /></label></div>
-            <label className="mt-3 flex cursor-pointer items-start gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3"><input type="checkbox" checked={includeStopWords} onChange={(event) => setIncludeStopWords(event.target.checked)} className="mt-0.5" /><span><span className="block text-xs font-bold text-[var(--color-text-primary)]">Include common stop words</span><span className="mt-0.5 block text-[10px] leading-4 text-[var(--color-text-tertiary)]">Show words such as “the”, “and”, “في”, and “من” in keyword rankings.</span></span></label>
+            <label className="mt-3 flex cursor-pointer items-start gap-2 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3"><input type="checkbox" checked={includeStopWords} onChange={(event) => setIncludeStopWords(event.target.checked)} className="mt-0.5" /><span><span className="block text-xs font-bold text-[var(--color-text-primary)]">Include common stop words</span><span className="mt-0.5 block text-xs leading-4 text-[var(--color-text-tertiary)]">Show words such as “the”, “and”, “في”, and “من” in keyword rankings.</span></span></label>
           </section>
 
           <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-sm)]">
-            <div className="flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><Files className="h-4 w-4 text-[var(--color-primary)]" />Exports</div>
+            <div className="flex items-center gap-2 font-bold text-[var(--color-text-primary)]"><Files className="h-4 w-4 text-[var(--color-primary-text-strong)]" />Exports</div>
             <div className="mt-3 grid grid-cols-2 gap-2">
               <CopyButton text={markdownReport} size="sm" variant="secondary"><FileText className="h-4 w-4" />Copy report</CopyButton>
               <Button size="sm" variant="secondary" onClick={() => downloadText("word-count-report.md", markdownReport)}><FileText className="h-4 w-4" />Markdown</Button>

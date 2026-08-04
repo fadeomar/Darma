@@ -12,7 +12,7 @@ type Props = {
 
 const MetadataCard = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-card)]">
-    <h3 className="font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">
+    <h3 className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">
       {title}
     </h3>
     <div className="mt-3 space-y-2 text-sm text-[var(--color-text-secondary)]">{children}</div>
@@ -72,7 +72,7 @@ export default function ElementSidebar({ element }: Props) {
           ))}
           <button
             type="button"
-            className="inline-flex h-9 items-center gap-2 rounded-[var(--radius-sm)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] px-3 text-sm font-semibold text-[var(--color-primary)] transition hover:border-[var(--color-primary)]"
+            className="inline-flex h-9 items-center gap-2 rounded-[var(--radius-sm)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] px-3 text-sm font-semibold text-[var(--color-primary-text-strong)] transition hover:border-[var(--color-primary)]"
             onClick={() => copyToClipboard(window.location.href)}
           >
             <FiLink className="h-4 w-4" aria-hidden />
@@ -96,7 +96,7 @@ export default function ElementSidebar({ element }: Props) {
       <MetadataCard title="Categories">
         <div className="flex flex-wrap gap-2">
           {[...(element.mainCategory ?? []), ...(element.secondaryCategory ?? [])].map((category) => (
-            <span key={category} className="rounded-[var(--radius-full)] border border-[var(--color-accent-border)] bg-[var(--color-accent-soft)] px-3 py-1 text-xs font-semibold text-[var(--color-accent)]">
+            <span key={category} className="rounded-[var(--radius-full)] border border-[var(--color-accent-border)] bg-[var(--color-accent-soft)] px-3 py-1 text-xs font-semibold text-[var(--color-accent-text)]">
               {category}
             </span>
           ))}

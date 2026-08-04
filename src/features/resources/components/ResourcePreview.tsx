@@ -30,8 +30,8 @@ export function ResourcePreview() {
               <ResourceLogo resource={resource} size="sm" />
               <div className="min-w-0 flex-1">
                 <div className="flex items-start justify-between gap-2">
-                  <div className="min-w-0"><h3 className="truncate text-sm font-bold text-[var(--color-text-primary)]">{resource.name}</h3><p className="mt-0.5 truncate font-mono text-[10px] text-[var(--color-text-tertiary)]">{resource.domain}</p></div>
-                  <Link href={resource.url} target="_blank" rel="noopener noreferrer" aria-label={`Open ${resource.name}`} className="shrink-0 text-[var(--color-text-tertiary)] transition hover:text-[var(--color-primary)]"><ArrowUpRight className="h-4 w-4" aria-hidden /></Link>
+                  <div className="min-w-0"><h3 className="truncate text-sm font-bold text-[var(--color-text-primary)]">{resource.name}</h3><p className="mt-0.5 truncate font-mono text-xs text-[var(--color-text-tertiary)]">{resource.domain}</p></div>
+                  <Link href={resource.url} target="_blank" rel="noopener noreferrer" aria-label={`Open ${resource.name}`} className="shrink-0 text-[var(--color-text-tertiary)] transition hover:text-[var(--color-primary-text-strong)]"><ArrowUpRight className="h-4 w-4" aria-hidden /></Link>
                 </div>
                 <p className="mt-2 line-clamp-2 text-xs leading-5 text-[var(--color-text-secondary)]">{resource.summary}</p>
               </div>

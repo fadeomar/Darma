@@ -15,7 +15,7 @@ export default function PageSection({
     <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
       <div className="mb-6 max-w-3xl">
         {eyebrow ? (
-          <p className="mb-2 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">
+          <p className="mb-2 font-mono text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">
             {eyebrow}
           </p>
         ) : null}

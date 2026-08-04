@@ -64,12 +64,12 @@ export default function ComparisonsPage() {
             <h2 className="text-xl font-black text-[var(--color-text-primary)]">The question comes before the winner.</h2>
             <p className="mt-2 text-sm leading-7 text-[var(--color-text-secondary)]">Every comparison begins with team skills, product needs, risk, environment, and the work you actually want to do. The same option can be right in one context and wasteful in another.</p>
           </div>
-          <Link href="/editorial-policy" className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[var(--color-border-default)] px-4 text-sm font-black text-[var(--color-primary)]"><ShieldCheck className="h-4 w-4" aria-hidden />Review method</Link>
+          <Link href="/editorial-policy" className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[var(--color-border-default)] px-4 text-sm font-black text-[var(--color-primary-text-strong)]"><ShieldCheck className="h-4 w-4" aria-hidden />Review method</Link>
         </Card>
       </MotionSection>
       <section id="comparison-library" className="mx-auto max-w-[var(--container-wide)] scroll-mt-28 px-4 sm:px-6 lg:px-8">
         <div className="mb-7 max-w-3xl">
-          <p className="font-mono text-[10px] font-black uppercase tracking-[0.16em] text-[var(--color-primary)]">Comparison library</p>
+          <p className="font-mono text-xs font-black uppercase tracking-[0.16em] text-[var(--color-primary-text-strong)]">Comparison library</p>
           <h2 className="darma-balanced-heading mt-2 text-3xl font-black tracking-[-0.04em] text-[var(--color-text-primary)]">Start with the decision you are trying to make.</h2>
           <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">Each page makes the criteria visible first, then connects the decision to guides, roles, workflows, and primary references.</p>
         </div>

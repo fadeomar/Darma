@@ -48,7 +48,7 @@ export function BeamInputs({
       title="Beam setup"
       description="Pick a beam type, set the span, then add loads. Results update automatically."
       badge={
-        <span className="rounded-[var(--radius-full)] border border-[var(--color-border-default)] px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">
+        <span className="rounded-[var(--radius-full)] border border-[var(--color-border-default)] px-2 py-0.5 font-mono text-xs font-bold uppercase tracking-[0.06em] text-[var(--color-text-tertiary)]">
           Metric
         </span>
       }

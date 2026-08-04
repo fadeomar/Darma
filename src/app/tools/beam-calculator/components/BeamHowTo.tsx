@@ -23,7 +23,7 @@ export function BeamHowTo() {
         className="flex w-full items-center justify-between gap-3 px-4 py-2.5 text-left"
       >
         <span className="flex items-center gap-2 text-sm font-bold text-[var(--color-text-primary)]">
-          <MousePointerClick className="h-4 w-4 text-[var(--color-primary)]" aria-hidden />
+          <MousePointerClick className="h-4 w-4 text-[var(--color-primary-text-strong)]" aria-hidden />
           How to use Beam Calculator Studio
         </span>
         <ChevronDown className={cn("h-4 w-4 text-[var(--color-text-tertiary)] transition-transform", open && "rotate-180")} aria-hidden />
@@ -37,7 +37,7 @@ export function BeamHowTo() {
               </span>
               <span className="min-w-0">
                 <span className="block text-xs font-bold text-[var(--color-text-primary)]">{step.title}</span>
-                <span className="mt-0.5 block text-[11px] leading-4 text-[var(--color-text-tertiary)]">{step.text}</span>
+                <span className="mt-0.5 block text-xs leading-4 text-[var(--color-text-tertiary)]">{step.text}</span>
               </span>
             </li>
           ))}

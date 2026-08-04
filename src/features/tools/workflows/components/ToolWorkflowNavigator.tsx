@@ -78,7 +78,7 @@ export function ToolWorkflowNavigator({ toolId }: { toolId: string }) {
               {currentIndex + 1}
             </span>
             <div className="min-w-0">
-              <Link href={`/workflows/${workflow.id}`} className="text-sm font-bold text-[var(--color-primary)] hover:underline">
+              <Link href={`/workflows/${workflow.id}`} className="text-sm font-bold text-[var(--color-primary-text-strong)] hover:underline">
                 {workflow.title}
               </Link>
               <h2 className="mt-1 text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]">{current.title}</h2>
@@ -127,7 +127,7 @@ export function ToolWorkflowNavigator({ toolId }: { toolId: string }) {
 
       <div className="border-t border-[var(--color-primary-border)] bg-[var(--color-surface-base)]/70 px-4 py-3 sm:px-5">
         <div className="flex items-center gap-3 overflow-x-auto pb-1">
-          <ListChecks className="h-4 w-4 shrink-0 text-[var(--color-primary)]" aria-hidden />
+          <ListChecks className="h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]" aria-hidden />
           {workflow.steps.map((step, index) => {
             const isCurrent = index === currentIndex;
             const isComplete = completed.has(step.id);
@@ -137,11 +137,11 @@ export function ToolWorkflowNavigator({ toolId }: { toolId: string }) {
                 href={withWorkflow(step, workflow)}
                 className={`inline-flex shrink-0 items-center gap-2 rounded-[var(--radius-full)] border px-3 py-1.5 text-xs font-semibold transition ${
                   isCurrent
-                    ? "border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+                    ? "border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]"
                     : "border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"
                 }`}
               >
-                <span className={`inline-flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-black ${isComplete ? "bg-[var(--color-success)] text-white" : "bg-[var(--color-control-track)] text-[var(--color-text-secondary)]"}`}>
+                <span className={`inline-flex h-5 w-5 items-center justify-center rounded-full text-xs font-black ${isComplete ? "bg-[var(--color-success)] text-white" : "bg-[var(--color-control-track)] text-[var(--color-text-secondary)]"}`}>
                   {isComplete ? <Check className="h-3 w-3" aria-hidden /> : index + 1}
                 </span>
                 {step.title}

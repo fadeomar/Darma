@@ -78,7 +78,7 @@ export function PresetGallery({
         const presets = FILTER_PRESETS.filter((preset) => preset.category === category);
         return (
           <div key={category}>
-            <h3 className="mb-2 text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{category}</h3>
+            <h3 className="mb-2 text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{category}</h3>
             <div className="grid grid-cols-2 gap-2">
               {presets.map((preset) => {
                 const active = activeId === preset.id;
@@ -96,7 +96,7 @@ export function PresetGallery({
                     </div>
                     <div className="p-2">
                       <div className="truncate text-xs font-bold text-[var(--color-text-primary)]">{preset.name}</div>
-                      <div className="line-clamp-2 text-[10px] leading-4 text-[var(--color-text-tertiary)]">{preset.description}</div>
+                      <div className="line-clamp-2 text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</div>
                     </div>
                   </button>
                 );
@@ -110,7 +110,7 @@ export function PresetGallery({
         <div className="mb-2 flex items-center justify-between gap-2">
           <div>
             <h3 className="text-xs font-black text-[var(--color-text-primary)]">Custom presets</h3>
-            <p className="text-[10px] text-[var(--color-text-tertiary)]">Adjustment values only.</p>
+            <p className="text-xs text-[var(--color-text-tertiary)]">Adjustment values only.</p>
           </div>
           {customPresets.length > 0 ? <Button size="sm" variant="ghost" onClick={onClearCustom}>Clear all</Button> : null}
         </div>
@@ -155,7 +155,7 @@ export function PresetGallery({
                 ) : (
                   <button type="button" aria-pressed={active} className="flex min-h-9 min-w-0 flex-1 items-center gap-2 text-left text-xs font-bold text-[var(--color-text-primary)]" onClick={() => onApplyCustom(preset)}>
                     <span className="min-w-0 flex-1 truncate">{preset.name}</span>
-                    {active ? <Check className="h-3.5 w-3.5 shrink-0 text-[var(--color-primary)]" aria-hidden="true" /> : null}
+                    {active ? <Check className="h-3.5 w-3.5 shrink-0 text-[var(--color-primary-text-strong)]" aria-hidden="true" /> : null}
                   </button>
                 )}
                 <Button size="icon" variant="ghost" leftIcon={<MoreHorizontal className="h-4 w-4" />} aria-label={`Rename ${preset.name}`} title="Rename preset" onClick={() => setEditingId(preset.id)}>Rename</Button>

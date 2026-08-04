@@ -47,6 +47,26 @@
   --color-accent-soft: rgba(19, 184, 166, 0.12);
   --color-accent-border: rgba(19, 184, 166, 0.26);
 
+  /* === Text-safe brand colours ===
+     The bright --color-primary / --color-accent values stay for fills, borders,
+     rings and icon strokes, where the 3:1 non-text threshold applies. Glyphs
+     need 4.5:1, which neither value reaches on a light surface:
+       #13b8a6 on white          = 2.49:1
+       #cc4715 on --color-app-bg = 4.27:1
+       #cc4715 on primary-soft   = 3.64:1
+     These two tokens are the only ones that may colour text. Verified against
+     every light surface in the system, worst case #edd9cb (primary-soft over
+     the warm section background): 4.76:1 and 5.02:1. */
+  --color-primary-text-strong: #a8380e;
+  --color-accent-text: #0a6c62;
+
+  /* === Text on permanently dark (ink) surfaces ===
+     Ink sections keep their dark background in both themes, so text inside them
+     cannot use the light-mode brand tokens. */
+  --color-on-ink-primary: #ff9a78;
+  --color-on-ink-accent: #5eead4;
+  --color-on-ink-warning: #f7c948;
+
   /* === Status: success === */
   --color-success: #168f63;
   --color-success-bg: rgba(22, 143, 99, 0.10);

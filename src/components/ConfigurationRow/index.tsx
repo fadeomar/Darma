@@ -28,11 +28,11 @@ const ConfigurationRow: React.FC<ConfigurationRowProps> = ({
       <div className="flex items-center justify-between gap-3">
         <label
           htmlFor={id}
-          className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]"
+          className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]"
         >
           {label}
         </label>
-        <span className="font-mono text-[10px] font-bold text-[var(--color-text-tertiary)]">
+        <span className="font-mono text-xs font-bold text-[var(--color-text-tertiary)]">
           {value}
         </span>
       </div>

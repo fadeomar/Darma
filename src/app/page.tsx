@@ -114,7 +114,7 @@ export default function LandingPage() {
               <Link href="/search" className="landing-hero-action-search">
                 <Search className="h-4 w-4" aria-hidden />
                 Search everything
-                <span className="font-mono text-[10px] opacity-75">Ctrl K</span>
+                <span className="font-mono text-xs opacity-75">Ctrl K</span>
               </Link>
             </div>
             <div className="landing-hero-proof" aria-label="Darma product principles">

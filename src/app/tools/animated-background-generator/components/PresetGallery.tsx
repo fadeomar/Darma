@@ -68,7 +68,7 @@ export default function PresetGallery({
                 {preset.tags.slice(0, 3).map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full bg-[var(--color-control-track)] px-2 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-text-secondary)]"
+                    className="rounded-full bg-[var(--color-control-track)] px-2 py-1 text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-secondary)]"
                   >
                     {tag}
                   </span>
@@ -81,7 +81,7 @@ export default function PresetGallery({
                 {preset.description}
               </p>
               {preset.bestFor?.[0] && (
-                <p className="mt-2 text-[11px] font-semibold text-[var(--color-primary)]">
+                <p className="mt-2 text-xs font-semibold text-[var(--color-primary-text-strong)]">
                   Best for: {preset.bestFor[0]}
                 </p>
               )}

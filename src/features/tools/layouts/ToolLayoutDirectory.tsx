@@ -154,7 +154,7 @@ function ToolCard({ tool, compact = false }: { tool: ToolDefinition; compact?: b
             {!compact && tool.useCases?.length ? (
               <ul className="mt-4 grid gap-1.5 text-xs leading-5 text-[var(--color-text-tertiary)]">
                 {tool.useCases.slice(0, 2).map((useCase) => (
-                  <li key={useCase} className="flex gap-2"><span className="text-[var(--color-primary)]" aria-hidden>✦</span><span>{useCase}</span></li>
+                  <li key={useCase} className="flex gap-2"><span className="text-[var(--color-primary-text-strong)]" aria-hidden>✦</span><span>{useCase}</span></li>
                 ))}
               </ul>
             ) : null}
@@ -167,7 +167,7 @@ function ToolCard({ tool, compact = false }: { tool: ToolDefinition; compact?: b
             </div>
 
             <div className="mt-auto pt-5">
-              <span className="group inline-flex min-h-10 items-center gap-2 text-sm font-bold text-[var(--color-primary)]">
+              <span className="group inline-flex min-h-10 items-center gap-2 text-sm font-bold text-[var(--color-primary-text-strong)]">
                 Open tool <ArrowRight className="darma-link-arrow h-4 w-4" aria-hidden />
               </span>
             </div>
@@ -199,7 +199,7 @@ function WorkflowCard({ workflow }: { workflow: (typeof toolWorkflows)[number] }
           </ol>
         ) : null}
         <div className="mt-auto pt-5">
-          <span className="group inline-flex items-center gap-2 text-sm font-bold text-[var(--color-primary)]">
+          <span className="group inline-flex items-center gap-2 text-sm font-bold text-[var(--color-primary-text-strong)]">
             {workflow.steps.length} connected steps <ArrowRight className="darma-link-arrow h-4 w-4" aria-hidden />
           </span>
         </div>
@@ -300,7 +300,7 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
                   aria-pressed={audience === key}
                   onClick={() => setAudience(key)}
                   className={cn(
-                    "min-h-9 shrink-0 rounded-[var(--radius-full)] border px-3.5 font-mono text-[11px] font-bold uppercase tracking-[0.08em] transition focus:outline-none focus:shadow-[var(--focus-ring)]",
+                    "min-h-9 shrink-0 rounded-[var(--radius-full)] border px-3.5 font-mono text-xs font-bold uppercase tracking-[0.08em] transition focus:outline-none focus:shadow-[var(--focus-ring)]",
                     audience === key
                       ? "border-[var(--color-primary)] bg-[var(--color-primary)] text-[var(--color-primary-text)]"
                       : "border-[var(--color-border-default)] bg-[var(--color-control-bg)] text-[var(--color-text-tertiary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]",
@@ -316,9 +316,9 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
                 type="button"
                 onClick={exploreChallenges}
                 className={cn(
-                  "rounded-[var(--radius-full)] border px-3.5 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.08em] transition focus:outline-none focus:shadow-[var(--focus-ring)]",
+                  "rounded-[var(--radius-full)] border px-3.5 py-2 font-mono text-xs font-bold uppercase tracking-[0.08em] transition focus:outline-none focus:shadow-[var(--focus-ring)]",
                   toolType === "interactive-challenge"
-                    ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+                    ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]"
                     : "border-[var(--color-primary-border)] bg-[var(--color-surface-base)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]",
                 )}
               >
@@ -326,14 +326,14 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
               </button>
               <Link
                 href="/tools/fun"
-                className="group inline-flex items-center gap-2 rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-control-bg)] px-3.5 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)] transition hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] focus:outline-none focus:shadow-[var(--focus-ring)]"
+                className="group inline-flex items-center gap-2 rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-control-bg)] px-3.5 py-2 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)] transition hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] focus:outline-none focus:shadow-[var(--focus-ring)]"
               >
                 Fun hub <ArrowRight className="darma-link-arrow h-3.5 w-3.5" aria-hidden />
               </Link>
             </div>
 
             <div className="grid gap-3 md:grid-cols-[1fr_1fr_1fr_auto] md:items-end">
-              <label className="grid gap-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+              <label className="grid gap-1.5 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
                 Tool type
                 <Select value={toolType} onChange={(event) => setToolType(event.target.value as ToolTypeFilter)} size="sm">
                   {Object.entries(toolTypeLabels).map(([value, label]) => (
@@ -341,14 +341,14 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
                   ))}
                 </Select>
               </label>
-              <label className="grid gap-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+              <label className="grid gap-1.5 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
                 Category
                 <Select value={category} onChange={(event) => setCategory(event.target.value)} size="sm">
                   <option value="all">All categories</option>
                   {categories.map((item) => <option key={item} value={item}>{formatCategory(item)}</option>)}
                 </Select>
               </label>
-              <label className="grid gap-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+              <label className="grid gap-1.5 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
                 Sort
                 <Select value={sort} onChange={(event) => setSort(event.target.value as ToolSort)} size="sm">
                   <option value="featured">Featured first</option>
@@ -375,7 +375,7 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
               <Badge variant="soft">Favorites</Badge>
               <h2 className="mt-2 text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Favorite tools</h2>
             </div>
-            <p className="font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Saved locally</p>
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Saved locally</p>
           </div>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {favoriteTools.slice(0, 6).map((tool) => <ToolCard key={tool.id} tool={tool} compact />)}
@@ -390,7 +390,7 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
               <Badge variant="soft">Curated</Badge>
               <h2 className="mt-2 text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Featured tools</h2>
             </div>
-            <Link href="/workflows" className="font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]">
+            <Link href="/workflows" className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]">
               Try a workflow
             </Link>
           </div>

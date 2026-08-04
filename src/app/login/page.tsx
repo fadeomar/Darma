@@ -49,7 +49,7 @@ export default function LoginPage() {
     <main className="min-h-screen bg-[var(--color-page-bg)] px-4 py-16 text-[var(--color-text-primary)]">
       <Card className="mx-auto max-w-md" padding="lg">
         <div className="mb-6">
-          <div className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+          <div className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
             Darma Admin
           </div>
           <h1 className="mt-2 text-3xl font-semibold tracking-tight">

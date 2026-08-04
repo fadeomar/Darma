@@ -107,12 +107,12 @@ export function GameMoodBoard({
                 <div className="min-w-0 flex-1 p-4">
                   <div className="flex items-start justify-between gap-3">
                     <h3 className="font-black tracking-[-0.02em] text-[var(--color-text-primary)]">{tile.title}</h3>
-                    <span className="rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-2 py-0.5 font-mono text-[10px] font-bold uppercase text-[var(--color-text-tertiary)]">
+                    <span className="rounded-[var(--radius-full)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-2 py-0.5 font-mono text-xs font-bold uppercase text-[var(--color-text-tertiary)]">
                       {count}
                     </span>
                   </div>
                   <p className="mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">{tile.description}</p>
-                  <p className="mt-3 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-primary)]">
+                  <p className="mt-3 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-primary-text-strong)]">
                     Browse lane →
                   </p>
                 </div>

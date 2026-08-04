@@ -100,7 +100,7 @@ export default function TechTeamsPage() {
               <a href="#team-models" className="group inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-md)] bg-[var(--color-primary)] px-5 text-sm font-semibold text-[var(--color-primary-text)]">
                 Compare team models <ArrowRight className="darma-link-arrow h-4 w-4" aria-hidden />
               </a>
-              <a href="#delivery-flow" className="group inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] px-5 text-sm font-semibold text-[var(--color-primary)]">
+              <a href="#delivery-flow" className="group inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-md)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] px-5 text-sm font-semibold text-[var(--color-primary-text-strong)]">
                 <Network className="h-4 w-4" aria-hidden /> Follow delivery flow
               </a>
             </div>
@@ -138,7 +138,7 @@ export default function TechTeamsPage() {
 
                 <div className="mt-5 flex flex-wrap gap-2">
                   {roles.slice(0, 5).map((role) => (
-                    <Link key={role.slug} href={`/tech-careers/${role.slug}`} className="rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-3 py-1.5 text-xs font-semibold text-[var(--color-text-secondary)] transition hover:border-[var(--color-primary-border)] hover:text-[var(--color-primary)]">
+                    <Link key={role.slug} href={`/tech-careers/${role.slug}`} className="rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-3 py-1.5 text-xs font-semibold text-[var(--color-text-secondary)] transition hover:border-[var(--color-primary-border)] hover:text-[var(--color-primary-text-strong)]">
                       {role.shortTitle}
                     </Link>
                   ))}
@@ -149,12 +149,12 @@ export default function TechTeamsPage() {
                 <details className="group mt-6 rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)]">
                   <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 px-4 text-sm font-black text-[var(--color-text-primary)]">
                     View strengths, risks, and decision flow
-                    <ChevronDown className="h-5 w-5 shrink-0 text-[var(--color-primary)] transition group-open:rotate-180" aria-hidden />
+                    <ChevronDown className="h-5 w-5 shrink-0 text-[var(--color-primary-text-strong)] transition group-open:rotate-180" aria-hidden />
                   </summary>
                   <div className="border-t border-[var(--color-border-subtle)] p-4">
                     <div className="grid gap-5 md:grid-cols-2">
                       <div>
-                        <p className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--color-success-text)]">Useful when</p>
+                        <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-success-text)]">Useful when</p>
                         <ul className="mt-3 space-y-2">
                           {model.usefulWhen.map((item) => (
                             <li key={item} className="flex items-start gap-2 text-sm leading-6 text-[var(--color-text-secondary)]">
@@ -164,7 +164,7 @@ export default function TechTeamsPage() {
                         </ul>
                       </div>
                       <div>
-                        <p className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--color-warning-text)]">Watch for</p>
+                        <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-warning-text)]">Watch for</p>
                         <ul className="mt-3 space-y-2">
                           {model.watchOutFor.map((item) => (
                             <li key={item} className="flex items-start gap-2 text-sm leading-6 text-[var(--color-text-secondary)]">
@@ -176,11 +176,11 @@ export default function TechTeamsPage() {
                     </div>
                     <div className="mt-5 grid gap-4 border-t border-[var(--color-border-subtle)] pt-5 md:grid-cols-2">
                       <div>
-                        <p className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">How decisions move</p>
+                        <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">How decisions move</p>
                         <p className="darma-pretty-copy mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">{model.decisionPattern}</p>
                       </div>
                       <div>
-                        <p className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">How communication moves</p>
+                        <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">How communication moves</p>
                         <p className="darma-pretty-copy mt-2 text-sm leading-6 text-[var(--color-text-secondary)]">{model.communicationPattern}</p>
                       </div>
                     </div>
@@ -208,30 +208,30 @@ export default function TechTeamsPage() {
                 <li key={stage.id} className="relative grid gap-5 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-5 shadow-[var(--shadow-card)] sm:grid-cols-[48px_minmax(0,1fr)_minmax(220px,.48fr)] sm:p-6">
                   <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-primary)] font-mono text-sm font-black text-[var(--color-primary-text)] shadow-[0_0_0_6px_var(--color-section-mint)]">{index + 1}</span>
                   <div>
-                    <p className="font-mono text-[11px] font-bold uppercase tracking-[0.13em] text-[var(--color-primary)]">{stage.question}</p>
+                    <p className="font-mono text-xs font-bold uppercase tracking-[0.13em] text-[var(--color-primary-text-strong)]">{stage.question}</p>
                     <h3 className="darma-balanced-heading mt-2 text-xl font-black text-[var(--color-text-primary)] sm:text-2xl">{stage.title}</h3>
                     <p className="darma-pretty-copy mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">{stage.description}</p>
                     <div className="mt-4 flex flex-wrap gap-2">
                       {roles.map((role) => (
-                        <Link key={role.slug} href={`/tech-careers/${role.slug}`} className="rounded-[var(--radius-full)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] px-3 py-1.5 text-xs font-semibold text-[var(--color-primary)]">
+                        <Link key={role.slug} href={`/tech-careers/${role.slug}`} className="rounded-[var(--radius-full)] border border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] px-3 py-1.5 text-xs font-semibold text-[var(--color-primary-text-strong)]">
                           {role.shortTitle}
                         </Link>
                       ))}
                     </div>
                   </div>
                   <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4">
-                    <p className="font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Typical outputs</p>
+                    <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Typical outputs</p>
                     <ul className="mt-3 space-y-2">
                       {stage.outputs.map((output) => (
                         <li key={output} className="flex items-start gap-2 text-sm leading-6 text-[var(--color-text-secondary)]">
-                          <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary)]" aria-hidden />{output}
+                          <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[var(--color-primary-text-strong)]" aria-hidden />{output}
                         </li>
                       ))}
                     </ul>
-                    <p className="mt-4 font-mono text-[11px] font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Terms</p>
+                    <p className="mt-4 font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Terms</p>
                     <div className="mt-2 flex flex-wrap gap-2">
                       {terms.map((term) => (
-                        <Link key={term.slug} href={`/tech-glossary#${term.slug}`} className="text-xs font-bold text-[var(--color-primary)]">{term.term}</Link>
+                        <Link key={term.slug} href={`/tech-glossary#${term.slug}`} className="text-xs font-bold text-[var(--color-primary-text-strong)]">{term.term}</Link>
                       ))}
                     </div>
                   </div>

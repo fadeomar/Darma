@@ -60,13 +60,13 @@ const INPUT_KIND_LABELS = {
 function SummaryCard({ label, value, hint }: { label: string; value: string; hint: string }) {
   return (
     <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2.5 shadow-[var(--shadow-xs)]">
-      <div className="truncate font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+      <div className="truncate font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
         {label}
       </div>
       <div className="mt-1 truncate text-xl font-black tracking-tight text-[var(--color-text-primary)]" title={value}>
         {value}
       </div>
-      <div className="mt-0.5 truncate text-[11px] text-[var(--color-text-tertiary)]">{hint}</div>
+      <div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]">{hint}</div>
     </div>
   );
 }
@@ -83,7 +83,7 @@ function Card({ children, className = "" }: { children: ReactNode; className?: s
 
 function MiniLabel({ children }: { children: ReactNode }) {
   return (
-    <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+    <span className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
       {children}
     </span>
   );
@@ -274,7 +274,7 @@ export default function UrlEncoderDecoderClient() {
               onClick={() => applyPreset(preset.id)}
             >
               <span className="block truncate text-xs font-bold text-[var(--color-text-primary)]">{preset.label}</span>
-              <span className="mt-0.5 block line-clamp-2 text-[10px] leading-4 text-[var(--color-text-tertiary)]">
+              <span className="mt-0.5 block line-clamp-2 text-xs leading-4 text-[var(--color-text-tertiary)]">
                 {preset.description}
               </span>
             </button>
@@ -287,7 +287,7 @@ export default function UrlEncoderDecoderClient() {
           <div className="mb-3 flex items-center justify-between gap-3">
             <div>
               <div className="flex items-center gap-2">
-                <Link2 className="h-4 w-4 text-[var(--color-primary)]" />
+                <Link2 className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
                 <h2 className="text-sm font-black text-[var(--color-text-primary)]">Input</h2>
               </div>
               <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">
@@ -308,7 +308,7 @@ export default function UrlEncoderDecoderClient() {
             aria-invalid={!result.ok && Boolean(input)}
             className="resize-y break-all"
           />
-          <div className="mt-2 flex flex-wrap items-center justify-between gap-2 text-[11px] text-[var(--color-text-tertiary)]">
+          <div className="mt-2 flex flex-wrap items-center justify-between gap-2 text-xs text-[var(--color-text-tertiary)]">
             <span>{stats.inputCharacters.toLocaleString()} characters</span>
             <span>
               {type === "full"
@@ -324,7 +324,7 @@ export default function UrlEncoderDecoderClient() {
           <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <div className="flex items-center gap-2">
-                <Code2 className="h-4 w-4 text-[var(--color-primary)]" />
+                <Code2 className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
                 <h2 className="text-sm font-black text-[var(--color-text-primary)]">Output workspace</h2>
               </div>
               <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">
@@ -341,7 +341,7 @@ export default function UrlEncoderDecoderClient() {
                   key={value}
                   type="button"
                   onClick={() => setOutputTab(value)}
-                  className={`rounded-[var(--radius-xs)] px-2.5 py-1.5 text-[11px] font-bold transition ${
+                  className={`rounded-[var(--radius-xs)] px-2.5 py-1.5 text-xs font-bold transition ${
                     outputTab === value
                       ? "bg-[var(--color-surface-base)] text-[var(--color-text-primary)] shadow-[var(--shadow-xs)]"
                       : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"
@@ -365,7 +365,7 @@ export default function UrlEncoderDecoderClient() {
                 aria-invalid={!result.ok && Boolean(input)}
                 className="resize-y break-all"
               />
-              <div className="mt-2 flex flex-wrap items-center justify-between gap-2 text-[11px] text-[var(--color-text-tertiary)]">
+              <div className="mt-2 flex flex-wrap items-center justify-between gap-2 text-xs text-[var(--color-text-tertiary)]">
                 <span>{stats.outputCharacters.toLocaleString()} characters · {stats.percentSequences.toLocaleString()} percent escapes</span>
                 <span>{stats.expansionPercent > 0 ? "+" : ""}{stats.expansionPercent}% length change</span>
               </div>
@@ -432,7 +432,7 @@ export default function UrlEncoderDecoderClient() {
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <div className="flex items-center gap-2">
-                <Sparkles className="h-4 w-4 text-[var(--color-primary)]" />
+                <Sparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
                 <h2 className="text-sm font-black text-[var(--color-text-primary)]">Query parameter editor</h2>
               </div>
               <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">
@@ -483,9 +483,9 @@ export default function UrlEncoderDecoderClient() {
                   </label>
                   <div className="flex items-end justify-end gap-2">
                     {row.sensitive ? (
-                      <span className="mb-1 text-[10px] font-bold uppercase text-[var(--color-danger-text)]">Sensitive</span>
+                      <span className="mb-1 text-xs font-bold uppercase text-[var(--color-danger-text)]">Sensitive</span>
                     ) : row.duplicate ? (
-                      <span className="mb-1 text-[10px] font-bold uppercase text-[var(--color-warning-text)]">Duplicate</span>
+                      <span className="mb-1 text-xs font-bold uppercase text-[var(--color-warning-text)]">Duplicate</span>
                     ) : null}
                     <Button
                       size="icon"
@@ -512,12 +512,12 @@ export default function UrlEncoderDecoderClient() {
           <div className="flex items-center justify-between gap-3">
             <div>
               <div className="flex items-center gap-2">
-                <ShieldCheck className="h-4 w-4 text-[var(--color-primary)]" />
+                <ShieldCheck className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
                 <h2 className="text-sm font-black text-[var(--color-text-primary)]">Production checks</h2>
               </div>
               <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Compatibility, parsing, and leakage risks.</p>
             </div>
-            <span className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] px-2 py-1 text-[10px] font-bold text-[var(--color-text-secondary)]">
+            <span className="rounded-full border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] px-2 py-1 text-xs font-bold text-[var(--color-text-secondary)]">
               {checks.length} checks
             </span>
           </div>
@@ -533,7 +533,7 @@ export default function UrlEncoderDecoderClient() {
                   )}
                   <div className="min-w-0">
                     <div className="text-xs font-black">{check.title}</div>
-                    <p className="mt-1 text-[11px] leading-5 opacity-90">{check.message}</p>
+                    <p className="mt-1 text-xs leading-5 opacity-90">{check.message}</p>
                   </div>
                 </div>
               </div>

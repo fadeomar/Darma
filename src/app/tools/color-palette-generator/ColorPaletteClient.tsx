@@ -207,7 +207,7 @@ export default function ColorPaletteClient() {
                 >
                   <div className="flex items-start justify-between gap-2">
                     <div className="min-w-0">
-                      <p className="truncate rounded-full bg-black/15 px-2 py-1 text-[10px] font-black uppercase tracking-[0.12em] text-current">
+                      <p className="truncate rounded-full bg-black/15 px-2 py-1 text-xs font-black uppercase tracking-[0.12em] text-current">
                         {color.name}
                       </p>
                       <p className="mt-2 text-xs font-bold opacity-85">{getColorUsage(color, index)}</p>
@@ -298,7 +298,7 @@ export default function ColorPaletteClient() {
               key={color}
               type="button"
               onClick={() => applyStarterColor(color)}
-              className="inline-flex h-8 items-center gap-1.5 rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-2.5 text-[11px] font-bold text-[var(--color-text-primary)] transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-raised)] focus:outline-none focus:shadow-[var(--focus-ring)]"
+              className="inline-flex h-8 items-center gap-1.5 rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-2.5 text-xs font-bold text-[var(--color-text-primary)] transition hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-raised)] focus:outline-none focus:shadow-[var(--focus-ring)]"
             >
               <span className="h-3 w-3 shrink-0 rounded-full border border-black/10" style={{ backgroundColor: color }} aria-hidden />
               {color}
@@ -321,7 +321,7 @@ export default function ColorPaletteClient() {
                   <span className="h-4 w-4 rounded-full border border-black/10" style={{ backgroundColor: preset.baseColor }} aria-hidden />
                   <span className="truncate text-sm font-black text-[var(--color-text-primary)]">{preset.title}</span>
                 </span>
-                <span className="shrink-0 text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">{preset.size}</span>
+                <span className="shrink-0 text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">{preset.size}</span>
               </span>
               <span className="mt-1 block text-xs leading-5 text-[var(--color-text-secondary)]">{preset.description}</span>
               {preset.tags?.length ? (
@@ -464,7 +464,7 @@ export default function ColorPaletteClient() {
 function MetricCard({ label, value, tone = "info" }: { label: string; value: string; tone?: "info" | "success" | "warning" }) {
   return (
     <div className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-3">
-      <p className="text-[10px] font-black uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">{label}</p>
+      <p className="text-xs font-black uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">{label}</p>
       <div className="mt-2 flex items-center justify-between gap-2">
         <p className="truncate text-sm font-black text-[var(--color-text-primary)]">{value}</p>
         <Badge variant={tone === "success" ? "success" : tone === "warning" ? "warning" : "info"}>{tone}</Badge>

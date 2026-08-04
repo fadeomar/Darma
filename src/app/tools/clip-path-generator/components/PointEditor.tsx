@@ -75,7 +75,7 @@ function PointRow({
         </div>
       </div>
       <div className="grid grid-cols-2 gap-2">
-        <label className="text-[11px] font-bold text-[var(--color-text-secondary)]">
+        <label className="text-xs font-bold text-[var(--color-text-secondary)]">
           X (%)
           <Input
             className="mt-1"
@@ -99,7 +99,7 @@ function PointRow({
             }}
           />
         </label>
-        <label className="text-[11px] font-bold text-[var(--color-text-secondary)]">
+        <label className="text-xs font-bold text-[var(--color-text-secondary)]">
           Y (%)
           <Input
             className="mt-1"

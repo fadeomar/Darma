@@ -49,7 +49,7 @@ export default function MockupProductionPanel({
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <div className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]">
-            <ShieldCheck className="h-4 w-4 text-[var(--color-primary)]" />
+            <ShieldCheck className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
             Project and production audit
           </div>
           <p className="mt-1 max-w-3xl text-xs leading-5 text-[var(--color-text-secondary)]">
@@ -78,9 +78,9 @@ export default function MockupProductionPanel({
       <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
         {cards.map((card) => (
           <div key={card.label} className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3">
-            <div className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{card.label}</div>
+            <div className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{card.label}</div>
             <div className="mt-1 truncate text-base font-black text-[var(--color-text-primary)]" title={card.value}>{card.value}</div>
-            <div className="mt-0.5 truncate text-[11px] text-[var(--color-text-tertiary)]" title={card.detail}>{card.detail}</div>
+            <div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]" title={card.detail}>{card.detail}</div>
           </div>
         ))}
       </div>
@@ -99,15 +99,15 @@ export default function MockupProductionPanel({
           >
             <div className="flex items-center justify-between gap-2">
               <span className="text-xs font-black text-[var(--color-text-primary)]">{check.title}</span>
-              <span className="font-mono text-[9px] font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{check.severity}</span>
+              <span className="font-mono text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{check.severity}</span>
             </div>
-            <p className="mt-1 text-[11px] leading-5 text-[var(--color-text-secondary)]">{check.message}</p>
+            <p className="mt-1 text-xs leading-5 text-[var(--color-text-secondary)]">{check.message}</p>
           </div>
         ))}
       </div>
 
       <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[var(--color-border-subtle)] pt-3">
-        <p className="max-w-2xl text-[11px] leading-5 text-[var(--color-text-tertiary)]">
+        <p className="max-w-2xl text-xs leading-5 text-[var(--color-text-tertiary)]">
           Project imports are capped at 1 MB. Screenshot and background-image bytes are intentionally excluded and must be reattached locally.
         </p>
         <div className="flex flex-wrap gap-2">

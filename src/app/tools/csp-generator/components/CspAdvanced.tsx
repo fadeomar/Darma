@@ -55,7 +55,7 @@ function DirectiveRow({
           aria-checked={directive.enabled}
           onClick={() => onToggle(!directive.enabled)}
           className={cn(
-            "shrink-0 rounded-[var(--radius-full)] border px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.08em] transition",
+            "shrink-0 rounded-[var(--radius-full)] border px-2.5 py-1 font-mono text-xs font-bold uppercase tracking-[0.08em] transition",
             directive.enabled
               ? "border-[var(--color-success-border)] bg-[var(--color-success-bg)] text-[var(--color-success-text)]"
               : "border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] text-[var(--color-text-tertiary)]",
@@ -71,7 +71,7 @@ function DirectiveRow({
             <ul className="flex flex-wrap gap-1.5">
               {directive.sources.map((source) => (
                 <li key={source.id}>
-                  <span className={cn("inline-flex max-w-full items-center gap-1.5 rounded-[var(--radius-full)] border px-2.5 py-1 font-mono text-[11px] font-bold", RISK_CHIP[source.risk])}>
+                  <span className={cn("inline-flex max-w-full items-center gap-1.5 rounded-[var(--radius-full)] border px-2.5 py-1 font-mono text-xs font-bold", RISK_CHIP[source.risk])}>
                     <span className="max-w-[220px] truncate" title={source.value}>{source.value}</span>
                     <button type="button" onClick={() => onRemoveSource(source.value)} className="shrink-0 opacity-70 transition hover:opacity-100" aria-label={`Remove ${source.value} from ${directive.name}`}>
                       <X className="h-3 w-3" aria-hidden />
@@ -81,7 +81,7 @@ function DirectiveRow({
               ))}
             </ul>
           ) : (
-            <p className="text-[11px] text-[var(--color-text-tertiary)]">No sources — this directive emits its bare keyword.</p>
+            <p className="text-xs text-[var(--color-text-tertiary)]">No sources — this directive emits its bare keyword.</p>
           )}
           <form onSubmit={submit} className="flex gap-2">
             <Input

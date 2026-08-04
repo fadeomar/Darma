@@ -19,8 +19,8 @@ export function TransformOrderChips({ order, onChange }: { order: Transform2DFun
             <span className="whitespace-nowrap">{index + 1}. {item}</span>
             {onChange ? (
               <span className="flex items-center gap-0.5 border-l border-[var(--color-border-subtle)] pl-1">
-                <button type="button" className="rounded px-1 text-[10px] hover:bg-[var(--color-control-hover)] disabled:opacity-40" disabled={index === 0} onClick={() => move(index, -1)} aria-label={`Move ${item} earlier`}>←</button>
-                <button type="button" className="rounded px-1 text-[10px] hover:bg-[var(--color-control-hover)] disabled:opacity-40" disabled={index === order.length - 1} onClick={() => move(index, 1)} aria-label={`Move ${item} later`}>→</button>
+                <button type="button" className="rounded px-1 text-xs hover:bg-[var(--color-control-hover)] disabled:opacity-40" disabled={index === 0} onClick={() => move(index, -1)} aria-label={`Move ${item} earlier`}>←</button>
+                <button type="button" className="rounded px-1 text-xs hover:bg-[var(--color-control-hover)] disabled:opacity-40" disabled={index === order.length - 1} onClick={() => move(index, 1)} aria-label={`Move ${item} later`}>→</button>
               </span>
             ) : null}
           </div>

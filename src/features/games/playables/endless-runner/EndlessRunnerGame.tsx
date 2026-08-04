@@ -45,7 +45,7 @@ const INITIAL_HUD: RunnerHud = { phase: "idle", score: 0, distance: 0, speed: 30
 function LiveStatPill({ label, valueRef, initial }: { label: string; valueRef: RefObject<HTMLParagraphElement | null>; initial: string }) {
   return (
     <div className="rounded-2xl border border-white/10 bg-black/25 px-3 py-2 text-white shadow-inner shadow-black/20">
-      <p className="font-mono text-[9px] font-black uppercase tracking-[0.14em] text-amber-200/75">{label}</p>
+      <p className="font-mono text-xs font-black uppercase tracking-[0.14em] text-amber-200/75">{label}</p>
       <p ref={valueRef} className="mt-1 text-lg font-black leading-none tracking-[-0.03em]">
         {initial}
       </p>
@@ -56,7 +56,7 @@ function LiveStatPill({ label, valueRef, initial }: { label: string; valueRef: R
 function StatPill({ label, value }: { label: string; value: ReactNode }) {
   return (
     <div className="rounded-2xl border border-white/10 bg-black/25 px-3 py-2 text-white shadow-inner shadow-black/20">
-      <p className="font-mono text-[9px] font-black uppercase tracking-[0.14em] text-amber-200/75">{label}</p>
+      <p className="font-mono text-xs font-black uppercase tracking-[0.14em] text-amber-200/75">{label}</p>
       <p className="mt-1 text-lg font-black leading-none tracking-[-0.03em]">{value}</p>
     </div>
   );
@@ -255,7 +255,7 @@ export function EndlessRunnerGame({ game }: { game: GameDefinition }) {
             <ArrowLeft className="h-4 w-4" aria-hidden />
           </button>
           <div className="min-w-0">
-            <p className="font-mono text-[10px] font-black uppercase tracking-[0.14em] text-amber-200/70">Darma Arcade</p>
+            <p className="font-mono text-xs font-black uppercase tracking-[0.14em] text-amber-200/70">Darma Arcade</p>
             <h2 className="truncate text-base font-black tracking-[-0.02em] text-white sm:text-lg">{game.title}</h2>
           </div>
         </div>
@@ -290,7 +290,7 @@ export function EndlessRunnerGame({ game }: { game: GameDefinition }) {
             {overlayVisible ? (
               <div className="pointer-events-none absolute inset-2 flex items-center justify-center rounded-[1.1rem]">
                 <div className="max-w-md rounded-[1.5rem] border border-amber-200/35 bg-slate-950/78 p-5 text-center text-white shadow-2xl backdrop-blur-md">
-                  <p className="font-mono text-[10px] font-black uppercase tracking-[0.14em] text-amber-200/80">
+                  <p className="font-mono text-xs font-black uppercase tracking-[0.14em] text-amber-200/80">
                     {!ready ? "Loading" : hud.phase === "over" ? "Final score" : hud.phase === "paused" ? "Take a breath" : "Sprite-based runner"}
                   </p>
                   <h3 className="mt-2 text-2xl font-black tracking-[-0.04em] sm:text-3xl">
@@ -350,7 +350,7 @@ export function EndlessRunnerGame({ game }: { game: GameDefinition }) {
           <div className="flex items-center gap-3">
             <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-amber-200/35 bg-amber-300/20 text-2xl">🏃</span>
             <div>
-              <p className="font-mono text-[10px] font-black uppercase tracking-[0.14em] text-amber-200/70">Endless run</p>
+              <p className="font-mono text-xs font-black uppercase tracking-[0.14em] text-amber-200/70">Endless run</p>
               <h3 className="text-lg font-black tracking-[-0.02em]">Phaser sprite runner</h3>
             </div>
           </div>

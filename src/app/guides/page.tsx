@@ -64,12 +64,12 @@ export default function GuidesPage() {
             <h2 className="text-xl font-black text-[var(--color-text-primary)]">A useful guide should change what you do next.</h2>
             <p className="mt-2 text-sm leading-7 text-[var(--color-text-secondary)]">Every Darma guide aims to provide a direct answer, ordered capabilities, practical projects, clear alternatives, review metadata, and links to primary references.</p>
           </div>
-          <Link href="/editorial-policy" className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[var(--color-border-default)] px-4 text-sm font-black text-[var(--color-primary)]"><ShieldCheck className="h-4 w-4" aria-hidden />Editorial policy</Link>
+          <Link href="/editorial-policy" className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-[var(--color-border-default)] px-4 text-sm font-black text-[var(--color-primary-text-strong)]"><ShieldCheck className="h-4 w-4" aria-hidden />Editorial policy</Link>
         </Card>
       </MotionSection>
       <section id="guide-library" className="mx-auto max-w-[var(--container-wide)] scroll-mt-28 px-4 sm:px-6 lg:px-8">
         <div className="mb-7 max-w-3xl">
-          <p className="font-mono text-[10px] font-black uppercase tracking-[0.16em] text-[var(--color-primary)]">Guide library</p>
+          <p className="font-mono text-xs font-black uppercase tracking-[0.16em] text-[var(--color-primary-text-strong)]">Guide library</p>
           <h2 className="mt-2 text-3xl font-black tracking-[-0.04em] text-[var(--color-text-primary)]">Choose the roadmap closest to your current goal.</h2>
           <p className="mt-3 text-sm leading-7 text-[var(--color-text-secondary)]">Use comparisons when the decision is unclear, then return to the guide for an ordered path and practical checkpoints.</p>
         </div>

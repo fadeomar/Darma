@@ -39,7 +39,7 @@ export function GameHero() {
         <div className="game-hero-glow" />
         <div className="game-pixel-sparkles" aria-hidden />
         <div className="game-hero-vector-orbit"><span /><span /><span /></div>
-        <Sparkles className="absolute right-5 top-5 h-5 w-5 text-[var(--color-primary)] opacity-70" />
+        <Sparkles className="absolute right-5 top-5 h-5 w-5 text-[var(--color-primary-text-strong)] opacity-70" />
         {FLOAT_TILES.map((tile) => (
           <div
             key={tile.label}

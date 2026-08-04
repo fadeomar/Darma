@@ -98,7 +98,7 @@ export function TodoProductionPanel() {
     <section className="mt-4 rounded-[var(--radius-lg)] border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-sm sm:p-5" aria-labelledby="todo-production-title">
       <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">Data safety</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-accent-text)]">Data safety</p>
           <h2 id="todo-production-title" className="mt-1 text-lg font-bold text-[var(--color-text-primary)]">Workspace health &amp; production backup</h2>
           <p className="mt-1 max-w-3xl text-sm leading-6 text-[var(--color-text-secondary)]">
             Validate local relationships, preserve archived lists, and create a restorable JSON, audit, CSV snapshot, and README in one ZIP.
@@ -125,7 +125,7 @@ export function TodoProductionPanel() {
           <div key={label} className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-subtle)] p-3">
             <div className="flex items-center justify-between gap-2">
               <span className="text-xs font-semibold uppercase tracking-wide text-[var(--color-text-secondary)]">{label}</span>
-              <Icon size={16} aria-hidden className="text-[var(--color-accent)]" />
+              <Icon size={16} aria-hidden className="text-[var(--color-accent-text)]" />
             </div>
             <p className="mt-2 text-2xl font-black text-[var(--color-text-primary)]">{value}</p>
             <p className="mt-1 text-xs text-[var(--color-text-secondary)]">{detail}</p>

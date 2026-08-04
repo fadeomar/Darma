@@ -47,7 +47,9 @@ export function ConnectedAtlasVisual({ guides, comparisons, resources, paths }: 
             <rect width="112" height="70" rx="19" fill="var(--color-surface-raised)" stroke="var(--color-border-default)" />
             <circle cx="20" cy="20" r="7" fill={node.accent} />
             <text x="18" y="50" fill="var(--color-text-primary)" fontSize="21" fontWeight="950">{node.value}</text>
-            <text x="52" y="50" fill="var(--color-text-tertiary)" fontSize="10" fontWeight="900">{node.label}</text>
+            {/* The scene renders at ~1.15x its viewBox, so 11 user units land at
+                ~12.7px — the readable floor for an in-diagram label. */}
+            <text x="52" y="50" fill="var(--color-text-tertiary)" fontSize="11" fontWeight="900">{node.label}</text>
           </g>
         ))}
 

@@ -23,7 +23,7 @@ export default function IframePreview({ html, css, js, onWidthChange, className 
   return (
     <section className={["w-full max-w-full", className].join(" ")}>
       <div className="mb-2 flex items-center justify-between rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] px-3 py-2 shadow-[var(--shadow-xs)]">
-        <p className="font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Live preview</p>
+        <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Live preview</p>
         <p className="text-xs text-[var(--color-text-tertiary)]">Drag corner to resize</p>
       </div>
       <ResizableContainer onSizeChange={handleSizeChange}>

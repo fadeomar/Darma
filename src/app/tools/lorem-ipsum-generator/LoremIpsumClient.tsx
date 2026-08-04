@@ -77,11 +77,11 @@ function SummaryCard({ label, value, hint, icon }: { label: string; value: strin
   return (
     <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2.5 shadow-[var(--shadow-xs)]">
       <div className="flex items-center justify-between gap-2">
-        <span className="truncate font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</span>
-        <span className="text-[var(--color-primary)]">{icon}</span>
+        <span className="truncate font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</span>
+        <span className="text-[var(--color-primary-text-strong)]">{icon}</span>
       </div>
       <div className="mt-1 truncate text-xl font-black tracking-tight text-[var(--color-text-primary)]" title={value}>{value}</div>
-      <div className="mt-0.5 truncate text-[11px] text-[var(--color-text-tertiary)]">{hint}</div>
+      <div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]">{hint}</div>
     </div>
   );
 }
@@ -89,7 +89,7 @@ function SummaryCard({ label, value, hint, icon }: { label: string; value: strin
 function Field({ label, hint, children }: { label: string; hint?: string; children: ReactNode }) {
   return (
     <label className="block min-w-0">
-      <span className="mb-1 flex items-center justify-between gap-2 text-[11px] font-bold text-[var(--color-text-secondary)]">
+      <span className="mb-1 flex items-center justify-between gap-2 text-xs font-bold text-[var(--color-text-secondary)]">
         <span>{label}</span>
         {hint ? <span className="font-normal text-[var(--color-text-tertiary)]">{hint}</span> : null}
       </span>
@@ -110,7 +110,7 @@ function Toggle({ checked, onChange, label, description, disabled = false }: { c
       />
       <span className="min-w-0">
         <span className="block text-xs font-bold text-[var(--color-text-primary)]">{label}</span>
-        <span className="mt-0.5 block text-[10px] leading-4 text-[var(--color-text-tertiary)]">{description}</span>
+        <span className="mt-0.5 block text-xs leading-4 text-[var(--color-text-tertiary)]">{description}</span>
       </span>
     </label>
   );
@@ -212,7 +212,7 @@ export default function LoremIpsumClient() {
         <section className="space-y-4 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-card)]">
           <div>
             <div className="flex items-center gap-2">
-              <WandSparkles className="h-4 w-4 text-[var(--color-primary)]" />
+              <WandSparkles className="h-4 w-4 text-[var(--color-primary-text-strong)]" />
               <h2 className="text-sm font-black text-[var(--color-text-primary)]">Practical presets</h2>
             </div>
             <div className="mt-3 grid gap-2 sm:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-2">
@@ -224,7 +224,7 @@ export default function LoremIpsumClient() {
                   className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-3 py-2 text-left transition hover:border-[var(--color-primary-border)] hover:bg-[var(--color-primary-soft)] focus:outline-none focus:shadow-[var(--focus-ring)]"
                 >
                   <span className="flex items-center gap-2 text-xs font-bold text-[var(--color-text-primary)]"><span aria-hidden>{preset.icon}</span>{preset.label}</span>
-                  <span className="mt-1 line-clamp-2 block text-[10px] leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
+                  <span className="mt-1 line-clamp-2 block text-xs leading-4 text-[var(--color-text-tertiary)]">{preset.description}</span>
                 </button>
               ))}
             </div>
@@ -237,7 +237,7 @@ export default function LoremIpsumClient() {
                   key={mode}
                   type="button"
                   onClick={() => setMode(mode)}
-                  className={`rounded-[var(--radius-sm)] px-2 py-2 text-[11px] font-bold capitalize transition ${config.mode === mode ? "bg-[var(--color-surface-base)] text-[var(--color-primary)] shadow-[var(--shadow-xs)]" : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}
+                  className={`rounded-[var(--radius-sm)] px-2 py-2 text-xs font-bold capitalize transition ${config.mode === mode ? "bg-[var(--color-surface-base)] text-[var(--color-primary-text-strong)] shadow-[var(--shadow-xs)]" : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}
                 >
                   {mode}
                 </button>
@@ -344,11 +344,11 @@ export default function LoremIpsumClient() {
           <div className="flex flex-col gap-3 border-b border-[var(--color-border-subtle)] px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="min-w-0">
               <h2 className="text-sm font-black text-[var(--color-text-primary)]">Generated content</h2>
-              <p className="mt-0.5 truncate text-[10px] text-[var(--color-text-tertiary)]">Seed: {config.seed || "darma-placeholder"}</p>
+              <p className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]">Seed: {config.seed || "darma-placeholder"}</p>
             </div>
             <div className="flex flex-wrap gap-1 rounded-[var(--radius-md)] bg-[var(--color-surface-subtle)] p-1">
               {(["preview", "plain", "html", "react", "report"] as LoremResultTab[]).map((tab) => (
-                <button key={tab} type="button" onClick={() => setActiveTab(tab)} className={`rounded-[var(--radius-sm)] px-2.5 py-1.5 text-[10px] font-bold capitalize ${activeTab === tab ? "bg-[var(--color-surface-base)] text-[var(--color-primary)] shadow-[var(--shadow-xs)]" : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}>{tab}</button>
+                <button key={tab} type="button" onClick={() => setActiveTab(tab)} className={`rounded-[var(--radius-sm)] px-2.5 py-1.5 text-xs font-bold capitalize ${activeTab === tab ? "bg-[var(--color-surface-base)] text-[var(--color-primary-text-strong)] shadow-[var(--shadow-xs)]" : "text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]"}`}>{tab}</button>
               ))}
             </div>
           </div>
@@ -356,7 +356,7 @@ export default function LoremIpsumClient() {
           {activeTab === "preview" ? (
             <div className="bg-[var(--color-surface-subtle)] p-3">
               <div className="mb-3 flex items-center justify-between gap-3">
-                <span className="text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Responsive preview</span>
+                <span className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Responsive preview</span>
                 <div className="flex gap-1">
                   <Button size="sm" variant={viewport === "desktop" ? "soft" : "ghost"} leftIcon={<Monitor className="h-3.5 w-3.5" />} onClick={() => setViewport("desktop")}>Desktop</Button>
                   <Button size="sm" variant={viewport === "mobile" ? "soft" : "ghost"} leftIcon={<Smartphone className="h-3.5 w-3.5" />} onClick={() => setViewport("mobile")}>Mobile</Button>
@@ -376,7 +376,7 @@ export default function LoremIpsumClient() {
           )}
 
           <div className="flex flex-wrap items-center justify-between gap-2 border-t border-[var(--color-border-subtle)] px-4 py-3">
-            <span className="text-[10px] text-[var(--color-text-tertiary)]">Generated locally · no content leaves your browser</span>
+            <span className="text-xs text-[var(--color-text-tertiary)]">Generated locally · no content leaves your browser</span>
             <div className="flex flex-wrap gap-2">
               <Button size="sm" variant="secondary" leftIcon={<Download className="h-3.5 w-3.5" />} onClick={downloadActive}>Download current</Button>
               <Button size="sm" leftIcon={<PackageCheck className="h-3.5 w-3.5" />} loading={zipBusy} onClick={() => void downloadPack()}>Export ZIP</Button>
@@ -390,9 +390,9 @@ export default function LoremIpsumClient() {
           <div className="flex items-center justify-between gap-3">
             <div>
               <h2 className="text-sm font-black text-[var(--color-text-primary)]">Production checks</h2>
-              <p className="mt-1 text-[10px] text-[var(--color-text-tertiary)]">Review placeholder-specific risks before handing off a mockup.</p>
+              <p className="mt-1 text-xs text-[var(--color-text-tertiary)]">Review placeholder-specific risks before handing off a mockup.</p>
             </div>
-            <ShieldCheck className="h-5 w-5 text-[var(--color-primary)]" />
+            <ShieldCheck className="h-5 w-5 text-[var(--color-primary-text-strong)]" />
           </div>
           <div className="mt-3 grid gap-2 sm:grid-cols-2">
             {report.checks.map((check) => (
@@ -401,7 +401,7 @@ export default function LoremIpsumClient() {
                   {check.level === "success" ? <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" /> : <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />}
                   <div className="min-w-0">
                     <div className="text-xs font-black">{check.title}</div>
-                    <div className="mt-1 text-[10px] leading-4 opacity-90">{check.message}</div>
+                    <div className="mt-1 text-xs leading-4 opacity-90">{check.message}</div>
                   </div>
                 </div>
               </div>
@@ -411,7 +411,7 @@ export default function LoremIpsumClient() {
 
         <section className="rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-4 shadow-[var(--shadow-card)]">
           <h2 className="text-sm font-black text-[var(--color-text-primary)]">Practical exports</h2>
-          <p className="mt-1 text-[10px] leading-4 text-[var(--color-text-tertiary)]">Use only the format needed by the current design or development workflow.</p>
+          <p className="mt-1 text-xs leading-4 text-[var(--color-text-tertiary)]">Use only the format needed by the current design or development workflow.</p>
           <div className="mt-3 grid grid-cols-2 gap-2">
             <Button size="sm" variant="secondary" leftIcon={<FileText className="h-3.5 w-3.5" />} onClick={() => downloadText("placeholder-content.txt", output.plain)}>Plain text</Button>
             <Button size="sm" variant="secondary" leftIcon={<Code2 className="h-3.5 w-3.5" />} onClick={() => downloadText("placeholder-content.html", previewDocument, "text/html;charset=utf-8")}>HTML</Button>

@@ -27,11 +27,11 @@ export function ControlSection({ title, description, action, meta, children, cla
           <div className="min-w-0 space-y-1">
             <div className="flex min-w-0 flex-wrap items-center gap-2">
               {title ? (
-                <h3 className="font-mono text-[11px] font-bold uppercase leading-none tracking-[0.08em] text-[var(--color-text-tertiary)]">
+                <h3 className="font-mono text-xs font-bold uppercase leading-none tracking-[0.08em] text-[var(--color-text-tertiary)]">
                   {title}
                 </h3>
               ) : null}
-              {meta ? <span className="text-[11px] font-medium leading-none text-[var(--color-text-tertiary)]">{meta}</span> : null}
+              {meta ? <span className="text-xs font-medium leading-none text-[var(--color-text-tertiary)]">{meta}</span> : null}
             </div>
             {description ? <p className="text-xs leading-5 text-[var(--color-text-tertiary)]">{description}</p> : null}
           </div>

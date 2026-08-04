@@ -38,7 +38,7 @@ export default function CollectionsPage() {
       <section className="mt-8" aria-labelledby="live-collections-title">
         <div className="mb-4 flex items-end justify-between gap-3">
           <div>
-            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">Available now</p>
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">Available now</p>
             <h2 id="live-collections-title" className="text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Live collections</h2>
           </div>
           <Badge variant="success">{liveCollections.length} live</Badge>
@@ -60,7 +60,7 @@ export default function CollectionsPage() {
                   <div className="mt-4 flex flex-wrap gap-2">
                     {collection.badges.map((badge) => <Badge key={badge} variant="outline">{badge}</Badge>)}
                   </div>
-                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[var(--color-primary)]">
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[var(--color-primary-text-strong)]">
                     Open collection <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5 motion-reduce:transition-none" aria-hidden />
                   </span>
                 </Card>
@@ -73,7 +73,7 @@ export default function CollectionsPage() {
       <section className="mt-10" aria-labelledby="planned-collections-title">
         <div className="mb-4 flex items-end justify-between gap-3">
           <div>
-            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">Roadmap</p>
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">Roadmap</p>
             <h2 id="planned-collections-title" className="text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Planned collections</h2>
           </div>
           <Badge variant="warning">{plannedCollections.length} planned</Badge>
@@ -134,7 +134,7 @@ export default function CollectionsPage() {
       <section className="mt-10" aria-labelledby="framework-principles-title">
         <Card>
           <div className="mb-4 flex items-center gap-3">
-            <Compass className="h-5 w-5 text-[var(--color-primary)]" aria-hidden />
+            <Compass className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />
             <h2 id="framework-principles-title" className="text-xl font-black text-[var(--color-text-primary)]">Framework principles</h2>
           </div>
           <div className="grid gap-3 md:grid-cols-3">

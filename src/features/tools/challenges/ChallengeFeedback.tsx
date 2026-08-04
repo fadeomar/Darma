@@ -12,7 +12,7 @@ export type ChallengeScoreBadge = {
 
 const toneClasses: Record<ChallengeTone, { text: string; border: string; bg: string; glow: string; rail: string; dot: string }> = {
   primary: {
-    text: "text-[var(--color-primary)]",
+    text: "text-[var(--color-primary-text-strong)]",
     border: "border-[var(--color-primary-border)]",
     bg: "bg-[var(--color-primary-soft)]",
     glow: "bg-[var(--color-primary-soft)]",
@@ -20,7 +20,7 @@ const toneClasses: Record<ChallengeTone, { text: string; border: string; bg: str
     dot: "bg-[var(--color-primary)]",
   },
   accent: {
-    text: "text-[var(--color-accent)]",
+    text: "text-[var(--color-accent-text)]",
     border: "border-[var(--color-accent-border)]",
     bg: "bg-[var(--color-accent-soft)]",
     glow: "bg-[var(--color-accent-soft)]",
@@ -123,7 +123,7 @@ export function ChallengeStatusPill({
   return (
     <span
       className={cn(
-        "inline-flex min-h-6 items-center gap-1.5 rounded-[var(--radius-full)] border px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase leading-none tracking-[0.08em] shadow-[var(--shadow-xs)] backdrop-blur",
+        "inline-flex min-h-6 items-center gap-1.5 rounded-[var(--radius-full)] border px-2.5 py-0.5 font-mono text-xs font-bold uppercase leading-none tracking-[0.08em] shadow-[var(--shadow-xs)] backdrop-blur",
         toneClass.border,
         toneClass.bg,
         toneClass.text,
@@ -181,7 +181,7 @@ export function ChallengeResultHighlight({
       ) : null}
       <div className="relative flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div className="min-w-0">
-          <p className="font-mono text-[10px] font-black uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">{eyebrow}</p>
+          <p className="font-mono text-xs font-black uppercase tracking-[0.14em] text-[var(--color-text-tertiary)]">{eyebrow}</p>
           <h3 className="mt-1 flex items-center gap-2 text-base font-black tracking-[-0.02em] text-[var(--color-text-primary)]">
             {icon}
             {title}
@@ -199,7 +199,7 @@ export function ChallengeResultHighlight({
                       badgeTone.border,
                     )}
                   >
-                    <p className="flex items-center gap-1.5 font-mono text-[9px] font-black uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">
+                    <p className="flex items-center gap-1.5 font-mono text-xs font-black uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">
                       {badge.icon}
                       {badge.label}
                     </p>
@@ -212,7 +212,7 @@ export function ChallengeResultHighlight({
         </div>
         {metricValue ? (
           <div className="shrink-0 rounded-[var(--radius-md)] border border-white/60 bg-white/70 px-4 py-3 text-right shadow-[var(--shadow-xs)] dark:border-white/10 dark:bg-white/10">
-            {metricLabel ? <p className="font-mono text-[10px] font-black uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">{metricLabel}</p> : null}
+            {metricLabel ? <p className="font-mono text-xs font-black uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">{metricLabel}</p> : null}
             <p className={cn("mt-1 text-2xl font-black tracking-[-0.04em]", toneClass.text)}>{metricValue}</p>
           </div>
         ) : null}
@@ -244,7 +244,7 @@ export function ChallengeEmptyState({
     >
       <div className="flex gap-3">
         {icon ? (
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-primary-border)] bg-white/65 text-[var(--color-primary)] shadow-[var(--shadow-xs)] dark:bg-white/10">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[var(--radius-md)] border border-[var(--color-primary-border)] bg-white/65 text-[var(--color-primary-text-strong)] shadow-[var(--shadow-xs)] dark:bg-white/10">
             {icon}
           </div>
         ) : null}

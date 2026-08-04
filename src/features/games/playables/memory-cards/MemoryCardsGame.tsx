@@ -221,7 +221,7 @@ export function MemoryCardsGame({ game }: { game: GameDefinition }) {
     >
       <div className="flex flex-wrap items-start justify-between gap-3 border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] px-4 py-3 sm:px-5">
         <div>
-          <p className="font-mono text-[10px] font-black uppercase tracking-[0.1em] text-[var(--color-primary)]">
+          <p className="font-mono text-xs font-black uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">
             Focus pro build
           </p>
           <h2 className="text-lg font-black tracking-[-0.03em] text-[var(--color-text-primary)]">
@@ -305,7 +305,7 @@ export function MemoryCardsGame({ game }: { game: GameDefinition }) {
                       className={`absolute inset-0 flex items-center justify-center rounded-[var(--radius-md)] border font-black shadow-[var(--shadow-xs)] ${
                         card.matched
                           ? "border-[var(--color-success-border)] bg-[var(--color-success-bg)] text-[var(--color-success-text)]"
-                          : "border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary)]"
+                          : "border-[var(--color-primary-border)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]"
                       }`}
                       style={{
                         backfaceVisibility: "hidden",
@@ -338,7 +338,7 @@ export function MemoryCardsGame({ game }: { game: GameDefinition }) {
           <div className="rounded-[var(--radius-lg)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-xs)]">
             <h3 className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]">
               <Sparkles
-                className="h-4 w-4 text-[var(--color-primary)]"
+                className="h-4 w-4 text-[var(--color-primary-text-strong)]"
                 aria-hidden
               />{" "}
               Game setup
@@ -472,9 +472,9 @@ function StatCard({
 }) {
   return (
     <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 shadow-[var(--shadow-xs)]">
-      <div className="flex items-center gap-2 text-[var(--color-primary)]">
+      <div className="flex items-center gap-2 text-[var(--color-primary-text-strong)]">
         {icon}
-        <span className="font-mono text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+        <span className="font-mono text-xs font-black uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
           {label}
         </span>
       </div>

@@ -283,7 +283,7 @@ function createRandomShadowState(): BoxShadowState {
 function StatCard({ label, value, detail }: { label: string; value: string; detail: string }) {
   return (
     <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] px-3 py-2.5 shadow-[var(--shadow-xs)]">
-      <div className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
+      <div className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
       <div className="mt-1 truncate text-sm font-bold text-[var(--color-text-primary)]" title={value}>{value}</div>
       <div className="mt-0.5 truncate text-xs text-[var(--color-text-tertiary)]" title={detail}>{detail}</div>
     </div>
@@ -390,7 +390,7 @@ export default function BoxShadowsGeneratorClient() {
         <StatCard label="Character" value={getShadowCharacter(state)} detail={`${getMaxBlur(state)}px max blur`} />
         <StatCard label="Light" value={lightSourceVector[activeLightSourceId].label} detail="Affects distance layers" />
         <div className="min-w-0 rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] px-3 py-2.5 shadow-[var(--shadow-xs)]">
-          <div className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Paint cost</div>
+          <div className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">Paint cost</div>
           <div className="mt-1 flex min-w-0 items-center gap-2">
             <Badge variant={paintRating.variant}>{paintRating.label}</Badge>
           </div>
@@ -425,7 +425,7 @@ export default function BoxShadowsGeneratorClient() {
                   <h3 className="mt-2 text-lg font-black tracking-[-0.03em] text-[var(--color-text-primary)]">UI surface</h3>
                   <p className="mt-1 text-sm leading-6 text-[var(--color-text-secondary)]">Card, button, and badge preview using the same shadow token.</p>
                 </div>
-                <span className="rounded-full bg-[var(--color-primary-soft)] px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.08em] text-[var(--color-primary)]">Live</span>
+                <span className="rounded-full bg-[var(--color-primary-soft)] px-2.5 py-1 text-xs font-black uppercase tracking-[0.08em] text-[var(--color-primary-text-strong)]">Live</span>
               </div>
               <div className="mt-4 flex flex-wrap items-center gap-2">
                 <button type="button" className="rounded-[var(--radius-sm)] bg-[var(--color-primary)] px-3 py-2 text-xs font-bold text-[var(--color-primary-text)] shadow-[var(--shadow-xs)]">Button</button>
@@ -463,7 +463,7 @@ export default function BoxShadowsGeneratorClient() {
                 <span className="block truncate text-sm font-bold text-[var(--color-text-primary)]">{preset.name}</span>
                 <span className="mt-0.5 block truncate text-xs text-[var(--color-text-tertiary)]">{preset.description}</span>
               </span>
-              <span className="rounded-full border border-[var(--color-border-subtle)] px-2 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{preset.usage}</span>
+              <span className="rounded-full border border-[var(--color-border-subtle)] px-2 py-1 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{preset.usage}</span>
             </button>
           ))}
         </div>
@@ -501,7 +501,7 @@ export default function BoxShadowsGeneratorClient() {
                   <span className="h-8 w-8 rounded-[var(--radius-sm)] bg-white" style={{ boxShadow: layerPreviewValue(shadow, state), background: normalizeHex(state.backgroundColor) }} />
                   <span className="min-w-0">
                     <span className="block font-bold text-[var(--color-text-primary)]">Layer {index + 1}</span>
-                    <span className="block truncate font-mono text-[10px] text-[var(--color-text-tertiary)]" title={layerPreviewValue(shadow, state)}>{layerPreviewValue(shadow, state)}</span>
+                    <span className="block truncate font-mono text-xs text-[var(--color-text-tertiary)]" title={layerPreviewValue(shadow, state)}>{layerPreviewValue(shadow, state)}</span>
                   </span>
                 </button>
                 <button

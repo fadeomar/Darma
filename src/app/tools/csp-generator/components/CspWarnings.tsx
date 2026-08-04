@@ -45,7 +45,7 @@ export function CspWarnings({ messages }: { messages: CspValidationMessage[] }) 
               <Icon className="mt-0.5 h-4 w-4 shrink-0 opacity-80" aria-hidden />
               <div className="min-w-0">
                 {message.directiveName ? (
-                  <span className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] opacity-75">{message.directiveName}</span>
+                  <span className="font-mono text-xs font-bold uppercase tracking-[0.08em] opacity-75">{message.directiveName}</span>
                 ) : null}
                 <p className="text-xs leading-5">{message.message}</p>
               </div>
@@ -55,7 +55,7 @@ export function CspWarnings({ messages }: { messages: CspValidationMessage[] }) 
       </ul>
 
       {hidden > 0 ? (
-        <p className="text-[11px] text-[var(--color-text-tertiary)]">+{hidden} more minor note{hidden === 1 ? "" : "s"} hidden to keep things readable.</p>
+        <p className="text-xs text-[var(--color-text-tertiary)]">+{hidden} more minor note{hidden === 1 ? "" : "s"} hidden to keep things readable.</p>
       ) : null}
     </div>
   );

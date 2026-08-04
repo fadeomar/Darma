@@ -19,7 +19,7 @@ export default function JsonTableView({ table }: { table: JsonTableData }) {
           <thead className="sticky top-0 z-10 bg-[var(--color-surface-base)] shadow-[0_1px_0_var(--color-border-subtle)]">
             <tr>
               {table.columns.map((column) => (
-                <th key={column} scope="col" className="whitespace-nowrap px-3 py-2.5 font-mono text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
+                <th key={column} scope="col" className="whitespace-nowrap px-3 py-2.5 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">
                   {column}
                 </th>
               ))}

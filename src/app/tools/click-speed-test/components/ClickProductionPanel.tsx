@@ -64,7 +64,7 @@ export function ClickSummaryGrid({ cards }: { cards: ClickSummaryCard[] }) {
           key={card.label}
           className="min-w-0 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-xs)]"
         >
-          <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">
+          <p className="text-xs font-black uppercase tracking-[0.18em] text-[var(--color-text-tertiary)]">
             {card.label}
           </p>
           <p
@@ -153,7 +153,7 @@ export function ClickProductionPanel({
                     <p className="text-xs font-black">{check.title}</p>
                     <Badge variant={meta.badge}>{meta.label}</Badge>
                   </div>
-                  <p className="mt-1 text-[11px] leading-5 opacity-90">
+                  <p className="mt-1 text-xs leading-5 opacity-90">
                     {check.message}
                   </p>
                 </div>
@@ -166,7 +166,7 @@ export function ClickProductionPanel({
       <div className="mt-4 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-subtle)] p-4">
         <div className="flex items-center gap-2">
           <Download
-            className="h-4 w-4 text-[var(--color-primary)]"
+            className="h-4 w-4 text-[var(--color-primary-text-strong)]"
             aria-hidden
           />
           <p className="text-sm font-black text-[var(--color-text-primary)]">

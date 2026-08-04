@@ -90,7 +90,7 @@ function Field({ label, hint, children }: { label: string; hint?: string; childr
 function SummaryCard({ label, value, detail }: { label: string; value: string; detail: string }) {
   return (
     <Card padding="sm" className="min-w-0">
-      <p className="font-mono text-[10px] font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</p>
+      <p className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</p>
       <p className="mt-2 truncate text-lg font-black tracking-[-0.02em] text-[var(--color-text-primary)]" title={value}>{value}</p>
       <p className="mt-1 text-xs leading-5 text-[var(--color-text-secondary)]">{detail}</p>
     </Card>

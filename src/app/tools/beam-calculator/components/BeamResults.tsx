@@ -12,8 +12,8 @@ function StatCard({ label, value, sub }: { label: string; value: string; sub?: s
   return (
     <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] p-3 text-center">
       <div className="font-mono text-lg font-black tabular-nums text-[var(--color-text-primary)]">{value}</div>
-      <div className="mt-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
-      {sub ? <div className="mt-0.5 text-[10px] text-[var(--color-text-tertiary)]">{sub}</div> : null}
+      <div className="mt-1 text-xs font-semibold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)]">{label}</div>
+      {sub ? <div className="mt-0.5 text-xs text-[var(--color-text-tertiary)]">{sub}</div> : null}
     </div>
   );
 }

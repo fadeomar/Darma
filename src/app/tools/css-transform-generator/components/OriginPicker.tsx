@@ -20,7 +20,7 @@ export function OriginPicker({ value, onChange }: { value: TransformOriginPreset
           aria-checked={value === origin}
           onClick={() => onChange(origin)}
           className={cn(
-            "min-h-10 whitespace-pre-line rounded-[var(--radius-sm)] border px-2 text-center text-[10px] font-bold leading-4 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)]",
+            "min-h-10 whitespace-pre-line rounded-[var(--radius-sm)] border px-2 text-center text-xs font-bold leading-4 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-accent)]",
             value === origin
               ? "border-[var(--color-accent)] bg-[var(--color-accent)]/15 text-[var(--color-text)]"
               : "border-[var(--color-border)] bg-[var(--color-surface-strong)] text-[var(--color-text-soft)] hover:bg-[var(--color-control-hover)]",

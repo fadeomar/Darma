@@ -40,7 +40,7 @@ function CharacterStream({ prompt, input }: { prompt: string; input: string }) {
             key={`${char}-${index}`}
             className={[
               "rounded px-0.5 transition",
-              current ? "bg-[var(--color-primary-soft)] text-[var(--color-primary)] shadow-[var(--focus-ring)]" : "",
+              current ? "bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)] shadow-[var(--focus-ring)]" : "",
               done && correct ? "text-[var(--color-success-text)]" : "",
               done && !correct ? "bg-[var(--color-danger-bg)] text-[var(--color-danger-text)]" : "",
             ].join(" ")}
@@ -141,7 +141,7 @@ export function TypingSpeedGame({ game }: { game: GameDefinition }) {
       <div className="border-b border-[var(--color-border-subtle)] bg-gradient-to-br from-[var(--color-surface-raised)] to-[var(--color-surface-base)] p-4 sm:p-5">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
-            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Typing trainer</p>
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">Typing trainer</p>
             <h2 className="mt-1 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">{game.title}</h2>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">Measure corrected WPM, raw speed, accuracy, repeated mistakes, and progress in a lightweight browser-only trainer.</p>
           </div>
@@ -199,7 +199,7 @@ export function TypingSpeedGame({ game }: { game: GameDefinition }) {
 
         <aside className="space-y-4">
           <div className="rounded-[var(--radius-md)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-4">
-            <div className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><BarChart3 className="h-4 w-4 text-[var(--color-primary)]" /> Session insights</div>
+            <div className="flex items-center gap-2 text-sm font-black text-[var(--color-text-primary)]"><BarChart3 className="h-4 w-4 text-[var(--color-primary-text-strong)]" /> Session insights</div>
             <dl className="mt-4 grid gap-3 text-sm">
               <Row label="Mode" value={MODE_LABELS[settings.mode]} />
               <Row label="Difficulty" value={DIFFICULTY_LABELS[settings.difficulty]} />

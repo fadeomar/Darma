@@ -19,7 +19,7 @@ export type SegmentedControlProps<T extends string> = {
 };
 
 const sizeClass = {
-  sm: "min-h-8 px-2.5 text-[11px]",
+  sm: "min-h-8 px-2.5 text-xs",
   md: "min-h-[38px] px-3 text-xs",
 };
 

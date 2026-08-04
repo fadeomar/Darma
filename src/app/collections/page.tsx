@@ -22,15 +22,14 @@ export default function CollectionsPage() {
       <section className="collection-framework-card collection-accent-violet rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-6 shadow-[var(--shadow-card)] sm:p-8">
         <div className="max-w-3xl">
           <div className="mb-4 flex flex-wrap gap-2">
-            <Badge variant="accent">Darma framework</Badge>
-            <Badge variant="outline">Open source</Badge>
-            <Badge variant="soft">Scalable sections</Badge>
+            <Badge variant="accent">Open source</Badge>
+            <Badge variant="soft">Growing sections</Badge>
           </div>
           <h1 className="text-3xl font-black tracking-[-0.04em] text-[var(--color-text-primary)] sm:text-5xl">
-            One discovery system for every Darma collection.
+            Every part of Darma, in one place.
           </h1>
           <p className="mt-4 text-base leading-7 text-[var(--color-text-secondary)] sm:text-lg">
-            Collections are the shared foundation behind live Darma sections like Tools, Games, Resources, and Learning Paths, and the future home for Templates, Components, and AI.
+            Browse the live sections — Tools, Games, Resources, and Learning Paths — and see what is coming next.
           </p>
         </div>
       </section>
@@ -104,14 +103,14 @@ export default function CollectionsPage() {
       <section className="mt-10 lg:mt-14" aria-labelledby="core-ui-primitives-title">
         <Card className="collection-framework-card collection-accent-teal">
           <CoreSectionHeader
-            eyebrow="Core UI primitives"
-            title="Reusable cards, rails, search, filters, and empty states"
-            description="Batch 10 introduces shared UI primitives that future Darma sections can use without rebuilding the same discovery patterns again."
+            eyebrow="Browse across sections"
+            title="Jump straight into any live collection"
+            description="Explore the sections available today and see what is planned next."
           />
           <div className="mt-6">
             <CoreDiscoveryRail
               title="Live core entries"
-              description="The same rail component can later power Tools, Games, Templates, Components, AI, and Resources."
+              description="Open a collection to see the tools, games, and references inside it."
               entities={coreCollections}
               href="/collections"
               compactCards
@@ -124,8 +123,8 @@ export default function CollectionsPage() {
         <Card className="collection-framework-card collection-accent-violet">
           <CoreEntityBrowser
             entities={coreCollections}
-            title="Core entity browser"
-            description="A shared client-side browser for CoreEntity data with search, category chips, ranked results, and a polished empty state."
+            title="Search the collections"
+            description="Search every live collection at once, then narrow the results by category."
             searchPlaceholder="Search collections, games, tools, AI…"
           />
         </Card>

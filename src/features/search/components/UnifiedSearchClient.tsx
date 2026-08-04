@@ -65,15 +65,14 @@ export function UnifiedSearchClient({ entities, initialQuery = "" }: UnifiedSear
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)] lg:items-center">
           <div>
             <div className="mb-5 flex flex-wrap gap-2">
-              <Badge variant="accent">Darma Core</Badge>
-              <Badge variant="outline">Unified search</Badge>
+              <Badge variant="accent">One search box</Badge>
               <Badge variant="soft">Tools + Games + Tech Atlas</Badge>
             </div>
             <h1 className="text-3xl font-black tracking-[-0.05em] text-[var(--color-text-primary)] sm:text-5xl lg:text-6xl">
               Search everything Darma can do.
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-7 text-[var(--color-text-secondary)] sm:text-lg">
-              One discovery layer across tools, games, resources, learning paths, careers, workflows, and collections. The shared CoreEntity registry powers the complete discovery layer.
+              Search tools, games, resources, learning paths, careers, workflows, and collections from one place.
             </p>
 
             <div className="mt-6 max-w-2xl">
@@ -146,7 +145,7 @@ export function UnifiedSearchClient({ entities, initialQuery = "" }: UnifiedSear
       <section className="mt-8" aria-labelledby="search-results-title">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <CoreSectionHeader
-            eyebrow="Unified results"
+            eyebrow="Results"
             title={query.trim() ? `Results for “${query.trim()}”` : "Top Darma results"}
             description={`${results.length} matching item${results.length === 1 ? "" : "s"}. Filter by section or category to narrow the result set.`}
           />
@@ -172,7 +171,7 @@ export function UnifiedSearchClient({ entities, initialQuery = "" }: UnifiedSear
 
       {featuredResults.length ? (
         <section className="mt-10" aria-labelledby="search-featured-title">
-          <CoreSectionHeader eyebrow="Recommended" title="Featured matches" description="High-confidence results from the shared registry." />
+          <CoreSectionHeader eyebrow="Recommended" title="Featured matches" description="Popular starting points for this kind of search." />
           <div className="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {featuredResults.map((entity) => (
               <CoreEntityCard key={`featured-${entity.kind}-${entity.id}`} entity={entity} compact eyebrow={KIND_LABELS[entity.kind] ?? entity.kind} />
@@ -184,10 +183,10 @@ export function UnifiedSearchClient({ entities, initialQuery = "" }: UnifiedSear
       <section className="mt-10 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] p-5 shadow-[var(--shadow-card)] sm:p-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="font-mono text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">Core migration</p>
-            <h2 className="mt-1 text-xl font-black text-[var(--color-text-primary)]">Unified search is now the bridge across Darma.</h2>
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-text-tertiary)]">Browse by section</p>
+            <h2 className="mt-1 text-xl font-black text-[var(--color-text-primary)]">Not sure what to search for?</h2>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">
-              Tools, games, resources, learning paths, careers, workflows, and collections now share one searchable entity layer.
+              Open the collections page to see every section Darma covers and what is in each one.
             </p>
           </div>
           <Link href="/collections" className="inline-flex items-center justify-center gap-2 rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] px-4 py-2 text-sm font-bold text-[var(--color-text-primary)] transition hover:-translate-y-0.5 hover:border-[var(--color-border-strong)] focus-visible:shadow-[var(--focus-ring)] motion-reduce:transition-none motion-reduce:hover:translate-y-0">

@@ -28,15 +28,14 @@ export function ToolCoreBridgePanel({ tools }: ToolCoreBridgePanelProps) {
         <div className="relative grid gap-6 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-center">
           <div>
             <div className="flex flex-wrap items-center gap-2">
-              <Badge variant="soft">Darma Core 2.0</Badge>
-              <Badge variant="accent">Tools bridge</Badge>
-              <Badge variant="outline">Non-breaking migration</Badge>
+              <Badge variant="soft">Search everywhere</Badge>
+              <Badge variant="accent">Every public tool</Badge>
             </div>
             <h2 id="tools-core-bridge-title" className="mt-4 max-w-3xl text-3xl font-black leading-[var(--leading-tight)] tracking-[-0.045em] text-[var(--color-text-primary)] sm:text-4xl">
-              Tools are now available as shared Core entities.
+              Every tool is reachable from site-wide search.
             </h2>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--color-text-secondary)] sm:text-base">
-              This bridge keeps the current tools directory intact while exposing every public tool to the shared Core registry, search, discovery rails, metadata, and future collection templates.
+              Look up a tool by name, task, or category from anywhere in Darma, or browse the featured picks below.
             </p>
           </div>
 
@@ -60,8 +59,8 @@ export function ToolCoreBridgePanel({ tools }: ToolCoreBridgePanelProps) {
       </Card>
 
       <CoreDiscoveryRail
-        title="Core-powered featured tools"
-        description="A migration-safe rail rendered with shared Core UI primitives while the original tools directory stays untouched."
+        title="Featured tools"
+        description="A good place to start if you are not sure which tool you need."
         entities={featured.length ? featured : entities.slice(0, 8)}
         href="/tools"
         ctaLabel="Open tools"

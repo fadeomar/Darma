@@ -14,7 +14,7 @@ export function ReactionAccessibilityPanel({ settings }: { settings: ReactionSet
           <div>
             <h3 id="rtp-accessibility-title" className="rtp-panel-title">Accessibility audit</h3>
             <p className="rtp-accessibility-sub">
-              Sprint 19 adds an honest accessibility contract for a visual reflex game: readable text, keyboard-safe UI, optional sound/haptics, and clear pointer-mode notes.
+              An honest accessibility contract for a visual reflex game: readable text, keyboard-safe UI, optional sound and haptics, and clear pointer-mode notes.
             </p>
           </div>
         </div>

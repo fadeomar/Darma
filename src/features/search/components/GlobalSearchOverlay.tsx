@@ -375,7 +375,7 @@ export function GlobalSearchProvider({ entities, children }: GlobalSearchProvide
               </div>
 
               <div className="flex flex-col gap-2 border-t border-[var(--color-border-subtle)] bg-[var(--color-surface-raised)] px-4 py-3 text-xs font-semibold text-[var(--color-text-tertiary)] sm:flex-row sm:items-center sm:justify-between sm:px-5">
-                <span>Powered by Darma Core unified registry.</span>
+                <span>Searches tools, games, resources, paths, and careers.</span>
                 <button type="button" onClick={() => { close(); router.push(`/search${query.trim() ? `?q=${encodeURIComponent(query.trim())}` : ""}`); }} className="self-start font-bold text-[var(--color-primary-text-strong)] hover:underline focus-visible:shadow-[var(--focus-ring)] sm:self-auto">
                   Open full search page
                 </button>

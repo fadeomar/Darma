@@ -338,7 +338,7 @@ export function GameDetail({ game, allGames }: { game: GameDefinition; allGames:
           <div>
             <p className="font-mono text-xs font-black uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">Darma Games</p>
             <h2 className="mt-2 text-xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">Playful, private, and lightweight.</h2>
-            <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">This page uses the same Darma product system with a softer game identity layer, so the experience feels fun without becoming noisy or disconnected.</p>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--color-text-secondary)]">Games share the same layout and controls as the rest of Darma, so the page stays easy to read while the game itself gets the space.</p>
           </div>
           <Link
             href="/games"

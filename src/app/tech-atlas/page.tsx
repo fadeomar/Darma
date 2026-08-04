@@ -74,9 +74,9 @@ export default function TechAtlasPage() {
         ]}
       />
 
-      <section className="mx-auto max-w-[var(--container-wide)] px-4 py-12 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-[var(--container-wide)] px-4 py-12 lg:py-16 sm:px-6 lg:px-8">
         <div className="mb-7 max-w-3xl"><p className="font-mono text-xs font-black uppercase tracking-[0.18em] text-[var(--color-primary-text-strong)]">Explore the map</p><h2 className="mt-2 text-3xl font-black tracking-[-0.045em] text-[var(--color-text-primary)] sm:text-4xl">Choose the doorway that matches your question.</h2><p className="mt-3 text-base leading-8 text-[var(--color-text-secondary)]">The sections stay connected. A resource can lead to a path, a path to a role, a role to a team, and a team to the method and language it uses.</p></div>
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="darma-grid-balance grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {sections.map((section, index) => {
             const Icon = section.icon;
             return (

@@ -1895,7 +1895,7 @@
 
 @media (min-width: 760px) {
   .landing-intent-tabs { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .landing-intent-counts { grid-template-columns: repeat(4, minmax(0, 1fr)); min-width: 460px; }
+  .landing-intent-counts { grid-template-columns: repeat(4, minmax(0, 1fr)); min-width: min(460px, 100%); }
   .landing-proof-workflow { grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); }
   .landing-proof-copy { border-right: 1px solid rgba(255,255,255,.1); border-bottom: 0; }
   .darma-footer-status { grid-template-columns: repeat(2, minmax(0, 1fr)); }

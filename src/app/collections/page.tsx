@@ -18,7 +18,7 @@ export default function CollectionsPage() {
   const coreCollections = getCollectionCoreEntities();
 
   return (
-    <main className="mx-auto max-w-[var(--container-wide)] px-4 py-8 sm:px-6 lg:px-8">
+    <main className="mx-auto max-w-[var(--container-wide)] px-4 py-10 lg:py-14 sm:px-6 lg:px-8">
       <section className="collection-framework-card collection-accent-violet rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-overlay)] p-6 shadow-[var(--shadow-card)] sm:p-8">
         <div className="max-w-3xl">
           <div className="mb-4 flex flex-wrap gap-2">
@@ -35,7 +35,7 @@ export default function CollectionsPage() {
         </div>
       </section>
 
-      <section className="mt-8" aria-labelledby="live-collections-title">
+      <section className="mt-10 lg:mt-14" aria-labelledby="live-collections-title">
         <div className="mb-4 flex items-end justify-between gap-3">
           <div>
             <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">Available now</p>
@@ -43,7 +43,7 @@ export default function CollectionsPage() {
           </div>
           <Badge variant="success">{liveCollections.length} live</Badge>
         </div>
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="darma-grid-balance grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {liveCollections.map((collection) => {
             const Icon = collection.icon;
             return (
@@ -70,7 +70,7 @@ export default function CollectionsPage() {
         </div>
       </section>
 
-      <section className="mt-10" aria-labelledby="planned-collections-title">
+      <section className="mt-10 lg:mt-14" aria-labelledby="planned-collections-title">
         <div className="mb-4 flex items-end justify-between gap-3">
           <div>
             <p className="font-mono text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">Roadmap</p>
@@ -78,7 +78,7 @@ export default function CollectionsPage() {
           </div>
           <Badge variant="warning">{plannedCollections.length} planned</Badge>
         </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="darma-grid-balance grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {plannedCollections.map((collection) => {
             const Icon = collection.icon;
             return (
@@ -101,7 +101,7 @@ export default function CollectionsPage() {
         </div>
       </section>
 
-      <section className="mt-10" aria-labelledby="core-ui-primitives-title">
+      <section className="mt-10 lg:mt-14" aria-labelledby="core-ui-primitives-title">
         <Card className="collection-framework-card collection-accent-teal">
           <CoreSectionHeader
             eyebrow="Core UI primitives"
@@ -120,7 +120,7 @@ export default function CollectionsPage() {
         </Card>
       </section>
 
-      <section className="mt-10" aria-labelledby="core-browser-title">
+      <section className="mt-10 lg:mt-14" aria-labelledby="core-browser-title">
         <Card className="collection-framework-card collection-accent-violet">
           <CoreEntityBrowser
             entities={coreCollections}
@@ -131,7 +131,7 @@ export default function CollectionsPage() {
         </Card>
       </section>
 
-      <section className="mt-10" aria-labelledby="framework-principles-title">
+      <section className="mt-10 lg:mt-14" aria-labelledby="framework-principles-title">
         <Card>
           <div className="mb-4 flex items-center gap-3">
             <Compass className="h-5 w-5 text-[var(--color-primary-text-strong)]" aria-hidden />

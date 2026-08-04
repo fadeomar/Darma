@@ -55,7 +55,7 @@ export function GamesDirectory({ games, showHero = true, initialFilter = "all" }
     : `Showing all ${games.length} games.`;
 
   return (
-    <div className="game-page-shell mx-auto max-w-[var(--container-wide)] px-4 py-7 sm:px-6 sm:py-9 lg:px-8">
+    <div className="game-page-shell mx-auto max-w-[var(--container-wide)] px-4 py-9 sm:px-6 sm:py-11 lg:px-8 lg:py-14">
       <a href="#games-results" className="game-skip-link">
         Skip to games results
       </a>

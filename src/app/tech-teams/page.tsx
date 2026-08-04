@@ -116,7 +116,7 @@ export default function TechTeamsPage() {
         </div>
       </nav>
 
-      <section id="team-models" className="mx-auto max-w-[var(--container-wide)] scroll-mt-32 px-4 py-12 sm:px-6 lg:px-8">
+      <section id="team-models" className="mx-auto max-w-[var(--container-wide)] scroll-mt-32 px-4 py-12 lg:py-16 sm:px-6 lg:px-8">
         <Badge variant="soft">Organization models</Badge>
         <h2 className="darma-balanced-heading mt-3 text-3xl font-black text-[var(--color-text-primary)]">Different structures optimize different needs.</h2>
         <p className="darma-pretty-copy mt-3 max-w-3xl text-base leading-7 text-[var(--color-text-secondary)]">
@@ -193,7 +193,7 @@ export default function TechTeamsPage() {
       </section>
 
       <section id="delivery-flow" className="darma-section-shell darma-section-mint scroll-mt-32">
-        <div className="mx-auto max-w-[var(--container-wide)] px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-[var(--container-wide)] px-4 py-12 lg:py-16 sm:px-6 lg:px-8">
           <Badge variant="soft">End-to-end delivery</Badge>
           <h2 className="darma-balanced-heading mt-3 text-3xl font-black text-[var(--color-text-primary)]">One need, many professional contributions.</h2>
           <p className="darma-pretty-copy mt-3 max-w-3xl text-base leading-7 text-[var(--color-text-secondary)]">

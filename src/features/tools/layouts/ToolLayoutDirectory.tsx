@@ -292,7 +292,7 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
   };
 
   return (
-    <div className="mx-auto max-w-[var(--container-wide)] px-4 py-7 sm:px-6 sm:py-9 lg:px-8">
+    <div className="mx-auto max-w-[var(--container-wide)] px-4 py-9 sm:px-6 sm:py-11 lg:px-8 lg:py-14">
       <section id="tool-directory-filters" aria-label="Tool search and filters" className="mt-4 scroll-mt-24 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)]/95 p-4 shadow-[var(--shadow-card)] backdrop-blur sm:p-5 lg:sticky lg:top-[72px] lg:z-20">
           <div className="space-y-4">
             <label className="relative block">
@@ -384,7 +384,7 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
 
 
       {showDashboardSections && favoriteTools.length > 0 ? (
-        <section className="mt-8">
+        <section className="mt-10 lg:mt-14">
           <div className="mb-4 flex flex-wrap items-end justify-between gap-4">
             <div>
               <Badge variant="soft">Favorites</Badge>
@@ -399,7 +399,7 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
       ) : null}
 
       {featured.length > 0 && showDashboardSections ? (
-        <section className="mt-8">
+        <section className="mt-10 lg:mt-14">
           <div className="mb-4 flex items-end justify-between gap-4">
             <div>
               <Badge variant="soft">Curated</Badge>
@@ -417,7 +417,7 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
 
 
       {showDashboardSections && toolWorkflows.length > 0 ? (
-        <section className="mt-8">
+        <section className="mt-10 lg:mt-14">
           <div className="mb-4">
             <Badge variant="soft">Workflows</Badge>
             <h2 className="mt-2 text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Guided workflows</h2>
@@ -429,7 +429,7 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
       ) : null}
 
 
-      <section className="mt-8">
+      <section className="mt-10 lg:mt-14">
         <div className="mb-4 flex flex-wrap items-end justify-between gap-4">
           <div>
             <Badge variant="outline">Catalog</Badge>

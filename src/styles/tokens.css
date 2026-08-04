@@ -153,7 +153,9 @@
   --leading-normal: 1.5;
   --leading-relaxed: 1.75;
 
-  /* === Spacing === */
+  /* === Spacing ===
+     4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96px. Tailwind's scale already maps
+     onto this, so prefer its utilities; these exist for CSS that cannot. */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -164,6 +166,25 @@
   --space-10: 2.5rem;
   --space-12: 3rem;
   --space-16: 4rem;
+  --space-24: 6rem;
+
+  /* === Semantic rhythm ===
+     Three section steps plus a card and grid step, each fluid between the
+     Mobile and Desktop targets. These exist to remove the duplicated
+     `py-12 sm:py-16 lg:py-24`-style triples, not to replace the Tailwind
+     scale — reach for them when a rule needs section rhythm in plain CSS.
+
+       step             Mobile     Tablet     Desktop
+       section-sm       48px       64px       80px
+       section-md       56px       72px       96px
+       section-lg       64px       80px       112px
+       card             16px       20px       24-32px
+       grid             16px       20-24px    24-32px */
+  --space-section-sm: clamp(3rem, 4.2vw, 5rem);
+  --space-section-md: clamp(3.5rem, 5vw, 6rem);
+  --space-section-lg: clamp(4rem, 5.8vw, 7rem);
+  --space-card: clamp(1rem, 1.6vw, 1.5rem);
+  --space-grid: clamp(1rem, 1.4vw, 1.5rem);
 
   /* === Radii === */
   --radius-xs: 4px;

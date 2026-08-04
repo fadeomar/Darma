@@ -60,7 +60,7 @@ export function CoreEntityBrowser<TEntity extends CoreEntity = CoreEntity>({
       <CoreCategoryChips categories={categories} activeCategory={category} onCategoryChange={setCategory} allLabel={allLabel} />
 
       {filtered.length ? (
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <div className="darma-grid-balance grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {filtered.map((entity) => (
             <CoreEntityCard key={entity.id} entity={entity} />
           ))}

@@ -67,7 +67,7 @@ export default function TechCareersPage() {
           { label: "Context", value: "Collaborators and teams" },
         ]}
       />
-      <section className="mx-auto max-w-[var(--container-wide)] px-4 py-10 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-[var(--container-wide)] px-4 py-12 lg:py-16 sm:px-6 lg:px-8">
         <div className="portal-principle-grid">
           {PRINCIPLES.map((principle, index) => {
             const Icon = principle.icon;

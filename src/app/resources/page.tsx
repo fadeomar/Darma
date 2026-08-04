@@ -132,7 +132,7 @@ export default async function ResourcesPage({ searchParams }: PageProps) {
           { label: "Coverage", value: `${featuredCount} featured sources` },
         ]}
       />
-      <section className="mx-auto max-w-[var(--container-wide)] px-4 py-10 sm:px-6 lg:px-8" aria-label="How the library works">
+      <section className="mx-auto max-w-[var(--container-wide)] px-4 py-12 lg:py-16 sm:px-6 lg:px-8" aria-label="How the library works">
         <div className="portal-principle-grid">
           {VALUE_POINTS.map((point, index) => {
             const Icon = point.icon;

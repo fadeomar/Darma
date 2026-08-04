@@ -57,7 +57,7 @@ export default function GuidesPage() {
           { label: "Evidence", value: "Primary references" },
         ]}
       />
-      <MotionSection as="section" className="mx-auto max-w-[var(--container-page)] px-4 py-10 sm:px-6 lg:px-8" distance={18}>
+      <MotionSection as="section" className="mx-auto max-w-[var(--container-page)] px-4 py-12 lg:py-16 sm:px-6 lg:px-8" distance={18}>
         <Card padding="lg" className="portal-method-card grid gap-6 border-[var(--color-primary-border)] lg:grid-cols-[auto_1fr_auto] lg:items-center">
           <span className="atlas-symbol"><BookOpen className="h-5 w-5" aria-hidden /></span>
           <div>

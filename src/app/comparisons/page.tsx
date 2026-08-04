@@ -57,7 +57,7 @@ export default function ComparisonsPage() {
           { label: "Outcome", value: "Explainable decision" },
         ]}
       />
-      <MotionSection as="section" className="mx-auto max-w-[var(--container-page)] px-4 py-8 sm:px-6 lg:px-8" distance={18}>
+      <MotionSection as="section" className="mx-auto max-w-[var(--container-page)] px-4 py-10 lg:py-14 sm:px-6 lg:px-8" distance={18}>
         <Card padding="lg" className="portal-method-card grid gap-4 border-[var(--color-primary-border)] md:grid-cols-[auto_1fr_auto] md:items-center">
           <span className="atlas-symbol"><GitCompareArrows className="h-5 w-5" aria-hidden /></span>
           <div>

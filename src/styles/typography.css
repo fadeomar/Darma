@@ -83,3 +83,46 @@
   font-weight: 800;
   letter-spacing: 0.06em;
 }
+
+/* ==========================================================================
+   Layout rhythm
+   ========================================================================== */
+
+/*
+ * Section rhythm helpers. Use these when a section's vertical spacing is set in
+ * CSS; in JSX prefer the Tailwind scale, which maps onto the same steps.
+ */
+.darma-section-sm { padding-block: var(--space-section-sm); }
+.darma-section-md { padding-block: var(--space-section-md); }
+.darma-section-lg { padding-block: var(--space-section-lg); }
+
+/*
+ * Grid children must be able to shrink. Grid and flex items default to
+ * `min-width: auto`, which is what lets a long token, a `<select>`'s widest
+ * option, or a non-shrinking button push a whole row past the viewport.
+ */
+.darma-grid-balance > * {
+  min-width: 0;
+}
+
+/*
+ * Orphan-row balance for fixed-count card grids.
+ *
+ * A 10-item set in a three-column grid lays out 3 / 3 / 3 / 1, leaving one card
+ * alone in a third-width slot. Where the item count is known and small (the
+ * Atlas doorways, the working methods, the collection registry) the final card
+ * stretches across the columns it would otherwise leave empty, so the last row
+ * reads as deliberate.
+ *
+ * Deliberately NOT applied to the large filtered catalogues: their item count
+ * changes with the active filter, so an orphan there is not an avoidable
+ * column choice, and a sudden full-width card among many uniform ones would
+ * read as a bug.
+ */
+@media (min-width: 768px) and (max-width: 1279px) {
+  .darma-grid-balance > :last-child:nth-child(2n + 1) { grid-column: span 2; }
+}
+@media (min-width: 1280px) {
+  .darma-grid-balance > :last-child:nth-child(3n + 1) { grid-column: span 3; }
+  .darma-grid-balance > :last-child:nth-child(3n + 2) { grid-column: span 2; }
+}

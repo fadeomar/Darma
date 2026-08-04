@@ -94,7 +94,7 @@ export default function LearningPathsPage() {
           { label: "Sources", value: "Cataloged references" },
         ]}
       />
-      <section className="mx-auto max-w-[var(--container-wide)] px-4 py-10 sm:px-6 lg:px-8" aria-label="Learning path principles">
+      <section className="mx-auto max-w-[var(--container-wide)] px-4 py-12 lg:py-16 sm:px-6 lg:px-8" aria-label="Learning path principles">
         <div className="portal-principle-grid">
           {PRINCIPLES.map((principle, index) => {
             const Icon = principle.icon;

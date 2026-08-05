@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { AlertTriangle, CheckCircle2, ChevronDown, Download, FileJson, Info, Package, Upload, XCircle } from "lucide-react";
+import { AlertTriangle, CheckCircle2, ChevronDown, Download, FileJson, Info, Package, Sparkles, Upload, XCircle } from "lucide-react";
 import { Badge, Button } from "@/components/ui";
 import { downloadBlobFile } from "@/features/tools/export/downloadBlob";
 import { downloadTextFile } from "@/features/tools/export/downloadText";
@@ -16,6 +16,7 @@ import {
   summarizeAnimatedBackgroundAudit,
   type AnimatedBackgroundAuditCheck,
   type AnimatedBackgroundAuditSeverity,
+  type AnimatedBackgroundFixId,
 } from "../lib/studio";
 import { createAnimatedBackgroundZip } from "../lib/zip";
 
@@ -25,6 +26,7 @@ interface ProductionPanelProps {
   html: string;
   checks: AnimatedBackgroundAuditCheck[];
   onImport: (state: AnimatedBackgroundState) => void;
+  onUpdate: (patch: Partial<AnimatedBackgroundState>) => void;
 }
 
 const CHECK_STYLES: Record<AnimatedBackgroundAuditSeverity, string> = {
@@ -41,21 +43,73 @@ function CheckIcon({ severity }: { severity: AnimatedBackgroundAuditSeverity }) 
   return <Info className="h-4 w-4 shrink-0" aria-hidden />;
 }
 
-function CheckCard({ check }: { check: AnimatedBackgroundAuditCheck }) {
+function CheckCard({ check, onFix }: { check: AnimatedBackgroundAuditCheck; onFix?: () => void }) {
   return (
     <div className={`rounded-[var(--radius-md)] border p-3 ${CHECK_STYLES[check.severity]}`}>
       <div className="flex items-start gap-2">
         <CheckIcon severity={check.severity} />
-        <div className="min-w-0">
+        <div className="min-w-0 flex-1">
           <p className="text-xs font-black">{check.title}</p>
           <p className="mt-1 text-xs leading-5 opacity-90">{check.message}</p>
+          {onFix ? (
+            <button
+              type="button"
+              onClick={onFix}
+              className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-current/25 px-2.5 py-1.5 text-xs font-black transition hover:bg-white/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-current/40"
+            >
+              <Sparkles className="h-3.5 w-3.5" aria-hidden />
+              Apply suggested fix
+            </button>
+          ) : null}
         </div>
       </div>
     </div>
   );
 }
 
-export default function ProductionPanel({ state, css, html, checks, onImport }: ProductionPanelProps) {
+const FIX_LABELS: Record<AnimatedBackgroundFixId, string> = {
+  "normalize-size-range": "Normalized the particle size range.",
+  "reduce-density": "Reduced particle density to a mobile-friendlier level.",
+  "reduce-large-blur": "Reduced oversized blurred layers.",
+  "reduce-glow": "Reduced glow intensity.",
+  "reduce-render-cost": "Applied a balanced render-cost configuration.",
+  "reduce-motion": "Reduced motion intensity.",
+  "enable-content-preview": "Enabled the hero readability preview.",
+  "enable-readability-protection": "Enabled automatic foreground and readability protection.",
+  "use-auto-foreground": "Switched to automatic foreground selection and protection.",
+};
+
+function fixPatch(fixId: AnimatedBackgroundFixId, state: AnimatedBackgroundState): Partial<AnimatedBackgroundState> {
+  switch (fixId) {
+    case "normalize-size-range":
+      return { maxSize: Math.min(720, Math.max(state.minSize + 4, state.minSize + 120)) };
+    case "reduce-density":
+      return { particleCount: Math.min(state.particleCount, 24) };
+    case "reduce-large-blur":
+      return { maxSize: Math.min(state.maxSize, 560), blur: Math.min(state.blur, 72) };
+    case "reduce-glow":
+      return { glow: Math.min(state.glow, 64) };
+    case "reduce-render-cost":
+      return {
+        particleCount: Math.min(state.particleCount, 24),
+        blur: Math.min(state.blur, 48),
+        glow: Math.min(state.glow, 48),
+        maxSize: Math.min(state.maxSize, 520),
+        blendMode: state.blendMode === "plus-lighter" ? "screen" : state.blendMode,
+      };
+    case "reduce-motion":
+      return { speed: Math.min(state.speed, 0.75), intensity: Math.min(state.intensity, 0.6), particleCount: Math.min(state.particleCount, 24) };
+    case "enable-content-preview":
+      return { showContent: true, previewMode: "hero" };
+    case "enable-readability-protection":
+    case "use-auto-foreground":
+      return { foregroundMode: "auto", readabilityProtection: true };
+    default:
+      return {};
+  }
+}
+
+export default function ProductionPanel({ state, css, html, checks, onImport, onUpdate }: ProductionPanelProps) {
   const importRef = useRef<HTMLInputElement>(null);
   const [message, setMessage] = useState("");
   const [isPacking, setIsPacking] = useState(false);
@@ -84,6 +138,11 @@ export default function ProductionPanel({ state, css, html, checks, onImport }: 
     }
   }
 
+  function applyFix(fixId: AnimatedBackgroundFixId) {
+    onUpdate(fixPatch(fixId, state));
+    setMessage(FIX_LABELS[fixId]);
+  }
+
   async function downloadPack() {
     if (blocked || isPacking) return;
     setIsPacking(true);
@@ -99,7 +158,7 @@ export default function ProductionPanel({ state, css, html, checks, onImport }: 
   }
 
   return (
-    <section className="space-y-5 rounded-[var(--radius-xl)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] p-4 shadow-[var(--shadow-card)] sm:p-5" aria-labelledby="animated-background-production-heading">
+    <section id="animated-background-production" tabIndex={-1} className="scroll-mt-24 space-y-5 rounded-[var(--radius-xl)] border border-[var(--color-border-default)] bg-[var(--color-surface-raised)] p-4 shadow-[var(--shadow-card)] sm:p-5" aria-labelledby="animated-background-production-heading">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <div className="flex flex-wrap items-center gap-2">
@@ -137,7 +196,7 @@ export default function ProductionPanel({ state, css, html, checks, onImport }: 
             <Badge variant={blocked ? "danger" : "warning"}>{actionChecks.length} item{actionChecks.length === 1 ? "" : "s"}</Badge>
           </div>
           <div className="grid gap-2 sm:grid-cols-2">
-            {actionChecks.map((check) => <CheckCard key={check.id} check={check} />)}
+            {actionChecks.map((check) => <CheckCard key={check.id} check={check} onFix={check.fixId ? () => applyFix(check.fixId!) : undefined} />)}
           </div>
         </section>
       ) : (
@@ -154,7 +213,7 @@ export default function ProductionPanel({ state, css, html, checks, onImport }: 
         <section className="space-y-2" aria-labelledby="animated-background-information-checks">
           <h3 id="animated-background-information-checks" className="text-sm font-black text-[var(--color-text-primary)]">Verification notes</h3>
           <div className="grid gap-2 sm:grid-cols-2">
-            {informationChecks.map((check) => <CheckCard key={check.id} check={check} />)}
+            {informationChecks.map((check) => <CheckCard key={check.id} check={check} onFix={check.fixId ? () => applyFix(check.fixId!) : undefined} />)}
           </div>
         </section>
       ) : null}

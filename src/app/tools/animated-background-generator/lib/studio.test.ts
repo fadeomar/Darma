@@ -37,6 +37,8 @@ describe("animated background production studio", () => {
     expect(normalized.speed).toBe(0.3);
     expect(normalized.colors[1]).toBe("#abcdef");
     expect(normalized.isPaused).toBe(false);
+    expect(normalized.foregroundMode).toBe("auto");
+    expect(normalized.readabilityProtection).toBe(true);
   });
 
   it("rejects non-object states", () => {
@@ -113,4 +115,27 @@ describe("animated background production studio", () => {
     expect(summary).toHaveLength(4);
     expect(summary.map((card) => card.label)).toEqual(["Motion intensity", "Render cost", "Export size", "Production status"]);
   });
+
+  it("includes contrast metrics and a linked production status card", () => {
+    const checks = buildAnimatedBackgroundAudit(baseState, css, html);
+    const metrics = buildAnimatedBackgroundMetrics(baseState, css, html, checks);
+    const summary = buildAnimatedBackgroundSummary(baseState, css, html, checks);
+    expect(metrics.contrastRatio).toBeGreaterThanOrEqual(4.5);
+    expect(["light", "dark"]).toContain(metrics.foregroundTone);
+    expect(summary.at(-1)?.targetId).toBe("animated-background-production");
+  });
+
+  it("offers a guided readability fix when protection is disabled", () => {
+    const state = {
+      ...baseState,
+      background: "#f8fafc",
+      colors: ["#ffffff", "#e2e8f0"],
+      foregroundMode: "light" as const,
+      readabilityProtection: false,
+    };
+    const stateParticles = generateParticleData(state);
+    const checks = buildAnimatedBackgroundAudit(state, generateCss(state, stateParticles), generateHtml(stateParticles));
+    expect(checks.find((check) => check.id === "readability-protection")?.fixId).toBe("enable-readability-protection");
+  });
+
 });

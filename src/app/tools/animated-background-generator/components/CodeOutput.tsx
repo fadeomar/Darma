@@ -3,6 +3,7 @@
 import { CodeOutputPanel, type CodeOutputTab } from "@/features/tools/components";
 import { downloadTextFile } from "@/features/tools/export/downloadText";
 import type { AnimatedBackgroundState } from "@/types/animatedBackgroundTypes";
+import { getAnimatedBackgroundReadability, rgbaFromHex } from "../lib/readability";
 
 interface CodeOutputProps {
   html: string;
@@ -12,6 +13,7 @@ interface CodeOutputProps {
 }
 
 function cssVariablesSnippet(state: AnimatedBackgroundState) {
+  const readability = getAnimatedBackgroundReadability(state);
   const colorVariables = state.colors
     .map((color, index) => `  --darma-bg-color-${index + 1}: ${color};`)
     .join("\n");
@@ -24,6 +26,9 @@ ${colorVariables}
   --darma-bg-glow: ${state.glow}px;
   --darma-bg-opacity: ${state.opacity.toFixed(2)};
   --darma-bg-blend-mode: ${state.blendMode};
+  --darma-content-color: ${readability.foregroundColor};
+  --darma-content-muted: ${rgbaFromHex(readability.foregroundColor, 0.74)};
+  --darma-content-scrim: ${rgbaFromHex(readability.scrimColor, readability.scrimOpacity)};
 }`;
 }
 
@@ -57,6 +62,7 @@ ${css}
 }
 
 function tokenJsonSnippet(state: AnimatedBackgroundState, particleCount: number) {
+  const readability = getAnimatedBackgroundReadability(state);
   return JSON.stringify(
     {
       name: "animated-background",
@@ -69,6 +75,15 @@ function tokenJsonSnippet(state: AnimatedBackgroundState, particleCount: number)
       size: { min: state.minSize, max: state.maxSize },
       motion: { speed: state.speed, intensity: state.intensity, reducedMotion: true },
       effects: { blur: state.blur, glow: state.glow, opacity: state.opacity, blendMode: state.blendMode },
+      readability: {
+        foregroundMode: state.foregroundMode,
+        resolvedTone: readability.resolvedTone,
+        foregroundColor: readability.foregroundColor,
+        estimatedMinimumContrast: readability.protectedMinContrast,
+        protection: state.readabilityProtection,
+        scrimColor: readability.scrimColor,
+        scrimOpacity: readability.scrimOpacity,
+      },
     },
     null,
     2,

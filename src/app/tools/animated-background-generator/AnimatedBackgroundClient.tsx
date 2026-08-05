@@ -1,7 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { ChevronDown, ChevronUp, CircleCheck, SlidersHorizontal, Sparkles } from "lucide-react";
+import { useCallback, useMemo, useState } from "react";
+import { ArrowDown, CircleCheck, LibraryBig, SlidersHorizontal, Sparkles } from "lucide-react";
 import { Badge, Button } from "@/components/ui";
 import type { AnimatedBackgroundState, BackgroundPreset } from "@/types/animatedBackgroundTypes";
 import { presets, presetToState, getPreset } from "./lib/presets";
@@ -10,6 +10,7 @@ import { generateCss } from "./lib/generateCss";
 import { generateHtml } from "./lib/generateHtml";
 import { buildAnimatedBackgroundAudit, buildAnimatedBackgroundSummary } from "./lib/studio";
 import PresetGallery from "./components/PresetGallery";
+import PresetBrowserDrawer from "./components/PresetBrowserDrawer";
 import PreviewPanel from "./components/PreviewPanel";
 import ControlPanel from "./components/ControlPanel";
 import CodeOutput from "./components/CodeOutput";
@@ -23,18 +24,39 @@ function randomSeed() {
 }
 
 function SummaryCards({ cards }: { cards: ReturnType<typeof buildAnimatedBackgroundSummary> }) {
+  const openTarget = (targetId: string) => {
+    const target = document.getElementById(targetId);
+    if (!target) return;
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.setTimeout(() => target.focus({ preventScroll: true }), 450);
+  };
+
   return (
     <section className="grid gap-3 sm:grid-cols-2 2xl:grid-cols-4" aria-label="Animated background summary">
-      {cards.map((card) => (
-        <div
-          key={card.label}
-          className="min-w-0 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-xs)]"
-        >
-          <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">{card.label}</p>
-          <p className="mt-2 text-xl font-black tracking-[-0.025em] text-[var(--color-text-primary)]">{card.value}</p>
-          <p className="mt-2 text-xs leading-5 text-[var(--color-text-tertiary)]" title={card.detail}>{card.detail}</p>
-        </div>
-      ))}
+      {cards.map((card) => {
+        const className = "group min-w-0 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-4 text-left shadow-[var(--shadow-xs)] transition";
+        const content = (
+          <>
+            <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-text-tertiary)]">{card.label}</p>
+            <p className="mt-2 text-xl font-black tracking-[-0.025em] text-[var(--color-text-primary)]">{card.value}</p>
+            <p className="mt-2 text-xs leading-5 text-[var(--color-text-tertiary)]" title={card.detail}>{card.detail}</p>
+            {card.actionLabel ? <span className="mt-3 inline-flex items-center gap-1 text-xs font-black text-[var(--color-primary)]">{card.actionLabel}<ArrowDown className="h-3.5 w-3.5 transition group-hover:translate-y-0.5" aria-hidden /></span> : null}
+          </>
+        );
+
+        return card.targetId ? (
+          <button
+            type="button"
+            key={card.label}
+            onClick={() => openTarget(card.targetId!)}
+            className={`${className} hover:border-[var(--color-primary)] hover:shadow-[var(--shadow-md)] focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)]`}
+          >
+            {content}
+          </button>
+        ) : (
+          <div key={card.label} className={className}>{content}</div>
+        );
+      })}
     </section>
   );
 }
@@ -68,7 +90,7 @@ function WorkflowGuide() {
 
 export default function AnimatedBackgroundClient() {
   const [state, setState] = useState<AnimatedBackgroundState>(initialState);
-  const [showAllPresets, setShowAllPresets] = useState(false);
+  const [presetBrowserOpen, setPresetBrowserOpen] = useState(false);
 
   const particles = useMemo(() => generateParticleData(state), [state]);
   const css = useMemo(() => generateCss(state, particles), [state, particles]);
@@ -77,11 +99,13 @@ export default function AnimatedBackgroundClient() {
   const summaryCards = useMemo(() => buildAnimatedBackgroundSummary(state, css, html, auditChecks), [state, css, html, auditChecks]);
 
   const handleSelect = (preset: BackgroundPreset) => setState(presetToState(preset));
+  const closePresetBrowser = useCallback(() => setPresetBrowserOpen(false), []);
   const handleReset = () => setState(presetToState(getPreset(state.presetId)));
   const handleRandomize = () => setState((current) => ({ ...current, seed: randomSeed() }));
   const handleSimilar = () => setState((current) => ({ ...current, seed: current.seed + 137 }));
 
   return (
+    <>
     <ToolLayoutVisualGenerator
       presetsPlacement="before-grid"
       controlsPosition="left"
@@ -102,18 +126,18 @@ export default function AnimatedBackgroundClient() {
             <Button
               size="sm"
               variant="secondary"
-              rightIcon={showAllPresets ? <ChevronUp className="h-4 w-4" aria-hidden /> : <ChevronDown className="h-4 w-4" aria-hidden />}
-              onClick={() => setShowAllPresets((current) => !current)}
-              aria-expanded={showAllPresets}
+              leftIcon={<LibraryBig className="h-4 w-4" aria-hidden />}
+              onClick={() => setPresetBrowserOpen(true)}
+              aria-haspopup="dialog"
             >
-              {showAllPresets ? "Show compact presets" : `Browse all ${presets.length}`}
+              Browse all {presets.length}
             </Button>
           </div>
           <PresetGallery
-            presets={showAllPresets ? presets : presets.slice(0, 6)}
+            presets={presets.slice(0, 6)}
             activeId={state.presetId}
             onSelect={handleSelect}
-            compact={!showAllPresets}
+            compact
           />
         </section>
       }
@@ -142,9 +166,17 @@ export default function AnimatedBackgroundClient() {
       codeSlot={
         <div className="space-y-5">
           <CodeOutput html={html} css={css} state={state} particleCount={particles.length} />
-          <ProductionPanel state={state} css={css} html={html} checks={auditChecks} onImport={setState} />
+          <ProductionPanel state={state} css={css} html={html} checks={auditChecks} onImport={setState} onUpdate={(patch) => setState((current) => ({ ...current, ...patch }))} />
         </div>
       }
     />
+    <PresetBrowserDrawer
+      open={presetBrowserOpen}
+      presets={presets}
+      activeId={state.presetId}
+      onClose={closePresetBrowser}
+      onSelect={handleSelect}
+    />
+    </>
   );
 }

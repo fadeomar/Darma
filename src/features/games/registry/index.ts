@@ -55,6 +55,41 @@ const GAME_DEFINITIONS: GameDefinition[] = [
     createdAt: "2026-07-16",
   },
   {
+    id: "dot-connect",
+    slug: "dot-connect",
+    title: "Dots Connect",
+    description:
+      "Draw clean paths through matching dots in a responsive local or computer puzzle duel.",
+    longDescription:
+      "Dots Connect is a rebuilt path puzzle for Darma. Link adjacent matching dots without diagonals or disconnected jumps, backtrack only over the path tail, then score the full route. Choose one of three bounded computer levels or share one device in local two-player mode, with responsive pointer controls, keyboard play, visible connection lines, pause support, and a clean replay flow.",
+    href: "/games/dot-connect",
+    categories: ["puzzle", "brain", "casual", "2-players", "mobile-friendly"],
+    tags: ["dots", "path", "colors", "strategy", "two player", "ai", "touch"],
+    thumbnail: "🔗",
+    thumbnailType: "gradient",
+    accent: "cyan",
+    featured: true,
+    popular: true,
+    isNew: true,
+    difficulty: "medium",
+    playTime: "10 min",
+    input: ["mouse", "touch", "keyboard"],
+    devices: ["desktop", "tablet", "mobile"],
+    controls:
+      "Drag through adjacent dots with the same color and symbol, or use the keyboard to build a path. Release or submit to score; backtrack over the previous dot to undo the tail.",
+    tips: [
+      "Start near the edge of a color group so the path has room to grow.",
+      "Backtrack over only the previous dot when you need to change direction.",
+      "Long paths score faster, but a short safe path can deny the computer a large cluster.",
+    ],
+    privacyNote: LOCAL_STATS_NOTE,
+    seoTitle: "Play Dots Connect Online Free | Darma Games",
+    seoDescription:
+      "Play Dots Connect free in your browser. Build matching paths, challenge the computer or a local player, and use mouse, touch, or keyboard controls. No signup.",
+    pinned: 4,
+    createdAt: "2026-08-05",
+  },
+  {
     id: "2048",
     slug: "2048",
     title: "2048 Classic",

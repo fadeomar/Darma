@@ -1,6 +1,6 @@
 "use client";
 
-import type { Dispatch, SetStateAction } from "react";
+import { useMemo, type Dispatch, type SetStateAction } from "react";
 import {
   Boxes,
   CirclePause,
@@ -13,9 +13,14 @@ import {
   RotateCcw,
   Shuffle,
   Sparkles,
+  Sun,
+  Moon,
+  WandSparkles,
+  ShieldCheck,
+  ShieldOff,
   Trash2,
 } from "lucide-react";
-import { Button, Select } from "@/components/ui";
+import { Badge, Button, Select } from "@/components/ui";
 import {
   ColorField,
   ControlGrid,
@@ -25,7 +30,8 @@ import {
   ToolControlPanel,
 } from "@/features/tools/components";
 import { cn } from "@/lib/cn";
-import type { AnimatedBackgroundState, BackgroundShape, BlendMode, GradientStyle, PreviewMode } from "@/types/animatedBackgroundTypes";
+import type { AnimatedBackgroundState, BackgroundShape, BlendMode, ForegroundMode, GradientStyle, PreviewMode } from "@/types/animatedBackgroundTypes";
+import { getAnimatedBackgroundReadability } from "../lib/readability";
 
 interface ControlPanelProps {
   state: AnimatedBackgroundState;
@@ -44,6 +50,12 @@ const previewModes: Array<{ value: PreviewMode; label: string; description: stri
   { value: "dashboard", label: "Dashboard", description: "Dense application UI", icon: LayoutDashboard },
   { value: "empty", label: "Background only", description: "No demo content", icon: Image },
 ];
+const foregroundModes: Array<{ value: ForegroundMode; label: string; icon: typeof Sun }> = [
+  { value: "auto", label: "Auto", icon: WandSparkles },
+  { value: "light", label: "Light", icon: Sun },
+  { value: "dark", label: "Dark", icon: Moon },
+];
+
 const extraColors = ["#f97316", "#14b8a6", "#f43f5e", "#facc15", "#8b5cf6", "#22d3ee"];
 
 function getPerformanceCopy(state: AnimatedBackgroundState) {
@@ -57,6 +69,8 @@ function getPerformanceCopy(state: AnimatedBackgroundState) {
 }
 
 export default function ControlPanel({ state, setState, onRandomize, onReset, onSimilar }: ControlPanelProps) {
+  const readability = useMemo(() => getAnimatedBackgroundReadability(state), [state]);
+
   function patch(patchState: Partial<AnimatedBackgroundState>) {
     setState((current) => ({ ...current, ...patchState }));
   }
@@ -140,6 +154,80 @@ export default function ControlPanel({ state, setState, onRandomize, onReset, on
             );
           })}
         </div>
+      </ControlSection>
+
+      <ControlSection
+        title="Readability"
+        description="Estimate foreground contrast across generated background samples and protect copy automatically."
+        action={<Badge variant={readability.meetsNormalTextAA ? "success" : readability.protectedMinContrast >= 3 ? "warning" : "danger"}>{readability.status}</Badge>}
+        compact
+      >
+        <div className="grid gap-1.5">
+          <span className="font-mono text-xs font-bold uppercase tracking-[0.07em] text-[var(--color-text-tertiary)]">Content foreground</span>
+          <div className="grid grid-cols-3 gap-2" role="radiogroup" aria-label="Content foreground mode">
+            {foregroundModes.map((mode) => {
+              const Icon = mode.icon;
+              const active = state.foregroundMode === mode.value;
+              return (
+                <button
+                  key={mode.value}
+                  type="button"
+                  role="radio"
+                  aria-checked={active}
+                  onClick={() => patch({ foregroundMode: mode.value })}
+                  className={cn(
+                    "flex min-w-0 flex-col items-center gap-1.5 rounded-[var(--radius-md)] border px-2 py-2.5 text-xs font-bold transition focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)]",
+                    active
+                      ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-text-primary)]"
+                      : "border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-control-hover)]",
+                  )}
+                >
+                  <Icon className="h-4 w-4" aria-hidden />
+                  {mode.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="rounded-[var(--radius-md)] border border-[var(--color-border-subtle)] bg-[var(--color-surface-subtle)] p-3">
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <p className="text-xs font-black text-[var(--color-text-primary)]">Estimated minimum contrast</p>
+              <p className="mt-1 text-2xl font-black tracking-[-0.03em] text-[var(--color-text-primary)]">{readability.protectedMinContrast.toFixed(2)}:1</p>
+            </div>
+            <div className="text-right">
+              <p className="text-xs font-bold uppercase tracking-[0.1em] text-[var(--color-text-tertiary)]">Resolved foreground</p>
+              <p className="mt-1 text-xs font-black capitalize text-[var(--color-text-primary)]">{readability.resolvedTone}</p>
+            </div>
+          </div>
+          <p className="mt-2 text-xs leading-5 text-[var(--color-text-tertiary)]">{readability.recommendation}</p>
+          <p className="mt-1 text-xs leading-4 text-[var(--color-text-tertiary)]">Estimated from {readability.sampleCount} conservative color samples. Verify the final section with real content.</p>
+        </div>
+
+        <button
+          type="button"
+          role="switch"
+          aria-checked={state.readabilityProtection}
+          onClick={() => patch({ readabilityProtection: !state.readabilityProtection })}
+          className={cn(
+            "flex w-full items-center justify-between gap-3 rounded-[var(--radius-md)] border px-3 py-3 text-left transition focus-visible:outline-none focus-visible:shadow-[var(--focus-ring)]",
+            state.readabilityProtection
+              ? "border-[var(--color-primary-border)] bg-[var(--color-primary-soft)]"
+              : "border-[var(--color-border-subtle)] bg-[var(--color-surface-base)] hover:border-[var(--color-border-strong)]",
+          )}
+        >
+          <span className="flex min-w-0 items-start gap-2.5">
+            {state.readabilityProtection ? <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-primary)]" aria-hidden /> : <ShieldOff className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-text-tertiary)]" aria-hidden />}
+            <span>
+              <span className="block text-xs font-black text-[var(--color-text-primary)]">Protect text readability</span>
+              <span className="mt-0.5 block text-xs leading-4 text-[var(--color-text-tertiary)]">Add only the minimum light or dark scrim needed to target 4.5:1.</span>
+            </span>
+          </span>
+          <span className={cn("relative h-6 w-11 shrink-0 rounded-full transition", state.readabilityProtection ? "bg-[var(--color-primary)]" : "bg-[var(--color-control-track)]")}>
+            <span className={cn("absolute top-1 h-4 w-4 rounded-full bg-white shadow transition", state.readabilityProtection ? "left-6" : "left-1")} />
+          </span>
+        </button>
       </ControlSection>
 
       <ControlSection

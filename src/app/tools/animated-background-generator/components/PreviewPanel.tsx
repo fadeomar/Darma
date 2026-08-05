@@ -1,33 +1,38 @@
 "use client";
 
-import { Maximize2, Minimize2, Pause } from "lucide-react";
+import { Maximize2, Minimize2, Pause, ShieldCheck } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import type { AnimatedBackgroundState, ParticleData } from "@/types/animatedBackgroundTypes";
 import { generateCss } from "../lib/generateCss";
+import { getAnimatedBackgroundReadability } from "../lib/readability";
 
 interface PreviewPanelProps {
   state: AnimatedBackgroundState;
   particles: ParticleData[];
 }
 
+const borderClass = "border-[var(--darma-content-border)]";
+const surfaceClass = "bg-[var(--darma-content-surface)]";
+const mutedClass = "text-[var(--darma-content-muted)]";
+
 function HeroPreview() {
   return (
-    <div className="abg-preview-content relative z-20 flex min-h-[500px] flex-col justify-between p-5 text-white sm:p-8 lg:min-h-[540px] lg:p-10">
-      <div className="flex items-center justify-between rounded-full border border-white/10 bg-white/10 px-4 py-3 text-xs backdrop-blur-md">
+    <div className="abg-preview-content relative z-20 flex min-h-[500px] flex-col justify-between p-5 text-[var(--darma-content-color)] sm:p-8 lg:min-h-[540px] lg:p-10">
+      <div className={`flex items-center justify-between rounded-full border px-4 py-3 text-xs backdrop-blur-md ${borderClass} ${surfaceClass}`}>
         <strong>Darma Studio</strong>
-        <div className="hidden gap-4 text-white/70 sm:flex"><span>Tools</span><span>Showcase</span><span>Snippets</span></div>
+        <div className={`hidden gap-4 sm:flex ${mutedClass}`}><span>Tools</span><span>Showcase</span><span>Snippets</span></div>
       </div>
       <div className="max-w-3xl py-14 sm:py-16">
-        <div className="mb-4 inline-flex rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/80 backdrop-blur">Production-ready background</div>
+        <div className={`mb-4 inline-flex rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] backdrop-blur ${borderClass} ${surfaceClass} ${mutedClass}`}>Production-ready background</div>
         <h2 className="max-w-3xl text-4xl font-black tracking-tight sm:text-6xl">Create premium animated backgrounds.</h2>
-        <p className="mt-5 max-w-2xl text-sm leading-7 text-white/75 sm:text-base">Tune a professional example, preview it in a real hero section, then copy clean HTML and CSS for your project.</p>
+        <p className={`mt-5 max-w-2xl text-sm leading-7 sm:text-base ${mutedClass}`}>Tune a professional example, preview it in a real hero section, then copy clean HTML and CSS for your project.</p>
         <div className="mt-7 flex flex-wrap gap-3">
-          <div className="rounded-full bg-white px-5 py-3 text-sm font-bold text-[var(--color-text-primary)]">Start building</div>
-          <div className="rounded-full border border-white/20 px-5 py-3 text-sm font-bold text-white/90 backdrop-blur">View examples</div>
+          <div className="rounded-full bg-[var(--darma-content-solid)] px-5 py-3 text-sm font-bold text-[var(--darma-content-solid-text)]">Start building</div>
+          <div className={`rounded-full border px-5 py-3 text-sm font-bold backdrop-blur ${borderClass}`}>View examples</div>
         </div>
       </div>
       <div className="grid gap-3 sm:grid-cols-3">
-        {["Responsive", "CSS export", "Reduced motion"].map((item) => <div key={item} className="rounded-2xl border border-white/10 bg-white/10 p-4 text-sm font-semibold text-white/80 backdrop-blur">{item}</div>)}
+        {["Responsive", "CSS export", "Reduced motion"].map((item) => <div key={item} className={`rounded-2xl border p-4 text-sm font-semibold backdrop-blur ${borderClass} ${surfaceClass} ${mutedClass}`}>{item}</div>)}
       </div>
     </div>
   );
@@ -35,20 +40,20 @@ function HeroPreview() {
 
 function CardsPreview() {
   return (
-    <div className="abg-preview-content relative z-20 min-h-[500px] p-5 text-white sm:p-8 lg:min-h-[540px] lg:p-10">
+    <div className="abg-preview-content relative z-20 min-h-[500px] p-5 text-[var(--darma-content-color)] sm:p-8 lg:min-h-[540px] lg:p-10">
       <div className="mx-auto max-w-6xl">
         <div className="mb-8 max-w-2xl">
-          <p className="text-xs font-bold uppercase tracking-[0.24em] text-white/60">Card UI preview</p>
+          <p className={`text-xs font-bold uppercase tracking-[0.24em] ${mutedClass}`}>Card UI preview</p>
           <h2 className="mt-3 text-3xl font-black sm:text-5xl">A background behind real interface cards.</h2>
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           {["Starter", "Growth", "Enterprise"].map((title, index) => (
-            <div key={title} className="rounded-[1.75rem] border border-white/12 bg-white/10 p-5 shadow-[var(--shadow-lg)] backdrop-blur-xl">
-              <div className="mb-6 h-12 w-12 rounded-2xl bg-white/15" />
+            <div key={title} className={`rounded-[1.75rem] border p-5 shadow-[var(--shadow-lg)] backdrop-blur-xl ${borderClass} ${surfaceClass}`}>
+              <div className="mb-6 h-12 w-12 rounded-2xl bg-[var(--darma-content-surface)]" />
               <h3 className="text-2xl font-black">{title}</h3>
-              <p className="mt-3 text-sm leading-6 text-white/70">Use this mode to check readability, contrast, and premium UI depth.</p>
-              <div className="mt-7 rounded-full bg-white px-4 py-3 text-center text-sm font-bold text-[var(--color-text-primary)]">Choose plan</div>
-              {index === 1 && <div className="mt-4 text-center text-xs font-bold uppercase tracking-[0.2em] text-white/60">Most popular</div>}
+              <p className={`mt-3 text-sm leading-6 ${mutedClass}`}>Use this mode to check readability, contrast, and premium UI depth.</p>
+              <div className="mt-7 rounded-full bg-[var(--darma-content-solid)] px-4 py-3 text-center text-sm font-bold text-[var(--darma-content-solid-text)]">Choose plan</div>
+              {index === 1 && <div className={`mt-4 text-center text-xs font-bold uppercase tracking-[0.2em] ${mutedClass}`}>Most popular</div>}
             </div>
           ))}
         </div>
@@ -59,25 +64,25 @@ function CardsPreview() {
 
 function DashboardPreview() {
   return (
-    <div className="abg-preview-content relative z-20 min-h-[500px] p-4 text-white sm:p-6 lg:min-h-[540px] lg:p-8">
+    <div className="abg-preview-content relative z-20 min-h-[500px] p-4 text-[var(--darma-content-color)] sm:p-6 lg:min-h-[540px] lg:p-8">
       <div className="grid min-h-[460px] gap-4 lg:grid-cols-[220px,1fr]">
-        <aside className="rounded-[1.75rem] border border-white/10 bg-black/20 p-5 backdrop-blur-xl">
+        <aside className={`rounded-[1.75rem] border bg-[var(--darma-content-panel)] p-5 backdrop-blur-xl ${borderClass}`}>
           <strong>Darma Analytics</strong>
-          <div className="mt-8 space-y-3 text-sm text-white/70">
-            {["Overview", "Revenue", "Users", "Settings"].map((item) => <div key={item} className="rounded-2xl bg-white/10 px-4 py-3">{item}</div>)}
+          <div className={`mt-8 space-y-3 text-sm ${mutedClass}`}>
+            {["Overview", "Revenue", "Users", "Settings"].map((item) => <div key={item} className="rounded-2xl bg-[var(--darma-content-surface)] px-4 py-3">{item}</div>)}
           </div>
         </aside>
-        <main className="rounded-[1.75rem] border border-white/10 bg-white/10 p-5 backdrop-blur-xl">
+        <main className={`rounded-[1.75rem] border p-5 backdrop-blur-xl ${borderClass} ${surfaceClass}`}>
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <div><p className="text-sm text-white/60">Live dashboard</p><h2 className="text-3xl font-black">$128.4K revenue</h2></div>
-            <div className="rounded-full bg-white px-4 py-2 text-sm font-bold text-[var(--color-text-primary)]">Export report</div>
+            <div><p className={`text-sm ${mutedClass}`}>Live dashboard</p><h2 className="text-3xl font-black">$128.4K revenue</h2></div>
+            <div className="rounded-full bg-[var(--darma-content-solid)] px-4 py-2 text-sm font-bold text-[var(--darma-content-solid-text)]">Export report</div>
           </div>
           <div className="mt-7 grid gap-4 md:grid-cols-3">
-            {[["Conversion", "68%"], ["Retention", "84%"], ["Active users", "92%"]].map(([item, value]) => <div key={item} className="rounded-[var(--radius-lg)] border border-white/10 bg-black/20 p-5"><p className="text-sm text-white/60">{item}</p><div className="mt-3 text-3xl font-black">{value}</div></div>)}
+            {[["Conversion", "68%"], ["Retention", "84%"], ["Active users", "92%"]].map(([item, value]) => <div key={item} className={`rounded-[var(--radius-lg)] border bg-[var(--darma-content-panel)] p-5 ${borderClass}`}><p className={`text-sm ${mutedClass}`}>{item}</p><div className="mt-3 text-3xl font-black">{value}</div></div>)}
           </div>
-          <div className="mt-4 h-56 rounded-[var(--radius-lg)] border border-white/10 bg-black/20 p-5">
+          <div className={`mt-4 h-56 rounded-[var(--radius-lg)] border bg-[var(--darma-content-panel)] p-5 ${borderClass}`}>
             <div className="flex h-full items-end gap-3">
-              {[38, 62, 54, 86, 70, 92, 74, 98, 84].map((height, index) => <div key={index} className="flex-1 rounded-t-xl bg-white/25" style={{ height: `${height}%` }} />)}
+              {[38, 62, 54, 86, 70, 92, 74, 98, 84].map((height, index) => <div key={index} className="flex-1 rounded-t-xl bg-[var(--darma-content-muted)]" style={{ height: `${height}%` }} />)}
             </div>
           </div>
         </main>
@@ -91,6 +96,7 @@ export default function PreviewPanel({ state, particles }: PreviewPanelProps) {
   const [canFullscreen, setCanFullscreen] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const css = generateCss(state, particles, { paused: state.isPaused });
+  const readability = getAnimatedBackgroundReadability(state);
 
   useEffect(() => {
     setCanFullscreen(Boolean(wrapperRef.current?.requestFullscreen));
@@ -155,12 +161,20 @@ export default function PreviewPanel({ state, particles }: PreviewPanelProps) {
         </button>
       ) : null}
 
-      {state.isPaused ? (
-        <div className="pointer-events-none absolute bottom-4 left-4 z-30 inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/55 px-3 py-2 text-xs font-bold text-white shadow-lg backdrop-blur">
-          <Pause className="h-3.5 w-3.5" aria-hidden />
-          Animation paused
-        </div>
-      ) : null}
+      <div className="pointer-events-none absolute bottom-4 left-4 z-30 flex flex-wrap gap-2">
+        {state.isPaused ? (
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/55 px-3 py-2 text-xs font-bold text-white shadow-lg backdrop-blur">
+            <Pause className="h-3.5 w-3.5" aria-hidden />
+            Animation paused
+          </div>
+        ) : null}
+        {readability.protectionApplied ? (
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/55 px-3 py-2 text-xs font-bold text-white shadow-lg backdrop-blur">
+            <ShieldCheck className="h-3.5 w-3.5" aria-hidden />
+            {readability.protectedMinContrast.toFixed(2)}:1 protected contrast
+          </div>
+        ) : null}
+      </div>
 
       <div className="darma-animated-bg min-h-[500px] lg:min-h-[540px]">
         {particles.map((particle) => <span key={particle.id} />)}

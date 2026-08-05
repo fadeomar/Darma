@@ -3,6 +3,8 @@ export type BackgroundShape = "circle" | "soft-square" | "diamond";
 export type BlendMode = "screen" | "plus-lighter" | "overlay" | "normal" | "multiply";
 export type PreviewMode = "hero" | "cards" | "dashboard" | "empty";
 export type GradientStyle = "mesh" | "linear" | "radial";
+export type ForegroundTone = "light" | "dark";
+export type ForegroundMode = "auto" | ForegroundTone;
 export type BackgroundPresetId = string;
 
 export type BackgroundPreset = {
@@ -46,6 +48,8 @@ export type AnimatedBackgroundState = {
   blendMode: BlendMode;
   borderRadius: number;
   gradientStyle: GradientStyle;
+  foregroundMode: ForegroundMode;
+  readabilityProtection: boolean;
   isPaused: boolean;
   showContent: boolean;
   previewMode: PreviewMode;

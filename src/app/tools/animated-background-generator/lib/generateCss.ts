@@ -1,4 +1,5 @@
 import type { AnimatedBackgroundState, ParticleData } from "@/types/animatedBackgroundTypes";
+import { getAnimatedBackgroundReadability, rgbaFromHex } from "./readability";
 
 const bgClass = ".darma-animated-bg";
 
@@ -164,6 +165,12 @@ ${bgClass}::after {
 
 export function generateCss(state: AnimatedBackgroundState, particles: ParticleData[], options?: { paused?: boolean }) {
   const paused = options?.paused ?? false;
+  const readability = getAnimatedBackgroundReadability(state);
+  const foregroundColor = readability.foregroundColor;
+  const surfaceColor = readability.resolvedTone === "light" ? rgbaFromHex("#ffffff", 0.1) : rgbaFromHex("#0f172a", 0.11);
+  const panelColor = readability.resolvedTone === "light" ? rgbaFromHex("#020617", 0.2) : rgbaFromHex("#ffffff", 0.34);
+  const solidTextColor = readability.resolvedTone === "light" ? "#0f172a" : "#f8fafc";
+  const protectiveScrim = rgbaFromHex(readability.scrimColor, readability.scrimOpacity);
   const items = particles.map((particle) => `
 ${bgClass} span:nth-child(${particle.id}) {
   left: ${particle.x.toFixed(2)}%;
@@ -189,6 +196,15 @@ ${bgClass} span:nth-child(${particle.id}) {
   isolation: isolate;
   contain: paint;
   background: ${backgroundLayers(state)};
+  --darma-content-color: ${foregroundColor};
+  --darma-content-muted: ${rgbaFromHex(foregroundColor, 0.74)};
+  --darma-content-subtle: ${rgbaFromHex(foregroundColor, 0.58)};
+  --darma-content-border: ${rgbaFromHex(foregroundColor, 0.16)};
+  --darma-content-surface: ${surfaceColor};
+  --darma-content-panel: ${panelColor};
+  --darma-content-solid: ${foregroundColor};
+  --darma-content-solid-text: ${solidTextColor};
+  color: var(--darma-content-color);
 }
 
 ${bgClass}::before {
@@ -197,9 +213,15 @@ ${bgClass}::before {
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: radial-gradient(circle at center, transparent 0 48%, rgba(0,0,0,.36) 100%), linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px);
-  background-size: auto, 3px 3px;
-  opacity: .72;
+  background: linear-gradient(${protectiveScrim}, ${protectiveScrim}), radial-gradient(circle at center, transparent 0 48%, rgba(0,0,0,.36) 100%), linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: auto, auto, 3px 3px;
+  opacity: 1;
+}
+
+${bgClass} > :not(span) {
+  position: relative;
+  z-index: 2;
+  color: var(--darma-content-color);
 }
 
 ${bgClass} span {

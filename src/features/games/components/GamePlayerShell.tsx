@@ -16,6 +16,7 @@ import { SudokuMiniGame } from "../playables/sudoku-mini";
 import { SnakeGame } from "../playables/snake";
 import { TicTacToeGame } from "../playables/tic-tac-toe";
 import { ConnectFourGame } from "../playables/connect-four";
+import { DotConnectGame } from "../playables/dot-connect";
 import { MemoryCardsGame } from "../playables/memory-cards";
 import { WordMatchGame } from "../playables/word-match";
 import { TypingSpeedGame } from "../playables/typing-speed";
@@ -85,6 +86,10 @@ function GamePlayerContent({
 
   if (game.slug === "connect-four") {
     return <ConnectFourGame game={game} />;
+  }
+
+  if (game.slug === "dot-connect") {
+    return <DotConnectGame game={game} />;
   }
 
   if (game.slug === "memory-cards") {

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import {
   ArrowRight,
   Compass,
@@ -14,6 +15,7 @@ import { SplitTextReveal } from "@/components/motion";
 import { Badge } from "@/components/ui";
 import { cn } from "@/lib/cn";
 import { PortalHeroScene, type PortalVariant } from "./PortalHeroScene";
+import { resolvePortalHeroSignals } from "./portalHeroSignals";
 
 export type PortalHeroMetric = {
   value: string | number;
@@ -85,6 +87,7 @@ export function PortalHero({
 }: PortalHeroProps) {
   const heroBadges = badges.slice(0, MAX_BADGES);
   const heroActions = actions.slice(0, MAX_ACTIONS);
+  const heroSignals = resolvePortalHeroSignals(signals);
 
   return (
     <section className={cn("portal-hero", `portal-hero-${variant}`, className)}>
@@ -111,9 +114,13 @@ export function PortalHero({
               );
             })}
           </div>
-          {signals.length ? (
-            <dl className="portal-hero-signals">
-              {signals.slice(0, 4).map((signal) => (
+          {heroSignals.length ? (
+            <dl
+              className="portal-hero-signals"
+              data-signal-count={heroSignals.length}
+              style={{ "--portal-hero-signal-count": heroSignals.length } as CSSProperties}
+            >
+              {heroSignals.map((signal) => (
                 <div key={signal.label}>
                   <dt>{signal.label}</dt>
                   <dd>{signal.value}</dd>

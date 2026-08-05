@@ -100,7 +100,8 @@ export function GamesDirectory({ games, showHero = true, initialFilter = "all" }
         </>
       ) : null}
 
-      <section id="games-results" className="mt-8 scroll-mt-24" aria-labelledby="games-results-title">
+      {/* tabIndex -1 so the skip link moves focus here, not just the viewport. */}
+      <section id="games-results" tabIndex={-1} className="mt-8 scroll-mt-24 focus:outline-none" aria-labelledby="games-results-title">
         <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
           <div>
             <p className="font-mono text-xs font-black uppercase tracking-[0.1em] text-[var(--color-primary-text-strong)]">Catalog</p>

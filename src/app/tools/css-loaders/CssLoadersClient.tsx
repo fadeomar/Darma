@@ -152,8 +152,13 @@ function QuickLoaderCollections({ onApply }: { onApply: (collection: QuickCollec
   );
 }
 
-export default function CssLoadersClient() {
-  const [filters, setFilters] = useState<LoaderFilterState>(DEFAULT_LOADER_FILTERS);
+/**
+ * Category hub routes render the same gallery with their filter already
+ * applied, so `/tools/css-loaders/skeletons` opens on skeletons instead of
+ * asking the reader to re-pick the category they just clicked.
+ */
+export default function CssLoadersClient({ initialFilters }: { initialFilters?: Partial<LoaderFilterState> } = {}) {
+  const [filters, setFilters] = useState<LoaderFilterState>({ ...DEFAULT_LOADER_FILTERS, ...initialFilters });
   const deferredFilters = useDeferredValue(filters);
   const [currentPage, setCurrentPage] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
@@ -268,7 +273,7 @@ export default function CssLoadersClient() {
   }
 
   function resetFilters() {
-    setFilters(DEFAULT_LOADER_FILTERS);
+    setFilters({ ...DEFAULT_LOADER_FILTERS, ...initialFilters });
     setCurrentPage(1);
     setHighlightedLoaderId(null);
   }

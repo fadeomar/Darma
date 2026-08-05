@@ -2095,9 +2095,16 @@
 .portal-hero-action-secondary:hover { border-color: var(--color-primary); }
 .portal-hero-action-quiet { border-color: var(--color-border-default); background: color-mix(in srgb, var(--color-surface-overlay) 84%, transparent); color: var(--color-text-primary); backdrop-filter: blur(14px); }
 .portal-hero-action-quiet:hover { border-color: var(--color-border-strong); background: var(--color-surface-raised); }
+/*
+ * The strip renders exactly as many cells as the route supplies. The count
+ * arrives as `--portal-hero-signal-count` from PortalHero, so three signals
+ * produce three equal columns instead of leaving an empty fourth rectangle,
+ * and four collapse to a 2x2 block until there is desktop room for 4-up.
+ * Values wrap instead of truncating, and the grid keeps the cells equal height.
+ */
 .portal-hero-signals {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--portal-hero-signal-count, 3), minmax(0, 1fr));
   gap: 1px;
   max-width: 42rem;
   margin-top: 1.35rem;
@@ -2107,9 +2114,11 @@
   background: var(--color-border-subtle);
   box-shadow: var(--shadow-sm);
 }
-.portal-hero-signals > div { min-width: 0; padding: .75rem .85rem; background: color-mix(in srgb, var(--color-surface-overlay) 91%, transparent); backdrop-filter: blur(12px); }
+/* Four signals squeeze their values at laptop widths, so they stack 2x2 there. */
+.portal-hero-signals[data-signal-count="4"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.portal-hero-signals > div { display: flex; min-width: 0; flex-direction: column; padding: .75rem .85rem; background: color-mix(in srgb, var(--color-surface-overlay) 91%, transparent); backdrop-filter: blur(12px); }
 .portal-hero-signals dt { color: var(--color-text-tertiary); font-family: var(--font-mono); font-size: .75rem; font-weight: 850; letter-spacing: .09em; text-transform: uppercase; }
-.portal-hero-signals dd { margin-top: .25rem; overflow: hidden; color: var(--color-text-primary); font-size: .78rem; font-weight: 900; text-overflow: ellipsis; white-space: nowrap; }
+.portal-hero-signals dd { margin-top: .25rem; color: var(--color-text-primary); font-size: .78rem; font-weight: 900; line-height: 1.35; text-wrap: balance; overflow-wrap: break-word; }
 
 .portal-hero-scene {
   position: relative;
@@ -2285,11 +2294,11 @@
 .portal-hero-resources { background-color: color-mix(in srgb, var(--color-page-bg-soft) 95%, var(--color-primary-soft)); }
 
 @media (min-width: 860px) {
-  .portal-hero-signals { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .portal-hero-inner { grid-template-columns: minmax(0, 1.02fr) minmax(340px, .98fr); align-items: center; }
 }
 @media (min-width: 1280px) {
   .portal-hero-inner { grid-template-columns: minmax(0, 1.06fr) minmax(400px, .94fr); }
+  .portal-hero-signals[data-signal-count="4"] { max-width: 46rem; grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 @media (max-width: 859px) {
   .portal-hero-inner { padding-top: 2.25rem; }
@@ -2317,14 +2326,12 @@
     -webkit-overflow-scrolling: touch;
   }
   .portal-hero-signals > div { flex: 0 0 auto; min-width: 9.5rem; padding: .58rem .7rem; scroll-snap-align: start; }
-  .portal-hero-signals dd { white-space: normal; }
 }
 @media (max-width: 520px) {
   .portal-hero-inner { width: min(var(--container-wide), calc(100% - 1.25rem)); }
   .portal-hero-title { font-size: clamp(2rem, 9.2vw, 2.6rem); }
   .portal-hero-actions { display: grid; }
   .portal-hero-action { width: 100%; }
-  .portal-hero-signals { grid-template-columns: 1fr 1fr; }
   .portal-scene-metrics { width: 96%; margin-top: -1.7rem; }
   .portal-scene-metrics > span { grid-template-columns: 1.1rem auto minmax(0, 1fr); padding-inline: .55rem; }
   .portal-scene-metrics small { font-size: .75rem; }

@@ -398,7 +398,14 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
   return (
     <div className="mx-auto max-w-[var(--container-wide)] px-4 py-9 sm:px-6 sm:py-11 lg:px-8 lg:py-14">
       <section id="tool-directory-filters" aria-label="Tool search and filters" className="mt-4 scroll-mt-24 rounded-[var(--radius-lg)] border border-[var(--color-border-default)] bg-[var(--color-surface-base)] p-4 shadow-[var(--shadow-card)] sm:p-5">
-          <div className="space-y-4">
+          {/*
+            Three rows, in this order: search, then audience chips beside the
+            shortcut actions, then the selects. The audience row is a
+            `minmax(0, 1fr) auto` grid so the chips keep the whole remaining
+            line instead of wrapping two orphans under a half-empty panel, and
+            the chip strip itself scrolls horizontally rather than stacking.
+          */}
+          <div className="space-y-3">
             <label className="relative block">
               <span className="sr-only">Search tools</span>
               <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[var(--color-text-tertiary)]" aria-hidden />
@@ -411,47 +418,49 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
               />
             </label>
 
-            <div className="flex gap-2 overflow-x-auto pb-1 sm:flex-wrap sm:overflow-visible" aria-label="Audience filters">
-              {Object.entries(audienceLabels).map(([key, label]) => (
+            <div className="grid min-w-0 gap-2 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-3">
+              <div className="darma-scroll-strip -mx-1 flex min-w-0 gap-2 overflow-x-auto px-1 py-0.5" aria-label="Audience filters">
+                {Object.entries(audienceLabels).map(([key, label]) => (
+                  <button
+                    key={key}
+                    type="button"
+                    aria-pressed={audience === key}
+                    onClick={() => setAudience(key)}
+                    className={cn(
+                      "min-h-9 shrink-0 rounded-[var(--radius-full)] border px-3.5 font-mono text-xs font-bold uppercase tracking-[0.08em] transition focus:outline-none focus:shadow-[var(--focus-ring)]",
+                      audience === key
+                        ? "border-[var(--color-primary)] bg-[var(--color-primary)] text-[var(--color-primary-text)]"
+                        : "border-[var(--color-border-default)] bg-[var(--color-control-bg)] text-[var(--color-text-tertiary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]",
+                    )}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
+
+              <div className="darma-scroll-strip -mx-1 flex shrink-0 gap-2 overflow-x-auto px-1 py-0.5">
                 <button
-                  key={key}
                   type="button"
-                  aria-pressed={audience === key}
-                  onClick={() => setAudience(key)}
+                  onClick={exploreChallenges}
                   className={cn(
                     "min-h-9 shrink-0 rounded-[var(--radius-full)] border px-3.5 font-mono text-xs font-bold uppercase tracking-[0.08em] transition focus:outline-none focus:shadow-[var(--focus-ring)]",
-                    audience === key
-                      ? "border-[var(--color-primary)] bg-[var(--color-primary)] text-[var(--color-primary-text)]"
-                      : "border-[var(--color-border-default)] bg-[var(--color-control-bg)] text-[var(--color-text-tertiary)] hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)]",
+                    toolType === "interactive-challenge"
+                      ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]"
+                      : "border-[var(--color-primary-border)] bg-[var(--color-surface-base)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]",
                   )}
                 >
-                  {label}
+                  Challenges
                 </button>
-              ))}
+                <Link
+                  href="/tools/fun"
+                  className="group inline-flex min-h-9 shrink-0 items-center gap-2 rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-control-bg)] px-3.5 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)] transition hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] focus:outline-none focus:shadow-[var(--focus-ring)]"
+                >
+                  Fun hub <ArrowRight className="darma-link-arrow h-3.5 w-3.5" aria-hidden />
+                </Link>
+              </div>
             </div>
 
-            <div className="flex flex-wrap gap-2">
-              <button
-                type="button"
-                onClick={exploreChallenges}
-                className={cn(
-                  "rounded-[var(--radius-full)] border px-3.5 py-2 font-mono text-xs font-bold uppercase tracking-[0.08em] transition focus:outline-none focus:shadow-[var(--focus-ring)]",
-                  toolType === "interactive-challenge"
-                    ? "border-[var(--color-primary)] bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]"
-                    : "border-[var(--color-primary-border)] bg-[var(--color-surface-base)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]",
-                )}
-              >
-                Fun challenges
-              </button>
-              <Link
-                href="/tools/fun"
-                className="group inline-flex items-center gap-2 rounded-[var(--radius-full)] border border-[var(--color-border-default)] bg-[var(--color-control-bg)] px-3.5 py-2 font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)] transition hover:border-[var(--color-border-strong)] hover:text-[var(--color-text-primary)] focus:outline-none focus:shadow-[var(--focus-ring)]"
-              >
-                Fun hub <ArrowRight className="darma-link-arrow h-3.5 w-3.5" aria-hidden />
-              </Link>
-            </div>
-
-            <div className="grid gap-3 md:grid-cols-[1fr_1fr_1fr_auto] md:items-end">
+            <div className="grid min-w-0 gap-3 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_auto] md:items-end">
               <ToolFilterControls
                 toolType={toolType}
                 setToolType={setToolType}
@@ -584,9 +593,14 @@ export function ToolLayoutDirectory({ tools }: { tools: ToolDefinition[] }) {
               <Badge variant="soft">Curated</Badge>
               <h2 className="mt-2 text-2xl font-black tracking-[-0.02em] text-[var(--color-text-primary)]">Featured tools</h2>
             </div>
-            <Link href="/workflows" className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]">
-              Try a workflow
-            </Link>
+            <div className="flex flex-wrap items-center gap-3">
+              <Link href="/tools/css-loaders" className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-primary-text-strong)] hover:text-[var(--color-text-primary)]">
+                CSS loaders gallery
+              </Link>
+              <Link href="/workflows" className="font-mono text-xs font-bold uppercase tracking-[0.08em] text-[var(--color-text-tertiary)] hover:text-[var(--color-text-primary)]">
+                Try a workflow
+              </Link>
+            </div>
           </div>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {featured.map((tool) => <ToolCard key={tool.id} tool={tool} />)}

@@ -12,6 +12,7 @@ import {
   HeartHandshake,
   Layers3,
   Library,
+  LoaderCircle,
   Menu,
   Network,
   Route,
@@ -24,15 +25,20 @@ import {
 import ThemeToggle from "@/components/ThemeToggle";
 import { GlobalSearchButton } from "@/features/search/components/GlobalSearchOverlay";
 import { withGsap, userPrefersReducedMotion } from "@/core/motion/gsap-loader";
+import { matchesNavRoute, resolveActiveNavHref } from "./navActive";
 
 const PRIMARY_NAV = [
   { href: "/explore", label: "Explore" },
   { href: "/tools", label: "Tools" },
+  { href: "/tools/css-loaders", label: "Loaders" },
   { href: "/games", label: "Games" },
   { href: "/guides", label: "Guides" },
   { href: "/comparisons", label: "Compare" },
   { href: "/about", label: "About" },
 ];
+
+/** Links rendered before the Atlas mega-menu button on desktop. */
+const PRIMARY_NAV_LEADING = 4;
 
 const ATLAS_LINKS = [
   { href: "/resources", label: "Resources", text: "Cataloged references and official documentation", icon: Library },
@@ -52,6 +58,7 @@ const MOBILE_GROUPS = [
       { href: "/", label: "Home", icon: Sparkles },
       { href: "/explore", label: "Explore", icon: Shapes },
       { href: "/tools", label: "Tools", icon: Wrench },
+      { href: "/tools/css-loaders", label: "Loaders", icon: LoaderCircle },
       { href: "/games", label: "Games", icon: Layers3 },
       { href: "/search", label: "Search", icon: Search },
     ],
@@ -67,10 +74,18 @@ const MOBILE_GROUPS = [
   },
 ];
 
-function isPathActive(pathname: string, href: string) {
-  if (href === "/") return pathname === "/";
-  return pathname === href || pathname.startsWith(`${href}/`);
-}
+/*
+ * Every href the header can highlight. Ownership is resolved against the whole
+ * set so nested flagship routes (Loaders under Tools) take the active state
+ * from their parent instead of lighting both items up.
+ */
+const NAV_HREFS = [
+  "/",
+  "/search",
+  "/tech-atlas",
+  ...PRIMARY_NAV.map((item) => item.href),
+  ...ATLAS_LINKS.map((item) => item.href),
+];
 
 export default function SiteHeader() {
   const pathname = usePathname();
@@ -183,7 +198,8 @@ export default function SiteHeader() {
     };
   }, [atlasOpen]);
 
-  const atlasActive = pathname.startsWith("/tech-atlas") || ATLAS_LINKS.some((item) => isPathActive(pathname, item.href));
+  const activeHref = resolveActiveNavHref(pathname, NAV_HREFS);
+  const atlasActive = matchesNavRoute(pathname, "/tech-atlas") || ATLAS_LINKS.some((item) => item.href === activeHref);
 
   return (
     <header className="darma-site-header sticky top-0 z-[var(--z-header)] border-b border-[var(--color-border-subtle)] bg-[var(--color-surface-overlay)] backdrop-blur-xl" data-scrolled={scrolled}>
@@ -197,8 +213,8 @@ export default function SiteHeader() {
         </Link>
 
         <nav className="hidden items-center gap-1 xl:flex" aria-label="Primary navigation">
-          {PRIMARY_NAV.slice(0, 3).map((item) => (
-            <Link key={item.href} href={item.href} data-active={isPathActive(pathname, item.href)} className="darma-nav-link rounded-full px-4 py-2.5 text-sm font-bold text-[var(--color-text-secondary)] transition hover:text-[var(--color-text-primary)]">
+          {PRIMARY_NAV.slice(0, PRIMARY_NAV_LEADING).map((item) => (
+            <Link key={item.href} href={item.href} data-active={item.href === activeHref} className="darma-nav-link rounded-full px-3.5 py-2.5 text-sm font-bold text-[var(--color-text-secondary)] transition hover:text-[var(--color-text-primary)]">
               {item.label}
             </Link>
           ))}
@@ -235,8 +251,8 @@ export default function SiteHeader() {
             ) : null}
           </div>
 
-          {PRIMARY_NAV.slice(3).map((item) => (
-            <Link key={item.href} href={item.href} data-active={isPathActive(pathname, item.href)} className="darma-nav-link rounded-full px-4 py-2.5 text-sm font-bold text-[var(--color-text-secondary)] transition hover:text-[var(--color-text-primary)]">
+          {PRIMARY_NAV.slice(PRIMARY_NAV_LEADING).map((item) => (
+            <Link key={item.href} href={item.href} data-active={item.href === activeHref} className="darma-nav-link rounded-full px-3.5 py-2.5 text-sm font-bold text-[var(--color-text-secondary)] transition hover:text-[var(--color-text-primary)]">
               {item.label}
             </Link>
           ))}
@@ -271,7 +287,7 @@ export default function SiteHeader() {
                   <div className="grid gap-2 sm:grid-cols-2">
                     {group.links.map((item) => {
                       const Icon = item.icon;
-                      return <Link key={`${group.title}-${item.href}`} href={item.href} data-mobile-link className="darma-mobile-nav-card" aria-current={isPathActive(pathname, item.href) ? "page" : undefined}><span className="grid h-10 w-10 place-items-center rounded-xl bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]"><Icon className="h-5 w-5" aria-hidden /></span><span className="font-bold text-[var(--color-text-primary)]">{item.label}</span></Link>;
+                      return <Link key={`${group.title}-${item.href}`} href={item.href} data-mobile-link className="darma-mobile-nav-card" aria-current={item.href === activeHref ? "page" : undefined}><span className="grid h-10 w-10 place-items-center rounded-xl bg-[var(--color-primary-soft)] text-[var(--color-primary-text-strong)]"><Icon className="h-5 w-5" aria-hidden /></span><span className="font-bold text-[var(--color-text-primary)]">{item.label}</span></Link>;
                     })}
                   </div>
                 </section>

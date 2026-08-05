@@ -6,6 +6,7 @@ import { getLearningPaths } from "@/features/learning-paths";
 import { getTechCareers } from "@/features/tech-careers";
 import { getWaysOfWorking } from "@/features/ways-of-working";
 import { getEditorialPages, getResourceHubs } from "@/features/editorial";
+import { CSS_LOADERS_PATH, getLoaderHubPath, LOADER_HUB_SLUGS } from "@/app/tools/css-loaders/loader-hubs";
 
 const ORIGINAL_CONTENT_DATE = new Date("2026-07-22T00:00:00.000Z");
 const ATLAS_DATE = new Date("2026-07-29T00:00:00.000Z");
@@ -41,8 +42,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const wayEntries: MetadataRoute.Sitemap = getWaysOfWorking().map((way) => ({ url: absoluteUrl(`/ways-of-working/${way.slug}`), lastModified: ATLAS_DATE, changeFrequency: "monthly", priority: way.featured ? 0.8 : 0.7 }));
   const editorialEntries: MetadataRoute.Sitemap = getEditorialPages().map((page) => ({ url: absoluteUrl(`/${page.kind === "guide" ? "guides" : "comparisons"}/${page.slug}`), lastModified: new Date(page.updatedAt), changeFrequency: "monthly", priority: page.featured ? 0.9 : 0.8 }));
   const resourceHubEntries: MetadataRoute.Sitemap = getResourceHubs().map((hub) => ({ url: absoluteUrl(`/resources/${hub.slug}`), lastModified: new Date(hub.updatedAt), changeFrequency: "monthly", priority: 0.85 }));
+  /*
+   * The loader gallery is a flagship entry point and its category hubs are real
+   * routes, so they are listed here rather than left to be discovered through
+   * the client-side gallery. The main page also arrives via the tool registry;
+   * the URL map below keeps the higher-priority entry and drops the duplicate.
+   */
+  const loaderEntries: MetadataRoute.Sitemap = [
+    { url: absoluteUrl(CSS_LOADERS_PATH), lastModified: ORIGINAL_CONTENT_DATE, changeFrequency: "weekly", priority: 0.9 },
+    ...LOADER_HUB_SLUGS.map((slug) => ({ url: absoluteUrl(getLoaderHubPath(slug)), lastModified: ORIGINAL_CONTENT_DATE, changeFrequency: "monthly" as const, priority: 0.75 })),
+  ];
 
   const byUrl = new Map<string, MetadataRoute.Sitemap[number]>();
-  for (const entry of [...staticEntries, ...toolEntries, ...gameEntries, ...pathEntries, ...careerEntries, ...wayEntries, ...editorialEntries, ...resourceHubEntries]) byUrl.set(entry.url, entry);
+  for (const entry of [...staticEntries, ...toolEntries, ...gameEntries, ...pathEntries, ...careerEntries, ...wayEntries, ...editorialEntries, ...resourceHubEntries, ...loaderEntries]) byUrl.set(entry.url, entry);
   return [...byUrl.values()];
 }

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Darma">
+  <!--
+    Darma brand mark: the same rounded tile as .darma-brand-mark in the site
+    header (experience.css) — a 145deg primary→accent gradient with a white "D".
+    The letter is a path, not text, so it rasterizes identically everywhere
+    instead of depending on an installed font.
+  -->
+  <defs>
+    <linearGradient id="darma-mark" x1="0.1005" y1="-0.0705" x2="0.8995" y2="1.0705">
+      <stop offset="0" stop-color="#cc4715" />
+      <stop offset="1" stop-color="#13b8a6" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="20" fill="url(#darma-mark)" />
+  <path
+    fill="#ffffff"
+    fill-rule="evenodd"
+    d="M17.5 14h13.5c9.7 0 16 8 16 18s-6.3 18-16 18H17.5zm9 8.5v19h4c4.8 0 8-3.9 8-9.5s-3.2-9.5-8-9.5z"
+  />
+</svg>

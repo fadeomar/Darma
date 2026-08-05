@@ -648,6 +648,66 @@ export function SceneConnectFour() {
   );
 }
 
+/* ---------------------------------------------------------- dots connect */
+
+export function SceneDotConnect() {
+  const tone = palette(["#10233a", "#164e63"], "rgba(255,255,255,0.06)", "#22d3ee", "#ef5a5a", "#ecfeff");
+  const origin = { x: 96, y: 24 };
+  const step = 21;
+  const dots = [
+    "bgcmbgmc",
+    "gcccbmgb",
+    "mbgcmcbg",
+    "cmbcgbmm",
+    "gcmbcgcb",
+    "bmgcmbgc",
+  ];
+  const fills: Record<string, string> = { c: "#ef5a5a", b: "#3b82f6", g: "#d79a12", m: "#16a085" };
+  // A live selection: five adjacent coral dots, no diagonals.
+  const path = [
+    { row: 1, column: 1 },
+    { row: 1, column: 2 },
+    { row: 1, column: 3 },
+    { row: 2, column: 3 },
+    { row: 3, column: 3 },
+  ];
+  const center = ({ row, column }: { row: number; column: number }) => ({
+    cx: origin.x + column * step + step / 2,
+    cy: origin.y + row * step + step / 2,
+  });
+  const selected = new Set(path.map(({ row, column }) => `${row}:${column}`));
+
+  return (
+    <SceneStage palette={tone} id="sdots" texture="dots">
+      <Board x={origin.x - 8} y={origin.y - 8} width={step * 8 + 16} height={step * 6 + 16} fill="#0b1b2b" stroke="#155e75" radius={12} />
+      <polyline
+        points={path.map((cell) => { const { cx, cy } = center(cell); return `${cx},${cy}`; }).join(" ")}
+        fill="none"
+        stroke={fills.c}
+        strokeWidth="5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        opacity="0.85"
+      />
+      {dots.flatMap((row, rowIndex) =>
+        row.split("").map((token, columnIndex) => {
+          const { cx, cy } = center({ row: rowIndex, column: columnIndex });
+          const key = `${rowIndex}:${columnIndex}`;
+          const active = selected.has(key);
+          return (
+            <g key={key}>
+              <circle cx={cx} cy={cy} r={active ? "7.5" : "6"} fill={fills[token]} opacity={active ? 1 : 0.72} />
+              {active ? <circle cx={cx} cy={cy} r="9.5" fill="none" stroke="#ffffff" strokeWidth="1.6" /> : null}
+            </g>
+          );
+        }),
+      )}
+      <ScorePanel x={12} y={40} label="PATH" value="+5" palette={tone} width={66} />
+      <ScorePanel x={12} y={92} label="TARGET" value="100" palette={tone} width={66} />
+    </SceneStage>
+  );
+}
+
 /* ----------------------------------------------------------- chess mini */
 
 function ChessPiece({ x, y, kind, fill, stroke }: { x: number; y: number; kind: "pawn" | "rook" | "king" | "knight"; fill: string; stroke: string }) {

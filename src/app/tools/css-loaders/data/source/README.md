@@ -9,5 +9,6 @@ Source groups:
 - `loaders-css/` — adapted from the MIT-licensed loaders.css project by Connor Atherton.
 - `uiverse/` — selected community loading patterns. Verify the individual Uiverse component page before mass-importing more snippets.
 - `darma/` — Darma original seed loaders from earlier sprints.
+- `darma-tailwind-pack/` — Darma original loaders for the `tailwind` category; every entry ships a `tailwind` snippet so it also matches the TAILWIND format filter.
 
 The generator rejects global selectors, external assets, scripts, unscoped fixed overlays, unsafe universal selectors, duplicate IDs, and invalid JSON. It scopes classes and keyframes before writing generated files.

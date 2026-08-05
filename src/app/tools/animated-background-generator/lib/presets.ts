@@ -36,6 +36,8 @@ export const presetToState = (preset: BackgroundPreset): AnimatedBackgroundState
   blendMode: preset.blendMode,
   borderRadius: preset.borderRadius,
   gradientStyle: preset.gradientStyle,
+  foregroundMode: "auto",
+  readabilityProtection: true,
   isPaused: false,
   showContent: true,
   previewMode: "hero",

@@ -1,0 +1,35 @@
+{
+  "id": "tw-sparkle-stars",
+  "name": "Tailwind Sparkle Stars",
+  "category": "tailwind",
+  "tags": [
+    "tailwind",
+    "sparkle",
+    "stars",
+    "twinkle",
+    "magic"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "css": ".loader { position: relative; display: inline-block; width: var(--loader-size); height: var(--loader-size); }\n.loader span { position: absolute; background: var(--loader-color); clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%); animation: twTwinkle calc(var(--loader-speed) * 1.6) ease-in-out infinite; }\n.loader span:nth-child(1) { left: 6%; top: 10%; width: 42%; height: 42%; }\n.loader span:nth-child(2) { right: 4%; top: 30%; width: 30%; height: 30%; animation-delay: calc(var(--loader-speed) * .35); }\n.loader span:nth-child(3) { left: 32%; bottom: 4%; width: 24%; height: 24%; animation-delay: calc(var(--loader-speed) * .7); }\n@keyframes twTwinkle { 0%, 100% { transform: scale(.35) rotate(0deg); opacity: .2; } 50% { transform: scale(1) rotate(45deg); opacity: 1; } }",
+  "tailwind": "{/* keyframes twTwinkle: scale(.35) rotate(0) <-> scale(1) rotate(45deg) with opacity */}\n<div className=\"relative inline-block h-16 w-16\">\n  {[\n    { className: \"left-[6%] top-[10%] h-[42%] w-[42%]\", delay: 0 },\n    { className: \"right-[4%] top-[30%] h-[30%] w-[30%]\", delay: 350 },\n    { className: \"bottom-[4%] left-[32%] h-[24%] w-[24%]\", delay: 700 },\n  ].map((star) => (\n    <span\n      key={star.delay}\n      className={\"absolute animate-[twTwinkle_1.6s_ease-in-out_infinite] bg-purple-500 \" + star.className}\n      style={{ clipPath: \"polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%)\", animationDelay: star.delay + \"ms\" }}\n    />\n  ))}\n</div>",
+  "defaults": {
+    "color": "#a855f7",
+    "size": 64,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

@@ -37232,6 +37232,795 @@
     "searchText": "darma-b14-yarn-unravel yarn unravel spinners darma-research-batch-14 darma research batch 14 yarn ball unravel knit spinner html css react customizable cssonly"
   },
   {
+    "id": "tw-avatar-stack",
+    "name": "Tailwind Avatar Stack",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "avatars",
+      "overlap",
+      "presence",
+      "team"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-avatar-stack tailwind avatar stack tailwind darma-tailwind-pack darma tailwind pack tailwind avatars overlap presence team html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-badge-pulse",
+    "name": "Tailwind Badge Pulse",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "badge",
+      "notification",
+      "pill",
+      "ping"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-badge-pulse tailwind badge pulse tailwind darma-tailwind-pack darma tailwind pack tailwind badge notification pill ping html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-bell-ring",
+    "name": "Tailwind Bell Ring",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "bell",
+      "notification",
+      "swing",
+      "alert"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-bell-ring tailwind bell ring tailwind darma-tailwind-pack darma tailwind pack tailwind bell notification swing alert html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-blob-morph",
+    "name": "Tailwind Blob Morph",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "blob",
+      "morph",
+      "gradient",
+      "organic"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true,
+      "singleElement": true
+    },
+    "searchText": "tw-blob-morph tailwind blob morph tailwind darma-tailwind-pack darma tailwind pack tailwind blob morph gradient organic html css react tailwind cssonly customizable tailwind singleelement"
+  },
+  {
+    "id": "tw-bounce-dots",
+    "name": "Tailwind Bounce Dots",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "bounce",
+      "dots",
+      "three",
+      "utility"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true,
+      "popular": true
+    },
+    "searchText": "tw-bounce-dots tailwind bounce dots tailwind darma-tailwind-pack darma tailwind pack tailwind bounce dots three utility html css react tailwind cssonly customizable tailwind popular"
+  },
+  {
+    "id": "tw-breadcrumb-dots",
+    "name": "Tailwind Breadcrumb Trail",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "breadcrumb",
+      "trail",
+      "separator",
+      "path"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-breadcrumb-dots tailwind breadcrumb trail tailwind darma-tailwind-pack darma tailwind pack tailwind breadcrumb trail separator path html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-button-spinner",
+    "name": "Tailwind Button Spinner",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "button",
+      "spinner",
+      "submit",
+      "pill"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true,
+      "popular": true
+    },
+    "searchText": "tw-button-spinner tailwind button spinner tailwind darma-tailwind-pack darma tailwind pack tailwind button spinner submit pill html css react tailwind cssonly customizable tailwind popular"
+  },
+  {
+    "id": "tw-card-shimmer",
+    "name": "Tailwind Card Shimmer",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "card",
+      "shimmer",
+      "sweep",
+      "skeleton"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-card-shimmer tailwind card shimmer tailwind darma-tailwind-pack darma tailwind pack tailwind card shimmer sweep skeleton html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-caret-blink",
+    "name": "Tailwind Caret Blink",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "caret",
+      "cursor",
+      "typing",
+      "terminal"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-caret-blink tailwind caret blink tailwind darma-tailwind-pack darma tailwind pack tailwind caret cursor typing terminal html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-chart-bars",
+    "name": "Tailwind Chart Bars",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "chart",
+      "analytics",
+      "columns",
+      "axis"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-chart-bars tailwind chart bars tailwind darma-tailwind-pack darma tailwind pack tailwind chart analytics columns axis html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-checkbox-check",
+    "name": "Tailwind Checkbox Tick",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "checkbox",
+      "tick",
+      "confirm",
+      "box"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-checkbox-check tailwind checkbox tick tailwind darma-tailwind-pack darma tailwind pack tailwind checkbox tick confirm box html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-chevron-march",
+    "name": "Tailwind Chevron March",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "chevron",
+      "arrow",
+      "march",
+      "forward"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-chevron-march tailwind chevron march tailwind darma-tailwind-pack darma tailwind pack tailwind chevron arrow march forward html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-conic-spinner",
+    "name": "Tailwind Conic Spinner",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "conic",
+      "gradient",
+      "spinner",
+      "mask"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true,
+      "singleElement": true,
+      "popular": true
+    },
+    "searchText": "tw-conic-spinner tailwind conic spinner tailwind darma-tailwind-pack darma tailwind pack tailwind conic gradient spinner mask html css react tailwind cssonly customizable tailwind singleelement popular"
+  },
+  {
+    "id": "tw-counter-rings",
+    "name": "Tailwind Counter Rings",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "rings",
+      "concentric",
+      "counter",
+      "arcs"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-counter-rings tailwind counter rings tailwind darma-tailwind-pack darma tailwind pack tailwind rings concentric counter arcs html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-dashed-ring",
+    "name": "Tailwind Dashed Ring",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "dashed",
+      "ring",
+      "border",
+      "rotate"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true,
+      "singleElement": true
+    },
+    "searchText": "tw-dashed-ring tailwind dashed ring tailwind darma-tailwind-pack darma tailwind pack tailwind dashed ring border rotate html css react tailwind cssonly customizable tailwind singleelement"
+  },
+  {
+    "id": "tw-donut-progress",
+    "name": "Tailwind Donut Progress",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "donut",
+      "progress",
+      "conic",
+      "sweep"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true,
+      "singleElement": true
+    },
+    "searchText": "tw-donut-progress tailwind donut progress tailwind darma-tailwind-pack darma tailwind pack tailwind donut progress conic sweep html css react tailwind cssonly customizable tailwind singleelement"
+  },
+  {
+    "id": "tw-dot-ring",
+    "name": "Tailwind Dot Ring",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "dots",
+      "circle",
+      "eight",
+      "chase"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-dot-ring tailwind dot ring tailwind darma-tailwind-pack darma tailwind pack tailwind dots circle eight chase html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-download-bar",
+    "name": "Tailwind Download Bar",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "download",
+      "arrow",
+      "fill",
+      "transfer"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-download-bar tailwind download bar tailwind darma-tailwind-pack darma tailwind pack tailwind download arrow fill transfer html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-dual-ring",
+    "name": "Tailwind Dual Ring",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "dual",
+      "ring",
+      "counter",
+      "spinner"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true,
+      "singleElement": true,
+      "popular": true
+    },
+    "searchText": "tw-dual-ring tailwind dual ring tailwind darma-tailwind-pack darma tailwind pack tailwind dual ring counter spinner html css react tailwind cssonly customizable tailwind singleelement popular"
+  },
+  {
+    "id": "tw-equalizer",
+    "name": "Tailwind Equalizer",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "equalizer",
+      "audio",
+      "bars",
+      "scale"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true,
+      "popular": true
+    },
+    "searchText": "tw-equalizer tailwind equalizer tailwind darma-tailwind-pack darma tailwind pack tailwind equalizer audio bars scale html css react tailwind cssonly customizable tailwind popular"
+  },
+  {
+    "id": "tw-flip-square",
+    "name": "Tailwind Flip Square",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "flip",
+      "square",
+      "rotate",
+      "3d"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true,
+      "singleElement": true
+    },
+    "searchText": "tw-flip-square tailwind flip square tailwind darma-tailwind-pack darma tailwind pack tailwind flip square rotate 3d html css react tailwind cssonly customizable tailwind singleelement"
+  },
+  {
+    "id": "tw-form-skeleton",
+    "name": "Tailwind Form Skeleton",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "form",
+      "fields",
+      "labels",
+      "skeleton"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-form-skeleton tailwind form skeleton tailwind darma-tailwind-pack darma tailwind pack tailwind form fields labels skeleton html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-grid-fade",
+    "name": "Tailwind Grid Fade",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "grid",
+      "nine",
+      "diagonal",
+      "fade"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-grid-fade tailwind grid fade tailwind darma-tailwind-pack darma tailwind pack tailwind grid nine diagonal fade html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-heart-beat",
+    "name": "Tailwind Heart Beat",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "heart",
+      "beat",
+      "like",
+      "pulse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true,
+      "singleElement": true
+    },
+    "searchText": "tw-heart-beat tailwind heart beat tailwind darma-tailwind-pack darma tailwind pack tailwind heart beat like pulse html css react tailwind cssonly customizable tailwind singleelement"
+  },
+  {
+    "id": "tw-image-placeholder",
+    "name": "Tailwind Image Placeholder",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "image",
+      "placeholder",
+      "frame",
+      "landscape"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-image-placeholder tailwind image placeholder tailwind darma-tailwind-pack darma tailwind pack tailwind image placeholder frame landscape html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-progress-indeterminate",
+    "name": "Tailwind Indeterminate Bar",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "progress",
+      "indeterminate",
+      "bar",
+      "track"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true,
+      "popular": true
+    },
+    "searchText": "tw-progress-indeterminate tailwind indeterminate bar tailwind darma-tailwind-pack darma tailwind pack tailwind progress indeterminate bar track html css react tailwind cssonly customizable tailwind popular"
+  },
+  {
+    "id": "tw-modal-skeleton",
+    "name": "Tailwind Modal Skeleton",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "modal",
+      "dialog",
+      "skeleton",
+      "actions"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-modal-skeleton tailwind modal skeleton tailwind darma-tailwind-pack darma tailwind pack tailwind modal dialog skeleton actions html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-orbit-dot",
+    "name": "Tailwind Orbit Dot",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "orbit",
+      "satellite",
+      "ring",
+      "dot"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-orbit-dot tailwind orbit dot tailwind darma-tailwind-pack darma tailwind pack tailwind orbit satellite ring dot html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-pill-loader",
+    "name": "Tailwind Pill Fill",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "pill",
+      "fill",
+      "outline",
+      "scalex"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-pill-loader tailwind pill fill tailwind darma-tailwind-pack darma tailwind pack tailwind pill fill outline scalex html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-pin-drop",
+    "name": "Tailwind Pin Drop",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "map",
+      "pin",
+      "drop",
+      "location"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-pin-drop tailwind pin drop tailwind darma-tailwind-pack darma tailwind pack tailwind map pin drop location html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-ping-halo",
+    "name": "Tailwind Ping Halo",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "ping",
+      "halo",
+      "ripple",
+      "dot"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true,
+      "popular": true
+    },
+    "searchText": "tw-ping-halo tailwind ping halo tailwind darma-tailwind-pack darma tailwind pack tailwind ping halo ripple dot html css react tailwind cssonly customizable tailwind popular"
+  },
+  {
     "id": "tailwind-pulse",
     "name": "Tailwind Pulse",
     "category": "tailwind",
@@ -37256,5 +38045,484 @@
       "tailwind": true
     },
     "searchText": "tailwind-pulse tailwind pulse tailwind darma darma originals tailwind pulse utility inline html css react tailwind popular cssonly customizable singleelement tailwind"
+  },
+  {
+    "id": "tw-pulse-grid",
+    "name": "Tailwind Pulse Grid",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "pulse",
+      "grid",
+      "squares",
+      "fade"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-pulse-grid tailwind pulse grid tailwind darma-tailwind-pack darma tailwind pack tailwind pulse grid squares fade html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-radar-sweep",
+    "name": "Tailwind Radar Sweep",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "radar",
+      "sweep",
+      "scan",
+      "conic"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-radar-sweep tailwind radar sweep tailwind darma-tailwind-pack darma tailwind pack tailwind radar sweep scan conic html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-search-scan",
+    "name": "Tailwind Search Scan",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "search",
+      "magnifier",
+      "scan",
+      "lens"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-search-scan tailwind search scan tailwind darma-tailwind-pack darma tailwind pack tailwind search magnifier scan lens html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-shimmer-line",
+    "name": "Tailwind Shimmer Line",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "shimmer",
+      "sweep",
+      "line",
+      "placeholder"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-shimmer-line tailwind shimmer line tailwind darma-tailwind-pack darma tailwind pack tailwind shimmer sweep line placeholder html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-skeleton-avatar",
+    "name": "Tailwind Skeleton Avatar",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "skeleton",
+      "avatar",
+      "profile",
+      "rows"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-skeleton-avatar tailwind skeleton avatar tailwind darma-tailwind-pack darma tailwind pack tailwind skeleton avatar profile rows html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-skeleton-card",
+    "name": "Tailwind Skeleton Card",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "skeleton",
+      "card",
+      "placeholder",
+      "pulse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true,
+      "popular": true
+    },
+    "searchText": "tw-skeleton-card tailwind skeleton card tailwind darma-tailwind-pack darma tailwind pack tailwind skeleton card placeholder pulse html css react tailwind cssonly customizable tailwind popular"
+  },
+  {
+    "id": "tw-sparkle-stars",
+    "name": "Tailwind Sparkle Stars",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "sparkle",
+      "stars",
+      "twinkle",
+      "magic"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-sparkle-stars tailwind sparkle stars tailwind darma-tailwind-pack darma tailwind pack tailwind sparkle stars twinkle magic html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-spin-ring",
+    "name": "Tailwind Spin Ring",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "spin",
+      "ring",
+      "border",
+      "utility"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true,
+      "singleElement": true,
+      "popular": true
+    },
+    "searchText": "tw-spin-ring tailwind spin ring tailwind darma-tailwind-pack darma tailwind pack tailwind spin ring border utility html css react tailwind cssonly customizable tailwind singleelement popular"
+  },
+  {
+    "id": "tw-stacked-cards",
+    "name": "Tailwind Stacked Cards",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "stack",
+      "cards",
+      "deck",
+      "cycle"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-stacked-cards tailwind stacked cards tailwind darma-tailwind-pack darma tailwind pack tailwind stack cards deck cycle html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-step-progress",
+    "name": "Tailwind Step Progress",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "steps",
+      "wizard",
+      "checkpoint",
+      "connector"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-step-progress tailwind step progress tailwind darma-tailwind-pack darma tailwind pack tailwind steps wizard checkpoint connector html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-progress-stripes",
+    "name": "Tailwind Striped Progress",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "progress",
+      "stripes",
+      "barber",
+      "fill"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-progress-stripes tailwind striped progress tailwind darma-tailwind-pack darma tailwind pack tailwind progress stripes barber fill html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-tab-underline",
+    "name": "Tailwind Tab Underline",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "tabs",
+      "underline",
+      "navigation",
+      "slide"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-tab-underline tailwind tab underline tailwind darma-tailwind-pack darma tailwind pack tailwind tabs underline navigation slide html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-table-skeleton",
+    "name": "Tailwind Table Skeleton",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "table",
+      "rows",
+      "cells",
+      "skeleton"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-table-skeleton tailwind table skeleton tailwind darma-tailwind-pack darma tailwind pack tailwind table rows cells skeleton html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-toast-slide",
+    "name": "Tailwind Toast Slide",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "toast",
+      "notification",
+      "slide",
+      "enter"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-toast-slide tailwind toast slide tailwind darma-tailwind-pack darma tailwind pack tailwind toast notification slide enter html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-toggle-switch",
+    "name": "Tailwind Toggle Switch",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "toggle",
+      "switch",
+      "knob",
+      "slide"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-toggle-switch tailwind toggle switch tailwind darma-tailwind-pack darma tailwind pack tailwind toggle switch knob slide html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-typing-dots",
+    "name": "Tailwind Typing Bubble",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "typing",
+      "chat",
+      "bubble",
+      "dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true,
+      "popular": true
+    },
+    "searchText": "tw-typing-dots tailwind typing bubble tailwind darma-tailwind-pack darma tailwind pack tailwind typing chat bubble dots html css react tailwind cssonly customizable tailwind popular"
+  },
+  {
+    "id": "tw-upload-arrow",
+    "name": "Tailwind Upload Arrow",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "upload",
+      "arrow",
+      "tray",
+      "transfer"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-upload-arrow tailwind upload arrow tailwind darma-tailwind-pack darma tailwind pack tailwind upload arrow tray transfer html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-video-buffer",
+    "name": "Tailwind Video Buffer",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "video",
+      "play",
+      "buffer",
+      "media"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-video-buffer tailwind video buffer tailwind darma-tailwind-pack darma tailwind pack tailwind video play buffer media html css react tailwind cssonly customizable tailwind"
+  },
+  {
+    "id": "tw-wave-dots",
+    "name": "Tailwind Wave Dots",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "wave",
+      "dots",
+      "five",
+      "sine"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true
+    },
+    "searchText": "tw-wave-dots tailwind wave dots tailwind darma-tailwind-pack darma tailwind pack tailwind wave dots five sine html css react tailwind cssonly customizable tailwind"
   }
 ]

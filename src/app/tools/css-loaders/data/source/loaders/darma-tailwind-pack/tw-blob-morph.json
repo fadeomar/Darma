@@ -1,0 +1,38 @@
+{
+  "id": "tw-blob-morph",
+  "name": "Tailwind Blob Morph",
+  "category": "tailwind",
+  "tags": [
+    "tailwind",
+    "blob",
+    "morph",
+    "gradient",
+    "organic"
+  ],
+  "html": "<span class=\"loader\" aria-label=\"Loading\"></span>",
+  "css": ".loader { display: inline-block; width: var(--loader-size); height: var(--loader-size); background: linear-gradient(135deg, var(--loader-color), var(--loader-secondary-color)); animation: twMorph calc(var(--loader-speed) * 2.4) ease-in-out infinite; }\n@keyframes twMorph { 0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: rotate(0deg); } 50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: rotate(180deg); } }",
+  "tailwind": "{/* keyframes twMorph: alternate the border-radius blob values and rotate(180deg) */}\n<span className=\"inline-block h-15 w-15 animate-[twMorph_2.4s_ease-in-out_infinite] bg-gradient-to-br from-violet-500 to-pink-500\" />",
+  "defaults": {
+    "color": "#8b5cf6",
+    "secondaryColor": "#ec4899",
+    "size": 60,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "secondaryColor": true
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true,
+    "singleElement": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

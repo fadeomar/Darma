@@ -36,6 +36,7 @@ export function ToolPage({
   headerAlign = "left",
   intro,
   headerSize = "compact",
+  showToolProfile = false,
 }: {
   tool?: ToolDefinition;
   title?: string;
@@ -48,6 +49,7 @@ export function ToolPage({
   headerAlign?: "left" | "center";
   intro?: ReactNode;
   headerSize?: "default" | "compact";
+  showToolProfile?: boolean;
 }) {
   const pageTitle = title ?? tool?.title;
   const pageDescription = description ?? tool?.description;
@@ -55,7 +57,7 @@ export function ToolPage({
   const privacy = privacyLabel(tool?.privacy);
   const primaryCategory = tool?.mainCategory?.[0] ?? tool?.secondaryCategory?.[0];
   const profile = resolveToolProfile(tool);
-  const showProfile = headerAlign !== "center" && profile.hasMeaningfulContent;
+  const showProfile = showToolProfile && headerAlign !== "center" && profile.hasMeaningfulContent;
 
   return (
     <div className={cn("mx-auto px-4 py-5 sm:px-6 sm:py-7 lg:px-8", maxWidthClass[maxWidth])}>

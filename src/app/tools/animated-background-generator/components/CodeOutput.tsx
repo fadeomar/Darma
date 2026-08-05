@@ -1,7 +1,9 @@
 "use client";
 
 import { CodeOutputPanel, type CodeOutputTab } from "@/features/tools/components";
+import { downloadTextFile } from "@/features/tools/export/downloadText";
 import type { AnimatedBackgroundState } from "@/types/animatedBackgroundTypes";
+import { getAnimatedBackgroundReadability, rgbaFromHex } from "../lib/readability";
 
 interface CodeOutputProps {
   html: string;
@@ -11,17 +13,22 @@ interface CodeOutputProps {
 }
 
 function cssVariablesSnippet(state: AnimatedBackgroundState) {
+  const readability = getAnimatedBackgroundReadability(state);
+  const colorVariables = state.colors
+    .map((color, index) => `  --darma-bg-color-${index + 1}: ${color};`)
+    .join("\n");
+
   return `:root {
   --darma-bg-base: ${state.background};
-  --darma-bg-color-1: ${state.colors[0] ?? "#38bdf8"};
-  --darma-bg-color-2: ${state.colors[1] ?? "#6366f1"};
-  --darma-bg-color-3: ${state.colors[2] ?? "#a855f7"};
-  --darma-bg-color-4: ${state.colors[3] ?? state.colors[0] ?? "#38bdf8"};
+${colorVariables}
   --darma-bg-speed: ${state.speed.toFixed(2)};
   --darma-bg-blur: ${state.blur}px;
   --darma-bg-glow: ${state.glow}px;
   --darma-bg-opacity: ${state.opacity.toFixed(2)};
   --darma-bg-blend-mode: ${state.blendMode};
+  --darma-content-color: ${readability.foregroundColor};
+  --darma-content-muted: ${rgbaFromHex(readability.foregroundColor, 0.74)};
+  --darma-content-scrim: ${rgbaFromHex(readability.scrimColor, readability.scrimOpacity)};
 }`;
 }
 
@@ -55,6 +62,7 @@ ${css}
 }
 
 function tokenJsonSnippet(state: AnimatedBackgroundState, particleCount: number) {
+  const readability = getAnimatedBackgroundReadability(state);
   return JSON.stringify(
     {
       name: "animated-background",
@@ -67,6 +75,15 @@ function tokenJsonSnippet(state: AnimatedBackgroundState, particleCount: number)
       size: { min: state.minSize, max: state.maxSize },
       motion: { speed: state.speed, intensity: state.intensity, reducedMotion: true },
       effects: { blur: state.blur, glow: state.glow, opacity: state.opacity, blendMode: state.blendMode },
+      readability: {
+        foregroundMode: state.foregroundMode,
+        resolvedTone: readability.resolvedTone,
+        foregroundColor: readability.foregroundColor,
+        estimatedMinimumContrast: readability.protectedMinContrast,
+        protection: state.readabilityProtection,
+        scrimColor: readability.scrimColor,
+        scrimOpacity: readability.scrimOpacity,
+      },
     },
     null,
     2,
@@ -99,6 +116,11 @@ export default function CodeOutput({ html, css, state, particleCount }: CodeOutp
       description="Copy complete HTML/CSS, scoped CSS, CSS variables, a React component, Tailwind starter, or design tokens."
       tabs={tabs}
       defaultTab="full"
+      onDownload={(tab) => downloadTextFile({
+        content: tab.code,
+        filename: tab.filename ?? `animated-background.${tab.language ?? "txt"}`,
+        mimeType: "text/plain;charset=utf-8",
+      })}
     />
   );
 }

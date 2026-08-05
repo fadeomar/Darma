@@ -1,22 +1,41 @@
 import type { AnimatedBackgroundState, ParticleData } from "@/types/animatedBackgroundTypes";
+import { getAnimatedBackgroundReadability, rgbaFromHex } from "./readability";
 
 const bgClass = ".darma-animated-bg";
 
 function backgroundLayers(state: AnimatedBackgroundState) {
-  const [c1 = "#38bdf8", c2 = "#8b5cf6", c3 = "#ec4899", c4 = c1] = state.colors;
+  const colors = state.colors.length ? state.colors.slice(0, 6) : ["#38bdf8", "#8b5cf6"];
+  const [c1 = "#38bdf8", c2 = "#8b5cf6", c3 = c1, c4 = c2] = colors;
   const grid = ["cyber-grid", "neon-cyber-grid", "fintech-data-grid"].includes(state.presetId)
     ? `linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px),`
     : "";
 
   if (state.gradientStyle === "linear") {
-    return `${grid}radial-gradient(circle at 18% 18%, ${c1}42, transparent 30%), radial-gradient(circle at 82% 68%, ${c3}38, transparent 34%), linear-gradient(135deg, ${state.background}, ${c2}22 48%, ${state.background})`;
+    return `${grid}radial-gradient(circle at 18% 18%, ${c1}42, transparent 30%), radial-gradient(circle at 82% 68%, ${c3}38, transparent 34%), linear-gradient(135deg, ${state.background}, ${c2}22 48%, ${c4}18 72%, ${state.background})`;
   }
 
   if (state.gradientStyle === "mesh") {
-    return `${grid}radial-gradient(circle at 18% 22%, ${c1}55, transparent 34%), radial-gradient(circle at 80% 18%, ${c2}4d, transparent 30%), radial-gradient(circle at 52% 84%, ${c3}45, transparent 36%), radial-gradient(circle at 12% 74%, ${c4}34, transparent 32%), ${state.background}`;
+    const positions = [
+      [18, 22, "55", 34],
+      [80, 18, "4d", 30],
+      [52, 84, "45", 36],
+      [12, 74, "34", 32],
+      [92, 62, "38", 30],
+      [48, 44, "2e", 28],
+    ] as const;
+    const layers = colors.map((color, index) => {
+      const [x, y, alpha, stop] = positions[index] ?? positions[0];
+      return `radial-gradient(circle at ${x}% ${y}%, ${color}${alpha}, transparent ${stop}%)`;
+    });
+    return `${grid}${layers.join(", ")}, ${state.background}`;
   }
 
-  return `${grid}radial-gradient(circle at 24% 22%, ${c1}38, transparent 28%), radial-gradient(circle at 76% 78%, ${c2}32, transparent 32%), ${state.background}`;
+  const radialPositions = [[24, 22], [76, 78], [82, 20], [18, 82], [52, 48], [48, 88]] as const;
+  const layers = colors.map((color, index) => {
+    const [x, y] = radialPositions[index] ?? radialPositions[0];
+    return `radial-gradient(circle at ${x}% ${y}%, ${color}38, transparent 30%)`;
+  });
+  return `${grid}${layers.join(", ")}, ${state.background}`;
 }
 
 function shapeCss(state: AnimatedBackgroundState) {
@@ -146,6 +165,12 @@ ${bgClass}::after {
 
 export function generateCss(state: AnimatedBackgroundState, particles: ParticleData[], options?: { paused?: boolean }) {
   const paused = options?.paused ?? false;
+  const readability = getAnimatedBackgroundReadability(state);
+  const foregroundColor = readability.foregroundColor;
+  const surfaceColor = readability.resolvedTone === "light" ? rgbaFromHex("#ffffff", 0.1) : rgbaFromHex("#0f172a", 0.11);
+  const panelColor = readability.resolvedTone === "light" ? rgbaFromHex("#020617", 0.2) : rgbaFromHex("#ffffff", 0.34);
+  const solidTextColor = readability.resolvedTone === "light" ? "#0f172a" : "#f8fafc";
+  const protectiveScrim = rgbaFromHex(readability.scrimColor, readability.scrimOpacity);
   const items = particles.map((particle) => `
 ${bgClass} span:nth-child(${particle.id}) {
   left: ${particle.x.toFixed(2)}%;
@@ -171,6 +196,15 @@ ${bgClass} span:nth-child(${particle.id}) {
   isolation: isolate;
   contain: paint;
   background: ${backgroundLayers(state)};
+  --darma-content-color: ${foregroundColor};
+  --darma-content-muted: ${rgbaFromHex(foregroundColor, 0.74)};
+  --darma-content-subtle: ${rgbaFromHex(foregroundColor, 0.58)};
+  --darma-content-border: ${rgbaFromHex(foregroundColor, 0.16)};
+  --darma-content-surface: ${surfaceColor};
+  --darma-content-panel: ${panelColor};
+  --darma-content-solid: ${foregroundColor};
+  --darma-content-solid-text: ${solidTextColor};
+  color: var(--darma-content-color);
 }
 
 ${bgClass}::before {
@@ -179,9 +213,15 @@ ${bgClass}::before {
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: radial-gradient(circle at center, transparent 0 48%, rgba(0,0,0,.36) 100%), linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px);
-  background-size: auto, 3px 3px;
-  opacity: .72;
+  background: linear-gradient(${protectiveScrim}, ${protectiveScrim}), radial-gradient(circle at center, transparent 0 48%, rgba(0,0,0,.36) 100%), linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: auto, auto, 3px 3px;
+  opacity: 1;
+}
+
+${bgClass} > :not(span) {
+  position: relative;
+  z-index: 2;
+  color: var(--darma-content-color);
 }
 
 ${bgClass} span {
@@ -205,6 +245,8 @@ ${items}
   100% { transform: translate3d(var(--drift-x), var(--drift-y), 0) scale(1.08) rotate(calc(var(--shape-rotate) + var(--rotate))); }
 }
 ${presetExtras(state)}
+
+${paused ? `${bgClass}::after { animation-play-state: paused !important; }` : ""}
 
 @media (prefers-reduced-motion: reduce) {
   ${bgClass} span,

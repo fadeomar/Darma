@@ -3718,6 +3718,241 @@
     }
   },
   {
+    "id": "tw-bounce-dots",
+    "name": "Tailwind Bounce Dots",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "bounce",
+      "dots",
+      "three",
+      "utility"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true,
+      "popular": true
+    },
+    "searchText": "tw-bounce-dots tailwind bounce dots tailwind darma-tailwind-pack darma tailwind pack tailwind bounce dots three utility html css react tailwind cssonly customizable tailwind popular",
+    "previewHtml": "<div class=\"darma-loader-tw-bounce-dots\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-tw-bounce-dots { display: inline-flex; align-items: flex-end; justify-content: center; gap: calc(var(--loader-size, 72px) * .12); width: var(--loader-size, 72px); height: calc(var(--loader-size, 72px) * .5); }\n.darma-loader-tw-bounce-dots span { width: calc(var(--loader-size, 72px) * .18); height: calc(var(--loader-size, 72px) * .18); border-radius: 9999px; background: var(--loader-color, #8b5cf6); animation: darma-loader-tw-bounce-dots-twBounce var(--loader-speed, 1s) infinite; }\n.darma-loader-tw-bounce-dots span:nth-child(2) { animation-delay: calc(var(--loader-speed, 1s) * .15); }\n.darma-loader-tw-bounce-dots span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * .3); }\n@keyframes darma-loader-tw-bounce-dots-twBounce { 0%, 100% { transform: translateY(-45%); animation-timing-function: cubic-bezier(.8, 0, 1, 1); } 50% { transform: translateY(0); animation-timing-function: cubic-bezier(0, 0, .2, 1); } }",
+    "defaults": {
+      "color": "#8b5cf6",
+      "size": 72,
+      "speed": 1
+    }
+  },
+  {
+    "id": "tw-button-spinner",
+    "name": "Tailwind Button Spinner",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "button",
+      "spinner",
+      "submit",
+      "pill"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true,
+      "popular": true
+    },
+    "searchText": "tw-button-spinner tailwind button spinner tailwind darma-tailwind-pack darma tailwind pack tailwind button spinner submit pill html css react tailwind cssonly customizable tailwind popular",
+    "previewHtml": "<div class=\"darma-loader-tw-button-spinner\" aria-label=\"Loading\"><span class=\"darma-loader-tw-button-spinner__spinner\"></span><span class=\"darma-loader-tw-button-spinner__label\"></span></div>",
+    "previewCss": ".darma-loader-tw-button-spinner { display: inline-flex; align-items: center; gap: calc(var(--loader-size, 160px) * .07); width: var(--loader-size, 160px); padding: calc(var(--loader-size, 160px) * .07) calc(var(--loader-size, 160px) * .1); border-radius: 9999px; background: var(--loader-color, #4f46e5); box-sizing: border-box; }\n.darma-loader-tw-button-spinner .darma-loader-tw-button-spinner__spinner { flex: none; width: calc(var(--loader-size, 160px) * .14); height: calc(var(--loader-size, 160px) * .14); border-radius: 9999px; border: calc(var(--loader-size, 160px) * .028) solid rgba(255, 255, 255, .35); border-top-color: #ffffff; animation: darma-loader-tw-button-spinner-twSpin var(--loader-speed, 1s) linear infinite; }\n.darma-loader-tw-button-spinner .darma-loader-tw-button-spinner__label { flex: 1; height: calc(var(--loader-size, 160px) * .08); border-radius: 9999px; background: rgba(255, 255, 255, .7); }\n@keyframes darma-loader-tw-button-spinner-twSpin { to { transform: rotate(360deg); } }",
+    "defaults": {
+      "color": "#4f46e5",
+      "size": 160,
+      "speed": 1
+    }
+  },
+  {
+    "id": "tw-conic-spinner",
+    "name": "Tailwind Conic Spinner",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "conic",
+      "gradient",
+      "spinner",
+      "mask"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true,
+      "singleElement": true,
+      "popular": true
+    },
+    "searchText": "tw-conic-spinner tailwind conic spinner tailwind darma-tailwind-pack darma tailwind pack tailwind conic gradient spinner mask html css react tailwind cssonly customizable tailwind singleelement popular",
+    "previewHtml": "<span class=\"darma-loader-tw-conic-spinner\" aria-label=\"Loading\"></span>",
+    "previewCss": ".darma-loader-tw-conic-spinner { display: inline-block; width: var(--loader-size, 56px); height: var(--loader-size, 56px); border-radius: 9999px; background: conic-gradient(from 0deg, transparent 0deg, var(--loader-color, #3b82f6) 320deg, transparent 360deg); mask: radial-gradient(farthest-side, transparent 62%, #000 63%); -webkit-mask: radial-gradient(farthest-side, transparent 62%, #000 63%); animation: darma-loader-tw-conic-spinner-twSpin var(--loader-speed, 1s) linear infinite; }\n@keyframes darma-loader-tw-conic-spinner-twSpin { to { transform: rotate(360deg); } }",
+    "defaults": {
+      "color": "#3b82f6",
+      "size": 56,
+      "speed": 1
+    }
+  },
+  {
+    "id": "tw-dual-ring",
+    "name": "Tailwind Dual Ring",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "dual",
+      "ring",
+      "counter",
+      "spinner"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true,
+      "singleElement": true,
+      "popular": true
+    },
+    "searchText": "tw-dual-ring tailwind dual ring tailwind darma-tailwind-pack darma tailwind pack tailwind dual ring counter spinner html css react tailwind cssonly customizable tailwind singleelement popular",
+    "previewHtml": "<span class=\"darma-loader-tw-dual-ring\" aria-label=\"Loading\"></span>",
+    "previewCss": ".darma-loader-tw-dual-ring { position: relative; display: inline-block; width: var(--loader-size, 60px); height: var(--loader-size, 60px); }\n.darma-loader-tw-dual-ring::before, .darma-loader-tw-dual-ring::after { content: ''; position: absolute; border-radius: 9999px; border: calc(var(--loader-size, 60px) * .07) solid transparent; }\n.darma-loader-tw-dual-ring::before { inset: 0; border-top-color: var(--loader-color, #6366f1); border-bottom-color: var(--loader-color, #6366f1); animation: darma-loader-tw-dual-ring-twSpin var(--loader-speed, 1s) linear infinite; }\n.darma-loader-tw-dual-ring::after { inset: 24%; border-left-color: var(--loader-secondary-color, #f43f5e); border-right-color: var(--loader-secondary-color, #f43f5e); animation: darma-loader-tw-dual-ring-twSpinBack calc(var(--loader-speed, 1s) * .8) linear infinite; }\n@keyframes darma-loader-tw-dual-ring-twSpin { to { transform: rotate(360deg); } }\n@keyframes darma-loader-tw-dual-ring-twSpinBack { to { transform: rotate(-360deg); } }",
+    "defaults": {
+      "color": "#6366f1",
+      "secondaryColor": "#f43f5e",
+      "size": 60,
+      "speed": 1
+    }
+  },
+  {
+    "id": "tw-equalizer",
+    "name": "Tailwind Equalizer",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "equalizer",
+      "audio",
+      "bars",
+      "scale"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true,
+      "popular": true
+    },
+    "searchText": "tw-equalizer tailwind equalizer tailwind darma-tailwind-pack darma tailwind pack tailwind equalizer audio bars scale html css react tailwind cssonly customizable tailwind popular",
+    "previewHtml": "<div class=\"darma-loader-tw-equalizer\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-tw-equalizer { display: inline-flex; align-items: center; justify-content: space-between; width: var(--loader-size, 64px); height: calc(var(--loader-size, 64px) * .6); }\n.darma-loader-tw-equalizer span { width: calc(var(--loader-size, 64px) * .12); height: 100%; border-radius: 9999px; background: linear-gradient(to top, var(--loader-color, #d946ef), var(--loader-secondary-color, #6366f1)); animation: darma-loader-tw-equalizer-twEq calc(var(--loader-speed, 1s) * 1.1) ease-in-out infinite; }\n.darma-loader-tw-equalizer span:nth-child(2) { animation-delay: calc(var(--loader-speed, 1s) * .12); }\n.darma-loader-tw-equalizer span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * .24); }\n.darma-loader-tw-equalizer span:nth-child(4) { animation-delay: calc(var(--loader-speed, 1s) * .36); }\n.darma-loader-tw-equalizer span:nth-child(5) { animation-delay: calc(var(--loader-speed, 1s) * .48); }\n@keyframes darma-loader-tw-equalizer-twEq { 0%, 100% { transform: scaleY(.25); } 50% { transform: scaleY(1); } }",
+    "defaults": {
+      "color": "#d946ef",
+      "secondaryColor": "#6366f1",
+      "size": 64,
+      "speed": 1
+    }
+  },
+  {
+    "id": "tw-progress-indeterminate",
+    "name": "Tailwind Indeterminate Bar",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "progress",
+      "indeterminate",
+      "bar",
+      "track"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true,
+      "popular": true
+    },
+    "searchText": "tw-progress-indeterminate tailwind indeterminate bar tailwind darma-tailwind-pack darma tailwind pack tailwind progress indeterminate bar track html css react tailwind cssonly customizable tailwind popular",
+    "previewHtml": "<div class=\"darma-loader-tw-progress-indeterminate\" aria-label=\"Loading\"><span></span></div>",
+    "previewCss": ".darma-loader-tw-progress-indeterminate { position: relative; overflow: hidden; width: var(--loader-size, 180px); height: calc(var(--loader-size, 180px) * .06); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color, #0ea5e9) 18%, transparent); }\n.darma-loader-tw-progress-indeterminate span { position: absolute; top: 0; bottom: 0; left: 0; width: 40%; border-radius: 9999px; background: var(--loader-color, #0ea5e9); animation: darma-loader-tw-progress-indeterminate-twSlide calc(var(--loader-speed, 1s) * 1.4) ease-in-out infinite; }\n@keyframes darma-loader-tw-progress-indeterminate-twSlide { 0% { transform: translateX(-110%); } 100% { transform: translateX(280%); } }",
+    "defaults": {
+      "color": "#0ea5e9",
+      "size": 180,
+      "speed": 1
+    }
+  },
+  {
+    "id": "tw-ping-halo",
+    "name": "Tailwind Ping Halo",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "ping",
+      "halo",
+      "ripple",
+      "dot"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true,
+      "popular": true
+    },
+    "searchText": "tw-ping-halo tailwind ping halo tailwind darma-tailwind-pack darma tailwind pack tailwind ping halo ripple dot html css react tailwind cssonly customizable tailwind popular",
+    "previewHtml": "<span class=\"darma-loader-tw-ping-halo\" aria-label=\"Loading\"><span class=\"darma-loader-tw-ping-halo__halo\"></span></span>",
+    "previewCss": ".darma-loader-tw-ping-halo { position: relative; display: inline-flex; align-items: center; justify-content: center; width: var(--loader-size, 48px); height: var(--loader-size, 48px); }\n.darma-loader-tw-ping-halo .darma-loader-tw-ping-halo__halo { position: absolute; inset: 0; border-radius: 9999px; background: var(--loader-color, #0ea5e9); opacity: .75; animation: darma-loader-tw-ping-halo-twPing calc(var(--loader-speed, 1s) * 1.2) cubic-bezier(0, 0, .2, 1) infinite; }\n.darma-loader-tw-ping-halo::after { content: ''; position: relative; width: 56%; height: 56%; border-radius: 9999px; background: var(--loader-color, #0ea5e9); }\n@keyframes darma-loader-tw-ping-halo-twPing { 70%, 100% { transform: scale(2.1); opacity: 0; } }",
+    "defaults": {
+      "color": "#0ea5e9",
+      "size": 48,
+      "speed": 1
+    }
+  },
+  {
     "id": "tailwind-pulse",
     "name": "Tailwind Pulse",
     "category": "tailwind",
@@ -3747,6 +3982,106 @@
     "defaults": {
       "color": "#6366f1",
       "size": 48,
+      "speed": 1
+    }
+  },
+  {
+    "id": "tw-skeleton-card",
+    "name": "Tailwind Skeleton Card",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "skeleton",
+      "card",
+      "placeholder",
+      "pulse"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true,
+      "popular": true
+    },
+    "searchText": "tw-skeleton-card tailwind skeleton card tailwind darma-tailwind-pack darma tailwind pack tailwind skeleton card placeholder pulse html css react tailwind cssonly customizable tailwind popular",
+    "previewHtml": "<div class=\"darma-loader-tw-skeleton-card\" aria-label=\"Loading\"><span class=\"darma-loader-tw-skeleton-card__thumb\"></span><span class=\"darma-loader-tw-skeleton-card__line\"></span><span class=\"darma-loader-tw-skeleton-card__line darma-loader-tw-skeleton-card__short\"></span></div>",
+    "previewCss": ".darma-loader-tw-skeleton-card { display: flex; flex-direction: column; gap: calc(var(--loader-size, 140px) * .06); width: var(--loader-size, 140px); padding: calc(var(--loader-size, 140px) * .07); border-radius: calc(var(--loader-size, 140px) * .1); background: color-mix(in srgb, var(--loader-color, #64748b) 10%, transparent); box-sizing: border-box; animation: darma-loader-tw-skeleton-card-twPulse calc(var(--loader-speed, 1s) * 1.6) cubic-bezier(.4, 0, .6, 1) infinite; }\n.darma-loader-tw-skeleton-card .darma-loader-tw-skeleton-card__thumb { height: calc(var(--loader-size, 140px) * .38); border-radius: calc(var(--loader-size, 140px) * .07); background: color-mix(in srgb, var(--loader-color, #64748b) 38%, transparent); }\n.darma-loader-tw-skeleton-card .darma-loader-tw-skeleton-card__line { height: calc(var(--loader-size, 140px) * .07); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color, #64748b) 26%, transparent); }\n.darma-loader-tw-skeleton-card .darma-loader-tw-skeleton-card__line.darma-loader-tw-skeleton-card__short { width: 60%; }\n@keyframes darma-loader-tw-skeleton-card-twPulse { 50% { opacity: .45; } }",
+    "defaults": {
+      "color": "#64748b",
+      "size": 140,
+      "speed": 1
+    }
+  },
+  {
+    "id": "tw-spin-ring",
+    "name": "Tailwind Spin Ring",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "spin",
+      "ring",
+      "border",
+      "utility"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true,
+      "singleElement": true,
+      "popular": true
+    },
+    "searchText": "tw-spin-ring tailwind spin ring tailwind darma-tailwind-pack darma tailwind pack tailwind spin ring border utility html css react tailwind cssonly customizable tailwind singleelement popular",
+    "previewHtml": "<span class=\"darma-loader-tw-spin-ring\" aria-label=\"Loading\"></span>",
+    "previewCss": ".darma-loader-tw-spin-ring { display: inline-block; width: var(--loader-size, 56px); height: var(--loader-size, 56px); border-radius: 9999px; border: calc(var(--loader-size, 56px) * .09) solid color-mix(in srgb, var(--loader-color, #6366f1) 18%, transparent); border-top-color: var(--loader-color, #6366f1); animation: darma-loader-tw-spin-ring-twSpin var(--loader-speed, 1s) linear infinite; }\n@keyframes darma-loader-tw-spin-ring-twSpin { to { transform: rotate(360deg); } }",
+    "defaults": {
+      "color": "#6366f1",
+      "size": 56,
+      "speed": 1
+    }
+  },
+  {
+    "id": "tw-typing-dots",
+    "name": "Tailwind Typing Bubble",
+    "category": "tailwind",
+    "sourceId": "darma-tailwind-pack",
+    "tags": [
+      "tailwind",
+      "typing",
+      "chat",
+      "bubble",
+      "dots"
+    ],
+    "formats": [
+      "html",
+      "css",
+      "react",
+      "tailwind"
+    ],
+    "flags": {
+      "cssOnly": true,
+      "customizable": true,
+      "tailwind": true,
+      "popular": true
+    },
+    "searchText": "tw-typing-dots tailwind typing bubble tailwind darma-tailwind-pack darma tailwind pack tailwind typing chat bubble dots html css react tailwind cssonly customizable tailwind popular",
+    "previewHtml": "<div class=\"darma-loader-tw-typing-dots\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+    "previewCss": ".darma-loader-tw-typing-dots { display: inline-flex; align-items: center; gap: calc(var(--loader-size, 90px) * .07); padding: calc(var(--loader-size, 90px) * .1) calc(var(--loader-size, 90px) * .13); border-radius: calc(var(--loader-size, 90px) * .22) calc(var(--loader-size, 90px) * .22) calc(var(--loader-size, 90px) * .22) calc(var(--loader-size, 90px) * .05); background: color-mix(in srgb, var(--loader-color, #14b8a6) 16%, transparent); }\n.darma-loader-tw-typing-dots span { width: calc(var(--loader-size, 90px) * .1); height: calc(var(--loader-size, 90px) * .1); border-radius: 9999px; background: var(--loader-color, #14b8a6); animation: darma-loader-tw-typing-dots-twBlink calc(var(--loader-speed, 1s) * 1.2) ease-in-out infinite; }\n.darma-loader-tw-typing-dots span:nth-child(2) { animation-delay: calc(var(--loader-speed, 1s) * .2); }\n.darma-loader-tw-typing-dots span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * .4); }\n@keyframes darma-loader-tw-typing-dots-twBlink { 0%, 100% { opacity: .3; transform: translateY(0); } 40% { opacity: 1; transform: translateY(-28%); } }",
+    "defaults": {
+      "color": "#14b8a6",
+      "size": 90,
       "speed": 1
     }
   }

@@ -1,0 +1,50 @@
+{
+  "id": "tw-shimmer-line",
+  "name": "Tailwind Shimmer Line",
+  "category": "tailwind",
+  "sourceId": "darma-tailwind-pack",
+  "tags": [
+    "tailwind",
+    "shimmer",
+    "sweep",
+    "line",
+    "placeholder"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react",
+    "tailwind"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "searchText": "tw-shimmer-line tailwind shimmer line tailwind darma-tailwind-pack darma tailwind pack tailwind shimmer sweep line placeholder html css react tailwind cssonly customizable tailwind",
+  "previewHtml": "<div class=\"darma-loader-tw-shimmer-line\" aria-label=\"Loading\"><span></span></div>",
+  "previewCss": ".darma-loader-tw-shimmer-line { width: var(--loader-size, 180px); height: calc(var(--loader-size, 180px) * .12); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color, #64748b) 16%, transparent); overflow: hidden; }\n.darma-loader-tw-shimmer-line span { display: block; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--loader-color, #64748b) 70%, transparent), transparent); animation: darma-loader-tw-shimmer-line-twShimmer calc(var(--loader-speed, 1s) * 1.5) ease-in-out infinite; }\n@keyframes darma-loader-tw-shimmer-line-twShimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }",
+  "defaults": {
+    "color": "#64748b",
+    "size": 180,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-tw-shimmer-line\" aria-label=\"Loading\"><span></span></div>",
+    "css": ".darma-loader-tw-shimmer-line { width: var(--loader-size, 180px); height: calc(var(--loader-size, 180px) * .12); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color, #64748b) 16%, transparent); overflow: hidden; }\n.darma-loader-tw-shimmer-line span { display: block; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--loader-color, #64748b) 70%, transparent), transparent); animation: darma-loader-tw-shimmer-line-twShimmer calc(var(--loader-speed, 1s) * 1.5) ease-in-out infinite; }\n@keyframes darma-loader-tw-shimmer-line-twShimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }",
+    "react": "export default function TwShimmerLineLoader() {\n  return (\n    <div className=\"darma-loader-tw-shimmer-line\" aria-label=\"Loading\"><span></span></div>\n  );\n}\n",
+    "tailwind": "{/* keyframes twShimmer: from { translateX(-100%) } to { translateX(100%) } */}\n<div className=\"h-5 w-44 overflow-hidden rounded-full bg-slate-500/15\">\n  <span className=\"block h-full w-full animate-[twShimmer_1.5s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-slate-500/70 to-transparent\" />\n</div>"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

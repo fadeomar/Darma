@@ -1,0 +1,35 @@
+{
+  "id": "tw-caret-blink",
+  "name": "Tailwind Caret Blink",
+  "category": "tailwind",
+  "tags": [
+    "tailwind",
+    "caret",
+    "cursor",
+    "typing",
+    "terminal"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span class=\"text\"></span><span class=\"caret\"></span></div>",
+  "css": ".loader { display: inline-flex; align-items: center; gap: calc(var(--loader-size) * .03); width: var(--loader-size); }\n.loader .text { height: calc(var(--loader-size) * .11); border-radius: calc(var(--loader-size) * .03); background: color-mix(in srgb, var(--loader-color) 32%, transparent); animation: twType calc(var(--loader-speed) * 2.4) steps(14) infinite; }\n.loader .caret { flex: none; width: calc(var(--loader-size) * .03); height: calc(var(--loader-size) * .17); background: var(--loader-color); animation: twCaret calc(var(--loader-speed) * .8) steps(1) infinite; }\n@keyframes twType { 0% { width: 6%; } 60%, 100% { width: 78%; } }\n@keyframes twCaret { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }",
+  "tailwind": "{/* keyframes twType: width 6% -> 78% (steps), twCaret: opacity 1/0 (steps(1)) */}\n<div className=\"inline-flex w-44 items-center gap-1\">\n  <span className=\"h-5 animate-[twType_2.4s_steps(14)_infinite] rounded bg-green-500/30\" />\n  <span className=\"h-7 w-1.5 shrink-0 animate-[twCaret_0.8s_steps(1)_infinite] bg-green-500\" />\n</div>",
+  "defaults": {
+    "color": "#22c55e",
+    "size": 170,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

@@ -3,12 +3,14 @@ import type {
   BackgroundShape,
   BlendMode,
   GradientStyle,
+  ForegroundMode,
   PreviewMode,
 } from "@/types/animatedBackgroundTypes";
 import { generateParticleData } from "./generateParticleData";
 import { generateCss } from "./generateCss";
 import { generateHtml } from "./generateHtml";
 import { presetToState, presets } from "./presets";
+import { getAnimatedBackgroundReadability } from "./readability";
 
 export const ANIMATED_BACKGROUND_PROJECT_TOOL = "darma-animated-background-generator" as const;
 export const ANIMATED_BACKGROUND_PROJECT_VERSION = 1 as const;
@@ -16,11 +18,23 @@ export const ANIMATED_BACKGROUND_IMPORT_MAX_BYTES = 1024 * 1024;
 
 export type AnimatedBackgroundAuditSeverity = "error" | "warning" | "info" | "pass";
 
+export type AnimatedBackgroundFixId =
+  | "normalize-size-range"
+  | "reduce-density"
+  | "reduce-large-blur"
+  | "reduce-glow"
+  | "reduce-render-cost"
+  | "reduce-motion"
+  | "enable-content-preview"
+  | "enable-readability-protection"
+  | "use-auto-foreground";
+
 export type AnimatedBackgroundAuditCheck = {
   id: string;
   title: string;
   message: string;
   severity: AnimatedBackgroundAuditSeverity;
+  fixId?: AnimatedBackgroundFixId;
 };
 
 export type AnimatedBackgroundAuditCounts = Record<AnimatedBackgroundAuditSeverity, number>;
@@ -29,6 +43,8 @@ export type AnimatedBackgroundSummaryCard = {
   label: string;
   value: string;
   detail: string;
+  targetId?: string;
+  actionLabel?: string;
 };
 
 export type AnimatedBackgroundMetrics = {
@@ -43,6 +59,9 @@ export type AnimatedBackgroundMetrics = {
   warningCount: number;
   infoCount: number;
   passCount: number;
+  contrastRatio: number;
+  foregroundTone: string;
+  readabilityProtection: boolean;
 };
 
 export type AnimatedBackgroundProject = {
@@ -57,6 +76,7 @@ const SHAPES: readonly BackgroundShape[] = ["circle", "soft-square", "diamond"];
 const BLEND_MODES: readonly BlendMode[] = ["screen", "plus-lighter", "overlay", "normal", "multiply"];
 const GRADIENT_STYLES: readonly GradientStyle[] = ["mesh", "linear", "radial"];
 const PREVIEW_MODES: readonly PreviewMode[] = ["hero", "cards", "dashboard", "empty"];
+const FOREGROUND_MODES: readonly ForegroundMode[] = ["auto", "light", "dark"];
 const HEX_COLOR = /^#[0-9a-f]{6}$/i;
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -98,20 +118,22 @@ export function normalizeAnimatedBackgroundState(value: unknown): AnimatedBackgr
   if (!isRecord(value)) throw new Error("Project state must be an object.");
 
   const colors = Array.isArray(value.colors)
-    ? value.colors.slice(0, 4).map((color, index) => cleanColor(color, DEFAULT_STATE.colors[index] ?? DEFAULT_STATE.colors[0]))
+    ? value.colors.slice(0, 6).map((color, index) => cleanColor(color, DEFAULT_STATE.colors[index % DEFAULT_STATE.colors.length] ?? DEFAULT_STATE.colors[0]))
     : [...DEFAULT_STATE.colors];
 
-  while (colors.length < 4) colors.push(DEFAULT_STATE.colors[colors.length] ?? DEFAULT_STATE.colors[0]);
+  while (colors.length < 2) colors.push(DEFAULT_STATE.colors[colors.length % DEFAULT_STATE.colors.length] ?? DEFAULT_STATE.colors[0]);
 
   const minSize = cleanNumber(value.minSize, DEFAULT_STATE.minSize, 4, 320, true);
   const maxSize = cleanNumber(value.maxSize, DEFAULT_STATE.maxSize, minSize + 4, 720, true);
+
+  const shape = cleanChoice(value.shape, SHAPES, DEFAULT_STATE.shape);
 
   return {
     presetId: cleanText(value.presetId, DEFAULT_STATE.presetId, 80),
     seed: cleanNumber(value.seed, DEFAULT_STATE.seed, 1, 2_147_483_646, true),
     colors,
     background: cleanColor(value.background, DEFAULT_STATE.background),
-    shape: cleanChoice(value.shape, SHAPES, DEFAULT_STATE.shape),
+    shape,
     particleCount: cleanNumber(value.particleCount, DEFAULT_STATE.particleCount, 1, 44, true),
     minSize,
     maxSize,
@@ -121,8 +143,10 @@ export function normalizeAnimatedBackgroundState(value: unknown): AnimatedBackgr
     intensity: cleanNumber(value.intensity, DEFAULT_STATE.intensity, 0.1, 1.4),
     glow: cleanNumber(value.glow, DEFAULT_STATE.glow, 0, 110),
     blendMode: cleanChoice(value.blendMode, BLEND_MODES, DEFAULT_STATE.blendMode),
-    borderRadius: cleanNumber(value.borderRadius, DEFAULT_STATE.borderRadius, 0, 999, true),
+    borderRadius: shape === "circle" ? 999 : cleanNumber(value.borderRadius, Math.min(50, DEFAULT_STATE.borderRadius), 0, 50, true),
     gradientStyle: cleanChoice(value.gradientStyle, GRADIENT_STYLES, DEFAULT_STATE.gradientStyle),
+    foregroundMode: cleanChoice(value.foregroundMode, FOREGROUND_MODES, DEFAULT_STATE.foregroundMode),
+    readabilityProtection: cleanBoolean(value.readabilityProtection, DEFAULT_STATE.readabilityProtection),
     isPaused: false,
     showContent: cleanBoolean(value.showContent, true),
     previewMode: cleanChoice(value.previewMode, PREVIEW_MODES, DEFAULT_STATE.previewMode),
@@ -177,7 +201,6 @@ export function getAnimatedBackgroundPerformanceScore(state: AnimatedBackgroundS
 }
 
 export function getAnimatedBackgroundMotionScore(state: AnimatedBackgroundState): number {
-  if (state.isPaused) return 0;
   return Math.round(Math.min(100, state.speed * 34 + state.intensity * 38 + state.particleCount * 0.55));
 }
 
@@ -202,6 +225,7 @@ export function buildAnimatedBackgroundAudit(
   const performanceScore = getAnimatedBackgroundPerformanceScore(state);
   const motionScore = getAnimatedBackgroundMotionScore(state);
   const cssBytes = byteLength(css);
+  const readability = getAnimatedBackgroundReadability(state);
 
   if (!HEX_COLOR.test(state.background) || state.colors.some((color) => !HEX_COLOR.test(color))) {
     checks.push({ id: "colors-invalid", title: "Color values", message: "Use six-digit hex colors before exporting this background.", severity: "error" });
@@ -210,13 +234,13 @@ export function buildAnimatedBackgroundAudit(
   }
 
   if (state.minSize >= state.maxSize) {
-    checks.push({ id: "size-order", title: "Particle size range", message: "Maximum particle size must be greater than the minimum size.", severity: "error" });
+    checks.push({ id: "size-order", title: "Particle size range", message: "Maximum particle size must be greater than the minimum size.", severity: "error", fixId: "normalize-size-range" });
   } else {
     checks.push({ id: "size-order", title: "Particle size range", message: `Particles range from ${state.minSize}px to ${state.maxSize}px.`, severity: "pass" });
   }
 
   if (state.particleCount > 34) {
-    checks.push({ id: "particle-density", title: "Particle density", message: `${state.particleCount} animated elements can be expensive on low-end mobile devices.`, severity: "warning" });
+    checks.push({ id: "particle-density", title: "Particle density", message: `${state.particleCount} animated elements can be expensive on low-end mobile devices.`, severity: "warning", fixId: "reduce-density" });
   } else if (state.particleCount > 24) {
     checks.push({ id: "particle-density", title: "Particle density", message: `${state.particleCount} elements are reasonable for a hero but should be tested on mobile.`, severity: "info" });
   } else {
@@ -224,15 +248,15 @@ export function buildAnimatedBackgroundAudit(
   }
 
   if (state.maxSize > 620 && state.blur > 90) {
-    checks.push({ id: "large-blur", title: "Large blurred layers", message: "Very large elements combined with heavy blur can trigger expensive repaints.", severity: "warning" });
+    checks.push({ id: "large-blur", title: "Large blurred layers", message: "Very large elements combined with heavy blur can trigger expensive repaints.", severity: "warning", fixId: "reduce-large-blur" });
   }
 
   if (state.glow > 80) {
-    checks.push({ id: "heavy-glow", title: "Glow intensity", message: "Heavy drop-shadow glow can be expensive when many elements overlap.", severity: "warning" });
+    checks.push({ id: "heavy-glow", title: "Glow intensity", message: "Heavy drop-shadow glow can be expensive when many elements overlap.", severity: "warning", fixId: "reduce-glow" });
   }
 
   if (performanceScore >= 85) {
-    checks.push({ id: "performance-score", title: "Performance budget", message: `Estimated visual cost is ${performanceScore}/100. Limit this design to a short section and test on a low-end phone.`, severity: "warning" });
+    checks.push({ id: "performance-score", title: "Performance budget", message: `Estimated visual cost is ${performanceScore}/100. Limit this design to a short section and test on a low-end phone.`, severity: "warning", fixId: "reduce-render-cost" });
   } else if (performanceScore >= 60) {
     checks.push({ id: "performance-score", title: "Performance budget", message: `Estimated visual cost is ${performanceScore}/100. Suitable for a hero after device testing.`, severity: "info" });
   } else {
@@ -240,7 +264,7 @@ export function buildAnimatedBackgroundAudit(
   }
 
   if (motionScore >= 78) {
-    checks.push({ id: "motion-level", title: "Motion intensity", message: `Motion score is ${motionScore}/100. Verify readability and avoid placing dense copy directly over the busiest area.`, severity: "warning" });
+    checks.push({ id: "motion-level", title: "Motion intensity", message: `Motion score is ${motionScore}/100. Verify readability and avoid placing dense copy directly over the busiest area.`, severity: "warning", fixId: "reduce-motion" });
   } else if (motionScore >= 52) {
     checks.push({ id: "motion-level", title: "Motion intensity", message: `Motion score is ${motionScore}/100. Motion is visible but controlled.`, severity: "info" });
   } else {
@@ -258,9 +282,51 @@ export function buildAnimatedBackgroundAudit(
   }
 
   if (!state.showContent || state.previewMode === "empty") {
-    checks.push({ id: "content-preview", title: "Readability preview", message: "Preview the background behind real copy and controls before shipping.", severity: "warning" });
+    checks.push({ id: "content-preview", title: "Readability preview", message: "Preview the background behind real copy and controls before shipping.", severity: "warning", fixId: "enable-content-preview" });
   } else {
     checks.push({ id: "content-preview", title: "Readability preview", message: `The ${state.previewMode} content preview is enabled for visual review.`, severity: "pass" });
+  }
+
+  if (readability.meetsNormalTextAA) {
+    checks.push({
+      id: "contrast-estimate",
+      title: "Estimated text contrast",
+      message: `${readability.resolvedTone === "light" ? "Light" : "Dark"} foreground reaches an estimated minimum ${readability.protectedMinContrast.toFixed(2)}:1 contrast across ${readability.sampleCount} generated color samples (${readability.status}).`,
+      severity: "pass",
+    });
+  } else {
+    checks.push({
+      id: "contrast-estimate",
+      title: "Estimated text contrast",
+      message: `${readability.resolvedTone === "light" ? "Light" : "Dark"} foreground reaches only ${readability.protectedMinContrast.toFixed(2)}:1 across generated color samples. Normal-size text should reach at least 4.5:1.`,
+      severity: readability.protectedMinContrast < 3 ? "error" : "warning",
+      fixId: state.readabilityProtection ? "use-auto-foreground" : "enable-readability-protection",
+    });
+  }
+
+  if (readability.needsProtection && readability.protectionApplied) {
+    checks.push({
+      id: "readability-protection",
+      title: "Readability protection",
+      message: `A ${Math.round(readability.scrimOpacity * 100)}% ${readability.resolvedTone === "light" ? "dark" : "light"} scrim raises estimated contrast from ${readability.rawMinContrast.toFixed(2)}:1 to ${readability.protectedMinContrast.toFixed(2)}:1.`,
+      severity: "pass",
+    });
+  } else if (readability.needsProtection) {
+    checks.push({
+      id: "readability-protection",
+      title: "Readability protection",
+      message: `The selected foreground falls to ${readability.rawMinContrast.toFixed(2)}:1 on the busiest estimated color sample. Enable the protective scrim before export.`,
+      severity: "warning",
+      fixId: "enable-readability-protection",
+    });
+  } else {
+    checks.push({ id: "readability-protection", title: "Readability protection", message: "The selected foreground meets the estimated normal-text contrast target without a protective scrim.", severity: "pass" });
+  }
+
+  if (state.foregroundMode === "auto") {
+    checks.push({ id: "foreground-mode", title: "Foreground selection", message: `Auto selected ${readability.resolvedTone} content for the strongest conservative contrast result.`, severity: "pass" });
+  } else if (readability.alternateMinContrast >= readability.rawMinContrast + 0.75) {
+    checks.push({ id: "foreground-mode", title: "Foreground selection", message: `The alternate foreground has a stronger estimated minimum contrast (${readability.alternateMinContrast.toFixed(2)}:1).`, severity: "info", fixId: "use-auto-foreground" });
   }
 
   if (state.isPaused) {
@@ -274,7 +340,7 @@ export function buildAnimatedBackgroundAudit(
     severity: cssBytes > 55_000 ? "warning" : "info",
   });
 
-  checks.push({ id: "manual-device-test", title: "Device verification", message: "Test the final section on low-end mobile hardware and with browser reduced-motion settings enabled.", severity: "info" });
+  checks.push({ id: "manual-device-test", title: "Device verification", message: "Test the final section on low-end mobile hardware, with real content, and with browser reduced-motion settings enabled.", severity: "info" });
 
   return checks;
 }
@@ -293,6 +359,7 @@ export function buildAnimatedBackgroundMetrics(
   const counts = summarizeAnimatedBackgroundAudit(checks);
   const cssBytes = byteLength(css);
   const htmlBytes = byteLength(html);
+  const readability = getAnimatedBackgroundReadability(state);
 
   return {
     particleCount: state.particleCount,
@@ -306,6 +373,9 @@ export function buildAnimatedBackgroundMetrics(
     warningCount: counts.warning,
     infoCount: counts.info,
     passCount: counts.pass,
+    contrastRatio: readability.protectedMinContrast,
+    foregroundTone: readability.resolvedTone,
+    readabilityProtection: readability.protectionApplied,
   };
 }
 
@@ -318,11 +388,32 @@ export function buildAnimatedBackgroundSummary(
   const metrics = buildAnimatedBackgroundMetrics(state, css, html, checks);
   const readiness = metrics.errorCount ? "Blocked" : metrics.warningCount ? "Review" : "Ready";
 
+  const motionLevel = metrics.motionScore >= 78 ? "High" : metrics.motionScore >= 52 ? "Moderate" : "Low";
+  const renderLevel = metrics.performanceScore >= 85 ? "High" : metrics.performanceScore >= 60 ? "Moderate" : "Low";
+
   return [
-    { label: "Motion", value: `${metrics.motionScore}/100`, detail: state.isPaused ? "Preview paused; export still runs" : `${state.speed.toFixed(2)}x speed · ${state.intensity.toFixed(2)} intensity` },
-    { label: "Performance", value: `${metrics.performanceScore}/100`, detail: `${state.particleCount} elements · ${state.blur}px blur` },
-    { label: "Payload", value: formatBytes(metrics.totalBytes), detail: `${formatBytes(metrics.cssBytes)} CSS · ${formatBytes(metrics.htmlBytes)} HTML` },
-    { label: "Readiness", value: readiness, detail: metrics.errorCount ? `${metrics.errorCount} blocking error${metrics.errorCount === 1 ? "" : "s"}` : metrics.warningCount ? `${metrics.warningCount} warning${metrics.warningCount === 1 ? "" : "s"}` : `${metrics.passCount} checks passed` },
+    {
+      label: "Motion intensity",
+      value: motionLevel,
+      detail: `${metrics.motionScore}/100 · ${state.speed.toFixed(2)}x speed${state.isPaused ? " · preview paused" : ""}`,
+    },
+    {
+      label: "Render cost",
+      value: renderLevel,
+      detail: `${metrics.performanceScore}/100 cost · ${state.particleCount} elements · ${state.blur}px blur`,
+    },
+    {
+      label: "Export size",
+      value: formatBytes(metrics.totalBytes),
+      detail: `${formatBytes(metrics.cssBytes)} CSS · ${formatBytes(metrics.htmlBytes)} HTML`,
+    },
+    {
+      label: "Production status",
+      value: readiness,
+      detail: `${metrics.contrastRatio.toFixed(2)}:1 contrast · ${metrics.errorCount ? `${metrics.errorCount} blocking error${metrics.errorCount === 1 ? "" : "s"}` : metrics.warningCount ? `${metrics.warningCount} warning${metrics.warningCount === 1 ? "" : "s"}` : `${metrics.passCount} checks passed`}`,
+      targetId: "animated-background-production",
+      actionLabel: "Review checks",
+    },
   ];
 }
 
@@ -375,13 +466,14 @@ export function buildAnimatedBackgroundTokens(state: AnimatedBackgroundState): s
       size: { min: state.minSize, max: state.maxSize },
       motion: { speed: state.speed, intensity: state.intensity, reducedMotion: true },
       effects: { blur: state.blur, glow: state.glow, opacity: state.opacity, blendMode: state.blendMode },
+      readability: { foregroundMode: state.foregroundMode, protection: state.readabilityProtection, analysis: getAnimatedBackgroundReadability(state) },
     },
     null,
     2,
   );
 }
 
-function escapeCsv(value: string | number): string {
+function escapeCsv(value: string | number | boolean): string {
   const text = String(value);
   const safe = /^[=+\-@]/.test(text) ? `'${text}` : text;
   return `"${safe.replace(/"/g, '""')}"`;
@@ -423,12 +515,16 @@ export function buildAnimatedBackgroundMarkdownReport(
 - Blur: ${state.blur}px
 - Glow: ${state.glow}px
 - Blend mode: \`${state.blendMode}\`
+- Foreground mode: \`${state.foregroundMode}\`
+- Readability protection: ${state.readabilityProtection ? "enabled" : "disabled"}
 
 ## Metrics
 
 - Readiness score: ${metrics.readinessScore}/100
 - Performance score: ${metrics.performanceScore}/100
 - Motion score: ${metrics.motionScore}/100
+- Estimated minimum contrast: ${metrics.contrastRatio.toFixed(2)}:1
+- Resolved foreground: ${metrics.foregroundTone}
 - CSS size: ${formatBytes(metrics.cssBytes)}
 - HTML size: ${formatBytes(metrics.htmlBytes)}
 

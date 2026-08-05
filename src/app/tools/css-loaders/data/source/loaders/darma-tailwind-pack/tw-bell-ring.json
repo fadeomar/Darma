@@ -1,0 +1,37 @@
+{
+  "id": "tw-bell-ring",
+  "name": "Tailwind Bell Ring",
+  "category": "tailwind",
+  "tags": [
+    "tailwind",
+    "bell",
+    "notification",
+    "swing",
+    "alert"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span class=\"bell\"></span><span class=\"clapper\"></span></div>",
+  "css": ".loader { position: relative; display: inline-block; width: var(--loader-size); height: var(--loader-size); }\n.loader .bell { position: absolute; left: 16%; top: 12%; width: 68%; height: 60%; border-radius: 50% 50% 12% 12%; background: var(--loader-color); transform-origin: 50% 0; animation: twSwing calc(var(--loader-speed) * 1.2) ease-in-out infinite; }\n.loader .bell::after { content: ''; position: absolute; left: -14%; bottom: -8%; width: 128%; height: 14%; border-radius: 9999px; background: var(--loader-color); }\n.loader .clapper { position: absolute; left: 42%; bottom: 16%; width: 16%; height: 16%; border-radius: 9999px; background: var(--loader-secondary-color); animation: twClap calc(var(--loader-speed) * 1.2) ease-in-out infinite; }\n@keyframes twSwing { 0%, 100% { transform: rotate(-13deg); } 50% { transform: rotate(13deg); } }\n@keyframes twClap { 0%, 100% { transform: translateX(-32%); } 50% { transform: translateX(32%); } }",
+  "tailwind": "{/* keyframes twSwing: rotate(-13deg) <-> rotate(13deg), twClap: translateX(-32%) <-> 32% */}\n<div className=\"relative inline-block h-15 w-15\">\n  <span className=\"absolute left-[16%] top-[12%] h-[60%] w-[68%] origin-top animate-[twSwing_1.2s_ease-in-out_infinite] rounded-t-full bg-amber-500\" />\n  <span className=\"absolute bottom-[16%] left-[42%] h-[16%] w-[16%] animate-[twClap_1.2s_ease-in-out_infinite] rounded-full bg-red-500\" />\n</div>",
+  "defaults": {
+    "color": "#f59e0b",
+    "secondaryColor": "#ef4444",
+    "size": 60,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "secondaryColor": true
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

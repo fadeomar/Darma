@@ -492,26 +492,43 @@
   }
 }
 
-/* Batch 7 production polish: skip link, calmer mobile surfaces, and stronger QA states. */
+/*
+ * Keyboard-only skip link. It is clipped out of the page entirely rather than
+ * pushed out of view with a transform: the old version stayed in the layout,
+ * became visible on plain `:focus` (so a mouse click revealed it instead of
+ * following it), and needed a second click to actually reach the results.
+ * Clipped + `:focus-visible` means pointer users never see it, Tab reveals it
+ * against the sticky header, and Enter activates the anchor on the first press.
+ */
 .game-skip-link {
   position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.game-skip-link:focus-visible {
+  position: fixed;
   left: 1rem;
-  top: 0.75rem;
-  z-index: 50;
-  transform: translateY(-140%);
-  border-radius: var(--radius-full);
-  border: 1px solid var(--color-border-default);
-  background: var(--color-surface-overlay);
+  top: calc(72px + 0.75rem);
+  z-index: calc(var(--z-header) + 5);
+  width: auto;
+  height: auto;
+  margin: 0;
   padding: 0.55rem 0.85rem;
+  overflow: visible;
+  clip-path: none;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-full);
+  background: var(--color-surface-overlay);
   color: var(--color-text-primary);
   font-size: 0.75rem;
   font-weight: 800;
-  box-shadow: var(--shadow-card);
-  transition: transform 160ms ease;
-}
-
-.game-skip-link:focus {
-  transform: translateY(0);
   outline: none;
   box-shadow: var(--focus-ring);
 }
@@ -572,12 +589,6 @@
 
   .game-production-checklist {
     border-radius: var(--radius-lg);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .game-skip-link {
-    transition: none;
   }
 }
 

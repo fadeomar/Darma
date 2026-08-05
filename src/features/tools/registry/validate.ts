@@ -1,5 +1,23 @@
 import type { ToolDefinition } from "../domain/tool";
 
+/**
+ * "Production" reads as internal build vocabulary in a catalog title — every
+ * tool here is production quality, so the word only made titles longer and
+ * pushed the actual task ("Meta Tag Generator") out of the card. Descriptions
+ * are untouched: "production-ready export" is still meaningful there.
+ */
+const FORBIDDEN_TITLE_WORD = /\bproduction\b/i;
+
+export function hasForbiddenToolTitleWord(title: string) {
+  return FORBIDDEN_TITLE_WORD.test(title);
+}
+
+export function findToolTitleIssues(tools: ToolDefinition[]) {
+  return tools
+    .filter((tool) => tool.visibility === "public" && hasForbiddenToolTitleWord(tool.title))
+    .map((tool) => ({ id: tool.id, title: tool.title }));
+}
+
 export function validateToolRegistry(tools: ToolDefinition[]) {
   if (process.env.NODE_ENV === "production") return;
 
@@ -26,6 +44,10 @@ export function validateToolRegistry(tools: ToolDefinition[]) {
 
     if (!tool.relatedTools?.length) {
       console.warn(`[tools] Tool "${tool.id}" is missing relatedTools`);
+    }
+
+    if (tool.visibility === "public" && hasForbiddenToolTitleWord(tool.title)) {
+      console.warn(`[tools] Public tool "${tool.id}" title must not contain "Production": ${tool.title}`);
     }
   }
 

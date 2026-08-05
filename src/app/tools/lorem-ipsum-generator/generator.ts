@@ -549,27 +549,30 @@ export function buildPreviewDocument(html: string, title = "Placeholder content 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>${safeTitle}</title>
   <style>
-    :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: #f4f6fb; color: #172033; }
+    :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: #fffdf8; color: #1d1a17; }
     * { box-sizing: border-box; }
-    body { margin: 0; padding: 28px; line-height: 1.65; }
-    main { max-width: 880px; margin: 0 auto; display: grid; gap: 18px; }
+    body { margin: 0; padding: clamp(20px, 4vw, 38px); line-height: 1.68; background: #fffdf8; color: #1d1a17; }
+    main { max-width: 820px; margin: 0 auto; display: grid; gap: 20px; }
     h1, h2, h3, p { margin-top: 0; }
-    h1 { font-size: clamp(2rem, 6vw, 4rem); line-height: 1.05; letter-spacing: -0.04em; }
-    h2 { margin-top: 24px; font-size: 1.65rem; }
+    h1, h2, h3 { color: #1d1a17; text-wrap: balance; }
+    h1 { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(2rem, 6vw, 4rem); line-height: 1.04; letter-spacing: -0.04em; }
+    h2 { margin-top: 24px; font-family: Georgia, 'Times New Roman', serif; font-size: 1.65rem; line-height: 1.15; }
     h3 { font-size: 1.05rem; }
-    p, li { color: #4a556b; }
+    p, li { color: #5d5750; }
+    p { max-width: 72ch; }
     ul { padding-left: 1.25rem; }
-    .hero, .card, .product-card, .pricing-card, .faq-item, .step, .testimonial { border: 1px solid #d8deea; border-radius: 18px; background: white; padding: 22px; box-shadow: 0 8px 28px rgba(32, 47, 78, .08); }
-    .hero { padding: clamp(28px, 7vw, 64px); }
-    .subtitle, .price { color: #5b5bd6; font-weight: 700; }
+    a { color: inherit; }
+    .hero, .card, .product-card, .pricing-card, .faq-item, .step, .testimonial { border: 1px solid #e1d8cc; border-radius: 18px; background: #fff; padding: 24px; box-shadow: 0 14px 34px rgba(36, 28, 21, .08); }
+    .hero { padding: clamp(30px, 7vw, 66px); background: linear-gradient(135deg, rgba(204, 71, 21, .07), transparent 48%), #fff; }
+    .subtitle, .price { color: #a63b13; font-weight: 750; }
     .cta-group { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
-    .btn-primary, .btn-secondary, .btn { display: inline-flex; border-radius: 999px; padding: 10px 16px; text-decoration: none; font-weight: 700; }
-    .btn-primary, .btn { background: #5b5bd6; color: white; }
-    .btn-secondary { background: #eef0ff; color: #4545b8; }
-    .badge { display: inline-flex; border-radius: 999px; background: #eef0ff; color: #4545b8; padding: 4px 9px; font-size: 12px; font-weight: 700; }
+    .btn-primary, .btn-secondary, .btn { display: inline-flex; align-items: center; min-height: 42px; border-radius: 10px; padding: 10px 16px; text-decoration: none; font-weight: 750; }
+    .btn-primary, .btn { background: #cc4715; color: white; }
+    .btn-secondary { border: 1px solid #e1d8cc; background: #f7f2ea; color: #6d2b12; }
+    .badge { display: inline-flex; border-radius: 999px; background: #fbe9df; color: #8f3210; padding: 5px 10px; font-size: 12px; font-weight: 750; }
     blockquote { margin: 0; }
     footer { display: grid; gap: 2px; margin-top: 16px; }
-    @media (max-width: 520px) { body { padding: 14px; } .hero, .card, .product-card, .pricing-card, .faq-item, .step, .testimonial { padding: 17px; border-radius: 14px; } }
+    @media (max-width: 520px) { body { padding: 16px; } .hero, .card, .product-card, .pricing-card, .faq-item, .step, .testimonial { padding: 18px; border-radius: 14px; } }
   </style>
 </head>
 <body>

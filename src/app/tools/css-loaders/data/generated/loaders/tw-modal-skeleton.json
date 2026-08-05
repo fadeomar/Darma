@@ -1,0 +1,50 @@
+{
+  "id": "tw-modal-skeleton",
+  "name": "Tailwind Modal Skeleton",
+  "category": "tailwind",
+  "sourceId": "darma-tailwind-pack",
+  "tags": [
+    "tailwind",
+    "modal",
+    "dialog",
+    "skeleton",
+    "actions"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react",
+    "tailwind"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "searchText": "tw-modal-skeleton tailwind modal skeleton tailwind darma-tailwind-pack darma tailwind pack tailwind modal dialog skeleton actions html css react tailwind cssonly customizable tailwind",
+  "previewHtml": "<div class=\"darma-loader-tw-modal-skeleton\" aria-label=\"Loading\"><span class=\"darma-loader-tw-modal-skeleton__head\"></span><span class=\"darma-loader-tw-modal-skeleton__body\"></span><span class=\"darma-loader-tw-modal-skeleton__body\"></span><span class=\"darma-loader-tw-modal-skeleton__actions\"><i></i><i></i></span></div>",
+  "previewCss": ".darma-loader-tw-modal-skeleton { display: flex; flex-direction: column; gap: calc(var(--loader-size, 200px) * .04); width: var(--loader-size, 200px); padding: calc(var(--loader-size, 200px) * .06); border-radius: calc(var(--loader-size, 200px) * .07); background: color-mix(in srgb, var(--loader-color, #64748b) 12%, transparent); box-shadow: 0 calc(var(--loader-size, 200px) * .02) calc(var(--loader-size, 200px) * .05) rgba(15, 23, 42, .12); box-sizing: border-box; animation: darma-loader-tw-modal-skeleton-twPulse calc(var(--loader-speed, 1s) * 1.8) cubic-bezier(.4, 0, .6, 1) infinite; }\n.darma-loader-tw-modal-skeleton .darma-loader-tw-modal-skeleton__head { width: 55%; height: calc(var(--loader-size, 200px) * .07); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color, #64748b) 48%, transparent); }\n.darma-loader-tw-modal-skeleton .darma-loader-tw-modal-skeleton__body { height: calc(var(--loader-size, 200px) * .045); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color, #64748b) 26%, transparent); }\n.darma-loader-tw-modal-skeleton .darma-loader-tw-modal-skeleton__actions { display: flex; justify-content: flex-end; gap: calc(var(--loader-size, 200px) * .04); margin-top: calc(var(--loader-size, 200px) * .03); }\n.darma-loader-tw-modal-skeleton .darma-loader-tw-modal-skeleton__actions i { width: 22%; height: calc(var(--loader-size, 200px) * .075); border-radius: calc(var(--loader-size, 200px) * .025); background: color-mix(in srgb, var(--loader-color, #64748b) 38%, transparent); }\n@keyframes darma-loader-tw-modal-skeleton-twPulse { 50% { opacity: .5; } }",
+  "defaults": {
+    "color": "#64748b",
+    "size": 200,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-tw-modal-skeleton\" aria-label=\"Loading\"><span class=\"darma-loader-tw-modal-skeleton__head\"></span><span class=\"darma-loader-tw-modal-skeleton__body\"></span><span class=\"darma-loader-tw-modal-skeleton__body\"></span><span class=\"darma-loader-tw-modal-skeleton__actions\"><i></i><i></i></span></div>",
+    "css": ".darma-loader-tw-modal-skeleton { display: flex; flex-direction: column; gap: calc(var(--loader-size, 200px) * .04); width: var(--loader-size, 200px); padding: calc(var(--loader-size, 200px) * .06); border-radius: calc(var(--loader-size, 200px) * .07); background: color-mix(in srgb, var(--loader-color, #64748b) 12%, transparent); box-shadow: 0 calc(var(--loader-size, 200px) * .02) calc(var(--loader-size, 200px) * .05) rgba(15, 23, 42, .12); box-sizing: border-box; animation: darma-loader-tw-modal-skeleton-twPulse calc(var(--loader-speed, 1s) * 1.8) cubic-bezier(.4, 0, .6, 1) infinite; }\n.darma-loader-tw-modal-skeleton .darma-loader-tw-modal-skeleton__head { width: 55%; height: calc(var(--loader-size, 200px) * .07); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color, #64748b) 48%, transparent); }\n.darma-loader-tw-modal-skeleton .darma-loader-tw-modal-skeleton__body { height: calc(var(--loader-size, 200px) * .045); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color, #64748b) 26%, transparent); }\n.darma-loader-tw-modal-skeleton .darma-loader-tw-modal-skeleton__actions { display: flex; justify-content: flex-end; gap: calc(var(--loader-size, 200px) * .04); margin-top: calc(var(--loader-size, 200px) * .03); }\n.darma-loader-tw-modal-skeleton .darma-loader-tw-modal-skeleton__actions i { width: 22%; height: calc(var(--loader-size, 200px) * .075); border-radius: calc(var(--loader-size, 200px) * .025); background: color-mix(in srgb, var(--loader-color, #64748b) 38%, transparent); }\n@keyframes darma-loader-tw-modal-skeleton-twPulse { 50% { opacity: .5; } }",
+    "react": "export default function TwModalSkeletonLoader() {\n  return (\n    <div className=\"darma-loader-tw-modal-skeleton\" aria-label=\"Loading\"><span className=\"darma-loader-tw-modal-skeleton__head\"></span><span className=\"darma-loader-tw-modal-skeleton__body\"></span><span className=\"darma-loader-tw-modal-skeleton__body\"></span><span className=\"darma-loader-tw-modal-skeleton__actions\"><i></i><i></i></span></div>\n  );\n}\n",
+    "tailwind": "<div className=\"flex w-52 animate-pulse flex-col gap-2 rounded-xl bg-slate-500/10 p-3 shadow-md\">\n  <span className=\"h-3.5 w-[55%] rounded-full bg-slate-500/50\" />\n  <span className=\"h-2 rounded-full bg-slate-500/25\" />\n  <span className=\"h-2 rounded-full bg-slate-500/25\" />\n  <div className=\"mt-1.5 flex justify-end gap-2\">\n    <span className=\"h-4 w-[22%] rounded bg-slate-500/40\" />\n    <span className=\"h-4 w-[22%] rounded bg-slate-500/40\" />\n  </div>\n</div>"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "tw-stacked-cards",
+  "name": "Tailwind Stacked Cards",
+  "category": "tailwind",
+  "sourceId": "darma-tailwind-pack",
+  "tags": [
+    "tailwind",
+    "stack",
+    "cards",
+    "deck",
+    "cycle"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react",
+    "tailwind"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "searchText": "tw-stacked-cards tailwind stacked cards tailwind darma-tailwind-pack darma tailwind pack tailwind stack cards deck cycle html css react tailwind cssonly customizable tailwind",
+  "previewHtml": "<div class=\"darma-loader-tw-stacked-cards\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-tw-stacked-cards { position: relative; width: var(--loader-size, 150px); height: calc(var(--loader-size, 150px) * .62); }\n.darma-loader-tw-stacked-cards span { position: absolute; top: 0; bottom: 0; left: 0; right: 0; border-radius: calc(var(--loader-size, 150px) * .08); background: var(--loader-color, #6366f1); animation: darma-loader-tw-stacked-cards-twStack calc(var(--loader-speed, 1s) * 2.1) ease-in-out infinite; }\n.darma-loader-tw-stacked-cards span:nth-child(2) { animation-delay: calc(var(--loader-speed, 1s) * .7); }\n.darma-loader-tw-stacked-cards span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * 1.4); }\n@keyframes darma-loader-tw-stacked-cards-twStack { 0% { transform: translateY(0) scale(1); opacity: 1; } 33% { transform: translateY(16%) scale(.92); opacity: .65; } 66% { transform: translateY(32%) scale(.84); opacity: .3; } 100% { transform: translateY(0) scale(1); opacity: 1; } }",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 150,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-tw-stacked-cards\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-tw-stacked-cards { position: relative; width: var(--loader-size, 150px); height: calc(var(--loader-size, 150px) * .62); }\n.darma-loader-tw-stacked-cards span { position: absolute; top: 0; bottom: 0; left: 0; right: 0; border-radius: calc(var(--loader-size, 150px) * .08); background: var(--loader-color, #6366f1); animation: darma-loader-tw-stacked-cards-twStack calc(var(--loader-speed, 1s) * 2.1) ease-in-out infinite; }\n.darma-loader-tw-stacked-cards span:nth-child(2) { animation-delay: calc(var(--loader-speed, 1s) * .7); }\n.darma-loader-tw-stacked-cards span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * 1.4); }\n@keyframes darma-loader-tw-stacked-cards-twStack { 0% { transform: translateY(0) scale(1); opacity: 1; } 33% { transform: translateY(16%) scale(.92); opacity: .65; } 66% { transform: translateY(32%) scale(.84); opacity: .3; } 100% { transform: translateY(0) scale(1); opacity: 1; } }",
+    "react": "export default function TwStackedCardsLoader() {\n  return (\n    <div className=\"darma-loader-tw-stacked-cards\" aria-label=\"Loading\"><span></span><span></span><span></span></div>\n  );\n}\n",
+    "tailwind": "{/* keyframes twStack: translateY 0 -> 16% -> 32% -> 0 with matching scale/opacity */}\n<div className=\"relative h-24 w-36\">\n  <span className=\"absolute inset-0 animate-[twStack_2.1s_ease-in-out_infinite] rounded-xl bg-indigo-500\" />\n  <span className=\"absolute inset-0 animate-[twStack_2.1s_ease-in-out_infinite] rounded-xl bg-indigo-500 [animation-delay:700ms]\" />\n  <span className=\"absolute inset-0 animate-[twStack_2.1s_ease-in-out_infinite] rounded-xl bg-indigo-500 [animation-delay:1400ms]\" />\n</div>"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

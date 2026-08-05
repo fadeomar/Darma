@@ -1,0 +1,35 @@
+{
+  "id": "tw-download-bar",
+  "name": "Tailwind Download Bar",
+  "category": "tailwind",
+  "tags": [
+    "tailwind",
+    "download",
+    "arrow",
+    "fill",
+    "transfer"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span class=\"arrow\"></span><span class=\"track\"><i></i></span></div>",
+  "css": ".loader { display: flex; flex-direction: column; align-items: center; gap: calc(var(--loader-size) * .09); width: var(--loader-size); }\n.loader .arrow { position: relative; width: calc(var(--loader-size) * .09); height: calc(var(--loader-size) * .32); border-radius: 9999px; background: var(--loader-color); animation: twDown calc(var(--loader-speed) * 1.5) ease-in-out infinite; }\n.loader .arrow::after { content: ''; position: absolute; bottom: calc(var(--loader-size) * -.05); left: 50%; width: calc(var(--loader-size) * .22); height: calc(var(--loader-size) * .22); margin-left: calc(var(--loader-size) * -.11); border-right: calc(var(--loader-size) * .09) solid var(--loader-color); border-bottom: calc(var(--loader-size) * .09) solid var(--loader-color); border-radius: calc(var(--loader-size) * .03); transform: rotate(45deg); }\n.loader .track { width: 100%; height: calc(var(--loader-size) * .08); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color) 20%, transparent); overflow: hidden; }\n.loader .track i { display: block; width: 100%; height: 100%; border-radius: 9999px; background: var(--loader-color); transform-origin: left center; animation: twFill calc(var(--loader-speed) * 1.5) ease-in-out infinite; }\n@keyframes twDown { 0%, 100% { transform: translateY(-14%); opacity: .5; } 55% { transform: translateY(10%); opacity: 1; } }\n@keyframes twFill { 0% { transform: scaleX(0); } 100% { transform: scaleX(1); } }",
+  "tailwind": "{/* keyframes twDown: bob down; twFill: scaleX(0) -> scaleX(1) from the left */}\n<div className=\"flex w-36 flex-col items-center gap-3\">\n  <span className=\"relative h-11 w-3 animate-[twDown_1.5s_ease-in-out_infinite] rounded-full bg-sky-500\" />\n  <span className=\"h-3 w-full overflow-hidden rounded-full bg-sky-500/20\">\n    <i className=\"block h-full w-full origin-left animate-[twFill_1.5s_ease-in-out_infinite] rounded-full bg-sky-500\" />\n  </span>\n</div>",
+  "defaults": {
+    "color": "#0ea5e9",
+    "size": 140,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

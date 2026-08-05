@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui";
+import LoaderHubNav from "./components/LoaderHubNav";
 
 export default function Article() {
   return (
@@ -44,6 +45,17 @@ export default function Article() {
           <p className="mt-3">
             Start with one of the quick use-case collections when you already know where the loader will appear: button states, skeleton screens, React/Tailwind snippets, or progress UI. Use the card density and cards-per-page controls to keep the gallery fast while browsing, then open only the loader you want to customize and export.
           </p>
+        </section>
+
+        <section>
+          <h2 className="text-xl font-bold text-[var(--color-text)]">Browse loaders by loading state</h2>
+          <p className="mt-3">
+            Each category below is its own page, opened on the matching filter, so you can link straight to the set you
+            need instead of sharing a filter state: spinners for short waits, dots for quiet inline status, skeleton
+            screens for known layouts, button loaders for submit and save actions, progress bars for measurable work, and
+            the React and Tailwind hubs for framework-ready output.
+          </p>
+          <LoaderHubNav includeAllLink />
         </section>
 
         <section>

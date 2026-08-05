@@ -1,0 +1,35 @@
+{
+  "id": "tw-step-progress",
+  "name": "Tailwind Step Progress",
+  "category": "tailwind",
+  "tags": [
+    "tailwind",
+    "steps",
+    "wizard",
+    "checkpoint",
+    "connector"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span class=\"step\"></span><span class=\"line\"></span><span class=\"step\"></span><span class=\"line\"></span><span class=\"step\"></span></div>",
+  "css": ".loader { display: flex; align-items: center; width: var(--loader-size); }\n.loader .step { flex: none; width: calc(var(--loader-size) * .13); height: calc(var(--loader-size) * .13); border-radius: 9999px; background: var(--loader-color); opacity: .3; animation: twStep calc(var(--loader-speed) * 3) ease-in-out infinite; }\n.loader .step:nth-child(3) { animation-delay: calc(var(--loader-speed) * 1); }\n.loader .step:nth-child(5) { animation-delay: calc(var(--loader-speed) * 2); }\n.loader .line { position: relative; flex: 1; height: calc(var(--loader-size) * .025); overflow: hidden; background: color-mix(in srgb, var(--loader-color) 22%, transparent); }\n.loader .line::after { content: ''; position: absolute; top: 0; bottom: 0; left: 0; right: 0; background: var(--loader-color); transform-origin: left center; animation: twStepLine calc(var(--loader-speed) * 3) ease-in-out infinite; }\n.loader .line:nth-child(2)::after { animation-delay: calc(var(--loader-speed) * .3); }\n.loader .line:nth-child(4)::after { animation-delay: calc(var(--loader-speed) * 1.3); }\n@keyframes twStep { 0%, 20% { opacity: .3; transform: scale(.82); } 30%, 100% { opacity: 1; transform: scale(1); } }\n@keyframes twStepLine { 0%, 10% { transform: scaleX(0); } 30%, 100% { transform: scaleX(1); } }",
+  "tailwind": "{/* keyframes twStep: opacity/scale up, twStepLine: scaleX(0) -> scaleX(1) */}\n<div className=\"flex w-44 items-center\">\n  <span className=\"h-6 w-6 shrink-0 animate-[twStep_3s_ease-in-out_infinite] rounded-full bg-sky-500 opacity-30\" />\n  <span className=\"relative h-1 flex-1 overflow-hidden bg-sky-500/20\">\n    <i className=\"absolute inset-0 origin-left animate-[twStepLine_3s_ease-in-out_infinite] bg-sky-500 [animation-delay:300ms]\" />\n  </span>\n  <span className=\"h-6 w-6 shrink-0 animate-[twStep_3s_ease-in-out_infinite] rounded-full bg-sky-500 opacity-30 [animation-delay:1s]\" />\n  <span className=\"relative h-1 flex-1 overflow-hidden bg-sky-500/20\">\n    <i className=\"absolute inset-0 origin-left animate-[twStepLine_3s_ease-in-out_infinite] bg-sky-500 [animation-delay:1300ms]\" />\n  </span>\n  <span className=\"h-6 w-6 shrink-0 animate-[twStep_3s_ease-in-out_infinite] rounded-full bg-sky-500 opacity-30 [animation-delay:2s]\" />\n</div>",
+  "defaults": {
+    "color": "#0ea5e9",
+    "size": 180,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

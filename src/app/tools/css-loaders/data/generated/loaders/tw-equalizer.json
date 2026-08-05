@@ -1,0 +1,52 @@
+{
+  "id": "tw-equalizer",
+  "name": "Tailwind Equalizer",
+  "category": "tailwind",
+  "sourceId": "darma-tailwind-pack",
+  "tags": [
+    "tailwind",
+    "equalizer",
+    "audio",
+    "bars",
+    "scale"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react",
+    "tailwind"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true,
+    "popular": true
+  },
+  "searchText": "tw-equalizer tailwind equalizer tailwind darma-tailwind-pack darma tailwind pack tailwind equalizer audio bars scale html css react tailwind cssonly customizable tailwind popular",
+  "previewHtml": "<div class=\"darma-loader-tw-equalizer\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-tw-equalizer { display: inline-flex; align-items: center; justify-content: space-between; width: var(--loader-size, 64px); height: calc(var(--loader-size, 64px) * .6); }\n.darma-loader-tw-equalizer span { width: calc(var(--loader-size, 64px) * .12); height: 100%; border-radius: 9999px; background: linear-gradient(to top, var(--loader-color, #d946ef), var(--loader-secondary-color, #6366f1)); animation: darma-loader-tw-equalizer-twEq calc(var(--loader-speed, 1s) * 1.1) ease-in-out infinite; }\n.darma-loader-tw-equalizer span:nth-child(2) { animation-delay: calc(var(--loader-speed, 1s) * .12); }\n.darma-loader-tw-equalizer span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * .24); }\n.darma-loader-tw-equalizer span:nth-child(4) { animation-delay: calc(var(--loader-speed, 1s) * .36); }\n.darma-loader-tw-equalizer span:nth-child(5) { animation-delay: calc(var(--loader-speed, 1s) * .48); }\n@keyframes darma-loader-tw-equalizer-twEq { 0%, 100% { transform: scaleY(.25); } 50% { transform: scaleY(1); } }",
+  "defaults": {
+    "color": "#d946ef",
+    "secondaryColor": "#6366f1",
+    "size": 64,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-tw-equalizer\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-tw-equalizer { display: inline-flex; align-items: center; justify-content: space-between; width: var(--loader-size, 64px); height: calc(var(--loader-size, 64px) * .6); }\n.darma-loader-tw-equalizer span { width: calc(var(--loader-size, 64px) * .12); height: 100%; border-radius: 9999px; background: linear-gradient(to top, var(--loader-color, #d946ef), var(--loader-secondary-color, #6366f1)); animation: darma-loader-tw-equalizer-twEq calc(var(--loader-speed, 1s) * 1.1) ease-in-out infinite; }\n.darma-loader-tw-equalizer span:nth-child(2) { animation-delay: calc(var(--loader-speed, 1s) * .12); }\n.darma-loader-tw-equalizer span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * .24); }\n.darma-loader-tw-equalizer span:nth-child(4) { animation-delay: calc(var(--loader-speed, 1s) * .36); }\n.darma-loader-tw-equalizer span:nth-child(5) { animation-delay: calc(var(--loader-speed, 1s) * .48); }\n@keyframes darma-loader-tw-equalizer-twEq { 0%, 100% { transform: scaleY(.25); } 50% { transform: scaleY(1); } }",
+    "react": "export default function TwEqualizerLoader() {\n  return (\n    <div className=\"darma-loader-tw-equalizer\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span></div>\n  );\n}\n",
+    "tailwind": "{/* keyframes twEq: 0%,100% { scaleY(.25) } 50% { scaleY(1) } */}\n<div className=\"inline-flex h-10 w-16 items-center justify-between\">\n  {[0, 120, 240, 360, 480].map((delay) => (\n    <span\n      key={delay}\n      className=\"h-full w-2 animate-[twEq_1.1s_ease-in-out_infinite] rounded-full bg-gradient-to-t from-fuchsia-500 to-indigo-500\"\n      style={{ animationDelay: delay + \"ms\" }}\n    />\n  ))}\n</div>"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

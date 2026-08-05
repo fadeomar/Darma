@@ -1,0 +1,50 @@
+{
+  "id": "tw-orbit-dot",
+  "name": "Tailwind Orbit Dot",
+  "category": "tailwind",
+  "sourceId": "darma-tailwind-pack",
+  "tags": [
+    "tailwind",
+    "orbit",
+    "satellite",
+    "ring",
+    "dot"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react",
+    "tailwind"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "searchText": "tw-orbit-dot tailwind orbit dot tailwind darma-tailwind-pack darma tailwind pack tailwind orbit satellite ring dot html css react tailwind cssonly customizable tailwind",
+  "previewHtml": "<span class=\"darma-loader-tw-orbit-dot\" aria-label=\"Loading\"><span class=\"darma-loader-tw-orbit-dot__dot\"></span></span>",
+  "previewCss": ".darma-loader-tw-orbit-dot { position: relative; display: inline-block; width: var(--loader-size, 60px); height: var(--loader-size, 60px); border-radius: 9999px; border: calc(var(--loader-size, 60px) * .035) solid color-mix(in srgb, var(--loader-color, #06b6d4) 25%, transparent); animation: darma-loader-tw-orbit-dot-twOrbit calc(var(--loader-speed, 1s) * 1.6) linear infinite; }\n.darma-loader-tw-orbit-dot .darma-loader-tw-orbit-dot__dot { position: absolute; top: calc(var(--loader-size, 60px) * -.1); left: 50%; width: calc(var(--loader-size, 60px) * .22); height: calc(var(--loader-size, 60px) * .22); margin-left: calc(var(--loader-size, 60px) * -.11); border-radius: 9999px; background: var(--loader-color, #06b6d4); box-shadow: 0 0 calc(var(--loader-size, 60px) * .12) color-mix(in srgb, var(--loader-color, #06b6d4) 55%, transparent); }\n@keyframes darma-loader-tw-orbit-dot-twOrbit { to { transform: rotate(360deg); } }",
+  "defaults": {
+    "color": "#06b6d4",
+    "size": 60,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-tw-orbit-dot\" aria-label=\"Loading\"><span class=\"darma-loader-tw-orbit-dot__dot\"></span></span>",
+    "css": ".darma-loader-tw-orbit-dot { position: relative; display: inline-block; width: var(--loader-size, 60px); height: var(--loader-size, 60px); border-radius: 9999px; border: calc(var(--loader-size, 60px) * .035) solid color-mix(in srgb, var(--loader-color, #06b6d4) 25%, transparent); animation: darma-loader-tw-orbit-dot-twOrbit calc(var(--loader-speed, 1s) * 1.6) linear infinite; }\n.darma-loader-tw-orbit-dot .darma-loader-tw-orbit-dot__dot { position: absolute; top: calc(var(--loader-size, 60px) * -.1); left: 50%; width: calc(var(--loader-size, 60px) * .22); height: calc(var(--loader-size, 60px) * .22); margin-left: calc(var(--loader-size, 60px) * -.11); border-radius: 9999px; background: var(--loader-color, #06b6d4); box-shadow: 0 0 calc(var(--loader-size, 60px) * .12) color-mix(in srgb, var(--loader-color, #06b6d4) 55%, transparent); }\n@keyframes darma-loader-tw-orbit-dot-twOrbit { to { transform: rotate(360deg); } }",
+    "react": "export default function TwOrbitDotLoader() {\n  return (\n    <span className=\"darma-loader-tw-orbit-dot\" aria-label=\"Loading\"><span className=\"darma-loader-tw-orbit-dot__dot\"></span></span>\n  );\n}\n",
+    "tailwind": "<span className=\"relative inline-block h-15 w-15 animate-spin rounded-full border-2 border-cyan-500/25 [animation-duration:1.6s]\">\n  <span className=\"absolute -top-1.5 left-1/2 h-3.5 w-3.5 -translate-x-1/2 rounded-full bg-cyan-500 shadow-lg shadow-cyan-500/50\" />\n</span>"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

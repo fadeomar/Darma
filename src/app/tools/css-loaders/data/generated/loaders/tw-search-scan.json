@@ -1,0 +1,50 @@
+{
+  "id": "tw-search-scan",
+  "name": "Tailwind Search Scan",
+  "category": "tailwind",
+  "sourceId": "darma-tailwind-pack",
+  "tags": [
+    "tailwind",
+    "search",
+    "magnifier",
+    "scan",
+    "lens"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react",
+    "tailwind"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "searchText": "tw-search-scan tailwind search scan tailwind darma-tailwind-pack darma tailwind pack tailwind search magnifier scan lens html css react tailwind cssonly customizable tailwind",
+  "previewHtml": "<div class=\"darma-loader-tw-search-scan\" aria-label=\"Loading\"><span class=\"darma-loader-tw-search-scan__lens\"><i></i></span></div>",
+  "previewCss": ".darma-loader-tw-search-scan { position: relative; display: inline-block; width: var(--loader-size, 64px); height: var(--loader-size, 64px); animation: darma-loader-tw-search-scan-twScan calc(var(--loader-speed, 1s) * 2) ease-in-out infinite; }\n.darma-loader-tw-search-scan .darma-loader-tw-search-scan__lens { position: absolute; left: 6%; top: 6%; width: 64%; height: 64%; border-radius: 9999px; border: calc(var(--loader-size, 64px) * .07) solid var(--loader-color, #f59e0b); overflow: hidden; box-sizing: border-box; }\n.darma-loader-tw-search-scan .darma-loader-tw-search-scan__lens i { position: absolute; left: 0; right: 0; height: calc(var(--loader-size, 64px) * .05); background: color-mix(in srgb, var(--loader-color, #f59e0b) 60%, transparent); animation: darma-loader-tw-search-scan-twScanLine calc(var(--loader-speed, 1s) * 1.2) ease-in-out infinite; }\n.darma-loader-tw-search-scan::after { content: ''; position: absolute; right: 10%; bottom: 12%; width: 30%; height: calc(var(--loader-size, 64px) * .07); border-radius: 9999px; background: var(--loader-color, #f59e0b); transform-origin: right center; transform: rotate(45deg); }\n@keyframes darma-loader-tw-search-scan-twScan { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(7%, 7%); } }\n@keyframes darma-loader-tw-search-scan-twScanLine { 0%, 100% { top: 8%; } 50% { top: 76%; } }",
+  "defaults": {
+    "color": "#f59e0b",
+    "size": 64,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-tw-search-scan\" aria-label=\"Loading\"><span class=\"darma-loader-tw-search-scan__lens\"><i></i></span></div>",
+    "css": ".darma-loader-tw-search-scan { position: relative; display: inline-block; width: var(--loader-size, 64px); height: var(--loader-size, 64px); animation: darma-loader-tw-search-scan-twScan calc(var(--loader-speed, 1s) * 2) ease-in-out infinite; }\n.darma-loader-tw-search-scan .darma-loader-tw-search-scan__lens { position: absolute; left: 6%; top: 6%; width: 64%; height: 64%; border-radius: 9999px; border: calc(var(--loader-size, 64px) * .07) solid var(--loader-color, #f59e0b); overflow: hidden; box-sizing: border-box; }\n.darma-loader-tw-search-scan .darma-loader-tw-search-scan__lens i { position: absolute; left: 0; right: 0; height: calc(var(--loader-size, 64px) * .05); background: color-mix(in srgb, var(--loader-color, #f59e0b) 60%, transparent); animation: darma-loader-tw-search-scan-twScanLine calc(var(--loader-speed, 1s) * 1.2) ease-in-out infinite; }\n.darma-loader-tw-search-scan::after { content: ''; position: absolute; right: 10%; bottom: 12%; width: 30%; height: calc(var(--loader-size, 64px) * .07); border-radius: 9999px; background: var(--loader-color, #f59e0b); transform-origin: right center; transform: rotate(45deg); }\n@keyframes darma-loader-tw-search-scan-twScan { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(7%, 7%); } }\n@keyframes darma-loader-tw-search-scan-twScanLine { 0%, 100% { top: 8%; } 50% { top: 76%; } }",
+    "react": "export default function TwSearchScanLoader() {\n  return (\n    <div className=\"darma-loader-tw-search-scan\" aria-label=\"Loading\"><span className=\"darma-loader-tw-search-scan__lens\"><i></i></span></div>\n  );\n}\n",
+    "tailwind": "{/* keyframes twScan: nudge the whole glass, twScanLine: move the scan bar top 8% -> 76% */}\n<div className=\"relative inline-block h-16 w-16 animate-[twScan_2s_ease-in-out_infinite]\">\n  <span className=\"absolute left-[6%] top-[6%] h-[64%] w-[64%] overflow-hidden rounded-full border-4 border-amber-500\">\n    <i className=\"absolute inset-x-0 h-1 animate-[twScanLine_1.2s_ease-in-out_infinite] bg-amber-500/60\" />\n  </span>\n  <span className=\"absolute bottom-[12%] right-[10%] h-1 w-[30%] origin-right rotate-45 rounded-full bg-amber-500\" />\n</div>"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

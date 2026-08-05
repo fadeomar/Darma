@@ -1,0 +1,35 @@
+{
+  "id": "tw-image-placeholder",
+  "name": "Tailwind Image Placeholder",
+  "category": "tailwind",
+  "tags": [
+    "tailwind",
+    "image",
+    "placeholder",
+    "frame",
+    "landscape"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span class=\"sun\"></span><span class=\"hill\"></span><span class=\"glow\"></span></div>",
+  "css": ".loader { position: relative; overflow: hidden; width: var(--loader-size); height: calc(var(--loader-size) * .68); border-radius: calc(var(--loader-size) * .05); background: color-mix(in srgb, var(--loader-color) 12%, transparent); border: calc(var(--loader-size) * .01) solid color-mix(in srgb, var(--loader-color) 28%, transparent); box-sizing: border-box; }\n.loader .sun { position: absolute; left: 16%; top: 18%; width: calc(var(--loader-size) * .1); height: calc(var(--loader-size) * .1); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color) 55%, transparent); }\n.loader .hill { position: absolute; left: 20%; bottom: 16%; width: 0; height: 0; border-left: calc(var(--loader-size) * .14) solid transparent; border-right: calc(var(--loader-size) * .14) solid transparent; border-bottom: calc(var(--loader-size) * .2) solid color-mix(in srgb, var(--loader-color) 48%, transparent); }\n.loader .hill::after { content: ''; position: absolute; left: calc(var(--loader-size) * .04); bottom: calc(var(--loader-size) * -.2); border-left: calc(var(--loader-size) * .19) solid transparent; border-right: calc(var(--loader-size) * .19) solid transparent; border-bottom: calc(var(--loader-size) * .27) solid color-mix(in srgb, var(--loader-color) 34%, transparent); }\n.loader .glow { position: absolute; top: 0; bottom: 0; left: 0; right: 0; background: linear-gradient(100deg, transparent 35%, color-mix(in srgb, var(--loader-color) 40%, transparent) 50%, transparent 65%); animation: twGlow calc(var(--loader-speed) * 1.7) linear infinite; }\n@keyframes twGlow { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }",
+  "tailwind": "{/* keyframes twGlow: from { translateX(-100%) } to { translateX(100%) } */}\n<div className=\"relative h-34 w-52 overflow-hidden rounded-lg border border-slate-400/28 bg-slate-400/12\">\n  <span className=\"absolute left-[16%] top-[18%] h-5 w-5 rounded-full bg-slate-400/55\" />\n  <span className=\"absolute bottom-[16%] left-[20%] h-0 w-0 border-x-[28px] border-b-[40px] border-x-transparent border-b-slate-400/48\" />\n  <span className=\"absolute inset-0 animate-[twGlow_1.7s_linear_infinite] bg-[linear-gradient(100deg,transparent_35%,rgba(148,163,184,.4)_50%,transparent_65%)]\" />\n</div>",
+  "defaults": {
+    "color": "#94a3b8",
+    "size": 200,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

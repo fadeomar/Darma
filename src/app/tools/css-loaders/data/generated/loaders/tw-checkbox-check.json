@@ -1,0 +1,50 @@
+{
+  "id": "tw-checkbox-check",
+  "name": "Tailwind Checkbox Tick",
+  "category": "tailwind",
+  "sourceId": "darma-tailwind-pack",
+  "tags": [
+    "tailwind",
+    "checkbox",
+    "tick",
+    "confirm",
+    "box"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react",
+    "tailwind"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "searchText": "tw-checkbox-check tailwind checkbox tick tailwind darma-tailwind-pack darma tailwind pack tailwind checkbox tick confirm box html css react tailwind cssonly customizable tailwind",
+  "previewHtml": "<div class=\"darma-loader-tw-checkbox-check\" aria-label=\"Loading\"><span class=\"darma-loader-tw-checkbox-check__tick\"></span></div>",
+  "previewCss": ".darma-loader-tw-checkbox-check { position: relative; display: inline-block; width: var(--loader-size, 56px); height: var(--loader-size, 56px); border-radius: calc(var(--loader-size, 56px) * .2); border: calc(var(--loader-size, 56px) * .07) solid var(--loader-color, #22c55e); box-sizing: border-box; animation: darma-loader-tw-checkbox-check-twBoxPop calc(var(--loader-speed, 1s) * 2) ease-in-out infinite; }\n.darma-loader-tw-checkbox-check .darma-loader-tw-checkbox-check__tick { position: absolute; left: 26%; top: 16%; width: 32%; height: 54%; border-right: calc(var(--loader-size, 56px) * .09) solid var(--loader-color, #22c55e); border-bottom: calc(var(--loader-size, 56px) * .09) solid var(--loader-color, #22c55e); animation: darma-loader-tw-checkbox-check-twTick calc(var(--loader-speed, 1s) * 2) ease-in-out infinite; }\n@keyframes darma-loader-tw-checkbox-check-twBoxPop { 0%, 100% { transform: scale(1); } 45% { transform: scale(1.1); } }\n@keyframes darma-loader-tw-checkbox-check-twTick { 0%, 15% { opacity: 0; transform: rotate(45deg) scale(.2); } 45%, 80% { opacity: 1; transform: rotate(45deg) scale(1); } 100% { opacity: 0; transform: rotate(45deg) scale(.2); } }",
+  "defaults": {
+    "color": "#22c55e",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-tw-checkbox-check\" aria-label=\"Loading\"><span class=\"darma-loader-tw-checkbox-check__tick\"></span></div>",
+    "css": ".darma-loader-tw-checkbox-check { position: relative; display: inline-block; width: var(--loader-size, 56px); height: var(--loader-size, 56px); border-radius: calc(var(--loader-size, 56px) * .2); border: calc(var(--loader-size, 56px) * .07) solid var(--loader-color, #22c55e); box-sizing: border-box; animation: darma-loader-tw-checkbox-check-twBoxPop calc(var(--loader-speed, 1s) * 2) ease-in-out infinite; }\n.darma-loader-tw-checkbox-check .darma-loader-tw-checkbox-check__tick { position: absolute; left: 26%; top: 16%; width: 32%; height: 54%; border-right: calc(var(--loader-size, 56px) * .09) solid var(--loader-color, #22c55e); border-bottom: calc(var(--loader-size, 56px) * .09) solid var(--loader-color, #22c55e); animation: darma-loader-tw-checkbox-check-twTick calc(var(--loader-speed, 1s) * 2) ease-in-out infinite; }\n@keyframes darma-loader-tw-checkbox-check-twBoxPop { 0%, 100% { transform: scale(1); } 45% { transform: scale(1.1); } }\n@keyframes darma-loader-tw-checkbox-check-twTick { 0%, 15% { opacity: 0; transform: rotate(45deg) scale(.2); } 45%, 80% { opacity: 1; transform: rotate(45deg) scale(1); } 100% { opacity: 0; transform: rotate(45deg) scale(.2); } }",
+    "react": "export default function TwCheckboxCheckLoader() {\n  return (\n    <div className=\"darma-loader-tw-checkbox-check\" aria-label=\"Loading\"><span className=\"darma-loader-tw-checkbox-check__tick\"></span></div>\n  );\n}\n",
+    "tailwind": "{/* keyframes twTick: fade + rotate(45deg) scale from .2 to 1 */}\n<div className=\"relative inline-block h-14 w-14 animate-[twBoxPop_2s_ease-in-out_infinite] rounded-xl border-4 border-green-500\">\n  <span className=\"absolute left-[26%] top-[16%] h-[54%] w-[32%] animate-[twTick_2s_ease-in-out_infinite] border-b-[5px] border-r-[5px] border-green-500\" />\n</div>"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "tw-stacked-cards",
+  "name": "Tailwind Stacked Cards",
+  "category": "tailwind",
+  "tags": [
+    "tailwind",
+    "stack",
+    "cards",
+    "deck",
+    "cycle"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "css": ".loader { position: relative; width: var(--loader-size); height: calc(var(--loader-size) * .62); }\n.loader span { position: absolute; top: 0; bottom: 0; left: 0; right: 0; border-radius: calc(var(--loader-size) * .08); background: var(--loader-color); animation: twStack calc(var(--loader-speed) * 2.1) ease-in-out infinite; }\n.loader span:nth-child(2) { animation-delay: calc(var(--loader-speed) * .7); }\n.loader span:nth-child(3) { animation-delay: calc(var(--loader-speed) * 1.4); }\n@keyframes twStack { 0% { transform: translateY(0) scale(1); opacity: 1; } 33% { transform: translateY(16%) scale(.92); opacity: .65; } 66% { transform: translateY(32%) scale(.84); opacity: .3; } 100% { transform: translateY(0) scale(1); opacity: 1; } }",
+  "tailwind": "{/* keyframes twStack: translateY 0 -> 16% -> 32% -> 0 with matching scale/opacity */}\n<div className=\"relative h-24 w-36\">\n  <span className=\"absolute inset-0 animate-[twStack_2.1s_ease-in-out_infinite] rounded-xl bg-indigo-500\" />\n  <span className=\"absolute inset-0 animate-[twStack_2.1s_ease-in-out_infinite] rounded-xl bg-indigo-500 [animation-delay:700ms]\" />\n  <span className=\"absolute inset-0 animate-[twStack_2.1s_ease-in-out_infinite] rounded-xl bg-indigo-500 [animation-delay:1400ms]\" />\n</div>",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 150,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

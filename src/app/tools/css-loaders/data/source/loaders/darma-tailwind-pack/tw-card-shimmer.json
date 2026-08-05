@@ -1,0 +1,35 @@
+{
+  "id": "tw-card-shimmer",
+  "name": "Tailwind Card Shimmer",
+  "category": "tailwind",
+  "tags": [
+    "tailwind",
+    "card",
+    "shimmer",
+    "sweep",
+    "skeleton"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span class=\"glow\"></span><span class=\"row\"></span><span class=\"row\"></span></div>",
+  "css": ".loader { position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; gap: calc(var(--loader-size) * .05); width: var(--loader-size); height: calc(var(--loader-size) * .6); padding: calc(var(--loader-size) * .07); border-radius: calc(var(--loader-size) * .08); background: color-mix(in srgb, var(--loader-color) 14%, transparent); box-sizing: border-box; }\n.loader .row { height: calc(var(--loader-size) * .06); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color) 32%, transparent); }\n.loader .row:last-child { width: 55%; }\n.loader .glow { position: absolute; top: 0; bottom: 0; left: 0; right: 0; background: linear-gradient(115deg, transparent 30%, color-mix(in srgb, var(--loader-color) 45%, transparent) 50%, transparent 70%); animation: twSweep calc(var(--loader-speed) * 1.6) linear infinite; }\n@keyframes twSweep { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }",
+  "tailwind": "{/* keyframes twSweep: from { translateX(-100%) } to { translateX(100%) } */}\n<div className=\"relative flex h-28 w-44 flex-col justify-end gap-2 overflow-hidden rounded-xl bg-slate-400/15 p-3\">\n  <span className=\"absolute inset-0 animate-[twSweep_1.6s_linear_infinite] bg-[linear-gradient(115deg,transparent_30%,rgba(148,163,184,.45)_50%,transparent_70%)]\" />\n  <span className=\"h-2.5 rounded-full bg-slate-400/30\" />\n  <span className=\"h-2.5 w-[55%] rounded-full bg-slate-400/30\" />\n</div>",
+  "defaults": {
+    "color": "#94a3b8",
+    "size": 180,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

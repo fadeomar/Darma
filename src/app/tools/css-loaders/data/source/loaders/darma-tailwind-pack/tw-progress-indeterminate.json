@@ -1,0 +1,36 @@
+{
+  "id": "tw-progress-indeterminate",
+  "name": "Tailwind Indeterminate Bar",
+  "category": "tailwind",
+  "tags": [
+    "tailwind",
+    "progress",
+    "indeterminate",
+    "bar",
+    "track"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span></div>",
+  "css": ".loader { position: relative; overflow: hidden; width: var(--loader-size); height: calc(var(--loader-size) * .06); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color) 18%, transparent); }\n.loader span { position: absolute; top: 0; bottom: 0; left: 0; width: 40%; border-radius: 9999px; background: var(--loader-color); animation: twSlide calc(var(--loader-speed) * 1.4) ease-in-out infinite; }\n@keyframes twSlide { 0% { transform: translateX(-110%); } 100% { transform: translateX(280%); } }",
+  "tailwind": "{/* keyframes twSlide: from { translateX(-110%) } to { translateX(280%) } */}\n<div className=\"relative h-2.5 w-44 overflow-hidden rounded-full bg-sky-500/20\">\n  <span className=\"absolute inset-y-0 left-0 w-2/5 animate-[twSlide_1.4s_ease-in-out_infinite] rounded-full bg-sky-500\" />\n</div>",
+  "defaults": {
+    "color": "#0ea5e9",
+    "size": 180,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true,
+    "popular": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

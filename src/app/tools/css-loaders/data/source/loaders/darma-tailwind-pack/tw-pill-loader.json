@@ -1,0 +1,35 @@
+{
+  "id": "tw-pill-loader",
+  "name": "Tailwind Pill Fill",
+  "category": "tailwind",
+  "tags": [
+    "tailwind",
+    "pill",
+    "fill",
+    "outline",
+    "scalex"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span class=\"fill\"></span></div>",
+  "css": ".loader { position: relative; overflow: hidden; width: var(--loader-size); height: calc(var(--loader-size) * .28); border-radius: 9999px; border: calc(var(--loader-size) * .025) solid var(--loader-color); box-sizing: border-box; }\n.loader .fill { position: absolute; top: 0; bottom: 0; left: 0; right: 0; border-radius: 9999px; background: var(--loader-color); animation: twGrow calc(var(--loader-speed) * 1.8) cubic-bezier(.4, 0, .2, 1) infinite; }\n@keyframes twGrow { 0% { transform: scaleX(0); transform-origin: left center; } 45% { transform: scaleX(1); transform-origin: left center; } 55% { transform: scaleX(1); transform-origin: right center; } 100% { transform: scaleX(0); transform-origin: right center; } }",
+  "tailwind": "{/* keyframes twGrow: scaleX 0 -> 1 from the left, then back to 0 from the right */}\n<div className=\"relative h-10 w-36 overflow-hidden rounded-full border-4 border-pink-500\">\n  <span className=\"absolute inset-0 animate-[twGrow_1.8s_cubic-bezier(.4,0,.2,1)_infinite] rounded-full bg-pink-500\" />\n</div>",
+  "defaults": {
+    "color": "#ec4899",
+    "size": 150,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

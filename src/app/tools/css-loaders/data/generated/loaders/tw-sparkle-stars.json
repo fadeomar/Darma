@@ -1,0 +1,50 @@
+{
+  "id": "tw-sparkle-stars",
+  "name": "Tailwind Sparkle Stars",
+  "category": "tailwind",
+  "sourceId": "darma-tailwind-pack",
+  "tags": [
+    "tailwind",
+    "sparkle",
+    "stars",
+    "twinkle",
+    "magic"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react",
+    "tailwind"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "searchText": "tw-sparkle-stars tailwind sparkle stars tailwind darma-tailwind-pack darma tailwind pack tailwind sparkle stars twinkle magic html css react tailwind cssonly customizable tailwind",
+  "previewHtml": "<div class=\"darma-loader-tw-sparkle-stars\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-tw-sparkle-stars { position: relative; display: inline-block; width: var(--loader-size, 64px); height: var(--loader-size, 64px); }\n.darma-loader-tw-sparkle-stars span { position: absolute; background: var(--loader-color, #a855f7); clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%); animation: darma-loader-tw-sparkle-stars-twTwinkle calc(var(--loader-speed, 1s) * 1.6) ease-in-out infinite; }\n.darma-loader-tw-sparkle-stars span:nth-child(1) { left: 6%; top: 10%; width: 42%; height: 42%; }\n.darma-loader-tw-sparkle-stars span:nth-child(2) { right: 4%; top: 30%; width: 30%; height: 30%; animation-delay: calc(var(--loader-speed, 1s) * .35); }\n.darma-loader-tw-sparkle-stars span:nth-child(3) { left: 32%; bottom: 4%; width: 24%; height: 24%; animation-delay: calc(var(--loader-speed, 1s) * .7); }\n@keyframes darma-loader-tw-sparkle-stars-twTwinkle { 0%, 100% { transform: scale(.35) rotate(0deg); opacity: .2; } 50% { transform: scale(1) rotate(45deg); opacity: 1; } }",
+  "defaults": {
+    "color": "#a855f7",
+    "size": 64,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-tw-sparkle-stars\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-tw-sparkle-stars { position: relative; display: inline-block; width: var(--loader-size, 64px); height: var(--loader-size, 64px); }\n.darma-loader-tw-sparkle-stars span { position: absolute; background: var(--loader-color, #a855f7); clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%); animation: darma-loader-tw-sparkle-stars-twTwinkle calc(var(--loader-speed, 1s) * 1.6) ease-in-out infinite; }\n.darma-loader-tw-sparkle-stars span:nth-child(1) { left: 6%; top: 10%; width: 42%; height: 42%; }\n.darma-loader-tw-sparkle-stars span:nth-child(2) { right: 4%; top: 30%; width: 30%; height: 30%; animation-delay: calc(var(--loader-speed, 1s) * .35); }\n.darma-loader-tw-sparkle-stars span:nth-child(3) { left: 32%; bottom: 4%; width: 24%; height: 24%; animation-delay: calc(var(--loader-speed, 1s) * .7); }\n@keyframes darma-loader-tw-sparkle-stars-twTwinkle { 0%, 100% { transform: scale(.35) rotate(0deg); opacity: .2; } 50% { transform: scale(1) rotate(45deg); opacity: 1; } }",
+    "react": "export default function TwSparkleStarsLoader() {\n  return (\n    <div className=\"darma-loader-tw-sparkle-stars\" aria-label=\"Loading\"><span></span><span></span><span></span></div>\n  );\n}\n",
+    "tailwind": "{/* keyframes twTwinkle: scale(.35) rotate(0) <-> scale(1) rotate(45deg) with opacity */}\n<div className=\"relative inline-block h-16 w-16\">\n  {[\n    { className: \"left-[6%] top-[10%] h-[42%] w-[42%]\", delay: 0 },\n    { className: \"right-[4%] top-[30%] h-[30%] w-[30%]\", delay: 350 },\n    { className: \"bottom-[4%] left-[32%] h-[24%] w-[24%]\", delay: 700 },\n  ].map((star) => (\n    <span\n      key={star.delay}\n      className={\"absolute animate-[twTwinkle_1.6s_ease-in-out_infinite] bg-purple-500 \" + star.className}\n      style={{ clipPath: \"polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%)\", animationDelay: star.delay + \"ms\" }}\n    />\n  ))}\n</div>"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

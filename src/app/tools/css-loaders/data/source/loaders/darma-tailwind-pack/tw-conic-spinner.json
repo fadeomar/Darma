@@ -1,0 +1,37 @@
+{
+  "id": "tw-conic-spinner",
+  "name": "Tailwind Conic Spinner",
+  "category": "tailwind",
+  "tags": [
+    "tailwind",
+    "conic",
+    "gradient",
+    "spinner",
+    "mask"
+  ],
+  "html": "<span class=\"loader\" aria-label=\"Loading\"></span>",
+  "css": ".loader { display: inline-block; width: var(--loader-size); height: var(--loader-size); border-radius: 9999px; background: conic-gradient(from 0deg, transparent 0deg, var(--loader-color) 320deg, transparent 360deg); mask: radial-gradient(farthest-side, transparent 62%, #000 63%); -webkit-mask: radial-gradient(farthest-side, transparent 62%, #000 63%); animation: twSpin var(--loader-speed) linear infinite; }\n@keyframes twSpin { to { transform: rotate(360deg); } }",
+  "tailwind": "{/* tailwind.config: theme.extend.animation.spin is built in */}\n<span\n  className=\"inline-block h-14 w-14 animate-spin rounded-full [mask:radial-gradient(farthest-side,transparent_62%,#000_63%)]\"\n  style={{ background: \"conic-gradient(from 0deg, transparent 0deg, #3b82f6 320deg, transparent 360deg)\" }}\n/>",
+  "defaults": {
+    "color": "#3b82f6",
+    "size": 56,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true,
+    "singleElement": true,
+    "popular": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

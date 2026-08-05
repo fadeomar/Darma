@@ -1,0 +1,35 @@
+{
+  "id": "tw-pin-drop",
+  "name": "Tailwind Pin Drop",
+  "category": "tailwind",
+  "tags": [
+    "tailwind",
+    "map",
+    "pin",
+    "drop",
+    "location"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span class=\"pin\"></span><span class=\"shadow\"></span></div>",
+  "css": ".loader { position: relative; display: inline-block; width: var(--loader-size); height: var(--loader-size); }\n.loader .pin { position: absolute; left: 50%; top: 10%; width: calc(var(--loader-size) * .44); height: calc(var(--loader-size) * .44); margin-left: calc(var(--loader-size) * -.22); border-radius: 50% 50% 50% 0; background: var(--loader-color); animation: twDrop calc(var(--loader-speed) * 1.8) cubic-bezier(.5, 0, .5, 1) infinite; }\n.loader .pin::after { content: ''; position: absolute; left: 28%; top: 28%; width: 44%; height: 44%; border-radius: 9999px; background: color-mix(in srgb, #ffffff 78%, var(--loader-color)); }\n.loader .shadow { position: absolute; left: 50%; bottom: 10%; width: calc(var(--loader-size) * .34); height: calc(var(--loader-size) * .09); margin-left: calc(var(--loader-size) * -.17); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color) 38%, transparent); animation: twShadow calc(var(--loader-speed) * 1.8) cubic-bezier(.5, 0, .5, 1) infinite; }\n@keyframes twDrop { 0%, 100% { transform: translateY(-16%) rotate(-45deg); } 50% { transform: translateY(20%) rotate(-45deg); } }\n@keyframes twShadow { 0%, 100% { transform: scale(.7); opacity: .3; } 50% { transform: scale(1); opacity: .75; } }",
+  "tailwind": "{/* keyframes twDrop: translateY(-16%) <-> 20% while holding rotate(-45deg) */}\n<div className=\"relative inline-block h-16 w-16\">\n  <span className=\"absolute left-1/2 top-[10%] -ml-3.5 h-7 w-7 animate-[twDrop_1.8s_cubic-bezier(.5,0,.5,1)_infinite] rounded-bl-none rounded-full bg-rose-600\" />\n  <span className=\"absolute bottom-[10%] left-1/2 -ml-2.5 h-1.5 w-5 animate-[twShadow_1.8s_cubic-bezier(.5,0,.5,1)_infinite] rounded-full bg-rose-600/38\" />\n</div>",
+  "defaults": {
+    "color": "#e11d48",
+    "size": 64,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

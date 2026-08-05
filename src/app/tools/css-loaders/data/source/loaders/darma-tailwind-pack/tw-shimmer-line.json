@@ -1,0 +1,35 @@
+{
+  "id": "tw-shimmer-line",
+  "name": "Tailwind Shimmer Line",
+  "category": "tailwind",
+  "tags": [
+    "tailwind",
+    "shimmer",
+    "sweep",
+    "line",
+    "placeholder"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span></div>",
+  "css": ".loader { width: var(--loader-size); height: calc(var(--loader-size) * .12); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color) 16%, transparent); overflow: hidden; }\n.loader span { display: block; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--loader-color) 70%, transparent), transparent); animation: twShimmer calc(var(--loader-speed) * 1.5) ease-in-out infinite; }\n@keyframes twShimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }",
+  "tailwind": "{/* keyframes twShimmer: from { translateX(-100%) } to { translateX(100%) } */}\n<div className=\"h-5 w-44 overflow-hidden rounded-full bg-slate-500/15\">\n  <span className=\"block h-full w-full animate-[twShimmer_1.5s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-slate-500/70 to-transparent\" />\n</div>",
+  "defaults": {
+    "color": "#64748b",
+    "size": 180,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

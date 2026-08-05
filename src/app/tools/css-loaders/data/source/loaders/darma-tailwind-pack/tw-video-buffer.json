@@ -1,0 +1,35 @@
+{
+  "id": "tw-video-buffer",
+  "name": "Tailwind Video Buffer",
+  "category": "tailwind",
+  "tags": [
+    "tailwind",
+    "video",
+    "play",
+    "buffer",
+    "media"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span class=\"ring\"></span><span class=\"play\"></span></div>",
+  "css": ".loader { position: relative; display: inline-flex; align-items: center; justify-content: center; width: var(--loader-size); height: var(--loader-size); }\n.loader .ring { position: absolute; top: 0; bottom: 0; left: 0; right: 0; border-radius: 9999px; border: calc(var(--loader-size) * .07) solid color-mix(in srgb, var(--loader-color) 20%, transparent); border-top-color: var(--loader-color); border-right-color: var(--loader-color); animation: twSpin calc(var(--loader-speed) * 1.1) linear infinite; }\n.loader .play { position: relative; width: 0; height: 0; margin-left: 8%; border-top: calc(var(--loader-size) * .15) solid transparent; border-bottom: calc(var(--loader-size) * .15) solid transparent; border-left: calc(var(--loader-size) * .25) solid var(--loader-color); animation: twBeat calc(var(--loader-speed) * 1.6) ease-in-out infinite; }\n@keyframes twSpin { to { transform: rotate(360deg); } }\n@keyframes twBeat { 0%, 100% { opacity: .5; transform: scale(.88); } 50% { opacity: 1; transform: scale(1); } }",
+  "tailwind": "{/* keyframes twBeat: opacity/scale pulse on the play triangle */}\n<div className=\"relative inline-flex h-16 w-16 items-center justify-center\">\n  <span className=\"absolute inset-0 animate-spin rounded-full border-4 border-red-500/20 border-r-red-500 border-t-red-500 [animation-duration:1.1s]\" />\n  <span className=\"relative ml-1 h-0 w-0 animate-[twBeat_1.6s_ease-in-out_infinite] border-y-[10px] border-l-[16px] border-y-transparent border-l-red-500\" />\n</div>",
+  "defaults": {
+    "color": "#ef4444",
+    "size": 64,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

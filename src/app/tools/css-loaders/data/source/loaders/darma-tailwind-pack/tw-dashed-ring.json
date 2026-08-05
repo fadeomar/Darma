@@ -1,0 +1,36 @@
+{
+  "id": "tw-dashed-ring",
+  "name": "Tailwind Dashed Ring",
+  "category": "tailwind",
+  "tags": [
+    "tailwind",
+    "dashed",
+    "ring",
+    "border",
+    "rotate"
+  ],
+  "html": "<span class=\"loader\" aria-label=\"Loading\"></span>",
+  "css": ".loader { display: inline-block; width: var(--loader-size); height: var(--loader-size); border-radius: 9999px; border: calc(var(--loader-size) * .1) dashed var(--loader-color); animation: twSpin calc(var(--loader-speed) * 2.4) linear infinite; }\n@keyframes twSpin { to { transform: rotate(360deg); } }",
+  "tailwind": "<span className=\"inline-block h-14 w-14 animate-spin rounded-full border-[6px] border-dashed border-green-500 [animation-duration:2.4s]\" />",
+  "defaults": {
+    "color": "#22c55e",
+    "size": 56,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true,
+    "singleElement": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

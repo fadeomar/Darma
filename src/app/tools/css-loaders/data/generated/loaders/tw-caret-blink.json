@@ -1,0 +1,50 @@
+{
+  "id": "tw-caret-blink",
+  "name": "Tailwind Caret Blink",
+  "category": "tailwind",
+  "sourceId": "darma-tailwind-pack",
+  "tags": [
+    "tailwind",
+    "caret",
+    "cursor",
+    "typing",
+    "terminal"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react",
+    "tailwind"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "searchText": "tw-caret-blink tailwind caret blink tailwind darma-tailwind-pack darma tailwind pack tailwind caret cursor typing terminal html css react tailwind cssonly customizable tailwind",
+  "previewHtml": "<div class=\"darma-loader-tw-caret-blink\" aria-label=\"Loading\"><span class=\"darma-loader-tw-caret-blink__text\"></span><span class=\"darma-loader-tw-caret-blink__caret\"></span></div>",
+  "previewCss": ".darma-loader-tw-caret-blink { display: inline-flex; align-items: center; gap: calc(var(--loader-size, 170px) * .03); width: var(--loader-size, 170px); }\n.darma-loader-tw-caret-blink .darma-loader-tw-caret-blink__text { height: calc(var(--loader-size, 170px) * .11); border-radius: calc(var(--loader-size, 170px) * .03); background: color-mix(in srgb, var(--loader-color, #22c55e) 32%, transparent); animation: darma-loader-tw-caret-blink-twType calc(var(--loader-speed, 1s) * 2.4) steps(14) infinite; }\n.darma-loader-tw-caret-blink .darma-loader-tw-caret-blink__caret { flex: none; width: calc(var(--loader-size, 170px) * .03); height: calc(var(--loader-size, 170px) * .17); background: var(--loader-color, #22c55e); animation: darma-loader-tw-caret-blink-twCaret calc(var(--loader-speed, 1s) * .8) steps(1) infinite; }\n@keyframes darma-loader-tw-caret-blink-twType { 0% { width: 6%; } 60%, 100% { width: 78%; } }\n@keyframes darma-loader-tw-caret-blink-twCaret { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }",
+  "defaults": {
+    "color": "#22c55e",
+    "size": 170,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-tw-caret-blink\" aria-label=\"Loading\"><span class=\"darma-loader-tw-caret-blink__text\"></span><span class=\"darma-loader-tw-caret-blink__caret\"></span></div>",
+    "css": ".darma-loader-tw-caret-blink { display: inline-flex; align-items: center; gap: calc(var(--loader-size, 170px) * .03); width: var(--loader-size, 170px); }\n.darma-loader-tw-caret-blink .darma-loader-tw-caret-blink__text { height: calc(var(--loader-size, 170px) * .11); border-radius: calc(var(--loader-size, 170px) * .03); background: color-mix(in srgb, var(--loader-color, #22c55e) 32%, transparent); animation: darma-loader-tw-caret-blink-twType calc(var(--loader-speed, 1s) * 2.4) steps(14) infinite; }\n.darma-loader-tw-caret-blink .darma-loader-tw-caret-blink__caret { flex: none; width: calc(var(--loader-size, 170px) * .03); height: calc(var(--loader-size, 170px) * .17); background: var(--loader-color, #22c55e); animation: darma-loader-tw-caret-blink-twCaret calc(var(--loader-speed, 1s) * .8) steps(1) infinite; }\n@keyframes darma-loader-tw-caret-blink-twType { 0% { width: 6%; } 60%, 100% { width: 78%; } }\n@keyframes darma-loader-tw-caret-blink-twCaret { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }",
+    "react": "export default function TwCaretBlinkLoader() {\n  return (\n    <div className=\"darma-loader-tw-caret-blink\" aria-label=\"Loading\"><span className=\"darma-loader-tw-caret-blink__text\"></span><span className=\"darma-loader-tw-caret-blink__caret\"></span></div>\n  );\n}\n",
+    "tailwind": "{/* keyframes twType: width 6% -> 78% (steps), twCaret: opacity 1/0 (steps(1)) */}\n<div className=\"inline-flex w-44 items-center gap-1\">\n  <span className=\"h-5 animate-[twType_2.4s_steps(14)_infinite] rounded bg-green-500/30\" />\n  <span className=\"h-7 w-1.5 shrink-0 animate-[twCaret_0.8s_steps(1)_infinite] bg-green-500\" />\n</div>"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

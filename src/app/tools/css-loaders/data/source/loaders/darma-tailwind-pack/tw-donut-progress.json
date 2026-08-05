@@ -1,0 +1,36 @@
+{
+  "id": "tw-donut-progress",
+  "name": "Tailwind Donut Progress",
+  "category": "tailwind",
+  "tags": [
+    "tailwind",
+    "donut",
+    "progress",
+    "conic",
+    "sweep"
+  ],
+  "html": "<span class=\"loader\" aria-label=\"Loading\"></span>",
+  "css": ".loader { display: inline-block; width: var(--loader-size); height: var(--loader-size); border-radius: 9999px; background-image: conic-gradient(var(--loader-color) 0deg, rgba(148, 163, 184, .28) 0deg); mask: radial-gradient(farthest-side, transparent 60%, #000 61%); -webkit-mask: radial-gradient(farthest-side, transparent 60%, #000 61%); animation: twDonut calc(var(--loader-speed) * 2.2) ease-in-out infinite; }\n@keyframes twDonut { 0% { background-image: conic-gradient(var(--loader-color) 0deg, rgba(148, 163, 184, .28) 0deg); } 55%, 72% { background-image: conic-gradient(var(--loader-color) 360deg, rgba(148, 163, 184, .28) 360deg); } 100% { background-image: conic-gradient(var(--loader-color) 0deg, rgba(148, 163, 184, .28) 0deg); } }",
+  "tailwind": "{/* keyframes twDonut: interpolate the conic-gradient stop from 0deg to 360deg */}\n<span className=\"inline-block h-16 w-16 animate-[twDonut_2.2s_ease-in-out_infinite] rounded-full [mask:radial-gradient(farthest-side,transparent_60%,#000_61%)]\" />",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 64,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true,
+    "singleElement": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

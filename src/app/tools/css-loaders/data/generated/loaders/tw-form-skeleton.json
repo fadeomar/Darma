@@ -1,0 +1,50 @@
+{
+  "id": "tw-form-skeleton",
+  "name": "Tailwind Form Skeleton",
+  "category": "tailwind",
+  "sourceId": "darma-tailwind-pack",
+  "tags": [
+    "tailwind",
+    "form",
+    "fields",
+    "labels",
+    "skeleton"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react",
+    "tailwind"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "searchText": "tw-form-skeleton tailwind form skeleton tailwind darma-tailwind-pack darma tailwind pack tailwind form fields labels skeleton html css react tailwind cssonly customizable tailwind",
+  "previewHtml": "<div class=\"darma-loader-tw-form-skeleton\" aria-label=\"Loading\"><span class=\"darma-loader-tw-form-skeleton__label\"></span><span class=\"darma-loader-tw-form-skeleton__field\"></span><span class=\"darma-loader-tw-form-skeleton__label darma-loader-tw-form-skeleton__wide\"></span><span class=\"darma-loader-tw-form-skeleton__field\"></span><span class=\"darma-loader-tw-form-skeleton__btn\"></span></div>",
+  "previewCss": ".darma-loader-tw-form-skeleton { display: flex; flex-direction: column; gap: calc(var(--loader-size, 200px) * .035); width: var(--loader-size, 200px); animation: darma-loader-tw-form-skeleton-twPulse calc(var(--loader-speed, 1s) * 1.8) cubic-bezier(.4, 0, .6, 1) infinite; }\n.darma-loader-tw-form-skeleton .darma-loader-tw-form-skeleton__label { width: 34%; height: calc(var(--loader-size, 200px) * .04); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color, #64748b) 32%, transparent); }\n.darma-loader-tw-form-skeleton .darma-loader-tw-form-skeleton__label.darma-loader-tw-form-skeleton__wide { width: 48%; }\n.darma-loader-tw-form-skeleton .darma-loader-tw-form-skeleton__field { height: calc(var(--loader-size, 200px) * .11); margin-bottom: calc(var(--loader-size, 200px) * .025); border-radius: calc(var(--loader-size, 200px) * .025); background: color-mix(in srgb, var(--loader-color, #64748b) 14%, transparent); border: calc(var(--loader-size, 200px) * .008) solid color-mix(in srgb, var(--loader-color, #64748b) 26%, transparent); box-sizing: border-box; }\n.darma-loader-tw-form-skeleton .darma-loader-tw-form-skeleton__btn { width: 40%; height: calc(var(--loader-size, 200px) * .095); margin-top: calc(var(--loader-size, 200px) * .02); border-radius: 9999px; background: var(--loader-color, #64748b); }\n@keyframes darma-loader-tw-form-skeleton-twPulse { 50% { opacity: .5; } }",
+  "defaults": {
+    "color": "#64748b",
+    "size": 200,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-tw-form-skeleton\" aria-label=\"Loading\"><span class=\"darma-loader-tw-form-skeleton__label\"></span><span class=\"darma-loader-tw-form-skeleton__field\"></span><span class=\"darma-loader-tw-form-skeleton__label darma-loader-tw-form-skeleton__wide\"></span><span class=\"darma-loader-tw-form-skeleton__field\"></span><span class=\"darma-loader-tw-form-skeleton__btn\"></span></div>",
+    "css": ".darma-loader-tw-form-skeleton { display: flex; flex-direction: column; gap: calc(var(--loader-size, 200px) * .035); width: var(--loader-size, 200px); animation: darma-loader-tw-form-skeleton-twPulse calc(var(--loader-speed, 1s) * 1.8) cubic-bezier(.4, 0, .6, 1) infinite; }\n.darma-loader-tw-form-skeleton .darma-loader-tw-form-skeleton__label { width: 34%; height: calc(var(--loader-size, 200px) * .04); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color, #64748b) 32%, transparent); }\n.darma-loader-tw-form-skeleton .darma-loader-tw-form-skeleton__label.darma-loader-tw-form-skeleton__wide { width: 48%; }\n.darma-loader-tw-form-skeleton .darma-loader-tw-form-skeleton__field { height: calc(var(--loader-size, 200px) * .11); margin-bottom: calc(var(--loader-size, 200px) * .025); border-radius: calc(var(--loader-size, 200px) * .025); background: color-mix(in srgb, var(--loader-color, #64748b) 14%, transparent); border: calc(var(--loader-size, 200px) * .008) solid color-mix(in srgb, var(--loader-color, #64748b) 26%, transparent); box-sizing: border-box; }\n.darma-loader-tw-form-skeleton .darma-loader-tw-form-skeleton__btn { width: 40%; height: calc(var(--loader-size, 200px) * .095); margin-top: calc(var(--loader-size, 200px) * .02); border-radius: 9999px; background: var(--loader-color, #64748b); }\n@keyframes darma-loader-tw-form-skeleton-twPulse { 50% { opacity: .5; } }",
+    "react": "export default function TwFormSkeletonLoader() {\n  return (\n    <div className=\"darma-loader-tw-form-skeleton\" aria-label=\"Loading\"><span className=\"darma-loader-tw-form-skeleton__label\"></span><span className=\"darma-loader-tw-form-skeleton__field\"></span><span className=\"darma-loader-tw-form-skeleton__label darma-loader-tw-form-skeleton__wide\"></span><span className=\"darma-loader-tw-form-skeleton__field\"></span><span className=\"darma-loader-tw-form-skeleton__btn\"></span></div>\n  );\n}\n",
+    "tailwind": "<div className=\"flex w-52 animate-pulse flex-col gap-1.5\">\n  <span className=\"h-2 w-[34%] rounded-full bg-slate-500/30\" />\n  <span className=\"mb-1 h-6 rounded border border-slate-500/25 bg-slate-500/15\" />\n  <span className=\"h-2 w-[48%] rounded-full bg-slate-500/30\" />\n  <span className=\"mb-1 h-6 rounded border border-slate-500/25 bg-slate-500/15\" />\n  <span className=\"mt-1 h-5 w-[40%] rounded-full bg-slate-500\" />\n</div>"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

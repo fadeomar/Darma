@@ -1,5 +1,5 @@
 {
-  "total": 1345,
+  "total": 1395,
   "groups": {
     "cssloaders-github": 34,
     "darma-custom": 736,
@@ -12,6 +12,7 @@
     "darma-research-batch-7": 20,
     "darma-research-batch-8": 20,
     "darma-research-batch-9": 20,
+    "darma-tailwind-pack": 50,
     "darma": 88,
     "loaders-css": 10,
     "loading-io": 23,

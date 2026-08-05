@@ -1,0 +1,35 @@
+{
+  "id": "tw-grid-fade",
+  "name": "Tailwind Grid Fade",
+  "category": "tailwind",
+  "tags": [
+    "tailwind",
+    "grid",
+    "nine",
+    "diagonal",
+    "fade"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>",
+  "css": ".loader { display: grid; grid-template-columns: repeat(3, 1fr); gap: calc(var(--loader-size) * .07); width: var(--loader-size); height: var(--loader-size); }\n.loader span { border-radius: calc(var(--loader-size) * .06); background: var(--loader-color); animation: twScaleFade calc(var(--loader-speed) * 1.3) ease-in-out infinite; }\n.loader span:nth-child(2), .loader span:nth-child(4) { animation-delay: calc(var(--loader-speed) * .1); }\n.loader span:nth-child(3), .loader span:nth-child(5), .loader span:nth-child(7) { animation-delay: calc(var(--loader-speed) * .2); }\n.loader span:nth-child(6), .loader span:nth-child(8) { animation-delay: calc(var(--loader-speed) * .3); }\n.loader span:nth-child(9) { animation-delay: calc(var(--loader-speed) * .4); }\n@keyframes twScaleFade { 0%, 70%, 100% { transform: scale(.6); opacity: .3; } 35% { transform: scale(1); opacity: 1; } }",
+  "tailwind": "{/* keyframes twScaleFade: 0%,70%,100% { scale(.6); opacity:.3 } 35% { scale(1); opacity:1 } */}\n<div className=\"grid h-15 w-15 grid-cols-3 gap-1\">\n  {[0, 100, 200, 100, 200, 300, 200, 300, 400].map((delay, index) => (\n    <span\n      key={index}\n      className=\"animate-[twScaleFade_1.3s_ease-in-out_infinite] rounded-sm bg-indigo-500\"\n      style={{ animationDelay: delay + \"ms\" }}\n    />\n  ))}\n</div>",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 60,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

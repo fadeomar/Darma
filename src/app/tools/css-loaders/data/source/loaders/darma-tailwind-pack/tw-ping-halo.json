@@ -1,0 +1,36 @@
+{
+  "id": "tw-ping-halo",
+  "name": "Tailwind Ping Halo",
+  "category": "tailwind",
+  "tags": [
+    "tailwind",
+    "ping",
+    "halo",
+    "ripple",
+    "dot"
+  ],
+  "html": "<span class=\"loader\" aria-label=\"Loading\"><span class=\"halo\"></span></span>",
+  "css": ".loader { position: relative; display: inline-flex; align-items: center; justify-content: center; width: var(--loader-size); height: var(--loader-size); }\n.loader .halo { position: absolute; inset: 0; border-radius: 9999px; background: var(--loader-color); opacity: .75; animation: twPing calc(var(--loader-speed) * 1.2) cubic-bezier(0, 0, .2, 1) infinite; }\n.loader::after { content: ''; position: relative; width: 56%; height: 56%; border-radius: 9999px; background: var(--loader-color); }\n@keyframes twPing { 70%, 100% { transform: scale(2.1); opacity: 0; } }",
+  "tailwind": "<span className=\"relative inline-flex h-12 w-12 items-center justify-center\">\n  <span className=\"absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-500 opacity-75\" />\n  <span className=\"relative inline-flex h-7 w-7 rounded-full bg-sky-500\" />\n</span>",
+  "defaults": {
+    "color": "#0ea5e9",
+    "size": 48,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true,
+    "popular": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "id": "tw-tab-underline",
+  "name": "Tailwind Tab Underline",
+  "category": "tailwind",
+  "sourceId": "darma-tailwind-pack",
+  "tags": [
+    "tailwind",
+    "tabs",
+    "underline",
+    "navigation",
+    "slide"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react",
+    "tailwind"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "searchText": "tw-tab-underline tailwind tab underline tailwind darma-tailwind-pack darma tailwind pack tailwind tabs underline navigation slide html css react tailwind cssonly customizable tailwind",
+  "previewHtml": "<div class=\"darma-loader-tw-tab-underline\" aria-label=\"Loading\"><span class=\"darma-loader-tw-tab-underline__tabs\"><i></i><i></i><i></i></span><span class=\"darma-loader-tw-tab-underline__bar\"></span></div>",
+  "previewCss": ".darma-loader-tw-tab-underline { display: flex; flex-direction: column; gap: calc(var(--loader-size, 170px) * .05); width: var(--loader-size, 170px); }\n.darma-loader-tw-tab-underline .darma-loader-tw-tab-underline__tabs { display: flex; gap: calc(var(--loader-size, 170px) * .07); }\n.darma-loader-tw-tab-underline .darma-loader-tw-tab-underline__tabs i { flex: 1; height: calc(var(--loader-size, 170px) * .07); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color, #6366f1) 25%, transparent); }\n.darma-loader-tw-tab-underline .darma-loader-tw-tab-underline__bar { width: 30%; height: calc(var(--loader-size, 170px) * .035); border-radius: 9999px; background: var(--loader-color, #6366f1); animation: darma-loader-tw-tab-underline-twTabSlide calc(var(--loader-speed, 1s) * 2.4) cubic-bezier(.4, 0, .2, 1) infinite; }\n@keyframes darma-loader-tw-tab-underline-twTabSlide { 0%, 10% { transform: translateX(0); } 40%, 50% { transform: translateX(118%); } 80%, 90% { transform: translateX(236%); } 100% { transform: translateX(0); } }",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 170,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-tw-tab-underline\" aria-label=\"Loading\"><span class=\"darma-loader-tw-tab-underline__tabs\"><i></i><i></i><i></i></span><span class=\"darma-loader-tw-tab-underline__bar\"></span></div>",
+    "css": ".darma-loader-tw-tab-underline { display: flex; flex-direction: column; gap: calc(var(--loader-size, 170px) * .05); width: var(--loader-size, 170px); }\n.darma-loader-tw-tab-underline .darma-loader-tw-tab-underline__tabs { display: flex; gap: calc(var(--loader-size, 170px) * .07); }\n.darma-loader-tw-tab-underline .darma-loader-tw-tab-underline__tabs i { flex: 1; height: calc(var(--loader-size, 170px) * .07); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color, #6366f1) 25%, transparent); }\n.darma-loader-tw-tab-underline .darma-loader-tw-tab-underline__bar { width: 30%; height: calc(var(--loader-size, 170px) * .035); border-radius: 9999px; background: var(--loader-color, #6366f1); animation: darma-loader-tw-tab-underline-twTabSlide calc(var(--loader-speed, 1s) * 2.4) cubic-bezier(.4, 0, .2, 1) infinite; }\n@keyframes darma-loader-tw-tab-underline-twTabSlide { 0%, 10% { transform: translateX(0); } 40%, 50% { transform: translateX(118%); } 80%, 90% { transform: translateX(236%); } 100% { transform: translateX(0); } }",
+    "react": "export default function TwTabUnderlineLoader() {\n  return (\n    <div className=\"darma-loader-tw-tab-underline\" aria-label=\"Loading\"><span className=\"darma-loader-tw-tab-underline__tabs\"><i></i><i></i><i></i></span><span className=\"darma-loader-tw-tab-underline__bar\"></span></div>\n  );\n}\n",
+    "tailwind": "{/* keyframes twTabSlide: translateX 0 -> 118% -> 236% -> 0 */}\n<div className=\"flex w-44 flex-col gap-2\">\n  <div className=\"flex gap-3\">\n    <span className=\"h-3 flex-1 rounded-full bg-indigo-500/25\" />\n    <span className=\"h-3 flex-1 rounded-full bg-indigo-500/25\" />\n    <span className=\"h-3 flex-1 rounded-full bg-indigo-500/25\" />\n  </div>\n  <span className=\"h-1.5 w-[30%] animate-[twTabSlide_2.4s_cubic-bezier(.4,0,.2,1)_infinite] rounded-full bg-indigo-500\" />\n</div>"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

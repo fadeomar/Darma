@@ -1,0 +1,52 @@
+{
+  "id": "tw-conic-spinner",
+  "name": "Tailwind Conic Spinner",
+  "category": "tailwind",
+  "sourceId": "darma-tailwind-pack",
+  "tags": [
+    "tailwind",
+    "conic",
+    "gradient",
+    "spinner",
+    "mask"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react",
+    "tailwind"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true,
+    "singleElement": true,
+    "popular": true
+  },
+  "searchText": "tw-conic-spinner tailwind conic spinner tailwind darma-tailwind-pack darma tailwind pack tailwind conic gradient spinner mask html css react tailwind cssonly customizable tailwind singleelement popular",
+  "previewHtml": "<span class=\"darma-loader-tw-conic-spinner\" aria-label=\"Loading\"></span>",
+  "previewCss": ".darma-loader-tw-conic-spinner { display: inline-block; width: var(--loader-size, 56px); height: var(--loader-size, 56px); border-radius: 9999px; background: conic-gradient(from 0deg, transparent 0deg, var(--loader-color, #3b82f6) 320deg, transparent 360deg); mask: radial-gradient(farthest-side, transparent 62%, #000 63%); -webkit-mask: radial-gradient(farthest-side, transparent 62%, #000 63%); animation: darma-loader-tw-conic-spinner-twSpin var(--loader-speed, 1s) linear infinite; }\n@keyframes darma-loader-tw-conic-spinner-twSpin { to { transform: rotate(360deg); } }",
+  "defaults": {
+    "color": "#3b82f6",
+    "size": 56,
+    "speed": 1
+  },
+  "code": {
+    "html": "<span class=\"darma-loader-tw-conic-spinner\" aria-label=\"Loading\"></span>",
+    "css": ".darma-loader-tw-conic-spinner { display: inline-block; width: var(--loader-size, 56px); height: var(--loader-size, 56px); border-radius: 9999px; background: conic-gradient(from 0deg, transparent 0deg, var(--loader-color, #3b82f6) 320deg, transparent 360deg); mask: radial-gradient(farthest-side, transparent 62%, #000 63%); -webkit-mask: radial-gradient(farthest-side, transparent 62%, #000 63%); animation: darma-loader-tw-conic-spinner-twSpin var(--loader-speed, 1s) linear infinite; }\n@keyframes darma-loader-tw-conic-spinner-twSpin { to { transform: rotate(360deg); } }",
+    "react": "export default function TwConicSpinnerLoader() {\n  return (\n    <span className=\"darma-loader-tw-conic-spinner\" aria-label=\"Loading\"></span>\n  );\n}\n",
+    "tailwind": "{/* tailwind.config: theme.extend.animation.spin is built in */}\n<span\n  className=\"inline-block h-14 w-14 animate-spin rounded-full [mask:radial-gradient(farthest-side,transparent_62%,#000_63%)]\"\n  style={{ background: \"conic-gradient(from 0deg, transparent 0deg, #3b82f6 320deg, transparent 360deg)\" }}\n/>"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

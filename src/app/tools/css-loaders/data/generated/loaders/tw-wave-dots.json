@@ -1,0 +1,50 @@
+{
+  "id": "tw-wave-dots",
+  "name": "Tailwind Wave Dots",
+  "category": "tailwind",
+  "sourceId": "darma-tailwind-pack",
+  "tags": [
+    "tailwind",
+    "wave",
+    "dots",
+    "five",
+    "sine"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react",
+    "tailwind"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "searchText": "tw-wave-dots tailwind wave dots tailwind darma-tailwind-pack darma tailwind pack tailwind wave dots five sine html css react tailwind cssonly customizable tailwind",
+  "previewHtml": "<div class=\"darma-loader-tw-wave-dots\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-tw-wave-dots { display: inline-flex; align-items: center; justify-content: center; gap: calc(var(--loader-size, 90px) * .07); width: var(--loader-size, 90px); height: calc(var(--loader-size, 90px) * .45); }\n.darma-loader-tw-wave-dots span { width: calc(var(--loader-size, 90px) * .11); height: calc(var(--loader-size, 90px) * .11); border-radius: 9999px; background: var(--loader-color, #0ea5e9); animation: darma-loader-tw-wave-dots-twWave calc(var(--loader-speed, 1s) * 1.4) ease-in-out infinite; }\n.darma-loader-tw-wave-dots span:nth-child(2) { animation-delay: calc(var(--loader-speed, 1s) * .1); }\n.darma-loader-tw-wave-dots span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * .2); }\n.darma-loader-tw-wave-dots span:nth-child(4) { animation-delay: calc(var(--loader-speed, 1s) * .3); }\n.darma-loader-tw-wave-dots span:nth-child(5) { animation-delay: calc(var(--loader-speed, 1s) * .4); }\n@keyframes darma-loader-tw-wave-dots-twWave { 0%, 100% { transform: translateY(55%); opacity: .4; } 50% { transform: translateY(-55%); opacity: 1; } }",
+  "defaults": {
+    "color": "#0ea5e9",
+    "size": 90,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-tw-wave-dots\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-tw-wave-dots { display: inline-flex; align-items: center; justify-content: center; gap: calc(var(--loader-size, 90px) * .07); width: var(--loader-size, 90px); height: calc(var(--loader-size, 90px) * .45); }\n.darma-loader-tw-wave-dots span { width: calc(var(--loader-size, 90px) * .11); height: calc(var(--loader-size, 90px) * .11); border-radius: 9999px; background: var(--loader-color, #0ea5e9); animation: darma-loader-tw-wave-dots-twWave calc(var(--loader-speed, 1s) * 1.4) ease-in-out infinite; }\n.darma-loader-tw-wave-dots span:nth-child(2) { animation-delay: calc(var(--loader-speed, 1s) * .1); }\n.darma-loader-tw-wave-dots span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * .2); }\n.darma-loader-tw-wave-dots span:nth-child(4) { animation-delay: calc(var(--loader-speed, 1s) * .3); }\n.darma-loader-tw-wave-dots span:nth-child(5) { animation-delay: calc(var(--loader-speed, 1s) * .4); }\n@keyframes darma-loader-tw-wave-dots-twWave { 0%, 100% { transform: translateY(55%); opacity: .4; } 50% { transform: translateY(-55%); opacity: 1; } }",
+    "react": "export default function TwWaveDotsLoader() {\n  return (\n    <div className=\"darma-loader-tw-wave-dots\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span><span></span></div>\n  );\n}\n",
+    "tailwind": "{/* keyframes twWave: translateY 55% -> -55% with opacity .4 -> 1 */}\n<div className=\"inline-flex h-10 w-24 items-center justify-center gap-1.5\">\n  {[0, 100, 200, 300, 400].map((delay) => (\n    <span\n      key={delay}\n      className=\"h-2.5 w-2.5 animate-[twWave_1.4s_ease-in-out_infinite] rounded-full bg-sky-500\"\n      style={{ animationDelay: delay + \"ms\" }}\n    />\n  ))}\n</div>"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

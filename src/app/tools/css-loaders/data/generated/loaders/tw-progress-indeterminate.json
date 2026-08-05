@@ -1,0 +1,51 @@
+{
+  "id": "tw-progress-indeterminate",
+  "name": "Tailwind Indeterminate Bar",
+  "category": "tailwind",
+  "sourceId": "darma-tailwind-pack",
+  "tags": [
+    "tailwind",
+    "progress",
+    "indeterminate",
+    "bar",
+    "track"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react",
+    "tailwind"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true,
+    "popular": true
+  },
+  "searchText": "tw-progress-indeterminate tailwind indeterminate bar tailwind darma-tailwind-pack darma tailwind pack tailwind progress indeterminate bar track html css react tailwind cssonly customizable tailwind popular",
+  "previewHtml": "<div class=\"darma-loader-tw-progress-indeterminate\" aria-label=\"Loading\"><span></span></div>",
+  "previewCss": ".darma-loader-tw-progress-indeterminate { position: relative; overflow: hidden; width: var(--loader-size, 180px); height: calc(var(--loader-size, 180px) * .06); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color, #0ea5e9) 18%, transparent); }\n.darma-loader-tw-progress-indeterminate span { position: absolute; top: 0; bottom: 0; left: 0; width: 40%; border-radius: 9999px; background: var(--loader-color, #0ea5e9); animation: darma-loader-tw-progress-indeterminate-twSlide calc(var(--loader-speed, 1s) * 1.4) ease-in-out infinite; }\n@keyframes darma-loader-tw-progress-indeterminate-twSlide { 0% { transform: translateX(-110%); } 100% { transform: translateX(280%); } }",
+  "defaults": {
+    "color": "#0ea5e9",
+    "size": 180,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-tw-progress-indeterminate\" aria-label=\"Loading\"><span></span></div>",
+    "css": ".darma-loader-tw-progress-indeterminate { position: relative; overflow: hidden; width: var(--loader-size, 180px); height: calc(var(--loader-size, 180px) * .06); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color, #0ea5e9) 18%, transparent); }\n.darma-loader-tw-progress-indeterminate span { position: absolute; top: 0; bottom: 0; left: 0; width: 40%; border-radius: 9999px; background: var(--loader-color, #0ea5e9); animation: darma-loader-tw-progress-indeterminate-twSlide calc(var(--loader-speed, 1s) * 1.4) ease-in-out infinite; }\n@keyframes darma-loader-tw-progress-indeterminate-twSlide { 0% { transform: translateX(-110%); } 100% { transform: translateX(280%); } }",
+    "react": "export default function TwProgressIndeterminateLoader() {\n  return (\n    <div className=\"darma-loader-tw-progress-indeterminate\" aria-label=\"Loading\"><span></span></div>\n  );\n}\n",
+    "tailwind": "{/* keyframes twSlide: from { translateX(-110%) } to { translateX(280%) } */}\n<div className=\"relative h-2.5 w-44 overflow-hidden rounded-full bg-sky-500/20\">\n  <span className=\"absolute inset-y-0 left-0 w-2/5 animate-[twSlide_1.4s_ease-in-out_infinite] rounded-full bg-sky-500\" />\n</div>"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "id": "tw-chart-bars",
+  "name": "Tailwind Chart Bars",
+  "category": "tailwind",
+  "sourceId": "darma-tailwind-pack",
+  "tags": [
+    "tailwind",
+    "chart",
+    "analytics",
+    "columns",
+    "axis"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react",
+    "tailwind"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "searchText": "tw-chart-bars tailwind chart bars tailwind darma-tailwind-pack darma tailwind pack tailwind chart analytics columns axis html css react tailwind cssonly customizable tailwind",
+  "previewHtml": "<div class=\"darma-loader-tw-chart-bars\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-tw-chart-bars { display: flex; align-items: flex-end; justify-content: space-between; gap: calc(var(--loader-size, 120px) * .06); width: var(--loader-size, 120px); height: calc(var(--loader-size, 120px) * .65); padding-bottom: calc(var(--loader-size, 120px) * .05); border-bottom: calc(var(--loader-size, 120px) * .025) solid color-mix(in srgb, var(--loader-color, #6366f1) 40%, transparent); box-sizing: border-box; }\n.darma-loader-tw-chart-bars span { flex: 1; height: 100%; border-radius: calc(var(--loader-size, 120px) * .03) calc(var(--loader-size, 120px) * .03) 0 0; background: linear-gradient(to top, var(--loader-color, #6366f1), var(--loader-secondary-color, #22d3ee)); transform-origin: bottom center; animation: darma-loader-tw-chart-bars-twGrowBar calc(var(--loader-speed, 1s) * 1.8) ease-in-out infinite; }\n.darma-loader-tw-chart-bars span:nth-child(2) { animation-delay: calc(var(--loader-speed, 1s) * .18); }\n.darma-loader-tw-chart-bars span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * .36); }\n.darma-loader-tw-chart-bars span:nth-child(4) { animation-delay: calc(var(--loader-speed, 1s) * .54); }\n@keyframes darma-loader-tw-chart-bars-twGrowBar { 0%, 100% { transform: scaleY(.18); } 50% { transform: scaleY(1); } }",
+  "defaults": {
+    "color": "#6366f1",
+    "secondaryColor": "#22d3ee",
+    "size": 120,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-tw-chart-bars\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-tw-chart-bars { display: flex; align-items: flex-end; justify-content: space-between; gap: calc(var(--loader-size, 120px) * .06); width: var(--loader-size, 120px); height: calc(var(--loader-size, 120px) * .65); padding-bottom: calc(var(--loader-size, 120px) * .05); border-bottom: calc(var(--loader-size, 120px) * .025) solid color-mix(in srgb, var(--loader-color, #6366f1) 40%, transparent); box-sizing: border-box; }\n.darma-loader-tw-chart-bars span { flex: 1; height: 100%; border-radius: calc(var(--loader-size, 120px) * .03) calc(var(--loader-size, 120px) * .03) 0 0; background: linear-gradient(to top, var(--loader-color, #6366f1), var(--loader-secondary-color, #22d3ee)); transform-origin: bottom center; animation: darma-loader-tw-chart-bars-twGrowBar calc(var(--loader-speed, 1s) * 1.8) ease-in-out infinite; }\n.darma-loader-tw-chart-bars span:nth-child(2) { animation-delay: calc(var(--loader-speed, 1s) * .18); }\n.darma-loader-tw-chart-bars span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * .36); }\n.darma-loader-tw-chart-bars span:nth-child(4) { animation-delay: calc(var(--loader-speed, 1s) * .54); }\n@keyframes darma-loader-tw-chart-bars-twGrowBar { 0%, 100% { transform: scaleY(.18); } 50% { transform: scaleY(1); } }",
+    "react": "export default function TwChartBarsLoader() {\n  return (\n    <div className=\"darma-loader-tw-chart-bars\" aria-label=\"Loading\"><span></span><span></span><span></span><span></span></div>\n  );\n}\n",
+    "tailwind": "{/* keyframes twGrowBar: scaleY(.18) <-> scaleY(1) from the bottom */}\n<div className=\"flex h-20 w-30 items-end justify-between gap-2 border-b-[3px] border-indigo-500/40 pb-1.5\">\n  {[0, 180, 360, 540].map((delay) => (\n    <span\n      key={delay}\n      className=\"h-full flex-1 origin-bottom animate-[twGrowBar_1.8s_ease-in-out_infinite] rounded-t bg-gradient-to-t from-indigo-500 to-cyan-400\"\n      style={{ animationDelay: delay + \"ms\" }}\n    />\n  ))}\n</div>"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

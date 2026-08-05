@@ -1,0 +1,35 @@
+{
+  "id": "tw-checkbox-check",
+  "name": "Tailwind Checkbox Tick",
+  "category": "tailwind",
+  "tags": [
+    "tailwind",
+    "checkbox",
+    "tick",
+    "confirm",
+    "box"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span class=\"tick\"></span></div>",
+  "css": ".loader { position: relative; display: inline-block; width: var(--loader-size); height: var(--loader-size); border-radius: calc(var(--loader-size) * .2); border: calc(var(--loader-size) * .07) solid var(--loader-color); box-sizing: border-box; animation: twBoxPop calc(var(--loader-speed) * 2) ease-in-out infinite; }\n.loader .tick { position: absolute; left: 26%; top: 16%; width: 32%; height: 54%; border-right: calc(var(--loader-size) * .09) solid var(--loader-color); border-bottom: calc(var(--loader-size) * .09) solid var(--loader-color); animation: twTick calc(var(--loader-speed) * 2) ease-in-out infinite; }\n@keyframes twBoxPop { 0%, 100% { transform: scale(1); } 45% { transform: scale(1.1); } }\n@keyframes twTick { 0%, 15% { opacity: 0; transform: rotate(45deg) scale(.2); } 45%, 80% { opacity: 1; transform: rotate(45deg) scale(1); } 100% { opacity: 0; transform: rotate(45deg) scale(.2); } }",
+  "tailwind": "{/* keyframes twTick: fade + rotate(45deg) scale from .2 to 1 */}\n<div className=\"relative inline-block h-14 w-14 animate-[twBoxPop_2s_ease-in-out_infinite] rounded-xl border-4 border-green-500\">\n  <span className=\"absolute left-[26%] top-[16%] h-[54%] w-[32%] animate-[twTick_2s_ease-in-out_infinite] border-b-[5px] border-r-[5px] border-green-500\" />\n</div>",
+  "defaults": {
+    "color": "#22c55e",
+    "size": 56,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

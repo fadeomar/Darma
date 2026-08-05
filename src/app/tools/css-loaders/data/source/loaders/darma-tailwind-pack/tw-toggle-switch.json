@@ -1,0 +1,35 @@
+{
+  "id": "tw-toggle-switch",
+  "name": "Tailwind Toggle Switch",
+  "category": "tailwind",
+  "tags": [
+    "tailwind",
+    "toggle",
+    "switch",
+    "knob",
+    "slide"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span class=\"knob\"></span></div>",
+  "css": ".loader { position: relative; width: var(--loader-size); height: calc(var(--loader-size) * .55); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color) 25%, transparent); animation: twTrack calc(var(--loader-speed) * 2) ease-in-out infinite; }\n.loader .knob { position: absolute; top: 10%; left: 3%; width: calc(var(--loader-size) * .45); height: 80%; border-radius: 9999px; background: var(--loader-color); animation: twKnob calc(var(--loader-speed) * 2) cubic-bezier(.4, 0, .2, 1) infinite; }\n@keyframes twKnob { 0%, 10% { left: 3%; } 45%, 55% { left: 52%; } 90%, 100% { left: 3%; } }\n@keyframes twTrack { 0%, 10%, 90%, 100% { filter: saturate(.4); } 45%, 55% { filter: saturate(1.5); } }",
+  "tailwind": "{/* keyframes twKnob: left 3% -> 52% -> 3% */}\n<div className=\"relative h-12 w-24 animate-[twTrack_2s_ease-in-out_infinite] rounded-full bg-blue-500/25\">\n  <span className=\"absolute top-[10%] h-[80%] w-[45%] animate-[twKnob_2s_cubic-bezier(.4,0,.2,1)_infinite] rounded-full bg-blue-500\" />\n</div>",
+  "defaults": {
+    "color": "#3b82f6",
+    "size": 90,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

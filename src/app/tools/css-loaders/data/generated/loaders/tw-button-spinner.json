@@ -1,0 +1,51 @@
+{
+  "id": "tw-button-spinner",
+  "name": "Tailwind Button Spinner",
+  "category": "tailwind",
+  "sourceId": "darma-tailwind-pack",
+  "tags": [
+    "tailwind",
+    "button",
+    "spinner",
+    "submit",
+    "pill"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react",
+    "tailwind"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true,
+    "popular": true
+  },
+  "searchText": "tw-button-spinner tailwind button spinner tailwind darma-tailwind-pack darma tailwind pack tailwind button spinner submit pill html css react tailwind cssonly customizable tailwind popular",
+  "previewHtml": "<div class=\"darma-loader-tw-button-spinner\" aria-label=\"Loading\"><span class=\"darma-loader-tw-button-spinner__spinner\"></span><span class=\"darma-loader-tw-button-spinner__label\"></span></div>",
+  "previewCss": ".darma-loader-tw-button-spinner { display: inline-flex; align-items: center; gap: calc(var(--loader-size, 160px) * .07); width: var(--loader-size, 160px); padding: calc(var(--loader-size, 160px) * .07) calc(var(--loader-size, 160px) * .1); border-radius: 9999px; background: var(--loader-color, #4f46e5); box-sizing: border-box; }\n.darma-loader-tw-button-spinner .darma-loader-tw-button-spinner__spinner { flex: none; width: calc(var(--loader-size, 160px) * .14); height: calc(var(--loader-size, 160px) * .14); border-radius: 9999px; border: calc(var(--loader-size, 160px) * .028) solid rgba(255, 255, 255, .35); border-top-color: #ffffff; animation: darma-loader-tw-button-spinner-twSpin var(--loader-speed, 1s) linear infinite; }\n.darma-loader-tw-button-spinner .darma-loader-tw-button-spinner__label { flex: 1; height: calc(var(--loader-size, 160px) * .08); border-radius: 9999px; background: rgba(255, 255, 255, .7); }\n@keyframes darma-loader-tw-button-spinner-twSpin { to { transform: rotate(360deg); } }",
+  "defaults": {
+    "color": "#4f46e5",
+    "size": 160,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-tw-button-spinner\" aria-label=\"Loading\"><span class=\"darma-loader-tw-button-spinner__spinner\"></span><span class=\"darma-loader-tw-button-spinner__label\"></span></div>",
+    "css": ".darma-loader-tw-button-spinner { display: inline-flex; align-items: center; gap: calc(var(--loader-size, 160px) * .07); width: var(--loader-size, 160px); padding: calc(var(--loader-size, 160px) * .07) calc(var(--loader-size, 160px) * .1); border-radius: 9999px; background: var(--loader-color, #4f46e5); box-sizing: border-box; }\n.darma-loader-tw-button-spinner .darma-loader-tw-button-spinner__spinner { flex: none; width: calc(var(--loader-size, 160px) * .14); height: calc(var(--loader-size, 160px) * .14); border-radius: 9999px; border: calc(var(--loader-size, 160px) * .028) solid rgba(255, 255, 255, .35); border-top-color: #ffffff; animation: darma-loader-tw-button-spinner-twSpin var(--loader-speed, 1s) linear infinite; }\n.darma-loader-tw-button-spinner .darma-loader-tw-button-spinner__label { flex: 1; height: calc(var(--loader-size, 160px) * .08); border-radius: 9999px; background: rgba(255, 255, 255, .7); }\n@keyframes darma-loader-tw-button-spinner-twSpin { to { transform: rotate(360deg); } }",
+    "react": "export default function TwButtonSpinnerLoader() {\n  return (\n    <div className=\"darma-loader-tw-button-spinner\" aria-label=\"Loading\"><span className=\"darma-loader-tw-button-spinner__spinner\"></span><span className=\"darma-loader-tw-button-spinner__label\"></span></div>\n  );\n}\n",
+    "tailwind": "<button className=\"inline-flex w-40 items-center gap-3 rounded-full bg-indigo-600 px-4 py-3 text-white\" disabled>\n  <span className=\"h-5 w-5 shrink-0 animate-spin rounded-full border-4 border-white/35 border-t-white\" />\n  <span className=\"text-sm font-medium\">Saving...</span>\n</button>"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

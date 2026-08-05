@@ -27,6 +27,7 @@ export type LoaderSourceGroupId =
   | "darma-research-batch-12"
   | "darma-research-batch-13"
   | "darma-research-batch-14"
+  | "darma-tailwind-pack"
   | "loaders-css"
   | "loading-io"
   | "open-pack-2026"
@@ -152,6 +153,16 @@ export const LOADER_SOURCE_GROUPS: readonly LoaderSourceGroup[] = [
     id: "darma-research-batch-14",
     name: "Darma Research Batch 14",
     description: "Darma original loaders from kitchen, workshop, and household motifs (pancake flip, hydraulic press, window blinds, snow globe).",
+    author: "Darma",
+    license: "Custom (Darma)",
+    isOriginal: true,
+    licenseVerified: true,
+  },
+  {
+    id: "darma-tailwind-pack",
+    name: "Darma Tailwind Pack",
+    description:
+      "Darma original loaders modelled on Tailwind's own animation utilities and UI primitives (spin, ping, bounce, pulse, skeletons, progress).",
     author: "Darma",
     license: "Custom (Darma)",
     isOriginal: true,

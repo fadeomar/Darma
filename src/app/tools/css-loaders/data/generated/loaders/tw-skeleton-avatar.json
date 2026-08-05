@@ -1,0 +1,50 @@
+{
+  "id": "tw-skeleton-avatar",
+  "name": "Tailwind Skeleton Avatar",
+  "category": "tailwind",
+  "sourceId": "darma-tailwind-pack",
+  "tags": [
+    "tailwind",
+    "skeleton",
+    "avatar",
+    "profile",
+    "rows"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react",
+    "tailwind"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "searchText": "tw-skeleton-avatar tailwind skeleton avatar tailwind darma-tailwind-pack darma tailwind pack tailwind skeleton avatar profile rows html css react tailwind cssonly customizable tailwind",
+  "previewHtml": "<div class=\"darma-loader-tw-skeleton-avatar\" aria-label=\"Loading\"><span class=\"darma-loader-tw-skeleton-avatar__avatar\"></span><span class=\"darma-loader-tw-skeleton-avatar__rows\"><i></i><i></i></span></div>",
+  "previewCss": ".darma-loader-tw-skeleton-avatar { display: flex; align-items: center; gap: calc(var(--loader-size, 160px) * .07); width: var(--loader-size, 160px); animation: darma-loader-tw-skeleton-avatar-twPulse calc(var(--loader-speed, 1s) * 1.6) cubic-bezier(.4, 0, .6, 1) infinite; }\n.darma-loader-tw-skeleton-avatar .darma-loader-tw-skeleton-avatar__avatar { flex: none; width: calc(var(--loader-size, 160px) * .24); height: calc(var(--loader-size, 160px) * .24); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color, #94a3b8) 42%, transparent); }\n.darma-loader-tw-skeleton-avatar .darma-loader-tw-skeleton-avatar__rows { display: flex; flex: 1; flex-direction: column; gap: calc(var(--loader-size, 160px) * .05); }\n.darma-loader-tw-skeleton-avatar .darma-loader-tw-skeleton-avatar__rows i { height: calc(var(--loader-size, 160px) * .06); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color, #94a3b8) 26%, transparent); }\n.darma-loader-tw-skeleton-avatar .darma-loader-tw-skeleton-avatar__rows i:first-child { width: 88%; }\n.darma-loader-tw-skeleton-avatar .darma-loader-tw-skeleton-avatar__rows i:last-child { width: 56%; }\n@keyframes darma-loader-tw-skeleton-avatar-twPulse { 50% { opacity: .4; } }",
+  "defaults": {
+    "color": "#94a3b8",
+    "size": 160,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-tw-skeleton-avatar\" aria-label=\"Loading\"><span class=\"darma-loader-tw-skeleton-avatar__avatar\"></span><span class=\"darma-loader-tw-skeleton-avatar__rows\"><i></i><i></i></span></div>",
+    "css": ".darma-loader-tw-skeleton-avatar { display: flex; align-items: center; gap: calc(var(--loader-size, 160px) * .07); width: var(--loader-size, 160px); animation: darma-loader-tw-skeleton-avatar-twPulse calc(var(--loader-speed, 1s) * 1.6) cubic-bezier(.4, 0, .6, 1) infinite; }\n.darma-loader-tw-skeleton-avatar .darma-loader-tw-skeleton-avatar__avatar { flex: none; width: calc(var(--loader-size, 160px) * .24); height: calc(var(--loader-size, 160px) * .24); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color, #94a3b8) 42%, transparent); }\n.darma-loader-tw-skeleton-avatar .darma-loader-tw-skeleton-avatar__rows { display: flex; flex: 1; flex-direction: column; gap: calc(var(--loader-size, 160px) * .05); }\n.darma-loader-tw-skeleton-avatar .darma-loader-tw-skeleton-avatar__rows i { height: calc(var(--loader-size, 160px) * .06); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color, #94a3b8) 26%, transparent); }\n.darma-loader-tw-skeleton-avatar .darma-loader-tw-skeleton-avatar__rows i:first-child { width: 88%; }\n.darma-loader-tw-skeleton-avatar .darma-loader-tw-skeleton-avatar__rows i:last-child { width: 56%; }\n@keyframes darma-loader-tw-skeleton-avatar-twPulse { 50% { opacity: .4; } }",
+    "react": "export default function TwSkeletonAvatarLoader() {\n  return (\n    <div className=\"darma-loader-tw-skeleton-avatar\" aria-label=\"Loading\"><span className=\"darma-loader-tw-skeleton-avatar__avatar\"></span><span className=\"darma-loader-tw-skeleton-avatar__rows\"><i></i><i></i></span></div>\n  );\n}\n",
+    "tailwind": "<div className=\"flex w-40 animate-pulse items-center gap-3\">\n  <div className=\"h-10 w-10 shrink-0 rounded-full bg-slate-400/40\" />\n  <div className=\"flex flex-1 flex-col gap-2\">\n    <div className=\"h-2.5 w-[88%] rounded-full bg-slate-400/25\" />\n    <div className=\"h-2.5 w-[56%] rounded-full bg-slate-400/25\" />\n  </div>\n</div>"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

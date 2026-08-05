@@ -1,0 +1,35 @@
+{
+  "id": "tw-chevron-march",
+  "name": "Tailwind Chevron March",
+  "category": "tailwind",
+  "tags": [
+    "tailwind",
+    "chevron",
+    "arrow",
+    "march",
+    "forward"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "css": ".loader { display: inline-flex; align-items: center; justify-content: center; gap: calc(var(--loader-size) * .05); width: var(--loader-size); height: calc(var(--loader-size) * .4); }\n.loader span { width: calc(var(--loader-size) * .16); height: calc(var(--loader-size) * .16); border-top: calc(var(--loader-size) * .05) solid var(--loader-color); border-right: calc(var(--loader-size) * .05) solid var(--loader-color); animation: twMarch calc(var(--loader-speed) * 1.2) ease-in-out infinite; }\n.loader span:nth-child(2) { animation-delay: calc(var(--loader-speed) * .15); }\n.loader span:nth-child(3) { animation-delay: calc(var(--loader-speed) * .3); }\n@keyframes twMarch { 0%, 100% { opacity: .25; transform: rotate(45deg) translate(0, 0); } 50% { opacity: 1; transform: rotate(45deg) translate(14%, -14%); } }",
+  "tailwind": "{/* keyframes twMarch: fade + rotate(45deg) translate(14%,-14%) */}\n<div className=\"inline-flex items-center justify-center gap-1\">\n  <span className=\"h-3 w-3 animate-[twMarch_1.2s_ease-in-out_infinite] border-r-4 border-t-4 border-sky-500\" />\n  <span className=\"h-3 w-3 animate-[twMarch_1.2s_ease-in-out_infinite] border-r-4 border-t-4 border-sky-500 [animation-delay:150ms]\" />\n  <span className=\"h-3 w-3 animate-[twMarch_1.2s_ease-in-out_infinite] border-r-4 border-t-4 border-sky-500 [animation-delay:300ms]\" />\n</div>",
+  "defaults": {
+    "color": "#0ea5e9",
+    "size": 80,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

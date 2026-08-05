@@ -1,0 +1,51 @@
+{
+  "id": "tw-bounce-dots",
+  "name": "Tailwind Bounce Dots",
+  "category": "tailwind",
+  "sourceId": "darma-tailwind-pack",
+  "tags": [
+    "tailwind",
+    "bounce",
+    "dots",
+    "three",
+    "utility"
+  ],
+  "formats": [
+    "html",
+    "css",
+    "react",
+    "tailwind"
+  ],
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true,
+    "popular": true
+  },
+  "searchText": "tw-bounce-dots tailwind bounce dots tailwind darma-tailwind-pack darma tailwind pack tailwind bounce dots three utility html css react tailwind cssonly customizable tailwind popular",
+  "previewHtml": "<div class=\"darma-loader-tw-bounce-dots\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "previewCss": ".darma-loader-tw-bounce-dots { display: inline-flex; align-items: flex-end; justify-content: center; gap: calc(var(--loader-size, 72px) * .12); width: var(--loader-size, 72px); height: calc(var(--loader-size, 72px) * .5); }\n.darma-loader-tw-bounce-dots span { width: calc(var(--loader-size, 72px) * .18); height: calc(var(--loader-size, 72px) * .18); border-radius: 9999px; background: var(--loader-color, #8b5cf6); animation: darma-loader-tw-bounce-dots-twBounce var(--loader-speed, 1s) infinite; }\n.darma-loader-tw-bounce-dots span:nth-child(2) { animation-delay: calc(var(--loader-speed, 1s) * .15); }\n.darma-loader-tw-bounce-dots span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * .3); }\n@keyframes darma-loader-tw-bounce-dots-twBounce { 0%, 100% { transform: translateY(-45%); animation-timing-function: cubic-bezier(.8, 0, 1, 1); } 50% { transform: translateY(0); animation-timing-function: cubic-bezier(0, 0, .2, 1); } }",
+  "defaults": {
+    "color": "#8b5cf6",
+    "size": 72,
+    "speed": 1
+  },
+  "code": {
+    "html": "<div class=\"darma-loader-tw-bounce-dots\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+    "css": ".darma-loader-tw-bounce-dots { display: inline-flex; align-items: flex-end; justify-content: center; gap: calc(var(--loader-size, 72px) * .12); width: var(--loader-size, 72px); height: calc(var(--loader-size, 72px) * .5); }\n.darma-loader-tw-bounce-dots span { width: calc(var(--loader-size, 72px) * .18); height: calc(var(--loader-size, 72px) * .18); border-radius: 9999px; background: var(--loader-color, #8b5cf6); animation: darma-loader-tw-bounce-dots-twBounce var(--loader-speed, 1s) infinite; }\n.darma-loader-tw-bounce-dots span:nth-child(2) { animation-delay: calc(var(--loader-speed, 1s) * .15); }\n.darma-loader-tw-bounce-dots span:nth-child(3) { animation-delay: calc(var(--loader-speed, 1s) * .3); }\n@keyframes darma-loader-tw-bounce-dots-twBounce { 0%, 100% { transform: translateY(-45%); animation-timing-function: cubic-bezier(.8, 0, 1, 1); } 50% { transform: translateY(0); animation-timing-function: cubic-bezier(0, 0, .2, 1); } }",
+    "react": "export default function TwBounceDotsLoader() {\n  return (\n    <div className=\"darma-loader-tw-bounce-dots\" aria-label=\"Loading\"><span></span><span></span><span></span></div>\n  );\n}\n",
+    "tailwind": "<div className=\"inline-flex items-end gap-3\">\n  <span className=\"h-3 w-3 animate-bounce rounded-full bg-violet-500\" />\n  <span className=\"h-3 w-3 animate-bounce rounded-full bg-violet-500 [animation-delay:150ms]\" />\n  <span className=\"h-3 w-3 animate-bounce rounded-full bg-violet-500 [animation-delay:300ms]\" />\n</div>"
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "background": false,
+    "secondaryColor": false
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

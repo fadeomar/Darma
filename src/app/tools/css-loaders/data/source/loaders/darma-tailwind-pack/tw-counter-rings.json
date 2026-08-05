@@ -1,0 +1,37 @@
+{
+  "id": "tw-counter-rings",
+  "name": "Tailwind Counter Rings",
+  "category": "tailwind",
+  "tags": [
+    "tailwind",
+    "rings",
+    "concentric",
+    "counter",
+    "arcs"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span></span><span></span><span></span></div>",
+  "css": ".loader { position: relative; display: inline-block; width: var(--loader-size); height: var(--loader-size); }\n.loader span { position: absolute; border-radius: 9999px; border: calc(var(--loader-size) * .05) solid transparent; }\n.loader span:nth-child(1) { top: 0; bottom: 0; left: 0; right: 0; border-top-color: var(--loader-color); animation: twSpin var(--loader-speed) linear infinite; }\n.loader span:nth-child(2) { top: 18%; bottom: 18%; left: 18%; right: 18%; border-right-color: var(--loader-secondary-color); animation: twSpinBack calc(var(--loader-speed) * .85) linear infinite; }\n.loader span:nth-child(3) { top: 36%; bottom: 36%; left: 36%; right: 36%; border-bottom-color: var(--loader-color); animation: twSpin calc(var(--loader-speed) * .7) linear infinite; }\n@keyframes twSpin { to { transform: rotate(360deg); } }\n@keyframes twSpinBack { to { transform: rotate(-360deg); } }",
+  "tailwind": "<div className=\"relative inline-block h-16 w-16\">\n  <span className=\"absolute inset-0 animate-spin rounded-full border-[3px] border-transparent border-t-indigo-500\" />\n  <span className=\"absolute inset-[18%] animate-[spin_0.85s_linear_infinite_reverse] rounded-full border-[3px] border-transparent border-r-cyan-500\" />\n  <span className=\"absolute inset-[36%] animate-spin rounded-full border-[3px] border-transparent border-b-indigo-500 [animation-duration:0.7s]\" />\n</div>",
+  "defaults": {
+    "color": "#6366f1",
+    "secondaryColor": "#06b6d4",
+    "size": 64,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true,
+    "secondaryColor": true
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

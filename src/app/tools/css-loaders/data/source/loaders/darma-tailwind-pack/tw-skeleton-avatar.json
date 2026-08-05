@@ -1,0 +1,35 @@
+{
+  "id": "tw-skeleton-avatar",
+  "name": "Tailwind Skeleton Avatar",
+  "category": "tailwind",
+  "tags": [
+    "tailwind",
+    "skeleton",
+    "avatar",
+    "profile",
+    "rows"
+  ],
+  "html": "<div class=\"loader\" aria-label=\"Loading\"><span class=\"avatar\"></span><span class=\"rows\"><i></i><i></i></span></div>",
+  "css": ".loader { display: flex; align-items: center; gap: calc(var(--loader-size) * .07); width: var(--loader-size); animation: twPulse calc(var(--loader-speed) * 1.6) cubic-bezier(.4, 0, .6, 1) infinite; }\n.loader .avatar { flex: none; width: calc(var(--loader-size) * .24); height: calc(var(--loader-size) * .24); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color) 42%, transparent); }\n.loader .rows { display: flex; flex: 1; flex-direction: column; gap: calc(var(--loader-size) * .05); }\n.loader .rows i { height: calc(var(--loader-size) * .06); border-radius: 9999px; background: color-mix(in srgb, var(--loader-color) 26%, transparent); }\n.loader .rows i:first-child { width: 88%; }\n.loader .rows i:last-child { width: 56%; }\n@keyframes twPulse { 50% { opacity: .4; } }",
+  "tailwind": "<div className=\"flex w-40 animate-pulse items-center gap-3\">\n  <div className=\"h-10 w-10 shrink-0 rounded-full bg-slate-400/40\" />\n  <div className=\"flex flex-1 flex-col gap-2\">\n    <div className=\"h-2.5 w-[88%] rounded-full bg-slate-400/25\" />\n    <div className=\"h-2.5 w-[56%] rounded-full bg-slate-400/25\" />\n  </div>\n</div>",
+  "defaults": {
+    "color": "#94a3b8",
+    "size": 160,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}

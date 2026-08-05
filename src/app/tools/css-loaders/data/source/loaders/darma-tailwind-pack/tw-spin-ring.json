@@ -1,0 +1,37 @@
+{
+  "id": "tw-spin-ring",
+  "name": "Tailwind Spin Ring",
+  "category": "tailwind",
+  "tags": [
+    "tailwind",
+    "spin",
+    "ring",
+    "border",
+    "utility"
+  ],
+  "html": "<span class=\"loader\" aria-label=\"Loading\"></span>",
+  "css": ".loader { display: inline-block; width: var(--loader-size); height: var(--loader-size); border-radius: 9999px; border: calc(var(--loader-size) * .09) solid color-mix(in srgb, var(--loader-color) 18%, transparent); border-top-color: var(--loader-color); animation: twSpin var(--loader-speed) linear infinite; }\n@keyframes twSpin { to { transform: rotate(360deg); } }",
+  "tailwind": "<span className=\"inline-block h-14 w-14 animate-spin rounded-full border-4 border-indigo-500/20 border-t-indigo-500\" />",
+  "defaults": {
+    "color": "#6366f1",
+    "size": 56,
+    "speed": 1
+  },
+  "controls": {
+    "color": true,
+    "size": true,
+    "speed": true
+  },
+  "flags": {
+    "cssOnly": true,
+    "customizable": true,
+    "tailwind": true,
+    "singleElement": true,
+    "popular": true
+  },
+  "source": {
+    "name": "Darma Tailwind Pack",
+    "author": "Darma",
+    "license": "Custom (Darma)"
+  }
+}
